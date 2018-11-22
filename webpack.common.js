@@ -170,7 +170,10 @@ export default function (mode) {
           chunkFilename: '[id].css'
         }),
 
-        new FixStyleOnlyEntriesPlugin(),
+        new FixStyleOnlyEntriesPlugin({
+          extensions: ['scss', 'njk'],
+          silent: true
+        }),
 
         new CopyWebpackPlugin(
           [
