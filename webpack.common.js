@@ -5,7 +5,7 @@ import glob from 'glob';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import globImporter from 'node-sass-glob-importer';
 import { NoEmitOnErrorsPlugin, NamedModulesPlugin } from 'webpack';
-import ProgressPlugin from 'webpack/lib/ProgressPlugin';
+import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import { optimize } from 'webpack';
 import FixStyleOnlyEntriesPlugin from 'webpack-fix-style-only-entries';
@@ -46,7 +46,7 @@ const core = {
 
     new NamedModulesPlugin(),
 
-    new ProgressPlugin(),
+    new ProgressBarPlugin(),
 
     new CircularDependencyPlugin({
       exclude: /(\\|\/)node_modules(\\|\/)/,
