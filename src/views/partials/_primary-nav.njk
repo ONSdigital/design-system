@@ -1,0 +1,9 @@
+<ul>
+{% for page, items in pageInfo.siteMap %}
+    {% if page != 'index' %}
+    <li>
+        <a href="{{items.index.path}}">{{ items.index.title }}</a>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>
