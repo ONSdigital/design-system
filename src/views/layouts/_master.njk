@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ pageInfo.title }}</title>
+        <link rel="stylesheet" href="/responsive.css">
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+        {% if devMode %}
+        <script>
+            document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer></' + 'script>'); 
+        </script>
+        {% endif %}
+    </body>
+</html>
