@@ -9,7 +9,7 @@
     "url": "https://github.com/bameyrick"
   },
   "scripts": {
-    "start": "rm -rf build && yarn webpack-dev-server --watch --config webpack.dev.babel.js",
+    "start": "rm -rf build && yarn webpack-dev-server --host 0.0.0.0 --watch --config webpack.dev.babel.js",
     "build": "rm -rf build && yarn webpack --config webpack.prod.babel.js",
     "check-unused": "npx npm-check-unused",
     "lint-staged": "lint-staged",

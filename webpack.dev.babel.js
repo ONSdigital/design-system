@@ -5,10 +5,9 @@ import LiveReloadPlugin from 'webpack-livereload-plugin';
 import commonConfig from './webpack.common';
 
 const mode = 'development';
+const common = commonConfig(mode);
 
-export default merge(commonConfig(mode), {
-  mode,
-
+const serverSettings = {
   devServer: {
     contentBase: path.join(__dirname, 'build'),
     compress: false,
@@ -16,4 +15,10 @@ export default merge(commonConfig(mode), {
   },
 
   plugins: [new LiveReloadPlugin()]
-});
+};
+
+export default [
+  merge(common.nonJs, serverSettings),
+  merge(common.es2015plus, serverSettings),
+  merge(common.es5, serverSettings)
+];
