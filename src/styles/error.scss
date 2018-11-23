@@ -1,0 +1,21 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background: #222;
+  color: #fff;
+  padding: 20px;
+}
+
+.print-error-stack {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__heading {
+    color: #cc0000;
+  }
+
+  &__entry {
+    margin-bottom: 1em;
+    color: #ff6666;
+  }
+}
