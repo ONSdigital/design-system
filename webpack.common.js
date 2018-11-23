@@ -87,6 +87,7 @@ export default function (mode) {
       entry: {
         responsive: ['./styles/responsive.scss'],
         patternlib: ['./styles/patternlib.scss'],
+        error: ['./styles/error.scss'],
         html: glob.sync('./**/*.njk', { cwd: 'src', ignore: './**/_*.njk' })
       },
 

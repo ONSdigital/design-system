@@ -58,6 +58,7 @@
     "postcss-url": "^8.0.0",
     "prettier": "^1.15.2",
     "pretty": "^2.0.0",
+    "print-error": "^0.1.17",
     "progress-bar-webpack-plugin": "^1.11.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
