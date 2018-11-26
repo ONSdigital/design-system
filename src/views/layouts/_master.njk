@@ -5,8 +5,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ pageInfo.title }}</title>
         <link rel="stylesheet" href="/responsive.css">
+        <link rel="stylesheet" href="/patternlib.css">
     </head>
     <body>
+        {% from "components/header/_macro.njk" import onsHeader %}
+
+        {{ 
+            onsHeader({
+                title: "Design system",
+                navigation: {
+                    ariaLabel: "Main menu",
+                    ariraListLabel: "Navigation menu",
+                    items: helpers.navigationHelper({ 
+                        pages: pageInfo.siteMap,
+                        ignorePaths: ["/"]
+                    })
+                }
+            })
+        }}
+
+        {% if page.hideSidebar !== true %}
+            <h2>Sidebar</h2>
+            {% from "components/navigation/_macro.njk" import onsNavigation %}
+
+            {{
+                onsNavigation({
+                    ariaLabel: "Sub menu",
+                    ariraListLabel: "Child menu",
+                    items: helpers.subNavigationHelper({
+                        pageInfo: pageInfo
+                    })
+                })
+            }}
+        {% endif %}
+       
         {% block body %}
         {% endblock %}
         <script type="module" src="/scripts/polyfills.js"></script>
