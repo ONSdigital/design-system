@@ -24,7 +24,9 @@
             })
         }}
 
-        {% if page.hideSidebar !== true %}
+        {% if (page.hideSidebar !== true) and
+              (helpers.subNavigationHelper({ pageInfo: pageInfo}).length > 0)  
+        %}
             <h2>Sidebar</h2>
             {% from "components/navigation/_macro.njk" import onsNavigation %}
 
