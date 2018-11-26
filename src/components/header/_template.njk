@@ -1,0 +1,38 @@
+<header class="header {{ params.classes if params.classes }}">
+    <div class="header__top" role="banner">
+        <div class="container">
+            <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
+                <div class="grid__col col-auto">
+                    <div class="logo">
+                        <a href="{{ params.logoHref | default('/') }}"></a>
+                    </div>
+                </div>
+            <div>
+        </div>
+    </div>
+    <div class="header__main">
+        <div class="container">
+            <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
+                <div class="grid__col col-auto u-flex-shrink">
+                    <h1 class="header__title">{{ params.title }}</h1>
+                    {% if params.desc %}
+                        <p class="header__desc">{{ params.desc }}</p>
+                    {% endif %}
+                </div>
+                {% if params.button %}
+                    <div class="grid__col col-auto u-flex-no-shrink">
+                        <button class="btn btn--ghost u-ml-s u-d-no--@xs@m">Save and complete later</button>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% if params.navigation %}
+        <div class="header__nav">
+            <div class="container">
+                {% from "components/navigation/_macro.njk" import onsNavigation %}
+                {{ onsNavigation(params.navigation) }}
+            </div>
+        </div>
+    {% endif %}
+</header>

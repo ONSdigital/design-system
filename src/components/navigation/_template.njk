@@ -1,0 +1,9 @@
+<nav class="nav nav--horizontal nav--light nav--main nav--h-m js-main-nav" aria-label="{{ params.ariaLabel }}">
+    <ul class="nav__list" aria-label="{{ params.ariaListLabel }}" role="menubar">
+       {% for item in params.items %}
+            <li>
+                <a href="{{ item.path  }}">{{ item.title }}</a>
+            </li>
+       {% endfor %}
+    </ul>
+</nav>
