@@ -1,0 +1,32 @@
+.container {
+  max-width: $grid-max-width;
+  margin: 0 auto;
+  padding: 0 $grid-gutters;
+  box-sizing: border-box;
+  @if not $responsive {
+    width: $grid-max-width;
+  } @else {
+    width: 100%;
+  }
+  @include mq(s) {
+    padding: 0 $grid-gutters;
+  }
+
+  &--wide {
+    max-width: $grid-max-1280;
+  }
+
+  &--full-width {
+    max-width: 100%;
+  }
+}
+
+.grid--align-bottom {
+  .grid__col {
+    vertical-align: bottom;
+  }
+}
+
+.grid__col {
+  font-size: 1rem;
+}

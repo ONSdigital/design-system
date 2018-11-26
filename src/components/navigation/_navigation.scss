@@ -1,0 +1,241 @@
+.nav {
+  display: block;
+  padding: 0;
+}
+
+.nav--vertical {
+  border-left: 1px solid $color-borders;
+  padding: 0.5rem 0 0.5rem 2rem;
+  margin: 0;
+  .nav__title {
+    margin-bottom: 0.5rem;
+  }
+  .nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav__item {
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 2rem;
+    position: relative;
+    margin-left: -2.5rem;
+    border-left: 0.5rem solid transparent;
+    &--completed {
+      &::before {
+        z-index: 2;
+        content: '';
+        @include icon('check-green');
+        background-size: contain;
+        position: absolute;
+        left: 0.5rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        @include ie8() {
+          display: none;
+        }
+      }
+      @include lt-ie9() {
+        background: url('#{$static}/img/check-green.png') no-repeat 0.5rem center;
+        background-size: 17px 13px;
+      }
+    }
+    &--current {
+      background-color: $colour-nav-highlight;
+      border-left: 0.5rem $color-secondary solid;
+      &.nav__item--completed {
+        &::before {
+          left: 0.5rem;
+        }
+      }
+    }
+  }
+  .nav__link {
+    @include mq(m) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.nav--vertical-bare {
+  .nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__item {
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+    border-left: 3px solid transparent;
+
+    &--active,
+    &:hover {
+      border-color: $color-blue;
+    }
+
+    &--active {
+      background: rgba(0, 0, 0, 0.05);
+      font-weight: 700;
+    }
+  }
+
+  .nav__link {
+    text-decoration: none;
+  }
+}
+
+.nav--horizontal {
+  font-size: 0;
+  margin: 0;
+
+  .nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__item {
+    font-size: 1rem;
+    display: inline-block;
+    margin: 0 0 0 0.8rem;
+    position: relative;
+    text-align: center;
+    &:first-child {
+      margin-left: 0;
+    }
+    @include mq(m) {
+      margin: 0 0 0 1rem;
+    }
+    + .nav__item--secondary {
+      border-top: 1px solid lighten($color-header-main, 15%);
+      margin: 0.5rem 0 0;
+    }
+  }
+
+  .nav__link {
+    display: inline-block;
+    margin: 0;
+    text-align: center;
+  }
+
+  .nav__item--active {
+    .nav__link {
+      font-weight: bold;
+    }
+  }
+
+  @include lt-ie10 {
+    .nav__list {
+      padding: 0;
+    }
+
+    .nav__item {
+      display: inline-block;
+      padding-top: 0;
+    }
+
+    .nav__link {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.nav--main {
+  .nav__list {
+    @include mq(xs, m) {
+      padding: 0 0 1rem 0;
+      opacity: 1;
+      transition: opacity 300ms ease-in-out;
+    }
+  }
+  .nav__item {
+    @include mq(xs, m) {
+      display: block;
+      text-align: left;
+      padding: 0.5rem 0.5rem 0 0;
+      margin: 0;
+    }
+    @include mq(m) {
+      padding: 0 0 0.3rem;
+      margin: 0 0 0 1rem;
+      &--active {
+        border-bottom: 4px solid $color-white;
+      }
+    }
+  }
+  .nav__link {
+    @include mq(xs, m) {
+      font-size: 1.2rem;
+      display: block;
+      text-align: left;
+    }
+  }
+}
+
+.nav--sub {
+  border-bottom: 1px solid $color-grey;
+  .nav__item {
+    padding: 0 0.667rem 0.3rem;
+
+    @include mq(xs, m) {
+      margin: 0;
+    }
+    &--current,
+    &--current:first-child {
+      border-bottom: 4px solid $color-secondary;
+      padding-left: 0.667rem;
+    }
+  }
+}
+
+.has-js {
+  .nav--h-m {
+    // h-m - hide mobile
+    @include mq(xs, m) {
+      display: none;
+      .nav__list {
+        opacity: 0;
+      }
+    }
+    @at-root {
+      .lt-ie10 .nav--h-m {
+        display: block;
+      }
+    }
+  }
+}
+
+.nav--light {
+  .nav__link {
+    color: $color-white;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: #c2ecff;
+    }
+  }
+  .nav__item--active {
+    .nav__link {
+      &:hover,
+      &:focus {
+        color: $color-white;
+      }
+    }
+  }
+}
+
+.nav--dark {
+  .nav__link {
+    color: $color-text;
+    text-decoration: none;
+    font-weight: bold;
+    &:hover,
+    &:focus {
+      color: $color-links;
+    }
+  }
+}

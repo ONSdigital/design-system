@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="947px" height="639px" viewBox="0 0 947 639" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>single-question-playback</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="2" y="40" width="145" height="48" rx="2"></rect>
+        <rect id="path-2" x="514" y="40" width="145" height="48" rx="2"></rect>
+        <rect id="path-3" x="2" y="40" width="145" height="48" rx="2"></rect>
+        <rect id="path-4" x="513" y="40" width="146" height="48" rx="2"></rect>
+        <rect id="path-5" x="0" y="0" width="315" height="48" rx="2"></rect>
+        <rect id="path-6" x="0" y="0" width="316" height="48" rx="2"></rect>
+        <rect id="path-7" x="0" y="0" width="316" height="48" rx="2"></rect>
+        <rect id="path-8" x="0" y="0" width="190" height="119"></rect>
+        <filter x="-1.1%" y="-1.7%" width="104.2%" height="106.7%" filterUnits="objectBoundingBox" id="filter-9">
+            <feOffset dx="4" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.615686275   0 0 0 0 0.615686275   0 0 0 0 0.615686275  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Desktop-HD" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-247.000000, -117.000000)">
+        <g id="single-question-playback" transform="translate(247.000000, 117.000000)">
+            <g id="Date-Question" transform="translate(221.000000, 0.000000)">
+                <text id="What-is-your-date-of" font-family="Lato-Bold, Lato" font-size="28" font-weight="bold" line-spacing="40" fill="#000000">
+                    <tspan x="32" y="59">What is your date of birth?</tspan>
+                </text>
+                <text id="For-example-20-March" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="25" fill="#222222">
+                    <tspan x="32" y="107">For example 20 March 1980</tspan>
+                </text>
+                <g id="Date-DayMonthYear" transform="translate(32.000000, 141.000000)">
+                    <text id="Day" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" letter-spacing="0.0299999993" fill="#000000">
+                        <tspan x="0" y="19">Da</tspan>
+                        <tspan x="22.938" y="19">y</tspan>
+                    </text>
+                    <text id="Month" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" fill="#000000">
+                        <tspan x="173" y="19">Month</tspan>
+                    </text>
+                    <text id="Year" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" fill="#000000">
+                        <tspan x="513" y="19">Year</tspan>
+                    </text>
+                    <g id="Rectangle-7-Copy-37">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <rect stroke="#9B9B9B" stroke-width="1" x="1.5" y="39.5" width="146" height="49" rx="2"></rect>
+                    </g>
+                    <g id="Rectangle-7-Copy-39">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                        <rect stroke="#9B9B9B" stroke-width="1" x="513.5" y="39.5" width="146" height="49" rx="2"></rect>
+                    </g>
+                    <text id="DD" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" fill="#666666">
+                        <tspan x="18" y="73">DD</tspan>
+                    </text>
+                    <text id="DD-Copy" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" fill="#666666">
+                        <tspan x="530" y="73">DD</tspan>
+                    </text>
+                    <g id="Rectangle-7-Copy-37">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                        <rect stroke="#9B9B9B" stroke-width="1" x="1.5" y="39.5" width="146" height="49" rx="2"></rect>
+                    </g>
+                    <g id="Rectangle-7-Copy-40">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
+                        <rect stroke="#9B9B9B" stroke-width="1" x="512.5" y="39.5" width="147" height="49" rx="2"></rect>
+                    </g>
+                    <text id="DD" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" fill="#999999">
+                        <tspan x="18" y="73">DD</tspan>
+                    </text>
+                    <text id="YYYY" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" letter-spacing="0.0299999993" fill="#999999">
+                        <tspan x="529" y="73">YYY</tspan>
+                        <tspan x="563.056" y="73">Y</tspan>
+                    </text>
+                    <g id="Dropdown" transform="translate(173.000000, 40.000000)">
+                        <g id="Rectangle-7-Copy-38">
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-5"></use>
+                            <rect stroke="#9B9B9B" stroke-width="1" x="-0.5" y="-0.5" width="316" height="49" rx="2"></rect>
+                        </g>
+                        <text id="Hint" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" letter-spacing="0.0299999993" fill="#999999">
+                            <tspan x="16" y="33">Month</tspan>
+                        </text>
+                        <polygon id="Shape" fill="#000000" fill-rule="evenodd" transform="translate(291.000000, 24.792893) rotate(-270.000000) translate(-291.000000, -24.792893) " points="286.207107 18.3786797 292.62132 24.7928932 286.207107 31.2071068 287.792893 32.7928932 295.792893 24.7928932 287.792893 16.7928932"></polygon>
+                    </g>
+                </g>
+                <rect id="Rectangle" stroke="#979797" stroke-width="1" x="0.5" y="0.5" width="725" height="272"></rect>
+            </g>
+            <g id="Radio-Question" transform="translate(221.000000, 366.000000)">
+                <rect id="Rectangle" stroke="#979797" stroke-width="1" x="0.5" y="0.5" width="725" height="272"></rect>
+                <text id="Can-you-confirm-you" font-family="Lato-Bold, Lato" font-size="28" font-weight="bold" line-spacing="40" fill="#000000">
+                    <tspan x="32" y="54">Can you confirm you are 45 years old, born 30 </tspan>
+                    <tspan x="32" y="94">September 1972?</tspan>
+                </text>
+                <g id="RadioButton" transform="translate(32.000000, 124.000000)">
+                    <g id="Rectangle-7-Copy-42">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-6"></use>
+                        <rect stroke="#999999" stroke-width="1" x="-0.5" y="-0.5" width="317" height="49" rx="2"></rect>
+                    </g>
+                    <text id="Label" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" letter-spacing="0.0299999993" fill="#000000">
+                        <tspan x="56" y="33">Yes, my age is correct</tspan>
+                    </text>
+                    <g id="Oval-1-+-Oval-1-+-Oval-1-Copy-2" stroke-width="1" fill-rule="evenodd" transform="translate(15.000000, 12.000000)">
+                        <circle id="Oval-1" fill="#9B9B9B" cx="12" cy="12" r="12"></circle>
+                        <circle id="Oval-1" fill="#FFFFFF" cx="12" cy="12" r="9.71428571"></circle>
+                    </g>
+                </g>
+                <g id="RadioButton" transform="translate(32.000000, 190.000000)">
+                    <g id="Rectangle-7-Copy-42">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-7"></use>
+                        <rect stroke="#999999" stroke-width="1" x="-0.5" y="-0.5" width="317" height="49" rx="2"></rect>
+                    </g>
+                    <text id="Label" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" letter-spacing="0.0299999993" fill="#000000">
+                        <tspan x="56" y="33">No, I need to amend it</tspan>
+                    </text>
+                    <g id="Oval-1-+-Oval-1-+-Oval-1-Copy-2" stroke-width="1" fill-rule="evenodd" transform="translate(15.000000, 12.000000)">
+                        <circle id="Oval-1" fill="#9B9B9B" cx="12" cy="12" r="12"></circle>
+                        <circle id="Oval-1" fill="#FFFFFF" cx="12" cy="12" r="9.71428571"></circle>
+                    </g>
+                </g>
+            </g>
+            <g id="routing-arrow" transform="translate(95.000000, 107.000000)">
+                <polygon id="Triangle" fill="#FF0000" fill-rule="evenodd" points="125.861352 9 96 18 96 0"></polygon>
+                <polyline id="Path-2" stroke="#FF0000" stroke-width="4" points="157.840173 473.538258 0.915870042 473.538258 0.915870042 9.10252592 99.0339829 9.10252592"></polyline>
+            </g>
+            <g id="Note" transform="translate(0.000000, 260.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-9)" xlink:href="#path-8"></use>
+                    <use fill="#FFF2CC" fill-rule="evenodd" xlink:href="#path-8"></use>
+                </g>
+                <text id="If-the-respondent-ne" font-family="Lato-Regular, Lato" font-size="16" font-weight="normal" line-spacing="19" fill="#000000">
+                    <tspan x="13" y="26">If the respondent </tspan>
+                    <tspan x="13" y="45">needs to amend their </tspan>
+                    <tspan x="13" y="64">answer they are routed </tspan>
+                    <tspan x="13" y="83">back to the original </tspan>
+                    <tspan x="13" y="102">question.</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

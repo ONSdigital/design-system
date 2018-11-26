@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1282px" height="600px" viewBox="0 0 1282 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>multiple-question-playback</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="316" height="48" rx="2"></rect>
+        <rect id="path-2" x="0" y="0" width="316" height="48" rx="2"></rect>
+        <rect id="path-3" x="0" y="0" width="316" height="47" rx="2"></rect>
+        <rect id="path-4" x="0" y="0" width="24" height="23.5" rx="2"></rect>
+        <rect id="path-5" x="0" y="0" width="316" height="47" rx="2"></rect>
+        <rect id="path-6" x="0" y="0" width="24" height="23.5" rx="2"></rect>
+        <rect id="path-7" x="0" y="0" width="316" height="47" rx="2"></rect>
+        <rect id="path-8" x="0" y="0" width="24" height="23.5" rx="2"></rect>
+        <rect id="path-9" x="0" y="0" width="316" height="47" rx="2"></rect>
+        <rect id="path-10" x="0" y="0" width="24" height="23.5" rx="2"></rect>
+        <rect id="path-11" x="0" y="0" width="190" height="119"></rect>
+        <filter x="-1.1%" y="-1.7%" width="104.2%" height="106.7%" filterUnits="objectBoundingBox" id="filter-12">
+            <feOffset dx="4" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.615686275   0 0 0 0 0.615686275   0 0 0 0 0.615686275  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Desktop-HD-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-78.000000, -117.000000)">
+        <g id="multiple-question-playback" transform="translate(78.000000, 117.000000)">
+            <g id="Multiple-playback" transform="translate(672.000000, 0.000000)">
+                <text id="Are-these-are-all-of" font-family="Lato-Bold, Lato" font-size="28" font-weight="bold" line-spacing="40" fill="#000000">
+                    <tspan x="36" y="51">Are these are all of the pay patterns used to </tspan>
+                    <tspan x="36" y="91">pay employees?</tspan>
+                </text>
+                <g id="RadioButton" transform="translate(36.000000, 253.000000)">
+                    <g id="Rectangle-7-Copy-42">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <rect stroke="#999999" stroke-width="1" x="-0.5" y="-0.5" width="317" height="49" rx="2"></rect>
+                    </g>
+                    <text id="Label" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" letter-spacing="0.0299999993" fill="#000000">
+                        <tspan x="56" y="33">Yes, my age is correct</tspan>
+                    </text>
+                    <g id="Oval-1-+-Oval-1-+-Oval-1-Copy-2" stroke-width="1" fill-rule="evenodd" transform="translate(15.000000, 12.000000)">
+                        <circle id="Oval-1" fill="#9B9B9B" cx="12" cy="12" r="12"></circle>
+                        <circle id="Oval-1" fill="#FFFFFF" cx="12" cy="12" r="9.71428571"></circle>
+                    </g>
+                </g>
+                <g id="RadioButton" transform="translate(36.000000, 319.000000)">
+                    <g id="Rectangle-7-Copy-42">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                        <rect stroke="#999999" stroke-width="1" x="-0.5" y="-0.5" width="317" height="49" rx="2"></rect>
+                    </g>
+                    <text id="Label" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" letter-spacing="0.0299999993" fill="#000000">
+                        <tspan x="56" y="33">No, I need to update</tspan>
+                    </text>
+                    <g id="Oval-1-+-Oval-1-+-Oval-1-Copy-2" stroke-width="1" fill-rule="evenodd" transform="translate(15.000000, 12.000000)">
+                        <circle id="Oval-1" fill="#9B9B9B" cx="12" cy="12" r="12"></circle>
+                        <circle id="Oval-1" fill="#FFFFFF" cx="12" cy="12" r="9.71428571"></circle>
+                    </g>
+                </g>
+                <text id="•-Weekly-•-Fortnight" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="25" fill="#222222">
+                    <tspan x="36" y="139">	•	Weekly</tspan>
+                    <tspan x="36" y="164">	•	Fortnightly </tspan>
+                    <tspan x="36" y="189">	•	Calendar monthly</tspan>
+                    <tspan x="36" y="214">	•	Four monthly</tspan>
+                    <tspan x="177.642" y="214"></tspan>
+                </text>
+                <rect id="Rectangle" stroke="#979797" stroke-width="1" x="0.5" y="0.5" width="609" height="403"></rect>
+            </g>
+            <g id="Triangle" transform="translate(295.000000, 343.000000)">
+                <polygon fill="#FF0500" fill-rule="evenodd" transform="translate(9.787817, 76.000000) rotate(-90.000000) translate(-9.787817, -76.000000) " points="24.7878165 76 -5.21218346 85.7878165 -5.21218346 66.2121835"></polygon>
+                <polyline id="Path-2" stroke="#FF0000" stroke-width="4" points="412.523438 0.541015625 356.298871 0.541015625 356.298871 193.746662 9.32225625 193.746662 9.32225625 83.2848188"></polyline>
+            </g>
+            <g id="multiple-question">
+                <text id="How-frequently-are-e" font-family="Lato-Bold, Lato" font-size="28" font-weight="bold" line-spacing="40" fill="#000000">
+                    <tspan x="36" y="50">How frequently are employees paid?</tspan>
+                </text>
+                <text id="Select-all-that-appl" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" line-spacing="25" fill="#222222">
+                    <tspan x="36" y="97">Select all that apply:</tspan>
+                </text>
+                <g id="checkbox" transform="translate(36.000000, 121.000000)">
+                    <g id="Rectangle-7-Copy-54">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                        <rect stroke="#999999" stroke-width="1" x="-0.5" y="-0.5" width="317" height="48" rx="2"></rect>
+                    </g>
+                    <text id="Label-Copy-5" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" letter-spacing="0.0299999993" fill="#000000">
+                        <tspan x="56" y="32.5">Weekly</tspan>
+                    </text>
+                    <g id="Group-3" stroke-width="1" fill-rule="evenodd" transform="translate(16.000000, 11.750000)">
+                        <g id="Rectangle-55-Copy-4">
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
+                            <rect stroke="#979797" stroke-width="2" x="1" y="1" width="22" height="21.5" rx="2"></rect>
+                        </g>
+                    </g>
+                </g>
+                <g id="checkbox" transform="translate(36.000000, 185.000000)">
+                    <g id="Rectangle-7-Copy-54">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-5"></use>
+                        <rect stroke="#999999" stroke-width="1" x="-0.5" y="-0.5" width="317" height="48" rx="2"></rect>
+                    </g>
+                    <text id="Label-Copy-5" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" letter-spacing="0.0299999993" fill="#000000">
+                        <tspan x="56" y="32.5">Fortnightly</tspan>
+                    </text>
+                    <g id="Group-3" stroke-width="1" fill-rule="evenodd" transform="translate(16.000000, 11.750000)">
+                        <g id="Rectangle-55-Copy-4">
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-6"></use>
+                            <rect stroke="#979797" stroke-width="2" x="1" y="1" width="22" height="21.5" rx="2"></rect>
+                        </g>
+                    </g>
+                </g>
+                <g id="checkbox" transform="translate(36.000000, 250.000000)">
+                    <g id="Rectangle-7-Copy-54">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-7"></use>
+                        <rect stroke="#999999" stroke-width="1" x="-0.5" y="-0.5" width="317" height="48" rx="2"></rect>
+                    </g>
+                    <text id="Label-Copy-5" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" letter-spacing="0.0299999993" fill="#000000">
+                        <tspan x="56" y="32.5">Calendar monthly</tspan>
+                    </text>
+                    <g id="Group-3" stroke-width="1" fill-rule="evenodd" transform="translate(16.000000, 11.750000)">
+                        <g id="Rectangle-55-Copy-4">
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-8"></use>
+                            <rect stroke="#979797" stroke-width="2" x="1" y="1" width="22" height="21.5" rx="2"></rect>
+                        </g>
+                    </g>
+                </g>
+                <g id="checkbox" transform="translate(36.000000, 314.000000)">
+                    <g id="Rectangle-7-Copy-54">
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-9"></use>
+                        <rect stroke="#999999" stroke-width="1" x="-0.5" y="-0.5" width="317" height="48" rx="2"></rect>
+                    </g>
+                    <text id="Label-Copy-5" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="18" letter-spacing="0.0299999993" fill="#000000">
+                        <tspan x="56" y="32.5">Four weekly</tspan>
+                    </text>
+                    <g id="Group-3" stroke-width="1" fill-rule="evenodd" transform="translate(16.000000, 11.750000)">
+                        <g id="Rectangle-55-Copy-4">
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-10"></use>
+                            <rect stroke="#979797" stroke-width="2" x="1" y="1" width="22" height="21.5" rx="2"></rect>
+                        </g>
+                    </g>
+                </g>
+                <rect id="Rectangle" stroke="#979797" stroke-width="1" x="0.5" y="0.5" width="609" height="403"></rect>
+            </g>
+            <g id="Note" transform="translate(398.000000, 477.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-12)" xlink:href="#path-11"></use>
+                    <use fill="#FFF2CC" fill-rule="evenodd" xlink:href="#path-11"></use>
+                </g>
+                <text id="If-the-respondent-ne" font-family="Lato-Regular, Lato" font-size="16" font-weight="normal" line-spacing="19" fill="#000000">
+                    <tspan x="13" y="26">If the respondent </tspan>
+                    <tspan x="13" y="45">needs to amend their </tspan>
+                    <tspan x="13" y="64">answer they are routed </tspan>
+                    <tspan x="13" y="83">back to the original </tspan>
+                    <tspan x="13" y="102">question.</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

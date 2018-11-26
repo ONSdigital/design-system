@@ -1,0 +1,96 @@
+@mixin mq($from: none, $to: none) {
+  @if $from != none and type-of($from) == 'string' {
+    $from: get-bp-width($from);
+  }
+
+  @if $to != none and type-of($to) == 'string' {
+    $to: get-bp-width($to);
+  }
+
+  @if $responsive {
+    @if ($from == none or $from <= nth(nth($grid-bp, 1), 2)) and $to == none {
+      @content;
+    } @else if $from == none or $from <= nth(nth($grid-bp, 1), 2) {
+      @media only screen and (max-width: $to) {
+        @content;
+      }
+    } @else if $to == none {
+      @media only screen and (min-width: $from) {
+        @content;
+      }
+    } @else {
+      @media only screen and (min-width: $from) and (max-width: $to) {
+        @content;
+      }
+    }
+  } @else {
+    @if (strip-unit($from) <= strip-unit($grid-bp-fixed)) {
+      @content;
+    }
+  }
+}
+
+@mixin fixed-width() {
+  @if not $responsive {
+    @content;
+  }
+}
+
+@mixin ie8 {
+  @if not $responsive {
+    .lt-ie9 & {
+      @content;
+    }
+  }
+}
+
+@mixin ie7 {
+  @if not $responsive {
+    .lt-ie8 & {
+      @content;
+    }
+  }
+}
+
+@function get-bp-width($name, $breakpoints: $grid-bp) {
+  @if map-has-key($breakpoints, $name) {
+    @return map-get($breakpoints, $name);
+  } @else {
+    @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
+  }
+}
+
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+@mixin bp-suffix($class, $original: true, $breakpoints: $grid-bp, $createBetweenBreakpoints: false) {
+  @if $original {
+    .#{$class} {
+      @content;
+    }
+  }
+
+  @each $breakpointMin, $size in $breakpoints {
+    @include mq($breakpointMin) {
+      .#{$class}\@#{$breakpointMin} {
+        @content;
+      }
+    }
+
+    @if $createBetweenBreakpoints {
+      @each $breakpointMax, $size in $grid-bp {
+        @include mq($breakpointMin, $breakpointMax) {
+          .#{$class}\@#{$breakpointMin}\@#{$breakpointMax} {
+            @content;
+          }
+        }
+      }
+    }
+  }
+}

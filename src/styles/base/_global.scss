@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  position: relative;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $color-links;
+  &:hover {
+    text-decoration: underline;
+    color: $color-links-hover;
+  }
+  &:focus {
+    outline: 3px solid $color-focus-outline;
+    outline-offset: 3px;
+    color: $color-links-hover;
+  }
+}
+
+main,
+[role='main'] {
+  &:focus {
+    outline: none;
+  }
+}
+
+legend {
+  // http://www.456bereastreet.com/archive/201210/how_to_line_wrap_text_in_legend_elements_even_in_ie/
+  white-space: normal;
+  display: table;
+}

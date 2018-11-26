@@ -1,0 +1,215 @@
+@mixin rem($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value * 16}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + ' '};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + ' '};
+    }
+  }
+
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
+}
+
+@mixin font-size($sizeValue: 1.6) {
+  @include rem(font-size, $sizeValue);
+}
+
+@mixin inline-block-hack {
+  @if ($responsive == false) {
+    *display: inline;
+    zoom: 1;
+  }
+}
+// =============================================================================
+// String Replace
+// =============================================================================
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+// =============================================================================
+// Font Face
+// =============================================================================
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+  $extmods: (
+    eot: '?',
+    svg: '#' + str-replace($name, ' ', '_')
+  );
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype'
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url('#{$path}.#{$extmod}') format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+@mixin clearfix() {
+  // no-op
+}
+
+@mixin lt-ie10() {
+  .lt-ie10 & {
+    @content;
+  }
+}
+
+@mixin lt-ie9() {
+  .lt-ie9 & {
+    @content;
+  }
+}
+
+@mixin lt-ie8() {
+  .lt-ie8 & {
+    @content;
+  }
+}
+
+@mixin lt-ie7() {
+  .lt-ie7 & {
+    @content;
+  }
+}
+
+@mixin fixed() {
+  @if ($responsive == false) {
+    @content;
+  }
+}
+
+// =============================================================================
+// Create icon
+// =============================================================================
+
+@mixin icon($name) {
+  background-image: url('#{$static}/img/icons/icons--#{$name}.svg');
+  background-repeat: no-repeat;
+}
+
+@mixin create-icon($iconName, $className: null, $hoverIconName: null, $width: 1.3rem, $top: 2px, $position: left, $btn: false) {
+  $name: $iconName;
+
+  @if ($className != null) {
+    $name: $className;
+  }
+
+  .icon--#{$name} {
+    position: relative;
+    @if ($position == 'right') {
+      @if ($btn == true) {
+        padding-right: $width * 1.8;
+      } @else {
+        padding-right: $width + 0.4rem;
+      }
+    } @else {
+      @if ($btn == true) {
+        padding-left: $width * 1.8;
+      } @else {
+        padding-left: $width + 0.4rem;
+      }
+    }
+
+    @include ie8() {
+      padding: auto;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: inline-block;
+      height: $width;
+      width: $width;
+      position: absolute;
+      top: $top;
+      left: 0;
+      background-size: $width $width;
+      background-repeat: no-repeat;
+      transition: opacity 200ms ease-in-out, transform 300ms ease-in-out;
+      background-position: 0 0;
+
+      @include ie8() {
+        display: none;
+      }
+
+      @if ($btn == true) {
+        top: 0.7rem;
+        left: $width - 0.5rem;
+      }
+
+      @if ($position == 'right') {
+        left: auto;
+        right: $width - 0.7rem;
+      }
+    }
+
+    &::before {
+      @include icon($iconName);
+    }
+
+    @if ($hoverIconName) {
+      &::after {
+        opacity: 0;
+        @include icon($hoverIconName);
+      }
+      &:hover,
+      &:focus {
+        &::before {
+          opacity: 0;
+        }
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// Remove nth-Child Padding
+// =============================================================================
+
+@mixin nth-element($num, $px) {
+  &:nth-child(#{$num}) {
+    padding-left: $px;
+  }
+}
+
+// =============================================================================
+// Sets antialiasing - used for light text on dark background
+// =============================================================================
+@mixin font-smoothing() {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}

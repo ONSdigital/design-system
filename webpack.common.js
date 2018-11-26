@@ -192,7 +192,7 @@ export default function (mode) {
             },
             {
               from: {
-                glob: 'favicon.ico',
+                glob: 'favicons/**/*',
                 dot: true
               }
             }

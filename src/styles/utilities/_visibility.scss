@@ -1,0 +1,48 @@
+.u-hidden {
+  /* stylelint-disable declaration-no-important */
+  display: none !important;
+  /* stylelint-enable */
+  visibility: hidden;
+}
+
+.u-visuallyhidden,
+.u-vh {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.u-visuallyhidden.u-focusable:active,
+.u-vh.u-focusable:active,
+.u-visuallyhidden.u-focusable:focus,
+.u-vh.u-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.u-invisible {
+  visibility: hidden;
+}
+
+.u-ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px;
+}
+
+.u-ir::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 150%;
+}

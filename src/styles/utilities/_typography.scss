@@ -1,0 +1,50 @@
+@mixin font-size($props, $base) {
+  font-size: rems(map-get($props, small), $base);
+  font-weight: map-get($props, weight);
+  line-height: map-get($props, line-height);
+
+  @include mq(m) {
+    font-size: rems(map-get($props, large), $base);
+  }
+}
+
+@each $name, $props in $type_matrix {
+  .#{$name} {
+    @include font-size($props, $base);
+  }
+}
+
+@each $breakpoint, $size in $grid-bp {
+  @each $name, $props in $type_matrix {
+    @include mq($breakpoint) {
+      .#{$name}\@#{$breakpoint} {
+        @include font-size($props, $base);
+      }
+    }
+  }
+}
+
+.u-fw-b {
+  font-weight: 700;
+}
+
+.u-fw-n {
+  font-weight: normal;
+}
+
+.u-fs-i {
+  font-style: italic;
+}
+
+.u-tt-u {
+  text-transform: uppercase;
+}
+
+.u-td-no,
+.u-td-no:hover {
+  text-decoration: none;
+}
+
+.u-lighter {
+  color: $color-text-light;
+}

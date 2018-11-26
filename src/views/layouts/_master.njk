@@ -6,16 +6,21 @@
         <title>{{ pageInfo.title }}</title>
         <link rel="stylesheet" href="/responsive.css">
         <link rel="stylesheet" href="/patternlib.css">
+        <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
     </head>
-    <body>
+    <body class="patternlib-page">
         {% from "components/header/_macro.njk" import onsHeader %}
 
         {{ 
             onsHeader({
                 title: "Design system",
+                fullWidth: true,
+                classes: "patternlib-page__header",
                 navigation: {
+                    classes: "nav--horizontal nav--light nav--main nav--h-m js-main-nav",
                     ariaLabel: "Main menu",
                     ariraListLabel: "Navigation menu",
+                    currentPath: pageInfo.path,
                     items: helpers.navigationHelper({ 
                         pages: pageInfo.siteMap,
                         ignorePaths: ["/"]
@@ -24,25 +29,10 @@
             })
         }}
 
-        {% if (page.hideSidebar !== true) and
-              (helpers.subNavigationHelper({ pageInfo: pageInfo}).length > 0)  
-        %}
-            <h2>Sidebar</h2>
-            {% from "components/navigation/_macro.njk" import onsNavigation %}
-
-            {{
-                onsNavigation({
-                    ariaLabel: "Sub menu",
-                    ariraListLabel: "Child menu",
-                    items: helpers.subNavigationHelper({
-                        pageInfo: pageInfo
-                    })
-                })
-            }}
-        {% endif %}
-       
-        {% block body %}
-        {% endblock %}
+        <div class="patternlib-page__body">
+            {% block master_body %}
+            {% endblock %}
+        </div>
         <script type="module" src="/scripts/polyfills.js"></script>
         <script type="module" src="/scripts/bundle.js"></script>
         <script nomodule src="/scripts/polyfills.es5.js"></script>
