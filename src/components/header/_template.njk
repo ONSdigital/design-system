@@ -1,17 +1,19 @@
 <header class="header {{ params.classes if params.classes }}">
     <div class="header__top" role="banner">
-        <div class="container">
+        <div class="container{{ ' container--full-width' if params.fullWidth }}">
             <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                 <div class="grid__col col-auto">
                     <div class="logo">
-                        <a href="{{ params.logoHref | default('/') }}"></a>
+                        <a href="{{ params.logoHref | default('/') }}">
+                             <img src="{{'/img/ons-logo-pos.svg'}}" alt="Office for National Statistics logo" class="logo__img header__logo print__hidden">
+                        </a>
                     </div>
                 </div>
-            <div>
+            </div>
         </div>
     </div>
     <div class="header__main">
-        <div class="container">
+        <div class="container{{ ' container--full-width' if params.fullWidth }}">
             <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                 <div class="grid__col col-auto u-flex-shrink">
                     <h1 class="header__title">{{ params.title }}</h1>
@@ -29,7 +31,7 @@
     </div>
     {% if params.navigation %}
         <div class="header__nav">
-            <div class="container">
+            <div class="container{{ ' container--full-width' if params.fullWidth }}">
                 {% from "components/navigation/_macro.njk" import onsNavigation %}
                 {{ onsNavigation(params.navigation) }}
             </div>

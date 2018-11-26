@@ -1,0 +1,41 @@
+$input-radius: 3px;
+$input-padding: 0.5rem;
+$input-width: 19.5rem;
+$input-border-width: 1px;
+$input-widths: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50;
+// Widest character (capital W) is 1.0065rem wide
+$char-max-width: 1.0065rem;
+// Widest number (4) is 0.54rem  wide
+$num-max-width: 0.54rem;
+// Not the width of a space, the width of the space between characters with no spaces between
+$char-space-width: 0.029rem;
+// Space width
+$nbsp-width: 0.256rem;
+
+@mixin input-width($className, $char-width: $char-max-width) {
+  @each $width in $input-widths {
+    .#{str-replace($className, '{x}', $width)} {
+      width: 100%;
+      max-width: input-width-calc($width, $char-width);
+
+      .fieldgroup--inline & {
+        width: input-width-calc($width, $char-width);
+      }
+    }
+  }
+}
+
+@function input-width-calc($chars: 1, $char-width: $char-max-width, $spaces: 0, $num-chars: 0) {
+  // Space between characters is 0.029rem wide
+  // Extra 2 pixels are to prevent clipping when the cursor is visible (2px is needed for iOS)
+
+  $padding-width: $input-padding * 2;
+  $chars-width: $char-width * $chars;
+  $num-chars-width: $num-max-width * $num-chars;
+  $chars-space-width: $char-space-width * ($chars + $num-chars - 1);
+  $spaces-width: $spaces * $nbsp-width;
+
+  @return calc(
+    #{$padding-width + $chars-width + $num-chars-width + $chars-space-width + $spaces-width} + #{($input-border-width * 2) + 2px}
+  );
+}

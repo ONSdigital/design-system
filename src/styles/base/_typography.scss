@@ -1,0 +1,42 @@
+html {
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: $font-sans;
+  color: $color-text;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+code {
+  font-size: 0.8rem;
+}
+
+ul {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.3rem;
+}
+
+em {
+  font-style: normal;
+  font-weight: $font-weight-bold;
+}

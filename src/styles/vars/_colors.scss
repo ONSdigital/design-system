@@ -1,0 +1,42 @@
+$color-white: #fff;
+$color-black: #222;
+$color-almost-black: #363636;
+$color-grey: #ccc;
+$color-dark-grey: #999;
+$color-very-dark-grey: #595959;
+$color-mid-grey: #eee;
+$color-light-grey: #e6e8eb;
+$color-lighter-grey: #f5f5f5;
+
+// brand
+
+$color-primary: #0f8243;
+$color-primary-dark: #677424;
+$color-secondary: #033e58;
+$color-tertiary: #4263c2;
+$color-tertiary-dark: $color-secondary;
+$color-astral-blue: #3b7a9e;
+$color-red: #d0021b;
+$color-light-red: #fbecec;
+$color-yellow: yellow;
+$color-amber: #fe781f;
+$color-light-amber: #fdf6ec;
+$color-blue: #4263c2;
+$color-light-blue: #eff0f9;
+$color-light-green: #edf4f0;
+
+// assignment
+
+$color-text: $color-black;
+$color-text-light: $color-very-dark-grey;
+$color-links: $color-blue;
+$color-links-hover: $color-secondary;
+$color-focus: $color-blue;
+$color-focus-outline: $color-amber;
+$color-borders: $color-dark-grey;
+$color-placeholder: lighten($color-text-light, 40%);
+$color-emphasis: #f0f762;
+$colour-nav-highlight: $color-light-blue;
+$color-errors: $color-red;
+$color-section-number: $color-secondary;
+$color-header-main: $color-astral-blue;

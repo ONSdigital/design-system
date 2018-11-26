@@ -1,0 +1,100 @@
+// Block
+.header {
+  display: block;
+  position: relative;
+  margin: 0 0 2rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // Elements
+  &__top {
+    width: 100%;
+    padding: 0.7rem 0;
+    background: $color-white;
+    line-height: 1rem;
+  }
+
+  &--internal & {
+    &__top {
+      background: $color-secondary;
+    }
+  }
+
+  &__logo {
+    height: 1.333rem;
+
+    &--print {
+      display: none;
+    }
+  }
+
+  &__main {
+    padding: 0.56rem 0;
+    background: $color-header-main;
+
+    @include mq(m) {
+      padding: 1.1rem 0;
+    }
+
+    &--border {
+      border-top: 3px solid $color-header-main;
+      border-bottom: 3px solid $color-header-main;
+      padding: 0.934rem 0;
+    }
+  }
+
+  &__nav {
+    background: $color-header-main;
+  }
+
+  &__title {
+    @extend .u-fs-r--b;
+    @extend .u-fs-l\@m;
+
+    color: $color-white;
+    margin: 0;
+
+    &--nav-adj {
+      @include mq(s) {
+        padding-top: 0.2rem;
+      }
+    }
+  }
+
+  &__desc {
+    @extend .u-fs-s;
+    @extend .u-fs-r\@m;
+
+    color: $color-white;
+    margin: 0;
+  }
+
+  // Modifier - Hero variant
+  &--hero {
+    .header {
+      &__title {
+        @extend .u-fs-m;
+        @extend .u-fs-xl\@m;
+      }
+    }
+  }
+
+  // Modifier - Thin variant
+  &--thin {
+    .header {
+      &__top {
+        padding: 0.5rem 0;
+      }
+      &__main {
+        padding: 0.5rem 0;
+
+        @include mq(m) {
+          padding: 0.8rem 0;
+        }
+      }
+      &__logo {
+        width: 200px;
+      }
+    }
+  }
+}

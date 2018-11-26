@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="746px" height="460px" viewBox="0 0 746 460" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FFFFFF;">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 455 806 455 806 0 0 0"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <g id="ONS-AnatomyOfQuestion" transform="translate(3.000000, 0.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <polygon id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)" points="-79 -37 997 -37 997 749 -79 749"></polygon>
+                <polygon id="Fill-3" fill="#FFFFFF" mask="url(#mask-2)" points="12.36887 19.6929 436.9055 19.6929 436.9055 442.05512 12.36887 442.05512"></polygon>
+                <polygon id="Stroke-4" stroke="#515151" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)" points="12.36887 19.69291 436.9055 19.69291 436.9055 442.0551 12.36887 442.0551"></polygon>
+                <text id="1.1-Question-title" mask="url(#mask-2)" font-family="Lato-Black, Lato" font-size="22" font-weight="700" fill="#404040">
+                    <tspan x="45.05516" y="67.8047671">1.1 Question title</tspan>
+                </text>
+                <path d="M51.3937,91.3981 L204.4646,91.3981" id="Fill-5" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                <path d="M51.3937,91.3981 L204.4646,91.3981" id="Stroke-6" stroke="#BFBFBF" stroke-width="7" stroke-linecap="square" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M51.3937,106.9515 L161.9449,106.9515" id="Fill-7" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                <path d="M51.3937,106.9515 L161.9449,106.9515" id="Stroke-8" stroke="#BFBFBF" stroke-width="7" stroke-linecap="square" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <polygon id="Fill-9" fill-opacity="0.2" fill="#CBCBCB" mask="url(#mask-2)" points="48.55905 130.2441 292.3386 130.2441 292.3386 271.9764 48.55905 271.9764"></polygon>
+                <text id="Include" mask="url(#mask-2)" font-family="Lato-Black, Lato" font-size="14" font-weight="700" fill="#404040">
+                    <tspan x="62.06296" y="152.113443">Include</tspan>
+                </text>
+                <path d="M65.56693,169.9291 L218.6378,169.9291" id="Fill-10" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                <path d="M65.5669,169.9291 L218.6378,169.9291" id="Stroke-11" stroke="#BFBFBF" stroke-width="7" stroke-linecap="square" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M65.56693,185.5197 L176.1181,185.5197" id="Fill-12" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                <path d="M65.5669,185.5197 L176.1181,185.5197" id="Stroke-13" stroke="#BFBFBF" stroke-width="7" stroke-linecap="square" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <text id="Exclude" mask="url(#mask-2)" font-family="Lato-Black, Lato" font-size="14" font-weight="700" fill="#404040">
+                    <tspan x="62.06296" y="214.475643">E</tspan>
+                    <tspan x="69.97296" y="214.475643" letter-spacing="-0.42">x</tspan>
+                    <tspan x="77.15496" y="214.475643">clude</tspan>
+                </text>
+                <path d="M65.56693,232.2913 L218.6378,232.2913" id="Fill-14" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                <path d="M65.5669,232.2913 L218.6378,232.2913" id="Stroke-15" stroke="#BFBFBF" stroke-width="7" stroke-linecap="square" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M65.56693,247.8819 L176.1181,247.8819" id="Fill-16" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                <path d="M65.5669,247.8819 L176.1181,247.8819" id="Stroke-17" stroke="#BFBFBF" stroke-width="7" stroke-linecap="square" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <text id="Label" mask="url(#mask-2)" font-family="Lato-Black, Lato" font-size="18" font-weight="700" fill="#404040">
+                    <tspan x="50.72446" y="302.715055">Label</tspan>
+                </text>
+                <polygon id="Fill-18" fill="#FFFFFF" mask="url(#mask-2)" points="51.3937 348.5118 235.6457 348.5118 235.6457 379.69291 51.3937 379.69291"></polygon>
+                <polygon id="Stroke-19" stroke="#515151" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)" points="51.3937 348.5118 235.6457 348.5118 235.6457 379.6929 51.3937 379.6929"></polygon>
+                <path d="M64.89766,403.52756 L87.34766,403.52756" id="Stroke-20" stroke="#404040" mask="url(#mask-2)"></path>
+                <path d="M90.59366,403.52756 L126.73566,403.52756" id="Stroke-21" stroke="#404040" mask="url(#mask-2)"></path>
+                <path d="M133.90143,403.52756 L180.83966,403.52756" id="Stroke-22" stroke="#404040" mask="url(#mask-2)"></path>
+                <text id="Response-guidance" mask="url(#mask-2)" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#404040">
+                    <tspan x="64.89766" y="398.727603">Response guidance</tspan>
+                </text>
+                <polyline id="Stroke-23" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)" points="51.3937 391.0315 57.063 396.7008 51.3937 402.3701"></polyline>
+                <path d="M54.22835,327.252 L164.7795,327.252" id="Fill-24" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                <path d="M54.2283,327.252 L164.7795,327.252" id="Stroke-25" stroke="#BFBFBF" stroke-width="7" stroke-linecap="square" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <text id="Question-title-(mandatory)" mask="url(#mask-2)" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" letter-spacing="-0.009" fill="#404040">
+                    <tspan x="490.0945" y="70.2740549">Que</tspan>
+                    <tspan x="524.3125" y="70.2740549">sti</tspan>
+                    <tspan x="544.0225" y="70.2740549">on</tspan>
+                    <tspan x="564.4705" y="70.2740549"> titl</tspan>
+                    <tspan x="591.6325" y="70.2740549">e</tspan>
+                    <tspan x="601.2445" y="70.2740549"> (m</tspan>
+                    <tspan x="625.2745" y="70.2740549">an</tspan>
+                    <tspan x="644.9125" y="70.2740549">d</tspan>
+                    <tspan x="655.1725" y="70.2740549">a</tspan>
+                    <tspan x="664.5865" y="70.2740549">t</tspan>
+                    <tspan x="671.5525" y="70.2740549">ory</tspan>
+                    <tspan x="698.7145" y="70.2740549">)</tspan>
+                </text>
+                <text id="Question-description-" mask="url(#mask-2)" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" letter-spacing="-0.009" fill="#404040">
+                    <tspan x="490.0945" y="98.6205549">Que</tspan>
+                    <tspan x="524.3125" y="98.6205549">sti</tspan>
+                    <tspan x="544.0225" y="98.6205549">on</tspan>
+                    <tspan x="564.4705" y="98.6205549"> d</tspan>
+                    <tspan x="578.2045" y="98.6205549">e</tspan>
+                    <tspan x="587.8165" y="98.6205549">sc</tspan>
+                    <tspan x="604.2685" y="98.6205549">r</tspan>
+                    <tspan x="611.6125" y="98.6205549">i</tspan>
+                    <tspan x="616.4905" y="98.6205549">p</tspan>
+                    <tspan x="626.6605" y="98.6205549">ti</tspan>
+                    <tspan x="638.5045" y="98.6205549">on</tspan>
+                    <tspan x="658.9525" y="98.6205549"> </tspan>
+                </text>
+                <text id="Include/Exclude" mask="url(#mask-2)" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" fill="#404040">
+                    <tspan x="490.0945" y="155.313455">I</tspan>
+                    <tspan x="495.7465" y="155.313455" letter-spacing="-0.009">n</tspan>
+                    <tspan x="505.9705" y="155.313455">cl</tspan>
+                    <tspan x="519.4345" y="155.313455" letter-spacing="-0.009">u</tspan>
+                    <tspan x="529.6585" y="155.313455">d</tspan>
+                    <tspan x="539.9185" y="155.313455" letter-spacing="-0.009">e</tspan>
+                    <tspan x="549.5305" y="155.313455">/</tspan>
+                    <tspan x="556.4965" y="155.313455" letter-spacing="-0.009">E</tspan>
+                    <tspan x="566.7925" y="155.313455" letter-spacing="-0.54">x</tspan>
+                    <tspan x="575.4325" y="155.313455">cl</tspan>
+                    <tspan x="588.8965" y="155.313455" letter-spacing="-0.009">u</tspan>
+                    <tspan x="599.1205" y="155.313455">de</tspan>
+                </text>
+                <text id="Response-label-(mandatory)" mask="url(#mask-2)" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" fill="#404040">
+                    <tspan x="492.9291" y="302.715055">R</tspan>
+                    <tspan x="504.7191" y="302.715055" letter-spacing="-0.009">e</tspan>
+                    <tspan x="514.3311" y="302.715055">s</tspan>
+                    <tspan x="522.1971" y="302.715055" letter-spacing="-0.009">pon</tspan>
+                    <tspan x="552.8151" y="302.715055">s</tspan>
+                    <tspan x="560.6811" y="302.715055" letter-spacing="-0.009">e</tspan>
+                    <tspan x="570.2931" y="302.715055"> l</tspan>
+                    <tspan x="578.6451" y="302.715055" letter-spacing="-0.009">a</tspan>
+                    <tspan x="588.0591" y="302.715055">b</tspan>
+                    <tspan x="598.3191" y="302.715055" letter-spacing="-0.009">e</tspan>
+                    <tspan x="607.9311" y="302.715055">l (m</tspan>
+                    <tspan x="636.8391" y="302.715055" letter-spacing="-0.009">an</tspan>
+                    <tspan x="656.4771" y="302.715055">d</tspan>
+                    <tspan x="666.7371" y="302.715055" letter-spacing="-0.009">a</tspan>
+                    <tspan x="676.1511" y="302.715055">t</tspan>
+                    <tspan x="683.1171" y="302.715055" letter-spacing="-0.009">ory</tspan>
+                    <tspan x="710.2791" y="302.715055">)</tspan>
+                </text>
+                <text id="Response-hint" mask="url(#mask-2)" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" fill="#404040">
+                    <tspan x="492.9291" y="331.061455">R</tspan>
+                    <tspan x="504.7191" y="331.061455" letter-spacing="-0.009">e</tspan>
+                    <tspan x="514.3311" y="331.061455">s</tspan>
+                    <tspan x="522.1971" y="331.061455" letter-spacing="-0.009">pon</tspan>
+                    <tspan x="552.8151" y="331.061455">s</tspan>
+                    <tspan x="560.6811" y="331.061455" letter-spacing="-0.009">e</tspan>
+                    <tspan x="570.2931" y="331.061455"> </tspan>
+                    <tspan x="573.7671" y="331.061455" letter-spacing="-0.009">h</tspan>
+                    <tspan x="583.9911" y="331.061455">i</tspan>
+                    <tspan x="588.8691" y="331.061455" letter-spacing="-0.009">n</tspan>
+                    <tspan x="599.0931" y="331.061455">t</tspan>
+                </text>
+                <text id="Response-type" mask="url(#mask-2)" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" fill="#404040">
+                    <tspan x="492.9291" y="367.911865">R</tspan>
+                    <tspan x="504.7191" y="367.911865" letter-spacing="-0.009">e</tspan>
+                    <tspan x="514.3311" y="367.911865">s</tspan>
+                    <tspan x="522.1971" y="367.911865" letter-spacing="-0.009">pon</tspan>
+                    <tspan x="552.8151" y="367.911865">s</tspan>
+                    <tspan x="560.6811" y="367.911865" letter-spacing="-0.009">e</tspan>
+                    <tspan x="570.2931" y="367.911865"> t</tspan>
+                    <tspan x="580.7331" y="367.911865" letter-spacing="-0.009">yp</tspan>
+                    <tspan x="600.4971" y="367.911865">e</tspan>
+                </text>
+                <text id="Response-guidance" mask="url(#mask-2)" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" fill="#404040">
+                    <tspan x="492.9291" y="401.927615">R</tspan>
+                    <tspan x="504.7191" y="401.927615" letter-spacing="-0.009">e</tspan>
+                    <tspan x="514.3311" y="401.927615">s</tspan>
+                    <tspan x="522.1971" y="401.927615" letter-spacing="-0.009">pon</tspan>
+                    <tspan x="552.8151" y="401.927615">s</tspan>
+                    <tspan x="560.6811" y="401.927615" letter-spacing="-0.009">e</tspan>
+                    <tspan x="570.2931" y="401.927615"> </tspan>
+                    <tspan x="573.7671" y="401.927615" letter-spacing="-0.009">gu</tspan>
+                    <tspan x="593.2971" y="401.927615">id</tspan>
+                    <tspan x="608.4351" y="401.927615" letter-spacing="-0.009">an</tspan>
+                    <tspan x="628.0731" y="401.927615">ce</tspan>
+                </text>
+                <path d="M261.5222,66.8168 L471.9088,66.8168" id="Stroke-26" stroke="#FF0000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M260.2921,63.8469 C261.9323,65.4871 261.9323,68.1464 260.2921,69.7866 C258.6519,71.4268 255.9926,71.4268 254.3524,69.7866 C252.7122,68.1464 252.7122,65.4871 254.3524,63.8469 C255.9926,62.2067 258.6519,62.2067 260.2921,63.8469" id="Fill-27" fill="#FF0000" mask="url(#mask-2)"></path>
+                <path d="M260.2921,63.8469 C261.9323,65.4871 261.9323,68.1464 260.2921,69.7866 C258.6519,71.4268 255.9926,71.4268 254.3524,69.7866 C252.7122,68.1464 252.7122,65.4871 254.3524,63.8469 C255.9926,62.20672 258.6519,62.20672 260.2921,63.8469" id="Stroke-28" stroke="#FF0000" stroke-width="3" mask="url(#mask-2)"></path>
+                <path d="M233.1758,95.1632 L471.9088,95.1632" id="Stroke-29" stroke="#FF0000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M231.9456,92.1934 C233.5858,93.8336 233.5858,96.4929 231.9456,98.1331 C230.3054,99.7733 227.6461,99.7733 226.0059,98.1331 C224.3657,96.4929 224.3657,93.8336 226.0059,92.1934 C227.6461,90.5532 230.3054,90.5532 231.9456,92.1934" id="Fill-30" fill="#FF0000" mask="url(#mask-2)"></path>
+                <path d="M231.9456,92.1934 C233.5858,93.8336 233.5858,96.4929 231.9456,98.1331 C230.3054,99.7733 227.6461,99.7733 226.0059,98.1331 C224.3657,96.4929 224.3657,93.8336 226.0059,92.1934 C227.6461,90.5532 230.3054,90.5532 231.9456,92.1934" id="Stroke-31" stroke="#FF0000" stroke-width="3" mask="url(#mask-2)"></path>
+                <path d="M270.0262,154.6908 L471.9088,154.6908" id="Stroke-32" stroke="#FF0000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M268.796,151.7209 C270.4362,153.3611 270.4362,156.0204 268.796,157.6606 C267.1558,159.3008 264.4965,159.3008 262.8563,157.6606 C261.2161,156.0204 261.2161,153.3611 262.8563,151.7209 C264.4965,150.0807 267.1558,150.0807 268.796,151.7209" id="Fill-33" fill="#FF0000" mask="url(#mask-2)"></path>
+                <path d="M268.796,151.7209 C270.4362,153.3611 270.4362,156.0204 268.796,157.6606 C267.1558,159.3008 264.4965,159.3008 262.8563,157.6606 C261.2161,156.0204 261.2161,153.3611 262.8563,151.7209 C264.4965,150.0807 267.1558,150.0807 268.796,151.7209" id="Stroke-34" stroke="#FF0000" stroke-width="3" mask="url(#mask-2)"></path>
+                <path d="M119.79,302.0924 L471.9088,302.0924" id="Stroke-35" stroke="#FF0000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M118.5598,299.1225 C120.2,300.7627 120.2,303.422 118.5598,305.0622 C116.9196,306.7024 114.2603,306.7024 112.6201,305.0622 C110.9799,303.422 110.9799,300.7627 112.6201,299.1225 C114.2603,297.4823 116.9196,297.4823 118.5598,299.1225" id="Fill-36" fill="#FF0000" mask="url(#mask-2)"></path>
+                <path d="M118.5598,299.1225 C120.2,300.7627 120.2,303.422 118.5598,305.0622 C116.9196,306.7024 114.2603,306.7024 112.6201,305.0622 C110.9799,303.422 110.9799,300.7627 112.6201,299.1225 C114.2603,297.4823 116.9196,297.4823 118.5598,299.1225" id="Stroke-37" stroke="#FF0000" stroke-width="3" mask="url(#mask-2)"></path>
+                <path d="M200.1913,328.6693 L472.9401,328.6693" id="Stroke-38" stroke="#FF0000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M198.9612,325.6994 C200.6014,327.3396 200.6014,329.9989 198.9612,331.6391 C197.321,333.2793 194.6617,333.2793 193.0215,331.6391 C191.3813,329.9989 191.3813,327.3396 193.0215,325.6994 C194.6617,324.0592 197.321,324.0592 198.9612,325.6994" id="Fill-39" fill="#FF0000" mask="url(#mask-2)"></path>
+                <path d="M198.9612,325.6994 C200.6014,327.3396 200.6014,329.9989 198.9612,331.6391 C197.321,333.2793 194.6617,333.2793 193.0215,331.6391 C191.3813,329.9989 191.3813,327.3396 193.0215,325.6994 C194.6617,324.0592 197.321,324.0592 198.9612,325.6994" id="Stroke-40" stroke="#FF0000" stroke-width="3" mask="url(#mask-2)"></path>
+                <path d="M261.5222,365.5197 L471.9088,365.5197" id="Stroke-41" stroke="#FF0000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M260.2921,362.54983 C261.9323,364.19004 261.9323,366.84933 260.2921,368.48953 C258.6519,370.12973 255.9926,370.12973 254.3524,368.48953 C252.7122,366.84933 252.7122,364.19004 254.3524,362.54983 C255.9926,360.90964 258.6519,360.90964 260.2921,362.54983" id="Fill-42" fill="#FF0000" mask="url(#mask-2)"></path>
+                <path d="M260.2921,362.5498 C261.9323,364.19 261.9323,366.8493 260.2921,368.4895 C258.6519,370.1297 255.9926,370.1297 254.3524,368.4895 C252.7122,366.8493 252.7122,364.19 254.3524,362.5498 C255.9926,360.9096 258.6519,360.9096 260.2921,362.5498" id="Stroke-43" stroke="#FF0000" stroke-width="3" mask="url(#mask-2)"></path>
+                <path d="M204.8293,399.5354 L471.9088,399.5354" id="Stroke-44" stroke="#FF0000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M203.5992,396.56558 C205.2394,398.20578 205.2394,400.86508 203.5992,402.50528 C201.959,404.14548 199.2997,404.14548 197.6595,402.50528 C196.0193,400.86508 196.0193,398.20578 197.6595,396.56558 C199.2997,394.92538 201.959,394.92538 203.5992,396.56558" id="Fill-45" fill="#FF0000" mask="url(#mask-2)"></path>
+                <path d="M203.5992,396.5656 C205.2394,398.2058 205.2394,400.8651 203.5992,402.5053 C201.959,404.1455 199.2997,404.1455 197.6595,402.5053 C196.0193,400.8651 196.0193,398.2058 197.6595,396.5656 C199.2997,394.9254 201.959,394.9254 203.5992,396.5656" id="Stroke-46" stroke="#FF0000" stroke-width="3" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

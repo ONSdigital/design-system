@@ -1,0 +1,233 @@
+.print__message {
+  display: none;
+}
+
+@media print {
+  .print__hidden {
+    display: none !important;
+  }
+
+  .print__message {
+    display: block;
+    margin-bottom: 1rem;
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+
+  .page__container {
+    transform: none !important;
+  }
+
+  .page__main {
+    opacity: 1 !important;
+  }
+
+  .header {
+    background: transparent !important;
+    &__top {
+      background: transparent !important;
+    }
+    &__main {
+      padding-bottom: 0 !important;
+    }
+    h1,
+    p,
+    a {
+      color: $color-black !important;
+    }
+    li {
+      display: block !important;
+      text-align: left !important;
+      margin: 0 !important;
+      border: none !important;
+    }
+    &__nav a {
+      &:after {
+        content: ' (' attr(href) ') ';
+        font-size: 0.8em;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .header__logo--print {
+    display: block !important;
+    width: 12rem;
+  }
+
+  .header__info {
+    float: right;
+    flex: 1 1 auto;
+    margin-left: 2rem;
+    position: relative;
+    text-align: right;
+  }
+
+  .info__tel {
+    display: inline-block !important;
+  }
+
+  .header--census {
+    .header__logo {
+      filter: invert(100%) grayscale(1);
+      margin-bottom: 2rem;
+
+      img {
+        width: auto !important;
+      }
+    }
+
+    .header__help {
+      max-height: 100% !important;
+      background-color: transparent !important;
+      float: right;
+
+      .external {
+        display: none !important;
+      }
+
+      .header__title {
+        display: inline-block !important;
+        color: $color-text !important;
+      }
+
+      .header__nav {
+        display: inline-block !important;
+        color: $color-text !important;
+
+        a {
+          color: $color-text !important;
+        }
+      }
+    }
+  }
+
+  .input--checkbox {
+    top: 1rem !important;
+    background: transparent !important;
+    border: 0 solid black !important;
+    box-shadow: none !important;
+    -webkit-appearance: checkbox !important;
+  }
+
+  .input--radio {
+    top: 1rem !important;
+    background: transparent !important;
+    border: 0 solid black !important;
+    box-shadow: none !important;
+    -webkit-appearance: radio !important;
+    z-index: 1 !important;
+  }
+
+  .footer {
+    background-color: transparent !important;
+  }
+
+  .footer--census {
+    margin: 0 !important;
+
+    .nav--horizontal {
+      display: none !important;
+    }
+
+    .footer__help {
+      display: none !important;
+    }
+  }
+
+  .guidance__main {
+    height: auto !important;
+    max-height: 100% !important;
+    opacity: 1 !important;
+  }
+
+  .guidance__link {
+    display: none !important;
+  }
+
+  .page__subheader {
+    display: none !important;
+  }
+
+  .page__previous {
+    display: none !important;
+  }
+
+  .summary__items {
+    border: 0 !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid $color-dark-grey !important;
+    padding: 0 0 0 0.5rem !important;
+  }
+
+  .summary__title {
+    margin-bottom: 1rem !important;
+  }
+
+  .summary__question {
+    background-color: transparent !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  .summary__answer {
+    border: 0 !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .summary__edit {
+    display: none !important;
+  }
+
+  .summary__answer-text {
+    padding: 0 !important;
+
+    li {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .nav--sections {
+    display: none !important;
+  }
+
+  .badge {
+    padding: 0 !important;
+    display: none !important;
+  }
+
+  div {
+    display: block !important;
+  }
+
+  #dialog {
+    display: none !important;
+  }
+
+  .info__tel {
+    margin: 0 !important;
+
+    &::before {
+      display: none !important;
+    }
+  }
+
+  .section__number {
+    margin: 0 1rem 0 0 !important;
+    color: black !important;
+    padding: 0 !important;
+    font-size: inherit !important;
+    min-width: 0 !important;
+
+    &::before {
+      display: none !important;
+    }
+  }
+
+  .page__footer {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}

@@ -1,0 +1,31 @@
+// set to false for fixed-grid
+$responsive: true !default;
+
+$grid-bp: (
+  xs: 300px,
+  s: 500px,
+  m: 740px,
+  l: 980px,
+  xl: 1300px,
+  xxl: 1600px
+) !default;
+
+$grid-max-width: 57.445rem !default;
+$grid-max-1280: 71.111111rem !default;
+$grid-cols: 12 !default;
+$grid-cols-mobile: 4 !default;
+$grid-gutters: 1rem !default;
+$grid-bp-fixed: map-get($grid-bp, m) !default;
+$grid-use-letter-spacing-hack: false;
+$grid-baseline: 16px;
+
+:root {
+  --grid-cols: $grid-cols-mobile;
+  --grid-gutters: $grid-gutters;
+  --grid-max-width: $grid-max-width;
+  --grid-baseline: $grid-baseline;
+
+  @include mq(m) {
+    --grid-cols: $grid-cols;
+  }
+}

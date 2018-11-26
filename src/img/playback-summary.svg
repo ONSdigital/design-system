@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1392px" height="655px" viewBox="0 0 1392 655" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>summary-playback</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="190" height="119"></rect>
+        <filter x="-1.1%" y="-1.7%" width="104.2%" height="106.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="4" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.615686275   0 0 0 0 0.615686275   0 0 0 0 0.615686275  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-3" x="0" y="0" width="219" height="253"></rect>
+        <rect id="path-4" x="0" y="0" width="219" height="253"></rect>
+        <rect id="path-5" x="0" y="0" width="219" height="253"></rect>
+    </defs>
+    <g id="Desktop-HD-Copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-19.000000, -117.000000)">
+        <g id="summary-playback" transform="translate(19.000000, 117.000000)">
+            <polyline id="Path-5" stroke="#FF0000" stroke-width="5" points="1292.46204 389.540609 1292.46204 591.646234 109.5 591.646234 109.5 303.532803"></polyline>
+            <g id="Note" transform="translate(433.000000, 532.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFF2CC" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <text id="If-the-respondent-ne" font-family="Lato-Regular, Lato" font-size="16" font-weight="normal" line-spacing="19" fill="#000000">
+                    <tspan x="13" y="26">If the respondent </tspan>
+                    <tspan x="13" y="45">needs to amend their </tspan>
+                    <tspan x="13" y="64">answer they are routed </tspan>
+                    <tspan x="13" y="83">back to the original </tspan>
+                    <tspan x="13" y="102">question.</tspan>
+                </text>
+            </g>
+            <g transform="translate(704.000000, 0.000000)">
+                <text id="Your-answers" font-family="Lato-Bold, Lato" font-size="28" font-weight="bold" line-spacing="40" fill="#000000">
+                    <tspan x="46" y="65">Your answers</tspan>
+                </text>
+                <g id="IncludePanelSingle" transform="translate(46.000000, 95.000000)">
+                    <rect id="Rectangle-Copy-2" fill="#EFF0F9" fill-rule="evenodd" x="0" y="0" width="574" height="100"></rect>
+                    <rect id="Rectangle-13-Copy" fill="#033E58" fill-rule="evenodd" x="0" y="0" width="9" height="100"></rect>
+                    <text id="Include-something-im" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="25" fill="#000000">
+                        <tspan x="27" y="66">You can review your answers below</tspan>
+                    </text>
+                    <text id="Include-something-im" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" line-spacing="25" fill="#000000">
+                        <tspan x="27" y="36">This section is now complete </tspan>
+                    </text>
+                </g>
+                <text id="What-was-the-number" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="25" fill="#000000">
+                    <tspan x="46" y="231">What was the number of </tspan>
+                    <tspan x="46" y="256">weekly paid employees paid </tspan>
+                    <tspan x="46" y="281">in the last week of May </tspan>
+                    <tspan x="46" y="306">2016?</tspan>
+                </text>
+                <text id="100" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" line-spacing="25" fill="#000000">
+                    <tspan x="333" y="231">100</tspan>
+                </text>
+                <text id="Change" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" line-spacing="25" fill="#4263C2" text-decoration="underline">
+                    <tspan x="555" y="231">Change</tspan>
+                </text>
+                <text id="How-frequently-emplo" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="25" fill="#000000">
+                    <tspan x="46" y="379">How frequently employees </tspan>
+                    <tspan x="46" y="404">are paid?</tspan>
+                </text>
+                <text id="•-Weekly-•-Monthly-•" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" line-spacing="25" fill="#000000">
+                    <tspan x="333" y="379">•   Weekly</tspan>
+                    <tspan x="333" y="404">•   Monthly </tspan>
+                    <tspan x="333" y="429">•   Quarterly</tspan>
+                </text>
+                <text id="Change" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" line-spacing="25" fill="#4263C2" text-decoration="underline">
+                    <tspan x="555" y="379">Change</tspan>
+                </text>
+                <path d="M46.5,336.5 L617.507881,336.5" id="Line" stroke="#979797" stroke-width="1" stroke-linecap="square"></path>
+                <rect id="Rectangle" stroke="#FF0000" stroke-width="4" x="2" y="2" width="684" height="470"></rect>
+            </g>
+            <rect id="Rectangle" stroke="#FF0000" stroke-width="4" x="324" y="62" width="274" height="259"></rect>
+            <g id="summary-icon" transform="translate(352.000000, 0.000000)">
+                <rect id="Rectangle-2" stroke="#545454" stroke-width="3" x="1.5" y="1.5" width="216" height="413"></rect>
+                <rect id="Rectangle-3" fill="#545454" fill-rule="evenodd" x="0" y="38" width="219" height="17"></rect>
+                <rect id="Rectangle-3-Copy-3" fill="#545454" fill-rule="evenodd" x="0" y="373" width="219" height="43"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="72" width="82" height="11"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="132" width="67" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="100" y="132" width="20" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="148" y="132" width="20" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="142" width="53" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="93" width="145" height="24"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="162" width="145" height="2"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="179" width="67" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="100" y="179" width="20" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="148" y="179" width="20" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="189" width="53" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="209" width="145" height="2"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="226" width="67" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="100" y="226" width="20" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="148" y="226" width="20" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="236" width="53" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="256" width="145" height="2"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="273" width="67" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="100" y="273" width="20" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="148" y="273" width="20" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="283" width="53" height="5"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="303" width="145" height="2"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="23" y="93" width="4" height="24"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="24" y="333" width="86" height="17" rx="6"></rect>
+                <text id="ONS" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" line-spacing="25" fill="#000000">
+                    <tspan x="24" y="26">ONS</tspan>
+                </text>
+            </g>
+            <g id="question-icon" opacity="0.208616395" transform="translate(30.000000, 30.000000)">
+                <g id="Rectangle-2">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    <rect stroke="#545454" stroke-width="3" x="1.5" y="1.5" width="216" height="250"></rect>
+                </g>
+                <rect id="Rectangle-3" fill="#545454" fill-rule="evenodd" x="0" y="38" width="219" height="17"></rect>
+                <rect id="Rectangle-3-Copy-3" fill="#545454" fill-rule="evenodd" x="0" y="210" width="219" height="43"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="72" width="166" height="11"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="93" width="117" height="11"></rect>
+                <rect id="Rectangle-3-Copy-2" stroke="#545454" stroke-width="1" x="24.5" y="125.5" width="116" height="23"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="24" y="170" width="86" height="17" rx="6"></rect>
+                <text id="ONS" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" line-spacing="25" fill="#000000">
+                    <tspan x="24" y="26">ONS</tspan>
+                </text>
+            </g>
+            <g id="question-icon" opacity="0.466881793" transform="translate(15.000000, 15.000000)">
+                <g id="Rectangle-2">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-4"></use>
+                    <rect stroke="#545454" stroke-width="3" x="1.5" y="1.5" width="216" height="250"></rect>
+                </g>
+                <rect id="Rectangle-3" fill="#545454" fill-rule="evenodd" x="0" y="38" width="219" height="17"></rect>
+                <rect id="Rectangle-3-Copy-3" fill="#545454" fill-rule="evenodd" x="0" y="210" width="219" height="43"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="72" width="166" height="11"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="93" width="117" height="11"></rect>
+                <rect id="Rectangle-3-Copy-2" stroke="#545454" stroke-width="1" x="24.5" y="125.5" width="116" height="23"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="24" y="170" width="86" height="17" rx="6"></rect>
+                <text id="ONS" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" line-spacing="25" fill="#000000">
+                    <tspan x="24" y="26">ONS</tspan>
+                </text>
+            </g>
+            <g id="question-icon">
+                <g id="Rectangle-2">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-5"></use>
+                    <rect stroke="#545454" stroke-width="3" x="1.5" y="1.5" width="216" height="250"></rect>
+                </g>
+                <rect id="Rectangle-3" fill="#545454" fill-rule="evenodd" x="0" y="38" width="219" height="17"></rect>
+                <rect id="Rectangle-3-Copy-3" fill="#545454" fill-rule="evenodd" x="0" y="210" width="219" height="43"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="72" width="166" height="11"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#D7D7D7" fill-rule="evenodd" x="24" y="93" width="117" height="11"></rect>
+                <rect id="Rectangle-3-Copy-2" stroke="#545454" stroke-width="1" x="24.5" y="125.5" width="116" height="23"></rect>
+                <rect id="Rectangle-3-Copy-2" fill="#545454" fill-rule="evenodd" x="24" y="170" width="86" height="17" rx="6"></rect>
+                <text id="ONS" font-family="Lato-Bold, Lato" font-size="18" font-weight="bold" line-spacing="25" fill="#000000">
+                    <tspan x="24" y="26">ONS</tspan>
+                </text>
+            </g>
+            <path d="M599.336384,176.412886 L707.111941,176.412886" id="Path-2" stroke="#FF0000" stroke-width="4"></path>
+            <path d="M216.718094,125.040518 L311,125.040518" id="Path-4" stroke="#FF0000" stroke-width="4"></path>
+            <polygon id="Triangle" fill="#FF0500" transform="translate(109.787817, 289.000000) rotate(-90.000000) translate(-109.787817, -289.000000) " points="124.787817 289 94.7878165 298.787817 94.7878165 279.212183"></polygon>
+            <polygon id="Triangle" fill="#FF0500" transform="translate(323.544049, 124.814033) rotate(-360.000000) translate(-323.544049, -124.814033) " points="338.544049 124.814033 308.544049 134.60185 308.544049 115.026217"></polygon>
+        </g>
+    </g>
+</svg>

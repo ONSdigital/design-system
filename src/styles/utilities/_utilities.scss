@@ -1,0 +1,29 @@
+.u-dib {
+  display: inline-block;
+}
+
+.u-db {
+  display: block;
+}
+
+.u-no-js-hide {
+  .no-js & {
+    display: none;
+  }
+}
+
+.u-no-js-show {
+  .has-js & {
+    display: none;
+  }
+}
+
+// Utility class to force non-wrapping of values
+.u-nowrap {
+  white-space: nowrap;
+}
+
+// Set an element's width to be auto at specified breakpoint
+@include bp-suffix(u-wa--) {
+  width: auto;
+}
