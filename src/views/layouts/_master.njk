@@ -5,34 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ pageInfo.title }}</title>
         <link rel="stylesheet" href="/responsive.css">
-        <link rel="stylesheet" href="/patternlib.css">
         <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+        <link rel="stylesheet" href="/patternlib.css">
     </head>
+   
     <body class="patternlib-page">
-        {% from "components/header/_macro.njk" import onsHeader %}
-
-        {{ 
-            onsHeader({
-                title: "Design system",
-                fullWidth: true,
-                classes: "patternlib-page__header",
-                navigation: {
-                    classes: "nav--horizontal nav--light nav--main nav--h-m js-main-nav",
-                    ariaLabel: "Main menu",
-                    ariraListLabel: "Navigation menu",
-                    currentPath: pageInfo.path,
-                    items: helpers.navigationHelper({ 
-                        pages: pageInfo.siteMap,
-                        ignorePaths: ["/"]
-                    })
-                }
-            })
-        }}
-
-        <div class="patternlib-page__body">
-            {% block master_body %}
-            {% endblock %}
-        </div>
+        {% block master_body %}
+        {% endblock %}
         <script type="module" src="/scripts/polyfills.js"></script>
         <script type="module" src="/scripts/bundle.js"></script>
         <script nomodule src="/scripts/polyfills.es5.js"></script>
