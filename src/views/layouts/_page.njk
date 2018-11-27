@@ -7,17 +7,22 @@
         {% from "components/navigation/_macro.njk" import onsNavigation %}
 
         <div class="patternlib-page__sub-nav">
-            {{
-                onsNavigation({
-                    classes: "nav--vertical-bare",
-                    ariaLabel: "Sub menu",
-                    ariraListLabel: "Child menu",
-                    currentPath: pageInfo.path,
-                    items: helpers.subNavigationHelper({
-                        pageInfo: pageInfo
+            {% for group in helpers.subNavigationHelper({
+                pageInfo: pageInfo
+            }) %}
+                {% if group.title %}
+                    <h2 class="u-mb-xs">{{ group.title }}</h2>
+                {% endif %}
+                {{
+                    onsNavigation({
+                        classes: "nav--vertical-bare",
+                        ariaLabel: "Sub menu",
+                        ariraListLabel: "Child menu",
+                        currentPath: pageInfo.path,
+                        items: group.items
                     })
-                })
-            }}
+                }}
+            {% endfor %}
         </div>
     {% endif %}
     <main class="patternlib-page__main">
