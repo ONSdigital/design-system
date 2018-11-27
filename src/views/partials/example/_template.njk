@@ -1,0 +1,32 @@
+<div class="patternlib-example">
+    <a href="{{ params.link }}" target="_blank" class="patternlib-example__link u-fs-s">Open this example in a new window</a>
+    <div class="patternlib-example__rendered">
+        {{ params.html | safe }}
+    </div>
+    <div class="patternlib-example__source">
+        <input id="{{ params.name }}-html" type="radio" class="patternlib-example__radio" name="{{ params.name }}-example">
+        <input id="{{ params.name }}-nunjucks" type="radio" class="patternlib-example__radio" name="{{ params.name }}-example">
+        <div class="patternlib-example__tabs">
+            <label class="patternlib-example__tab u-fs-r--b" for="{{ params.name }}-html">HTML</label>
+            <label class="patternlib-example__tab u-fs-r--b" for="{{ params.name }}-nunjucks">Nunjucks</label>
+        </div>
+        <div class="patternlib-example__panels">
+            <div class="patternlib-example__panel">
+                <pre class="patternlib-example__pre">
+                    <code class="patternlib-example__code html">{{ params.html }}</code>
+                </pre>
+            </div>
+            <div class="patternlib-example__panel">
+                {% if params.options %}
+                    <details class="macro-options">
+                        <summary class="macro-options__summary">Nunjucks macro options</summary>
+                        <div class="macro-options__content">{{ params.options | safe }}</div>
+                    </details>
+                {% endif %}
+                <pre class="patternlib-example__pre">
+                    <code class="patternlib-example__code js">{{ params.raw }}</code>
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>

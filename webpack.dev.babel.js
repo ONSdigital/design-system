@@ -49,7 +49,8 @@ const serverSettings = {
         );
         console.log(chalk.blue.bold('======================================='));
       }, 2000);
-    }
+    },
+    stats: 'errors-only'
   },
 
   plugins: [new LiveReloadPlugin()]
