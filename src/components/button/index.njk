@@ -2,8 +2,34 @@
 title: Button
 ---
 Buttons are super duper
-
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+
 {{
     patternlibExample("components/button/examples/button/index.njk")
+}}
+
+
+## Small
+{{
+    patternlibExample("components/button/examples/button-small/index.njk")
+}}
+
+## Secondary
+{{
+    patternlibExample("components/button/examples/button-secondary/index.njk")
+}}
+
+## Secondary (small)
+{{
+    patternlibExample("components/button/examples/button-secondary-small/index.njk")
+}}
+
+## Disabled
+{{
+    patternlibExample("components/button/examples/button-disabled/index.njk")
+}}
+
+## Ghost
+{{
+    patternlibExample("components/button/examples/button-ghost/index.njk", "#3b7a9e")
 }}
