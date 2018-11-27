@@ -1,0 +1,102 @@
+@import '../../node_modules/highlight.js/styles/vs2015.css';
+
+.patternlib-example {
+  $c: &;
+
+  position: relative;
+  width: 100%;
+  border: 1px solid $color-grey;
+
+  &__link {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    line-height: 1.3rem;
+    background: $color-light-grey;
+  }
+
+  &__rendered {
+    padding: 2rem;
+  }
+
+  &__radio {
+    display: none;
+  }
+
+  &__tabs {
+    border-top: 1px solid $color-grey;
+  }
+
+  &__tab {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: $color-blue;
+  }
+
+  &__panel {
+    display: none;
+    padding: 1rem;
+    border-top: 1px solid $color-grey;
+  }
+
+  @for $i from 1 through 2 {
+    &__radio:nth-of-type(#{$i}):checked ~ {
+      #{$c}__tabs > #{$c}__tab:nth-of-type(#{$i}) {
+        background: $color-light-grey;
+      }
+
+      #{$c}__panels > #{$c}__panel:nth-of-type(#{$i}) {
+        display: block;
+      }
+    }
+  }
+
+  &__pre {
+    margin: 0;
+    white-space: normal;
+  }
+
+  &__code {
+    white-space: pre;
+  }
+}
+
+.macro-options {
+  margin: 0 0 1rem;
+  padding: 0.5rem 1rem;
+  background: $color-lighter-grey;
+
+  &__summary {
+    color: $color-blue;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__content {
+    padding: 0.5rem 0;
+
+    table {
+      margin: 0;
+    }
+
+    th,
+    td {
+      padding: 0.25rem;
+
+      &:first-of-type {
+        padding-left: 0;
+      }
+
+      &:last-of-type {
+        padding-right: 0;
+      }
+    }
+
+    code {
+      display: inline-block;
+      padding: 0.25rem;
+      background: $color-white;
+      color: $color-red;
+    }
+  }
+}

@@ -2,6 +2,8 @@
 @import 'vars/*.scss';
 @import 'base/*.scss';
 
+@import '../views/partials/**/*.scss';
+
 .patternlib-page {
   display: flex;
   height: 100vh;
@@ -33,8 +35,16 @@
     }
   }
 
+  &__main {
+    flex: 1;
+  }
+
   &__content,
   &__example {
     padding: $grid-gutters;
+  }
+
+  &__content {
+    width: 100%;
   }
 }

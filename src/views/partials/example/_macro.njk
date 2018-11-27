@@ -1,0 +1,4 @@
+{% macro patternlibExample(path) %}
+  {% set params = helpers.generateExampleParams(path) %}
+  {%- include "./_template.njk" -%}
+{% endmacro %}
