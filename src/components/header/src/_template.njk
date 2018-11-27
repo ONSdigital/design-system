@@ -32,7 +32,7 @@
     {% if params.navigation %}
         <div class="header__nav">
             <div class="container{{ ' container--full-width' if params.fullWidth }}">
-                {% from "components/navigation/_macro.njk" import onsNavigation %}
+                {% from "components/navigation/src/_macro.njk" import onsNavigation %}
                 {{ onsNavigation(params.navigation) }}
             </div>
         </div>

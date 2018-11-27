@@ -10,7 +10,7 @@ const mode = 'development';
 const port = 3000;
 const common = commonConfig(mode);
 
-function getIP () {
+function getIP() {
   const interfaces = os.networkInterfaces();
   let interfaceArray = [];
 
