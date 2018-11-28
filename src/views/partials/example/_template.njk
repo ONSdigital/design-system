@@ -6,9 +6,15 @@
     <div class="patternlib-example__source">
         <input id="{{ params.name }}-html" type="radio" class="patternlib-example__radio" name="{{ params.name }}-example">
         <input id="{{ params.name }}-nunjucks" type="radio" class="patternlib-example__radio" name="{{ params.name }}-example">
+        {% if params.scss %}
+            <input id="{{ params.name }}-scss" type="radio" class="patternlib-example__radio" name="{{ params.name }}-example">
+        {% endif %}
         <div class="patternlib-example__tabs">
             <label class="patternlib-example__tab u-fs-r--b" for="{{ params.name }}-html">HTML</label>
             <label class="patternlib-example__tab u-fs-r--b" for="{{ params.name }}-nunjucks">Nunjucks</label>
+            {% if params.scss %}
+                <label class="patternlib-example__tab u-fs-r--b" for="{{ params.name }}-scss">SCSS</label>
+            {% endif %}
         </div>
         <div class="patternlib-example__panels">
             <div class="patternlib-example__panel">
@@ -25,6 +31,11 @@
                 {% endif %}
                 <pre class="patternlib-example__pre">
                     <code class="patternlib-example__code js">{{ params.raw }}</code>
+                </pre>
+            </div>
+            <div class="patternlib-example__panel">
+                <pre class="patternlib-example__pre">
+                    <code class="patternlib-example__code scss">{{ params.scss }}</code>
                 </pre>
             </div>
         </div>
