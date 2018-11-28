@@ -8,9 +8,9 @@
     {% set lang = 'en' %}
 {% endif %}
 
-{% if params.poweredByOns %}
-    {% if params.poweredByOns.alt %}
-        {% set poweredByAlt = params.oweredByOns.alt %}
+{% if params.poweredByONS %}
+    {% if params.poweredByONS.alt %}
+        {% set poweredByAlt = params.poweredByONS.alt %}
     {% else %}
         {% set poweredByAlt = 'Office for National Statistics' %}
     {% endif %}
@@ -18,7 +18,7 @@
 <footer class="footer {{params.classes}}" role="contentinfo">
     <div class="container">
         <div class="grid">
-            {% if params.poweredByOns %}
+            {% if params.poweredByONS %}
                 <div class="grid__col u-mb-m">
                     <img src="/img/ons-logo-black-{{ lang }}.svg" alt="{{ poweredByAlt }}" class="footer__poweredby-img">
                 </div>
@@ -52,7 +52,7 @@
             {% endif %}
             <div class="grid__col">
                 <div class="footer__license footer__license--border">
-                    <img alt="OGL" alt="OGL" class="footer__ogl-img" src="/img/UKOpenGovernmentLicence-grey.svg">{{ params.footerLink.pre}} <a href="{{ params.footerLink.href }}" class="footer__link">{{ params.footerLink.link }}</a>{{ params.footerLink.post }}
+                    <img alt="OGL" alt="OGL" class="footer__ogl-img" src="/img/UKOpenGovernmentLicence-grey.svg">{{ params.OGLLink.pre}} <a href="{{ params.OGLLink.href }}" class="footer__link">{{ params.OGLLink.link }}</a>{{ params.OGLLink.post }}
                 </div>
             </div>
         </div>
