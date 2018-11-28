@@ -9,5 +9,4 @@
 | id   | string | false   | ID for the `button` |
 | classes | string | false | Classes to add to the button component |
 | attributes | object | false | HTML attributes (for example data attributes) to add to the button component |
-| disabled   | boolean | false   | Whether the button should be disabled.  `disabled` and `aria-disabled` attributes will be set automatically. |
 | href | string | false | The URL that the button should link to. If this is set, `element` will be automatically set to `a` if it has not already been defined |
