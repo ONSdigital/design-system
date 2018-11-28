@@ -59,7 +59,7 @@ const jsCore = merge(core, {
   entry: {
     'scripts/polyfills': ['./js/polyfills.js'],
     'scripts/bundle': ['./js/index.js'],
-    'scripts/patternlib': ['./js/patternlib.js']
+    'scripts/patternlib': ['./js/patternlib/index.js']
   },
 
   plugins: [
