@@ -19,7 +19,14 @@
   }
 
   &__sub-nav,
+  &__primary,
   &__main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__sub-nav,
+  &__primary {
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -35,16 +42,17 @@
     }
   }
 
-  &__main {
-    flex: 1;
+  &__main,
+  &__primary {
+    flex: 1 0 auto;
   }
 
-  &__content,
-  &__example {
+  &__example:not(&__example--full-width) {
     padding: $grid-gutters;
   }
 
   &__content {
+    padding: $grid-gutters;
     width: 100%;
 
     p {

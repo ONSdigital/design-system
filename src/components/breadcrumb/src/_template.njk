@@ -3,9 +3,9 @@
         {% for item in params.items %}
             <li class="breadcrumb__item u-fs-s{{ ' icon--breadcrumb' if loop.index < loop.length }}{{ '  breadcrumb__item--current' if item.current }}">
                 {% if item.current %} 
-                    {{ item.title }}
+                    {{ item.text }}
                 {% else %}
-                    <a href="{{ item.href }}" class="breadcrumb__link">{{ item.title }}</a>
+                    <a href="{{ item.href }}" class="breadcrumb__link">{{ item.text }}</a>
                 {% endif %}
             </li>
         {% endfor %}
