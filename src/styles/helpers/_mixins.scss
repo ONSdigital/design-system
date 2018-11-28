@@ -118,7 +118,16 @@
   background-repeat: no-repeat;
 }
 
-@mixin create-icon($iconName, $className: null, $hoverIconName: null, $width: 1.3rem, $top: 2px, $position: left, $btn: false) {
+@mixin create-icon(
+  $iconName,
+  $className: null,
+  $hoverIconName: null,
+  $width: 1.3rem,
+  $top: 2px,
+  $position: left,
+  $btn: false,
+  $transform: null
+) {
   $name: $iconName;
 
   @if ($className != null) {
@@ -171,6 +180,10 @@
       @if ($position == 'right') {
         left: auto;
         right: $width - 0.7rem;
+      }
+
+      @if ($transform) {
+        transform: $transform;
       }
     }
 

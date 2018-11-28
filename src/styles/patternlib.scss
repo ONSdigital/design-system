@@ -51,7 +51,7 @@
       max-width: 50rem;
     }
 
-    p > code {
+    code:not(.patternlib-example__code) {
       display: inline-block;
       padding: 0.25rem;
       background: $color-lighter-grey;

@@ -1,0 +1,13 @@
+<nav class="breadcrumb" aria-label="{{params.ariaLabel}}">
+    <ol class="breadcrumb__items">
+        {% for item in params.items %}
+            <li class="breadcrumb__item u-fs-s{{ ' icon--breadcrumb' if loop.index < loop.length }}{{ '  breadcrumb__item--current' if item.current }}">
+                {% if item.current %} 
+                    {{ item.title }}
+                {% else %}
+                    <a href="{{ item.href }}" class="breadcrumb__link">{{ item.title }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ol>
+</nav>
