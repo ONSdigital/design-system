@@ -1,0 +1,28 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.breadcrumb__items {
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb__item {
+  display: inline-block;
+  margin: 0 0.4rem 0 0;
+  white-space: nowrap; /* stop items from wrapping, break on chevron only */
+
+  @include mq(xs, s) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.breadcrumb__item--current {
+  color: $color-very-dark-grey;
+}
+
+.breadcrumb__link {
+  text-decoration: none;
+}
