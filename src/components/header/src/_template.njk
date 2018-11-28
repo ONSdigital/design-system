@@ -23,7 +23,8 @@
                 </div>
                 {% if params.button %}
                     <div class="grid__col col-auto u-flex-no-shrink">
-                        <button class="btn btn--ghost u-ml-s u-d-no--@xs@m">Save and complete later</button>
+                        {% from "components/button/src/_macro.njk" import onsButton %}
+                        {{ onsButton(params.button) }}
                     </div>
                 {% endif %}
             </div>

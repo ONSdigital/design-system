@@ -1,0 +1,34 @@
+.pre-footer {
+  border-top: 1px $color-mid-grey solid;
+  padding: 0.7rem 0;
+}
+.footer {
+  padding: 2rem 0;
+  padding-bottom: 4rem;
+  margin-top: 2rem;
+  background-color: $color-mid-grey;
+
+  .footer__heading {
+    margin-top: 2rem;
+  }
+
+  .footer__license {
+    margin-top: 2rem;
+  }
+  .footer__license--border {
+    border-top: 1px solid $color-borders;
+    padding: 2rem 0 0 0;
+  }
+
+  .footer__ogl-img {
+    height: 1.333333rem;
+    opacity: 0.75;
+    margin-bottom: 0.2rem;
+    margin-right: 0.5rem;
+  }
+
+  .footer__poweredby-img {
+    width: 272px;
+    height: auto;
+  }
+}

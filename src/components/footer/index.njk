@@ -1,0 +1,34 @@
+---
+title: Footer
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+{{
+    patternlibExample("components/footer/examples/footer/index.njk")
+}}
+
+
+## Variants 
+
+### Transactional
+A reduced set of links as it is within a transaction funnel.
+{{
+    patternlibExample("components/footer/examples/footer-transactional/index.njk")
+}}
+
+### Powered by ONS
+For badged services where ONS is providing services to external organisations.
+{{
+    patternlibExample("components/footer/examples/footer-powered-by-ons/index.njk")
+}}
+
+### Transactional – Powered by ONS
+For badged services where ONS is providing services to external organisations, with a reduced set of links as it is within a transaction funnel.
+{{
+    patternlibExample("components/footer/examples/footer-powered-by-ons-transactional/index.njk")
+}}
+
+### Transactional – Powered by ONS (Cymraeg)
+{{
+    patternlibExample("components/footer/examples/footer-powered-by-ons-transactional-cymraeg/index.njk")
+}}

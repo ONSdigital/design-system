@@ -2,6 +2,7 @@
 
 {% block master_body %}
     {% from "components/header/src/_macro.njk" import onsHeader %}
+    {% from "components/footer/src/_macro.njk" import onsFooter %}
 
     {{ 
         onsHeader({
@@ -46,14 +47,27 @@
                 {% endfor %}
             </div>
         {% endif %}
-        <main class="patternlib-page__main">
-            <div class="patternlib-page__content">
-                <header class="patternlib-page__content-header">
-                    <h1>{{ pageInfo.title }}</h1>
-                </header>
-                {% block body %}
-                {% endblock %}
-            </div>
-        </main>
+        <div class="patternlib-page__primary">
+            <main class="patternlib-page__main">
+                <div class="patternlib-page__content">
+                    <header class="patternlib-page__content-header">
+                        <h1>{{ pageInfo.title }}</h1>
+                    </header>
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </main>
+            {{
+                onsFooter({
+                    footerLink: {
+                        pre: 'All content is available under the',
+                        link: 'Open Government Licence v3.0',
+                        href: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+                        post: ', except where otherwise stated'
+                    }
+                })
+            }}
+        </div>
     </div>
+   
 {% endblock %}
