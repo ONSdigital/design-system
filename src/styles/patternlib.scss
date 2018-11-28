@@ -46,5 +46,41 @@
 
   &__content {
     width: 100%;
+
+    p {
+      max-width: 50rem;
+    }
+
+    p > code {
+      display: inline-block;
+      padding: 0.25rem;
+      background: $color-lighter-grey;
+      color: $color-red;
+    }
+
+    & > {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        &:not(:first-child) {
+          margin-top: 3rem;
+        }
+      }
+
+      @for $i from 1 through 6 {
+        @for $c from 1 through 6 {
+          h#{$i} + h#{$c}:not(:first-child) {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__content-header {
+    margin-bottom: 2rem;
   }
 }
