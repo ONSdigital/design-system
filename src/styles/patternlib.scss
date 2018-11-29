@@ -33,6 +33,7 @@
   }
 
   &__sub-nav {
+    flex: 0 0 auto;
     padding: $grid-gutters;
     width: 300px;
     border-right: 1px solid $color-grey;
