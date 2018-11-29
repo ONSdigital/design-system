@@ -1,0 +1,64 @@
+---
+title: Panel
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+Panels are used to draw information to the attention of the user.
+
+
+
+## Variants
+
+### Information (Default)
+This panel is used to provide information in a neutral context.
+{{
+    patternlibExample("components/panel/examples/information/index.njk")
+}}
+
+### Success
+Success panels are used to provide positive, reassuring feedback to the user.
+
+{{
+    patternlibExample("components/panel/examples/success/index.njk")
+}}
+
+### Warning
+Warning panels are to draw the attention of the user to information before an error state occurs. The message should be succinct, descriptive and provide sufficient detail to the user to avoid an error state.
+{{
+    patternlibExample("components/panel/examples/warning/index.njk")
+}}
+
+### Error
+Used to provide feedback to the user that something is in an error state. This can range form input validation errors to server downtime.
+
+Content should be descriptive of the error and always direct the user towards a resolution.
+{{
+    patternlibExample("components/panel/examples/error/index.njk")
+}}
+
+### Inline information
+{{
+    patternlibExample("components/panel/examples/information-inline/index.njk")
+}}
+
+### Inline success
+{{
+    patternlibExample("components/panel/examples/success-inline/index.njk")
+}}
+
+### Inline warning
+{{
+    patternlibExample("components/panel/examples/warning-inline/index.njk")
+}}
+
+### Inline error
+{{
+    patternlibExample("components/panel/examples/error-inline/index.njk")
+}}
+
+### Spacious
+The spacious variant can be used on all inline variants.
+{{
+    patternlibExample("components/panel/examples/information-spacious/index.njk")
+}}
+

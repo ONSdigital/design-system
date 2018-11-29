@@ -1,0 +1,8 @@
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        title: "Warning",
+        type: "warn",
+        body: "<p>You've done something a bit bad, but you can still continue.</p>"
+    }) 
+}}
