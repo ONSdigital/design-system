@@ -1,0 +1,20 @@
+{% if params.title === undefined %}
+    {% set simpleClass = ' panel--simple' %}
+{% endif %}
+
+{% if params.type %}
+    {% set typeClass = ' panel--' + params.type %}
+{% else %}
+    {% set typeClass = ' panel--info' %}
+{% endif %}
+
+{% if params.spacious %}
+    {% set spaciousClass = ' panel--spacious' %}
+{% endif %}
+
+<div class="panel{{typeClass}}{{ simpleClass }}{{ spaciousClass }}">
+    {% if params.title %} <div class="panel__header">
+        <div class="u-fs-r--b">{{ params.title }}</div>
+    </div>{% endif %}
+    <div class="panel__body">{{ params.body | safe }}</div>
+</div>

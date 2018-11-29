@@ -92,10 +92,7 @@
     }
 
     code {
-      display: inline-block;
-      padding: 0.25rem;
-      background: $color-white;
-      color: $color-red;
+      background: $color-white !important;
     }
 
     h2,
