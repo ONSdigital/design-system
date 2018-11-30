@@ -63,8 +63,12 @@
 }
 
 .input--textarea {
-  width: 100%;
-  max-width: 100%; /* To avoid this escaping bounds of container on resize */
+  &:not([class*='input--w-']) {
+    width: 100%;
+    max-width: 100%; /* To avoid this escaping bounds of container on resize */
+  }
+  min-height: 4rem;
+  resize: vertical;
 }
 
 .input--radio,
