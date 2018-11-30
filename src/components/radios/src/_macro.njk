@@ -1,0 +1,41 @@
+{% macro onsRadios(params) %}
+    {%- from "components/label/src/_macro.njk" import onsLabel -%}
+    <div class="field field--radio field--multiplechoice">
+        {% if params.legend %}
+            <legend class="field__legend u-fs-r">{{ params.legend }}</legend>
+        {% endif %}
+        <fieldset>
+            {% for radio in params.radios -%}
+                <div class="field__item">
+                    <input class="input input--radio" name="{{ params.name }}" id="{{ radio.id }}" value="{{ radio.value }}"{% if radio.checked %} checked{% endif %} type="radio">
+                    {{
+                        onsLabel({
+                            for: radio.id,
+                            text: radio.label.text,
+                            description: radio.label.description,
+                            classes: "label--inline " + radio.label.classes
+                        })
+                    }}
+                    {% if radio.other -%}
+                        {%- from "components/input/src/_macro.njk" import onsInput -%}
+                        <div class="field__other">
+                            {{
+                                onsInput({
+                                    id: radio.other.id,
+                                    name: radio.other.name,
+                                    type: radio.other.type,
+                                    classes: "input--w-auto " + radio.other.classes,
+                                    attributes: radio.other.attributes,
+                                    label: {
+                                        text: radio.other.label.text,
+                                        classes: 'u-fs-s--b'
+                                    }
+                                })
+                            }}
+                        </div>
+                    {%- endif %}
+                </div>
+            {%- endfor %}
+        </fieldset>
+    </div>
+{% endmacro %}

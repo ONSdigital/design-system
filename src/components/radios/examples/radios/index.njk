@@ -1,0 +1,23 @@
+{% from "components/radios/src/_macro.njk" import onsRadios %}
+{{ 
+    onsRadios({
+        legend: "Select your favourite topping",
+        name: "food",
+        radios: [
+            {
+                id: "bacon",
+                label: {
+                    text: "Bacon"
+                },
+                value: "bacon"
+            },
+            {
+                id: "olives",
+                label: {
+                    text: "Olives"
+                },
+                value: "olives"
+            }
+        ]
+    }) 
+}}
