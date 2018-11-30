@@ -1,0 +1,73 @@
+.input-type {
+  display: inline-flex;
+  position: relative;
+
+  // Double ampersand is needed to solve specificity issues
+  & &__input {
+    z-index: 1;
+    flex: 1 1 auto;
+    position: relative;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &__type[title] {
+    flex: 0 0 auto;
+    display: block;
+    background-color: $color-lighter-grey;
+    border: 1px solid $color-borders;
+
+    padding: $input-padding $input-padding * 2;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    line-height: normal;
+    text-decoration: none;
+    white-space: nowrap;
+
+    @include ie8() {
+      line-height: 1.1;
+    }
+  }
+
+  &__input:focus + &__type[title]:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: $input-radius;
+    box-shadow: 0 0 0 3px $color-focus-outline;
+  }
+
+  &:not(&--prefix) & {
+    &__type[title] {
+      border-left: none;
+      border-radius: 0 $input-radius $input-radius 0;
+    }
+
+    &__input {
+      text-align: right;
+      border-radius: $input-radius 0 0 $input-radius;
+    }
+  }
+
+  &--prefix & {
+    &__type[title] {
+      border-right: none;
+      border-radius: $input-radius 0 0 $input-radius;
+      order: 0;
+    }
+
+    &__input {
+      border-radius: 0 $input-radius $input-radius 0;
+      order: 1;
+    }
+  }
+}
+
+@include input-width('input-type--w-{x}');

@@ -1,0 +1,28 @@
+---
+title: Label
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+{{
+    patternlibExample("components/label/examples/label/index.njk")
+}}
+
+## Variants
+### With description
+{{
+    patternlibExample("components/label/examples/label-description/index.njk")
+}}
+
+
+### Inline
+This variant is achieved by adding `label--inline` to the `classes` option.
+{{
+    patternlibExample("components/label/examples/label-inline/index.njk")
+}}
+
+### Small
+This variant is achieved by adding `label--small` to the `classes` option.
+{{
+    patternlibExample("components/label/examples/label-small/index.njk")
+}}
+
