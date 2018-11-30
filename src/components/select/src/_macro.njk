@@ -1,0 +1,28 @@
+{% macro onsSelect(params) %}
+    {%- if params.label -%}
+        {%- from "components/label/src/_macro.njk" import onsLabel -%}
+        {{-
+            onsLabel({
+                for: params.id,
+                text: params.label.text,
+                description: params.label.description,
+                classes: params.label.classes
+            })
+        -}}
+    {%- endif -%}
+    <select
+        id="{{ params.id }}"
+        name="{{ params.name }}" 
+        class="input input--select {{ params.classes }}"
+        {%- if params.value -%} value="{{ params.value}}" {%- endif -%}
+        {%- for attribute, value in params.attributes -%} {{ attribute }}="{{ value }}"{%- endfor -%}>
+        {%- for option in params.options -%}
+        <option value="{{ option.value | default(option.text) }}"
+            {%- if option.selected %} selected {% endif -%}
+            {%- if option.disabled %} disabled {% endif -%}
+            {%- for attribute, value in option.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>   
+            {{- option.text -}}
+        </option>   
+        {%- endfor -%}
+    </select>
+{% endmacro %}

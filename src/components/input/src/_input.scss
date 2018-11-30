@@ -9,11 +9,13 @@
   border-radius: $input-radius;
   width: 100%;
   transition: border-color 200ms ease-in;
+
   appearance: none;
 
   @include mq(s) {
-    &--text {
-      &:not([class*='input--w-']) {
+    &--text,
+    &--select {
+      &:not(.input--block):not([class*='input--w-']) {
         width: $input-width;
       }
     }
