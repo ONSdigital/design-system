@@ -1,0 +1,39 @@
+.label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+input:checked ~ .label {
+  background: $color-lighter-grey;
+  border-radius: $input-radius;
+}
+
+.label__description {
+  line-height: 1.4;
+  display: inline-block;
+}
+
+.label--inline {
+  font-weight: 400;
+  padding: 0.7rem 1rem 0.7rem 2.5rem;
+  display: block;
+  margin: 0;
+  cursor: pointer;
+
+  @include fixed() {
+    width: 25rem;
+  }
+}
+
+.label {
+  .field--textarea & {
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+}
+
+.label--small {
+  font-size: 0.8rem;
+}

@@ -1,0 +1,43 @@
+---
+title: Input
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+{{
+    patternlibExample("components/input/examples/text/index.njk")
+}}
+
+### Variants
+## Width constrained
+Inputs can have their widths constrained using the `input--w-<number>` class. Available widths are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50.
+{{
+    patternlibExample("components/input/examples/text-width-constrained/index.njk")
+}}
+
+## Number
+Setting the type to `number` will add the correct pattern to trigger a numeric keypad on touch devices.
+{{
+    patternlibExample("components/input/examples/number/index.njk")
+}}
+
+## Email
+Setting the type to `email` will bring up the correct keypad on touch devices.
+{{
+    patternlibExample("components/input/examples/email/index.njk")
+}}
+
+## Telephone
+Setting the type to `tel` will bring up the correct keypad on touch devices.
+{{
+    patternlibExample("components/input/examples/telephone/index.njk")
+}}
+
+### Prefixed
+{{
+    patternlibExample("components/input/examples/prefixed/index.njk")
+}}
+
+### Suffixed
+{{
+    patternlibExample("components/input/examples/suffixed/index.njk")
+}}

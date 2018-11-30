@@ -1,0 +1,14 @@
+{% from "components/input/src/_macro.njk" import onsInput %}
+{{ 
+    onsInput({
+        id: "number",
+        type: "number",
+        attributes: {
+            min: 0,
+            required: true
+        },
+        label: {
+            text: "Enter a number"
+        }
+    }) 
+}}
