@@ -34,7 +34,10 @@ const core = {
 
   resolve: {
     extensions: ['.js', '.njk'],
-    modules: ['./node_modules']
+    modules: ['./node_modules'],
+    alias: {
+      js: path.resolve(__dirname, './src/js'),
+    }
   },
 
   resolveLoader: {

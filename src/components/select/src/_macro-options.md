@@ -4,8 +4,8 @@
 | classes | string | false | Classes to add to the select. |
 | name | string | false    | The name of the select |
 | value | string &#124; number | false | The value of the select. Helpful for setting the preselected value |
-| attributes | object | false | HTML attributes (for example data attributes) to add to the input |
-| label | `Label` [_(ref)_](/components/label) | false | Settings for the input label. `for` will automatically be set to match the input id |
+| attributes | object | false | HTML attributes (for example data attributes) to add to the select |
+| label | `Label` [_(ref)_](/components/label) | false | Settings for the select label. `for` will automatically be set to match the select id |
 | options | `Array<SelectOption>` | true | An array of options for the select |
 
 ## SelectOption

@@ -9,7 +9,7 @@
     "url": "https://github.com/bameyrick"
   },
   "scripts": {
-    "start": "rm -rf build && yarn webpack-dev-server --quiet --host 0.0.0.0 --watch --config webpack.dev.babel.js",
+    "start": "rm -rf build && yarn webpack-dev-server --host 0.0.0.0 --watch --config webpack.dev.babel.js",
     "build": "rm -rf build && yarn webpack --config webpack.prod.babel.js",
     "check-unused": "npx npm-check-unused",
     "lint-staged": "lint-staged",
@@ -72,7 +72,9 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "a11y-dialog": "^5.2.0",
     "lodash": "^4.17.11",
-    "normalize-scss": "^7.0.1"
+    "normalize-scss": "^7.0.1",
+    "whatwg-fetch": "^3.0.0"
   }
 }
