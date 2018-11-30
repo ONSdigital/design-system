@@ -1,0 +1,47 @@
+{% from "components/select/src/_macro.njk" import onsSelect %}
+{{ 
+    onsSelect({
+        id: "select-wide",
+        name: "select",
+        label: {
+            text: "Select your favourite cartoon character"
+        },
+        classes: "input--block",
+        options: [
+            {
+                value: "",
+                text: "Select an option",
+                disabled: true,
+                selected: true
+            },
+            {
+                value: "bart",
+                text: "Bart Simpson"
+            },
+            {
+                value: "homer",
+                text: "Homer Simpson"
+            },
+            {
+                value: "marge",
+                text: "Marge Simpson"
+            },
+            {
+                value: "lisa",
+                text: "Lisa Simpson"
+            },
+            {
+                value: "maggie",
+                text: "Maggie Simpson"
+            },
+            {
+                value: "ned",
+                text: "Ned Flanders"
+            },
+            {
+                value: "7-dwarves",
+                text: "The 7 Dwarves: Grumpy, Happy, Sleepy, Bashful, Sneezy, Dopey, Doc"
+            }
+        ]
+    })
+}}
