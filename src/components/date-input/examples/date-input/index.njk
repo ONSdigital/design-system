@@ -1,0 +1,11 @@
+{% from "components/date-input/src/_macro.njk" import onsDateInput %}
+
+{{
+    onsDateInput({
+        legend: "Please enter your date of birth",
+        description: "For example, 31 3 1980",
+        dayLabel: "Day",
+        monthLabel: "Month",
+        yearLabel: "Year"
+    })
+}}
