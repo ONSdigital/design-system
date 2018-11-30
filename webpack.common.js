@@ -37,6 +37,7 @@ const core = {
     modules: ['./node_modules'],
     alias: {
       js: path.resolve(__dirname, './src/js'),
+      components: path.resolve(__dirname, './src/components'),
     }
   },
 

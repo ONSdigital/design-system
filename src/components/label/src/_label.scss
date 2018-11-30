@@ -5,11 +5,6 @@
   color: inherit;
 }
 
-input:checked ~ .label {
-  background: $color-lighter-grey;
-  border-radius: $input-radius;
-}
-
 .label__description {
   line-height: 1.4;
   display: inline-block;
@@ -25,6 +20,12 @@ input:checked ~ .label {
   @include fixed() {
     width: 25rem;
   }
+}
+
+.label--toggle {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0 0.25rem;
 }
 
 .label {
