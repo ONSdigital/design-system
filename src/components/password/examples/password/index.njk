@@ -1,0 +1,11 @@
+{% from "components/password/src/_macro.njk" import onsPassword %}
+
+{{
+    onsPassword({
+        id: "password",
+        label: {
+            text: "Password"
+        },
+        showPasswordText: "Show password"
+    })
+}}

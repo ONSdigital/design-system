@@ -4,7 +4,7 @@
         <legend class="fieldgroup__title">{{ params.legend }}</legend>
         <div id="{{ params.id }}-description" class="field__description u-fs-s--b u-fw-n">{{ params.description }}</div>
         <div class="fieldgroup__fields">
-            <div class="field field--input">
+            <div class="field">
                 {{
                     onsInput({
                         id: params.id + "-day",
@@ -22,7 +22,7 @@
                     })
                 }}
             </div>
-            <div class="field field--input">
+            <div class="field">
                 {{
                     onsInput({
                         id: params.id + "-month",
@@ -40,7 +40,7 @@
                     })
                 }}
             </div>
-            <div class="field field--input">
+            <div class="field">
                 {{
                     onsInput({
                         id: params.id + "-year",

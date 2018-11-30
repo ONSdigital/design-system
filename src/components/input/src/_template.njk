@@ -3,6 +3,8 @@
 {% if params.type == "number" %} 
     {% set type = "number" %}
     {% set pattern = "[0-9]*" %}
+{% elseif params.type %}
+    {% set type = params.type %}
 {% else %}
     {% set type = "text" %}
 {% endif %}
