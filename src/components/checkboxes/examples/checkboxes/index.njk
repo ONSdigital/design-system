@@ -1,0 +1,23 @@
+{% from "components/checkboxes/src/_macro.njk" import onsCheckboxes %}
+{{ 
+    onsCheckboxes({
+        legend: "Select all that apply",
+        name: "food",
+        checkboxes: [
+            {
+                id: "bacon",
+                label: {
+                    text: "Bacon"
+                },
+                value: "bacon"
+            },
+            {
+                id: "olives",
+                label: {
+                    text: "Olives"
+                },
+                value: "olives"
+            }
+        ]
+    }) 
+}}

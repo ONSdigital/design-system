@@ -1,0 +1,41 @@
+{% macro onsCheckboxes(params) %}
+    {%- from "components/label/src/_macro.njk" import onsLabel -%}
+    <div class="field field--checkbox field--multiplechoice">
+        {% if params.legend %}
+            <legend class="field__legend u-fs-r">{{ params.legend }}</legend>
+        {% endif %}
+        <fieldset>
+            {% for checkbox in params.checkboxes -%}
+                <div class="field__item">
+                    <input class="input input--checkbox" name="{{ params.name }}" id="{{ checkbox.id }}" value="{{ checkbox.value }}"{% if checkbox.checked %} checked{% endif %} type="checkbox">
+                    {{
+                        onsLabel({
+                            for: checkbox.id,
+                            text: checkbox.label.text,
+                            description: checkbox.label.description,
+                            classes: "label--inline " + checkbox.label.classes
+                        })
+                    }}
+                    {% if checkbox.other -%}
+                        {%- from "components/input/src/_macro.njk" import onsInput -%}
+                        <div class="field__other">
+                            {{
+                                onsInput({
+                                    id: checkbox.other.id,
+                                    name: checkbox.other.name,
+                                    type: checkbox.other.type,
+                                    classes: "input--w-auto " + checkbox.other.classes,
+                                    attributes: checkbox.other.attributes,
+                                    label: {
+                                        text: checkbox.other.label.text,
+                                        classes: 'u-fs-s--b'
+                                    }
+                                })
+                            }}
+                        </div>
+                    {%- endif %}
+                </div>
+            {%- endfor %}
+        </fieldset>
+    </div>
+{% endmacro %}
