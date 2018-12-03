@@ -1,0 +1,10 @@
+---
+fullWidth: true
+---
+{% from "components/beta-bar/src/_macro.njk" import onsBetaBar %}
+{{-
+    onsBetaBar({
+        beta: "BETA",
+        html: 'This is a new service – your <a href="#feedback">feedback</a> will help us improve it.'
+    })
+-}}
