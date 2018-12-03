@@ -36,24 +36,22 @@
                 data-charcount-plural="{{ params.charCountPlural }}">
             </div>
         {%- endif -%}
-
         {%- if params.mutuallyExclusive -%}
             <div class="field field--checkbox field--exclusive">
                 <div class="field__label u-mt-s u-fs-r--b" aria-hidden="true">{{ params.or }}</div>
-                    <div class="field__item">
-                        {{
-                            onsCheckbox({
-                                id: params.checkbox.id,
-                                name: params.checkbox.name,
-                                value: params.checkbox.label,
-                                classes: "js-exclusive-checkbox " + params.checkbox.classes | default(""),
-                                label: {
-                                    text: '<span class="u-vh">' + params.or + ', </span> ' + params.checkbox.label.text + '<span class="u-vh">. ' +  params.deselectMessage + '</span>'
-                                }
-                            })
-                        }}
-                        <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-adjective="{{ params.deselectAdjective }}"></span>
-                    </div>
+                <div class="field__item">
+                    {{
+                        onsCheckbox({
+                            id: params.checkbox.id,
+                            name: params.checkbox.name,
+                            value: params.checkbox.value,
+                            classes: "js-exclusive-checkbox " + params.checkbox.classes | default(""),
+                            label: {
+                                text: '<span class="u-vh">' + params.or + ', </span> ' + params.checkbox.label.text + '<span class="u-vh">. ' +  params.deselectMessage + '</span>'
+                            }
+                        })
+                    }}
+                    <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-adjective="{{ params.deselectAdjective }}"></span>
                 </div>
             </div>
         {%- endif -%}
