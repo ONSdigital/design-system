@@ -1,6 +1,7 @@
 import './api/_load';
 import './dialog';
 import './submitter';
+import './mutually-exclusive';
 import 'components/textarea/src/character-limit';
 import 'components/password/src/password';
 // import '../components/collapsible/collapsible.js';
