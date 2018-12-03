@@ -100,6 +100,10 @@
   flex-wrap: nowrap;
 }
 
+@include bp-suffix(grid--column, $createBetweenBreakpoints: true) {
+  flex-direction: column;
+}
+
 @include bp-suffix(grid--bordered, false) {
   margin-left: 0;
   .grid__col {
@@ -217,6 +221,10 @@
 
 @include bp-suffix(u-flex-no-grow) {
   flex-grow: 0;
+}
+
+@include bp-suffix(u-flex-no-basis) {
+  flex-basis: 0;
 }
 
 @include bp-suffix('nopull-', false) {

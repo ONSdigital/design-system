@@ -1,0 +1,44 @@
+{% extends "./_master.njk" %}
+
+{% block master_body %}
+    {% from "components/header/src/_macro.njk" import onsHeader %}
+    {% from "components/footer/src/_macro.njk" import onsFooter %}
+
+    {{ 
+        onsHeader({
+            title: "Design system",
+            fullWidth: true,
+            classes: "patternlib-page__header",
+            navigation: {
+                classes: "nav--horizontal nav--light nav--main nav--h-m js-main-nav",
+                ariaLabel: "Main menu",
+                ariraListLabel: "Navigation menu",
+                currentPath: pageInfo.path,
+                items: helpers.navigationHelper({ 
+                    pages: pageInfo.siteMap,
+                    ignorePaths: ["/"]
+                })
+            }
+        })
+    }}
+    
+    <div class="patternlib-page__body">
+        <div class="patternlib-page__primary">
+            <main class="patternlib-page__main">
+                {% block body %}
+                {% endblock %}
+            </main>
+            {{
+                onsFooter({
+                    OGLLink: {
+                        pre: 'All content is available under the',
+                        link: 'Open Government Licence v3.0',
+                        href: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+                        post: ', except where otherwise stated'
+                    }
+                })
+            }}
+        </div>
+    </div>
+   
+{% endblock %}
