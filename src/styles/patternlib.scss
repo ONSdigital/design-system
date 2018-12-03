@@ -96,3 +96,12 @@
     margin-bottom: 2rem;
   }
 }
+
+.patternlib-hero {
+  background: $color-mid-grey;
+  padding: $grid-gutters;
+  width: 100%;
+  &__content {
+    max-width: 30rem;
+  }
+}
