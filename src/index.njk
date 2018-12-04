@@ -3,8 +3,10 @@ title: ONS Design System - Homepage
 layout: home
 ---
 <div class="patternlib-hero">
-  <div class="patternlib-hero__content">
-    <h1 class="patternlib-hero__title u-fs-xxl u-mt-s">Design and build digital services for the ONS</h1>
+  <div class="patternlib-hero__content container">
+    <header>
+      <h1 class="patternlib-hero__title u-fs-xxl">Design and build digital services for the ONS</h1>
+    </header>
     <p class="patternlib-hero__text">Everything you need to make accessible, consistent digital products.</p>
     {% from "components/button/src/_macro.njk" import onsButton %}
     {{- 
@@ -17,15 +19,15 @@ layout: home
     -}}
   </div>
 </div>
-<div class="patternlib-page__content">
-  <div class="grid grid--flex grid--column@xs@s u-mt-m u-mb-m">
+<div class="container">
+  <div class="grid grid--flex grid--column@xs@s u-mt-xl u-mb-m">
     <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s u-mb-s col-12@xs@s">
       {% from "components/card/src/_macro.njk" import onsCard %}
       {{-
           onsCard({
-              cardTitle: 'Styles',
-              cardLink: '/styles',
-              cardText: 'Guides for applying layout, typography and colour.'
+              title: 'Styles',
+              href: '/styles',
+              text: 'Guides for applying layout, typography and colour.'
           })
       -}}
     </div>
@@ -33,9 +35,9 @@ layout: home
       {% from "components/card/src/_macro.njk" import onsCard %}
       {{-
           onsCard({
-              cardTitle: 'Components',
-              cardLink: '/components',  
-              cardText: 'Resuable and accessible code to build the components of a page. '
+              title: 'Components',
+              href: '/components',  
+              text: 'Resuable and accessible code to build the components of a page. '
           })
       -}}
     </div>
@@ -43,9 +45,9 @@ layout: home
       {% from "components/card/src/_macro.njk" import onsCard %}
       {{-
           onsCard({
-              cardTitle: 'Patterns',
-              cardLink: '/patterns',
-              cardText: 'Patterns on common tasks and how components should work together.'
+              title: 'Patterns',
+              href: '/patterns',
+              text: 'Patterns on common tasks and how components should work together.'
           })
       -}}
     </div>

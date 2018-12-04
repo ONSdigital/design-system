@@ -1,4 +1,10 @@
 <div class="card">
-    <h3 class="u-fs-l"><a href="{{ params.cardLink }}">{{ params.cardTitle }}</a></h3>
-    <p>{{ params.cardText }}</p>
+    <h3 class="u-fs-l">
+        {% if params.href %}
+        <a href="{{ params.href }}">{{ params.title }}</a>
+        {% else %}
+        {{ params.title }}
+        {% endif %}
+    </h3>
+    <p>{{ params.text }}</p>
 </div>
