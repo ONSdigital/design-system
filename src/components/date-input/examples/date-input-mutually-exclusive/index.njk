@@ -1,0 +1,23 @@
+{% from "components/date-input/src/_macro.njk" import onsDateInput %}
+{{
+    onsDateInput({
+        id: "date-mutually-exclusive",
+        legend: "When did you leave your last paid job?",
+        description: "For example, 31 3 2018",
+        dayLabel: "Day",
+        monthLabel: "Month",
+        yearLabel: "Year",
+        mutuallyExclusive: true,
+        or: "Or",
+        deselectMessage: 'Selecting this will clear the date if one has been inputted',
+        deselectAdjective: "deselected",
+        checkbox: {
+            id: "date-exclusive-checkbox",
+            name: "no-paid-job",
+            value: "no-paid-job",
+            label: {
+                text: "I have never had a paid job"
+            }
+        }
+    })
+}}

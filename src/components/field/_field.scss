@@ -52,8 +52,8 @@
 input:checked ~ .field__other {
   display: block;
 }
-
-.field--multiplechoice {
+.field--radio,
+.field--checkbox {
   font-size: 0;
 
   .field__item {
@@ -92,7 +92,7 @@ input:checked ~ .field__other {
 .fieldgroup {
   display: block;
 
-  &--inline {
+  &--inline &__fields {
     margin: 0 0 $input-padding * -2;
 
     .field {

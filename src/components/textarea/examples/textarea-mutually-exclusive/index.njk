@@ -1,0 +1,28 @@
+{% from "components/textarea/src/_macro.njk" import onsTextarea %}
+
+{{
+    onsTextarea({
+        id: "feedback",
+        name: "feedback",
+        classes: "input--w-30",
+        label: {
+            text: "Please provide some feedback",
+            description: "For example describe any difficulties you experienced in the use of this service"
+        },
+        maxlength: 200,
+        charCountSingular: "You have {x} character remaining",
+        charCountPlural: "You have {x} characters remaining",
+        mutuallyExclusive: true,
+        or: "Or",
+        deselectMessage: 'Selecting this will clear your feedback',
+        deselectAdjective: "deselected",
+        checkbox: {
+            id: "feedback-checkbox",
+            name: "no-feedback",
+            value: "no-feedback",
+            label: {
+                text: "I dont wan't to provide feedback"
+            }
+        }
+    })
+}}
