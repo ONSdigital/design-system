@@ -93,15 +93,15 @@
   }
 
   &__content-header {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 }
 
 .patternlib-hero {
   background: $color-mid-grey;
-  padding: $grid-gutters;
   width: 100%;
-  &__content {
+  padding: 2rem 0 1rem;
+  &__title {
     max-width: 30rem;
   }
 }
