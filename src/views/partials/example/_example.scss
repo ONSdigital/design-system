@@ -16,6 +16,8 @@
   }
 
   &__rendered {
+    position: relative;
+    overflow: hidden;
     padding: 2rem;
   }
 

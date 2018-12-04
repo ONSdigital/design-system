@@ -1,33 +1,59 @@
 {% macro onsTextarea(params) %}
-    {%- if params.label -%}
-        {%- from "components/label/src/_macro.njk" import onsLabel -%}
-        {{-
-            onsLabel({
-                for: params.id,
-                text: params.label.text,
-                description: params.label.description,
-                classes: params.label.classes
-            })
-        -}}
+    {%- from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox -%}
+    {%- if params.mutuallyExclusive -%}
+        {%- set fieldExlusiveClass = " field--exclusive" -%}
+        {%- set textareaExlusiveClass = " js-exclusive-group" -%}
     {%- endif -%}
-    <textarea
-        id="{{ params.id }}"
-        class="input input--textarea {%- if params.maxlength %} js-charlimit-input{%- endif %} {{ params.classes }}"
-        name="{{ params.name }}"
-        cols="{{ params.cols | default(60) }}"
-        rows="{{ params.rows | default(8) }}"
-        {% if params.maxlength -%}
-        maxlength="{{ params.maxlength }}"
-        data-char-limit-ref="{{ params.id }}-lim-remaining"
-        {%- endif %}
-        {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{%- endfor -%}></textarea>
-    {%- if params.maxlength -%}
-        <div
-            id="{{ params.id }}-lim-remaining"
-            class="input__limit u-mt-xs u-fs-s--b"
-            aria-live="polite"
-            data-charcount-singular="{{ params.charCountSingular }}"
-            data-charcount-plural="{{ params.charCountPlural }}">
-        </div>
-    {%- endif -%}
+    <div class="field{{ fieldExlusiveClass }}">
+        {%- if params.label -%}
+            {%- from "components/label/src/_macro.njk" import onsLabel -%}
+            {{-
+                onsLabel({
+                    for: params.id,
+                    text: params.label.text,
+                    description: params.label.description,
+                    classes: params.label.classes
+                })
+            -}}
+        {%- endif -%}
+        <textarea
+            id="{{ params.id }}"
+            class="input input--textarea {%- if params.maxlength %} js-charlimit-input{%- endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
+            name="{{ params.name }}"
+            cols="{{ params.cols | default(60) }}"
+            rows="{{ params.rows | default(8) }}"
+            {% if params.maxlength -%}
+            maxlength="{{ params.maxlength }}"
+            data-char-limit-ref="{{ params.id }}-lim-remaining"
+            {%- endif %}
+            {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{%- endfor -%}></textarea>
+        {%- if params.maxlength -%}
+            <div
+                id="{{ params.id }}-lim-remaining"
+                class="input__limit u-mt-xs u-fs-s--b"
+                aria-live="polite"
+                data-charcount-singular="{{ params.charCountSingular }}"
+                data-charcount-plural="{{ params.charCountPlural }}">
+            </div>
+        {%- endif -%}
+        {%- if params.mutuallyExclusive -%}
+            <div class="field field--checkbox field--exclusive">
+                <div class="field__label u-mt-s u-fs-r--b" aria-hidden="true">{{ params.or }}</div>
+                <div class="field__item">
+                    {{
+                        onsCheckbox({
+                            id: params.checkbox.id,
+                            name: params.checkbox.name,
+                            value: params.checkbox.value,
+                            classes: "js-exclusive-checkbox " + params.checkbox.classes | default(""),
+                            label: {
+                                text: '<span class="u-vh">' + params.or + ', </span> ' + params.checkbox.label.text + '<span class="u-vh">. ' +  params.deselectMessage + '</span>'
+                            }
+                        })
+                    }}
+                    <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-adjective="{{ params.deselectAdjective }}"></span>
+                </div>
+            </div>
+        {%- endif -%}
+    </div>
 {% endmacro %}

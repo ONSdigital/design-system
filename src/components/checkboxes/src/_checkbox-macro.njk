@@ -1,0 +1,12 @@
+{% macro onsCheckbox(params) %}
+    {%- from "components/label/src/_macro.njk" import onsLabel -%}
+    <input class="input input--checkbox {{ params.classes }}" name="{{ params.name }}" id="{{ params.id }}" value="{{ params.value }}"{% if params.checked %} checked{% endif %} type="checkbox">
+    {{
+        onsLabel({
+            for: params.id,
+            text: params.label.text,
+            description: params.label.description,
+            classes: "label--inline " + params.label.classes | default('')
+        })
+    }}
+{% endmacro %}
