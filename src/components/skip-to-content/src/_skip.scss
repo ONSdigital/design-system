@@ -1,0 +1,29 @@
+.skip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+}
+
+.skip__link {
+  display: block;
+  height: 1px;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: -30px;
+  transition: top 100ms;
+  color: $color-white;
+  background: $color-secondary;
+  font-weight: 600;
+  font-size: 1.1rem;
+  &:focus {
+    padding: 1rem;
+    max-height: 20em;
+    height: auto;
+    top: 0;
+    color: $color-white;
+    box-shadow: 0 3px 0 0 $color-white;
+  }
+}
