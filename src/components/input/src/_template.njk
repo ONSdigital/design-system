@@ -34,7 +34,7 @@
     {% if params.name !== undefined %}name="{{ params.name }}"{% endif %}
     {% if params.value !== undefined %}value="{{ params.value }}"{% endif %}
     {% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
->
+/>
 {% if params.prefix !== undefined or params.suffix !== undefined -%}
         <abbr class="input-type__type" title="{{ params.prefix.title }}{{ params.suffix.title }}">{{ params.prefix.text }}{{ params.suffix.text }}</abbr>
     </div>

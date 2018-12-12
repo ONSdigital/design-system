@@ -6,9 +6,8 @@ import chalk from 'chalk';
 
 import commonConfig from './webpack.common';
 
-const mode = 'development';
 const port = 3001;
-const common = commonConfig(mode);
+const common = commonConfig('development');
 
 function getIP() {
   const interfaces = os.networkInterfaces();

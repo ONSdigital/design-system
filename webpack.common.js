@@ -29,7 +29,7 @@ const core = {
   output: {
     path: path.join(process.cwd(), OUT_DIR),
     filename: '[name].js',
-    chunkFilename: '[id].js'
+    chunkFilename: '[name].js'
   },
 
   resolve: {
@@ -64,6 +64,19 @@ const jsCore = merge(core, {
     'scripts/polyfills': ['./js/polyfills.js'],
     'scripts/bundle': ['./js/index.js'],
     'scripts/patternlib': ['./js/patternlib/index.js']
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.njk$/,
+        exclude: /(node_modules)/,
+        loader: 'nunjucks-loader',
+        query: {
+          root: `${__dirname}/src`
+        }
+      }
+    ]
   },
 
   plugins: [
@@ -173,7 +186,7 @@ export default function (mode) {
       plugins: [
         new MiniCssExtractPlugin({
           filename: '[name].css',
-          chunkFilename: '[id].css'
+          chunkFilename: '[name].css'
         }),
 
         new FixStyleOnlyEntriesPlugin({
@@ -239,7 +252,8 @@ export default function (mode) {
                       }
                     }
                   ]
-                ]
+                ],
+                plugins: ['@babel/plugin-syntax-dynamic-import']
               }
             }
           }
@@ -252,7 +266,7 @@ export default function (mode) {
 
       output: {
         filename: '[name].es5.js',
-        chunkFilename: '[id].es5.js'
+        chunkFilename: '[name].es5.js'
       },
 
       module: {
