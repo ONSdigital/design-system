@@ -1,0 +1,41 @@
+---
+title: Handle errors
+group: Help users to...
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+##When to use this pattern
+
+Follow this pattern whenever you need to help your users enter valid and required information in a form.
+
+Validation should occur after the user submits the form.
+
+##How to use this pattern
+
+You must tell the user about missing or incorrect information when they submit a form by displaying:
+
+- A summary listing all the errors on the page
+- Details highlighting each erroneous field
+
+###Summary of errors
+
+An [error panel](/components/panel#error) must be displayed above the form when the page reloads, so it's the first element to be read.
+
+The error panel's header must display the number of errors on the page.
+
+The error panel's message must list, and provide an anchor link to, each erroneous fieldset (or field) on the page.
+
+{{
+    patternlibExample("patterns/error-validation/examples/page-error/index.njk")
+}}
+
+###Error details
+
+You must use an [inline error panel](/components/panel#inline-error) to encapsulate each erroneous field or fieldset.
+
+The [inline error panel](/components/panel#inline-error) content must describe the error and direct the user towards a resolution.
+
+{{
+    patternlibExample("patterns/error-validation/examples/error-details/index.njk")
+}}
+
+##Research on this pattern
