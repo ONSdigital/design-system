@@ -19,13 +19,13 @@ export default function () {
       /**
        * Android
        */
-      bs_android_nexus_5: inheritBase({
-        device: 'Google Nexus 5',
-        browserName: 'android',
-        platform: 'ANDROID',
-        os: 'android',
-        os_version: '5.0'
-      }),
+      // bs_android_nexus_5: inheritBase({
+      //   device: 'Google Nexus 5',
+      //   browserName: 'android',
+      //   platform: 'ANDROID',
+      //   os: 'android',
+      //   os_version: '5.0'
+      // }),
 
       /**
        * OS X
