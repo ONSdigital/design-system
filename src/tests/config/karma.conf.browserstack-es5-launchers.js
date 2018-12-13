@@ -42,18 +42,18 @@ export default function () {
       }),
 
       /**
-       * macOS
+       * OS X
        */
       bs_mac_chrome: inheritBase({
         browser: 'chrome',
         browser_version: '60.0',
-        os: 'macOS',
+        os: 'OS X',
         os_version: 'Mojave'
       }),
       bs_mac_firefox: inheritBase({
         browser: 'firefox',
         browser_version: '59.0',
-        os: 'macOS',
+        os: 'OS X',
         os_version: 'Mojave'
       }),
       bs_mac_safari: inheritBase({
