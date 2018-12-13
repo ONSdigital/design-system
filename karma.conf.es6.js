@@ -1,9 +1,23 @@
 import * as path from 'path';
 import merge from 'webpack-merge';
 import commonConfig from './webpack.common';
+import localLauncherConfig from './karma.conf.local-launchers';
+import browserstackLaunchersConfig from './karma.conf.browserstack-launchers';
 
 let webpackConfig = commonConfig('production').es2015plus;
 delete webpackConfig.entry;
+
+const isRunningOnTravis = process.env['RUNNING_ON_TRAVIS'];
+
+const {
+  customLaunchers: localLaunchers,
+  browsers: localBrowsers
+} = localLauncherConfig();
+
+const {
+  customLaunchers: browserstackLaunchers,
+  browsers: browserstackBrowsers
+} = browserstackLaunchersConfig();
 
 webpackConfig = merge(webpackConfig, {
   module: {
@@ -38,6 +52,8 @@ export default function (config) {
 
     plugins: [
       'karma-chrome-launcher',
+      'karma-browserstack-launcher',
+      'karma-firefox-launcher',
       'karma-coverage-istanbul-reporter',
       'karma-webpack',
       'karma-mocha',
@@ -58,7 +74,7 @@ export default function (config) {
       // skipFilesWithNoCoverage: true,
     },
 
-    reporters: ['progress', 'mocha', 'coverage-istanbul'],
+    reporters: ['progress', 'mocha', 'coverage-istanbul', 'BrowserStack'],
 
     mochaReporter: {
       output: 'full',
@@ -78,7 +94,20 @@ export default function (config) {
 
     autoWatch: true,
 
-    browsers: ['Chrome'],
+    customLaunchers: {
+      ...(isRunningOnTravis ? browserstackLaunchers : localLaunchers)
+    },
+
+    browsers: [
+      ...(isRunningOnTravis ? browserstackBrowsers : localBrowsers)
+    ],
+
+    browserStack: {
+      startTunnel: 'true',
+      name: 'Karma unit tests',
+      project: 'ONS - pattern-library',
+      forcelocal: true
+    },
 
     singleRun: process.env.KARMA_SINGLE_RUN !== 'false',
   });
