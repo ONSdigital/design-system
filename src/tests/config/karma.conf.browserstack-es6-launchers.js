@@ -24,7 +24,7 @@ export default function () {
         browserName: 'android',
         platform: 'ANDROID',
         os: 'android',
-        os_version: '5'
+        os_version: '5.0'
       }),
 
       /**
