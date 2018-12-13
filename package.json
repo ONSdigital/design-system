@@ -14,7 +14,8 @@
     "check-unused": "npx npm-check-unused",
     "lint-staged": "lint-staged",
     "precommit": "lint-staged",
-    "test": "KARMA_SINGLE_RUN=false karma start ./karma.conf.js"
+    "test": "karma start ./src/tests/config/karma.conf.js && karma start ./src/tests/config/karma.conf.nomodule.js",
+    "test:local": "KARMA_SINGLE_RUN=false karma start ./src/tests/config/karma.conf.js"
   },
   "browserslist": [
     "last 2 versions",
@@ -30,8 +31,10 @@
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/register": "^7.0.0",
+    "@babel/runtime": "^7.2.0",
     "autoprefixer": "^9.3.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",

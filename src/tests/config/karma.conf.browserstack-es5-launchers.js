@@ -9,9 +9,8 @@ export default function () {
       'bs_mac_safari',
       'bs_windows_10_IE_edge',
       'bs_windows_10_IE_11',
-      'bs_windows_8_1_IE_11',
-      'bs_windows_10_chrome_66',
-      'bs_windows_10_firefox_60'
+      'bs_windows_10_chrome_60',
+      'bs_windows_10_firefox_59'
     ],
 
     customLaunchers: {
@@ -23,15 +22,6 @@ export default function () {
         os: 'ios',
         os_version: '6.0'
       }),
-      // Works
-      /*bs_ipad2: {
-        base: 'BrowserStack',
-        device: 'iPad 5th',
-        browserName: 'iPad',
-        platform: 'MAC',
-        os: 'ios',
-        os_version: '11.0'
-      },*/
       bs_ipad4: inheritBase({
         device: 'iPad 4th',
         browserName: 'iPad',
@@ -52,19 +42,19 @@ export default function () {
       }),
 
       /**
-       * Mac OS X
+       * macOS
        */
       bs_mac_chrome: inheritBase({
         browser: 'chrome',
-        browser_version: '66.0',
-        os: 'OS X',
-        os_version: 'Sierra'
+        browser_version: '60.0',
+        os: 'macOS',
+        os_version: 'Mojave'
       }),
       bs_mac_firefox: inheritBase({
         browser: 'firefox',
-        browser_version: '63.0',
-        os: 'OS X',
-        os_version: 'Sierra'
+        browser_version: '59.0',
+        os: 'macOS',
+        os_version: 'Mojave'
       }),
       bs_mac_safari: inheritBase({
         browser: 'safari',
@@ -79,7 +69,8 @@ export default function () {
       bs_windows_10_IE_edge: inheritBase({
         os: 'Windows',
         os_version: '10',
-        browser: 'Edge'
+        browser: 'Edge',
+        browser_version: '15',
       }),
       bs_windows_10_IE_11: inheritBase({
         os: 'Windows',
@@ -87,23 +78,17 @@ export default function () {
         browser: 'IE',
         browser_version: '11',
       }),
-      bs_windows_8_1_IE_11: inheritBase({
-        os: 'Windows',
-        os_version: '8.1',
-        browser: 'IE',
-        browser_version: '11',
-      }),
-      bs_windows_10_chrome_66: inheritBase({
+      bs_windows_10_chrome_60: inheritBase({
         os: 'Windows',
         os_version: '10',
         browser: 'Chrome',
-        browser_version: '66.0'
+        browser_version: '60.0'
       }),
-      bs_windows_10_firefox_60: inheritBase({
+      bs_windows_10_firefox_59: inheritBase({
         os: 'Windows',
         os_version: '10',
         browser: 'firefox',
-        browser_version: '60.0'
+        browser_version: '59.0'
       })
     }
   };
