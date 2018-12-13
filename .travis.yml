@@ -8,8 +8,6 @@ before_install:
 jobs:
   include:
     - stage: test es6 bundle
-    script:
-      - karma start ./src/tests/config/karma.conf.js
+      script: karma start ./src/tests/config/karma.conf.js
     - stage: test es5 bundle
-    script:
-      - karma start ./src/tests/config/karma.conf.nomodule.js
+      script: karma start ./src/tests/config/karma.conf.nomodule.js
