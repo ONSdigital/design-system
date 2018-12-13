@@ -5,3 +5,11 @@ cache: yarn
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.12.3
   - export PATH="$HOME/.yarn/bin:$PATH"
+jobs:
+  include:
+    - stage: test es6 bundle
+    script:
+      - karma start ./src/tests/config/karma.conf.js
+    - stage: test es5 bundle
+    script:
+      - karma start ./src/tests/config/karma.conf.nomodule.js
