@@ -14,7 +14,7 @@
     "check-unused": "npx npm-check-unused",
     "lint-staged": "lint-staged",
     "precommit": "lint-staged",
-    "test": "karma start ./src/tests/config/karma.conf.nomodule.js && karma start ./src/tests/config/karma.conf.js",
+    "test": "karma start ./src/tests/config/karma.conf.js && karma start ./src/tests/config/karma.conf.nomodule.js",
     "test:local": "KARMA_SINGLE_RUN=false karma start ./src/tests/config/karma.conf.js"
   },
   "browserslist": [
