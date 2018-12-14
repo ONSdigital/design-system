@@ -1,7 +1,7 @@
 export default function () {
   return {
     browsers: [
-      'bs_android_nexus_5',
+      // 'bs_android_nexus_5',
       'bs_mac_chrome',
       'bs_mac_firefox',
       'bs_mac_safari',

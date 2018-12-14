@@ -1,5 +1,4 @@
 import * as path from 'path';
-import * as fs from 'fs';
 import merge from 'webpack-merge';
 import glob from 'glob';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -7,21 +6,11 @@ import globImporter from 'node-sass-glob-importer';
 import { NoEmitOnErrorsPlugin, NamedModulesPlugin } from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
-import { optimize } from 'webpack';
 import FixStyleOnlyEntriesPlugin from 'webpack-fix-style-only-entries';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import postcssPlugins from './postcss.config';
 
 const OUT_DIR = 'build';
-
-const nodeModules = path.join(process.cwd(), 'node_modules');
-const realNodeModules = fs.realpathSync(nodeModules);
-const genDirNodeModules = path.join(
-  process.cwd(),
-  'src',
-  '$$_gendir',
-  'node_modules'
-);
 
 const core = {
   context: `${__dirname}/src`,
@@ -38,6 +27,7 @@ const core = {
     alias: {
       js: path.resolve(__dirname, './src/js'),
       components: path.resolve(__dirname, './src/components'),
+      tests: path.resolve(__dirname, './src/tests')
     }
   },
 
@@ -61,9 +51,12 @@ const core = {
 
 const jsCore = merge(core, {
   entry: {
-    'scripts/polyfills': ['./js/polyfills.js'],
-    'scripts/bundle': ['./js/index.js'],
+    'scripts/bundle': ['./js/polyfills/index.js', './js/index.js'],
     'scripts/patternlib': ['./js/patternlib/index.js']
+  },
+
+  output: {
+    publicPath: '/'
   },
 
   module: {
@@ -79,20 +72,20 @@ const jsCore = merge(core, {
     ]
   },
 
-  plugins: [
-    new optimize.SplitChunksPlugin({
-      name: ['vendor'],
-      minChunks: module => {
-        return (
-          module.resource &&
-          (module.resource.startsWith(nodeModules) ||
-            module.resource.startsWith(genDirNodeModules) ||
-            module.resource.startsWith(realNodeModules))
-        );
-      },
-      chunks: ['bundle']
-    })
-  ]
+  // optimization: {
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       vendors: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         chunks: 'all',
+  //         priority: 1,
+  //         reuseExistingChunk: true,
+  //         minChunks: 2,
+  //         name: 'scripts/vendors',
+  //       }
+  //     }
+  //   },
+  // }
 });
 
 export default function (mode) {
@@ -240,7 +233,6 @@ export default function (mode) {
                     '@babel/preset-env',
                     {
                       modules: false,
-                      // useBuiltIns: true,
                       targets: {
                         browsers: [
                           'Chrome >= 60',
@@ -253,7 +245,9 @@ export default function (mode) {
                     }
                   ]
                 ],
-                plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-transform-runtime']
+                plugins: [
+                  '@babel/plugin-syntax-dynamic-import',
+                ]
               }
             }
           }
@@ -266,7 +260,7 @@ export default function (mode) {
 
       output: {
         filename: '[name].es5.js',
-        chunkFilename: '[name].es5.js'
+        chunkFilename: '[name].es5.js',
       },
 
       module: {
@@ -283,14 +277,15 @@ export default function (mode) {
                     '@babel/preset-env',
                     {
                       modules: false,
-                      // useBuiltIns: true,
                       targets: {
                         browsers: ['last 3 versions']
                       }
                     }
                   ]
                 ],
-                plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-transform-runtime']
+                plugins: [
+                  '@babel/plugin-syntax-dynamic-import',
+                ]
               }
             }
           }

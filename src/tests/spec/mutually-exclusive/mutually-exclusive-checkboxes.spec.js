@@ -1,3 +1,4 @@
+import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/checkboxes/src/_template.njk';
 import mutuallyExclusive from 'js/mutually-exclusive';
 
@@ -58,7 +59,11 @@ const params = {
 describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override', () => {
   let wrapper, nonExclusiveCheckboxes, exclusiveCheckbox, exclusiveCheckboxElem, ariaAlert;
 
-  beforeEach(async () => {
+  before(() => {
+    return awaitPolyfills;
+  });
+
+  beforeEach(() => {
     const html = template.render({ params });
   
     wrapper = document.createElement('div');

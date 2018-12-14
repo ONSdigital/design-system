@@ -15,6 +15,7 @@
     "lint-staged": "lint-staged",
     "precommit": "lint-staged",
     "test": "karma start ./src/tests/config/karma.conf.js && karma start ./src/tests/config/karma.conf.nomodule.js",
+    "test:browserstack": "TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.js && TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.nomodule.js",
     "test:local": "KARMA_SINGLE_RUN=false karma start ./src/tests/config/karma.conf.js"
   },
   "browserslist": [
@@ -31,7 +32,6 @@
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.2.0",
@@ -85,6 +85,7 @@
     "sass-loader": "^7.1.0",
     "url-loader": "^1.1.2",
     "webpack": "^4.26.0",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-fix-style-only-entries": "^0.0.5",
@@ -93,7 +94,9 @@
   },
   "dependencies": {
     "a11y-dialog": "^5.2.0",
+    "core-js": "^2.6.0",
     "lodash": "^4.17.11",
+    "mdn-polyfills": "^5.14.0",
     "normalize-scss": "^7.0.1",
     "whatwg-fetch": "^3.0.0"
   }
