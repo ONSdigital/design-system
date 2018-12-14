@@ -56,7 +56,8 @@ const jsCore = merge(core, {
   },
 
   output: {
-    publicPath: '/'
+    publicPath: '/',
+    chunkFilename: 'scripts/[name].js'
   },
 
   module: {
@@ -260,7 +261,7 @@ export default function (mode) {
 
       output: {
         filename: '[name].es5.js',
-        chunkFilename: '[name].es5.js',
+        chunkFilename: 'scripts/[name].es5.js',
       },
 
       module: {
