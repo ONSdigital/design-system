@@ -6,12 +6,17 @@ import {
   getAllToRun,
   moduleInventory
 } from './_sdcModules';
+import { awaitPolyfills } from '../polyfills/await-polyfills';
 
 function findMethod(moduleName, methodName) {
   return moduleInventory.find(item => item.name === moduleName).mod[methodName];
 }
 
 describe('sdc-modules (module)', () => {
+
+  before(() => {
+    return awaitPolyfills;
+  });
 
   describe('subscribe (method)', () => {
 
@@ -54,10 +59,10 @@ describe('sdc-modules (module)', () => {
         }]);
 
         expect(subscribe.bind(null, 'test-module1b', [{
-            method: function () {},
-            methodName: 'testMethod1b'
-          }]))
-        .to.throw(err);
+          method: function () {},
+          methodName: 'testMethod1b'
+        }]))
+          .to.throw(err);
       });
     });
 

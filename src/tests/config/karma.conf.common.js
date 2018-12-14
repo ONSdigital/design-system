@@ -4,7 +4,7 @@ import localLauncherConfig from './karma.conf.local-launchers';
 
 export default function karmaConfigGenerator(webpackConfig, browserstackLaunchersConfig) {
   delete webpackConfig.entry;
-  const isRunningOnTravis = process.env['RUNNING_ON_TRAVIS'];
+  const runOnBrowserstack = process.env['TEST_ON_BROWSERSTACK'];
 
   const {
     customLaunchers: localLaunchers,
@@ -29,6 +29,9 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
           include: [
             path.resolve('./src/components/'),
             path.resolve('./src/js/')
+          ],
+          exclude: [
+            path.resolve('./src/js/polyfills')
           ]
         }
       ],
@@ -41,9 +44,10 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
 
       frameworks: ['mocha', 'chai'],
 
-      files: ['tests/**/*.spec.js', 'js/polyfills.js'],
+      files: ['js/polyfills/index.js', 'tests/**/*.spec.js'],
 
       preprocessors: {
+        'js/polyfills/index.js': ['webpack'],
         'tests/**/*.spec.js': ['webpack'],
       },
 
@@ -92,11 +96,11 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
       autoWatch: true,
 
       customLaunchers: {
-        ...(isRunningOnTravis ? browserstackLaunchers : localLaunchers)
+        ...(runOnBrowserstack ? browserstackLaunchers : localLaunchers)
       },
 
       browsers: [
-        ...(isRunningOnTravis ? browserstackBrowsers : localBrowsers)
+        ...(runOnBrowserstack ? browserstackBrowsers : localBrowsers)
       ],
 
       browserStack: {
