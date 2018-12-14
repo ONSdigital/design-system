@@ -1,37 +1,37 @@
 @mixin rem($property, $values...) {
   $max: length($values);
-  $pxValues: '';
-  $remValues: '';
+  $px-values: '';
+  $rem-values: '';
 
   @for $i from 1 through $max {
     $value: strip-unit(nth($values, $i));
-    $pxValues: #{$pxValues + $value * 16}px;
+    $px-values: #{$px-values + $value * 16}px;
 
     @if $i < $max {
-      $pxValues: #{$pxValues + ' '};
+      $px-values: #{$px-values + ' '};
     }
   }
 
   @for $i from 1 through $max {
     $value: strip-unit(nth($values, $i));
-    $remValues: #{$remValues + $value}rem;
+    $rem-values: #{$rem-values + $value}rem;
 
     @if $i < $max {
-      $remValues: #{$remValues + ' '};
+      $rem-values: #{$rem-values + ' '};
     }
   }
 
-  #{$property}: $pxValues;
-  #{$property}: $remValues;
+  #{$property}: $px-values;
+  #{$property}: $rem-values;
 }
 
-@mixin font-size($sizeValue: 1.6) {
-  @include rem(font-size, $sizeValue);
+@mixin font-size($size-value: 1.6) {
+  @include rem(font-size, $size-value);
 }
 
 @mixin inline-block-hack {
   @if ($responsive == false) {
-    *display: inline;
+    // *display: inline;
     zoom: 1;
   }
 }
@@ -119,22 +119,26 @@
 }
 
 @mixin create-icon(
-  $iconName,
-  $className: null,
-  $hoverIconName: null,
+  $icon-name,
+  $class-name: null,
+  $hover-icon-name: null,
   $width: 1.3rem,
   $top: 2px,
   $position: left,
   $btn: false,
   $transform: null
 ) {
-  $name: $iconName;
+  $name: $icon-name;
 
-  @if ($className != null) {
-    $name: $className;
+  @if ($class-name != null) {
+    $name: $class-name;
   }
 
   .icon--#{$name} {
+    @include ie8() {
+      padding: auto;
+    }
+
     position: relative;
     @if ($position == 'right') {
       @if ($btn == true) {
@@ -150,12 +154,12 @@
       }
     }
 
-    @include ie8() {
-      padding: auto;
-    }
-
     &::before,
     &::after {
+      @include ie8() {
+        display: none;
+      }
+
       content: '';
       display: inline-block;
       height: $width;
@@ -167,10 +171,6 @@
       background-repeat: no-repeat;
       transition: opacity 200ms ease-in-out, transform 300ms ease-in-out;
       background-position: 0 0;
-
-      @include ie8() {
-        display: none;
-      }
 
       @if ($btn == true) {
         top: 0.7rem;
@@ -188,13 +188,13 @@
     }
 
     &::before {
-      @include icon($iconName);
+      @include icon($icon-name);
     }
 
-    @if ($hoverIconName) {
+    @if ($hover-icon-name) {
       &::after {
+        @include icon($hover-icon-name);
         opacity: 0;
-        @include icon($hoverIconName);
       }
       &:hover,
       &:focus {

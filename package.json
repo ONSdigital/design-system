@@ -31,6 +31,7 @@
   "lint-staged": {
     "*.scss": [
       "prettier --print-width 140 --single-quote --parser postcss --write",
+      "sass-lint",
       "git add"
     ],
     "*.js": [
