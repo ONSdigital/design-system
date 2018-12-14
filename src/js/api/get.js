@@ -1,4 +1,4 @@
-import {get} from "./_sdcModules";
+import { get } from './_sdcModules';
 
 window.sdcAPI = window.sdcAPI || {};
 

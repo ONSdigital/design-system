@@ -32,6 +32,11 @@
     "*.scss": [
       "prettier --print-width 140 --single-quote --parser postcss --write",
       "git add"
+    ],
+    "*.js": [
+      "prettier --print-width 140 --single-quote --parser babylon --write",
+      "eslint",
+      "git add"
     ]
   },
   "devDependencies": {
@@ -51,6 +56,7 @@
     "css-loader": "^1.0.1",
     "cssnano": "^4.1.7",
     "eslint": "^5.9.0",
+    "eslint-cli": "^1.1.1",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.0",
     "file-loader": "^2.0.0",
