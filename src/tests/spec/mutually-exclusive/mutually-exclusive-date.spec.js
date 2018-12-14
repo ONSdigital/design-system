@@ -122,7 +122,7 @@ function populateDate(dayInput, monthInput, yearInput) {
   monthInput.value = 12;
   yearInput.value = 2018;
 
-  const event = new Event('input');
+  const event = new CustomEvent('input');
 
   dayInput.dispatchEvent(event);
   monthInput.dispatchEvent(event);
