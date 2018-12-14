@@ -6,7 +6,7 @@ const remainingClassLimitExceeded = 'input__limit--reached';
 const classLimitedInput = 'js-charlimit-input';
 const attrCharLimitRef = 'data-char-limit-ref';
 
-export default function updateAvailableChars(element, remainingCharElement) {
+function updateAvailableChars(element, remainingCharElement) {
   /**
    * data-maxlength is used to store the originclassCharactersRemainingal value of maxlength
    * before we mess with it when newlines are added to the input
@@ -44,7 +44,7 @@ export default function updateAvailableChars(element, remainingCharElement) {
   }
 }
 
-const initialise = () => {
+export default function initialise() {
   const limitedInputs = Array.from(document.querySelectorAll(`.${classLimitedInput}`));
 
   limitedInputs.forEach(input => {
