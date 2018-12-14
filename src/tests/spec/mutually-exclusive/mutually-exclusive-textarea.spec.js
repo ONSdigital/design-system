@@ -126,6 +126,6 @@ describe('Component: Mutually Exclusive Textarea', () => {
 
 function populateTextarea(textarea) {
   textarea.value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus varius mauris, vitae venenatis sem ullamcorper in. Integer eu facilisis urna. Sed convallis porttitor massa eu pulvinar.';
-  const event = new Event('input');
+  const event = new CustomEvent('input');
   textarea.dispatchEvent(event);
 }
