@@ -13,7 +13,6 @@
     "build": "rm -rf build && yarn webpack --config webpack.prod.babel.js",
     "check-unused": "npx npm-check-unused",
     "lint-staged": "lint-staged",
-    "precommit": "lint-staged",
     "test": "karma start ./src/tests/config/karma.conf.js && karma start ./src/tests/config/karma.conf.nomodule.js",
     "test:browserstack": "TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.js && TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.nomodule.js",
     "test:local": "KARMA_SINGLE_RUN=false karma start ./src/tests/config/karma.conf.js"
@@ -23,6 +22,12 @@
     "not ie < 11",
     "not ie_mob < 11"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-checkout": "yarn check"
+    }
+  },
   "lint-staged": {
     "*.scss": [
       "prettier --print-width 140 --single-quote --parser postcss --write",
