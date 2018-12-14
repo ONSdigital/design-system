@@ -17,14 +17,6 @@
   clear: both;
 }
 
-/**
-  * For IE 6/7 only
-  * Include this rule to trigger hasLayout and contain floats.
-  */
-.u-cf {
-  *zoom: 1;
-}
-
 .u-fl {
   float: left;
 }

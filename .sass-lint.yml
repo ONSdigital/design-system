@@ -33,7 +33,7 @@ rules:
     - 1
     - convention: hyphenatedbem
   placeholder-in-extend: 0
-  property-sort-order: 0
+  property-sort-order: 'concentric'
   quotes:
     - 1
     - style: single

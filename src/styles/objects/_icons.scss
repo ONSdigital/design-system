@@ -1,35 +1,40 @@
 // The @include create-icon @mixin is located in the 'partials/helpers/_mixins.scss' file
-@include create-icon($iconName: check); // Example for the pattern library
-@include create-icon($iconName: print-link, $hoverIconName: print-hover, $position: right, $btn: true); // Example for the pattern library
-@include create-icon($iconName: person, $width: 1rem, $top: 4px); // Example for the pattern library
+@include create-icon($icon-name: check); // Example for the pattern library
+@include create-icon(
+  $icon-name: print-link,
+  $hover-icon-name: print-hover,
+  $position: right,
+  $btn: true
+); // Example for the pattern library
+@include create-icon($icon-name: person, $width: 1rem, $top: 4px); // Example for the pattern library
 
 @include create-icon(
-  $iconName: external-link,
-  $hoverIconName: external-link-hover,
+  $icon-name: external-link,
+  $hover-icon-name: external-link-hover,
   $width: 0.9rem,
   $top: 3px,
   $position: right
 ); // Used in eq-runner to handle external link
 @include create-icon(
-  $className: collapsible-simple,
-  $iconName: chevron-right-blue,
-  $hoverIconName: chevron-right-blue-hover,
+  $class-name: collapsible-simple,
+  $icon-name: chevron-right-blue,
+  $hover-icon-name: chevron-right-blue-hover,
   $width: 1.1rem,
   $top: 1px
 ); // Used for a single/simple accordion
 @include create-icon(
-  $className: collapsible,
-  $iconName: chevron-right-blue,
-  $hoverIconName: chevron-right-blue-hover,
+  $class-name: collapsible,
+  $icon-name: chevron-right-blue,
+  $hover-icon-name: chevron-right-blue-hover,
   $width: 1.2rem,
   $top: 33%
 ); // Used with the accordion component
 @include create-icon(
-  $className: breadcrumb,
-  $iconName: chevron-right,
+  $class-name: breadcrumb,
+  $icon-name: chevron-right,
   $width: 0.65rem,
   $position: right,
   $top: 50%,
   $transform: translateY(-50%)
 ); // Used with the breadcrumb component
-@include create-icon($iconName: lock, $top: 1px); // Used with text stating data portection
+@include create-icon($icon-name: lock, $top: 1px); // Used with text stating data portection

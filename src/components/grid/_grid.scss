@@ -100,7 +100,7 @@
   flex-wrap: nowrap;
 }
 
-@include bp-suffix(grid--column, $createBetweenBreakpoints: true) {
+@include bp-suffix(grid--column, $create-between-breakpoints: true) {
   flex-direction: column;
 }
 
@@ -151,45 +151,45 @@
   display: flex;
 }
 
-@each $breakpointMin, $size in $grid-bp {
+@each $breakpoint-min, $size in $grid-bp {
   @for $column from 1 through $grid-cols {
     $width: percentage($column / $grid-cols);
 
-    @include mq($breakpointMin) {
-      .col-#{$column}\@#{$breakpointMin} {
+    @include mq($breakpoint-min) {
+      .col-#{$column}\@#{$breakpoint-min} {
         width: $width;
         flex-basis: $width;
         max-width: $width;
       }
 
-      .push-#{$column}\@#{$breakpointMin} {
+      .push-#{$column}\@#{$breakpoint-min} {
         position: relative;
         left: $width;
       }
 
-      .pull-#{$column}\@#{$breakpointMin} {
+      .pull-#{$column}\@#{$breakpoint-min} {
         position: relative;
         left: -$width;
       }
     }
   }
 
-  @each $breakpointMax, $size in $grid-bp {
+  @each $breakpoint-max, $size in $grid-bp {
     @for $column from 1 through $grid-cols {
       $width: percentage($column / $grid-cols);
-      @include mq($breakpointMin, $breakpointMax) {
-        .col-#{$column}\@#{$breakpointMin}\@#{$breakpointMax} {
+      @include mq($breakpoint-min, $breakpoint-max) {
+        .col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
           width: $width;
           flex-basis: $width;
           max-width: $width;
         }
 
-        .push-#{$column}\@#{$breakpointMin}\@#{$breakpointMax} {
+        .push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
           position: relative;
           left: $width;
         }
 
-        .pull-#{$column}\@#{$breakpointMin}\@#{$breakpointMax} {
+        .pull-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
           position: relative;
           left: -$width;
         }
