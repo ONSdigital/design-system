@@ -1,0 +1,6 @@
+[![GitHub release](https://img.shields.io/github/release/ONSdigital/pattern-library-v2.svg)](https://github.com/ONSdigital/pattern-library-v2/releases)
+[![Travis tests](https://img.shields.io/travis/ONSdigital/pattern-library-v2.svg)](https://travis-ci.org/ONSdigital/pattern-library-v2)
+[![GitHub issues](https://img.shields.io/github/issues/ONSdigital/pattern-library-v2.svg)](https://github.com/ONSdigital/pattern-library-v2/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/ONSdigital/pattern-library-v2.svg)](https://github.com/ONSdigital/pattern-library-v2/pulls)
+[![Github last commit](https://img.shields.io/github/last-commit/ONSdigital/pattern-library-v2.svg)](https://github.com/ONSdigital/pattern-library-v2/commits)
+[![Github contributors](https://img.shields.io/github/contributors/ONSdigital/pattern-library-v2.svg)](https://github.com/ONSdigital/pattern-library-v2/graphs/contributors)

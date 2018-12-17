@@ -25,7 +25,7 @@ const isVisible = (el) => {
 };
 
 export default function initAnalytics() {
-  let trackVisibleElements = Array.from(document.querySelectorAll('[data-ga=visible]'));
+  let trackVisibleElements = [...document.querySelectorAll('[data-ga=visible]')];
 
   const interval = window.setInterval(() => {
     trackVisibleElements = trackVisibleElements.filter(element => {
@@ -36,7 +36,7 @@ export default function initAnalytics() {
     }
   }, 200);
 
-  Array.from(document.querySelectorAll('[data-ga=error]'))
+  [...document.querySelectorAll('[data-ga=error]')]
     .map(trackElement);
 
   document.body.addEventListener('click', ({target}) => {

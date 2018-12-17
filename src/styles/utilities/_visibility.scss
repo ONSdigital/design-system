@@ -1,7 +1,5 @@
 .u-hidden {
-  /* stylelint-disable declaration-no-important */
   display: none !important;
-  /* stylelint-enable */
   visibility: hidden;
 }
 
@@ -37,7 +35,6 @@
   background-color: transparent;
   border: 0;
   overflow: hidden;
-  *text-indent: -9999px;
 }
 
 .u-ir::before {
