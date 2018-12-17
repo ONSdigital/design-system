@@ -1,3 +1,5 @@
+import { awaitPolyfills } from 'js/polyfills/await-polyfills';
+
 const eventReady = 'DOMContentLoaded';
 
 let callbacks = [];
@@ -17,8 +19,10 @@ export default function ready(fn) {
   }
 }
 
-if (document.readyState === 'interactive') {
-  onReady.call();
-} else {
-  document.addEventListener(eventReady, onReady);
-}
+awaitPolyfills.then(() => {
+  if (['interactive', 'complete'].includes(document.readyState)) {
+    onReady.call();
+  } else {
+    document.addEventListener(eventReady, onReady);
+  }  
+});

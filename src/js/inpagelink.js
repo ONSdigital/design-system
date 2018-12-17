@@ -1,4 +1,3 @@
-import { forEach } from 'lodash';
 import domready from './domready';
 
 export const classTrigger = 'js-inpagelink';
@@ -8,9 +7,9 @@ export default function () {
 }
 
 export function inPageLink() {
-  const nodeList = document.getElementsByClassName(classTrigger);
+  const nodeList = [...document.getElementsByClassName(classTrigger)];
 
-  forEach(nodeList, applyInPageLink);
+  nodeList.forEach(applyInPageLink);
   return nodeList;
 }
 

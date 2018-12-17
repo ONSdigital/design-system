@@ -1,5 +1,3 @@
-import { defer } from 'lodash';
-
 const loadingClass = 'is-loading';
 
 export default class LoaderBtn {
@@ -30,7 +28,7 @@ export default class LoaderBtn {
   }
 
   disable() {
-    defer(() => {
+    setTimeout(() => {
       this.removeEventListener('click', this.onClick.bind(this));
       this.element.setAttribute('disabled', 'true');
     });

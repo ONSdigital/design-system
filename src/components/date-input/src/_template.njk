@@ -1,0 +1,86 @@
+{%- from "components/input/src/_macro.njk" import onsInput -%}
+{%- from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox -%}
+
+{%- if params.mutuallyExclusive -%}
+    {%- set exclusiveClass = " field--exclusive" -%}
+    {%- set fieldExclusiveClass = " js-exclusive-group" -%}
+{%- endif -%}
+<fieldset class="fieldgroup fieldgroup--inline{{ exclusiveClass }}" aria-describedby="{{ params.id }}-description" role="group">
+    <legend class="fieldgroup__title">{{ params.legend }}</legend>
+    <div id="{{ params.id }}-description" class="field__description u-fs-s--b u-fw-n">{{ params.description }}</div>
+    <div class="fieldgroup__fields">
+        <div class="field">
+            {{
+                onsInput({
+                    id: params.id + "-day",
+                    classes: "input--w-2" + fieldExclusiveClass | default(""),
+                    attributes: {
+                        min: 1,
+                        max: 31
+                    },
+                    label: {
+                        text: params.dayLabel,
+                        type: "number",
+                        classes: "u-fs-r"
+                    },
+                    value: params.dayValue
+                })
+            }}
+        </div>
+        <div class="field">
+            {{
+                onsInput({
+                    id: params.id + "-month",
+                    classes: "input--w-2" + fieldExclusiveClass | default(""),
+                    attributes: {
+                        min: 1,
+                        max: 12
+                    },
+                    label: {
+                        text: params.monthLabel,
+                        type: "number",
+                        classes: "u-fs-r"
+                    },
+                    value: params.monthValue
+                })
+            }}
+        </div>
+        <div class="field">
+            {{
+                onsInput({
+                    id: params.id + "-year",
+                    classes: "input--w-4" + fieldExclusiveClass | default(""),
+                    attributes: {
+                        min: 1000,
+                        max: 3000
+                    },
+                    label: {
+                        text: params.yearLabel,
+                        type: "number",
+                        classes: "u-fs-r"
+                    },
+                    value: params.yearValue
+                })
+            }}
+        </div>
+    </div>
+    {%- if params.mutuallyExclusive -%}
+        <div class="field field--checkbox field--multiplechoice field--exclusive">
+            <div class="field__label u-mt-s u-fs-r--b" aria-hidden="true">{{ params.or }}</div>
+            <div class="field__item">
+                {{
+                    onsCheckbox({
+                        id: params.checkbox.id,
+                        name: params.checkbox.name,
+                        value: params.checkbox.value,
+                        classes: "js-exclusive-checkbox " + params.checkbox.classes | default(""),
+                        label: {
+                            text: '<span class="u-vh">' + params.or + ', </span> ' + params.checkbox.label.text + '<span class="u-vh">. ' +  params.deselectMessage + '</span>'
+                        }
+                    })
+                }}
+                <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-adjective="{{ params.deselectAdjective }}"></span>
+            </div>
+        </div>
+    {%- endif -%}
+</fieldset>
