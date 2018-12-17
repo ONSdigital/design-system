@@ -6,12 +6,18 @@
     <div class="patternlib-example__source">
         <input id="{{ params.name }}-html" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example">
         <input id="{{ params.name }}-nunjucks" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example">
+        {% if params.template %}
+            <input id="{{ params.name }}-template" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example">
+        {% endif %}
         {% if params.scss %}
             <input id="{{ params.name }}-scss" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example">
         {% endif %}
         <div class="patternlib-example__tabs">
             <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-html">HTML</label>
             <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-nunjucks">Nunjucks</label>
+            {% if params.template %}
+                <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-template">Nunjucks Template</label>
+            {% endif %}
             {% if params.scss %}
                 <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-scss">SCSS</label>
             {% endif %}
@@ -31,6 +37,11 @@
                 {% endif %}
                 <pre class="patternlib-example__pre">
                     <code class="patternlib-example__code js">{{ params.raw }}</code>
+                </pre>
+            </div>
+            <div class="patternlib-example__panel">
+                <pre class="patternlib-example__pre">
+                    <code class="patternlib-example__code html">{{ params.template }}</code>
                 </pre>
             </div>
             <div class="patternlib-example__panel">
