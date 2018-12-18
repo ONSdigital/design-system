@@ -26,10 +26,6 @@
     line-height: normal;
     text-decoration: none;
     white-space: nowrap;
-
-    @include ie8() {
-      line-height: 1.1;
-    }
   }
 
   &__input:focus + &__type[title]:after {
