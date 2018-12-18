@@ -9,6 +9,9 @@
     &.panel--#{$name} {
       border-color: $color;
     }
+    .panel__header {
+      color: $color-black;
+    }
   }
 }
 

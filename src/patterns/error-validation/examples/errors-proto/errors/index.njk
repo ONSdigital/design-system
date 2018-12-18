@@ -1,0 +1,109 @@
+{% extends "./views/layouts/_prototype.njk" %}
+
+{% block prototype_body %}
+<div class="page">
+    <div class="page__container container">
+        <div class="grid grid--reverse">
+        <div class="grid__col col-4@m">
+        </div>
+            <div class="grid__col col-8@m">
+                {% from "components/panel/src/_macro.njk" import onsPanel %}
+                {% call
+                    onsPanel({
+                        title: "This page has 2 errors",
+                        type: "error", 
+                        classes: "u-mb-s"
+                    })
+                %}
+                <p class='mars'>These <strong>must be corrected</strong> to continue.</p>
+                <ul class='list list--bare'>
+                    <li class='list__item mars'>
+                    1) <a class='js-inpagelink' href='#container-test-number'>Enter a number.</a>
+                    </li>
+                    <li class='list__item mars'>
+                    2) <a class='js-inpagelink' href='#container-test-percentage'>Enter an number less than or equal to 100.</a>
+                    </li>
+                </ul>
+                {% endcall %}
+                <div class="group">
+                    <div class="question">
+                        <h1 class="question__title u-fs-l" data-qa="question-title">How many employees do you pay on a monthly basis?</h1>
+                        <fieldset class="question__fieldset js-question-fieldset">
+                            <legend class="u-vh">How many employees do you pay on a monthly basis?</legend>
+                            <div class="question__answers">
+                                <div class="question__answer">
+                                    {% from "components/panel/src/_macro.njk" import onsPanel %}
+                                    {% call 
+                                        onsPanel({
+                                            type: "error"
+                                        })
+                                    %}
+                                    <ul class="list list--bare list--errors u-mb-s" id="container-test-number">
+                                        <li class="list__item u-fs-r--b">Enter a number.</li>
+                                    </ul>
+                                    {% from "components/input/src/_macro.njk" import onsInput %}
+                                    {{
+                                        onsInput({
+                                            id: "number",
+                                            type: "number",
+                                            classes: "input--w-5",
+                                            attributes: {
+                                                min: 0,
+                                                required: true
+                                            },
+                                            label: {
+                                                text: "Number of employees paid monthly"
+                                            }
+                                        })
+                                    }}
+                                    {% endcall %}
+                                </div>
+                                {% call 
+                                    onsPanel({
+                                        type: "error",
+                                        id: "test",
+                                        classes: "u-mt-m u-"
+                                    })
+                                %}
+                                <ul class="list list--bare list--errors u-mb-s" id="container-test-percentage">
+                                    <li class="list__item u-fs-r--b">Enter an number less than or equal to 100.</li>
+                                </ul>                                
+                                <div class="question__answer">
+                                    {% from "components/input/src/_macro.njk" import onsInput %}
+                                    {{
+                                        onsInput({
+                                            id: "suffixed",
+                                            type: "number",
+                                            classes: "input--w-2",
+                                            attributes: {
+                                                required: true
+                                            },
+                                            label: {
+                                                text: "Percentage of employees paid monthly"
+                                            },
+                                            suffix: {
+                                                title: "percent",
+                                                text: "%"
+                                            }
+                                        })
+                                    }}
+                                {% endcall %}
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                {% from "components/button/src/_macro.njk" import onsButton %}
+                {{-
+                    onsButton({
+                        type: 'button',
+                        text: 'Save and continue',
+                        classes: 'u-mb-m u-mt-l',
+                        href: 'errors'
+                    })
+                -}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
