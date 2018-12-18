@@ -1,0 +1,17 @@
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call
+    onsPanel({
+        title: "This page has 2 errors",
+        type: "error"
+    })
+%}
+<p class='mars'>These <strong>must be corrected</strong> to continue.</p>
+<ul class='list list--bare'>
+    <li class='list__item mars'>
+    1) <a class='js-inpagelink' href='#container-test-number'>Enter a number to continue.</a>
+    </li>
+    <li class='list__item mars'>
+    2) <a class='js-inpagelink' href='#container-test-percentage'>Enter an number less than or equal to 100 to continue.</a>
+    </li>
+</ul>
+{% endcall %}
