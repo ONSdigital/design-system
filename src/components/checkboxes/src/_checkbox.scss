@@ -62,6 +62,10 @@ $checkbox-label-vertical-padding: 0.75rem;
     }
   }
 
+  &__description {
+    display: inline-block;
+  }
+
   &__other {
     padding: 0 $checkbox-padding $checkbox-padding;
   }
