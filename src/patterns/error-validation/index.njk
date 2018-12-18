@@ -14,7 +14,7 @@ Validation should occur after the user submits the form.
 You must tell the user about missing or incorrect information when they submit a form by displaying:
 
 - A summary listing all the errors on the page
-- Details highlighting each erroneous field
+- Contextual detail and highlight for each erroneous field
 
 ###Error summary
 
@@ -22,7 +22,7 @@ An [error panel](/components/panel#error) must be displayed above the form when 
 
 The error panel's header must display the number of errors on the page.
 
-The error panel's message must list, and provide an anchor link to, each erroneous fieldset (or field) on the page.
+The error panel's body must contain an anchored list to each erroneous field or fieldset on the page.
 
 {{
     patternlibExample("patterns/error-validation/examples/error-summary/index.njk")
@@ -30,15 +30,23 @@ The error panel's message must list, and provide an anchor link to, each erroneo
 
 ###Error details
 
-You must use an [inline error panel](/components/panel#inline-error) to encapsulate each erroneous field or fieldset.
+You must use an [inline error panel](/components/panel#inline-error) to wrap each erroneous field or fieldset.
 
-The [inline error panel](/components/panel#inline-error) content must describe the error and direct the user towards a resolution.
+The inline error panel text string must describe the error and direct the user towards a resolution.
 
 {{
     patternlibExample("patterns/error-validation/examples/error-details/index.njk")
 }}
 
 ##Example
+
+The prototype provides an example of form validation for missing and invalid inputs.  Attempt to submit the form as it is to see the validation in action.  
+
+<div class="panel panel--info panel--simple u-mb-m">
+    <div class="panel__body">
+        <strong>Note:</strong> The form in the example prototype will always fail validation.
+    </div>
+</div>
 
 {% from "components/button/src/_macro.njk" import onsButton %}
 {{- 

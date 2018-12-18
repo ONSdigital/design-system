@@ -1,8 +1,8 @@
-import domready from './domready';
+import domready from 'js/domready';
 
 export const classTrigger = 'js-inpagelink';
 
-export default function () {
+export default function() {
   return inPageLink();
 }
 
@@ -16,7 +16,7 @@ export function inPageLink() {
 export function applyInPageLink(elTrigger) {
   const elId = elTrigger.getAttribute('href').replace('#', '');
 
-  elTrigger.addEventListener('click', (e) => {
+  elTrigger.addEventListener('click', e => {
     e.preventDefault();
     focusOnInput(elId);
   });
