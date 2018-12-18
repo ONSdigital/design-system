@@ -12,16 +12,17 @@
         maxlength: 200,
         charCountSingular: "You have {x} character remaining",
         charCountPlural: "You have {x} characters remaining",
-        mutuallyExclusive: true,
-        or: "Or",
-        deselectMessage: 'Selecting this will clear your feedback',
-        deselectAdjective: "deselected",
-        checkbox: {
-            id: "feedback-checkbox",
-            name: "no-feedback",
-            value: "no-feedback",
-            label: {
-                text: "I dont want to provide feedback"
+        mutuallyExclusive: {
+            or: "Or",
+            deselectMessage: 'Selecting this will clear your feedback',
+            deselectAdjective: "deselected",
+            checkbox: {
+                id: "feedback-checkbox",
+                name: "no-feedback",
+                value: "no-feedback",
+                label: {
+                    text: "I dont want to provide feedback"
+                }
             }
         }
     })

@@ -3,10 +3,6 @@
     onsCheckboxes({
         legend: "Select all that apply",
         name: "mutually-exclusive",
-        mutuallyExclusive: true,
-        or: 'or',
-        deselectMessage: 'Selecting this will uncheck all other checkboxes',
-        deselectAdjective: 'deselected',
         checkboxes: [
             {
                 id: "gas",
@@ -42,15 +38,19 @@
                         text: "Please specify"
                     }
                 }
-            },
-            {
+            }
+        ],
+        mutuallyExclusive: {
+            or: 'Or',
+            deselectMessage: 'Selecting this will uncheck all other checkboxes',
+            deselectAdjective: 'deselected',
+            checkbox: {
                 id: "no-central-heating",
                 label: {
                     text: "No central heating"
                 },
-                value: "no-central-heating",
-                exclusive: true
+                value: "no-central-heating"
             }
-        ]
+        }
     }) 
 }}

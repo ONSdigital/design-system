@@ -1,65 +1,46 @@
+{%- from "components/field/src/_macro.njk" import onsField -%}
 {%- from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox -%}
 
-{%- if params.mutuallyExclusive -%}  
-    {% set fieldClass = ' field--exclusive' %}
-{%- endif -%}
-
-<div class="field field--checkbox field--multiplechoice{{ fieldClass }}">
-    {% if params.legend %}
-        <legend class="field__legend u-fs-r">{{ params.legend }}</legend>
-    {% endif %}
-    <fieldset>
-        {% for checkbox in params.checkboxes -%}
-            {%- set labelHTML = checkbox.label.text -%}
-            {%- if params.mutuallyExclusive -%}  
-                {%- if checkbox.exclusive -%}
-                    {% set exclusiveClass = ' js-exclusive-checkbox' %}
-                    {% set labelHTML = '<span class="u-vh">' + params.or + ', </span>' + checkbox.label.text + '<span class="u-vh">. ' + params.deselectMessage + '</span>' %}
-                {%- else -%}
-                    {% set exclusiveClass = ' js-exclusive-group' %}
-                {%- endif -%}                        
-            {%- endif -%}
-            {% if params.mutuallyExclusive and checkbox.exclusive -%}
-                <div class="field__label u-mt-s u-fs-r--b" aria-hidden="true">{{ params.or }}</div>
-            {%- endif %}
-            <div class="field__item">
-                {{
-                    onsCheckbox({
-                        id: checkbox.id,
-                        name: checkbox.name,
-                        value: checkbox.value,
-                        checked: checkbox.checked,
-                        classes: checkbox.classes | default ('') + exclusiveClass | default(''),
+{% call onsField({
+    id: params.id,
+    legend: params.legend,
+    description: params.description,
+    classes: params.classes,
+    mutuallyExclusive: params.mutuallyExclusive
+}) %}
+    {% for checkbox in params.checkboxes -%}
+        {%- set labelHTML = checkbox.label.text -%}
+        {%- if params.mutuallyExclusive -%}  
+            {% set exclusiveClass = ' js-exclusive-group' %}                
+        {%- endif -%}
+   
+        <div class="field__item">
+            {{
+                onsCheckbox({
+                    id: checkbox.id,
+                    name: checkbox.name,
+                    value: checkbox.value,
+                    checked: checkbox.checked,
+                    classes: checkbox.classes,
+                    inputClasses: exclusiveClass,
+                    label: {
+                        for: checkbox.id,
+                        text: labelHTML,
+                        description: checkbox.label.description,
+                        classes: checkbox.label.classes | default('') 
+                    },
+                    other: {
+                        id: checkbox.other.id,
+                        name: checkbox.other.name,
+                        type: checkbox.other.type,
+                        classes: checkbox.other.classes | default('') + exclusiveClass | default(''),
+                        attributes: checkbox.other.attributes,
                         label: {
-                            for: checkbox.id,
-                            text: labelHTML,
-                            description: checkbox.label.description,
-                            classes: "label--inline " + checkbox.label.classes | default('') 
+                            text: checkbox.other.label.text
                         }
-                    })
-                }}
-                {% if params.mutuallyExclusive and checkbox.exclusive -%}
-                    <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-adjective="{{ params.deselectAdjective }}"></span>
-                {%- endif %}
-                {% if checkbox.other -%}
-                    {%- from "components/input/src/_macro.njk" import onsInput -%}
-                    <div class="field__other">
-                        {{
-                            onsInput({
-                                id: checkbox.other.id,
-                                name: checkbox.other.name,
-                                type: checkbox.other.type,
-                                classes: "input--w-auto " + exclusiveClass + ' ' + checkbox.other.classes | default(''),
-                                attributes: checkbox.other.attributes,
-                                label: {
-                                    text: checkbox.other.label.text,
-                                    classes: 'u-fs-s--b'
-                                }
-                            })
-                        }}
-                    </div>
-                {%- endif %}
-            </div>
-        {%- endfor %}
-    </fieldset>
-</div>
+                    }
+                })
+            }}
+        </div>
+    {%- endfor %}
+{% endcall %}

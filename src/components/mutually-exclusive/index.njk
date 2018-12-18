@@ -1,0 +1,31 @@
+---
+title: Mutually Exclusive
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+## Configuration
+{% md %}
+| Name | Type   | Required | Description | 
+|------|--------|----------|-------------|
+| or   | string | true | The or text between the main options and the mutually exclusive option |
+| deselectMessage | string | true | Visually hidden text to explain that the current option will deselect all other options |
+| deselectAdjective | string | true | The status message for when all other options are deselected |
+| checkbox | `Checkbox` [_(ref)_](/components/checkboxes) | true | Configuration for the exclusive checkbox |
+{% endmd %}
+
+## Examples
+
+### Checkboxes
+{{
+    patternlibExample("components/checkboxes/examples/checkboxes-mutually-exclusive/index.njk")
+}}
+
+### Date
+{{
+    patternlibExample("components/date-input/examples/date-input-mutually-exclusive/index.njk")
+}}
+
+### Textarea
+{{
+    patternlibExample("components/textarea/examples/textarea-mutually-exclusive/index.njk")
+}}
