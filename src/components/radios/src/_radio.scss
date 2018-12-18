@@ -20,6 +20,10 @@
     @extend .checkbox__label;
   }
 
+  &__description {
+    @extend .checkbox__description;
+  }
+
   &__other {
     @extend .checkbox__other;
   }
