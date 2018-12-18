@@ -1,10 +1,13 @@
-{%- from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox -%}
-{%- if params.mutuallyExclusive -%}
-    {%- set fieldExlusiveClass = " field--exclusive" -%}
-    {%- set textareaExlusiveClass = " js-exclusive-group" -%}
-{%- endif -%}
-<div class="field{{ fieldExlusiveClass }}">
-    {%- if params.label -%}
+{%- from "components/field/src/_macro.njk" import onsField -%}
+
+{% call onsField({
+    legend: params.label.text if params.mutuallyExclusive,
+    description: params.label.description if params.mutuallyExclusive,
+    mutuallyExclusive: params.mutuallyExclusive
+}) %}
+    {% if params.mutuallyExclusive  %} 
+        {% set textareaExlusiveClass = " js-exclusive-group" %}
+    {% else %}
         {%- from "components/label/src/_macro.njk" import onsLabel -%}
         {{-
             onsLabel({
@@ -14,7 +17,7 @@
                 classes: params.label.classes
             })
         -}}
-    {%- endif -%}
+    {% endif %}
     <textarea
         id="{{ params.id }}"
         class="input input--textarea {%- if params.maxlength %} js-charlimit-input{%- endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
@@ -35,23 +38,4 @@
             data-charcount-plural="{{ params.charCountPlural }}">
         </div>
     {%- endif -%}
-    {%- if params.mutuallyExclusive -%}
-        <div class="field field--checkbox field--exclusive">
-            <div class="field__label u-mt-s u-fs-r--b" aria-hidden="true">{{ params.or }}</div>
-            <div class="field__item">
-                {{
-                    onsCheckbox({
-                        id: params.checkbox.id,
-                        name: params.checkbox.name,
-                        value: params.checkbox.value,
-                        classes: "js-exclusive-checkbox " + params.checkbox.classes | default(""),
-                        label: {
-                            text: '<span class="u-vh">' + params.or + ', </span> ' + params.checkbox.label.text + '<span class="u-vh">. ' +  params.deselectMessage + '</span>'
-                        }
-                    })
-                }}
-                <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-adjective="{{ params.deselectAdjective }}"></span>
-            </div>
-        </div>
-    {%- endif -%}
-</div>
+{% endcall %}

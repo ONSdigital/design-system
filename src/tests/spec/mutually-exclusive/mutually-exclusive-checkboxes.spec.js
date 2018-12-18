@@ -5,10 +5,6 @@ import mutuallyExclusive from 'js/mutually-exclusive';
 const params = {
   legend: 'Select all that apply',
   name: 'mutually-exclusive',
-  mutuallyExclusive: true,
-  or: 'or',
-  deselectMessage: 'Selecting this will uncheck all other checkboxes',
-  deselectAdjective: 'deselected',
   checkboxes: [
     {
       id: 'gas',
@@ -44,20 +40,24 @@ const params = {
           text: 'Please specify'
         }
       }
-    },
-    {
+    }
+  ],
+  mutuallyExclusive: {
+    or: 'or',
+    deselectMessage: 'Selecting this will uncheck all other checkboxes',
+    deselectAdjective: 'deselected',
+    checkbox: {
       id: 'no-central-heating',
       label: {
         text: 'No central heating'
       },
-      value: 'no-central-heating',
-      exclusive: true
+      value: 'no-central-heating'
     }
-  ]
+  }
 };
 
 describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override', () => {
-  let wrapper, nonExclusiveCheckboxes, exclusiveCheckbox, exclusiveCheckboxElem, ariaAlert;
+  let wrapper, exclusiveCheckbox, ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -65,14 +65,13 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
 
   beforeEach(() => {
     const html = template.render({ params });
-  
+
     wrapper = document.createElement('div');
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    nonExclusiveCheckboxes = params.checkboxes.filter(checkbox => !checkbox.exclusive);
-    exclusiveCheckbox = params.checkboxes.find(checkbox => checkbox.exclusive);
-    exclusiveCheckboxElem = document.getElementById(exclusiveCheckbox.id);
+    params.checkboxes = params.checkboxes.filter(checkbox => !checkbox.exclusive);
+    exclusiveCheckbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
     ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
@@ -86,7 +85,7 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
 
   describe('Given the user has clicked multiple non-exclusive options', () => {
     beforeEach(() => {
-      nonExclusiveCheckboxes.forEach(checkbox => {
+      params.checkboxes.forEach(checkbox => {
         const element = document.getElementById(checkbox.id);
         element.click();
 
@@ -99,59 +98,58 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
 
     describe('when the user clicks the mutually exclusive option', () => {
       beforeEach(() => {
-        exclusiveCheckboxElem.click();
+        exclusiveCheckbox.click();
       });
 
       it('then only the mutually exclusive option should be checked', () => {
-        expect(exclusiveCheckboxElem.checked).to.equal(true);
-        expect(exclusiveCheckboxElem.value).to.equal(exclusiveCheckbox.value);
-  
-        nonExclusiveCheckboxes.forEach(checkbox => {
+        expect(exclusiveCheckbox.checked).to.equal(true);
+        expect(exclusiveCheckbox.value).to.equal(params.mutuallyExclusive.checkbox.value);
+
+        params.checkboxes.forEach(checkbox => {
           const element = document.getElementById(checkbox.id);
-  
+
           expect(element.checked).to.equal(false);
           expect(element.value).to.equal(checkbox.value);
-  
+
           if (checkbox.other) {
             const otherElement = document.getElementById(checkbox.other.id);
-  
+
             expect(otherElement.value).to.equal('');
           }
-        });     
+        });
       });
 
       // it('then the aria-live message should reflect the removed non exclusive options', () => {
-      //   const message = nonExclusiveCheckboxes.map(checkbox => checkbox.label.text + ` ${params.deselectAdjective}.`).join(' ');
+      //   const message = params.checkboxes.map(checkbox => checkbox.label.text + ` ${params.deselectAdjective}.`).join(' ');
       //   expect(ariaAlert.innerHTML).to.equal(message);
       // });
     });
-
   });
 
   describe('Given the user has clicked the mutually exclusive option', () => {
     beforeEach(() => {
-      exclusiveCheckboxElem.click();
+      exclusiveCheckbox.click();
     });
 
     describe('when the user clicks the non-exclusive options', () => {
       beforeEach(() => {
-        nonExclusiveCheckboxes.forEach(checkbox => {
+        params.checkboxes.forEach(checkbox => {
           const element = document.getElementById(checkbox.id);
-  
+
           element.click();
         });
       });
 
-      it(' then only the non-exclusive options should be checked', () => {  
-        nonExclusiveCheckboxes.forEach(checkbox => {
+      it(' then only the non-exclusive options should be checked', () => {
+        params.checkboxes.forEach(checkbox => {
           const element = document.getElementById(checkbox.id);
-  
+
           expect(element.checked).to.equal(true);
           expect(element.value).to.equal(checkbox.value);
         });
-  
-        expect(exclusiveCheckboxElem.checked).to.equal(false);
-        expect(exclusiveCheckboxElem.value).to.equal(exclusiveCheckbox.value);
+
+        expect(exclusiveCheckbox.checked).to.equal(false);
+        expect(exclusiveCheckbox.value).to.equal(params.mutuallyExclusive.checkbox.value);
       });
 
       // it('then the aria-live message should reflect the removed exclusive option', () => {
@@ -162,24 +160,24 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
 
   describe('Given the user has not clicked the mutually exclusive option', () => {
     beforeEach(() => {
-      expect(exclusiveCheckboxElem.checked).to.equal(false);
+      expect(exclusiveCheckbox.checked).to.equal(false);
     });
 
     describe('when the user clicks multiple non-exclusive options', () => {
       beforeEach(() => {
-        nonExclusiveCheckboxes.forEach(checkbox => {
+        params.checkboxes.forEach(checkbox => {
           const element = document.getElementById(checkbox.id);
           element.click();
         });
       });
 
       it('then only the non-exclusive options should be checked', () => {
-        nonExclusiveCheckboxes.forEach(checkbox => {
+        params.checkboxes.forEach(checkbox => {
           const element = document.getElementById(checkbox.id);
           expect(element.checked).to.equal(true);
         });
-  
-        expect(exclusiveCheckboxElem.checked).to.equal(false);
+
+        expect(exclusiveCheckbox.checked).to.equal(false);
       });
 
       // it('then the aria-live message should say nothing', () => {
@@ -190,7 +188,7 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
 
   describe('Given the user has not clicked any of the non-exclusive options', () => {
     beforeEach(() => {
-      nonExclusiveCheckboxes.forEach(checkbox => {
+      params.checkboxes.forEach(checkbox => {
         const element = document.getElementById(checkbox.id);
         expect(element.checked).to.equal(false);
       });
@@ -198,13 +196,13 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
 
     describe('when the user clicks the mutually exclusive option', () => {
       beforeEach(() => {
-        exclusiveCheckboxElem.click();
+        exclusiveCheckbox.click();
       });
 
       it('then only the exclusive option should be checked', () => {
-        expect(exclusiveCheckboxElem.checked).to.equal(true);
-  
-        nonExclusiveCheckboxes.forEach(checkbox => {
+        expect(exclusiveCheckbox.checked).to.equal(true);
+
+        params.checkboxes.forEach(checkbox => {
           const element = document.getElementById(checkbox.id);
           expect(element.checked).to.equal(false);
         });

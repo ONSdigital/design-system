@@ -9,16 +9,17 @@ const params = {
   dayLabel: 'Day',
   monthLabel: 'Month',
   yearLabel: 'Year',
-  mutuallyExclusive: true,
-  or: 'Or',
-  deselectMessage: 'Selecting this will clear the date if one has been inputted',
-  deselectAdjective: 'deselected',
-  checkbox: {
-    id: 'date-exclusive-checkbox',
-    name: 'no-paid-job',
-    value: 'no-paid-job',
-    label: {
-      text: 'I have never had a paid job'
+  mutuallyExclusive: {
+    or: 'Or',
+    deselectMessage: 'Selecting this will clear the date if one has been inputted',
+    deselectAdjective: 'deselected',
+    checkbox: {
+      id: 'date-exclusive-checkbox',
+      name: 'no-paid-job',
+      value: 'no-paid-job',
+      label: {
+        text: 'I have never had a paid job'
+      }
     }
   }
 };
@@ -32,7 +33,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
 
   beforeEach(() => {
     const html = template.render({ params });
-  
+
     wrapper = document.createElement('div');
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
@@ -40,7 +41,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
     dayInput = document.getElementById(`${params.id}-day`);
     monthInput = document.getElementById(`${params.id}-month`);
     yearInput = document.getElementById(`${params.id}-year`);
-    checkbox = document.getElementById(params.checkbox.id);
+    checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
     ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
