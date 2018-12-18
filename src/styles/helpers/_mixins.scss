@@ -78,37 +78,6 @@
 @mixin clearfix() {
   // no-op
 }
-
-@mixin lt-ie10() {
-  .lt-ie10 & {
-    @content;
-  }
-}
-
-@mixin lt-ie9() {
-  .lt-ie9 & {
-    @content;
-  }
-}
-
-@mixin lt-ie8() {
-  .lt-ie8 & {
-    @content;
-  }
-}
-
-@mixin lt-ie7() {
-  .lt-ie7 & {
-    @content;
-  }
-}
-
-@mixin fixed() {
-  @if ($responsive == false) {
-    @content;
-  }
-}
-
 // =============================================================================
 // Create icon
 // =============================================================================
@@ -135,10 +104,6 @@
   }
 
   .icon--#{$name} {
-    @include ie8() {
-      padding: auto;
-    }
-
     position: relative;
     @if ($position == 'right') {
       @if ($btn == true) {
@@ -156,10 +121,6 @@
 
     &::before,
     &::after {
-      @include ie8() {
-        display: none;
-      }
-
       content: '';
       display: inline-block;
       height: $width;

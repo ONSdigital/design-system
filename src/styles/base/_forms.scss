@@ -21,14 +21,6 @@ fieldset {
   width: 100%;
 }
 
-legend {
-  @include lt-ie8 {
-    float: left;
-    clear: both;
-    margin-left: -7px;
-  }
-}
-
 input {
   box-sizing: border-box;
 }

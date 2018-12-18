@@ -16,10 +16,6 @@
   display: block;
   margin: 0;
   cursor: pointer;
-
-  @include fixed() {
-    width: 25rem;
-  }
 }
 
 .label--toggle {
