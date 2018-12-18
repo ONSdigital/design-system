@@ -1,7 +1,7 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/textarea/src/_template.njk';
 import mutuallyExclusive from 'js/mutually-exclusive';
-import characterLimit from 'components/textarea/src/character-limit'; 
+import characterLimit from 'components/textarea/src/character-limit';
 
 const params = {
   id: 'feedback',
@@ -14,16 +14,17 @@ const params = {
   maxlength: 200,
   charCountSingular: 'You have {x} character remaining',
   charCountPlural: 'You have {x} characters remaining',
-  mutuallyExclusive: true,
-  or: 'Or',
-  deselectMessage: 'Selecting this will clear your feedback',
-  deselectAdjective: 'deselected',
-  checkbox: {
-    id: 'feedback-checkbox',
-    name: 'no-feedback',
-    value: 'no-feedback',
-    label: {
-      text: 'I dont want to provide feedback'
+  mutuallyExclusive: {
+    or: 'Or',
+    deselectMessage: 'Selecting this will clear your feedback',
+    deselectAdjective: 'deselected',
+    checkbox: {
+      id: 'feedback-checkbox',
+      name: 'no-feedback',
+      value: 'no-feedback',
+      label: {
+        text: 'I dont want to provide feedback'
+      }
     }
   }
 };
@@ -37,14 +38,14 @@ describe('Component: Mutually Exclusive Textarea', () => {
 
   beforeEach(() => {
     const html = template.render({ params });
-  
+
     wrapper = document.createElement('div');
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
     textarea = document.getElementById(params.id);
     textareaRemaining = document.getElementById(`${params.id}-lim-remaining`);
-    checkbox = document.getElementById(params.checkbox.id);
+    checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
     ariaAlert = document.querySelector('.js-exclusive-alert');
 
     characterLimit();
@@ -125,7 +126,8 @@ describe('Component: Mutually Exclusive Textarea', () => {
 });
 
 function populateTextarea(textarea) {
-  textarea.value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus varius mauris, vitae venenatis sem ullamcorper in. Integer eu facilisis urna. Sed convallis porttitor massa eu pulvinar.';
+  textarea.value =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus varius mauris, vitae venenatis sem ullamcorper in. Integer eu facilisis urna. Sed convallis porttitor massa eu pulvinar.';
   const event = new CustomEvent('input');
   textarea.dispatchEvent(event);
 }

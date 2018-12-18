@@ -10,8 +10,6 @@
   width: 100%;
   transition: border-color 200ms ease-in;
 
-  appearance: none;
-
   @include mq(s) {
     &--text,
     &--select {
@@ -28,10 +26,6 @@
   &:focus {
     outline: none;
     box-shadow: 0 0 0 3px $color-focus-outline;
-
-    @include fixed() {
-      outline: 3px solid $color-focus-outline;
-    }
   }
 }
 
@@ -50,6 +44,7 @@
 }
 
 .input--select {
+  appearance: none;
   padding: $input-padding 2rem $input-padding 0.5rem;
   background: $color-white url('#{$static}/img/icons/icons--chevron-down.svg') no-repeat center right 10px;
   background-size: 1rem;
@@ -57,131 +52,11 @@
   &::-ms-expand {
     display: none;
   }
-  @include fixed() {
-    padding-right: 0.5rem;
-  }
 }
 
 .input--textarea {
-  &:not([class*='input--w-']) {
-    width: 100%;
-    max-width: 100%; /* To avoid this escaping bounds of container on resize */
-  }
-  min-height: 4rem;
-  resize: vertical;
-}
-
-.input--radio,
-.input--checkbox,
-.input--toggle {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #9b9b9b;
-  transition: background-color 200ms ease-in, color 200ms ease-in;
-}
-
-.input--radio,
-.input--checkbox {
-  padding: 0.5rem;
-  font-size: 1rem;
-  background: #eee;
-  cursor: pointer;
-  position: absolute;
-  top: 0.75rem;
-  left: 0.6rem;
-
-  &:focus,
-  &:checked {
-    border-color: $color-links-hover;
-    outline: none;
-  }
-
-  &:checked ~ .label {
-    background: $color-lighter-grey;
-  }
-
-  @include mq(m) {
-    top: 0.85rem;
-  }
-  @include fixed() {
-    border: none;
-    background: none;
-
-    &:focus {
-      outline: 2px solid $color-focus;
-    }
-  }
-
-  ~ .label:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border-radius: $input-radius;
-    border: 1px solid transparent;
-  }
-
-  &:checked ~ .label:before {
-    box-shadow: 0 0 0 2px $color-links-hover;
-  }
-
-  &:focus ~ .label:before {
-    border-color: $color-links-hover;
-    box-shadow: 0 0 0 3px $color-focus-outline;
-  }
-}
-
-.input--radio {
-  border-radius: 100px;
-  box-shadow: inset 0 0 0 3px white;
-  &:checked {
-    background: $color-links-hover;
-    box-shadow: inset 0 0 0 3px white;
-  }
-  &:focus {
-    border-color: $color-links-hover;
-    box-shadow: inset 0 0 0 3px white;
-    outline: none;
-    &:checked {
-      border-color: $color-links-hover;
-      background-color: $color-links-hover;
-    }
-  }
-}
-
-.input--checkbox,
-.input--toggle {
-  background: url('#{$static}/img/icons/icons--check.svg') no-repeat center center;
-  background-size: 0;
-  transition: background-size 50ms ease-out;
-
-  &:checked {
-    background-size: 14px;
-  }
-}
-
-.input--checkbox {
-  &:checked {
-    background-size: 14px;
-    box-shadow: none;
-  }
-
-  &:focus {
-    box-shadow: none;
-  }
-}
-
-.input--toggle {
-  display: inline-block;
-  vertical-align: middle;
-
-  &:checked,
-  &:focus {
-    border-color: $color-links-hover;
-  }
+  width: 100%;
+  max-width: 100%; /* To avoid this escaping bounds of container on resize */
 }
 
 .input--block {
@@ -201,9 +76,6 @@
     outline: none;
     border: $input-border-width solid $color-red;
     box-shadow: 0 0 0 1px $color-red;
-    @include fixed() {
-      outline: 2px solid $color-red;
-    }
   }
 }
 

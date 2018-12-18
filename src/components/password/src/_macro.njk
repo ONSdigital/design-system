@@ -1,6 +1,6 @@
 {% macro onsPassword(params) %}
     {%- from "components/label/src/_macro.njk" import onsLabel -%}
-    {%- from "components/checkboxes/src/_macro.njk" import onsCheckboxes -%}
+    {%- from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox -%}
     {%- from "components/input/src/_macro.njk" import onsInput -%}
     <div class="field">
         {{-
@@ -11,16 +11,17 @@
                 classes: params.label.classes
             })
         -}}
-        <div class="js-password-toggle-wrap u-d-no">
-            <input class="input input--toggle" type="checkbox" name="show-password" id="show-password-toggle">
-            {{-
-                onsLabel({
-                    for: "show-password-toggle",
+        {{
+            onsCheckbox({
+                id: "show-password-toggle",
+                classes: "js-password-toggle-wrap checkbox--toggle u-d-no",
+                name: "show-password",
+                label: {
                     text: params.showPasswordText,
-                    classes: "label--toggle u-fs-r js-password-toggle"
-                })
-            -}}
-        </div>
+                    classes: "js-password-toggle"
+                }
+            })
+        }}
         {{-
             onsInput({
                 if: params.id,
