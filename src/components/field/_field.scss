@@ -60,78 +60,8 @@
   clear: both;
   background-color: $color-lighter-grey;
   padding: 0 0.5rem 0.5rem;
-  @include fixed {
-    display: block;
-  }
 }
 
 input:checked ~ .field__other {
   display: block;
 }
-.field--radio,
-.field--checkbox {
-  font-size: 0;
-
-  .field__item {
-    display: table;
-    font-size: 1rem;
-    background: white;
-    border: 1px solid #999;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    position: relative;
-    transition: background-color 200ms ease-in, color 200ms ease-in, border-color 200ms ease-in;
-    &:hover {
-      border-color: $color-links-hover;
-      box-shadow: none;
-    }
-  }
-
-  &.field--cols {
-    @include mq(s) {
-      display: flex;
-      flex-wrap: wrap;
-      .field__item {
-        min-width: 0;
-        width: calc(50% - 1rem);
-      }
-      .label {
-        width: 100%;
-      }
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-    }
-  }
-}
-
-// .fieldgroup {
-//   display: block;
-
-//   &--inline &__fields {
-//     margin: 0 0 $input-padding * -2;
-
-//     .field {
-//       display: flex;
-//       flex: 0 0 auto;
-//       flex-direction: column;
-//       justify-content: flex-end;
-//       margin: 0 $input-padding * 2 $input-padding * 2 0;
-//     }
-//   }
-
-//   &--inline & {
-//     &__title {
-//       display: inline-block;
-//       font-weight: 700;
-//       margin: 0 0 0.5rem;
-//       width: 100%;
-//     }
-
-//     &__fields {
-//       display: flex;
-//       flex-wrap: wrap;
-//       width: 100%;
-//     }
-//   }
-// }

@@ -30,28 +30,6 @@
   }
 }
 
-@mixin fixed-width() {
-  @if not $responsive {
-    @content;
-  }
-}
-
-@mixin ie8 {
-  @if not $responsive {
-    .lt-ie9 & {
-      @content;
-    }
-  }
-}
-
-@mixin ie7 {
-  @if not $responsive {
-    .lt-ie8 & {
-      @content;
-    }
-  }
-}
-
 @function get-bp-width($name, $breakpoints: $grid-bp) {
   @if map-has-key($breakpoints, $name) {
     @return map-get($breakpoints, $name);

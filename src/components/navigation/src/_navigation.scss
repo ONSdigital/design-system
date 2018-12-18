@@ -34,13 +34,6 @@
         bottom: 0;
         top: 0;
         margin: auto;
-        @include ie8() {
-          display: none;
-        }
-      }
-      @include lt-ie9() {
-        background: url('#{$static}/img/check-green.png') no-repeat 0.5rem center;
-        background-size: 17px 13px;
       }
     }
     &--current {
@@ -120,21 +113,6 @@
       font-weight: bold;
     }
   }
-
-  @include lt-ie10 {
-    .nav__list {
-      padding: 0;
-    }
-
-    .nav__item {
-      display: inline-block;
-      padding-top: 0;
-    }
-
-    .nav__link {
-      font-size: 1.2rem;
-    }
-  }
 }
 
 .nav--main {
@@ -192,11 +170,6 @@
       display: none;
       .nav__list {
         opacity: 0;
-      }
-    }
-    @at-root {
-      .lt-ie10 .nav--h-m {
-        display: block;
       }
     }
   }
