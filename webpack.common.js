@@ -71,7 +71,7 @@ const jsCore = merge(core, {
         }
       }
     ]
-  },
+  }
 
   // optimization: {
   //   splitChunks: {
@@ -89,7 +89,7 @@ const jsCore = merge(core, {
   // }
 });
 
-export default function (mode) {
+export default function(mode) {
   const devMode = mode === 'development';
 
   return {
@@ -235,20 +235,12 @@ export default function (mode) {
                     {
                       modules: false,
                       targets: {
-                        browsers: [
-                          'Chrome >= 60',
-                          'Safari >= 10.1',
-                          'iOS >= 10.3',
-                          'Firefox >= 54',
-                          'Edge >= 15'
-                        ]
+                        browsers: ['Chrome >= 60', 'Safari >= 10.1', 'iOS >= 10.3', 'Firefox >= 54', 'Edge >= 15']
                       }
                     }
                   ]
                 ],
-                plugins: [
-                  '@babel/plugin-syntax-dynamic-import',
-                ]
+                plugins: ['@babel/plugin-syntax-dynamic-import']
               }
             }
           }
@@ -261,7 +253,7 @@ export default function (mode) {
 
       output: {
         filename: '[name].es5.js',
-        chunkFilename: 'scripts/[name].es5.js',
+        chunkFilename: 'scripts/[name].es5.js'
       },
 
       module: {
@@ -284,9 +276,7 @@ export default function (mode) {
                     }
                   ]
                 ],
-                plugins: [
-                  '@babel/plugin-syntax-dynamic-import',
-                ]
+                plugins: ['@babel/plugin-syntax-dynamic-import']
               }
             }
           }
