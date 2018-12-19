@@ -7,16 +7,16 @@
     {{ 
         onsHeader({
             "title": "Design system",
-            fullWidth: true,
+            "fullWidth": true,
             "classes": "patternlib-page__header",
-            navigation: {
+            "navigation": {
                 "classes": "nav--horizontal nav--light nav--main nav--h-m js-main-nav",
-                ariaLabel: "Main menu",
-                ariraListLabel: "Navigation menu",
-                currentPath: pageInfo.path,
+                "ariaLabel": "Main menu",
+                "ariraListLabel": "Navigation menu",
+                "currentPath": pageInfo.path,
                 "items": helpers.navigationHelper({ 
-                    pages: pageInfo.siteMap,
-                    ignorePaths: ["/"]
+                    "pages": pageInfo.siteMap,
+                    "ignorePaths": ["/"]
                 })
             }
         })
@@ -38,9 +38,9 @@
                     {{
                         onsNavigation({
                             "classes": "nav--vertical-bare u-mb-m",
-                            ariaLabel: "Sub menu",
-                            ariraListLabel: "Child menu",
-                            currentPath: pageInfo.path,
+                            "ariaLabel": "Sub menu",
+                            "ariraListLabel": "Child menu",
+                            "currentPath": pageInfo.path,
                             "items": group.items
                         })
                     }}
