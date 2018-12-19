@@ -1,5 +1,3 @@
-
-
 {% from "components/list/src/_macro.njk" import onsList %}
 
 {% if params.lang %}
@@ -31,8 +29,8 @@
                         {% endif %}
                         {{
                             onsList(({
-                                classes: 'list--bare',
-                                items: col.items
+                                "classes": 'list--bare',
+                                "items": col.items
                             }))
                         }}
                     </div>
@@ -43,8 +41,8 @@
                     <div class="grid__col">
                         {{
                             onsList(({
-                                classes: 'list--bare list--inline',
-                                items: row.items
+                                "classes": 'list--bare list--inline',
+                                "items": row.items
                             }))
                         }}
                     </div>

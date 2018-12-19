@@ -17,15 +17,15 @@
                                     {% from "components/input/src/_macro.njk" import onsInput %}
                                     {{
                                         onsInput({
-                                            id: "number",
-                                            type: "number",
-                                            classes: "input--w-5",
-                                            attributes: {
-                                                min: 0,
-                                                required: true
+                                            "id": "number",
+                                            "type": "number",
+                                            "classes": "input--w-5",
+                                            "attributes": {
+                                                "min": 0,
+                                                "required": true
                                             },
-                                            label: {
-                                                text: "Number of employees paid monthly"
+                                            "label": {
+                                                "text": "Number of employees paid monthly"
                                             }
                                         })
                                     }}
@@ -34,19 +34,19 @@
                                     {% from "components/input/src/_macro.njk" import onsInput %}
                                     {{
                                         onsInput({
-                                            id: "suffixed",
-                                            type: "number",
-                                            classes: "input--w-2",
-                                            value: "101",
-                                            attributes: {
-                                                required: true
+                                            "id": "suffixed",
+                                            "type": "number",
+                                            "classes": "input--w-2",
+                                            "value": "101",
+                                            "attributes": {
+                                                "required": true
                                             },
-                                            label: {
-                                                text: "Percentage of employees paid monthly"
+                                            "label": {
+                                                "text": "Percentage of employees paid monthly"
                                             },
-                                            suffix: {
-                                                title: "percent",
-                                                text: "%"
+                                            "suffix": {
+                                                "title": "percent",
+                                                "text": "%"
                                             }
                                         })
                                     }}
@@ -58,10 +58,10 @@
                 {% from "components/button/src/_macro.njk" import onsButton %}
                 {{-
                     onsButton({
-                        type: 'button',
-                        text: 'Save and continue',
-                        classes: 'u-mb-m u-mt-l',
-                        href: 'errors'
+                        "type": 'button',
+                        "text": 'Save and continue',
+                        "classes": 'u-mb-m u-mt-l',
+                        "href": 'errors'
                     })
                 -}}
             </div>
