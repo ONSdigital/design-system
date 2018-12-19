@@ -9,69 +9,75 @@
 {%- endif -%}
 
 {% call onsField({
-    id: params.id,
-    legend: params.legend,
-    description: params.description,
-    classes: exclusiveClass,
-    mutuallyExclusive: params.mutuallyExclusive
+    "id": params.id,
+    "legend": params.legend,
+    "description": params.description,
+    "classes": exclusiveClass,
+    "mutuallyExclusive": params.mutuallyExclusive
 }) %}
     <div class="field__group">
+        {%- if params.day -%}
         <div class="field__item">
             {{
                 onsInput({
-                    id: params.id + "-day",
-                    type: "number",
-                    classes: "input--w-2" + fieldExclusiveClass | default(""),
-                    attributes: {
-                        min: 1,
-                        max: 31
+                    "id": params.id + "-day",
+                    "type": "number",
+                    "name": params.day.name,
+                    "classes": "input--w-2" + fieldExclusiveClass | default(""),
+                    "attributes": {
+                        "min": 1,
+                        "max": 31
                     },
-                    label: {
-                        text: params.dayLabel,
-                        type: "number",
-                        classes: "u-fs-r"
+                    "label": {
+                        "text": params.day.label,
+                        "classes": "u-fs-r"
                     },
-                    value: params.dayValue
+                    "value": params.day.value
                 })
             }}
         </div>
+        {%- endif -%}
+        {%- if params.month -%}
         <div class="field__item">
             {{
                 onsInput({
-                    id: params.id + "-month",
-                    type: "number",
-                    classes: "input--w-2" + fieldExclusiveClass | default(""),
-                    attributes: {
-                        min: 1,
-                        max: 12
+                    "id": params.id + "-month",
+                    "type": "number",
+                    "name": params.month.name,
+                    "classes": "input--w-2" + fieldExclusiveClass | default(""),
+                    "attributes": {
+                        "min": 1,
+                        "max": 12
                     },
-                    label: {
-                        text: params.monthLabel,
-                        type: "number",
-                        classes: "u-fs-r"
+                    "label": {
+                        "text": params.month.label,
+                        "classes": "u-fs-r"
                     },
-                    value: params.monthValue
+                    "value": params.month.value
                 })
             }}
         </div>
+        {%- endif -%}
+        {% if params.year -%}
         <div class="field__item">
             {{
                 onsInput({
-                    id: params.id + "-year",
-                    type: "number",
-                    classes: "input--w-4" + fieldExclusiveClass | default(""),
-                    attributes: {
-                        min: 1000,
-                        max: 3000
+                    "id": params.id + "-year",
+                    "type": "number",
+                    "name": params.year.name,
+                    "classes": "input--w-4" + fieldExclusiveClass | default(""),  
+                    "attributes": {
+                        "min": 1000,
+                        "max": 3000
                     },
-                    label: {
-                        text: params.yearLabel,
-                        type: "number",
-                        classes: "u-fs-r"
+                    "label": {
+                        "text": params.year.label,
+                        "classes": "u-fs-r"
                     },
-                    value: params.yearValue
+                    "value": params.year.value
                 })
             }}
         </div>
+        {%- endif -%}
     </div>
 {% endcall %}
