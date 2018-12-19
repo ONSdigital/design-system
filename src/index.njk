@@ -1,5 +1,5 @@
 ---
-title: ONS Design System - Homepage
+"title": ONS Design System - Homepage
 layout: home
 ---
 <div class="patternlib-hero">
@@ -11,10 +11,10 @@ layout: home
     {% from "components/button/src/_macro.njk" import onsButton %}
     {{- 
         onsButton({
-            type: 'button',
-            text: 'Get started',
-            classes: 'u-mb-m',
-            href: '/get-started'
+            "type": 'button',
+            "text": 'Get started',
+            "classes": 'u-mb-m',
+            "href": '/get-started'
         }) 
     -}}
   </div>
@@ -25,9 +25,9 @@ layout: home
       {% from "components/card/src/_macro.njk" import onsCard %}
       {{-
           onsCard({
-              title: 'Styles',
-              href: '/styles',
-              text: 'Guides for applying layout, typography and colour.'
+              "title": 'Styles',
+              "href": '/styles',
+              "text": 'Guides for applying layout, typography and colour.'
           })
       -}}
     </div>
@@ -35,9 +35,9 @@ layout: home
       {% from "components/card/src/_macro.njk" import onsCard %}
       {{-
           onsCard({
-              title: 'Components',
-              href: '/components',  
-              text: 'Resuable and accessible code to build the components of a page. '
+              "title": 'Components',
+              "href": '/components',  
+              "text": 'Resuable and accessible code to build the components of a page. '
           })
       -}}
     </div>
@@ -45,9 +45,9 @@ layout: home
       {% from "components/card/src/_macro.njk" import onsCard %}
       {{-
           onsCard({
-              title: 'Patterns',
-              href: '/patterns',
-              text: 'Patterns on common tasks and how components should work together.'
+              "title": 'Patterns',
+              "href": '/patterns',
+              "text": 'Patterns on common tasks and how components should work together.'
           })
       -}}
     </div>

@@ -6,9 +6,18 @@ const params = {
   id: 'date-mutually-exclusive',
   legend: 'When did you leave your last paid job?',
   description: 'For example, 31 3 2018',
-  dayLabel: 'Day',
-  monthLabel: 'Month',
-  yearLabel: 'Year',
+  day: {
+    label: 'Day',
+    name: 'day-exclusive'
+  },
+  month: {
+    label: 'Month',
+    name: 'month-exclusive'
+  },
+  year: {
+    label: 'Year',
+    name: 'year-exclusive'
+  },
   mutuallyExclusive: {
     or: 'Or',
     deselectMessage: 'Selecting this will clear the date if one has been inputted',
