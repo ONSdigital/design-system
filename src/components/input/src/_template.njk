@@ -9,7 +9,7 @@
     {% set type = "text" %}
 {% endif %}
 
-{% if params.label -%}
+{% if params.label %}
     {{
         onsLabel({
             "for": params.id,
@@ -19,14 +19,14 @@
             "description": params.label.description
         })
     }}
-{%- endif %}
+{% endif %}
 
-{% if params.prefix !== undefined or params.suffix !== undefined -%}
-    {%- if params.prefix !== undefined -%}
-        {%- set prefixClass = " input-type--prefix" -%}
-    {%- endif -%}
+{% if params.prefix !== undefined or params.suffix !== undefined %}
+    {% if params.prefix !== undefined %}
+        {% set prefixClass = " input-type--prefix" %}
+    {% endif %}
     <div class="input-type{{ prefixClass }}">
-{%- endif %}
+{% endif %}
 <input
     type="{{ type }}"
     id="{{ params.id }}"
@@ -35,7 +35,7 @@
     {% if params.value !== undefined %}value="{{ params.value }}"{% endif %}
     {% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
 />
-{% if params.prefix !== undefined or params.suffix !== undefined -%}
+{% if params.prefix !== undefined or params.suffix !== undefined %}
         <abbr class="input-type__type" title="{{ params.prefix.title }}{{ params.suffix.title }}">{{ params.prefix.text }}{{ params.suffix.text }}</abbr>
     </div>
-{%- endif %}
+{% endif %}

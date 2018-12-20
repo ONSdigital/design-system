@@ -1,12 +1,12 @@
-{%- from "components/field/src/_macro.njk" import onsField -%}
-{%- from "components/input/src/_macro.njk" import onsInput -%}
-{%- from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox -%}
+{% from "components/field/src/_macro.njk" import onsField %}
+{% from "components/input/src/_macro.njk" import onsInput %}
+{% from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox %}
 
-{%- set exclusiveClass = "" -%}
-{%- if params.mutuallyExclusive -%}
-    {%- set exclusiveClass = " field--exclusive" -%}
-    {%- set fieldExclusiveClass = " js-exclusive-group" -%}
-{%- endif -%}
+{% set exclusiveClass = "" %}
+{% if params.mutuallyExclusive %}
+    {% set exclusiveClass = " field--exclusive" %}
+    {% set fieldExclusiveClass = " js-exclusive-group" %}
+{% endif %}
 
 {% call onsField({
     "id": params.id,
@@ -16,7 +16,7 @@
     "mutuallyExclusive": params.mutuallyExclusive
 }) %}
     <div class="field__group">
-        {%- if params.day -%}
+        {% if params.day %}
         <div class="field__item">
             {{
                 onsInput({
@@ -36,8 +36,8 @@
                 })
             }}
         </div>
-        {%- endif -%}
-        {%- if params.month -%}
+        {% endif %}
+        {% if params.month %}
         <div class="field__item">
             {{
                 onsInput({
@@ -57,8 +57,8 @@
                 })
             }}
         </div>
-        {%- endif -%}
-        {% if params.year -%}
+        {% endif %}
+        {% if params.year %}
         <div class="field__item">
             {{
                 onsInput({
@@ -78,6 +78,6 @@
                 })
             }}
         </div>
-        {%- endif -%}
+        {% endif %}
     </div>
 {% endcall %}

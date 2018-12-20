@@ -1,7 +1,7 @@
 <label class="label {{ params.classes }}"{% if params.for %} for="{{ params.for }}"{% endif %}{% if params.id %} id="{{params.id}}"{% endif%}>
     {{ params.text | safe }}
-    {%- if params.description -%}
+    {% if params.description %}
         <br>
         <span class="label__description u-fs-s">{{ params.description }}</span>
-    {%- endif -%}
+    {% endif %}
 </label>

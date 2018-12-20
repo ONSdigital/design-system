@@ -1,7 +1,7 @@
 {% macro onsPassword(params) %}
-    {%- from "components/label/src/_macro.njk" import onsLabel -%}
-    {%- from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox -%}
-    {%- from "components/input/src/_macro.njk" import onsInput -%}
+    {% from "components/label/src/_macro.njk" import onsLabel %}
+    {% from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox %}
+    {% from "components/input/src/_macro.njk" import onsInput %}
     <div class="field">
         {{-
             onsLabel({

@@ -1,8 +1,8 @@
 <header class="header {{ params.classes if params.classes }}">
-    {%- if params.beta -%}
+    {% if params.beta %}
         {% from "components/beta-bar/src/_macro.njk" import onsBetaBar %}
         {{ onsBetaBar(params.beta) }}
-    {%- endif -%}
+    {% endif %}
     <div class="header__top" role="banner">
         <div class="container{{ ' container--full-width' if params.fullWidth }}">
             <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
