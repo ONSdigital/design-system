@@ -3,57 +3,58 @@
 {% block prototype_body %}
 <div class="page">
     <div class="page__container container">
-        <div class="grid grid--reverse">
-        <div class="grid__col col-4@m">
-        </div>
+        <div class="grid">
             <div class="grid__col col-8@m">
-                <div class="group">
-                    <div class="question">
-                        <h1 class="question__title u-fs-l" data-qa="question-title">How many employees do you pay on a monthly basis?</h1>
-                        <fieldset class="question__fieldset js-question-fieldset">
-                            <legend class="u-vh">How many employees do you pay on a monthly basis?</legend>
-                            <div class="question__answers">
-                                <div class="question__answer">
-                                    {% from "components/input/src/_macro.njk" import onsInput %}
-                                    {{
-                                        onsInput({
-                                            id: "number",
-                                            type: "number",
-                                            classes: "input--w-5",
-                                            attributes: {
-                                                min: 0,
-                                                required: true
-                                            },
-                                            label: {
-                                                text: "Number of employees paid monthly"
-                                            }
-                                        })
-                                    }}
-                                </div>
-                                <div class="question__answer">
-                                    {% from "components/input/src/_macro.njk" import onsInput %}
-                                    {{
-                                        onsInput({
-                                            id: "suffixed",
-                                            type: "number",
-                                            classes: "input--w-2",
-                                            value: "101",
-                                            attributes: {
-                                                required: true
-                                            },
-                                            label: {
-                                                text: "Percentage of employees paid monthly"
-                                            },
-                                            suffix: {
-                                                title: "percent",
-                                                text: "%"
-                                            }
-                                        })
-                                    }}
-                                </div>
-                            </div>
-                        </fieldset>
+                <div class="question">
+                    <h1 class="question__title u-fs-l" data-qa="question-title">How many employees do you pay on a monthly basis?</h1>
+                    {% from "components/field/src/_macro.njk" import onsField %}
+                    {% call
+                        onsField({
+                            legend: "How many employees do you pay on a monthly basis?",
+                            legendClasses: "u-vh"
+                        })
+                    %}
+                    <div class="question__answers">
+                        <div class="question__answer">
+                        {% from "components/input/src/_macro.njk" import onsInput %}
+                        {{-
+                            onsInput({
+                                id: "number",
+                                type: "number",
+                                classes: "input--w-5",
+                                attributes: {
+                                    min: 0,
+                                    required: true
+                                },
+                                label: {
+                                    text: "Number of employees paid monthly"
+                                }
+                            })
+                        -}}
+                        </div>
+                        <div class="question__answer">
+                            {% from "components/input/src/_macro.njk" import onsInput %}
+                            {{-
+                                onsInput({
+                                    id: "suffixed",
+                                    type: "number",
+                                    classes: "input--w-2",
+                                    value: "101",
+                                    attributes: {
+                                        required: true
+                                    },
+                                    label: {
+                                        text: "Percentage of employees paid monthly"
+                                    },
+                                    suffix: {
+                                        title: "percent",
+                                        text: "%"
+                                    }
+                                })
+                            -}}
+                        </div>
                     </div>
+                    {% endcall %}
                 </div>
                 {% from "components/button/src/_macro.njk" import onsButton %}
                 {{-
