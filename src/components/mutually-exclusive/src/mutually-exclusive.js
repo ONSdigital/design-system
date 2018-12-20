@@ -16,13 +16,13 @@ export default function mutuallyExclusiveInputs() {
     for (let exclusiveGroupElement of exclusiveGroupElements) {
       const elementType = exclusiveGroupElement.type;
       const event = elementType === 'checkbox' ? 'change' : 'input';
-      exclusiveGroupElement.addEventListener(event, function () {
+      exclusiveGroupElement.addEventListener(event, function() {
         voiceOverAlertElement.innerHTML = '';
         inputToggle(checkboxElement, voiceOverAlertElement, 'checkbox');
       });
     }
 
-    checkboxElement.addEventListener('click', function () {
+    checkboxElement.addEventListener('click', function() {
       for (let exclusiveGroupElement of exclusiveGroupElements) {
         const elementType = exclusiveGroupElement.type;
         inputToggle(exclusiveGroupElement, voiceOverAlertElement, elementType);
@@ -31,7 +31,7 @@ export default function mutuallyExclusiveInputs() {
   }
 }
 
-const inputToggle = function (inputEl, voiceOverAlertEl, elType) {
+const inputToggle = function(inputEl, voiceOverAlertEl, elType) {
   let attr = inputEl.getAttribute('value');
 
   if (elType === 'checkbox' && inputEl.checked === true) {
