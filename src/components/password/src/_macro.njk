@@ -3,14 +3,14 @@
     {% from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox %}
     {% from "components/input/src/_macro.njk" import onsInput %}
     <div class="field">
-        {{-
+        {{
             onsLabel({
                 "for": params.id,
                 "text": params.label.text,
                 "description": params.label.description,
                 "classes": params.label.classes
             })
-        -}}
+        }}
         {{
             onsCheckbox({
                 "id": "show-password-toggle",
@@ -22,12 +22,12 @@
                 }
             })
         }}
-        {{-
+        {{
             onsInput({
                 if: params.id,
                 "type": "password",
                 "classes": "u-mt-xs js-password"
             })
-        -}}
+        }}
     </div>
 {% endmacro %}
