@@ -1,4 +1,4 @@
-{%- from "components/field/src/_macro.njk" import onsField -%}
+{% from "components/field/src/_macro.njk" import onsField %}
 
 {% call onsField({
     "id": params.id,
@@ -6,20 +6,20 @@
     "description": params.description,
     "classes": params.classes
 }) %}
-    {% for radio in params.radios -%}
+    {% for radio in params.radios %}
         <div class="field__item">
             <div class="radio">
                 <input class="radio__input {{ radio.classes }}" name="{{ params.name }}" id="{{ radio.id }}" value="{{ radio.value }}"{% if radio.checked %} checked{% endif %} type="radio">
                 <label class="radio__label {{ radio.label.classes }}" for="{{ radio.id }}">
                     {{- radio.label.text | safe -}}
-                    {%- if radio.label.description -%}
+                    {% if radio.label.description %}
                         <br>
                         <span class="radio__description u-fs-s">{{ radio.label.description }}</span>
-                    {%- endif -%}
+                    {% endif %}
                 </label>
-                {%- if radio.other -%}
+                {% if radio.other %}
                     <div class="radio__other">
-                        {%- from "components/input/src/_macro.njk" import onsInput -%}
+                        {% from "components/input/src/_macro.njk" import onsInput %}
                         {{
                             onsInput({
                                 "id": radio.other.id,
@@ -34,7 +34,7 @@
                             })
                         }}
                     </div>
-                {%- endif -%}
+                {% endif %}
             </div>
         </div>
     {% endfor %}
