@@ -19,10 +19,7 @@ function getIP() {
     }
   }
 
-  const _interface = interfaceArray.filter(
-    _interface =>
-      _interface.family === 'IPv4' && _interface.address !== '127.0.0.1'
-  )[0];
+  const _interface = interfaceArray.filter(_interface => _interface.family === 'IPv4' && _interface.address !== '127.0.0.1')[0];
 
   return _interface ? _interface.address : 'localhost';
 }
@@ -32,31 +29,22 @@ const serverSettings = {
     contentBase: path.join(__dirname, 'build'),
     compress: false,
     port,
-    after: function () {
+    after: function() {
       setTimeout(() => {
         console.log(chalk.blue.bold('======================================='));
         console.log(chalk.bold.cyan('Server started'));
-        console.log(
-          `${chalk.bold.cyan('Local:')} ${chalk.bold.green(
-            `http://localhost:${port}`
-          )}`
-        );
-        console.log(
-          `${chalk.bold.cyan('Remote:')} ${chalk.bold.green(
-            `http://${getIP()}:${port}`
-          )}`
-        );
+        console.log(`${chalk.bold.cyan('Local:')} ${chalk.bold.green(`http://localhost:${port}`)}`);
+        console.log(`${chalk.bold.cyan('Remote:')} ${chalk.bold.green(`http://${getIP()}:${port}`)}`);
         console.log(chalk.blue.bold('======================================='));
       }, 2000);
     },
-    stats: 'errors-only'
+    stats: 'errors-only',
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
   },
 
   plugins: [new LiveReloadPlugin()]
 };
 
-export default [
-  merge(common.nonJs, serverSettings),
-  merge(common.es2015plus, serverSettings),
-  merge(common.es5, serverSettings)
-];
+export default [merge(common.nonJs, serverSettings), merge(common.es2015plus, serverSettings), merge(common.es5, serverSettings)];
