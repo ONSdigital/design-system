@@ -1,5 +1,5 @@
-{%- from "components/field/src/_macro.njk" import onsField -%}
-{%- from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox -%}
+{% from "components/field/src/_macro.njk" import onsField %}
+{% from "components/checkboxes/src/_checkbox-macro.njk" import onsCheckbox %}
 
 {% call onsField({
     "id": params.id,
@@ -8,11 +8,11 @@
     "classes": params.classes,
     "mutuallyExclusive": params.mutuallyExclusive
 }) %}
-    {% for checkbox in params.checkboxes -%}
-        {%- set labelHTML = checkbox.label.text -%}
-        {%- if params.mutuallyExclusive -%}  
+    {% for checkbox in params.checkboxes %}
+        {% set labelHTML = checkbox.label.text %}
+        {% if params.mutuallyExclusive %}  
             {% set exclusiveClass = ' js-exclusive-group' %}                
-        {%- endif -%}
+        {% endif %}
    
         <div class="field__item">
             {{
@@ -42,5 +42,5 @@
                 })
             }}
         </div>
-    {%- endfor %}
+    {% endfor %}
 {% endcall %}
