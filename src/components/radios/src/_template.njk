@@ -11,7 +11,7 @@
             <div class="radio">
                 <input class="radio__input {{ radio.classes }}" name="{{ params.name }}" id="{{ radio.id }}" value="{{ radio.value }}"{% if radio.checked %} checked{% endif %} type="radio">
                 <label class="radio__label {{ radio.label.classes }}" for="{{ radio.id }}">
-                    {{- radio.label.text | safe -}}
+                    {{ radio.label.text | safe }}
                     {% if radio.label.description %}
                         <br>
                         <span class="radio__description u-fs-s">{{ radio.label.description }}</span>

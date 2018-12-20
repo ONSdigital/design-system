@@ -1,31 +1,29 @@
+{% from "components/card/src/_macro.njk" import onsCard %}
 <div class="grid grid--flex grid--column@xs@s">
     <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
-        {% from "components/card/src/_macro.njk" import onsCard %}
-        {{ 
+        {{-
             onsCard({
                 "title": 'Search for a business',
                 "href": '#',
-                "text": 'A list of UK businesses for statistical use across government. '
+                "text": 'A list of UK businesses for statistical use across government.'
             })
         }}
     </div>
     <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
-        {% from "components/card/src/_macro.njk" import onsCard %}
-        {{ 
+        {{- 
             onsCard({
                 "title": 'Record management',
                 "href": '#',
-                "text": 'Edit, create new records and view the editing history of businesses. '
+                "text": 'Edit, create new records and view the editing history of businesses.'
             })
         }}
     </div>
     <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
-        {% from "components/card/src/_macro.njk" import onsCard %}
-        {{ 
+        {{-
             onsCard({
                 "title": 'Address index',
                 "href": '#',
-                "text": 'The most accurate and greographical dataset of addresses and properties in the UK '
+                "text": 'The most accurate and greographical dataset of addresses and properties in the UK.'
             })
         }}
     </div>

@@ -1,14 +1,14 @@
 {% macro onsSelect(params) %}
     {% if params.label %}
         {% from "components/label/src/_macro.njk" import onsLabel %}
-        {{-
+        {{
             onsLabel({
                 "for": params.id,
                 "text": params.label.text,
                 "description": params.label.description,
                 "classes": params.label.classes
             })
-        -}}
+        }}
     {% endif %}
     <select
         id="{{ params.id }}"
@@ -21,7 +21,7 @@
             {% if option.selected %} selected {% endif %}
             {% if option.disabled %} disabled {% endif %}
             {% for attribute, value in option.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>   
-            {{- option.text -}}
+            {{ option.text }}
         </option>   
         {% endfor %}
     </select>

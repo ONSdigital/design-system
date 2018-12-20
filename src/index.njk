@@ -2,64 +2,61 @@
 "title": ONS Design System - Homepage
 layout: home
 ---
+{% from "components/button/src/_macro.njk" import onsButton %}
+{% from "components/card/src/_macro.njk" import onsCard %}
 <div class="patternlib-hero">
-  <div class="patternlib-hero__content container">
-    <header>
-      <h1 class="patternlib-hero__title u-fs-xxl">Design and build digital services for the ONS</h1>
-    </header>
-    <p class="patternlib-hero__text">Everything you need to make accessible, consistent digital products.</p>
-    {% from "components/button/src/_macro.njk" import onsButton %}
-    {{- 
-        onsButton({
+    <div class="patternlib-hero__content container">
+        <header>
+            <h1 class="patternlib-hero__title u-fs-xxl">Design and build digital services for the ONS</h1>
+        </header>
+        <p class="patternlib-hero__text">Everything you need to make accessible, consistent digital products.</p>
+        {{
+            onsButton({
             "type": 'button',
             "text": 'Get started',
             "classes": 'u-mb-m',
             "href": '/get-started'
-        }) 
-    -}}
-  </div>
+            }) 
+        }}
+    </div>
 </div>
 <div class="container">
-  <div class="grid grid--flex grid--column@xs@s u-mt-xl u-mb-m">
-    <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s u-mb-s col-12@xs@s">
-      {% from "components/card/src/_macro.njk" import onsCard %}
-      {{-
-          onsCard({
-              "title": 'Styles',
-              "href": '/styles',
-              "text": 'Guides for applying layout, typography and colour.'
-          })
-      -}}
+    <div class="grid grid--flex grid--column@xs@s u-mt-xl u-mb-m">
+        <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s u-mb-s col-12@xs@s">
+            {{-
+                onsCard({
+                    "title": 'Styles',
+                    "href": '/styles',
+                    "text": 'Guides for applying layout, typography and colour.'
+                })
+            -}}
+        </div>
+        <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s u-mb-s col-12@xs@s">
+            {{-
+                onsCard({
+                    "title": 'Components',
+                    "href": '/components',
+                    "text": 'Resuable and accessible code to build the components of a page.'
+                })
+            -}}
+        </div>
+        <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s u-mb-s col-12@xs@s">
+            {{-
+                onsCard({
+                    "title": 'Patterns',
+                    "href": '/patterns',
+                    "text": 'Patterns on common tasks and how components should work together.'
+                })
+            -}}
+        </div>
     </div>
-    <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s u-mb-s col-12@xs@s">
-      {% from "components/card/src/_macro.njk" import onsCard %}
-      {{-
-          onsCard({
-              "title": 'Components',
-              "href": '/components',  
-              "text": 'Resuable and accessible code to build the components of a page. '
-          })
-      -}}
+    <div class="grid grid--gutterless">
+        <div class="grid__col col-8@m">
+            <h3 class="u-fs-l">Design community</h3>
+            <p>The ONS Design System is available for everyone and brings together the latest research, design and development from across the organisation to ensure our users have an accessible and consistent experience with our services.</p>
+            <p>If you would like to contribute to the design system you can:</p>
+            <p><a href="#">Propose a new pattern or component.</a></p>
+            <p><a href="#">View the current backlog of work.</a></p>
+        </div>
     </div>
-    <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s u-mb-s col-12@xs@s">
-      {% from "components/card/src/_macro.njk" import onsCard %}
-      {{-
-          onsCard({
-              "title": 'Patterns',
-              "href": '/patterns',
-              "text": 'Patterns on common tasks and how components should work together.'
-          })
-      -}}
-    </div>
-  </div>
-  <div class="grid grid--gutterless">
-    <div class="grid__col col-8@m">
-      <h3 class="u-fs-l">Design community</h3>
-      <p>The ONS Design System is available for everyone and brings together the latest research, design and development from across the organisation to ensure our users have an accessible and consistent experience with our services.</p>
-      <p>If you would like to contribute to the design system you can:</p>
-      <p><a href="#">Propose a new pattern or component.</a></p>
-      <p><a href="#">View the current backlog of work.</a></p>
-    </div>
-  </div>
-
 </div>

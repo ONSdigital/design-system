@@ -18,7 +18,7 @@
                     <div class="question__answers">
                         <div class="question__answer">
                         {% from "components/input/src/_macro.njk" import onsInput %}
-                        {{-
+                        {{
                             onsInput({
                                 id: "number",
                                 type: "number",
@@ -31,11 +31,11 @@
                                     text: "Number of employees paid monthly"
                                 }
                             })
-                        -}}
+                        }}
                         </div>
                         <div class="question__answer">
                             {% from "components/input/src/_macro.njk" import onsInput %}
-                            {{-
+                            {{
                                 onsInput({
                                     id: "suffixed",
                                     type: "number",
@@ -52,7 +52,7 @@
                                         text: "%"
                                     }
                                 })
-                            -}}
+                            }}
                         </div>
 =======
                 <div class="group">
@@ -106,14 +106,14 @@
                     {% endcall %}
                 </div>
                 {% from "components/button/src/_macro.njk" import onsButton %}
-                {{-
+                {{
                     onsButton({
                         "type": 'button',
                         "text": 'Save and continue',
                         "classes": 'u-mb-m u-mt-l',
                         "href": 'errors'
                     })
-                -}}
+                }}
             </div>
         </div>
     </div>
