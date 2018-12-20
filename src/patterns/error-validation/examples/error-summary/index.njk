@@ -6,12 +6,24 @@
     })
 %}
 <p class='mars'>These <strong>must be corrected</strong> to continue.</p>
-<ul class='list list--bare'>
-    <li class='list__item mars'>
-    1) <a class='js-inpagelink' href='#container-test-number'>Enter a number to continue.</a>
-    </li>
-    <li class='list__item mars'>
-    2) <a class='js-inpagelink' href='#container-test-percentage'>Enter an number less than or equal to 100 to continue.</a>
-    </li>
-</ul>
+{% from "components/list/src/_macro.njk" import onsList %}
+{{ 
+    onsList({
+        classes: 'list--bare',
+        items: [
+            {
+                text: 'Enter a number.',
+                index: true,
+                href: '#container-test-number',
+                classes: 'js-inpagelink'
+            },
+            {
+                text: 'Enter an number less than or equal to 100.',
+                index: true,
+                href: '#container-test-percent',
+                classes: 'js-inpagelink'
+            }
+        ]
+    }) 
+}}
 {% endcall %}

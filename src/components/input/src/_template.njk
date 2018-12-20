@@ -1,9 +1,9 @@
 
 {% from "components/label/src/_macro.njk" import onsLabel %}
-{% if params.type == "number" %} 
+{% if params.type == "number" %}
     {% set type = "number" %}
     {% set pattern = "[0-9]*" %}
-{% elseif params.type %}
+{% elif params.type %}
     {% set type = params.type %}
 {% else %}
     {% set type = "text" %}
