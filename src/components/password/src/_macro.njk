@@ -5,28 +5,28 @@
     <div class="field">
         {{-
             onsLabel({
-                for: params.id,
-                text: params.label.text,
-                description: params.label.description,
-                classes: params.label.classes
+                "for": params.id,
+                "text": params.label.text,
+                "description": params.label.description,
+                "classes": params.label.classes
             })
         -}}
         {{
             onsCheckbox({
-                id: "show-password-toggle",
-                classes: "js-password-toggle-wrap checkbox--toggle u-d-no",
-                name: "show-password",
-                label: {
-                    text: params.showPasswordText,
-                    classes: "js-password-toggle"
+                "id": "show-password-toggle",
+                "classes": "js-password-toggle-wrap checkbox--toggle u-d-no",
+                "name": "show-password",
+                "label": {
+                    "text": params.showPasswordText,
+                    "classes": "js-password-toggle"
                 }
             })
         }}
         {{-
             onsInput({
                 if: params.id,
-                type: "password",
-                classes: "u-mt-xs js-password"
+                "type": "password",
+                "classes": "u-mt-xs js-password"
             })
         -}}
     </div>

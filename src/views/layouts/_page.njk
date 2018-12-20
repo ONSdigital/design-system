@@ -6,17 +6,17 @@
 
     {{ 
         onsHeader({
-            title: "Design system",
-            fullWidth: true,
-            classes: "patternlib-page__header",
-            navigation: {
-                classes: "nav--horizontal nav--light nav--main nav--h-m js-main-nav",
-                ariaLabel: "Main menu",
-                ariraListLabel: "Navigation menu",
-                currentPath: pageInfo.path,
-                items: helpers.navigationHelper({ 
-                    pages: pageInfo.siteMap,
-                    ignorePaths: ["/"]
+            "title": "Design system",
+            "fullWidth": true,
+            "classes": "patternlib-page__header",
+            "navigation": {
+                "classes": "nav--horizontal nav--light nav--main nav--h-m js-main-nav",
+                "ariaLabel": "Main menu",
+                "ariraListLabel": "Navigation menu",
+                "currentPath": pageInfo.path,
+                "items": helpers.navigationHelper({ 
+                    "pages": pageInfo.siteMap,
+                    "ignorePaths": ["/"]
                 })
             }
         })
@@ -37,11 +37,11 @@
                     {% endif %}
                     {{
                         onsNavigation({
-                            classes: "nav--vertical-bare u-mb-m",
-                            ariaLabel: "Sub menu",
-                            ariraListLabel: "Child menu",
-                            currentPath: pageInfo.path,
-                            items: group.items
+                            "classes": "nav--vertical-bare u-mb-m",
+                            "ariaLabel": "Sub menu",
+                            "ariraListLabel": "Child menu",
+                            "currentPath": pageInfo.path,
+                            "items": group.items
                         })
                     }}
                 {% endfor %}
@@ -59,11 +59,11 @@
             </main>
             {{
                 onsFooter({
-                    OGLLink: {
-                        pre: 'All content is available under the',
-                        link: 'Open Government Licence v3.0',
-                        href: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-                        post: ', except where otherwise stated'
+                    "OGLLink": {
+                        "pre": 'All content is available under the',
+                        "link": 'Open Government Licence v3.0',
+                        "href": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+                        "post": ', except where otherwise stated'
                     }
                 })
             }}

@@ -1,10 +1,10 @@
 {%- from "components/field/src/_macro.njk" import onsField -%}
 
 {% call onsField({
-    id: params.id,
-    legend: params.legend,
-    description: params.description,
-    classes: params.classes
+    "id": params.id,
+    "legend": params.legend,
+    "description": params.description,
+    "classes": params.classes
 }) %}
     {% for radio in params.radios -%}
         <div class="field__item">
@@ -14,7 +14,7 @@
                     {{- radio.label.text | safe -}}
                     {%- if radio.label.description -%}
                         <br>
-                        <span class="u-fs-s">{{ radio.label.description }}</span>
+                        <span class="radio__description u-fs-s">{{ radio.label.description }}</span>
                     {%- endif -%}
                 </label>
                 {%- if radio.other -%}
@@ -22,14 +22,14 @@
                         {%- from "components/input/src/_macro.njk" import onsInput -%}
                         {{
                             onsInput({
-                                id: radio.other.id,
-                                name: radio.other.name,
-                                type: radio.other.type,
-                                classes: "input--w-auto " + radio.other.classes | default(''),
-                                attributes: radio.other.attributes,
-                                label: {
-                                    text: radio.other.label.text,
-                                    classes: 'u-fs-s--b'
+                                "id": radio.other.id,
+                                "name": radio.other.name,
+                                "type": radio.other.type,
+                                "classes": "input--w-auto " + radio.other.classes | default(''),
+                                "attributes": radio.other.attributes,
+                                "label": {
+                                    "text": radio.other.label.text,
+                                    "classes": 'u-fs-s--b'
                                 }
                             })
                         }}

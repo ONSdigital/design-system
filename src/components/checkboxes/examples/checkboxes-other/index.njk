@@ -1,35 +1,35 @@
 {% from "components/checkboxes/src/_macro.njk" import onsCheckboxes %}
 {{ 
     onsCheckboxes({
-        legend: "Select all that apply",
-        name: "food-other",
-        checkboxes: [
+        "legend": "Select all that apply",
+        "name": "food-other",
+        "checkboxes": [
             {
-                id: "bacon-other",
-                label: {
-                    text: "Bacon"
+                "id": "bacon-other",
+                "label": {
+                    "text": "Bacon"
                 },
-                value: "bacon"
+                "value": "bacon"
             },
             {
-                id: "olives-other",
-                label: {
-                    text: "Olives"
+                "id": "olives-other",
+                "label": {
+                    "text": "Olives"
                 },
-                value: "olives"
+                "value": "olives"
             },
             {
-                id: "other-checkbox",
-                label: {
-                    text: "Other",
-                    description: "An answer is required"
+                "id": "other-checkbox",
+                "label": {
+                    "text": "Other",
+                    "description": "An answer is required"
                 },
-                value: "other",
-                other: {
-                    id: "other-textbox",
-                    name: "other-answer",
-                    label: {
-                        text: "Please specify other"
+                "value": "other",
+                "other": {
+                    "id": "other-textbox",
+                    "name": "other-answer",
+                    "label": {
+                        "text": "Please specify other"
                     }
                 }
             }

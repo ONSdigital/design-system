@@ -1,9 +1,9 @@
 {%- from "components/field/src/_macro.njk" import onsField -%}
 
 {% call onsField({
-    legend: params.label.text if params.mutuallyExclusive,
-    description: params.label.description if params.mutuallyExclusive,
-    mutuallyExclusive: params.mutuallyExclusive
+    "legend": params.label.text if params.mutuallyExclusive,
+    "description": params.label.description if params.mutuallyExclusive,
+    "mutuallyExclusive": params.mutuallyExclusive
 }) %}
     {% if params.mutuallyExclusive  %} 
         {% set textareaExlusiveClass = " js-exclusive-group" %}
@@ -11,10 +11,10 @@
         {%- from "components/label/src/_macro.njk" import onsLabel -%}
         {{-
             onsLabel({
-                for: params.id,
-                text: params.label.text,
-                description: params.label.description,
-                classes: params.label.classes
+                "for": params.id,
+                "text": params.label.text,
+                "description": params.label.description,
+                "classes": params.label.classes
             })
         -}}
     {% endif %}

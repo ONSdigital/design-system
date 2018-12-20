@@ -1,35 +1,35 @@
 {% from "components/radios/src/_macro.njk" import onsRadios %}
 {{ 
     onsRadios({
-        legend: "Select your favourite topping",
-        name: "food-other",
-        radios: [
+        "legend": "Select your favourite topping",
+        "name": "food-other",
+        "radios": [
             {
-                id: "bacon-other",
-                label: {
-                    text: "Bacon"
+                "id": "bacon-other",
+                "label": {
+                    "text": "Bacon"
                 },
-                value: "bacon"
+                "value": "bacon"
             },
             {
-                id: "olives-other",
-                label: {
-                    text: "Olives"
+                "id": "olives-other",
+                "label": {
+                    "text": "Olives"
                 },
-                value: "olives"
+                "value": "olives"
             },
             {
-                id: "other-checkbox",
-                label: {
-                    text: "Other",
-                    description: "Any other topping"
+                "id": "other-checkbox",
+                "label": {
+                    "text": "Other",
+                    "description": "Any other topping"
                 },
-                value: "other",
+                "value": "other",
                 other: {
-                    id: "other-textbox",
-                    name: "other-answer",
-                    label: {
-                        text: "Please specify other"
+                    "id": "other-textbox",
+                    "name": "other-answer",
+                    "label": {
+                        "text": "Please specify other"
                     }
                 }
             }

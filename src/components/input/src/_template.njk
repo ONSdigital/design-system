@@ -12,11 +12,11 @@
 {% if params.label -%}
     {{
         onsLabel({
-            for: params.id,
-            id: params.label.id,
-            text: params.label.text,
-            classes: params.label.classes,
-            description: params.label.description
+            "for": params.id,
+            "id": params.label.id,
+            "text": params.label.text,
+            "classes": params.label.classes,
+            "description": params.label.description
         })
     }}
 {%- endif %}
