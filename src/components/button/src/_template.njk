@@ -10,20 +10,20 @@
 {% endif %}
 
 {#- Define common attributes that we can use across all element types #}
-{%- set commonAttributes %}{% if params.id %} id="{{ params.id }}"{% endif %} class="btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.disabled %} btn--disabled{% endif %}"{% for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}{% endset %}
+{% set commonAttributes %}{% if params.id %} id="{{ params.id }}"{% endif %} class="btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.disabled %} btn--disabled{% endif %}"{% for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}{% endset %}
 
 {#- Define common attributes we can use for both button and input types #}
-{%- set buttonAttributes %}{% if params.name %} name="{{ params.name }}"{% endif %} type="{{ params.type if params.type else 'submit' }}"{% if params.disabled %} disabled="disabled" aria-disabled="true"{% endif %}{% endset %}
+{% set buttonAttributes %}{% if params.name %} name="{{ params.name }}"{% endif %} type="{{ params.type if params.type else 'submit' }}"{% if params.disabled %} disabled="disabled" aria-disabled="true"{% endif %}{% endset %}
 
 {#- Create a button or a link #}
-{%- if element == 'a' %}
+{% if element == 'a' %}
 <a href="{{ params.href if params.href else '#' }}" role="button" draggable="false" {{- commonAttributes | safe }}>
   {{ params.html | safe if params.html else params.text }}
 </a>
-{%- elseif element == 'button' %}
-<button {%- if params.value %} value="{{ params.value }}"{% endif %} {{- buttonAttributes | safe }} {{- commonAttributes | safe }}>
+{% elseif element == 'button' %}
+<button {% if params.value %} value="{{ params.value }}"{% endif %} {{- buttonAttributes | safe }} {{- commonAttributes | safe }}>
     {{ params.html | safe if params.html else params.text }}
 </button>
-{%- elseif element == 'input' %}
+{% elseif element == 'input' %}
 <input value="{{ params.text }}" {{- buttonAttributes | safe }} {{- commonAttributes | safe }}>
-{%- endif %}
+{% endif %}
