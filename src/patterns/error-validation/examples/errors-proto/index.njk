@@ -5,56 +5,6 @@
     <div class="page__container container">
         <div class="grid">
             <div class="grid__col col-8@m">
-<<<<<<< HEAD
-                <div class="question">
-                    <h1 class="question__title u-fs-l" data-qa="question-title">How many employees do you pay on a monthly basis?</h1>
-                    {% from "components/field/src/_macro.njk" import onsField %}
-                    {% call
-                        onsField({
-                            legend: "How many employees do you pay on a monthly basis?",
-                            legendClasses: "u-vh"
-                        })
-                    %}
-                    <div class="question__answers">
-                        <div class="question__answer">
-                        {% from "components/input/src/_macro.njk" import onsInput %}
-                        {{
-                            onsInput({
-                                id: "number",
-                                type: "number",
-                                classes: "input--w-5",
-                                attributes: {
-                                    min: 0,
-                                    required: true
-                                },
-                                label: {
-                                    text: "Number of employees paid monthly"
-                                }
-                            })
-                        }}
-                        </div>
-                        <div class="question__answer">
-                            {% from "components/input/src/_macro.njk" import onsInput %}
-                            {{
-                                onsInput({
-                                    id: "suffixed",
-                                    type: "number",
-                                    classes: "input--w-2",
-                                    value: "101",
-                                    attributes: {
-                                        required: true
-                                    },
-                                    label: {
-                                        text: "Percentage of employees paid monthly"
-                                    },
-                                    suffix: {
-                                        title: "percent",
-                                        text: "%"
-                                    }
-                                })
-                            }}
-                        </div>
-=======
                 <div class="group">
                     <div class="question">
                         <h1 class="question__title u-fs-l" data-qa="question-title">How many employees do you pay on a monthly basis?</h1>
@@ -101,7 +51,6 @@
                                 </div>
                             </div>
                         </fieldset>
->>>>>>> e52217ea5963acb23cca0723aad874d0f11654af
                     </div>
                     {% endcall %}
                 </div>
