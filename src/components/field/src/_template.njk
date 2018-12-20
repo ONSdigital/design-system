@@ -1,6 +1,6 @@
 {%- if params.mutuallyExclusive or params.legend -%}
     <fieldset class="field {% if params.mutuallyExclusive %}field--exclusive {% endif %}{{ params.classes }}"{% if params.description %} aria-describedby="{{ params.id }}-description"{% endif %}>
-        <legend class="field__legend">{{ params.legend }}</legend>
+        <legend class="field__legend {{ params.legendClasses }}">{{ params.legend }}</legend>
         {%- if params.description -%}
             <div id="{{ params.id }}-description" class="field__description u-fs-s--b u-fw-n">{{ params.description }}</div>
         {%-endif -%}
