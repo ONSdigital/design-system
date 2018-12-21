@@ -1,14 +1,10 @@
 import domready from 'js/domready';
 
-export const classToggleWrap = 'js-password-toggle-wrap';
-export const classToggle = 'js-password-toggle';
-export const classPassword = 'js-password';
+const classToggleWrap = 'js-password-toggle-wrap';
+const classToggle = 'js-password-toggle';
+const classPassword = 'js-password';
 
-export default function () {
-  return bindInputChangeHandlers();
-}
-
-export function bindInputChangeHandlers() {
+export default function bindInputChangeHandlers() {
   const toggle = document.querySelector(`.${classToggle}`);
 
   if (toggle) {
