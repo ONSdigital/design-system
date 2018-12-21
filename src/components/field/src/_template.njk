@@ -26,10 +26,14 @@
         {% endif %} 
     </fieldset>
 {% else %}
-    <div class="field">
+    {% if not params.noField %}
+        <div class="field">
+    {% endif %}
         {% if params.description %}
             <div class="field__description u-fs-s--b u-fw-n">{{ params.description }}</div>
         {% endif %}
         {{ caller() }}
-    </div>
+    {% if not params.noField %}
+        </div>
+    {% endif %}
 {% endif %}
