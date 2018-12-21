@@ -39,16 +39,20 @@
                     <code class="patternlib-example__code js">{{ params.raw }}</code>
                 </pre>
             </div>
-            <div class="patternlib-example__panel">
-                <pre class="patternlib-example__pre">
-                    <code class="patternlib-example__code html">{{ params.template }}</code>
-                </pre>
-            </div>
-            <div class="patternlib-example__panel">
-                <pre class="patternlib-example__pre">
-                    <code class="patternlib-example__code scss">{{ params.scss }}</code>
-                </pre>
-            </div>
+            {%- if params.template -%}
+                <div class="patternlib-example__panel">
+                    <pre class="patternlib-example__pre">
+                        <code class="patternlib-example__code html">{{ params.template }}</code>
+                    </pre>
+                </div>
+            {%- endif -%}
+            {%- if params.scss -%}
+                <div class="patternlib-example__panel">
+                    <pre class="patternlib-example__pre">
+                        <code class="patternlib-example__code scss">{{ params.scss }}</code>
+                    </pre>
+                </div>
+            {%- endif -%}
         </div>
     </div>
 </div>
