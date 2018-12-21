@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/textarea/src/_template.njk';
-import mutuallyExclusive from 'js/mutually-exclusive';
+import mutuallyExclusive from 'components/mutually-exclusive/src/mutually-exclusive';
 import characterLimit from 'components/textarea/src/character-limit';
 
 const params = {
