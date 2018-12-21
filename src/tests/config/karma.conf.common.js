@@ -6,15 +6,9 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
   delete webpackConfig.entry;
   const runOnBrowserstack = process.env['TEST_ON_BROWSERSTACK'];
 
-  const {
-    customLaunchers: localLaunchers,
-    browsers: localBrowsers
-  } = localLauncherConfig();
+  const { customLaunchers: localLaunchers, browsers: localBrowsers } = localLauncherConfig();
 
-  const {
-    customLaunchers: browserstackLaunchers,
-    browsers: browserstackBrowsers
-  } = browserstackLaunchersConfig();
+  const { customLaunchers: browserstackLaunchers, browsers: browserstackBrowsers } = browserstackLaunchersConfig();
 
   webpackConfig = merge(webpackConfig, {
     module: {
@@ -26,19 +20,14 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
           query: {
             esModules: true
           },
-          include: [
-            path.resolve('./src/components/'),
-            path.resolve('./src/js/')
-          ],
-          exclude: [
-            path.resolve('./src/js/polyfills')
-          ]
+          include: [path.resolve('./src/components/'), path.resolve('./src/js/')],
+          exclude: [path.resolve('./src/js/polyfills')]
         }
-      ],
+      ]
     }
   });
 
-  return function (config) {
+  return function(config) {
     config.set({
       basePath: path.resolve('./src'),
 
@@ -48,7 +37,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
 
       preprocessors: {
         'js/polyfills/index.js': ['webpack'],
-        'tests/**/*.spec.js': ['webpack'],
+        'tests/**/*.spec.js': ['webpack']
       },
 
       plugins: [
@@ -59,7 +48,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         'karma-webpack',
         'karma-mocha',
         'karma-mocha-reporter',
-        'karma-chai',
+        'karma-chai'
       ],
 
       webpack: webpackConfig,
@@ -69,9 +58,10 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
       },
 
       coverageIstanbulReporter: {
-        reports: ['text'],
+        reports: ['text', 'lcovonly'],
         fixWebpackSourcePaths: true,
         combineBrowserReports: true,
+        dir: 'coverage'
         // skipFilesWithNoCoverage: true,
       },
 
@@ -99,9 +89,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         ...(runOnBrowserstack ? browserstackLaunchers : localLaunchers)
       },
 
-      browsers: [
-        ...(runOnBrowserstack ? browserstackBrowsers : localBrowsers)
-      ],
+      browsers: [...(runOnBrowserstack ? browserstackBrowsers : localBrowsers)],
 
       browserStack: {
         startTunnel: 'true',
@@ -110,7 +98,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         forcelocal: true
       },
 
-      singleRun: process.env.KARMA_SINGLE_RUN !== 'false',
+      singleRun: process.env.KARMA_SINGLE_RUN !== 'false'
     });
   };
 }
