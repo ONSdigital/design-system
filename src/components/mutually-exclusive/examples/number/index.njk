@@ -1,0 +1,32 @@
+{% from "components/input/src/_macro.njk" import onsInput %}
+
+{{ 
+    onsInput({
+        "id": "currency",
+        "type": "number",
+        "classes": "input--w-5",
+        "attributes": {
+            "min": 0
+        },
+        "label": {
+            "text": "What is your annual income before tax?"
+        },
+        "prefix": {
+            "title": "Pounds",
+            "text": "£"
+        },
+        "mutuallyExclusive": {
+            "or": "Or",
+            "deselectMessage": 'Selecting this will clear your inputted annual income',
+            "deselectAdjective": "deselected",
+            "checkbox": {
+                "id": "currency-checkbox",
+                "name": "no-currency",
+                "value": "no-currency",
+                "label": {
+                    "text": "I prefer not to say"
+                }
+            }
+        }
+    })
+}}

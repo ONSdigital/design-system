@@ -3,27 +3,35 @@ import template from 'components/input/src/_template.njk';
 import mutuallyExclusive from 'components/mutually-exclusive/src/mutually-exclusive';
 
 const params = {
-  id: 'email',
-  type: 'email',
+  id: 'currency',
+  type: 'number',
+  classes: 'input--w-5',
+  attributes: {
+    min: 0
+  },
   label: {
-    text: 'Enter an email'
+    text: 'What is your annual income before tax?'
+  },
+  prefix: {
+    title: 'Pounds',
+    text: '£'
   },
   mutuallyExclusive: {
     or: 'Or',
-    deselectMessage: 'Selecting this will clear your email',
+    deselectMessage: 'Selecting this will clear your inputted annual income',
     deselectAdjective: 'deselected',
     checkbox: {
-      id: 'email-checkbox',
-      name: 'no-email',
-      value: 'no-email',
+      id: 'currency-checkbox',
+      name: 'no-currency',
+      value: 'no-currency',
       label: {
-        text: 'I dont want to receive a confirmation email'
+        text: 'I prefer not to say'
       }
     }
   }
 };
 
-describe('Component: Mutually Exclusive Email Input', () => {
+describe('Component: Mutually Exclusive Number Input', () => {
   let wrapper, input, checkbox, ariaAlert;
 
   before(() => {
@@ -50,7 +58,7 @@ describe('Component: Mutually Exclusive Email Input', () => {
     }
   });
 
-  describe('Given the user populated the email input', () => {
+  describe('Given the user populated the number input', () => {
     beforeEach(() => {
       populateInput(input);
     });
@@ -60,11 +68,11 @@ describe('Component: Mutually Exclusive Email Input', () => {
         checkbox.click();
       });
 
-      it('then the email input should be cleared', () => {
+      it('then the number input should be cleared', () => {
         expect(input.value).to.equal('');
       });
 
-      // it('then the aria alert should tell the user that the email input has been cleared', () => {
+      // it('then the aria alert should tell the user that the number input has been cleared', () => {
       //   expect(ariaAlert.innerHTML).to.equal(`${params.label.text} cleared.`);
       // });
     });
@@ -75,7 +83,7 @@ describe('Component: Mutually Exclusive Email Input', () => {
       checkbox.click();
     });
 
-    describe('when the user populates the email input', () => {
+    describe('when the user populates the number input', () => {
       beforeEach(() => {
         populateInput(input);
       });
@@ -90,8 +98,8 @@ describe('Component: Mutually Exclusive Email Input', () => {
     });
   });
 
-  // describe('Given the user has not populated the email input or checked the checkbox', () => {
-  //   describe('when the user populates the email input', () => {
+  // describe('Given the user has not populated the number input or checked the checkbox', () => {
+  //   describe('when the user populates the number input', () => {
   //     beforeEach(() => {
   //       populateInput(input);
   //     });
@@ -114,7 +122,7 @@ describe('Component: Mutually Exclusive Email Input', () => {
 });
 
 function populateInput(input) {
-  input.value = 'email@email.com';
+  input.value = 25000;
   const event = new CustomEvent('input');
   input.dispatchEvent(event);
 }
