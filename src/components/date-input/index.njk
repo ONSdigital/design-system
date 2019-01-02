@@ -26,11 +26,38 @@ A `<div>` with `field_description` class is used to provide an example of the re
 Each field uses the `input--w-` utility class to set the known number of digits required for each field.
 
 {% from "components/panel/src/_macro.njk" import onsPanel %}
-{{ 
+{{
     onsPanel({
         "body": "<strong>Note:</strong> Never automatically tab the user between the fields.  This can be unexpected and confusing, and may hinder normal keyboard control."
-    }) 
+    })
 }}
 
 ### Error messages
-When validating the values of the date component, you should check the entire date, and provide specific error messages for the specific errors found.
+When validating the user's entry to the date component, you should check the entire date, and follow the [error pattern guidance](/patterns/error-validation) when providing specific error messages for the specific errors found.
+
+#### If nothing is entered and the answer is required
+Display: 'Enter [the required date]', e.g. 'Enter your date of birth'.
+
+#### If only part of a date is entered
+Display: 'Enter a valid date'.
+
+#### If an invalid date is entered
+Display: 'Enter a valid date'.
+
+#### If the date entered is not within the required range
+Display: 'Enter a date after [range start date]', e.g. 'Enter a date after 1 Februrary 2016' or 'Enter a date before [range end date]', e.g. 'Enter a date before 28 Februrary 2016'
+
+{{
+    patternlibExample("components/date-input/examples/date-input-error/index.njk")
+}}
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+[Discuss 'Date input' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/22)
