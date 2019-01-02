@@ -1,44 +1,48 @@
 import domready from 'js/domready';
 import { trackEvent } from 'js/analytics';
 
-const inputClassLimitExceeded = 'input--limit-reached';
-const remainingClassLimitExceeded = 'input__limit--reached';
+const inputClassLimitReached = 'input--limit-reached';
+const remainingClassLimitReached = 'input__limit--reached';
 const classLimitedInput = 'js-charlimit-input';
 const attrCharLimitRef = 'data-char-limit-ref';
 
-function updateAvailableChars(element, remainingCharElement) {
-  /**
-   * data-maxlength is used to store the originclassCharactersRemainingal value of maxlength
-   * before we mess with it when newlines are added to the input
-   */
-  const limit = element.getAttribute('data-maxlength');
-  let maxLength = limit - countNewlines(element.value);
-  element.setAttribute('maxlength', maxLength);
-  let count = maxLength - element.value.length;
+class CharLimit {
+  constructor(input) {
+    this.input = input;
+    this.maxLength = input.maxLength;
+    this.limitElement = document.getElementById(input.getAttribute(attrCharLimitRef));
+    this.singularMessage = this.limitElement.getAttribute('data-charcount-singular');
+    this.pluralMessage = this.limitElement.getAttribute('data-charcount-plural');
 
-  /**
-   * If the user pastes something in the count could be
-   * negative (because we're double counting newlines), so...
-   */
-  if (count < 0) {
-    element.value = element.value.slice(0, maxLength);
-    count = 0;
+    this.updateLimitReadout();
+    this.limitElement.classList.remove('u-d-no');
+
+    input.addEventListener('input', this.updateLimitReadout.bind(this));
   }
 
-  if (remainingCharElement) {
-    remainingCharElement.innerText = remainingCharElement
-      .getAttribute(count === 1 ? 'data-charcount-singular' : 'data-charcount-plural')
-      .replace('{x}', count);
+  updateLimitReadout() {
+    const value = this.input.value;
+    const remaining = this.maxLength - value.length;
+    const message = remaining === 1 ? this.singularMessage : this.pluralMessage;
+    this.limitElement.innerText = message.replace('{x}', remaining);
 
-    highlightWhenLimitReached(remainingCharElement, remainingClassLimitExceeded, count);
-    highlightWhenLimitReached(element, inputClassLimitExceeded, count);
+    this.setLimitClass(remaining, this.input, inputClassLimitReached);
+    this.setLimitClass(remaining, this.limitElement, remainingClassLimitReached);
 
-    if (count < 1) {
+    this.track(remaining);
+  }
+
+  setLimitClass(remaining, element, limitClass) {
+    element.classList[remaining > 0 ? 'remove' : 'add'](limitClass);
+  }
+
+  track(remaining) {
+    if (remaining < 1) {
       trackEvent('send', {
         hitType: 'event',
         eventCategory: 'Error',
         eventAction: 'Textarea limit reached',
-        eventLabel: `Limit of ${limit} reached/exceeded`
+        eventLabel: `Limit of ${this.maxLength} reached/exceeded`
       });
     }
   }
@@ -47,20 +51,7 @@ function updateAvailableChars(element, remainingCharElement) {
 export default function initialise() {
   const limitedInputs = Array.from(document.querySelectorAll(`.${classLimitedInput}`));
 
-  limitedInputs.forEach(input => {
-    const charLimitEl = document.querySelector(`#${input.getAttribute(attrCharLimitRef)}`);
-    input.setAttribute('data-maxlength', input.getAttribute('maxlength'));
-    updateAvailableChars(input, charLimitEl);
-    input.addEventListener('input', () => updateAvailableChars(input, charLimitEl));
-  });
-};
-
-const highlightWhenLimitReached = (element, cssClass, count) => {
-  element.classList[count < 1 ? 'add' : 'remove'](cssClass);
-};
-
-const countNewlines = (aString) => {
-  return (aString.match(/\n/g) || []).length;
-};
+  limitedInputs.forEach(input => new CharLimit(input));
+}
 
 domready(initialise);
