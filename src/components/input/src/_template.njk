@@ -13,9 +13,12 @@
 {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
 
 {% call onsField({
+    "noField": params.noField,
+    "legend": params.label.text if params.mutuallyExclusive,
+    "description": params.label.description if params.mutuallyExclusive,
     "mutuallyExclusive": params.mutuallyExclusive
 }) %}
-    {% if params.label %}
+    {% if params.label and not params.mutuallyExclusive %}
         {{
             onsLabel({
                 "for": params.id,

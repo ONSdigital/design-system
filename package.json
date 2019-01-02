@@ -13,7 +13,7 @@
     "build": "rm -rf build && yarn webpack --config webpack.prod.babel.js",
     "check-unused": "npx npm-check-unused",
     "lint-staged": "lint-staged",
-    "test": "karma start ./src/tests/config/karma.conf.js && karma start ./src/tests/config/karma.conf.nomodule.js",
+    "test": "karma start ./src/tests/config/karma.conf.js && karma start ./src/tests/config/karma.conf.nomodule.js && codecov",
     "test:browserstack": "TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.js && TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.nomodule.js",
     "test:local": "KARMA_SINGLE_RUN=false karma start ./src/tests/config/karma.conf.js"
   },
@@ -53,6 +53,7 @@
     "chai-as-promised": "^7.1.1",
     "chalk": "^2.4.1",
     "circular-dependency-plugin": "^5.0.2",
+    "codecov": "^3.1.0",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^1.0.1",
     "cssnano": "^4.1.7",
