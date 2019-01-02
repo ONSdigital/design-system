@@ -19,8 +19,18 @@ Don't use the date input component if you're asking the user about an event they
 ## How to use this component
 The date input component provides the user with 3 fields to enter a day, month, and year.
 
-The 3 fields should be grouped within a `<fieldset>` with a `legend` that describes them.
+The 3 fields are grouped within a `<fieldset>` with a `<legend>` that which lets the user know what they need to do.
 
-A `div` with class `field_description` class should be used to provide an example of the required format for the date e.g. 'For example, 31 3 1980'.
+A `<div>` with `field_description` class is used to provide an example of the required format for the date e.g. 'For example, 31 3 1980'.
 
-Each field should use the `input--w-` utility class to set the known number of digits required for each field.
+Each field uses the `input--w-` utility class to set the known number of digits required for each field.
+
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "<strong>Note:</strong> Never automatically tab the user between the fields.  This can be unexpected and confusing, and may hinder normal keyboard control."
+    }) 
+}}
+
+### Error messages
+When validating the values of the date component, you should check the entire date, and provide specific error messages for the specific errors found.
