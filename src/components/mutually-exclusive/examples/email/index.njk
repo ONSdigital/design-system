@@ -1,32 +1,28 @@
-{% from "components/field/src/_macro.njk" import onsField %}
 {% from "components/input/src/_macro.njk" import onsInput %}
-{% call onsField({
-    "mutuallyExclusive": {
-        "or": "Or",
-        "deselectMessage": 'Selecting this will clear your email',
-        "deselectAdjective": "deselected",
-        "checkbox": {
-            "id": "email-checkbox",
-            "name": "no-email",
-            "value": "no-email",
-            "label": {
-                "text": "I dont want to recieve a confirmation email"
+
+{{ 
+    onsInput({
+        "id": "email",
+        "type": "email",
+        "attributes": {
+            "min": 0,
+            "required": true
+        },
+        "label": {
+            "text": "Enter a email"
+        },
+        "mutuallyExclusive": {
+            "or": "Or",
+            "deselectMessage": 'Selecting this will clear your email',
+            "deselectAdjective": "deselected",
+            "checkbox": {
+                "id": "email-checkbox",
+                "name": "no-email",
+                "value": "no-email",
+                "label": {
+                    "text": "I dont want to receive a confirmation email"
+                }
             }
         }
-    }
-}) %}
-   {{ 
-       onsInput({
-            "id": "email",
-            "type": "email",
-            "classes": "js-exclusive-group",
-            "attributes": {
-                "min": 0,
-                "required": true
-            },
-            "label": {
-                "text": "Enter a email"
-            }
-        })
-    }}
-{% endcall %}
+    })
+}}
