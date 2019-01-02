@@ -10,7 +10,7 @@ const params = {
     required: true
   },
   label: {
-    text: 'Enter a email'
+    text: 'Enter an email'
   },
   mutuallyExclusive: {
     or: 'Or',
