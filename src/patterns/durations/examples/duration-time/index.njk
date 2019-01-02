@@ -1,0 +1,46 @@
+{% from "components/field/src/_macro.njk" import onsField %}
+{% from "components/input/src/_macro.njk" import onsInput %}
+
+<h1>How long did it take you complete this survey?</h1>
+{% call onsField({
+    "id": "survey-duration",
+    "legend": "Time"
+}) %}
+    <div class="field__group">
+        <div class="field__item">
+            {{ 
+                onsInput({
+                    "id": "survey-duration-hours",
+                    "type": "number",
+                    "name": "survey-duration-hours",
+                    "classes": "input--w-2",
+                    "attributes": {
+                        "min": 0,
+                        "max": 100
+                    },
+                    "suffix": {
+                        "title": "Hours"
+                    }
+                })
+            }}
+        </div>
+        <div class="field__item">
+            {{ 
+                onsInput({
+                    "id": "survey-duration-minutes",
+                    "type": "number",
+                    "name": "survey-duration-minutes",
+                    "classes": "input--w-2",
+                    "attributes": {
+                        "min": 0,
+                        "max": 59
+                    },
+                    "suffix": {
+                        "title": "Minutes",
+                        "text": "Mins"
+                    }
+                })
+            }}
+        </div>
+    </div>
+{% endcall %}
