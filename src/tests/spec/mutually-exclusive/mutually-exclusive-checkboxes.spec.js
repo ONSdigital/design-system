@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/checkboxes/src/_template.njk';
-import mutuallyExclusive from 'js/mutually-exclusive';
+import mutuallyExclusive from 'components/mutually-exclusive/src/mutually-exclusive';
 
 const params = {
   legend: 'Select all that apply',
