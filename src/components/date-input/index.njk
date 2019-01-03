@@ -23,7 +23,7 @@ The 3 fields are grouped within a `<fieldset>` with a `<legend>` that which lets
 
 A `<div>` with `field_description` class is used to provide an example of the required format for the date e.g. 'For example, 31 3 1980'.
 
-Each field uses the `input--w-` utility class to set the known number of digits required for each field.
+Each field uses the `input--w-<number>` class to set the known number of digits required for each field.
 
 {% from "components/panel/src/_macro.njk" import onsPanel %}
 {{
@@ -55,7 +55,7 @@ Display: 'Enter a 'period to' date later than the 'period from' date.
 {% from "components/panel/src/_macro.njk" import onsPanel %}
 {{ 
     onsPanel({
-        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
+        "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
     }) 
 }}
 
