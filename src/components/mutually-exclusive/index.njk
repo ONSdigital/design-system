@@ -3,19 +3,9 @@
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
+## When to use this component
+
 The mutually exclusive component provides the user with a with a way of selecting multiple items or a single opposing value.
-
-## Configuration
-You can see examples of this configuration object being used in the _Nunjucks_ tab in the [examples](#examples) below.
-
-{% md %}
-| Name | Type   | Required | Description | 
-|------|--------|----------|-------------|
-| or   | string | true | The or text between the main options and the mutually exclusive option |
-| deselectMessage | string | true | Visually hidden text to explain that the current option will deselect all other options |
-| deselectAdjective | string | true | The status message for when all other options are deselected |
-| checkbox | `Checkbox` [_(ref)_](/components/checkboxes) | true | Configuration for the exclusive checkbox |
-{% endmd %}
 
 ## Examples
 
@@ -55,10 +45,22 @@ You can see examples of this configuration object being used in the _Nunjucks_ t
 }}
 
 
-## Usage
+## How to use this component
 This component degrades gracefully if JavaScript is not available to the user. If JavaScript is unavailable it is possible for the user to select all options without inverting the selection therefore further, server-side validation should be performed.
 
 Inputs, radios, checkboxes, date inputs, textareas, and selects all call the [field component](/components/field) which will automatically add the necessary checkbox and aria-live markup, and the classes required by the JavaScript that runs the component. Where you are combining input components such as in the [duration example](#duration) you must call the [`onsField`](/components/field) macro with the `mutuallyExclusive` configuration object and other related data for the fieldset.
+
+### Configuration
+You can see examples of this configuration object being used in the _Nunjucks_ tab in the [examples](#examples) below.
+
+{% md %}
+| Name | Type   | Required | Description | 
+|------|--------|----------|-------------|
+| or   | string | true | The or text between the main options and the mutually exclusive option |
+| deselectMessage | string | true | Visually hidden text to explain that the current option will deselect all other options |
+| deselectAdjective | string | true | The status message for when all other options are deselected |
+| checkbox | `Checkbox` [_(ref)_](/components/checkboxes) | true | Configuration for the exclusive checkbox |
+{% endmd %}
 
 ## Research on this component
 {% from "components/panel/src/_macro.njk" import onsPanel %}
