@@ -1,36 +1,15 @@
 .label {
   display: block;
   margin-bottom: 0.4rem;
-  font-weight: 600;
   color: inherit;
-}
+  font-weight: 600;
 
-.label__description {
-  line-height: 1.4;
-  display: inline-block;
-}
-
-.label--inline {
-  font-weight: 400;
-  padding: 0.7rem 1rem 0.7rem 2.5rem;
-  display: block;
-  margin: 0;
-  cursor: pointer;
-}
-
-.label--toggle {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 0 0 0.25rem;
-}
-
-.label {
-  .field--textarea & {
-    font-weight: 400;
-    margin-bottom: 2rem;
+  &__description {
+    display: inline-block;
+    line-height: 1.4;
   }
-}
 
-.label--small {
-  font-size: 0.8rem;
+  &--small {
+    font-size: 0.8rem;
+  }
 }
