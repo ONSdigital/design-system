@@ -1,0 +1,24 @@
+{% from "components/input/src/_macro.njk" import onsInput %}
+
+{{ 
+    onsInput({
+        "id": "email",
+        "type": "email",
+        "label": {
+            "text": "Enter an email"
+        },
+        "mutuallyExclusive": {
+            "or": "Or",
+            "deselectMessage": 'Selecting this will clear your email',
+            "deselectAdjective": "deselected",
+            "checkbox": {
+                "id": "email-checkbox",
+                "name": "no-email",
+                "value": "no-email",
+                "label": {
+                    "text": "I don't want to receive a confirmation email"
+                }
+            }
+        }
+    })
+}}
