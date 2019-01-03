@@ -6,8 +6,8 @@
 
 .patternlib-page {
   display: flex;
-  height: 100vh;
   flex-direction: column;
+  height: 100vh;
 
   &__header {
     margin: 0;
@@ -65,7 +65,7 @@
 
     code:not(.patternlib-example__code) {
       display: inline-block;
-      padding: 0.25rem;
+      padding: 0.05rem 0.25rem;
       background: $color-lighter-grey;
       color: $color-red;
     }
@@ -98,9 +98,10 @@
 }
 
 .patternlib-hero {
-  background: $color-mid-grey;
-  width: 100%;
   padding: 2rem 0 1rem;
+  width: 100%;
+  background: $color-mid-grey;
+
   &__title {
     max-width: 30rem;
   }
