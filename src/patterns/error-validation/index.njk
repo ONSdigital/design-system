@@ -3,44 +3,49 @@
 group: Help users to...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-##When to use this pattern
+
+## When to use this pattern
 
 Follow this pattern whenever you need to help your users enter valid and required information in a form.
 
 Validation should occur after the user submits the form.
 
-##How to use this pattern
+## How to use this pattern
 
 You must tell the user about missing or incorrect information when they submit a form by displaying:
 
 - A summary listing all the errors on the page
 - Contextual detail and highlight for each erroneous field
 
-###Error summary
+### Error summary
 
 An [error panel](/components/panel#error) must be displayed above the form when the page reloads, so it's the first element to be read.
 
-The error panel's header must display the number of errors on the page.
+The error `panel__header` must display the number of errors on the page.
 
-The error panel's body must contain an anchored list to each erroneous field or fieldset on the page.
+The error `panel__body` must contain an anchored list to each erroneous field or fieldset on the page, each describing the specific error and directing the user towards a resolution.  
+
+Guidance on specific error messages can be found with each applicable [component](/components).
 
 {{
     patternlibExample("patterns/error-validation/examples/error-summary/index.njk")
 }}
 
-###Error details
+### Error details
 
 You must use an [inline error panel](/components/panel#inline-error) to wrap each erroneous field or fieldset.
 
-The inline error panel text string must describe the error and direct the user towards a resolution.
+The inline error panel text string must describe the error and direct the user towards a resolution.  
+
+Guidance on specific error messages can be found with each applicable [component](/components).
 
 {{
     patternlibExample("patterns/error-validation/examples/error-details/index.njk")
 }}
 
-##Example
+## Example
 
-The prototype provides an example of form validation for missing and invalid inputs.  Attempt to submit the form as it is to see the validation in action.  
+The prototype provides an example of form validation for missing and invalid inputs.  Attempt to submit the form as it is to see the validation in action.
 
 <div class="panel panel--info panel--simple u-mb-m">
     <div class="panel__body">
@@ -58,4 +63,15 @@ The prototype provides an example of form validation for missing and invalid inp
     }) 
 }}
 
-##Research on this pattern
+## Research on this component
+
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='https://github.com/ONSdigital/pattern-library-v2/issues/30'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+
+[Discuss 'Correct errors' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/30)
