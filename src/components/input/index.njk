@@ -1,15 +1,48 @@
 ---
 "title": Input
 ---
+
+The input component lets users enter alphanumeric characters for answers that are no longer than one line, using the appropriate keyboard on touch devices.
+
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
 {{
     patternlibExample("components/input/examples/text/index.njk")
 }}
 
+## When to use this component
+Use the input component when you need to let users enter alphanumeric information that is no longer than one line, such as their telephone number or email address.
+
+## When not to use this component
+Do not use this component if you need to let users enter information that will span more than one line.  In this case, you should use the [textarea](/components/textarea) component.
+
+## How to use this component
+All input components must have a visible [label](/components/label).
+
+Do:
+<ul>
+    <li>make sure the label is short, direct and written in sentence case</li>
+    <li>left-align the label above the input</li>
+</ul>
+
+Do not:
+<ul>
+    <li>use placeholder text to display a label because it will not be visible when the user clicks on the input.</li>
+    <li>place a colon at the end of the label</li>
+</ul>
+
+Inputs should be appropriately sized to help the user understand what they should enter by making them the right size for the content they are intended for.
+
+By default, the input component will fill the width of its container.  A [width constraint](#width-constrained) class can be used to make the input smaller.
+
+### Description
+
+An optional `label__description` can be used to display a hint to the user help them enter their information.
+
 ## Variants
+
 ### Width constrained
-Inputs can have their widths constrained using the `input--w-<number>` class. Available widths are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50.
+Inputs can have their widths constrained to the number of expected characters using the `input--w-<number>` class. Available widths are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50.
 {{
     patternlibExample("components/input/examples/text-width-constrained/index.njk")
 }}
