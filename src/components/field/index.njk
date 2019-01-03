@@ -1,0 +1,39 @@
+---
+title: Field
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+The field component is used to wrap form input components to provide context (where it renders as a fieldset) and layout.
+
+The field will render as a `<div>` with the class `field` by default, but if there is a `legend` provided in the field [configuration object](#configuration), or `mutuallyExlusive` configuration object provided, it will render as a `<fieldset>` with a coresponding `<legend>`.
+
+## Configuration
+{% md %}
+| Name | Type   | Required | Description | 
+|------|--------|----------|-------------|
+| id   | string | true     | The id of the field or fieldset |
+| classes | string | false | Classes to apply to the `<fieldset>` |
+| legend | string | false  | The legend text for the fieldset |
+| legendClasses | string | false | Classes to apply to the `<legend>` |
+| description | string | false | The description text for the field or fieldset |
+| noField | boolean | false | Whether or not to wrap the [caller](https://mozilla.github.io/nunjucks/templating.html#call) in a field `<div>`. This property has no effect if `legend` or `mutuallyExclusive` is provided. | 
+| mutuallyExclusive | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive#configuration) | false | The mutually exclusive configuration for the field. | 
+{% endmd %}
+
+## Usage
+
+Generally speaking you should not need to [call](https://mozilla.github.io/nunjucks/templating.html#call) `onsField` yourself as it is already called from within from input components. However if you need to creating a pattern or component that requires a field or `<fieldset>` you can use [nunjucks' call functionality](https://mozilla.github.io/nunjucks/templating.html#call) `onsField`. An example of which can be seen below in the [durations pattern](/patterns/durations):
+
+{{
+    patternlibExample("patterns/durations/examples/duration-time/index.njk")
+}}
+
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/35" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+[Discuss 'Field' on Github](https://github.com/ONSdigital/pattern-library-v2/issues/35)
