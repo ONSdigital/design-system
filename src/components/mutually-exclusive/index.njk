@@ -3,7 +3,11 @@
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
+The mutually exclusive component provides the user with a with a way of selecting multiple items or a single opposing value.
+
 ## Configuration
+You can see examples of this configuration object being used in the _Nunjucks_ tab in the [examples](#examples) below.
+
 {% md %}
 | Name | Type   | Required | Description | 
 |------|--------|----------|-------------|
@@ -49,3 +53,20 @@
 {{
     patternlibExample("components/mutually-exclusive/examples/duration/index.njk")
 }}
+
+
+## Usage
+This component degrades gracefully if JavaScript is not available to the user. If JavaScript is unavailable it is possible for the user to select all options without inverting the selection therefore further, server-side validation should be performed.
+
+Inputs, radios, checkboxes, date inputs, textareas, and selects all call the [field component](/components/field) which will automatically add the necessary checkbox and aria-live markup, and the classes required by the JavaScript that runs the component. Where you are combining input components such as in the [duration example](#duration) you must call the [`onsField`](/components/field) macro with the `mutuallyExclusive` configuration object and other related data for the fieldset.
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/29" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+
+[Discuss 'Mutually Exclusive' on Github](https://github.com/ONSdigital/pattern-library-v2/issues/29)
+
