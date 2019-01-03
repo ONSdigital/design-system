@@ -1,5 +1,7 @@
 {% from "components/field/src/_macro.njk" import onsField %}
 
+{% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
+
 {% call onsField({
     "legend": params.label.text if params.mutuallyExclusive,
     "description": params.label.description if params.mutuallyExclusive,
@@ -19,7 +21,7 @@
     <select
         id="{{ params.id }}"
         name="{{ params.name }}" 
-        class="input input--select {{ params.classes }}"
+        class="input input--select {{ params.classes }}{{ exclusiveClass }}"
         {% if params.value %} value="{{ params.value}}" {% endif %}
         {% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
         {% for option in params.options %}

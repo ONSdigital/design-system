@@ -10,6 +10,8 @@
     {% set type = "text" %}
 {% endif %}
 
+{% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
+
 {% call onsField({
     "noField": params.noField,
     "legend": params.label.text if params.mutuallyExclusive,
@@ -37,7 +39,7 @@
     <input
         type="{{ type }}"
         id="{{ params.id }}"
-        class="input input--text input-type__input {{ params.classes }}"
+        class="input input--text input-type__input {{ params.classes }}{{ exclusiveClass }}"
         {% if params.name !== undefined %}name="{{ params.name }}"{% endif %}
         {% if params.value !== undefined %}value="{{ params.value }}"{% endif %}
         {% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
