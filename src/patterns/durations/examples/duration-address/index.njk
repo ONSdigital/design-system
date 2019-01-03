@@ -1,0 +1,46 @@
+{% from "components/field/src/_macro.njk" import onsField %}
+{% from "components/input/src/_macro.njk" import onsInput %}
+
+<h1>How long have you lived at this address?</h1>
+{% call onsField({
+    "id": "address-duration",
+    "legend": "Duration",
+    "description": "If you have lived at this address for less than a year then enter 0 into the year input."
+}) %}
+    <div class="field__group">
+        <div class="field__item">
+            {{ 
+                onsInput({
+                    "id": "address-duration-years",
+                    "type": "number",
+                    "name": "address-duration-years",
+                    "classes": "input--w-2",
+                    "attributes": {
+                        "min": 0,
+                        "max": 100
+                    },
+                    "suffix": {
+                        "title": "Years"
+                    }
+                })
+            }}
+        </div>
+        <div class="field__item">
+            {{ 
+                onsInput({
+                    "id": "address-duration-months",
+                    "type": "number",
+                    "name": "address-duration-months",
+                    "classes": "input--w-2",
+                    "attributes": {
+                        "min": 0,
+                        "max": 11
+                    },
+                    "suffix": {
+                        "title": "Months"
+                    }
+                })
+            }}
+        </div>
+    </div>
+{% endcall %}

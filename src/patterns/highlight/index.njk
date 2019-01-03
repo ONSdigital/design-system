@@ -1,0 +1,31 @@
+---
+title: See important information
+group: Help users to...
+---
+
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+Highlights are visual emphasis used to draw information to the attention of the user.
+
+{{
+    patternlibExample("patterns/highlight/examples/highlight/index.njk")
+}}
+
+## When to use this pattern
+
+Highlight is used in eQ to draw the attention of the user to a particular value or phrase which is central to the understanding of the sentence. It is used to highlight a section of a sentence or phrase which a user may otherwise miss.
+
+Highlight is also used to indicate a calculated or piped value which was entered previously and is being displayed in a new context.
+
+## How to use this pattern
+
+It should be noted that highlight should be applied to an `<em>` element. If it is applied to another element which does not carry semantic emphasis (for example `<span>`) it will fail in its intent as it no longer provides emphasis to all users.
+
+## Research on this pattern
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/24" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum 
+[Discuss 'Highlight' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/24)

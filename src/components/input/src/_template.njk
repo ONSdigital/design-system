@@ -45,7 +45,7 @@
         {% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
     />
     {% if params.prefix !== undefined or params.suffix !== undefined %}
-            <abbr class="input-type__type" title="{{ params.prefix.title }}{{ params.suffix.title }}">{{ params.prefix.text }}{{ params.suffix.text }}</abbr>
+            <abbr class="input-type__type" title="{{ params.prefix.title }}{{ params.suffix.title }}">{{ params.prefix.text or params.prefix.title }}{{ params.suffix.text or params.suffix.title }}</abbr>
         </div>
     {% endif %}
 {% endcall %}
