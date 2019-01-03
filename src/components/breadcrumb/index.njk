@@ -24,4 +24,11 @@ If you’re using other navigational elements on the page, such as a sidebar, co
 - The separators are part of the visual presentation that signifies the breadcrumb trail. This is already semantically represented by the `nav` element with its `aria-label` of Breadcrumb. Therefore using a display technique that is not used by screen readers prevents redundant and potentially distracting verbosity.
 
 ## Research on this component
-Based upon [W3 principles](https://w3c.github.io/aria-practices/examples/breadcrumb/index.html)
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+    <p>Based upon <a href="https://w3c.github.io/aria-practices/examples/breadcrumb/index.html" target="_blank">W3 principles</a></p>
+    <p>If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/43" target="_blank">Design System forum</a>.</p>
+{% endcall %}
+
+## Design System forum 
+[Discuss 'Highlight' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/43)
