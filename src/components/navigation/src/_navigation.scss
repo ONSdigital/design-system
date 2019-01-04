@@ -37,8 +37,8 @@
       }
     }
     &--current {
-      background-color: $colour-nav-highlight;
-      border-left: 0.5rem $color-secondary solid;
+      background-color: $color-light-blue;
+      border-left: 0.5rem $color-dark-blue solid;
       &.nav__item--completed {
         &::before {
           left: 0.5rem;
@@ -97,7 +97,7 @@
       margin: 0 0 0 1rem;
     }
     + .nav__item--secondary {
-      border-top: 1px solid lighten($color-header-main, 15%);
+      border-top: 1px solid lighten($color-header, 15%);
       margin: 0.5rem 0 0;
     }
   }
@@ -148,7 +148,7 @@
 }
 
 .nav--sub {
-  border-bottom: 1px solid $color-grey;
+  border-bottom: 1px solid $color-borders;
   .nav__item {
     padding: 0 0.667rem 0.3rem;
 
@@ -157,7 +157,7 @@
     }
     &--current,
     &--current:first-child {
-      border-bottom: 4px solid $color-secondary;
+      border-bottom: 4px solid $color-dark-blue;
       padding-left: 0.667rem;
     }
   }
