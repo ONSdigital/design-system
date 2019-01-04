@@ -1,6 +1,6 @@
 .beta-bar {
   padding: 0.5rem 0;
-  background: $color-lighter-grey;
+  background: $color-grey-5;
 
   &__badge {
     margin: 0 0.5rem 0 0;
@@ -10,7 +10,7 @@
     line-height: 1em;
     text-transform: uppercase;
 
-    background: $color-almost-black;
+    background: $color-grey-1;
     color: $color-white;
   }
 }

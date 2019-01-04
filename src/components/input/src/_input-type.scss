@@ -16,8 +16,8 @@
   &__type[title] {
     flex: 0 0 auto;
     display: block;
-    background-color: $color-lighter-grey;
-    border: 1px solid $color-borders;
+    background-color: $color-grey-5;
+    border: 1px solid $color-input;
 
     padding: $input-padding $input-padding * 2;
     font-weight: 600;
@@ -37,7 +37,7 @@
     bottom: 0;
     left: 0;
     border-radius: $input-radius;
-    box-shadow: 0 0 0 3px $color-focus-outline;
+    box-shadow: 0 0 0 3px $color-focus;
   }
 
   &:not(&--prefix) & {
