@@ -1,9 +1,36 @@
 ---
 "title": Skip to content
 ---
-{% from "views/partials/example/_macro.njk" import patternlibExample %}
+The skip to content component lets assistive technology and keyboard-only users skip to the main content on a page, to bypass and avoid repeating focus on persistent page elements such as top-level navigation.
 
-To see functionality, click into example and press `tab` key.
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "classes" : "u-mb-m",
+        "body": "To view this component, click into the example below and press the <kbd>tab</kbd> key."
+    }) 
+}}
+
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
 {{
     patternlibExample("components/skip-to-content/examples/skip-to-content/index.njk")
 }}
+
+## When to use this component
+All ONS pages must use the skip to content component above the header.
+
+## How to use this component
+The skip to content link component is visually hidden until it is brought into focus with a keyboard press.
+
+It should be the first element of the page content, and link to the page's `#main` div.
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='https://github.com/ONSdigital/pattern-library-v2/issues/59'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+[Discuss 'Skip to content' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/59)
