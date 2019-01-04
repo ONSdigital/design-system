@@ -33,7 +33,7 @@ yarn start
 Once the server has started navigate to http://localhost:3010
 
 ## Testing
-To test locally ensure you;ve followed all the steps above to install dependencies. You can have three options:
+To test locally ensure you've followed all the steps above to install dependencies. You can have three options:
 
 ### Run tests locally in watch mode
 This will watch your test files and JavaScript for changes and rerun the test suite each time a change is detected.
