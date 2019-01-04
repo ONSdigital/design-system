@@ -36,7 +36,7 @@
     flex: 0 0 auto;
     padding: $grid-gutters;
     width: 300px;
-    border-right: 1px solid $color-grey;
+    border-right: 1px solid $color-borders;
 
     .nav {
       width: 100%;
@@ -73,7 +73,7 @@
     code:not(.patternlib-example__code) {
       display: inline-block;
       padding: 0.05rem 0.25rem;
-      background: $color-lighter-grey;
+      background: $color-grey-5;
       color: $color-red;
     }
 
@@ -105,10 +105,9 @@
 }
 
 .patternlib-hero {
-  padding: 2rem 0 1rem;
+  background: $color-grey-5;
   width: 100%;
-  background: $color-mid-grey;
-
+  padding: 2rem 0 1rem;
   &__title {
     max-width: 30rem;
   }

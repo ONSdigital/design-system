@@ -18,14 +18,14 @@
   }
 
   &:focus {
-    outline: 3px solid $color-focus-outline;
+    outline: 3px solid $color-focus;
   }
 }
 
 .btn {
-  background-color: $color-primary;
+  background-color: $color-green;
   color: $color-white;
-  border: 1px solid $color-primary;
+  border: 1px solid $color-green;
   padding: 0.75rem 1rem;
 
   margin: 0;
@@ -43,13 +43,13 @@
   &:focus {
     text-decoration: none;
     color: $color-white;
-    background-color: darken($color-primary, 10%);
-    border-color: darken($color-primary, 10%);
+    background-color: darken($color-green, 10%);
+    border-color: darken($color-green, 10%);
   }
 
   &:focus {
     outline-offset: 3px;
-    outline: 3px solid $color-focus-outline;
+    outline: 3px solid $color-focus;
   }
 
   @include mq(s) {
@@ -62,7 +62,7 @@
 }
 
 .btn--secondary {
-  @include btn-override($bg: $color-light-grey, $color: $color-links, $color-hover: $color-links-hover, $darken-hover: 5%);
+  @include btn-override($bg: $color-button-secondary, $color: $color-links, $color-hover: $color-links-hover, $darken-hover: 5%);
 }
 
 .btn--ghost {

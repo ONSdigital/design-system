@@ -57,7 +57,7 @@ $checkbox-label-vertical-padding: 0.75rem;
       bottom: 0;
       left: 0;
 
-      border: 1px solid $color-borders;
+      border: 1px solid $color-input;
       border-radius: 3px;
     }
   }
@@ -72,13 +72,13 @@ $checkbox-label-vertical-padding: 0.75rem;
 
   &__input:checked + &__label:before {
     border-color: $color-links-hover;
-    background: $color-lighter-grey;
+    background: $color-grey-5;
     box-shadow: 0 0 0 1px $color-links-hover;
   }
 
   &__input:focus + &__label:before {
     border-color: $color-links-hover;
-    box-shadow: 0 0 0 3px $color-focus-outline;
+    box-shadow: 0 0 0 3px $color-focus;
   }
 
   &__input:not(:checked) ~ &__other {
@@ -91,7 +91,7 @@ $checkbox-label-vertical-padding: 0.75rem;
       left: 0;
 
       &:focus {
-        box-shadow: 0 0 0 3px $color-focus-outline;
+        box-shadow: 0 0 0 3px $color-focus;
       }
     }
 

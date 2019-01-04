@@ -97,9 +97,9 @@ export default function(mode) {
       mode,
 
       entry: {
-        responsive: ['./styles/responsive.scss'],
-        patternlib: ['./styles/patternlib.scss'],
-        error: ['./styles/error.scss'],
+        responsive: ['./scss/responsive.scss'],
+        patternlib: ['./scss/patternlib.scss'],
+        error: ['./scss/error.scss'],
         html: glob.sync('./**/*.njk', { cwd: 'src', ignore: './**/_*.njk' })
       },
 
@@ -107,7 +107,7 @@ export default function(mode) {
         rules: [
           // Styles
           {
-            include: [path.join(process.cwd(), 'src/styles')],
+            include: [path.join(process.cwd(), 'src/scss')],
             test: /\.scss$/,
             use: [
               MiniCssExtractPlugin.loader,
@@ -130,7 +130,7 @@ export default function(mode) {
                 options: {
                   sourceMap: false,
                   precision: 8,
-                  includePaths: [path.join(process.cwd(), 'src/styles')],
+                  includePaths: [path.join(process.cwd(), 'src/scss')],
                   importer: globImporter()
                 }
               }
