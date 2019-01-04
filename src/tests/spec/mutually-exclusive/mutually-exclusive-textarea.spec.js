@@ -1,7 +1,8 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/textarea/src/_template.njk';
-import mutuallyExclusive from 'js/mutually-exclusive';
+import mutuallyExclusive from 'components/mutually-exclusive/src/mutually-exclusive';
 import characterLimit from 'components/textarea/src/character-limit';
+import { populateTextarea } from '../textarea/character-limit';
 
 const params = {
   id: 'feedback',
@@ -124,10 +125,3 @@ describe('Component: Mutually Exclusive Textarea', () => {
   //   });
   // });
 });
-
-function populateTextarea(textarea) {
-  textarea.value =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus varius mauris, vitae venenatis sem ullamcorper in. Integer eu facilisis urna. Sed convallis porttitor massa eu pulvinar.';
-  const event = new CustomEvent('input');
-  textarea.dispatchEvent(event);
-}

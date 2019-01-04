@@ -6,8 +6,8 @@
 
 .patternlib-page {
   display: flex;
-  height: 100vh;
   flex-direction: column;
+  height: 100vh;
 
   &__header {
     margin: 0;
@@ -65,7 +65,7 @@
 
     code:not(.patternlib-example__code) {
       display: inline-block;
-      padding: 0.25rem;
+      padding: 0.05rem 0.25rem;
       background: $color-grey-5;
       color: $color-red;
     }

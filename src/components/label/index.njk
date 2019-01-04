@@ -3,21 +3,20 @@
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
+## When to use this component
+Labels are paired with [inputs](/components/input), [textareas](/components/textarea), [radios](/components/radios), [checkboxes](/components/checkboxes), and [selects](/components/select) to describe a form input.
+
 {{
     patternlibExample("components/label/examples/label/index.njk")
 }}
+
+## How to use this component
+Generally speaking you should not need to implement a label yourself as the form inputs have them imported in their respective templates.
 
 ## Variants
 ### With description
 {{
     patternlibExample("components/label/examples/label-description/index.njk")
-}}
-
-
-### Inline
-This variant is achieved by adding `label--inline` to the `classes` option.
-{{
-    patternlibExample("components/label/examples/label-inline/index.njk")
 }}
 
 ### Small
@@ -26,3 +25,11 @@ This variant is achieved by adding `label--small` to the `classes` option.
     patternlibExample("components/label/examples/label-small/index.njk")
 }}
 
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/40" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum 
+[Discuss 'Label' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/40)

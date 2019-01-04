@@ -1,8 +1,30 @@
 ---
 "title": Beta bar
 ---
-{% from "views/partials/example/_macro.njk" import patternlibExample %}
+The Beta bar lets users know the service is new and still being worked on, and encourages the user to provide feedback to help improve it.
 
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
 {{
     patternlibExample("components/beta-bar/examples/beta-bar/index.njk")
 }}
+
+## When to use this component
+You must use the beta bar when your service is in the beta phase and still being developed.
+
+## How to use this component
+The beta bar must be placed directly above the ONS [header](/components/header) at the very top of the page.
+
+### Feedback link
+The feedback link should direct users to a form using the [feedback component](/components/feedback) to collect page feedback on the service.
+Ensure you always provide the user with a route back to the page they were on when they clicked the link.
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+[Discuss 'Beta bar' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/8)
