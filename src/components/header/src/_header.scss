@@ -16,7 +16,7 @@
 
   &--internal & {
     &__top {
-      background: $color-secondary;
+      background: $color-dark-blue;
     }
   }
 
@@ -30,21 +30,21 @@
 
   &__main {
     padding: 0.56rem 0;
-    background: $color-header-main;
+    background: $color-header;
 
     @include mq(m) {
       padding: 1.1rem 0;
     }
 
     &--border {
-      border-top: 3px solid $color-header-main;
-      border-bottom: 3px solid $color-header-main;
+      border-top: 3px solid $color-header;
+      border-bottom: 3px solid $color-header;
       padding: 0.934rem 0;
     }
   }
 
   &__nav {
-    background: $color-header-main;
+    background: $color-header;
   }
 
   &__title {

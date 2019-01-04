@@ -18,7 +18,7 @@
 .panel {
   border-radius: 0;
   a {
-    color: $color-secondary;
+    color: $color-dark-blue;
   }
   /* Removes inherited bottom margin to make whitespace inside panel equal */
   > *:last-child {
@@ -47,8 +47,8 @@
 
 @include panel_type(error, $color-red, $color-light-red);
 @include panel_type(warn, $color-amber, $color-light-amber);
-@include panel_type(success, $color-primary, $color-light-green);
-@include panel_type(info, $color-secondary, $color-light-blue);
+@include panel_type(success, $color-green, $color-light-green);
+@include panel_type(info, $color-dark-blue, $color-light-blue);
 
 .panel--simple {
   border: none;
