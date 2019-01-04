@@ -1,13 +1,44 @@
 ---
 "title": Radios
 ---
+Radios let the user select a single option from a list.
+
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
 {{
     patternlibExample("components/radios/examples/radios/index.njk")
 }}
 
+## When to use this component
+Use the radio component when you need to help users select a single option from a list.
+
+## When not to use this component
+Do not use the radios component if users can choose more than one option from a list. In this case, use the [checkboxes](/components/checkboxes) component.
+
+## How to use this component
+Radios are grouped within a `<fieldset>` which starts with a `<legend>` which lets the user know what they need to do.
+
+## Variants
+
 ### Other
+This variant lets the user provide an answer other to the options in the list, or to provide supplemental information required to describe the nature of their answer.
+
+The radio label must be directly followed by the `radio__description` to let the user know they will need to provide an answer if they select this option.
+
+Use this varation by wrapping the text field in a div with class `radio__other`, added directly after the radio label.
+CSS hides this div until the radio is ``:checked``.
+
 {{
     patternlibExample("components/radios/examples/radios-other/index.njk")
 }}
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='https://github.com/ONSdigital/pattern-library-v2/issues/56'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+[Discuss 'Radios' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/56)
