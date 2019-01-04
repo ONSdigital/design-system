@@ -6,7 +6,7 @@ import chalk from 'chalk';
 
 import commonConfig from './webpack.common';
 
-const port = 3001;
+const port = 3010;
 const common = commonConfig('development');
 
 function getIP() {
