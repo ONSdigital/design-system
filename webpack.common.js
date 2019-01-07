@@ -240,7 +240,7 @@ export default function(mode) {
                     }
                   ]
                 ],
-                plugins: ['@babel/plugin-syntax-dynamic-import']
+                plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties']
               }
             }
           }
@@ -276,7 +276,7 @@ export default function(mode) {
                     }
                   ]
                 ],
-                plugins: ['@babel/plugin-syntax-dynamic-import']
+                plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties']
               }
             }
           }

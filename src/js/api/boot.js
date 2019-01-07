@@ -1,13 +1,11 @@
-import {getAllToRun, get} from './_sdcModules';
-import domready from '../domready';
-
-const domreadyModule = get('domready');
+import { getAllToRun, get } from './_sdcModules';
+import domready from 'js/domready';
 
 window.sdcAPI = window.sdcAPI || {};
 
 /**
  * Manually boot pattern library scripts from the application
  */
-window.sdcAPI.boot = function () {
-  getAllToRun().forEach(domreadyModule.domready);
+window.sdcAPI.boot = function() {
+  getAllToRun().forEach(domready);
 };
