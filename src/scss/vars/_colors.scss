@@ -1,11 +1,9 @@
 // greyscale
-
 $color-black: #222;
-$color-grey-1: #363636;
-$color-grey-2: #595959;
-$color-grey-3: #999;
-$color-grey-4: #ccc;
-$color-grey-5: #f0f0f0;
+$color-grey-1: #595959;
+$color-grey-2: #999;
+$color-grey-3: #ccc;
+$color-grey-4: #f0f0f0;
 $color-white: #fff;
 
 // brand
@@ -23,14 +21,14 @@ $color-yellow: #f0f762;
 
 // assignment
 $color-text: $color-black;
-$color-text-light: $color-grey-2;
+$color-text-light: $color-grey-1;
 $color-links: $color-blue;
 $color-links-hover: $color-dark-blue;
 $color-focus: $color-amber;
 $color-button: $color-green;
-$color-button-secondary: $color-grey-5;
-$color-input: $color-grey-3;
-$color-borders: $color-grey-4;
+$color-button-secondary: $color-grey-4;
+$color-input: $color-grey-2;
+$color-borders: $color-grey-3;
 $color-emphasis: $color-yellow;
 $color-errors: $color-red;
 $color-header: $color-astral-blue;

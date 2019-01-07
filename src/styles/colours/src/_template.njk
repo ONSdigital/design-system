@@ -1,0 +1,15 @@
+<div class="grid grid--flex grid--gutterless">
+    {% for item in params.items -%}
+        <div class="patternlib-swatch grid grid--flex grid--gutterless grid--no-wrap">
+            <div class="patternlib-swatch__color u-flex-no-shrink" style="background-color:{{ item.hex }}">
+            </div>
+            <div class="patternlib-swatch__codes grid__col col-6 u-flex-no-grow">
+                <span class="patternlib-swatch__hex">{{ item.hex }}</span>
+                <code class="patternlib-swatch__var">{{ item.var }}</code>
+            </div>
+            {% if item.info -%}
+            <div class="patternlib-swatch__info grid__col u-flex-shrink">{{ item.info|safe  }}</div>
+            {% endif -%}
+        </div>
+    {% endfor -%}
+</div>

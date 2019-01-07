@@ -8,7 +8,7 @@ table th {
 }
 
 table > thead {
-  border-bottom: 2px solid $color-grey-5;
+  border-bottom: 2px solid $color-grey-4;
 }
 
 th,
@@ -17,5 +17,5 @@ td {
   word-wrap: normal;
   line-height: 1;
   vertical-align: top;
-  border-bottom: thin solid $color-grey-5;
+  border-bottom: thin solid $color-grey-4;
 }

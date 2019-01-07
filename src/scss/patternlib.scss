@@ -66,7 +66,7 @@
     code:not(.patternlib-example__code) {
       display: inline-block;
       padding: 0.05rem 0.25rem;
-      background: $color-grey-5;
+      background: $color-grey-4;
       color: $color-red;
     }
 
@@ -98,7 +98,7 @@
 }
 
 .patternlib-hero {
-  background: $color-grey-5;
+  background: $color-grey-4;
   width: 100%;
   padding: 2rem 0 1rem;
   &__title {
