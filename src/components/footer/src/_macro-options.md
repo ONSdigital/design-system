@@ -19,10 +19,10 @@
 ## FooterCol
 | Name | Type   | Required | Description |
 |------|--------|----------|-------------|
-| items  | `Array<ListItem>` [_(ref)_](/styles/lists) | true | A list of links for the column |
+| items  | `Array<ListItem>` [_(ref)_](/styles/typography/lists) | true | A list of links for the column |
 | title  | string | false     | The title of the column |
 
 ## FooterRow
 | Name | Type   | Required | Description |
 |------|--------|----------|-------------|
-| items  | `Array<ListItem>` [_(ref)_](/styles/lists) | true | A list of links for the row |
+| items  | `Array<ListItem>` [_(ref)_](/styles/typography/lists) | true | A list of links for the row |

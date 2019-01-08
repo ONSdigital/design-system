@@ -1,0 +1,124 @@
+---
+"title": Typography
+---
+<p class="u-fs-r--b u-mt-l">Contents</p>
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{{ 
+    onsList({
+        "classes": 'list--bare',
+        "items": [
+            {
+                "text": 'Font',
+                "href": '#font'
+            },
+            {
+                "text": 'Headings',
+                "href": '#headings'
+            },
+            {
+                "text": 'Paragraphs',
+                "href": '#paragraphs'
+            },
+            {
+                "href": '#lists',
+                "text": 'Lists'
+            }
+        ]
+    })
+}}
+## Font
+Text is the primary way that users digest information and accomplish tasks, so it’s important to use good typographic principles to establish a clear visual hierarchy and to maximize legibility.
+
+### Lato
+The primary font used in SDC is [Lato](https://fonts.google.com/specimen/Lato).
+
+Lato, with its broad range of weights and extensive unicode support was chosen to provide a good balance between legibility, personality and readability. As the majority of our User Interface (UI) is text-based, we use weight and size to denote hierarchy and separation between content. Lato’s letterforms also provide a good level of contrast which aid readability on poorer quality displays and for users with visual impairment.
+
+Font stack: <span style='font-family: Lato;'>"Lato"</span>, <span style='font-family: "Helvetica Neue";'>“Helvetica Neue”</span>, <span style='font-family: Helvetica;'>Helvetica</span>, <span style='font-family: Arial;'>Arial</span>, <span style='font-family: sans-serif;'>sans-serif</span>
+
+### Type scale
+Using the type scale classes on text elements, the type is sized appropriately for the following breakpoints:
+
+{% md %}
+| Viewport < 740                                            | Viewport >= 740                                           |
+|-----------------------------------------------------------|-----------------------------------------------------------|
+| <p class="u-fs-xl">u-fs-xl</p>Lato Bold - 1.5rem/28px     | <p class="u-fs-xl">u-fs-xl</p>Lato Bold - 2rem/36px       |
+| <p class="u-fs-l">u-fs-l</p>Lato Bold - 1.3rem/24px       | <p class="u-fs-l">u-fs-l</p>Lato Bold - 1.5rem/28px       |
+| <p class="u-fs-m">u-fs-m</p>Lato Bold - 1.1rem/20px       | <p class="u-fs-m">u-fs-m</p>Lato Bold - 1.2rem/22px       |
+| <p class="u-fs-r--b">u-fs-r--b</p>Lato Bold - 1rem/18px   | <p class="u-fs-r--b">u-fs-r--b</p>Lato Bold - 1rem/18px   |
+| <p class="u-fs-r">u-fs-r</p>Lato Regular - 1rem/18px      | <p class="u-fs-r">u-fs-r</p>Lato Regular - 1rem/18px      |
+| <p class="u-fs-s--b">u-fs-s--b</p>Lato Bold - 0.7rem/14px | <p class="u-fs-s--b">u-fs-s--b</p>Lato Bold - 0.7rem/14px |
+| <p class="u-fs-s">u-fs-s</p>Lato Regular - 0.7rem/14px    | <p class="u-fs-s">u-fs-s</p>Lato Regular - 0.7rem/14px    |
+{% endmd %}
+
+### Font weights
+<b>Bold: 700</b>
+
+Regular: 400
+
+## Headings
+By default, headings have all their font-sizes reset to `1rem`, with the typographic hierarchy enforced by the 'type scale', eg:
+<h1 class="u-fs-xl">Heading 1 (u-fs-xl)</h1>
+<h2 class="u-fs-l">Heading 2 (u-fs-l)</h2>
+<h3 class="u-fs-m">Heading 3 (u-fs-m)</h3>
+<h4 class="u-fs-r--b">Heading 4 (u-fs-r--b)</h4>
+<h5 class="u-fs-r">Heading 5 (u-fs-r)</h5>
+<p class="u-fs-s--b">Small (u-fs-s--b)</p>
+<p class="u-fs-s">Small (u-fs-s)</p>
+
+### Breakpoint headings
+<h2 class="u-fs-m">Breakpoint headings</h2>
+<p>Font sizes can be triggered at certain breakpoints. Just suffix any font size class with <code>@{breakpoint}</code>, e.g. <code>u-fs-m@l</code></p>
+<p class="u-fs-s@xs u-fs-r@s u-fs-m@l u-fs-l@xl u-fs-xl@xxl">This text will change font size depending on viewport width</p>
+
+
+## Paragraphs
+
+## Lists
+Use lists to break up blocks of text into concise, manageable chunks to make it easier to read.
+
+### Bulleted list (default)
+Bulleted lists should be introduced with a lead-in line, ending in a colon.
+
+Each item in the list should start with a lowercase letter and should not end with a full stop.
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+{{
+    patternlibExample("styles/typography/lists/examples/list/index.njk")
+}}
+
+### Variants
+
+#### Numbered list
+Numbered lists should be displayed in place of bulleted lists when the order of items is relevant.
+
+Each list item should be a complete sentence, therefore start with an uppercase letter, and end with a full stop.
+
+You do not need to introduce a numbered list with a lead-in line.
+{{
+    patternlibExample("styles/typography/lists/examples/list-ordered/index.njk")
+}}
+
+#### Bare list
+Bare lists should be used to display a list of navigational links, for example, a group of related pages displayed in the [footer](components/footer).
+{{
+    patternlibExample("styles/typography/lists/examples/list-bare/index.njk")
+}}
+
+#### Inline list
+Inline lists should be used to display a horizontal row of links, for example, a list of pages displayed in the [transactional footer](components/footer#transactional).
+{{
+    patternlibExample("styles/typography/lists/examples/list-inline/index.njk")
+}}
+
+#### Errors list
+Used within the [error details panel](http://localhost:3010/patterns/error-validation#error-details) to display a list error messages for each erroneous field in a fieldset.
+{{
+    patternlibExample("styles/typography/lists/examples/list-errors/index.njk")
+}}
+
+#### Boxed list
+Used to display a code split into manageable chunks, for example, a reference code to quote during a helpdesk call.
+{{
+    patternlibExample("styles/typography/lists/examples/list-boxes/index.njk")
+}}
