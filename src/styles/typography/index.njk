@@ -67,12 +67,16 @@ By default, headings have all their font-sizes reset to `1rem`, with the typogra
 <p class="u-fs-s">Small (u-fs-s)</p>
 
 ### Breakpoint headings
-<h2 class="u-fs-m">Breakpoint headings</h2>
 <p>Font sizes can be triggered at certain breakpoints. Just suffix any font size class with <code>@{breakpoint}</code>, e.g. <code>u-fs-m@l</code></p>
 <p class="u-fs-s@xs u-fs-r@s u-fs-m@l u-fs-l@xl u-fs-xl@xxl">This text will change font size depending on viewport width</p>
 
 
 ## Paragraphs
+The base font size for paragraphs is 18px.
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{{
+    patternlibExample("styles/typography/paragraphs/examples/index.html")
+}}
 
 ## Lists
 Use lists to break up blocks of text into concise, manageable chunks to make it easier to read.
@@ -82,7 +86,6 @@ Bulleted lists should be introduced with a lead-in line, ending in a colon.
 
 Each item in the list should start with a lowercase letter and should not end with a full stop.
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-
 {{
     patternlibExample("styles/typography/lists/examples/list/index.njk")
 }}
