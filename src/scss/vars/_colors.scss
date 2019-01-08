@@ -20,6 +20,7 @@ $color-light-red: #fbecec;
 $color-yellow: #f0f762;
 
 // assignment
+$color-header: $color-astral-blue;
 $color-text: $color-black;
 $color-text-light: $color-grey-1;
 $color-links: $color-blue;
@@ -31,4 +32,10 @@ $color-input: $color-grey-2;
 $color-borders: $color-grey-3;
 $color-emphasis: $color-yellow;
 $color-errors: $color-red;
-$color-header: $color-astral-blue;
+$color-errors-tint: $color-light-red;
+$color-info: $color-dark-blue;
+$color-info-tint: $color-light-blue;
+$color-success: $color-green;
+$color-success-tint: $color-light-green;
+$color-warn: $color-amber;
+$color-warn-tint: $color-light-amber;
