@@ -1,104 +1,127 @@
-import { objHasInterface, getTimeNow } from 'js/utils';
-import { Countable } from 'components/countdown/src/countdown';
-import LoaderBtn from 'js/loader-btn';
-import dialog from 'js/dialog';
 import fetch from 'js/fetch';
+import CountdownAnimation from 'components/countdown/src/countdown';
+import { getTimeNow } from 'js/utils';
+import LoaderBtn from 'js/loader-btn';
+import Dialog from 'js/dialog';
 
-export default class SessionTimeoutUI {
-  static timeLimit = 0;
-  static sessionExpiredUrl = '/session-expired';
-  static expireSessionUrl = '/expire-session';
-  static sessionContinueUrl = '/timeout-continue';
-  static timeStartCountdown = getTimeNow();
+export default class Timeout {
+  constructor() {
+    this.promptTime = window.__EQ_SESSION_TIMEOUT_PROMPT__;
+    this.timeLimit = window.__EQ_SESSION_TIMEOUT__;
+    this.containerScopeEl = document.querySelector('.js-timeout-container');
 
-  constructor({ scopeEl, continueRetryLimit = 5, animation, handleSave, continueSuccessCallback }) {
-    if (!objHasInterface(animation, Countable)) {
-      throw Error('Invalid "animation" object supplied');
+    this.sessionExpiredUrl = '/session-expired';
+    this.expireSessionUrl = '/expire-session';
+    this.sessionContinueUrl = '/timeout-continue';
+    this.timeStartCountdown = getTimeNow();
+
+    this.continueRetryCount = this.continueRetryLimit = 5;
+
+    if (!this.promptTime) {
+      console.log('Timeout Component: "window.__EQ_SESSION_TIMEOUT_PROMPT__" not found.');
+    } else if (!this.timeLimit) {
+      console.log('Timeout Component: "window.__EQ_SESSION_TIMEOUT__" not found.');
+    } else if (!this.containerScopeEl) {
+      console.log('Timeout Component: ".js-timeout-container" not found.');
+    } else {
+      this.startTick();
     }
+  }
 
-    this.continueBtn = new LoaderBtn('.js-timeout-continue', scopeEl);
-    this.saveBtn = scopeEl.querySelector('.js-timeout-save');
+  startTick() {
+    this.timeoutInterval = setInterval(() => {
+      this.countDown = this.onTick();
 
-    this.continueRetryCount = this.continueRetryLimit = continueRetryLimit;
-    this.animation = animation;
-    this.continueSuccessCallback = continueSuccessCallback;
+      if (this.countDown < 1) {
+        clearInterval(this.timeoutInterval);
+
+        fetch(this.expireSessionUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' } }).then(() => {
+          window.location = this.sessionExpiredUrl;
+        });
+      }
+
+      if (this.countDown < this.promptTime) {
+        if (this.initialised) {
+          this.animation.draw(this.countDown);
+        } else {
+          this.initialise();
+        }
+      }
+    });
+  }
+
+  onTick() {
+    return this.timeLimit - (getTimeNow() - this.timeStartCountdown);
+  }
+
+  initialise() {
+    this.initialised = true;
+
+    this.continueBtn = new LoaderBtn('.js-timeout-continue', this.containerScopeEl);
+    this.saveBtn = this.containerScopeEl.querySelector('.js-timeout-save');
+
+    this.animation = new CountdownAnimation(this.containerScopeEl.querySelector('.js-timeout'), this.promptTime, this.timeLimit);
 
     // intercept and override ESC key closing dialog
     document.addEventListener(
       'keydown',
-      e => {
-        if (e.which === 27) {
+      event => {
+        if (event.which === 27) {
           // ESC Key
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          this.handleContinue(e);
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          this.handleContinue(event);
         }
       },
       false
     );
 
     this.continueBtn.addEventListener('click', this.handleContinue.bind(this));
-    this.saveBtn.addEventListener('click', handleSave);
+    this.saveBtn.addEventListener('click', this.handleSave.bind(this));
 
-    dialog.init();
-    dialog.show();
+    this.dialog = new Dialog();
+    this.dialog.show();
+
+    this.animation.draw(this.countDown || 0);
   }
 
-  handleContinue(e) {
-    if (e) {
-      e.preventDefault();
+  handleContinue(event) {
+    if (event) {
+      event.preventDefault();
     }
 
-    fetch(SessionTimeoutUI.sessionContinueUrl)
+    fetch(this.sessionContinueUrl)
       .then(this.continueSuccess.bind(this))
       .catch(this.continueFail.bind(this));
   }
 
   continueSuccess() {
-    dialog.hide();
+    this.dialog.hide();
     this.continueBtn.reset();
     this.continueRetryCount = this.continueRetryLimit;
     this.animation.reset();
-    SessionTimeoutUI.reset();
-    this.continueSuccessCallback();
+    this.reset();
+    this.initialised = false;
   }
 
   continueFail() {
-    // if error retry 5 times
     if (this.continueRetryCount-- > 0) {
-      window.setTimeout(() => {
-        this.handleContinue();
-      }, 1000);
+      setTimeout(this.handleContinue.bind(this), 1000);
     } else {
       this.continueBtn.reset();
       this.continueRetryCount = this.continueRetryLimit;
     }
   }
 
-  static reset() {
-    SessionTimeoutUI.timeStartCountdown = getTimeNow();
+  reset() {
+    this.timeStartCountdown = getTimeNow();
   }
 
-  static onTick() {
-    return SessionTimeoutUI.timeLimit - (getTimeNow() - SessionTimeoutUI.timeStartCountdown);
-  }
+  handleSave(event) {
+    event.preventDefault();
 
-  static create(opts) {
-    const instance = new SessionTimeoutUI({
-      scopeEl: opts.scopeEl,
-      continueRetryLimit: opts.continueRetryLimit || 5,
-      animation: opts.animation,
-      handleSave: function saveHandler(e) {
-        e.preventDefault();
+    document.querySelector('.js-btn-save').click();
 
-        document.querySelector('.js-btn-save').click();
-        return false;
-      },
-      continueSuccessCallback: opts.continueSuccessCallback
-    });
-
-    instance.animation.draw(opts.countDown || 0);
-
-    return instance;
+    return false;
   }
 }

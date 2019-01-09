@@ -27,7 +27,8 @@ const core = {
     alias: {
       js: path.resolve(__dirname, './src/js'),
       components: path.resolve(__dirname, './src/components'),
-      tests: path.resolve(__dirname, './src/tests')
+      tests: path.resolve(__dirname, './src/tests'),
+      stubs: path.resolve(__dirname, './src/tests/stubs')
     }
   },
 
@@ -240,7 +241,7 @@ export default function(mode) {
                     }
                   ]
                 ],
-                plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties']
+                plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties', 'rewiremock/babel']
               }
             }
           }
@@ -276,7 +277,7 @@ export default function(mode) {
                     }
                   ]
                 ],
-                plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties']
+                plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties', 'rewiremock/babel']
               }
             }
           }
