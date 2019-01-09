@@ -1,0 +1,20 @@
+{% from "styles/lists/src/_macro.njk" import onsList %}
+{{ 
+    onsList({
+        "classes": 'list--bare list--inline',
+        "items": [
+            {
+                "text": 'Contact us',
+                "href": '#'
+            },
+            {
+                "text": 'Cookies and privacy',
+                "href": '#'
+            },
+            {
+                "text": 'Terms and conditions',
+                "href": '#'
+            }
+        ]
+    }) 
+}}
