@@ -1,4 +1,4 @@
-import { getTimeNow } from 'js/utils';
+import getTimeNow from 'js/utils/getTimeNow';
 
 export const Countable = {
   el: true,

@@ -1,6 +1,6 @@
 import fetch from 'js/fetch';
 import CountdownAnimation from 'components/countdown/src/countdown';
-import { getTimeNow } from 'js/utils';
+import getTimeNow from 'js/utils/getTimeNow';
 import LoaderBtn from 'js/loader-btn';
 import Dialog from 'js/dialog';
 
