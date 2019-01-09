@@ -30,7 +30,7 @@ yarn install
 yarn start
 ```
 
-Once the server has started navigate to <http://localhost:3010>
+Once the server has started, navigate to <http://localhost:3010>
 
 ## Testing
 To test locally ensure you've followed all the steps above to install dependencies. You can have three options:
