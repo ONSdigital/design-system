@@ -45,10 +45,10 @@
   }
 }
 
-@include panel_type(error, $color-red, $color-light-red);
-@include panel_type(warn, $color-amber, $color-light-amber);
-@include panel_type(success, $color-green, $color-light-green);
-@include panel_type(info, $color-dark-blue, $color-light-blue);
+@include panel_type(error, $color-errors, $color-errors-tint);
+@include panel_type(warn, $color-warn, $color-warn-tint);
+@include panel_type(success, $color-success, $color-success-tint);
+@include panel_type(info, $color-info, $color-info-tint);
 
 .panel--simple {
   border: none;

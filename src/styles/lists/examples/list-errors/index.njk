@@ -1,0 +1,17 @@
+{% from "styles/lists/src/_macro.njk" import onsList %}
+{{ 
+    onsList({
+        "classes": 'list--errors',
+        "items": [
+            {
+                "text": 'Error 1'
+            },
+            {
+                "text": 'Error 2'
+            },
+            {
+                "text": 'Error 3'
+            }
+        ]
+    }) 
+}}
