@@ -17,8 +17,8 @@ If you work across multiple Node.js projects there's a good chance they require 
 
 To enable this we use [nvm (Node Version Manager)](https://github.com/creationix/nvm) to switch between versions easily.
 
-1. [install nvm](https://github.com/creationix/nvm#installation)
-2. Run nvm install in the project directory (this will use .nvmrc)
+  1. [install nvm](https://github.com/creationix/nvm#installation)
+  2. Run nvm install in the project directory (this will use .nvmrc)
 
 ### Install dependencies
 ```
@@ -30,7 +30,7 @@ yarn install
 yarn start
 ```
 
-Once the server has started navigate to http://localhost:3010
+Once the server has started navigate to <http://localhost:3010>
 
 ## Testing
 To test locally ensure you've followed all the steps above to install dependencies. You can have three options:
@@ -56,7 +56,7 @@ All unit tests are automatically cross browser tested in [BrowserStack](https://
 
 You can also run cross browser testing in BrowserStack manually against your local branch by running this command:
 
-*Note*: You will need to set your `BROWSER_STACK_USERNAME` and `BROWSER_STACK_ACCESS_KEY` environment variables to allow authentication with BrowserStack. Username and access keys can be found under _Automate_ on the [BrowserStack settings page](https://www.browserstack.com/accounts/settings).
+*Note*: You will need to set your `BROWSER_STACK_USERNAME` and `BROWSER_STACK_ACCESS_KEY` environment variables to allow authentication with BrowserStack. Username and access keys can be found under *Automate* on the [BrowserStack settings page](https://www.browserstack.com/accounts/settings).
 ```
 yarn test:browserstack
 ```
@@ -69,9 +69,9 @@ yarn build
 ```
 
 ## Recommended Visual Studio Code plugins for this project
-* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-* [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
-* [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-* [Sass](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented)
-* [Sass Lint](https://marketplace.visualstudio.com/items?itemName=glen-84.sass-lint)
+  * [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+  * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  * [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
+  * [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+  * [Sass](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented)
+  * [Sass Lint](https://marketplace.visualstudio.com/items?itemName=glen-84.sass-lint)
