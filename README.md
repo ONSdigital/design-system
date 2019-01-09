@@ -17,8 +17,8 @@ If you work across multiple Node.js projects there's a good chance they require 
 
 To enable this we use [nvm (Node Version Manager)](https://github.com/creationix/nvm) to switch between versions easily.
 
-  1. [install nvm](https://github.com/creationix/nvm#installation)
-  2. Run nvm install in the project directory (this will use .nvmrc)
+1. [install nvm](https://github.com/creationix/nvm#installation)
+2. Run nvm install in the project directory (this will use .nvmrc)
 
 ### Install dependencies
 ```
@@ -69,9 +69,9 @@ yarn build
 ```
 
 ## Recommended Visual Studio Code plugins for this project
-  * [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-  * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-  * [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
-  * [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-  * [Sass](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented)
-  * [Sass Lint](https://marketplace.visualstudio.com/items?itemName=glen-84.sass-lint)
+* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
+* [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+* [Sass](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented)
+* [Sass Lint](https://marketplace.visualstudio.com/items?itemName=glen-84.sass-lint)
