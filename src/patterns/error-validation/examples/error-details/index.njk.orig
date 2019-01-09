@@ -1,0 +1,81 @@
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call 
+    onsPanel({
+        "type": "error"
+    })
+%}
+<<<<<<< HEAD
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+=======
+{% from "styles/lists/src/_macro.njk" import onsList %}
+>>>>>>> origin
+{{
+    onsList({
+        id: 'container-test-number',
+        classes: 'list--bare list--errors u-mb-s',
+        items: [
+            {
+                text: 'Enter a number.'
+            }
+        ]
+    })
+}}
+{% from "components/input/src/_macro.njk" import onsInput %}
+{{
+    onsInput({
+        "id": "number",
+        "type": "number",
+        "classes": "input--w-5",
+        "attributes": {
+            "min": 0,
+            "required": true
+        },
+        "label": {
+            "text": "Number of employees paid monthly"
+        }
+    })
+}}
+{% endcall %}
+{% call 
+    onsPanel({
+        "type": "error",
+        "id": "test",
+        "classes": "u-mt-m u-"
+    })
+%}
+<<<<<<< HEAD
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+=======
+{% from "styles/lists/src/_macro.njk" import onsList %}
+>>>>>>> origin
+{{
+    onsList({
+        id: 'container-test-percent',
+        classes: 'list--bare list--errors u-mb-s',
+        items: [
+            {
+                text: 'Enter a number less than or equal to 100.'
+            }
+        ]
+    })
+}}
+{% from "components/input/src/_macro.njk" import onsInput %}
+{{
+    onsInput({
+        "id": "suffixed",
+        "type": "number",
+        "classes": "input--w-3",
+        "value": "101",
+        "attributes": {
+            "required": true
+        },
+        "label": {
+            "text": "Percentage of employees paid monthly"
+        },
+        "suffix": {
+            "title": "percent",
+            "text": "%"
+        }
+    })
+}}
+{% endcall %}

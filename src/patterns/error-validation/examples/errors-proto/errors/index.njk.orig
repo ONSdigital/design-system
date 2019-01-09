@@ -1,0 +1,158 @@
+{% extends "./views/layouts/_prototype.njk" %}
+
+{% block prototype_body %}
+<div class="page">
+    <div class="page__container container">
+        <div class="grid">
+            <div class="grid__col col-8@m">
+                <div class="question">
+                {% from "components/panel/src/_macro.njk" import onsPanel %}
+                    {% call
+                        onsPanel({
+                            "title": "This page has 2 errors",
+                            "type": "error",
+                            "classes": "u-mb-s"
+                        })
+                    %}
+                    <p>These <strong>must be corrected</strong> to continue.</p>
+<<<<<<< HEAD
+                    {% from "styles/typography/lists/src/_macro.njk" import onsList %}
+=======
+                    {% from "styles/lists/src/_macro.njk" import onsList %}
+>>>>>>> origin
+                    {{
+                        onsList({
+                            "classes": "list--bare",
+                            "items": [
+                                {
+                                    "text": "Enter a number.",
+                                    "index": true,
+                                    "href": "#container-test-number",
+                                    "classes": "js-inpagelink"
+                                },
+                                {
+                                    "text": "Enter a number less than or equal to 100.",
+                                    "index": true,
+                                    "href": "#container-test-percent",
+                                    "classes": "js-inpagelink"
+                                }
+                            ]
+                        })
+                    }}
+                    {% endcall %}
+                    <h1 class="question__title u-fs-l" data-qa="question-title">How many employees do you pay on a monthly basis?</h1>
+                    {% from "components/field/src/_macro.njk" import onsField %}
+                    {% call
+                        onsField({
+                            "legend": "How many employees do you pay on a monthly basis?",
+                            "legendClasses": "u-vh"
+                        })
+                    %}
+                    <div class="question__answers">
+                        <div class="question__answer">
+                            <div class="answer answer--number js-has-errors" id="container-test-number">
+                                <div class="answer__fields js-fields">
+                                {% from "components/panel/src/_macro.njk" import onsPanel %}
+                                {% call
+                                    onsPanel({
+                                        "type": "error"
+                                    })
+                                %}
+<<<<<<< HEAD
+                                {% from "styles/typography/lists/src/_macro.njk" import onsList %}
+=======
+                                {% from "styles/lists/src/_macro.njk" import onsList %}
+>>>>>>> origin
+                                {{-
+                                    onsList({
+                                        "classes": "list--bare list--errors u-mb-s",
+                                        "items": [
+                                            {
+                                                "text": "Enter a number."
+                                            }
+                                        ]
+                                    })
+                                -}}
+                                {% from "components/input/src/_macro.njk" import onsInput %}
+                                {{-
+                                    onsInput({
+                                        "id": "number",
+                                        "type": "number",
+                                        "classes": "input--w-5",
+                                        "attributes": {
+                                            "min": 0,
+                                            "required": true
+                                        },
+                                        "label": {
+                                            "text": "Number of employees paid monthly"
+                                        }
+                                    })
+                                -}}
+                                {% endcall %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question__answer">
+                            <div class="answer answer--number js-has-errors" id="container-test-percent">
+                                <div class="answer__fields js-fields">
+                                {% from "components/panel/src/_macro.njk" import onsPanel %}
+                                {% call
+                                    onsPanel({
+                                        "type": "error"
+                                    })
+                                %}
+<<<<<<< HEAD
+                                {% from "styles/typography/lists/src/_macro.njk" import onsList %}
+=======
+                                {% from "styles/lists/src/_macro.njk" import onsList %}
+>>>>>>> origin
+                                {{-
+                                    onsList({
+                                        "id": "container-test-percent",
+                                        "classes": "list--bare list--errors u-mb-s",
+                                        "items": [
+                                            {
+                                                "text": "Enter a number less than or equal to 100."
+                                            }
+                                        ]
+                                    })
+                                -}}
+                                {% from "components/input/src/_macro.njk" import onsInput %}
+                                {{-
+                                    onsInput({
+                                        "id": "suffixed",
+                                        "type": "number",
+                                        "classes": "input--w-2",
+                                        "value": "101",
+                                        "attributes": {
+                                            "required": true
+                                        },
+                                        "label": {
+                                            "text": "Percentage of employees paid monthly"
+                                        },
+                                        "suffix": {
+                                            "title": "percent",
+                                            "text": "%"
+                                        }
+                                    })
+                                -}}
+                                {% endcall %}
+                                </div>
+                            </div>
+                            {% endcall %}
+                        </div>
+                    </div>
+                </div>
+                {% from "components/button/src/_macro.njk" import onsButton %}
+                {{
+                    onsButton({
+                        "type": "button",
+                        "text": "Save and continue",
+                        "classes": "u-mb-m u-mt-l"
+                    })
+                }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
