@@ -1,20 +1,20 @@
-{% from "components/list/src/_macro.njk" import onsList %}
+{% from "styles/lists/src/_macro.njk" import onsList %}
 {{ 
     onsList({
         "classes": 'list--bare',
         "items": [
             {
                 "href": '#',
-                "text": 'Item 1'
-            },
-            {
-                "href": '#',
-                "text": 'Item 2'
-            },
-            {
-                "href": '#',
-                "text": 'Item 3',
+                "text": 'Who we are',
                 target: '_blank'
+            },
+            {
+                "href": '#',
+                "text": 'What we do'
+            },
+            {
+                "href": '#',
+                "text": 'Where to find us'
             }
         ]
     }) 
