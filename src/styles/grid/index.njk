@@ -1,0 +1,20 @@
+---
+"title": Grid
+sortOrder: 2
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+The ONS grid system provides a structured approach to design and develop pages on services.
+
+## Mobile first
+
+We use a responsive, mobile first approach that allows layouts to change to suit the device being used to access the page. The responsive nature of the grid and the underlying codebase ensures that users have the best available experience regardless of their device or orientation.
+
+## The Grid
+
+We have built a flexible grid based on 12 columns, each column has a percentage calculated width and the margins (gutters) are fixed for each breakpoint. We have created breakpoints that are device agnostic and change the layout when best suited as opposed to specific devices. The example below shows the full 12 column grid:
+
+{{
+    patternlibExample("styles/grid/examples/grid/index.njk")
+}}
+
