@@ -1,5 +1,3 @@
-import rm from 'rewiremock/webpack';
-
 import 'js/fetch';
 import 'components/timeout/src/timeout';
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
@@ -9,8 +7,6 @@ import promiseInstanceMock from 'stubs/promise.stub.spec';
 import dialogMock from 'stubs/dialog.stub.spec';
 import loaderButtonMock from 'stubs/loader-btn.stub.spec';
 import getTimeNowMock from 'stubs/getTimeNow.stub.spec';
-
-const rewiremock = rm.default;
 
 const params = {
   id: 'timeout',
@@ -33,9 +29,14 @@ describe('Component: Timeout', () => {
   const mockedLoaderButton = loaderButtonMock();
   const mockedGetTimeNow = getTimeNowMock(789);
 
-  let wrapper, instance;
+  let wrapper, instance, rewiremock;
 
-  before(() => awaitPolyfills);
+  before(resolve => {
+    awaitPolyfills.then(() => {
+      rewiremock = require('rewiremock/webpack').default;
+      resolve();
+    });
+  });
 
   beforeEach(done => {
     const html = template.render({ params });
