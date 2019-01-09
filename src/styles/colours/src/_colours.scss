@@ -1,0 +1,40 @@
+.patternlib-swatch {
+  margin: 0 0 2rem;
+
+  &__color {
+    width: 70px;
+    height: 70px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    margin-right: 1rem;
+    position: relative;
+  }
+
+  &__codes {
+    margin-right: 2rem;
+    min-width: 12rem;
+  }
+
+  &__hex {
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: block;
+  }
+
+  &__char {
+    font-size: 2.2rem;
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__detail {
+    display: block;
+  }
+
+  &__info {
+    padding-left: 0.8rem;
+  }
+}

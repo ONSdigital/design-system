@@ -23,9 +23,9 @@
 }
 
 .btn {
-  background-color: $color-green;
+  background-color: $color-button;
   color: $color-white;
-  border: 1px solid $color-green;
+  border: 1px solid $color-button;
   padding: 0.75rem 1rem;
 
   margin: 0;
@@ -43,8 +43,8 @@
   &:focus {
     text-decoration: none;
     color: $color-white;
-    background-color: darken($color-green, 10%);
-    border-color: darken($color-green, 10%);
+    background-color: darken($color-button, 10%);
+    border-color: darken($color-button, 10%);
   }
 
   &:focus {
