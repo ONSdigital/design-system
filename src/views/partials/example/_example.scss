@@ -12,7 +12,7 @@
     display: inline-block;
     padding: 0.25rem 0.5rem;
     line-height: 1.3rem;
-    background: $color-grey-5;
+    background: $color-grey-4;
   }
 
   &__rendered {
@@ -45,7 +45,7 @@
   @for $i from 1 through 4 {
     &__radio:nth-of-type(#{$i}):checked ~ {
       #{$c}__tabs > #{$c}__tab:nth-of-type(#{$i}) {
-        background: $color-grey-5;
+        background: $color-grey-4;
       }
 
       #{$c}__panels > #{$c}__panel:nth-of-type(#{$i}) {
@@ -67,7 +67,7 @@
 .macro-options {
   margin: 0 0 1rem;
   padding: 0.5rem 1rem;
-  background: $color-grey-5;
+  background: $color-grey-4;
 
   &__summary {
     color: $color-blue;
@@ -85,7 +85,7 @@
     th {
       top: 0;
       position: sticky;
-      background: $color-grey-5;
+      background: $color-grey-4;
     }
 
     th,
