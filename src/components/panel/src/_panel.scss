@@ -46,7 +46,6 @@
 }
 
 @include panel_type(error, $color-errors, $color-errors-tint);
-@include panel_type(warn, $color-warn, $color-warn-tint);
 @include panel_type(success, $color-success, $color-success-tint);
 @include panel_type(info, $color-info, $color-info-tint);
 

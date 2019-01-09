@@ -1,0 +1,29 @@
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call
+    onsPanel({
+        title: "This page has 2 errors",
+        type: "error"
+    })
+%}
+<p>These <strong>must be corrected</strong> to continue.</p>
+{% from "styles/lists/src/_macro.njk" import onsList %}
+{{
+    onsList({
+        "classes": "list--bare",
+        "items": [
+            {
+                "text": "Enter a number.",
+                "index": true,
+                "href": "#container-test-number",
+                "classes": "js-inpagelink"
+            },
+            {
+                "text": "Enter a number less than or equal to 100.",
+                "index": true,
+                "href": "#container-test-percent",
+                "classes": "js-inpagelink"
+            }
+        ]
+    }) 
+}}
+{% endcall %}
