@@ -16,6 +16,7 @@ class Collapsible {
       this.button.classList.remove('u-d-no');
     }
 
+    this.summary.setAttribute('aria-controls', this.content.getAttribute('id'));
     this.summary.setAttribute('tabindex', 0);
     this.setOpen(false);
 

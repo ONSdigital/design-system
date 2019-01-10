@@ -1,11 +1,11 @@
 
 {% from "components/button/src/_macro.njk" import onsButton %}
 
-<details class="collapsible js-collapsible" open>
+<details id="{{ params.id }}" class="collapsible js-collapsible" open>
     <summary class="collapsible__summary js-collapsible-summary" data-ga="click" data-ga-category="definition" data-ga-action="Open panel" data-ga-label="{{ params.title}}">
         <h2 class="collapsible__title u-fs-r--b">{{ params.title }}</h2>
     </summary>
-    <div class="collapsible__content js-collapsible-content">
+    <div id="{{ params.id }}-content" class="collapsible__content js-collapsible-content">
         {{ params.content | safe }}
         {% if params.button %}
             {{
