@@ -6,15 +6,15 @@
         {% for item in params.items %}
         <div class="summary__item">
             <div class="grid">
-                <div class="grid__col col-12@xs {% if item.answerType === 'textarea' %}col-10@m{% else %}col-6@m{% endif %}">
+                <div class="grid__col col-12@xs {% if item.textArea %}col-10@m{% else %}col-6@m{% endif %}">
                     <div class="summary__question u-fs-r">{{ item.question }}</div>
                 </div>
-                <div class="grid__col col-8@xs {% if item.answerType === 'textarea' %}col-10@m{% else %}col-4@m{% endif %}">
-                    <div class="summary__answer {% if item.answerType === 'textarea' %}summary__answer--textarea{% endif %} u-fs-r--b">{{ item.answer | safe }}</div>
+                <div class="grid__col col-8@xs {% if item.textArea %}col-10@m{% else %}col-4@m{% endif %}">
+                    <div class="summary__answer {% if item.textArea %}summary__answer--textarea{% endif %} u-fs-r--b">{{ item.answer | safe }}</div>
                 </div>
                 {% if item.link %}
                 <div class="grid__col col-4@xs col-2@m">
-                    <div class="summary__link {% if item.answerType === 'textarea' %}summary__answer--textarea{% endif %} u-fs-r">
+                    <div class="summary__link {% if item.textArea %}summary__answer--textarea{% endif %} u-fs-r">
                         <a href="{{ item.href }}">Change <span class="u-vh">your answer for: {{ item.question }}</span></a>
                     </div>
                 </div>
