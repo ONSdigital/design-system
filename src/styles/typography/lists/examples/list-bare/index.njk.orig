@@ -1,0 +1,21 @@
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{{ 
+    onsList({
+        "classes": 'list--bare',
+        "items": [
+            {
+                "href": '#',
+                "text": 'Who we are',
+                target: '_blank'
+            },
+            {
+                "href": '#',
+                "text": 'What we do'
+            },
+            {
+                "href": '#',
+                "text": 'Where to find us'
+            }
+        ]
+    }) 
+}}
