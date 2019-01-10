@@ -1,0 +1,33 @@
+{% from "patterns/playback/src/_macro.njk" import onsSummary %}
+{{ 
+  onsSummary({
+    "title": 'Section title',
+    "items": [
+        {
+            "question": 'What are the dates of the sales period you are reporting for?',
+            "answer": '1 January 2015 to 2 February 2017',
+            "link": true,
+            "href": "#"
+        },
+        {
+            "question": 'For the period 1 January 2015 to 2 February 2017, what was the value of your total turnover, excluding VAT?',
+            "answer": '£180,440',
+            "link": true,
+            "href": "#"
+        },
+        {
+            "question": 'Please indicate the reasons for any changes in the total turnover',
+            "answer": '<ul class="u-m-no"><li>Change in level of business activity</li><li>Special/calendar events</li></ul>',
+            "link": true,
+            "href": "#"
+        },
+        {
+            "question": 'Please indicate the reasons for any changes in the total turnover',
+            "answer": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            "answerType": 'textarea',
+            "link": true,
+            "href": "#"
+        }                                          
+    ]
+  }) 
+}}

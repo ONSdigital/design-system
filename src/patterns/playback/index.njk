@@ -1,0 +1,60 @@
+---
+"title": Check answers
+group: Help users to...
+---
+
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+Allow users to check the information they have have previously entered and confirm that it is correct before submitting it.
+
+## When to use this pattern
+Use this pattern when you need to let users check and confirm the information they have given before they complete, for example, a survey questionnaire.
+
+## How to use this pattern
+There are currently 3 methods within an EQ survey for playing back respondent data.
+
+1. <a href="#1-the-playback-of-answers-within-a-summary">The playback of answers within a summary.</a>
+2. <a href="#2-the-playback-of-a-single-answer">The playback of a singular answer.</a>
+3. <a href="#3-the-playback-of-multiple-answers-or-a-list-of-options">The playback of multiple answers or a list of options.</a>
+
+Each method allows the respondent to check what they have have previously entered and confirm that the data is correct.
+
+### 1. The playback of answers within a summary
+A summary lets the user review the answer(s) they have given to a single question or multiple questions, allowing them to edit their answers before completing the survey.
+
+{{
+    patternlibExample("patterns/playback/examples/summary/index.njk")
+}}
+
+A summary page should be displayed at the end of a section or at the end of a whole survey.
+
+<figure>  
+  <img src="../img/playback-summary.svg" alt="The playback of answer(s) within a summary">
+  <figcaption>Figure 1. An example where the respondent has completed a section or survey and their answers are played back within a summary.</figcaption>
+</figure>
+
+### 2. The playback of a single answer
+<figure>
+  <img src="../img/playback-singular-answer.svg" alt="The playback of a singular answer">
+  <figcaption>Figure 2. An example where the respondent is required to confirm a single answer in order to progress.</figcaption>
+</figure>
+
+### 3. The playback of multiple answers or a list of options
+<figure>
+  <img src="../img/playback-multiple-answers.svg" alt="The playback of multiple answers or a list of options">
+  <figcaption>Figure 3. An example where the respondent is required to confirm multiple answers or a list of options previously entered.</figcaption>
+</figure>
+
+
+## Research on this component
+
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='#'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+
+[Discuss 'Check answers' on GitHub](#)
