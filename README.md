@@ -17,16 +17,16 @@ If you work across multiple Node.js projects there's a good chance they require 
 
 To enable this we use [nvm (Node Version Manager)](https://github.com/creationix/nvm) to switch between versions easily.
 
-1. [install nvm](https://github.com/creationix/nvm#installation)
-2. Run nvm install in the project directory (this will use .nvmrc)
+ 1. [install nvm](https://github.com/creationix/nvm#installation)
+ 2. Run nvm install in the project directory (this will use .nvmrc)
 
 ### Install dependencies
-```
+```bash
 yarn install
 ```
 
 ### Start a local server
-```
+```bash
 yarn start
 ```
 
@@ -40,14 +40,14 @@ This will watch your test files and JavaScript for changes and rerun the test su
 
 *Note*: This will only run tests on the ES6 bundle.
 
-```
+```bash
 yarn test:local
 ```
 
 ### Run ES6 and ES5 bundle tests 
 Running this will run the test suite twice, once against the ES6 bundle and again against the ES5 bundle. However, as local tests only run on evergreen browsers it will be unlikely that you see the ES5 testing fail if the ES6 testing passes.
 
-```
+```bash
 yarn test
 ```
 
@@ -57,21 +57,22 @@ All unit tests are automatically cross browser tested in [BrowserStack](https://
 You can also run cross browser testing in BrowserStack manually against your local branch by running this command:
 
 *Note*: You will need to set your `BROWSER_STACK_USERNAME` and `BROWSER_STACK_ACCESS_KEY` environment variables to allow authentication with BrowserStack. Username and access keys can be found under *Automate* on the [BrowserStack settings page](https://www.browserstack.com/accounts/settings).
-```
+
+```bash
 yarn test:browserstack
 ```
 
 ## Build
 Generate a build into `./build`. Will also create [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) reports for both the ES6 and ES5 bundle and open them in your default browser.
 
-```
+```bash
 yarn build
 ```
 
 ## Recommended Visual Studio Code plugins for this project
-* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-* [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
-* [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-* [Sass](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented)
-* [Sass Lint](https://marketplace.visualstudio.com/items?itemName=glen-84.sass-lint)
+  * [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+  * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  * [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
+  * [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+  * [Sass](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented)
+  * [Sass Lint](https://marketplace.visualstudio.com/items?itemName=glen-84.sass-lint)
