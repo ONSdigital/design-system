@@ -80,31 +80,31 @@ describe('Component: Mutually Exclusive Select', () => {
     mutuallyExclusive();
   });
 
-  // afterEach(() => {
-  //   if (wrapper) {
-  //     wrapper.remove();
-  //   }
-  // });
+  afterEach(() => {
+    if (wrapper) {
+      wrapper.remove();
+    }
+  });
 
-  // describe('Given the user populated the select', () => {
-  //   beforeEach(() => {
-  //     populateInput(select);
-  //   });
+  describe('Given the user populated the select', () => {
+    beforeEach(() => {
+      populateInput(select);
+    });
 
-  //   describe('when the user clicks the mutually exclusive option', () => {
-  //     beforeEach(() => {
-  //       checkbox.click();
-  //     });
+    describe('when the user clicks the mutually exclusive option', () => {
+      beforeEach(() => {
+        checkbox.click();
+      });
 
-  //     it('then the select should be cleared', () => {
-  //       expect(select.value).to.equal('');
-  //     });
+      it('then the select should be cleared', () => {
+        expect(select.value).to.equal('');
+      });
 
-  //     // it('then the aria alert should tell the user that the select has been cleared', () => {
-  //     //   expect(ariaAlert.innerHTML).to.equal(`${params.label.text} cleared.`);
-  //     // });
-  //   });
-  // });
+      // it('then the aria alert should tell the user that the select has been cleared', () => {
+      //   expect(ariaAlert.innerHTML).to.equal(`${params.label.text} cleared.`);
+      // });
+    });
+  });
 
   describe('Given the user has checked the mutually exclusive checkbox', () => {
     beforeEach(() => {
