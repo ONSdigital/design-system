@@ -1,0 +1,94 @@
+$collapsible-caret-width: 1.1rem;
+
+.collapsible {
+  &__summary {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 0.5rem;
+    outline: none;
+    pointer-events: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &--has-js & {
+    &__summary {
+      padding: 0 0 0 ($collapsible-caret-width + 0.4rem);
+      color: $color-links;
+      cursor: pointer;
+      pointer-events: initial;
+
+      transition: color 0.3s ease-in-out;
+
+      &:hover,
+      &:focus {
+        color: $color-links-hover;
+
+        &:before {
+          opacity: 0;
+        }
+
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      &:focus {
+        outline: 3px solid $color-focus;
+        outline-offset: 3px;
+      }
+
+      &:before,
+      &:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0.1rem;
+        left: 0;
+        width: $collapsible-caret-width;
+        height: $collapsible-caret-width;
+
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: $collapsible-caret-width $collapsible-caret-width;
+
+        transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
+      }
+
+      &:after {
+        opacity: 0;
+      }
+
+      &:before {
+        background-image: url(#{$static}/img/icons/icons--chevron-right-blue.svg);
+      }
+
+      &:after {
+        background-image: url(#{$static}/img/icons/icons--chevron-right-blue-hover.svg);
+      }
+    }
+
+    &__content {
+      display: none;
+    }
+  }
+
+  &--open & {
+    &__summary {
+      &:before,
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
+
+    &__content {
+      display: block;
+    }
+  }
+}
