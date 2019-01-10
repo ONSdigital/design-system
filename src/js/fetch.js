@@ -10,11 +10,12 @@ function checkStatus(response) {
   }
 }
 
-export default function (url, options) {
-  return window.fetch(url, {
-    method: 'GET',
-    credentials: 'include',
-    ...options
-  })
+export default function(url, options) {
+  return window
+    .fetch(url, {
+      method: 'GET',
+      credentials: 'include',
+      ...options
+    })
     .then(checkStatus);
 }

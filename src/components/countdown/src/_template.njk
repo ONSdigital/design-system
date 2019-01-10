@@ -1,0 +1,8 @@
+<div class="time js-timeout">
+    <svg class="time__visual" width="{{ params.width * 2}}px" height="{{ params.width * 2}}px" viewBox="0 0 {{ params.width * 2}} {{ params.width * 2}}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <circle cx="{{ params.width }}" cy="{{ params.width }}" r="{{ params.width }}" stroke="#D3D3D3" stroke-width="6" fill="none"></circle>
+        <circle class="time__circle js-timeout-circle" cx="{{ params.width }}" cy="{{ params.width }}" r="{{ params.width }}" transform="rotate(-90 {{ params.width }} {{ params.width }})" fill="none" stroke="red" stroke-width="6" stroke-linecap="round"></circle>
+    </svg>
+
+    <div class="time__text u-fs-r--b js-timeout-time">0:00</div>
+</div>

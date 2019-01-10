@@ -4,8 +4,8 @@
   $c: &;
 
   position: relative;
-  width: 100%;
   margin: 0 0 2rem;
+  width: 100%;
   border: 1px solid $color-borders;
 
   &__link {
@@ -17,8 +17,14 @@
 
   &__rendered {
     position: relative;
-    overflow: hidden;
     padding: 2rem;
+    overflow: hidden;
+  }
+
+  &__iframe {
+    position: relative;
+    width: 100%;
+    border: 0;
   }
 
   &__radio {
@@ -32,8 +38,8 @@
   &__tab {
     display: inline-block;
     padding: 0.5rem 1rem;
-    cursor: pointer;
     color: $color-blue;
+    cursor: pointer;
   }
 
   &__panel {
@@ -70,8 +76,8 @@
   background: $color-grey-4;
 
   &__summary {
-    color: $color-blue;
     outline: none;
+    color: $color-blue;
     cursor: pointer;
   }
 
@@ -83,8 +89,8 @@
     }
 
     th {
-      top: 0;
       position: sticky;
+      top: 0;
       background: $color-grey-4;
     }
 

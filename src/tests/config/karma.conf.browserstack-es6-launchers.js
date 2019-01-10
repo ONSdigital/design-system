@@ -1,4 +1,4 @@
-export default function () {
+export default function() {
   return {
     browsers: [
       // 'bs_android_nexus_5',
@@ -14,7 +14,6 @@ export default function () {
       /**
        * iOS
        */
-     
 
       /**
        * Android
@@ -56,7 +55,7 @@ export default function () {
         os: 'Windows',
         os_version: '10',
         browser: 'Edge',
-        browser_version: '18',
+        browser_version: '18'
       }),
       bs_windows_10_chrome_71: inheritBase({
         os: 'Windows',

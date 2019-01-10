@@ -1,9 +1,12 @@
 import * as path from 'path';
 import merge from 'webpack-merge';
+import { HotModuleReplacementPlugin } from 'webpack';
+import RewireMockWebpackPlugin from 'rewiremock/webpack/plugin';
 import localLauncherConfig from './karma.conf.local-launchers';
 
 export default function karmaConfigGenerator(webpackConfig, browserstackLaunchersConfig) {
   delete webpackConfig.entry;
+  delete webpackConfig.context;
   const runOnBrowserstack = process.env['TEST_ON_BROWSERSTACK'];
 
   const { customLaunchers: localLaunchers, browsers: localBrowsers } = localLauncherConfig();
@@ -24,20 +27,20 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
           exclude: [path.resolve('./src/js/polyfills')]
         }
       ]
-    }
+    },
+
+    plugins: [new HotModuleReplacementPlugin(), new RewireMockWebpackPlugin()]
   });
 
   return function(config) {
     config.set({
-      basePath: path.resolve('./src'),
+      frameworks: ['mocha', 'chai-spies', 'chai'],
 
-      frameworks: ['mocha', 'chai'],
-
-      files: ['js/polyfills/index.js', 'tests/**/*.spec.js'],
+      files: ['../../js/polyfills/index.js', '../../tests/**/*.spec.js'],
 
       preprocessors: {
-        'js/polyfills/index.js': ['webpack'],
-        'tests/**/*.spec.js': ['webpack']
+        '../../js/polyfills/index.js': ['webpack'],
+        '../../tests/**/*.spec.js': ['webpack']
       },
 
       plugins: [
@@ -48,7 +51,8 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         'karma-webpack',
         'karma-mocha',
         'karma-mocha-reporter',
-        'karma-chai'
+        'karma-chai',
+        'karma-chai-spies'
       ],
 
       webpack: webpackConfig,
