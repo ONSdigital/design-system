@@ -38,6 +38,11 @@
       "prettier --print-width 140 --single-quote --parser babylon --write",
       "eslint",
       "git add"
+    ],
+    "*.md": [
+      "prettier --write",
+      "remark",
+      "git add"
     ]
   },
   "devDependencies": {
@@ -94,6 +99,9 @@
     "pretty": "^2.0.0",
     "print-error": "^0.1.17",
     "progress-bar-webpack-plugin": "^1.11.0",
+    "remark-cli": "^6.0.1",
+    "remark-lint": "^6.0.4",
+    "remark-preset-lint-recommended": "^3.0.2",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
     "url-loader": "^1.1.2",
