@@ -1,10 +1,6 @@
-export default function () {
-
+export default function() {
   return {
-    browsers: [
-      'Chrome',
-      'Firefox',
-    ],
+    browsers: ['Chrome'],
 
     customLaunchers: {}
   };
