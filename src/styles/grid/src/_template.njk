@@ -1,14 +1,9 @@
 <div class="grid">
-    {% if params.repeat -%}    
-        {% for i in range(0, params.cols ) -%}
-            <div class="grid__col col-1@m">
-            <div class="grid__helper">{{ params.col }} col</div>
+    {% for item in params.items -%}
+        {% for i in range(0, item.repeat | default(1)  ) -%}
+            <div class="grid__col col-{{ item.col }}@m">
+                <div class="grid__helper">{{ item.col }} col</div>
             </div>
         {%- endfor %}
-    {%- endif %}
-    {% for item in params.items -%}
-        <div class="grid__col col-{{ item.col }}@m">
-            <div class="grid__helper">{{ item.col }} col</div>
-        </div>
     {%- endfor %}
 </div>

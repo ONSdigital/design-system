@@ -12,9 +12,34 @@ We use a responsive, mobile first approach that allows layouts to change to suit
 
 ## The Grid
 
-We have built a flexible grid based on 12 columns, each column has a percentage calculated width and the margins (gutters) are fixed for each breakpoint. We have created breakpoints that are device agnostic and change the layout when best suited as opposed to specific devices. The example below shows the full 12 column grid:
+We have a flexible grid based on 12 columns, each column has a percentage calculated width. We have created breakpoints that are device agnostic and change the layout when best suited as opposed to specific devices. The example below shows the full 12 column grid:
 
 {{
-    patternlibExample("styles/grid/examples/grid/index.njk")
+    patternlibExample("styles/grid/examples/grid-12/index.njk")
 }}
+
+The 12 columns can be divided by combining different column sizes:
+
+{{
+    patternlibExample("styles/grid/examples/grid-combo/index.njk")
+}}
+
+## Spacing and layout 
+
+Gutters are fixed for each breakpoint. 24px for screen widths `600px` and greater and 16px for below `600px`. There are options for removing gutters by using modifier classes on the grid which is useful when nesting grids.
+
+### Creating layouts
+
+Layouts can be created by specifying the number of columns required. Grid based layouts should be wrapped with the class `.container`. This will centre the layout and provide a width of `1032px`. If your service requires a full width layout a modifier is available by using `.container--full-width`. 
+
+### Breakpoints
+
+There are set breakpoints that can be accessed to adapt the layout for different screen widths. We use the t-shirt size method:
+
+- `xs: 300px` 
+- `s: 500px`
+- `m: 740px` 
+- `l: 980px` 
+- `xl: 1300px` 
+- `xxl: 1600px`
 
