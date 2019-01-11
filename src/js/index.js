@@ -1,4 +1,3 @@
-import domReady from 'js/domready';
 import './dialog';
 import './submitter';
 import 'components/mutually-exclusive/src/mutually-exclusive';
