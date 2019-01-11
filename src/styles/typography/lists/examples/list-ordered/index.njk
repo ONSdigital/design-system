@@ -1,0 +1,17 @@
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{{ 
+    onsList({
+        element: 'ol',
+        "items": [
+            {
+                "text": 'Introduction.'
+            },
+            {
+                "text": 'Questionnaire.'
+            },
+            {
+                "text": 'Summary.'
+            }
+        ]
+    }) 
+}}
