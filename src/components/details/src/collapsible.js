@@ -22,7 +22,7 @@ class Collapsible {
 
     this.summary.addEventListener('click', this.toggle.bind(this));
 
-    this.details.classList.add('collapsible--has-js');
+    this.details.classList.add('details--has-js');
   }
 
   toggle(event) {
@@ -38,7 +38,7 @@ class Collapsible {
 
     this.isOpen = open;
     this.details[`${openAttribute}Attribute`]('open', '');
-    this.details.classList[cls]('collapsible--open');
+    this.details.classList[cls]('details--open');
     this.details.setAttribute('aria-expanded', open);
     this.details.setAttribute('aria-selected', open);
     this.content.setAttribute('aria-hidden', !open);

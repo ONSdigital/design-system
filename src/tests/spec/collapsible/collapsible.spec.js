@@ -32,8 +32,8 @@ describe('Component: Details', function() {
       expect(this.details.hasAttribute('open')).to.be.true;
     });
 
-    it('then the details element should not have a collapsible--has-js class', function() {
-      expect([...this.details.classList].includes('collapsible--has-js')).to.be.false;
+    it('then the details element should not have a details--has-js class', function() {
+      expect([...this.details.classList].includes('details--has-js')).to.be.false;
     });
 
     it('then the details element should not have an aria-expanded attribute', function() {
@@ -70,8 +70,8 @@ describe('Component: Details', function() {
       expect(this.details.hasAttribute('open')).to.be.false;
     });
 
-    it('then the collapsible--has-js class should be added to the details element', function() {
-      expect([...this.details.classList].includes('collapsible--has-js')).to.be.true;
+    it('then the details--has-js class should be added to the details element', function() {
+      expect([...this.details.classList].includes('details--has-js')).to.be.true;
     });
 
     it('then an aria-expanded attribute should be added to the details element', function() {
@@ -113,8 +113,8 @@ describe('Component: Details', function() {
           expect(this.details.hasAttribute('aria-expanded')).to.be.true;
         });
 
-        it('then a collapsible--open class should be added to the details', function() {
-          expect([...this.details.classList].includes('collapsible--open')).to.be.true;
+        it('then a details--open class should be added to the details', function() {
+          expect([...this.details.classList].includes('details--open')).to.be.true;
         });
 
         it('then the aria-expanded attribute on the details element should be set to true', function() {
@@ -187,8 +187,8 @@ function onCloseTests() {
     expect(this.details.hasAttribute('aria-expanded')).to.be.true;
   });
 
-  it('then a collapsible--open class should be removed from details', function() {
-    expect([...this.details.classList].includes('collapsible--open')).to.be.false;
+  it('then a details--open class should be removed from details', function() {
+    expect([...this.details.classList].includes('details--open')).to.be.false;
   });
 
   it('then the aria-expanded attribute on the details element should be set to false', function() {

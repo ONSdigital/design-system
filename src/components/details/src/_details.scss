@@ -1,6 +1,6 @@
-$collapsible-caret-width: 1.1rem;
+$details-caret-width: 1.1rem;
 
-.collapsible {
+.details {
   &__summary {
     display: inline-block;
     position: relative;
@@ -19,7 +19,7 @@ $collapsible-caret-width: 1.1rem;
 
   &--has-js & {
     &__summary {
-      padding: 0 0 0 ($collapsible-caret-width + 0.4rem);
+      padding: 0 0 0 ($details-caret-width + 0.4rem);
       color: $color-links;
       cursor: pointer;
       pointer-events: initial;
@@ -51,12 +51,12 @@ $collapsible-caret-width: 1.1rem;
         position: absolute;
         top: 0.1rem;
         left: 0;
-        width: $collapsible-caret-width;
-        height: $collapsible-caret-width;
+        width: $details-caret-width;
+        height: $details-caret-width;
 
         background-repeat: no-repeat;
         background-position: 0 0;
-        background-size: $collapsible-caret-width $collapsible-caret-width;
+        background-size: $details-caret-width $details-caret-width;
 
         transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
       }
