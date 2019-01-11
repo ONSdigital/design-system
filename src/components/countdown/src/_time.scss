@@ -1,0 +1,37 @@
+.time {
+  position: relative;
+}
+
+.time__visual {
+  position: relative;
+  overflow: visible !important;
+  margin: 2rem auto;
+  display: block;
+}
+
+.time__circle {
+  opacity: 1;
+  transition: stroke-dasharray 1s linear, stroke 1s ease-in;
+  stroke: $color-blue;
+
+  .is-warning & {
+    stroke: $color-errors;
+  }
+}
+
+.time__text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  height: 1rem;
+  line-height: 1;
+  text-align: center;
+  transition: color 1s ease-in;
+
+  .is-warning & {
+    color: $color-errors;
+  }
+}

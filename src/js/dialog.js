@@ -1,25 +1,33 @@
 import A11yDialog from 'a11y-dialog';
 
-let a11ydialog;
+class Dialog {
+  constructor() {
+    this.dialogEl = document.querySelector('.js-dialog');
 
-const dialog = {
-  show: () => a11ydialog.show(),
-  hide: () => a11ydialog.hide(),
-  init: () => {
-    const dialogEl = document.querySelector('.js-dialog');
+    if (this.dialogEl) {
+      this.allyDialog = new A11yDialog(this.dialogEl);
 
-    if (!dialogEl) return;
+      this.allyDialog.on('show', dialogEl => {
+        dialogEl.classList.remove('is-hidden');
+      });
 
-    a11ydialog = new A11yDialog(dialogEl);
-
-    a11ydialog.on('show', (dialogEl) => {
-      dialogEl.classList.remove('is-hidden');
-    });
-
-    a11ydialog.on('hide', (dialogEl) => {
-      dialogEl.classList.add('is-hidden');
-    });
+      this.allyDialog.on('hide', dialogEl => {
+        dialogEl.classList.add('is-hidden');
+      });
+    }
   }
-};
 
-export default dialog;
+  show() {
+    if (this.allyDialog) {
+      this.allyDialog.show();
+    }
+  }
+
+  hide() {
+    if (this.allyDialog) {
+      this.allyDialog.hide();
+    }
+  }
+}
+
+export default Dialog;
