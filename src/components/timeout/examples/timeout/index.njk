@@ -1,0 +1,20 @@
+{% from "components/timeout/src/_macro.njk" import onsTimeout %}
+<script>
+    window.__EQ_SESSION_TIMEOUT__ = 4;
+    window.__EQ_SESSION_TIMEOUT_PROMPT__ = 4;
+</script>
+
+{{
+    onsTimeout({
+        "id": "timeout",
+        "title": "Timeout",
+        "preTitle": "Survey or service name",
+        "action": "/",
+        "loadingMessage": "Continuing&hellip;",
+        "continueButton": "Continue survey",
+        "submitButton": "Save and sign out",
+        "countdown": {
+            "width": 40
+        }
+    })
+}}

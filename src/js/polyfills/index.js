@@ -22,7 +22,6 @@ if (!Array.from) {
   console.log('Array#from polyfill loaded');
 }
 
-
 if (!Object.assign) {
   promises.push(import('core-js/fn/object/assign'));
   console.log('Object#assign polyfill loaded');
@@ -38,9 +37,14 @@ if (!Element.prototype.append) {
   console.log('Node#append polyfill loaded');
 }
 
-if(!Element.prototype.remove) {
+if (!Element.prototype.remove) {
   promises.push(import('mdn-polyfills/Node.prototype.remove'));
   console.log('Node#remove polyfill loaded');
+}
+
+if (!String.prototype.padStart) {
+  promises.push(import('core-js/fn/string/pad-start'));
+  console.log('String#padStart polyfill loaded');
 }
 
 Promise.all(promises).then(() => {

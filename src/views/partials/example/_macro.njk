@@ -1,4 +1,4 @@
-{% macro patternlibExample(path, backgroundColor) %}
+{% macro patternlibExample(path, backgroundColor, useIframe, iframeHeight) %}
   {% set params = helpers.generateExampleParams(path, helpers.addDependency) %}
   {% include "./_template.njk" %}
 {% endmacro %}
