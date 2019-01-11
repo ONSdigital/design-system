@@ -48,5 +48,5 @@ class Collapsible {
 }
 
 export default function() {
-  const collapsibles = [...document.querySelectorAll('.js-collapsible')].map(element => new Collapsible(element));
+  [...document.querySelectorAll('.js-collapsible')].forEach(element => new Collapsible(element));
 }
