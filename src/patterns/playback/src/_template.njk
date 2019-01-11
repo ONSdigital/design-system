@@ -3,24 +3,53 @@
     <h2 class="summary__title u-fs-m" id="">{{ params.title }}</h2>
     {% endif %}
     <div class="summary__block">
-        {% for item in params.items %}
-        <div class="summary__item">
-            <div class="grid">
-                <div class="grid__col col-12@xs {% if item.textArea %}col-10@m{% else %}col-6@m{% endif %}">
-                    <div class="summary__question u-fs-r">{{ item.question }}</div>
-                </div>
-                <div class="grid__col col-8@xs {% if item.textArea %}col-10@m{% else %}col-4@m{% endif %}">
-                    <div class="summary__answer {% if item.textArea %}summary__answer--textarea{% endif %} u-fs-r--b">{{ item.answer | safe }}</div>
-                </div>
-                {% if item.link %}
-                <div class="grid__col col-4@xs col-2@m">
-                    <div class="summary__link {% if item.textArea %}summary__answer--textarea{% endif %} u-fs-r">
-                        <a href="{{ item.href }}">Change <span class="u-vh">your answer for: {{ item.question }}</span></a>
+        {% if params.multipleItems %}
+            {% for multipleItem in params.multipleItems %}
+            <div class="summary__item summary__item--multiple">
+                <div class="grid">
+                    <div class="grid__col col-12@m">
+                        <div class="summary__question u-fs-r">{{ multipleItem.question }}</div>
                     </div>
                 </div>
-                {% endif %}
+                {% for multipleAnswer in multipleItem.multipleAnswers %}
+                <div class="grid">
+                    <div class="grid__col col-12@xs {% if multipleAnswer.textArea %}col-12@m{% else %}col-6@m{% endif %}">
+                        <div class="summary__label u-fs-r">{{ multipleAnswer.label }}</div>
+                    </div>
+                    <div class="grid__col col-8@xs {% if multipleAnswer.textArea %}col-10@m{% else %}col-4@m{% endif %}">
+                        <div class="summary__answer {% if multipleAnswer.textArea %}summary__answer--textarea{% endif %} u-fs-r--b">{{ multipleAnswer.answer | safe }}</div>
+                    </div>
+                    {% if multipleAnswer.link %}
+                    <div class="grid__col col-4@xs col-2@m">
+                        <div class="summary__link {% if multipleAnswer.textArea %}summary__link--textarea{% endif %} u-fs-r">
+                            <a href="{{ multipleAnswer.href }}">Change <span class="u-vh">your answer for: {{ multipleItem.question }}</span></a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
             </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
+        {% elif params.items %}
+            {% for item in params.items %}
+            <div class="summary__item">
+                <div class="grid">
+                    <div class="grid__col col-12@xs {% if item.textArea %}col-10@m{% else %}col-6@m{% endif %}">
+                        <div class="summary__question u-fs-r">{{ item.question }}</div>
+                    </div>
+                    <div class="grid__col col-8@xs {% if item.textArea %}col-10@m{% else %}col-4@m{% endif %}">
+                        <div class="summary__answer {% if item.textArea %}summary__answer--textarea{% endif %} u-fs-r--b">{{ item.answer | safe }}</div>
+                    </div>
+                    {% if item.link %}
+                    <div class="grid__col col-4@xs col-2@m">
+                        <div class="summary__link {% if item.textArea %}summary__link--textarea{% endif %} u-fs-r">
+                            <a href="{{ item.href }}">Change <span class="u-vh">your answer for: {{ item.question }}</span></a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
     </div>
 </div>

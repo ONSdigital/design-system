@@ -1,0 +1,38 @@
+{% from "patterns/playback/src/_macro.njk" import onsSummary %}
+{{ 
+    onsSummary({
+        "title": 'Expenses',
+        "multipleItems": [
+            {
+                "question": 'What are your monthly household expenses?',
+                "multipleAnswers": [
+                    {
+                        "label": 'Food',
+                        "answer": '£50',
+                        "link": true,
+                        "href": '#'
+                    },
+                    {
+                        "label": 'Utilities',
+                        "answer": '£65',
+                        "link": true,
+                        "href": '#'
+                    },  
+                    {
+                        "label": 'Transport',
+                        "answer": '£65',
+                        "link": true,
+                        "href": '#'
+                    },
+                    {
+                        "label": 'Other',
+                        "answer": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                        "textArea": true,
+                        "link": true,
+                        "href": '#'
+                    }                                                                                                  
+                ]
+            }                                        
+        ]
+    }) 
+}}
