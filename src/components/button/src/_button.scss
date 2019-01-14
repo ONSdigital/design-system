@@ -38,6 +38,7 @@
   text-decoration: none;
   width: 100%;
   transition: background-color 200ms ease-in, color 200ms ease-in, border 200ms ease-in;
+  cursor: pointer;
 
   &:hover,
   &:focus {
