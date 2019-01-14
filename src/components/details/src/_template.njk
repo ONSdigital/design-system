@@ -1,0 +1,25 @@
+
+{% from "components/button/src/_macro.njk" import onsButton %}
+
+<details id="{{ params.id }}" class="details js-collapsible" open>
+    <summary class="details__summary js-collapsible-summary" data-ga="click" data-ga-category="definition" data-ga-action="Open panel" data-ga-label="{{ params.title }}">
+        <h2 class="details__title u-fs-r--b">{{ params.title }}</h2>
+    </summary>
+    <div id="{{ params.id }}-content" class="details__content js-collapsible-content">
+        {{ params.content | safe }}
+        {% if params.button %}
+            {{
+                onsButton({
+                    "text": params.button,
+                    "classes": "btn--secondary btn--small js-collapsible-button u-d-no",
+                    "attributes": {
+                        "data-ga": "click",
+                        "data-ga-category": "defenition",
+                        "data-ga-action": "Close panel",
+                        "data-ga-label": params.title
+                    }
+                })
+            }}
+        {% endif %}
+    </div>
+</details>
