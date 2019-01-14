@@ -1,0 +1,81 @@
+{% set currentPageIndex = "" %}
+{% for page in params.pages %}
+    {% if page.current %}
+        {% set currentPageIndex = loop.index %}
+    {% endif %}
+{% endfor %}
+
+{% set totalPages = params.pages | length %}
+{% set position = "Page " + currentPageIndex + " of " + totalPages %}
+
+{# Calculate middle pages #}
+{% set middlePageCount = 5 %}
+{% set middlePagesEachSide = (middlePageCount - 1) / 2 %}
+
+{% if (currentPageIndex - middlePagesEachSide) <= 1 %}
+    {% set geoff = '1' %}
+    {% set middlePagesStart = 1 %}
+    {% set middlePagesEnd = middlePageCount - 1 %}
+{% elif (currentPageIndex + middlePagesEachSide) >= totalPages %}
+    {% set geoff = '2' %}
+    {% set middlePagesStart = totalPages - middlePageCount + 1 %}
+    {% set middlePagesEnd = totalPages %}
+{% else %}
+    {% set geoff = '3' %}
+    {% set middlePagesStart = currentPageIndex - middlePagesEachSide %}
+    {% set middlePagesEnd = currentPageIndex + middlePagesEachSide %}
+{% endif %}
+
+
+<nav class="pagination {{ params.classes }}{% if params.hideRangeIndicator %} pagination--no-indicator{% endif %}" role="navigation" arial-label="Pagination ({{ position }})">
+    <div class="pagination__position">{{ position }}</div>
+    <ul class="pagination__items">
+        {% if currentPageIndex != 1 %}
+            <li class="pagination__item pagination__item--previous">
+                <a href="{{ params.pages[currentPageIndex - 1].url }}" class="pagination__link" rel="prev" aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})">{{ params.previous }}</a>
+            </li>
+        {% endif %}
+        {% if currentPageIndex > 3 %}
+            {% set first = params.pages | first %}
+            <li class="pagination__item">
+                <a href="{{ first.url }}" class="pagination__link" aria-label="Go to the first page (Page 1)">1</a>
+            </li>
+        {% endif %}
+        {% if currentPageIndex > 4 %}
+            <li class="pagination__item pageination__item--gap">&hellip;</li>
+        {% endif %}
+        {% for page in params.pages %}
+            {% if loop.index >= middlePagesStart and loop.index <= middlePagesEnd %}
+                <li class="pagination__item{% if page.current %} pagination__item--current{% endif %}">
+                    <a href="{{ page.url }}" class="pagination__link"
+                        {%- if page.current -%}
+                            aria-current="true" aria-label="Current page ({{ position }})"
+                        {%- else -%}
+                            aria-label="Go to page {{ loop.index }}"
+                        {%- endif -%}
+                        {%- if loop.index == currentPageIndex - 1 -%}
+                            rel="prev"
+                        {%- endif -%}
+                        {%- if loop.index == currentPageIndex + 1 -%}
+                            rel="next"
+                        {%- endif -%}
+                    >{{ loop.index }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        {% if currentPageIndex < totalPages - 3 %}
+            <li class="pagination__item pageination__item--gap">&hellip;</li>
+        {% endif %}
+        {% if currentPageIndex < totalPages - 2 %}
+            {% set lastPage = params.pages | last %}
+            <li class="pagination__item">
+                <a href="{{ lastPage.url }}" class="pagination__link" aria-label="Go to the last page (Page {{ totalPages }})">{{ totalPages }}</a>
+            </li>
+        {% endif %}
+        {% if totalPages > 1 and totalPages != currentPageIndex %}
+             <li class="pagination__item pagination__item--next">
+                <a href="{{ params.pages[currentPageIndex + 1].url }}" class="pagination__link" rel="next" aria-label="Go to the next page (Page {{ currentPageIndex + 1 }})">{{ params.next }}</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
