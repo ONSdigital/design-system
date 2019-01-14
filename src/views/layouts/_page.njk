@@ -21,22 +21,18 @@
             }
         })
     }}
-
+    {% set navItems = helpers.subNavigationHelper({ pageInfo: pageInfo }) %}
     <div class="patternlib-page__body">
-        {% if (page.hideSidebar !== true) and
-            (helpers.subNavigationHelper({ pageInfo: pageInfo}).length > 0)  
-        %}
-            {% from "components/navigation/src/_macro.njk" import onsNavigation %}
+        {% if (page.hideSidebar !== true) and navItems.length > 0 %}
+            {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNav %}
 
             <div class="patternlib-page__sub-nav">
-                {% for group in helpers.subNavigationHelper({
-                    pageInfo: pageInfo
-                }) %}
+                {% for group in navItems %}
                     {% if group.title %}
                         <h2 class="u-mb-xs">{{ group.title }}</h2>
                     {% endif %}
                     {{
-                        onsNavigation({
+                        patternlibSubNav({
                             "classes": "nav--vertical-bare u-mb-m",
                             "ariaLabel": "Sub menu",
                             "ariraListLabel": "Child menu",

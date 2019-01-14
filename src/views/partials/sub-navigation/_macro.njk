@@ -1,0 +1,23 @@
+{% macro patternlibSubNav(params) %}
+    <nav class="nav {{ params.classes }}" aria-label="{{ params.ariaLabel }}">
+        <ul class="nav__list" aria-label="{{ params.ariaListLabel }}" role="menubar">
+        {% for item in params.items %}
+            
+                <li class="nav__item {{ ' nav__item--active' if (item.path == params.currentPath) or (item.path in params.currentPath) }}">
+                    <a href="{{ item.path }}" class="nav__link" role="menuitem">{{ item.title }}</a>
+                    {% if item.children %}
+                        <input id="{{ item.title }}-checkbox" type="checkbox" class="patternlib-subnav__checkbox"{%if (item.path == params.currentPath) or (item.path in params.currentPath) %} checked{% endif %}>
+                        <label for="{{ item.title }}-checkbox" class="patternlib-subnav__label"></label>
+                        <ul class="patternlib-subnav__items nav__list">
+                            {% for child in item.children %}
+                                <li class="nav__item {{ ' nav__item--active' if (child.path == params.currentPath) or (child.path in params.currentPath) }}">
+                                    <a href="{{ child.path }}" class="patternlib-subnav__link nav__link" role="menuitem">{{ child.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+        {% endfor %}
+        </ul>
+    </nav>
+{% endmacro %}

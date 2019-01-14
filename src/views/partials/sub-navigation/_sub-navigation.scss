@@ -1,0 +1,74 @@
+.patternlib-subnav {
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+  }
+
+  &__items {
+    display: none;
+    margin: 0 0 0 0.5rem !important;
+  }
+
+  &__label {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    width: 0.8rem;
+    height: 0.8rem;
+    color: $color-links;
+    vertical-align: middle;
+
+    cursor: pointer;
+
+    &:before {
+      content: '▾';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+      color: $color-links-hover;
+    }
+  }
+
+  &__link {
+    user-select: none;
+  }
+
+  &__checkbox:checked ~ & {
+    &__label {
+      &:before {
+        transform: translate(-50%, -50%) rotate(180deg);
+      }
+    }
+
+    &__items {
+      display: block;
+    }
+  }
+
+  &__checkbox:focus ~ & {
+    &__label {
+      outline: 3px solid $color-focus;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -45%);
+      }
+    }
+  }
+
+  &__checkbox:checked:focus ~ & {
+    &__label {
+      &:after {
+        transform: translate(-50%, -35%);
+      }
+    }
+  }
+}
