@@ -27,7 +27,7 @@
 {% endif %}
 
 
-<nav class="pagination {{ params.classes }}" role="navigation" arial-label="Pagination ({{ position }})">
+<nav class="pagination {{ params.classes }}{% if params.hideRangeIndicator %} pagination--no-indicator{% endif %}" role="navigation" arial-label="Pagination ({{ position }})">
     <div class="pagination__position">{{ position }}</div>
     <ul class="pagination__items">
         {% if currentPageIndex != 1 %}
@@ -35,7 +35,7 @@
                 <a href="{{ params.pages[currentPageIndex - 1].url }}" class="pagination__link" rel="prev" aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})">{{ params.previous }}</a>
             </li>
         {% endif %}
-        {% if currentPageIndex > 3 and params.hideRangeIndicator != true %}
+        {% if currentPageIndex > 3 %}
             {% set first = params.pages | first %}
             <li class="pagination__item">
                 <a href="{{ first.url }}" class="pagination__link" aria-label="Go to the first page (Page 1)">1</a>
@@ -66,7 +66,7 @@
         {% if currentPageIndex < totalPages - 3 %}
             <li class="pagination__item pageination__item--gap">&hellip;</li>
         {% endif %}
-        {% if currentPageIndex < totalPages - 2 and params.hideRangeIndicator != true %}
+        {% if currentPageIndex < totalPages - 2 %}
             {% set lastPage = params.pages | last %}
             <li class="pagination__item">
                 <a href="{{ lastPage.url }}" class="pagination__link" aria-label="Go to the last page (Page {{ totalPages }})">{{ totalPages }}</a>

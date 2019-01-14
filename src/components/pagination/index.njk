@@ -3,6 +3,40 @@ title: Pagination
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
+Pagination used to navigate a series of pages in a linear or semi-linear manner and allows you to display a set of results so that the viewer isn’t overwhelmed by too much information.
+
 {{
     patternlibExample("components/pagination/examples/pagination/index.njk")
 }}
+
+## When to use this component
+
+Pagination helps users to navigate between a large number of items that are distributed across multiple pages whenever there are too many items to show at once. This will be most useful in contexts such as table listings of data, search results, and directories.
+
+What constitutes ‘too many’ for a user can be influenced by factors like:
+
+- amount of data in each entry (consider and test cognitive load for users)
+- system load times
+- screen space
+
+When the number of pages exceeds the maximum display limit, ellipsis (…) are used to truncate the remaining pages.
+
+## How to use this component
+If the pagination component sits inline with other content on the page, then the pagination should be left aligned.
+
+## Variants
+
+### No range indicator
+The range indicator will be hidden on desktop, however it will still show on mobile as the page numbers don't show.
+{{
+    patternlibExample("components/pagination/examples/pagination-no-range-indicator/index.njk")
+}}
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/70" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum 
+[Discuss 'Pagination' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/70)
