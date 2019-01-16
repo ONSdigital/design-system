@@ -17,13 +17,7 @@ export default class Timeout {
 
     this.continueRetryCount = this.continueRetryLimit = 5;
 
-    if (!this.promptTime) {
-      console.log('Timeout Component: "window.__EQ_SESSION_TIMEOUT_PROMPT__" not found.');
-    } else if (!this.timeLimit) {
-      console.log('Timeout Component: "window.__EQ_SESSION_TIMEOUT__" not found.');
-    } else if (!this.containerScopeEl) {
-      console.log('Timeout Component: ".js-timeout-container" not found.');
-    } else {
+    if (this.promptTime && this.timeLimit && this.containerScopeEl) {
       this.startTick();
     }
   }
@@ -63,18 +57,7 @@ export default class Timeout {
     this.animation = new CountdownAnimation(this.containerScopeEl.querySelector('.js-timeout'), this.promptTime, this.timeLimit);
 
     // intercept and override ESC key closing dialog
-    document.addEventListener(
-      'keydown',
-      event => {
-        if (event.which === 27) {
-          // ESC Key
-          event.preventDefault();
-          event.stopImmediatePropagation();
-          this.handleContinue(event);
-        }
-      },
-      false
-    );
+    document.addEventListener('keydown', this.handleEsc.bind(this), false);
 
     this.continueBtn.addEventListener('click', this.handleContinue.bind(this));
     this.saveBtn.addEventListener('click', this.handleSave.bind(this));
@@ -83,6 +66,15 @@ export default class Timeout {
     this.dialog.show();
 
     this.animation.draw(this.countDown || 0);
+  }
+
+  handleEsc(event) {
+    if (event.which === 27) {
+      // ESC Key
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      this.handleContinue(event);
+    }
   }
 
   handleContinue(event) {
@@ -120,8 +112,10 @@ export default class Timeout {
   handleSave(event) {
     event.preventDefault();
 
-    document.querySelector('.js-btn-save').click();
+    const saveButton = document.querySelector('.js-btn-save');
 
-    return false;
+    if (saveButton) {
+      saveButton.click();
+    }
   }
 }
