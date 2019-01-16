@@ -43,7 +43,7 @@ describe('Component: Textarea with character limit', () => {
 
   describe('Given that the char limit helper has initialised correctly', () => {
     it('the char limit readout should be visible', () => {
-      expect([...limit_readout.classList].includes('u-d-no')).to.equal(false);
+      expect(limit_readout.classList.contains('u-d-no')).to.equal(false);
     });
   });
 
@@ -75,8 +75,8 @@ describe('Component: Textarea with character limit', () => {
       });
 
       it('then the textarea and readout should be given limit reached classes', () => {
-        expect([...textarea.classList].includes('input--limit-reached')).to.equal(true);
-        expect([...limit_readout.classList].includes('input__limit--reached')).to.equal(true);
+        expect(textarea.classList.contains('input--limit-reached')).to.equal(true);
+        expect(limit_readout.classList.contains('input__limit--reached')).to.equal(true);
       });
     });
   });
@@ -102,8 +102,8 @@ describe('Component: Textarea with character limit', () => {
       });
 
       it('then the textarea and readout should be given limit reached classes', () => {
-        expect([...textarea.classList].includes('input--limit-reached')).to.equal(false);
-        expect([...limit_readout.classList].includes('input__limit--reached')).to.equal(false);
+        expect(textarea.classList.contains('input--limit-reached')).to.equal(false);
+        expect(limit_readout.classList.contains('input__limit--reached')).to.equal(false);
       });
     });
   });
