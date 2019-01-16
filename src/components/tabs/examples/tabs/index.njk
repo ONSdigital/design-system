@@ -1,0 +1,17 @@
+{% from "components/tabs/src/_macro.njk" import onsTabs %}
+
+{{
+    onsTabs({
+        "title": "Tabs",
+        "tabs": [
+            {
+                "title": "Tab title 1",
+                "content": "Tab content 1"
+            },
+            {
+                "title": "Tab title 2",
+                "content": "Tab content 2"
+            }
+        ]
+    })
+}}
