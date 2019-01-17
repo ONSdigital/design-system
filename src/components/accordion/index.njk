@@ -13,3 +13,15 @@ Accordions should not be used if the content inside the accordion is critial to 
 {{
     patternlibExample("components/accordion/examples/accordion/index.njk")
 }}
+
+## How to use this component
+Accordions' functionality is provided by grouping [details components](/components/details) together. The `collapsible.js` file takes care of running the open all/close all button, if one is provided.
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/81" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum 
+[Discuss 'Accordion' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/81)
