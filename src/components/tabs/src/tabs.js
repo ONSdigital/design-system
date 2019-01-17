@@ -30,6 +30,7 @@ class Tabs {
     this.jsTabListAsListClass = 'tabs__list--list';
     this.jsTabItemAsListClass = 'tab__list-item--list';
     this.jsTabAsListClass = 'tab--list';
+
     if (matchMediaUtil.hasMatchMedia()) {
       this.setupViewportChecks();
     } else {
