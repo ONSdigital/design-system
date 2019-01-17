@@ -1,0 +1,15 @@
+{% from "styles/grid/src/_macro.njk" import patternLibExampleGrid %}
+{{ 
+    patternLibExampleGrid({
+        'container': true,
+        'items': [
+            {
+                'col': 7
+            },
+            {
+                'classes': 'push-1@m',
+                'col': 4
+            }
+        ]
+    })
+}}
