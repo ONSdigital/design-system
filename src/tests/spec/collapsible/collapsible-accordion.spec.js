@@ -2,6 +2,7 @@ import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/accordion/src/_template.njk';
 import collapsible, { Collapsible } from 'components/details/src/collapsible';
 import CollapsibleGroup from 'components/details/src/collapsible.group';
+import eventMock from 'stubs/event.stub.spec';
 
 const params = {
   id: 'accordion',
@@ -88,7 +89,8 @@ describe('Component: Accordion', function() {
     });
 
     beforeEach(function() {
-      this.collapsible = new Collapsible(this.items[0].details);
+      this.item = this.items[0];
+      this.collapsible = new Collapsible(this.item.details);
       this.group = new CollapsibleGroup(this.toggleButton, [this.collapsible]);
 
       this.collapsible.onOpen = chai.spy(this.collapsible.onOpen);
@@ -104,10 +106,40 @@ describe('Component: Accordion', function() {
         it('onOpen should be called', function() {
           expect(this.collapsible.onOpen).to.have.been.called();
         });
+
+        describe('when an item is called to be opened a second time', function() {
+          beforeEach(function() {
+            this.collapsible.onOpen = chai.spy(this.collapsible.onOpen);
+            this.collapsible.setOpen(true);
+          });
+
+          it('nothing should happen', function() {
+            expect(this.collapsible.onOpen).to.not.have.been.called();
+          });
+        });
+
+        describe('and toggle is called within the same event loop', function() {
+          beforeEach(function() {
+            this.collapsible.setOpen = chai.spy(this.collapsible.setOpen);
+            this.collapsible.toggle(eventMock());
+          });
+
+          it('nothing should happen', function() {
+            expect(this.collapsible.setOpen).to.not.have.been.called();
+          });
+        });
       });
 
       describe('when the toggle button is clicked', function() {
-        it('prevent default should be called on the click event', function() {});
+        beforeEach(function() {
+          this.mockedEvent = eventMock();
+
+          this.group.handleButtonClick(this.mockedEvent);
+        });
+
+        it('prevent default should be called on the click event', function() {
+          expect(this.mockedEvent.preventDefault).to.have.been.called();
+        });
       });
     });
 
