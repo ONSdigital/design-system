@@ -11,8 +11,8 @@ const onReady = () => {
   document.removeEventListener(eventReady, onReady);
 };
 
-export default function ready(fn) {
-  if (isReady) {
+export default function ready(fn, ready = isReady) {
+  if (ready) {
     fn.call();
   } else {
     callbacks.push(fn);
@@ -24,5 +24,5 @@ awaitPolyfills.then(() => {
     onReady.call();
   } else {
     document.addEventListener(eventReady, onReady);
-  }  
+  }
 });

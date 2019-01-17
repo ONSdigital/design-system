@@ -7,6 +7,7 @@ import promiseInstanceMock from 'stubs/promise.stub.spec';
 import dialogMock from 'stubs/dialog.stub.spec';
 import loaderButtonMock from 'stubs/loader-btn.stub.spec';
 import getTimeNowMock from 'stubs/getTimeNow.stub.spec';
+import eventMock from 'stubs/event.stub.spec';
 
 const params = {
   id: 'timeout',
@@ -80,12 +81,14 @@ describe('Component: Timeout', () => {
 
   describe('When handleContinue called', () => {
     it('should call the fetch API', () => {
-      instance.handleContinue();
+      const mockedEvent = eventMock();
+      instance.handleContinue(mockedEvent);
 
       expect(mockedFetch).to.be.spy;
       expect(mockedFetch).to.have.been.called();
       expect(promiseInstance.then).to.have.been.called();
       expect(promiseInstance.catch).to.have.been.called();
+      expect(mockedEvent.preventDefault).to.have.been.called();
     });
   });
 
@@ -172,6 +175,46 @@ describe('Component: Timeout', () => {
       instance.timeStartCountdown = 456;
 
       expect(instance.onTick()).to.equal(-210);
+    });
+  });
+
+  describe('When handleSave called', () => {
+    it('should preventDefault on the event', () => {
+      const mockedEvent = eventMock();
+      instance.handleSave(mockedEvent);
+
+      expect(mockedEvent.preventDefault).to.have.been.called();
+    });
+
+    it('should click js-btn-save', () => {
+      const button = document.createElement('button');
+      button.setAttribute('type', 'button');
+      button.classList.add('js-btn-save');
+
+      const buttonClickMock = chai.spy(() => {});
+
+      button.addEventListener('click', buttonClickMock);
+
+      wrapper.appendChild(button);
+
+      const mockedEvent = eventMock();
+      instance.handleSave(mockedEvent);
+
+      expect(buttonClickMock).to.have.been.called();
+    });
+  });
+
+  describe('When escape key is pressed', () => {
+    it('should call handleContinue', () => {
+      const mockedEvent = eventMock({ which: 27 });
+
+      instance.handleContinue = chai.spy();
+
+      instance.handleEsc(mockedEvent);
+
+      expect(mockedEvent.preventDefault).to.have.been.called();
+      expect(mockedEvent.stopImmediatePropagation).to.have.been.called();
+      expect(instance.handleContinue).to.have.been.called();
     });
   });
 });

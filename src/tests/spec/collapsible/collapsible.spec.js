@@ -33,7 +33,7 @@ describe('Component: Details', function() {
     });
 
     it('then the details element should not have a details--has-js class', function() {
-      expect([...this.details.classList].includes('details--has-js')).to.be.false;
+      expect(this.details.classList.contains('details--has-js')).to.be.false;
     });
 
     it('then the details element should not have an aria-expanded attribute', function() {
@@ -57,7 +57,7 @@ describe('Component: Details', function() {
     });
 
     it('then the button element should have a u-d-no class', function() {
-      expect([...this.button.classList].includes('u-d-no')).to.be.true;
+      expect(this.button.classList.contains('u-d-no')).to.be.true;
     });
   });
 
@@ -71,7 +71,7 @@ describe('Component: Details', function() {
     });
 
     it('then the details--has-js class should be added to the details element', function() {
-      expect([...this.details.classList].includes('details--has-js')).to.be.true;
+      expect(this.details.classList.contains('details--has-js')).to.be.true;
     });
 
     it('then an aria-expanded attribute should be added to the details element', function() {
@@ -100,7 +100,7 @@ describe('Component: Details', function() {
     });
 
     it('then the u-d-no class should be removed from the button element', function() {
-      expect([...this.button.classList].includes('u-d-no')).to.be.false;
+      expect(this.button.classList.contains('u-d-no')).to.be.false;
     });
 
     describe('and the component is closed', function() {
@@ -114,7 +114,7 @@ describe('Component: Details', function() {
         });
 
         it('then a details--open class should be added to the details', function() {
-          expect([...this.details.classList].includes('details--open')).to.be.true;
+          expect(this.details.classList.contains('details--open')).to.be.true;
         });
 
         it('then the aria-expanded attribute on the details element should be set to true', function() {
@@ -187,7 +187,7 @@ function onCloseTests() {
   });
 
   it('then a details--open class should be removed from details', function() {
-    expect([...this.details.classList].includes('details--open')).to.be.false;
+    expect(this.details.classList.contains('details--open')).to.be.false;
   });
 
   it('then the aria-expanded attribute on the details element should be set to false', function() {
