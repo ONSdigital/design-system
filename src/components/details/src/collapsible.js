@@ -1,7 +1,7 @@
 class Collapsible {
   constructor(detailsElement) {
     // State
-    this.isOpen = false;
+    this.isOpen = true;
     this.group = detailsElement.getAttribute('data-group');
     this.isAccordion = detailsElement.classList.contains('details--accordion');
 
