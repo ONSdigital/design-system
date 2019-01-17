@@ -136,8 +136,9 @@ describe('Component: Details', function() {
     });
 
     describe('and the component has been opened', function() {
-      beforeEach(function() {
+      beforeEach(function(done) {
         this.summary.click();
+        setTimeout(done);
       });
 
       describe('when the component is closed from the summary element', function() {
@@ -182,8 +183,6 @@ function renderComponent(params) {
 
 function onCloseTests() {
   it('then the open attribute on the details element should be removed', function() {
-    console.log(this);
-
     expect(this.details.hasAttribute('aria-expanded')).to.be.true;
   });
 

@@ -49,11 +49,11 @@ describe('Component: Timeout', () => {
     script.innerHTML = `window.__EQ_SESSION_TIMEOUT__ = ${params.timeout}; window.__EQ_SESSION_TIMEOUT_PROMPT__ = ${params.prompt};`;
     document.body.appendChild(script);
 
-    rewiremock('./src/js/fetch.js')
+    rewiremock('./src/js/fetch')
       .es6()
       .withDefault(mockedFetch);
 
-    rewiremock('./src/js/dialog.js')
+    rewiremock('./src/js/dialog')
       .es6()
       .withDefault(dialogMock);
 
