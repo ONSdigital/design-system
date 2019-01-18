@@ -21,7 +21,8 @@
 
 ## SummaryAction
 
-| Name | Type   | Required | Description                |
-| ---- | ------ | -------- | -------------------------- |
-| text | string | true     | Text for the action button |
-| url  | string | true     | URL to edit the answer     |
+| Name      | Type   | Required | Description                                                                               |
+| --------- | ------ | -------- | ----------------------------------------------------------------------------------------- |
+| text      | string | true     | Text for the action button                                                                |
+| url       | string | true     | URL to edit the answer                                                                    |
+| ariaLabel | string | false    | An aria-label to apply to the button if you need it to be more verbose for screen readers |
