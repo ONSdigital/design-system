@@ -1,0 +1,16 @@
+{% from "components/summary/src/_macro.njk" import onsSummary %}
+{{
+    onsSummary({
+        "title": "Summary - Section Title",
+        "items": [
+            {
+                "questions": [
+                    {
+                        "question": "Total turnover",
+                        "answer": "£234,000.00"
+                    }
+                ]
+            }
+        ]
+    })
+}}
