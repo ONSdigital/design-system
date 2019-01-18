@@ -1,0 +1,37 @@
+{% from "components/summary/src/_macro.njk" import onsSummary %}
+{{
+    onsSummary({
+        "title": "Summary - Section Title",
+        "items": [
+            {
+                "title": "Please enter test values",
+                "questions": [
+                    {
+                        "question": "Currency test",
+                        "answer": "£1,000.00",
+                        "action": {
+                            "text": "Change",
+                            "url": "#"
+                        }
+                    },
+                    {
+                        "question": "Kilometers Square",
+                        "answer": "11 km²",
+                        "action": {
+                            "text": "Change",
+                            "url": "#"
+                        }
+                    },
+                    {
+                        "question": "Decimal test to 2 decimal places",
+                        "answer": "11.33",
+                        "action": {
+                            "text": "Change",
+                            "url": "#"
+                        }
+                    }
+                ]
+            }
+        ]
+    })
+}}
