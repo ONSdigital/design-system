@@ -1,0 +1,20 @@
+{% from "components/summary/src/_macro.njk" import onsSummary %}
+{{
+    onsSummary({
+        "title": "Summary - Section Title",
+        "items": [
+            {
+                "questions": [
+                    {
+                        "question": "What are the dates of the sales period you are reporting for?",
+                        "answer": "01 January 2015 to 02 February 2017",
+                        "action": {
+                            "text": "Change",
+                            "url": "#"
+                        }
+                    }
+                ]
+            }
+        ]
+    })
+}}
