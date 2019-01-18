@@ -22,7 +22,7 @@
                                     <div class="summary__answer u-fs-r--b">{{ question.answer }}</div>
                                         {% if question.action %}
                                             <div class="summary__action">
-                                                <a href="{{ question.action.url }}" class="summary__button">{{ question.action.text }}</a>
+                                                <a href="{{ question.action.url }}" class="summary__button"{% if question.action.ariaLabel %} aria-label="{{ question.action.ariaLabel }}"{% endif %}>{{ question.action.text }}</a>
                                             </div>
                                         {% endif %}
                                     </div>
@@ -33,7 +33,7 @@
                             <td {% if question.action == null %}colspan="2" {% endif %}class="summary__answer u-fs-r--b">{{ question.answer }}</td>
                             {% if question.action %}
                                 <td class="summary__action">
-                                    <a href="{{ question.action.url }}" class="summary__button">{{ question.action.text }}</a>
+                                    <a href="{{ question.action.url }}" class="summary__button"{% if question.action.ariaLabel %} aria-label="{{ question.action.ariaLabel }}"{% endif %}>{{ question.action.text }}</a>
                                 </td>
                             {% endif %}
                         {% endif %}
