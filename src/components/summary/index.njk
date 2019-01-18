@@ -3,10 +3,12 @@ title: Summary
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
+## When to use this component
+Summary is used to present a clear summarised output of values to the user.
+
 {{
     patternlibExample({"path": "components/summary/examples/summary/index.njk"})
 }}
-
 
 ## Variants
 ### Summary without action
@@ -15,11 +17,13 @@ title: Summary
 }}
 
 ### Grouped
+For displaying contiguous data.
 {{
     patternlibExample({"path": "components/summary/examples/summary-grouped/index.njk"})
 }}
 
 ### Multiple
+For displaying a multiple data element.
 {{
     patternlibExample({"path": "components/summary/examples/summary-multiple/index.njk"})
 }}
@@ -38,3 +42,13 @@ title: Summary
 {{
     patternlibExample({"path": "components/summary/examples/summary-grouped-total/index.njk"})
 }}
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/84" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+
+[Discuss 'Summary' on Github](https://github.com/ONSdigital/pattern-library-v2/issues/84)
