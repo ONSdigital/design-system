@@ -20,7 +20,7 @@ const params = {
   ]
 };
 
-describe.only('Component: Tabs', () => {
+describe('Component: Tabs', () => {
   const mobileMock = matchMediaMobileMock();
   const desktopMock = matchMediaDesktopMock();
   let rewiremock, tabs;
