@@ -14,9 +14,8 @@ export const classTabsPanel = 'tabs__panel';
 
 const matchMediaUtil = matchMedia;
 
-class Tabs {
+export default class Tabs {
   constructor(component) {
-    this.keys = { left: 37, right: 39, spacebar: 32 };
     this.boundTabClick = this.onTabClick.bind(this);
     this.boundTabKeydown = this.onTabKeydown.bind(this);
 
@@ -57,10 +56,6 @@ class Tabs {
   }
 
   makeTabs() {
-    if (!this.tabs || !this.tabList || !this.tabListItems) {
-      return;
-    }
-
     this.tabList[0].setAttribute('role', 'tablist');
     this.tabList[0].classList.remove(this.jsTabListAsListClass);
 
@@ -90,10 +85,6 @@ class Tabs {
   }
 
   makeList() {
-    if (!this.tabs || !this.tabList || !this.tabListItems) {
-      return;
-    }
-
     this.tabList[0].removeAttribute('role');
     this.tabList[0].classList.add(this.jsTabListAsListClass);
 
@@ -196,19 +187,15 @@ class Tabs {
     panel.id = id;
   }
 
-  onTabKeydown(e) {
-    switch (e.keyCode) {
-      case this.keys.left:
-        this.focusPreviousTab();
-        e.preventDefault();
-        break;
-      case this.keys.right:
-        this.focusNextTab();
-        e.preventDefault();
-        break;
-      case this.keys.spacebar:
-        this.onTabClick(e);
-        break;
+  onTabKeydown(event) {
+    if (event.which === 37) {
+      this.focusPreviousTab();
+      event.preventDefault();
+    } else if (event.which === 39) {
+      this.focusNextTab();
+      event.preventDefault();
+    } else if (event.which === 32) {
+      this.onTabClick(event);
     }
   }
 
@@ -270,7 +257,7 @@ class Tabs {
   }
 }
 
-export default function tabs() {
+export function tabs() {
   const tabsComponent = [...document.getElementsByClassName(classTabs)];
   tabsComponent.forEach(component => new Tabs(component));
 }

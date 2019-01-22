@@ -1,6 +1,8 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/tabs/src/_template.njk';
-import { matchMediaMobileMock, matchMediaDesktopMock } from 'stubs/matchMedia.stub.spec';
+import matchMediaDesktopMock from 'stubs/matchMediaDesktop.stub.spec';
+import matchMediaMobileMock from 'stubs/matchMediaMobile.stub.spec';
+import eventMock from 'stubs/event.stub.spec';
 
 const params = {
   title: 'Tabs',
@@ -23,6 +25,7 @@ const params = {
 describe('Component: Tabs', () => {
   const mobileMock = matchMediaMobileMock();
   const desktopMock = matchMediaDesktopMock();
+
   let rewiremock, tabs;
 
   before(resolve => {
@@ -32,23 +35,17 @@ describe('Component: Tabs', () => {
     });
   });
 
-  beforeEach(function() {
-    const component = renderComponent(params);
+  describe('when the viewport is large,', () => {
+    beforeEach(function() {
+      const component = renderComponent(params);
 
-    Object.keys(component).forEach(key => {
-      this[key] = component[key];
-    });
-  });
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
 
-  afterEach(function() {
-    if (this.wrapper) {
-      this.wrapper.remove();
-      rewiremock.disable();
-    }
-  });
+      const mockedTabs = require('components/tabs/src/tabs').default;
+      tabs = new mockedTabs(this.tabsComponent);
 
-  describe('when the viewport is large,', function() {
-    beforeEach(() => {
       rewiremock('./src/js/utils/matchMedia')
         .es6()
         .withDefault(desktopMock);
@@ -56,12 +53,14 @@ describe('Component: Tabs', () => {
       rewiremock.enable();
     });
 
-    describe('Given the component has loaded', () => {
-      beforeEach(() => {
-        tabs = require('components/tabs/src/tabs').default;
-        tabs();
-      });
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+        rewiremock.disable();
+      }
+    });
 
+    describe('Given the component has loaded', () => {
       it('Then the tab list items should be assigned the "presentation" role', function() {
         this.tabListItems.forEach(tabListItem => {
           expect(tabListItem.getAttribute('role')).to.equal('presentation');
@@ -69,41 +68,41 @@ describe('Component: Tabs', () => {
       });
 
       it('Then each tab should be assigned the "tab" role', function() {
-        this.tabs.forEach(tab => {
-          expect(tab.getAttribute('role')).to.equal('tab');
+        this.tab.forEach(tabEl => {
+          expect(tabEl.getAttribute('role')).to.equal('tab');
         });
       });
 
       it('Then each tab should be assigned a unique "ID"', function() {
-        for (let i = 0; i < this.tabs.length; i++) {
+        for (let i = 0; i < this.tab.length; i++) {
           i = i + 1;
-          expect(this.tabs[i - 1].getAttribute('id')).to.equal('tab_tabId' + i);
+          expect(this.tab[i - 1].getAttribute('id')).to.equal('tab_tabId' + i);
         }
       });
 
       it('Then each tab should be assigned the "aria-controls" corresponding panel id', function() {
-        for (let i = 0; i < this.tabs.length; i++) {
+        for (let i = 0; i < this.tab.length; i++) {
           i = i + 1;
-          expect(this.tabs[i - 1].getAttribute('aria-controls')).to.equal('tabId' + i);
+          expect(this.tab[i - 1].getAttribute('aria-controls')).to.equal('tabId' + i);
           expect(this.tabPanels[i - 1].getAttribute('id')).to.equal('tabId' + i);
         }
       });
 
       describe('The first tab element,', function() {
         it('Then should be assigned a "tabindex" value', function() {
-          expect(this.tabs[0].getAttribute('tabindex')).to.equal('0');
+          expect(this.tab[0].getAttribute('tabindex')).to.equal('0');
         });
 
         it('Then should be assigned the "aria-selected" value of true', function() {
-          expect(this.tabs[0].getAttribute('aria-selected')).to.equal('true');
+          expect(this.tab[0].getAttribute('aria-selected')).to.equal('true');
         });
 
         it('Then should be assigned the class tab--selected', function() {
-          expect(this.tabs[0].getAttribute('class')).to.equal('tab tab--selected');
+          expect(this.tab[0].getAttribute('class')).to.equal('tab tab--selected');
         });
 
         it('Then should show the corresponding panel', function() {
-          const tabId = this.tabs[0].getAttribute('href').slice(1);
+          const tabId = this.tab[0].getAttribute('href').slice(1);
           const panel = document.getElementById(tabId);
           const classHidden = 'tabs__panel--hidden';
           expect(panel.classList.contains(classHidden)).to.be.false;
@@ -119,23 +118,23 @@ describe('Component: Tabs', () => {
 
       describe('When a tab is clicked,', function() {
         beforeEach('Click the second tab', function() {
-          this.tabs[1].click();
+          this.tab[1].click();
         });
 
         it('Then the tab should be assigned a "tabindex" value', function() {
-          expect(this.tabs[1].getAttribute('tabindex')).to.equal('0');
+          expect(this.tab[1].getAttribute('tabindex')).to.equal('0');
         });
 
         it('Then the tab should be assigned the "aria-selected" value of true', function() {
-          expect(this.tabs[1].getAttribute('aria-selected')).to.equal('true');
+          expect(this.tab[1].getAttribute('aria-selected')).to.equal('true');
         });
 
         it('Then the tab should be assigned the class tab--selected', function() {
-          expect(this.tabs[1].getAttribute('class')).to.equal('tab tab--selected');
+          expect(this.tab[1].getAttribute('class')).to.equal('tab tab--selected');
         });
 
         it('Then the the corresponding panel should be shown', function() {
-          const tabId = this.tabs[1].getAttribute('href').slice(1);
+          const tabId = this.tab[1].getAttribute('href').slice(1);
           const panel = document.getElementById(tabId);
           const classHidden = 'tabs__panel--hidden';
           expect(panel.classList.contains(classHidden)).to.be.false;
@@ -148,29 +147,61 @@ describe('Component: Tabs', () => {
           expect(panels[2].classList.contains(classHidden)).to.be.true;
         });
       });
+
+      describe('When right arrow key is pressed,', function() {
+        it('should focus the next sibling', function() {
+          const mockedEvent = eventMock({ which: 39 });
+
+          chai.spy.on(tabs, 'focusNextTab');
+          tabs.onTabKeydown(mockedEvent);
+
+          expect(tabs.focusNextTab).to.have.been.called();
+        });
+      });
+
+      describe('When left arrow key is pressed,', function() {
+        it('should focus the previous sibling', function() {
+          const mockedEvent = eventMock({ which: 37 });
+
+          chai.spy.on(tabs, 'focusPreviousTab');
+          tabs.onTabKeydown(mockedEvent);
+
+          expect(tabs.focusPreviousTab).to.have.been.called();
+        });
+      });
     });
   });
 
-  describe('when the viewport is small,', function() {
-    beforeEach(() => {
+  describe('when the viewport is small,', () => {
+    beforeEach(function() {
+      const component = renderComponent(params);
+
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+
       rewiremock('./src/js/utils/matchMedia')
         .es6()
         .withDefault(mobileMock);
 
       rewiremock.enable();
+      const mockedTabs = require('components/tabs/src/tabs').default;
+      tabs = new mockedTabs(this.tabsComponent);
+    });
+
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+        rewiremock.disable();
+      }
     });
 
     describe('Given the component has loaded', () => {
-      beforeEach(() => {
-        tabs = require('components/tabs/src/tabs').default;
-        tabs();
-      });
-
       it('Then all aria attributes should be removed from the tabs', function() {
-        this.tabs.forEach(tab => {
-          expect(tab.getAttribute('role')).to.equal(null);
-          expect(tab.getAttribute('aria-controls')).to.equal(null);
-          expect(tab.getAttribute('aria-selected')).to.equal(null);
+        this.tab.forEach(tabEl => {
+          expect(tabEl.getAttribute('role')).to.equal(null);
+          expect(tabEl.getAttribute('aria-controls')).to.equal(null);
+          expect(tabEl.getAttribute('aria-selected')).to.equal(null);
         });
       });
 
@@ -193,14 +224,14 @@ function renderComponent(params) {
 
   const tabsComponent = wrapper.querySelector('.tabs');
   const tabList = tabsComponent.querySelector('.tabs__list');
-  const tabs = [...tabsComponent.getElementsByClassName('tab')];
+  const tab = [...tabsComponent.getElementsByClassName('tab')];
   const tabListItems = [...tabsComponent.getElementsByClassName('tab__list-item')];
   const tabPanels = [...tabsComponent.getElementsByClassName('tabs__panel')];
 
   return {
     wrapper,
     tabsComponent,
-    tabs,
+    tab,
     tabList,
     tabListItems,
     tabPanels
