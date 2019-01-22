@@ -1,0 +1,34 @@
+.metadata {
+  dt {
+    font-weight: $font-weight-bold;
+
+    @include mq(xs, m) {
+      margin-bottom: 0;
+    }
+
+    &:not(:first-child) {
+      @include mq(xs, m) {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  dd {
+    margin-left: 0; /* As normalize adds a 40px left margin */
+
+    &:not(:last-child) {
+      @include mq(xs, m) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__term,
+  &__description {
+    margin-bottom: 0.3rem;
+  }
+
+  &__list {
+    margin: 0;
+  }
+}
