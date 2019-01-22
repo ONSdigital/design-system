@@ -120,7 +120,7 @@ export default class Tabs {
       return;
     }
 
-    var previousTab = this.getCurrentTab();
+    const previousTab = this.getCurrentTab();
 
     this.hideTab(previousTab);
     this.showTab(tabWithHash);
@@ -180,7 +180,7 @@ export default class Tabs {
 
   createHash(tab) {
     const panel = this.getPanel(tab);
-    var id = panel.id;
+    const id = panel.id;
     panel.id = '';
     this.changingHash = true;
     window.location.hash = this.getHref(tab).slice(1);
