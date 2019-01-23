@@ -4,7 +4,7 @@
         <dt class="metadata__term{% if params.metadataGrid %} grid__col col-{{ params.termCol }}@m{% endif %}">{{ item.term }}</dt>
         {% for description in item.descriptions %}
             {% if item.descriptions.length > 1 %}
-                <dd class="metadata__value{% if params.metadataGrid %} grid__col col-{{ params.descriptionCol }}@m{% endif %}{% if loop.last %} push-{{ params.termCol }}@m{% endif %}">{{ description.description }}</dd>
+                <dd class="metadata__value{% if params.metadataGrid %} grid__col col-{{ params.descriptionCol }}@m{% endif %}">{{ description.description }}</dd>
             {% else %}
                 <dd class="metadata__value{% if params.metadataGrid %} grid__col col-{{ params.descriptionCol }}@m{% endif %}">{{ description.description }}</dd>
             {% endif %}
