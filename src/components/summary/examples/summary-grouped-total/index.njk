@@ -1,0 +1,43 @@
+{% from "components/summary/src/_macro.njk" import onsSummary %}
+{{
+    onsSummary({
+        "title": "Summary - Section Title",
+        "items": [
+            {
+                "questions": [
+                    {
+                        "question": "Total value of acquisitions for transport assets and equipment",
+                        "answer": "£9,000.00",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    }
+                ]
+            },
+            {
+                "questions": [
+                    {
+                        "question": "Total value of acquisitions for computers and peripheral devices (hardware)",
+                        "answer": "£234,000.00",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    }
+                ]
+            },
+            {
+                "total": true,
+                "questions": [
+                    {
+                        "question": "Grand total for value of acquisitions",
+                        "answer": "£234,000.00"
+                    }
+                ]
+            }
+        ]
+    })
+}}

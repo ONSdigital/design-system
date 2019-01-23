@@ -1,0 +1,73 @@
+{% from "components/summary/src/_macro.njk" import onsSummary %}
+{{
+    onsSummary({
+        "title": "Summary - Section Title",
+        "items": [
+            {
+                "questions": [
+                    {
+                        "question": "What was the value of the business's total sales of food?",
+                        "answer": "£123.00",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    }
+                ]
+            },
+            {
+                "questions": [
+                    {
+                        "question": "What was the value of the business's total sales of alcohol, confectionery and tobacco?",
+                        "answer": "£987.00",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    }
+                ]
+            },
+            {
+                "questions": [
+                    {
+                        "question": "What was the value of the business's total sales of clothing and footwear?",
+                        "answer": "£567.00",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    }
+                ]
+            },
+            {
+                "questions": [
+                    {
+                        "question": "Question with textarea",
+                        "answer": "This is textarea output with a longer piece of text to demonstrate how it appears on the summary page.",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    }
+                ]
+            },
+            {
+                "questions": [
+                    {
+                        "question": "What was the value of the business's total sales of household goods?",
+                        "answer": "£5,678.00",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    }
+                ]
+            }
+        ]
+    })
+}}
