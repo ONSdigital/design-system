@@ -8,7 +8,7 @@
 
     &.grid__col {
       float: left;
-      clear: right;
+      clear: both;
 
       &:not(:first-child) {
         @include mq(m) {
@@ -22,7 +22,9 @@
     margin-left: 0; /* As normalize adds a 40px left margin */
 
     &.grid__col {
-      float: right;
+      @include mq(m) {
+        float: right;
+      }
     }
   }
 
