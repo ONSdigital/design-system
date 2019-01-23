@@ -182,8 +182,6 @@ function renderComponent(params) {
 
 function onCloseTests() {
   it('then the open attribute on the details element should be removed', function() {
-    console.log(this);
-
     expect(this.details.hasAttribute('aria-expanded')).to.be.true;
   });
 

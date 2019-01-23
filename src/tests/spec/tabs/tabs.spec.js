@@ -22,7 +22,7 @@ const params = {
   ]
 };
 
-describe('Component: Tabs', () => {
+describe.only('Component: Tabs', () => {
   const mobileMock = matchMediaMobileMock();
   const desktopMock = matchMediaDesktopMock();
 
@@ -45,6 +45,8 @@ describe('Component: Tabs', () => {
 
       const mockedTabs = require('components/tabs/src/tabs').default;
       tabs = new mockedTabs(this.tabsComponent);
+
+      rewiremock.disable();
 
       rewiremock('./src/js/utils/matchMedia')
         .es6()
@@ -179,6 +181,8 @@ describe('Component: Tabs', () => {
       Object.keys(component).forEach(key => {
         this[key] = component[key];
       });
+
+      rewiremock.disable();
 
       rewiremock('./src/js/utils/matchMedia')
         .es6()
