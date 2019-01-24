@@ -14,7 +14,9 @@ $details-caret-width: 1.1rem;
   }
 
   &__title {
+    transform: translateY(-1px);
     margin: 0;
+    pointer-events: none;
   }
 
   &--has-js & {
@@ -89,6 +91,33 @@ $details-caret-width: 1.1rem;
 
     &__content {
       display: block;
+    }
+  }
+
+  &--accordion & {
+    &__summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-top: 1px solid $color-borders;
+
+      &:before,
+      &:after {
+        top: 1.3rem;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__btn {
+      flex: 0 0 0;
+      align-self: flex-start;
+      margin: 0 0 0 1rem;
     }
   }
 }
