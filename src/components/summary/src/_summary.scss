@@ -1,0 +1,199 @@
+.summary {
+  $ctx: &;
+
+  &__items {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  &__item-title,
+  &__question,
+  &__answer,
+  &__action {
+    border-bottom: 0;
+  }
+
+  &__answer-action {
+    display: flex;
+    margin-top: 0.5rem;
+  }
+
+  &__answer {
+    flex: 1 1 auto;
+  }
+
+  &__action {
+    flex: 0 0 auto;
+    align-self: flex-start;
+    padding-left: 1rem;
+  }
+
+  &__item--error & {
+    &__item-title,
+    &__question,
+    &__answer,
+    &__action {
+      background: $color-errors-tint;
+    }
+
+    &__item-title {
+      padding-right: 1rem;
+      padding-left: 1rem;
+      color: $color-errors;
+      font-weight: bold;
+    }
+
+    &__question {
+      padding-left: 1rem;
+    }
+
+    &__action {
+      padding-right: 1rem;
+    }
+  }
+
+  &__item--total & {
+    &__question,
+    &__answer {
+      @extend .u-fs-m;
+    }
+  }
+
+  @include mq(xs, m) {
+    &__items,
+    &__item,
+    &__item-title,
+    &__question,
+    &__answer,
+    &__action {
+      display: block;
+    }
+
+    &__item {
+      padding: 0.5rem 0;
+      border-top: 1px solid $color-grey-2;
+
+      &:last-child {
+        border-bottom: 1px solid $color-grey-2;
+      }
+    }
+
+    &__row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__item-title,
+    &__question {
+      width: 100%;
+    }
+
+    &__question,
+    &__answer,
+    &__action {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    &__answer-action & {
+      &__answer {
+        padding-bottom: 0;
+      }
+
+      &__action {
+        margin-top: 0.5rem;
+      }
+    }
+
+    &__item--error {
+      border-left: 8px solid $color-errors;
+      background: $color-errors-tint;
+    }
+
+    &__item--error & {
+      &__question {
+        padding-right: 1rem;
+      }
+
+      &__answer {
+        padding-left: 1rem;
+      }
+
+      &__answer-action #{$ctx}__answer {
+        padding-left: 0;
+      }
+
+      &__answer-action #{$ctx}__action {
+        padding-right: 0;
+      }
+    }
+
+    &__item--total {
+      border-top-width: 2px;
+
+      &:last-child {
+        border-bottom-width: 2px;
+      }
+    }
+  }
+
+  @include mq(m) {
+    &__item &__row:first-of-type > & {
+      &__item-title,
+      &__question,
+      &__answer,
+      &__action {
+        border-top: 1px solid $color-grey-2;
+      }
+    }
+
+    &__item:last-of-type &__row:last-of-type > & {
+      &__item-title,
+      &__question,
+      &__answer,
+      &__action {
+        border-bottom: 1px solid $color-grey-2;
+      }
+    }
+
+    &__question,
+    &__answer,
+    &__action {
+      vertical-align: middle;
+    }
+
+    &__question:not([colspan]) {
+      padding-right: 1rem;
+    }
+
+    &__action {
+      text-align: right;
+    }
+
+    &__item--error & {
+      &__item-title,
+      &__question {
+        border-left: 8px solid $color-errors;
+      }
+    }
+
+    &__item--total &__row:first-of-type > & {
+      &__item-title,
+      &__question,
+      &__answer,
+      &__action {
+        border-top-width: 2px;
+      }
+    }
+
+    &__item--total:last-of-type &__row:last-of-type > & {
+      &__item-title,
+      &__question,
+      &__answer,
+      &__action {
+        border-bottom-width: 2px;
+      }
+    }
+  }
+}
