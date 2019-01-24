@@ -1,0 +1,104 @@
+.tabs {
+  margin-bottom: 1rem;
+}
+
+.tabs__title {
+  .no-js & {
+    // We visually hide the title with u-vh and need to undo with no-js
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 0 0 1rem;
+  }
+}
+
+// Tabs - list
+.tabs__list {
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  border-bottom: 1px solid $color-borders;
+
+  .no-js &,
+  &--list {
+    border-bottom: none;
+    margin: 0 0 1rem 0;
+    padding-left: 0;
+  }
+}
+
+.tab__list-item {
+  list-style: none;
+  display: inline;
+  margin: 0;
+  box-sizing: border-box;
+
+  .no-js &,
+  &--list {
+    // No-js & mobile display styling as table of contents
+    list-style: none;
+    display: list-item;
+    margin-bottom: 0.3rem;
+  }
+}
+
+.tab:not(.tab--list) {
+  .has-js & {
+    position: relative;
+    margin: 0 0.1rem 0 0;
+    padding: 0.5rem 1rem;
+    background: lighten($color-borders, 10%);
+    border: 1px solid lighten($color-borders, 10%);
+    border-radius: 3px 3px 0 0;
+    overflow: visible;
+    text-decoration: none;
+
+    display: inline-block;
+    height: 2.5rem;
+
+    &:hover {
+      background-color: $color-borders;
+      border-color: $color-borders;
+    }
+
+    &:focus {
+      outline: 3px solid $color-focus;
+      outline-offset: 3px;
+    }
+
+    &[aria-selected='true'] {
+      // Tab when selected
+      border-radius: 3px 3px 0 0;
+      background-color: $color-white;
+      border-color: $color-borders;
+      font-weight: 700;
+
+      &:after {
+        // hides the lower border of the active tab.
+        position: absolute;
+        z-index: 3;
+        bottom: -3px;
+        right: 0;
+        left: 0;
+        height: 0.35rem;
+        background: $color-white;
+        box-shadow: none;
+        content: '';
+      }
+    }
+  }
+}
+
+// Tabs - Panels
+.tabs__panel {
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  position: relative;
+  z-index: 10;
+  &--hidden {
+    display: none;
+  }
+  &:focus {
+    outline: 3px solid $color-focus;
+  }
+}

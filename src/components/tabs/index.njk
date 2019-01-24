@@ -1,0 +1,47 @@
+---
+"title": Tabs
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+## When to use this component
+
+Used to collate facets of content within a closely related context. Provides a way for users to quickly scan across the subject areas of content.
+
+{{
+    patternlibExample({"path":"components/tabs/examples/tabs/index.njk"})
+}}
+
+## How to use this component
+
+Tabs work well when the primary content block is displayed in the first tab. Subsequent tabs can show further detail and/or deeper levels that relate to the primary content (but this isn't a strict rule).
+
+It's important to use tab labels which are succinct, preferably single words to avoid the tab layout breaking. Furthermore, reducing the number of tabs will ensure that the layout doesn't break.
+
+The typical tab display will show on viewports that are equal to or greater than `640px`. 
+
+For viewports `>=640px` the following `aria` attributes will be attached to the `DOM` via javascript on load:
+
+{% md %}
+| Element                     	| aria attribute                        	| Description                                                                                                           	|
+|-----------------------------	|---------------------------------------	|-----------------------------------------------------------------------------------------------------------------------	|
+| `ul.tab__list`              	| `role="tablist"`                      	| Convey to screenreaders that the element serves as a container for a set of tabs.                                     	|
+| `li.tab__list-item`         	| `role="presentation"`                 	| Convey to screenreaders that this element does not have any functional, interactive, or structural relevance implied. 	|
+| `a.tab`                     	| `role="tab"`                          	| Indicates the element serves as a tab control.                                                                        	|
+|                             	| `aria-controls="NAME"`                	| Refers to the tab panel element associated with the tab.                                                              	|
+|                             	| `aria-selected="true/false"`          	| Indicates if the current tab is selected.                                                                             	|
+| `.tab__panel`               	| `aria-labelledby="TITLE_ID"`          	| Indicates the associated tab with the current content.                                                                	|
+|                             	| `role="tabpanel"`                     	| Indicates that the element is a content panel with associated tab.                                                    	|
+{% endmd %}
+
+For viewport `<640px` tabs are displayed as a list and function as a table of contents (TOC). All panels are displayed in the order they are structured. Clicking a TOC link will jump the user to the associated panel. This is also the solution for non javascript users.
+
+A visually hidden `<h2>` should be added above the tabs list to provide further information and context to screenreader users. This will also be displayed for non javascript users.
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/82" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum 
+[Discuss 'Tabs' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/82)
+
