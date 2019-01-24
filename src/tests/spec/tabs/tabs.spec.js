@@ -22,7 +22,7 @@ const params = {
   ]
 };
 
-describe('Component: Tabs', () => {
+describe.only('Component: Tabs', () => {
   const mobileMock = matchMediaMobileMock();
   const desktopMock = matchMediaDesktopMock();
 
@@ -155,13 +155,11 @@ describe('Component: Tabs', () => {
           it('should focus the next sibling', function() {
             const mockedEvent = eventMock({ which: 39 });
 
-            chai.spy.on(tabs, 'focusNextTab');
-            chai.spy.on(tabs, 'getFocusedTab');
+            tabs.focusNextTab = chai.spy();
 
             tabs.onTabKeydown(mockedEvent);
 
             expect(tabs.focusNextTab).to.have.been.called();
-            expect(tabs.getFocusedTab).to.have.been.called();
           });
         });
 
@@ -169,13 +167,11 @@ describe('Component: Tabs', () => {
           it('should focus the previous sibling', function() {
             const mockedEvent = eventMock({ which: 37 });
 
-            chai.spy.on(tabs, 'focusPreviousTab');
-            chai.spy.on(tabs, 'getFocusedTab');
+            tabs.focusPreviousTab = chai.spy();
 
             tabs.onTabKeydown(mockedEvent);
 
             expect(tabs.focusPreviousTab).to.have.been.called();
-            expect(tabs.getFocusedTab).to.have.been.called();
           });
         });
       });
