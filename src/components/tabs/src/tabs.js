@@ -201,7 +201,7 @@ export default class Tabs {
 
   focusNextTab() {
     const focusedTab = this.getFocusedTab();
-    const nextTabListItem = focusedTab.parentNode.nextElementSibling;
+    const nextTabListItem = focusedTab.nextElementSibling;
     if (nextTabListItem) {
       nextTabListItem.firstElementChild.focus();
     }
@@ -209,7 +209,7 @@ export default class Tabs {
 
   focusPreviousTab() {
     const focusedTab = this.getFocusedTab();
-    const previousTabListItem = focusedTab.parentNode.previousElementSibling;
+    const previousTabListItem = focusedTab.previousElementSibling;
     if (previousTabListItem) {
       previousTabListItem.firstElementChild.focus();
     }
@@ -243,7 +243,7 @@ export default class Tabs {
   }
 
   getFocusedTab() {
-    return document.activeElement;
+    return document.activeElement.parentNode;
   }
 
   getCurrentTab() {
