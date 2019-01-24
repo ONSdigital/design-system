@@ -156,9 +156,12 @@ describe.only('Component: Tabs', () => {
             const mockedEvent = eventMock({ which: 39 });
 
             chai.spy.on(tabs, 'focusNextTab');
+            chai.spy.on(tabs, 'getFocusedTab');
+
             tabs.onTabKeydown(mockedEvent);
 
             expect(tabs.focusNextTab).to.have.been.called();
+            expect(tabs.getFocusedTab).to.have.been.called();
           });
         });
 
@@ -167,9 +170,12 @@ describe.only('Component: Tabs', () => {
             const mockedEvent = eventMock({ which: 37 });
 
             chai.spy.on(tabs, 'focusPreviousTab');
+            chai.spy.on(tabs, 'getFocusedTab');
+
             tabs.onTabKeydown(mockedEvent);
 
             expect(tabs.focusPreviousTab).to.have.been.called();
+            expect(tabs.getFocusedTab).to.have.been.called();
           });
         });
       });
