@@ -4,5 +4,6 @@ import 'components/mutually-exclusive/src/mutually-exclusive';
 import './inpagelink';
 import 'components/textarea/src/character-limit';
 import 'components/password/src/password';
+import 'components/tabs/src/tabs';
 import 'components/timeout/src/timeout.dom';
 import 'components/details/src/collapsible.dom';
