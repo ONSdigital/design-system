@@ -1,40 +1,29 @@
 .metadata {
   &__term {
     font-weight: $font-weight-bold;
+    float: left;
+    clear: both;
 
     &:not(:first-child) {
       margin-top: 0.5rem;
     }
+  }
 
-    &.grid__col {
-      float: left;
-      clear: both;
+  &__value:not(:nth-child(2)) {
+    @include mq(m) {
+      margin-top: 0.5rem;
+    }
+  }
 
-      &:not(:first-child) {
-        @include mq(m) {
-          margin-top: 0;
-        }
-      }
+  &__value + &__value {
+    @include mq(m) {
+      margin-top: 0;
     }
   }
 
   &__value {
     margin-left: 0; /* As normalize adds a 40px left margin */
-
-    &.grid__col {
-      @include mq(m) {
-        float: right;
-      }
-    }
-  }
-
-  &__term,
-  &__value {
-    &.grid__col {
-      @include mq(m) {
-        margin-bottom: 0.3rem;
-      }
-    }
+    float: right;
   }
 
   &__list {
