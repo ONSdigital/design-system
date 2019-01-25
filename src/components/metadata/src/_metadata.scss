@@ -1,4 +1,8 @@
 .metadata {
+  &__list {
+    margin: 0;
+  }
+
   &__term {
     font-weight: $font-weight-bold;
     float: left;
@@ -9,24 +13,20 @@
     }
   }
 
-  &__value:not(:nth-child(2)) {
-    @include mq(m) {
-      margin-top: 0.5rem;
-    }
-  }
-
-  &__value + &__value {
-    @include mq(m) {
-      margin-top: 0;
-    }
-  }
-
   &__value {
     margin-left: 0; /* As normalize adds a 40px left margin */
     float: right;
-  }
 
-  &__list {
-    margin: 0;
+    &:not(:nth-of-type(1)) {
+      @include mq(m) {
+        margin-top: 0.5rem;
+      }
+    }
+
+    & + &__value {
+      @include mq(m) {
+        margin-top: 0;
+      }
+    }
   }
 }
