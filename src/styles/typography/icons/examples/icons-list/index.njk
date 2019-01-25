@@ -1,0 +1,20 @@
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{{ 
+    onsList({
+        "classes": 'list--bare',
+        "items": [
+            {
+                "text": "birth certificate",
+                "listclass": "icon--check"
+            },
+            {
+                "text": "national insurance number",
+                "listclass": "icon--check"
+            },
+            {
+                "text": "passport",
+                "listclass": "icon--check"
+            }
+        ]
+    }) 
+}}
