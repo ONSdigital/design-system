@@ -1,0 +1,23 @@
+{% from "components/field/src/_macro.njk" import onsField %}
+{% from "components/label/src/_macro.njk" import onsLabel %}
+{% from "components/input/src/_macro.njk" import onsInput %}
+
+{% call onsField() %}
+    {{
+        onsLabel({
+            "for": params.id,
+            "text": params.label.text,
+            "description": params.label.description
+        })
+    }}
+    {{
+        onsInput({
+            "id": params.id,
+            "type": "file",
+            "classes": "input--upload",
+            "accept": params.accept,
+            "name": "file",
+            "noField": true
+        })
+    }}
+{% endcall %}
