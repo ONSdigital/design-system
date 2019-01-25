@@ -23,7 +23,7 @@
       }
     }
 
-    & + &__value {
+    & + &.metadata__value {
       @include mq(m) {
         margin-top: 0;
       }
