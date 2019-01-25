@@ -85,7 +85,8 @@
       h5,
       h6 {
         &:not(:first-child) {
-          margin-top: 3rem;
+          margin-top: 2rem;
+          padding-top: 1rem;
         }
       }
 
