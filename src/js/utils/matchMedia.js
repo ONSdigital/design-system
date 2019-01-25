@@ -1,4 +1,4 @@
-export function matchMedia(query) {
+export default function matchMedia(query) {
   return window.matchMedia(query);
 }
 
