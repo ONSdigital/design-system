@@ -1,0 +1,56 @@
+{% from "components/metadata/src/_macro.njk" import onsMetadata %}
+{{ 
+    onsMetadata({
+        "metadataLabel": "This is an example of the metadata component",
+        "termCol": "2",
+        "descriptionCol": "10",
+        "items": [
+            {
+                "term": "Survey:",
+                "descriptions": [ 
+                    {
+                        "description": "Bricks & Blocks"
+                    }
+                ]
+            },
+            {
+                "term": "RU Refs:",
+                "descriptions": [ 
+                    {
+                        "description": "49900000118"
+                    },
+                    {
+                        "description": "49300005832"
+                    }                    
+                ]
+            },
+            {
+                "term": "Business:",
+                "descriptions": [ 
+                    {
+                        "description": "Bolts & Ratchets Ltd."
+                    }                                     
+                ]
+            },
+            {
+                "term": "Trading as:",
+                "descriptions": [ 
+                    {
+                        "description": "Bolts & Ratchets"
+                    }
+                ]
+            },
+            {
+                "term": "To:",
+                "descriptions": [ 
+                    {
+                        "description": "Jacky Turner"
+                    },
+                    {
+                        "description": "Louise Goodland"
+                    }                  
+                ]
+            }                                                             
+        ]
+    }) 
+}}
