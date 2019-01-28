@@ -1,5 +1,5 @@
 ---
-"title": Input
+title: Input
 ---
 
 The input component lets users enter alphanumeric characters for answers that are no longer than one line, using the appropriate keyboard on touch devices.
@@ -7,7 +7,7 @@ The input component lets users enter alphanumeric characters for answers that ar
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
 {{
-    patternlibExample("components/input/examples/text/index.njk")
+    patternlibExample({"path": "components/input/examples/text/index.njk"})
 }}
 
 ## When to use this component
@@ -44,33 +44,33 @@ An optional `label__description` can be used to display a hint to the user help 
 ### Width constrained
 Inputs can have their widths constrained to the number of expected characters using the `input--w-<number>` class. Available widths are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50.
 {{
-    patternlibExample("components/input/examples/text-width-constrained/index.njk")
+    patternlibExample({"path": "components/input/examples/text-width-constrained/index.njk"})
 }}
 
 ### Number
 Setting the type to `number` will add the correct pattern to trigger a numeric keypad on touch devices.
 {{
-    patternlibExample("components/input/examples/number/index.njk")
+    patternlibExample({"path": "components/input/examples/number/index.njk"})
 }}
 
 ### Email
 Setting the type to `email` will bring up the correct keypad on touch devices.
 {{
-    patternlibExample("components/input/examples/email/index.njk")
+    patternlibExample({"path": "components/input/examples/email/index.njk"})
 }}
 
 ### Telephone
 Setting the type to `tel` will bring up the correct keypad on touch devices.
 {{
-    patternlibExample("components/input/examples/telephone/index.njk")
+    patternlibExample({"path": "components/input/examples/telephone/index.njk"})
 }}
 
 ### Prefixed
 {{
-    patternlibExample("components/input/examples/prefixed/index.njk")
+    patternlibExample({"path": "components/input/examples/prefixed/index.njk"})
 }}
 
 ### Suffixed
 {{
-    patternlibExample("components/input/examples/suffixed/index.njk")
+    patternlibExample({"path": "components/input/examples/suffixed/index.njk"})
 }}

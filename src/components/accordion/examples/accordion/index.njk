@@ -1,0 +1,25 @@
+{% from "components/accordion/src/_macro.njk" import onsAccordion %}
+
+{{
+    onsAccordion({
+        "id": "accordion",
+        "buttonOpen": "Show",
+        "buttonClose": "Hide",
+        "openAll": "Show all",
+        "closeAll": "Hide all",
+        "items": [
+            {
+                "title": "Total retail turnover",
+                "content": "<h3 class=\"u-fs-r\">Include:</h3><ul><li>VAT</li><li>internet sales</li><li>retail sales from outlets in Great Britain to <a href=\"#\">customers abroad</a></li></ul><h3 class=\"u-fs-r\">Exclude:</h3><ul><li>revenue from mobile phone network commission and top-up</li><li>sales from catering facilities used by customers</li><li>lottery sales and commission from lottery sales</li><li>sales of car accessories and motor vehicles</li><li>NHS receipts</li><li>automotive fuel</li></ul>"
+            },
+            {
+                "title": "Food sales",
+                "content": "<h3 class=\"u-fs-r\">Include:</h3><ul><li>all fresh food</li><li>other food for human consumption (except chocolate and sugar confectionery)</li><li>soft drinks</li></ul><h3 class=\"u-fs-r\">Exclude:</h3><ul><li>sales from catering facilities used by customers</li></ul>"
+            },
+            {
+                "title": "Alcohol, confectionery, soft drinks and tobacco sales",
+                "content": "<h3 class=\"u-fs-r\">Include:</h3><ul><li>chocolate and sugar confectionery</li><li>tobacco and smokers’ requisites</li></ul>"
+            }
+        ]
+    })
+}}

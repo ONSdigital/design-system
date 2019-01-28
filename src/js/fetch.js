@@ -1,6 +1,6 @@
 import 'whatwg-fetch';
 
-function checkStatus(response) {
+export function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   } else {
@@ -10,11 +10,12 @@ function checkStatus(response) {
   }
 }
 
-export default function (url, options) {
-  return window.fetch(url, {
-    method: 'GET',
-    credentials: 'include',
-    ...options
-  })
+export default function(url, options) {
+  return window
+    .fetch(url, {
+      method: 'GET',
+      credentials: 'include',
+      ...options
+    })
     .then(checkStatus);
 }

@@ -4,7 +4,7 @@
             <div class="patternlib-swatch__color u-flex-no-shrink" style="background-color:{{ item.bg }}; {% if item.border -%} border:1px solid #ccc;{% endif -%}">
             {% if item.char -%}<span class="patternlib-swatch__char" style="color:{{ item.fore }}">{{ item.char }}</span>{% endif -%}
             </div>
-            <div class="patternlib-swatch__codes grid__col col-6 u-flex-no-grow">
+            <div class="patternlib-swatch__codes u-flex-no-grow">
                 {% if item.var -%}
                     <span class="patternlib-swatch__hex">{{ item.bg }}</span>
                     <code class="patternlib-swatch__var">{{ item.var }}</code>

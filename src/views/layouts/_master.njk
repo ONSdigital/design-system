@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" class="no-js">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +16,7 @@
         <script type="module" src="/scripts/patternlib.js"></script>
         <script nomodule src="/scripts/bundle.es5.js"></script>
         <script nomodule src="/scripts/patternlib.es5.js"></script>
+        <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
         {% if devMode %}
         <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer></' + 'script>'); </script>
         {% endif %}

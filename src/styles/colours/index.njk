@@ -1,5 +1,5 @@
 ---
-"title": Colours
+title: Colours
 sortOrder: 1
 ---
 {% from "styles/colours/src/_macro.njk" import onsColours %}
@@ -191,7 +191,7 @@ The colour palette `scss` variables shown above are assigned to a further variab
 }}
 ### Status
 
-Each status has a primary colour and a tint. See the [panel](/components/panel) component for implementation.
+Each status has a primary colour and a tint for use in a status [panel](/components/panel), and a bright colour for use in a [status](/components/status) indicator dot.
 
 <h4 class="u-mt-no">Information</h4>
 {{
@@ -204,6 +204,10 @@ Each status has a primary colour and a tint. See the [panel](/components/panel) 
             {
                 'bg': '#eff0f9',
                 'var': '$color-info-tint'
+            },
+            {
+                'bg': '#5e7dd8',
+                'var': '$color-info-dot'
             }
         ]
     })
@@ -219,22 +223,11 @@ Each status has a primary colour and a tint. See the [panel](/components/panel) 
             {
                 'bg': '#edf4f0',
                 'var': '$color-success-tint'
-            }
-        ]
-    })
-}}
-<h4 class="u-mt-no">Warning</h4>
-{{
-    onsColours({
-        'items': [
-            {
-                'bg': '#fe781f',
-                'var': '$color-warn'
             },
             {
-                'bg': '#fdf6ec',
-                'var': '$color-warn-tint'
-            }
+                'bg': '#12c864',
+                'var': '$color-success-dot'
+            }            
         ]
     })
 }}
@@ -249,7 +242,11 @@ Each status has a primary colour and a tint. See the [panel](/components/panel) 
             {
                 'bg': '#fbecec',
                 'var': '$color-errors-tint'
-            }
+            },
+            {
+                'bg': '#fd112e',
+                'var': '$color-errors-dot'
+            }            
         ]
     })
 }}
@@ -295,11 +292,6 @@ Contrast between foreground and background colours are tested to ensure [WCAG AA
             {
                 'fore': '#ffffff',
                 'bg': '#033e58',
-                'char': 'A'
-            },
-            {
-                'fore': '#ffffff',
-                'bg': '#fe781f',
                 'char': 'A'
             },
             {

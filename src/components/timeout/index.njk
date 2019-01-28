@@ -1,0 +1,14 @@
+---
+title: Timeout
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+## When to use this component
+This component may be deprecated as runner now does server side timeouts and this client side one is flaky.
+{{
+    patternlibExample({
+        "path": "components/timeout/examples/timeout/index.njk", 
+        "useIframe": true, 
+        "iframeHeight": 500
+    })
+}}

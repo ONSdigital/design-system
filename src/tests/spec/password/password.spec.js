@@ -39,7 +39,7 @@ describe('Component: Password', () => {
 
   describe('Given the component has loaded', () => {
     it('checkbox should be visible', () => {
-      expect([...checkboxWrap.classList].includes('u-d-no')).to.equal(false);
+      expect(checkboxWrap.classList.contains('u-d-no')).to.equal(false);
     });
   });
 

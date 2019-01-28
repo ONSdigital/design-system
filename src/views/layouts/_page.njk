@@ -24,20 +24,21 @@
 
     <div class="patternlib-page__body">
         {% if (page.hideSidebar !== true) and
-            (helpers.subNavigationHelper({ pageInfo: pageInfo}).length > 0)  
+            (helpers.subNavigationHelper({ pageInfo: pageInfo }).length > 0)  
         %}
-            {% from "components/navigation/src/_macro.njk" import onsNavigation %}
+            {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNavigation %}
 
             <div class="patternlib-page__sub-nav">
                 {% for group in helpers.subNavigationHelper({
-                    pageInfo: pageInfo
+                    pageInfo: pageInfo,
+                    anchorLinks: page.anchorLinks
                 }) %}
                     {% if group.title %}
                         <h2 class="u-mb-xs">{{ group.title }}</h2>
                     {% endif %}
                     {{
-                        onsNavigation({
-                            "classes": "nav--vertical-bare u-mb-m",
+                        patternlibSubNavigation({
+                            "classes": "nav--vertical-bare",
                             "ariaLabel": "Sub menu",
                             "ariraListLabel": "Child menu",
                             "currentPath": pageInfo.path,

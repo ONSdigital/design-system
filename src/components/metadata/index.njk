@@ -1,0 +1,28 @@
+---
+title: Metadata
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+The metadata component is a way to organise and explain a block of key-value pairs of related information.
+{{
+    patternlibExample({"path": "components/metadata/examples/metadata/index.njk"})
+}}
+
+## When to use this component
+Use the metadata component when you need to display a group of properties and their associated values for an object, product or system.  For example, a product's specification.
+
+## How to use this component
+A description list `<dl>` is used to divide the metadata information into terms `<dt>` and descriptions `<dd>`.
+
+Use [the grid](/styles/grid) to build the layout of two columns of metadata, setting the number of columns (`col-<n>@m`) to ensure the terms display on a single line where possible.
+
+Use the `metadataLabel` to succinctly describe the description list. 
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/91" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+[Discuss 'Metadata' on Github](https://github.com/ONSdigital/pattern-library-v2/issues/91)

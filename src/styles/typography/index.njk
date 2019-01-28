@@ -1,5 +1,6 @@
 ---
-"title": Typography
+title: Typography
+anchorLinks: true
 ---
 <p class="u-fs-r--b u-mt-l">Contents</p>
 {% from "styles/typography/lists/src/_macro.njk" import onsList %}
@@ -75,7 +76,7 @@ By default, headings have all their font-sizes reset to `1rem`, with the typogra
 The base font size for paragraphs is 18px.
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {{
-    patternlibExample("styles/typography/paragraphs/examples/index.html")
+    patternlibExample({"path": "styles/typography/paragraphs/examples/index.html"})
 }}
 
 ## Lists
@@ -87,7 +88,7 @@ Bulleted lists should be introduced with a lead-in line, ending in a colon.
 Each item in the list should start with a lowercase letter and should not end with a full stop.
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {{
-    patternlibExample("styles/typography/lists/examples/list/index.njk")
+    patternlibExample({"path": "styles/typography/lists/examples/list/index.njk"})
 }}
 
 ### Variants
@@ -99,29 +100,64 @@ Each list item should be a complete sentence, therefore start with an uppercase 
 
 You do not need to introduce a numbered list with a lead-in line.
 {{
-    patternlibExample("styles/typography/lists/examples/list-ordered/index.njk")
+    patternlibExample({"path": "styles/typography/lists/examples/list-ordered/index.njk"})
 }}
 
 #### Bare list
 Bare lists should be used to display a list of navigational links, for example, a group of related pages displayed in the [footer](components/footer).
 {{
-    patternlibExample("styles/typography/lists/examples/list-bare/index.njk")
+    patternlibExample({"path": "styles/typography/lists/examples/list-bare/index.njk"})
 }}
 
 #### Inline list
 Inline lists should be used to display a horizontal row of links, for example, a list of pages displayed in the [transactional footer](components/footer#transactional).
 {{
-    patternlibExample("styles/typography/lists/examples/list-inline/index.njk")
+    patternlibExample({"path": "styles/typography/lists/examples/list-inline/index.njk"})
 }}
 
 #### Errors list
-Used within the [error details panel](http://localhost:3010/patterns/error-validation#error-details) to display a list error messages for each erroneous field in a fieldset.
+Used within the [error details panel](/patterns/error-validation#error-details) to display a list error messages for each erroneous field in a fieldset.
 {{
-    patternlibExample("styles/typography/lists/examples/list-errors/index.njk")
+    patternlibExample({"path": "styles/typography/lists/examples/list-errors/index.njk"})
 }}
 
 #### Boxed list
 Used to display a code split into manageable chunks, for example, a reference code to quote during a helpdesk call.
 {{
-    patternlibExample("styles/typography/lists/examples/list-boxes/index.njk")
+    patternlibExample({"path": "styles/typography/lists/examples/list-boxes/index.njk"})
 }}
+
+## Icons
+Icons are used to provide affordance to improve user experience. Icons shouldn't be used as decoration and implemented only if there is a user need. We only use icons with text if we have evidence to suggest that it helps the user complete their task.
+
+__Our current icon set can be used in the following scenarios:__
+
+### List with progress check icons
+{{
+    patternlibExample({"path": "styles/typography/icons/examples/icons-list/index.njk"})
+}}
+__How to use:__ Use `icon--check` class on each `<li class="list__item">` within `<ul class="list list--bare">`.
+
+### Button with print icon
+{{
+    patternlibExample({"path": "styles/typography/icons/examples/icons-button/index.njk"})
+}}
+__How to use:__ Use `icon--print-link` class on a `<button class="btn--secondary">`.
+
+### Link with external link icon
+{{
+    patternlibExample({"path": "styles/typography/icons/examples/icons-link/index.html"})
+}}
+__How to use:__ Use `icon--external-link` class on an `<a>` element.
+
+### Text with secure icon
+{{
+    patternlibExample({"path": "styles/typography/icons/examples/icons-text/index.html"})
+}}
+__How to use:__ Use `icon--lock` class on a `<p>` element.
+
+### Contribute to icons
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have any requests for icons or research findings please feed back via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/95" target="_blank">Design System forum</a>.
+{% endcall %}

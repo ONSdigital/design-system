@@ -1,4 +1,4 @@
-{% macro patternlibExample(path, backgroundColor) %}
-  {% set params = helpers.generateExampleParams(path, helpers.addDependency) %}
+{% macro patternlibExample(params) %}
+  {% set params = helpers.generateExampleParams(params, helpers.addDependency) %}
   {% include "./_template.njk" %}
 {% endmacro %}

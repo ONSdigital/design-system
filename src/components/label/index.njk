@@ -1,5 +1,5 @@
 ---
-"title": Label
+title: Label
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
@@ -7,7 +7,7 @@
 Labels are paired with [inputs](/components/input), [textareas](/components/textarea), [radios](/components/radios), [checkboxes](/components/checkboxes), and [selects](/components/select) to describe a form input.
 
 {{
-    patternlibExample("components/label/examples/label/index.njk")
+    patternlibExample({"path": "components/label/examples/label/index.njk"})
 }}
 
 ## How to use this component
@@ -16,13 +16,13 @@ Generally speaking you should not need to implement a label yourself as the form
 ## Variants
 ### With description
 {{
-    patternlibExample("components/label/examples/label-description/index.njk")
+    patternlibExample({"path": "components/label/examples/label-description/index.njk"})
 }}
 
 ### Small
 This variant is achieved by adding `label--small` to the `classes` option.
 {{
-    patternlibExample("components/label/examples/label-small/index.njk")
+    patternlibExample({"path": "components/label/examples/label-small/index.njk"})
 }}
 
 ## Research on this component

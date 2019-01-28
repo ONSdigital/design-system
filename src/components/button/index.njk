@@ -1,10 +1,10 @@
 ---
-"title": Button
+title: Button
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
 {{
-    patternlibExample("components/button/examples/button/index.njk")
+    patternlibExample({"path": "components/button/examples/button/index.njk"})
 }}
 
 ## When to use this component
@@ -21,37 +21,40 @@ There are 2 ways to use the button component. You can use HTML or, if you are us
 ### Small
 In certain circumstances there may be the need for multiple primary actions to exist on a page. The small primary button should be used in this scenario only when each action has the same context, for example, a list containing business surveys that a user needs to complete.
 {{
-    patternlibExample("components/button/examples/button-small/index.njk")
+    patternlibExample({"path": "components/button/examples/button-small/index.njk"})
 }}
 
 ### Secondary
 Secondary buttons should be used for supplementary actions which users can take. Secondary buttons cannot exist without a primary button in the same context.
 {{
-    patternlibExample("components/button/examples/button-secondary/index.njk")
+    patternlibExample({"path": "components/button/examples/button-secondary/index.njk"})
 }}
 
 ### Secondary (small)
 A small secondary button should be used within the same context of a primary small button when there is an additional action available along with the primary action.
 {{
-    patternlibExample("components/button/examples/button-secondary-small/index.njk")
+    patternlibExample({"path": "components/button/examples/button-secondary-small/index.njk"})
 }}
 
 ### Group
 The ghosted button is reserved for use in the header of an eQ service. It’s function is to allow the user to save and logout of the current context.
 {{
-    patternlibExample("components/button/examples/button-group/index.njk")
+    patternlibExample({"path": "components/button/examples/button-group/index.njk"})
 }}
 
 ### Ghost
 The ghosted button is reserved for use in the header of an eQ service. It’s function is to allow the user to save and logout of the current context.
 {{
-    patternlibExample("components/button/examples/button-ghost/index.njk", "#3b7a9e")
+    patternlibExample({
+        "path": "components/button/examples/button-ghost/index.njk", 
+        "backgroundColor": "#3b7a9e"
+    })
 }}
 
 ### Loader
 The `btn--loader` class can be added to a button when there is a need to indicate to the user that the action taken place is waiting for a response i.e. uploading a file. This helps prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked.
 {{
-    patternlibExample("components/button/examples/button-loader/index.njk")
+    patternlibExample({"path": "components/button/examples/button-loader/index.njk"})
 }}
 
 ## Research on this component
