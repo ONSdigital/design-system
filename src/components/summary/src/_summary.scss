@@ -12,6 +12,7 @@
   &__answer,
   &__action {
     border-bottom: 0;
+    line-height: 1.4;
   }
 
   &__answer-action {
@@ -160,7 +161,7 @@
     &__question,
     &__answer,
     &__action {
-      vertical-align: middle;
+      vertical-align: top;
     }
 
     &__question:not([colspan]) {
