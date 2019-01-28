@@ -1,38 +1,50 @@
-{% from "patterns/playback/src/_macro.njk" import onsSummary %}
+{% from "components/summary/src/_macro.njk" import onsSummary %}
+
 {{ 
     onsSummary({
-        "title": 'Expenses',
-        "multipleItems": [
+        "title": "Expenses",
+        "items": [
             {
-                "question": 'What are your monthly household expenses?',
-                "multipleAnswers": [
+                "title": "What are your monthly household expenses?",
+                "questions": [
                     {
-                        "label": 'Food',
-                        "answer": '£50',
-                        "link": true,
-                        "href": '#'
+                        "question": "Food",
+                        "answer": "£50",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
                     },
                     {
-                        "label": 'Utilities',
-                        "answer": '£65',
-                        "link": true,
-                        "href": '#'
-                    },  
-                    {
-                        "label": 'Transport',
-                        "answer": '£65',
-                        "link": true,
-                        "href": '#'
+                        "question": "Utilities",
+                        "answer": "£65",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
                     },
                     {
-                        "label": 'Other',
-                        "answer": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                        "textArea": true,
-                        "link": true,
-                        "href": '#'
-                    }                                                                                                  
+                        "question": "Transport",
+                        "answer": "£70",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    },
+                    {
+                        "question": "Other",
+                        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    }
                 ]
-            }                                        
+            }
         ]
     }) 
 }}
