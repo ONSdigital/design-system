@@ -126,3 +126,38 @@ Used to display a code split into manageable chunks, for example, a reference co
 {{
     patternlibExample({"path": "styles/typography/lists/examples/list-boxes/index.njk"})
 }}
+
+## Icons
+Icons are used to provide affordance to improve user experience. Icons shouldn't be used as decoration and implemented only if there is a user need. We only use icons with text if we have evidence to suggest that it helps the user complete their task.
+
+__Our current icon set can be used in the following scenarios:__
+
+### List with progress check icons
+{{
+    patternlibExample({"path": "styles/typography/icons/examples/icons-list/index.njk"})
+}}
+__How to use:__ Use `icon--check` class on each `<li class="list__item">` within `<ul class="list list--bare">`.
+
+### Button with print icon
+{{
+    patternlibExample({"path": "styles/typography/icons/examples/icons-button/index.njk"})
+}}
+__How to use:__ Use `icon--print-link` class on a `<button class="btn--secondary">`.
+
+### Link with external link icon
+{{
+    patternlibExample({"path": "styles/typography/icons/examples/icons-link/index.html"})
+}}
+__How to use:__ Use `icon--external-link` class on an `<a>` element.
+
+### Text with secure icon
+{{
+    patternlibExample({"path": "styles/typography/icons/examples/icons-text/index.html"})
+}}
+__How to use:__ Use `icon--lock` class on a `<p>` element.
+
+### Contribute to icons
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have any requests for icons or research findings please feed back via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/95" target="_blank">Design System forum</a>.
+{% endcall %}
