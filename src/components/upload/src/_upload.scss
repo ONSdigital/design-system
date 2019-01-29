@@ -1,0 +1,33 @@
+.input--upload {
+  border: 2px solid $color-borders;
+  border-radius: $input-radius;
+  padding: 0;
+  background: $color-white;
+  width: 100%;
+  &::-webkit-file-upload-button {
+    font-size: 1.25rem;
+    border: none;
+    border-right: 2px solid $color-borders;
+    padding: 0.5rem 1rem;
+    background: $color-light-blue;
+    color: $color-dark-blue;
+    transition: border-color 200ms ease-in;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    outline: none;
+  }
+  &:hover {
+    cursor: pointer;
+    &::-webkit-file-upload-button {
+      border-right-color: $color-links-hover;
+      cursor: pointer;
+    }
+  }
+
+  @include mq(m) {
+    width: 80%;
+  }
+  @include mq(l) {
+    width: 70%;
+  }
+}
