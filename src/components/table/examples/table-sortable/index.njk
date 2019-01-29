@@ -1,0 +1,182 @@
+{% from "components/table/src/_macro.njk" import onsTable %}
+{{
+    onsTable({
+        "sortable": true,
+        "table_class": " table--sortable",
+        "caption": "Javascript enhanced sortable table",
+        "ths": [
+                { 
+                    "value": "ID",
+                    "aria_sort": "none"
+                },
+                { 
+                    "value": "Title",
+                    "aria_sort": "none"
+                },
+                { 
+                    "value": "Abbreviation",
+                    "aria_sort": "none"
+                },
+                { 
+                    "value": "Legal basis",
+                    "aria_sort": "none"
+                },
+                { 
+                    "value": "Frequency",
+                    "aria_sort": "none"
+                },
+                { 
+                    "value": "Date",
+                    "aria_sort": "none"
+                },
+                { 
+                    "value": "Status",
+                    "aria_sort": "none"
+                }
+            ],
+            "trs": [
+                {
+                    "tds": [
+                        {
+                            "value": "023"
+                        },
+                        {
+                            "value": "Monthly Business Survey - Retail Sales Index"
+                        },
+                        {
+                            "value": "RSI"
+                        },
+                        {
+                            "value": "Statistics of Trade Act 1947"
+                        },
+                        {
+                            "value": "Monthly",
+                            "data_sort": "1"
+                        },
+                        {
+                            "value": "20 Jan 2018",
+                            "data_sort": "2018-01-20"
+                        },
+                        {
+                            "value": "<span class='status status--success'>Ready</span>",
+                            "data_sort": "0"
+                        }
+                    ]
+                },
+                {
+                    "tds": [
+                        {
+                            "value": "112"
+                        },
+                        {
+                            "value": "Annual Inward Foreign Direct Investment Survey",
+                            "data": "Title"
+                        },
+                        {
+                            "value": "AIFDI"
+                        },
+                        {
+                            "value": "Statistics of Trade Act 1947"
+                        },
+                        {
+                            "value": "Annually",
+                            "data_sort": "12"
+                        },
+                        {
+                            "value": "26 Feb 2018",
+                            "data_sort": "2018-02-26"
+                        },
+                        {
+                            "value": "<span class='status status--dead'>Not ready</span>",
+                            "data_sort": "1"
+                        }
+                    ]
+                },
+                {
+                    "tds": [
+                        {
+                            "value": "332"
+                        },
+                        {
+                            "value": "Business Register and Employment Survey"
+                        },
+                        {
+                            "value": "BRES"
+                        },
+                        {
+                            "value": "Statistics of Trade Act 1947"
+                        },
+                        {
+                            "value": "Annually",
+                            "data_sort": "12"
+                        },
+                        {
+                            "value": "23 Jan 2013",
+                            "data_sort": "2013-01-23"
+                        },
+                        {
+                            "value": "<span class='status status--info'>In progress</span>",
+                            "data_sort": "2"
+                        }
+                    ]
+                },
+                {
+                    "tds": [
+                        {
+                            "value": "654"
+                        },
+                        {
+                            "value": "Quartely Survey of Building Materials Sand and Gravel"
+                        },
+                        {
+                            "value": "QBMS"
+                        },
+                        {
+                            "value": "Statistics of Trade Act 1947 - BEIS"
+                        },
+                        {
+                            "value": "Quartely",
+                            "data_sort": "3"
+                        },
+                        {
+                            "value": "24 Jan 2015",
+                            "data_sort": "2015-01-24"
+                        },
+                        {
+                            "value": "<span class='status status--error'>Issue</span>",
+                            "data_sort": "3"
+                        }
+                    ]
+                },
+                {
+                    "tds": [
+                        {
+                            "value": "765"
+                        },
+                        {
+                            "value": "Monthly Survey of Building Materials Concrete Building Blocks"
+                        },
+                        {
+                            "value": "MSBB"
+                        },
+                        {
+                            "value": "Voluntary"
+                        },
+                        {
+                            "value": "Monthly",
+                            "data_sort": "1"
+                        },
+                        {
+                            "value": "25 Jan 2014",
+                            "data_sort": "2014-01-25"
+                        },
+                        {
+                            "value": "<span class='status status--success'>Ready</span>",
+                            "data_sort": "0"
+                        }
+                    ]
+                }
+            ]
+        
+    })
+}}

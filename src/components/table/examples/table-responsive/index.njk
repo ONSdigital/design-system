@@ -1,0 +1,52 @@
+{% from "components/table/src/_macro.njk" import onsTable %}
+{{
+    onsTable({
+        "table_class": "table--responsive",
+        "caption": "Responsive table with stacked rows for small viewports",
+        "ths": [
+            { 
+                "value": "Column A"
+            },
+            { 
+                "value": "Column B"
+            },
+            { 
+                "value": "Column C"
+            } 
+        ],
+        "trs": [
+            {
+                "tds": [
+                    {
+                        "value": "Cell A1",
+                        "data": "Column A"
+                    },
+                    {
+                        "value": "Cell B1",
+                        "data": "Column B"
+                    },
+                    {
+                        "value": "Cell C1",
+                        "data": "Column C"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "value": "Cell A2",
+                        "data": "Column A"
+                    },
+                    {
+                        "value": "Cell B2",
+                        "data": "Column B"
+                    },
+                    {
+                        "value": "Cell C2",
+                        "data": "Column C"
+                    }
+                ]
+            }
+        ]
+    })
+}}
