@@ -1,7 +1,7 @@
 {% set currentLanguage = params.languages | selectattr("current") | first %}
 
 <div class="language-switcher u-d-no@xs@s js-language-switcher" lang="{{ currentLanguage.ISOCode }}">
-  <a class="js-language-switcher-link" href="{{ params.allLanguagesLink }}">{{ currentLanguage.chooseLanguage }}</a>
+  <a class="js-language-switcher-link" href="{{ params.allLanguagesUrl }}">{{ currentLanguage.chooseLanguage }}</a>
   <button type="button" class="u-d-no language-switcher__button js-language-switcher-button" aria-label="{{ currentLanguage.buttonAriaLabel }}">{{ currentLanguage.text }}</button>
   <ul id="language-switcher-items" class="u-d-no language-switcher__items js-language-switcher-items">
     {% for language in params.languages %}
@@ -12,7 +12,7 @@
         {% endif %}
     {% endfor %}
     <li class="language-switcher__item">
-        <a href="{{ params.allLanguagesLink }}" class="language-switcher__language js-language-switcher-item" lang="{{ currentLanguage.ISOCode }}" tabindex="-1">{{ currentLanguage.allLanguages }}</a>
+        <a href="{{ params.allLanguagesUrl }}" class="language-switcher__language js-language-switcher-item" lang="{{ currentLanguage.ISOCode }}" tabindex="-1">{{ currentLanguage.allLanguages }}</a>
     </li>
   </ul>
 </div>
