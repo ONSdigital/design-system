@@ -1,0 +1,12 @@
+{% from "components/upload/src/_macro.njk" import onsUpload %}
+
+{{
+    onsUpload({
+        "id": "file",
+        "accept": ".xls,.xlsx,.pdf",
+        "label": {
+            "description": "File types accepted are .xls and .xlsx",
+            "text": "Upload a file"
+        }
+    })
+}}
