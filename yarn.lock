@@ -9474,6 +9474,11 @@ text-table@^0.2.0, text-table@~0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
+throttle-typescript@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/throttle-typescript/-/throttle-typescript-1.0.1.tgz#787574292ef2e0e35c73f3c69d9cea9932c77143"
+  integrity sha512-VERgwuJTrx9HKBGKXwXFnnH5G1ORwtFGNH2EltsAjKp5+NYODpgH/sutlVQJBACZz2ndRExWdyQniHlW3vIE5g==
+
 through2@^2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"

@@ -122,6 +122,7 @@
     "lodash": "^4.17.11",
     "mdn-polyfills": "^5.14.0",
     "normalize-scss": "^7.0.1",
+    "throttle-typescript": "^1.0.1",
     "whatwg-fetch": "^3.0.0"
   }
 }

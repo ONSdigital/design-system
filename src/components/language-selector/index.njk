@@ -1,0 +1,42 @@
+---
+title: Language Selector
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+
+## When to use this component
+
+The lanaguage selector component provides a menulist of links for changing the language of a service. 
+
+{% call onsPanel({
+    "type": "error"
+}) %}
+   This component only appears on tablet and desktop, and should be used in conjunction with a list of available langauges in the footer component on mobile. More information can be found in the <a href="/patterns/language-selection">language selection pattern</a> documentation.
+{% endcall %}
+
+{{
+    patternlibExample({"path": "components/language-selector/examples/english/index.njk"})
+}}
+
+
+
+## Examples where language has been changed
+### Welsh
+{{
+    patternlibExample({"path": "components/language-selector/examples/cymraeg/index.njk"})
+}}
+
+### Polish
+{{
+    patternlibExample({"path": "components/language-selector/examples/polskie/index.njk"})
+}}
+
+## Research on this component
+
+{% call onsPanel() %}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/84" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+
+[Discuss 'Summary' on Github](https://github.com/ONSdigital/pattern-library-v2/issues/84)
