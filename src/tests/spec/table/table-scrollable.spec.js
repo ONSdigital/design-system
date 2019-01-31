@@ -98,12 +98,6 @@ describe.only('Component: Scrollable table', function() {
     Object.keys(component).forEach(key => {
       this[key] = component[key];
     });
-
-    this.tableEl.style.width = '2000px';
-    this.tableComponent.style.position = 'relative';
-    this.tableScrollEl.style.width = '100%';
-    this.tableScrollEl.style.overflow = 'visible';
-    this.tableScrollEl.style.overflowX = 'scroll';
   });
 
   afterEach(function() {
@@ -118,10 +112,8 @@ describe.only('Component: Scrollable table', function() {
     });
 
     it('should add shadow elements', function() {
-      const leftShadowElement = this.tableComponent.querySelector('.left-shadow');
-      const rightShadowElement = this.tableComponent.querySelector('.right-shadow');
-      expect(this.tableComponent.contains(leftShadowElement)).to.equal(true);
-      expect(this.tableComponent.contains(rightShadowElement)).to.equal(true);
+      expect('div.left-shadow').to.exist;
+      expect('div.right-shadow').to.exist;
     });
 
     describe('When the table component is scrolled,', function() {
@@ -153,6 +145,12 @@ function renderComponent(params) {
   const tableComponent = wrapper.querySelector('.table-scrollable');
   const tableScrollEl = tableComponent.querySelector('.table-scrollable__content');
   const tableEl = tableComponent.querySelector('.table');
+
+  tableEl.style.width = '101%';
+  tableComponent.style.position = 'relative';
+  tableScrollEl.style.width = '100%';
+  tableScrollEl.style.overflow = 'visible';
+  tableScrollEl.style.overflowX = 'scroll';
 
   return {
     wrapper,
