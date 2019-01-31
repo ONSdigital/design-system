@@ -4,29 +4,7 @@ anchorLinks: true
 ---
 <p class="u-fs-r--b u-mt-l">Contents</p>
 {% from "styles/typography/lists/src/_macro.njk" import onsList %}
-{{ 
-    onsList({
-        "classes": 'list--bare',
-        "items": [
-            {
-                "text": 'Font',
-                "href": '#font'
-            },
-            {
-                "text": 'Headings',
-                "href": '#headings'
-            },
-            {
-                "text": 'Paragraphs',
-                "href": '#paragraphs'
-            },
-            {
-                "href": '#lists',
-                "text": 'Lists'
-            }
-        ]
-    })
-}}
+
 ## Font
 Text is the primary way that users digest information and accomplish tasks, so it’s important to use good typographic principles to establish a clear visual hierarchy and to maximize legibility.
 
@@ -53,9 +31,19 @@ Using the type scale classes on text elements, the type is sized appropriately f
 {% endmd %}
 
 ### Font weights
-<b>Bold: 700</b>
-
-Regular: 400
+{{ 
+    onsList({
+        "classes": 'list--bare',
+        "items": [
+            {
+                "text": '<b>Bold: 700</b>'
+            },
+            {
+                "text": 'Regular: 400'
+            }
+        ]
+    })
+}}
 
 ## Headings
 By default, headings have all their font-sizes reset to `1rem`, with the typographic hierarchy enforced by the 'type scale', eg:

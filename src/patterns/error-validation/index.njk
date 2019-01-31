@@ -3,6 +3,7 @@ title: Correct errors
 group: Help users to...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
 
 ## When to use this pattern
 
@@ -13,9 +14,18 @@ Validation should occur after the user submits the form.
 ## How to use this pattern
 
 You must tell the user about missing or incorrect information when they submit a form by displaying:
-
-- A summary listing all the errors on the page
-- Contextual detail and highlight for each erroneous field
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": 'A summary listing all the errors on the page'
+            },
+            {
+                "text": 'Contextual detail and highlight for each erroneous field'
+            }
+        ]
+    }) 
+}}
 
 ### Error summary
 

@@ -2,6 +2,7 @@
 title: Breadcrumbs
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
 
 A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application. This should be placed before a page’s main content.
 
@@ -18,10 +19,24 @@ Don’t use the breadcrumbs component on websites with a flat structure, or to s
 If you’re using other navigational elements on the page, such as a sidebar, consider whether your users need the additional support of breadcrumbs.
 
 ## How it works
-- The set of links is structured using an **ordered** list to provide semantic structure.
-- A `nav` element labeled `Breadcrumb` identifies the structure as a breadcrumb trail and makes it a navigation landmark so that it is easy to locate.
-- To prevent screen reader announcing the visual separators between links, they are added via CSS.
-- The separators are part of the visual presentation that signifies the breadcrumb trail. This is already semantically represented by the `nav` element with its `aria-label` of Breadcrumb. Therefore using a display technique that is not used by screen readers prevents redundant and potentially distracting verbosity.
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": 'The set of links is structured using an <strong>ordered</strong> list to provide semantic structure'
+            },
+            {
+                "text": 'A <code>nav</code> element labeled <code>Breadcrumb</code> identifies the structure as a breadcrumb trail and makes it a navigation landmark so that it is easy to locate'
+            },
+            {
+                "text": 'To prevent screen reader announcing the visual separators between links, they are added via CSS'
+            },
+            {
+                "text": 'The separators are part of the visual presentation that signifies the breadcrumb trail. This is already semantically represented by the <code>nav</code> element with its <code>aria-label</code> of Breadcrumb. Therefore using a display technique that is not used by screen readers prevents redundant and potentially distracting verbosity'
+            }
+        ]
+    }) 
+}}
 
 ## Research on this component
 Based uppon [W3 principles](https://w3c.github.io/aria-practices/examples/breadcrumb/index.html)

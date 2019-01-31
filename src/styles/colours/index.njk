@@ -3,6 +3,7 @@ title: Colours
 sortOrder: 1
 ---
 {% from "styles/colours/src/_macro.njk" import onsColours %}
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
 
 The ONS colour palette is available to services using the design system so pages and elements look consistent and coherent.
 
@@ -315,6 +316,18 @@ Contrast between foreground and background colours are tested to ensure [WCAG AA
 
 ### Tools to help with colour contrast checking
 
-- [Web Aim's colour contrast checker](http://webaim.org/resources/contrastchecker/)
-- [Color Oracle (free colour blindness simulator)](http://colororacle.org/)
-- Also test colour contrast with people of all abilities.
+{{ 
+    onsList({
+        "items": [
+            {
+                "href": 'http://webaim.org/resources/contrastchecker/',
+                "text": "Web Aim's colour contrast checker"
+            },
+            {
+                "href": 'http://colororacle.org/',
+                "text": 'Color Oracle (free colour blindness simulator)'
+            }
+        ]
+    }) 
+}}
+Also, ensure you test colour contrast with people of all abilities.
