@@ -4,10 +4,39 @@ group: Ask users for...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
+## When to use this pattern
+
+This pattern should be if you service is available in multiple languages.
+
+## How to use this pattern
+
+Language selection is achieved by rendering a language selector component in the header element, and a list of available lanauges in the footer. The header lanauge selector is for viewports larger than mobile, and the footer language selector is for viewports smaller than tablet.
+
+If there are 3 or less available languages, the header language picker will render two links, otherwise a dropdown menu will be renedered.
+
+## Examples
+
+### 3 Available languages
 {{
-    patternlibExample({ "path": "patterns/language-selection/examples/english-ireland/index.njk", "useIframe": true, "iframeHeight": 600 })
+    patternlibExample({ "path": "patterns/language-selection/examples/english-ireland/index.njk", "useIframe": true, "iframeHeight": 400 })
 }}
 
+### 2 Available languages
 {{
-    patternlibExample({ "path": "patterns/language-selection/examples/cymraeg/index.njk", "useIframe": true, "iframeHeight": 600 })
+    patternlibExample({ "path": "patterns/language-selection/examples/cymraeg/index.njk", "useIframe": true, "iframeHeight": 400 })
 }}
+
+### 5 Available languages
+{{
+    patternlibExample({ "path": "patterns/language-selection/examples/many-languages/index.njk", "useIframe": true, "iframeHeight": 400 })
+}}
+
+## Research on this pattern
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/109" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+
+[Discuss 'Language selection' on Github](https://github.com/ONSdigital/pattern-library-v2/issues/109)

@@ -7,7 +7,7 @@
 
 ## ListItem
 | Name | Type | Required | Description |
-| ------ | ------- | -------- | ------------------------------------------------------------ |
+| ------ | ------- | -------- | ----------------------------------------------------------- |
 | text | string | true | The text for the list item |
 | url | string | false | Will wrap the text in a link |
 | target | string | false | If `url` is provided this will set the target for that link |
