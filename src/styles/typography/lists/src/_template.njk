@@ -7,12 +7,12 @@
 <{{listEl}} {% if params.id %}id="{{ params.id }}"{% endif %} class="list {{ params.classes }}">
     {% for item in params.items %}
         <li class="list__item {{ item.listclass }}">
-            {% if item.href %}
-                {% if item.index %}{{ loop.index }}) {% endif %} <a href="{{ item.href }}"{% if item.classes %} class="{{ item.classes }}"{% endif %}{% if item.target %} target="{{ item.target }}"{% endif %}>
-                    {{ item.text }}
+            {% if item.url %}
+                {% if item.index %}{{ loop.index }}) {% endif %} <a href="{{ item.url }}"{% if item.classes %} class="{{ item.classes }}"{% endif %}{% if item.target %} target="{{ item.target }}"{% endif %}{% if item.lang %} lang="{{ item.lang }}"{% endif %}>
+                    {{- item.text -}}
                 </a>
             {% else %}
-                {{ item.text }}
+                {{- item.text -}}
             {% endif %}
         </li>
     {% endfor %}

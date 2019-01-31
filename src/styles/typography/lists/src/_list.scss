@@ -16,7 +16,7 @@
 
 $list-inline-spacing: 2rem;
 
-.list--inline {
+@include bp-suffix('list--inline') {
   margin: 0 $list-inline-spacing / -2;
 
   .list__item {

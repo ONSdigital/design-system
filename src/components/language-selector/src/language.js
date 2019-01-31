@@ -47,5 +47,9 @@ export class LanguageSelector {
 }
 
 export default function languageSelector() {
-  return new LanguageSelector(document.querySelector('.js-language-switcher'));
+  const context = document.querySelector('.js-language-switcher');
+
+  if (context) {
+    return new LanguageSelector(context);
+  }
 }

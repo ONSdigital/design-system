@@ -85,3 +85,14 @@ $language-switcher-chevron-size: 15px;
     padding: $language-switcher-button-padding-y $language-switcher-button-padding-x;
   }
 }
+
+.language-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: inline-block;
+    margin: 0 0 0 0.5rem;
+  }
+}
