@@ -1,21 +1,59 @@
 ---
 title: Accordion
 ---
+Accordions let users show or hide sections of related content on the same page.
+
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-
-
-## When to use this component 
-This component can be used to condense large sections of related content on a page. It allows a user to quickly scan a collated group of content titles.
-
-## When not to use this component
-Accordions should not be used if the content inside the accordion is critial to the user to be able to progress with their task.
 
 {{
     patternlibExample({ path: "components/accordion/examples/accordion/index.njk" })
 }}
 
+## When to use this component 
+You should only use this component when you have identified a strong user need to quickly scan large sections of content, by condensing them into an overview of section headings, and show and hide those sections as needed.
+
+Accordions can benefit repeat users who need to regularly perform the same familiar tasks quickly, where they only require a few key pieces of the content to proceed.
+
+## When not to use this component
+Accordions hide content from users and are not easily noticed and understood by everyone.  So they should not be used if the content inside each accordion is critial to the user being able to progress with their task.
+
+Test your content considering the following alternatives before using accordions:
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": 'simpify the content to reduce down the amount'
+            },
+            {
+                "text": 'seperate the content with headings'
+            },
+            {
+                "text": 'use page contents links to enable users to quickly to navigate to sections of content'
+            },
+            {
+                "text": 'divide the content across multiple pages'
+            }            
+        ]
+    }) 
+}}
+
+### Alternative components
+Accordions, [tabs](/components/tabs) and [details](/components/details) all hide sections of content which a user can show or hide.
+
+[Tabs](/components/tabs) may work better for users who need to switch quickly between sections because the position of their headings remains static, whereas the accordion headings move down the page as you open others.
+
+Consider the number of sections you need to display. Tabs display horizontally so cannot display as many sections as accordions which display vertically.  Also consider the use of your service on mobile devices.  Tabs only display above `640px` before their content is expanded and stacked vertically under headings.
+
+Use the [details component](/components/details) if there is only one section of content that needs to be condensed.
+
 ## How to use this component
-Accordions' functionality is provided by grouping [details components](/components/details) together. The `collapsible.js` file takes care of running the open all/close all button, if one is provided.
+Accordions' functionality is provided by grouping [details components](/components/details) together. 
+
+The accordion uses JavaScript so when it's turned off, the sections of content are expanded.  The `collapsible.js` file takes care of running the open all/close all button, if one is provided.
+
+### Use clear labels
+Accordions hide content so make sure your section headings are clear so the user doesn't need to work hard to understand which heading to choose.
 
 ## Research on this component
 {% from "components/panel/src/_macro.njk" import onsPanel %}
