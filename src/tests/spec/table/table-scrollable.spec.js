@@ -124,10 +124,8 @@ describe.only('Component: Scrollable table', function() {
       it('should show both shadow elements', function(done) {
         const tableComponent = this.tableComponent;
         setTimeout(function() {
-          const leftShadowVisible = tableComponent.querySelector('.left-shadow.visible');
-          const rightShadowVisible = tableComponent.querySelector('.right-shadow.visible');
-          expect(tableComponent.contains(leftShadowVisible)).to.equal(true);
-          expect(tableComponent.contains(rightShadowVisible)).to.equal(true);
+          expect('div.left-shadow.visible').to.exist;
+          expect('div.right-shadow.visible').to.exist;
           done();
         }, 200);
       });
