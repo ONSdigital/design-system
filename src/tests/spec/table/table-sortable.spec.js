@@ -206,7 +206,7 @@ describe('Component: Sortable table', function() {
         originalValues.reverse();
 
         const trs = this.tbody.querySelectorAll('tr');
-        for (var i = 0; i < trs.length; i++) {
+        for (let i = 0; i < trs.length; i++) {
           const tdVal = trs[i].childNodes[1].textContent;
           sortedValues.push(tdVal);
         }
