@@ -1,11 +1,10 @@
 ---
 title: Input
 ---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
 
 The input component lets users enter alphanumeric characters for answers that are no longer than one line, using the appropriate keyboard on touch devices.
-
-{% from "views/partials/example/_macro.njk" import patternlibExample %}
-
 {{
     patternlibExample({"path": "components/input/examples/text/index.njk"})
 }}
@@ -20,16 +19,32 @@ Do not use this component if you need to let users enter information that will s
 All input components must have a visible [label](/components/label).
 
 Do:
-<ul>
-    <li>make sure the label is short, direct and written in sentence case</li>
-    <li>left-align the label above the input</li>
-</ul>
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": 'make sure the label is short, direct and written in sentence case'
+            },
+            {
+                "text": 'left-align the label above the input'
+            }
+        ]
+    }) 
+}}
 
 Do not:
-<ul>
-    <li>use placeholder text to display a label because it will not be visible when the user clicks on the input.</li>
-    <li>place a colon at the end of the label</li>
-</ul>
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": 'use placeholder text to display a label because it will not be visible when the user clicks on the input'
+            },
+            {
+                "text": 'place a colon at the end of the label'
+            }
+        ]
+    }) 
+}}
 
 Inputs should be appropriately sized to help the user understand what they should enter by making them the right size for the content they are intended for.
 
