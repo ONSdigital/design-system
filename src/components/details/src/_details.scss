@@ -98,7 +98,6 @@ $details-caret-width: 1.1rem;
     &__summary {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       margin: 0;
       padding-top: 1rem;
       padding-bottom: 1rem;
@@ -112,6 +111,10 @@ $details-caret-width: 1.1rem;
       &:focus {
         outline: none;
       }
+    }
+
+    &__title {
+      margin: 0 auto 0 0;
     }
 
     &__btn {
