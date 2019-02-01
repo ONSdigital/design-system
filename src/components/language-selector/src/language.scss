@@ -1,5 +1,5 @@
-$language-switcher-button-height: 2rem;
-$language-switcher-button-padding-y: 0.35rem;
+$language-switcher-button-height: 40px;
+$language-switcher-button-padding-y: 0.625rem;
 $language-switcher-button-padding-x: 0.5rem;
 $language-switcher-chevron-size: 15px;
 
@@ -13,7 +13,7 @@ $language-switcher-chevron-size: 15px;
     padding: $language-switcher-button-padding-y $language-switcher-button-padding-x;
     min-width: 8rem;
     min-height: $language-switcher-button-height;
-    border: 1px solid $color-borders;
+    border: $input-border-width solid $color-input;
     border-radius: 3px;
     background: transparent;
     text-align: left;
@@ -37,7 +37,7 @@ $language-switcher-chevron-size: 15px;
 
       background: {
         position: center;
-        image: url(#{$static}/img/icons/icons--chevron-down-blue.svg);
+        image: url(#{$static}/img/icons/icons--chevron-down.svg);
         size: $language-switcher-chevron-size;
         repeat: no-repeat;
       }
@@ -58,7 +58,7 @@ $language-switcher-chevron-size: 15px;
     position: relative;
     padding: 0;
     list-style: none;
-    border: 1px solid $color-borders;
+    border: $input-border-width solid $color-input;
     border-top: 0;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -76,7 +76,7 @@ $language-switcher-chevron-size: 15px;
     margin: 0;
 
     &:not(:last-child) {
-      border-bottom: 1px solid $color-borders;
+      border-bottom: $input-border-width solid $color-input;
     }
   }
 
