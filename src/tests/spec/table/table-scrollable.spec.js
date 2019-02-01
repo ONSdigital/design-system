@@ -89,7 +89,7 @@ const params = {
   ]
 };
 
-describe.only('Component: Scrollable table', function() {
+describe('Component: Scrollable table', function() {
   before(() => awaitPolyfills);
 
   beforeEach(function() {
@@ -122,7 +122,6 @@ describe.only('Component: Scrollable table', function() {
       });
 
       it('should show both shadow elements', function(done) {
-        const tableComponent = this.tableComponent;
         setTimeout(function() {
           expect('div.left-shadow.visible').to.exist;
           expect('div.right-shadow.visible').to.exist;
