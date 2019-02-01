@@ -5,8 +5,6 @@
 @import '../views/partials/**/*.scss';
 
 .patternlib-page {
-  $c: &;
-
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -73,7 +71,7 @@
       max-width: 50rem;
     }
 
-    code:not(#{$c}-example__code) {
+    code:not(.patternlib-example__code) {
       display: inline-block;
       padding: 0.05rem 0.25rem;
       background: $color-grey-4;
