@@ -1,8 +1,8 @@
 {% if params.scrollable %}
 <div class="table-scrollable table-scrollable--on">
-    <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{caption}}. There are 7 columns in this table. Some of the table may be off screen. Scroll or drag horizontally to bring into view.">
-    {% endif %}
-        <table class="table {{ params.table_class }}" {% if params.sortable %}data-aria-sort="Sort by" data-aria-asc="ascending" data-aria-desc="descending"{% endif %}>
+    <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.aria_label }} ">
+{% endif %}
+        <table class="table {{ params.table_class }}" {% if params.sortable %}data-aria-sort="{{ param.sort_by }}" data-aria-asc="{{ params.aria_asc }}" data-aria-desc="{{ params.aria_desc }}"{% endif %}>
             {% if params.caption %}
             <caption class="table__caption">{{ params.caption }}</caption>
             {% endif %}
