@@ -27,11 +27,20 @@ const params = {
     },
     {
       url: '#',
-      ISOCode: 'pl',
-      text: 'Polskie',
-      buttonAriaLabel: 'Wybór języka. Aktualny język: Polskie',
-      chooseLanguage: 'Wybierz język',
-      allLanguages: 'Wszystkie języki',
+      ISOCode: 'ga',
+      text: 'Gaeilge',
+      buttonAriaLabel: 'Roghnóir teanga. Teanga reatha: Gaeilge',
+      chooseLanguage: 'Roghnaigh teanga',
+      allLanguages: 'Gach teanga',
+      current: false
+    },
+    {
+      url: '#',
+      ISOCode: 'sco',
+      text: 'Ulstèr-Scotch',
+      buttonAriaLabel: 'Leid selectgor. Current leid: Ulstèr-Scotch',
+      chooseLanguage: 'Wale leid',
+      allLanguages: 'Ilka leid',
       current: false
     }
   ]
