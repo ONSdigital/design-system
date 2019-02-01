@@ -1,0 +1,50 @@
+{% from "components/summary/src/_macro.njk" import onsSummary %}
+
+{{ 
+    onsSummary({
+        "title": "Expenses",
+        "items": [
+            {
+                "title": "What are your monthly household expenses?",
+                "questions": [
+                    {
+                        "question": "Food",
+                        "answer": "£50",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    },
+                    {
+                        "question": "Utilities",
+                        "answer": "£65",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    },
+                    {
+                        "question": "Transport",
+                        "answer": "£70",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    },
+                    {
+                        "question": "Other",
+                        "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                        "action": {
+                            "text": "Change",
+                            "ariaLabel": "Change answer",
+                            "url": "#"
+                        }
+                    }
+                ]
+            }
+        ]
+    }) 
+}}

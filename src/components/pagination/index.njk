@@ -2,6 +2,7 @@
 title: Pagination
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
 
 Pagination used to navigate a series of pages in a linear or semi-linear manner and allows you to display a set of results so that the viewer isn’t overwhelmed by too much information.
 
@@ -14,10 +15,21 @@ Pagination used to navigate a series of pages in a linear or semi-linear manner 
 Pagination helps users to navigate between a large number of items that are distributed across multiple pages whenever there are too many items to show at once. This will be most useful in contexts such as table listings of data, search results, and directories.
 
 What constitutes ‘too many’ for a user can be influenced by factors like:
-
-- amount of data in each entry (consider and test cognitive load for users)
-- system load times
-- screen space
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": 'amount of data in each entry (consider and test cognitive load for users)'
+            },
+            {
+                "text": 'system load times'
+            },
+            {
+                "text": 'screen space'
+            }
+        ]
+    }) 
+}}
 
 When the number of pages exceeds the maximum display limit, ellipsis (…) are used to truncate the remaining pages.
 

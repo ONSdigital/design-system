@@ -9,10 +9,10 @@
         <li class="list__item {{ item.listclass }}">
             {% if item.href %}
                 {% if item.index %}{{ loop.index }}) {% endif %} <a href="{{ item.href }}"{% if item.classes %} class="{{ item.classes }}"{% endif %}{% if item.target %} target="{{ item.target }}"{% endif %}>
-                    {{ item.text }}
+                    {{ item.text | safe }}
                 </a>
             {% else %}
-                {{ item.text }}
+                {{ item.text | safe }}
             {% endif %}
         </li>
     {% endfor %}

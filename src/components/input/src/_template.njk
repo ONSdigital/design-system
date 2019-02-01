@@ -42,6 +42,7 @@
         class="input input--text input-type__input {{ params.classes }}{{ exclusiveClass }}"
         {% if params.name !== undefined %}name="{{ params.name }}"{% endif %}
         {% if params.value !== undefined %}value="{{ params.value }}"{% endif %}
+        {% if params.accept !== undefined %}accept="{{ params.accept }}"{% endif %}
         {% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
     />
     {% if params.prefix !== undefined or params.suffix !== undefined %}
