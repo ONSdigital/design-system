@@ -58,7 +58,8 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
       webpack: webpackConfig,
 
       client: {
-        clearContext: false
+        clearContext: false,
+        captureConsole: false
       },
 
       coverageIstanbulReporter: {
