@@ -20,9 +20,12 @@ class TableScroll {
     this.tableWidth = this.tableEl[0].offsetWidth;
     this.tableContainerWidth = this.tableScroll[0].offsetWidth;
     if (this.tableWidth > this.tableContainerWidth && this.activeTable === false) {
-      (this.activeTable = true), this.insertShadows(), this.registerScroll();
+      this.activeTable = true;
+      this.insertShadows();
+      this.registerScroll();
     } else if (this.tableWidth <= this.tableContainerWidth && this.activeTable === true) {
-      this.removeShadows(), (this.activeTable = false);
+      this.removeShadows();
+      this.activeTable = false;
     }
   }
 
@@ -38,20 +41,22 @@ class TableScroll {
     const rightShadowEl = document.createElement('div');
     const leftShadowEl = document.createElement('div');
 
-    rightShadowEl.className = 'right-shadow visible';
-    leftShadowEl.className = 'left-shadow';
-    this.tableScroll[0].appendChild(rightShadowEl), this.tableScroll[0].insertBefore(leftShadowEl, this.tableScroll[0].firstChild);
+    rightShadowEl.className = 'table__right-shadow visible';
+    leftShadowEl.className = 'table__left-shadow';
+    this.tableScroll[0].appendChild(rightShadowEl);
+    this.tableScroll[0].insertBefore(leftShadowEl, this.tableScroll[0].firstChild);
   }
 
   removeShadows() {
-    const rightShadow = this.tableScroll[0].querySelector('.right-shadow');
-    const leftShadow = this.tableScroll[0].querySelector('.left-shadow');
-    this.tableScroll[0].removeChild(rightShadow), this.tableScroll[0].removeChild(leftShadow);
+    const rightShadow = this.tableScroll[0].querySelector('.table__right-shadow');
+    const leftShadow = this.tableScroll[0].querySelector('.table__left-shadow');
+    this.tableScroll[0].removeChild(rightShadow);
+    this.tableScroll[0].removeChild(leftShadow);
   }
 
   toggleShadows() {
-    const rightShadow = this.tableScroll[0].querySelector('.right-shadow');
-    const leftShadow = this.tableScroll[0].querySelector('.left-shadow');
+    const rightShadow = this.tableScroll[0].querySelector('.table__right-shadow');
+    const leftShadow = this.tableScroll[0].querySelector('.table__left-shadow');
     const tableScrollPos = this.getOffset(this.tableScroll[0]).left;
     const tablePos = this.getOffset(this.tableEl[0]).left;
 

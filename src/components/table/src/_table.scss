@@ -4,13 +4,13 @@
   border-collapse: collapse;
   border-spacing: 0;
 
-  .table__caption {
+  &__caption {
     text-align: left;
     font-weight: bold;
   }
 
-  .table__header,
-  .table__cell {
+  &__header,
+  &__cell {
     padding: 0.5rem 0 0.5rem 1rem;
     border-bottom: 2px solid $color-grey-1;
     @include nth-element(1, 0);
@@ -21,8 +21,8 @@
     }
   }
 
-  .table__cell,
-  .table__header--row {
+  &__cell,
+  &__header--row {
     border-bottom: 1px solid $color-borders;
   }
 
@@ -33,7 +33,7 @@
     }
   }
 
-  .table__foot .table__cell {
+  &__foot .table__cell {
     border-top: 1px solid $color-borders;
     border-bottom: none;
   }
@@ -105,8 +105,8 @@
         white-space: nowrap;
       }
     }
-    .right-shadow,
-    .left-shadow {
+    .table__right-shadow,
+    .table__left-shadow {
       height: 100%;
       position: absolute;
       top: 0;
@@ -116,13 +116,13 @@
         transition: box-shadow 0.4s ease-out;
       }
     }
-    .right-shadow {
+    .table__right-shadow {
       right: 0;
       &.visible {
         box-shadow: inset -1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
       }
     }
-    .left-shadow {
+    .table__left-shadow {
       left: 0;
       &.visible {
         box-shadow: inset 1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
