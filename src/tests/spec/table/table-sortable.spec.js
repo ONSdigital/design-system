@@ -110,7 +110,7 @@ describe('Component: Sortable table', function() {
       tableSorter();
 
       const trs = [...this.tbody.querySelectorAll('tr')];
-      for (var i = 0; i < trs.length; i++) {
+      for (let i = 0; i < trs.length; i++) {
         const tdVal = trs[i].childNodes[1].textContent;
         originalValues.push(tdVal);
       }
@@ -119,7 +119,7 @@ describe('Component: Sortable table', function() {
     it('should create a button element in each TH', function() {
       this.sortableHeadings.forEach(heading => {
         let headingChild = heading.childNodes[0];
-        for (var i = 0; i < headingChild.length; i++) {
+        for (let i = 0; i < headingChild.length; i++) {
           expect(headingChild[i].getAttribute('type')).to.equal('button');
         }
       });
