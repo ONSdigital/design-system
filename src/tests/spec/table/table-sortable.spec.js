@@ -5,6 +5,9 @@ import tableSorter from 'components/table/src/sortable-table';
 const params = {
   sortable: true,
   table_class: ' table--sortable',
+  sort_by: 'Sort by',
+  aria_asc: 'ascending',
+  aria_desc: 'descending',
   ths: [
     {
       value: 'Column 1',
