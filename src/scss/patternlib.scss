@@ -16,27 +16,6 @@
   &__body {
     display: flex;
     flex: 1;
-
-    & {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        &:not(:first-child) {
-          margin-top: 2rem;
-        }
-      }
-
-      @for $i from 1 through 6 {
-        @for $c from 1 through 6 {
-          h#{$i} + h#{$c}:not(:first-child) {
-            margin-top: 0;
-          }
-        }
-      }
-    }
   }
 
   &__sub-nav,
@@ -96,6 +75,30 @@
       padding: 0.05rem 0.25rem;
       background: $color-grey-4;
       color: $color-red;
+    }
+  }
+
+  &__content,
+  &__sub-nav {
+    & > {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        &:not(:first-child) {
+          margin-top: 2rem;
+        }
+      }
+
+      @for $i from 1 through 6 {
+        @for $c from 1 through 6 {
+          h#{$i} + h#{$c}:not(:first-child) {
+            margin-top: 0;
+          }
+        }
+      }
     }
   }
 
