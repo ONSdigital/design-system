@@ -14,16 +14,19 @@
   }
 
   &__type[title] {
-    flex: 0 0 auto;
     display: block;
-    background-color: $color-grey-4;
-    border: 1px solid $color-input;
-
+    flex: 0 0 auto;
     padding: $input-padding $input-padding * 2;
-    font-weight: 600;
+
+    border: 1px solid $color-input;
+    background-color: $color-grey-4;
+
     font-size: 1rem;
+    font-weight: 600;
+
+    line-height: 1.1;
     text-align: center;
-    line-height: normal;
+
     text-decoration: none;
     white-space: nowrap;
   }
@@ -42,26 +45,26 @@
 
   &:not(&--prefix) & {
     &__type[title] {
-      border-left: none;
+      border-left: 0;
       border-radius: 0 $input-radius $input-radius 0;
     }
 
     &__input {
-      text-align: right;
       border-radius: $input-radius 0 0 $input-radius;
+      text-align: right;
     }
   }
 
   &--prefix & {
     &__type[title] {
-      border-right: none;
-      border-radius: $input-radius 0 0 $input-radius;
       order: 0;
+      border-right: 0;
+      border-radius: $input-radius 0 0 $input-radius;
     }
 
     &__input {
-      border-radius: 0 $input-radius $input-radius 0;
       order: 1;
+      border-radius: 0 $input-radius $input-radius 0;
     }
   }
 }
