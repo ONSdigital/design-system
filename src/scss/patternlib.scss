@@ -5,6 +5,8 @@
 @import '../views/partials/**/*.scss';
 
 .patternlib-page {
+  $c: &;
+
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -16,6 +18,7 @@
   &__body {
     display: flex;
     flex: 1;
+    overflow: hidden;
   }
 
   &__sub-nav,
@@ -70,7 +73,7 @@
       max-width: 50rem;
     }
 
-    code:not(.patternlib-example__code) {
+    code:not(#{$c}-example__code) {
       display: inline-block;
       padding: 0.05rem 0.25rem;
       background: $color-grey-4;
@@ -106,9 +109,10 @@
 }
 
 .patternlib-hero {
-  background: $color-grey-4;
-  width: 100%;
   padding: 2rem 0 1rem;
+  width: 100%;
+  background: $color-grey-4;
+
   &__title {
     max-width: 30rem;
   }
