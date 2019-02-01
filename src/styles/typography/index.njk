@@ -2,6 +2,9 @@
 title: Typography
 anchorLinks: true
 ---
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
 ## Font
 Text is the primary way that users digest information and accomplish tasks, so it’s important to use good typographic principles to establish a clear visual hierarchy and to maximize legibility.
 
@@ -59,7 +62,7 @@ By default, headings have all their font-sizes reset to `1rem`, with the typogra
 
 ## Paragraphs
 The base font size for paragraphs is 18px.
-{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
 {{
     patternlibExample({"path": "styles/typography/paragraphs/examples/index.html"})
 }}
@@ -71,7 +74,7 @@ Use lists to break up blocks of text into concise, manageable chunks to make it 
 Bulleted lists should be introduced with a lead-in line, ending in a colon.
 
 Each item in the list should start with a lowercase letter and should not end with a full stop.
-{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
 {{
     patternlibExample({"path": "styles/typography/lists/examples/list/index.njk"})
 }}
