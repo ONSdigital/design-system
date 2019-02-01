@@ -69,7 +69,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         // skipFilesWithNoCoverage: true,
       },
 
-      reporters: ['progress', 'mocha', 'coverage-istanbul', 'BrowserStack'],
+      reporters: ['dots', 'mocha', 'coverage-istanbul', 'BrowserStack'],
 
       mochaReporter: {
         output: 'full',
