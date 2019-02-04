@@ -8,7 +8,15 @@
   width: 100%;
   border: 1px solid $color-borders;
 
+  &__frame {
+    background-color: $color-borders;
+  }
+
   &__link {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
     display: inline-block;
     padding: 0.25rem 0.5rem;
     line-height: 1.3rem;
@@ -17,14 +25,23 @@
 
   &__rendered {
     position: relative;
-    padding: 2rem;
+    padding: 3rem 2rem 2rem;
     overflow: hidden;
+    z-index: 0;
   }
 
   &__iframe {
     position: relative;
     width: 100%;
     border: 0;
+  }
+
+  &__rendered,
+  &__iframe {
+    resize: both;
+    min-width: 320px;
+    min-height: 32px;
+    max-width: 100%;
   }
 
   &__radio {
