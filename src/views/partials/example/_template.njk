@@ -9,7 +9,9 @@
     {% endif %}
     <div class="patternlib-example__source">
         <input id="{{ params.name }}-html" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "html" %} checked {% endif %}>
-        <input id="{{ params.name }}-nunjucks" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "nunjucks" %} checked {% endif %}>
+        {% if params.raw %}
+            <input id="{{ params.name }}-nunjucks" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "nunjucks" %} checked {% endif %}>
+        {% endif %}
         {% if params.template %}
             <input id="{{ params.name }}-template" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "template" %} checked {% endif %}>
         {% endif %}
@@ -18,7 +20,9 @@
         {% endif %}
         <div class="patternlib-example__tabs">
             <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-html">HTML</label>
-            <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-nunjucks">Nunjucks</label>
+            {% if params.raw %}
+                <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-nunjucks">Nunjucks</label>
+            {% endif %}
             {% if params.template %}
                 <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-template">Nunjucks Template</label>
             {% endif %}
@@ -32,6 +36,7 @@
                     <code class="patternlib-example__code html">{{ params.html }}</code>
                 </pre>
             </div>
+            {%- if params.raw -%}
             <div class="patternlib-example__panel">
                 {% if params.options %}
                     <details class="macro-options">
@@ -43,6 +48,7 @@
                     <code class="patternlib-example__code js">{{ params.raw }}</code>
                 </pre>
             </div>
+            {%- endif -%}
             {%- if params.template -%}
                 <div class="patternlib-example__panel">
                     <pre class="patternlib-example__pre">
