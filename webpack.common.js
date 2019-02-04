@@ -22,7 +22,7 @@ const core = {
   },
 
   resolve: {
-    extensions: ['.js', '.njk'],
+    extensions: ['.js', '.njk', '.html'],
     modules: ['./node_modules'],
     alias: {
       js: path.resolve(__dirname, './src/js'),
@@ -64,7 +64,7 @@ const jsCore = merge(core, {
   module: {
     rules: [
       {
-        test: /\.njk$/,
+        test: /\.(njk|html)$/,
         exclude: /(node_modules)/,
         loader: 'nunjucks-loader',
         query: {
@@ -101,7 +101,7 @@ export default function(mode) {
         responsive: ['./scss/responsive.scss'],
         patternlib: ['./scss/patternlib.scss'],
         error: ['./scss/error.scss'],
-        html: glob.sync('./**/*.njk', { cwd: 'src', ignore: './**/_*.njk' })
+        html: glob.sync('./**/*.{njk,html}', { cwd: 'src', ignore: './**/_*.{njk,html}' })
       },
 
       module: {
@@ -139,7 +139,7 @@ export default function(mode) {
           },
           // Templates
           {
-            test: /\.njk$/,
+            test: /\.(njk|html)$/,
             loaders: [
               {
                 loader: 'file-loader',
@@ -185,7 +185,7 @@ export default function(mode) {
         }),
 
         new FixStyleOnlyEntriesPlugin({
-          extensions: ['scss', 'njk'],
+          extensions: ['scss', 'njk', 'html'],
           silent: true
         }),
 

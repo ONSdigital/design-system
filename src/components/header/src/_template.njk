@@ -4,15 +4,23 @@
         {{ onsBetaBar(params.beta) }}
     {% endif %}
     <div class="header__top" role="banner">
-        <div class="container{{ ' container--full-width' if params.fullWidth }}">
-            <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
+        <div class=" container{{ ' container--full-width' if params.fullWidth }}">
+            <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                 <div class="grid__col col-auto">
                     <div class="logo">
                         <a href="{{ params.logoHref | default('/') }}">
-                             <img src="{{'/img/ons-logo-pos.svg'}}" alt="Office for National Statistics logo" class="logo__img header__logo print__hidden">
+                            <img src="{{'/img/ons-logo-pos.svg'}}" alt="Office for National Statistics logo" class="logo__img header__logo print__hidden">
                         </a>
                     </div>
                 </div>
+                {% if params.language %}
+                    <div class="header__language grid__col col-auto">
+                        {% from "components/language-selector/src/_macro.njk" import onsLanguageSelector %}
+                        {{
+                            onsLanguageSelector(params.language)
+                        }}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -28,7 +36,18 @@
                 {% if params.button %}
                     <div class="grid__col col-auto u-flex-no-shrink">
                         {% from "components/button/src/_macro.njk" import onsButton %}
-                        {{ onsButton(params.button) }}
+                        {{ onsButton({
+                            "text": params.button.text,
+                            "html": params.button.html,
+                            "type": params.button.submit,
+                            "name": params.button.name,
+                            "value": params.button.value,
+                            "element": params.button.element,
+                            "id": params.button.id,
+                            "classes": "btn--ghost u-d-no@xs@s" + params.button.classes | default(""),
+                            "attributes": params.button.attributes,
+                            "url": params.button.url
+                        }) }}
                     </div>
                 {% endif %}
             </div>
