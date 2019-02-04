@@ -21,6 +21,12 @@ $nbsp-width: 0.256rem;
       .fieldgroup--inline & {
         width: input-width-calc($width, $char-width);
       }
+
+      @if $width <= 10 {
+        .input-type & {
+          width: input-width-calc($width, $char-width);
+        }
+      }
     }
   }
 }
