@@ -23,20 +23,12 @@
     background: $color-grey-4;
   }
 
-  &__rendered {
-    position: relative;
-    padding: 3rem 2rem 2rem;
-    overflow: hidden;
-    z-index: 0;
-  }
-
   &__iframe {
     position: relative;
     width: 100%;
     border: 0;
   }
 
-  &__rendered,
   &__iframe {
     resize: both;
     min-width: 320px;
