@@ -9,9 +9,13 @@
   // Elements
   &__top {
     width: 100%;
-    padding: 0.7rem 0;
+
     background: $color-white;
     line-height: 1rem;
+  }
+
+  &__grid-top {
+    height: 49px;
   }
 
   &--internal & {

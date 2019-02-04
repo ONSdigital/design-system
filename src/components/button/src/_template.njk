@@ -2,7 +2,7 @@
 {% if params.element %}
     {% set element = params.element | lower %}
 {% else %}
-    {% if params.href %}
+    {% if params.url %}
         {% set element = 'a' %}
     {% else %}
         {% set element = 'button' %}
@@ -17,12 +17,12 @@
 
 {#- Create a button or a link #}
 {% if element == 'a' %}
-<a href="{{ params.href if params.href else '#' }}" role="button" draggable="false" {{ commonAttributes | safe }}>
-  {{ params.html | safe if params.html else params.text }}
+<a href="{{ params.url if params.url else '#' }}" role="button" draggable="false" {{ commonAttributes | safe }}>
+  {{- params.html | safe if params.html else params.text -}}
 </a>
 {% elseif element == 'button' %}
 <button {% if params.value %} value="{{ params.value }}"{% endif %} {{ buttonAttributes | safe }} {{ commonAttributes | safe }}>
-    {{ params.html | safe if params.html else params.text }}
+    {{- params.html | safe if params.html else params.text -}}
 </button>
 {% elseif element == 'input' %}
 <input value="{{ params.text }}" {{ buttonAttributes | safe }} {{ commonAttributes | safe }}>
