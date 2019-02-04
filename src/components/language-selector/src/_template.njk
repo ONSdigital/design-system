@@ -4,7 +4,9 @@
     {% set alternativeLanguages = params.languages | rejectattr("current") %}
     <ul class="language-links u-d-no@xs@s">
         {% for language in alternativeLanguages %}
-            <li class="language-links__item"><a href="{{ language.url }}" class="u-d-no@xs@s" lang="{{ language.ISOCode }}">{{ language.text }}</a></li>
+            <li class="language-links__item">
+                <a href="{{ language.url }}" lang="{{ language.ISOCode }}">{{ language.text }}</a>
+            </li>
         {% endfor %}
     </ul>
 {% else %}
