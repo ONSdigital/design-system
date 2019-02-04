@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="103px" viewBox="0 0 20 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
+    <title>icons--sort-sprite</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons--sort-sprite">
+            <path d="M10,0 L20,12 L0,12 L10,0 Z M10,31 L20,19 L0,19 L10,31 Z M10,36 L20,48 L0,48 L10,36 Z" id="Shape" fill="#BCBCBC" fill-rule="nonzero"></path>
+            <path d="M10,67 L20,55 L0,55 L10,67 Z M10,72 L20,84 L0,84 L10,72 Z" id="Shape" fill="#4263C2" fill-rule="nonzero"></path>
+            <polygon id="Path" fill="#BCBCBC" points="10 103 20 91 0 91"></polygon>
+        </g>
+    </g>
+</svg>
