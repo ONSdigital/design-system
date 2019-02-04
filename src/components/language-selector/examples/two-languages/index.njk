@@ -1,0 +1,27 @@
+{% from "components/language-selector/src/_macro.njk" import onsLanguageSelector %}
+
+{{ 
+    onsLanguageSelector({
+        "allLanguagesUrl": "#",
+        "languages": [
+            {
+                "url": "#",
+                "ISOCode": "en-GB",
+                "text": "English",
+                "buttonAriaLabel": "Language selector. Current language: English",
+                "chooseLanguage": "Choose language",
+                "allLanguages": "All languages",
+                "current": true
+            },
+            {
+                "url": "#",
+                "ISOCode": "cy",
+                "text": "Cymraeg",
+                "buttonAriaLabel": "Dewisydd iaith. Iaith gyfredol: Cymraeg",
+                "chooseLanguage": "Dewiswch iaith",
+                "allLanguages": "Pob iaith",
+                "current": false
+            }
+        ]
+    })
+}}
