@@ -20,7 +20,7 @@ export const trackElement = el => {
   });
 };
 
-const isVisible = (el) => {
+const isVisible = el => {
   return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
 };
 
@@ -29,17 +29,16 @@ export default function initAnalytics() {
 
   const interval = window.setInterval(() => {
     trackVisibleElements = trackVisibleElements.filter(element => {
-      return (isVisible(element) ? trackElement(element) && false : true);
+      return isVisible(element) ? trackElement(element) && false : true;
     });
     if (trackVisibleElements.length === 0) {
       window.clearInterval(interval);
     }
   }, 200);
 
-  [...document.querySelectorAll('[data-ga=error]')]
-    .map(trackElement);
+  [...document.querySelectorAll('[data-ga=error]')].map(trackElement);
 
-  document.body.addEventListener('click', ({target}) => {
+  document.body.addEventListener('click', ({ target }) => {
     if (target.getAttribute('data-ga') === 'click') {
       trackElement(target);
     }
@@ -50,13 +49,16 @@ export default function initAnalytics() {
       hitType: 'event',
       eventCategory: 'Print Intent',
       eventAction: 'Print Intent',
-      eventLabel: window.location.pathname.split('/').slice(-3).join('/')
+      eventLabel: window.location.pathname
+        .split('/')
+        .slice(-3)
+        .join('/')
     });
   };
 
   if (window.matchMedia) {
     const mediaQueryList = window.matchMedia('print');
-    mediaQueryList.addListener(function (mql) {
+    mediaQueryList.addListener(function(mql) {
       if (!mql.matches) {
         afterPrint();
       }
