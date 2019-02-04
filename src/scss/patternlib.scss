@@ -37,7 +37,7 @@
 
   &__sub-nav {
     flex: 0 0 auto;
-    padding: $grid-gutters;
+    padding: 1.5rem 1rem;
     width: 300px;
     border-right: 1px solid $color-borders;
 
@@ -59,7 +59,7 @@
   }
 
   &__content {
-    padding: $grid-gutters;
+    padding: 1.5rem;
     width: 100%;
 
     p,
@@ -79,7 +79,10 @@
       background: $color-grey-4;
       color: $color-red;
     }
+  }
 
+  &__content,
+  &__sub-nav {
     & > {
       h1,
       h2,
@@ -89,7 +92,6 @@
       h6 {
         &:not(:first-child) {
           margin-top: 2rem;
-          padding-top: 1rem;
         }
       }
 
