@@ -1,13 +1,16 @@
 .input {
-  position: relative;
   z-index: 3;
-  padding: $input-padding;
   display: block;
-  color: inherit;
-  font-size: 1rem;
+  position: relative;
+  padding: $input-padding;
+  width: 100%;
+
   border: $input-border-width solid $color-input;
   border-radius: $input-radius;
-  width: 100%;
+
+  color: inherit;
+  font-size: 1rem;
+
   transition: border-color 200ms ease-in;
 
   @include mq(s) {
@@ -38,9 +41,9 @@
 }
 
 .input__helper {
+  margin-top: 0.2rem;
   font-size: 0.8rem;
   font-weight: 600;
-  margin-top: 0.2rem;
 }
 
 .input--select {
@@ -73,8 +76,8 @@
   border: $input-border-width solid $color-red;
 
   &:focus {
-    outline: none;
     border: $input-border-width solid $color-red;
+    outline: none;
     box-shadow: 0 0 0 1px $color-red;
   }
 }
