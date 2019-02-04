@@ -34,7 +34,8 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Date Input', () => {
-  let wrapper, dayInput, monthInput, yearInput, checkbox, ariaAlert;
+  let wrapper, dayInput, monthInput, yearInput, checkbox;
+  // let ariaAlert;
 
   before(() => {
     return awaitPolyfills;

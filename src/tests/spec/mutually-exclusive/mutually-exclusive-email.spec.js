@@ -24,7 +24,8 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Email Input', () => {
-  let wrapper, input, checkbox, ariaAlert;
+  let wrapper, input, checkbox;
+  // let ariaAlert;
 
   before(() => {
     return awaitPolyfills;

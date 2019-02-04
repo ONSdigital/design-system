@@ -60,7 +60,8 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Select', () => {
-  let wrapper, select, checkbox, ariaAlert;
+  let wrapper, select, checkbox;
+  // let ariaAlert;
 
   before(() => {
     return awaitPolyfills;

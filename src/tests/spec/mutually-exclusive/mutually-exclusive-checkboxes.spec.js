@@ -57,7 +57,8 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override', () => {
-  let wrapper, exclusiveCheckbox, ariaAlert;
+  let wrapper, exclusiveCheckbox;
+  // let ariaAlert;
 
   before(() => {
     return awaitPolyfills;

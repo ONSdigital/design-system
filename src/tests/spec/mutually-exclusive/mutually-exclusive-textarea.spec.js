@@ -31,7 +31,8 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Textarea', () => {
-  let wrapper, textarea, textareaRemaining, checkbox, ariaAlert;
+  let wrapper, textarea, textareaRemaining, checkbox;
+  // let ariaAlert;
 
   before(() => {
     return awaitPolyfills;
