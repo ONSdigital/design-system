@@ -25,9 +25,7 @@ const isVisible = el => {
 };
 
 export default function initAnalytics() {
-  let trackVisibleElements = [
-    ...document.querySelectorAll('[data-ga=visible]')
-  ];
+  let trackVisibleElements = [...document.querySelectorAll('[data-ga=visible]')];
 
   const interval = window.setInterval(() => {
     trackVisibleElements = trackVisibleElements.filter(element => {
