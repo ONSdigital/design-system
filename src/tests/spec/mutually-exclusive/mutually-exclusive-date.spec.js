@@ -20,7 +20,8 @@ const params = {
   },
   mutuallyExclusive: {
     or: 'Or',
-    deselectMessage: 'Selecting this will clear the date if one has been inputted',
+    deselectMessage:
+      'Selecting this will clear the date if one has been inputted',
     deselectAdjective: 'deselected',
     checkbox: {
       id: 'date-exclusive-checkbox',
