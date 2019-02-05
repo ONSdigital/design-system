@@ -52,11 +52,6 @@
     &__input {
       border-radius: $input-radius 0 0 $input-radius;
     }
-
-    // Only right align text if input width is constrained
-    &__input[class*='input--w-'] {
-      text-align: right;
-    }
   }
 
   &--prefix & {
