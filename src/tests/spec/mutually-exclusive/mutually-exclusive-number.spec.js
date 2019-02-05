@@ -48,7 +48,7 @@ describe('Component: Mutually Exclusive Number Input', () => {
 
     input = document.getElementById(params.id);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    // ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
   });

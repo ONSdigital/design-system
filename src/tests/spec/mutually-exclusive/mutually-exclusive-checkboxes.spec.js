@@ -73,7 +73,7 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
 
     params.checkboxes = params.checkboxes.filter(checkbox => !checkbox.exclusive);
     exclusiveCheckbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    // ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
   });

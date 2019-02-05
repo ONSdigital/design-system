@@ -52,7 +52,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
     monthInput = document.getElementById(`${params.id}-month`);
     yearInput = document.getElementById(`${params.id}-year`);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    // ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
   });
