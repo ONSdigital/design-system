@@ -51,7 +51,6 @@
 
     &__input {
       border-radius: $input-radius 0 0 $input-radius;
-      text-align: right;
     }
   }
 
@@ -68,5 +67,3 @@
     }
   }
 }
-
-@include input-width('input-type--w-{x}');
