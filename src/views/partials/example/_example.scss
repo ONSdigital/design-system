@@ -8,10 +8,6 @@
   width: 100%;
   border: 1px solid $color-borders;
 
-  &__frame {
-    background-color: $color-borders;
-  }
-
   &__link {
     position: absolute;
     z-index: 1;
@@ -23,14 +19,17 @@
     background: $color-grey-4;
   }
 
+  &__frame {
+    background: $color-borders;
+  }
+
   &__iframe {
-    position: relative;
-    width: 100%;
-    border: 0;
     resize: both;
-    padding: 2rem;
+    display: block;
+    position: relative;
+    min-height: 60px;
+    width: 100%;
     min-width: 320px;
-    min-height: 32px;
     max-width: 100%;
   }
 

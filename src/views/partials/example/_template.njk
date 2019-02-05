@@ -1,7 +1,7 @@
 <div class="patternlib-example js-example">
     <div class="patternlib-example__frame">
         <a href="{{ params.link }}" target="_blank" class="patternlib-example__link u-fs-s">Open this example in a new window</a>
-        <iframe class="patternlib-example__iframe" frameborder="0" scrolling="no" src="{{ params.link }}" style="background-color: {{ params.backgroundColor | default ('#fff') }}"></iframe>
+        <iframe class="patternlib-example__iframe" frameborder="0" scrolling="auto" src="{{ params.link }}" style="background-color: {{ params.backgroundColor | default ('#fff') }}"></iframe>
     </div>
     <div class="patternlib-example__source">
         <input id="{{ params.name }}-html" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "html" %} checked {% endif %}>

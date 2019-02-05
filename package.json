@@ -120,6 +120,7 @@
   "dependencies": {
     "a11y-dialog": "^5.2.0",
     "core-js": "^2.6.0",
+    "iframe-resizer": "^3.6.5",
     "mdn-polyfills": "^5.14.0",
     "normalize-scss": "^7.0.1",
     "throttle-typescript": "^1.0.1",

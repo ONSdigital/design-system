@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="/patternlib.css">
     </head>
    
-    <body class="patternlib-page">
+    <body class="patternlib-page{{ ' patternlib-page--example' if example }}">
         {% block master_body %}
         {% endblock %}
         <script type="module" src="/scripts/bundle.js"></script>
