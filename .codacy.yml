@@ -1,4 +1,3 @@
-duplication:
-  exclude_paths:
-    - 'src/tests/spec/**/*'
-    - 'src/tests/stubs/**/*'
+exclude_paths:
+  - 'src/tests/spec/**/*'
+  - 'src/tests/stubs/**/*'
