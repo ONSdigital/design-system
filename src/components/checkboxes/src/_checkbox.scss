@@ -64,6 +64,7 @@ $checkbox-label-vertical-padding: 0.75rem;
 
   &__description {
     display: inline-block;
+    margin-left: -($checkbox-input-width + $checkbox-padding);
   }
 
   &__other {
