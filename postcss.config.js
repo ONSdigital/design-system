@@ -30,23 +30,13 @@ export default () => {
           console.log('1', `${DEPLOY_URL.replace(/\/$/, '')}${url}`);
           return `${DEPLOY_URL.replace(/\/$/, '')}${url}`;
         } else if (BASE_HREF.match(/:\/\//)) {
-          console.log(
-            '2',
-            BASE_HREF.replace(/\/$/, '') +
-              `/${DEPLOY_URL}/${url}`.replace(/\/\/+/g, '/')
-          );
+          console.log('2', BASE_HREF.replace(/\/$/, '') + `/${DEPLOY_URL}/${url}`.replace(/\/\/+/g, '/'));
           // If baseHref contains a scheme, include it as is.
-          return (
-            BASE_HREF.replace(/\/$/, '') +
-            `/${DEPLOY_URL}/${url}`.replace(/\/\/+/g, '/')
-          );
+          return BASE_HREF.replace(/\/$/, '') + `/${DEPLOY_URL}/${url}`.replace(/\/\/+/g, '/');
         } else {
           // Join together base-href, deploy-url and the original URL.
           // Also dedupe multiple slashes into single ones.
-          console.log(
-            '3',
-            `/${BASE_HREF}/${DEPLOY_URL}/${url}`.replace(/\/\/+/g, '/')
-          );
+          console.log('3', `/${BASE_HREF}/${DEPLOY_URL}/${url}`.replace(/\/\/+/g, '/'));
           return `/${BASE_HREF}/${DEPLOY_URL}/${url}`.replace(/\/\/+/g, '/');
         }
       }
