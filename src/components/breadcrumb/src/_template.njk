@@ -5,7 +5,7 @@
                 {% if item.current %} 
                     {{ item.text }}
                 {% else %}
-                    <a href="{{ item.href }}" class="breadcrumb__link">{{ item.text }}</a>
+                    <a href="{{ item.url }}" class="breadcrumb__link">{{ item.text }}</a>
                 {% endif %}
             </li>
         {% endfor %}

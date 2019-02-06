@@ -1,0 +1,108 @@
+$language-switcher-button-height: 36px;
+$language-switcher-button-padding-y: 0.5rem;
+$language-switcher-button-padding-x: 0.5rem;
+$language-switcher-chevron-size: 15px;
+
+.language-switcher {
+  display: inline-flex;
+  flex-direction: column;
+  max-height: $language-switcher-button-height;
+
+  &__button {
+    position: relative;
+    padding: $language-switcher-button-padding-y $language-switcher-button-padding-x;
+    min-width: 8rem;
+    min-height: $language-switcher-button-height;
+    border: $input-border-width solid $color-input;
+    border-radius: 3px;
+    background: transparent;
+    font-family: inherit;
+    line-height: 1;
+    text-align: left;
+
+    transition: border-color 0.2s ease-in-out;
+
+    &:focus {
+      outline: 3px solid $color-focus;
+      outline-offset: 3px;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: $language-switcher-button-padding-x;
+
+      transform: translateY(-50%);
+
+      width: $language-switcher-chevron-size;
+      height: $language-switcher-chevron-size;
+
+      background: {
+        position: center;
+        image: url(#{$static}/img/icons/icons--chevron-down.svg);
+        size: $language-switcher-chevron-size;
+        repeat: no-repeat;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      border-color: $color-links-hover;
+    }
+  }
+
+  &--open &__button {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: $color-links-hover;
+
+    &:after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+
+  &__items {
+    z-index: 10;
+    position: relative;
+    padding: 0;
+    list-style: none;
+    border: $input-border-width solid $color-links-hover;
+    border-top: 0;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background: $color-white;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &--open &__items {
+    opacity: 1;
+    pointer-events: initial;
+  }
+
+  &__item {
+    margin: 0;
+
+    &:not(:last-child) {
+      border-bottom: $input-border-width solid $color-links-hover;
+    }
+  }
+
+  &__language {
+    display: block;
+    padding: $language-switcher-button-padding-y $language-switcher-button-padding-x;
+  }
+}
+
+.language-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: inline-block;
+    margin: 0 0 0 0.5rem;
+  }
+}

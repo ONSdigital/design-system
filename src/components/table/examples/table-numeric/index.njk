@@ -1,0 +1,54 @@
+{% from "components/table/src/_macro.njk" import onsTable %}
+{{
+    onsTable({
+        "caption": "A basic table with numeric values",
+        "ths": [
+            { 
+                "value": "Column A",
+                "class": " table__header--numeric"
+            },
+            { 
+                "value": "Column B",
+                "class": " table__header--numeric"
+            },
+            { 
+                "value": "Column C",
+                "class": " table__header--numeric"
+            }
+        ],
+        "trs": [
+            {
+                "tds": [
+                    {
+                        "value": "200",
+                        "class": "table__cell--numeric"
+                    },
+                    {
+                        "value": "365",
+                        "class": "table__cell--numeric"
+                    },
+                    {
+                        "value": "24",
+                        "class": "table__cell--numeric"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                    "value": "345",
+                    "class": "table__cell--numeric"
+                    },
+                    {
+                    "value": "33",
+                    "class": "table__cell--numeric"
+                    },
+                    {
+                    "value": "13",
+                    "class": " table__cell--numeric"
+                    }
+                ]
+            }
+        ]
+    })
+}}

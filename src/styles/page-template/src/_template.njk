@@ -1,0 +1,59 @@
+{% from "components/skip-to-content/src/_macro.njk" import onsSkipToContent %}
+{% from "components/header/src/_macro.njk" import onsHeader %}
+{% from "components/footer/src/_macro.njk" import onsFooter %}
+{% set currentLanguage = page.language.languages | selectattr("current") | first %}
+<!doctype html>
+<html lang="{{ currentLanguage.ISOCode | default('en-GB') }}" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+        <title>{{ pageInfo.title }}</title>
+        <link rel="stylesheet" href="/responsive.css">
+
+        {% block headIcons %}
+        {% endblock %}
+
+        {% block head %}{% endblock %}
+    </head>
+    <body class="{{ bodyClasses }}">
+        {% block bodyStart %}{% endblock %}
+        {% block skipLink %}
+            {{
+                onsSkipToContent({
+                    "url": "#main-content",
+                    "text": "Skip to main content"
+                })
+            }}
+        {% endblock %}
+        {% block header %}
+            {{
+                onsHeader({
+                    "title": page.title,
+                    "language": page.language
+                })
+            }}
+        {% endblock %}
+        {% block main %}
+            <main id="main-content" role="main" class="{{ mainClasses }}">
+                {% block content %}{% endblock %}
+            </main>
+        {% endblock %}
+        {% block footer %}
+            {{
+                onsFooter({
+                    "language": page.language,
+                    "rows": page.footer.rows,
+                    "OGLLink": page.footer.OGLLink
+                })
+            }}
+        {% endblock %}
+        {% block bodyEnd %}{% endblock %}
+        <script type="module" src="/scripts/bundle.js"></script>
+        <script nomodule src="/scripts/bundle.es5.js"></script>
+        <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
+        {% if devMode %}
+            <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer></' + 'script>'); </script>
+        {% endif %}
+    </body>
+</html>
