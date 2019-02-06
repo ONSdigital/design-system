@@ -2,3 +2,15 @@ language: node_js
 node_js:
   - "10.14.2"
 cache: yarn
+
+jobs: 
+  include: 
+    - stage: test
+      script: yarn test
+    - stage: npm-bundle
+      script: yarn npm-bundle
+
+stages:
+  - test
+  - name: npm-bundle
+    if: tag IS present
