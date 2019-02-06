@@ -98,8 +98,8 @@ export default function(mode) {
       mode,
 
       entry: {
-        responsive: ['./scss/responsive.scss'],
-        patternlib: ['./scss/patternlib.scss'],
+        'css/responsive': ['./scss/responsive.scss'],
+        'css/patternlib': ['./scss/patternlib.scss'],
         error: ['./scss/error.scss'],
         html: glob.sync('./**/*.{njk,html}', { cwd: 'src', ignore: './**/_*.{njk,html}' })
       },
@@ -159,19 +159,12 @@ export default function(mode) {
               }
             ]
           },
+          // Assets
           {
-            test: /\.(jpg|png|webp|gif|otf|ttf|woff|woff2|ani)$/,
+            test: /\.(jpg|png|webp|gif|otf|ttf|woff|woff2|ani|eot|svg|cu)$/,
             loader: 'url-loader',
             options: {
-              name: '[name].[hash:20].[ext]',
-              limit: 10000
-            }
-          },
-          {
-            test: /\.(eot|svg|cur)$/,
-            loader: 'file-loader',
-            options: {
-              name: '[name].[hash:20].[ext]',
+              name: '[name].[ext]',
               limit: 10000
             }
           }
