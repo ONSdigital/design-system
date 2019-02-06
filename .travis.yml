@@ -14,6 +14,7 @@ jobs:
       script: .travis/pu.sh
       on:
         tags: true
+      email: "bameyrick@gmail.com"
       api_key:
         secure: ZVfc7RRo6w3dt/bkWCNM6Bqxy3zzKZ7PnD+g/GXWVFGC03Al1ebD6Pj+Nwg7+tAaoRyRdu5cv5NLdBfCszSjK9ENNFXcTDjQQK4nAPcHyPA+IQ23zy6EkG2iqKABTXXOOC4wqcOImy59nqY2VnUSqkqZ7QYoPVjSg6ZnYNOoqnPij66D2QuKWB4o3/qJ6yPMR9By7LCyf64JsrP+E8hBizaQ9zokPJqz/HOnwQsCW9/6j7ZOaAZIdrWlNR6Rys+aWdOKbTbrhHK+h/GPX/pYyRN/j3f10z1ca+3ozIolUV9GUXRz1YKk4V4MY0WdwSXV6K+ime17k8ThpGqkco9lB/p7iNZpJGuYmcR5lbxpQ7EZNwI1y883nJqc2/8QcqMtgZndE2x7BJQAG6vIT338gcWOGs5ajAnO4I+9F7VCS5im8LEStIbuREUJn4E3x/DX1JlWQuUtohAzx0zkGcUG9px8AgM2wHWif6QnBXkFYqooT9f/hcTZs3SsellbtHXk4BvxGt2qi65ctaybsqfSSWPy2eBhXl0zUvhr5ePIJEO11NiF19EJs9S8eHzoSUbtL4hqSxiHOnYj56OUqwE9F1mjF+I4dN6KPy9P9RB+YI68mnn0P7HXkUhc0etX+G4XMuvpfs9QYS5qwNw1qcbkUL8PnElbiSyXRENzejKEjm4=
 stages:
