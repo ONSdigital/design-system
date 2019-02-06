@@ -3,7 +3,7 @@
 {% from "components/footer/src/_macro.njk" import onsFooter %}
 {% set currentLanguage = page.language.languages | selectattr("current") | first %}
 <!doctype html>
-<html lang="{{ currentLanguage | default('en-GB') }}" class="no-js">
+<html lang="{{ currentLanguage.ISOCode | default('en-GB') }}" class="no-js">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,6 +50,10 @@
         {% endblock %}
         {% block bodyEnd %}{% endblock %}
         <script type="module" src="/scripts/bundle.js"></script>
+        {% if isPatternLib %}
+            <script type="module" src="/scripts/patternlib.js"></script>
+            <script nomodule src="/scripts/patternlib.es5.js"></script>
+        {% endif %}
         <script nomodule src="/scripts/bundle.es5.js"></script>
         <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
         {% if devMode %}
