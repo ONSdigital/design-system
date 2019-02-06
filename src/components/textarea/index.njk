@@ -3,13 +3,46 @@ title: Textarea
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
+A textarea lets users enter multiple lines of text, such as when answering an open-ended question.
+
 {{
     patternlibExample({"path": "components/textarea/examples/textarea/index.njk"})
 }}
 
+## When to use this component
+Use the textarea component when you need the user to enter text that's longer than one line, for example, to answer an open-ended question.
 
-## Variants
-### Character limit
+A good use of this component is to ask the user for feedback about your service by means of the [beta bar](/components/beta-bar).
+
+## When not to use this component
+Open-ended questions can be difficult for users to answer, so consider breaking down the question into simpler questions that can be answered using a single line [input](/components/input) or by selecting an answer using, for example, [radios](/components/radios).
+
+## How to use this component
+All textarea components must have a visible [label](/components/label), with or without a description.
+
+Textareas should be appropriately sized to help the user understand what they should enter by making them the right size for the content they are intended for.
+
+### Use appropriately sized textareas
+Where possible, you should make the textareas proportional to the amount of text you expect users to enter.
+
+By default, the textarea component will fill the width of its container and has a default height of 8 lines of text.
+
+A [width constraint](/components/input#width-constrained) class can be used to make the width of textarea smaller, or the `rows` parameter can be set to make the height of the textarea larger.
+
+### Variants
+#### Character limit
+The character limit counter is displayed when the `maxlength`, `charCountPlural` and `charCountSingular` parameters are defined.
 {{
     patternlibExample({"path": "components/textarea/examples/textarea-character-limit/index.njk"})
 }}
+
+## Research on this component
+{% from "components/panel/src/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+[Discuss 'textarea' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/139)
