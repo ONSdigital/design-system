@@ -1,0 +1,10 @@
+*
+!components/
+!css/
+!favicons/
+!fonts/
+!img/
+!page-templates/
+!scripts/
+!LICENSE
+!package.json
