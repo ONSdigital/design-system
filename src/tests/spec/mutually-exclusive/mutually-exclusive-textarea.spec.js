@@ -31,7 +31,8 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Textarea', () => {
-  let wrapper, textarea, textareaRemaining, checkbox, ariaAlert;
+  let wrapper, textarea, textareaRemaining, checkbox;
+  // let ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -47,7 +48,7 @@ describe('Component: Mutually Exclusive Textarea', () => {
     textarea = document.getElementById(params.id);
     textareaRemaining = document.getElementById(`${params.id}-lim-remaining`);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    // ariaAlert = document.querySelector('.js-exclusive-alert');
 
     characterLimit();
     mutuallyExclusive();

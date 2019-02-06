@@ -60,7 +60,8 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Select', () => {
-  let wrapper, select, checkbox, ariaAlert;
+  let wrapper, select, checkbox;
+  // let ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -75,7 +76,7 @@ describe('Component: Mutually Exclusive Select', () => {
 
     select = document.getElementById(params.id);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    // ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
   });
