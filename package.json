@@ -16,7 +16,8 @@
     "test": "karma start ./src/tests/config/karma.conf.js && karma start ./src/tests/config/karma.conf.nomodule.js && codecov",
     "test:browserstack": "TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.js && TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.nomodule.js",
     "test:local": "KARMA_SINGLE_RUN=false karma start ./src/tests/config/karma.conf.js",
-    "dedupe-deps": "npx yarn-deduplicate yarn.lock"
+    "dedupe-deps": "npx yarn-deduplicate yarn.lock",
+    "npm-bundle": "NODE_ENV=production yarn build && babel-node lib/generate-npm-package.js"
   },
   "browserslist": [
     "last 2 versions",
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
+    "@babel/node": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.1.6",
@@ -107,6 +109,7 @@
     "remark-lint": "^6.0.4",
     "remark-preset-lint-recommended": "^3.0.2",
     "rewiremock": "^3.13.0",
+    "rimraf": "^2.6.3",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
     "url-loader": "^1.1.2",

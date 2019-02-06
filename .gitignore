@@ -4,3 +4,5 @@ build/
 .DS_store
 coverage/
 .vscode/
+onsComponents/
+onsPageTemplates/
