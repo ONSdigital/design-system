@@ -24,7 +24,8 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Email Input', () => {
-  let wrapper, input, checkbox, ariaAlert;
+  let wrapper, input, checkbox;
+  // let ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -39,7 +40,7 @@ describe('Component: Mutually Exclusive Email Input', () => {
 
     input = document.getElementById(params.id);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    // ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
   });

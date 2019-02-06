@@ -3,7 +3,7 @@ class Example {
     this.tabs = [...context.querySelectorAll('.js-example-tab')];
     this.radios = [...context.querySelectorAll('.js-example-radio')];
 
-    this.tabs.forEach((tab, index) => tab.addEventListener('click', (event) => this.handleTabClick(event, index)));
+    this.tabs.forEach((tab, index) => tab.addEventListener('click', event => this.handleTabClick(event, index)));
   }
 
   handleTabClick(event, index) {
@@ -15,5 +15,3 @@ class Example {
 }
 
 [...document.querySelectorAll('.js-example')].map(example => new Example(example));
-
-
