@@ -3,7 +3,7 @@
 {% from "components/footer/src/_macro.njk" import onsFooter %}
 {% set currentLanguage = page.language.languages | selectattr("current") | first %}
 <!doctype html>
-<html lang="{{ currentLanguage | default('en-GB') }}" class="no-js">
+<html lang="{{ currentLanguage.ISOCode | default('en-GB') }}" class="no-js">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
