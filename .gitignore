@@ -5,10 +5,10 @@ build/
 coverage/
 .vscode/
 # npm package folders
-components/
-page-templates/
-css/
-favicons/
-fonts/
-img/
-scripts/
+/components/
+/page-templates/
+/css/
+/favicons/
+/fonts/
+/img/
+/scripts/

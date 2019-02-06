@@ -8,7 +8,9 @@ import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import FixStyleOnlyEntriesPlugin from 'webpack-fix-style-only-entries';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import ImageminPlugin from 'imagemin-webpack-plugin';
 import postcssPlugins from './postcss.config';
+import svgoConfig from './svgo-config';
 
 const OUT_DIR = 'build';
 
@@ -162,9 +164,9 @@ export default function(mode) {
           // Assets
           {
             test: /\.(jpg|png|webp|gif|otf|ttf|woff|woff2|ani|eot|svg|cu)$/,
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
+              name: '[path][name].[ext]',
               limit: 10000
             }
           }
@@ -207,7 +209,14 @@ export default function(mode) {
             ignore: ['.gitkeep'],
             debug: 'warning'
           }
-        )
+        ),
+
+        new ImageminPlugin({
+          test: /\.(svg)$/i,
+          svgo: {
+            plugins: svgoConfig
+          }
+        })
       ]
     }),
 
