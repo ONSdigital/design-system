@@ -153,7 +153,8 @@ export default function(mode) {
                   searchPaths: `${__dirname}/src`,
                   layoutPath: 'views/layouts',
                   context: {
-                    devMode
+                    devMode,
+                    isPatternLib: true
                   }
                 }
               }

@@ -9,6 +9,12 @@
   flex-direction: column;
   height: 100vh;
 
+  &--example {
+    padding: 3rem 2rem 1rem;
+    display: block;
+    height: auto;
+  }
+
   &__header {
     margin: 0;
   }
@@ -52,14 +58,9 @@
     flex: 1 1 auto;
   }
 
-  &__example:not(&__example--full-width) {
-    padding: $grid-gutters;
-  }
-
   &__content {
     padding: 1.5rem;
     width: 100%;
-
     p,
     li,
     h1,
