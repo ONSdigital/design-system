@@ -1,6 +1,6 @@
 import domready from './domready';
 import LoaderBtn from './loader-btn';
-import {trackEvent} from './analytics';
+import { trackEvent } from './analytics';
 
 domready(() => {
   const timeoutIncrement = 5;
