@@ -37,7 +37,7 @@
     ],
     "*.js": [
       "prettier --print-width 140 --single-quote --parser babylon --write",
-      "eslint",
+      "eslint --fix",
       "git add"
     ],
     "*.md": [
