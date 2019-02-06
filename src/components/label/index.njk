@@ -2,6 +2,7 @@
 title: Label
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "styles/typography/lists/src/_macro.njk" import onsList %}
 
 ## When to use this component
 Labels are paired with [inputs](/components/input), [textareas](/components/textarea), [radios](/components/radios), [checkboxes](/components/checkboxes), and [selects](/components/select) to describe a form input.
@@ -12,6 +13,36 @@ Labels are paired with [inputs](/components/input), [textareas](/components/text
 
 ## How to use this component
 Generally speaking you should not need to implement a label yourself as the form inputs have them imported in their respective templates.
+
+All [input](/components/input) and [textarea](/components/textarea) components must have a visible label.
+
+Do:
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": 'make sure the label is short, direct and written in sentence case'
+            },
+            {
+                "text": 'left-align the label above the input'
+            }
+        ]
+    }) 
+}}
+
+Do not:
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": 'use placeholder text to display a label because it will not be visible when the user clicks on the input'
+            },
+            {
+                "text": 'place a colon at the end of the label'
+            }
+        ]
+    }) 
+}}
 
 ## Variants
 ### With description

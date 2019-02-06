@@ -22,7 +22,6 @@
         id="{{ params.id }}"
         class="input input--textarea {% if params.maxlength %} js-charlimit-input{% endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
         name="{{ params.name }}"
-        cols="{{ params.cols | default(60) }}"
         rows="{{ params.rows | default(8) }}"
         {% if params.maxlength %}
         maxlength="{{ params.maxlength }}"
