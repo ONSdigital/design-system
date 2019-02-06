@@ -4,5 +4,11 @@ build/
 .DS_store
 coverage/
 .vscode/
-onsComponents/
-onsPageTemplates/
+# npm package folders
+components/
+page-templates/
+css/
+favicons/
+fonts/
+img/
+scripts/

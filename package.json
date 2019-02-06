@@ -17,6 +17,7 @@
     "test:browserstack": "TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.js && TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.nomodule.js",
     "test:local": "KARMA_SINGLE_RUN=false karma start ./src/tests/config/karma.conf.js",
     "dedupe-deps": "npx yarn-deduplicate yarn.lock",
+    "tidy-clean": "rm -rf build css favicons fonts img components page-templates scripts coverage",
     "npm-bundle": "NODE_ENV=production yarn build && babel-node lib/generate-npm-package.js"
   },
   "browserslist": [
@@ -27,7 +28,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-checkout": "yarn check"
+      "post-checkout": "yarn tidy-clean && yarn check"
     }
   },
   "lint-staged": {
