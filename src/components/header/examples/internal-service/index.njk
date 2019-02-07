@@ -1,0 +1,43 @@
+{% from "components/header/src/_macro.njk" import onsHeader %}
+{{ 
+    onsHeader({
+        "title": "Service title",
+        "classes": "header--internal",
+        "logo": "ons-logo-white",
+        "navigation": {
+            "classes": "nav--horizontal nav--light nav--main nav--h-m js-main-nav",
+            "ariaLabel": "Main menu",
+            "ariraListLabel": "Navigation menu",
+            "items": [
+                {
+                    "title": "Surveys",
+                    "path": "#",
+                    "activeElement": true
+                },
+                {
+                    "title": "Messages",
+                    "path": "#"
+                },
+                {
+                    "title": "To do",
+                    "path": "#"
+                }
+            ]
+        },
+        "serviceLinks": {
+            "classes": "nav--horizontal nav--light",
+            "ariaLabel": "Site services menu",
+            "ariaListLabel": "Navigation menu",
+            "items": [
+                {
+                    "title": "My account",
+                    "path": "#"
+                },
+                {
+                    "title": "Sign out",
+                    "path": "#"
+                }
+            ]
+        }
+    })
+}}

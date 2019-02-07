@@ -2,9 +2,6 @@
 {{ 
     onsHeader({
         "title": "Survey title",
-        "button": {
-            "text": "Save and complete later"
-        },
         "language": {
             "allLanguagesUrl": "#",
             "languages": [
@@ -25,15 +22,21 @@
                     "chooseLanguage": "Dewiswch iaith",
                     "allLanguages": "Pob iaith",
                     "current": false
+                }
+            ]
+        },
+        "serviceLinks": {
+            "classes": "nav--horizontal",
+            "ariaLabel": "Site services menu",
+            "ariaListLabel": "Navigation menu",
+            "items": [
+                {
+                    "title": "My account",
+                    "path": "#"
                 },
                 {
-                    "url": "#",
-                    "ISOCode": "pl",
-                    "text": "Polskie",
-                    "buttonAriaLabel": "Wybór języka. Aktualny język: Polskie",
-                    "chooseLanguage": "Wybierz język",
-                    "allLanguages": "Wszystkie języki",
-                    "current": false
+                    "title": "Sign out",
+                    "path": "#"
                 }
             ]
         }

@@ -1,7 +1,7 @@
 <nav class="nav {{ params.classes }}" aria-label="{{ params.ariaLabel }}">
     <ul class="nav__list" aria-label="{{ params.ariaListLabel }}" role="menubar">
        {% for item in params.items %}
-            <li class="nav__item {{ ' nav__item--active' if (item.path == params.currentPath) or (item.path in params.currentPath) }}">
+            <li class="nav__item {{ ' nav__item--active' if (item.path == params.currentPath) or (item.activeElement) }}">
                 <a href="{{ item.path }}" class="nav__link" role="menuitem">{{ item.title }}</a>
             </li>
        {% endfor %}

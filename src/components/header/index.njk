@@ -3,6 +3,32 @@ title: Header
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
+## External
 {{
-    patternlibExample({"path": "components/header/examples/language-selector/index.njk" })
+    patternlibExample({ "path": "components/header/examples/external-basic/index.njk" })
+}}
+
+## Internal
+{{
+    patternlibExample({ "path": "components/header/examples/internal-basic/index.njk" })
+}}
+
+## Social survey
+{{
+    patternlibExample({ "path": "components/header/examples/social/index.njk" })
+}}
+
+## Business survey
+{{
+    patternlibExample({ "path": "components/header/examples/business/index.njk" })
+}}
+
+## Internal service
+{{
+    patternlibExample({ "path": "components/header/examples/internal-service/index.njk" })
+}}
+
+## External with navigation
+{{
+    patternlibExample({ "path": "components/header/examples/external-navigation/index.njk" })
 }}

@@ -1,0 +1,30 @@
+{% from "components/header/src/_macro.njk" import onsHeader %}
+{{ 
+    onsHeader({
+        "title": "Design system",
+        "navigation": {
+            "classes": "nav--horizontal nav--light nav--main nav--h-m js-main-nav",
+            "ariaLabel": "Main menu",
+            "ariraListLabel": "Navigation menu",
+            "items": [
+                {
+                    "title": "Get started",
+                    "path": "#",
+                    "activeElement": true
+                },
+                {
+                    "title": "Components",
+                    "path": "#"
+                },
+                {
+                    "title": "Styles",
+                    "path": "#"
+                },
+                {
+                    "title": "Patterns",
+                    "path": "#"
+                }
+            ]
+        }
+    })
+}}

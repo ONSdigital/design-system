@@ -1,0 +1,46 @@
+{% from "components/header/src/_macro.njk" import onsHeader %}
+{{ 
+    onsHeader({
+        "title": "Survey title",
+        "button": {
+            "text": "Save and complete later"
+        },
+        "language": {
+            "allLanguagesUrl": "#",
+            "languages": [
+                {
+                    "url": "#",
+                    "ISOCode": "en-GB",
+                    "text": "English",
+                    "buttonAriaLabel": "Language selector. Current language: English",
+                    "chooseLanguage": "Choose language",
+                    "current": true
+                },
+                {
+                    "url": "#",
+                    "ISOCode": "cy",
+                    "text": "Cymraeg",
+                    "buttonAriaLabel": "Dewisydd iaith. Iaith gyfredol: Cymraeg",
+                    "chooseLanguage": "Dewiswch iaith",
+                    "current": false
+                },
+                {
+                    "url": "#",
+                    "ISOCode": "ga",
+                    "text": "Gaeilge",
+                    "buttonAriaLabel": "Roghnóir teanga. Teanga reatha: Gaeilge",
+                    "chooseLanguage": "Roghnaigh teanga",
+                    "current": false
+                },
+                {
+                    "url": "#",
+                    "ISOCode": "sco",
+                    "text": "Ulstèr-Scotch",
+                    "buttonAriaLabel": "Leid selectgor. Current leid: Ulstèr-Scotch",
+                    "chooseLanguage": "Wale leid",
+                    "current": false
+                }
+            ]
+        }
+    })
+}}

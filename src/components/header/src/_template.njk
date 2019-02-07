@@ -1,3 +1,4 @@
+{% from "components/navigation/src/_macro.njk" import onsNavigation %}
 <header class="header {{ params.classes if params.classes }}">
     {% if params.beta %}
         {% from "components/beta-bar/src/_macro.njk" import onsBetaBar %}
@@ -8,17 +9,27 @@
             <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                 <div class="grid__col col-auto">
                     <div class="logo">
+                        <img src="/img/ons-logo-black-en.svg" alt="Office for National Statistics logo" class="logo__img header__logo--print">
                         <a href="{{ params.logoHref | default('/') }}">
-                            <img src="{{'/img/ons-logo-pos.svg'}}" alt="Office for National Statistics logo" class="logo__img header__logo print__hidden">
+                            <img src="/img/{{ params.logo | default('ons-logo-pos') }}.svg" alt="Office for National Statistics logo" class="logo__img header__logo print__hidden">
                         </a>
                     </div>
                 </div>
-                {% if params.language %}
-                    <div class="header__language grid__col col-auto">
-                        {% from "components/language-selector/src/_macro.njk" import onsLanguageSelector %}
-                        {{
-                            onsLanguageSelector(params.language)
-                        }}
+                {% if params.language or params.serviceLinks %}
+                    <div class="header__links grid__col col-auto">
+                        {% if params.language %}
+                            <div class="grid__col col-auto u-d-no@xs@m {{ 'u-mr-s@m' if params.serviceLinks }}">
+                                {% from "components/language-selector/src/_macro.njk" import onsLanguageSelector %}
+                                {{
+                                    onsLanguageSelector(params.language)
+                                }}
+                            </div>
+                        {% endif %}
+                        {% if params.serviceLinks %}
+                            <div class="grid__col col-auto u-d-no@xs@m">
+                                {{ onsNavigation(params.serviceLinks) }}
+                            </div>
+                        {% endif %}
                     </div>
                 {% endif %}
             </div>
@@ -56,7 +67,6 @@
     {% if params.navigation %}
         <div class="header__nav">
             <div class="container{{ ' container--full-width' if params.fullWidth }}">
-                {% from "components/navigation/src/_macro.njk" import onsNavigation %}
                 {{ onsNavigation(params.navigation) }}
             </div>
         </div>
