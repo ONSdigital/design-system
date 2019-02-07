@@ -16,9 +16,9 @@ setup_git() {
 }
 
 make_version() {
-  git remote update
+  echo git branch
   git fetch
-  git checkout --track origin/master
+  git checkout origin/master
   
   # Echo the status to the log so that we can see it is OK
   git status
