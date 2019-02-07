@@ -16,14 +16,21 @@ setup_git() {
 }
 
 make_version() {
-  git show-ref
-  git fetch
-  git show-ref
-  git checkout master
+  local build_head=$(git rev-parse HEAD)
 
-  git branch
-  # Echo the status to the log so that we can see it is OK
-  git status
+  git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+  git fetch
+  git fetch --tags
+  git show-ref
+  
+  # create the tacking branches
+  for branch in $(git branch -r|grep -v HEAD) ; do
+      git checkout -qf ${branch#origin/}
+  done
+
+  # git branch
+  # # Echo the status to the log so that we can see it is OK
+  # git status
   
   # Run the deploy build and increment the package versions
   # %s is the placeholder for the created tag
