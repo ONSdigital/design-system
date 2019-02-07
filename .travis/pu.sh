@@ -30,7 +30,7 @@ make_version() {
 
   # git branch
   # # Echo the status to the log so that we can see it is OK
-  # git status
+  git status
   
   # Run the deploy build and increment the package versions
   # %s is the placeholder for the created tag
