@@ -35,6 +35,9 @@ make_version() {
   # Run the deploy build and increment the package versions
   # %s is the placeholder for the created tag
   # npm version $TRAVIS_BRANCH -m "chore: release version %s [skip ci]"
+  npm version from-git -m "chore: release version %s [skip ci]"
+
+  git status
 }
 
 # upload_files() {
