@@ -34,7 +34,7 @@ make_version() {
 
 
   echo "========CHECKOUT =========="
-  git checkout origin/master
+  git checkout master
   echo "========================="
 
   echo "======= BRANCH=========="
