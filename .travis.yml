@@ -4,6 +4,8 @@ node_js:
 cache: yarn
 jobs:
   include:
+  - stage: test
+    script: yarn test
   - stage: npm-bundle
     script: yarn npm-bundle && npm version $TRAVIS_BRANCH -m "chore - release version %s [skip ci]"
     deploy:
