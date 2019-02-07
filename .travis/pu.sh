@@ -32,11 +32,15 @@ make_version() {
   # # Echo the status to the log so that we can see it is OK
   git status
 
-  git checkout master
+  git checkout origin/master
+
+  git branch
   
   # Run the deploy build and increment the package versions
   # %s is the placeholder for the created tag
   npm version $TRAVIS_BRANCH -m "chore: release version %s [skip ci]"
+
+  git status
 
   git push origin master
 }
