@@ -22,41 +22,18 @@ make_version() {
   git fetch
   git fetch --tags
   
-  
   # create the tacking branches
   for branch in $(git branch -r|grep -v HEAD) ; do
       git checkout -qf ${branch#origin/}
   done
 
-  echo "=======SHOW REF========="
-  git show-ref
-  echo "========================="
-
-
-  echo "========CHECKOUT =========="
   git checkout master
-  echo "========================="
 
-  echo "======= BRANCH=========="
-  git branch
-  echo "========================="
-  # Run the deploy build and increment the package versions
   # %s is the placeholder for the created tag
-  echo "========VERSION=========="
   npm version $TRAVIS_BRANCH -m "chore: release version %s [skip ci]"
-  echo "========================="
 
-  echo "=======STATUS=========="
-  git status
-  echo "=======PUSH=========="
   git push origin master
-  echo "========================="
 }
-
-# upload_files() {
-#   # git push origin
-# }
 
 setup_git
 make_version
-# upload_files
