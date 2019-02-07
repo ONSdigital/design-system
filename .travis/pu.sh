@@ -16,8 +16,9 @@ setup_git() {
 }
 
 make_version() {
+  git remote update
   git fetch
-  git checkout master
+  git checkout --track origin/master
   
   # Echo the status to the log so that we can see it is OK
   git status
@@ -29,7 +30,7 @@ make_version() {
 
 upload_files() {
   git add package.json
-  git push
+  git push origin master --quiet > /dev/null 2>&1
 }
 
 setup_git
