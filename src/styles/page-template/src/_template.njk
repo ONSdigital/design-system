@@ -50,6 +50,10 @@
         {% endblock %}
         {% block bodyEnd %}{% endblock %}
         <script type="module" src="/scripts/bundle.js"></script>
+        {% if isPatternLib %}
+            <script type="module" src="/scripts/patternlib.js"></script>
+            <script nomodule src="/scripts/patternlib.es5.js"></script>
+        {% endif %}
         <script nomodule src="/scripts/bundle.es5.js"></script>
         <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
         {% if devMode %}
