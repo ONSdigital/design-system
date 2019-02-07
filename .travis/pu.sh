@@ -36,7 +36,7 @@ make_version() {
   # %s is the placeholder for the created tag
   npm version $TRAVIS_BRANCH -m "chore: release version %s [skip ci]"
 
-  git status
+  git push
 }
 
 # upload_files() {
