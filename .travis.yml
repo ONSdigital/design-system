@@ -9,7 +9,7 @@ jobs:
     deploy:
       provider: script
       skip_cleanup: true
-      script: .travis/pu.sh
+      script: bash .travis/pu.sh
       on:
         tags: true
       # email: bameyrick@gmail.com
