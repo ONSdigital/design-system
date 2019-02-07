@@ -17,17 +17,18 @@ setup_git() {
 
 make_version() {
   git branch
-
+  git checkout master
+  git branch
   # Echo the status to the log so that we can see it is OK
   git status
   
   # Run the deploy build and increment the package versions
   # %s is the placeholder for the created tag
-  npm version $TRAVIS_BRANCH -m "chore: release version %s [skip ci]"
+  # npm version $TRAVIS_BRANCH -m "chore: release version %s [skip ci]"
 }
 
 upload_files() {
-  git push origin
+  # git push origin
 }
 
 setup_git
