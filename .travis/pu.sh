@@ -27,7 +27,7 @@ make_version() {
 }
 
 upload_files() {
-  git push origin HEAD:$TRAVIS_BRANCH
+  git push origin
 }
 
 setup_git
