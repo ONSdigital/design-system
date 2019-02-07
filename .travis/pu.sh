@@ -16,7 +16,8 @@ setup_git() {
 }
 
 make_version() {
-  git checkout origin/master
+  git fetch
+  git checkout master
   
   # Echo the status to the log so that we can see it is OK
   git status
