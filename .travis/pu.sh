@@ -31,8 +31,8 @@ make_version() {
 }
 
 upload_files() {
-  # This make sure the current work area is pushed to the tip of the current branch
-  git push origin HEAD:$TRAVIS_BRANCH
+  git add package.json
+  git push
 }
 
 setup_git
