@@ -8,6 +8,9 @@
     "name": "Ben Meyrick",
     "url": "https://github.com/bameyrick"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "yarn tidy-clean && yarn webpack-dev-server --host 0.0.0.0 --watch --config webpack.dev.babel.js",
     "build": "yarn tidy-clean && yarn webpack --config webpack.prod.babel.js",
