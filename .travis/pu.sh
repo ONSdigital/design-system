@@ -16,8 +16,9 @@ setup_git() {
 }
 
 make_version() {
-  git branch
-  git fetch --depth=1 git@github.com:ONSdigital/pattern-library-v2.git refs/heads/master:refs/remotes/origin/master
+  git show-ref
+  git fetch
+  git show-ref
   git checkout master
 
   git branch
