@@ -5,7 +5,7 @@ cache: yarn
 jobs:
   include:
   - stage: npm-bundle
-    script: null
+    script: yarn npm-bundle
     deploy:
       provider: script
       skip_cleanup: true
