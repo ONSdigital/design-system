@@ -28,21 +28,29 @@ make_version() {
       git checkout -qf ${branch#origin/}
   done
 
+  echo "=======SHOW REF========="
   git show-ref
-  
-  # git branch
-  # # Echo the status to the log so that we can see it is OK
-  git checkout origin/master HEAD
+  echo "========================="
 
+
+  echo "========CHECKOUT =========="
+  git checkout origin/master
+  echo "========================="
+
+  echo "======= BRANCH=========="
   git branch
-  
+  echo "========================="
   # Run the deploy build and increment the package versions
   # %s is the placeholder for the created tag
+  echo "========VERSION=========="
   npm version $TRAVIS_BRANCH -m "chore: release version %s [skip ci]"
+  echo "========================="
 
+  echo "=======STATUS=========="
   git status
-
+  echo "=======PUSH=========="
   git push origin master
+  echo "========================="
 }
 
 # upload_files() {
