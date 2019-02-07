@@ -16,10 +16,8 @@ setup_git() {
 }
 
 make_version() {
-  echo git branch
-  git fetch
-  git checkout origin/master
-  
+  git branch
+
   # Echo the status to the log so that we can see it is OK
   git status
   
@@ -29,8 +27,7 @@ make_version() {
 }
 
 upload_files() {
-  git add package.json
-  git push origin master --quiet > /dev/null 2>&1
+  git push origin HEAD:$TRAVIS_BRANCH
 }
 
 setup_git
