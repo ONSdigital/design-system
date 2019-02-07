@@ -21,18 +21,18 @@ make_version() {
   git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
   git fetch
   git fetch --tags
-  git show-ref
+  
   
   # create the tacking branches
   for branch in $(git branch -r|grep -v HEAD) ; do
       git checkout -qf ${branch#origin/}
   done
 
+  git show-ref
+  
   # git branch
   # # Echo the status to the log so that we can see it is OK
-  git status
-
-  git checkout origin/master
+  git checkout origin/master HEAD
 
   git branch
   
