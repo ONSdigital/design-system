@@ -7,7 +7,7 @@ jobs:
   # - stage: test
   #   script: yarn test
   - stage: npm-bundle
-    script: npm version $TRAVIS_BRANCH --allow-same-version -m "chore - release version %s [skip ci]" --allow-empty
+    script: git status && npm version $TRAVIS_BRANCH --allow-same-version -m "chore - release version %s [skip ci]" --allow-empty
     before_deploy:
       - yarn npm-bundle && git status
     deploy:
