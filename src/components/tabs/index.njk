@@ -15,7 +15,7 @@ Use tabs to collate facets of content within a closely related context. The prov
 Tabs hide content from users and are not easily noticed and understood by everyone.  So they should not be used if the content inside each tab is critial to the user being able to progress with their task.
 
 Test your content considering the following alternatives before using tabs:
-{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{% from "components/lists/_macro.njk" import onsList %}
 {{ 
     onsList({
         "items": [
@@ -73,7 +73,7 @@ A visually hidden `<h2>` should be added above the tabs list to provide further 
 Tabs hide content and are displayed horizontally, so it's important to use tab labels which are clear and succinct.  To avoid the tab layout breaking, consider to using single words or reducing the number of tabs.
 
 ## Research on this component
-{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
    If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/82" target="_blank">Design System forum</a>.
 {% endcall %}

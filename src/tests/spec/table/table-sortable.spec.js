@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/table/src/_template.njk';
-import tableSorter from 'components/table/src/sortable-table';
+import template from 'components/table/_template.njk';
+import tableSorter from 'components/table/sortable-table';
 
 const params = {
   sortable: true,

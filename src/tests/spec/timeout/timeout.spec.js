@@ -1,7 +1,7 @@
 import 'js/fetch';
-import 'components/timeout/src/timeout';
+import 'components/timeout/timeout';
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/timeout/src/_template.njk';
+import template from 'components/timeout/_template.njk';
 import fetchMock from 'stubs/fetch.stub.spec';
 import promiseInstanceMock from 'stubs/promise.stub.spec';
 import dialogMock from 'stubs/dialog.stub.spec';
@@ -64,7 +64,7 @@ describe('Component: Timeout', () => {
 
     rewiremock.enable();
 
-    const mockedTimeout = require('components/timeout/src/timeout').default;
+    const mockedTimeout = require('components/timeout/timeout').default;
 
     instance = new mockedTimeout();
 
@@ -167,7 +167,7 @@ describe('Component: Timeout', () => {
 
       rewiremock.enable();
 
-      const mockedTimeout = require('components/timeout/src/timeout').default;
+      const mockedTimeout = require('components/timeout/timeout').default;
 
       instance = new mockedTimeout();
 

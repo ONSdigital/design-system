@@ -1,8 +1,8 @@
 {% extends "./_master.njk" %}
 
 {% block master_body %}
-    {% from "components/header/src/_macro.njk" import onsHeader %}
-    {% from "components/footer/src/_macro.njk" import onsFooter %}
+    {% from "components/header/_macro.njk" import onsHeader %}
+    {% from "components/footer/_macro.njk" import onsFooter %}
 
     {{ 
         onsHeader({
