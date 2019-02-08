@@ -30,7 +30,7 @@ make_version() {
   git checkout master
 
   # %s is the placeholder for the created tag
-  npm version $TRAVIS_BRANCH -m "chore - release version %s [skip ci]"
+  npm version $TRAVIS_BRANCH -m --allow-same-version "chore - release version %s [skip ci]" --allow-empty
 
   git push origin master
 }
