@@ -13,7 +13,7 @@
 Nunjucks macros for components and templates are available from npm. Built CSS and JS is also available if you need access to pre-release CSS/JS, otherwise CSS and JS should be loaded from the CDN.
 
 ```bash
-yarn install @ons/design-system
+yarn add @ons/design-system
 ```
 
 ## Run Locally
