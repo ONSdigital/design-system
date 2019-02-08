@@ -4,10 +4,11 @@ node_js:
 cache: yarn
 jobs:
   include:
-  - stage: test
-    script: yarn test
+  # - stage: test
+  #   script: yarn test
   - stage: npm-bundle
-    script: yarn npm-bundle && npm version $TRAVIS_BRANCH -m "chore - release version %s [skip ci]"
+    script: npm version $TRAVIS_BRANCH --allow-same-version -m "chore - release version %s [skip ci]" --allow-empty && yarn npm-bundle
+    skip_cleanup: true
     deploy:
       - provider: npm
         skip_cleanup: true
@@ -23,6 +24,6 @@ jobs:
           tags: true
 
 stages:
-- name: test
+# - name: test
 - name: npm-bundle
   if: tag IS present
