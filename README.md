@@ -8,6 +8,14 @@
 [![Github last commit](https://img.shields.io/github/last-commit/ONSdigital/pattern-library-v2.svg)](https://github.com/ONSdigital/pattern-library-v2/commits)
 [![Github contributors](https://img.shields.io/github/contributors/ONSdigital/pattern-library-v2.svg)](https://github.com/ONSdigital/pattern-library-v2/graphs/contributors)
 
+## Installing as a dependency
+
+Nunjucks macros for components and templates are available from npm. Built CSS and JS is also available if you need access to pre-release CSS/JS, otherwise CSS and JS should be loaded from the CDN.
+
+```bash
+yarn install @ons/design-system
+```
+
 ## Run Locally
 
 You'll need [Git](https://help.github.com/articles/set-up-git/), [Node.js](https://nodejs.org/en/), and [Yarn](https://yarnpkg.com/en/docs/getting-started) to run this project locally.
