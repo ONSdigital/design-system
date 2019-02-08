@@ -21,6 +21,6 @@ jobs:
         on:
           tags: true
 stages:
-# - name: test
+- name: test
 - name: npm-bundle
   if: tag IS present
