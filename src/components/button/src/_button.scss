@@ -99,7 +99,7 @@
     bottom: 0;
     left: 0;
     margin: auto;
-    background-image: url('../img/loader.svg');
+    background-image: url('#{$static}/img/loader.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1.5rem;
