@@ -100,7 +100,7 @@
   flex-wrap: nowrap;
 }
 
-@include bp-suffix(grid--column, $create-between-breakpoints: true) {
+@include bp-suffix(grid--column, $createBetweenBreakpoints: true) {
   flex-direction: column;
 }
 

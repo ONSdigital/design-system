@@ -2,15 +2,20 @@
 {{ 
     onsHeader({
         "title": "Design system",
+        "toggleButton": {
+            "text": "Menu",
+            "ariaLabel": "Toggle main navigation"
+        },
         "navigation": {
-            "classes": "nav--horizontal nav--light nav--main nav--h-m js-main-nav",
+            "classes": "nav--inline nav--light nav--header nav--h-m js-main-nav",
+            "id": "main-nav",
             "ariaLabel": "Main menu",
             "ariraListLabel": "Navigation menu",
+            "currentPath": "/get-started",
             "items": [
                 {
                     "title": "Get started",
-                    "path": "#",
-                    "activeElement": true
+                    "path": "/get-started"
                 },
                 {
                     "title": "Components",

@@ -9,8 +9,13 @@
             "title": "Design system",
             "fullWidth": true,
             "classes": "patternlib-page__header",
+            "toggleButton": {
+                "text": "Menu",
+                "ariaLabel": "Toggle main navigation"
+            },
             "navigation": {
-                "classes": "nav--horizontal nav--light nav--main nav--h-m js-main-nav",
+                "id": "main-nav",
+                "classes": "nav--inline nav--light nav--header nav--h-m js-main-nav",
                 "ariaLabel": "Main menu",
                 "ariraListLabel": "Navigation menu",
                 "currentPath": pageInfo.path,

@@ -2,17 +2,22 @@
 {{ 
     onsHeader({
         "title": "Service title",
-        "classes": "header--internal",
+        "classes": "header--internal header--thin",
         "logo": "ons-logo-white",
+        "toggleButton": {
+            "text": "Menu",
+            "ariaLabel": "Toggle main navigation"
+        },
         "navigation": {
-            "classes": "nav--horizontal nav--light nav--main nav--h-m js-main-nav",
+            "classes": "nav--inline nav--light nav--header nav--h-m js-main-nav",
+            "id": "main-nav",
             "ariaLabel": "Main menu",
             "ariraListLabel": "Navigation menu",
+            "currentPath": "/surveys",
             "items": [
                 {
                     "title": "Surveys",
-                    "path": "#",
-                    "activeElement": true
+                    "path": "/surveys"
                 },
                 {
                     "title": "Messages",
@@ -21,13 +26,24 @@
                 {
                     "title": "To do",
                     "path": "#"
+                },
+                {
+                    "title": "My account",
+                    "path": "#",
+                    "classes": "nav__item--secondary u-d-no@m"
+                },
+                {
+                    "title": "Sign out",
+                    "path": "#",
+                    "classes": "u-d-no@m"
                 }
             ]
         },
         "serviceLinks": {
-            "classes": "nav--horizontal nav--light",
+            "classes": "nav--inline nav--light",
             "ariaLabel": "Site services menu",
             "ariaListLabel": "Navigation menu",
+            "currentPath": "/surveys",
             "items": [
                 {
                     "title": "My account",

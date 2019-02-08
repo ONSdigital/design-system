@@ -10,3 +10,4 @@ import 'components/details/src/collapsible.dom';
 import 'components/table/src/scrollable-table';
 import 'components/table/src/sortable-table';
 import 'components/language-selector/src/language.dom';
+import 'components/navigation/src/main-nav';

@@ -1,21 +1,41 @@
+// <nav> element
 .nav {
   display: block;
   padding: 0;
+  margin: 0;
+  &--progress {
+    border-left: 1px solid $color-borders;
+    padding: 0.5rem 0 0.5rem 2rem;
+  }
+  &--page {
+    border-bottom: 1px solid $color-borders;
+  }
+  &--header {
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
+  }
 }
 
-.nav--vertical {
-  border-left: 1px solid $color-borders;
-  padding: 0.5rem 0 0.5rem 2rem;
+.nav__title {
+  margin-bottom: 0.5rem;
+}
+
+// <ul> element
+.nav__list {
+  list-style: none;
   margin: 0;
-  .nav__title {
-    margin-bottom: 0.5rem;
+  padding: 0;
+  &.nav__list--childList {
+    transition: opacity 200ms ease-in-out;
+    &:first-child {
+      padding-top: 0.3rem;
+    }
   }
-  .nav__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .nav__item {
+}
+
+// <li> element
+.nav__item {
+  .nav--progress & {
     margin: 0;
     padding: 0.5rem 1rem 0.5rem 2rem;
     position: relative;
@@ -46,137 +66,78 @@
       }
     }
   }
-  .nav__link {
-    @include mq(m) {
-      font-size: 1rem;
-    }
-  }
-}
 
-.nav--vertical-bare {
-  .nav__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav__item {
-    margin: 0;
-    padding: 0.25rem 0;
-
-    &--active {
-      font-weight: 700;
-    }
-  }
-
-  .nav__link {
-    text-decoration: none;
-  }
-}
-
-.nav--horizontal {
-  font-size: 0;
-  margin: 0;
-
-  .nav__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav__item {
+  .nav--inline & {
     font-size: 1rem;
     display: inline-block;
-    margin: 0 0 0 0.8rem;
+    margin: 0 0 0 1rem;
     position: relative;
     text-align: center;
     &:first-child {
       margin-left: 0;
     }
+    + .nav__item--secondary {
+      border-top: 2px solid $color-white;
+      margin-top: 0.7rem;
+      padding-top: 1rem;
+    }
     @include mq(m) {
       margin: 0 0 0 1rem;
     }
-    + .nav__item--secondary {
-      border-top: 1px solid lighten($color-header, 15%);
-      margin: 0.5rem 0 0;
-    }
   }
 
-  .nav__link {
-    display: inline-block;
-    margin: 0;
-    text-align: center;
-  }
-
-  .nav__item--active {
-    .nav__link {
-      font-weight: bold;
-    }
-  }
-}
-
-.nav--main {
-  .nav__list {
-    @include mq(xs, m) {
-      padding: 0 0 1rem 0;
-      opacity: 1;
-      transition: opacity 300ms ease-in-out;
-    }
-  }
-  .nav__item {
+  .nav--header & {
     @include mq(xs, m) {
       display: block;
       text-align: left;
-      padding: 0.5rem 0.5rem 0 0;
       margin: 0;
+      padding: 0.3rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
+      &:last-child {
+        padding-bottom: 1rem;
+      }
+      &.open {
+        background: $color-grey-4;
+        & + .nav__item:last-child {
+          border-top: none;
+        }
+      }
+      &--button {
+        padding: 0.5rem 1rem;
+        border: none;
+      }
+      &.nav__item--hasChildList {
+        .nav__item {
+          &:not(:first-child) {
+            border-top: 1px solid $color-grey-2;
+            padding-bottom: 0.3rem;
+          }
+          &:first-child {
+            border-top: none;
+          }
+          .no-js & {
+            border: none;
+            padding-bottom: 0;
+            margin-left: 1rem;
+          }
+        }
+      }
     }
     @include mq(m) {
       padding: 0 0 0.3rem;
       margin: 0 0 0 1rem;
-      &--active {
-        border-bottom: 4px solid $color-white;
-      }
-    }
-  }
-  .nav__link {
-    @include mq(xs, m) {
-      font-size: 1.2rem;
-      display: block;
-      text-align: left;
-    }
-  }
-}
-
-.nav--sub {
-  border-bottom: 1px solid $color-borders;
-  .nav__item {
-    padding: 0 0.667rem 0.3rem;
-
-    @include mq(xs, m) {
-      margin: 0;
-    }
-    &--current,
-    &--current:first-child {
-      border-bottom: 4px solid $color-dark-blue;
-      padding-left: 0.667rem;
-    }
-  }
-}
-
-.has-js {
-  .nav--h-m {
-    // h-m - hide mobile
-    @include mq(xs, m) {
-      display: none;
-      .nav__list {
-        opacity: 0;
+      border-bottom: 4px solid transparent;
+      &--active,
+      &:hover {
+        border-color: $color-white;
       }
     }
   }
 }
 
-.nav--light {
-  .nav__link {
+// <a> element
+.nav__link {
+  .nav--light & {
     color: $color-white;
     text-decoration: none;
     &:hover,
@@ -184,24 +145,106 @@
       color: #c2ecff;
     }
   }
-  .nav__item--active {
-    .nav__link {
-      &:hover,
-      &:focus {
-        color: $color-white;
-      }
-    }
-  }
-}
 
-.nav--dark {
-  .nav__link {
+  .nav--dark & {
     color: $color-text;
     text-decoration: none;
     font-weight: bold;
     &:hover,
     &:focus {
       color: $color-links;
+    }
+  }
+
+  .nav--page & {
+    text-decoration: none;
+    padding: 0 0 0.3rem;
+    &:hover,
+    &--current {
+      color: $color-links-hover;
+      border-bottom: 4px solid $color-dark-blue;
+    }
+  }
+
+  .nav__item--active &,
+  &--current {
+    font-weight: bold;
+  }
+
+  .nav--progress & {
+    @include mq(m) {
+      font-size: 1rem;
+    }
+  }
+
+  .nav--inline & {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .nav--header & {
+    @include mq(xs, m) {
+      font-size: 0.9rem;
+      display: block;
+      text-align: left;
+      margin: 0 0.35rem;
+      padding: 0 0.65rem;
+    }
+    @include mq(m) {
+      &:hover,
+      &:focus {
+        color: $color-white;
+      }
+    }
+  }
+
+  .nav--vertical-bare & {
+    text-decoration: none;
+  }
+
+  .nav__item--hasChildList > & {
+    .has-js & {
+      @include mq(xs, m) {
+        @include icon(chevron-right-white);
+        $size: 0.7rem;
+        background-size: $size $size;
+        background-position: right 0.5rem top 6px;
+      }
+    }
+  }
+
+  .nav__item--hasChildList.open > & {
+    @include mq(xs, m) {
+      @include icon(chevron-down-blue);
+    }
+  }
+
+  .open & {
+    @include mq(xs, m) {
+      color: $color-links;
+      &:hover,
+      &:focus {
+        color: $color-links-hover;
+      }
+    }
+  }
+
+  .open > & {
+    @include mq(xs, m) {
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+  }
+}
+
+.has-js {
+  .nav--h-m {
+    @include mq(xs, m) {
+      opacity: 0;
+      max-height: 0;
+      .nav__item {
+        display: none;
+      }
     }
   }
 }
