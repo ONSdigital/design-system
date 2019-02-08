@@ -8,8 +8,8 @@ jobs:
   #   script: yarn test
   - stage: npm-bundle
     script: npm version $TRAVIS_BRANCH --allow-same-version -m "chore - release version %s [skip ci]" --allow-empty
-    skip_cleanup: true
-    before_deploy: yarn npm-bundle && git status
+    before_deploy:
+      - yarn npm-bundle && git status
     deploy:
       - provider: npm
         skip_cleanup: true
@@ -19,7 +19,6 @@ jobs:
         on:
           tags: true
       - provider: script
-        skip_cleanup: true
         script: bash .travis/pu.sh
         on:
           tags: true
