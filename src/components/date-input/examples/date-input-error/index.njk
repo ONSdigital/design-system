@@ -1,10 +1,10 @@
-{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call 
     onsPanel({
         "type": "error"
     })
 %}
-{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{% from "components/lists/_macro.njk" import onsList %}
 {{
     onsList({
         "id": "container-test-number",
@@ -16,7 +16,7 @@
         ]
     })
 }}
-{% from "components/date-input/src/_macro.njk" import onsDateInput %}
+{% from "components/date-input/_macro.njk" import onsDateInput %}
 {{
     onsDateInput({
         "id": "date",
@@ -36,7 +36,7 @@
         }
     })
 }}
-{% from "components/date-input/src/_macro.njk" import onsDateInput %}
+{% from "components/date-input/_macro.njk" import onsDateInput %}
 {{
     onsDateInput({
         "id": "date",

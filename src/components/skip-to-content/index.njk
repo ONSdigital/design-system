@@ -3,7 +3,7 @@ title: Skip to content
 ---
 The skip to content component lets assistive technology and keyboard-only users skip to the main content on a page, to bypass and avoid repeating focus on persistent page elements such as top-level navigation.
 
-{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {{ 
     onsPanel({
         "classes" : "u-mb-m",
@@ -25,7 +25,7 @@ The skip to content link component is visually hidden until it is brought into f
 It should be the first element of the page content, and link to the page's `#main` div.
 
 ## Research on this component
-{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {{ 
     onsPanel({
         "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='https://github.com/ONSdigital/pattern-library-v2/issues/59'>Design System Forum.</a>"

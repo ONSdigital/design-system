@@ -6,7 +6,7 @@
         <div class="grid">
             <div class="grid__col col-8@m">
                 <div class="question">
-                {% from "components/panel/src/_macro.njk" import onsPanel %}
+                {% from "components/panel/_macro.njk" import onsPanel %}
                     {% call
                         onsPanel({
                             "title": "This page has 2 errors",
@@ -15,7 +15,7 @@
                         })
                     %}
                     <p>These <strong>must be corrected</strong> to continue.</p>
-                    {% from "styles/typography/lists/src/_macro.njk" import onsList %}
+                    {% from "components/lists/_macro.njk" import onsList %}
                     {{
                         onsList({
                             "classes": "list--bare",
@@ -37,7 +37,7 @@
                     }}
                     {% endcall %}
                     <h1 class="question__title u-fs-l" data-qa="question-title">How many employees do you pay on a monthly basis?</h1>
-                    {% from "components/field/src/_macro.njk" import onsField %}
+                    {% from "components/field/_macro.njk" import onsField %}
                     {% call
                         onsField({
                             "legend": "How many employees do you pay on a monthly basis?",
@@ -48,13 +48,13 @@
                         <div class="question__answer">
                             <div class="answer answer--number js-has-errors" id="container-test-number">
                                 <div class="answer__fields js-fields">
-                                {% from "components/panel/src/_macro.njk" import onsPanel %}
+                                {% from "components/panel/_macro.njk" import onsPanel %}
                                 {% call
                                     onsPanel({
                                         "type": "error"
                                     })
                                 %}
-                                {% from "styles/typography/lists/src/_macro.njk" import onsList %}
+                                {% from "components/lists/_macro.njk" import onsList %}
                                 {{-
                                     onsList({
                                         "classes": "list--bare list--errors u-mb-s",
@@ -65,7 +65,7 @@
                                         ]
                                     })
                                 -}}
-                                {% from "components/input/src/_macro.njk" import onsInput %}
+                                {% from "components/input/_macro.njk" import onsInput %}
                                 {{-
                                     onsInput({
                                         "id": "number",
@@ -87,13 +87,13 @@
                         <div class="question__answer">
                             <div class="answer answer--number js-has-errors" id="container-test-percent">
                                 <div class="answer__fields js-fields">
-                                {% from "components/panel/src/_macro.njk" import onsPanel %}
+                                {% from "components/panel/_macro.njk" import onsPanel %}
                                 {% call
                                     onsPanel({
                                         "type": "error"
                                     })
                                 %}
-                                {% from "styles/typography/lists/src/_macro.njk" import onsList %}
+                                {% from "components/lists/_macro.njk" import onsList %}
                                 {{-
                                     onsList({
                                         "id": "container-test-percent",
@@ -105,7 +105,7 @@
                                         ]
                                     })
                                 -}}
-                                {% from "components/input/src/_macro.njk" import onsInput %}
+                                {% from "components/input/_macro.njk" import onsInput %}
                                 {{-
                                     onsInput({
                                         "id": "suffixed",
@@ -131,7 +131,7 @@
                         </div>
                     </div>
                 </div>
-                {% from "components/button/src/_macro.njk" import onsButton %}
+                {% from "components/button/_macro.njk" import onsButton %}
                 {{
                     onsButton({
                         "type": "button",

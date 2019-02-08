@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/password/src/_template.njk';
-import password from 'components/password/src/password';
+import template from 'components/password/_template.njk';
+import password from 'components/password/password';
 
 const params = {
   id: 'password',
