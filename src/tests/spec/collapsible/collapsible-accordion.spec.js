@@ -1,7 +1,7 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/accordion/src/_template.njk';
-import collapsible, { Collapsible } from 'components/details/src/collapsible';
-import CollapsibleGroup from 'components/details/src/collapsible.group';
+import template from 'components/accordion/_template.njk';
+import collapsible, { Collapsible } from 'components/details/collapsible';
+import CollapsibleGroup from 'components/details/collapsible.group';
 import eventMock from 'stubs/event.stub.spec';
 
 const params = {
@@ -62,13 +62,13 @@ describe('Component: Accordion', function() {
     it('then CollapsibleGroup class should be called', function() {
       const mockedCollapsibleGroup = chai.spy(() => {});
 
-      rewiremock('./src/components/details/src/collapsible.group')
+      rewiremock('./src/components/details/collapsible.group')
         .es6()
         .withDefault(mockedCollapsibleGroup);
 
       rewiremock.enable();
 
-      const mockedCollapsible = require('components/details/src/collapsible').default;
+      const mockedCollapsible = require('components/details/collapsible').default;
 
       mockedCollapsible();
 

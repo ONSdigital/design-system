@@ -1,0 +1,53 @@
+{% from "components/field/_macro.njk" import onsField %}
+{% from "components/label/_macro.njk" import onsLabel %}
+
+{% if params.type == "number" %}
+    {% set type = "number" %}
+    {% set pattern = "[0-9]*" %}
+{% elif params.type %}
+    {% set type = params.type %}
+{% else %}
+    {% set type = "text" %}
+{% endif %}
+
+{% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
+
+{% call onsField({
+    "noField": params.noField,
+    "legend": params.label.text if params.mutuallyExclusive,
+    "description": params.label.description if params.mutuallyExclusive,
+    "mutuallyExclusive": params.mutuallyExclusive
+}) %}
+    {% if params.label and not params.mutuallyExclusive %}
+        {{
+            onsLabel({
+                "for": params.id,
+                "id": params.label.id,
+                "text": params.label.text,
+                "classes": params.label.classes,
+                "description": params.label.description
+            })
+        }}
+    {% endif %}
+
+    {% if params.prefix !== undefined or params.suffix !== undefined %}
+        {% if params.prefix !== undefined %}
+            {% set prefixClass = " input-type--prefix" %}
+        {% endif %}
+        <div class="input-type{{ prefixClass }}">
+    {% endif %}
+    <input
+        type="{{ type }}"
+        id="{{ params.id }}"
+        class="input input--text input-type__input {{ params.classes }}{{ exclusiveClass }}"
+        title="{{ params.prefix.title }}{{ params.suffix.title }}"
+        {% if params.name !== undefined %}name="{{ params.name }}"{% endif %}
+        {% if params.value !== undefined %}value="{{ params.value }}"{% endif %}
+        {% if params.accept !== undefined %}accept="{{ params.accept }}"{% endif %}
+        {% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+    />
+    {% if params.prefix !== undefined or params.suffix !== undefined %}
+            <abbr class="input-type__type" aria-hidden="true" title="{{ params.prefix.title }}{{ params.suffix.title }}">{{ params.prefix.text or params.prefix.title }}{{ params.suffix.text or params.suffix.title }}</abbr>
+        </div>
+    {% endif %}
+{% endcall %}

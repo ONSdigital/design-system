@@ -1,0 +1,46 @@
+{% from "components/field/_macro.njk" import onsField %}
+{% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
+
+{% call onsField({
+    "id": params.id,
+    "legend": params.legend,
+    "description": params.description,
+    "classes": params.classes,
+    "mutuallyExclusive": params.mutuallyExclusive
+}) %}
+    {% for checkbox in params.checkboxes %}
+        {% set labelHTML = checkbox.label.text %}
+        {% if params.mutuallyExclusive %}  
+            {% set exclusiveClass = ' js-exclusive-group' %}                
+        {% endif %}
+   
+        <div class="field__item">
+            {{
+                onsCheckbox({
+                    "id": checkbox.id,
+                    "name": checkbox.name,
+                    "value": checkbox.value,
+                    "checked": checkbox.checked,
+                    "classes": checkbox.classes,
+                    "inputClasses": exclusiveClass,
+                    "label": {
+                        "for": checkbox.id,
+                        "text": labelHTML,
+                        "description": checkbox.label.description,
+                        "classes": checkbox.label.classes | default('') 
+                    },
+                    "other": {
+                        "id": checkbox.other.id,
+                        "name": checkbox.other.name,
+                        "type": checkbox.other.type,
+                        "classes": checkbox.other.classes | default('') + exclusiveClass | default(''),
+                        "attributes": checkbox.other.attributes,
+                        "label": {
+                            "text": checkbox.other.label.text
+                        }
+                    }
+                })
+            }}
+        </div>
+    {% endfor %}
+{% endcall %}

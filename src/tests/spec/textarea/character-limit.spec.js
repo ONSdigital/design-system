@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/textarea/src/_template.njk';
-import charLimit from 'components/textarea/src/character-limit';
+import template from 'components/textarea/_template.njk';
+import charLimit from 'components/textarea/character-limit';
 
 const params = {
   id: 'textarea-char-limit',

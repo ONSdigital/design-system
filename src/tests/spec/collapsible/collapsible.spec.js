@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/details/src/_template.njk';
-import collapsible, { Collapsible } from 'components/details/src/collapsible';
+import template from 'components/details/_template.njk';
+import collapsible, { Collapsible } from 'components/details/collapsible';
 
 const params = {
   id: 'details',

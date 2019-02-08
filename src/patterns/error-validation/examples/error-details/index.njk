@@ -1,10 +1,10 @@
-{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call 
     onsPanel({
         "type": "error"
     })
 %}
-{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{% from "components/lists/_macro.njk" import onsList %}
 {{
     onsList({
         id: 'container-test-number',
@@ -16,7 +16,7 @@
         ]
     })
 }}
-{% from "components/input/src/_macro.njk" import onsInput %}
+{% from "components/input/_macro.njk" import onsInput %}
 {{
     onsInput({
         "id": "number",
@@ -39,7 +39,7 @@
         "classes": "u-mt-m u-"
     })
 %}
-{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{% from "components/lists/_macro.njk" import onsList %}
 {{
     onsList({
         id: 'container-test-percent',
@@ -51,7 +51,7 @@
         ]
     })
 }}
-{% from "components/input/src/_macro.njk" import onsInput %}
+{% from "components/input/_macro.njk" import onsInput %}
 {{
     onsInput({
         "id": "suffixed",

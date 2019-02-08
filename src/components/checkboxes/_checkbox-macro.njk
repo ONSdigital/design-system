@@ -1,0 +1,30 @@
+{% macro onsCheckbox(params) %}
+    <div class="checkbox {{ params.classes }}">
+        <input class="checkbox__input {{ params.inputClasses }}" name="{{ params.name }}" id="{{ params.id }}" value="{{ params.value }}"{% if params.checked %} checked{% endif %} type="checkbox">
+        <label class="checkbox__label {{ params.label.classes }}" for="{{ params.id }}">
+            {{ params.label.text | safe }}
+            {% if params.label.description %}
+                <br>
+                <span class="checkbox__description u-fs-s">{{ params.label.description }}</span>
+            {% endif %}
+        </label>
+        {% if params.other.id %}
+            <div class="checkbox__other">
+                {% from "components/input/_macro.njk" import onsInput %}
+                {{
+                    onsInput({
+                        "id": params.other.id,
+                        "name": params.other.name,
+                        "type": params.other.type,
+                        "classes": "input--w-auto " + params.other.classes | default(''),
+                        "attributes": params.other.attributes,
+                        "label": {
+                            "text": params.other.label.text,
+                            "classes": 'u-fs-s--b'
+                        }
+                    })
+                }}
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}

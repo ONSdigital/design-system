@@ -1,0 +1,39 @@
+{% if params.mutuallyExclusive or params.legend %}
+    <fieldset class="field {% if params.mutuallyExclusive %}field--exclusive {% endif %}{{ params.classes }}"{% if params.description %} aria-describedby="{{ params.id }}-description"{% endif %}>
+        <legend class="field__legend {{ params.legendClasses }}">{{ params.legend }}</legend>
+        {% if params.description %}
+            <div id="{{ params.id }}-description" class="field__description u-fs-s--b u-fw-n">{{ params.description }}</div>
+        {% endif %}
+        {{ caller() }}
+        {% if params.mutuallyExclusive %}
+        {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
+            <div class="field__item">
+                <div class="field__label u-mt-xs u-fs-r--b">{{ params.mutuallyExclusive.or }}</div>
+                {{
+                    onsCheckbox({
+                        "id": params.mutuallyExclusive.checkbox.id,
+                        "name": params.mutuallyExclusive.checkbox.name,
+                        "value": params.mutuallyExclusive.checkbox.value,
+                        "classes": params.mutuallyExclusive.checkbox.classes,
+                        "inputClasses": "js-exclusive-checkbox",
+                        "label": {
+                            "text": '<span class="u-vh">' + params.mutuallyExclusive.or + ', </span> ' + params.mutuallyExclusive.checkbox.label.text + '<span class="u-vh">. ' +  params.mutuallyExclusive.deselectMessage + '</span>'
+                        }
+                    })
+                }}
+            </div>
+            <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-adjective="{{ params.mutuallyExclusive.deselectAdjective }}"></span>
+        {% endif %} 
+    </fieldset>
+{% else %}
+    {% if not params.noField %}
+        <div class="field">
+    {% endif %}
+        {% if params.description %}
+            <div class="field__description u-fs-s--b u-fw-n">{{ params.description }}</div>
+        {% endif %}
+        {{ caller() }}
+    {% if not params.noField %}
+        </div>
+    {% endif %}
+{% endif %}
