@@ -21,38 +21,49 @@
         {% block head %}{% endblock %}
     </head>
     <body class="{{ bodyClasses }}">
-        {% block bodyStart %}{% endblock %}
-        {% block skipLink %}
-            {{
-                onsSkipToContent({
-                    "url": "#main-content",
-                    "text": "Skip to main content"
-                })
-            }}
-        {% endblock %}
-        {% block header %}
-            {{
-                onsHeader({
-                    "title": page.title,
-                    "language": page.language
-                })
-            }}
-        {% endblock %}
-        {% block main %}
-            <main id="main-content" role="main" class="{{ mainClasses }}">
-                {% block content %}{% endblock %}
-            </main>
-        {% endblock %}
-        {% block footer %}
-            {{
-                onsFooter({
-                    "language": page.language,
-                    "rows": page.footer.rows,
-                    "OGLLink": page.footer.OGLLink
-                })
-            }}
-        {% endblock %}
-        {% block bodyEnd %}{% endblock %}
+        <div class="page">
+            <div class="page__content">
+                {% block bodyStart %}{% endblock %}
+                {% block skipLink %}
+                    {{
+                        onsSkipToContent({
+                            "url": "#main-content",
+                            "text": "Skip to main content"
+                        })
+                    }}
+                {% endblock %}
+                {% block header %}
+                    {{
+                        onsHeader({
+                            "title": page.title,
+                            "language": page.language
+                        })
+                    }}
+                {% endblock %}
+                {% block main %}
+                    <div class="page__container container u-mt-s">
+                        <div class="grid">
+                            <div class="grid__col col-7@m">
+                                <main id="main-content" role="main" class="page__main {{ mainClasses }}">
+                                    {% block content %}{% endblock %}
+                                </main>
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+            {% block footer %}
+                {{
+                    onsFooter({
+                        "classes": "page__footer u-mt-xl u-pt-l",
+                        "language": page.language,
+                        "rows": page.footer.rows,
+                        "OGLLink": page.footer.OGLLink
+                    })
+                }}
+            {% endblock %}
+            {% block bodyEnd %}{% endblock %}
+        </div>
         <script type="module" src="/scripts/bundle.js"></script>
         <script nomodule src="/scripts/bundle.es5.js"></script>
         <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
