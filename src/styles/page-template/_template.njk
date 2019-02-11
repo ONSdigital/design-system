@@ -11,9 +11,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
-        <title>{{ page.title }}</title>
-        <link rel="stylesheet" href="/css/responsive.css">
+        <link rel="icon" type="image/x-icon" href="{{ '/' + data.version if data.version  }}/favicons/favicon.ico">
+        <title>{{ page.title | default(data.title) }}</title>
+        <link rel="stylesheet" href="{{ '/' + data.version if data.version  }}/css/responsive.css">
 
         {% block headIcons %}
         {% endblock %}
@@ -64,8 +64,8 @@
             {% endblock %}
             {% block bodyEnd %}{% endblock %}
         </div>
-        <script type="module" src="/scripts/bundle.js"></script>
-        <script nomodule src="/scripts/bundle.es5.js"></script>
+        <script type="module" src="{{ '/' + data.version if data.version  }}/scripts/bundle.js"></script>
+        <script nomodule src="{{ '/' + data.version if data.version  }}/scripts/bundle.es5.js"></script>
         <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
         
         {% if isPatternLib %}
