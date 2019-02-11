@@ -1,11 +1,14 @@
 import domReady from 'js/domready';
+import matchMedia from 'js/utils/matchMedia';
 
 export const attrExpanded = 'aria-expanded';
 export const attrHidden = 'aria-hidden';
 export const hideClass = 'nav--h-m';
 export const openClass = 'open';
 
-class NavToggle {
+const matchMediaUtil = matchMedia;
+
+export default class NavToggle {
   constructor(toggle, nav) {
     this.toggle = toggle;
     this.nav = nav;
@@ -21,7 +24,7 @@ class NavToggle {
   }
 
   setupViewportChecks() {
-    this.viewport = utilsModule.matchMedia('(max-width: 46.3rem)');
+    this.viewport = matchMediaUtil.matchMedia('(max-width: 46.3rem)');
     this.viewport.addListener(this.checkViewport.bind(this));
     this.checkViewport();
   }
@@ -85,7 +88,7 @@ class NavToggle {
   }
 }
 
-export default function mobileNav() {
+export function mobileNav() {
   const toggleMainBtn = document.getElementsByClassName('js-toggle-main')[0];
   const mainNavList = document.getElementsByClassName('js-main-nav')[0];
   const toggleChildrenBtn = [...document.getElementsByClassName('js-toggle-childList')];
