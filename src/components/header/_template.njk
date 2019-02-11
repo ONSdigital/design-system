@@ -9,7 +9,7 @@
                 <div class="grid__col col-auto">
                     <div class="logo">
                         <a href="{{ params.logoHref | default('/') }}">
-                            <img src="{{ '/' + data.version if data.version  }}/img/ons-logo-pos.svg" alt="Office for National Statistics logo" class="logo__img header__logo print__hidden">
+                            <img src="{{ '/' + params.version if params.version  }}/img/ons-logo-pos.svg" alt="Office for National Statistics logo" class="logo__img header__logo print__hidden">
                         </a>
                     </div>
                 </div>

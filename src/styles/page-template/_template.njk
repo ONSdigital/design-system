@@ -35,6 +35,7 @@
                 {% block header %}
                     {{
                         onsHeader({
+                            "version": data.version,
                             "title": page.title,
                             "language": page.language
                         })
@@ -55,6 +56,7 @@
             {% block footer %}
                 {{
                     onsFooter({
+                        "version": data.version,
                         "classes": "page__footer u-mt-xl u-pt-l",
                         "language": page.language,
                         "rows": page.footer.rows,
