@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/tabs/src/_template.njk';
+import template from 'components/tabs/_template.njk';
 import matchMediaDesktopMock from 'stubs/matchMediaDesktop.stub.spec';
 import matchMediaMobileMock from 'stubs/matchMediaMobile.stub.spec';
 import eventMock from 'stubs/event.stub.spec';
@@ -44,7 +44,7 @@ describe('Component: Tabs', () => {
           this[key] = component[key];
         });
 
-        const mockedTabs = require('components/tabs/src/tabs').default;
+        const mockedTabs = require('components/tabs/tabs').default;
         tabs = new mockedTabs(this.tabsComponent);
 
         rewiremock.disable();
@@ -194,7 +194,7 @@ describe('Component: Tabs', () => {
           .withDefault(mobileMock);
 
         rewiremock.enable();
-        const mockedTabs = require('components/tabs/src/tabs').default;
+        const mockedTabs = require('components/tabs/tabs').default;
         tabs = new mockedTabs(this.tabsComponent);
       });
 

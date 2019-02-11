@@ -2,7 +2,7 @@
 title: Pagination
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{% from "components/lists/_macro.njk" import onsList %}
 
 Pagination used to navigate a series of pages in a linear or semi-linear manner and allows you to display a set of results so that the viewer isn’t overwhelmed by too much information.
 
@@ -45,7 +45,7 @@ The range indicator will be hidden on desktop, however it will still show on mob
 }}
 
 ## Research on this component
-{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
    If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/70" target="_blank">Design System forum</a>.
 {% endcall %}

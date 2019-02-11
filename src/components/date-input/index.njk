@@ -25,7 +25,7 @@ A `<div>` with `field_description` class is used to provide an example of the re
 
 Each field uses the `input--w-<number>` class to set the known number of digits required for each field.
 
-{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {{
     onsPanel({
         "body": "<strong>Note:</strong> Never automatically tab the user between the fields.  This can be unexpected and confusing, and may hinder normal keyboard control."
@@ -52,7 +52,7 @@ Display: 'Enter a 'period to' date later than the 'period from' date.
 }}
 
 ## Research on this component
-{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {{ 
     onsPanel({
         "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"

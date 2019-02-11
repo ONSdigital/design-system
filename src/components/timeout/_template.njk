@@ -1,0 +1,22 @@
+{% from "components/countdown/_macro.njk" import onsCountdown %}
+
+<div class="dialog js-dialog js-timeout-container" id="{{ params.id }}" aria-hidden="true">
+    <div class="dialog__overlay" tabindex="-1"></div>
+
+    <div class="dialog__body" role="dialog" aria-labelledby="{{ params.id }}-title">
+        <div role="document">
+            <div class="u-mb-s">{{ params.preTitle }}</div>
+            <h1 class="dialog__title u-fs-l" id="{{ params.id }}-title" tabindex="0">{{ params.title }}</h1>
+            {{-
+                onsCountdown({ 
+                    "width": 40
+                }) 
+            -}}
+            <form action="{{ params.action }}" method="post">
+                <button class="btn u-mb-s js-timeout-continue" type="button" data-loading-msg="{{ params.loadingMessage }}">{{ params.continueButton }}</button>
+                <br>
+                <button class="btn btn--secondary js-timeout-save" type="submit">{{ params.submitButton }}</button>
+            </form>
+        </div>
+    </div>
+</div>

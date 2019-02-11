@@ -2,7 +2,7 @@
 title: Label
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{% from "components/lists/_macro.njk" import onsList %}
 
 ## When to use this component
 Labels are paired with [inputs](/components/input), [textareas](/components/textarea), [radios](/components/radios), [checkboxes](/components/checkboxes), and [selects](/components/select) to describe a form input.
@@ -57,7 +57,7 @@ This variant is achieved by adding `label--small` to the `classes` option.
 }}
 
 ## Research on this component
-{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
    If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/40" target="_blank">Design System forum</a>.
 {% endcall %}

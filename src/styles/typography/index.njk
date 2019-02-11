@@ -2,7 +2,7 @@
 title: Typography
 anchorLinks: true
 ---
-{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{% from "components/lists/_macro.njk" import onsList %}
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
 ## Font
@@ -72,7 +72,7 @@ Bulleted lists should be introduced with a lead-in line, ending in a colon.
 Each item in the list should start with a lowercase letter and should not end with a full stop.
 
 {{
-    patternlibExample({"path": "styles/typography/lists/examples/list/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples//list/index.njk"})
 }}
 
 ### Variants
@@ -84,31 +84,31 @@ Each list item should be a complete sentence, therefore start with an uppercase 
 
 You do not need to introduce a numbered list with a lead-in line.
 {{
-    patternlibExample({"path": "styles/typography/lists/examples/list-ordered/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples//list-ordered/index.njk"})
 }}
 
 #### Bare list
 Bare lists should be used to display a list of navigational links, for example, a group of related pages displayed in the [footer](components/footer).
 {{
-    patternlibExample({"path": "styles/typography/lists/examples/list-bare/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples//list-bare/index.njk"})
 }}
 
 #### Inline list
 Inline lists should be used to display a horizontal row of links, for example, a list of pages displayed in the [transactional footer](components/footer#transactional).
 {{
-    patternlibExample({"path": "styles/typography/lists/examples/list-inline/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples//list-inline/index.njk"})
 }}
 
 #### Errors list
 Used within the [error details panel](/patterns/error-validation#error-details) to display a list error messages for each erroneous field in a fieldset.
 {{
-    patternlibExample({"path": "styles/typography/lists/examples/list-errors/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples//list-errors/index.njk"})
 }}
 
 #### Boxed list
 Used to display a code split into manageable chunks, for example, a reference code to quote during a helpdesk call.
 {{
-    patternlibExample({"path": "styles/typography/lists/examples/list-boxes/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples//list-boxes/index.njk"})
 }}
 
 ## Icons
@@ -141,7 +141,7 @@ __How to use:__ Use `icon--external-link` class on an `<a>` element.
 __How to use:__ Use `icon--lock` class on a `<p>` element.
 
 ### Contribute to icons
-{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
    If you have any requests for icons or research findings please feed back via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/95" target="_blank">Design System forum</a>.
 {% endcall %}

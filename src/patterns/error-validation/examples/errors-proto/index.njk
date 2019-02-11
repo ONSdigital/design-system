@@ -12,7 +12,7 @@
                             <legend class="u-vh">How many employees do you pay on a monthly basis?</legend>
                             <div class="question__answers">
                                 <div class="question__answer">
-                                    {% from "components/input/src/_macro.njk" import onsInput %}
+                                    {% from "components/input/_macro.njk" import onsInput %}
                                     {{
                                         onsInput({
                                             "id": "number",
@@ -29,7 +29,7 @@
                                     }}
                                 </div>
                                 <div class="question__answer">
-                                    {% from "components/input/src/_macro.njk" import onsInput %}
+                                    {% from "components/input/_macro.njk" import onsInput %}
                                     {{
                                         onsInput({
                                             "id": "suffixed",
@@ -53,7 +53,7 @@
                         </fieldset>
                     </div>
                 </div>
-                {% from "components/button/src/_macro.njk" import onsButton %}
+                {% from "components/button/_macro.njk" import onsButton %}
                 {{
                     onsButton({
                         "type": 'button',

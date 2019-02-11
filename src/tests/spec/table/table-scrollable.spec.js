@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/table/src/_template.njk';
-import tableScroll from 'components/table/src/scrollable-table';
+import template from 'components/table/_template.njk';
+import tableScroll from 'components/table/scrollable-table';
 
 const params = {
   scrollable: true,

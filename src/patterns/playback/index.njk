@@ -3,7 +3,7 @@ title: Check answers
 group: Help users to...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "styles/typography/lists/src/_macro.njk" import onsList %}
+{% from "components/lists/_macro.njk" import onsList %}
 
 Allow users to check the information they have previously entered and confirm that it is correct before submitting it.
 
@@ -74,7 +74,7 @@ A summary page should be displayed at the end of a section or at the end of a wh
 
 ## Research on this component
 
-{% from "components/panel/src/_macro.njk" import onsPanel %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {{ 
     onsPanel({
         "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='https://github.com/ONSdigital/pattern-library-v2/issues/101'>Design System Forum.</a>"
