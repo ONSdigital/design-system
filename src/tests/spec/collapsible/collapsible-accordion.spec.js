@@ -62,7 +62,7 @@ describe('Component: Accordion', function() {
     it('then CollapsibleGroup class should be called', function() {
       const mockedCollapsibleGroup = chai.spy(() => {});
 
-      rewiremock('./src/components/details/collapsible.group')
+      rewiremock('./components/details/collapsible.group')
         .es6()
         .withDefault(mockedCollapsibleGroup);
 

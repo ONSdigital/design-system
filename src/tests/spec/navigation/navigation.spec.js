@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/navigation/src/_template.njk';
+import template from 'components/navigation/_template.njk';
 import matchMediaMobileMock from 'stubs/matchMediaMobile.stub.spec';
 
 const params = {
@@ -54,7 +54,7 @@ describe.only('Component: Navigation', function() {
         this[key] = component[key];
       });
 
-      const mockedNav = require('components/navigation/src/main-nav').default;
+      const mockedNav = require('components/navigation/main-nav').default;
       nav = new mockedNav(this.toggleMainBtn, this.mainNavList);
 
       rewiremock.disable();

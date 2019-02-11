@@ -1,5 +1,5 @@
-{% from "components/navigation/src/_macro.njk" import onsNavigation %}
-{% from "components/button/src/_macro.njk" import onsButton %}
+{% from "components/navigation/_macro.njk" import onsNavigation %}
+{% from "components/button/_macro.njk" import onsButton %}
 
 <header class="header {{ params.classes if params.classes }}">
     {% if params.beta %}
@@ -21,7 +21,7 @@
                     <div class="header__links grid__col col-auto">
                         {% if params.language %}
                             <div class="grid__col col-auto u-d-no@xs@m {{ 'u-mr-s@m' if params.serviceLinks }}">
-                                {% from "components/language-selector/src/_macro.njk" import onsLanguageSelector %}
+                                {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                                 {{
                                     onsLanguageSelector(params.language)
                                 }}
