@@ -70,7 +70,7 @@
             {% endif %}
             <div class="grid__col">
                 <div class="footer__license footer__license--border">
-                    <img alt="OGL" alt="OGL" class="footer__ogl-img" src="/img/UKOpenGovernmentLicence-grey.svg">{{ params.OGLLink.pre}} <a href="{{ params.OGLLink.url }}" class="footer__link">{{ params.OGLLink.link }}</a>{{ params.OGLLink.post }}
+                    <img alt="OGL" alt="OGL" class="footer__ogl-img" src="{{ '/' + data.version if data.version  }}/img/UKOpenGovernmentLicence-grey.svg">{{ params.OGLLink.pre}} <a href="{{ params.OGLLink.url }}" class="footer__link">{{ params.OGLLink.link }}</a>{{ params.OGLLink.post }}
                 </div>
             </div>
         </div>
