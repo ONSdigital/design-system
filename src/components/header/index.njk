@@ -22,7 +22,6 @@ You should use the ONS header at the top of any ONS service.
 
 The external header should be used across public facing services.
 
-
 ### Internal
 {{
     patternlibExample({ "path": "components/header/examples/internal-basic/index.njk" })
@@ -35,6 +34,13 @@ The internal service variant of the header. Use the modifier `header---internal 
 }}
 
 Allows for text to be added below the title by adding the `header--hero` modifier class to the header element. This should be used when the service would benefit from a description which informs users of what the service provides.
+
+### External with navigation
+{{
+    patternlibExample({ "path": "components/header/examples/external-navigation/index.njk" })
+}}
+
+For services that require a main navigation. For mobile users, a menu button is shown which allows the navigation menu to be open and closed using javascript. 
 
 ## Further examples
 
@@ -57,14 +63,20 @@ The business survey uses the standard external header with a [language selector]
     patternlibExample({ "path": "components/header/examples/internal-service/index.njk" })
 }}
 
-An internal services uses the internal header variant with service links and a main navigation. For mobile users, a menu button is shown which allows the navigation menu to be open and closed. 
-
-### External with navigation
-{{
-    patternlibExample({ "path": "components/header/examples/external-navigation/index.njk" })
-}}
+An internal service uses the internal header variant with service links and a main navigation. For mobile users, a menu button is shown which allows the navigation menu to be open and closed. 
 
 ### External with Welsh logo
 {{
     patternlibExample({ "path": "components/header/examples/external-welsh/index.njk" })
 }}
+
+## Research on this component
+{% from "components/panel/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+[Discuss 'Header' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/160)
