@@ -1,7 +1,6 @@
 import * as path from 'path';
 import merge from 'webpack-merge';
 import glob from 'glob';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import globImporter from 'node-sass-glob-importer';
 import { NoEmitOnErrorsPlugin, NamedModulesPlugin } from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
@@ -113,12 +112,10 @@ export default function(mode) {
             include: [path.join(process.cwd(), 'src/scss')],
             test: /\.scss$/,
             use: [
-              MiniCssExtractPlugin.loader,
               {
-                loader: 'css-loader',
+                loader: 'file-loader',
                 options: {
-                  sourceMap: false,
-                  importLoaders: 1
+                  name: 'css/[name].css'
                 }
               },
               {
@@ -161,25 +158,11 @@ export default function(mode) {
                 }
               }
             ]
-          },
-          // Assets
-          {
-            test: /\.(jpg|png|webp|gif|otf|ttf|woff|woff2|ani|eot|svg|cu)$/,
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-              limit: 10000
-            }
           }
         ]
       },
 
       plugins: [
-        new MiniCssExtractPlugin({
-          filename: '[name].css',
-          chunkFilename: '[name].css'
-        }),
-
         new FixStyleOnlyEntriesPlugin({
           extensions: ['scss', 'njk', 'html'],
           silent: true
