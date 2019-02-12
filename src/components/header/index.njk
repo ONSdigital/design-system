@@ -3,32 +3,68 @@ title: Header
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
-## External
+The ONS header shows users which ONS service they are on.
+
 {{
     patternlibExample({ "path": "components/header/examples/external-basic/index.njk" })
 }}
 
-## Internal
+## When to use this component 
+
+You should use the ONS header at the top of any ONS service.
+
+## How to use this component
+
+### External header
+{{
+    patternlibExample({ "path": "components/header/examples/external-basic/index.njk" })
+}}
+
+The external header should be used across public facing services.
+
+
+### Internal
 {{
     patternlibExample({ "path": "components/header/examples/internal-basic/index.njk" })
 }}
+The internal service variant of the header. Use the modifier `header---internal header--thin` when implementing for an internal service. 
 
-## Social survey
+### External with description
+{{
+    patternlibExample({ "path": "components/header/examples/external-hero/index.njk" })
+}}
+
+Allows for text to be added below the title by adding the `header--hero` modifier class to the header element. This should be used when the service would benefit from a description which informs users of what the service provides.
+
+## Further examples
+
+### Social survey
 {{
     patternlibExample({ "path": "components/header/examples/social/index.njk" })
 }}
 
-## Business survey
+The social survey uses the standard external header with a [language selector](/patterns/language-selection) and save [button](/components/button). 
+
+### Business survey
 {{
     patternlibExample({ "path": "components/header/examples/business/index.njk" })
 }}
 
-## Internal service
+The business survey uses the standard external header with a [language selector](/patterns/language-selection) and service links.
+
+### Internal service
 {{
     patternlibExample({ "path": "components/header/examples/internal-service/index.njk" })
 }}
 
-## External with navigation
+An internal services uses the internal header variant with service links and a main navigation. For mobile users, a menu button is shown which allows the navigation menu to be open and closed. 
+
+### External with navigation
 {{
     patternlibExample({ "path": "components/header/examples/external-navigation/index.njk" })
+}}
+
+### External with Welsh logo
+{{
+    patternlibExample({ "path": "components/header/examples/external-welsh/index.njk" })
 }}
