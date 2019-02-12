@@ -184,6 +184,12 @@ export default function(mode) {
             },
             {
               from: {
+                glob: 'patternlib-img/**/*',
+                dot: true
+              }
+            },
+            {
+              from: {
                 glob: 'favicons/**/*',
                 dot: true
               }
