@@ -5,7 +5,7 @@ group: Help users to...
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
 
-Allow users to check the information they have previously entered and confirm that it is correct before submitting it.
+Allow users to check the information they have previously entered and confirm it's correct before submitting it.
 
 ## When to use this pattern
 Use this pattern when you need to let users check and confirm the information they have given before they complete, for example, a survey questionnaire.
@@ -36,23 +36,7 @@ There are currently 3 methods within an EQ survey for playing back respondent da
 Each method allows the respondent to check what they have have previously entered and confirm that the data is correct.
 
 ### 1. The playback of answers within a summary
-A summary lets the user review the answer(s) they have given to a single question or multiple questions, allowing them to edit their answers before completing the survey.
-
-#### Grouped summary
-A summary of the answers to multiple questions in a section.
-
-{{
-    patternlibExample({ "path": "patterns/playback/examples/summary-grouped/index.njk" })
-}}
-
-#### Multiple answers
-A summary of multiple answers to a single question.
-
-{{
-    patternlibExample({ "path": "patterns/playback/examples/summary-multiple/index.njk" })
-}}
-
-A summary page should be displayed at the end of a section or at the end of a whole survey.
+A [summary](/components/summary) lets the user review the answer(s) they have given to a single question or multiple questions, allowing them to edit their answers before completing the survey.
 
 <figure>  
   <img src="/img/playback-summary.svg" alt="The playback of answer(s) within a summary">
