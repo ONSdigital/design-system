@@ -2,43 +2,82 @@
 title: Summary
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/table/_macro.njk" import onsTable %}
 
-## When to use this component
-Summary is used to present a clear summarised output of values to the user.
-
+A summary presents a clear summarised output of values to the user.
 {{
     patternlibExample({"path": "components/summary/examples/summary/index.njk"})
 }}
 
-## Variants
-### Summary without action
+## When to use this component
+Display a summary on a page after the user completes a section or full questionnaire, to let them [check and confirm their answers](/patterns/playback).
+
+## How to use this component
+The summary should provide users with a direct link back to the question(s) they have answered, allowing them to change their answer, then return to the summary to complete or continue their questionnaire.
+
+If the summary is being used at the end of a questionnaire containing multiple sections, the summary `title` should be used as the section heading for each summary block.
+
+The summary can contain multiple question and answer types, and will adapt it's layout depending on the length of the strings.
+
+### Accessibility
+The summary component is made accessible by using the following `aria` attributes which are attached on `domready` via JavaScript:
+{{
+    onsTable({
+        "ths": [
+            { 
+                "value": "Element"
+            },
+            { 
+                "value": "ARIA attribute"
+            },
+            { 
+                "value": "Description"
+            } 
+        ],
+        "trs": [
+            {
+                "tds": [
+                    {
+                        "value": "<code>summary__button</code>"
+                    },
+                    {
+                        "value": '<code>aria-label="{ariaLabel}"</code>'
+                    },
+                    {
+                        "value": "Increases verbosity of the element's label"
+                    }
+                ]
+            }
+        ]
+    })
+}}
+
+### Variants
+#### Summary without action
+A summary of an answer the user cannot directly change, due to it being automatically calculated.
 {{
     patternlibExample({"path": "components/summary/examples/summary-no-action/index.njk"})
 }}
 
-### Grouped
-For displaying contiguous data.
+#### Grouped
+A summary of the answers to multiple questions in a section.
 {{
     patternlibExample({"path": "components/summary/examples/summary-grouped/index.njk"})
 }}
 
-### Multiple
-For displaying a multiple data element.
+#### Multiple
+A summary of multiple answers to a single question.
+
 {{
     patternlibExample({"path": "components/summary/examples/summary-multiple/index.njk"})
 }}
 
-### Multiple textarea
-{{
-    patternlibExample({"path": "components/summary/examples/summary-multiple-textarea/index.njk"})
-}}
-
-### Validation accross multiple pages
+#### Validation across multiple pages
 {{
     patternlibExample({"path": "components/summary/examples/summary-grouped-validation/index.njk"})
 }}
 
-### Total
+#### Total
 {{
     patternlibExample({"path": "components/summary/examples/summary-grouped-total/index.njk"})
 }}
@@ -46,9 +85,9 @@ For displaying a multiple data element.
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/103" target="_blank">Design System forum</a>.
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/84">Design System forum</a>.
 {% endcall %}
 
 ## Design System forum
 
-[Discuss 'Language Selector' on Github](https://github.com/ONSdigital/pattern-library-v2/issues/103)
+[Discuss 'Summary' on Github](https://github.com/ONSdigital/pattern-library-v2/issues/84)
