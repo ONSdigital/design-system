@@ -1,9 +1,12 @@
 {% from "components/field/_macro.njk" import onsField %}
 
 {% call onsField({
+    "id": params.fieldId,
     "legend": params.label.text if params.mutuallyExclusive,
     "description": params.label.description if params.mutuallyExclusive,
-    "mutuallyExclusive": params.mutuallyExclusive
+    "mutuallyExclusive": params.mutuallyExclusive,
+    "classes": params.fieldClases,
+    "legendClasses": params.legendClasses
 }) %}
     {% if params.mutuallyExclusive  %} 
         {% set textareaExlusiveClass = " js-exclusive-group" %}

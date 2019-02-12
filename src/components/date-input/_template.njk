@@ -2,17 +2,17 @@
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
 
-{% set exclusiveClass = "" %}
 {% if params.mutuallyExclusive %}
-    {% set exclusiveClass = " field--exclusive" %}
-    {% set fieldExclusiveClass = " js-exclusive-group" %}
+    {% set fieldExclusiveClass = "field--exclusive" %}
+    {% set exclusiveClass = " js-exclusive-group" %}
 {% endif %}
 
 {% call onsField({
     "id": params.id,
     "legend": params.legend,
     "description": params.description,
-    "classes": exclusiveClass,
+    "classes": fieldExclusiveClass | default("") + ((' ' if fieldExclusiveClass)+ params.classes if params.classes),
+    "legendClasses": params.legendClasses,
     "mutuallyExclusive": params.mutuallyExclusive
 }) %}
     <div class="field__group">
@@ -23,7 +23,7 @@
                     "id": params.id + "-day",
                     "type": "number",
                     "name": params.day.name,
-                    "classes": "input--w-2" + fieldExclusiveClass | default(""),
+                    "classes": "input--w-2" + exclusiveClass | default(""),
                     "attributes": {
                         "min": 1,
                         "max": 31
@@ -44,7 +44,7 @@
                     "id": params.id + "-month",
                     "type": "number",
                     "name": params.month.name,
-                    "classes": "input--w-2" + fieldExclusiveClass | default(""),
+                    "classes": "input--w-2" + exclusiveClass | default(""),
                     "attributes": {
                         "min": 1,
                         "max": 12
@@ -65,7 +65,7 @@
                     "id": params.id + "-year",
                     "type": "number",
                     "name": params.year.name,
-                    "classes": "input--w-4" + fieldExclusiveClass | default(""),  
+                    "classes": "input--w-4" + exclusiveClass | default(""),  
                     "attributes": {
                         "min": 1000,
                         "max": 3000
