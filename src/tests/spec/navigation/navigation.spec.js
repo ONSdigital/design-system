@@ -1,52 +1,50 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/navigation/_template.njk';
-import matchMediaMobileMock from 'stubs/matchMediaMobile.stub.spec';
+import template from 'components/header/_template.njk';
 
 const params = {
-  classes: 'nav--inline nav--light nav--header nav--h-m js-main-nav',
-  id: 'main-nav',
-  ariaLabel: 'Main menu',
-  ariraListLabel: 'Navigation menu',
-  currentPath: '/surveys',
-  items: [
-    {
-      title: 'Surveys',
-      path: '/surveys'
-    },
-    {
-      title: 'Messages',
-      path: '#'
-    },
-    {
-      title: 'To do',
-      path: '#'
-    },
-    {
-      title: 'My account',
-      path: '#',
-      classes: 'nav__item--secondary u-d-no@m'
-    },
-    {
-      title: 'Sign out',
-      path: '#',
-      classes: 'u-d-no@m'
-    }
-  ]
+  toggleButton: {
+    text: 'Menu',
+    ariaLabel: 'Toggle main navigation'
+  },
+  navigation: {
+    classes: 'nav--inline nav--light nav--header nav--h-m js-main-nav',
+    id: 'main-nav',
+    ariaLabel: 'Main menu',
+    ariraListLabel: 'Navigation menu',
+    currentPath: '/surveys',
+    items: [
+      {
+        title: 'Surveys',
+        path: '/surveys'
+      },
+      {
+        title: 'Messages',
+        path: '#'
+      },
+      {
+        title: 'To do',
+        path: '#'
+      },
+      {
+        title: 'My account',
+        path: '#',
+        classes: 'nav__item--secondary u-d-no@m'
+      },
+      {
+        title: 'Sign out',
+        path: '#',
+        classes: 'u-d-no@m'
+      }
+    ]
+  }
 };
 
-describe.only('Component: Navigation', function() {
-  const mobileMock = matchMediaMobileMock();
+describe('Component: Navigation', function() {
+  let nav;
 
-  let nav, rewiremock;
+  before(() => awaitPolyfills);
 
-  before(resolve => {
-    awaitPolyfills.then(() => {
-      rewiremock = require('rewiremock/webpack').default;
-      resolve();
-    });
-  });
-
-  describe('When the viewport is small,', () => {
+  describe('When the viewport is small,', function() {
     beforeEach(function() {
       const component = renderComponent(params);
 
@@ -55,15 +53,7 @@ describe.only('Component: Navigation', function() {
       });
 
       const mockedNav = require('components/navigation/main-nav').default;
-      nav = new mockedNav(this.toggleMainBtn, this.mainNavList);
-
-      rewiremock.disable();
-
-      rewiremock('./src/js/utils/matchMedia')
-        .es6()
-        .withDefault(mobileMock);
-
-      rewiremock.enable();
+      this.nav = new mockedNav(this.toggleMainBtn, this.mainNavList);
     });
 
     afterEach(function() {
@@ -72,9 +62,47 @@ describe.only('Component: Navigation', function() {
       }
     });
 
-    describe('When the component initialises', () => {
-      it('Should assign the main navigation with "aria-hidden" value of true', function() {
-        expect(this.mainNavList.getAttribute('aria-hidden')).to.equal('true');
+    describe('When the component initialises', function() {
+      beforeEach(function() {
+        this.nav.registerEvents = chai.spy(this.nav.registerEvents);
+        this.nav.registerEvents();
+      });
+
+      it('registerEvents should be called', function() {
+        expect(this.nav.registerEvents).to.have.been.called();
+      });
+
+      describe('When the main nav is opened,', function() {
+        beforeEach(function() {
+          this.nav.openNav = chai.spy(this.nav.openNav);
+          this.nav.toggleNav();
+        });
+
+        it('openNav should be called', function() {
+          expect(this.nav.openNav).to.have.been.called();
+        });
+
+        it('Should be assigned the "aria-hidden" value of false', function() {
+          expect(this.mainNavList.getAttribute('aria-hidden')).to.equal('false');
+        });
+
+        it('Should not have the hidden class', function() {
+          expect(this.mainNavList.classList.contains('nav--h-m')).to.be.false;
+        });
+      });
+
+      describe('When the main nav is closed,', function() {
+        beforeEach(function() {
+          this.nav.closeNav(this.toggleMainBtn, this.mainNavList);
+        });
+
+        it('Should be assigned the "aria-hidden" value of false', function() {
+          expect(this.mainNavList.getAttribute('aria-hidden')).to.equal('true');
+        });
+
+        it('Should not have the hidden class', function() {
+          expect(this.mainNavList.classList.contains('nav--h-m')).to.be.true;
+        });
       });
     });
   });

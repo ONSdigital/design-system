@@ -46,7 +46,7 @@ describe('Component: Tabs', () => {
 
         const mockedTabs = require('components/tabs/tabs').default;
         tabs = new mockedTabs(this.tabsComponent);
-
+        console.log(tabs);
         rewiremock.disable();
 
         rewiremock('./src/js/utils/matchMedia')
