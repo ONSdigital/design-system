@@ -1,12 +1,9 @@
 import domReady from 'js/domready';
-import matchMedia from 'js/utils/matchMedia';
 
 export const attrExpanded = 'aria-expanded';
 export const attrHidden = 'aria-hidden';
-export const hideClass = 'nav--h-m';
+export const hideClass = 'header-nav--mobile';
 export const openClass = 'open';
-
-const matchMediaUtil = matchMedia;
 
 export default class NavToggle {
   constructor(toggle, nav) {
@@ -36,13 +33,12 @@ export default class NavToggle {
     toggleEl.setAttribute(attrExpanded, 'false');
     navEl.setAttribute(attrHidden, 'true');
     navEl.classList.add(hideClass);
-    console.log(navEl);
   }
 }
 
 export function mobileNav() {
   const toggleMainBtn = document.getElementsByClassName('js-toggle-main')[0];
-  const mainNavList = document.getElementsByClassName('js-main-nav')[0];
+  const mainNavList = document.getElementsByClassName('js-header-nav')[0];
 
   if (!toggleMainBtn) return;
 

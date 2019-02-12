@@ -46,10 +46,6 @@
     }
   }
 
-  &__nav {
-    background: $color-header;
-  }
-
   &__title {
     @extend .u-fs-r--b;
     @extend .u-fs-l\@m;
@@ -102,5 +98,9 @@
         width: 200px;
       }
     }
+  }
+
+  &__bottom {
+    background: $color-header;
   }
 }

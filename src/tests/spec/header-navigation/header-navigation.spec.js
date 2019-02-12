@@ -7,7 +7,7 @@ const params = {
     ariaLabel: 'Toggle main navigation'
   },
   navigation: {
-    classes: 'nav--inline nav--light nav--header nav--h-m js-main-nav',
+    classes: 'js-header-nav header-nav--mobile',
     id: 'main-nav',
     ariaLabel: 'Main menu',
     ariraListLabel: 'Navigation menu',
@@ -52,7 +52,7 @@ describe('Component: Navigation', function() {
         this[key] = component[key];
       });
 
-      const mockedNav = require('components/navigation/main-nav').default;
+      const mockedNav = require('components/header/header-nav').default;
       this.nav = new mockedNav(this.toggleMainBtn, this.mainNavList);
     });
 
@@ -87,7 +87,7 @@ describe('Component: Navigation', function() {
         });
 
         it('Should not have the hidden class', function() {
-          expect(this.mainNavList.classList.contains('nav--h-m')).to.be.false;
+          expect(this.mainNavList.classList.contains('header-nav--mobile')).to.be.false;
         });
       });
 
@@ -101,7 +101,7 @@ describe('Component: Navigation', function() {
         });
 
         it('Should not have the hidden class', function() {
-          expect(this.mainNavList.classList.contains('nav--h-m')).to.be.true;
+          expect(this.mainNavList.classList.contains('header-nav--mobile')).to.be.true;
         });
       });
     });
@@ -116,7 +116,7 @@ function renderComponent(params) {
   document.body.appendChild(wrapper);
 
   const toggleMainBtn = wrapper.querySelector('.js-toggle-main');
-  const mainNavList = wrapper.querySelector('.js-main-nav');
+  const mainNavList = wrapper.querySelector('.js-header-nav');
 
   return {
     wrapper,
