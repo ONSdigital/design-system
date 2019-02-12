@@ -2,4 +2,38 @@
 title: Design assets
 sortOrder: 2
 ---
-Lorem ipsum 
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+## Sketch
+
+Sketch is an application used to mock up wireframes and click through prototypes. [Download Sketch here](https://www.sketchapp.com/get/).
+
+### Add the ONS Sketch Library to Sketch
+
+{{ 
+    onsList({
+        "element": "ol",
+        "items": [
+            {
+                "text": '<a href="https://github.com/dudelmeister/ONS-Sketch-Library_v1.0">Download the ONS Sketch Library</a> from Github.'
+            },
+            {
+                "text": 'Add the library to Sketch via <strong>Sketch > Preferences > Libraries</strong> by using the <strong>Add Library</strong> button.'
+            },
+            {
+                "text": 'Access the symbols by clicking <strong>Insert</strong> and navigating to the ONS-Sketch-Library, under <strong>Symbols</strong>.'
+            }         
+        ]
+    }) 
+}}
+
+<br>
+
+{{ 
+    onsPanel({
+        body: '<p>If you require any help, notice any issues or have any recommendations please <a href="https://github.com/dudelmeister/ONS-Sketch-Library_v1.0/issues">raise an issue on Github</a>.</p>'
+    }) 
+}}
+
+

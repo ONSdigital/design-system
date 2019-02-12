@@ -2,8 +2,145 @@
 title: Details
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/table/_macro.njk" import onsTable %}
+
+Details simplify a page by allowing the user to reveal certain content only if they need it.
 
 {{
     patternlibExample({"path": "components/details/examples/details/index.njk"})
 }}
 
+## When to use this component
+Use the details component to make a page easier to read by condensing information that is only needed by some users.
+
+Details can be used to condense a single block of content into a single selectable heading, allowing the user to reveal it if and when they need it.  
+
+Good uses of the details component are: 
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": 'to reveal additional help at the point where a user may need it e.g. to help answer a question'
+            },
+            {
+                "text": 'to show the definition of a term that may not be well understood'
+            }
+        ]
+    }) 
+}}
+
+## When not to use this component
+Don't use the details component to hide information that the majority of your users will need to progress with their task.
+
+### Alternative components
+[Accordions](/components/accordion), [tabs](/components/tabs) and details all hide sections of content which a user can show or hide.
+
+Use the details component instead of [tabs](/components/tabs) or [accordions](/components/accordion) if there is only one section of content that needs to be condensed.
+
+## How to use this component
+The details component uses JavaScript so when it's turned off, the section of content is expanded and displayed as a standard heading and paragraph.
+
+Use an appropriate heading tag (h2, h3 etc) for the `details__title` to provide the correct scemantic hierarchy to the document with the rest of the page.
+
+### Use a clear label
+The details component hides content so make sure your heading is clear so the user doesn't need to work hard to understand if they need to click on it.
+
+### Accessibility
+The details component is made accessible by using the following `aria` attributes which are attached on `domready` via Javascript:
+{{
+    onsTable({
+        "ths": [
+            { 
+                "value": "Element"
+            },
+            { 
+                "value": "aria attribute"
+            },
+            { 
+                "value": "Description"
+            } 
+        ],
+        "trs": [
+            {
+                "tds": [
+                    {
+                        "value": "<code>details.details</code>"
+                    },
+                    {
+                        "value": '<code>aria-expanded="true/false"</code>'
+                    },
+                    {
+                        "value": "Indicates the state of the associated <code>.details__summary</code>"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "value": ""
+                    },
+                    {
+                        "value": '<code>aria-selected="true/false"</code>'
+                    },
+                    {
+                        "value": "Indicates the selected state of the focussed <code>.details</code> element"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "value": "<code>summary.details__summary</code>"
+                    },
+                    {
+                        "value": '<code>aria-controls="{ID}-content"</code>'
+                    },
+                    {
+                        "value": "Indicates the <code>id</code> of the display controller element for the associated <code>.details__content</code> block."
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "value": "<code>button</code>"
+                    },
+                    {
+                        "value": '<code>aria-controls="{ID}-content"</code>'
+                    },
+                    {
+                        "value": "Indicates the <code>id</code> of the display controller element for the associated <code>.details__content</code> block."
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "value": "<code>.details__content</code>"
+                    },
+                    {
+                        "value": '<code>aria-hidden="true/false"</code>'
+                    },
+                    {
+                        "value": "Indicates the visibility of the element and all of its descendants."
+                    }
+                ]
+            }
+        ]
+    })
+}}
+
+### Google analytics
+Optionally pass event tracking `data` attributes for Google Analytics using `data-ga="click"`, `data-ga-category="definition"`, `data-ga-action="Open/Close panel"`, `data-ga-label="{TITLE}"` 
+
+## Research on this component
+{% from "components/panel/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+[Discuss 'Details' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/148)
