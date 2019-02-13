@@ -16,8 +16,13 @@
   }
 
   &__answer-action {
-    display: flex;
     margin-top: 0.5rem;
+  }
+
+  @include mq(321px) {
+    &__answer-action {
+      display: flex;
+    }
   }
 
   &__answer {
@@ -100,10 +105,6 @@
     &__answer-action & {
       &__answer {
         padding-bottom: 0;
-      }
-
-      &__action {
-        margin-top: 0.5rem;
       }
     }
 
@@ -195,6 +196,22 @@
       &__action {
         border-bottom-width: 2px;
       }
+    }
+  }
+
+  @include mq(xs, 320px) {
+    &__answer {
+      display: block;
+      padding-bottom: 0;
+      width: 100%;
+
+      li:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__action {
+      padding-left: 0;
     }
   }
 }
