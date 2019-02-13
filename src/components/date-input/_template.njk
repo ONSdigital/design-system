@@ -3,7 +3,6 @@
 {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
 
 {% if params.mutuallyExclusive %}
-    {% set fieldExclusiveClass = "field--exclusive" %}
     {% set exclusiveClass = " js-exclusive-group" %}
 {% endif %}
 
@@ -11,7 +10,7 @@
     "id": params.id,
     "legend": params.legend,
     "description": params.description,
-    "classes": fieldExclusiveClass | default("") + ((' ' if fieldExclusiveClass)+ params.classes if params.classes),
+    "classes": params.classes,
     "legendClasses": params.legendClasses,
     "mutuallyExclusive": params.mutuallyExclusive
 }) %}
