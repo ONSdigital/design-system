@@ -6,5 +6,6 @@
 !/img/**/*
 !/page-templates/**/*
 !/scripts/**/*
+!/scss/**/*
 !/LICENSE
 !/package.json
