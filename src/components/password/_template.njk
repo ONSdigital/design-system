@@ -3,7 +3,10 @@
 {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
 {% from "components/input/_macro.njk" import onsInput %}
 
-{% call onsField() %}
+{% call onsField({
+    "id": params.fieldId,
+    "classes": params.fieldClasses
+}) %}
     {{
         onsLabel({
             "for": params.id,
