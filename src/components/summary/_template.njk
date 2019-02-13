@@ -22,7 +22,7 @@
                                     <div class="summary__answer u-fs-r--b">{{ question.answer | safe }}</div>
                                     {% if question.action %}
                                         <div class="summary__action">
-                                            <a href="{{ question.action.url }}" class="summary__button"{% if question.action.ariaLabel %} aria-label="{{ question.action.ariaLabel }}"{% endif %}>{{ question.action.text    }}</a>
+                                            <a href="{{ question.action.url }}" class="summary__button"{% if question.action.ariaLabel %} aria-label="{{ question.action.ariaLabel }}"{% endif %}>{{ question.action.text }}</a>
                                         </div>
                                     {% endif %}
                                 </div>
