@@ -1,0 +1,50 @@
+.section-nav {
+  border-bottom: 1px solid $color-borders;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    font-size: 1rem;
+    display: inline-block;
+    margin: 0 0 0.3rem 1rem;
+    text-align: center;
+    &:first-child {
+      margin: 0;
+    }
+    &:hover,
+    &--active {
+      font-weight: bold;
+      color: $color-links-hover;
+      border-bottom: 4px solid $color-dark-blue;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+}
+
+.nav--vertical-bare {
+  .nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__item {
+    margin: 0;
+    padding: 0.25rem 0;
+
+    &--active {
+      font-weight: 700;
+    }
+  }
+
+  .nav__link {
+    text-decoration: none;
+  }
+}
