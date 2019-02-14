@@ -1,7 +1,7 @@
 | Name        | Type                 | Required | Description                                                                |
 | ----------- | -------------------- | -------- | -------------------------------------------------------------------------- |
 | id          | string               | true     | id of the accordion                                                        |
-| classes     | string               | false    | Classes to add to the button component                                     |
+| classes     | string               | false    | Classes to add to the accordion component                                  |
 | buttonClose | string               | true     | The close button text for each accordion item                              |
 | buttonOpen  | string               | true     | The open button text for each accordion item                               |
 | items       | Array<AccordionItem> | true     | Accordion items to render                                                  |
