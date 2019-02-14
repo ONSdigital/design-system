@@ -13,6 +13,9 @@
 {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
 
 {% call onsField({
+    "id": params.fieldId,
+    "classes": params.fieldClasses,
+    "legendClasses": params.legendClasses,
     "noField": params.noField,
     "legend": params.label.text if params.mutuallyExclusive,
     "description": params.label.description if params.mutuallyExclusive,
