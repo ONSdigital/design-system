@@ -1,7 +1,7 @@
 {
   "name": "@ons/design-system",
   "description": "ONS Design System built CSS, JS, and Nunjucks templates",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "index.js",
   "license": "MIT",
   "author": {
@@ -21,7 +21,7 @@
     "test:browserstack": "TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.js && TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.nomodule.js",
     "test:local": "KARMA_SINGLE_RUN=false karma start ./src/tests/config/karma.conf.js",
     "dedupe-deps": "npx yarn-deduplicate yarn.lock",
-    "tidy-clean": "rm -rf build css favicons fonts img components page-templates scripts coverage",
+    "tidy-clean": "rm -rf build css favicons fonts img components page-templates scripts coverage scss",
     "npm-bundle": "NODE_ENV=production yarn build && babel-node lib/generate-npm-package.js"
   },
   "browserslist": [
@@ -99,6 +99,7 @@
     "lodash": "^4.17.11",
     "marked": "^0.5.2",
     "mocha": "^5.2.0",
+    "ncp": "^2.0.0",
     "node-sass": "^4.10.0",
     "node-sass-glob-importer": "^5.2.0",
     "nunjucks": "^3.1.4",
