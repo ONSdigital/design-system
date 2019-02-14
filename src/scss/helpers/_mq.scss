@@ -69,7 +69,7 @@
   @return $number;
 }
 
-@mixin bp-suffix($class, $original: true, $breakpoints: $grid-bp, $createBetweenBreakpoints: false) {
+@mixin bp-suffix($class, $original: true, $breakpoints: $grid-bp, $create-between-breakpoints: false) {
   @if $original {
     .#{$class} {
       @content;
@@ -83,7 +83,7 @@
       }
     }
 
-    @if $createBetweenBreakpoints {
+    @if $create-between-breakpoints {
       @each $breakpointMax, $size in $grid-bp {
         @include mq($breakpointMin, $breakpointMax) {
           .#{$class}\@#{$breakpointMin}\@#{$breakpointMax} {

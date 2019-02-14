@@ -31,6 +31,6 @@
   font-size: 1rem;
 }
 
-@include bp-suffix('container--gutterless', $createBetweenBreakpoints: true) {
+@include bp-suffix('container--gutterless', $create-between-breakpoints: true) {
   padding: 0;
 }

@@ -45,6 +45,7 @@
     &:hover,
     &:focus {
       color: #c2ecff;
+      text-decoration: none;
     }
     .header-nav__item--active & {
       font-weight: bold;
