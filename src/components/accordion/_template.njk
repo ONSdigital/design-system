@@ -1,6 +1,6 @@
 {% from "components/details/_macro.njk" import onsDetails %}
 
-<div class="accordion">
+<div id="{{params.id}}" class="accordion {{ params.classes }}">
     {% if params.openAll and params.closeAll %}
         {% from "components/button/_macro.njk" import onsButton %}
         {{
