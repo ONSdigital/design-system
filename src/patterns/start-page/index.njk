@@ -1,0 +1,30 @@
+---
+title: Start a survey
+group: Pages
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+A start page gives users all the information they need before they start responding to a survey.
+
+{{
+    patternlibExample({ "path": "patterns/start-page/examples/start-page/index.njk" })
+}}
+
+## When to use this pattern
+Always place a start page as the first page of any online survey.  Any required sign up pages should be displayed before the start page.
+
+## How to use this pattern
+
+## Research on this pattern
+
+{% from "components/panel/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='https://github.com/ONSdigital/pattern-library-v2/issues/'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+
+[Discuss 'Start a survey' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/)

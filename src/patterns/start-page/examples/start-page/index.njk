@@ -1,0 +1,91 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% from "components/summary/_macro.njk" import onsSummary %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/accordion/_macro.njk" import onsAccordion %}
+{% set page = { 
+    "title": "Survey title",
+    "language": {
+        "languages": [
+            {
+                "url": "#",
+                "ISOCode": "en-GB",
+                "text": "English",
+                "buttonAriaLabel": "Language selector. Current language: English",
+                "chooseLanguage": "Choose language",
+                "current": true
+            }
+        ]
+    }
+} %}
+
+{% block content %}
+    <h2 class="u-fs-l">You are completing this for <span>Essential Enterprise</span> (ESSENTIAL ENTERPRISE LTD.)</h2>
+    <p>If the company details or structure have changed contact us on <a href="tel:03001234931">0300 1234 931</a> or email <a href="mailto:surveys@ons.gov.uk?subject=Change%20of%20details%20reference%2012345678" aria-describedby="">surveys@ons.gov.uk</a></p>
+    {{
+        onsList({
+            items: [
+                {
+                    "text": "Data should relate to all sites in England, Scotland and Wales unless otherwise stated."
+                },
+                {
+                    "text": "You can provide informed estimates if actual figures aren’t available."
+                },
+                {
+                    "text": "We will treat your data securely and confidentially."
+                }
+            ]
+        })
+    }}
+    <h2 class="u-fs-m u-mb-xs">Your response is legally required</h2>
+    <p class="u-mb-m">Notice is given under section 1 of the Statistics of Trade Act 1947.</p>
+    {{ 
+        onsButton({
+            "type": "button",
+            "text": "Start survey",
+            "classes": "u-mb-m"
+        }) 
+    }}
+    <h2>Information you need</h2>
+    <p>You can select the dates of the period you are reporting for, if the given dates are not appropriate.</p>
+    {{
+        onsAccordion({
+            "id": "accordion",
+            "classes": "u-mb-s",
+            "buttonOpen": "Show",
+            "buttonClose": "Hide",
+            "openAll": "Show all",
+            "closeAll": "Hide all",
+            "items": [
+                {
+                    "title": "Total retail turnover",
+                    "content": "<h3 class=\"u-fs-r\">Include:</h3><ul class=\"list\"><li class=\"list__item\">VAT</li><li class=\"list__item\">exports</li><li class=\"list__item\">retail sales from outlets in Great Britain to <a href=\"#\">customers abroad</a></li></ul><h3 class=\"u-fs-r\">Exclude:</h3><ul class=\"list\"><li class=\"list__item\">revenue from mobile phone network commission and top-up</li><li class=\"list__item\">sales from catering facilities used by customers</li><li class=\"list__item\">lottery sales and commission from lottery sales</li><li class=\"list__item\">sales of car accessories and motor vehicles</li><li class=\"list__item\">NHS receipts</li><li class=\"list__item\">automotive fuel</li></ul>"
+                },
+                {
+                    "title": "Value of grants, funding, donations and investment income",
+                    "content": "<h3 class=\"u-fs-r\">Exclude:</h3><ul class=\"list\"><li class=\"list__item\">VAT</li></ul>"
+                },
+                {
+                    "title": "Changes in turnover",
+                    "content": "<h3 class=\"u-fs-r\">Include:</h3><ul class=\"list\"><li class=\"list__item\">change in level of business activity</li><li class=\"list__item\">maintenance/shutdowns</li><li class=\"list__item\">special/calendar events</li></ul>"
+                }
+            ]
+        })
+    }}
+    <h2>How we use your data</h2>
+    {{
+        onsList({
+            items: [
+                {
+                    "text": "You cannot appeal your selection. Your business was selected to give us a comprehensive view of the UK economy."
+                },
+                {
+                    "text": "The information you provide contributes to <a href=\"#\">Gross Domestic Product (GDP)</a>."
+                }
+            ]
+        })
+    }}
+{% endblock %}
