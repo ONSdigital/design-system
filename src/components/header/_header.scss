@@ -11,11 +11,10 @@
     width: 100%;
 
     background: $color-white;
-    line-height: 1rem;
   }
 
   &__grid-top {
-    height: 49px;
+    height: 50px;
   }
 
   &--internal & {
@@ -45,10 +44,6 @@
       border-bottom: 3px solid $color-header;
       padding: 0.934rem 0;
     }
-  }
-
-  &__nav {
-    background: $color-header;
   }
 
   &__title {
@@ -89,6 +84,9 @@
       &__top {
         padding: 0.5rem 0;
       }
+      &__grid-top {
+        height: auto;
+      }
       &__main {
         padding: 0.5rem 0;
 
@@ -100,5 +98,9 @@
         width: 200px;
       }
     }
+  }
+
+  &__bottom {
+    background: $color-header;
   }
 }
