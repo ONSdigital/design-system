@@ -48,14 +48,7 @@ if (!String.prototype.padStart) {
 }
 
 if (!(window.Request && 'signal' in new Request(''))) {
-  promises.push(
-    new Promise(async resolve => {
-      await import('whatwg-fetch');
-      await import('abortcontroller-polyfill/dist/polyfill-patch-fetch');
-
-      resolve();
-    })
-  );
+  promises.push(import('./abortable-fetch'));
 
   console.log('fetch and AbortController polyfills loaded');
 }
