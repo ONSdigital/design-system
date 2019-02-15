@@ -47,6 +47,19 @@ if (!String.prototype.padStart) {
   console.log('String#padStart polyfill loaded');
 }
 
+if (!(window.Request && 'signal' in new Request(''))) {
+  promises.push(
+    new Promise(async resolve => {
+      await import('whatwg-fetch');
+      await import('abortcontroller-polyfill/dist/polyfill-patch-fetch');
+
+      resolve();
+    })
+  );
+
+  console.log('fetch and AbortController polyfills loaded');
+}
+
 Promise.all(promises).then(() => {
   const event = new CustomEvent(polyfillsReadyEvent);
   document.dispatchEvent(event);
