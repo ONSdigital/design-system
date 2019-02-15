@@ -1,6 +1,6 @@
 {% if params.languages | length <= 3 %}
     {% set alternativeLanguages = params.languages | rejectattr("current") %}
-    <ul class="language-links u-d-no@xs@s">
+    <ul class="language-links u-d-no@xs@m">
         {% for language in alternativeLanguages %}
             <li class="language-links__item">
                 <a href="{{ language.url }}" lang="{{ language.ISOCode }}">{{ language.text }}</a>
@@ -9,7 +9,7 @@
     </ul>
 {% else %}
     {% set currentLanguage = params.languages | selectattr("current") | first %}
-    <div class="language-switcher u-d-no@xs@s js-language-switcher" lang="{{ currentLanguage.ISOCode }}">
+    <div class="language-switcher u-d-no@xs@m js-language-switcher" lang="{{ currentLanguage.ISOCode }}">
     <a class="js-language-switcher-link" href="{{ params.allLanguagesUrl }}">{{ currentLanguage.chooseLanguage }}</a>
     <button type="button" class="u-d-no language-switcher__button js-language-switcher-button" aria-label="{{ currentLanguage.buttonAriaLabel }}">{{ currentLanguage.text }}</button>
     <ul id="language-switcher-items" class="u-d-no language-switcher__items js-language-switcher-items">
