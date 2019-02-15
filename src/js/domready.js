@@ -10,7 +10,7 @@ const onReady = () => {
   callbacks.forEach(fn => fn.call());
   document.removeEventListener(eventReady, onReady);
 
-  const event = new CustomEvent('ons-dom-ready');
+  const event = new CustomEvent('onsDomReady');
 
   document.dispatchEvent(event);
   window.onsDomReady = true;
