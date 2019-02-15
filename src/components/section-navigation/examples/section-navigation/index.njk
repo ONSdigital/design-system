@@ -1,0 +1,22 @@
+{% from "components/section-navigation/_macro.njk" import onsSectionNavigation %}
+{{ 
+    onsSectionNavigation({
+        "ariaLabel": "Section menu",
+        "ariraListLabel": "Navigation menu",
+        "currentPath": "#",
+        "items": [
+            {
+                "title": "Section 1",
+                "path": "#"
+            },
+            {
+                "title": "Section 2",
+                "path": "#/"
+            },
+            {
+                "title": "Section 3",
+                "path": "#/"
+            }
+        ]
+    })
+}}
