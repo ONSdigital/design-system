@@ -1,0 +1,29 @@
+.patternlib-subnav {
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    margin: 0;
+    padding: 0.25rem 0;
+
+    &--active {
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__sub-items {
+    padding: 0 0 0 1rem;
+    list-style: none;
+    font-weight: normal;
+  }
+}

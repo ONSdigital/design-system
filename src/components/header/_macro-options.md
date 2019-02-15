@@ -27,5 +27,5 @@
 | Name    | Type   | Required | Description                                       |
 | ------- | ------ | -------- | ------------------------------------------------- |
 | classes | string | false    | Additional css classes for the navigation element |
-| path    | string | true     | The value of the description term                 |
-| title   | string | true     | The value of the description term                 |
+| path    | string | true     | The path to the linked page                       |
+| title   | string | true     | The text for the link                             |
