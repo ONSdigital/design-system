@@ -43,7 +43,7 @@
         type="{{ type }}"
         id="{{ params.id }}"
         class="input input--text input-type__input {{ params.classes }}{{ exclusiveClass }}"
-        title="{{ params.prefix.title }}{{ params.suffix.title }}"
+        {% if params.prefix or params.suffix %}title="{{ params.prefix.title }}{{ params.suffix.title }}"{% endif %}
         {% if params.name !== undefined %}name="{{ params.name }}"{% endif %}
         {% if params.value !== undefined %}value="{{ params.value }}"{% endif %}
         {% if params.accept !== undefined %}accept="{{ params.accept }}"{% endif %}
