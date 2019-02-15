@@ -9,6 +9,11 @@ const onReady = () => {
   isReady = true;
   callbacks.forEach(fn => fn.call());
   document.removeEventListener(eventReady, onReady);
+
+  const event = new CustomEvent('ons-dom-ready');
+
+  document.dispatchEvent(event);
+  window.onsDomReady = true;
 };
 
 export default function ready(fn, ready = isReady) {
