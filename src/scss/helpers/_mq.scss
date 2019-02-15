@@ -30,33 +30,11 @@
   }
 }
 
-@mixin fixed-width() {
-  @if not $responsive {
-    @content;
-  }
-}
-
-@mixin ie8 {
-  @if not $responsive {
-    .lt-ie9 & {
-      @content;
-    }
-  }
-}
-
-@mixin ie7 {
-  @if not $responsive {
-    .lt-ie8 & {
-      @content;
-    }
-  }
-}
-
 @function get-bp-width($name, $breakpoints: $grid-bp) {
   @if map-has-key($breakpoints, $name) {
     @return map-get($breakpoints, $name);
   } @else {
-    @warn "Breakpoint #{$name} wasn't found in $breakpoints.";
+    @warn 'Breakpoint #{$name} wasn\'t found in $breakpoints.';
   }
 }
 
@@ -76,17 +54,17 @@
     }
   }
 
-  @each $breakpointMin, $size in $breakpoints {
-    @include mq($breakpointMin) {
-      .#{$class}\@#{$breakpointMin} {
+  @each $breakpoint-min, $size in $breakpoints {
+    @include mq($breakpoint-min) {
+      .#{$class}\@#{$breakpoint-min} {
         @content;
       }
     }
 
     @if $create-between-breakpoints {
-      @each $breakpointMax, $size in $grid-bp {
-        @include mq($breakpointMin, $breakpointMax) {
-          .#{$class}\@#{$breakpointMin}\@#{$breakpointMax} {
+      @each $breakpoint-max, $size in $grid-bp {
+        @include mq($breakpoint-min, $breakpoint-max) {
+          .#{$class}\@#{$breakpoint-min}\@#{$breakpoint-max} {
             @content;
           }
         }
