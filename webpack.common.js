@@ -233,7 +233,12 @@ export default function(mode) {
                     }
                   ]
                 ],
-                plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties', 'rewiremock/babel']
+                plugins: [
+                  '@babel/plugin-syntax-dynamic-import',
+                  '@babel/plugin-proposal-class-properties',
+                  '@babel/plugin-transform-runtime',
+                  'rewiremock/babel'
+                ]
               }
             }
           }
@@ -269,7 +274,12 @@ export default function(mode) {
                     }
                   ]
                 ],
-                plugins: ['@babel/plugin-syntax-dynamic-import', '@babel/plugin-proposal-class-properties', 'rewiremock/babel']
+                plugins: [
+                  '@babel/plugin-syntax-dynamic-import',
+                  '@babel/plugin-proposal-class-properties',
+                  '@babel/plugin-transform-runtime',
+                  'rewiremock/babel'
+                ]
               }
             }
           }
