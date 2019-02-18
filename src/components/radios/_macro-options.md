@@ -9,11 +9,12 @@
 
 ## Radio
 
-| Name    | Type                                 | Required | Description                          |
-| ------- | ------------------------------------ | -------- | ------------------------------------ |
-| id      | string                               | true     | The id of the radio                  |
-| name    | string                               | true     | The name of the radio                |
-| value   | string                               | true     | The value of the radio               |
-| checked | boolean                              | false    | Whether the radio should be checked  |
-| label   | `Label` [_(ref)_](/components/label) | true     | Settings for the radio label         |
-| other   | `Input` [_(ref)_](/components/input) | false    | Object with settings for other input |
+| Name       | Type                                 | Required | Description                                                                     |
+| ---------- | ------------------------------------ | -------- | ------------------------------------------------------------------------------- |
+| id         | string                               | true     | The id of the radio                                                             |
+| name       | string                               | true     | The name of the radio                                                           |
+| value      | string                               | true     | The value of the radio                                                          |
+| checked    | boolean                              | false    | Whether the radio should be checked                                             |
+| label      | `Label` [_(ref)_](/components/label) | true     | Settings for the radio label                                                    |
+| other      | `Input` [_(ref)_](/components/input) | false    | Object with settings for other input                                            |
+| attributes | object                               | false    | HTML attributes (for example data attributes) to add to the radio input element |
