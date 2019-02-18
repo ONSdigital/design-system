@@ -10,7 +10,7 @@
     {% for radio in params.radios %}
         <div class="field__item">
             <div class="radio">
-                <input class="radio__input {{ radio.classes }}" name="{{ params.name }}" id="{{ radio.id }}" value="{{ radio.value }}"{% if radio.checked %} checked{% endif %} type="radio">
+                <input class="radio__input {{ radio.classes }}" name="{{ params.name }}" id="{{ radio.id }}" value="{{ radio.value }}"{% if radio.checked %} checked{% endif %} type="radio"{% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
                 <label class="radio__label {{ radio.label.classes }}" for="{{ radio.id }}">
                     {{ radio.label.text | safe }}
                     {% if radio.label.description %}
