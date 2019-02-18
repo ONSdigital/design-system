@@ -3,32 +3,45 @@ title: Footer
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
+The footer provides links to supplementary information about your service and the ONS, as well as copyright, licensing and other required legal information.
+
 {{
     patternlibExample({"path": "components/footer/examples/footer/index.njk"})
 }}
+## When to use this component
+You should use the appropriate ONS footer at the bottom of any ONS service.
 
+## How to use this component
+### Variants 
 
-## Variants 
-
-### Transactional
-A reduced set of links as it is within a transaction funnel.
+#### Transactional
+A reduced set of links for use within a transaction funnel such as a questionnaire.
 {{
     patternlibExample({"path": "components/footer/examples/footer-transactional/index.njk"})
 }}
 
-### Powered by ONS
+#### Powered by ONS
 For badged services where ONS is providing services to external organisations.
 {{
     patternlibExample({"path": "components/footer/examples/footer-powered-by-ons/index.njk"})
 }}
 
-### Transactional – Powered by ONS
+#### Transactional – Powered by ONS
 For badged services where ONS is providing services to external organisations, with a reduced set of links as it is within a transaction funnel.
 {{
     patternlibExample({"path": "components/footer/examples/footer-powered-by-ons-transactional/index.njk"})
 }}
 
-### Transactional – Powered by ONS (Cymraeg)
+#### Transactional – Powered by ONS (Cymraeg)
 {{
     patternlibExample({"path": "components/footer/examples/footer-powered-by-ons-transactional-cymraeg/index.njk"})
 }}
+
+## Research on this component
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/172" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum 
+[Discuss 'Footer' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/172)
