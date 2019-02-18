@@ -4,8 +4,6 @@ export const awaitPolyfills = new Promise(resolve => {
   if (window.polyfillsLoaded) {
     resolve();
   } else {
-    document.addEventListener(polyfillsReadyEvent, () => {
-      resolve();
-    });
+    document.addEventListener(polyfillsReadyEvent, resolve);
   }
 });

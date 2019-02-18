@@ -1,0 +1,38 @@
+---
+"fullWidth": true
+---
+{% from "components/header/_macro.njk" import onsHeader %}
+{{ 
+    onsHeader({
+        "title": "Design system",
+        "logoHref": "#",
+        "toggleButton": {
+            "text": "Menu",
+            "ariaLabel": "Toggle main navigation"
+        },
+        "navigation": {
+            "id": "main-nav",
+            "ariaLabel": "Main menu",
+            "ariraListLabel": "Navigation menu",
+            "currentPath": "/get-started",
+            "items": [
+                {
+                    "title": "Get started",
+                    "path": "/get-started"
+                },
+                {
+                    "title": "Components",
+                    "path": "#"
+                },
+                {
+                    "title": "Styles",
+                    "path": "#"
+                },
+                {
+                    "title": "Patterns",
+                    "path": "#"
+                }
+            ]
+        }
+    })
+}}
