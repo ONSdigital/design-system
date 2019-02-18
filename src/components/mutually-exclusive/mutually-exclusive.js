@@ -15,7 +15,7 @@ export default function mutuallyExclusiveInputs() {
     const voiceOverAlertElement = exclusiveWrapperElement.getElementsByClassName(voiceOverAlertClass)[0];
     for (let exclusiveGroupElement of exclusiveGroupElements) {
       const elementType = exclusiveGroupElement.type;
-      const event = elementType === 'checkbox' ? 'change' : 'input';
+      const event = elementType === 'checkbox' ? 'click' : 'input';
       exclusiveGroupElement.addEventListener(event, function() {
         voiceOverAlertElement.innerHTML = '';
         inputToggle(checkboxElement, voiceOverAlertElement, 'checkbox');
@@ -33,6 +33,7 @@ export default function mutuallyExclusiveInputs() {
 
 const inputToggle = function(inputEl, voiceOverAlertEl, elType) {
   let attr = inputEl.getAttribute('value');
+  const originalValue = getInputValue(inputEl, elType);
 
   if (elType === 'checkbox' && inputEl.checked === true) {
     inputEl.checked = false;
@@ -52,7 +53,29 @@ const inputToggle = function(inputEl, voiceOverAlertEl, elType) {
     }
   }
 
+  const updatedValue = getInputValue(inputEl, elType);
+
+  if (originalValue != updatedValue) {
+    const event = document.createEvent('HTMLEvents');
+    event.initEvent('change', false, true);
+    inputEl.dispatchEvent(event);
+  }
+
   voiceOverAlertEl.append(attr + ' ' + voiceOverAlertEl.getAttribute('data-adjective') + '. ');
 };
+
+function getInputValue(inputElement, elementType) {
+  switch (elementType) {
+    case 'checkbox': {
+      return inputElement.checked;
+    }
+    case 'select-one': {
+      return inputElement.selectedIndex;
+    }
+    default: {
+      return inputElement.value;
+    }
+  }
+}
 
 domready(mutuallyExclusiveInputs);
