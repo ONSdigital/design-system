@@ -47,6 +47,12 @@ if (!String.prototype.padStart) {
   console.log('String#padStart polyfill loaded');
 }
 
+if (!(window.Request && 'signal' in new Request(''))) {
+  promises.push(import('./abortable-fetch'));
+
+  console.log('fetch and AbortController polyfills loaded');
+}
+
 Promise.all(promises).then(() => {
   const event = new CustomEvent(polyfillsReadyEvent);
   document.dispatchEvent(event);
