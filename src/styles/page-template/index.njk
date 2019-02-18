@@ -1,0 +1,26 @@
+---
+title: Page template    
+sortOrder: 4
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+Use the page template to create pages with the core components and markup required for an ONS service.
+
+The examples below provide templates that consist of commonly used components and pattern combinations.
+
+All template examples contain the following:
+
+- CSS and Javascript to add styling and behaviours to components.
+- a skip link, header and footer component.
+- a favicon, and other related bookmark icons.
+
+## Basic page template
+{{
+    patternlibExample({ "path": "styles/page-template/examples/basic/index.njk" })
+}}
+
+To view the rendered HTML, click on the HTMl tab on each example.
+
+## Design System forum
+[Discuss 'Grid' on GitHub](https://github.com/ONSdigital/pattern-library-v2/issues/72)
+
