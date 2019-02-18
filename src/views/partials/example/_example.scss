@@ -66,13 +66,13 @@
     }
   }
 
+  &__code {
+    white-space: pre;
+  }
+
   &__pre {
     margin: 0;
     white-space: normal;
-  }
-
-  &__code {
-    white-space: pre;
   }
 }
 
