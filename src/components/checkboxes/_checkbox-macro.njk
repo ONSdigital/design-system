@@ -1,6 +1,6 @@
 {% macro onsCheckbox(params) %}
     <div class="checkbox {{ params.classes }}">
-        <input class="checkbox__input {{ params.inputClasses }}" name="{{ params.name }}" id="{{ params.id }}" value="{{ params.value }}"{% if params.checked %} checked{% endif %} type="checkbox"{% for attribute, value in checkbox.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+        <input class="checkbox__input {{ params.inputClasses }}" name="{{ params.name }}" id="{{ params.id }}" value="{{ params.value }}"{% if params.checked %} checked{% endif %} type="checkbox"{% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
         <label class="checkbox__label {{ params.label.classes }}" for="{{ params.id }}">
             {{ params.label.text | safe }}
             {% if params.label.description %}
