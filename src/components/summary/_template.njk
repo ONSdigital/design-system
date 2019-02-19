@@ -15,7 +15,7 @@
                 {% endif %}
                 {% for question in item.questions %}
                     <tr class="summary__row">
-                        {% if question.answer | length > 25 %}
+                        {% if question.answer.replace("<br/>", "<br>").split('<br>') | first | length > 50 %}
                             <td colspan="3" class="summary__question">
                                 {{ question.question }}
                                 <div class="summary__answer-action">

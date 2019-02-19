@@ -23,10 +23,9 @@
                     "type": "number",
                     "name": params.day.name,
                     "classes": "input--w-2" + exclusiveClass | default(""),
-                    "attributes": {
-                        "min": 1,
-                        "max": 31
-                    },
+                    "min": 1,
+                    "max": 31,
+                    "attributes": params.day.attributes,
                     "label": {
                         "text": params.day.label,
                         "classes": "u-fs-r"
@@ -44,10 +43,9 @@
                     "type": "number",
                     "name": params.month.name,
                     "classes": "input--w-2" + exclusiveClass | default(""),
-                    "attributes": {
-                        "min": 1,
-                        "max": 12
-                    },
+                    "min": 1,
+                    "max": 12,
+                    "attributes": params.month.attributes,
                     "label": {
                         "text": params.month.label,
                         "classes": "u-fs-r"
@@ -64,11 +62,10 @@
                     "id": params.id + "-year",
                     "type": "number",
                     "name": params.year.name,
-                    "classes": "input--w-4" + exclusiveClass | default(""),  
-                    "attributes": {
-                        "min": 1000,
-                        "max": 3000
-                    },
+                    "classes": "input--w-4" + exclusiveClass | default(""), 
+                    "min": 1000,
+                    "max": 3000,
+                    "attributes": params.year.attributes,
                     "label": {
                         "text": params.year.label,
                         "classes": "u-fs-r"
