@@ -69,7 +69,7 @@
                 {% endfor %}
             {% endif %}
             <div class="grid__col">
-                <div class="footer__license footer__license--border">
+                <div class="footer__license {{ 'footer__license--border' if params.rows or params.cols or params.poweredByONS }}">
                     <img alt="OGL" alt="OGL" class="footer__ogl-img" src="{{ '/' + params.version if params.version  }}/img/UKOpenGovernmentLicence-grey.svg">{{ params.OGLLink.pre}} <a href="{{ params.OGLLink.url }}" class="footer__link">{{ params.OGLLink.link }}</a>{{ params.OGLLink.post }}
                 </div>
             </div>
