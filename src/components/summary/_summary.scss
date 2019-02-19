@@ -1,3 +1,5 @@
+$summary-col-spacing: 1rem;
+
 .summary {
   $ctx: &;
 
@@ -5,6 +7,10 @@
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
+  }
+
+  &__row {
+    margin-left: -$summary-col-spacing;
   }
 
   &__item-title,
@@ -17,12 +23,18 @@
 
   &__answer-action {
     margin-top: 0.5rem;
+    margin-left: -$summary-col-spacing;
   }
 
   @include mq(321px) {
     &__answer-action {
       display: flex;
     }
+  }
+
+  &__answer,
+  &__action {
+    padding-left: $summary-col-spacing;
   }
 
   &__answer {
@@ -32,7 +44,6 @@
   &__action {
     flex: 0 0 auto;
     align-self: flex-start;
-    padding-left: 1rem;
   }
 
   &__item--error & {
@@ -44,18 +55,18 @@
     }
 
     &__item-title {
-      padding-right: 1rem;
-      padding-left: 1rem;
+      padding-right: $summary-col-spacing;
+      padding-left: $summary-col-spacing;
       color: $color-errors;
       font-weight: bold;
     }
 
     &__question {
-      padding-left: 1rem;
+      padding-left: $summary-col-spacing;
     }
 
     &__action {
-      padding-right: 1rem;
+      padding-right: $summary-col-spacing;
     }
   }
 
@@ -92,6 +103,7 @@
 
     &__item-title,
     &__question {
+      padding-left: $summary-col-spacing;
       width: 100%;
     }
 
@@ -115,11 +127,11 @@
 
     &__item--error & {
       &__question {
-        padding-right: 1rem;
+        padding-right: $summary-col-spacing;
       }
 
       &__answer {
-        padding-left: 1rem;
+        padding-left: $summary-col-spacing;
       }
 
       &__answer-action #{$ctx}__answer {
@@ -166,7 +178,7 @@
     }
 
     &__question:not([colspan]) {
-      padding-right: 1rem;
+      padding-right: $summary-col-spacing;
     }
 
     &__action {
@@ -208,10 +220,6 @@
       li:last-child {
         margin-bottom: 0;
       }
-    }
-
-    &__action {
-      padding-left: 0;
     }
   }
 }
