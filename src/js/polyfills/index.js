@@ -53,6 +53,12 @@ if (!(window.Request && 'signal' in new Request(''))) {
   console.log('fetch and AbortController polyfills loaded');
 }
 
+if (!window.URLSearchParams) {
+  promises.push(import('url-search-params-polyfill'));
+
+  console.log('URLSearchParams polyfill loaded');
+}
+
 Promise.all(promises).then(() => {
   const event = new CustomEvent(polyfillsReadyEvent);
   document.dispatchEvent(event);
