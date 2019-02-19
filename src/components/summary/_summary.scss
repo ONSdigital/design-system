@@ -77,7 +77,7 @@ $summary-col-spacing: 1rem;
     }
   }
 
-  @include mq(xs, m) {
+  @include mq(xs, m, $to-operator: '<') {
     &__items,
     &__item,
     &__item-title,
