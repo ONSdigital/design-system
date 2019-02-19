@@ -11,16 +11,22 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/x-icon" href="{{ '/' + data.version if data.version  }}/favicons/favicon.ico">
         <title>{{ page.title | default(data.title) }}</title>
-        <link rel="stylesheet" href="{{ '/' + data.version if data.version  }}/css/responsive.css">
+        <link rel="stylesheet" href="{{ '/' + data.version if data.version  }}{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/css/responsive.css">
 
         {% block headIcons %}
+            <meta name="msapplication-config" content="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/browserconfig.json"> 
+            <link rel="icon" type="image/x-icon" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/favicon.ico"> 
+            <link rel="icon" type="image/png" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/favicon-32x32.png" sizes="32x32"> 
+            <link rel="icon" type="image/png" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/favicon-16x16.png" sizes="16x16"> 
+            <link rel="mask-icon" color="#5bbad5" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/safari-pinned-tab.svg"> 
+            <link rel="apple-touch-icon" type="image/png" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/apple-touch-icon.png" sizes="180x180"> 
+            <link rel="manifest" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/manifest.json">
         {% endblock %}
 
         {% block head %}{% endblock %}
     </head>
-    <body class="{{ bodyClasses }}">
+    <body {% if bodyClasses %} class="{{ bodyClasses }}"{% endif %}>
         <div class="page">
             <div class="page__content">
                 {% block bodyStart %}{% endblock %}
@@ -37,15 +43,18 @@
                         onsHeader({
                             "version": data.version,
                             "title": page.title,
-                            "language": page.language
+                            "language": page.language,
+                            "button": page.button,
+                            "toggleButton": page.toggleButton,
+                            "navigation": page.navigation
                         })
                     }}
                 {% endblock %}
                 {% block main %}
-                    <div class="page__container container u-mt-s">
+                    <div class="page__container container u-mt-s {{ containerClasses }}">
                         <div class="grid">
-                            <div class="grid__col col-7@m">
-                                <main id="main-content" role="main" class="page__main {{ mainClasses }}">
+                            <div class="grid__col col-8@m">
+                                <main id="main-content" role="main" class="page__main {{ pageClasses }}">
                                     {% block content %}{% endblock %}
                                 </main>
                             </div>
@@ -66,8 +75,8 @@
             {% endblock %}
             {% block bodyEnd %}{% endblock %}
         </div>
-        <script type="module" src="{{ '/' + data.version if data.version  }}/scripts/bundle.js"></script>
-        <script nomodule src="{{ '/' + data.version if data.version  }}/scripts/bundle.es5.js"></script>
+        <script type="module" src="{{ '/' + data.version if data.version  }}{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/scripts/bundle.js"></script>
+        <script nomodule src="{{ '/' + data.version if data.version  }}{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/scripts/bundle.es5.js"></script>
         <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
         
         {% if isPatternLib %}
