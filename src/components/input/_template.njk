@@ -47,7 +47,10 @@
         {% if params.name !== undefined %}name="{{ params.name }}"{% endif %}
         {% if params.value !== undefined %}value="{{ params.value }}"{% endif %}
         {% if params.accept !== undefined %}accept="{{ params.accept }}"{% endif %}
+        {% if params.min !== undefined %}min="{{ params.min }}"{% endif %}
+        {% if params.max !== undefined %}max="{{ params.max }}"{% endif %}
         {% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+
     />
     {% if params.prefix !== undefined or params.suffix !== undefined %}
             <abbr class="input-type__type" aria-hidden="true" title="{{ params.prefix.title }}{{ params.suffix.title }}">{{ params.prefix.text or params.prefix.title }}{{ params.suffix.text or params.suffix.title }}</abbr>

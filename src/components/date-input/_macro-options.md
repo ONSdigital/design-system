@@ -12,8 +12,9 @@
 
 ## DateField
 
-| Name  | Type   | Required | Description                |
-| ----- | ------ | -------- | -------------------------- |
-| label | string | true     | Label for the field        |
-| name  | string | true     | Name of the field          |
-| value | number | false    | Preset value for the field |
+| Name       | Type   | Required | Description                                                       |
+| ---------- | ------ | -------- | ----------------------------------------------------------------- |
+| label      | string | true     | Label for the field                                               |
+| name       | string | true     | Name of the field                                                 |
+| value      | number | false    | Preset value for the field                                        |
+| attributes | object | false    | HTML attributes (for example data attributes) to add to the input |
