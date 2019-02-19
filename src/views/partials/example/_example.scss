@@ -9,18 +9,15 @@
   border: 1px solid $color-borders;
 
   &__link {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
     display: inline-block;
     padding: 0.25rem 0.5rem;
     line-height: 1.3rem;
-    background: $color-grey-4;
+    background: #fff;
   }
 
   &__frame {
     background: $color-borders;
+    border-top: 1px solid $color-borders;
   }
 
   &__iframe {
