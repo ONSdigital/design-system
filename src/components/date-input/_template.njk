@@ -11,7 +11,7 @@
     {% set classes = "field--question" + (" " + params.classes if params.classes) %}
 {% else %}
     {% set legend = params.legend %}
-    {% set classes = params.classes %}
+    {% set classes = "field--date" + (" " + params.classes if params.classes) %}
 {% endif %}
 
 {% call onsField({

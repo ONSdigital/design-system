@@ -12,7 +12,6 @@
   }
 
   &__description {
-    @extend .u-fs-s;
     margin-bottom: 0.5em;
   }
 
@@ -25,16 +24,14 @@
     position: relative;
   }
 
-  &__item & {
-    & > &__item {
-      margin: 0 0.5rem 0.5rem 0;
-      width: 100%;
+  & > &__item {
+    margin: 0 0.5rem 0.5rem 0;
+    width: 100%;
 
-      @include mq(m) {
-        &:not([class*='field__item--w-']) {
-          width: auto;
-          min-width: 20rem;
-        }
+    @include mq(m) {
+      &:not([class*='field__item--w-']) {
+        width: auto;
+        min-width: 20rem;
       }
     }
   }
@@ -67,8 +64,13 @@
     }
 
     &__description {
-      @extend .u-fs-r;
       @extend .u-mb-m;
+    }
+  }
+
+  &--date & {
+    &__legend {
+      @extend .u-fs-m;
     }
   }
 }
