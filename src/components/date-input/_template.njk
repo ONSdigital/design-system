@@ -6,11 +6,20 @@
     {% set exclusiveClass = " js-exclusive-group" %}
 {% endif %}
 
+{% if params.questionMode %}
+    {% set legend = "<h1>" + params.legend + "</h1>" %}
+    {% set classes = "field--question" + (" " + params.classes if params.classes) %}
+{% else %}
+    {% set legend = params.legend %}
+    {% set classes = params.classes %}
+{% endif %}
+
 {% call onsField({
     "id": params.id,
-    "legend": params.legend,
+    "legend": legend,
     "description": params.description,
-    "classes": params.classes,
+    "classes": classes,
+    "descriptionClasses": descriptionClasses | default(""),
     "legendClasses": params.legendClasses,
     "mutuallyExclusive": params.mutuallyExclusive
 }) %}
@@ -27,8 +36,7 @@
                     "max": 31,
                     "attributes": params.day.attributes,
                     "label": {
-                        "text": params.day.label,
-                        "classes": "u-fs-r"
+                        "text": params.day.label
                     },
                     "value": params.day.value
                 })
@@ -47,8 +55,7 @@
                     "max": 12,
                     "attributes": params.month.attributes,
                     "label": {
-                        "text": params.month.label,
-                        "classes": "u-fs-r"
+                        "text": params.month.label
                     },
                     "value": params.month.value
                 })
@@ -67,8 +74,7 @@
                     "max": 3000,
                     "attributes": params.year.attributes,
                     "label": {
-                        "text": params.year.label,
-                        "classes": "u-fs-r"
+                        "text": params.year.label
                     },
                     "value": params.year.value
                 })

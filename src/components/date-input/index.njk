@@ -25,6 +25,14 @@ A `<div>` with `field_description` class is used to provide an example of the re
 
 Each field uses the `input--w-<number>` class to set the known number of digits required for each field.
 
+### Using a date input as a question
+
+If you need to use a date input as a question (e.g. in eq-runner), you can tell the macro that the component is being used as a question which will change the layout of the component. This can be achieved by setting the `questionMode` parameter to true.
+
+{{
+    patternlibExample({"path": "components/date-input/examples/date-input-question/index.njk"})
+}}
+
 {% from "components/panel/_macro.njk" import onsPanel %}
 {{
     onsPanel({

@@ -9,6 +9,7 @@
 | year              | DateField                                                     | false    | Config for the year field. If this isn't provided then a year field will not render                          |
 | mutuallyExclusive | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false    | Configuration object if this is a mutually exclusive list                                                    |
 | legendClasses     | string                                                        | false    | Classes to apply to the legend                                                                               |
+| questionMode      | boolean                                                       | false    | Whether to change the visual layout of the input to a survey question                                        |
 
 ## DateField
 

@@ -1,10 +1,15 @@
 @mixin font-size($props, $base) {
-  font-size: rems(map-get($props, small), $base);
+  $small-size: map-get($props, small);
+  $large-size: map-get($props, large);
+
+  font-size: rems($small-size, $base);
   font-weight: map-get($props, weight);
   line-height: map-get($props, line-height);
 
-  @include mq(m) {
-    font-size: rems(map-get($props, large), $base);
+  @if $small-size != $large-size {
+    @include mq(m) {
+      font-size: rems($large-size, $base);
+    }
   }
 }
 
