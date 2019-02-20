@@ -51,7 +51,8 @@
                     }}
                 {% endblock %}
                 {% block main %}
-                    <div class="page__container container u-mt-s {{ containerClasses }}">
+                    {% block prePage %}{% endblock %}
+                    <div class="page__container container {{ containerClasses }}">
                         <div class="grid">
                             <div class="grid__col col-8@m">
                                 <main id="main-content" role="main" class="page__main {{ pageClasses }}">
