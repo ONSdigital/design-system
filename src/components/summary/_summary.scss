@@ -179,6 +179,7 @@ $summary-col-spacing: 1rem;
 
     &__question:not([colspan]) {
       padding-right: $summary-col-spacing;
+      width: 40%;
     }
 
     &__action {
