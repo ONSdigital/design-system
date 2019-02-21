@@ -44,11 +44,6 @@ $nav-width: 14rem;
   float: none;
 }
 
-.page__container {
-  @extend .u-mt-s;
-  @extend .u-mb-l;
-}
-
 .page__content {
   flex: 1 0 auto;
   position: relative;
@@ -98,7 +93,9 @@ $nav-width: 14rem;
   }
 
   .page__main {
+    @extend .u-mt-s;
     transform: translateX(0);
+    margin-bottom: 4.5rem;
     transition: opacity 100ms ease-out;
   }
 
