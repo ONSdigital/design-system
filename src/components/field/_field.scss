@@ -17,6 +17,7 @@
 
   &__group {
     @extend .u-cf;
+    margin-bottom: -1rem;
   }
 
   &__item {
@@ -27,6 +28,10 @@
   & > &__item {
     margin: 0 0.5rem 0.5rem 0;
     width: 100%;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
 
     @include mq(m) {
       &:not([class*='field__item--w-']) {
