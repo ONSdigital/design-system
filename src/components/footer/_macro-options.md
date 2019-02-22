@@ -1,10 +1,11 @@
-| Name         | Type                          | Required | Description                                                                                             |
-| ------------ | ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| OGLLink      | `OGLLink`                     | true     | An object containing settings for the OGL link                                                          |
-| cols         | `Array<FooterCol>`            | false    | An array of `FooterCol` objects. _Maximum of 3_                                                         |
-| cols         | `Array<FooteRow>`             | false    | An array of `FooterRow` objects                                                                         |
-| poweredByONS | boolean &#124; `PoweredByONS` | false    | Whether to show the ONS logo, and optionally settings for the logo                                      |
-| lang         | string                        | false    | The current page language. Will change out the ONS logo if `poweredByONS` is provided. Defaults to `en` |
+| Name         | Type                                   | Required | Description                                                                                             |
+| ------------ | -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| OGLLink      | `OGLLink`                              | true     | An object containing settings for the OGL link                                                          |
+| cols         | `Array<FooterCol>`                     | false    | An array of `FooterCol` objects. _Maximum of 3_                                                         |
+| cols         | `Array<FooteRow>`                      | false    | An array of `FooterRow` objects                                                                         |
+| poweredByONS | boolean &#124; `PoweredByONS`          | false    | Whether to show the ONS logo, and optionally settings for the logo                                      |
+| lang         | string                                 | false    | The current page language. Will change out the ONS logo if `poweredByONS` is provided. Defaults to `en` |
+| button       | `Button` [_(ref)_](/components/button) | false    | Settings for save and sign out using the button component                                               |
 
 ## OGLLink
 
