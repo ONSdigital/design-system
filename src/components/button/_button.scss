@@ -78,6 +78,13 @@
   padding: 0.5rem 1rem;
 }
 
+.btn--ghost-blue {
+  @include btn-override($bg: transparent, $color: $color-blue, $border-color: darken($color-blue, 10%), $border-color-hover: $color-blue);
+
+  border-width: 2px;
+  padding: 0.5rem 1rem;
+}
+
 .btn--small {
   padding: 0.4rem 0.5rem;
   font-weight: 600;
