@@ -15,26 +15,12 @@
                 {% endif %}
                 {% for question in item.questions %}
                     <tr class="summary__row">
-                        {% if question.answer.replace("<br/>", "<br>").split('<br>') | first | length > 50 %}
-                            <td colspan="3" class="summary__question">
-                                {{ question.question }}
-                                <div class="summary__answer-action">
-                                    <div class="summary__answer u-fs-r--b">{{ question.answer | safe }}</div>
-                                    {% if question.action %}
-                                        <div class="summary__action">
-                                            <a href="{{ question.action.url }}" class="summary__button"{% if question.action.ariaLabel %} aria-label="{{ question.action.ariaLabel }}"{% endif %}>{{ question.action.text }}</a>
-                                        </div>
-                                    {% endif %}
-                                </div>
+                        <td class="summary__question">{{ question.question }}</td>
+                        <td {% if question.action == null %}colspan="2" {% endif %}class="summary__answer u-fs-r--b">{{ question.answer | safe }}</td>
+                        {% if question.action %}
+                            <td class="summary__action">
+                                <a href="{{ question.action.url }}" class="summary__button"{% if question.action.ariaLabel %} aria-label="{{ question.action.ariaLabel }}"{% endif %}>{{ question.action.text }}</a>
                             </td>
-                        {% else %}
-                            <td class="summary__question">{{ question.question }}</td>
-                            <td {% if question.action == null %}colspan="2" {% endif %}class="summary__answer u-fs-r--b">{{ question.answer | safe }}</td>
-                            {% if question.action %}
-                                <td class="summary__action">
-                                    <a href="{{ question.action.url }}" class="summary__button"{% if question.action.ariaLabel %} aria-label="{{ question.action.ariaLabel }}"{% endif %}>{{ question.action.text }}</a>
-                                </td>
-                            {% endif %}
                         {% endif %}
                     </tr>
                 {% endfor %}
