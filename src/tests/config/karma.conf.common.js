@@ -99,7 +99,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
       browserStack: {
         startTunnel: 'true',
         name: 'Karma unit tests',
-        project: 'ONS - pattern-library',
+        project: 'ONS - design-system',
         forcelocal: true
       },
 
