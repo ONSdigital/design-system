@@ -1,8 +1,6 @@
 $summary-col-spacing: 1rem;
 
 .summary {
-  $ctx: &;
-
   &__items {
     width: 100%;
     border-spacing: 0;
@@ -19,17 +17,6 @@ $summary-col-spacing: 1rem;
   &__action {
     border-bottom: 0;
     line-height: 1.4;
-  }
-
-  &__answer-action {
-    margin-top: 0.5rem;
-    margin-left: -$summary-col-spacing;
-  }
-
-  @include mq(321px) {
-    &__answer-action {
-      display: flex;
-    }
   }
 
   &__answer,
@@ -114,12 +101,6 @@ $summary-col-spacing: 1rem;
       padding-bottom: 0.5rem;
     }
 
-    &__answer-action & {
-      &__answer {
-        padding-bottom: 0;
-      }
-    }
-
     &__item--error {
       border-left: 8px solid $color-errors;
       background: $color-errors-tint;
@@ -132,14 +113,6 @@ $summary-col-spacing: 1rem;
 
       &__answer {
         padding-left: $summary-col-spacing;
-      }
-
-      &__answer-action #{$ctx}__answer {
-        padding-left: 0;
-      }
-
-      &__answer-action #{$ctx}__action {
-        padding-right: 0;
       }
     }
 
@@ -179,6 +152,10 @@ $summary-col-spacing: 1rem;
 
     &__question:not([colspan]) {
       padding-right: $summary-col-spacing;
+    }
+
+    &__answer {
+      width: 50%;
     }
 
     &__action {
