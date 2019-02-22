@@ -1,6 +1,10 @@
 .field {
   background: none;
 
+  & + & {
+    margin-top: 1rem;
+  }
+
   &__legend {
     margin-bottom: 0.5rem;
     font-size: 1rem;
