@@ -28,13 +28,14 @@ class Feedback {
   async handleSubmit(event) {
     event.preventDefault();
 
-    this.setFieldsEditability(false);
-
     const body = new FormData(this.form);
+
+    this.setFieldsEditability(false);
 
     const response = await fetch(this.form.action, {
       method: 'POST',
-      body
+      body,
+      credentials: 'include'
     });
 
     if (response.ok) {

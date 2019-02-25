@@ -5,7 +5,7 @@
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% call onsDetails({
-        "id": params.id,
+        "id": params.id + "-details",
         "classes": "js-feedback",
         "title": params.title,
         "closeButton": params.closeButton,
