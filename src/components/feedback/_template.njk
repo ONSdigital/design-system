@@ -1,0 +1,51 @@
+{% from "components/details/_macro.njk" import onsDetails %}
+{% from "components/textarea/_macro.njk" import onsTextarea %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/field/_macro.njk" import onsField %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% call onsDetails({
+        "id": params.id,
+        "classes": "js-feedback",
+        "title": params.title,
+        "buttonClose": params.buttonClose,
+        "buttonCloseClasses": params.buttonCloseClasses
+    })
+%}
+    <form id="{{ params.id }}" class="u-mt-s" method="POST" action="{{ params.action }}">
+        {{
+            onsTextarea({
+                "id":  params.textarea.id | default(params.id + '-textarea'),
+                "name": params.textarea.name | default(params.id + '-textarea'),
+                "label": params.textarea.label,
+                "maxlength": params.textarea.maxlength,
+                "charCountPlural": params.textarea.charCountPlural,
+                "charCountSingular": params.textarea.charCountSingular
+            })
+        }}
+        {{
+            onsInput({
+                "id": params.name.id | default(params.id + '-name'),
+                "name": params.name.name | default(params.id + '-name'),
+                "label": params.name.label
+            })
+        }}
+        {{
+            onsInput({
+                "id": params.email.id | default(params.id + '-email'),
+                "type": "email",
+                "name": params.email.name | default(params.id + '-email'),
+                "label": params.email.label
+            })
+        }}
+        {% call onsField({
+            "classes": "u-mt-l u-mb-s"
+        }) %}
+            {{
+                onsButton({
+                    "text": params.sendButton
+                })
+            }}
+        {% endcall %}
+    </form>
+{% endcall %}

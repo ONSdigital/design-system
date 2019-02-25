@@ -1,6 +1,4 @@
 {% from "components/lists/_macro.njk" import onsList %}
-{% from "components/button/_macro.njk" import onsButton %}
-
 
 {% if params.lang %}
     {% set lang = params.lang %}
@@ -25,6 +23,7 @@
                 </div>
             {% endif %}
             {% if params.button %}
+                {% from "components/button/_macro.njk" import onsButton %}
                 <div class="grid__col u-mb-m u-d-no@m">
                     {{
                         onsButton({
@@ -55,6 +54,23 @@
                         onsList({ 
                             "classes": 'footer__language list--bare',
                             "items": languageItems
+                        })
+                    }}
+                </div>
+            {% endif %}
+            {% if params.feedback %}
+                {% from "components/feedback/_macro.njk" import onsFeedback %}
+                <div class="grid__col col-8@m u-mb-m">
+                    {{
+                        onsFeedback({
+                            "id": params.feedback.id | default("feedback"),
+                            "title": params.feedback.title,
+                            "buttonClose": params.feedback.buttonClose,
+                            "buttonCloseClasses": "btn--ghost-blue",
+                            "textarea": params.feedback.textarea,
+                            "name": params.feedback.name,
+                            "email": params.feedback.email,
+                            "sendButton": params.feedback.sendButton
                         })
                     }}
                 </div>

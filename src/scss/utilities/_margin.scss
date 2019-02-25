@@ -1,5 +1,5 @@
 $sizes: (
-  no: 0 !important,
+  no: 0,
   xs: 0.5rem,
   s: 1rem,
   m: 1.5rem,
@@ -18,7 +18,7 @@ $margins: (
 @each $key, $value in $sizes {
   @each $abbr, $dec in $margins {
     @include bp-suffix(u-#{$abbr}-#{$key}) {
-      #{$dec}: #{$value};
+      #{$dec}: #{$value} !important;
     }
   }
 }

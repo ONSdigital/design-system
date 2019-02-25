@@ -20,12 +20,12 @@
         {% endif %}
     </summary>
     <div id="{{ params.id }}-content" class="details__content js-collapsible-content">
-        {{ params.content | safe }}
+        {{ params.content | safe }}{{ caller() if caller }}
         {% if params.buttonClose and params.isAccordion != true %}
             {{
                 onsButton({
                     "text": params.buttonOpen or params.buttonClose,
-                    "classes": "btn--secondary btn--small js-collapsible-button u-d-no",
+                    "classes": "btn--small js-collapsible-button u-d-no " + (params.buttonCloseClasses | default("btn--secondary")),
                     "attributes": {
                         "data-ga": "click",
                         "data-ga-category": "definition",
