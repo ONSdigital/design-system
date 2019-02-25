@@ -1,9 +1,9 @@
 {% from "components/button/_macro.njk" import onsButton %}
 
 <header class="header {{ params.classes if params.classes }}">
-    {% if params.beta %}
-        {% from "components/beta-bar/_macro.njk" import onsBetaBar %}
-        {{ onsBetaBar(params.beta) }}
+    {% if params.phase %}
+        {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
+        {{ onsPhaseBanner(params.phase) }}
     {% endif %}
     <div class="header__top" role="banner">
         <div class=" container{{ ' container--full-width' if params.fullWidth }}">
