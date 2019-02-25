@@ -1,10 +1,10 @@
 
 {% from "components/button/_macro.njk" import onsButton %}
 
-<details id="{{ params.id }}" class="details js-collapsible{% if params.isAccordion %} details--accordion{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}" open{%if params.buttonOpen %} data-btn-close="{{ params.buttonClose }}"{% endif %}{% if params.group %} data-group="{{ params.group }}"{% endif %}{% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
+<details id="{{ params.id }}" class="details js-collapsible{% if params.isAccordion %} details--accordion{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}" open{%if params.buttonOpen %} data-btn-close="{{ params.closeButton }}"{% endif %}{% if params.group %} data-group="{{ params.group }}"{% endif %}{% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
     <summary class="details__summary js-collapsible-summary" data-ga="click" data-ga-category="{% if params.isAccordion %}accordion{% else %}definition{% endif %}" data-ga-action="Open panel" data-ga-label="{{ params.title }}">
         <h2 class="details__title u-fs-r--b">{{ params.title }}</h2>
-        {% if params.buttonClose and params.buttonOpen and params.isAccordion %}
+        {% if params.closeButton and params.buttonOpen and params.isAccordion %}
              {{
                 onsButton({
                     "text": params.buttonOpen,
@@ -21,11 +21,11 @@
     </summary>
     <div id="{{ params.id }}-content" class="details__content js-collapsible-content">
         {{ params.content | safe }}{{ caller() if caller }}
-        {% if params.buttonClose and params.isAccordion != true %}
+        {% if params.closeButton and params.isAccordion != true %}
             {{
                 onsButton({
-                    "text": params.buttonOpen or params.buttonClose,
-                    "classes": "btn--small js-collapsible-button u-d-no " + (params.buttonCloseClasses | default("btn--secondary")),
+                    "text": params.buttonOpen or params.closeButton,
+                    "classes": "btn--small js-collapsible-button u-d-no " + (params.closeButtonClasses | default("btn--secondary")),
                     "attributes": {
                         "data-ga": "click",
                         "data-ga-category": "definition",

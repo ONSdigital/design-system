@@ -1,0 +1,28 @@
+---
+title: Feedback
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+The feedback component provides users with a way of giving feedback without leaving the current task. The form is collapsed within a [details component](/components/details) and rendered within the [footer component](/components/footer) by the [page template](/styles/page-template).
+
+The form submits without refreshing the page and the user is notified of the successful submission of feedback. 
+
+{{
+    patternlibExample({"path": "components/feedback/examples/feedback/index.njk"})
+}}
+
+## How to use this component
+
+This component is automatically rendered in the [footer component](/components/footer) by the [page template](/styles/page-template) if feedback parameters are present on the page.
+
+
+## Research on this component
+{% from "components/panel/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='https://github.com/ONSdigital/design-system/issues/242'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+[Discuss 'Feedback' on GitHub](https://github.com/ONSdigital/design-system/issues/242)

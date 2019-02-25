@@ -8,26 +8,32 @@
         "id": params.id,
         "classes": "js-feedback",
         "title": params.title,
-        "buttonClose": params.buttonClose,
-        "buttonCloseClasses": params.buttonCloseClasses
+        "closeButton": params.closeButton,
+        "closeButtonClasses": params.closeButtonClasses
     })
 %}
-    <form id="{{ params.id }}" class="u-mt-s" method="POST" action="{{ params.action }}">
+    <form id="{{ params.id }}" class="u-mt-s js-feedback-form" method="POST" action="{{ params.action }}" novalidate data-thank-you="{{ params.thankYouMessage }}" data-error-message="{{ params.errorMessage }}">
         {{
             onsTextarea({
                 "id":  params.textarea.id | default(params.id + '-textarea'),
                 "name": params.textarea.name | default(params.id + '-textarea'),
                 "label": params.textarea.label,
+                "classes": "js-feedback-textarea" + (" " + params.textarea.classes if params.textarea.classes),
+                "value": params.textarea.value,
                 "maxlength": params.textarea.maxlength,
                 "charCountPlural": params.textarea.charCountPlural,
-                "charCountSingular": params.textarea.charCountSingular
+                "charCountSingular": params.textarea.charCountSingular,
+                "attributes": params.textarea.attributes
             })
         }}
         {{
             onsInput({
                 "id": params.name.id | default(params.id + '-name'),
                 "name": params.name.name | default(params.id + '-name'),
-                "label": params.name.label
+                "label": params.name.label,
+                "classes": "js-feedback-name" + (" " + params.name.classes if params.name.classes),
+                "value": params.name.value,
+                "attributes": params.name.attributes
             })
         }}
         {{
@@ -35,7 +41,10 @@
                 "id": params.email.id | default(params.id + '-email'),
                 "type": "email",
                 "name": params.email.name | default(params.id + '-email'),
-                "label": params.email.label
+                "label": params.email.label,
+                "classes": "js-feedback-email" + (" " + params.email.classes if params.email.classes),
+                "value": params.name.value,
+                "attributes": params.name.attributes
             })
         }}
         {% call onsField({
@@ -43,7 +52,8 @@
         }) %}
             {{
                 onsButton({
-                    "text": params.sendButton
+                    "text": params.sendButton,
+                    "classes": "js-feedback-send btn--loader"
                 })
             }}
         {% endcall %}

@@ -1,37 +1,7 @@
----
-layout: none
----
-{% extends "styles/page-template/_template.njk" %}
+{% from "components/feedback/_macro.njk" import onsFeedback %}
 
-{% set page = { 
-    "title": "Service name",
-    "phase": {
-        "badge": "BETA",
-        "html": "This is a new service – your <a href=\"#feedback\" class=\"js-feedback-button\">feedback</a> will help us improve it."
-    },
-    "footer": {
-        "OGLLink": {
-            "pre": 'All content is available under the',
-            "link": 'Open Government Licence v3.0',
-            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-            "post": ', except where otherwise stated'
-        },
-        "rows": [
-            {
-                "items": [
-                    {
-                        "text": 'Contact us',
-                        "url": '#'
-                    },
-                    {
-                        "text": 'Cookies and privacy',
-                        "url": '#'
-                    }
-                ]
-            }
-        ]
-    },
-    "feedback": {
+{{
+    onsFeedback({
         "id": "feedback",
         "title": "Give feedback and help us improve this service",
         "closeButton": "I don't want to provide feedback",
@@ -57,5 +27,5 @@ layout: none
         "sendButton": "Send feedback",
         "thankYouMessage": "Thank you for your feedback.",
         "errorMessage": "There was an error sending your feedback.\n(Error code: {x})"
-    }
-} %}
+    })
+}}

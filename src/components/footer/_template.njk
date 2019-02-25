@@ -65,12 +65,14 @@
                         onsFeedback({
                             "id": params.feedback.id | default("feedback"),
                             "title": params.feedback.title,
-                            "buttonClose": params.feedback.buttonClose,
-                            "buttonCloseClasses": "btn--ghost-blue",
+                            "closeButton": params.feedback.closeButton,
+                            "closeButtonClasses": "btn--ghost-blue",
                             "textarea": params.feedback.textarea,
                             "name": params.feedback.name,
                             "email": params.feedback.email,
-                            "sendButton": params.feedback.sendButton
+                            "sendButton": params.feedback.sendButton,
+                            "thankYouMessage": params.feedback.thankYouMessage,
+                            "errorMessage": params.feedback.errorMessage
                         })
                     }}
                 </div>
