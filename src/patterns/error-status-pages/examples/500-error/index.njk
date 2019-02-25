@@ -1,0 +1,22 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% set page = { 
+    "cdn": "v2.0.0",
+    "title": "Service name",
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    }
+} %}
+{% block content %}
+    <h1 class="u-fs-l">Sorry, there is a problem with the service</h1>
+    <p>Try again later.</p>
+    <p>If you have started a survey, your answers have been saved.</p>
+    <p>You can <a href="#">contact the ONS business surveys helpline</a> if the problem continues.</p>
+{% endblock %}

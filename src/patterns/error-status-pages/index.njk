@@ -1,0 +1,150 @@
+---
+title: Error and status pages
+group: Pages
+anchorLinks: true
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/lists/_macro.njk" import onsList %}
+Error and status pages tell the user there is a problem with the page they are trying to view.
+
+
+## How to use this pattern
+All error and status pages should:
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": "summarise the problem in the <code>h1</code> heading"
+            },
+            {
+                "text": "be clear and concise, and not blame the user"
+            }
+        ]
+    }) 
+}}
+All error pages should not:
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": "have breadcrumbs"
+            },
+            {
+                "text": "display vague terms or jargon like '500', '404', 'bad request' or ‘we are experiencing technical difficulties’"
+            },
+            {
+                "text": "use red text to warn people"
+            }
+        ]
+    }) 
+}}
+
+Contact information should either:
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": "be a link to a specific page that includes numbers and opening times, or"
+            },
+            {
+                "text": "include all numbers and opening times"
+            }
+        ]
+    }) 
+}}
+
+## 404 error
+Use a 404 error page if the user has tried to view a page that does not exist. This could happen if someone:
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": "enters a URL incorrectly"
+            },
+            {
+                "text": "enters a URL for a page that does not exist"
+            },
+            {
+                "text": "selects a link or button that takes them to a page that does not exist"
+            }
+        ]
+    }) 
+}}
+
+The page should have:
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": "‘Page not found – [service name] – ONS’ as the page <code>title</code>"
+            }
+        ]
+    }) 
+}}
+
+{{
+    patternlibExample({ "path": "patterns/error-status-pages/examples/404-error/index.njk" })
+}}
+
+## Server error
+Use a server error page when there is any kind of unexpected problem with the service.  
+
+All errors should be logged and fixed as soon as possible.  Only display this page for a short period of time.  If the errors cannot be fixed quickly, then disable the service and display a [maintenance notice](#maintenance-notice) page instead.
+
+The page should have:
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": "‘Sorry, there is a problem with the service – [service name] – ONS’ as the page <code>title</code>"
+            },
+            {
+                "text": "a paragraph explaining what has happened to the user's data if they were in the middle of a transaction"
+            },
+            {
+                "text": "a link to an alternative service that may help the user continue their task (if available)"
+            } 
+        ]
+    }) 
+}}
+{{
+    patternlibExample({ "path": "patterns/error-status-pages/examples/500-error/index.njk" })
+}}
+
+## Maintenance notice
+Use a maintenance notice page when the service needs to be disabled in order to fix problems or deploy upgrades.  As soon as you know when the service will be available again, update the page to let the user know.
+
+The page should have:
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": "‘This service is temporarily unavailable – [service name] – ONS’ as the page <code>title</code>"
+            },
+            {
+                "text": "the date and time the service will be available (if known)"
+            },
+            {
+                "text": "contact information (if it exists) that will help meet a user need"
+            }, 
+            {
+                "text": "a link to an alternative service that may help the user continue their task (if available)"
+            }            
+        ]
+    }) 
+}}
+{{
+    patternlibExample({ "path": "patterns/error-status-pages/examples/maintenance-notice/index.njk" })
+}}
+
+
+
+## Research on this pattern
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/237" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+
+[Discuss 'Error and status pages' on Github](https://github.com/ONSdigital/design-system/issues/237)

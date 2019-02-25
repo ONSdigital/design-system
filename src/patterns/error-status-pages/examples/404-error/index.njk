@@ -1,0 +1,22 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% set page = { 
+    "cdn": "v2.0.0",
+    "title": "Service name",
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    }
+} %}
+{% block content %}
+    <h1 class="u-fs-l">Page not found</h1>
+    <p>If you entered a web address please check it was correct.</p>
+    <p>If you pasted the web address, check you copied the entire address.</p>
+    <p>If the web address is correct or you selected a link or button, <a href="#">contact the ONS business surveys helpline</a> for further support.</p>
+{% endblock %}
