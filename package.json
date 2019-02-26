@@ -130,7 +130,6 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "a11y-dialog": "^5.2.0",
     "abortcontroller-polyfill": "^1.2.3",
     "core-js": "^2.6.0",
     "mdn-polyfills": "^5.14.0",
