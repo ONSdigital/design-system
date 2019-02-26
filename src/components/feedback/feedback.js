@@ -1,6 +1,6 @@
-import DOMReady from 'js/domready';
+import fetch from 'js/abortable-fetch';
 
-class Feedback {
+export default class Feedback {
   constructor() {
     const buttons = [...document.querySelectorAll('.js-feedback-button')];
 
@@ -32,23 +32,27 @@ class Feedback {
 
     this.setFieldsEditability(false);
 
-    const response = await fetch(this.form.action, {
+    fetch(this.form.action, {
       method: 'POST',
       body,
       credentials: 'include'
-    });
+    })
+      .then(this.onSuccess.bind(this))
+      .catch(this.onError.bind(this));
+  }
 
-    if (response.ok) {
-      const thankYouMessage = document.createElement('p');
-      thankYouMessage.innerText = this.form.getAttribute('data-thank-you');
+  onSuccess() {
+    const thankYouMessage = document.createElement('p');
+    thankYouMessage.innerText = this.form.getAttribute('data-thank-you');
 
-      this.details.parentElement.insertBefore(thankYouMessage, this.details.nextSibling);
+    this.details.parentElement.insertBefore(thankYouMessage, this.details.nextSibling);
 
-      this.details.remove();
-    } else {
-      alert(this.form.getAttribute('data-error-message').replace('{x}', response.status));
-      this.setFieldsEditability(true);
-    }
+    this.details.remove();
+  }
+
+  onError(response) {
+    alert(this.form.getAttribute('data-error-message').replace('{x}', response.status));
+    this.setFieldsEditability(true);
   }
 
   setFieldsEditability(enabled) {
@@ -57,5 +61,3 @@ class Feedback {
     this.button.classList[enabled ? 'remove' : 'add']('is-loading');
   }
 }
-
-DOMReady(() => new Feedback());

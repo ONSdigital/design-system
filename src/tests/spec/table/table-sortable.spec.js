@@ -96,12 +96,6 @@ let originalValues = [],
 describe('Component: Sortable table', function() {
   before(() => awaitPolyfills);
 
-  afterEach(function() {
-    if (this.wrapper) {
-      this.wrapper.remove();
-    }
-  });
-
   describe('When the component initialises', function() {
     before(function() {
       const component = renderComponent(params);
@@ -116,6 +110,12 @@ describe('Component: Sortable table', function() {
       for (let i = 0; i < trs.length; i++) {
         const tdVal = trs[i].childNodes[1].textContent;
         originalValues.push(tdVal);
+      }
+    });
+
+    after(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
       }
     });
 
