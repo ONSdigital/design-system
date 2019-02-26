@@ -2,8 +2,7 @@ import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/feedback/_template.njk';
 import Feedback from 'components/feedback/feedback';
 
-import fetchMock from 'stubs/fetch.stub.spec';
-import promiseInstanceMock from 'stubs/promise.stub.spec';
+import fetchMock from 'stubs/window.fetch.stub.spec';
 
 const params = {
   id: 'feedback',
@@ -36,9 +35,6 @@ const params = {
 };
 
 describe('Component: Feedback', function() {
-  const promiseInstance = promiseInstanceMock();
-  const mockedFetch = fetchMock(promiseInstance);
-
   before(() => awaitPolyfills);
 
   beforeEach(function() {
@@ -65,10 +61,12 @@ describe('Component: Feedback', function() {
     });
   });
 
-  describe('When the form is submitted', function() {
+  describe('When the form is submitted successfully', function() {
     beforeEach(function() {
+      this.mockedFetch = chai.spy(fetchMock(true));
+
       const originalFetch = window.fetch;
-      window.fetch = mockedFetch;
+      window.fetch = this.mockedFetch;
       this.submit.click();
       window.fetch = originalFetch;
     });
@@ -85,45 +83,53 @@ describe('Component: Feedback', function() {
     });
 
     it('the form should be posted', function() {
-      expect(mockedFetch).to.have.been.called();
+      expect(this.mockedFetch).to.have.been.called();
     });
 
-    describe('and the form is submitted successfully', function() {
-      beforeEach(function() {
-        this.feedback.onSuccess();
-      });
-
-      it('the form should be replaced with a thank you message', function() {
+    it('the form should be replaced with a thank you message', function(done) {
+      // Wait for fetch to complete
+      setTimeout(() => {
         expect(this.wrapper.innerHTML.includes(`<p>${params.thankYouMessage}</p>`)).to.be.true;
+        done();
+      });
+    });
+  });
+
+  describe('and the form errors', function() {
+    beforeEach(function(done) {
+      const originalAlert = window.alert;
+      const originalFetch = window.fetch;
+
+      this.mockedAlert = chai.spy();
+      this.mockedFetch = chai.spy(fetchMock(false, 500));
+
+      window.alert = this.mockedAlert;
+      window.fetch = this.mockedFetch;
+
+      this.submit.click();
+
+      // Wait for fetch to complete
+      setTimeout(() => {
+        window.fetch = originalFetch;
+        window.alert = originalAlert;
+        done();
       });
     });
 
-    describe('and the form errors', function() {
-      beforeEach(function() {
-        const originalAlert = window.alert;
-        this.mockedAlert = chai.spy();
-        window.alert = this.mockedAlert;
+    it('the an alert should be thrown', function() {
+      expect(this.mockedAlert).to.have.been.called();
+      expect(this.mockedAlert).to.have.been.called.with(params.errorMessage.replace('{x}', '500'));
+    });
 
-        this.feedback.onError({ status: '500' });
+    it('the form fields should be re-enabled', function() {
+      expect(this.textarea.disabled).to.be.false;
+      expect(this.name.disabled).to.be.false;
+      expect(this.email.disabled).to.be.false;
+      expect(this.submit.disabled).to.be.false;
+    });
 
-        window.alert = originalAlert;
-      });
-
-      it('the an alert should be thrown', function() {
-        expect(this.mockedAlert).to.have.been.called();
-        expect(this.mockedAlert).to.have.been.called.with(params.errorMessage.replace('{x}', '500'));
-      });
-
-      it('the form fields should be re-enabled', function() {
-        expect(this.textarea.disabled).to.be.false;
-        expect(this.name.disabled).to.be.false;
-        expect(this.email.disabled).to.be.false;
-        expect(this.submit.disabled).to.be.false;
-      });
-
-      it('the submit button should have loader mode disabled', function() {
-        expect(this.submit.classList.contains('is-loading')).to.be.false;
-      });
+    it('the submit button should have loader mode disabled', function() {
+      expect(this.submit.classList.contains('is-loading')).to.be.false;
     });
   });
 });
@@ -132,7 +138,7 @@ function renderComponent(params) {
   const html = template.render({ params });
 
   const wrapper = document.createElement('div');
-  wrapper.innerHTML = `<a href="#" class="js-feedback-button">Feedback</a>${html}`;
+  wrapper.innerHTML = `<a href="#" class="js-feedback-button">Feedback</a><div>${html}</div>`;
   document.body.appendChild(wrapper);
 
   const button = wrapper.querySelector('.js-feedback-button');

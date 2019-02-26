@@ -45,7 +45,7 @@ export default class Feedback {
     const thankYouMessage = document.createElement('p');
     thankYouMessage.innerText = this.form.getAttribute('data-thank-you');
 
-    this.details.parentElement.insertBefore(thankYouMessage, this.details.nextSibling);
+    this.details.parentNode.insertBefore(thankYouMessage, this.details.nextSibling);
 
     this.details.remove();
   }
