@@ -2,26 +2,29 @@
 {% from "components/header/_macro.njk" import onsHeader %}
 {% from "components/footer/_macro.njk" import onsFooter %}
 
+{% set currentLanguageISOCode = "en-GB" %}
+
 {% if page and page.language and page.languages %}
     {% set currentLanguage = page.language.languages | selectattr("current") | first %}
     {% set currentLanguageISOCode = currentLanguage.ISOCode %}
 {% endif %}
+
 <!doctype html>
-<html lang="{{ currentLanguageISOCode | default('en-GB') }}" class="no-js">
+<html lang="{{ currentLanguageISOCode }}" class="no-js">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ page.title | default(data.title) }}</title>
-        <link rel="stylesheet" href="{{ '/' + data.version if data.version  }}{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/css/responsive.css">
+        <link rel="stylesheet" href="{{ "/" + data.version if data.version  }}{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/css/responsive.css">
 
         {% block headIcons %}
-            <meta name="msapplication-config" content="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/browserconfig.json"> 
-            <link rel="icon" type="image/x-icon" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/favicon.ico"> 
-            <link rel="icon" type="image/png" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/favicon-32x32.png" sizes="32x32"> 
-            <link rel="icon" type="image/png" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/favicon-16x16.png" sizes="16x16"> 
-            <link rel="mask-icon" color="#5bbad5" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/safari-pinned-tab.svg"> 
-            <link rel="apple-touch-icon" type="image/png" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/apple-touch-icon.png" sizes="180x180"> 
-            <link rel="manifest" href="{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/favicons/manifest.json">
+            <meta name="msapplication-config" content="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/browserconfig.json"> 
+            <link rel="icon" type="image/x-icon" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/favicon.ico"> 
+            <link rel="icon" type="image/png" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/favicon-32x32.png" sizes="32x32"> 
+            <link rel="icon" type="image/png" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/favicon-16x16.png" sizes="16x16"> 
+            <link rel="mask-icon" color="#5bbad5" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/safari-pinned-tab.svg"> 
+            <link rel="apple-touch-icon" type="image/png" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/apple-touch-icon.png" sizes="180x180"> 
+            <link rel="manifest" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/manifest.json">
         {% endblock %}
 
         {% block head %}{% endblock %}
@@ -70,25 +73,28 @@
                         "version": data.version,
                         "classes": "page__footer",
                         "language": page.language,
+                        "lang": currentLanguageISOCode,
                         "rows": page.footer.rows,
+                        "cols": page.footer.cols,
                         "OGLLink": page.footer.OGLLink,
                         "button": page.button,
-                        "feedback": page.feedback
+                        "feedback": page.feedback,
+                        "poweredByONS": page.footer.poweredByONS
                     })
                 }}
             {% endblock %}
             {% block bodyEnd %}{% endblock %}
         </div>
-        <script type="module" src="{{ '/' + data.version if data.version  }}{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/scripts/bundle.js"></script>
-        <script nomodule src="{{ '/' + data.version if data.version  }}{{ 'https://cdn.ons.gov.uk/sdc/' + page.cdn if page.cdn }}/scripts/bundle.es5.js"></script>
-        <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
+        <script type="module" src="{{ "/" + data.version if data.version  }}{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/scripts/bundle.js"></script>
+        <script nomodule src="{{ "/" + data.version if data.version  }}{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/scripts/bundle.es5.js"></script>
+        <script>document.documentElement.className = document.documentElement.className.replace("no-js","has-js")</script>
         
         {% if isPatternLib %}
             <script type="module" src="/scripts/patternlib.js"></script>
             <script nomodule src="/scripts/patternlib.es5.js"></script>
         {% endif %}
         {% if devMode %}
-            <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer></' + 'script>'); </script>
+            <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer><\/script>');</script>
         {% endif %}
     </body>
 </html>

@@ -3,7 +3,7 @@
 {% if params.lang %}
     {% set lang = params.lang %}
 {% else %}
-    {% set lang = 'en' %}
+    {% set lang = 'en-GB' %}
 {% endif %}
 
 {% if params.poweredByONS %}
@@ -52,15 +52,52 @@
                     {% endif %}
                     {{
                         onsList({ 
-                            "classes": 'footer__language list--bare',
+                            "classes": 'list--bare list--inline@s u-mb-no',
                             "items": languageItems
                         })
                     }}
                 </div>
+                <div class="grid__col u-d-no@m u-mt-m u-mb-m">
+                    <hr class="footer__hr">
+                </div>
+            {% endif %}
+           
+            {% if params.cols %}
+                {% for col in params.cols %}
+                    <div class="grid__col col-4@m{{ " u-mt-m@xs@m" if loop.index > 1 }}">
+                        {% if col.title %}
+                            <h4 class="u-fs-r--b footer__heading">{{ col.title }}</h4>
+                        {% endif %}
+                        {{
+                            onsList({
+                                "classes": 'list--bare u-mb-no',
+                                "items": col.items
+                            })
+                        }}
+                    </div>
+                {% endfor %}
+                <div class="grid__col u-mt-m u-mb-m">
+                    <hr class="footer__hr">
+                </div>
+            {% endif %}
+            {% if params.rows %}
+                {% for row in params.rows %}
+                    <div class="grid__col">
+                        {{
+                            onsList({
+                                "classes": 'list--bare list--inline@s u-mb-no',
+                                "items": row.items
+                            })
+                        }}
+                    </div>
+                    <div class="grid__col u-mt-m u-mb-m">
+                        <hr class="footer__hr">
+                    </div>
+                {% endfor %}
             {% endif %}
             {% if params.feedback %}
                 {% from "components/feedback/_macro.njk" import onsFeedback %}
-                <div class="grid__col col-8@m u-mb-m">
+                <div class="grid__col col-8@m u-mb-s">
                     {{
                         onsFeedback({
                             "id": params.feedback.id | default("feedback"),
@@ -77,36 +114,12 @@
                         })
                     }}
                 </div>
-            {% endif %}
-            {% if params.cols %}
-                {% for col in params.cols %}
-                    <div class="grid__col col-4@m">
-                        {% if col.title %}
-                            <h4 class="u-fs-r--b footer__heading">{{ col.title }}</h4>
-                        {% endif %}
-                        {{
-                            onsList({
-                                "classes": 'list--bare',
-                                "items": col.items
-                            })
-                        }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-            {% if params.rows %}
-                {% for row in params.rows %}
-                    <div class="grid__col">
-                        {{
-                            onsList({
-                                "classes": 'list--bare list--inline@s',
-                                "items": row.items
-                            })
-                        }}
-                    </div>
-                {% endfor %}
+                <div class="grid__col u-mb-m">
+                    <hr class="footer__hr">
+                </div>
             {% endif %}
             <div class="grid__col">
-                <div class="footer__license {{ 'footer__license--border' if params.rows or params.cols or params.poweredByONS }}">
+                <div class="footer__license">
                     <img alt="OGL" alt="OGL" class="footer__ogl-img" src="{{ '/' + params.version if params.version  }}/img/UKOpenGovernmentLicence-grey.svg">{{ params.OGLLink.pre}} <a href="{{ params.OGLLink.url }}" class="footer__link">{{ params.OGLLink.link }}</a>{{ params.OGLLink.post }}
                 </div>
             </div>
