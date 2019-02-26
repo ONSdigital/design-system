@@ -70,7 +70,6 @@ Use a 404 error page if the user has tried to view a page that does not exist. T
         ]
     }) 
 }}
-
 The page should have:
 {{ 
     onsList({
@@ -81,12 +80,16 @@ The page should have:
         ]
     }) 
 }}
-
 {{
     patternlibExample({ "path": "patterns/error-status-pages/examples/404-error/index.njk" })
 }}
+### 404 error with reference code
+Use an [error panel](/components/panel#error) to display any reference information your service's customer support staff may require the user to quote during a call.
+{{
+    patternlibExample({ "path": "patterns/error-status-pages/examples/404-error-with-code/index.njk" })
+}}
 
-## Server error
+## 500 Server errors
 Use a server error page when there is any kind of unexpected problem with the service.  
 
 All errors should be logged and fixed as soon as possible.  Only display this page for a short period of time.  If the errors cannot be fixed quickly, then disable the service and display a [maintenance notice](#maintenance-notice) page instead.
