@@ -20,8 +20,18 @@ export default class Feedback {
   }
 
   openFeedback() {
-    if (this.details && !this.details.open) {
-      this.details.querySelector('.js-collapsible-summary').click();
+    if (this.details) {
+      const summary = this.details.querySelector('.js-collapsible-summary');
+
+      if (!this.details.open) {
+        summary.click();
+      }
+
+      // Focus the summary item for screen readers
+      setTimeout(() => {
+        summary.blur();
+        summary.focus();
+      });
     }
   }
 
@@ -43,6 +53,7 @@ export default class Feedback {
 
   onSuccess() {
     const thankYouMessage = document.createElement('p');
+    thankYouMessage.setAttribute('aria-live', 'assertive');
     thankYouMessage.innerText = this.form.getAttribute('data-thank-you');
 
     this.details.parentNode.insertBefore(thankYouMessage, this.details.nextSibling);
