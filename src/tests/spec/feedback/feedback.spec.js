@@ -57,7 +57,7 @@ describe('Component: Feedback', function() {
     });
 
     it('the details element should be opened', function() {
-      expect(this.details.open).to.be.true;
+      expect(this.details.hasAttribute('open')).to.be.true;
     });
   });
 
