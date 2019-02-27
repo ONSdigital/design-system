@@ -12,13 +12,13 @@ $char-space-width: 0.029rem;
 // Space width
 $nbsp-width: 0.256rem;
 
-@mixin input-width($className, $char-width: $char-max-width) {
+@mixin input-width($class-name, $char-width: $char-max-width) {
   @each $width in $input-widths {
-    .#{str-replace($className, '{x}', $width)} {
+    .#{str-replace($class-name, '{x}', $width)} {
       width: 100%;
       max-width: input-width-calc($width, $char-width);
 
-      .fieldgroup--inline & {
+      .field__group & {
         width: input-width-calc($width, $char-width);
       }
 
