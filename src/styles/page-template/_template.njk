@@ -29,7 +29,7 @@
 
         {% block head %}{% endblock %}
     </head>
-    <body {% if bodyClasses %} class="{{ bodyClasses }}"{% endif %}>
+    <body {% if page.bodyClasses %} class="{{ page.bodyClasses }}"{% endif %}>
         <div class="page">
             <div class="page__content">
                 {% block bodyStart %}{% endblock %}

@@ -18,6 +18,11 @@
   }
 }
 
+// Utility class to override the height property to 'auto'
+.u-ha {
+  height: auto;
+}
+
 // Utility class to force non-wrapping of values
 .u-nowrap {
   white-space: nowrap;
