@@ -1,10 +1,12 @@
 $details-caret-width: 1.1rem;
 
 .details {
+  margin: -0.5rem 0 0;
+
   &__summary {
     display: inline-block;
     position: relative;
-    margin: 0 0 0.5rem;
+    margin: 0.5rem 0;
     outline: none;
     pointer-events: none;
 
@@ -93,6 +95,10 @@ $details-caret-width: 1.1rem;
       display: block;
       padding-bottom: 1rem;
     }
+  }
+
+  &--accordion {
+    margin: 0;
   }
 
   &--accordion & {

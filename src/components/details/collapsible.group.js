@@ -8,7 +8,7 @@ export default class CollapsibleGroup {
 
     this.totalCollapsibles = this.collapsibles.length;
     this.buttonOpen = button.innerHTML.trim();
-    this.buttonClose = button.getAttribute('data-close-all');
+    this.closeButton = button.getAttribute('data-close-all');
 
     this.collapsibles.forEach(collapsible => {
       collapsible.onOpen = this.onOpen.bind(this);
@@ -46,11 +46,11 @@ export default class CollapsibleGroup {
 
   setButton() {
     if (this.canClose()) {
-      this.button.innerHTML = this.buttonClose;
+      this.button.innerHTML = this.closeButton;
       this.button.setAttribute('data-ga-label', this.buttonOpen);
     } else {
       this.button.innerHTML = this.buttonOpen;
-      this.button.setAttribute('data-ga-label', this.buttonClose);
+      this.button.setAttribute('data-ga-label', this.closeButton);
     }
   }
 }

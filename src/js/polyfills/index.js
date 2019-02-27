@@ -27,6 +27,11 @@ if (!Object.assign) {
   console.log('Object#assign polyfill loaded');
 }
 
+if (!String.prototype.includes) {
+  promises.push(import('core-js/modules/es6.string.includes'));
+  console.log('String#includes polyfill loaded');
+}
+
 if (!window.Symbol) {
   promises.push(import('core-js/fn/symbol'));
   console.log('Symbol polyfill loaded');

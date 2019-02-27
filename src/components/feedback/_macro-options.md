@@ -1,0 +1,13 @@
+| Name               | Type                                     | Required | Description                                                                                                                       |
+| ------------------ | ---------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| id                 | string                                   | true     | ID to apply to the `<details>` element wrapping the feedback component                                                            |
+| title              | string                                   | true     | Text to show in the `<summary>` element of the wrapping details component                                                         |
+| action             | string                                   | true     | The URL for the action of the feedback form                                                                                       |
+| textarea           | Textarea [_(ref)_](/components/textarea) | true     | Configuration for the textarea element, excluding `fieldId`, `fieldClasses`, and `legendClasses` parameters                       |
+| name               | Input [_(ref)_](/components/input)       | true     | Configuration for the name input excluding `type`, `prefix`, `suffix`, `fieldId`, `fieldClasses`, and `legendClasses` parameters  |
+| email              | Input [_(ref)_](/components/input)       | true     | Configuration for the email input excluding `type`, `prefix`, `suffix`, `fieldId`, `fieldClasses`, and `legendClasses` parameters |
+| button             | string                                   | true     | Text for the submit button                                                                                                        |
+| thankYouMessage    | string                                   | true     | Thank you message to replace the form with upon a successful submit                                                               |
+| errorMessage       | string                                   | true     | Error message to show if the form fails to submit. `{x}` is replaced with the error status code                                   |
+| closeButton        | string                                   | false    | Text for the button when the feedback component is open. If not specified button will not render                                  |
+| closeButtonClasses | string                                   | false    | Classes to add to the close button. If classes are provided the `btn--secondary` class will not be applied by default             |
