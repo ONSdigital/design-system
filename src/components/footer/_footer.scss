@@ -3,23 +3,7 @@
   background-color: $color-grey-4;
 
   &__heading {
-    margin: 2rem 0 1rem;
-  }
-
-  // Necessary for specificity override
-  & &__language {
     margin: 0 0 1rem;
-    padding: 0 0 1rem;
-    border-bottom: 1px solid $color-borders;
-  }
-
-  &__license {
-    margin: 2rem 0 0;
-
-    &--border {
-      padding: 2rem 0 0;
-      border-top: 1px solid $color-borders;
-    }
   }
 
   &__ogl-img {
@@ -31,5 +15,10 @@
   &__poweredby-img {
     width: 272px;
     height: auto;
+  }
+
+  &__hr {
+    border: 0;
+    border-top: 1px solid $color-borders;
   }
 }
