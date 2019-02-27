@@ -3,7 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/releases)
 [![Travis tests](https://img.shields.io/travis/ONSdigital/design-system.svg)](https://travis-ci.org/ONSdigital/design-system)
 [![codecov](https://codecov.io/gh/ONSdigital/design-system/branch/master/graph/badge.svg)](https://codecov.io/gh/ONSdigital/design-system)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2342bc8edef44c17beab2b5fe244d7f1)](https://www.codacy.com/app/bameyrick/design-system)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8f9a091991d4d5a85d0b0b85e26dde6)](https://www.codacy.com/app/bameyrick/design-system)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/pulls)
 [![Github last commit](https://img.shields.io/github/last-commit/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/commits)
 [![Github contributors](https://img.shields.io/github/contributors/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/graphs/contributors)
