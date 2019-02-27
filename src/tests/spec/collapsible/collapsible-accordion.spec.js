@@ -7,7 +7,7 @@ import eventMock from 'stubs/event.stub.spec';
 const params = {
   id: 'accordion',
   buttonOpen: 'Show',
-  buttonClose: 'Hide',
+  closeButton: 'Hide',
   openAll: 'Show all',
   closeAll: 'Hide all',
   items: [
