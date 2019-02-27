@@ -49,6 +49,7 @@
         {% if params.accept !== undefined %}accept="{{ params.accept }}"{% endif %}
         {% if params.min !== undefined %}min="{{ params.min }}"{% endif %}
         {% if params.max !== undefined %}max="{{ params.max }}"{% endif %}
+        {% if params.autocomplete !== undefined %}autocomplete="{{ params.autocomplete }}"{% endif %}
         {% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
 
     />

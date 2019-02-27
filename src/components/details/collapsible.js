@@ -21,7 +21,7 @@ export class Collapsible {
       this.button.setAttribute('aria-controls', contentId);
       this.button.classList.remove('u-d-no');
       this.buttonOpen = this.button.innerHTML.trim();
-      this.buttonClose = this.details.getAttribute('data-btn-close') || this.buttonOpen;
+      this.closeButton = this.details.getAttribute('data-btn-close') || this.buttonOpen;
     }
 
     this.summary.setAttribute('aria-controls', contentId);
@@ -65,7 +65,7 @@ export class Collapsible {
 
       if (this.button) {
         this.button.setAttribute('data-ga-action', `${action} panel`);
-        this.button.innerHTML = open ? this.buttonClose : this.buttonOpen;
+        this.button.innerHTML = open ? this.closeButton : this.buttonOpen;
       }
 
       if (this.onOpen && this.onClose) {
