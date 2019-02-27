@@ -62,7 +62,7 @@ $details-caret-width: 1.1rem;
         background-position: 0 0;
         background-size: $details-caret-width $details-caret-width;
 
-        transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
+        transition: opacity 0.2s ease-in-out;
       }
 
       &:after {
@@ -103,11 +103,10 @@ $details-caret-width: 1.1rem;
 
   &--accordion & {
     &__summary {
-      display: flex;
-      align-items: center;
       margin: 0;
       padding-top: 1rem;
       padding-bottom: 1rem;
+      width: 100%;
       border-top: 1px solid $color-borders;
 
       &:before,
@@ -120,14 +119,19 @@ $details-caret-width: 1.1rem;
       }
     }
 
+    &__heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     &__title {
-      margin: 0 auto 0 0;
+      margin: 0 1rem 0 0;
     }
 
     &__btn {
-      flex: 0 0 0;
       align-self: flex-start;
-      margin: 0 0 0 1rem;
+      width: auto;
     }
   }
 }
