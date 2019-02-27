@@ -89,7 +89,7 @@ describe('Component: Feedback', function() {
     it('the form should be replaced with a thank you message', function(done) {
       // Wait for fetch to complete
       setTimeout(() => {
-        expect(this.wrapper.innerHTML.includes(`<p>${params.thankYouMessage}</p>`)).to.be.true;
+        expect(this.wrapper.innerHTML.includes(`<p aria-live="assertive">${params.thankYouMessage}</p>`)).to.be.true;
         done();
       });
     });
