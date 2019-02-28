@@ -25,17 +25,13 @@
   }
 
   &__item {
-    display: table;
+    display: inline-block;
     position: relative;
   }
 
   & > &__item {
     margin: 1rem 0 0;
     width: 100%;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
 
     @include mq(m) {
       &:not([class*='field__item--w-']) {
