@@ -21,7 +21,8 @@ const params = {
   mutuallyExclusive: {
     or: 'Or',
     deselectMessage: 'Selecting this will clear the date if one has been inputted',
-    deselectAdjective: 'deselected',
+    deselectGroupAdjective: 'cleared',
+    deselectCheckboxAdjective: 'deselected',
     checkbox: {
       id: 'date-exclusive-checkbox',
       name: 'no-paid-job',
@@ -34,8 +35,7 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Date Input', () => {
-  let wrapper, dayInput, monthInput, yearInput, checkbox;
-  // let ariaAlert;
+  let wrapper, dayInput, monthInput, yearInput, checkbox, ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -52,7 +52,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
     monthInput = document.getElementById(`${params.id}-month`);
     yearInput = document.getElementById(`${params.id}-year`);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    // ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
   });
@@ -79,9 +79,12 @@ describe('Component: Mutually Exclusive Date Input', () => {
         expect(yearInput.value).to.equal('');
       });
 
-      // it('then the aria alert should tell the user that the date input has been cleared', () => {
-      //   expect(ariaAlert.innerHTML).to.equal(`${params.dayLabel}, ${params.monthLabel}, and ${params.yearLabel} cleared.`);
-      // });
+      it('then the aria alert should tell the user that the date input has been cleared', () => {
+        expect(ariaAlert.innerHTML).to.equal(
+          // prettier-ignore
+          `${params.day.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.month.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.year.label} ${params.mutuallyExclusive.deselectGroupAdjective}.`
+        );
+      });
     });
   });
 
@@ -99,33 +102,35 @@ describe('Component: Mutually Exclusive Date Input', () => {
         expect(checkbox.checked).to.equal(false);
       });
 
-      // it('then the aria alert should tell the user that the checkbox has been unchecked', () => {
-      //   expect(ariaAlert.innerHTML).to.equal(`"${params.checkbox.label.text}" deselected.`);
-      // });
+      it('then the aria alert should tell the user that the checkbox has been unchecked', () => {
+        expect(ariaAlert.innerHTML).to.equal(
+          `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+        );
+      });
     });
   });
 
-  // describe('Given the user has not populated the date input or checked the checkbox', () => {
-  //   describe('when the user populates the date input', () => {
-  //     beforeEach(() => {
-  //       populateDate(dayInput, monthInput, yearInput);
-  //     });
+  describe('Given the user has not populated the date input or checked the checkbox', () => {
+    describe('when the user populates the date input', () => {
+      beforeEach(() => {
+        populateDate(dayInput, monthInput, yearInput);
+      });
 
-  //     it('then the aria alert shouldnt say anything', () => {
-  //       expect(ariaAlert.innerHTML).to.equal('');
-  //     });
-  //   });
+      it('then the aria alert shouldnt say anything', () => {
+        expect(ariaAlert.innerHTML).to.equal('');
+      });
+    });
 
-  //   describe('when the user clicks the mutually exclusive option', () => {
-  //     beforeEach(() => {
-  //       checkbox.click();
-  //     });
+    describe('when the user clicks the mutually exclusive option', () => {
+      beforeEach(() => {
+        checkbox.click();
+      });
 
-  //     it('then the aria alert shouldnt say anything', () => {
-  //       expect(ariaAlert.innerHTML).to.equal('');
-  //     });
-  //   });
-  // });
+      it('then the aria alert shouldnt say anything', () => {
+        expect(ariaAlert.innerHTML).to.equal('');
+      });
+    });
+  });
 });
 
 function populateDate(dayInput, monthInput, yearInput) {

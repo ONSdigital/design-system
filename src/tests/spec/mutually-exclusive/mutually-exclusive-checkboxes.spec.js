@@ -45,7 +45,8 @@ const params = {
   mutuallyExclusive: {
     or: 'or',
     deselectMessage: 'Selecting this will uncheck all other checkboxes',
-    deselectAdjective: 'deselected',
+    deselectGroupAdjective: 'deselected',
+    deselectCheckboxAdjective: 'deselected',
     checkbox: {
       id: 'no-central-heating',
       label: {
@@ -57,8 +58,7 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override', () => {
-  let wrapper, exclusiveCheckbox;
-  // let ariaAlert;
+  let wrapper, exclusiveCheckbox, ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -73,7 +73,7 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
 
     params.checkboxes = params.checkboxes.filter(checkbox => !checkbox.exclusive);
     exclusiveCheckbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    // ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
   });
@@ -120,10 +120,12 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
         });
       });
 
-      // it('then the aria-live message should reflect the removed non exclusive options', () => {
-      //   const message = params.checkboxes.map(checkbox => checkbox.label.text + ` ${params.deselectAdjective}.`).join(' ');
-      //   expect(ariaAlert.innerHTML).to.equal(message);
-      // });
+      it('then the aria-live message should reflect the removed non exclusive options', () => {
+        const message = params.checkboxes
+          .map(checkbox => `${checkbox.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`)
+          .join(' ');
+        expect(ariaAlert.innerHTML).to.equal(message);
+      });
     });
   });
 
@@ -141,7 +143,7 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
         });
       });
 
-      it(' then only the non-exclusive options should be checked', () => {
+      it('then only the non-exclusive options should be checked', () => {
         params.checkboxes.forEach(checkbox => {
           const element = document.getElementById(checkbox.id);
 
@@ -153,9 +155,25 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
         expect(exclusiveCheckbox.value).to.equal(params.mutuallyExclusive.checkbox.value);
       });
 
-      // it('then the aria-live message should reflect the removed exclusive option', () => {
-      //   expect(ariaAlert.innerHTML).to.equal(`${exclusiveCheckbox.label.text} ${params.deselectAdjective}.`);
-      // });
+      it('then the aria-live message should reflect the removed exclusive option', () => {
+        expect(ariaAlert.innerHTML).to.equal(
+          `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+        );
+      });
+
+      describe('and the user deselects an non-exclusive option', () => {
+        beforeEach(() => {
+          const element = document.getElementById(params.checkboxes[0].id);
+
+          element.click();
+        });
+
+        it('the aria-live message should not be updated', () => {
+          expect(ariaAlert.innerHTML).to.equal(
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+          );
+        });
+      });
     });
   });
 
@@ -181,9 +199,9 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
         expect(exclusiveCheckbox.checked).to.equal(false);
       });
 
-      // it('then the aria-live message should say nothing', () => {
-      //   expect(ariaAlert.innerHTML).to.equal('');
-      // });
+      it('then the aria-live message should say nothing', () => {
+        expect(ariaAlert.innerHTML).to.equal('');
+      });
     });
   });
 
@@ -209,9 +227,9 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
         });
       });
 
-      // it('then the aria-live message should say nothing', () => {
-      //   expect(ariaAlert.innerHTML).to.equal('');
-      // });
+      it('then the aria-live message should say nothing', () => {
+        expect(ariaAlert.innerHTML).to.equal('');
+      });
     });
   });
 });

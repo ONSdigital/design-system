@@ -1,81 +1,124 @@
 import domready from 'js/domready';
-import updateAvailableChars from 'components/textarea/character-limit';
 
 const exclusiveWrapperClass = 'field--exclusive';
 const exclusiveGroupClass = 'js-exclusive-group';
 const checkboxClass = 'js-exclusive-checkbox';
 const voiceOverAlertClass = 'js-exclusive-alert';
-const attrCharLimitRef = 'data-char-limit-ref';
+const groupAttrAdjective = 'data-group-adjective';
+const checkboxAttrAdjective = 'data-checkbox-adjective';
 
-export default function mutuallyExclusiveInputs() {
-  const exclusiveWrapperElements = document.getElementsByClassName(exclusiveWrapperClass);
-  for (let exclusiveWrapperElement of exclusiveWrapperElements) {
-    const exclusiveGroupElements = exclusiveWrapperElement.getElementsByClassName(exclusiveGroupClass);
-    const checkboxElement = exclusiveWrapperElement.getElementsByClassName(checkboxClass)[0];
-    const voiceOverAlertElement = exclusiveWrapperElement.getElementsByClassName(voiceOverAlertClass)[0];
-    for (let exclusiveGroupElement of exclusiveGroupElements) {
-      const elementType = exclusiveGroupElement.type;
-      const event = elementType === 'checkbox' ? 'click' : 'input';
-      exclusiveGroupElement.addEventListener(event, function() {
-        voiceOverAlertElement.innerHTML = '';
-        inputToggle(checkboxElement, voiceOverAlertElement, 'checkbox');
-      });
-    }
+class MutuallyExclusive {
+  constructor(context) {
+    this.context = context;
 
-    checkboxElement.addEventListener('click', function() {
-      for (let exclusiveGroupElement of exclusiveGroupElements) {
-        const elementType = exclusiveGroupElement.type;
-        inputToggle(exclusiveGroupElement, voiceOverAlertElement, elementType);
-      }
+    this.groupInputs = [...context.getElementsByClassName(exclusiveGroupClass)].map(element => ({
+      element,
+      label: this.getElementLabelText(element),
+      hasValue: this.inputHasValue(element),
+      exclusive: false
+    }));
+
+    const checkboxElement = context.querySelector(`.${checkboxClass}`);
+    this.checkbox = {
+      element: checkboxElement,
+      label: this.getElementLabelText(checkboxElement),
+      hasValue: this.inputHasValue(checkboxElement),
+      exclusive: true
+    };
+
+    this.allInputs = [...this.groupInputs, this.checkbox];
+    this.voiceOverAlertElement = context.querySelector(`.${voiceOverAlertClass}`);
+    this.groupAdjective = this.voiceOverAlertElement.getAttribute(groupAttrAdjective);
+    this.checkboxAdjective = this.voiceOverAlertElement.getAttribute(checkboxAttrAdjective);
+    debugger;
+    this.bindEventListeners();
+  }
+
+  bindEventListeners() {
+    this.allInputs.forEach(input => {
+      const event = input.element.type === 'checkbox' ? 'click' : 'input';
+
+      input.element.addEventListener(event, () => this.handleValueChange(input));
     });
+  }
+
+  handleValueChange(input) {
+    const previousSelectedValues = this.allInputs.filter(input => input.hasValue).map(input => input.label);
+    let adjective;
+
+    input.hasValue = this.inputHasValue(input.element);
+
+    if (input.hasValue) {
+      // if not self deselect
+      if (input.exclusive) {
+        adjective = this.groupAdjective;
+
+        this.allInputs
+          .filter(input => !input.exclusive)
+          .forEach(input => {
+            input.hasValue = false;
+
+            if (input.element.type === 'checkbox') {
+              input.element.checked = false;
+              this.triggerEvent(input.element, 'change');
+            } else {
+              input.element.value = '';
+              this.triggerEvent(input.element, 'input');
+            }
+          });
+      } else if (!input.exclusive) {
+        const input = this.allInputs.find(input => input.exclusive);
+        adjective = this.checkboxAdjective;
+
+        input.hasValue = false;
+        input.element.checked = false;
+
+        this.triggerEvent(input.element, 'change');
+      }
+
+      const updatedSelectedValues = this.allInputs.filter(input => input.hasValue).map(input => input.label);
+      const deselectedValues = previousSelectedValues.filter(label => !updatedSelectedValues.includes(label));
+
+      this.setAriaLive(deselectedValues, adjective);
+    }
+  }
+
+  getElementLabelText(element) {
+    const label = this.context.querySelector(`label[for=${element.id}]`) || this.context.querySelector('legend');
+    // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
+    const labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
+
+    return labelText;
+  }
+
+  inputHasValue(input) {
+    if (input.type === 'checkbox') {
+      return !!input.checked;
+    } else {
+      return !!input.value.trim().length;
+    }
+  }
+
+  setAriaLive(deselectedValues, adjective) {
+    const deselectionMessage = deselectedValues.map(label => `${label} ${adjective}.`).join(' ');
+
+    // Only update aria-live if value changes to prevent typing from clearing the message before it's read
+    if (deselectionMessage) {
+      this.voiceOverAlertElement.innerHTML = deselectionMessage;
+    }
+  }
+
+  triggerEvent(input, eventType) {
+    const event = document.createEvent('HTMLEvents');
+    event.initEvent(eventType, false, true);
+    input.dispatchEvent(event);
   }
 }
 
-const inputToggle = function(inputEl, voiceOverAlertEl, elType) {
-  let attr = inputEl.getAttribute('value');
-  const originalValue = getInputValue(inputEl, elType);
+export default function mutuallyExclusiveInputs() {
+  const exclusiveWrapperElements = [...document.getElementsByClassName(exclusiveWrapperClass)];
 
-  if (elType === 'checkbox' && inputEl.checked === true) {
-    inputEl.checked = false;
-  } else if (elType === 'select-one') {
-    inputEl.selectedIndex = 0;
-    attr = inputEl.getAttribute('data-value');
-  } else {
-    const charRef = document.querySelector(`#${inputEl.getAttribute(attrCharLimitRef)}`);
-    attr = inputEl.getAttribute('data-value');
-
-    if (elType !== 'checkbox') {
-      inputEl.value = '';
-    }
-
-    if (charRef) {
-      updateAvailableChars(inputEl, charRef);
-    }
-  }
-
-  const updatedValue = getInputValue(inputEl, elType);
-
-  if (originalValue != updatedValue) {
-    const event = document.createEvent('HTMLEvents');
-    event.initEvent('change', false, true);
-    inputEl.dispatchEvent(event);
-  }
-
-  voiceOverAlertEl.append(attr + ' ' + voiceOverAlertEl.getAttribute('data-adjective') + '. ');
-};
-
-function getInputValue(inputElement, elementType) {
-  switch (elementType) {
-    case 'checkbox': {
-      return inputElement.checked;
-    }
-    case 'select-one': {
-      return inputElement.selectedIndex;
-    }
-    default: {
-      return inputElement.value;
-    }
-  }
+  exclusiveWrapperElements.forEach(element => new MutuallyExclusive(element));
 }
 
 domready(mutuallyExclusiveInputs);
