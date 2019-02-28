@@ -30,7 +30,7 @@ class MutuallyExclusive {
     this.voiceOverAlertElement = context.querySelector(`.${voiceOverAlertClass}`);
     this.groupAdjective = this.voiceOverAlertElement.getAttribute(groupAttrAdjective);
     this.checkboxAdjective = this.voiceOverAlertElement.getAttribute(checkboxAttrAdjective);
-    debugger;
+
     this.bindEventListeners();
   }
 
@@ -79,7 +79,8 @@ class MutuallyExclusive {
       const updatedSelectedValues = this.allInputs.filter(input => input.hasValue).map(input => input.label);
       const deselectedValues = previousSelectedValues.filter(label => !updatedSelectedValues.includes(label));
 
-      this.setAriaLive(deselectedValues, adjective);
+      // Must wait 300ms for screen reader to finish describing ticked item before trigging aria-alert
+      setTimeout(() => this.setAriaLive(deselectedValues, adjective), 300);
     }
   }
 

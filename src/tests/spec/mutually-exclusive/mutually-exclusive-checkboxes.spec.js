@@ -120,11 +120,15 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
         });
       });
 
-      it('then the aria-live message should reflect the removed non exclusive options', () => {
-        const message = params.checkboxes
-          .map(checkbox => `${checkbox.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`)
-          .join(' ');
-        expect(ariaAlert.innerHTML).to.equal(message);
+      it('then the aria-live message should reflect the removed non exclusive options', done => {
+        setTimeout(() => {
+          const message = params.checkboxes
+            .map(checkbox => `${checkbox.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`)
+            .join(' ');
+          expect(ariaAlert.innerHTML).to.equal(message);
+
+          done();
+        }, 300);
       });
     });
   });
@@ -155,10 +159,13 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
         expect(exclusiveCheckbox.value).to.equal(params.mutuallyExclusive.checkbox.value);
       });
 
-      it('then the aria-live message should reflect the removed exclusive option', () => {
-        expect(ariaAlert.innerHTML).to.equal(
-          `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
-        );
+      it('then the aria-live message should reflect the removed exclusive option', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal(
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+          );
+          done();
+        }, 300);
       });
 
       describe('and the user deselects an non-exclusive option', () => {
@@ -168,10 +175,13 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
           element.click();
         });
 
-        it('the aria-live message should not be updated', () => {
-          expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
-          );
+        it('the aria-live message should not be updated', done => {
+          setTimeout(() => {
+            expect(ariaAlert.innerHTML).to.equal(
+              `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+            );
+            done();
+          }, 300);
         });
       });
     });
@@ -199,8 +209,11 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
         expect(exclusiveCheckbox.checked).to.equal(false);
       });
 
-      it('then the aria-live message should say nothing', () => {
-        expect(ariaAlert.innerHTML).to.equal('');
+      it('then the aria-live message should say nothing', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal('');
+          done();
+        }, 300);
       });
     });
   });
@@ -227,8 +240,11 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
         });
       });
 
-      it('then the aria-live message should say nothing', () => {
-        expect(ariaAlert.innerHTML).to.equal('');
+      it('then the aria-live message should say nothing', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal('');
+          done();
+        }, 300);
       });
     });
   });

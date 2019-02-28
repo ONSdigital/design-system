@@ -79,11 +79,14 @@ describe('Component: Mutually Exclusive Date Input', () => {
         expect(yearInput.value).to.equal('');
       });
 
-      it('then the aria alert should tell the user that the date input has been cleared', () => {
-        expect(ariaAlert.innerHTML).to.equal(
-          // prettier-ignore
-          `${params.day.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.month.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.year.label} ${params.mutuallyExclusive.deselectGroupAdjective}.`
-        );
+      it('then the aria alert should tell the user that the date input has been cleared', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal(
+            // prettier-ignore
+            `${params.day.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.month.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.year.label} ${params.mutuallyExclusive.deselectGroupAdjective}.`
+          );
+          done();
+        }, 300);
       });
     });
   });
@@ -102,10 +105,13 @@ describe('Component: Mutually Exclusive Date Input', () => {
         expect(checkbox.checked).to.equal(false);
       });
 
-      it('then the aria alert should tell the user that the checkbox has been unchecked', () => {
-        expect(ariaAlert.innerHTML).to.equal(
-          `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
-        );
+      it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal(
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+          );
+          done();
+        }, 300);
       });
     });
   });
@@ -116,8 +122,11 @@ describe('Component: Mutually Exclusive Date Input', () => {
         populateDate(dayInput, monthInput, yearInput);
       });
 
-      it('then the aria alert shouldnt say anything', () => {
-        expect(ariaAlert.innerHTML).to.equal('');
+      it('then the aria alert shouldnt say anything', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal('');
+          done();
+        }, 300);
       });
     });
 
@@ -126,8 +135,11 @@ describe('Component: Mutually Exclusive Date Input', () => {
         checkbox.click();
       });
 
-      it('then the aria alert shouldnt say anything', () => {
-        expect(ariaAlert.innerHTML).to.equal('');
+      it('then the aria alert shouldnt say anything', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal('');
+          done();
+        }, 300);
       });
     });
   });

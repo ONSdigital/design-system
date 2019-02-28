@@ -101,8 +101,11 @@ describe('Component: Mutually Exclusive Select', () => {
         expect(select.value).to.equal('');
       });
 
-      it('then the aria alert should tell the user that the select has been cleared', () => {
-        expect(ariaAlert.innerHTML).to.equal(`${params.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`);
+      it('then the aria alert should tell the user that the select has been cleared', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal(`${params.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`);
+          done();
+        }, 300);
       });
     });
   });
@@ -121,10 +124,13 @@ describe('Component: Mutually Exclusive Select', () => {
         expect(checkbox.checked).to.equal(false);
       });
 
-      it('then the aria alert should tell the user that the checkbox has been unchecked', () => {
-        expect(ariaAlert.innerHTML).to.equal(
-          `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
-        );
+      it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal(
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+          );
+          done();
+        }, 300);
       });
     });
   });
@@ -135,8 +141,11 @@ describe('Component: Mutually Exclusive Select', () => {
         populateInput(select);
       });
 
-      it('then the aria alert shouldnt say anything', () => {
-        expect(ariaAlert.innerHTML).to.equal('');
+      it('then the aria alert shouldnt say anything', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal('');
+          done();
+        }, 300);
       });
     });
 
@@ -145,8 +154,11 @@ describe('Component: Mutually Exclusive Select', () => {
         checkbox.click();
       });
 
-      it('then the aria alert shouldnt say anything', () => {
-        expect(ariaAlert.innerHTML).to.equal('');
+      it('then the aria alert shouldnt say anything', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal('');
+          done();
+        }, 300);
       });
     });
   });

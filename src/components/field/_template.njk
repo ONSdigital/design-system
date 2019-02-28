@@ -7,7 +7,7 @@
         {{ caller() }}
         {% if params.mutuallyExclusive %}
         {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
-            <div class="field__item">
+            <div class="field__item u-mt-s">
                 <div class="field__label u-fs-r--b" aria-hidden="true">{{ params.mutuallyExclusive.or }}</div>
                 {{
                     onsCheckbox({

@@ -30,8 +30,12 @@
   }
 
   & > &__item {
-    margin: 1rem 0 0;
+    margin: 0 0 0.5rem;
     width: 100%;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     @include mq(m) {
       &:not([class*='field__item--w-']) {
