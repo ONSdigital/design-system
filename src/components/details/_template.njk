@@ -3,21 +3,24 @@
 
 <details id="{{ params.id }}" class="details js-collapsible{% if params.isAccordion %} details--accordion{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}" open{%if params.buttonOpen %} data-btn-close="{{ params.closeButton }}"{% endif %}{% if params.group %} data-group="{{ params.group }}"{% endif %}{% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
     <summary class="details__summary js-collapsible-summary" data-ga="click" data-ga-category="{% if params.isAccordion %}accordion{% else %}definition{% endif %}" data-ga-action="Open panel" data-ga-label="{{ params.title }}">
-        <h2 class="details__title u-fs-r--b">{{ params.title }}</h2>
-        {% if params.closeButton and params.buttonOpen and params.isAccordion %}
-             {{
-                onsButton({
-                    "text": params.buttonOpen,
-                    "classes": "details__btn btn--secondary btn--small js-collapsible-button u-d-no",
-                    "attributes": {
-                        "data-ga": "click",
-                        "data-ga-category": "definition",
-                        "data-ga-action": "Close panel",
-                        "data-ga-label": params.title
-                    }
-                })
-            }}
-        {% endif %}
+        {# Required to use display flex on Safari as it's not currently supported: https://bugs.webkit.org/show_bug.cgi?id=167111 #}
+        <div class="details__heading">
+            <h2 class="details__title u-fs-r--b">{{ params.title }}</h2>
+            {% if params.closeButton and params.buttonOpen and params.isAccordion %}
+                {{
+                    onsButton({
+                        "text": params.buttonOpen,
+                        "classes": "details__btn btn--secondary btn--small js-collapsible-button u-d-no u-d-no@xs@s",
+                        "attributes": {
+                            "data-ga": "click",
+                            "data-ga-category": "definition",
+                            "data-ga-action": "Close panel",
+                            "data-ga-label": params.title
+                        }
+                    })
+                }}
+            {% endif %}
+        </div>
     </summary>
     <div id="{{ params.id }}-content" class="details__content js-collapsible-content">
         {{ params.content | safe }}{{ caller() if caller }}
