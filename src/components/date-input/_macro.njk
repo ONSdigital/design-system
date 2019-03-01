@@ -1,3 +1,88 @@
 {% macro onsDateInput(params) %}
-    {% include "components/date-input/_template.njk" %}
+    {% from "components/field/_macro.njk" import onsField %}
+    {% from "components/input/_macro.njk" import onsInput %}
+    {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
+
+    {% if params.mutuallyExclusive %}
+        {% set exclusiveClass = " js-exclusive-group" %}
+    {% endif %}
+
+    {% if params.questionMode %}
+        {% set legend = "<h1>" + params.legend + "</h1>" %}
+        {% set classes = "field--question" + (" " + params.classes if params.classes) %}
+    {% else %}
+        {% set legend = params.legend %}
+        {% set classes = "field--date" + (" " + params.classes if params.classes) %}
+    {% endif %}
+
+    {% call onsField({
+        "id": params.id,
+        "legend": legend,
+        "description": params.description,
+        "classes": classes,
+        "descriptionClasses": descriptionClasses | default(""),
+        "legendClasses": params.legendClasses,
+        "mutuallyExclusive": params.mutuallyExclusive
+    }) %}
+        <div class="field__group">
+            {% if params.day %}
+            <div class="field__item">
+                {{
+                    onsInput({
+                        "id": params.id + "-day",
+                        "type": "number",
+                        "name": params.day.name,
+                        "classes": "input--w-2" + exclusiveClass | default(""),
+                        "min": 1,
+                        "max": 31,
+                        "attributes": params.day.attributes,
+                        "label": {
+                            "text": params.day.label
+                        },
+                        "value": params.day.value
+                    })
+                }}
+            </div>
+            {% endif %}
+            {% if params.month %}
+            <div class="field__item">
+                {{
+                    onsInput({
+                        "id": params.id + "-month",
+                        "type": "number",
+                        "name": params.month.name,
+                        "classes": "input--w-2" + exclusiveClass | default(""),
+                        "min": 1,
+                        "max": 12,
+                        "attributes": params.month.attributes,
+                        "label": {
+                            "text": params.month.label
+                        },
+                        "value": params.month.value
+                    })
+                }}
+            </div>
+            {% endif %}
+            {% if params.year %}
+            <div class="field__item">
+                {{
+                    onsInput({
+                        "id": params.id + "-year",
+                        "type": "number",
+                        "name": params.year.name,
+                        "classes": "input--w-4" + exclusiveClass | default(""), 
+                        "min": 1000,
+                        "max": 3000,
+                        "attributes": params.year.attributes,
+                        "label": {
+                            "text": params.year.label
+                        },
+                        "value": params.year.value
+                    })
+                }}
+            </div>
+            {% endif %}
+        </div>
+    {% endcall %}
+
 {% endmacro %}

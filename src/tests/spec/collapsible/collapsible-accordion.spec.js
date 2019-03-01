@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/accordion/_template.njk';
+import template from 'components/accordion/_test-template.njk';
 import collapsible, { Collapsible } from 'components/details/collapsible';
 import CollapsibleGroup from 'components/details/collapsible.group';
 import eventMock from 'stubs/event.stub.spec';
