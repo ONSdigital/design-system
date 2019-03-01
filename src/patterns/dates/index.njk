@@ -42,6 +42,14 @@ You can do this automatically by setting the date's macro `questionMode` paramet
     patternlibExample({"path": "components/date-input/examples/date-input-question/index.njk"})
 }}
 
+### Using autocomplete when asking for date of birth
+Use the `autocomplete` attribute when you are asking for a date of birth to help the user fill out a form more quickly.
+
+To do this, set the `autocomplete` attribute on each of the 3 date input fields to `bday-day`, `bday-month` and `bday-year`.  See how to do this in the HTML and Nunjucks code tabs in the examples above.
+
+You will need to use the autocomplete attribute to meet AA WCAG 2.1 accessibility requirements.
+
+
 ### Error messages
 When validating the user's date entry, you should check the entire date, and follow the [error pattern guidance](/patterns/error-validation) when providing specific error messages for the specific errors found.
 
