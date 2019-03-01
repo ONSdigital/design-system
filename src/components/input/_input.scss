@@ -23,6 +23,12 @@
     }
   }
 
+  &--text,
+  &--textarea {
+    // Prevent inner shadow on iOS
+    -webkit-appearance: none;
+  }
+
   &:hover {
     border-color: $color-links-hover;
   }
