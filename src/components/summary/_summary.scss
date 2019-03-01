@@ -107,6 +107,10 @@ $summary-col-spacing: 1rem;
     }
 
     &__item--error & {
+      &__row {
+        margin-left: 0;
+      }
+
       &__question {
         padding-right: $summary-col-spacing;
       }
