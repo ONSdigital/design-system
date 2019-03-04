@@ -1,0 +1,22 @@
+{% from "components/field/_macro.njk" import onsField %}
+{% from "components/input/_macro.njk" import onsInput %}
+
+{% call onsField({
+    "id": params.id,
+    "legend": params.legend,
+    "description": params.description,
+    "mutuallyExclusive": params.mutuallyExclusive
+}) %}
+    <div class="field__group">
+        <div class="field__item">
+            {{ 
+                onsInput(params.years)
+            }}
+        </div>
+        <div class="field__item">
+            {{ 
+                onsInput(params.months)
+            }}
+        </div>
+    </div>
+{% endcall %}

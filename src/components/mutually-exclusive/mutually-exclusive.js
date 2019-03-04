@@ -91,10 +91,15 @@ class MutuallyExclusive {
   }
 
   getElementLabelText(element) {
-    const label =
-      this.context.querySelector(`label[for=${element.id}]`) ||
-      (element.parentNode.querySelector('abbr') && this.numberOfGroupInputs > 1) ||
-      this.context.querySelector('legend');
+    let label = this.context.querySelector(`label[for=${element.id}]`);
+
+    if (!label && this.numberOfGroupInputs > 1) {
+      label = element.parentNode.querySelector('abbr');
+    }
+
+    if (!label) {
+      label = this.context.querySelector('legend');
+    }
 
     // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
     let labelText;
