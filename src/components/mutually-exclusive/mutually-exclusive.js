@@ -11,7 +11,9 @@ class MutuallyExclusive {
   constructor(context) {
     this.context = context;
 
-    this.groupInputs = [...context.getElementsByClassName(exclusiveGroupClass)].map(element => ({
+    const groupInputs = [...context.getElementsByClassName(exclusiveGroupClass)];
+    this.numberOfGroupInputs = groupInputs.length;
+    this.groupInputs = groupInputs.map(element => ({
       element,
       labelText: this.getElementLabelText(element),
       hasValue: this.inputHasValue(element),
@@ -91,7 +93,7 @@ class MutuallyExclusive {
   getElementLabelText(element) {
     const label =
       this.context.querySelector(`label[for=${element.id}]`) ||
-      element.parentNode.querySelector('abbr') ||
+      (element.parentNode.querySelector('abbr') && this.numberOfGroupInputs > 1) ||
       this.context.querySelector('legend');
 
     // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
