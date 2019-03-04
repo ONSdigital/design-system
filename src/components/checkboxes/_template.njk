@@ -9,41 +9,44 @@
     "mutuallyExclusive": params.mutuallyExclusive,
     "legendClasses": params.legendClasses
 }) %}
-    {% for checkbox in params.checkboxes %}
-        {% set labelHTML = checkbox.label.text %}
-        {% if params.mutuallyExclusive %}  
-            {% set exclusiveClass = ' js-exclusive-group' %}                
-        {% endif %}
-   
-        <div class="field__item">
-            {{
-                onsCheckbox({
-                    "id": checkbox.id,
-                    "name": checkbox.name,
-                    "value": checkbox.value,
-                    "checked": checkbox.checked,
-                    "classes": checkbox.classes,
-                    "inputClasses": exclusiveClass,
-                    "label": {
-                        "for": checkbox.id,
-                        "text": labelHTML,
-                        "description": checkbox.label.description,
-                        "classes": checkbox.label.classes | default('') 
-                    },
-                    "attributes": checkbox.attributes,
-                    "other": {
-                        "id": checkbox.other.id,
-                        "name": checkbox.other.name,
-                        "type": checkbox.other.type,
-                        "classes": checkbox.other.classes | default('') + exclusiveClass | default(''),
-                        "attributes": checkbox.other.attributes,
+    <div class="field__items">
+        {% for checkbox in params.checkboxes %}
+            {% set labelHTML = checkbox.label.text %}
+            {% if params.mutuallyExclusive %}  
+                {% set exclusiveClass = ' js-exclusive-group' %}                
+            {% endif %}
+            <div class="field__item">
+                {{
+                    onsCheckbox({
+                        "id": checkbox.id,
+                        "name": checkbox.name,
+                        "value": checkbox.value,
+                        "checked": checkbox.checked,
+                        "classes": checkbox.classes,
+                        "inputClasses": exclusiveClass,
                         "label": {
-                            "text": checkbox.other.label.text
+                            "for": checkbox.id,
+                            "text": labelHTML,
+                            "description": checkbox.label.description,
+                            "classes": checkbox.label.classes | default('') 
+                        },
+                        "attributes": checkbox.attributes,
+                        "other": {
+                            "id": checkbox.other.id,
+                            "name": checkbox.other.name,
+                            "type": checkbox.other.type,
+                            "classes": checkbox.other.classes | default('') + exclusiveClass | default(''),
+                            "attributes": checkbox.other.attributes,
+                            "label": {
+                                "text": checkbox.other.label.text
+                            }
                         }
-                    }
-                })
-            }}
-        </div>
-        <br>
-    {% endfor %}
+                    })
+                }}
+            </div>
+            {% if not loop.last %}
+                <br>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endcall %}
