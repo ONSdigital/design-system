@@ -115,5 +115,6 @@ export function populateTextarea(
 ) {
   textarea.value = value;
   const event = new CustomEvent('input');
+  event.inputType = 'unitTest';
   textarea.dispatchEvent(event);
 }
