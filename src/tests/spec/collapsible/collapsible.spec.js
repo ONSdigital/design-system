@@ -7,7 +7,7 @@ const params = {
   title: 'What is a photovoltaic system?',
   content:
     '<p>A typical photovoltaic system employs solar panels, each comprising a number of solar cells, which generate electrical power. PV installations may be ground-mounted, rooftop mounted or wall mounted. The mount may be fixed, or use a solar tracker to follow the sun across the sky.</p>',
-  buttonClose: 'Hide this'
+  closeButton: 'Hide this'
 };
 
 describe('Component: Details', function() {
@@ -163,7 +163,7 @@ describe('Component: Details', function() {
 
   describe('If the component does not have a button', function() {
     beforeEach(function() {
-      delete params.buttonClose;
+      delete params.closeButton;
       const component = renderComponent(params);
 
       Object.keys(component).forEach(key => {
@@ -182,9 +182,9 @@ describe('Component: Details', function() {
         this.collapsible = new Collapsible(this.details);
       });
 
-      it('there should be no buttonClose or buttonOpen properties', function() {
+      it('there should be no closeButton or buttonOpen properties', function() {
         expect(this.collapsible.button).to.be.null;
-        expect(this.collapsible.buttonClose).to.be.undefined;
+        expect(this.collapsible.closeButton).to.be.undefined;
         expect(this.collapsible.buttonOpen).to.be.undefined;
       });
     });

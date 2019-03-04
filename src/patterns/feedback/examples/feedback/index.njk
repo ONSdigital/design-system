@@ -1,0 +1,91 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+
+{% set page = { 
+    "title": "Service name",
+    "bodyClasses": "u-ha",
+    "phase": {
+        "badge": "BETA",
+        "html": "This is a new service – your <a href=\"#feedback\" class=\"js-feedback-button\">feedback</a> will help us improve it."
+    },
+    "language": {
+        "languages": [
+             {
+                "url": "#",
+                "ISOCode": "en-GB",
+                "text": "English",
+                "buttonAriaLabel": "Language selector. Current language: English",
+                "chooseLanguage": "Choose language",
+                "current": true
+            },
+            {
+                "url": "#",
+                "ISOCode": "ga",
+                "text": "Gaeilge",
+                "buttonAriaLabel": "Roghnóir teanga. Teanga reatha: Gaeilge",
+                "chooseLanguage": "Roghnaigh teanga",
+                "current": false
+            },
+            {
+                "url": "#",
+                "ISOCode": "sco",
+                "text": "Ulstèr-Scotch",
+                "buttonAriaLabel": "Leid selectgor. Current leid: Ulstèr-Scotch",
+                "chooseLanguage": "Wale leid",
+                "current": false
+            }
+        ]
+    },
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        },
+        "rows": [
+            {
+                "items": [
+                    {
+                        "text": 'Contact us',
+                        "url": '#'
+                    },
+                    {
+                        "text": 'Cookies and privacy',
+                        "url": '#'
+                    }
+                ]
+            }
+        ]
+    },
+    "feedback": {
+        "id": "feedback",
+        "action": "/",
+        "title": "Give feedback and help us improve this service",
+        "closeButton": "I don't want to provide feedback",
+        "textarea": {
+            "label": {
+                "text": "How can we improve this survey"
+            },
+            "maxlength": 2000,
+            "charCountSingular": "You have {x} character remaining",
+            "charCountPlural": "You have {x} characters remaining"
+        },
+        "name": {
+            "label": {
+                "text": "Name (optional)",
+                "description": "Please include your name and email address if you’re interested in taking part in further research to improve this survey"
+            }
+        },
+        "email": {
+            "label": {
+                "text": "Email address (optional)"
+            }
+        },
+        "sendButton": "Send feedback",
+        "thankYouMessage": "Thank you for your feedback.",
+        "errorMessage": "There was an error sending your feedback.\n(Error code: {x})"
+    }
+} %}

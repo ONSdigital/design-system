@@ -75,7 +75,7 @@
 
     @if $create-between-breakpoints {
       @each $breakpoint-max, $size in $grid-bp {
-        @include mq($breakpoint-min, $breakpoint-max) {
+        @include mq($breakpoint-min, $breakpoint-max, $to-operator: '<') {
           .#{$class}\@#{$breakpoint-min}\@#{$breakpoint-max} {
             @content;
           }
