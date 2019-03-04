@@ -1,9 +1,19 @@
 {% if params.mutuallyExclusive or params.legend %}
-    <fieldset{% if params.id %} id="{{ params.id }}"{% endif %} class="field{% if params.mutuallyExclusive %} field--exclusive{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"{% if params.description %} aria-describedby="{{ params.id }}-description"{% endif %}>
-        <legend class="field__legend {{ params.legendClasses }}">{{ params.legend | safe }}</legend>
-        {% if params.description %}
-            <div id="{{ params.id }}-description" class="field__description">{{ params.description }}</div>
-        {% endif %}
+    {% if params.questionMode %}
+        {% set legend = "<h1>" + params.legend + "</h1>" %}
+        {% set classes = "field--question" + (" " + params.classes if params.classes) %}
+    {% else %}
+        {% set legend = params.legend %}
+        {% set classes = params.classes %}
+    {% endif %}
+    <fieldset{% if params.id %} id="{{ params.id }}"{% endif %} class="field{% if params.mutuallyExclusive %} field--exclusive{% endif %}{% if classes %} {{ classes }}{% endif %}">
+          <legend class="field__legend {{ params.legendClasses }}">
+            {{ legend | safe }}
+            {% if params.description %}
+              <br>
+              <span class="field__description">{{ params.description }}</span>
+            {% endif %}
+          </legend>
         {{ caller() }}
         {% if params.mutuallyExclusive %}
             {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}

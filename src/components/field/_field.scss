@@ -6,9 +6,7 @@
   }
 
   &__legend {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    font-weight: $font-weight-bold;
+    @extend .label;
   }
 
   &__label {
@@ -16,7 +14,7 @@
   }
 
   &__description {
-    margin-bottom: 0.5em;
+    @extend .label__description;
   }
 
   &__group {
@@ -72,10 +70,12 @@
   &--question & {
     &__legend h1 {
       @extend .u-fs-l;
+      display: inline-block;
       margin-bottom: 0;
     }
 
     &__description {
+      @extend .u-fs-r;
       @extend .u-mb-m;
     }
   }
