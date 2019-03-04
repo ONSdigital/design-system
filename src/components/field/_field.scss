@@ -29,18 +29,21 @@
     position: relative;
   }
 
-  &__items > &__item {
-    margin: 0 0 0.5rem;
-    width: 100%;
+  & > &,
+  &__items > & {
+    &__item {
+      margin: 0 0 0.5rem;
+      width: 100%;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+      &:last-child {
+        margin-bottom: 0;
+      }
 
-    @include mq(m) {
-      &:not([class*='field__item--w-']) {
-        width: auto;
-        min-width: 20rem;
+      @include mq(m) {
+        &:not([class*='field__item--w-']) {
+          width: auto;
+          min-width: 20rem;
+        }
       }
     }
   }

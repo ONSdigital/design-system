@@ -18,7 +18,10 @@
                         "classes": params.mutuallyExclusive.checkbox.classes,
                         "inputClasses": "js-exclusive-checkbox",
                         "label": {
-                            "text": '<span class="u-vh">' + params.mutuallyExclusive.or + ', </span> ' + params.mutuallyExclusive.checkbox.label.text + '<span class="u-vh">. ' +  params.mutuallyExclusive.deselectMessage + '</span>'
+                            "text": '<span class="u-vh">' + params.mutuallyExclusive.or + ', </span> ' + params.mutuallyExclusive.checkbox.label.text
+                        },
+                        "attributes": {
+                            "data-deselect-message": params.mutuallyExclusive.deselectMessage
                         }
                     })
                 }}

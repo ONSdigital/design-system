@@ -13,7 +13,7 @@ class MutuallyExclusive {
 
     this.groupInputs = [...context.getElementsByClassName(exclusiveGroupClass)].map(element => ({
       element,
-      label: this.getElementLabelText(element),
+      labelText: this.getElementLabelText(element),
       hasValue: this.inputHasValue(element),
       exclusive: false
     }));
@@ -21,7 +21,8 @@ class MutuallyExclusive {
     const checkboxElement = context.querySelector(`.${checkboxClass}`);
     this.checkbox = {
       element: checkboxElement,
-      label: this.getElementLabelText(checkboxElement),
+      label: context.querySelector(`label[for=${checkboxElement.id}]`),
+      labelText: this.getElementLabelText(checkboxElement),
       hasValue: this.inputHasValue(checkboxElement),
       exclusive: true
     };
@@ -30,6 +31,7 @@ class MutuallyExclusive {
     this.voiceOverAlertElement = context.querySelector(`.${voiceOverAlertClass}`);
     this.groupAdjective = this.voiceOverAlertElement.getAttribute(groupAttrAdjective);
     this.checkboxAdjective = this.voiceOverAlertElement.getAttribute(checkboxAttrAdjective);
+    this.deselectMessage = this.checkbox.element.getAttribute('data-deselect-message');
 
     this.bindEventListeners();
   }
@@ -43,7 +45,7 @@ class MutuallyExclusive {
   }
 
   handleValueChange(input) {
-    const previousSelectedValues = this.allInputs.filter(input => input.hasValue).map(input => input.label);
+    const previousSelectedValues = this.allInputs.filter(input => input.hasValue).map(input => input.labelText);
     let adjective;
 
     input.hasValue = this.inputHasValue(input.element);
@@ -76,8 +78,10 @@ class MutuallyExclusive {
         this.triggerEvent(input.element, 'change');
       }
 
-      const updatedSelectedValues = this.allInputs.filter(input => input.hasValue).map(input => input.label);
-      const deselectedValues = previousSelectedValues.filter(label => !updatedSelectedValues.includes(label));
+      const updatedSelectedValues = this.allInputs.filter(input => input.hasValue).map(input => input.labelText);
+      const deselectedValues = previousSelectedValues.filter(labelText => !updatedSelectedValues.includes(labelText));
+
+      this.setDeselectMessage();
 
       // Must wait 300ms for screen reader to finish describing ticked item before trigging aria-alert
       setTimeout(() => this.setAriaLive(deselectedValues, adjective), 300);
@@ -106,6 +110,22 @@ class MutuallyExclusive {
     // Only update aria-live if value changes to prevent typing from clearing the message before it's read
     if (deselectionMessage) {
       this.voiceOverAlertElement.innerHTML = deselectionMessage;
+    }
+  }
+
+  setDeselectMessage() {
+    const groupElementSelected = this.groupInputs.find(input => input.hasValue);
+
+    if (!this.deselectMessageElement && groupElementSelected) {
+      const deselectMessageElement = document.createElement('span');
+      deselectMessageElement.classList.add('u-vh');
+      deselectMessageElement.innerHTML = `. ${this.deselectMessage}`;
+
+      this.deselectMessageElement = deselectMessageElement;
+      this.checkbox.label.appendChild(deselectMessageElement);
+    } else if (this.deselectMessageElement && !groupElementSelected) {
+      this.deselectMessageElement.remove();
+      this.deselectMessageElement = null;
     }
   }
 
