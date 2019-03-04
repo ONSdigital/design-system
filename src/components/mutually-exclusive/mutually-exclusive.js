@@ -89,9 +89,19 @@ class MutuallyExclusive {
   }
 
   getElementLabelText(element) {
-    const label = this.context.querySelector(`label[for=${element.id}]`) || this.context.querySelector('legend');
+    const label =
+      this.context.querySelector(`label[for=${element.id}]`) ||
+      element.parentNode.querySelector('abbr') ||
+      this.context.querySelector('legend');
+
     // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
-    const labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
+    let labelText;
+
+    if (label.tagName === 'abbr') {
+      labelText = label.getAttribute('title');
+    } else {
+      labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
+    }
 
     return labelText;
   }
