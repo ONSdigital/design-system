@@ -107,14 +107,26 @@ describe('Component: Textarea with character limit', () => {
       });
     });
   });
+
+  describe('Given that the textarea value is cleared programatically', () => {
+    beforeEach(() => {
+      populateTextarea(textarea);
+      populateTextarea(textarea, '', undefined);
+
+      it('then aria-live attribute should not be added', () => {
+        expect(limit_readout.hasAttribute('aria-live')).to.be.false;
+      });
+    });
+  });
 });
 
 export function populateTextarea(
   textarea,
-  value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus varius mauris, vitae venenatis sem ullamcorper in. Integer eu facilisis urna. Sed convallis porttitor massa eu pulvinar.'
+  value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus varius mauris, vitae venenatis sem ullamcorper in. Integer eu facilisis urna. Sed convallis porttitor massa eu pulvinar.',
+  inputType = 'unitTest'
 ) {
   textarea.value = value;
   const event = new CustomEvent('input');
-  event.inputType = 'unitTest';
+  event.inputType = inputType;
   textarea.dispatchEvent(event);
 }
