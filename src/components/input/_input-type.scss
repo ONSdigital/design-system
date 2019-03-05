@@ -1,6 +1,9 @@
 .input-type {
-  display: inline-flex;
-  position: relative;
+  // Keep the entire component display block, but use inline-flex on inner to prevent the orange focus from going full width
+  &__inner {
+    display: inline-flex;
+    position: relative;
+  }
 
   // Double ampersand is needed to solve specificity issues
   & &__input {

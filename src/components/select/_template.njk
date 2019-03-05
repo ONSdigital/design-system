@@ -8,7 +8,8 @@
     "description": params.label.description if params.mutuallyExclusive,
     "mutuallyExclusive": params.mutuallyExclusive,
     "classes": params.fieldClases,
-    "legendClasses": params.legendClasses
+    "legendClasses": params.legendClasses,
+    "questionMode": params.questionMode
 }) %}
     {% if params.label and not params.mutuallyExclusive %}
         {% from "components/label/_macro.njk" import onsLabel %}
