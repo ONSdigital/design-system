@@ -5,6 +5,7 @@
   font-weight: 600;
 
   &__description {
+    @extend .u-fs-s;
     display: inline-block;
     line-height: 1.4;
   }
