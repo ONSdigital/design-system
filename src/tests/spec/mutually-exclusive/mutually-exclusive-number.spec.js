@@ -19,7 +19,8 @@ const params = {
   mutuallyExclusive: {
     or: 'Or',
     deselectMessage: 'Selecting this will clear your inputted annual income',
-    deselectAdjective: 'deselected',
+    deselectGroupAdjective: 'cleared',
+    deselectCheckboxAdjective: 'deselected',
     checkbox: {
       id: 'currency-checkbox',
       name: 'no-currency',
@@ -32,8 +33,7 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Number Input', () => {
-  let wrapper, input, checkbox;
-  // let ariaAlert;
+  let wrapper, input, checkbox, ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -48,7 +48,7 @@ describe('Component: Mutually Exclusive Number Input', () => {
 
     input = document.getElementById(params.id);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    // ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
   });
@@ -73,9 +73,12 @@ describe('Component: Mutually Exclusive Number Input', () => {
         expect(input.value).to.equal('');
       });
 
-      // it('then the aria alert should tell the user that the number input has been cleared', () => {
-      //   expect(ariaAlert.innerHTML).to.equal(`${params.label.text} cleared.`);
-      // });
+      it('then the aria alert should tell the user that the number input has been cleared', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal(`${params.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`);
+          done();
+        }, 300);
+      });
     });
   });
 
@@ -93,33 +96,44 @@ describe('Component: Mutually Exclusive Number Input', () => {
         expect(checkbox.checked).to.equal(false);
       });
 
-      // it('then the aria alert should tell the user that the checkbox has been unchecked', () => {
-      //   expect(ariaAlert.innerHTML).to.equal(`"${params.checkbox.label.text}" deselected.`);
-      // });
+      it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal(
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+          );
+          done();
+        }, 300);
+      });
     });
   });
 
-  // describe('Given the user has not populated the number input or checked the checkbox', () => {
-  //   describe('when the user populates the number input', () => {
-  //     beforeEach(() => {
-  //       populateInput(input);
-  //     });
+  describe('Given the user has not populated the number input or checked the checkbox', () => {
+    describe('when the user populates the number input', () => {
+      beforeEach(() => {
+        populateInput(input);
+      });
 
-  //     it('then the aria alert shouldnt say anything', () => {
-  //       expect(ariaAlert.innerHTML).to.equal('');
-  //     });
-  //   });
+      it('then the aria alert shouldnt say anything', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal('');
+          done();
+        }, 300);
+      });
+    });
 
-  //   describe('when the user clicks the mutually exclusive option', () => {
-  //     beforeEach(() => {
-  //       checkbox.click();
-  //     });
+    describe('when the user clicks the mutually exclusive option', () => {
+      beforeEach(() => {
+        checkbox.click();
+      });
 
-  //     it('then the aria alert shouldnt say anything', () => {
-  //       expect(ariaAlert.innerHTML).to.equal('');
-  //     });
-  //   });
-  // });
+      it('then the aria alert shouldnt say anything', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal('');
+          done();
+        }, 300);
+      });
+    });
+  });
 });
 
 function populateInput(input) {

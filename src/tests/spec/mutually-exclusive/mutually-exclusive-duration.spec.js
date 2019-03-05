@@ -1,41 +1,55 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/date-input/_test-template.njk';
+import template from 'components/mutually-exclusive/test-templates/_duration.njk';
 import mutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
 
 const params = {
-  id: 'date-mutually-exclusive',
-  legend: 'When did you leave your last paid job?',
-  description: 'For example, 31 3 2018',
-  day: {
-    label: 'Day',
-    name: 'day-exclusive'
-  },
-  month: {
-    label: 'Month',
-    name: 'month-exclusive'
-  },
-  year: {
-    label: 'Year',
-    name: 'year-exclusive'
-  },
+  id: 'address-duration',
+  legend: 'How long have you lived at this address?',
+  description: 'If you have lived at this address for less than a year then enter 0 into the year input.',
   mutuallyExclusive: {
     or: 'Or',
     deselectMessage: 'Selecting this will clear the date if one has been inputted',
     deselectGroupAdjective: 'cleared',
     deselectCheckboxAdjective: 'deselected',
     checkbox: {
-      id: 'date-exclusive-checkbox',
-      name: 'no-paid-job',
-      value: 'no-paid-job',
+      id: 'duration-exclusive-checkbox',
+      name: 'no-duration',
+      value: 'no-duration',
       label: {
-        text: 'I have never had a paid job'
+        text: 'I have not moved in to this address yet'
       }
+    }
+  },
+  years: {
+    id: 'address-duration-years',
+    type: 'number',
+    name: 'address-duration-years',
+    classes: 'input--w-2 js-exclusive-group',
+    attributes: {
+      min: 0,
+      max: 100
+    },
+    suffix: {
+      title: 'Years'
+    }
+  },
+  months: {
+    id: 'address-duration-months',
+    type: 'number',
+    name: 'address-duration-months',
+    classes: 'input--w-2 js-exclusive-group',
+    attributes: {
+      min: 0,
+      max: 11
+    },
+    suffix: {
+      title: 'Months'
     }
   }
 };
 
-describe('Component: Mutually Exclusive Date Input', () => {
-  let wrapper, dayInput, monthInput, yearInput, checkbox, ariaAlert;
+describe('Component: Mutually Exclusive Duration Pattern', () => {
+  let wrapper, yearsInput, monthsInput, checkbox, ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -48,9 +62,8 @@ describe('Component: Mutually Exclusive Date Input', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    dayInput = document.getElementById(`${params.id}-day`);
-    monthInput = document.getElementById(`${params.id}-month`);
-    yearInput = document.getElementById(`${params.id}-year`);
+    yearsInput = document.getElementById(params.years.id);
+    monthsInput = document.getElementById(params.months.id);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
     ariaAlert = document.querySelector('.js-exclusive-alert');
 
@@ -63,9 +76,9 @@ describe('Component: Mutually Exclusive Date Input', () => {
     }
   });
 
-  describe('Given the user populated the date input', () => {
+  describe('Given the user populated the duration', () => {
     beforeEach(() => {
-      populateDate(dayInput, monthInput, yearInput);
+      populateDuration(yearsInput, monthsInput);
     });
 
     describe('when the user clicks the mutually exclusive option', () => {
@@ -73,17 +86,16 @@ describe('Component: Mutually Exclusive Date Input', () => {
         checkbox.click();
       });
 
-      it('then the date input should be cleared', () => {
-        expect(dayInput.value).to.equal('');
-        expect(monthInput.value).to.equal('');
-        expect(yearInput.value).to.equal('');
+      it('then the inputs should be cleared', () => {
+        expect(yearsInput.value).to.equal('');
+        expect(monthsInput.value).to.equal('');
       });
 
-      it('then the aria alert should tell the user that the date input has been cleared', done => {
+      it('then the aria alert should tell the user that the inputs have been cleared', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
             // prettier-ignore
-            `${params.day.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.month.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.year.label} ${params.mutuallyExclusive.deselectGroupAdjective}.`
+            `${params.years.suffix.title} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.months.suffix.title} ${params.mutuallyExclusive.deselectGroupAdjective}.`
           );
           done();
         }, 300);
@@ -96,9 +108,9 @@ describe('Component: Mutually Exclusive Date Input', () => {
       checkbox.click();
     });
 
-    describe('when the user populates the dateInput', () => {
+    describe('when the user populates the duration fields', () => {
       beforeEach(() => {
-        populateDate(dayInput, monthInput, yearInput);
+        populateDuration(yearsInput, monthsInput);
       });
 
       it('then the checkbox should be unchecked', () => {
@@ -116,10 +128,10 @@ describe('Component: Mutually Exclusive Date Input', () => {
     });
   });
 
-  describe('Given the user has not populated the date input or checked the checkbox', () => {
-    describe('when the user populates the date input', () => {
+  describe('Given the user has not populated the duration inputs or checked the checkbox', () => {
+    describe('when the user populates the duration inputs', () => {
       beforeEach(() => {
-        populateDate(dayInput, monthInput, yearInput);
+        populateDuration(yearsInput, monthsInput);
       });
 
       it('then the aria alert shouldnt say anything', done => {
@@ -145,14 +157,12 @@ describe('Component: Mutually Exclusive Date Input', () => {
   });
 });
 
-function populateDate(dayInput, monthInput, yearInput) {
-  dayInput.value = 14;
-  monthInput.value = 12;
-  yearInput.value = 2018;
+function populateDuration(yearsInput, monthsInput) {
+  yearsInput.value = 2;
+  monthsInput.value = 4;
 
   const event = new CustomEvent('input');
 
-  dayInput.dispatchEvent(event);
-  monthInput.dispatchEvent(event);
-  yearInput.dispatchEvent(event);
+  yearsInput.dispatchEvent(event);
+  monthsInput.dispatchEvent(event);
 }

@@ -7,22 +7,15 @@
         {% set exclusiveClass = " js-exclusive-group" %}
     {% endif %}
 
-    {% if params.questionMode %}
-        {% set legend = "<h1>" + params.legend + "</h1>" %}
-        {% set classes = "field--question" + (" " + params.classes if params.classes) %}
-    {% else %}
-        {% set legend = params.legend %}
-        {% set classes = "field--date" + (" " + params.classes if params.classes) %}
-    {% endif %}
-
     {% call onsField({
         "id": params.id,
-        "legend": legend,
+        "legend": params.legend,
         "description": params.description,
-        "classes": classes,
+        "classes": "field--date" + (" " + params.classes if params.classes),
         "descriptionClasses": descriptionClasses | default(""),
         "legendClasses": params.legendClasses,
-        "mutuallyExclusive": params.mutuallyExclusive
+        "mutuallyExclusive": params.mutuallyExclusive,
+        "questionMode": params.questionMode
     }) %}
         <div class="field__group">
             {% if params.day %}
@@ -84,5 +77,4 @@
             {% endif %}
         </div>
     {% endcall %}
-
 {% endmacro %}
