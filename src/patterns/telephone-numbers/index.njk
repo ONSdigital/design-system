@@ -1,0 +1,54 @@
+---
+title: Telephone numbers
+group: Ask users for...
+---
+How to ask users for a telephone number.
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{{
+    patternlibExample({"path": "components/input/examples/telephone/index.njk"})
+}}
+
+## When to use this pattern
+Only ask users for a telephone number when there is an essential need for your service to use this information e.g. to provide a reminder service.
+
+## How to use this pattern
+You should always explain why you need the user's telephone number, letting them know if you will contact them and when.
+
+Use an [input](/components/input) component and set the input type to `tel` to bring up the correct keypad on touch devices.
+
+### Use the autocomplete attribute
+Use the `autocomplete` attribute when you are asking for a telephone number to help the user fill out a form more quickly.
+
+To do this, set the autocomplete attribute on the input field to `tel`. See how to do this in the HTML and Nunjucks code tabs in the example above.
+
+You will need to use the autocomplete attribute to meet AA WCAG 2.1 accessibility requirements.
+
+### Validating telephone numbers
+You should validate a telephone number and [let the user know if they have entered it incorrectly](#error-messages).
+
+Use the input's [label](/components/label) or [label description](/components/label/#with-description) to provide hint text if you specifically require a certain type or format of telephone number (e.g. UK, international, or mobile).
+
+Use the [ONS house style for writing telephone numbers](https://style.ons.gov.uk/category/house-style/language-and-spelling/#addresses-and-telephone-numbers) if you need to provide an example.
+
+### Error messages
+When validating the user’s telephone number, you should follow the [error pattern guidance](/patterns/error-validation), providing specific error messages for the specific errors found.
+
+#### If nothing is entered and the answer is required
+Display: ‘Enter [the required telephone number]’, e.g. ‘Enter your telephone number’.
+
+#### If an invalid telephone number is entered
+Display: ‘Enter a valid UK telephone number'.
+
+#### If the telephone number is entered in the wrong format
+Display: ‘Enter a valid UK telephone number'.
+
+## Research on this pattern
+{% from "components/panel/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='https://github.com/ONSdigital/design-system/issues/273'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+[Discuss 'Telephone numbers' on GitHub](https://github.com/ONSdigital/design-system/issues/273)
