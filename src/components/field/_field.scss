@@ -1,66 +1,90 @@
 .field {
   background: none;
-}
 
-.field__legend {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  font-weight: $font-weight-bold;
-}
+  & + & {
+    margin-top: 1rem;
+  }
 
-.field__label {
-  margin-bottom: 0.5rem;
-}
+  &__legend {
+    @extend .label;
+  }
 
-.field__description {
-  margin-bottom: 0.5em;
-}
+  &__label {
+    margin-bottom: 0.5rem;
+  }
 
-.field__group {
-  @extend .u-cf;
-}
+  &__description {
+    @extend .label__description;
+  }
 
-.field__item {
-  display: table;
-  position: relative;
+  &__group {
+    @extend .u-cf;
+    margin-top: -1rem;
+  }
 
-  .field > & {
-    margin: 0 0.5rem 0.5rem 0;
-    width: 100%;
+  &__item {
+    display: inline-block;
+    position: relative;
+  }
 
-    @include mq(m) {
-      &:not([class*='field__item--w-']) {
-        width: auto;
-        min-width: 20rem;
+  & > &,
+  &__items > & {
+    &__item {
+      margin: 0 0 0.5rem;
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include mq(m) {
+        &:not([class*='field__item--w-']) {
+          width: auto;
+          min-width: 20rem;
+        }
       }
     }
   }
 
-  .field__group > & {
+  &__group > &__item {
     float: left;
-    margin: 0 1rem 1rem 0;
+    margin: 1rem 1rem 0 0;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 
-  .field__group > &:last-of-type {
-    margin-right: 0;
+  &__other {
+    display: none;
+    clear: both;
+    padding: 0 0.5rem 0.5rem;
+    background-color: $color-grey-4;
+
+    input:checked ~ & {
+      display: block;
+    }
+  }
+
+  // Modifiers
+  &--question & {
+    &__legend h1 {
+      @extend .u-fs-l;
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    &__description {
+      @extend .u-fs-r;
+      @extend .u-mb-m;
+    }
+  }
+
+  &--date & {
+    &__legend {
+      @extend .u-fs-m;
+    }
   }
 }
 
 @include input-width('field__item--w-{x}');
-
-.field:not(.field--cols) {
-  .field__item:last-of-type {
-    margin-bottom: 0;
-  }
-}
-
-.field__other {
-  display: none;
-  clear: both;
-  background-color: $color-grey-4;
-  padding: 0 0.5rem 0.5rem;
-}
-
-input:checked ~ .field__other {
-  display: block;
-}

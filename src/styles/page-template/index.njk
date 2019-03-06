@@ -1,0 +1,34 @@
+---
+title: Page template    
+sortOrder: 5
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+Use the page template to create pages with the core components and markup required for an ONS service.
+
+The examples below provide templates that consist of commonly used [components](/components) and [patterns](/patterns).
+
+All template examples contain the following:
+
+- CSS and Javascript to add styling and behaviours to components.
+- a [skip to content](/components/skip-to-content) link, [header](/components/header) and [footer](/components/footer) component.
+- a favicon, and other related bookmark icons.
+
+Click on the HTML tab on each example to view the rendered HTML.
+
+## Default page template
+
+The example below shows the minimum requirements for an ONS page template.
+{{
+    patternlibExample({ "path": "styles/page-template/examples/basic/index.njk" })
+}}
+
+## Customised page template
+
+Components can be added to the page template. The example below provides a [phase banner](/components/phase-banner), [language selector](/patterns/language-selection), [save button](/components/button) and [footer links](/components/footer).
+{{
+    patternlibExample({ "path": "styles/page-template/examples/custom/index.njk" })
+}}
+
+## Design System forum
+[Discuss 'Page template' on GitHub](https://github.com/ONSdigital/design-system/issues/195)

@@ -2,9 +2,9 @@ $nav-width: 14rem;
 
 .page {
   display: flex;
-  min-height: 100%;
   flex-direction: column;
   width: 100%;
+  min-height: 100%;
   overflow-x: hidden;
 }
 
@@ -17,8 +17,9 @@ $nav-width: 14rem;
 
 .page__subheader {
   padding: 0.5rem 0 1rem;
-  overflow: hidden;
   min-height: 2.6rem;
+  overflow: hidden;
+
   &:empty {
     height: 1rem;
   }
@@ -45,10 +46,10 @@ $nav-width: 14rem;
 
 .page__content {
   flex: 1 0 auto;
+  position: relative;
   // NOTE: padding-bottom: 1px fixes safari scroll issue
   // Issue number #862
   padding-bottom: 1px;
-  position: relative;
   overflow-x: hidden;
 }
 
@@ -65,25 +66,26 @@ $nav-width: 14rem;
 
 .has-js {
   .page__nav {
-    margin: 0 0 1rem;
-    position: absolute;
-    right: 0- ($nav-width + 1rem);
-    width: $nav-width;
     display: none;
+    position: absolute;
     top: 0;
+    right: 0- ($nav-width + 1rem);
+    margin: 0 0 1rem;
+    width: $nav-width;
+
     @include mq(m) {
       display: block;
-      right: 0;
       position: relative;
+      right: 0;
       width: auto;
     }
   }
 
   .page__menubtn {
-    vertical-align: middle;
     display: inline-block;
     position: relative;
     line-height: 1;
+    vertical-align: middle;
   }
 
   .page__container {
@@ -91,7 +93,9 @@ $nav-width: 14rem;
   }
 
   .page__main {
+    @extend .u-mt-s;
     transform: translateX(0);
+    margin-bottom: 4.5rem;
     transition: opacity 100ms ease-out;
   }
 

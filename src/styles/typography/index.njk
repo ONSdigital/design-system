@@ -72,7 +72,7 @@ Bulleted lists should be introduced with a lead-in line, ending in a colon.
 Each item in the list should start with a lowercase letter and should not end with a full stop.
 
 {{
-    patternlibExample({"path": "styles/typography/lists/examples//list/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples/list/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 ### Variants
@@ -84,31 +84,31 @@ Each list item should be a complete sentence, therefore start with an uppercase 
 
 You do not need to introduce a numbered list with a lead-in line.
 {{
-    patternlibExample({"path": "styles/typography/lists/examples//list-ordered/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples/list-ordered/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 #### Bare list
-Bare lists should be used to display a list of navigational links, for example, a group of related pages displayed in the [footer](components/footer).
+Bare lists should be used to display a list of navigational links, for example, a group of related pages displayed in the [footer](/components/footer).
 {{
-    patternlibExample({"path": "styles/typography/lists/examples//list-bare/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples/list-bare/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 #### Inline list
-Inline lists should be used to display a horizontal row of links, for example, a list of pages displayed in the [transactional footer](components/footer#transactional).
+Inline lists should be used to display a horizontal row of links, for example, a list of pages displayed in the [transactional footer](/components/footer#transactional).
 {{
-    patternlibExample({"path": "styles/typography/lists/examples//list-inline/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples/list-inline/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 #### Errors list
 Used within the [error details panel](/patterns/error-validation#error-details) to display a list error messages for each erroneous field in a fieldset.
 {{
-    patternlibExample({"path": "styles/typography/lists/examples//list-errors/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples/list-errors/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 #### Boxed list
 Used to display a code split into manageable chunks, for example, a reference code to quote during a helpdesk call.
 {{
-    patternlibExample({"path": "styles/typography/lists/examples//list-boxes/index.njk"})
+    patternlibExample({"path": "styles/typography/lists/examples/list-boxes/index.njk" , "componentFolderPath": "components/lists"})
 }}
 
 ## Icons
@@ -118,7 +118,7 @@ __Our current icon set can be used in the following scenarios:__
 
 ### List with progress check icons
 {{
-    patternlibExample({"path": "styles/typography/icons/examples/icons-list/index.njk"})
+    patternlibExample({"path": "styles/typography/icons/examples/icons-list/index.njk", "componentFolderPath": "components/lists" })
 }}
 __How to use:__ Use `icon--check` class on each `<li class="list__item">` within `<ul class="list list--bare">`.
 
@@ -143,5 +143,14 @@ __How to use:__ Use `icon--lock` class on a `<p>` element.
 ### Contribute to icons
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-   If you have any requests for icons or research findings please feed back via the <a href="https://github.com/ONSdigital/pattern-library-v2/issues/95" target="_blank">Design System forum</a>.
+   If you have any requests for icons or research findings please feed back via the <a href="https://github.com/ONSdigital/design-system/issues/95" target="_blank">Design System forum</a>.
 {% endcall %}
+
+## Research on this style
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this style, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/233" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum 
+[Discuss 'Typography' on GitHub](https://github.com/ONSdigital/design-system/issues/233)

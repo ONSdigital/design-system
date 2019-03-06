@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/header/_template.njk';
+import template from 'components/header/_test-template.njk';
 
 const params = {
   toggleButton: {

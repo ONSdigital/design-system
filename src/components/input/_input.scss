@@ -9,6 +9,7 @@
   border-radius: $input-radius;
 
   color: inherit;
+  font-family: inherit;
   font-size: 1rem;
 
   transition: border-color 200ms ease-in;
@@ -20,6 +21,12 @@
         width: $input-width;
       }
     }
+  }
+
+  &--text,
+  &--textarea {
+    // Prevent inner shadow on iOS
+    -webkit-appearance: none;
   }
 
   &:hover {

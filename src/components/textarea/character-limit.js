@@ -14,16 +14,24 @@ class CharLimit {
     this.singularMessage = this.limitElement.getAttribute('data-charcount-singular');
     this.pluralMessage = this.limitElement.getAttribute('data-charcount-plural');
 
-    this.updateLimitReadout();
+    this.updateLimitReadout(null, true);
     this.limitElement.classList.remove('u-d-no');
 
     input.addEventListener('input', this.updateLimitReadout.bind(this));
   }
 
-  updateLimitReadout() {
+  updateLimitReadout(event, firstRun) {
     const value = this.input.value;
     const remaining = this.maxLength - value.length;
     const message = remaining === 1 ? this.singularMessage : this.pluralMessage;
+
+    // Prevent aria live announcement when component initialises
+    if (!firstRun && event.inputType) {
+      this.limitElement.setAttribute('aria-live', 'polite');
+    } else {
+      this.limitElement.removeAttribute('aria-live');
+    }
+
     this.limitElement.innerText = message.replace('{x}', remaining);
 
     this.setLimitClass(remaining, this.input, inputClassLimitReached);

@@ -1,12 +1,12 @@
 # ONS Design System
 
-[![GitHub release](https://img.shields.io/github/release/ONSdigital/pattern-library-v2.svg)](https://github.com/ONSdigital/pattern-library-v2/releases)
-[![Travis tests](https://img.shields.io/travis/ONSdigital/pattern-library-v2.svg)](https://travis-ci.org/ONSdigital/pattern-library-v2)
-[![codecov](https://codecov.io/gh/ONSdigital/pattern-library-v2/branch/master/graph/badge.svg)](https://codecov.io/gh/ONSdigital/pattern-library-v2)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2342bc8edef44c17beab2b5fe244d7f1)](https://www.codacy.com/app/bameyrick/pattern-library-v2)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/ONSdigital/pattern-library-v2.svg)](https://github.com/ONSdigital/pattern-library-v2/pulls)
-[![Github last commit](https://img.shields.io/github/last-commit/ONSdigital/pattern-library-v2.svg)](https://github.com/ONSdigital/pattern-library-v2/commits)
-[![Github contributors](https://img.shields.io/github/contributors/ONSdigital/pattern-library-v2.svg)](https://github.com/ONSdigital/pattern-library-v2/graphs/contributors)
+[![GitHub release](https://img.shields.io/github/release/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/releases)
+[![Travis tests](https://img.shields.io/travis/ONSdigital/design-system.svg)](https://travis-ci.org/ONSdigital/design-system)
+[![codecov](https://codecov.io/gh/ONSdigital/design-system/branch/master/graph/badge.svg)](https://codecov.io/gh/ONSdigital/design-system)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8f9a091991d4d5a85d0b0b85e26dde6)](https://www.codacy.com/app/bameyrick/design-system)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/pulls)
+[![Github last commit](https://img.shields.io/github/last-commit/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/commits)
+[![Github contributors](https://img.shields.io/github/contributors/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/graphs/contributors)
 
 ## Installing as a dependency
 
@@ -69,7 +69,7 @@ yarn test
 
 ### Run tests in BrowserStack
 
-All unit tests are automatically cross browser tested in [BrowserStack](https://www.browserstack.com) by [TravisCI](https://travis-ci.org/ONSdigital/pattern-library-v2) when a pull request is created or if a change is pushed to an existing pull request.
+All unit tests are automatically cross browser tested in [BrowserStack](https://www.browserstack.com) by [TravisCI](https://travis-ci.org/ONSdigital/design-system) when a pull request is created or if a change is pushed to an existing pull request.
 
 You can also run cross browser testing in BrowserStack manually against your local branch by running this command:
 

@@ -1,10 +1,14 @@
-.summary {
-  $ctx: &;
+$summary-col-spacing: 1rem;
 
+.summary {
   &__items {
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
+  }
+
+  &__row {
+    margin-left: -$summary-col-spacing;
   }
 
   &__item-title,
@@ -15,14 +19,9 @@
     line-height: 1.4;
   }
 
-  &__answer-action {
-    margin-top: 0.5rem;
-  }
-
-  @include mq(321px) {
-    &__answer-action {
-      display: flex;
-    }
+  &__answer,
+  &__action {
+    padding-left: $summary-col-spacing;
   }
 
   &__answer {
@@ -32,7 +31,6 @@
   &__action {
     flex: 0 0 auto;
     align-self: flex-start;
-    padding-left: 1rem;
   }
 
   &__item--error & {
@@ -44,18 +42,18 @@
     }
 
     &__item-title {
-      padding-right: 1rem;
-      padding-left: 1rem;
+      padding-right: $summary-col-spacing;
+      padding-left: $summary-col-spacing;
       color: $color-errors;
       font-weight: bold;
     }
 
     &__question {
-      padding-left: 1rem;
+      padding-left: $summary-col-spacing;
     }
 
     &__action {
-      padding-right: 1rem;
+      padding-right: $summary-col-spacing;
     }
   }
 
@@ -66,7 +64,7 @@
     }
   }
 
-  @include mq(xs, m) {
+  @include mq(xs, m, $to-operator: '<') {
     &__items,
     &__item,
     &__item-title,
@@ -92,6 +90,7 @@
 
     &__item-title,
     &__question {
+      padding-left: $summary-col-spacing;
       width: 100%;
     }
 
@@ -102,32 +101,22 @@
       padding-bottom: 0.5rem;
     }
 
-    &__answer-action & {
-      &__answer {
-        padding-bottom: 0;
-      }
-    }
-
     &__item--error {
       border-left: 8px solid $color-errors;
       background: $color-errors-tint;
     }
 
     &__item--error & {
+      &__row {
+        margin-left: 0;
+      }
+
       &__question {
-        padding-right: 1rem;
+        padding-right: $summary-col-spacing;
       }
 
       &__answer {
-        padding-left: 1rem;
-      }
-
-      &__answer-action #{$ctx}__answer {
-        padding-left: 0;
-      }
-
-      &__answer-action #{$ctx}__action {
-        padding-right: 0;
+        padding-left: $summary-col-spacing;
       }
     }
 
@@ -166,7 +155,11 @@
     }
 
     &__question:not([colspan]) {
-      padding-right: 1rem;
+      padding-right: $summary-col-spacing;
+    }
+
+    &__answer {
+      width: 50%;
     }
 
     &__action {
@@ -208,10 +201,6 @@
       li:last-child {
         margin-bottom: 0;
       }
-    }
-
-    &__action {
-      padding-left: 0;
     }
   }
 }

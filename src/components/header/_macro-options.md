@@ -1,6 +1,6 @@
 | Name         | Type                                               | Required | Description                                               |
 | ------------ | -------------------------------------------------- | -------- | --------------------------------------------------------- |
-| beta         | `Beta` [_(ref)_](/components/beta-bar)             | false    | Settings for the Beta Bar component                       |
+| phase        | `PhaseBanner` [_(ref)_](/components/phase-banner)  | false    | Settings for the Phase banner component                   |
 | fullWidth    | boolean                                            | false    | Set the header to be the full width of the viewport       |
 | logoHref     | string                                             | false    | Path for the logo link. Defaults to "/"                   |
 | logo         | string                                             | false    | Path for the logo. Defaults to "ons-logo-pos"             |

@@ -1,4 +1,4 @@
-@mixin mq($from: none, $to: none) {
+@mixin mq($from: none, $to: none, $from-operator: none, $to-operator: none) {
   @if $from != none and type-of($from) == 'string' {
     $from: get-bp-width($from);
   }
@@ -11,14 +11,26 @@
     @if ($from == none or $from <= nth(nth($grid-bp, 1), 2)) and $to == none {
       @content;
     } @else if $from == none or $from <= nth(nth($grid-bp, 1), 2) {
+      @if $to-operator != none and $to-operator == '<' {
+        $to: $to - 1;
+      }
       @media only screen and (max-width: $to) {
         @content;
       }
     } @else if $to == none {
+      @if $from-operator != none and $from-operator == '<' {
+        $from: $from + 1;
+      }
       @media only screen and (min-width: $from) {
         @content;
       }
     } @else {
+      @if $from-operator != none and $from-operator == '<' {
+        $from: $from + 1;
+      }
+      @if $to-operator != none and $to-operator == '<' {
+        $to: $to - 1;
+      }
       @media only screen and (min-width: $from) and (max-width: $to) {
         @content;
       }
@@ -63,7 +75,7 @@
 
     @if $create-between-breakpoints {
       @each $breakpoint-max, $size in $grid-bp {
-        @include mq($breakpoint-min, $breakpoint-max) {
+        @include mq($breakpoint-min, $breakpoint-max, $to-operator: '<') {
           .#{$class}\@#{$breakpoint-min}\@#{$breakpoint-max} {
             @content;
           }

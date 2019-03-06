@@ -44,7 +44,7 @@ $checkbox-label-vertical-padding: 0.75rem;
 
   &__label {
     display: block;
-    padding: $checkbox-padding $checkbox-padding $checkbox-padding ($checkbox-padding * 2 + $checkbox-input-width);
+    padding: $checkbox-padding 1rem $checkbox-padding ($checkbox-padding * 2 + $checkbox-input-width);
     width: 100%;
     cursor: pointer;
 
@@ -59,6 +59,10 @@ $checkbox-label-vertical-padding: 0.75rem;
 
       border: 1px solid $color-input;
       border-radius: 3px;
+    }
+
+    * {
+      pointer-events: none;
     }
   }
 

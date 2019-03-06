@@ -1,7 +1,7 @@
 {
   "name": "@ons/design-system",
   "description": "ONS Design System built CSS, JS, and Nunjucks templates",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "main": "index.js",
   "license": "MIT",
   "author": {
@@ -120,6 +120,7 @@
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
     "url-loader": "^1.1.2",
+    "url-search-params-polyfill": "^5.0.0",
     "webpack": "^4.26.0",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
@@ -129,7 +130,6 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "a11y-dialog": "^5.2.0",
     "abortcontroller-polyfill": "^1.2.3",
     "core-js": "^2.6.0",
     "mdn-polyfills": "^5.14.0",
