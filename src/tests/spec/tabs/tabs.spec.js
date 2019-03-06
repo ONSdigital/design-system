@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/tabs/_template.njk';
+import template from 'components/tabs/_test-template.njk';
 import matchMediaDesktopMock from 'stubs/matchMediaDesktop.stub.spec';
 import matchMediaMobileMock from 'stubs/matchMediaMobile.stub.spec';
 import eventMock from 'stubs/event.stub.spec';

@@ -1,3 +1,40 @@
 {% macro onsTable(params) %}
-    {% include "components/table/_template.njk" %}
+    {% if params.scrollable %}
+    <div class="table-scrollable table-scrollable--on">
+        <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.aria_label }} ">
+    {% endif %}
+            <table class="table {{ params.table_class }}" {% if params.sortable %}data-aria-sort="{{ params.sort_by }}" data-aria-asc="{{ params.aria_asc }}" data-aria-desc="{{ params.aria_desc }}"{% endif %}>
+                {% if params.caption %}
+                <caption class="table__caption">{{ params.caption }}</caption>
+                {% endif %}
+                <thead class="table__head">
+                    <tr class="table__row">
+                        {% for th in params.ths %}
+                        <th scope="col" class="table__header {{ th.class }}"{% if th.aria_sort %} aria-sort="{{ th.aria_sort }}"{% endif %}>{{ th.value }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody class="table__body">
+                    {% for tr in params.trs %}
+                    <tr class="table__row">
+                        {% for td in tr.tds %}
+                        <td role="cell" class="table__cell {{ td.class }}" {% if td.data %} data-th="{{ td.data }}"{% endif %} {% if td.data_sort %} data-sort-value="{{ td.data_sort }}"{% endif %}>{{ td.value | safe }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                {% if params.tfoot %}
+                <tfoot class="table__foot">
+                    <tr class="table__row">
+                        {% for tfootCell in params.tfoot %}
+                        <td role="cell" class="table__cell u-fs-s">{{ tfootCell.value }}</td>
+                        {% endfor %}
+                    </tr>
+                </tfoot>
+                {% endif %}
+            </table>
+        {% if params.scrollable %}
+        </div>
+    </div>
+    {% endif %}
 {% endmacro %}
