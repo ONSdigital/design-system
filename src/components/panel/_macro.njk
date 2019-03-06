@@ -1,3 +1,28 @@
 {% macro onsPanel(params) %}
-  {% include "components/panel/_template.njk" %}
+  {% if params.classes %}
+      {% set utilityClasses  = ' ' + params.classes %}
+  {% endif %}
+
+  {% if params.title === undefined %}
+      {% set simpleClass = ' panel--simple' %}
+  {% endif %}
+
+  {% if params.type %}
+      {% set typeClass = ' panel--' + params.type %}
+  {% else %}
+      {% set typeClass = ' panel--info' %}
+  {% endif %}
+
+  {% if params.spacious %}
+      {% set spaciousClass = ' panel--spacious' %}
+  {% endif %}
+
+  <div class="panel{{typeClass}}{{ simpleClass }}{{ spaciousClass }}{{ utilityClasses }}">
+      {% if params.title %} <div class="panel__header">
+          <div class="u-fs-r--b">{{ params.title | safe }}</div>
+      </div>{% endif %}
+      <div class="panel__body">{{ params.body | safe }}
+          {{ caller() if caller }}
+      </div>
+  </div>
 {% endmacro %}

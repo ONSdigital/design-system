@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/checkboxes/_template.njk';
+import template from 'components/checkboxes/_test-template.njk';
 import mutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
 
 const params = {

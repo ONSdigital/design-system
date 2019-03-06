@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/language-selector/_template.njk';
+import template from 'components/language-selector/_test-template.njk';
 import LanguageSelector from 'components/language-selector/language';
 import eventMock from 'stubs/event.stub.spec';
 import { throttle } from 'throttle-typescript';

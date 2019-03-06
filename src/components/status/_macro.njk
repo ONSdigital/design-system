@@ -1,3 +1,13 @@
 {% macro onsStatus(params) %}
-    {% include "components/status/_template.njk" %}
+    {% if params.type %}
+        {% set typeClass = ' status--' + params.type %}
+    {% else %}
+        {% set typeClass = ' status--info' %}
+    {% endif %}
+
+    {% if params.size == 'small' %}
+        {% set sizeClass = ' status--small' %}
+    {% endif %}
+
+    <span class="status{{typeClass}}{{sizeClass}}">{{ params.label }}</span>
 {% endmacro %}
