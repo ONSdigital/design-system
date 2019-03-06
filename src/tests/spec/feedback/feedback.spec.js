@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/feedback/_template.njk';
+import template from 'components/feedback/_test-template.njk';
 import Feedback from 'components/feedback/feedback';
 
 import fetchMock from 'stubs/window.fetch.stub.spec';

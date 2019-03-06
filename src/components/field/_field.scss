@@ -6,9 +6,7 @@
   }
 
   &__legend {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    font-weight: $font-weight-bold;
+    @extend .label;
   }
 
   &__label {
@@ -16,7 +14,7 @@
   }
 
   &__description {
-    margin-bottom: 0.5em;
+    @extend .label__description;
   }
 
   &__group {
@@ -25,22 +23,25 @@
   }
 
   &__item {
-    display: table;
+    display: inline-block;
     position: relative;
   }
 
-  & > &__item {
-    margin: 1rem 0.5rem 0.5rem 0;
-    width: 100%;
+  & > &,
+  &__items > & {
+    &__item {
+      margin: 0 0 0.5rem;
+      width: 100%;
 
-    &:last-of-type {
-      margin-bottom: 0;
-    }
+      &:last-child {
+        margin-bottom: 0;
+      }
 
-    @include mq(m) {
-      &:not([class*='field__item--w-']) {
-        width: auto;
-        min-width: 20rem;
+      @include mq(m) {
+        &:not([class*='field__item--w-']) {
+          width: auto;
+          min-width: 20rem;
+        }
       }
     }
   }
@@ -69,10 +70,12 @@
   &--question & {
     &__legend h1 {
       @extend .u-fs-l;
+      display: inline-block;
       margin-bottom: 0;
     }
 
     &__description {
+      @extend .u-fs-r;
       @extend .u-mb-m;
     }
   }

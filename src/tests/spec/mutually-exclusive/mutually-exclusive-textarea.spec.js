@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/textarea/_template.njk';
+import template from 'components/textarea/_test-template.njk';
 import mutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
 import characterLimit from 'components/textarea/character-limit';
 import { populateTextarea } from '../textarea/character-limit.spec';
@@ -18,7 +18,8 @@ const params = {
   mutuallyExclusive: {
     or: 'Or',
     deselectMessage: 'Selecting this will clear your feedback',
-    deselectAdjective: 'deselected',
+    deselectGroupAdjective: 'cleared',
+    deselectCheckboxAdjective: 'deselected',
     checkbox: {
       id: 'feedback-checkbox',
       name: 'no-feedback',
@@ -31,8 +32,7 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Textarea', () => {
-  let wrapper, textarea, textareaRemaining, checkbox;
-  // let ariaAlert;
+  let wrapper, textarea, textareaRemaining, checkbox, ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -48,7 +48,7 @@ describe('Component: Mutually Exclusive Textarea', () => {
     textarea = document.getElementById(params.id);
     textareaRemaining = document.getElementById(`${params.id}-lim-remaining`);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    // ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.js-exclusive-alert');
 
     characterLimit();
     mutuallyExclusive();
@@ -78,9 +78,12 @@ describe('Component: Mutually Exclusive Textarea', () => {
         expect(textareaRemaining.innerHTML).to.equal(params.charCountPlural.replace('{x}', params.maxlength));
       });
 
-      // it('then the aria alert should tell the user that the textarea has been cleared', () => {
-      //   expect(ariaAlert.innerHTML).to.equal(`${params.label.text} cleared.`);
-      // });
+      it('then the aria alert should tell the user that the textarea has been cleared', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal(`${params.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`);
+          done();
+        }, 300);
+      });
     });
   });
 
@@ -98,31 +101,42 @@ describe('Component: Mutually Exclusive Textarea', () => {
         expect(checkbox.checked).to.equal(false);
       });
 
-      // it('then the aria alert should tell the user that the checkbox has been unchecked', () => {
-      //   expect(ariaAlert.innerHTML).to.equal(`"${params.checkbox.label.text}" deselected.`);
-      // });
+      it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal(
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+          );
+          done();
+        }, 300);
+      });
     });
   });
 
-  // describe('Given the user has not populated the textarea or checked the checkbox', () => {
-  //   describe('when the user populates the textarea', () => {
-  //     beforeEach(() => {
-  //       populateTextarea(textarea);
-  //     });
+  describe('Given the user has not populated the textarea or checked the checkbox', () => {
+    describe('when the user populates the textarea', () => {
+      beforeEach(() => {
+        populateTextarea(textarea);
+      });
 
-  //     it('then the aria alert shouldnt say anything', () => {
-  //       expect(ariaAlert.innerHTML).to.equal('');
-  //     });
-  //   });
+      it('then the aria alert shouldnt say anything', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal('');
+          done();
+        }, 300);
+      });
+    });
 
-  //   describe('when the user clicks the mutually exclusive option', () => {
-  //     beforeEach(() => {
-  //       checkbox.click();
-  //     });
+    describe('when the user clicks the mutually exclusive option', () => {
+      beforeEach(() => {
+        checkbox.click();
+      });
 
-  //     it('then the aria alert shouldnt say anything', () => {
-  //       expect(ariaAlert.innerHTML).to.equal('');
-  //     });
-  //   });
-  // });
+      it('then the aria alert shouldnt say anything', done => {
+        setTimeout(() => {
+          expect(ariaAlert.innerHTML).to.equal('');
+          done();
+        }, 300);
+      });
+    });
+  });
 });
