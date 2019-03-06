@@ -1,0 +1,22 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% set page = { 
+    "cdn": "v2.0.0",
+    "title": "Service name",
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    }
+} %}
+{% block content %}
+    <h1 class="u-fs-l">This service is temporarily unavailable</h1>
+    <p>We're undergoing planned maintenance.</p>
+    <p>You will be able to use the service from 8am on Monday 4 March 2019.</p>
+    <p>You can <a href="#">contact the ONS business surveys helpline</a> if you need a new enrollment code or to speak to someone about your account.</p>
+{% endblock %}
