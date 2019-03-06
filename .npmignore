@@ -1,10 +1,9 @@
 *
-!/components/**/*
+!/templates/**/*
 !/css/**/*
 !/favicons/**/*
 !/fonts/**/*
 !/img/**/*
-!/page-templates/**/*
 !/scripts/**/*
 !/scss/**/*
 !/LICENSE

@@ -1,34 +1,26 @@
 {
   "name": "@ons/design-system",
-  "description": "ONS Design System built CSS, JS, and Nunjucks templates",
   "version": "0.1.17",
-  "main": "index.js",
+  "description": "ONS Design System built CSS, JS, and Nunjucks templates",
   "license": "MIT",
   "author": {
-    "email": "bameyrick@gmail.com",
     "name": "Ben Meyrick",
+    "email": "bameyrick@gmail.com",
     "url": "https://github.com/bameyrick"
   },
-  "publishConfig": {
-    "access": "public"
-  },
+  "main": "index.js",
   "scripts": {
-    "start": "yarn tidy-clean && yarn webpack-dev-server --host 0.0.0.0 --watch --config webpack.dev.babel.js",
     "build": "yarn tidy-clean && yarn webpack --config webpack.prod.babel.js",
     "check-unused": "npx npm-check-unused",
+    "dedupe-deps": "npx yarn-deduplicate yarn.lock",
     "lint-staged": "lint-staged",
+    "npm-bundle": "NODE_ENV=production yarn build && babel-node lib/generate-npm-package.js",
+    "start": "yarn tidy-clean && yarn webpack-dev-server --host 0.0.0.0 --watch --config webpack.dev.babel.js",
     "test": "karma start ./src/tests/config/karma.conf.js && karma start ./src/tests/config/karma.conf.nomodule.js && codecov",
     "test:browserstack": "TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.js && TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.nomodule.js",
     "test:local": "KARMA_SINGLE_RUN=false karma start ./src/tests/config/karma.conf.js",
-    "dedupe-deps": "npx yarn-deduplicate yarn.lock",
-    "tidy-clean": "rm -rf build css favicons fonts img components page-templates scripts coverage scss",
-    "npm-bundle": "NODE_ENV=production yarn build && babel-node lib/generate-npm-package.js"
+    "tidy-clean": "rm -rf build css favicons fonts img templates scripts coverage scss"
   },
-  "browserslist": [
-    "last 2 versions",
-    "not ie < 11",
-    "not ie_mob < 11"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -36,11 +28,6 @@
     }
   },
   "lint-staged": {
-    "*.scss": [
-      "prettier --print-width 140 --single-quote --parser postcss --write",
-      "sass-lint",
-      "git add"
-    ],
     "*.js": [
       "prettier --print-width 140 --single-quote --parser babylon --write",
       "eslint --fix",
@@ -50,8 +37,18 @@
       "prettier --write",
       "remark",
       "git add"
+    ],
+    "*.scss": [
+      "prettier --print-width 140 --single-quote --parser postcss --write",
+      "sass-lint",
+      "git add"
     ]
   },
+  "browserslist": [
+    "last 2 versions",
+    "not ie < 11",
+    "not ie_mob < 11"
+  ],
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/node": "^7.2.2",
@@ -61,6 +58,7 @@
     "@babel/preset-env": "^7.1.6",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.2.0",
+    "abortcontroller-polyfill": "^1.2.3",
     "autoprefixer": "^9.3.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
@@ -70,6 +68,7 @@
     "circular-dependency-plugin": "^5.0.2",
     "codecov": "^3.1.0",
     "copy-webpack-plugin": "^4.6.0",
+    "core-js": "^2.6.0",
     "cssnano": "^4.1.7",
     "eslint": "^5.9.0",
     "eslint-cli": "^1.1.1",
@@ -99,10 +98,12 @@
     "loader-utils": "^1.1.0",
     "lodash": "^4.17.11",
     "marked": "^0.5.2",
+    "mdn-polyfills": "^5.14.0",
     "mocha": "^5.2.0",
     "ncp": "^2.0.0",
     "node-sass": "^4.10.0",
     "node-sass-glob-importer": "^5.2.0",
+    "normalize-scss": "^7.0.1",
     "nunjucks": "^3.1.4",
     "nunjucks-loader": "^3.0.0",
     "postcss-loader": "^3.0.0",
@@ -119,6 +120,7 @@
     "rimraf": "^2.6.3",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
+    "throttle-typescript": "^1.0.1",
     "url-loader": "^1.1.2",
     "url-search-params-polyfill": "^5.0.0",
     "webpack": "^4.26.0",
@@ -127,14 +129,10 @@
     "webpack-dev-server": "^3.1.10",
     "webpack-fix-style-only-entries": "^0.0.5",
     "webpack-livereload-plugin": "^2.1.1",
-    "webpack-merge": "^4.1.4"
-  },
-  "dependencies": {
-    "abortcontroller-polyfill": "^1.2.3",
-    "core-js": "^2.6.0",
-    "mdn-polyfills": "^5.14.0",
-    "normalize-scss": "^7.0.1",
-    "throttle-typescript": "^1.0.1",
+    "webpack-merge": "^4.1.4",
     "whatwg-fetch": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
