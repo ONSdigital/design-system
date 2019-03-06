@@ -1,0 +1,21 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% set page = { 
+    "cdn": "v2.0.0",
+    "title": "Service name",
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    }
+} %}
+{% block content %}
+    <h1 class="u-fs-l">An error has occurred</h1>
+    <p>Sorry, something has gone wrong.</h1>
+    <p>If the problem continues, <a href="https://www.ons.gov.uk/aboutus/contactus/surveyenquiries">contact the survey enquiries helpline</a>.</p>
+{% endblock %}
