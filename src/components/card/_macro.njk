@@ -1,3 +1,14 @@
 {%- macro onsCard(params) -%}
-{% include "components/card/_template.njk" %}
+    <div class="card">
+        <h3 class="u-fs-l">
+            {% if params.url -%}
+                <a href="{{ params.url }}">
+                    {{ params.title }}
+                </a>
+            {%- else %}
+                {{ params.title }}
+            {% endif %}
+        </h3>
+        <p>{{ params.text }}</p>
+    </div>
 {%- endmacro -%}

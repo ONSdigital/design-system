@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/textarea/_template.njk';
+import template from 'components/textarea/_test-template.njk';
 import charLimit from 'components/textarea/character-limit';
 
 const params = {

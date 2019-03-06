@@ -1,3 +1,21 @@
 {% macro onsList(params) %}
-  {% include "components/lists/_template.njk" %}
+  {% if params.element %}
+      {% set listEl = params.element | lower %}
+  {% else %}
+      {% set listEl = 'ul' %}
+  {% endif %}
+
+  <{{listEl}} {% if params.id %}id="{{ params.id }}"{% endif %} class="list {{ params.classes }}">
+      {% for item in params.items %}
+          <li class="list__item {{ item.listclass }}">
+              {% if item.url %}
+                  {% if item.index %}{{ loop.index }}) {% endif %} <a href="{{ item.url }}"{% if item.classes %} class="{{ item.classes }}"{% endif %}{% if item.target %} target="{{ item.target }}"{% endif %}>
+                      {{ item.text | safe }}
+                  </a>
+              {% else %}
+                  {{ item.text | safe }}
+              {% endif %}
+          </li>
+      {% endfor %}
+  </{{listEl}}>
 {% endmacro %}
