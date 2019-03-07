@@ -32,7 +32,7 @@
                                       <ul class="header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel }}" role="menubar">
                                           {% for item in params.serviceLinks.items %}
                                               <li class="header-service-nav__item">
-                                                  <a href="{{ item.path }}" class="header-service-nav__link" role="menuitem">{{ item.title }}</a>
+                                                  <a href="{{ item.url }}" class="header-service-nav__link" role="menuitem">{{ item.title }}</a>
                                               </li>
                                           {% endfor %}
                                       </ul>
@@ -81,8 +81,8 @@
                   <nav class="header-nav header-nav--mobile js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel }}">
                       <ul class="header-nav__list" aria-label="{{ params.navigation.ariaListLabel }}" role="menubar">
                           {% for item in params.navigation.items %}
-                              <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.path == params.navigation.currentPath) or (item.path in params.navigation.currentPath) }}">
-                                  <a href="{{ item.path }}" class="header-nav__link" role="menuitem">{{ item.title }}</a>
+                              <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url in params.navigation.currentPath) }}">
+                                  <a href="{{ item.url }}" class="header-nav__link" role="menuitem">{{ item.title }}</a>
                               </li>
                           {% endfor %}
                       </ul>
