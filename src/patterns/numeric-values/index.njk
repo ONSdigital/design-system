@@ -4,7 +4,7 @@ group: Ask users for...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
-How to ask for numeric values such as quantities, financial figures, percentages or dimensions.
+How to ask for numeric values such as quantities, financial figures, percentages or units of measurement.
 {{
     patternlibExample({"path": "components/input/examples/numbers-combined/index.njk"})
 }}
@@ -24,7 +24,7 @@ This pattern should be used when you need to ask the user for numeric values suc
                 "text": 'estimated percentages (e.g. the percentage of female employees etc.)'
             },
             {        
-                "text": 'volumes and dimensions (e.g. the size of a workspace etc.)'
+                "text": 'volumes and measurements (e.g. the size of a workspace etc.)'
             }
         ]
     }) 
