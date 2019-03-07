@@ -1,0 +1,62 @@
+---
+title: Numeric values
+group: Ask users for...
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/lists/_macro.njk" import onsList %}
+How to ask for numeric values such as quantities, financial figures, percentages or dimensions.
+{{
+    patternlibExample({"path": "components/input/examples/numbers-combined/index.njk"})
+}}
+
+## When to use this pattern
+This pattern should be used when you need to ask the user for numeric values such as:
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": 'the quantity of objects or people (e.g. bedrooms, visitors, employees etc.)'
+            },
+            {
+                "text": 'financial figures (e.g. salaries, expenditure, turnover etc.)'
+            },
+            {        
+                "text": 'estimated percentages (e.g. the percentage of female employees etc.)'
+            },
+            {        
+                "text": 'volumes and dimensions (e.g. the size of a workspace etc.)'
+            }
+        ]
+    }) 
+}}
+
+## How to use this pattern
+Use the [input component](/components/input) and set the type to `number` to add the correct pattern to trigger a numeric keypad on touch devices.
+
+Use the [input width override utility class](/components/input#width-constrained) to set the width of the input when the maximum size of the answer is known.  The class won't limit the number of digits the user can enter, but will help the user understand what they should enter.
+
+### Numbers
+{{
+    patternlibExample({"path": "components/input/examples/numeric-values/index.njk"})
+}}
+
+### Prefixed values
+Use the `prefix` parameter to specify the abbreviated prefix unit e.g. '£', and the `title` parameter to specify the full name of the prefix unit e.g. 'Pounds (GBP)'.
+{{
+    patternlibExample({"path": "components/input/examples/prefixed/index.njk"})
+}}
+
+### Suffixed values 
+Use the `suffix` parameter to specify the abbreviated suffix unit e.g. '%', and the `title` parameter to specify the full name of the suffix unit e.g. 'Percent'.
+{{
+    patternlibExample({"path": "components/input/examples/suffixed/index.njk"})
+}}
+
+## Research on this pattern
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% call onsPanel() %}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+[Discuss 'Numeric values' on Github](https://github.com/ONSdigital/design-system/issues/)
