@@ -1,7 +1,7 @@
 {% from "components/input/_macro.njk" import onsInput %}
 {{ 
     onsInput({
-        "id": "suffixed",
+        "id": "suffixed-percent",
         "type": "number",
         "classes": "input--w-3",
         "autocomplete": "off",
@@ -19,9 +19,10 @@
 }}
 {{ 
     onsInput({
-        "id": "suffixed",
+        "id": "suffixed-centimeters",
         "type": "number",
         "classes": "input--w-4",
+        "autocomplete": "off",
         "attributes": {
             "required": true
         },
