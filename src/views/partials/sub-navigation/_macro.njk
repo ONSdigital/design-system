@@ -2,13 +2,13 @@
   <nav class="patternlib-subnav" aria-label="{{ params.ariaLabel }}">
       <ul class="patternlib-subnav__list" aria-label="{{ params.ariaListLabel }}" role="menubar">
         {% for item in params.items %}
-              <li class="patternlib-subnav__item {{ ' patternlib-subnav__item--active' if (item.path == params.currentPath) or (item.path in params.currentPath) }}">
-                  <a href="{{ item.path }}" class="patternlib-subnav__link" role="menuitem">{{ item.title }}</a>
+              <li class="patternlib-subnav__item {{ ' patternlib-subnav__item--active' if (item.url == params.currentPath) or (item.url in params.currentPath) }}">
+                  <a href="{{ item.url }}" class="patternlib-subnav__link" role="menuitem">{{ item.title }}</a>
                   {% if item.anchors %}
                       <ul class="patternlib-subnav__sub-items">
                           {% for anchor in item.anchors %}
                               <li class="patternlib-subnav__item">
-                                  <a href="{{ anchor.path }}" class="patternlib-subnav__link" role="menuitem">{{ anchor.title }}</a>
+                                  <a href="{{ anchor.url }}" class="patternlib-subnav__link" role="menuitem">{{ anchor.title }}</a>
                               </li>
                           {% endfor %}
                       </ul>
