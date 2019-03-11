@@ -9,8 +9,10 @@
             "id": params.id,
             "classes": "js-feedback",
             "title": params.title,
-            "closeButton": params.closeButton,
-            "closeButtonClasses": params.closeButtonClasses
+            "button": {
+                "close": params.closeButton,
+                "classes": params.closeButtonClasses
+            }
         })
     %}
         <form id="{{ params.id }}-form" class="u-mt-s js-feedback-form" method="POST" action="{{ params.action }}" novalidate data-thank-you="{{ params.thankYouMessage }}" data-error-message="{{ params.errorMessage }}">
