@@ -6,7 +6,8 @@ coverage/
 .vscode/
 package-lock.json
 # npm package folders
-/templates/
+/components/
+/page-templates/
 /css/
 /favicons/
 /fonts/
