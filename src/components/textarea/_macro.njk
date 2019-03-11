@@ -31,7 +31,7 @@
             maxlength="{{ params.maxlength }}"
             data-char-limit-ref="{{ params.id }}-lim-remaining"
             {% endif %}
-            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         ></textarea>
         {% if params.maxlength %}
             <div

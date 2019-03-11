@@ -7,11 +7,11 @@
         open
         {%if params.buttonOpen %} data-btn-close="{{ params.closeButton }}"{% endif %}
         {% if params.group %} data-group="{{ params.group }}"{% endif %}
-        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
         <summary 
             class="details__summary js-collapsible-summary"
-            {% if params.summaryAttributes %}{% for attribute, value in (params.summaryAttributes.items() if params.summaryAttributes is mapping and params.summaryAttributes.items else params.summaryAttributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+            {% if params.summaryAttributes %}{% for attribute, value in (params.summaryAttributes.items() if params.summaryAttributes is mapping and params.summaryAttributes.items else params.summaryAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
             {# Required to use display flex on Safari as it's not currently supported: https://bugs.webkit.org/show_bug.cgi?id=167111 #}
             <div class="details__heading">

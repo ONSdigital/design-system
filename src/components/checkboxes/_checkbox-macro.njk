@@ -8,7 +8,7 @@
             aria-labeledby="{{ params.id }}-label"
             {% if params.checked %}checked{% endif %}
             type="checkbox"
-            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
         {# aria-hidden is used to prevent screen readers from being able to focus the individual elements within a label, and combined with aria-labeledby on the input to ensure the label is still read #}
         <label id="{{ params.id }}-label" aria-hidden="true" class="checkbox__label {{ params.label.classes }}" for="{{ params.id }}">

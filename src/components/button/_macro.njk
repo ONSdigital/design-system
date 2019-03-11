@@ -9,7 +9,7 @@
       {% if params.value %}value="{{ params.value }}"{% endif %}
       {% if params.name %}name="{{ params.name }}"{% endif %}
       {% if params.disabled %} disabled="disabled" aria-disabled="true"{% endif %}
-      {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}"{% endfor %}{% endif %}
+      {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
       {% if params.isToggle %}{{ buttonToggleAttributes | safe }}{% endif %}
       >
       {{- params.html | safe if params.html else params.text -}}
