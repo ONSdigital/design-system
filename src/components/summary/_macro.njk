@@ -4,7 +4,7 @@
             <h2 class="u-fs-m">{{ params.title }}</h2>
         {% endif %}
         <table class="summary__items">
-            {% for item in params.items %}
+            {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
                 {% set itemClass = "" %}
                 {% if item.error %} {% set itemClass = " summary__item--error" %}{% endif %}
                 {% if item.total %} {% set itemClass = itemClass + " summary__item--total" %}{% endif %}

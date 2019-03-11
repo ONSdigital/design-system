@@ -1,7 +1,7 @@
-| Name  | Type               | Required | Description                     |
-| ----- | ------------------ | -------- | ------------------------------- |
-| items | Array<SummaryItem> | true     | An array of items to summarise  |
-| title | string             | false    | The title for the summary block |
+| Name      | Type               | Required | Description                     |
+| --------- | ------------------ | -------- | ------------------------------- |
+| itemsList | Array<SummaryItem> | true     | An array of items to summarise  |
+| title     | string             | false    | The title for the summary block |
 
 ## SummaryItem
 | Name | Type | Required | Description |

@@ -3,7 +3,7 @@
     {% from "components/label/_macro.njk" import onsLabel %}
 
     {% if params.type == "number" %}
-    {# Type must be "text" or Firefox and Safari will set a blank value to the server if non numeric characters are entered - 
+    {# Type must be "text" or Firefox and Safari will set a blank value to the server if non numeric characters are entered -
     they don't block non numeric characters: https://bugzilla.mozilla.org/show_bug.cgi?id=1398528 #}
         {% set type = "text" %}
         {% set pattern = "[0-9]*" %}
@@ -58,7 +58,7 @@
             {% if pattern !== undefined %}pattern="{{ pattern }}"{% endif %}
             {% if inputmode != undefined %}inputmode="{{ inputmode }}"{% endif %}
             {% if params.autocomplete !== undefined %}autocomplete="{{ params.autocomplete }}"{% endif %}
-            {% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
         />
         {% if params.prefix !== undefined or params.suffix !== undefined %}
                     <abbr class="input-type__type" aria-hidden="true" title="{{ params.prefix.title }}{{ params.suffix.title }}">{{ params.prefix.text or params.prefix.title }}{{ params.suffix.text or params.suffix.title }}</abbr>
