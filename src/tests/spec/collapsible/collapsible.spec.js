@@ -165,7 +165,7 @@ describe('Component: Details', function() {
 
   describe('If the component does not have a button', function() {
     beforeEach(function() {
-      delete params.closeButton;
+      delete params.button;
       const component = renderComponent(params);
 
       Object.keys(component).forEach(key => {
