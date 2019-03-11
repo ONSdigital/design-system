@@ -9,22 +9,36 @@
     {% set currentLanguageISOCode = currentLanguage.ISOCode %}
 {% endif %}
 
+{% if page.cdn %}
+    {# Production #}
+    {% set assetsURL = "https://cdn.ons.gov.uk/sdc/" + page.cdn %}
+{% elif data.version %}
+    {# Prototype kits #}
+    {% set assetsURL = "/" + data.version %}
+{% elif page.assetsURL %}
+    {# Runner Dev #}
+    {% set assetsURL = page.assetsURL %}
+{% else %}
+    {# Development #}
+    {% set assetsURL = "" %}
+{% endif %}
+
 <!doctype html>
 <html lang="{{ currentLanguageISOCode }}" class="no-js">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ page.title | default(data.title) }}</title>
-        <link rel="stylesheet" href="{{ "/" + data.version if data.version  }}{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}{{ page.assetsURL if page.assetsURL }}/css/responsive.css">
+        <link rel="stylesheet" href="{{ assetsURL }}/css/responsive.css">
 
         {% block headIcons %}
-            <meta name="msapplication-config" content="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/browserconfig.json"> 
-            <link rel="icon" type="image/x-icon" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/favicon.ico"> 
-            <link rel="icon" type="image/png" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/favicon-32x32.png" sizes="32x32"> 
-            <link rel="icon" type="image/png" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/favicon-16x16.png" sizes="16x16"> 
-            <link rel="mask-icon" color="#5bbad5" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/safari-pinned-tab.svg"> 
-            <link rel="apple-touch-icon" type="image/png" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/apple-touch-icon.png" sizes="180x180"> 
-            <link rel="manifest" href="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/manifest.json">
+            <meta name="msapplication-config" content="{{ assetsURL }}/favicons/browserconfig.json">
+            <link rel="icon" type="image/x-icon" href="{{ assetsURL }}/favicons/favicon.ico">
+            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-32x32.png" sizes="32x32">
+            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-16x16.png" sizes="16x16">
+            <link rel="mask-icon" color="#5bbad5" href="{{ assetsURL }}/favicons/safari-pinned-tab.svg">
+            <link rel="apple-touch-icon" type="image/png" href="{{ assetsURL }}/favicons/apple-touch-icon.png" sizes="180x180">
+            <link rel="manifest" href="{{ assetsURL }}/favicons/manifest.json">
         {% endblock %}
 
         {% block head %}{% endblock %}
@@ -44,14 +58,13 @@
                 {% block header %}
                     {{
                         onsHeader({
-                            "version": data.version,
                             "title": page.title,
                             "language": page.language,
                             "button": page.button,
                             "toggleButton": page.toggleButton,
                             "navigation": page.navigation,
                             "phase": page.phase,
-                            "assetsURL": page.assetsURL
+                            "assetsURL": assetsURL
                         })
                     }}
                 {% endblock %}
@@ -88,10 +101,10 @@
             {% endblock %}
             {% block bodyEnd %}{% endblock %}
         </div>
-        <script type="module" src="{{ "/" + data.version if data.version  }}{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}{{ page.assetsURL if page.assetsURL }}/scripts/bundle.js"></script>
-        <script nomodule src="{{ "/" + data.version if data.version  }}{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}{{ page.assetsURL if page.assetsURL }}/scripts/bundle.es5.js"></script>
-        <script>document.documentElement.className = document.documentElement.className.replace("no-js","has-js")</script>
-        
+        <script type="module" src="{{ assetsURL }}/scripts/bundle.js"></script>
+        <script nomodule src="{{ assetsURL }}/scripts/bundle.es5.js"></script>
+        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.documentElement.className = document.documentElement.className.replace("no-js","has-js")</script>
+
         {% if isPatternLib %}
             <script type="module" src="/scripts/patternlib.js"></script>
             <script nomodule src="/scripts/patternlib.es5.js"></script>

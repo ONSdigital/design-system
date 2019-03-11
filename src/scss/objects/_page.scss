@@ -58,6 +58,11 @@ $nav-width: 14rem;
   float: right;
 }
 
+.page__main {
+  @extend .u-mt-s;
+  margin-bottom: 4.5rem;
+}
+
 .no-js {
   .page__nav {
     margin-bottom: 2rem;
@@ -93,9 +98,7 @@ $nav-width: 14rem;
   }
 
   .page__main {
-    @extend .u-mt-s;
     transform: translateX(0);
-    margin-bottom: 4.5rem;
     transition: opacity 100ms ease-out;
   }
 
