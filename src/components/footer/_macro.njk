@@ -104,14 +104,18 @@
                               "id": params.feedback.id | default("feedback"),
                               "action": params.feedback.action,
                               "title": params.feedback.title,
-                              "closeButton": params.feedback.closeButton,
-                              "closeButtonClasses": "btn--ghost-blue",
+                              "closeButton":{
+                                  "text": params.feedback.closeButton.text,
+                                  "classes":  "btn--ghost-blue" + (" " + params.feedback.closeButton.classes if params.feedback.closeButton.classes else ""),
+                                  "attributes": params.feedback.closeButton.attributes
+                              },
                               "textarea": params.feedback.textarea,
                               "name": params.feedback.name,
                               "email": params.feedback.email,
                               "sendButton": params.feedback.sendButton,
                               "thankYouMessage": params.feedback.thankYouMessage,
-                              "errorMessage": params.feedback.errorMessage
+                              "errorMessage": params.feedback.errorMessage,
+                              "summaryAttributes": params.feedback.summaryAttributes
                           })
                       }}
                   </div>

@@ -9,9 +9,11 @@
             "id": params.id,
             "classes": "js-feedback",
             "title": params.title,
+            "summaryAttributes": params.summaryAttributes,
             "button": {
-                "close": params.closeButton,
-                "classes": params.closeButtonClasses
+                "close": params.closeButton.text,
+                "classes": params.closeButton.classes,
+                "attributes": params.closeButton.attributes
             }
         })
     %}
@@ -66,8 +68,9 @@
             }) %}
                 {{
                     onsButton({
-                        "text": params.sendButton,
-                        "classes": "js-feedback-send btn--loader"
+                        "text": params.sendButton.text,
+                        "classes": "js-feedback-send btn--loader",
+                        "attributes": params.sendButton.attributes
                     })
                 }}
             {% endcall %}
