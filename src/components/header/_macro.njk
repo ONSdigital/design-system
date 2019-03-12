@@ -32,7 +32,7 @@
                                       <ul class="header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel }}" role="menubar">
                                           {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}
                                               <li class="header-service-nav__item">
-                                                  <a href="{{ item.url }}" class="header-service-nav__link" role="menuitem">{{ item.title }}</a>
+                                                  <a href="{{ item.url }}" class="header-service-nav__link" role="menuitem">{{ item.text }}</a>
                                               </li>
                                           {% endfor %}
                                       </ul>

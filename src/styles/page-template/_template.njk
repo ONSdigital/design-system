@@ -68,11 +68,12 @@
                         onsHeader({
                             "title": page.title,
                             "language": page.language,
-                            "button": page.button,
+                            "button": page.signoutButton,
                             "toggleButton": page.toggleButton,
                             "navigation": page.navigation,
                             "phase": page.phase,
-                            "assetsURL": assetsURL
+                            "assetsURL": assetsURL,
+                            "serviceLinks": page.serviceLinks
                         })
                     }}
                 {% endblock %}
@@ -105,8 +106,9 @@
                             "cols": page.footer.cols,
                             "poweredByONS": page.footer.poweredByONS,
                             "OGLLink": page.footer.OGLLink,
-                            "button": page.button,
-                            "feedback": page.feedback
+                            "button": page.signoutButton,
+                            "feedback": page.feedback,
+                            "serviceLinks": page.serviceLinks
                         })
                     }}
                 {% endif %}
