@@ -26,7 +26,7 @@
                 <div class="u-fs-r--b">{{ params.title | safe }}</div>
             </div>
         {% endif %}
-        <div class="panel__body">{{ params.body if params else "" | safe }}
+        <div class="panel__body">{{ (params.body if params else "") | safe }}
             {{ caller() if caller }}
         </div>
     </div>
