@@ -3,6 +3,7 @@ import template from 'components/language-selector/_test-template.njk';
 import LanguageSelector from 'components/language-selector/language';
 import eventMock from 'stubs/event.stub.spec';
 import { throttle } from 'throttle-typescript';
+import triggerEvent from 'js/utils/trigger-event';
 
 const params = {
   allLanguagesUrl: '#',
@@ -98,7 +99,7 @@ describe('Component: Language Selector', () => {
 
     describe('and toggle is called', function() {
       it('event propagation should be stopped', function() {
-        const mockedEvent = eventMock();
+        const mockedEvent = eventMock({ target: this.button });
 
         this.languageSelector.toggle(mockedEvent);
 
@@ -108,12 +109,14 @@ describe('Component: Language Selector', () => {
 
     describe('and menu is not open', function() {
       describe('when button is clicked', function() {
-        beforeEach(function() {
+        beforeEach(function(done) {
           this.languageSelector.setOpen = chai.spy(this.languageSelector.setOpen);
           this.languageSelector.throttledSetOpen = throttle(this.languageSelector.setOpen);
 
-          this.languageSelector.toggle(eventMock());
+          this.languageSelector.toggle(eventMock({ target: this.button }));
           this.languageSelector.throttledSetOpen(true);
+
+          setTimeout(done);
         });
 
         it('setOpen should be throttled and only called once', function() {
@@ -134,27 +137,32 @@ describe('Component: Language Selector', () => {
     });
 
     describe('and menu is open', function() {
-      beforeEach(function() {
-        this.languageSelector.setOpen(true);
+      beforeEach(function(done) {
+        this.languageSelector.setOpen(eventMock({ target: this.button }), true);
+        setTimeout(done);
       });
 
       describe('when the document body is clicked', function() {
-        beforeEach(function() {
+        beforeEach(function(done) {
           this.languageSelector.setOpen = chai.spy(this.languageSelector.setOpen);
           this.languageSelector.throttledSetOpen = throttle(this.languageSelector.setOpen);
 
-          document.body.click();
+          triggerEvent(document.body, 'mousedown');
+
+          setTimeout(done, 300);
         });
 
         closeTests();
       });
 
       describe('when button is clicked', function() {
-        beforeEach(function() {
+        beforeEach(function(done) {
           this.languageSelector.setOpen = chai.spy(this.languageSelector.setOpen);
           this.languageSelector.throttledSetOpen = throttle(this.languageSelector.setOpen);
 
-          this.button.click();
+          triggerEvent(this.button, 'mousedown');
+
+          setTimeout(done);
         });
 
         closeTests();

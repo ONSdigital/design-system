@@ -4,7 +4,7 @@ layout: none
 {% extends "styles/page-template/_template.njk" %}
 
 {% set page = { 
-    "title": "Service name",
+    "title": "Enw'r gwasanaeth",
     "language": {
         "languages": [
             {
@@ -13,7 +13,7 @@ layout: none
                 "text": "English",
                 "buttonAriaLabel": "Language selector. Current language: English",
                 "chooseLanguage": "Choose language",
-                "current": true
+                "current": false
             },
             {
                 "url": "/patterns/language-selection/examples/many-languages/cy.html",
@@ -21,7 +21,7 @@ layout: none
                 "text": "Cymraeg",
                 "buttonAriaLabel": "Dewisydd iaith. Iaith gyfredol: Cymraeg",
                 "chooseLanguage": "Dewiswch iaith",
-                "current": false
+                "current": true
             },
             {
                 "url": "/patterns/language-selection/examples/many-languages/ga.html",
@@ -42,26 +42,26 @@ layout: none
         ]
     },
     "footer": {
-        "OGLLink": {
-            "pre": "All content is available under the",
-            "link": "Open Government Licence v3.0",
-            "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "post": ", except where otherwise stated"
-        },
         "rows": [
             {
                 "items": [
                     {
-                        "text": "Contact us",
+                        "text": "Cysyllwch a ni",
                         "url": "#"
                     },
                     {
-                        "text": "Cookies and privacy",
+                        "text": "Cwcis ac preifatrwydd",
                         "url": "#"
                     }
                 ]
             }
-        ]
+        ],
+        "OGLLink": {
+            "pre": "Mae'r holl gynnwys ar gael o dan y",
+            "link": "Drwydded Llywodraeth Leol v3.0",
+            "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "post": ", oni bai y nodir fel arall"
+        }
     }
 } %}
 
