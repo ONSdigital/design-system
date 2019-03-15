@@ -10,11 +10,12 @@
   &__item {
     font-size: 1rem;
     display: inline-block;
-    margin: 0 0 0 1rem;
+    margin: 0 1rem 0 0;
     text-align: center;
+    border-bottom: 4px solid transparent;
     &:hover,
     &--active {
-      border-bottom: 4px solid $color-dark-blue;
+      border-color: $color-dark-blue;
       a {
         color: $color-dark-blue;
       }
