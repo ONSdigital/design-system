@@ -11,8 +11,8 @@ export class LanguageSelector {
     this.throttledSetOpen = throttle(this.setOpen.bind(this), 200);
     this.setAriaAttributes();
     this.button.addEventListener('mousedown', this.toggle.bind(this));
-    this.button.addEventListener('focus', () => this.throttledSetOpen(true));
-    document.body.addEventListener('mousedown', () => this.throttledSetOpen(false));
+    this.button.addEventListener('focus', event => this.throttledSetOpen(event, true));
+    document.body.addEventListener('mousedown', event => this.throttledSetOpen(event, false));
     this.setDisplay();
   }
 
@@ -35,14 +35,18 @@ export class LanguageSelector {
     event.stopPropagation();
     const isOpen = this.context.classList.contains('language-switcher--open');
 
-    this.throttledSetOpen(!isOpen);
+    this.throttledSetOpen(event, !isOpen);
   }
 
-  setOpen(open) {
-    this.button.setAttribute('aria-expanded', open);
+  setOpen(event, open) {
+    const delay = event.target.classList.contains('js-language-switcher-item') ? 300 : 0;
 
-    this.context.classList[open ? 'add' : 'remove']('language-switcher--open');
-    this.items.forEach(item => item.setAttribute('tabindex', open ? 0 : -1));
+    setTimeout(() => {
+      this.button.setAttribute('aria-expanded', open);
+
+      this.context.classList[open ? 'add' : 'remove']('language-switcher--open');
+      this.items.forEach(item => item.setAttribute('tabindex', open ? 0 : -1));
+    }, delay);
   }
 }
 
