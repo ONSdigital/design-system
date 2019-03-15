@@ -4,7 +4,7 @@ layout: none
 {% extends "styles/page-template/_template.njk" %}
 
 {% set page = { 
-    "title": "Service name",
+    "title": "Enw'r gwasanaeth",
     "language": {
         "languages": [
             {
@@ -13,7 +13,7 @@ layout: none
                 "text": "English",
                 "buttonAriaLabel": "Language selector. Current language: English",
                 "chooseLanguage": "Choose language",
-                "current": true
+                "current": false
             },
             {
                 "url": "/patterns/language-selection/examples/many-languages/cy.html",
@@ -29,7 +29,7 @@ layout: none
                 "text": "Gaeilge",
                 "buttonAriaLabel": "Roghnóir teanga. Teanga reatha: Gaeilge",
                 "chooseLanguage": "Roghnaigh teanga",
-                "current": false
+                "current": true
             },
             {
                 "url": "/patterns/language-selection/examples/many-languages/sco.html",
@@ -42,26 +42,26 @@ layout: none
         ]
     },
     "footer": {
-        "OGLLink": {
-            "pre": "All content is available under the",
-            "link": "Open Government Licence v3.0",
-            "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "post": ", except where otherwise stated"
-        },
         "rows": [
             {
-                "itemsList": [
+                "items": [
                     {
-                        "text": "Contact us",
+                        "text": "Glaoigh orainn",
                         "url": "#"
                     },
                     {
-                        "text": "Cookies and privacy",
+                        "text": "Fianáin agus príobháideachas",
                         "url": "#"
                     }
                 ]
             }
-        ]
+        ],
+        "OGLLink": {
+            "pre": "Tá an t-ábhar go léir ar fáil faoin",
+            "link": "gCeadúnas Oscailte Rialtais v3.0",
+            "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "post": ", ach amháin nuair a luaitear a mhalairt"
+        }
     }
 } %}
 
