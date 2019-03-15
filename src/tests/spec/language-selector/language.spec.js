@@ -143,7 +143,7 @@ describe('Component: Language Selector', () => {
           this.languageSelector.setOpen = chai.spy(this.languageSelector.setOpen);
           this.languageSelector.throttledSetOpen = throttle(this.languageSelector.setOpen);
 
-          document.body.click();
+          document.body.dispatchEvent(new Event('mousedown'));
         });
 
         closeTests();
@@ -154,7 +154,7 @@ describe('Component: Language Selector', () => {
           this.languageSelector.setOpen = chai.spy(this.languageSelector.setOpen);
           this.languageSelector.throttledSetOpen = throttle(this.languageSelector.setOpen);
 
-          this.button.click();
+          this.button.dispatchEvent(new Event('mousedown'));
         });
 
         closeTests();
