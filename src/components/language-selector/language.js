@@ -10,9 +10,9 @@ export class LanguageSelector {
 
     this.throttledSetOpen = throttle(this.setOpen.bind(this), 200);
     this.setAriaAttributes();
-    this.button.addEventListener('click', this.toggle.bind(this));
+    this.button.addEventListener('mousedown', this.toggle.bind(this));
     this.button.addEventListener('focus', () => this.throttledSetOpen(true));
-    document.body.addEventListener('click', () => this.throttledSetOpen(false));
+    document.body.addEventListener('mousedown', () => this.throttledSetOpen(false));
     this.setDisplay();
   }
 
