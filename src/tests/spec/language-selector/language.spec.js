@@ -3,6 +3,7 @@ import template from 'components/language-selector/_test-template.njk';
 import LanguageSelector from 'components/language-selector/language';
 import eventMock from 'stubs/event.stub.spec';
 import { throttle } from 'throttle-typescript';
+import triggerEvent from 'js/utils/trigger-event';
 
 const params = {
   allLanguagesUrl: '#',
@@ -143,7 +144,7 @@ describe('Component: Language Selector', () => {
           this.languageSelector.setOpen = chai.spy(this.languageSelector.setOpen);
           this.languageSelector.throttledSetOpen = throttle(this.languageSelector.setOpen);
 
-          document.body.dispatchEvent(new Event('mousedown'));
+          triggerEvent(document.body, 'mousedown');
         });
 
         closeTests();
@@ -154,7 +155,7 @@ describe('Component: Language Selector', () => {
           this.languageSelector.setOpen = chai.spy(this.languageSelector.setOpen);
           this.languageSelector.throttledSetOpen = throttle(this.languageSelector.setOpen);
 
-          this.button.dispatchEvent(new Event('mousedown'));
+          triggerEvent(this.button, 'mousedown');
         });
 
         closeTests();
