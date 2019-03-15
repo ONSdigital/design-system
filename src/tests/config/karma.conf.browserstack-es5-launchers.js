@@ -1,17 +1,17 @@
 export default function() {
   return {
-    browsers: ['bs_iphone_6S', 'bs_ipad_air_2', 'bs_android_galaxy_S5', 'bs_mac_safari', 'bs_windows_10_IE_edge', 'bs_windows_10_IE_11'],
+    browsers: ['bs_ipad_air_2', 'bs_android_galaxy_S5', 'bs_mac_safari', 'bs_windows_10_IE_edge', 'bs_windows_10_IE_11'],
 
     customLaunchers: {
       /**
        * iOS
        */
-      // bs_iphone_6S: inheritBase({
-      //   device: 'iPhone 6S',
-      //   os: 'ios',
-      //   os_version: '9.1',
-      //   real_mobile: false
-      // }),
+      bs_iphone_6S: inheritBase({
+        device: 'iPhone 6S',
+        os: 'ios',
+        os_version: '9.1',
+        real_mobile: false
+      }),
       bs_ipad_air_2: inheritBase({
         device: 'iPad Air 2',
         browserName: 'iPad',
