@@ -1,6 +1,38 @@
 {% from "components/input/_macro.njk" import onsInput %}
 {{ 
     onsInput({
+        "id": "number",
+        "type": "number",
+        "classes": "input--w-2",
+        "autocomplete": "off",        
+        "attributes": {
+            "min": 0
+        },
+        "label": {
+            "text": "Number of bedrooms"
+        }
+    }) 
+}}
+{{ 
+    onsInput({
+        "id": "prefixed",
+        "type": "number",
+        "classes": "input--w-6",
+        "autocomplete": "off",        
+        "attributes": {
+            "required": true
+        },
+        "label": {
+            "text": "Your annual salary before taxes"
+        },
+        "prefix": {
+            "title": "Pounds (GBP)",
+            "text": "£"
+        }
+    }) 
+}}
+{{ 
+    onsInput({
         "id": "suffixed-percent",
         "type": "number",
         "classes": "input--w-3",
