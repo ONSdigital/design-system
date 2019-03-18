@@ -1,0 +1,68 @@
+---
+title: Numeric values
+group: Ask users for...
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+How to ask for numeric values such as quantities, financial figures, percentages or units of measurement.
+{{
+    patternlibExample({"path": "components/input/examples/numbers-combined/index.njk"})
+}}
+
+## When to use this pattern
+This pattern should be used when you need to ask the user for numeric values such as:
+{{ 
+    onsList({
+        "items": [
+            {
+                "text": 'the quantity of objects or people (e.g. bedrooms, visitors, employees etc.)'
+            },
+            {
+                "text": 'financial figures (e.g. salaries, expenditure, turnover etc.)'
+            },
+            {        
+                "text": 'estimated percentages (e.g. the percentage of female employees etc.)'
+            },
+            {        
+                "text": 'volumes and measurements (e.g. the size of a workspace etc.)'
+            }
+        ]
+    }) 
+}}
+
+## How to use this pattern
+Use the [input component](/components/input) macro and set the `type` parameter to 'number' to add the correct pattern to trigger a numeric keypad on touch devices.
+{% call onsPanel({
+    "classes": "u-mb-s"
+}) %}
+    <strong>Note:</strong>  If you are manually using the component <code>html</code>, set the attributes <code>type="text"</code>, <code>inputmode="numeric"</code> and <code>pattern="[0-9]*"</code>. Server-side validation on <code>number</code> type input is <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1398528">not currently supported by all browsers.</a>
+{% endcall %}
+### Use appropriately-size number inputs
+You can use the [input width override utility class](/components/input#width-constrained) to set the width of the input when the maximum size of the answer is known.  The class won't limit the number of digits the user can enter, but will help the user understand what they should enter.
+
+### Numbers
+{{
+    patternlibExample({"path": "components/input/examples/numeric-values/index.njk"})
+}}
+
+### Prefixed values
+Use the `prefix` parameter to specify the abbreviated prefix unit e.g. '£', and the `title` parameter to specify the full name of the prefix unit e.g. 'Pounds (GBP)'.
+{{
+    patternlibExample({"path": "components/input/examples/prefixed/index.njk"})
+}}
+
+### Suffixed values 
+Use the `suffix` parameter to specify the abbreviated suffix unit e.g. 'cm', and the `title` parameter to specify the full name of the suffix unit e.g. 'Centimeters'.
+{{
+    patternlibExample({"path": "components/input/examples/suffixed/index.njk"})
+}}
+
+## Research on this pattern
+{% call onsPanel() %}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/279" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+[Discuss 'Numeric values' on Github](https://github.com/ONSdigital/design-system/issues/279)
