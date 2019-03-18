@@ -2,7 +2,7 @@
     {% if params.mutuallyExclusive or params.legend %}
         {% if params.questionMode %}
             {% set legend = "<h1>" + params.legend + "</h1>" %}
-            {% set classes = "field--question" + (" " + params.classes if params.classes) %}
+            {% set classes = "field--question" + (" " + params.classes if params.classes else "") %}
         {% else %}
             {% set legend = params.legend %}
             {% set classes = params.classes %}
