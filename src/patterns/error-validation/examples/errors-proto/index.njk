@@ -1,7 +1,7 @@
 {% extends "./views/layouts/_prototype.njk" %}
 
 {% block prototype_body %}
-<div class="page">
+<form class="page" action="errors" novalidate>
     <div class="page__container container">
         <div class="grid">
             <div class="grid__col col-8@m">
@@ -56,14 +56,12 @@
                 {% from "components/button/_macro.njk" import onsButton %}
                 {{
                     onsButton({
-                        "type": 'button',
                         "text": 'Save and continue',
-                        "classes": 'u-mb-m u-mt-l',
-                        "url": 'errors'
+                        "classes": 'u-mb-m u-mt-l'
                     })
                 }}
             </div>
         </div>
     </div>
-</div>
+</form>
 {% endblock %}

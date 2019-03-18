@@ -17,9 +17,7 @@
 
 .panel {
   border-radius: 0;
-  a {
-    color: $color-dark-blue;
-  }
+
   /* Removes inherited bottom margin to make whitespace inside panel equal */
   > *:last-child {
     margin-bottom: 0;

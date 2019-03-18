@@ -1,6 +1,6 @@
 export default function() {
   return {
-    browsers: ['bs_iphone_6S', 'bs_ipad_air_2', 'bs_android_galaxy_S5', 'bs_mac_safari', 'bs_windows_10_IE_edge', 'bs_windows_10_IE_11'],
+    browsers: ['bs_ipad_air_2', 'bs_android_galaxy_S5', 'bs_mac_safari', 'bs_windows_10_IE_edge', 'bs_windows_10_IE_11'],
 
     customLaunchers: {
       /**
