@@ -19,21 +19,24 @@
                     {% set exclusiveClass = ' js-exclusive-group' %}
                 {% endif %}
                 <div class="field__item">
-                    {{
-                        onsCheckbox({
-                            "id": checkbox.id,
-                            "name": checkbox.name,
-                            "value": checkbox.value,
-                            "checked": checkbox.checked,
-                            "classes": checkbox.classes,
-                            "inputClasses": exclusiveClass,
-                            "label": {
-                                "for": checkbox.id,
-                                "text": labelHTML,
-                                "description": checkbox.label.description,
-                                "classes": checkbox.label.classes | default('') 
-                            },
-                            "attributes": checkbox.attributes,
+                    {% set config = {
+                        "id": checkbox.id,
+                        "name": checkbox.name,
+                        "value": checkbox.value,
+                        "checked": checkbox.checked,
+                        "classes": checkbox.classes,
+                        "inputClasses": exclusiveClass,
+                        "label": {
+                            "for": checkbox.id,
+                            "text": labelHTML,
+                            "description": checkbox.label.description,
+                            "classes": checkbox.label.classes | default('') 
+                        },
+                        "attributes": checkbox.attributes
+                    } %}
+
+                    {% if checkbox.other %}
+                        {% set config = config | setAttributes({
                             "other": {
                                 "id": checkbox.other.id,
                                 "name": checkbox.other.name,
@@ -44,8 +47,9 @@
                                     "text": checkbox.other.label.text
                                 }
                             }
-                        })
-                    }}
+                        }) %}
+                    {% endif %}
+                    {{ onsCheckbox(config) }}
                 </div>
                 {% if not loop.last %}
                     <br>
