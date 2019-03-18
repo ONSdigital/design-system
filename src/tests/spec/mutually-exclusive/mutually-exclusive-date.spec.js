@@ -7,15 +7,21 @@ const params = {
   legend: 'When did you leave your last paid job?',
   description: 'For example, 31 3 2018',
   day: {
-    label: 'Day',
+    label: {
+      text: 'Day'
+    },
     name: 'day-exclusive'
   },
   month: {
-    label: 'Month',
+    label: {
+      text: 'Month'
+    },
     name: 'month-exclusive'
   },
   year: {
-    label: 'Year',
+    label: {
+      text: 'Year'
+    },
     name: 'year-exclusive'
   },
   mutuallyExclusive: {
