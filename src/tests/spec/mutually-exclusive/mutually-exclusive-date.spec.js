@@ -89,7 +89,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
             // prettier-ignore
-            `${params.day.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.month.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.year.label} ${params.mutuallyExclusive.deselectGroupAdjective}.`
+            `${params.day.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.month.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.year.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`
           );
           done();
         }, 300);
