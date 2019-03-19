@@ -50,7 +50,7 @@
             type="{{ type }}"
             id="{{ params.id }}"
             class="input input--text input-type__input {{ params.classes }}{{ exclusiveClass }}"
-            {% if params.prefix or params.suffix %}title="{{ params.prefix.title }}{{ params.suffix.title }}"{% endif %}
+            {% if params.prefix or params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined %}name="{{ params.name }}"{% endif %}
             {% if params.value is defined %}value="{{ params.value }}"{% endif %}
             {% if params.accept is defined %}accept="{{ params.accept }}"{% endif %}
@@ -62,7 +62,7 @@
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         />
         {% if params.prefix is defined or params.suffix is defined %}
-                    <abbr class="input-type__type" aria-hidden="true" title="{{ params.prefix.title }}{{ params.suffix.title }}">{{ params.prefix.text or params.prefix.title }}{{ params.suffix.text or params.suffix.title }}</abbr>
+                    <abbr class="input-type__type" aria-hidden="true" title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}">{{ (params.prefix.text or params.prefix.title) if params.prefix  }}{{ (params.suffix.text or params.suffix.title) if params.suffix }}</abbr>
                 </div>
             </div>
         {% endif %}
