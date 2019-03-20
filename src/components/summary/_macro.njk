@@ -4,23 +4,23 @@
             <h2 class="u-fs-m">{{ params.title }}</h2>
         {% endif %}
         <table class="summary__items">
-            {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
+            {% for question in (params.questions if params.questions is iterable else params.questions.items()) %}
                 {% set itemClass = "" %}
-                {% if item.error %} {% set itemClass = " summary__item--error" %}{% endif %}
-                {% if item.total %} {% set itemClass = itemClass + " summary__item--total" %}{% endif %}
+                {% if question.error %} {% set itemClass = " summary__item--error" %}{% endif %}
+                {% if question.total %} {% set itemClass = itemClass + " summary__item--total" %}{% endif %}
                 <tbody class="summary__item{{ itemClass }}">
-                    {% if item.title %}
+                    {% if question.errorMessage or (question.answers | length > 1 and question.title) %}
                         <tr class="summary__row">
-                            <th colspan="3" class="summary__item-title u-fs-r">{{ item.title }}</th>
+                            <th colspan="3" class="summary__item-title u-fs-r">{{  question.errorMessage or question.title }}</th>
                         </tr>
                     {% endif %}
-                    {% for question in item.questions %}
+                    {% for answer in question.answers %}
                         <tr class="summary__row">
-                            <td class="summary__question">{{ question.question }}</td>
-                            <td {% if question.action == null %}colspan="2" {% endif %}class="summary__answer u-fs-r--b">{{ question.answer | safe }}</td>
-                            {% if question.action %}
+                            <td class="summary__question">{{ answer.title | default(question.title) }}</td>
+                            <td {% if answer.action == null %}colspan="2" {% endif %}class="summary__answer u-fs-r--b">{{ answer.answer | safe }}</td>
+                            {% if answer.action %}
                                 <td class="summary__action">
-                                    <a href="{{ question.action.url }}" class="summary__button"{% if question.action.ariaLabel %} aria-label="{{ question.action.ariaLabel }}"{% endif %}>{{ question.action.text }}</a>
+                                    <a href="{{ answer.action.url }}" class="summary__button"{% if answer.action.ariaLabel %} aria-label="{{ answer.action.ariaLabel }}"{% endif %}>{{ answer.action.text }}</a>
                                 </td>
                             {% endif %}
                         </tr>
