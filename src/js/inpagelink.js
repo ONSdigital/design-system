@@ -6,7 +6,7 @@ function inPageLink() {
   links.forEach(link => {
     const id = link.getAttribute('href').replace('#', '');
 
-    trigger.addEventListener('click', event => {
+    link.addEventListener('click', event => {
       event.preventDefault();
       focusOnInput(id);
     });
@@ -25,7 +25,11 @@ function focusOnInput(id) {
       ...container.getElementsByTagName('INPUT'),
       ...container.getElementsByTagName('TEXTAREA'),
       ...container.getElementsByTagName('SELECT')
-    ][0];
+    ].filter(input => {
+      const type = input.getAttribute('type');
+
+      return type !== 'readonly' && type !== 'hidden';
+    })[0];
   }
 
   if (input) {
