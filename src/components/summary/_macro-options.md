@@ -1,7 +1,8 @@
-| Name      | Type                   | Required | Description                        |
-| --------- | ---------------------- | -------- | ---------------------------------- |
-| questions | Array<SummaryQuestion> | true     | An array of questions to summarise |
-| title     | string                 | false    | The title for the summary block    |
+| Name      | Type                   | Required | Description                             |
+| --------- | ---------------------- | -------- | --------------------------------------- |
+| questions | Array<SummaryQuestion> | true     | An array of questions to summarise      |
+| title     | string                 | false    | The title for the summary block         |
+| classes   | string                 | false    | Classes to add to the summary component |
 
 ## SummaryItem
 | Name | Type | Required | Description |

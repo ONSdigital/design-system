@@ -1,5 +1,5 @@
 {% macro onsSummary(params) %}
-    <div class="summary">
+    <div class="summary{{ " " + params.classes if params.classes else "" }}">
         {% if params.title %}
             <h2 class="u-fs-m">{{ params.title }}</h2>
         {% endif %}
