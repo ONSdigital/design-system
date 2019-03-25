@@ -1,6 +1,6 @@
 import domready from 'js/domready';
 
-function addEventListeners() {
+export default function addEventListeners() {
   const buttons = [...document.querySelectorAll('.js-print-btn')];
 
   buttons.forEach(button => {
@@ -9,8 +9,7 @@ function addEventListeners() {
   });
 }
 
-function handleClick(event) {
-  event.preventDefault();
+function handleClick() {
   window.print();
 }
 
