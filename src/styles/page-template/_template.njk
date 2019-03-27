@@ -126,5 +126,7 @@
         {% if devMode %}
             <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer><\/script>');</script>
         {% endif %}
+
+        {% block scripts %}{% endblock %}
     </body>
 </html>
