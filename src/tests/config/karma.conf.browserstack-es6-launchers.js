@@ -3,7 +3,7 @@
 export default function() {
   return {
     browsers: [
-      'bs_iphone_xs',
+      // 'bs_iphone_xs',
       // 'bs_nexus_5',
       'bs_mac_chrome',
       'bs_mac_firefox',
@@ -17,11 +17,11 @@ export default function() {
       /**
        * iOS
        */
-      bs_iphone_xs: inheritBase({
-        device: 'iPhone XS Max',
-        os: 'ios',
-        os_version: '12.0'
-      }),
+      // bs_iphone_xs: inheritBase({
+      //   device: 'iPhone XS Max',
+      //   os: 'ios',
+      //   os_version: '12.0'
+      // }),
 
       /**
        * Android
