@@ -1,7 +1,10 @@
+// https://www.browserstack.com/automate/capabilities
+
 export default function() {
   return {
     browsers: [
-      // 'bs_android_nexus_5',
+      'bs_iphone_xs',
+      // 'bs_nexus_5',
       'bs_mac_chrome',
       'bs_mac_firefox',
       'bs_mac_safari',
@@ -14,13 +17,17 @@ export default function() {
       /**
        * iOS
        */
+      bs_iphone_xs: inheritBase({
+        device: 'iPhone XS Max',
+        os: 'ios',
+        os_version: '12.0'
+      }),
 
       /**
        * Android
        */
-      // bs_android_nexus_5: inheritBase({
+      // bs_nexus_5: inheritBase({
       //   device: 'Google Nexus 5',
-      //   browserName: 'android',
       //   platform: 'ANDROID',
       //   os: 'android',
       //   os_version: '5.0'
