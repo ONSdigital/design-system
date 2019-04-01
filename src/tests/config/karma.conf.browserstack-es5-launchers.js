@@ -23,7 +23,7 @@ export default function() {
       /**
        * Android
        */
-      bs_android_galaxy_S5: inheritBase({
+      bs_android_galaxy_S5_mini: inheritBase({
         device: 'Samsung Galaxy S5 Mini',
         browserName: 'android',
         platform: 'ANDROID',
