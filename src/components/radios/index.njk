@@ -20,6 +20,13 @@ Radios are grouped within a `<fieldset>` which starts with a `<legend>` which le
 
 ## Variants
 
+## Descriptons
+This variant allows you to add more context to the options in the list. The description is populated by providing a `description` parameter within the radio's `label` parameter.
+
+{{
+    patternlibExample({"path": "components/radios/examples/radios-descriptions/index.njk"})
+}}
+
 ### Other
 This variant lets the user provide an answer other to the options in the list, or to provide supplemental information required to describe the nature of their answer.
 
@@ -31,6 +38,7 @@ CSS hides this div until the radio is ``:checked``.
 {{
     patternlibExample({"path": "components/radios/examples/radios-other/index.njk"})
 }}
+
 
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
