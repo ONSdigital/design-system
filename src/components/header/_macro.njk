@@ -1,5 +1,8 @@
 {% macro onsHeader(params) %}
   {% from "components/button/_macro.njk" import onsButton %}
+
+  {% set title_tag = "h1" if params.tilteAsH1 else "div" %}
+
   <header class="header {{ params.classes if params.classes }}">
       {% if params.phase %}
           {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
@@ -48,7 +51,7 @@
           <div class="container{{ ' container--full-width' if params.fullWidth }}">
               <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                   <div class="grid__col col-auto u-flex-shrink">
-                      <h1 class="header__title">{{ params.title }}</h1>
+                      <{{ title_tag }} class="header__title">{{ params.title }}</{{ title_tag }}>
                       {% if params.desc %}
                           <p class="header__desc">{{ params.desc }}</p>
                       {% endif %}

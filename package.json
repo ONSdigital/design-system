@@ -1,14 +1,14 @@
 {
   "name": "@ons/design-system",
-  "version": "0.3.0",
   "description": "ONS Design System built CSS, JS, and Nunjucks templates",
+  "version": "0.4.0",
+  "main": "index.js",
   "license": "MIT",
   "author": {
     "name": "Ben Meyrick",
     "email": "bameyrick@gmail.com",
     "url": "https://github.com/bameyrick"
   },
-  "main": "index.js",
   "scripts": {
     "build": "yarn tidy-clean && yarn webpack --config webpack.prod.babel.js",
     "check-unused": "npx npm-check-unused",
