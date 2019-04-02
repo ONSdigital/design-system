@@ -10,6 +10,7 @@
 | desc         | string                                             | false    | Tagline/description for the service                       |
 | button       | `Button` [_(ref)_](/components/button)             | false    | Settings for save and sign out using the button component |
 | navigation   | `Array<Navigation>`                                | false    | An array to render the main navigation                    |
+| titleAsH1    | boolean                                            | false    | Override to render the header title as a H1               |
 
 ## Navigation
 
