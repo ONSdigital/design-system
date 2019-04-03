@@ -2,7 +2,7 @@
 <div class="container">
 {% endif -%}
 <div class="grid">
-    {% for item in params.items -%}
+    {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
         {% for i in range(0, item.repeat | default(1)  ) -%}
             <div class="grid__col col-{{ item.col }}@m {{ item.classes }}">
                 <div class="grid__helper">{{ item.col }} col</div>

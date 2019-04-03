@@ -11,7 +11,7 @@
         "id": params.id,
         "legend": params.legend,
         "description": params.description,
-        "classes": "field--date" + (" " + params.classes if params.classes),
+        "classes": "field--date" + (" " + params.classes if params.classes else ""),
         "descriptionClasses": descriptionClasses | default(""),
         "legendClasses": params.legendClasses,
         "mutuallyExclusive": params.mutuallyExclusive,
@@ -29,9 +29,7 @@
                         "min": 1,
                         "max": 31,
                         "attributes": params.day.attributes,
-                        "label": {
-                            "text": params.day.label
-                        },
+                        "label": params.day.label,
                         "value": params.day.value
                     })
                 }}
@@ -48,9 +46,7 @@
                         "min": 1,
                         "max": 12,
                         "attributes": params.month.attributes,
-                        "label": {
-                            "text": params.month.label
-                        },
+                        "label": params.month.label,
                         "value": params.month.value
                     })
                 }}
@@ -67,9 +63,7 @@
                         "min": 1000,
                         "max": 3000,
                         "attributes": params.year.attributes,
-                        "label": {
-                            "text": params.year.label
-                        },
+                        "label": params.year.label,
                         "value": params.year.value
                     })
                 }}

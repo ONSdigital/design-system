@@ -1,34 +1,40 @@
 import domready from 'js/domready';
 
-export const classTrigger = 'js-inpagelink';
+function inPageLink() {
+  const links = [...document.getElementsByClassName('js-inpagelink')];
 
-export default function() {
-  return inPageLink();
-}
+  links.forEach(link => {
+    const id = link.getAttribute('href').replace('#', '');
 
-export function inPageLink() {
-  const nodeList = [...document.getElementsByClassName(classTrigger)];
-
-  nodeList.forEach(applyInPageLink);
-  return nodeList;
-}
-
-export function applyInPageLink(elTrigger) {
-  const elId = elTrigger.getAttribute('href').replace('#', '');
-
-  elTrigger.addEventListener('click', e => {
-    e.preventDefault();
-    focusOnInput(elId);
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      focusOnInput(id);
+    });
   });
-
-  return { elTrigger, elId };
 }
 
-function focusOnInput(elId) {
-  const elIdInput = document.getElementById(elId).querySelectorAll('.input')[0];
+function focusOnInput(id) {
+  const container = document.getElementById(id);
 
-  elIdInput.focus();
-  return elId;
+  let input;
+
+  if (['INPUT', 'TEXTAREA', 'SELECT'].includes(container.tagName)) {
+    input = container;
+  } else {
+    input = [
+      ...container.getElementsByTagName('INPUT'),
+      ...container.getElementsByTagName('TEXTAREA'),
+      ...container.getElementsByTagName('SELECT')
+    ].filter(input => {
+      const type = input.getAttribute('type');
+
+      return type !== 'readonly' && type !== 'hidden';
+    })[0];
+  }
+
+  if (input) {
+    input.focus();
+  }
 }
 
 domready(inPageLink);

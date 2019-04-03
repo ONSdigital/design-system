@@ -1,28 +1,33 @@
 {% macro onsPanel(params) %}
-  {% if params.classes %}
-      {% set utilityClasses  = ' ' + params.classes %}
+  {% if params and params.classes %}
+    {% set utilityClasses  = ' ' + params.classes %}
   {% endif %}
 
-  {% if params.title === undefined %}
+  {% if params is not defined or params.title is not defined%}
       {% set simpleClass = ' panel--simple' %}
   {% endif %}
 
-  {% if params.type %}
+  {% if params and params.type %}
       {% set typeClass = ' panel--' + params.type %}
   {% else %}
       {% set typeClass = ' panel--info' %}
   {% endif %}
 
-  {% if params.spacious %}
+  {% if params and params.spacious %}
       {% set spaciousClass = ' panel--spacious' %}
   {% endif %}
 
-  <div class="panel{{typeClass}}{{ simpleClass }}{{ spaciousClass }}{{ utilityClasses }}">
-      {% if params.title %} <div class="panel__header">
-          <div class="u-fs-r--b">{{ params.title | safe }}</div>
-      </div>{% endif %}
-      <div class="panel__body">{{ params.body | safe }}
-          {{ caller() if caller }}
-      </div>
-  </div>
+    <div 
+        class="panel{{ typeClass }}{{ simpleClass }}{{ spaciousClass }}{{ utilityClasses }}"
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+    >
+        {% if params and params.title %}
+            <div class="panel__header">
+                <div class="u-fs-r--b">{{ params.title | safe }}</div>
+            </div>
+        {% endif %}
+        <div class="panel__body">{{ (params.body if params else "") | safe }}
+            {{ caller() if caller }}
+        </div>
+    </div>
 {% endmacro %}
