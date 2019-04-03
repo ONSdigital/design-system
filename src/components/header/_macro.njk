@@ -13,10 +13,10 @@
               <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                   <div class="grid__col col-auto">
                       <div class="logo">
-                          <img src="{{ params.assetsURL if params.assetsURL }}/img/ons-logo-black-en-GB.svg" alt="Office for National Statistics logo" class="logo__img header__logo--print">
-                          {% if params.logoHref %}<a href="{{ params.logoHref }}">{% endif %}
-                              <img src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.logo | default('ons-logo-pos') }}.svg" alt="Office for National Statistics logo" class="logo__img header__logo print__hidden">
-                          {% if params.logoHref %}</a>{% endif %}
+                          <img src="{{ '/' + params.version if params.version  }}/img/ons-logo-black-en-GB.svg" alt="Office for National Statistics logo" class="logo__img header__logo--print">
+                          <a href="{{ params.logoHref | default('/') }}">
+                              <img src="{{ '/' + params.version if params.version  }}/img/{{ params.logo | default('ons-logo-pos') }}.svg" alt="Office for National Statistics logo" class="logo__img header__logo print__hidden">
+                          </a>
                       </div>
                   </div>
                   {% if params.language or params.serviceLinks %}
@@ -33,9 +33,9 @@
                               <div class="grid__col col-auto u-d-no@xs@m">
                                   <nav class="header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel }}">
                                       <ul class="header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel }}" role="menubar">
-                                          {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}
+                                          {% for item in params.serviceLinks.items %}
                                               <li class="header-service-nav__item">
-                                                  <a href="{{ item.url }}" class="header-service-nav__link" role="menuitem">{{ item.text }}</a>
+                                                  <a href="{{ item.url }}" class="header-service-nav__link" role="menuitem">{{ item.title }}</a>
                                               </li>
                                           {% endfor %}
                                       </ul>
@@ -83,7 +83,7 @@
               <div class="container container--gutterless@xs@m{{ ' container--full-width' if params.fullWidth }}">
                   <nav class="header-nav header-nav--mobile js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel }}">
                       <ul class="header-nav__list" aria-label="{{ params.navigation.ariaListLabel }}" role="menubar">
-                          {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
+                          {% for item in params.navigation.items %}
                               <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url in params.navigation.currentPath) }}">
                                   <a href="{{ item.url }}" class="header-nav__link" role="menuitem">{{ item.title }}</a>
                               </li>
