@@ -21,7 +21,7 @@
 | id            | string        | true     | A unique ID for the navigation element                     |
 | ariaLabel     | string        | true     | The aria-label added to the navigation element             |
 | ariaListLabel | string        | true     | The aria-label added to the navigation list                |
-| items         | `Array<Item>` | true     | An array of list items to render in the navigation element |
+| itemsList     | `Array<Item>` | true     | An array of list items to render in the navigation element |
 
 ## Item
 
