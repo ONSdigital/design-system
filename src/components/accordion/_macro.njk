@@ -2,31 +2,30 @@
     {% from "components/details/_macro.njk" import onsDetails %}
 
     <div id="{{params.id}}" class="accordion{{ ' ' + params.classes if params.classes }}">
-        {% if params.allButton %}
+        {% if params.openAll and params.closeAll %}
             {% from "components/button/_macro.njk" import onsButton %}
-            {% set attributes = params.allButton.attributes | default({}) %}
-
-            {% set attributes = attributes | setAttributes({
-                "data-close-all": params.allButton.close,
-                "data-group": params.id
-            }) %}
-            
             {{
                 onsButton({
-                    "text": params.allButton.open,
+                    "text": params.openAll,
                     "classes": "btn--secondary btn--small js-collapsible-all u-wa--@xs u-mb-s u-d-no",
-                    "attributes": attributes
+                    "attributes": {
+                        "data-ga": "click",
+                        "data-ga-category": "accordion",
+                        "data-ga-action": "Toggle all panels",
+                        "data-ga-label": params.openAll,
+                        "data-close-all": params.closeAll,
+                        "data-group": params.id
+                    }
                 })
             }}
         {% endif %}
-        {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
+        {% for item in params.items %}
             {{
                 onsDetails({
                     "isAccordion": true,
-                    "id": params.id + "-" + (loop.index | string),
-                    "button": item.button,
-                    "attributes": item.attributes,
-                    "summaryAttributes": item.summaryAttributes,
+                    "id": params.id + "-" + loop.index,
+                    "buttonOpen": params.buttonOpen,
+                    "closeButton": params.closeButton,
                     "title": item.title,
                     "content": item.content,
                     "group": params.id

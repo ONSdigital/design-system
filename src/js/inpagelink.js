@@ -1,40 +1,34 @@
 import domready from 'js/domready';
 
-function inPageLink() {
-  const links = [...document.getElementsByClassName('js-inpagelink')];
+export const classTrigger = 'js-inpagelink';
 
-  links.forEach(link => {
-    const id = link.getAttribute('href').replace('#', '');
-
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      focusOnInput(id);
-    });
-  });
+export default function() {
+  return inPageLink();
 }
 
-function focusOnInput(id) {
-  const container = document.getElementById(id);
+export function inPageLink() {
+  const nodeList = [...document.getElementsByClassName(classTrigger)];
 
-  let input;
+  nodeList.forEach(applyInPageLink);
+  return nodeList;
+}
 
-  if (['INPUT', 'TEXTAREA', 'SELECT'].includes(container.tagName)) {
-    input = container;
-  } else {
-    input = [
-      ...container.getElementsByTagName('INPUT'),
-      ...container.getElementsByTagName('TEXTAREA'),
-      ...container.getElementsByTagName('SELECT')
-    ].filter(input => {
-      const type = input.getAttribute('type');
+export function applyInPageLink(elTrigger) {
+  const elId = elTrigger.getAttribute('href').replace('#', '');
 
-      return type !== 'readonly' && type !== 'hidden';
-    })[0];
-  }
+  elTrigger.addEventListener('click', e => {
+    e.preventDefault();
+    focusOnInput(elId);
+  });
 
-  if (input) {
-    input.focus();
-  }
+  return { elTrigger, elId };
+}
+
+function focusOnInput(elId) {
+  const elIdInput = document.getElementById(elId).querySelectorAll('.input')[0];
+
+  elIdInput.focus();
+  return elId;
 }
 
 domready(inPageLink);

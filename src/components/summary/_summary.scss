@@ -2,7 +2,6 @@ $summary-col-spacing: 1rem;
 
 .summary {
   &__items {
-    margin-bottom: 0;
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
@@ -78,10 +77,10 @@ $summary-col-spacing: 1rem;
     &__item {
       padding: 0.5rem 0;
       border-top: 1px solid $color-grey-2;
-    }
 
-    &:not(&--no-bottom-border) &__item:last-child {
-      border-bottom: 1px solid $color-grey-2;
+      &:last-child {
+        border-bottom: 1px solid $color-grey-2;
+      }
     }
 
     &__row {
@@ -123,10 +122,10 @@ $summary-col-spacing: 1rem;
 
     &__item--total {
       border-top-width: 2px;
-    }
 
-    &:not(&--no-bottom-border) &__item--total:last-child {
-      border-bottom-width: 2px;
+      &:last-child {
+        border-bottom-width: 2px;
+      }
     }
   }
 
@@ -140,7 +139,7 @@ $summary-col-spacing: 1rem;
       }
     }
 
-    &:not(&--no-bottom-border) &__item:last-of-type &__row:last-of-type > & {
+    &__item:last-of-type &__row:last-of-type > & {
       &__item-title,
       &__question,
       &__answer,
@@ -183,7 +182,7 @@ $summary-col-spacing: 1rem;
       }
     }
 
-    &:not(&--no-bottom-border) &__item--total:last-of-type &__row:last-of-type > & {
+    &__item--total:last-of-type &__row:last-of-type > & {
       &__item-title,
       &__question,
       &__answer,

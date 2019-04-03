@@ -7,21 +7,15 @@ const params = {
   legend: 'When did you leave your last paid job?',
   description: 'For example, 31 3 2018',
   day: {
-    label: {
-      text: 'Day'
-    },
+    label: 'Day',
     name: 'day-exclusive'
   },
   month: {
-    label: {
-      text: 'Month'
-    },
+    label: 'Month',
     name: 'month-exclusive'
   },
   year: {
-    label: {
-      text: 'Year'
-    },
+    label: 'Year',
     name: 'year-exclusive'
   },
   mutuallyExclusive: {
@@ -89,7 +83,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
             // prettier-ignore
-            `${params.day.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.month.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.year.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`
+            `${params.day.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.month.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.year.label} ${params.mutuallyExclusive.deselectGroupAdjective}.`
           );
           done();
         }, 300);
