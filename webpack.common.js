@@ -69,8 +69,7 @@ const jsCore = merge(core, {
         exclude: /(node_modules)/,
         loader: 'nunjucks-loader',
         query: {
-          root: `${__dirname}/src`,
-          config: `${__dirname}/nunjucks.config.js`
+          root: `${__dirname}/src`
         }
       }
     ]

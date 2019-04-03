@@ -1,6 +1,5 @@
 import 'components/mutually-exclusive/mutually-exclusive';
 import './inpagelink';
-import './print-button';
 import 'components/textarea/character-limit';
 import 'components/password/password';
 import 'components/tabs/tabs';

@@ -12,7 +12,7 @@ Error and status pages tell the user there is a problem with the page they are t
 All error and status pages should:
 {{ 
     onsList({
-        "itemsList": [
+        "items": [
             {
                 "text": "summarise the problem in the <code>h1</code> heading"
             },
@@ -25,7 +25,7 @@ All error and status pages should:
 All error pages should not:
 {{ 
     onsList({
-        "itemsList": [
+        "items": [
             {
                 "text": "have breadcrumbs"
             },
@@ -42,7 +42,7 @@ All error pages should not:
 Contact information should either:
 {{ 
     onsList({
-        "itemsList": [
+        "items": [
             {
                 "text": "be a link to a specific page that includes numbers and opening times, or"
             },
@@ -57,7 +57,7 @@ Contact information should either:
 Use a 404 error page if the user has tried to view a page that does not exist. This could happen if someone:
 {{ 
     onsList({
-        "itemsList": [
+        "items": [
             {
                 "text": "enters a URL incorrectly"
             },
@@ -73,7 +73,7 @@ Use a 404 error page if the user has tried to view a page that does not exist. T
 The page should have:
 {{ 
     onsList({
-        "itemsList": [
+        "items": [
             {
                 "text": "‘Page not found – [service name] – ONS’ as the page <code>title</code>"
             }
@@ -97,7 +97,7 @@ All errors should be logged and fixed as soon as possible.  Only display this pa
 The page should have:
 {{ 
     onsList({
-        "itemsList": [
+        "items": [
             {
                 "text": "‘An error has occurred – [service name] – ONS’ as the page <code>title</code>"
             },
@@ -117,7 +117,7 @@ Use a maintenance notice page when the service needs to be disabled in order to 
 The page should have:
 {{ 
     onsList({
-        "itemsList": [
+        "items": [
             {
                 "text": "‘This service is temporarily unavailable – [service name] – ONS’ as the page <code>title</code>"
             },

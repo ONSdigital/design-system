@@ -1,25 +1,23 @@
-| Name      | Type                   | Required | Description                             |
-| --------- | ---------------------- | -------- | --------------------------------------- |
-| questions | Array<SummaryQuestion> | true     | An array of questions to summarise      |
-| title     | string                 | false    | The title for the summary block         |
-| classes   | string                 | false    | Classes to add to the summary component |
+| Name  | Type               | Required | Description                     |
+| ----- | ------------------ | -------- | ------------------------------- |
+| items | Array<SummaryItem> | true     | An array of items to summarise  |
+| title | string             | false    | The title for the summary block |
 
 ## SummaryItem
 | Name | Type | Required | Description |
-| ------------ | -------------------- | -------- | --------------------------------------- |
-| answers | Array<SummaryAnswer> | true | An array of answers for this question |
-| title | string | false | The title for the question |
+| --------- | ---------------------- | -------- | ------------------------------------------- |
+| questions | Array<SummaryQuestion> | true | An array of questions for this summary item |
+| title | string | false | The title for the summary item |
 | error | boolean | false | Whether to render this item as an error |
-| errorMessage | string | false | Error message for the question |
 | total | boolean | false | Whether to render this item as a total |
 
-## SummaryAnswer
+## SummaryQuestion
 
-| Name   | Type          | Required | Description                                                                      |
-| ------ | ------------- | -------- | -------------------------------------------------------------------------------- |
-| title  | string        | false    | Label for the question                                                           |
-| answer | string        | true     | The answer to the question                                                       |
-| action | SummaryAction | false    | Configuration for the answer edit button. If not specified no button will render |
+| Name     | Type          | Required | Description                                                                      |
+| -------- | ------------- | -------- | -------------------------------------------------------------------------------- |
+| question | string        | true     | The question                                                                     |
+| answer   | string        | true     | The answer to the question                                                       |
+| action   | SummaryAction | false    | Configuration for the answer edit button. If not specified no button will render |
 
 ## SummaryAction
 

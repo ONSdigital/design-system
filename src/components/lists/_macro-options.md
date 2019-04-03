@@ -3,7 +3,7 @@
 | element   | string            | false    | The wrapping element for the list. If nothing is defined it will default to `<ul>` |
 | id        | string            | false    | The id for the wrapping element                                                    |
 | classList | string            | false    | Classes to be added to the wrapping element                                        |
-| itemsList | `Array<ListItem>` | true     | An array of items to show in the list                                              |
+| items     | `Array<ListItem>` | true     | An array of items to show in the list                                              |
 
 ## ListItem
 | Name | Type | Required | Description |

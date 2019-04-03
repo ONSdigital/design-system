@@ -3,7 +3,7 @@
 | metadataLabel  | string        | false    | Value for the 'title' and 'aria-label' attributes describing the description list |
 | termCol        | number        | false    | The number of grid columns used for the `<dt>` elements above medium breakpoint   |
 | descriptionCol | number        | false    | The number of grid columns used for the `<dd>` elements above medium breakpoint   |
-| itemsList      | `Array<Item>` | true     | An array of terms to render in the description list                               |
+| items          | `Array<Item>` | true     | An array of terms to render in the description list                               |
 
 ## Item
 

@@ -5,4 +5,3 @@
 | description | string | false    | A secondary piece of information to help describe the input |
 | id          | string | false    | The id for the label                                        |
 | classes     | string | false    | classes to add to the label                                 |
-| attributes  | object | false    | HTML attributes to add to the label, e.g. data attributes   |

@@ -7,9 +7,7 @@ const params = {
   title: 'What is a photovoltaic system?',
   content:
     '<p>A typical photovoltaic system employs solar panels, each comprising a number of solar cells, which generate electrical power. PV installations may be ground-mounted, rooftop mounted or wall mounted. The mount may be fixed, or use a solar tracker to follow the sun across the sky.</p>',
-  button: {
-    close: 'Hide this'
-  }
+  closeButton: 'Hide this'
 };
 
 describe('Component: Details', function() {
@@ -165,7 +163,7 @@ describe('Component: Details', function() {
 
   describe('If the component does not have a button', function() {
     beforeEach(function() {
-      delete params.button;
+      delete params.closeButton;
       const component = renderComponent(params);
 
       Object.keys(component).forEach(key => {
