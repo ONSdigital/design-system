@@ -85,6 +85,9 @@
             {% endblock %}
             {% block bodyEnd %}{% endblock %}
         </div>
+        {% if data.version %}
+            <script>window.ONS_assets_base_URL = "/{{ data.version }}/" </script>
+        {% endif %}
         <script type="module" src="{{ "/" + data.version if data.version  }}{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/scripts/bundle.js"></script>
         <script nomodule src="{{ "/" + data.version if data.version  }}{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/scripts/bundle.es5.js"></script>
         <script>document.documentElement.className = document.documentElement.className.replace("no-js","has-js")</script>
