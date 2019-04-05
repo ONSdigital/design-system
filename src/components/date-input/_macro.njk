@@ -17,6 +17,9 @@
         "mutuallyExclusive": params.mutuallyExclusive,
         "questionMode": params.questionMode
     }) %}
+        {% if params.label %}
+            <p class="u-fs-r--b u-mb-xs">{{ params.label }}</p>
+        {% endif %}
         <div class="field__group">
             {% if params.day %}
             <div class="field__item">
@@ -59,7 +62,7 @@
                         "id": params.id + "-year",
                         "type": "number",
                         "name": params.year.name,
-                        "classes": "input--w-4" + exclusiveClass | default(""), 
+                        "classes": "input--w-4" + exclusiveClass | default(""),
                         "min": 1000,
                         "max": 3000,
                         "attributes": params.year.attributes,
