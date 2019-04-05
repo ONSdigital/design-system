@@ -115,6 +115,10 @@
             {% endblock %}
             {% block bodyEnd %}{% endblock %}
         </div>
+
+        {% if assetsURL %}
+            <script>window.ONS_assets_base_URL = "/{{ assetsURL }}/" </script>
+        {% endif %}
         <script type="module" src="{{ assetsURL }}/scripts/bundle.js"></script>
         <script nomodule src="{{ assetsURL }}/scripts/bundle.es5.js"></script>
         <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.documentElement.className = document.documentElement.className.replace("no-js","has-js")</script>

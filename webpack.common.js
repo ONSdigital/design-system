@@ -53,12 +53,11 @@ const core = {
 
 const jsCore = merge(core, {
   entry: {
-    'scripts/bundle': ['./js/polyfills/index.js', './js/index.js'],
+    'scripts/bundle': ['./js/public-path-override.js', './js/polyfills/index.js', './js/index.js'],
     'scripts/patternlib': ['./js/patternlib/index.js']
   },
 
   output: {
-    publicPath: '/',
     chunkFilename: 'scripts/[name].js'
   },
 
