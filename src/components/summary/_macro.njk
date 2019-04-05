@@ -20,7 +20,12 @@
                             <td {% if answer.action == null %}colspan="2" {% endif %}class="summary__answer u-fs-r--b">{{ answer.answer | safe }}</td>
                             {% if answer.action %}
                                 <td class="summary__action">
-                                    <a href="{{ answer.action.url }}" class="summary__button"{% if answer.action.ariaLabel %} aria-label="{{ answer.action.ariaLabel }}"{% endif %}>{{ answer.action.text }}</a>
+                                    <a
+                                        href="{{ answer.action.url }}"
+                                        class="summary__button"
+                                        {% if answer.action.ariaLabel %} aria-label="{{ answer.action.ariaLabel }}"{% endif %}
+                                        {% if answer.action.attributes %}{% for attribute, value in (answer.action.attributes.items() if answer.action.attributes is mapping and answer.action.attributes.items else answer.action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                    >{{ answer.action.text }}</a>
                                 </td>
                             {% endif %}
                         </tr>
