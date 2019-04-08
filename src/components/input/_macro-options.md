@@ -19,3 +19,4 @@
 | ----- | ------ | -------- | ------------------------------------------------------------------------------------------------ |
 | text  | string | true     | The text for the prefix/suffix                                                                   |
 | title | string | true     | The title of the prefix/suffix. For example where `text` is "cm", `title` would be "centimeters" |
+| id    | string | false    | Id for the prefix/suffix                                                                         |

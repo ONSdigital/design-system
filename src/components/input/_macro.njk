@@ -62,7 +62,13 @@
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         />
         {% if params.prefix is defined or params.suffix is defined %}
-                    <abbr class="input-type__type" aria-hidden="true" title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}">{{ (params.prefix.text or params.prefix.title) if params.prefix  }}{{ (params.suffix.text or params.suffix.title) if params.suffix }}</abbr>
+            {% set abbr = params.prefix or params.suffix %}
+                    <abbr
+                        class="input-type__type"
+                        aria-hidden="true"
+                        title="{{ abbr.title }}"
+                        {% if abbr.id %} id="{{ abbr.id }}"{% endif %}
+                        >{{ abbr.text or abbr.title }}</abbr>
                 </div>
             </div>
         {% endif %}
