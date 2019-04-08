@@ -1,7 +1,10 @@
 .field {
   background: none;
 
-  & + & {
+  & + &,
+  & + .panel,
+  .panel + &,
+  .panel + .panel {
     margin-top: 1rem;
   }
 
