@@ -4,7 +4,7 @@
     {% if params.lang %}
         {% set lang = params.lang %}
     {% else %}
-        {% set lang = 'en-GB' %}
+        {% set lang = 'en' %}
     {% endif %}
 
     {% if params.poweredByONS %}
@@ -139,7 +139,12 @@
                 {% endif %}
                 <div class="grid__col">
                     <div class="footer__license">
-                        <img alt="OGL" class="footer__ogl-img" src="{{ params.assetsURL }}/img/UKOpenGovernmentLicence-grey.svg">{{ params.OGLLink.pre }} <a href="{{ params.OGLLink.url }}" class="footer__link">{{ params.OGLLink.link }}</a>{{ params.OGLLink.post }}
+                        <img alt="OGL" class="footer__ogl-img" src="{{ params.assetsURL }}/img/UKOpenGovernmentLicence-grey.svg">
+                        {% if params.OGLLink.HTML %}
+                            {{ params.OGLLink.HTML | safe }}
+                        {% else %}
+                            {{ params.OGLLink.pre }} <a href="{{ params.OGLLink.url }}" class="footer__link">{{ params.OGLLink.link }}</a>{{ params.OGLLink.post }}
+                        {% endif %}
                     </div>
                 </div>
             </div>

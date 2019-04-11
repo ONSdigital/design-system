@@ -2,7 +2,7 @@
 {% from "components/header/_macro.njk" import onsHeader %}
 {% from "components/footer/_macro.njk" import onsFooter %}
 
-{% set currentLanguageISOCode = "en-GB" %}
+{% set currentLanguageISOCode = "en" %}
 
 {% if page and page.language and page.languages %}
     {% set currentLanguage = page.language.languages | selectattr("current") | first %}
@@ -117,7 +117,7 @@
         </div>
 
         {% if assetsURL %}
-            <script>window.ONS_assets_base_URL = "/{{ assetsURL }}/" </script>
+            <script>window.ONS_assets_base_URL = "{{ assetsURL }}/" </script>
         {% endif %}
         <script type="module" src="{{ assetsURL }}/scripts/bundle.js"></script>
         <script nomodule src="{{ assetsURL }}/scripts/bundle.es5.js"></script>
