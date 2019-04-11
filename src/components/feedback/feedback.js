@@ -5,9 +5,10 @@ export default class Feedback {
     const buttons = [...document.querySelectorAll('.js-feedback-button')];
 
     this.details = document.querySelector('.js-feedback');
-    this.id = this.details.getAttribute('id');
 
     if (this.details) {
+      this.id = this.details.getAttribute('id');
+
       buttons.forEach(button => button.addEventListener('click', this.openFeedback.bind(this)));
 
       this.form = this.details.querySelector('.js-feedback-form');
