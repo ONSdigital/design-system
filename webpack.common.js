@@ -98,7 +98,8 @@ export default function(mode) {
       mode,
 
       entry: {
-        'css/responsive': ['./scss/responsive.scss'],
+        'css/main': ['./scss/main.scss'],
+        'css/census': ['./scss/census.scss'],
         'css/patternlib': ['./scss/patternlib.scss'],
         error: ['./scss/error.scss'],
         html: glob.sync('./**/*.{njk,html}', { cwd: 'src', ignore: './**/_*.{njk,html}' })

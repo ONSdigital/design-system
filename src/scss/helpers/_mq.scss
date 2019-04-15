@@ -7,36 +7,30 @@
     $to: get-bp-width($to);
   }
 
-  @if $responsive {
-    @if ($from == none or $from <= nth(nth($grid-bp, 1), 2)) and $to == none {
+  @if ($from == none or $from <= nth(nth($grid-bp, 1), 2)) and $to == none {
+    @content;
+  } @else if $from == none or $from <= nth(nth($grid-bp, 1), 2) {
+    @if $to-operator != none and $to-operator == '<' {
+      $to: $to - 1;
+    }
+    @media only screen and (max-width: $to) {
       @content;
-    } @else if $from == none or $from <= nth(nth($grid-bp, 1), 2) {
-      @if $to-operator != none and $to-operator == '<' {
-        $to: $to - 1;
-      }
-      @media only screen and (max-width: $to) {
-        @content;
-      }
-    } @else if $to == none {
-      @if $from-operator != none and $from-operator == '<' {
-        $from: $from + 1;
-      }
-      @media only screen and (min-width: $from) {
-        @content;
-      }
-    } @else {
-      @if $from-operator != none and $from-operator == '<' {
-        $from: $from + 1;
-      }
-      @if $to-operator != none and $to-operator == '<' {
-        $to: $to - 1;
-      }
-      @media only screen and (min-width: $from) and (max-width: $to) {
-        @content;
-      }
+    }
+  } @else if $to == none {
+    @if $from-operator != none and $from-operator == '<' {
+      $from: $from + 1;
+    }
+    @media only screen and (min-width: $from) {
+      @content;
     }
   } @else {
-    @if (strip-unit($from) <= strip-unit($grid-bp-fixed)) {
+    @if $from-operator != none and $from-operator == '<' {
+      $from: $from + 1;
+    }
+    @if $to-operator != none and $to-operator == '<' {
+      $to: $to - 1;
+    }
+    @media only screen and (min-width: $from) and (max-width: $to) {
       @content;
     }
   }
