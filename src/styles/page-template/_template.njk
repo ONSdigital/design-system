@@ -15,7 +15,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ page.title | default(data.title) }}</title>
-        <link rel="stylesheet" href="{{ "/" + data.version if data.version  }}{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/css/main.css">
+        <link rel="stylesheet" href="{{ "/" + data.version if data.version  }}{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/css/responsive.css">
 
         {% block headIcons %}
             <meta name="msapplication-config" content="{{ "https://cdn.ons.gov.uk/sdc/" + page.cdn if page.cdn }}/favicons/browserconfig.json"> 
