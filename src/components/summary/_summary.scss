@@ -24,15 +24,6 @@ $summary-col-spacing: 1rem;
     padding-left: $summary-col-spacing;
   }
 
-  &__answer {
-    flex: 1 1 auto;
-  }
-
-  &__action {
-    flex: 0 0 auto;
-    align-self: flex-start;
-  }
-
   &__item--error & {
     &__item-title,
     &__question,
@@ -86,6 +77,15 @@ $summary-col-spacing: 1rem;
     &__row {
       display: flex;
       flex-wrap: wrap;
+    }
+
+    &__answer {
+      flex: 1 1 auto;
+    }
+
+    &__action {
+      flex: 0 0 auto;
+      align-self: flex-start;
     }
 
     &__item-title,
@@ -154,12 +154,8 @@ $summary-col-spacing: 1rem;
       vertical-align: top;
     }
 
-    &__question:not([colspan]) {
-      padding-right: $summary-col-spacing;
-    }
-
-    &__answer {
-      width: 50%;
+    &__question {
+      width: 45%;
     }
 
     &__action {
