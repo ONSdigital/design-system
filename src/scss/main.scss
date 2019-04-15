@@ -1,10 +1,4 @@
 @import 'normalize-scss';
 @include normalize();
-@import 'helpers/*.scss';
 @import 'vars/*.scss';
-@import 'base/*.scss';
-@import 'objects/*.scss';
-@import '../components/**/*.scss';
-@import '../patterns/**/*.scss';
-@import '../styles/**/*.scss';
-@import 'utilities/*.scss';
+@import 'core';
