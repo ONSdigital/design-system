@@ -14,15 +14,12 @@
   {% set middlePagesEachSide = (middlePageCount - 1) / 2 %}
 
   {% if (currentPageIndex - middlePagesEachSide) <= 1 %}
-      {% set geoff = '1' %}
       {% set middlePagesStart = 1 %}
       {% set middlePagesEnd = middlePageCount - 1 %}
   {% elif (currentPageIndex + middlePagesEachSide) >= totalPages %}
-      {% set geoff = '2' %}
       {% set middlePagesStart = totalPages - middlePageCount + 1 %}
       {% set middlePagesEnd = totalPages %}
   {% else %}
-      {% set geoff = '3' %}
       {% set middlePagesStart = currentPageIndex - middlePagesEachSide %}
       {% set middlePagesEnd = currentPageIndex + middlePagesEachSide %}
   {% endif %}
