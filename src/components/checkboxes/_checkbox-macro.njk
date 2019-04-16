@@ -1,8 +1,15 @@
 {% macro onsCheckbox(params) %}
     <div class="checkbox {{ params.classes }}">
-        <input class="checkbox__input {{ params.inputClasses }}" name="{{ params.name }}" id="{{ params.id }}" value="{{ params.value }}" aria-labeledby="{{ params.id }}-label"{% if params.checked %} checked{% endif %} type="checkbox"{% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
-        {# aria-hidden is used to prevent screen readers from being able to focus the individual elements within a label, and combined with aria-labeledby on the input to ensure the label is still read #}
-        <label id="{{ params.id }}-label" aria-hidden="true" class="checkbox__label {{ params.label.classes }}" for="{{ params.id }}">
+        <input
+            type="checkbox"
+            id="{{ params.id }}"
+            class="checkbox__input {{ params.inputClasses }}"
+            value="{{ params.value }}"
+            {% if params.name %} name="{{ params.name }}"{% endif %}
+            {% if params.checked %} checked{% endif %}
+            {% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+        >
+        <label id="{{ params.id }}-label" class="checkbox__label {{ params.label.classes }}" for="{{ params.id }}">
             {{ params.label.text | safe }}
             {% if params.label.description %}
                 <br>
