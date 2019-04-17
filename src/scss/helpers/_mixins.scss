@@ -29,12 +29,6 @@
   @include rem(font-size, $size-value);
 }
 
-@mixin inline-block-hack {
-  @if ($responsive == false) {
-    // *display: inline;
-    zoom: 1;
-  }
-}
 // =============================================================================
 // String Replace
 // =============================================================================

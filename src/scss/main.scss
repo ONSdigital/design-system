@@ -1,9 +1,7 @@
 @import 'normalize-scss';
 @include normalize();
-
-$responsive: true;
-@import 'helpers/*.scss';
 @import 'vars/*.scss';
+@import 'helpers/*.scss';
 @import 'base/*.scss';
 @import 'objects/*.scss';
 @import '../components/**/*.scss';
