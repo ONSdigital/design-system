@@ -13,9 +13,16 @@
             {% for radio in params.radios %}
                 <div class="field__item">
                     <div class="radio">
-                        <input class="radio__input {{ radio.classes }}" name="{{ params.name }}" id="{{ radio.id }}" value="{{ radio.value }}" aria-labeledby="{{ params.id }}-label"{% if radio.checked %} checked{% endif %} type="radio"{% for attribute, value in radio.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
-                        {# aria-hidden is used to prevent screen readers from being able to focus the individual elements within a label, and combined with aria-labeledby on the input to ensure the label is still read #}
-                        <label id="{{ params.id }}-label" aria-hidden="true"  class="radio__label {{ radio.label.classes }}" for="{{ radio.id }}">
+                        <input
+                            type="radio"
+                            id="{{ radio.id }}"
+                            class="radio__input {{ radio.classes }}"
+                            value="{{ radio.value }}" 
+                            name="{{ params.name }}"
+                            {% if radio.checked %} checked{% endif %}
+                            {% for attribute, value in radio.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+                        >
+                        <label class="radio__label {{ radio.label.classes }}" for="{{ radio.id }}">
                             {{ radio.label.text | safe }}
                             {% if radio.label.description %}
                                 <br>
