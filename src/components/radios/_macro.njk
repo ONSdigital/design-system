@@ -20,7 +20,7 @@
                             value="{{ radio.value }}" 
                             name="{{ params.name }}"
                             {% if radio.checked %} checked{% endif %}
-                            {% for attribute, value in radio.attributes %} {{ attribute }}="{{ value }}"{% endfor %}
+                            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                         >
                         <label class="radio__label {{ radio.label.classes }}" for="{{ radio.id }}">
                             {{ radio.label.text | safe }}
