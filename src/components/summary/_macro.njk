@@ -1,26 +1,60 @@
 {% macro onsSummary(params) %}
-    <div class="summary">
+    <div class="summary{{ " " + params.classes if params.classes else "" }}">
         {% if params.title %}
             <h2 class="u-fs-m">{{ params.title }}</h2>
         {% endif %}
         <table class="summary__items">
-            {% for item in params.items %}
+            {% for question in (params.questions if params.questions is iterable else params.questions.items()) %}
                 {% set itemClass = "" %}
-                {% if item.error %} {% set itemClass = " summary__item--error" %}{% endif %}
-                {% if item.total %} {% set itemClass = itemClass + " summary__item--total" %}{% endif %}
+                {% if question.error %} {% set itemClass = " summary__item--error" %}{% endif %}
+                {% if question.total %} {% set itemClass = itemClass + " summary__item--total" %}{% endif %}
                 <tbody class="summary__item{{ itemClass }}">
-                    {% if item.title %}
+                    {% if question.errorMessage or (question.answers | length > 1 and question.title) %}
                         <tr class="summary__row">
-                            <th colspan="3" class="summary__item-title u-fs-r">{{ item.title }}</th>
+                            <th colspan="3" class="summary__item-title u-fs-r">{{  question.errorMessage or question.title }}</th>
                         </tr>
                     {% endif %}
-                    {% for question in item.questions %}
+                    {% for answer in question.answers %}
                         <tr class="summary__row">
-                            <td class="summary__question">{{ question.question }}</td>
-                            <td {% if question.action == null %}colspan="2" {% endif %}class="summary__answer u-fs-r--b">{{ question.answer | safe }}</td>
-                            {% if question.action %}
+                            <td 
+                                class="summary__question"
+                                {% if answer.titleAttributes %}{% for attribute, value in (answer.titleAttributes.items() if answer.titleAttributes is mapping and answer.titleAttributes.items else answer.titleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                            >{{ answer.title | default(question.title) }}</td>
+                            <td
+                                class="summary__answer u-fs-r--b"
+                                {% if answer.action == null %} colspan="2"{% endif %}
+                                {% if answer.attributes %}{% for attribute, value in (answer.attributes.items() if answer.attributes is mapping and answer.attributes.items else answer.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                            >
+                                {% if answer.values | length == 1 %}
+                                    {{ answer.values[0].text | safe }}
+                                    {% if answer.values[0].other %}
+                                        <ul class="u-mb-no">
+                                            <li>{{  answer.values[0].other | safe }}</li>
+                                        </ul>
+                                    {% endif %}
+                                {% else %}
+                                    <ul class="u-mb-no">
+                                        {% for value in (answer.values if answer.values is iterable else answer.values.items()) %}
+                                            <li>
+                                                {{ value.text | safe }}
+                                                {% if value.other %}
+                                                    <ul class="u-mb-no">
+                                                        <li>{{ value.other | safe }}</li>
+                                                    </ul>
+                                                {% endif %}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </td>
+                            {% if answer.action %}
                                 <td class="summary__action">
-                                    <a href="{{ question.action.url }}" class="summary__button"{% if question.action.ariaLabel %} aria-label="{{ question.action.ariaLabel }}"{% endif %}>{{ question.action.text }}</a>
+                                    <a
+                                        href="{{ answer.action.url }}"
+                                        class="summary__button"
+                                        {% if answer.action.ariaLabel %} aria-label="{{ answer.action.ariaLabel }}"{% endif %}
+                                        {% if answer.action.attributes %}{% for attribute, value in (answer.action.attributes.items() if answer.action.attributes is mapping and answer.action.attributes.items else answer.action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                    >{{ answer.action.text }}</a>
                                 </td>
                             {% endif %}
                         </tr>

@@ -6,24 +6,37 @@ import eventMock from 'stubs/event.stub.spec';
 
 const params = {
   id: 'accordion',
-  buttonOpen: 'Show',
-  closeButton: 'Hide',
-  openAll: 'Show all',
-  closeAll: 'Hide all',
-  items: [
+  allButton: {
+    open: 'Show all',
+    close: 'Hide all'
+  },
+  itemsList: [
     {
       title: 'Total retail turnover',
       content:
-        '<h3 class="u-fs-r">Include:</h3><ul><li>VAT</li><li>internet sales</li><li>retail sales from outlets in Great Britain to <a href="#">customers abroad</a></li></ul><h3 class="u-fs-r">Exclude:</h3><ul><li>revenue from mobile phone network commission and top-up</li><li>sales from catering facilities used by customers</li><li>lottery sales and commission from lottery sales</li><li>sales of car accessories and motor vehicles</li><li>NHS receipts</li><li>automotive fuel</li></ul>'
+        '<h3 class="u-fs-r">Include:</h3><ul class="list"><li class="list__item">VAT</li><li class="list__item">internet sales</li><li class="list__item">retail sales from outlets in Great Britain to <a href="#">customers abroad</a></li></ul><h3 class="u-fs-r">Exclude:</h3><ul class="list"><li class="list__item">revenue from mobile phone network commission and top-up</li><li class="list__item">sales from catering facilities used by customers</li><li class="list__item">lottery sales and commission from lottery sales</li><li class="list__item">sales of car accessories and motor vehicles</li><li class="list__item">NHS receipts</li><li class="list__item">automotive fuel</li></ul>',
+      button: {
+        open: 'Show',
+        close: 'Hide'
+      }
     },
     {
       title: 'Food sales',
       content:
-        '<h3 class="u-fs-r">Include:</h3><ul><li>all fresh food</li><li>other food for human consumption (except chocolate and sugar confectionery)</li><li>soft drinks</li></ul><h3 class="u-fs-r">Exclude:</h3><ul><li>sales from catering facilities used by customers</li></ul>'
+        '<h3 class="u-fs-r">Include:</h3><ul class="list"><li class="list__item">all fresh food</li><li class="list__item">other food for human consumption (except chocolate and sugar confectionery)</li><li class="list__item">soft drinks</li></ul><h3 class="u-fs-r">Exclude:</h3><ul class="list"><li class="list__item">sales from catering facilities used by customers</li></ul>',
+      button: {
+        open: 'Show',
+        close: 'Hide'
+      }
     },
     {
       title: 'Alcohol, confectionery, soft drinks and tobacco sales',
-      content: '<h3 class="u-fs-r">Include:</h3><ul><li>chocolate and sugar confectionery</li><li>tobacco and smokers’ requisites</li></ul>'
+      content:
+        '<h3 class="u-fs-r">Include:</h3><ul class="list"><li class="list__item">chocolate and sugar confectionery</li><li class="list__item">tobacco and smokers’ requisites</li></ul>',
+      button: {
+        open: 'Show',
+        close: 'Hide'
+      }
     }
   ]
 };

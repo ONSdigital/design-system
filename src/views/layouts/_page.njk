@@ -19,7 +19,7 @@
                 "ariaLabel": "Main menu",
                 "ariraListLabel": "Navigation menu",
                 "currentPath": pageInfo.url,
-                "items": helpers.navigationHelper({ 
+                "itemsList": helpers.navigationHelper({ 
                     "pages": pageInfo.siteMap,
                     "ignoreURLs": ["/"]
                 })
@@ -46,7 +46,7 @@
                             "ariaLabel": "Sub menu",
                             "ariraListLabel": "Child menu",
                             "currentPath": pageInfo.url,
-                            "items": group.items
+                            "itemsList": group.items
                         })
                     }}
                 {% endfor %}
