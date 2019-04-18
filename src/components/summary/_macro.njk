@@ -16,8 +16,15 @@
                     {% endif %}
                     {% for answer in question.answers %}
                         <tr class="summary__row">
-                            <td class="summary__question">{{ answer.title | default(question.title) }}</td>
-                            <td {% if answer.action == null %}colspan="2" {% endif %}class="summary__answer u-fs-r--b">
+                            <td 
+                                class="summary__question"
+                                {% if answer.titleAttributes %}{% for attribute, value in (answer.titleAttributes.items() if answer.titleAttributes is mapping and answer.titleAttributes.items else answer.titleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                            >{{ answer.title | default(question.title) }}</td>
+                            <td
+                                class="summary__answer u-fs-r--b"
+                                {% if answer.action == null %} colspan="2"{% endif %}
+                                {% if answer.attributes %}{% for attribute, value in (answer.attributes.items() if answer.attributes is mapping and answer.attributes.items else answer.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                            >
                                 {% if answer.values | length == 1 %}
                                     {{ answer.values[0].text | safe }}
                                     {% if answer.values[0].other %}
