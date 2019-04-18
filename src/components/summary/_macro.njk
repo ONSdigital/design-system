@@ -19,20 +19,20 @@
                             <td class="summary__question">{{ answer.title | default(question.title) }}</td>
                             <td {% if answer.action == null %}colspan="2" {% endif %}class="summary__answer u-fs-r--b">
                                 {% if answer.values | length == 1 %}
-                                    {{ answer.values[0].text }}
+                                    {{ answer.values[0].text | safe }}
                                     {% if answer.values[0].other %}
                                         <ul class="u-mb-no">
-                                            <li>{{  answer.values[0].other }}</li>
+                                            <li>{{  answer.values[0].other | safe }}</li>
                                         </ul>
                                     {% endif %}
                                 {% else %}
                                     <ul class="u-mb-no">
                                         {% for value in (answer.values if answer.values is iterable else answer.values.items()) %}
                                             <li>
-                                                {{ value.text }}
+                                                {{ value.text | safe }}
                                                 {% if value.other %}
                                                     <ul class="u-mb-no">
-                                                        <li>{{ value.other }}</li>
+                                                        <li>{{ value.other | safe }}</li>
                                                     </ul>
                                                 {% endif %}
                                             </li>
