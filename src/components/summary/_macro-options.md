@@ -15,11 +15,18 @@
 
 ## SummaryAnswer
 
-| Name   | Type          | Required | Description                                                                      |
-| ------ | ------------- | -------- | -------------------------------------------------------------------------------- |
-| title  | string        | false    | Label for the question                                                           |
-| answer | string        | true     | The answer to the question                                                       |
-| action | SummaryAction | false    | Configuration for the answer edit button. If not specified no button will render |
+| Name   | Type                | Required | Description                                                                      |
+| ------ | ------------------- | -------- | -------------------------------------------------------------------------------- |
+| title  | string              | false    | Label for the question                                                           |
+| values | Array<SummaryValue> | true     | The answer(s) to the question                                                    |
+| action | SummaryAction       | false    | Configuration for the answer edit button. If not specified no button will render |
+
+## SummaryValue
+
+| Name  | Type   | Required | Description                                                    |
+| ----- | ------ | -------- | -------------------------------------------------------------- |
+| text  | string | true     | The display value for the answer value                         |
+| other | string | false    | The display value for the "other" input on a checkbox or radio |
 
 ## SummaryAction
 
