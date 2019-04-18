@@ -1,34 +1,35 @@
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% call 
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/input/_macro.njk" import onsInput %}
+
+{% call
     onsPanel({
         "type": "error"
     })
 %}
-{% from "components/lists/_macro.njk" import onsList %}
-{{
-    onsList({
-        "id": 'container-test-number',
-        "classes": 'list--bare list--errors u-mb-s',
-        "itemsList": [
-            {
-                "text": 'Enter a number.'
+    {{
+        onsList({
+            "id": 'container-test-number',
+            "classes": 'list--bare list--errors u-mb-s',
+            "itemsList": [
+                {
+                    "text": 'Enter a number.'
+                }
+            ]
+        })
+    }}
+    {{
+        onsInput({
+            "id": "number",
+            "type": "number",
+            "classes": "input--w-5",
+            "attributes": {
+                "min": 0,
+                "required": true
+            },
+            "label": {
+                "text": "Number of employees paid monthly"
             }
-        ]
-    })
-}}
-{% from "components/input/_macro.njk" import onsInput %}
-{{
-    onsInput({
-        "id": "number",
-        "type": "number",
-        "classes": "input--w-5",
-        "attributes": {
-            "min": 0,
-            "required": true
-        },
-        "label": {
-            "text": "Number of employees paid monthly"
-        }
-    })
-}}
+        })
+    }}
 {% endcall %}

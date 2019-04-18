@@ -12,7 +12,7 @@
 {% if page.cdn %}
     {# Production #}
     {% set assetsURL = "https://cdn.ons.gov.uk/sdc/" + page.cdn %}
-{% elif data.version %}
+{% elif data and data.version %}
     {# Prototype kits #}
     {% set assetsURL = "/" + data.version %}
 {% elif page.assetsURL %}
@@ -23,14 +23,22 @@
     {% set assetsURL = "" %}
 {% endif %}
 
+{% if page and page.title %}
+    {% set page_title = page.title %}
+{% elif data and data.title %}
+    {% set page_title = data.title %}
+{% else %}
+    {% set page_title = "" %}
+{% endif %}
+
 <!doctype html>
 <html lang="{{ currentLanguageISOCode }}" class="no-js">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ page.title | default(data.title) }}</title>
+        <title>{{ page_title }}</title>
         <link rel="stylesheet" href="{{ assetsURL }}/css/main.css">
-        
+
         {% block headIcons %}
             <meta name="msapplication-config" content="{{ assetsURL }}/favicons/browserconfig.json">
             <link rel="icon" type="image/x-icon" href="{{ assetsURL }}/favicons/favicon.ico">
