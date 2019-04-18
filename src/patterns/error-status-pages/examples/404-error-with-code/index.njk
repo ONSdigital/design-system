@@ -3,7 +3,6 @@ layout: none
 ---
 {% extends "styles/page-template/_template.njk" %}
 {% set page = { 
-    "cdn": "v2.0.0",
     "title": "Service name",
     "footer": {
         "OGLLink": {
@@ -36,7 +35,7 @@ layout: none
     {{ 
         onsList({
             "classes": 'list--boxes',
-            "items": [
+            "itemsList": [
                 {
                     "text": 'FEF8'
                 },
@@ -56,7 +55,7 @@ layout: none
     {{ 
         onsList({
             "classes": 'list--bare',
-            "items": [
+            "itemsList": [
                 {
                     "text": 'Chrome (72.0.3626)'
                 },

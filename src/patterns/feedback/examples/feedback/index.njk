@@ -14,7 +14,7 @@ layout: none
         "languages": [
              {
                 "url": "#",
-                "ISOCode": "en-GB",
+                "ISOCode": "en",
                 "text": "English",
                 "buttonAriaLabel": "Language selector. Current language: English",
                 "chooseLanguage": "Choose language",
@@ -47,7 +47,7 @@ layout: none
         },
         "rows": [
             {
-                "items": [
+                "itemsList": [
                     {
                         "text": 'Contact us',
                         "url": '#'
@@ -84,7 +84,9 @@ layout: none
                 "text": "Email address (optional)"
             }
         },
-        "sendButton": "Send feedback",
+        "sendButton": {
+            "text": "Send feedback"
+        },
         "thankYouMessage": "Thank you for your feedback.",
         "errorMessage": "There was an error sending your feedback.\n(Error code: {x})"
     }
