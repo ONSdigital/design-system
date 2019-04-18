@@ -7,6 +7,8 @@ export default class Feedback {
     this.details = document.querySelector('.js-feedback');
 
     if (this.details) {
+      this.id = this.details.getAttribute('id');
+
       buttons.forEach(button => button.addEventListener('click', this.openFeedback.bind(this)));
 
       this.form = this.details.querySelector('.js-feedback-form');
@@ -53,6 +55,7 @@ export default class Feedback {
 
   onSuccess() {
     const thankYouMessage = document.createElement('p');
+    thankYouMessage.id = `${this.id}-thanks`;
     thankYouMessage.setAttribute('aria-live', 'assertive');
     thankYouMessage.innerText = this.form.getAttribute('data-thank-you');
 

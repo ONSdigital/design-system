@@ -3,7 +3,8 @@ import template from 'components/checkboxes/_test-template.njk';
 import mutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
 
 const params = {
-  legend: 'Select all that apply',
+  legend: 'What type of central heating do you have?',
+  checkboxesLabel: 'Select all that apply',
   name: 'mutually-exclusive',
   checkboxes: [
     {

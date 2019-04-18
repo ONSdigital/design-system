@@ -1,22 +1,27 @@
 {% macro onsDetails(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
 
-    <details id="{{ params.id }}" class="details js-collapsible{% if params.isAccordion %} details--accordion{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}" open{%if params.buttonOpen %} data-btn-close="{{ params.closeButton }}"{% endif %}{% if params.group %} data-group="{{ params.group }}"{% endif %}{% for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
-        <summary class="details__summary js-collapsible-summary" data-ga="click" data-ga-category="{% if params.isAccordion %}accordion{% else %}definition{% endif %}" data-ga-action="Open panel" data-ga-label="{{ params.title }}">
+    <details
+        id="{{ params.id }}"
+        class="details js-collapsible{% if params.isAccordion %} details--accordion{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"
+        open
+        {%if params.buttonOpen %} data-btn-close="{{ params.closeButton }}"{% endif %}
+        {% if params.group %} data-group="{{ params.group }}"{% endif %}
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+    >
+        <summary 
+            class="details__summary js-collapsible-summary"
+            {% if params.summaryAttributes %}{% for attribute, value in (params.summaryAttributes.items() if params.summaryAttributes is mapping and params.summaryAttributes.items else params.summaryAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+        >
             {# Required to use display flex on Safari as it's not currently supported: https://bugs.webkit.org/show_bug.cgi?id=167111 #}
             <div class="details__heading">
                 <h2 class="details__title u-fs-r--b">{{ params.title }}</h2>
-                {% if params.closeButton and params.buttonOpen and params.isAccordion %}
+                {% if params.button and params.button.open and params.isAccordion %}
                     {{
                         onsButton({
-                            "text": params.buttonOpen,
+                            "text": params.button.open,
                             "classes": "details__btn btn--secondary btn--small js-collapsible-button u-d-no u-d-no@xs@s",
-                            "attributes": {
-                                "data-ga": "click",
-                                "data-ga-category": "definition",
-                                "data-ga-action": "Close panel",
-                                "data-ga-label": params.title
-                            }
+                            "attributes": params.button.attributes
                         })
                     }}
                 {% endif %}
@@ -24,17 +29,12 @@
         </summary>
         <div id="{{ params.id }}-content" class="details__content js-collapsible-content">
             {{ params.content | safe }}{{ caller() if caller }}
-            {% if params.closeButton and params.isAccordion != true %}
+            {% if params.button and params.button.close and params.isAccordion != true %}
                 {{
                     onsButton({
-                        "text": params.buttonOpen or params.closeButton,
-                        "classes": "btn--small js-collapsible-button u-d-no " + (params.closeButtonClasses | default("btn--secondary")),
-                        "attributes": {
-                            "data-ga": "click",
-                            "data-ga-category": "definition",
-                            "data-ga-action": "Close panel",
-                            "data-ga-label": params.title
-                        }
+                        "text": params.button.open or params.button.close,
+                        "classes": "btn--small js-collapsible-button u-d-no " + (params.button.classes | default("btn--secondary")),
+                        "attributes": params.button.attributes
                     })
                 }}
             {% endif %}

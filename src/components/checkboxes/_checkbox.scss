@@ -3,6 +3,7 @@ $checkbox-padding: 0.6rem;
 $checkbox-label-vertical-padding: 0.75rem;
 
 .checkbox {
+  z-index: 1;
   display: inline-block;
   position: relative;
   width: 100%;
@@ -59,6 +60,8 @@ $checkbox-label-vertical-padding: 0.75rem;
 
       border: 1px solid $color-input;
       border-radius: 3px;
+
+      background: $color-white;
     }
 
     * {
