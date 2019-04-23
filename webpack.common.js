@@ -251,6 +251,10 @@ export default function(mode) {
     es5: merge(jsCore, {
       mode,
 
+      entry: {
+        'scripts/bundle-loader': ['./js/bundle-loader']
+      },
+
       output: {
         filename: '[name].es5.js',
         chunkFilename: 'scripts/[name].es5.js'
