@@ -34,7 +34,7 @@ export class Collapsible {
 
     this.summary.addEventListener('click', this.toggle.bind(this));
 
-    this.details.classList.add('details--has-js');
+    this.details.classList.add('details--initialised');
   }
 
   toggle(event) {

@@ -1,15 +1,16 @@
 import domReady from 'js/domready';
 
-export const attrExpanded = 'aria-expanded';
-export const attrHidden = 'aria-hidden';
-export const hideClass = 'header-nav--mobile';
-export const openClass = 'open';
+const attrExpanded = 'aria-expanded';
+const attrHidden = 'aria-hidden';
+const hideClass = 'header-nav--mobile';
+const openClass = 'open';
 
 export default class NavToggle {
   constructor(toggle, nav) {
     this.toggle = toggle;
     this.nav = nav;
     this.toggleNavBinding = this.toggleNav.bind(this);
+    this.toggle.classList.remove('u-d-no');
   }
 
   registerEvents() {
@@ -37,12 +38,12 @@ export default class NavToggle {
 }
 
 export function mobileNav() {
-  const toggleMainBtn = document.getElementsByClassName('js-toggle-main')[0];
-  const mainNavList = document.getElementsByClassName('js-header-nav')[0];
+  const toggleMainBtn = document.querySelector('.js-toggle-main');
+  const mainNavList = document.querySelector('.js-header-nav');
 
-  if (!toggleMainBtn) return;
-
-  new NavToggle(toggleMainBtn, mainNavList).registerEvents();
+  if (toggleMainBtn) {
+    new NavToggle(toggleMainBtn, mainNavList).registerEvents();
+  }
 }
 
 domReady(mobileNav);

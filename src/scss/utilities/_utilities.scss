@@ -6,18 +6,6 @@
   display: block;
 }
 
-.u-no-js-hide {
-  .no-js & {
-    display: none;
-  }
-}
-
-.u-no-js-show {
-  .has-js & {
-    display: none;
-  }
-}
-
 // Utility class to override the height property to 'auto'
 .u-ha {
   height: auto;

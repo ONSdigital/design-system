@@ -1,5 +1,3 @@
-$nav-width: 14rem;
-
 .page {
   display: flex;
   flex-direction: column;
@@ -53,73 +51,11 @@ $nav-width: 14rem;
   overflow-x: hidden;
 }
 
-.page__menubtn {
-  display: none;
-  float: right;
-}
-
 .page__main {
   @extend .u-mt-s;
   margin-bottom: 4.5rem;
 }
 
-.no-js {
-  .page__nav {
-    margin-bottom: 2rem;
-  }
-}
-
-.has-js {
-  .page__nav {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0- ($nav-width + 1rem);
-    margin: 0 0 1rem;
-    width: $nav-width;
-
-    @include mq(m) {
-      display: block;
-      position: relative;
-      right: 0;
-      width: auto;
-    }
-  }
-
-  .page__menubtn {
-    display: inline-block;
-    position: relative;
-    line-height: 1;
-    vertical-align: middle;
-  }
-
-  .page__container {
-    transition: transform 200ms ease-out;
-  }
-
-  .page__main {
-    transform: translateX(0);
-    transition: opacity 100ms ease-out;
-  }
-
-  .has-nav-open {
-    .page__container {
-      transform: translateX(0- ($nav-width + 1rem));
-    }
-    .page__main {
-      opacity: 0.2;
-      pointer-events: none;
-    }
-    .page__nav {
-      display: block;
-    }
-  }
-}
-
-.page__prefooter {
-  clear: both;
-}
-
-.page__footer {
-  clear: both;
+.page__container {
+  transition: transform 200ms ease-out;
 }

@@ -142,18 +142,20 @@
 .btn--mobile {
   @extend .btn--ghost;
   @extend .btn--small;
+
   $size: 0.6rem;
+
   position: relative;
   padding-right: $size * 2.5;
 
   &::before {
     content: '';
-    background: url('#{$static}/img/icons/icons--chevron-down-white.svg') no-repeat center center;
-    height: $size;
-    width: $size;
     position: absolute;
     top: 11px;
     right: 8px;
+    width: $size;
+    height: $size;
+    background: url('#{$static}/img/icons/icons--chevron-down-white.svg') no-repeat center center;
     background-size: $size $size;
   }
 
@@ -164,10 +166,6 @@
   }
 
   @include mq(m) {
-    display: none;
-  }
-
-  .no-js & {
     display: none;
   }
 }

@@ -1,6 +1,6 @@
 {% macro onsTabs(params) %}
     <section role="region" class="tabs">
-        <h2 class="tabs__title u-fs-m u-vh">{{params.title}}</h2>
+        <h2 class="tabs__title u-fs-m">{{params.title}}</h2>
         <ul class="tabs__list">
             {% for tab in params.tabs %}
                 <li id="tabId{{loop.index}}Item" class="tab__list-item"><a href="#tabId{{loop.index}}" class="tab" data=ga="click" data-ga-category="tabs" data-ga-action="Show: {{tab.title}}" data-ga-label="Show: {{tab.title}}">{{tab.title}}</a></li>
