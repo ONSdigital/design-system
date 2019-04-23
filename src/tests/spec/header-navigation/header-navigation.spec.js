@@ -12,7 +12,7 @@ const params = {
     ariaLabel: 'Main menu',
     ariraListLabel: 'Navigation menu',
     currentPath: '/surveys',
-    items: [
+    itemsList: [
       {
         title: 'Surveys',
         path: '/surveys'

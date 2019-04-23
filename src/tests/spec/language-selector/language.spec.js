@@ -10,7 +10,7 @@ const params = {
   languages: [
     {
       url: '#',
-      ISOCode: 'en-GB',
+      ISOCode: 'en',
       text: 'English',
       buttonAriaLabel: 'Language selector. Current language: English',
       chooseLanguage: 'Choose language',

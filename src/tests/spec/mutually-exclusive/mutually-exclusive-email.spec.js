@@ -8,6 +8,7 @@ const params = {
   label: {
     text: 'Enter an email'
   },
+  questionMode: true,
   mutuallyExclusive: {
     or: 'Or',
     deselectMessage: 'Selecting this will clear your email',

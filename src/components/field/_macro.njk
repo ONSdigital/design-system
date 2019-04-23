@@ -1,45 +1,53 @@
 {% macro onsField(params) %}
-    {% if params.mutuallyExclusive or params.legend %}
+    {% set mutuallyExclusive %}
+        {% if params.mutuallyExclusive %}
+            {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
+            <br>
+            <div class="field__item">
+                <div class="field__label u-fs-r--b" aria-hidden="true">{{ params.mutuallyExclusive.or }}</div>
+                {{
+                    onsCheckbox({
+                        "id": params.mutuallyExclusive.checkbox.id,
+                        "name": params.mutuallyExclusive.checkbox.name,
+                        "value": params.mutuallyExclusive.checkbox.value,
+                        "classes": params.mutuallyExclusive.checkbox.classes,
+                        "inputClasses": "js-exclusive-checkbox",
+                        "label": {
+                            "text": '<span class="u-vh">' + params.mutuallyExclusive.or + ', </span> ' + params.mutuallyExclusive.checkbox.label.text
+                        },
+                        "attributes": {
+                            "data-deselect-message": params.mutuallyExclusive.deselectMessage
+                        }
+                    })
+                }}
+            </div>
+            <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-group-adjective="{{ params.mutuallyExclusive.deselectGroupAdjective }}" data-checkbox-adjective="{{ params.mutuallyExclusive.deselectCheckboxAdjective }}"></span>
+        {% endif %} 
+    {% endset %}
+
+    {% if params.legend or (params.mutuallyExclusive and params.legend) %}
         {% if params.questionMode %}
             {% set legend = "<h1>" + params.legend + "</h1>" %}
-            {% set classes = "field--question" + (" " + params.classes if params.classes) %}
+            {% set classes = "field--question" + (" " + params.classes if params.classes else "") %}
         {% else %}
             {% set legend = params.legend %}
             {% set classes = params.classes %}
         {% endif %}
-        <fieldset{% if params.id %} id="{{ params.id }}"{% endif %} class="field{% if params.mutuallyExclusive %} field--exclusive{% endif %}{% if classes %} {{ classes }}{% endif %}">
-            <legend class="field__legend {{ params.legendClasses }}">
-                {{ legend | safe }}
-                {% if params.description %}
-                <br>
-                <span class="field__description">{{ params.description }}</span>
-                {% endif %}
-            </legend>
+        {% if not params.noField %}
+            <fieldset{% if params.id %} id="{{ params.id }}"{% endif %} class="field{% if params.mutuallyExclusive %} field--exclusive{% endif %}{% if classes %} {{ classes }}{% endif %}">
+                <legend class="field__legend {{ params.legendClasses }}">
+                    {{ legend | safe }}
+                    {% if params.description %}
+                    <br>
+                    <span class="field__description">{{ params.description }}</span>
+                    {% endif %}
+                </legend>
+        {% endif %}
             {{ caller() }}
-            {% if params.mutuallyExclusive %}
-                {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
-                <br>
-                <div class="field__item">
-                    <div class="field__label u-fs-r--b" aria-hidden="true">{{ params.mutuallyExclusive.or }}</div>
-                    {{
-                        onsCheckbox({
-                            "id": params.mutuallyExclusive.checkbox.id,
-                            "name": params.mutuallyExclusive.checkbox.name,
-                            "value": params.mutuallyExclusive.checkbox.value,
-                            "classes": params.mutuallyExclusive.checkbox.classes,
-                            "inputClasses": "js-exclusive-checkbox",
-                            "label": {
-                                "text": '<span class="u-vh">' + params.mutuallyExclusive.or + ', </span> ' + params.mutuallyExclusive.checkbox.label.text
-                            },
-                            "attributes": {
-                                "data-deselect-message": params.mutuallyExclusive.deselectMessage
-                            }
-                        })
-                    }}
-                </div>
-                <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-group-adjective="{{ params.mutuallyExclusive.deselectGroupAdjective }}" data-checkbox-adjective="{{ params.mutuallyExclusive.deselectCheckboxAdjective }}"></span>
-            {% endif %} 
-        </fieldset>
+            {{ mutuallyExclusive | safe }}
+        {% if not params.noField %}
+            </fieldset>
+        {% endif %}
     {% else %}
         {% if not params.noField %}
             <div{% if params.id %} id="{{ params.id }}"{% endif %} class="field{% if params.classes %} {{ params.classes }}{% endif %}">
@@ -48,6 +56,7 @@
                 <div class="field__description">{{ params.description }}</div>
             {% endif %}
             {{ caller() }}
+            {{ mutuallyExclusive | safe }}
         {% if not params.noField %}
             </div>
         {% endif %}

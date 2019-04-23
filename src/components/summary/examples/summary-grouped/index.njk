@@ -3,12 +3,16 @@
 {{ 
   onsSummary({
     "title": "Turnover",
-    "items": [
+    "questions": [
         {
-            "questions": [
-                {
-                    "question": "What are the dates of the sales period you are reporting for?",
-                    "answer": "1 January 2015 to 2 February 2017",
+            "title": "What are the dates of the sales period you are reporting for?",
+            "answers": [
+                {  
+                    "values": [
+                        {
+                            "text": "1 January 2015 to 2 February 2017"
+                        }
+                    ],
                     "action": {
                         "text": "Change",
                         "ariaLabel": "Change answer",
@@ -18,10 +22,14 @@
             ]
         },
         {
-            "questions": [
+            "title": "For the period 1 January 2015 to 2 February 2017, what was the value of your total turnover, excluding VAT?",
+            "answers": [
                 {
-                    "question": "For the period 1 January 2015 to 2 February 2017, what was the value of your total turnover, excluding VAT?",
-                    "answer": "£180,440",
+                    "values": [
+                        {
+                            "text": "£180,440"
+                        }
+                    ],
                     "action": {
                         "text": "Change",
                         "ariaLabel": "Change answer",
@@ -31,10 +39,18 @@
             ]
         },
         {
-            "questions": [
-                {
-                    "question": "Please indicate the reasons for any changes in the total turnover",
-                    "answer": "<ul class=\"u-m-no\"><li>Change in level of business activity</li><li>Special/calendar events</li></ul>",
+            "title": "Please indicate the reasons for any changes in the total turnover",
+            "answers": [
+                {   
+                    "values": [
+                        {
+                            "text": "Change in level of business activity"
+                        },
+                        {
+                            "text": "Special/calendar events",
+                            "other": "Some other value"
+                        }
+                    ],
                     "action": {
                         "text": "Change",
                         "ariaLabel": "Change answer",
@@ -44,10 +60,14 @@
             ]
         },
         {
-            "questions": [
+            "title": "Please describe the changes in total turnover in more detail",
+            "answers": [
                 {
-                    "question": "Please describe the changes in total turnover in more detail",
-                    "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    "values": [
+                        {
+                            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                        }
+                    ],
                     "action": {
                         "text": "Change",
                         "ariaLabel": "Change answer",
