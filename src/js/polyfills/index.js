@@ -3,7 +3,7 @@ import 'core-js/fn/promise';
 // This must be included for CustomEvent to work on IE
 import 'mdn-polyfills/CustomEvent';
 
-export const polyfillsReadyEvent = 'polyfills-loaded';
+import { polyfillsReadyEvent } from './await-polyfills';
 
 const promises = [];
 
