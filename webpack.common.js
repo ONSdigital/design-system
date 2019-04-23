@@ -58,7 +58,8 @@ const jsCore = merge(core, {
   },
 
   output: {
-    chunkFilename: 'scripts/[name].js'
+    chunkFilename: 'scripts/[name].js',
+    publicPath: '/'
   },
 
   module: {
