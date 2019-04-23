@@ -13,7 +13,8 @@
         {% block prototype_body %}
         {% endblock %}
         <script>window.ONS_assets_base_URL = "/" </script>
-        <script src="/scripts/bundle-loader.es5.js" data-scripts="/scripts/bundle.js,/scripts/patternlib.js"></script>
+        {% set scripts = "/scripts/bundle.js,/scripts/patternlib.js" %}
+        {% include 'styles/page-template/_bundle-loader.njk' %}
         {% if devMode %}
         <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer></' + 'script>'); </script>
         {% endif %}

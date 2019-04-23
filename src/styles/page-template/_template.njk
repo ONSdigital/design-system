@@ -129,10 +129,12 @@
         {% endif %}
 
         {% if isPatternLib %}
-            <script src="{{ assetsURL }}/scripts/bundle-loader.es5.js" data-scripts="{{ assetsURL }}/scripts/bundle.js,{{ assetsURL }}/scripts/patternlib.js"></script>
+            {% set scripts = assetsURL + "/scripts/bundle.js," + assetsURL + "/scripts/patternlib.js" %}
         {% else %}
-            <script src="{{ assetsURL }}/scripts/bundle-loader.es5.js" data-scripts="{{ assetsURL }}/scripts/bundle.js"></script>
+            {% set scripts = assetsURL + "/scripts/bundle.js" %}
         {% endif %}
+
+        {% include './_bundle-loader.njk' %}
         
         <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.documentElement.className = document.documentElement.className.replace("no-js","has-js")</script>
 
