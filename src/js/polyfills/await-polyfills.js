@@ -1,3 +1,5 @@
+import 'core-js/fn/promise';
+
 export const polyfillsReadyEvent = 'polyfills-loaded';
 
 export const awaitPolyfills = new Promise(resolve => {

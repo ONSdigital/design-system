@@ -3,7 +3,7 @@
         var s = '{{ scripts | safe }}'.split(','),
         c = document.createElement('script');
 
-        if (!('noModule' in c) && 'onbeforeload' in c) {
+        if (!('noModule' in c)) {
             for (var i = 0; i < s.length; i++) {
                 s[i] = s[i].replace('.js', '.es5.js');
             }
