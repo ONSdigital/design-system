@@ -1,0 +1,103 @@
+resources:
+- name: ons-design-system
+  type: git
+  source:
+    uri: https://github.com/ONSdigital/design-system.git
+    branch: master
+
+- name: ons-design-system-release
+  type: github-release
+  source:
+    owner: ONSdigital
+    repository: design-system
+
+- name: slack-alert
+  type: slack-notification
+    source: {{slack_webhook_url}}
+
+jobs:
+- name: Release
+  plan:
+  - get: ons-design-system-release
+    trigger: true
+
+  - task: CDN Build
+    config:
+      platform: linux
+
+      image_resource:
+        type: docker-image
+        source:
+          repository: node
+          tag: 10.14.2
+
+      inputs:
+      - name: ons-design-system
+
+      outputs:
+      - name: build
+
+      run:
+        path: sh
+        args:
+        - -exc
+        - |
+          cd design-system
+          yarn
+          yarn cdn-bundle
+
+          design_system_tag=$(git rev-parse --short HEAD)
+          mkdir ../public/$design_system_tag
+          cp -R build/* ../public/$design_system_tag
+    on_failure:
+      put: slack-alert
+      params:
+          channel: '#pat-lib-notifications'
+          attachments:
+            - pretext: Design System Build Failed
+            color: danger
+            title: Concourse Build $BUILD_ID
+            title_link: http://concourse.dev.eq.ons.digital/builds/$BUILD_ID
+
+  - task: Release to S3
+    params: 
+      AWS_ACCESS_KEY_ID: {{aws_access_key}}
+      AWS_SECRET_ACCESS_KEY: {{aws_secret_key}}
+      AWS_DEFAULT_REGION: eu-west-1
+    config:
+      platform: linux
+
+      image_resource:
+        type: docker-image
+        source:
+          repository: mesophere/aws-cli
+
+      inputs:
+      - name: ons-design-system-release
+
+      run:
+        path: sh
+        args:
+        - -exc
+        - |
+
+          apk add --update --quiet curl
+
+          design_system_release=v$(cat  ons-design-system-release/version)
+
+          design_system_commit=$(curl -s https://api.github.com/repos/ONSdigital/design-system/git/refs/tags/$design_system_release | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed 's/\"\:\"/\|/g' | sed 's/[\,]/ /g' | sed 's/\"//g' | grep -w 'sha'| cut -d":" -f2| sed -e 's/^ *//g' -e 's/ *$//g' | cut -c 1-7)
+
+          echo $design_system_commit
+
+          [ ${#design_system_commit} -ne 7 ] && exit
+
+          aws s3 s3://((s3_bucket_name))/sdc/$design_patterns_release/ --recursive --acl public-read
+    on_failure:
+      put: slack-alert
+      params:
+        channel: '#pat-lib-notifications'
+        attachments:
+          - pretext: Design System CDN Release Failed
+            color: danger
+            title: Concourse Build $BUILD_ID
+            title_link: http://concourse.dev.eq.ons.digital/builds/$BUILD_ID
