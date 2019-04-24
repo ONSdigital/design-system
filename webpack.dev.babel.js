@@ -47,4 +47,12 @@ const serverSettings = {
   plugins: [new LiveReloadPlugin()]
 };
 
-export default [merge(common.nonJs, serverSettings), merge(common.es2015plus, serverSettings), merge(common.es5, serverSettings)];
+export default [
+  merge(common.assets, serverSettings),
+  merge(common.patternLibAssets, serverSettings),
+  merge(common.templates, serverSettings),
+  merge(common.es2015plus, serverSettings),
+  merge(common.es5, serverSettings),
+  merge(common.es2015plusPatternLib, serverSettings),
+  merge(common.es5PatternLib, serverSettings)
+];
