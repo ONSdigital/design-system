@@ -1,9 +1,4 @@
 resources:
-- name: ons-design-system
-  type: git
-  source:
-    uri: https://github.com/ONSdigital/design-system.git
-    branch: master
 
 - name: ons-design-system-release
   type: github-release
@@ -32,23 +27,30 @@ jobs:
           tag: 10.14.2
 
       inputs:
-      - name: ons-design-system
+      - name: ons-design-system-release
 
       outputs:
-      - name: build
+      - name: dist
 
       run:
         path: sh
         args:
         - -exc
         - |
+          cd ons-design-system-release
+          
+          mkdir design-system
+          tar -xzf source.tar.gz -C design-system --strip-components=1
+
           cd design-system
+
           yarn
           yarn cdn-bundle
 
-          design_system_tag=$(git rev-parse --short HEAD)
-          mkdir ../public/$design_system_tag
-          cp -R build/* ../public/$design_system_tag
+          design_system_release=$(cat  ../../ons-design-system-release/version)
+
+          mkdir ../../dist/$design_system_release
+          cp -R build/* ../../dist/$design_system_release
     on_failure:
       put: slack-alert
       params:
@@ -73,25 +75,14 @@ jobs:
           repository: mesophere/aws-cli
 
       inputs:
-      - name: ons-design-system-release
+      - name: dist
 
       run:
         path: sh
         args:
         - -exc
         - |
-
-          apk add --update --quiet curl
-
-          design_system_release=v$(cat  ons-design-system-release/version)
-
-          design_system_commit=$(curl -s https://api.github.com/repos/ONSdigital/design-system/git/refs/tags/$design_system_release | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed 's/\"\:\"/\|/g' | sed 's/[\,]/ /g' | sed 's/\"//g' | grep -w 'sha'| cut -d":" -f2| sed -e 's/^ *//g' -e 's/ *$//g' | cut -c 1-7)
-
-          echo $design_system_commit
-
-          [ ${#design_system_commit} -ne 7 ] && exit
-
-          aws s3 s3://((s3_bucket_name))/sdc/$design_patterns_release/ --recursive --acl public-read
+          aws s3 sync --acl public-read dist s3://((s3_bucket_name))/design-system/
     on_failure:
       put: slack-alert
       params:
