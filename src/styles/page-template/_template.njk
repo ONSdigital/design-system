@@ -127,14 +127,17 @@
         {% if assetsURL %}
             <script>window.ONS_assets_base_URL = "{{ assetsURL }}/" </script>
         {% endif %}
-        <script type="module" src="{{ assetsURL }}/scripts/bundle.js"></script>
-        <script nomodule src="{{ assetsURL }}/scripts/bundle.es5.js"></script>
-        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.documentElement.className = document.documentElement.className.replace("no-js","has-js")</script>
 
         {% if isPatternLib %}
-            <script type="module" src="/scripts/patternlib.js"></script>
-            <script nomodule src="/scripts/patternlib.es5.js"></script>
+            {% set scripts = assetsURL + "/scripts/bundle.js," + assetsURL + "/scripts/patternlib.js" %}
+        {% else %}
+            {% set scripts = assetsURL + "/scripts/bundle.js" %}
         {% endif %}
+
+        {% include './_bundle-loader.njk' %}
+        
+        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.documentElement.className = document.documentElement.className.replace("no-js","has-js")</script>
+
         {% if devMode %}
             <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer><\/script>');</script>
         {% endif %}

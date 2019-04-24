@@ -12,10 +12,9 @@
     <body class="patternlib-page{{ ' patternlib-page--example' if example }}{{ ' u-p-no' if page.fullWidth }}">
         {% block master_body %}
         {% endblock %}
-        <script type="module" src="/scripts/bundle.js"></script>
-        <script type="module" src="/scripts/patternlib.js"></script>
-        <script nomodule src="/scripts/bundle.es5.js"></script>
-        <script nomodule src="/scripts/patternlib.es5.js"></script>
+        <script>window.ONS_assets_base_URL = "/" </script>
+        {% set scripts = "/scripts/bundle.js,/scripts/patternlib.js" %}
+        {% include 'styles/page-template/_bundle-loader.njk' %}
         <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
         {% if devMode %}
         <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer></' + 'script>'); </script>
