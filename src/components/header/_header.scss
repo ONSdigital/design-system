@@ -1,3 +1,6 @@
+$logo-aspect-ratio: 272 / 24;
+$header-logo-height: 1.333rem;
+
 // Block
 .header {
   display: block;
@@ -24,7 +27,7 @@
   }
 
   &__logo {
-    height: 1.333rem;
+    width: $header-logo-height * $logo-aspect-ratio;
 
     &--print {
       display: none;
@@ -40,9 +43,9 @@
     }
 
     &--border {
+      padding: 0.934rem 0;
       border-top: 3px solid $color-header;
       border-bottom: 3px solid $color-header;
-      padding: 0.934rem 0;
     }
   }
 
@@ -50,8 +53,8 @@
     @extend .u-fs-r--b;
     @extend .u-fs-l\@m;
 
-    color: $color-white;
     margin: 0;
+    color: $color-white;
 
     &--nav-adj {
       @include mq(s) {
@@ -64,8 +67,8 @@
     @extend .u-fs-s;
     @extend .u-fs-r\@m;
 
-    color: $color-white;
     margin: 0;
+    color: $color-white;
   }
 
   // Modifier - Hero variant
@@ -79,24 +82,25 @@
   }
 
   // Modifier - Thin variant
-  &--thin {
-    .header {
-      &__top {
-        padding: 0.5rem 0;
-      }
-      &__grid-top {
-        height: auto;
-      }
-      &__main {
-        padding: 0.5rem 0;
+  &--thin & {
+    &__top {
+      padding: 0.5rem 0;
+    }
 
-        @include mq(m) {
-          padding: 0.8rem 0;
-        }
+    &__grid-top {
+      height: auto;
+    }
+
+    &__main {
+      padding: 0.5rem 0;
+
+      @include mq(m) {
+        padding: 0.8rem 0;
       }
-      &__logo {
-        width: 200px;
-      }
+    }
+
+    &__logo {
+      width: 200px;
     }
   }
 
