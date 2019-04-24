@@ -14,3 +14,5 @@ package-lock.json
 /img/
 /scripts/
 /scss/
+
+secrets.yml
