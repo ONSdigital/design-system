@@ -6,11 +6,12 @@
 import domready from 'js/domready';
 import matchMedia from 'js/utils/matchMedia';
 
-export const classTabs = 'tabs';
-export const classTab = 'tab';
-export const classTabList = 'tabs__list';
-export const classTabListItems = 'tab__list-item';
-export const classTabsPanel = 'tabs__panel';
+const classTabs = 'tabs';
+const classTab = 'tab';
+const classTabTitle = 'tabs__title';
+const classTabList = 'tabs__list';
+const classTabListItems = 'tab__list-item';
+const classTabsPanel = 'tabs__panel';
 
 const matchMediaUtil = matchMedia;
 
@@ -20,15 +21,18 @@ export default class Tabs {
     this.boundTabKeydown = this.onTabKeydown.bind(this);
 
     this.component = component;
+    this.tabsTitle = component.querySelector(`.${classTabTitle}`);
     this.tabs = [...component.getElementsByClassName(classTab)];
     this.tabList = component.getElementsByClassName(classTabList);
     this.tabListItems = [...component.getElementsByClassName(classTabListItems)];
     this.tabPanels = [...component.getElementsByClassName(classTabsPanel)];
 
     this.jsHiddenClass = 'tabs__panel--hidden';
-    this.jsTabListAsListClass = 'tabs__list--list';
-    this.jsTabItemAsListClass = 'tab__list-item--list';
-    this.jsTabAsListClass = 'tab--list';
+    this.jsTabListAsRowClass = 'tabs__list--row';
+    this.jsTabItemAsRowClass = 'tab__list-item--row';
+    this.jsTabAsListClass = 'tab--row';
+
+    this.tabsTitle.classList.add('u-vh');
 
     if (matchMediaUtil.hasMatchMedia()) {
       this.setupViewportChecks();
@@ -57,7 +61,7 @@ export default class Tabs {
 
   makeTabs() {
     this.tabList[0].setAttribute('role', 'tablist');
-    this.tabList[0].classList.remove(this.jsTabListAsListClass);
+    this.tabList[0].classList.add(this.jsTabListAsRowClass);
 
     this.tabPanels.forEach(panel => {
       panel.setAttribute('tabindex', '0');
@@ -65,12 +69,12 @@ export default class Tabs {
 
     this.tabListItems.forEach(item => {
       item.setAttribute('role', 'presentation');
-      item.classList.remove(this.jsTabItemAsListClass);
+      item.classList.add(this.jsTabItemAsRowClass);
     });
 
     this.tabs.forEach(tab => {
       this.setAttributes(tab);
-      tab.classList.remove(this.jsTabAsListClass);
+      tab.classList.add(this.jsTabAsListClass);
 
       tab.addEventListener('click', this.boundTabClick, true);
       tab.addEventListener('keydown', this.boundTabKeydown, true);
@@ -86,7 +90,7 @@ export default class Tabs {
 
   makeList() {
     this.tabList[0].removeAttribute('role');
-    this.tabList[0].classList.add(this.jsTabListAsListClass);
+    this.tabList[0].classList.remove(this.jsTabListAsRowClass);
 
     this.tabPanels.forEach(panel => {
       panel.removeAttribute('tabindex', '0');
@@ -94,13 +98,13 @@ export default class Tabs {
 
     this.tabListItems.forEach(item => {
       item.removeAttribute('role', 'presentation');
-      item.classList.add(this.jsTabItemAsListClass);
+      item.classList.remove(this.jsTabItemAsRowClass);
     });
 
     this.tabs.forEach(tab => {
       tab.removeEventListener('click', this.boundTabClick, true);
       tab.removeEventListener('keydown', this.boundTabKeydown, true);
-      tab.classList.add(this.jsTabAsListClass);
+      tab.classList.remove(this.jsTabAsListClass);
       this.unsetAttributes(tab);
     });
 

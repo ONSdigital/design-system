@@ -35,8 +35,8 @@ describe('Component: Details', function() {
         expect(this.details.hasAttribute('open')).to.be.true;
       });
 
-      it('then the details element should not have a details--has-js class', function() {
-        expect(this.details.classList.contains('details--has-js')).to.be.false;
+      it('then the details element should not have a details--initialised class', function() {
+        expect(this.details.classList.contains('details--initialised')).to.be.false;
       });
 
       it('then the details element should not have an aria-expanded attribute', function() {
@@ -73,8 +73,8 @@ describe('Component: Details', function() {
         expect(this.details.hasAttribute('open')).to.be.false;
       });
 
-      it('then the details--has-js class should be added to the details element', function() {
-        expect(this.details.classList.contains('details--has-js')).to.be.true;
+      it('then the details--initialised class should be added to the details element', function() {
+        expect(this.details.classList.contains('details--initialised')).to.be.true;
       });
 
       it('then an aria-expanded attribute should be added to the details element', function() {

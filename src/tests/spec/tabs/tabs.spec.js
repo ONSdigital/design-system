@@ -100,7 +100,7 @@ describe('Component: Tabs', () => {
           });
 
           it('Then should be assigned the class tab--selected', function() {
-            expect(this.tab[0].getAttribute('class')).to.equal('tab tab--selected');
+            expect(this.tab[0].classList.contains('tab--selected')).to.be.true;
           });
 
           it('Then should show the corresponding panel', function() {
@@ -132,7 +132,7 @@ describe('Component: Tabs', () => {
           });
 
           it('Then the tab should be assigned the class tab--selected', function() {
-            expect(this.tab[1].getAttribute('class')).to.equal('tab tab--selected');
+            expect(this.tab[1].classList.contains('tab--selected')).to.be.true;
           });
 
           it('Then the the corresponding panel should be shown', function() {
