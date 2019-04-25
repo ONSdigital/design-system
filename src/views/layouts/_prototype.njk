@@ -1,22 +1,11 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
-        <title>{{ pageInfo.title }}</title>
-        <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/patternlib.css">
-    </head>
-   
-    <body class="proto">
-        {% block prototype_body %}
-        {% endblock %}
-        <script>window.ONS_assets_base_URL = "/" </script>
-        {% set scripts = "/scripts/main.js,/scripts/patternlib.js" %}
-        {% include 'styles/page-template/_bundle-loader.njk' %}
-        {% if devMode %}
-        <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer></' + 'script>'); </script>
-        {% endif %}
-    </body>
-</html>
+{% extends "styles/page-template/_template.njk" %}
+
+{% if page == null %}
+    {% set page = {} %}
+{% endif %}
+
+{% set page = page | setAttribute("bodyClasses", "proto") %}
+
+{% block page %}
+    {% block prototype_body %}{% endblock %}
+{% endblock %}
