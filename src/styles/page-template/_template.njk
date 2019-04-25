@@ -9,9 +9,9 @@
     {% set currentLanguageISOCode = currentLanguage.ISOCode %}
 {% endif %}
 
-{% if page.cdn %}
+{% if page.cdn or release_version %}
     {# Production #}
-    {% set assetsURL = "https://cdn.ons.gov.uk/sdc/" + page.cdn %}
+    {% set assetsURL = "https://cdn.ons.gov.uk/design-system/" + (page.cdn or release_version) %}
 {% elif data and data.version %}
     {# Prototype kits #}
     {% set assetsURL = "/" + data.version %}
@@ -129,9 +129,9 @@
         {% endif %}
 
         {% if isPatternLib %}
-            {% set scripts = assetsURL + "/scripts/bundle.js," + assetsURL + "/scripts/patternlib.js" %}
+            {% set scripts = assetsURL + "/scripts/main.js," + assetsURL + "/scripts/patternlib.js" %}
         {% else %}
-            {% set scripts = assetsURL + "/scripts/bundle.js" %}
+            {% set scripts = assetsURL + "/scripts/main.js" %}
         {% endif %}
 
         {% include './_bundle-loader.njk' %}

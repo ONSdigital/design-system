@@ -6,7 +6,9 @@ import commonConfig from './webpack.common';
 const common = commonConfig('production');
 
 export default [
-  merge(common.nonJs, {}),
+  merge(common.assets, {}),
+  merge(common.patternLibAssets, {}),
+  merge(common.templates, {}),
   merge(common.es2015plus, {
     plugins: [
       new BundleAnalyzerPlugin({
@@ -32,5 +34,7 @@ export default [
         excludeAssets: /patternlib.es5.js/
       })
     ]
-  })
+  }),
+  merge(common.es2015plusPatternLib, {}),
+  merge(common.es5PatternLib, {})
 ];
