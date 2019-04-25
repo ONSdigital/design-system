@@ -1,23 +1,25 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
-        <title>{{ pageInfo.title }}</title>
-        <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/patternlib.css">
-    </head>
-   
-    <body class="patternlib-page{{ ' patternlib-page--example' if example }}{{ ' u-p-no' if page.fullWidth }}">
-        {% block master_body %}
-        {% endblock %}
-        <script>window.ONS_assets_base_URL = "/" </script>
-        {% set scripts = "/scripts/main.js,/scripts/patternlib.js" %}
-        {% include 'styles/page-template/_bundle-loader.njk' %}
-        <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
-        {% if devMode %}
-        <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer></' + 'script>'); </script>
-        {% endif %}
-    </body>
-</html>
+{% extends "styles/page-template/_template.njk" %}
+
+{% set bodyClasses = "patternlib-page" %}
+
+{% if page == null %}
+    {% set page = {} %}
+{% endif %}
+
+{% if example %}
+    {% set bodyClasses = bodyClasses + " patternlib-page--example" %}
+{% endif %}
+
+{% if page.fullWidth %}
+    {% set bodyClasses = bodyClasses + " u-p-no" %}
+{% endif %}
+
+{% set page = page | setAttribute("bodyClasses", bodyClasses) %}
+
+{% block head %}
+    <link rel="stylesheet" href="/css/patternlib.css">
+{% endblock %}
+
+{% block page %}
+    {% block master_body %}{% endblock %}
+{% endblock %}
