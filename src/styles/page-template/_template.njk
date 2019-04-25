@@ -52,81 +52,79 @@
         {% block head %}{% endblock %}
     </head>
     <body{% if page.bodyClasses %} class="{{ page.bodyClasses }}"{% endif %}>
-        <div class="page">
-            <div class="page__content">
-                {% block bodyStart %}{% endblock %}
-                {% block skipLink %}
-                    {{
-                        onsSkipToContent({
-                            "url": "#main-content",
-                            "text": "Skip to main content"
-                        })
-                    }}
-                {% endblock %}
-                {% if form %}
-                    <form
-                        {% if form.classes %}class="{{ form.classes }}"{% endif %}
-                        method="POST"
-                        {% if form.attributes %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value %}="{{value}}" {% endif %}{% endfor %}{% endif %}
-                    >
-                {% endif %}
-                {% block preHeader %}{% endblock %}
-                {% block header %}
-                    {{
-                        onsHeader({
-                            "title": page.header.title | default(page.title),
-                            "language": page.language,
-                            "button": page.signoutButton,
-                            "toggleButton": page.toggleButton,
-                            "navigation": page.navigation,
-                            "phase": page.phase,
-                            "assetsURL": assetsURL,
-                            "serviceLinks": page.serviceLinks
-                        })
-                    }}
-                {% endblock %}
-                {% block main %}
-                    {% block prePage %}{% endblock %}
-                    <div class="page__container container {{ containerClasses }}">
-                        <div class="grid">
-                            <div class="grid__col col-8@m">
-                                <main id="main-content" class="page__main {{ pageClasses }}">
-                                    {% block content %}{% endblock %}
-                                </main>
+        {% block page %}
+            <div class="page">
+                <div class="page__content">
+                    {% block bodyStart %}{% endblock %}
+                    {% block skipLink %}
+                        {{
+                            onsSkipToContent({
+                                "url": "#main-content",
+                                "text": "Skip to main content"
+                            })
+                        }}
+                    {% endblock %}
+                    {% if form %}
+                        <form
+                            {% if form.classes %}class="{{ form.classes }}"{% endif %}
+                            method="POST"
+                            {% if form.attributes %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value %}="{{value}}" {% endif %}{% endfor %}{% endif %}
+                        >
+                    {% endif %}
+                    {% block preHeader %}{% endblock %}
+                    {% block header %}
+                        {{
+                            onsHeader({
+                                "title": page.header.title | default(page.title),
+                                "language": page.language,
+                                "button": page.signoutButton,
+                                "toggleButton": page.toggleButton,
+                                "navigation": page.navigation,
+                                "phase": page.phase,
+                                "assetsURL": assetsURL,
+                                "serviceLinks": page.serviceLinks
+                            })
+                        }}
+                    {% endblock %}
+                    {% block main %}
+                        {% block prePage %}{% endblock %}
+                        <div class="page__container container {{ containerClasses }}">
+                            <div class="grid">
+                                <div class="grid__col col-8@m">
+                                    <main id="main-content" class="page__main {{ pageClasses }}">
+                                        {% block content %}{% endblock %}
+                                    </main>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endblock %}
+
+                    {% if form %}
+                        </form>
+                    {% endif %}
+                </div>
+                {% block footer %}
+                    {% if page.footer %}
+                        {{
+                            onsFooter({
+                                "assetsURL": assetsURL,
+                                "classes": "page__footer",
+                                "language": page.language,
+                                "lang": currentLanguageISOCode,
+                                "rows": page.footer.rows,
+                                "cols": page.footer.cols,
+                                "poweredByONS": page.footer.poweredByONS,
+                                "OGLLink": page.footer.OGLLink,
+                                "button": page.signoutButton,
+                                "feedback": page.feedback,
+                                "serviceLinks": page.serviceLinks
+                            })
+                        }}
+                    {% endif %}
                 {% endblock %}
-
-                {% if form %}
-                    </form>
-                {% endif %}
+                {% block bodyEnd %}{% endblock %}
             </div>
-            {% block footer %}
-                {% if page.footer %}
-                    {{
-                        onsFooter({
-                            "assetsURL": assetsURL,
-                            "classes": "page__footer",
-                            "language": page.language,
-                            "lang": currentLanguageISOCode,
-                            "rows": page.footer.rows,
-                            "cols": page.footer.cols,
-                            "poweredByONS": page.footer.poweredByONS,
-                            "OGLLink": page.footer.OGLLink,
-                            "button": page.signoutButton,
-                            "feedback": page.feedback,
-                            "serviceLinks": page.serviceLinks
-                        })
-                    }}
-                {% endif %}
-            {% endblock %}
-            {% block bodyEnd %}{% endblock %}
-        </div>
-
-        {% if assetsURL %}
-            <script>window.ONS_assets_base_URL = "{{ assetsURL }}/" </script>
-        {% endif %}
+        {% endblock %}
 
         {% if isPatternLib %}
             {% set scripts = assetsURL + "/scripts/main.js," + assetsURL + "/scripts/patternlib.js" %}
@@ -134,9 +132,27 @@
             {% set scripts = assetsURL + "/scripts/main.js" %}
         {% endif %}
 
-        {% include './_bundle-loader.njk' %}
-        
-        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.documentElement.className = document.documentElement.className.replace("no-js","has-js")</script>
+        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
+            (function() {
+                {% if assetsURL -%}window.ONS_assets_base_URL = "{{ assetsURL }}/";{%- endif %}
+                var s = '{{ scripts | safe }}'.split(','),
+                c = document.createElement('script');
+
+                if (!('noModule' in c)) {
+                    for (var i = 0; i < s.length; i++) {
+                        s[i] = s[i].replace('.js', '.es5.js');
+                    }
+                }
+
+                for (var i = 0; i < s.length; i++) {
+                    var e = document.createElement('script');
+
+                    e.src = s[i];
+
+                    document.body.appendChild(e);
+                }
+            })();
+        </script>
 
         {% if devMode %}
             <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer><\/script>');</script>
