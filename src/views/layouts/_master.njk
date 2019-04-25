@@ -13,7 +13,7 @@
         {% block master_body %}
         {% endblock %}
         <script>window.ONS_assets_base_URL = "/" </script>
-        {% set scripts = "/scripts/bundle.js,/scripts/patternlib.js" %}
+        {% set scripts = "/scripts/main.js,/scripts/patternlib.js" %}
         {% include 'styles/page-template/_bundle-loader.njk' %}
         <script>document.documentElement.className = document.documentElement.className.replace('no-js','has-js')</script>
         {% if devMode %}

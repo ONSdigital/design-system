@@ -51,12 +51,50 @@ const core = {
   ]
 };
 
-const jsCore = merge(core, {
-  entry: {
-    'scripts/bundle': ['./js/public-path-override.js', './js/polyfills/index.js', './js/index.js'],
-    'scripts/patternlib': ['./js/patternlib/index.js']
+const cssCore = merge(core, {
+  module: {
+    rules: [
+      // Styles
+      {
+        include: [path.join(process.cwd(), 'src/scss')],
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'css/[name].css'
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              indent: 'postcss',
+              plugins: postcssPlugins
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: false,
+              precision: 8,
+              includePaths: [path.join(process.cwd(), 'src/scss')],
+              importer: globImporter()
+            }
+          }
+        ]
+      }
+    ]
   },
 
+  plugins: [
+    new FixStyleOnlyEntriesPlugin({
+      extensions: ['scss', 'njk', 'html'],
+      silent: true
+    })
+  ]
+});
+
+const jsCore = merge(core, {
   output: {
     chunkFilename: 'scripts/[name].js',
     publicPath: '/'
@@ -92,53 +130,178 @@ const jsCore = merge(core, {
   // }
 });
 
+const es2015plusCore = merge(jsCore, {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            babelrc: false,
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  modules: false,
+                  targets: {
+                    browsers: ['Chrome >= 60', 'Safari >= 10.1', 'iOS >= 10.3', 'Firefox >= 54', 'Edge >= 15']
+                  }
+                }
+              ]
+            ],
+            plugins: [
+              '@babel/plugin-syntax-dynamic-import',
+              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-transform-runtime',
+              'rewiremock/babel'
+            ]
+          }
+        }
+      }
+    ]
+  }
+});
+
+const es5Core = merge(jsCore, {
+  output: {
+    filename: '[name].es5.js',
+    chunkFilename: 'scripts/[name].es5.js'
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            babelrc: false,
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  modules: false,
+                  targets: {
+                    browsers: ['last 3 versions']
+                  }
+                }
+              ]
+            ],
+            plugins: [
+              '@babel/plugin-syntax-dynamic-import',
+              '@babel/plugin-proposal-class-properties',
+              '@babel/plugin-transform-runtime',
+              'rewiremock/babel'
+            ]
+          }
+        }
+      }
+    ]
+  }
+});
+
+const scriptsEntry = {
+  'scripts/main': ['./js/public-path-override.js', './js/polyfills/index.js', './js/index.js']
+};
+
+const patternLibScriptsEntry = {
+  'scripts/patternlib': ['./js/patternlib/index.js']
+};
+
 export default function(mode) {
   const devMode = mode === 'development';
 
   return {
-    nonJs: merge(core, {
+    assets: merge(cssCore, {
       mode,
 
       entry: {
         'css/main': ['./scss/main.scss'],
-        'css/census': ['./scss/census.scss'],
+        'css/census': ['./scss/census.scss']
+      },
+
+      plugins: [
+        new CopyWebpackPlugin(
+          [
+            {
+              from: {
+                glob: 'fonts/**/*',
+                dot: true
+              }
+            },
+            {
+              from: {
+                glob: 'img/**/*',
+                dot: true
+              }
+            },
+            {
+              from: {
+                glob: 'favicons/**/*',
+                dot: true
+              }
+            }
+          ],
+          {
+            ignore: ['.gitkeep'],
+            debug: 'warning'
+          }
+        ),
+
+        new ImageminPlugin({
+          test: /\.(svg)$/i,
+          svgo: {
+            plugins: svgoConfig
+          }
+        })
+      ]
+    }),
+
+    patternLibAssets: merge(cssCore, {
+      mode,
+
+      entry: {
         'css/patternlib': ['./scss/patternlib.scss'],
-        error: ['./scss/error.scss'],
+        error: ['./scss/error.scss']
+      },
+
+      plugins: [
+        new CopyWebpackPlugin(
+          [
+            {
+              from: {
+                glob: 'patternlib-img/**/*',
+                dot: true
+              }
+            }
+          ],
+          {
+            ignore: ['.gitkeep'],
+            debug: 'warning'
+          }
+        ),
+
+        new ImageminPlugin({
+          test: /\.(svg)$/i,
+          svgo: {
+            plugins: svgoConfig
+          }
+        })
+      ]
+    }),
+
+    templates: merge(core, {
+      mode,
+
+      entry: {
         html: glob.sync('./**/*.{njk,html}', { cwd: 'src', ignore: './**/_*.{njk,html}' })
       },
 
       module: {
         rules: [
-          // Styles
-          {
-            include: [path.join(process.cwd(), 'src/scss')],
-            test: /\.scss$/,
-            use: [
-              {
-                loader: 'file-loader',
-                options: {
-                  name: 'css/[name].css'
-                }
-              },
-              {
-                loader: 'postcss-loader',
-                options: {
-                  indent: 'postcss',
-                  plugins: postcssPlugins
-                }
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: false,
-                  precision: 8,
-                  includePaths: [path.join(process.cwd(), 'src/scss')],
-                  importer: globImporter()
-                }
-              }
-            ]
-          },
-          // Templates
           {
             test: /\.(njk|html)$/,
             loaders: [
@@ -168,125 +331,32 @@ export default function(mode) {
         new FixStyleOnlyEntriesPlugin({
           extensions: ['scss', 'njk', 'html'],
           silent: true
-        }),
-
-        new CopyWebpackPlugin(
-          [
-            {
-              from: {
-                glob: 'fonts/**/*',
-                dot: true
-              }
-            },
-            {
-              from: {
-                glob: 'img/**/*',
-                dot: true
-              }
-            },
-            {
-              from: {
-                glob: 'patternlib-img/**/*',
-                dot: true
-              }
-            },
-            {
-              from: {
-                glob: 'favicons/**/*',
-                dot: true
-              }
-            }
-          ],
-          {
-            ignore: ['.gitkeep'],
-            debug: 'warning'
-          }
-        ),
-
-        new ImageminPlugin({
-          test: /\.(svg)$/i,
-          svgo: {
-            plugins: svgoConfig
-          }
         })
       ]
     }),
 
-    es2015plus: merge(jsCore, {
+    es2015plus: merge(es2015plusCore, {
       mode,
 
-      module: {
-        rules: [
-          {
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                babelrc: false,
-                presets: [
-                  [
-                    '@babel/preset-env',
-                    {
-                      modules: false,
-                      targets: {
-                        browsers: ['Chrome >= 60', 'Safari >= 10.1', 'iOS >= 10.3', 'Firefox >= 54', 'Edge >= 15']
-                      }
-                    }
-                  ]
-                ],
-                plugins: [
-                  '@babel/plugin-syntax-dynamic-import',
-                  '@babel/plugin-proposal-class-properties',
-                  '@babel/plugin-transform-runtime',
-                  'rewiremock/babel'
-                ]
-              }
-            }
-          }
-        ]
-      }
+      entry: scriptsEntry
     }),
 
-    es5: merge(jsCore, {
+    es2015plusPatternLib: merge(es2015plusCore, {
       mode,
 
-      output: {
-        filename: '[name].es5.js',
-        chunkFilename: 'scripts/[name].es5.js'
-      },
+      entry: patternLibScriptsEntry
+    }),
 
-      module: {
-        rules: [
-          {
-            test: /\.js$/,
-            exclude: /(node_modules)/,
-            use: {
-              loader: 'babel-loader',
-              options: {
-                babelrc: false,
-                presets: [
-                  [
-                    '@babel/preset-env',
-                    {
-                      modules: false,
-                      targets: {
-                        browsers: ['last 3 versions']
-                      }
-                    }
-                  ]
-                ],
-                plugins: [
-                  '@babel/plugin-syntax-dynamic-import',
-                  '@babel/plugin-proposal-class-properties',
-                  '@babel/plugin-transform-runtime',
-                  'rewiremock/babel'
-                ]
-              }
-            }
-          }
-        ]
-      }
+    es5: merge(es5Core, {
+      mode,
+
+      entry: scriptsEntry
+    }),
+
+    es5PatternLib: merge(es5Core, {
+      mode,
+
+      entry: patternLibScriptsEntry
     })
   };
 }
