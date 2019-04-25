@@ -70,16 +70,12 @@
   }
 }
 
-.has-js {
-  .header-nav--mobile {
-    @include mq(xs, m) {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-
-      .nav__item {
-        display: none;
-      }
+.header-nav--mobile {
+  @include mq(xs, m) {
+    opacity: 0;
+    max-height: 0;
+    .nav__item {
+      display: none;
     }
   }
 }

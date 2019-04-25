@@ -21,7 +21,7 @@ $details-caret-width: 1.1rem;
     pointer-events: none;
   }
 
-  &--has-js & {
+  &--initialised & {
     &__summary {
       padding: 0 0 0 ($details-caret-width + 0.4rem);
       color: $color-links;
