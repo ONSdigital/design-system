@@ -1,4 +1,3 @@
-import * as fs from 'fs';
 import prependFile from 'prepend-file';
 import { removeFolder, createFolder, asyncForEach } from './helpers';
 import { copyComponents, copyTemplates } from './common';
