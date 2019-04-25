@@ -50,6 +50,8 @@ jobs:
         args:
         - -exc
         - |
+          apt-get update && apt-get install -y --allow-unauthenticated zip
+          
           cd ons-design-system-release
           
           mkdir design-system          
