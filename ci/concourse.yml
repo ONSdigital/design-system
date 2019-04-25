@@ -98,7 +98,7 @@ jobs:
         args:
         - -exc
         - |
-          aws s3 sync --acl public-read dist s3://((s3_bucket_name))/sdc/
+          aws s3 sync --acl public-read dist s3://((s3_bucket_name))/sdc/design-system/
           
     on_failure:
       put: slack-alert
