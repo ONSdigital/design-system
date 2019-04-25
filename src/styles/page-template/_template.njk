@@ -11,7 +11,7 @@
 
 {% if page.cdn or release_version %}
     {# Production #}
-    {% set assetsURL = "https://cdn.ons.gov.uk/design-system/" + (page.cdn or release_version) %}
+    {% set assetsURL = "https://cdn.ons.gov.uk/sdc/" + (page.cdn or release_version) %}
 {% elif data and data.version %}
     {# Prototype kits #}
     {% set assetsURL = "/" + data.version %}
