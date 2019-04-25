@@ -13,6 +13,7 @@
     padding: 0.3rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     margin: 0;
+
     @include mq(m) {
       position: relative;
       display: inline-block;
@@ -21,19 +22,23 @@
       text-align: center;
       border-top: none;
       border-bottom: 4px solid transparent;
+
       &:first-child {
         margin-left: 0;
       }
+
       &--active,
       &:hover {
         border-color: $color-white;
       }
     }
+
     + .header-nav__item--secondary {
       border-top: 2px solid $color-white;
       margin-top: 0.5rem;
     }
   }
+
   &__link {
     color: $color-white;
     text-decoration: none;
@@ -47,9 +52,11 @@
       color: #c2ecff;
       text-decoration: none;
     }
+
     .header-nav__item--active & {
       font-weight: bold;
     }
+
     @include mq(m) {
       display: inline-block;
       font-size: 1rem;

@@ -1,3 +1,5 @@
+import domready from 'js/domready';
+
 class Example {
   constructor(context) {
     this.tabs = [...context.querySelectorAll('.js-example-tab')];
@@ -14,4 +16,4 @@ class Example {
   }
 }
 
-[...document.querySelectorAll('.js-example')].map(example => new Example(example));
+domready(() => [...document.querySelectorAll('.js-example')].map(example => new Example(example)));
