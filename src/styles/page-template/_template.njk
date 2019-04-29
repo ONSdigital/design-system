@@ -52,10 +52,10 @@
         {% block head %}{% endblock %}
     </head>
     <body{% if page.bodyClasses %} class="{{ page.bodyClasses }}"{% endif %}>
+        {% block bodyStart %}{% endblock %}
         {% block body %}
             <div class="page">
                 <div class="page__content">
-                    {% block bodyStart %}{% endblock %}
                     {% block skipLink %}
                         {{
                             onsSkipToContent({
