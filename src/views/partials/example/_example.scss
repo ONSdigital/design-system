@@ -8,23 +8,18 @@
   width: 100%;
   border: 1px solid $color-borders;
 
-  &__link {
-    float: right;
-    line-height: 1.3rem;
-  }
-
   &__frame {
     background: $color-borders;
   }
 
   &__iframe {
-    resize: both;
     display: block;
     position: relative;
-    min-height: 60px;
     width: 100%;
     min-width: 320px;
     max-width: 100%;
+    min-height: 60px;
+    resize: both;
   }
 
   &__radio {
@@ -41,6 +36,12 @@
     padding: 0.5rem 1rem;
     color: $color-links;
     cursor: pointer;
+  }
+
+  &__link {
+    border-right: 1px solid $color-borders;
+    border-bottom: 1px solid $color-borders;
+    line-height: 1.3rem;
   }
 
   &__panel {
@@ -85,28 +86,8 @@
   &__content {
     padding: 0.5rem 0;
 
-    table {
-      margin: 0;
-      border-spacing: 0;
-      border-collapse: collapse;
-    }
-
     th {
-      position: sticky;
-      top: 0;
-
-      border-bottom: 2px solid $color-grey-3;
       background: $color-grey-4;
-    }
-
-    th,
-    td {
-      padding: 0.5rem 0.25rem;
-    }
-
-    td {
-      border-bottom: 1px solid $color-grey-3;
-      background: transparent;
     }
 
     code {
