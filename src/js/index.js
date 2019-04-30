@@ -7,6 +7,5 @@ import 'components/tabs/tabs';
 import 'components/details/collapsible.dom';
 import 'components/table/scrollable-table';
 import 'components/table/sortable-table';
-import 'components/language-selector/language.dom';
 import 'components/header/header-nav';
 import 'components/feedback/feedback.dom';
