@@ -1,67 +1,68 @@
-{% extends "./views/layouts/_prototype.njk" %}
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
 
-{% block prototype_body %}
-<form class="page" action="errors" novalidate>
-    <div class="page__container container">
-        <div class="grid">
-            <div class="grid__col col-8@m">
-                <div class="group">
-                    <div class="question">
-                        <h1 class="question__title u-fs-l" data-qa="question-title">How many employees do you pay on a monthly basis?</h1>
-                        <fieldset class="question__fieldset js-question-fieldset">
-                            <legend class="u-vh">How many employees do you pay on a monthly basis?</legend>
-                            <div class="question__answers">
-                                <div class="question__answer">
-                                    {% from "components/input/_macro.njk" import onsInput %}
-                                    {{
-                                        onsInput({
-                                            "id": "number",
-                                            "type": "number",
-                                            "classes": "input--w-5",
-                                            "attributes": {
-                                                "min": 0,
-                                                "required": true
-                                            },
-                                            "label": {
-                                                "text": "Number of employees paid monthly"
-                                            }
-                                        })
-                                    }}
-                                </div>
-                                <div class="question__answer">
-                                    {% from "components/input/_macro.njk" import onsInput %}
-                                    {{
-                                        onsInput({
-                                            "id": "suffixed",
-                                            "type": "number",
-                                            "classes": "input--w-2",
-                                            "value": "101",
-                                            "attributes": {
-                                                "required": true
-                                            },
-                                            "label": {
-                                                "text": "Percentage of employees paid monthly"
-                                            },
-                                            "suffix": {
-                                                "title": "percent",
-                                                "text": "%"
-                                            }
-                                        })
-                                    }}
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-                {% from "components/button/_macro.njk" import onsButton %}
-                {{
-                    onsButton({
-                        "text": 'Save and continue',
-                        "classes": 'u-mb-m u-mt-l'
-                    })
-                }}
-            </div>
-        </div>
-    </div>
-</form>
+{% from "components/field/_macro.njk" import onsField %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set page = {
+    "title": "Errors Prototype"
+} %}
+
+{% set form = {
+    "method": "GET",
+    "attributes": {
+        "action": pageInfo.url  + "/errors",
+        "novalidate": ""
+    }
+} %}
+
+{% block main %}
+    {% call onsField({
+        "legend": "How many employees do you pay on a monthly basis?",
+        "questionMode": true
+    }) %}
+        {{
+            onsInput({
+                "id": "number",
+                "type": "number",
+                "classes": "input--w-5",
+                "attributes": {
+                    "min": 0,
+                    "required": true
+                },
+                "label": {
+                    "text": "Number of employees paid monthly"
+                }
+            })
+        }}
+
+        {{
+            onsInput({
+                "id": "suffixed",
+                "type": "number",
+                "classes": "input--w-2",
+                "value": "101",
+                "attributes": {
+                    "required": true
+                },
+                "label": {
+                    "text": "Percentage of employees paid monthly"
+                },
+                "suffix": {
+                    "title": "percent",
+                    "text": "%"
+                }
+            })
+        }}
+    {% endcall%}
+
+    {{
+        onsButton({
+            "text": 'Save and continue',
+            "classes": 'u-mb-m u-mt-l'
+        })
+    }}
 {% endblock %}
