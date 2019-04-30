@@ -19,6 +19,7 @@ Click on the HTML tab on each example to view the rendered HTML.
 ## Default page template
 
 The example below shows the minimum requirements for an ONS page template.
+
 {{
     patternlibExample({ "path": "styles/page-template/examples/basic/index.njk" })
 }}
@@ -26,8 +27,158 @@ The example below shows the minimum requirements for an ONS page template.
 ## Customised page template
 
 Components can be added to the page template. The example below provides a [phase banner](/components/phase-banner), [language selector](/patterns/language-selection), [save button](/components/button) and [footer links](/components/footer).
+
 {{
     patternlibExample({ "path": "styles/page-template/examples/custom/index.njk" })
+}}
+
+## Nunjucks / Jinja
+
+### Configuring Nunjucks or Jinja
+
+When using nunjucks or jinja you'll need to either install the components and templates from the [@ons/design-system](https://www.npmjs.com/package/@ons/design-system) npm package or use a script to download the zipped templates from the relevant [design system release](https://github.com/ONSdigital/design-system/releases).
+
+If you're using nunjucks you'll need to configure your nunjucks loader to search `node_modules/@ons/design-system/components` and `node_modules/@ons/design-system/page-templates` for the templates.
+
+If you're using jinja then you'll need to have your script copy the `components` and `page-templates` folders from the unzipped download into your `templates` folder, as this is where jinja looks for templates by default, and multiple search paths cannot be specified. The zipped templates have already got the CDN release version and paths set based of the version of the templates you've downloaded.
+
+Once you've configured nunjucks / jinja you can extend the page template in your templates.
+
+<pre>
+    <code class="patternlib-example__code javascript">
+{# Need double raws to due to nunjucks-html-loader running nunjucks renderer twice #}
+{% raw %}{% raw %}
+{% extends "page-templates/_template.njk" %}
+{% endraw %}{% endraw %}
+    </code>
+</pre>
+
+### Changing template content
+
+The Nunjucks template allows 2 ways to change the content: [variables](https://mozilla.github.io/nunjucks/templating.html#set) or [blocks](https://mozilla.github.io/nunjucks/templating.html#block).
+
+The main difference between a variable and a block is that blocks can contain markup.
+
+#### Variables
+
+Variables can be set with:
+
+<pre>
+    <code class="patternlib-example__code javascript">
+{% raw %}{% raw %}
+{% set variableName = "value" %}
+{% endraw %}{% endraw %}
+    </code>
+</pre>
+
+{% md %}
+| Variable Name   | Type                                | Required | Description                                                                                                                           |
+| --------------- | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| form            | `FormConfig` [_(ref)_](#formconfig) | false    | A object with configuration to wrap the current page in a form. If `form` variable is not set, the page will not be wrapped in a form |
+| page            | `PageConfig` [_(ref)_](#pageconfig) | true     | A object with configuration for the current page                                                                                      |
+| release_version | string                              | false    | What CDN version to use. This can also be configured from the `page` configuration object                                             |
+{% endmd %}
+
+##### FormConfig
+
+{% md %}
+| Variable Name | Type   | Required | Description                                                                |
+| ------------- | ------ | -------- | -------------------------------------------------------------------------- |
+| classes       | string | false    | Classes to apply to the wrapping form                                      |
+| attributes    | object | false    | HTML attributes (for example data attributes) to add to the button form    |
+| method        | string | false    | The method the form should you, if not specified it will default to `POST` |
+{% endmd %}
+
+##### PageConfig
+
+{% md %}
+| Variable Name | Type                                                | Required                      | Description                                                                                  |
+| ------------- | --------------------------------------------------- | ----------------------------- | -------------------------------------------------------------------------------------------- |
+| cdn           | string                                              | false                         | What CDN version to use                                                                      |
+| assetsURL     | string                                              | false                         | The base url where to find CSS/JS/images etc. e.g. `http://localhost:3030`                   |
+| title         | string                                              | true                          | The contents for the `<title>` element                                                       |
+| bodyClasses   | string                                              | false                         | Classes to add to the `<body>` element                                                       |
+| header        | `PageHeader` [_(ref)_](#pageheader)                 | true                          | Configuration for the page header                                                            |
+| language      | `Language` [_(ref)_](/components/language-selector) | false                         | Language configuration for the page                                                          |
+| signoutButton | `Button` [_(ref)_](/components/button)              | false                         | Configuration for the save and sign out button. If not specified, the button will not render |
+| toggleButton  | `HeaderToggleButton` [_(ref)_](/components/header)  | true if `navigation` supplied | Configuration for the mobile navigation toggle button                                        |
+| phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                         | Settings for the Phase banner                                                                |
+| serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                         | An array to render the service links list                                                    |
+| footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                          | Configuration for the page footer                                                            |
+| feedback      | `Feedback` [_(ref)_](/patterns/feedback)            | false                         | Configuration for the feedback component                                                     |
+{% endmd %}
+
+###### PageHeader
+
+{% md %}
+| Variable Name | Type   | Required | Description                                                                   |
+| ------------- | ------ | -------- | ----------------------------------------------------------------------------- |
+| title         | string | false    | Title for the page header. If not specified this will default to `page.title` |
+{% endmd %}
+
+###### PageFooter
+
+{% md %}
+| Variable Name | Type                                                        | Required | Description                                                        |
+| ------------- | ----------------------------------------------------------- | -------- | ------------------------------------------------------------------ |
+| OGLLink       | `OGLLink` [_(ref)_](/components/footer)                     | true     | An object containing settings for the OGL link                     |
+| cols          | `FooterCol` [_(ref)_](/components/footer)                   | false    | An array of `FooterCol` objects. _Maximum of 3_                    |
+| rows          | `FooterRow` [_(ref)_](/components/footer)                   | false    | An array of `FooterRow` objects                                    |
+| poweredByONS  | boolean &#124; `PoweredByONS` [_(ref)_](/components/footer) | false    | Whether to show the ONS logo, and optionally settings for the logo |
+{% endmd %}
+
+#### Blocks
+
+Blocks can be set with:
+
+<pre>
+    <code class="patternlib-example__code javascript">
+{% raw %}{% raw %}
+{% block blockName %}
+  HTML Here
+{% endblock %}
+{% endraw %}{% endraw %}
+    </code>
+</pre>
+
+To change the components that are included by default, set their equivalent blocks, for example:
+
+<pre>
+    <code class="patternlib-example__code javascript">
+{% raw %}{% raw %}
+{% block header %}
+  {{ onsHeader({
+   ...
+  }) }}
+{% endblock %}
+{% endraw %}{% endraw %}
+    </code>
+</pre>
+
+{% md %}
+| Block Name | Description                                                                         |
+| ---------- | ----------------------------------------------------------------------------------- |
+| headIcons  | Override the default icons used for ONS branded pages                               |
+| head       | An area to add additional markup to the `<head>` element, e.g. extra CSS references |
+| body       | Override the entire contents of the `<body>` element                                |
+| bodyStart  | An area to add additional markup after the opening <body> element                   |
+| skipLink   | Override the default [skip link](/components/skip-link)                             |
+| preHeader  | An area to add content and markup before the header                                 |
+| header     | Override the default [header](/components/header) component                         |
+| page       | Override the default content and layout of the page                                 |
+| preMain    | Content to place before the main content                                            |
+| main       | Main content and markup                                                             |
+| footer     | Override the default [footer](/components/footer) component                         |
+| bodyEnd    | Add content just after just before the closing `</body>` element                    |
+{% endmd %}
+
+##### Exploded view of the page template block areas
+
+{{
+    patternlibExample({ 
+        "path": "styles/page-template/examples/block-areas/index.njk",
+        "noTabs": true
+    })
 }}
 
 ## Design System forum

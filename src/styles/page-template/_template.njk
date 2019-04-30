@@ -52,10 +52,10 @@
         {% block head %}{% endblock %}
     </head>
     <body{% if page.bodyClasses %} class="{{ page.bodyClasses }}"{% endif %}>
-        {% block page %}
+        {% block bodyStart %}{% endblock %}
+        {% block body %}
             <div class="page">
                 <div class="page__content">
-                    {% block bodyStart %}{% endblock %}
                     {% block skipLink %}
                         {{
                             onsSkipToContent({
@@ -67,7 +67,7 @@
                     {% if form %}
                         <form
                             {% if form.classes %}class="{{ form.classes }}"{% endif %}
-                            method="POST"
+                            method="{{ form.method | default('POST') }}"
                             {% if form.attributes %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value %}="{{value}}" {% endif %}{% endfor %}{% endif %}
                         >
                     {% endif %}
@@ -86,13 +86,13 @@
                             })
                         }}
                     {% endblock %}
-                    {% block main %}
-                        {% block prePage %}{% endblock %}
+                    {% block page %}
+                        {% block preMain %}{% endblock %}
                         <div class="page__container container {{ containerClasses }}">
                             <div class="grid">
                                 <div class="grid__col col-8@m">
                                     <main id="main-content" class="page__main {{ pageClasses }}">
-                                        {% block content %}{% endblock %}
+                                        {% block main %}{% endblock %}
                                     </main>
                                 </div>
                             </div>
@@ -122,8 +122,8 @@
                         }}
                     {% endif %}
                 {% endblock %}
-                {% block bodyEnd %}{% endblock %}
             </div>
+            {% block bodyEnd %}{% endblock %}
         {% endblock %}
 
         {% if isPatternLib %}
