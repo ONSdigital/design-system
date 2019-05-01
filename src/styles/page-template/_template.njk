@@ -37,7 +37,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ page_title }}</title>
-        <link rel="stylesheet" href="{{ assetsURL }}/css/main.css">
+        <link rel="stylesheet" href="{{ assetsURL }}/css/{{ page.theme | default('main') }}.css">
 
         {% block headIcons %}
             <meta name="msapplication-config" content="{{ assetsURL }}/favicons/browserconfig.json">
