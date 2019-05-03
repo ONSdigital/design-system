@@ -34,11 +34,6 @@ The mutually exclusive component provides the user with a with a way of selectin
     patternlibExample({"path": "components/mutually-exclusive/examples/number/index.njk"})
 }}
 
-### Select
-{{
-    patternlibExample({"path": "components/mutually-exclusive/examples/select/index.njk"})
-}}
-
 ### Duration
 {{
     patternlibExample({"path": "components/mutually-exclusive/examples/duration/index.njk"})
@@ -48,7 +43,7 @@ The mutually exclusive component provides the user with a with a way of selectin
 ## How to use this component
 This component degrades gracefully if JavaScript is not available to the user. If JavaScript is unavailable it is possible for the user to select all options without inverting the selection therefore further, server-side validation should be performed.
 
-Inputs, radios, checkboxes, date inputs, textareas, and selects all call the [field component](/components/field) which will automatically add the necessary checkbox and aria-live markup, and the classes required by the JavaScript that runs the component. Where you are combining input components such as in the [duration example](#duration) you must call the [`onsField`](/components/field) macro with the `mutuallyExclusive` configuration object and other related data for the fieldset.
+Inputs, radios, checkboxes, date inputs, and textareas all call the [field component](/components/field) which will automatically add the necessary checkbox and aria-live markup, and the classes required by the JavaScript that runs the component. Where you are combining input components such as in the [duration example](#duration) you must call the [`onsField`](/components/field) macro with the `mutuallyExclusive` configuration object and other related data for the fieldset.
 
 ### Configuration
 You can see examples of this configuration object being used in the _Nunjucks_ tab in the [examples](#examples) below.
