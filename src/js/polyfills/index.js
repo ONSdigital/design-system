@@ -47,6 +47,11 @@ if (!Element.prototype.remove) {
   console.log('Node#remove polyfill loaded');
 }
 
+if (!Element.prototype.closest) {
+  promises.push(import('mdn-polyfills/Element.prototype.closest'));
+  console.log('Element#closest polyfill loaded');
+}
+
 if (!String.prototype.padStart) {
   promises.push(import('core-js/fn/string/pad-start'));
   console.log('String#padStart polyfill loaded');
