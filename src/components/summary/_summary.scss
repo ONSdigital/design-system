@@ -1,3 +1,4 @@
+$summary-row-spacing: 0.5rem;
 $summary-col-spacing: 1rem;
 
 .summary {
@@ -8,196 +9,93 @@ $summary-col-spacing: 1rem;
     border-collapse: collapse;
   }
 
-  &__row {
-    margin-left: -$summary-col-spacing;
-  }
-
-  &__item-title,
-  &__question,
-  &__answer,
-  &__action {
-    border-bottom: 0;
+  &__item {
+    border-top: 1px solid $color-grey-2;
+    border-bottom: 1px solid $color-grey-2;
     line-height: 1.4;
-  }
 
-  &__answer,
-  &__action {
-    padding-left: $summary-col-spacing;
-  }
+    &--total {
+      @extend .u-fs-m;
 
-  &__item--error & {
-    &__item-title,
-    &__question,
-    &__answer,
-    &__action {
-      background: $color-errors-tint;
-    }
-
-    &__item-title {
-      padding-right: $summary-col-spacing;
-      padding-left: $summary-col-spacing;
-      color: $color-errors;
+      border-width: 2px;
       font-weight: bold;
     }
 
-    &__question {
-      padding-left: $summary-col-spacing;
-    }
+    &--error {
+      border-left: 8px solid $color-errors;
 
-    &__action {
+      background: $color-errors-tint;
+    }
+  }
+
+  &__row-title {
+    padding: $summary-row-spacing 0;
+    text-align: left;
+  }
+
+  &__item-title,
+  &__values,
+  &__actions {
+    padding: $summary-row-spacing 0;
+    vertical-align: top;
+
+    &:not(:last-child) {
       padding-right: $summary-col-spacing;
     }
   }
 
+  &__icon {
+    margin: 0 0.25rem 0 0;
+  }
+
+  &__spacer {
+    margin: 0 0.25rem;
+  }
+
+  // Item Modifiers
   &__item--total & {
-    &__question,
-    &__answer {
+    &__values {
       @extend .u-fs-m;
     }
   }
 
-  @include mq(xs, m, $to-operator: '<') {
-    &__items,
-    &__item,
-    &__item-title,
-    &__question,
-    &__answer,
-    &__action {
-      display: block;
-    }
+  &__item--error & {
+    &__row-title {
+      padding: $summary-row-spacing $summary-col-spacing;
 
-    &__item {
-      padding: 0.5rem 0;
-      border-top: 1px solid $color-grey-2;
-    }
-
-    &:not(&--no-bottom-border) &__item:last-child {
-      border-bottom: 1px solid $color-grey-2;
-    }
-
-    &__row {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    &__answer {
-      flex: 1 1 auto;
-    }
-
-    &__action {
-      flex: 0 0 auto;
-      align-self: flex-start;
+      color: $color-errors;
+      font-weight: bold;
     }
 
     &__item-title,
-    &__question {
-      padding-left: $summary-col-spacing;
-      width: 100%;
-    }
-
-    &__question,
-    &__answer,
-    &__action {
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-    }
-
-    &__item--error {
-      border-left: 8px solid $color-errors;
-      background: $color-errors-tint;
-    }
-
-    &__item--error & {
-      &__row {
-        margin-left: 0;
-      }
-
-      &__question {
-        padding-right: $summary-col-spacing;
-      }
-
-      &__answer {
+    &__values,
+    &__actions {
+      &:first-child {
         padding-left: $summary-col-spacing;
       }
-    }
 
-    &__item--total {
-      border-top-width: 2px;
-    }
-
-    &:not(&--no-bottom-border) &__item--total:last-child {
-      border-bottom-width: 2px;
-    }
-  }
-
-  @include mq(m) {
-    &__item &__row:first-of-type > & {
-      &__item-title,
-      &__question,
-      &__answer,
-      &__action {
-        border-top: 1px solid $color-grey-2;
-      }
-    }
-
-    &:not(&--no-bottom-border) &__item:last-of-type &__row:last-of-type > & {
-      &__item-title,
-      &__question,
-      &__answer,
-      &__action {
-        border-bottom: 1px solid $color-grey-2;
-      }
-    }
-
-    &__question,
-    &__answer,
-    &__action {
-      vertical-align: top;
-    }
-
-    &__question {
-      width: 45%;
-    }
-
-    &__action {
-      text-align: right;
-    }
-
-    &__item--error & {
-      &__item-title,
-      &__question {
-        border-left: 8px solid $color-errors;
-      }
-    }
-
-    &__item--total &__row:first-of-type > & {
-      &__item-title,
-      &__question,
-      &__answer,
-      &__action {
-        border-top-width: 2px;
-      }
-    }
-
-    &:not(&--no-bottom-border) &__item--total:last-of-type &__row:last-of-type > & {
-      &__item-title,
-      &__question,
-      &__answer,
-      &__action {
-        border-bottom-width: 2px;
+      &:last-child {
+        padding-right: $summary-col-spacing;
       }
     }
   }
 
-  @include mq(xs, 320px) {
-    &__answer {
+  // Breakpoints
+  @include mq(xs, s, none, '<') {
+    &__item-title,
+    &__values,
+    &__actions {
       display: block;
-      padding-bottom: 0;
-      width: 100%;
+    }
+  }
 
-      li:last-child {
-        margin-bottom: 0;
-      }
+  @include mq(s) {
+    &__values {
+      width: 50%;
+    }
+
+    &__actions {
+      text-align: right;
     }
   }
 }
