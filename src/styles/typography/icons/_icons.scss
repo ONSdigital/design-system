@@ -6,7 +6,7 @@
   $position: right,
   $btn: true
 ); // Example for the pattern library
-@include create-icon($icon-name: person, $width: 1rem, $top: 4px); // Example for the pattern library
+@include create-icon($icon-name: person, $width: 1rem, $top: 1px); // Example for the pattern library
 
 @include create-icon(
   $icon-name: external-link,
