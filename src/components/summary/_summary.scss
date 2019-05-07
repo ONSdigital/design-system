@@ -43,6 +43,16 @@ $hub-row-spacing: 1.3rem;
 
   &__item-title {
     padding-top: $summary-row-spacing;
+
+    &--has-icon {
+      position: relative;
+      padding-left: 2rem;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0;
   }
 
   &__actions {
