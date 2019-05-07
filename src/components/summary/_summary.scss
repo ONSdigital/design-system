@@ -117,6 +117,12 @@ $hub-row-spacing: 1.3rem;
     &__actions {
       display: block;
     }
+
+    &--hub & {
+      &__values {
+        display: none;
+      }
+    }
   }
 
   @include mq(s) {
@@ -143,6 +149,8 @@ $hub-row-spacing: 1.3rem;
     }
 
     &--hub & {
+      &__item-title,
+      &__values,
       &__actions {
         padding-top: $hub-row-spacing;
       }

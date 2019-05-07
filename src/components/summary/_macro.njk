@@ -26,7 +26,13 @@
                                 {% if rowItem.icon %}
                                     <span class="summary__icon icon--{{ rowItem.icon }}"></span>
                                 {% endif %}
+
                                 {{ rowItem.title | default(row.title) }} {{ hasIcons }}
+
+                                {# Render section status for mobile if is hub #}
+                                {% if params.hub and rowItem.values %}
+                                    <span class="u-d-no@s u-fs-r"> — {{ rowItem.values[0].text | safe }}</span>
+                                {% endif %}
                             </td>
                             {% if rowItem.values %}
                                 <td
