@@ -53,7 +53,7 @@
   @for $i from 1 through 4 {
     &__radio:nth-of-type(#{$i}):checked ~ {
       #{$c}__tabs > #{$c}__tab:nth-of-type(#{$i}) {
-        background: $color-grey-4;
+        background: $color-grey-5;
       }
 
       #{$c}__panels > #{$c}__panel:nth-of-type(#{$i}) {
@@ -75,7 +75,7 @@
 .macro-options {
   margin: 0 0 1rem;
   padding: 0.5rem 1rem;
-  background: $color-grey-4;
+  background: $color-grey-5;
 
   &__summary {
     outline: none;
@@ -87,7 +87,7 @@
     padding: 0.5rem 0;
 
     th {
-      background: $color-grey-4;
+      background: $color-grey-5;
     }
 
     code {
