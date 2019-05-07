@@ -6,15 +6,15 @@
   $border-color: $bg,
   $border-color-hover: darken($border-color, $darken-hover)
 ) {
-  background-color: $bg;
-  color: $color;
   border-color: $border-color;
+  background: $bg;
+  color: $color;
 
   &:hover,
   &:focus {
-    color: $color-hover;
-    background-color: darken($bg, $darken-hover);
     border-color: $border-color-hover;
+    background: darken($bg, $darken-hover);
+    color: $color-hover;
   }
 
   &:focus {
@@ -23,34 +23,40 @@
 }
 
 .btn {
-  background-color: $color-button;
-  color: $color-white;
-  border: 1px solid $color-button;
-  padding: 0.75rem 1rem;
-
+  display: inline-block;
   margin: 0;
+  padding: 0.75rem 1rem;
+  width: 100%;
+
+  border: 1px solid $color-button;
+  border-radius: $input-radius;
+
+  background: $color-button;
+  color: $color-white;
+
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
-  font-family: inherit;
-  border-radius: $input-radius;
-  display: inline-block;
-  text-rendering: optimizeLegibility;
+
   text-decoration: none;
-  width: 100%;
-  transition: background-color 200ms ease-in, color 200ms ease-in, border 200ms ease-in;
+  text-rendering: optimizeLegibility;
+
   cursor: pointer;
+
+  transition: background-color 200ms ease-in, color 200ms ease-in, border 200ms ease-in;
 
   &:hover,
   &:focus {
-    text-decoration: none;
-    color: $color-white;
-    background-color: darken($color-button, 10%);
     border-color: darken($color-button, 10%);
+    background-color: darken($color-button, 10%);
+
+    color: $color-white;
+    text-decoration: none;
   }
 
   &:focus {
-    outline-offset: 3px;
     outline: 3px solid $color-focus;
+    outline-offset: 3px;
   }
 
   @include mq(s) {
@@ -63,7 +69,8 @@
 }
 
 .btn--secondary {
-  @include btn-override($bg: $color-button-secondary, $color: $color-links, $color-hover: $color-links-hover, $darken-hover: 5%);
+  @include btn-override($bg: $color-button-secondary, $color: $color-black, $color-hover: $color-black, $darken-hover: 5%);
+  font-weight: normal;
 }
 
 .btn--ghost {
@@ -74,44 +81,50 @@
     $border-color-hover: rgba(255, 255, 255, 1)
   );
 
-  border-width: 2px;
   padding: 0.5rem 1rem;
+  border-width: 2px;
 }
 
 .btn--ghost-blue {
   @include btn-override($bg: transparent, $color: $color-blue, $border-color: darken($color-blue, 10%), $border-color-hover: $color-blue);
 
-  border-width: 2px;
   padding: 0.5rem 1rem;
+  border-width: 2px;
 }
 
 .btn--small {
   padding: 0.4rem 0.5rem;
-  font-weight: 600;
   font-size: 0.9rem;
 }
 
 .btn--loader {
-  transition: color 300ms ease-out;
   position: relative;
+  transition: color 300ms ease-out;
+
   &::after {
-    display: block;
     content: '';
-    width: 2rem;
-    height: 2rem;
-    opacity: 0;
+
+    display: block;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+
     margin: auto;
+
+    width: 2rem;
+    height: 2rem;
+
     background-image: url('#{$static}/img/loader.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 1.5rem;
-    transition: opacity 300ms ease-out 200ms;
+
+    opacity: 0;
+
     pointer-events: none;
+    transition: opacity 300ms ease-out 200ms;
   }
   &.is-loading {
     color: transparent;

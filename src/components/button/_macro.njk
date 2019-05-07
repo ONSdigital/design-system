@@ -4,7 +4,7 @@
 
   <button
       type="{{ params.type if params.type else ('button' if params.print else 'submit') }}"
-      class="btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.disabled %} btn--disabled{% endif %}{% if params.print %} btn--secondary icon--print-link print__hidden u-d-no js-print-btn{% endif %}"
+      class="btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.disabled %} btn--disabled{% endif %}{% if params.print %} btn--secondary icon--print print__hidden u-d-no js-print-btn{% endif %}"
       {% if params.id %}id="{{ params.id }}"{% endif %}
       {% if params.value %}value="{{ params.value }}"{% endif %}
       {% if params.name %}name="{{ params.name }}"{% endif %}

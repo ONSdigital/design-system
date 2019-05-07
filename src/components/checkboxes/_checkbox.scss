@@ -81,7 +81,7 @@ $checkbox-label-vertical-padding: 0.75rem;
 
   &__input:checked + &__label:before {
     border-color: $color-links-hover;
-    background: $color-grey-4;
+    background: $color-grey-5;
     box-shadow: 0 0 0 1px $color-links-hover;
   }
 
