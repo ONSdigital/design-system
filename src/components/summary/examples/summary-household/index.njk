@@ -1,0 +1,62 @@
+{% from "components/summary/_macro.njk" import onsSummary %}
+
+{{ onsSummary({
+    "rows": [
+        {
+            "icon": "person",
+            "title": "Joe Bloggs (You)",
+            "rowItems": [
+                {
+                    "icon": "person",
+                    "actions": [
+                        {
+                            "text": "Change",
+                            "ariaLabel": "Change details for Joe Bloggs",
+                            "url": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Barry Scott",
+            "rowItems": [
+                {
+                    "icon": "person",
+                    "actions": [
+                        {
+                            "text": "Change",
+                            "ariaLabel": "Change details for Barry Scott",
+                            "url": "#"
+                        },
+                        {
+                            "text": "Remove",
+                            "ariaLabel": "Remove Barry Scott",
+                            "url": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Susan Gill",
+            "rowItems": [
+                {
+                    "icon": "person",
+                    "actions": [
+                        {
+                            "text": "Change",
+                            "ariaLabel": "Change details for Susan Gill",
+                            "url": "#"
+                        },
+                        {
+                            "text": "Remove",
+                            "ariaLabel": "Remove Susan Gill",
+                            "url": "#"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}) }}

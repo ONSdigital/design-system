@@ -158,7 +158,6 @@
     @include mq($breakpoint-min) {
       .col-#{$column}\@#{$breakpoint-min} {
         width: $width;
-        flex-basis: $width;
         max-width: $width;
       }
 
@@ -180,7 +179,6 @@
       @include mq($breakpoint-min, $breakpoint-max) {
         .col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
           width: $width;
-          flex-basis: $width;
           max-width: $width;
         }
 
@@ -270,6 +268,7 @@
   font-size: 0.8rem;
   padding: $grid-gutters / 2;
   margin-bottom: $grid-gutters;
+
   .grid--tight & {
     margin-bottom: $grid-gutters / 2;
   }
