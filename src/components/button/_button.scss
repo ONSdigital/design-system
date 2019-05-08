@@ -68,9 +68,21 @@
   padding: $input-padding 1rem;
 }
 
-.btn--secondary {
-  @include btn-override($bg: $color-button-secondary, $color: $color-black, $color-hover: $color-black, $darken-hover: 5%);
+.btn--secondary,
+.btn--print {
+  @include btn-override($bg: $color-button-secondary, $color: $color-links, $color-hover: $color-links-hover, $darken-hover: 5%);
   font-weight: normal;
+}
+
+.btn--print {
+  &:after {
+    @include icon('print-link');
+
+    content: '';
+
+    margin: 0 0 0 0.5rem;
+    vertical-align: middle;
+  }
 }
 
 .btn--ghost {
