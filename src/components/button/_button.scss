@@ -70,7 +70,7 @@
 
 .btn--secondary,
 .btn--print {
-  @include btn-override($bg: $color-button-secondary, $color: $color-links, $color-hover: $color-links-hover, $darken-hover: 5%);
+  @include btn-override($bg: $color-button-secondary, $color: $color-black);
   font-weight: normal;
 }
 
