@@ -1,5 +1,7 @@
+@import '../objects/typescale';
+
 html {
-  font-size: 18px;
+  font-size: $base;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }

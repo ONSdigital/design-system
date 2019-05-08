@@ -1,5 +1,5 @@
 {% macro onsSummary(params) %}
-    <div class="summary{{ " " + params.classes if params.classes else "" }}">
+    <div class="summary{{ " " + params.classes if params.classes else "" }}{{ " summary--hub" if params.hub else "" }}">
         {% if params.title %}
             <h2 class="u-fs-m">{{ params.title }}</h2>
         {% endif %}
@@ -18,19 +18,25 @@
                     {% endif %}
                     
                     {% for rowItem in row.rowItems %}
-                        <tr class="summary__row">
+                        <tr class="summary__row{{ " summary__row--has-values" if rowItem.values else "" }}">
                             <td 
                                 class="summary__item-title{{ " summary__item-title--has-icon" if rowItem.icon else "" }}"
                                 {% if rowItem.titleAttributes %}{% for attribute, value in (rowItem.titleAttributes.items() if rowItem.titleAttributes is mapping and rowItem.titleAttributes.items else rowItem.titleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                             >
                                 {% if rowItem.icon %}
-                                    <span class="summary__icon icon icon--{{ rowItem.icon }}"></span>
+                                    <span class="summary__icon icon--{{ rowItem.icon }}"></span>
                                 {% endif %}
+
                                 {{ rowItem.title | default(row.title) }} {{ hasIcons }}
+
+                                {# Render section status for mobile if is hub #}
+                                {% if params.hub and rowItem.values %}
+                                    <span class="u-d-no@s u-fs-r"> — {{ rowItem.values[0].text | safe }}</span>
+                                {% endif %}
                             </td>
                             {% if rowItem.values %}
                                 <td
-                                    class="summary__values u-fs-r--b"
+                                    class="summary__values"
                                     {% if rowItem.actions == null %} colspan="2"{% endif %}
                                     {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                 >
@@ -62,7 +68,7 @@
                                     {% for action in (rowItem.actions if rowItem.actions is iterable else rowItem.actions.items()) %}
                                         {% if loop.index > 1 %}<span class="summary__spacer">|</span>{% endif %}
                                         <a
-                                            href="{{ rowItem.action.url }}"
+                                            href="{{ action.url }}"
                                             class="summary__button"
                                             {% if action.ariaLabel %} aria-label="{{ action.ariaLabel }}"{% endif %}
                                             {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}

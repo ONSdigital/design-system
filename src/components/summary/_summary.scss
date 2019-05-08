@@ -1,5 +1,6 @@
-$summary-row-spacing: 0.5rem;
+$summary-row-spacing: 1rem;
 $summary-col-spacing: 1rem;
+$hub-row-spacing: 1.3rem;
 
 .summary {
   &__items {
@@ -36,16 +37,26 @@ $summary-col-spacing: 1rem;
   &__item-title,
   &__values,
   &__actions {
-    padding: $summary-row-spacing 0;
+    padding: 0 0 $summary-row-spacing;
     vertical-align: top;
+  }
 
-    &:not(:last-child) {
-      padding-right: $summary-col-spacing;
+  &__item-title {
+    padding-top: $summary-row-spacing;
+
+    &--has-icon {
+      position: relative;
+      padding-left: 2rem;
     }
   }
 
   &__icon {
-    margin: 0 0.25rem 0 0;
+    position: absolute;
+    left: 0;
+  }
+
+  &__actions {
+    white-space: nowrap;
   }
 
   &__spacer {
@@ -80,6 +91,25 @@ $summary-col-spacing: 1rem;
     }
   }
 
+  // Modifiers
+  &--hub & {
+    &__actions {
+      padding: 0 0 $hub-row-spacing;
+    }
+
+    &__item-title {
+      @extend .u-fs-r--b;
+
+      padding-top: $hub-row-spacing;
+    }
+  }
+
+  &:not(&--hub) & {
+    &__values {
+      @extend .u-fs-r--b;
+    }
+  }
+
   // Breakpoints
   @include mq(xs, s, none, '<') {
     &__item-title,
@@ -87,15 +117,43 @@ $summary-col-spacing: 1rem;
     &__actions {
       display: block;
     }
+
+    &--hub & {
+      &__values {
+        display: none;
+      }
+    }
   }
 
   @include mq(s) {
-    &__values {
-      width: 50%;
+    &__item-title,
+    &__values,
+    &__actions {
+      padding-top: $summary-row-spacing;
+      vertical-align: top;
+
+      &:not(:last-child) {
+        padding-right: $summary-col-spacing;
+      }
     }
 
     &__actions {
       text-align: right;
+    }
+
+    &__row--has-values & {
+      &__item-title,
+      &__values {
+        width: 50%;
+      }
+    }
+
+    &--hub & {
+      &__item-title,
+      &__values,
+      &__actions {
+        padding-top: $hub-row-spacing;
+      }
     }
   }
 }
