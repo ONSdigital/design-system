@@ -17,12 +17,12 @@
 
 ## SummaryRowItem
 
-| Name    | Type                 | Required | Description                                                            |
-| ------- | -------------------- | -------- | ---------------------------------------------------------------------- |
-| icon    | string               | false    | Name of the icon to be placed next to the title                        |
-| title   | string               | false    | Label for the row item                                                 |
-| values  | Array<SummaryValue>  | false    | The value(s) to the row item                                           |
-| actions | Array<SummaryAction> | false    | Configurations for action links. If not specified no links will render |
+| Name      | Type                 | Required | Description                                                            |
+| --------- | -------------------- | -------- | ---------------------------------------------------------------------- |
+| icon      | string               | false    | Name of the icon to be placed next to the title                        |
+| title     | string               | false    | Label for the row item                                                 |
+| valueList | Array<SummaryValue>  | false    | The value(s) to the row item                                           |
+| actions   | Array<SummaryAction> | false    | Configurations for action links. If not specified no links will render |
 
 ## SummaryValue
 
