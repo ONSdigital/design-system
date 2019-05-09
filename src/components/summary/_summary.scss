@@ -110,6 +110,18 @@ $hub-row-spacing: 1.3rem;
     }
   }
 
+  &--within-question & {
+    &__item {
+      &:first-child {
+        border-top: 0;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
   // Breakpoints
   @include mq(xs, s, none, '<') {
     &__item-title,
