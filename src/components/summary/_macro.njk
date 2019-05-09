@@ -32,7 +32,7 @@
                     {% endif %}
                     
                     {% for rowItem in row.rowItems %}
-                        <tr class="summary__row{{ " summary__row--has-values" if rowItem.values else "" }}">
+                        <tr class="summary__row{{ " summary__row--has-values" if rowItem.valueList else "" }}">
                             <td 
                                 class="summary__item-title{{ " summary__item-title--has-icon" if rowItem.icon else "" }}"
                                 {% if rowItem.titleAttributes %}{% for attribute, value in (rowItem.titleAttributes.items() if rowItem.titleAttributes is mapping and rowItem.titleAttributes.items else rowItem.titleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
@@ -44,26 +44,26 @@
                                 {{ rowItem.title | default(row.title) }} {{ hasIcons }}
 
                                 {# Render section status for mobile if is hub #}
-                                {% if params.hub and rowItem.values %}
-                                    <span class="u-d-no@s u-fs-r"> — {{ rowItem.values[0].text | safe }}</span>
+                                {% if params.hub and rowItem.valueList %}
+                                    <span class="u-d-no@s u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
                                 {% endif %}
                             </td>
-                            {% if rowItem.values %}
+                            {% if rowItem.valueList %}
                                 <td
                                     class="summary__values"
                                     {% if rowItem.actions == null %} colspan="2"{% endif %}
                                     {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                 >
-                                    {% if rowItem.values | length == 1 %}
-                                        {{ rowItem.values[0].text | safe }}
-                                        {% if rowItem.values[0].other %}
+                                    {% if rowItem.valueList | length == 1 %}
+                                        {{ rowItem.valueList[0].text | safe }}
+                                        {% if rowItem.valueList[0].other %}
                                             <ul class="u-mb-no">
-                                                <li>{{  rowItem.values[0].other | safe }}</li>
+                                                <li>{{  rowItem.valueList[0].other | safe }}</li>
                                             </ul>
                                         {% endif %}
                                     {% else %}
                                         <ul class="u-mb-no">
-                                            {% for value in (rowItem.values if rowItem.values is iterable else rowItem.values.items()) %}
+                                            {% for value in (rowItem.valueList if rowItem.valueList is iterable else rowItem.valueList.items()) %}
                                                 <li>
                                                     {{ value.text | safe }}
                                                     {% if value.other %}
@@ -80,7 +80,7 @@
                             {% if rowItem.actions %}
                                 <td class="summary__actions">
                                     {% for action in (rowItem.actions if rowItem.actions is iterable else rowItem.actions.items()) %}
-                                        {% if loop.index > 1 %}<span class="summary__spacer">|</span>{% endif %}
+                                        {% if loop.index > 1 %}<span class="summary__spacer"></span>{% endif %}
                                         <a
                                             href="{{ action.url }}"
                                             class="summary__button"

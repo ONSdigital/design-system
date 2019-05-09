@@ -60,7 +60,15 @@ $hub-row-spacing: 1.3rem;
   }
 
   &__spacer {
+    display: inline-block;
+
     margin: 0 0.25rem;
+    width: 1px;
+    height: 1rem;
+
+    background: $color-black;
+
+    vertical-align: middle;
   }
 
   // Item Modifiers
