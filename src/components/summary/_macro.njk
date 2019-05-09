@@ -34,7 +34,7 @@
                                     <span class="u-d-no@s u-fs-r"> — {{ rowItem.values[0].text | safe }}</span>
                                 {% endif %}
                             </td>
-                            {% if rowItem.values %}
+                            {% if values in rowItem %}
                                 <td
                                     class="summary__values"
                                     {% if rowItem.actions == null %} colspan="2"{% endif %}
