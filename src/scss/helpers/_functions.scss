@@ -1,9 +1,10 @@
-@function ems($pxval, $base: $base-font-size) {
-  @return em($pxval, $base);
+@function ems($pxval, $base: $base) {
+  $emSize: $pxval / $base;
+  @return #{$emSize}em;
 }
 
-@function rems($size, $base) {
-  $remSize: $size / $base;
+@function rems($pxval, $base: $base) {
+  $remSize: $pxval / $base;
   @return #{$remSize}rem;
 }
 
