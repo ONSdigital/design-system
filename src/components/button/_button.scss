@@ -1,57 +1,38 @@
-@mixin btn-override(
-  $bg,
-  $color,
-  $color-hover: $color,
-  $darken-hover: 10%,
-  $border-color: $bg,
-  $border-color-hover: darken($border-color, $darken-hover)
-) {
-  border-color: $border-color;
-  background: $bg;
-  color: $color;
-
-  &:hover,
-  &:focus {
-    border-color: $border-color-hover;
-    background: darken($bg, $darken-hover);
-    color: $color-hover;
-  }
-
-  &:focus {
-    outline: 3px solid $color-focus;
-  }
-}
+$button-border-height: 3px;
 
 .btn {
   display: inline-block;
   margin: 0;
-  padding: 0.75rem 1rem;
-  width: 100%;
+  padding: 0;
 
-  border: 1px solid $color-button;
-  border-radius: $input-radius;
-
-  background: $color-button;
-  color: $color-white;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 
   font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
 
-  text-decoration: none;
   text-rendering: optimizeLegibility;
+
+  vertical-align: top;
 
   cursor: pointer;
 
-  transition: background-color 200ms ease-in, color 200ms ease-in, border 200ms ease-in;
+  &__inner {
+    display: inherit;
+    padding: 0.75em 1em;
 
-  &:hover,
-  &:focus {
-    border-color: darken($color-button, 10%);
-    background-color: darken($color-button, 10%);
+    border-bottom: ems($button-border-height) solid rgba(0, 0, 0, 0.35);
+    border-radius: $input-radius;
 
+    background: $color-button;
     color: $color-white;
-    text-decoration: none;
+  }
+
+  // When preceded by another button (e.g. in a group)
+  & + & {
+    margin-left: 0.5rem;
   }
 
   &:focus {
@@ -59,138 +40,143 @@
     outline-offset: 3px;
   }
 
-  @include mq(s) {
-    width: auto;
+  // When clicked
+  &:not([class*='btn--ghost']):not([class*='btn--mobile']):active {
+    padding-top: ems(3px);
   }
-}
 
-.btn--inline {
-  padding: $input-padding 1rem;
-}
-
-.btn--secondary,
-.btn--print {
-  @include btn-override($bg: $color-button-secondary, $color: $color-black);
-  font-weight: normal;
-}
-
-.btn--print {
-  &:after {
-    @include icon('print-link');
-
-    content: '';
-
-    margin: 0 0 0 0.5rem;
-    vertical-align: middle;
+  &:not([class*='btn--ghost']):not([class*='btn--mobile']):active &__inner {
+    border-bottom: 0;
   }
-}
 
-.btn--ghost {
-  @include btn-override(
-    $bg: transparent,
-    $color: $color-white,
-    $border-color: rgba(255, 255, 255, 0.6),
-    $border-color-hover: rgba(255, 255, 255, 1)
-  );
-
-  padding: 0.5rem 1rem;
-  border-width: 2px;
-}
-
-.btn--ghost-blue {
-  @include btn-override($bg: transparent, $color: $color-blue, $border-color: darken($color-blue, 10%), $border-color-hover: $color-blue);
-
-  padding: 0.5rem 1rem;
-  border-width: 2px;
-}
-
-.btn--small {
-  padding: 0.4rem 0.5rem;
-  font-size: 0.9rem;
-}
-
-.btn--loader {
-  position: relative;
-  transition: color 300ms ease-out;
-
-  &::after {
-    content: '';
-
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    margin: auto;
-
-    width: 2rem;
-    height: 2rem;
-
-    background-image: url('#{$static}/img/loader.svg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 1.5rem;
-
-    opacity: 0;
-
-    pointer-events: none;
-    transition: opacity 300ms ease-out 200ms;
+  &--small,
+  &--mobile {
+    font-size: 0.9rem;
   }
-  &.is-loading {
+
+  // Modifiers
+  &--inline & {
+    &__inner {
+      padding: $input-padding 1rem;
+    }
+  }
+
+  &--secondary &,
+  &--print & {
+    &__inner {
+      background: $color-button-secondary;
+      color: $color-black;
+      font-weight: normal;
+    }
+  }
+
+  &--print &__inner {
+    &:after {
+      @include icon('print');
+
+      content: '';
+
+      margin: 0 0 0 0.5rem;
+      vertical-align: middle;
+    }
+  }
+
+  &--loader &__inner {
+    position: relative;
+    transition: color 0.3s ease-in-out;
+
+    &:after {
+      @include icon($name: 'loader', $height: 1.5em);
+
+      content: '';
+
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      opacity: 0;
+
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
+
+  &--loader.is-loading &__inner {
     color: transparent;
-    &::after {
+
+    &:after {
       opacity: 1;
     }
   }
-}
 
-.btn-group {
-  .btn-group__btn {
-    display: inline-block;
-    margin-right: 1rem;
-    &:last-of-type {
-      margin-right: 0;
+  // Spooky Buttons
+  &--ghost &,
+  &--mobile & {
+    &__inner {
+      border: 2px solid rgba(255, 255, 255, 0.6);
+
+      background: transparent;
+      color: $color-white;
     }
   }
-}
 
-.btn--menu {
-  @extend .btn--secondary;
-  @extend .btn--small;
-  @include mq(m) {
-    display: none;
-  }
-}
-
-.btn--mobile {
-  @extend .btn--ghost;
-  @extend .btn--small;
-
-  $size: 0.6rem;
-
-  position: relative;
-  padding-right: $size * 2.5;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 11px;
-    right: 8px;
-    width: $size;
-    height: $size;
-    background: url('#{$static}/img/icons/icons--chevron-down-white.svg') no-repeat center center;
-    background-size: $size $size;
+  &--ghost:active &,
+  &--mobile:active & {
+    &__inner {
+      border-color: $color-white;
+    }
   }
 
-  &[aria-expanded='true'] {
-    &::before {
+  &--ghost-blue & {
+    &__inner {
+      border: 2px solid $color-blue;
+
+      background: transparent;
+      color: $color-blue;
+    }
+  }
+
+  &--ghost-blue:active & {
+    &__inner {
+      border-color: darken($color-blue, 10%);
+      color: darken($color-blue, 10%);
+    }
+  }
+
+  &--mobile {
+    @include mq(m) {
+      display: none;
+    }
+  }
+
+  &--mobile & {
+    &__inner {
+      padding: 0.4rem 0.5rem;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        margin: 0 0 0 0.5rem;
+
+        width: 12px;
+        height: 8px;
+
+        background: {
+          image: url(#{$static}/img/icons/icons--chevron-down-white.svg);
+          repeat: no-repeat;
+          size: 12px 8px;
+        }
+
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &--mobile[aria-expanded='true'] & {
+    &__inner:after {
       transform: rotate(180deg);
     }
-  }
-
-  @include mq(m) {
-    display: none;
   }
 }

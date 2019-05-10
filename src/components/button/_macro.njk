@@ -1,7 +1,4 @@
 {% macro onsButton(params) %}
-  {#- Define common attributes we can use for the toggle button type #}
-  {% set buttonToggleAttributes %} aria-haspopup="true" aria-expanded="false" aria-controls="{{ params.ariaControls }}" aria-label="{{ params.ariaLabel }}"{% endset %}
-
   <button
       type="{{ params.type if params.type else ('button' if params.print else 'submit') }}"
       class="btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.disabled %} btn--disabled{% endif %}{% if params.print %} btn--print print__hidden u-d-no js-print-btn{% endif %}"
@@ -10,8 +7,7 @@
       {% if params.name %}name="{{ params.name }}"{% endif %}
       {% if params.disabled %} disabled="disabled" aria-disabled="true"{% endif %}
       {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
-      {% if params.isToggle %}{{ buttonToggleAttributes | safe }}{% endif %}
       >
-      {{- params.html | safe if params.html else params.text -}}
+      <span class="btn__inner">{{- params.html | safe if params.html else params.text -}}</span>
   </button>
 {% endmacro %}

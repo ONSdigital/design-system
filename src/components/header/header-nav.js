@@ -3,7 +3,6 @@ import domReady from 'js/domready';
 const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
 const hideClass = 'header-nav--mobile';
-const openClass = 'open';
 
 export default class NavToggle {
   constructor(toggle, nav) {
@@ -23,14 +22,12 @@ export default class NavToggle {
   }
 
   openNav(toggleEl, navEl) {
-    toggleEl.parentNode.classList.add(openClass);
     toggleEl.setAttribute(attrExpanded, 'true');
     navEl.setAttribute(attrHidden, 'false');
     navEl.classList.remove(hideClass);
   }
 
   closeNav(toggleEl, navEl) {
-    toggleEl.parentNode.classList.remove(openClass);
     toggleEl.setAttribute(attrExpanded, 'false');
     navEl.setAttribute(attrHidden, 'true');
     navEl.classList.add(hideClass);
