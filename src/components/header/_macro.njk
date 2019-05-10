@@ -80,13 +80,16 @@
                   {% endif %}
                   {% if params.toggleButton %}
                       <div class="grid__col col-auto u-flex-no-shrink">
-                          {{ onsButton({
-                              "buttonToggleAttributes": true,
-                              "text": params.toggleButton.text,
-                              "ariaControls": params.navigation.id,
-                              "ariaLabel": params.toggleButton.ariaLabel,
-                              "classes": "btn--mobile u-d-no js-toggle-main"
-                          }) }}
+                            {{ onsButton({
+                                "text": params.toggleButton.text,
+                                "classes": "btn--mobile u-d-no js-toggle-main",
+                                "attributes": {
+                                        "aria-label": params.toggleButton.ariaLabel,
+                                        "aria-controls": params.navigation.id,
+                                        "aria-haspopup": "true",
+                                        "aria-expanded": "false"
+                                }
+                            }) }}
                       </div>
                   {% endif %}
               </div>
