@@ -4,6 +4,7 @@ group: Questionnaires
 ---
 
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 {{ patternlibExample({
     "path": "patterns/question/examples/question-anatomy/index.njk",
@@ -32,11 +33,20 @@ Questions should be wrapped in a fieldset when:
 ### Question as a fieldset
 
 {{ patternlibExample({
-    "path": "patterns/question/examples/question-fieldset/index.njk"
+    "path": "components/question/examples/question-fieldset/index.njk"
 }) }}
 
 ### Question without a fieldset
 
 {{ patternlibExample({
-    "path": "patterns/question/examples/question-no-fieldset/index.njk"
+    "path": "components/question/examples/question-no-fieldset/index.njk"
 }) }}
+
+## Research on this pattern
+{% call onsPanel() %} 
+    If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/367" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+
+[Discuss 'Question' on Github](https://github.com/ONSdigital/design-system/issues/367) 
