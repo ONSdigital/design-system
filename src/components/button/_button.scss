@@ -48,13 +48,20 @@ $button-border-height: 3px;
   &:not([class*='btn--ghost']):not([class*='btn--mobile']):active &__inner {
     border-bottom: 0;
   }
+  // Modifiers
 
   &--small,
   &--mobile {
     font-size: 0.9rem;
   }
 
-  // Modifiers
+  &--small &,
+  &--mobile & {
+    &__inner {
+      padding: 0.5em;
+    }
+  }
+
   &--inline & {
     &__inner {
       padding: $input-padding 1rem;
