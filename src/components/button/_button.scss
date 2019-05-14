@@ -48,8 +48,8 @@ $button-border-height: 3px;
   &:not([class*='btn--ghost']):not([class*='btn--mobile']):active &__inner {
     border-bottom: 0;
   }
-  // Modifiers
 
+  // Modifiers
   &--small,
   &--mobile {
     font-size: 0.9rem;
