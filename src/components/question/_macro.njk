@@ -7,7 +7,7 @@
 
     <{{wrappingElement}}
         {% if params.id %} id="{{ params.id }}"{% endif %}
-        class="question u-mt-s{% if classes %} {{ classes }}{% endif %}"
+        class="question{% if classes %} {{ classes }}{% endif %}"
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
         {% if params.useFieldset %}
@@ -17,7 +17,7 @@
         <h1 class="question__title u-fs-l">{{ params.title | safe }}</h1>
 
         {% if params.description %}
-            <span class="question__description">{{ params.description }}</span>
+            <span class="question__description">{{ params.description | safe }}</span>
         {% endif %}
 
         {% if params.useFieldset %}

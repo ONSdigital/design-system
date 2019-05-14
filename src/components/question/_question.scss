@@ -1,7 +1,21 @@
-.question__title {
-  margin: 0 0 1rem;
+.question {
+  @extend .u-mt-s;
 
-  em {
-    background-color: $color-emphasis;
+  &__legend {
+    @extend .u-mb-s;
+  }
+
+  &__title {
+    @extend .u-mb-s;
+
+    em {
+      background-color: $color-emphasis;
+    }
+  }
+
+  &__description {
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 }
