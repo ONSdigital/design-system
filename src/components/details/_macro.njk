@@ -19,6 +19,7 @@
                 {% if params.button and params.button.open and params.isAccordion %}
                     {{
                         onsButton({
+                            "type": "button",
                             "text": params.button.open,
                             "classes": "details__btn btn--secondary btn--small js-collapsible-button u-d-no u-d-no@xs@s",
                             "attributes": params.button.attributes
@@ -32,6 +33,7 @@
             {% if params.button and params.button.close and params.isAccordion != true %}
                 {{
                     onsButton({
+                        "type": "button",
                         "text": params.button.open or params.button.close,
                         "classes": "btn--small js-collapsible-button u-d-no " + (params.button.classes | default("btn--secondary")),
                         "attributes": params.button.attributes
