@@ -9,10 +9,6 @@
         {% set className = className + " summary--hub" %}
     {% endif %}
 
-    {% if params.withinQuestion %}
-        {% set className = className + " summary--within-question" %}
-    {% endif %}
-
     <div class="{{ className }}">
         {% if params.title %}
             <h2>{{ params.title }}</h2>
