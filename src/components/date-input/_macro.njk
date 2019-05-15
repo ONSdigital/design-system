@@ -14,8 +14,7 @@
         "classes": "field--date" + (" " + params.classes if params.classes else ""),
         "descriptionClasses": descriptionClasses | default(""),
         "legendClasses": params.legendClasses,
-        "mutuallyExclusive": params.mutuallyExclusive,
-        "questionMode": params.questionMode
+        "mutuallyExclusive": params.mutuallyExclusive
     }) %}
         {% if params.label %}
             <p class="u-fs-r--b u-mb-xs">{{ params.label }}</p>
