@@ -1,0 +1,52 @@
+---
+title: Anatomy of a question
+group: Questionnaires
+---
+
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+{{ patternlibExample({
+    "path": "patterns/question/examples/question-anatomy/index.njk",
+    "noTabs": true
+}) }}
+
+## Accessibility
+
+The Question should always be a `<h1>`
+
+### When the question should be a fieldset and legend
+
+Under certain cirsumstances, the question should be wrapped with a `<fieldset>` element, and the question and question description (if provided) should be wrapped in a `<legend>`. This is to provide context to screen readers about what is being asked when a user focuses on an input element for an answer.
+
+Questions should be wrapped in a fieldset when:
+
+* The question type is [Mutually Exclusive](/components/mutually-exclusive)
+* There are multiple answers **only if** the question type is **not** Date Range
+* If any of the answers to the questions are [Checkboxs](/components/checkboxes)
+* If any of the answers to the questions are [Radios](/components/radio)
+* If one of the answers to the question is a [Date](/components/date)
+* If any of the answers to the question are a [Duration](/pattern/durations)
+
+## Examples
+
+### Question as a fieldset
+
+{{ patternlibExample({
+    "path": "components/question/examples/question-fieldset/index.njk"
+}) }}
+
+### Question without a fieldset
+
+{{ patternlibExample({
+    "path": "components/question/examples/question-no-fieldset/index.njk"
+}) }}
+
+## Research on this pattern
+{% call onsPanel() %} 
+    If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/367" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+
+[Discuss 'Question' on Github](https://github.com/ONSdigital/design-system/issues/367) 

@@ -1,13 +1,6 @@
 .field {
   background: none;
 
-  & + &,
-  & + .panel,
-  .panel + &,
-  .panel + .panel {
-    margin-top: 1rem;
-  }
-
   &__legend {
     @extend .label;
   }

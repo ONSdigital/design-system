@@ -3,7 +3,7 @@ layout: none
 ---
 {% extends "styles/page-template/_template.njk" %}
 
-{% from "components/field/_macro.njk" import onsField %}
+{% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/input/_macro.njk" import onsInput %}
@@ -18,7 +18,7 @@ layout: none
     {% call onsPanel({
             "title": "This page has 2 errors",
             "type": "error",
-            "classes": "u-mb-s"
+            "classes": "question__errors"
         })
     %}
         <p>These <strong>must be corrected</strong> to continue.</p>
@@ -44,12 +44,12 @@ layout: none
         }}
     {% endcall %}
 
-    {% call onsField ({
-        "legend": "How many employees do you pay on a monthly basis?",
-        "questionMode": true
+    {% call onsQuestion ({
+        "title": "How many employees do you pay on a monthly basis?"
     }) %}
         {% call onsPanel({
-            "type": "error"
+            "type": "error",
+            "classes": "question__answer"
         }) %}
             {{
                 onsList({
@@ -67,6 +67,7 @@ layout: none
                     "id": "number",
                     "type": "number",
                     "classes": "input--w-5",
+                    "fieldClasses": "question__answer",
                     "attributes": {
                         "min": 0,
                         "required": true
@@ -80,7 +81,8 @@ layout: none
 
         {% call
             onsPanel({
-                "type": "error"
+                "type": "error",
+                "classes": "question__answer"
             })
         %}
             {{
@@ -100,6 +102,7 @@ layout: none
                     "id": "suffixed",
                     "type": "number",
                     "classes": "input--w-2",
+                    "fieldClasses": "question__answer",
                     "value": "101",
                     "attributes": {
                         "required": true
@@ -120,7 +123,7 @@ layout: none
         onsButton({
             "type": "button",
             "text": "Save and continue",
-            "classes": "u-mb-m u-mt-l"
+            "classes": "u-mt-xl"
         })
     }}
 {% endblock %}
