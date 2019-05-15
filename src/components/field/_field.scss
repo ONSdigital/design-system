@@ -63,19 +63,6 @@
   }
 
   // Modifiers
-  &--question & {
-    &__legend h1 {
-      @extend .u-fs-l;
-      display: inline-block;
-      margin-bottom: 0;
-    }
-
-    &__description {
-      @extend .u-fs-r;
-      @extend .u-mb-m;
-    }
-  }
-
   &--date & {
     &__legend {
       @extend .u-fs-m;
