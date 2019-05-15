@@ -67,6 +67,7 @@ jobs:
           mkdir ../../dist/$design_system_release
           cp -R build/* ../../dist/$design_system_release
           zip -r ../../templates/templates.zip templates/*
+          
     on_failure:
       put: slack-alert
       params:
@@ -107,6 +108,16 @@ jobs:
         attachments:
           - pretext: Design System CDN Release Failed
             color: danger
+            title: Concourse Build $BUILD_ID
+            title_link: http://concourse.dev.eq.ons.digital/builds/$BUILD_ID
+
+    on_success:
+      put: slack-alert
+      params:
+        channel: '#pat-lib-notifications'
+        attachments:
+          - pretext: Design System CDN Release Successful
+            color: success
             title: Concourse Build $BUILD_ID
             title_link: http://concourse.dev.eq.ons.digital/builds/$BUILD_ID
             
