@@ -34,14 +34,6 @@ A `<div>` with `field_description` class is used to provide an example of the re
 
 Each field uses the `input--w-<number>` class to set the known number of digits required for each field.
 
-### Using a date as a question
-If the date is the only question you're asking on the page, you can set the date's `<legend>` as the page heading.  This will help the users of screen readers by preventing the duplication of content in the page heading and field legend.
-
-You can do this automatically by setting the date's macro `questionMode` parameter to `true`.
-{{
-    patternlibExample({"path": "components/date-input/examples/date-input-question/index.njk"})
-}}
-
 ### Using autocomplete when asking for date of birth
 Use the `autocomplete` attribute when you are asking for a date of birth to help the user fill out a form more quickly.
 
