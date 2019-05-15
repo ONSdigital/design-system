@@ -1,6 +1,5 @@
 $summary-row-spacing: 1rem;
 $summary-col-spacing: 1rem;
-$hub-row-spacing: 1.3rem;
 
 .summary {
   &__items {
@@ -55,6 +54,10 @@ $hub-row-spacing: 1.3rem;
     left: 0;
   }
 
+  &__values {
+    @extend .u-fs-r--b;
+  }
+
   &__actions {
     white-space: nowrap;
   }
@@ -100,24 +103,6 @@ $hub-row-spacing: 1.3rem;
   }
 
   // Modifiers
-  &--hub & {
-    &__actions {
-      padding: 0 0 $hub-row-spacing;
-    }
-
-    &__item-title {
-      @extend .u-fs-r--b;
-
-      padding-top: $hub-row-spacing;
-    }
-  }
-
-  &:not(&--hub) & {
-    &__values {
-      @extend .u-fs-r--b;
-    }
-  }
-
   &--within-question & {
     &__item {
       &:first-child {
@@ -136,12 +121,6 @@ $hub-row-spacing: 1.3rem;
     &__values,
     &__actions {
       display: block;
-    }
-
-    &--hub & {
-      &__values {
-        display: none;
-      }
     }
   }
 
@@ -165,14 +144,6 @@ $hub-row-spacing: 1.3rem;
       &__item-title,
       &__values {
         width: 50%;
-      }
-    }
-
-    &--hub & {
-      &__item-title,
-      &__values,
-      &__actions {
-        padding-top: $hub-row-spacing;
       }
     }
   }

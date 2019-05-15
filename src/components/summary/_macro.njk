@@ -5,10 +5,6 @@
          {% set className = className + " " + params.classes %}
     {% endif %}
 
-    {% if params.hub %}
-        {% set className = className + " summary--hub" %}
-    {% endif %}
-
     {% if params.withinQuestion %}
         {% set className = className + " summary--within-question" %}
     {% endif %}
@@ -42,11 +38,6 @@
                                 {% endif %}
 
                                 {{ rowItem.title | default(row.title) }} {{ hasIcons }}
-
-                                {# Render section status for mobile if is hub #}
-                                {% if params.hub and rowItem.valueList %}
-                                    <span class="u-d-no@s u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
-                                {% endif %}
                             </td>
                             {% if rowItem.valueList %}
                                 <td

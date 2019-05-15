@@ -1,0 +1,14 @@
+{% macro onsHub(params) %}
+    <dl class="hub{% if params.classes %} {{ params.classes }}{% endif %}">
+        {% for section in (params.sections if params.sections is iterable else params.sections.items()) %}
+            <div class="hub__row">
+                <dt class="hub__title{% if section.completed %} hub__title--complete{% endif %}">
+                    <a href="{{ section.url }}" aria-label="{{ section.ariaLabel }}">{{ section.title }}</a>
+                </dt>
+                <dd class="hub__status">
+                    {{ section.status }}
+                </dd>
+            </div>
+        {% endfor %}
+    </dl>
+{% endmacro %}
