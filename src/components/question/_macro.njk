@@ -14,7 +14,7 @@
             <legend class="question__legend{% if params.legendClasses %} {{ params.legendClasses }}{% endif %}">
         {% endif %}
 
-        <h1 class="question__title u-fs-l">{{ params.title | safe }}</h1>
+        <h1 class="question__title">{{ params.title | safe }}</h1>
 
         {% if params.description %}
             <span class="question__description">{{ params.description | safe }}</span>
