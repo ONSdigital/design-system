@@ -1,0 +1,21 @@
+.question {
+  @extend .u-mt-s;
+
+  &__legend {
+    @extend .u-mb-s;
+  }
+
+  &__title {
+    @extend .u-mb-s;
+
+    em {
+      background-color: $color-emphasis;
+    }
+  }
+
+  &__description {
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

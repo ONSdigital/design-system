@@ -6,42 +6,6 @@
   overflow-x: hidden;
 }
 
-.page__header {
-  margin-bottom: 0;
-  &:empty {
-    display: none;
-  }
-}
-
-.page__subheader {
-  padding: 0.5rem 0 1rem;
-  min-height: 2.6rem;
-  overflow: hidden;
-
-  &:empty {
-    height: 1rem;
-  }
-}
-
-.page__subheader .container > * {
-  margin-bottom: 1rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.page__previous {
-  float: left;
-  .has-nav-open & {
-    display: none;
-  }
-}
-
-.page__previous--bottom {
-  float: none;
-}
-
 .page__content {
   flex: 1 0 auto;
   position: relative;

@@ -33,7 +33,6 @@ describe('Function: Print Button ', function() {
   describe('Before the button is initialised', () => {
     it('Button should have relevant classes', () => {
       expect(buttonElement.classList.contains('btn--print')).to.be.true;
-      expect(buttonElement.classList.contains('print__hidden')).to.be.true;
       expect(buttonElement.classList.contains('u-d-no')).to.be.true;
       expect(buttonElement.classList.contains('js-print-btn')).to.be.true;
     });
