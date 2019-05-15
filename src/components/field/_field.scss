@@ -65,7 +65,6 @@
   // Modifiers
   &--question & {
     &__legend h1 {
-      @extend .u-fs-l;
       display: inline-block;
       margin-bottom: 0;
     }

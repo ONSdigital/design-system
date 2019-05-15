@@ -29,6 +29,23 @@
   }
 }
 
+h1 {
+  @extend .u-fs-l;
+}
+
+h2 {
+  @extend .u-fs-m;
+}
+
+h3,
+h4 {
+  @extend .u-fs-r--b;
+}
+
+h5 {
+  @extend .u-fs-r;
+}
+
 .u-fw-b {
   font-weight: 700;
 }
