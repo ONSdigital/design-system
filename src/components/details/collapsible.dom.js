@@ -1,4 +1,8 @@
 import domReady from 'js/domready';
-import collapsible from './collapsible';
+import collapsibleModule from './collapsible.module';
+import collapsibleGroupModule from './collapsible-group.module';
 
-domReady(collapsible);
+domReady(() => {
+  collapsibleModule();
+  collapsibleGroupModule();
+});

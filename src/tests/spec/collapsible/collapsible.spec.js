@@ -1,6 +1,7 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/details/_test-template.njk';
-import collapsible, { Collapsible } from 'components/details/collapsible';
+import collapsibleModule from 'components/details/collapsible.module';
+import Collapsible from 'components/details/collapsible';
 
 const params = {
   id: 'details',
@@ -36,7 +37,8 @@ describe('Component: Details', function() {
       });
 
       it('then the details element should not have a details--initialised class', function() {
-        expect(this.details.classList.contains('details--initialised')).to.be.false;
+        expect(this.details.classList.contains('details--initialised')).to.be
+          .false;
       });
 
       it('then the details element should not have an aria-expanded attribute', function() {
@@ -66,7 +68,7 @@ describe('Component: Details', function() {
 
     describe('When the component initialises', function() {
       beforeEach(() => {
-        collapsible();
+        collapsibleModule();
       });
 
       it('then the open attribute should be removed from the details element', function() {
@@ -74,7 +76,8 @@ describe('Component: Details', function() {
       });
 
       it('then the details--initialised class should be added to the details element', function() {
-        expect(this.details.classList.contains('details--initialised')).to.be.true;
+        expect(this.details.classList.contains('details--initialised')).to.be
+          .true;
       });
 
       it('then an aria-expanded attribute should be added to the details element', function() {
@@ -94,7 +97,9 @@ describe('Component: Details', function() {
 
       it('then an aria-controls attribute should be added to the summary element', function() {
         expect(this.summary.hasAttribute('aria-controls')).to.be.true;
-        expect(this.summary.getAttribute('aria-controls')).to.equal(this.content.getAttribute('id'));
+        expect(this.summary.getAttribute('aria-controls')).to.equal(
+          this.content.getAttribute('id')
+        );
       });
 
       it('then an aria-hidden attribute should be added to the content element', function() {
@@ -129,7 +134,9 @@ describe('Component: Details', function() {
           });
 
           it('then the data-ga-action attribute on the summary element should be set to "Open panel', function() {
-            expect(this.summary.getAttribute('data-ga-action')).to.equal('Open panel');
+            expect(this.summary.getAttribute('data-ga-action')).to.equal(
+              'Open panel'
+            );
           });
 
           it('then the aria-hidden attribute on the content element should be set to false', function() {
@@ -182,6 +189,8 @@ describe('Component: Details', function() {
     describe('When the component initialises', function() {
       beforeEach(function() {
         this.collapsible = new Collapsible(this.details);
+        this.collapsible.init();
+        this.collapsible.registerEvents();
       });
 
       it('there should be no closeButton or buttonOpen properties', function() {

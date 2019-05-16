@@ -1,27 +1,37 @@
-import CollapsibleGroup from './collapsible.group';
+import AbstractComponent from 'js/component';
 
-export class Collapsible {
-  constructor(detailsElement) {
+export const scopeClass = 'js-collapsible';
+
+export default class Collapsible extends AbstractComponent {
+  static create({ scopeEl }) {
+    if (!scopeEl) {
+      throw TypeError('scopeEl property must be defined');
+    }
+
+    return new Collapsible(scopeEl);
+  }
+
+  init() {
     // State
     this.isOpen = true;
-    this.group = detailsElement.getAttribute('data-group');
-    this.isAccordion = detailsElement.classList.contains('details--accordion');
+    this.group = this.scopeEl.getAttribute('data-group');
+    this.isAccordion = this.scopeEl.classList.contains('details--accordion');
 
     // Elements
-    this.details = detailsElement;
-    this.summary = this.details.querySelector('.js-collapsible-summary');
-    this.content = this.details.querySelector('.js-collapsible-content');
-    this.button = this.details.querySelector('.js-collapsible-button');
+    this.details = this.scopeEl;
+    this.summary = this.details.querySelector(`.${scopeClass}-summary`);
+    this.content = this.details.querySelector(`.${scopeClass}-content`);
+    this.button = this.details.querySelector(`.${scopeClass}-button`);
 
     // Initialise
     const contentId = this.content.getAttribute('id');
 
     if (this.button) {
-      this.button.addEventListener('click', this.toggle.bind(this));
       this.button.setAttribute('aria-controls', contentId);
       this.button.classList.remove('u-d-no');
       this.buttonOpen = this.button.innerHTML.trim();
-      this.closeButton = this.details.getAttribute('data-btn-close') || this.buttonOpen;
+      this.closeButton =
+        this.details.getAttribute('data-btn-close') || this.buttonOpen;
     }
 
     this.summary.setAttribute('aria-controls', contentId);
@@ -32,9 +42,15 @@ export class Collapsible {
 
     this.setOpen(false);
 
-    this.summary.addEventListener('click', this.toggle.bind(this));
-
     this.details.classList.add('details--initialised');
+  }
+
+  registerEvents() {
+    if (this.button) {
+      this.button.addEventListener('click', this.toggle.bind(this));
+    }
+
+    this.summary.addEventListener('click', this.toggle.bind(this));
   }
 
   toggle(event) {
@@ -79,11 +95,4 @@ export class Collapsible {
   }
 }
 
-export default function() {
-  const collapsibles = [...document.querySelectorAll('.js-collapsible')].map(element => new Collapsible(element));
-  const toggleAllButtons = [...document.querySelectorAll('.js-collapsible-all')];
-
-  toggleAllButtons.forEach(button => {
-    new CollapsibleGroup(button, collapsibles);
-  });
-}
+Collapsible.instances = [];

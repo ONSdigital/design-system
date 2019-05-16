@@ -1,7 +1,8 @@
 {% macro onsAccordion(params) %}
     {% from "components/details/_macro.njk" import onsDetails %}
 
-    <div id="{{params.id}}" class="accordion{{ ' ' + params.classes if params.classes }}">
+    <div id="{{params.id}}" 
+         class="js-collapsible-group accordion{{ ' ' + params.classes if params.classes }}">
         {% if params.allButton %}
             {% from "components/button/_macro.njk" import onsButton %}
             {% set attributes = params.allButton.attributes | default({}) %}
@@ -15,7 +16,8 @@
                 onsButton({
                     "text": params.allButton.open,
                     "classes": "btn--secondary btn--small js-collapsible-all u-wa--@xs u-mb-s u-d-no",
-                    "attributes": attributes
+                    "attributes": attributes,
+                    "text_behaviours": "js-collapsible-group-button-text"
                 })
             }}
         {% endif %}

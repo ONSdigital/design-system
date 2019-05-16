@@ -1,7 +1,8 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/accordion/_test-template.njk';
-import collapsible, { Collapsible } from 'components/details/collapsible';
-import CollapsibleGroup from 'components/details/collapsible.group';
+import collapsibleGroupMod from 'components/details/collapsible-group.module';
+import Collapsible from 'components/details/collapsible';
+import CollapsibleGroup from 'components/details/collapsible-group';
 import eventMock from 'stubs/event.stub.spec';
 
 const params = {
@@ -71,27 +72,43 @@ describe('Component: Accordion', function() {
     });
   });
 
-  describe('When the component initialises', function() {
-    it('then CollapsibleGroup class should be called', function() {
-      const mockedCollapsibleGroup = chai.spy(() => {});
+  describe('When the module initialises', () => {
+    it('then CollapsibleGroup class create method should be called', () => {
+      const mockedCollapsibleGroup = {
+        create: chai.spy()
+      };
 
-      rewiremock('./src/components/details/collapsible.group')
+      const mockedStartComponent = chai.spy();
+
+      rewiremock('./src/components/details/collapsible-group')
         .es6()
-        .withDefault(mockedCollapsibleGroup);
+        .with({
+          default: mockedCollapsibleGroup,
+          scopeClass: 'js-collapsible-group'
+        });
+
+      rewiremock('./src/js/component')
+        .es6()
+        .with({
+          default: require('js/component').default,
+          startComponent: mockedStartComponent
+        });
 
       rewiremock.enable();
 
-      const mockedCollapsible = require('components/details/collapsible').default;
+      const collapsibleGroupModule = require('components/details/collapsible-group.module')
+        .default;
 
-      mockedCollapsible();
+      collapsibleGroupModule();
 
-      expect(mockedCollapsibleGroup).to.have.been.called();
+      expect(mockedCollapsibleGroup.create).to.have.been.called();
 
       rewiremock.disable();
     });
 
     it('then the toggle button element should not have a u-d-no class', function() {
-      collapsible();
+      collapsibleGroupMod();
+
       expect([...this.toggleButton.classList].includes('u-d-no')).to.be.false;
     });
 
@@ -104,8 +121,15 @@ describe('Component: Accordion', function() {
     beforeEach(function() {
       this.item = this.items[0];
       this.collapsible = new Collapsible(this.item.details);
-      this.group = new CollapsibleGroup(this.toggleButton, [this.collapsible]);
+      this.collapsible.init();
+      this.collapsible.registerEvents();
+      this.group = new CollapsibleGroup(this.scopeEl, {
+        collapsibles: [this.collapsible]
+      });
+      this.group.init();
+      this.group.registerEvents();
 
+      this.collapsible.setOpen = chai.spy(this.collapsible.setOpen);
       this.collapsible.onOpen = chai.spy(this.collapsible.onOpen);
       this.collapsible.onClose = chai.spy(this.collapsible.onClose);
     });
@@ -145,13 +169,11 @@ describe('Component: Accordion', function() {
 
       describe('when the toggle button is clicked', function() {
         beforeEach(function() {
-          this.mockedEvent = eventMock();
-
-          this.group.handleButtonClick(this.mockedEvent);
+          this.group.buttonClicked();
         });
 
-        it('prevent default should be called on the click event', function() {
-          expect(this.mockedEvent.preventDefault).to.have.been.called();
+        it('should call setOpen for each of its collapsibles', function() {
+          expect(this.group.collapsibles[0].setOpen).to.have.been.called();
         });
       });
     });
@@ -182,23 +204,27 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
+  const scopeEl = wrapper.querySelector('.js-collapsible-group');
   const toggleButton = wrapper.querySelector('.js-collapsible-all');
 
-  const items = [...wrapper.querySelectorAll('.js-collapsible')].map(details => {
-    const summary = details.querySelector('.js-collapsible-summary');
-    const content = details.querySelector('.js-collapsible-content');
-    const button = details.querySelector('.js-collapsible-button');
+  const items = [...wrapper.querySelectorAll('.js-collapsible')].map(
+    details => {
+      const summary = details.querySelector('.js-collapsible-summary');
+      const content = details.querySelector('.js-collapsible-content');
+      const button = details.querySelector('.js-collapsible-button');
 
-    return {
-      details,
-      summary,
-      content,
-      button
-    };
-  });
+      return {
+        details,
+        summary,
+        content,
+        button
+      };
+    }
+  );
 
   return {
     wrapper,
+    scopeEl,
     toggleButton,
     items
   };
