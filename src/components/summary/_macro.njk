@@ -1,15 +1,5 @@
 {% macro onsSummary(params) %}
-    {% set className = "summary" %}
-
-    {% if params.classes %}
-         {% set className = className + " " + params.classes %}
-    {% endif %}
-
-    {% if params.withinQuestion %}
-        {% set className = className + " summary--within-question" %}
-    {% endif %}
-
-    <div class="{{ className }}">
+    <div class="summary{% if params.classes %} {{ params.classes }}{% endif %}">
         {% if params.title %}
             <h2>{{ params.title }}</h2>
         {% endif %}

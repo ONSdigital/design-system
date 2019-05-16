@@ -1,9 +1,8 @@
-| Name           | Type              | Required | Description                                                                                                                                                     |
-| -------------- | ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rows           | Array<SummaryRow> | true     | An array of rows to summarise                                                                                                                                   |
-| title          | string            | false    | The title for the summary block                                                                                                                                 |
-| classes        | string            | false    | Classes to add to the summary component                                                                                                                         |
-| withinQuestion | boolean           | false    | Whether the summary is being rendered within a question page. If true the first row will not have a top border, and the last item will not have a bottom border |
+| Name    | Type              | Required | Description                             |
+| ------- | ----------------- | -------- | --------------------------------------- |
+| rows    | Array<SummaryRow> | true     | An array of rows to summarise           |
+| title   | string            | false    | The title for the summary block         |
+| classes | string            | false    | Classes to add to the summary component |
 
 ## SummaryRow
 
