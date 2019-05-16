@@ -1,0 +1,53 @@
+$hub-spacing: 1rem;
+
+.hub {
+  &__row {
+    padding: $hub-spacing 0;
+
+    &:not(:first-child) {
+      border-top: 1px solid $color-grey-2;
+    }
+  }
+
+  &__title {
+    position: relative;
+    margin: 0 0 ($hub-spacing / 2);
+
+    &--complete {
+      padding-left: $hub-spacing + 1rem;
+
+      &:before {
+        @include icon('check-green');
+
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__status {
+    @extend .u-fs-r--b;
+
+    margin: 0;
+  }
+
+  @include mq('s') {
+    &__row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__title {
+      margin: 0 ($hub-spacing / 2) 0 0;
+    }
+
+    &__status {
+      margin: 0 0 0 ($hub-spacing / 2);
+      text-align: right;
+      white-space: nowrap;
+    }
+  }
+}
