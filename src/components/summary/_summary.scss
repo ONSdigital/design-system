@@ -1,5 +1,6 @@
 $summary-row-spacing: 1rem;
 $summary-col-spacing: 1rem;
+$hub-row-spacing: 1.3rem;
 
 .summary {
   &__items {
@@ -56,10 +57,6 @@ $summary-col-spacing: 1rem;
     left: 0;
   }
 
-  &__values {
-    @extend .u-fs-r--b;
-  }
-
   &__actions {
     white-space: nowrap;
   }
@@ -112,12 +109,37 @@ $summary-col-spacing: 1rem;
     }
   }
 
+  // Modifiers
+  &--hub & {
+    &__actions {
+      padding: 0 0 $hub-row-spacing;
+    }
+
+    &__item-title {
+      @extend .u-fs-r--b;
+
+      padding-top: $hub-row-spacing;
+    }
+  }
+
+  &:not(&--hub) & {
+    &__values {
+      @extend .u-fs-r--b;
+    }
+  }
+
   // Breakpoints
   @include mq(xs, s, none, '<') {
     &__item-title,
     &__values,
     &__actions {
       display: block;
+    }
+
+    &--hub & {
+      &__values {
+        display: none;
+      }
     }
   }
 
@@ -141,6 +163,14 @@ $summary-col-spacing: 1rem;
       &__item-title,
       &__values {
         width: 50%;
+      }
+    }
+
+    &--hub & {
+      &__item-title,
+      &__values,
+      &__actions {
+        padding-top: $hub-row-spacing;
       }
     }
   }
