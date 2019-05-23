@@ -1,5 +1,15 @@
 {% macro onsSummary(params) %}
-    <div class="summary{% if params.classes %} {{ params.classes }}{% endif %}">
+    {% set className = "summary" %}
+
+    {% if params.classes %}
+         {% set className = className + " " + params.classes %}
+    {% endif %}
+
+    {% if params.hub %}
+        {% set className = className + " summary--hub" %}
+    {% endif %}
+
+    <div class="{{ className }}">
         {% if params.title %}
             <h2>{{ params.title }}</h2>
         {% endif %}
@@ -28,6 +38,11 @@
                                 {% endif %}
 
                                 {{ rowItem.title | default(row.title) }} {{ hasIcons }}
+
+                                {# Render section status for mobile if is hub #}
+                                {% if params.hub and rowItem.valueList %}
+                                    <span class="u-d-no@s u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
+                                {% endif %}
                             </td>
                             {% if rowItem.valueList %}
                                 <td
