@@ -1,6 +1,6 @@
 import domready from 'js/domready';
 
-const exclusiveWrapperClass = 'field--exclusive';
+const exclusiveWrapperClass = 'js-mutually-exclusive';
 const exclusiveGroupClass = 'js-exclusive-group';
 const checkboxClass = 'js-exclusive-checkbox';
 const voiceOverAlertClass = 'js-exclusive-alert';
