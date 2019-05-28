@@ -1,12 +1,9 @@
 $details-caret-width: 1.1rem;
 
 .details {
-  margin: -0.5rem 0 0;
-
   &__summary {
     display: inline-block;
     position: relative;
-    margin: 0.5rem 0;
     outline: none;
     pointer-events: none;
 
@@ -93,7 +90,7 @@ $details-caret-width: 1.1rem;
 
     &__content {
       display: block;
-      padding-bottom: 1rem;
+      padding: 1rem 0 0;
     }
   }
 
@@ -111,7 +108,7 @@ $details-caret-width: 1.1rem;
 
       &:before,
       &:after {
-        top: 1.3rem;
+        top: 1.45rem;
       }
 
       &:focus {

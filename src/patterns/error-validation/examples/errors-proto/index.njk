@@ -3,7 +3,7 @@ layout: none
 ---
 {% extends "styles/page-template/_template.njk" %}
 
-{% from "components/field/_macro.njk" import onsField %}
+{% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 
@@ -20,14 +20,14 @@ layout: none
 } %}
 
 {% block main %}
-    {% call onsField({
-        "legend": "How many employees do you pay on a monthly basis?",
-        "questionMode": true
+    {% call onsQuestion({
+        "title": "How many employees do you pay on a monthly basis?"
     }) %}
         {{
             onsInput({
                 "id": "number",
                 "type": "number",
+                "fieldClasses": "question__answer",
                 "classes": "input--w-5",
                 "attributes": {
                     "min": 0,
@@ -43,6 +43,7 @@ layout: none
             onsInput({
                 "id": "suffixed",
                 "type": "number",
+                "fieldClasses": "question__answer",
                 "classes": "input--w-2",
                 "value": "101",
                 "attributes": {
@@ -61,8 +62,8 @@ layout: none
 
     {{
         onsButton({
-            "text": 'Save and continue',
-            "classes": 'u-mb-m u-mt-l'
+            "text": "Save and continue",
+            "classes": "u-mt-xl"
         })
     }}
 {% endblock %}

@@ -1,0 +1,43 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/details/_macro.njk" import onsDetails %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set page = { 
+    "title": "Anatomy of a question"
+} %} 
+
+{% block main %}
+    <a href="#">Previous</a>
+    {% call onsQuestion({
+        "title": "How many visitors are staying overnight at <em>3 Severn Road</em> on 13 May 2019?"
+    }) %}
+        {{ onsInput({
+            "id": "number-of-visitors",
+            "name": "number-of-visitors",
+            "type": "number",
+            "label": {
+                "text": "Number of visitors (enter 0 if no visitors)"
+            }
+        }) }}
+
+        {% call onsDetails({
+            "id": "question-justification",
+            "title": "Why your answer is important",
+            "button": {
+                "close": "Hide this"
+            }
+        }) %}
+            <p>Visitor information is collected to ensure that everyone is counted, in order to produce accurate estimates of the population, to facilitate effective planning and funding decisions.</p>
+        {% endcall %}
+    {% endcall %}
+
+    {{ onsButton({
+        "text": "Save and continue",
+        "classes": "u-mt-xl"
+    }) }}
+{% endblock %}
