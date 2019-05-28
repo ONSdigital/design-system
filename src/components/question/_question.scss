@@ -1,11 +1,25 @@
 .question {
-  @extend .u-mt-s;
+  margin: 1rem 0 0;
 
   &__title {
-    @extend .u-mb-s;
+    margin: 0 0 1rem;
 
     em {
       background-color: $color-emphasis;
+    }
+  }
+
+  &__legend {
+    margin: 0 0 1rem;
+  }
+
+  &__legend & {
+    &__title {
+      margin: 0;
+    }
+
+    &__description p {
+      margin: 1rem 0 0;
     }
   }
 }
