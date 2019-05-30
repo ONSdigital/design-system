@@ -22,7 +22,7 @@ export default class CollapsibleGroup extends AbstractComponent {
     this.buttonText = this.getFirstElement(`${scopeClass}-button-text`);
     this.totalCollapsibles = this.collapsibles.length;
     this.buttonOpenContent = this.buttonText.innerHTML.trim();
-    this.closeButtonContent = this.button.getAttribute('data-close-all');
+    this.buttonCloseContent = this.button.getAttribute('data-close-all');
 
     this.collapsibles.forEach(collapsible => {
       collapsible.onOpen = this.onOpen.bind(this);
@@ -62,12 +62,9 @@ export default class CollapsibleGroup extends AbstractComponent {
   }
 
   setButton() {
-    if (this.canClose()) {
-      this.buttonText.innerHTML = this.closeButtonContent;
-      this.button.setAttribute('data-ga-label', this.buttonOpenContent);
-    } else {
-      this.buttonText.innerHTML = this.buttonOpenContent;
-      this.button.setAttribute('data-ga-label', this.closeButtonContent);
-    }
+    const ableToClose = this.canClose();
+
+    this.buttonText.innerHTML = ableToClose ? this.buttonCloseContent : this.buttonOpenContent;
+    this.button.setAttribute('data-ga-label', ableToClose ? this.buttonOpenContent : this.buttonCloseContent);
   }
 }

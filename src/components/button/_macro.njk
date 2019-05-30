@@ -9,7 +9,7 @@
       {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
       >
       <span 
-          class="btn__inner {% if params.text_behaviours %} {{ params.text_behaviours }}{% endif %}">
+          class="btn__inner {% if params.textClasses %} {{ params.textClasses }}{% endif %}">
           {{- params.html | safe if params.html else params.text -}}
       </span>
   </button>
