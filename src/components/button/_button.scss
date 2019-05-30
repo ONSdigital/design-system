@@ -23,7 +23,7 @@ $button-border-height: 3px;
     display: inherit;
     padding: 0.75em 1em;
 
-    border-bottom: ems($button-border-height) solid rgba(0, 0, 0, 0.35);
+    border-bottom: ems($button-border-height) solid rgba(0, 0, 0, 0.6);
     border-radius: $input-radius;
 
     background: $color-button;
