@@ -23,7 +23,7 @@ $button-border-height: 3px;
     display: inherit;
     padding: 0.75em 1em;
 
-    border-bottom: ems($button-border-height) solid rgba(0, 0, 0, 0.35);
+    border-bottom: ems($button-border-height) solid rgba(0, 0, 0, 0.6);
     border-radius: $input-radius;
 
     background: $color-button;
@@ -49,12 +49,19 @@ $button-border-height: 3px;
     border-bottom: 0;
   }
 
+  // Modifiers
   &--small,
   &--mobile {
     font-size: 0.9rem;
   }
 
-  // Modifiers
+  &--small &,
+  &--mobile & {
+    &__inner {
+      padding: 0.5em;
+    }
+  }
+
   &--inline & {
     &__inner {
       padding: $input-padding 1rem;

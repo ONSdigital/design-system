@@ -1,0 +1,88 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/details/_macro.njk" import onsDetails %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set page = { 
+    "title": "Anatomy of a question"
+} %} 
+
+{% block main %}
+    <a href="#">Previous</a>
+    {% call onsQuestion({
+        "title": "On 1 May 2016, what was the number of employees for Bolt and Ratchet?",
+        "description": "<p>An employee is anyone aged 16 years or over that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job or being on a training scheme.</p>",
+        "useFieldset": true
+    }) %}
+        {% call onsDetails({
+            "id": "question-definition",
+            "title": "Definition for employee",
+            "button": {
+                "close": "Hide this"
+            }
+        }) %}
+            <p>An employee is a person employed for wages or salary, especially at non-executive level.</p>
+        {% endcall %}
+
+        {% call onsPanel() %}
+            <strong>Include:</strong>
+            <ul>
+                <li>All employees in Great Britain (England, Scotland and Wales), both full and part-time, who received pay in the relevant period</li>
+            </ul>
+            <strong>Exclude:</strong>
+            <ul>
+                <li>Trainees on government schemes</li>
+                <li>Employees working abroad unless paid directly from this business’s GB payroll</li>
+            </ul>
+        {% endcall %}
+
+        {{ onsRadios({
+            "id": "number-of-employees",
+            "name": "number-of-employees",
+            "radios": [
+                {
+                    "id": "number-of-employees-1-9",
+                    "label": {
+                        "text": "1 – 9 employees"
+                    },
+                    "value": "1-9"
+                },
+                {
+                    "id": "number-of-employees-10-49",
+                    "label": {
+                        "text": "10 – 49 employees"
+                    },
+                    "value": "10-49"
+                },
+                {
+                    "id": "number-of-employees-50-100",
+                    "label": {
+                        "text": "50 – 100+ employees",
+                        "description": "Include multi-corporations"
+                    },
+                    "value": "50-100"
+                }
+            ]
+        }) }}
+
+        {% call onsDetails({
+            "id": "question-justification",
+            "title": "Why do we ask this question",
+            "button": {
+                "close": "Hide this"
+            }
+        }) %}
+            <p>We ask this question because we want to know things.</p>
+        {% endcall %}
+    {% endcall %}
+
+    {{ onsButton({
+        "text": "Save and continue",
+        "classes": "u-mt-xl"
+    }) }}
+{% endblock %}
