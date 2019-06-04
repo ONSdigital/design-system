@@ -30,8 +30,7 @@ export default class Collapsible extends AbstractComponent {
       this.button.setAttribute('aria-controls', contentId);
       this.button.classList.remove('u-d-no');
       this.buttonOpen = this.button.innerHTML.trim();
-      this.closeButton =
-        this.details.getAttribute('data-btn-close') || this.buttonOpen;
+      this.closeButton = this.details.getAttribute('data-btn-close') || this.buttonOpen;
     }
 
     this.summary.setAttribute('aria-controls', contentId);

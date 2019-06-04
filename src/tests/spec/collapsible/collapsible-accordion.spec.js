@@ -96,8 +96,7 @@ describe('Component: Accordion', function() {
 
       rewiremock.enable();
 
-      const collapsibleGroupModule = require('components/details/collapsible-group.module')
-        .default;
+      const collapsibleGroupModule = require('components/details/collapsible-group.module').default;
 
       collapsibleGroupModule();
 
@@ -207,20 +206,18 @@ function renderComponent(params) {
   const scopeEl = wrapper.querySelector('.js-collapsible-group');
   const toggleButton = wrapper.querySelector('.js-collapsible-all');
 
-  const items = [...wrapper.querySelectorAll('.js-collapsible')].map(
-    details => {
-      const summary = details.querySelector('.js-collapsible-summary');
-      const content = details.querySelector('.js-collapsible-content');
-      const button = details.querySelector('.js-collapsible-button');
+  const items = [...wrapper.querySelectorAll('.js-collapsible')].map(details => {
+    const summary = details.querySelector('.js-collapsible-summary');
+    const content = details.querySelector('.js-collapsible-content');
+    const button = details.querySelector('.js-collapsible-button');
 
-      return {
-        details,
-        summary,
-        content,
-        button
-      };
-    }
-  );
+    return {
+      details,
+      summary,
+      content,
+      button
+    };
+  });
 
   return {
     wrapper,
