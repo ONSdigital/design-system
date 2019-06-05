@@ -12,6 +12,7 @@ export class Collapsible {
     this.summary = this.details.querySelector('.js-collapsible-summary');
     this.content = this.details.querySelector('.js-collapsible-content');
     this.button = this.details.querySelector('.js-collapsible-button');
+    this.buttonInner = this.button.querySelector('.js-collapsible-button-inner');
 
     // Initialise
     const contentId = this.content.getAttribute('id');
@@ -20,7 +21,7 @@ export class Collapsible {
       this.button.addEventListener('click', this.toggle.bind(this));
       this.button.setAttribute('aria-controls', contentId);
       this.button.classList.remove('u-d-no');
-      this.buttonOpen = this.button.innerHTML.trim();
+      this.buttonOpen = this.buttonInner.innerHTML.trim();
       this.closeButton = this.details.getAttribute('data-btn-close') || this.buttonOpen;
     }
 
@@ -65,7 +66,7 @@ export class Collapsible {
 
       if (this.button) {
         this.button.setAttribute('data-ga-action', `${action} panel`);
-        this.button.innerHTML = open ? this.closeButton : this.buttonOpen;
+        this.buttonInner.innerHTML = open ? this.closeButton : this.buttonOpen;
       }
 
       if (this.onOpen && this.onClose) {
