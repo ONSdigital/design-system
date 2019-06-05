@@ -98,7 +98,7 @@
     "lint-staged": "^8.1.0",
     "loader-utils": "^1.1.0",
     "lodash": "^4.17.11",
-    "marked": "^0.5.2",
+    "marked": "^0.6.2",
     "mdn-polyfills": "^5.14.0",
     "mocha": "^5.2.0",
     "ncp": "^2.0.0",
