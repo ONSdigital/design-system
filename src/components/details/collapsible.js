@@ -12,7 +12,7 @@ export class Collapsible {
     this.summary = this.details.querySelector('.js-collapsible-summary');
     this.content = this.details.querySelector('.js-collapsible-content');
     this.button = this.details.querySelector('.js-collapsible-button');
-    this.buttonInner = this.button.querySelector('.js-collapsible-button-inner');
+    this.buttonInner = this.details.querySelector('.js-collapsible-button-inner');
 
     // Initialise
     const contentId = this.content.getAttribute('id');
