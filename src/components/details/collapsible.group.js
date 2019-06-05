@@ -3,11 +3,12 @@ export default class CollapsibleGroup {
     this.openCollapsibles = 0;
 
     this.button = button;
+    this.buttonInner = button.querySelector('.js-collapsible-all-inner');
     this.group = button.getAttribute('data-group');
     this.collapsibles = collapsibles.filter(collapsible => collapsible.group === this.group);
 
     this.totalCollapsibles = this.collapsibles.length;
-    this.buttonOpen = button.innerHTML.trim();
+    this.buttonOpen = this.buttonInner.innerHTML.trim();
     this.closeButton = button.getAttribute('data-close-all');
 
     this.collapsibles.forEach(collapsible => {
@@ -46,10 +47,10 @@ export default class CollapsibleGroup {
 
   setButton() {
     if (this.canClose()) {
-      this.button.innerHTML = this.closeButton;
+      this.buttonInner.innerHTML = this.closeButton;
       this.button.setAttribute('data-ga-label', this.buttonOpen);
     } else {
-      this.button.innerHTML = this.buttonOpen;
+      this.buttonInner.innerHTML = this.buttonOpen;
       this.button.setAttribute('data-ga-label', this.closeButton);
     }
   }
