@@ -8,6 +8,6 @@
       {% if params.disabled %} disabled="disabled" aria-disabled="true"{% endif %}
       {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
       >
-      <span class="btn__inner">{{- params.html | safe if params.html else params.text -}}</span>
+      <span class="btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}">{{- params.html | safe if params.html else params.text -}}</span>
   </button>
 {% endmacro %}
