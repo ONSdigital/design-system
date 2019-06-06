@@ -7,7 +7,7 @@ const params = {
     ariaLabel: 'Toggle main navigation'
   },
   navigation: {
-    classes: 'js-header-nav header-nav--mobile',
+    classes: 'js-header-nav u-d-no',
     id: 'main-nav',
     ariaLabel: 'Main menu',
     ariraListLabel: 'Navigation menu',
@@ -87,7 +87,7 @@ describe('Component: Navigation', function() {
         });
 
         it('Should not have the hidden class', function() {
-          expect(this.mainNavList.classList.contains('header-nav--mobile')).to.be.false;
+          expect(this.mainNavList.classList.contains('u-d-no')).to.be.false;
         });
       });
 
@@ -101,7 +101,7 @@ describe('Component: Navigation', function() {
         });
 
         it('Should not have the hidden class', function() {
-          expect(this.mainNavList.classList.contains('header-nav--mobile')).to.be.true;
+          expect(this.mainNavList.classList.contains('u-d-no')).to.be.true;
         });
       });
     });
