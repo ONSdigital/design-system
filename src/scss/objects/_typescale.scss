@@ -1,21 +1,27 @@
 $base: 18px;
 
 $type_matrix: (
-  u-fs-xxl: (
+  u-fs-xxxl: (
     small: 32px,
     large: 48px,
     weight: $font-weight-bold,
     line-height: 1.3
   ),
-  u-fs-xl: (
+  u-fs-xxl: (
     small: 28px,
     large: 36px,
     weight: $font-weight-bold,
     line-height: 1.4
   ),
-  u-fs-l: (
+  u-fs-xl: (
     small: 24px,
     large: 28px,
+    weight: $font-weight-bold,
+    line-height: 1.4
+  ),
+  u-fs-l: (
+    small: 22px,
+    large: 24px,
     weight: $font-weight-bold,
     line-height: 1.4
   ),
