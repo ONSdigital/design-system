@@ -4,18 +4,21 @@ layout: none
 {% extends "styles/page-template/_template.njk" %}
 
 {% from "components/question/_macro.njk" import onsQuestion %}
-{% from "components/address-input/_macro.njk" import onsManualAddressInput %}
+{% from "components/address/_macro.njk" import onsManualAddressInput %}
 
 {% set page = {
-    "title": "Manual Address Input Example"
+    "title": "Manual Organisation Address Input Example"
 } %}
 {% block main %}
     {% call onsQuestion({
-        "title": "What is your address?",
+        "title": "What is the oranisation or company's address?",
         "useFieldset": true
     }) %}
         {{ onsManualAddressInput({
             "id": "address",
+            "organisation": {
+                "label": "Organisation or company name"
+            },
             "line1": {
                 "label": "Building and street"
             },
