@@ -2,7 +2,7 @@ import domReady from 'js/domready';
 
 const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
-const hideClass = 'u-d-no';
+const hideClass = 'u-d-no@xs@m';
 
 export default class NavToggle {
   constructor(toggle, nav) {
