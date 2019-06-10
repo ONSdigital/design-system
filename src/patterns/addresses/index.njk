@@ -1,0 +1,36 @@
+---
+title: Addresses
+group: Ask users for...
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+## When to use this pattern
+
+This pattern should be used when you need to collect an address from a user.
+
+## How to use this pattern
+
+The manual address input should always be wrapped in a fieldset with a legend. This can be achieved by wrapping the address input component in a [question component](/patterns/question) with the `useFieldset` parameter set to true.
+
+{{
+    patternlibExample({"path": "components/address/examples/address/index.njk"})
+}}
+
+### Asking for an organisation or company's address
+
+An additional field may be configured on the address input if you need to ask for an organisation or company name:
+
+{{
+    patternlibExample({"path": "components/address/examples/organisation-address/index.njk"})
+}}
+
+## Research on this pattern
+
+{% call onsPanel() %}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/412" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+
+[Discuss 'Addresses' on Github](https://github.com/ONSdigital/design-system/issues/412)
