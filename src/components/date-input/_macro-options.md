@@ -10,6 +10,7 @@
 | mutuallyExclusive | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false    | Configuration object if this is a mutually exclusive list                                                    |
 | legendClasses     | string                                                        | false    | Classes to apply to the legend                                                                               |
 | questionMode      | boolean                                                       | false    | Whether to change the visual layout of the input to a survey question                                        |
+| noField           | boolean                                                       | false    | Prevents the date inputs from being wrapped in a [field component](/components/field)                        |
 
 ## DateField
 
