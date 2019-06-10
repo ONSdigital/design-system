@@ -1,0 +1,64 @@
+{% from "components/input/_macro.njk" import onsInput %}
+
+{% macro onsManualAddressInput(params) %}
+    {% if params.organisation.label %}
+        {{
+            onsInput({
+                "id": params.id + "-organisation",
+                "label": {
+                    "text": params.organisation.label
+                },
+                "classes": "input--w-20@m",
+                "name": params.organisation.name | default(params.id + "-organisation")
+            })
+        }}
+    {% endif %}
+    {{
+        onsInput({
+            "id": params.line1.id | default(params.id + "-line-1"),
+            "label": {
+                "text": params.line1.label
+            },
+            "classes": "input--w-20@m",
+            "name": params.line1.name | default(params.id + "-line-1")
+        })
+    }}
+    {{
+        onsInput({
+            "id": params.line2.id | default(params.id + "-line-2"),
+            "label": {
+                "text": params.line2.label
+            },
+            "classes": "input--w-20@m",
+            "name": params.line2.name | default(params.id + "-line-2")
+        })
+    }}
+    {{
+        onsInput({
+            "id": params.town.id | default(params.id + "-town"),
+            "label": {
+                "text": params.town.label
+            },
+            "name": params.town.name | default(params.id + "-town")
+        })
+    }}
+    {{
+        onsInput({
+            "id": params.county.id | default(params.id + "-county"),
+            "label": {
+                "text": params.county.label
+            },
+            "name": params.county.name | default(params.id + "-county")
+        })
+    }}
+    {{
+        onsInput({
+            "id": params.postcode.id | default(params.id + "-postcode"),
+            "label": {
+                "text": params.postcode.label
+            },
+            "classes": "input--w-5",
+            "name": params.postcode.name | default(params.id + "-postcode")
+        })
+    }}
+{% endmacro %}
