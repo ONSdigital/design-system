@@ -97,7 +97,7 @@
       {% if params.navigation %}
           <div class="header__bottom">
               <div class="container container--gutterless@xs@m{{ ' container--full-width' if params.fullWidth }}">
-                  <nav class="header-nav header-nav--mobile js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel }}">
+                  <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel }}">
                       <ul class="header-nav__list" aria-label="{{ params.navigation.ariaListLabel }}" role="menubar">
                           {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
                               <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">

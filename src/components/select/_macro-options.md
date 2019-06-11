@@ -10,6 +10,7 @@
 | fieldId       | string                               | false    | Id for the field                                                                      |
 | fieldClasses  | string                               | false    | Classes for the field                                                                 |
 | legendClasses | string                               | false    | Classes for the legend                                                                |
+| noField       | boolean                              | false    | Prevents the select from being wrapped in a [field component](/components/field)      |
 
 ## SelectOption
 

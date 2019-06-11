@@ -2,35 +2,36 @@ import domReady from 'js/domready';
 
 const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
-const hideClass = 'header-nav--mobile';
+const hideClass = 'u-d-no@xs@m';
 
 export default class NavToggle {
   constructor(toggle, nav) {
     this.toggle = toggle;
     this.nav = nav;
-    this.toggleNavBinding = this.toggleNav.bind(this);
     this.toggle.classList.remove('u-d-no');
+
+    this.closeNav();
   }
 
   registerEvents() {
-    this.toggle.addEventListener('click', this.toggleNavBinding, true);
+    this.toggle.addEventListener('click', this.toggleNav.bind(this));
   }
 
   toggleNav() {
     const isHidden = this.nav.getAttribute(attrHidden);
-    isHidden === 'false' ? this.closeNav(this.toggle, this.nav) : this.openNav(this.toggle, this.nav);
+    isHidden === 'false' ? this.closeNav() : this.openNav();
   }
 
-  openNav(toggleEl, navEl) {
-    toggleEl.setAttribute(attrExpanded, 'true');
-    navEl.setAttribute(attrHidden, 'false');
-    navEl.classList.remove(hideClass);
+  openNav() {
+    this.toggle.setAttribute(attrExpanded, 'true');
+    this.nav.setAttribute(attrHidden, 'false');
+    this.nav.classList.remove(hideClass);
   }
 
-  closeNav(toggleEl, navEl) {
-    toggleEl.setAttribute(attrExpanded, 'false');
-    navEl.setAttribute(attrHidden, 'true');
-    navEl.classList.add(hideClass);
+  closeNav() {
+    this.toggle.setAttribute(attrExpanded, 'false');
+    this.nav.setAttribute(attrHidden, 'true');
+    this.nav.classList.add(hideClass);
   }
 }
 
