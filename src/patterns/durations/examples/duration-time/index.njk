@@ -7,7 +7,7 @@
     "legend": "Time"
 }) %}
     <div class="field__group">
-        <div class="field__item">
+        <p class="field__item">
             {{ 
                 onsInput({
                     "id": "survey-duration-hours",
@@ -20,11 +20,12 @@
                     },
                     "suffix": {
                         "title": "Hours"
-                    }
+                    },
+                    "noField": true
                 })
             }}
-        </div>
-        <div class="field__item">
+        </p>
+        <p class="field__item">
             {{ 
                 onsInput({
                     "id": "survey-duration-minutes",
@@ -38,9 +39,10 @@
                     "suffix": {
                         "title": "Minutes",
                         "text": "Mins"
-                    }
+                    },
+                    "noField": true
                 })
             }}
-        </div>
+        </p>
     </div>
 {% endcall %}
