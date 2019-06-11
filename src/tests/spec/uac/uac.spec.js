@@ -47,4 +47,34 @@ describe('Component: UAC Input', () => {
       expect(input.value).to.equal('0000  0000  0000  0000');
     });
   });
+
+  describe('Given that the user has already inputted a value, when they delete or change a value', () => {
+    beforeEach(() => {
+      input.value = '0000  000  0000  0000';
+
+      input.setSelectionRange(8, 8);
+
+      instance.handleInput();
+    });
+
+    it('then the cursors position should not change', () => {
+      expect(input.selectionStart).to.equal(8);
+    });
+  });
+
+  describe('Given that the input is empty, when an input event is triggered with no new value', () => {
+    beforeEach(() => {
+      instance.handleInput();
+    });
+
+    it('then the replacement function should not error', () => {
+      let error = false;
+
+      window.onerror = () => {
+        error = true;
+      };
+
+      expect(error).to.equal(false);
+    });
+  });
 });

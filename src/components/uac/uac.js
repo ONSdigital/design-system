@@ -10,9 +10,13 @@ export default class UAC {
   }
 
   handleInput() {
-    this.input.value = this.input.value
-      .replace(/\s/g, '')
-      .match(/.{1,4}/g)
-      .join('  ');
+    const cursorPosition = this.input.selectionStart;
+    const shouldRepositionCursor = cursorPosition !== this.input.value.length;
+
+    this.input.value = (this.input.value.replace(/\s/g, '').match(/.{1,4}/g) || []).join('  ');
+
+    if (shouldRepositionCursor) {
+      this.input.setSelectionRange(cursorPosition, cursorPosition);
+    }
   }
 }
