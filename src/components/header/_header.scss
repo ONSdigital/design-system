@@ -51,7 +51,7 @@ $header-logo-height: 1.333rem;
 
   &__title {
     @extend .u-fs-r--b;
-    @extend .u-fs-l\@m;
+    @extend .u-fs-xl\@m;
 
     margin: 0;
     color: $color-white;
@@ -76,7 +76,7 @@ $header-logo-height: 1.333rem;
     .header {
       &__title {
         @extend .u-fs-m;
-        @extend .u-fs-xl\@m;
+        @extend .u-fs-xxl\@m;
       }
     }
   }
