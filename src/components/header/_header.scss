@@ -7,6 +7,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   // Elements
+
   &__top {
     width: 100%;
 
@@ -19,13 +20,15 @@
     }
   }
 
-  &__logo {
-    padding: 0.5rem 0;
-    width: 200px;
-
-    &--print {
-      display: none;
+  &:not(&--internal) & {
+    &__grid-top {
+      min-height: 54px;
     }
+  }
+
+  &__logo {
+    display: block;
+    width: 200px;
   }
 
   &__main {
