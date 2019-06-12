@@ -20,10 +20,12 @@
     }
   }
 
-  &:not(&--internal) & {
-    &__grid-top {
-      min-height: 54px;
-    }
+  &__grid-top {
+    min-height: 54px;
+  }
+
+  &--internal &__grid-top {
+    min-height: 36px;
   }
 
   &__logo {
