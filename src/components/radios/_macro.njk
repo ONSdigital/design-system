@@ -18,7 +18,7 @@
                             class="radio__input {{ radio.classes }}"
                             value="{{ radio.value }}" 
                             name="{{ params.name }}"
-                            {% if radio.checked %} checked{% endif %}
+                            {% if radio.checked or (params.value and params.value == radio.value) %} checked{% endif %}
                             {% if radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                         >
                         <label class="radio__label {{ radio.label.classes }}" for="{{ radio.id }}">
