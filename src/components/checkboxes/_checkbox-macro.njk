@@ -1,5 +1,5 @@
 {% macro onsCheckbox(params) %}
-    <div class="checkbox {{ params.classes }}">
+    <span class="checkbox {{ params.classes }}">
         <input
             type="checkbox"
             id="{{ params.id }}"
@@ -17,7 +17,7 @@
             {% endif %}
         </label>
         {% if params.other %}
-            <div class="checkbox__other">
+            <span class="checkbox__other">
                 {% from "components/input/_macro.njk" import onsInput %}
                 {{
                     onsInput({
@@ -29,10 +29,11 @@
                         "label": {
                             "text": params.other.label.text,
                             "classes": 'u-fs-s--b'
-                        }
+                        },
+                        "noField": true
                     })
                 }}
-            </div>
+            </span>
         {% endif %}
-    </div>
+    </span>
 {% endmacro %}

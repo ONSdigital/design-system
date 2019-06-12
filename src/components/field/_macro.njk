@@ -3,7 +3,7 @@
         {% if params.mutuallyExclusive %}
             {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
             <br>
-            <div class="field__item">
+            <p class="field__item">
                 <div class="field__label u-fs-r--b" aria-hidden="true">{{ params.mutuallyExclusive.or }}</div>
                 {{
                     onsCheckbox({
@@ -22,7 +22,7 @@
                         }
                     })
                 }}
-            </div>
+            </p>
             <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-group-adjective="{{ params.mutuallyExclusive.deselectGroupAdjective }}" data-checkbox-adjective="{{ params.mutuallyExclusive.deselectCheckboxAdjective }}"></span>
         {% endif %} 
     {% endset %}
@@ -45,7 +45,7 @@
         {% endif %}
     {% else %}
         {% if not params.noField %}
-            <div{% if params.id %} id="{{ params.id }}"{% endif %} class="field{% if params.mutuallyExclusive %} js-mutually-exclusive{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}">
+            <p{% if params.id %} id="{{ params.id }}"{% endif %} class="field{% if params.mutuallyExclusive %} js-mutually-exclusive{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}">
         {% endif %}
             {% if params.description %}
                 <div class="field__description">{{ params.description }}</div>
@@ -53,7 +53,7 @@
             {{ caller() }}
             {{ mutuallyExclusive | safe }}
         {% if not params.noField %}
-            </div>
+            </p>
         {% endif %}
     {% endif %}
 {% endmacro %}
