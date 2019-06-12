@@ -8,7 +8,7 @@
     "description": "If you have lived at this address for less than a year then enter 0 into the year input."
 }) %}
     <div class="field__group">
-        <div class="field__item">
+        <p class="field__item">
             {{ 
                 onsInput({
                     "id": "address-duration-years",
@@ -21,11 +21,12 @@
                     },
                     "suffix": {
                         "title": "Years"
-                    }
+                    },
+                    "noField": true
                 })
             }}
-        </div>
-        <div class="field__item">
+        </p>
+        <p class="field__item">
             {{ 
                 onsInput({
                     "id": "address-duration-months",
@@ -38,9 +39,10 @@
                     },
                     "suffix": {
                         "title": "Months"
-                    }
+                    },
+                    "noField": true
                 })
             }}
-        </div>
+        </p>
     </div>
 {% endcall %}

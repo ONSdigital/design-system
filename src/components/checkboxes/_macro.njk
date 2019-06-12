@@ -17,7 +17,7 @@
                 {% if params.mutuallyExclusive %}  
                     {% set exclusiveClass = ' js-exclusive-group' %}
                 {% endif %}
-                <div class="field__item">
+                <p class="field__item">
                     {% set config = {
                         "id": checkbox.id,
                         "name": checkbox.name,
@@ -49,7 +49,7 @@
                         }) %}
                     {% endif %}
                     {{ onsCheckbox(config) }}
-                </div>
+                </p>
                 {% if not loop.last %}
                     <br>
                 {% endif %}
