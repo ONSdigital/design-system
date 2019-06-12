@@ -7,7 +7,6 @@
   -moz-osx-font-smoothing: grayscale;
 
   // Elements
-
   &__top {
     width: 100%;
 
@@ -22,10 +21,6 @@
 
   &__grid-top {
     min-height: 54px;
-  }
-
-  &--internal &__grid-top {
-    min-height: 36px;
   }
 
   &__logo {
@@ -88,6 +83,12 @@
       @include mq(m) {
         padding: 0.8rem 0;
       }
+    }
+  }
+
+  &--internal & {
+    &__grid-top {
+      min-height: 36px;
     }
   }
 

@@ -1,16 +1,19 @@
-| Name         | Type                                               | Required | Description                                               |
-| ------------ | -------------------------------------------------- | -------- | --------------------------------------------------------- |
-| phase        | `PhaseBanner` [_(ref)_](/components/phase-banner)  | false    | Settings for the Phase banner component                   |
-| fullWidth    | boolean                                            | false    | Set the header to be the full width of the viewport       |
-| logoHref     | string                                             | false    | Path for the logo link. Defaults to "/"                   |
-| logo         | string                                             | false    | Path for the logo. Defaults to "ons-logo-pos"             |
-| language     | `Language` [_(ref)_](/patterns/language-selection) | false    | Settings for the language selection component             |
-| serviceLinks | `Array<Navigation>`                                | false    | An array to render the service links list                 |
-| title        | string                                             | true     | The title for the service                                 |
-| desc         | string                                             | false    | Tagline/description for the service                       |
-| button       | `Button` [_(ref)_](/components/button)             | false    | Settings for save and sign out using the button component |
-| navigation   | `Array<Navigation>`                                | false    | An array to render the main navigation                    |
-| titleAsH1    | boolean                                            | false    | Override to render the header title as a H1               |
+| Name          | Type                                               | Required                             | Description                                               |
+| ------------- | -------------------------------------------------- | ------------------------------------ | --------------------------------------------------------- |
+| phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)  | false                                | Settings for the Phase banner component                   |
+| fullWidth     | boolean                                            | false                                | Set the header to be the full width of the viewport       |
+| logoHref      | string                                             | false                                | Path for the logo link. Defaults to "/"                   |
+| logo          | string                                             | false                                | Path for the logo. Defaults to "ons-logo-pos"             |
+| language      | `Language` [_(ref)_](/patterns/language-selection) | false                                | Settings for the language selection component             |
+| serviceLinks  | `Array<Navigation>`                                | false                                | An array to render the service links list                 |
+| title         | string                                             | true                                 | The title for the service                                 |
+| desc          | string                                             | false                                | Tagline/description for the service                       |
+| button        | `Button` [_(ref)_](/components/button)             | false                                | Settings for save and sign out using the button component |
+| navigation    | `Array<Navigation>`                                | false                                | An array to render the main navigation                    |
+| titleAsH1     | boolean                                            | false                                | Override to render the header title as a H1               |
+| titleLogo     | string                                             | false                                | URL for image to use instead of a title string            |
+| titleLogoAlt  | string                                             | false (if `titleLogo` not specified) | Alt tag for the title logo                                |
+| titleLogoHref | string                                             | false                                | Will wrap the title logo in a link to the specified URL   |
 
 ## Navigation
 
