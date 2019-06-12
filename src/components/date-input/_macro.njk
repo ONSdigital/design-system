@@ -21,7 +21,7 @@
         {% endif %}
         <div class="field__group">
             {% if params.day %}
-            <div class="field__item">
+            <p class="field__item">
                 {{
                     onsInput({
                         "id": params.id + "-day",
@@ -32,13 +32,14 @@
                         "max": 31,
                         "attributes": params.day.attributes,
                         "label": params.day.label,
-                        "value": params.day.value
+                        "value": params.day.value,
+                        "noField": true
                     })
                 }}
-            </div>
+            </p>
             {% endif %}
             {% if params.month %}
-            <div class="field__item">
+            <p class="field__item">
                 {{
                     onsInput({
                         "id": params.id + "-month",
@@ -49,13 +50,14 @@
                         "max": 12,
                         "attributes": params.month.attributes,
                         "label": params.month.label,
-                        "value": params.month.value
+                        "value": params.month.value,
+                        "noField": true
                     })
                 }}
-            </div>
+            </p>
             {% endif %}
             {% if params.year %}
-            <div class="field__item">
+            <p class="field__item">
                 {{
                     onsInput({
                         "id": params.id + "-year",
@@ -66,10 +68,11 @@
                         "max": 3000,
                         "attributes": params.year.attributes,
                         "label": params.year.label,
-                        "value": params.year.value
+                        "value": params.year.value,
+                        "noField": true
                     })
                 }}
-            </div>
+            </p>
             {% endif %}
         </div>
     {% endcall %}

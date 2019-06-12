@@ -42,8 +42,8 @@
             {% if params.prefix is defined %}
                 {% set prefixClass = " input-type--prefix" %}
             {% endif %}
-            <div class="input-type{{ prefixClass }}">
-                <div class="input-type__inner">
+            <span class="input-type{{ prefixClass }}">
+                <span class="input-type__inner">
         {% endif %}
         <input
             type="{{ type }}"
@@ -68,8 +68,8 @@
                         title="{{ abbr.title }}"
                         {% if abbr.id %} id="{{ abbr.id }}"{% endif %}
                         >{{ abbr.text or abbr.title }}</abbr>
-                </div>
-            </div>
+                </span>
+            </span>
         {% endif %}
     {% endcall %}
 {% endmacro %}

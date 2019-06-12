@@ -10,8 +10,8 @@
     }) %}
         <div class="field__items">
             {% for radio in params.radios %}
-                <div class="field__item">
-                    <div class="radio">
+                <p class="field__item">
+                    <span class="radio">
                         <input
                             type="radio"
                             id="{{ radio.id }}"
@@ -29,7 +29,7 @@
                             {% endif %}
                         </label>
                         {% if radio.other %}
-                            <div class="radio__other">
+                            <span class="radio__other">
                                 {% from "components/input/_macro.njk" import onsInput %}
                                 {{
                                     onsInput({
@@ -41,13 +41,14 @@
                                         "label": {
                                             "text": radio.other.label.text,
                                             "classes": 'u-fs-s--b'
-                                        }
+                                        },
+                                        "noField": true
                                     })
                                 }}
-                            </div>
+                            </span>
                         {% endif %}
-                    </div>
-                </div>
+                    </span>
+                </p>
                 {% if not loop.last %}
                     <br>
                 {% endif %}
