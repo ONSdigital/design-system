@@ -1,0 +1,30 @@
+.uac {
+  &__field {
+    display: inline-block;
+    position: relative;
+    padding: 1rem;
+    border: 8px solid $color-dark-blue;
+  }
+
+  &__input {
+    max-width: 12.6em;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+
+    @media all and (min-width: 375px) {
+      font-size: 22px;
+      letter-spacing: 0.04em;
+    }
+
+    @include mq('s') {
+      width: 14.9em !important;
+      max-width: 14.9em;
+      font-size: 24px;
+      letter-spacing: 0.15em;
+    }
+  }
+
+  &__security {
+    display: flex;
+  }
+}
