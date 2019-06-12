@@ -1,12 +1,13 @@
-| Name          | Type           | Required | Description                                                                      |
-| ------------- | -------------- | -------- | -------------------------------------------------------------------------------- |
-| id            | string         | false    | Id to apply to the fieldset                                                      |
-| classes       | string         | false    | Classes to apply to the fieldset                                                 |
-| legend        | string         | false    | The legend to apply to the fieldset                                              |
-| name          | string         | true     | The name to apply to the radios                                                  |
-| radios        | `Array<Radio>` | true     | An array of radios to render                                                     |
-| legendClasses | string         | false    | Classes to apply to the legend                                                   |
-| noField       | boolean        | false    | Prevents the radios from being wrapped in a [field component](/components/field) |
+| Name          | Type           | Required | Description                                                                                                                    |
+| ------------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| id            | string         | false    | Id to apply to the fieldset                                                                                                    |
+| classes       | string         | false    | Classes to apply to the fieldset                                                                                               |
+| legend        | string         | false    | The legend to apply to the fieldset                                                                                            |
+| name          | string         | true     | The name to apply to the radios                                                                                                |
+| radios        | `Array<Radio>` | true     | An array of radios to render                                                                                                   |
+| legendClasses | string         | false    | Classes to apply to the legend                                                                                                 |
+| noField       | boolean        | false    | Prevents the radios from being wrapped in a [field component](/components/field)                                               |
+| value         | string         | false    | Can be used to set the checked radio. This can also be achieved by setting the `checked` parameter on the `Radio` item to true |
 
 ## Radio
 
