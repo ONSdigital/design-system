@@ -1,6 +1,8 @@
 export default class UAC {
   constructor(context) {
     this.input = context;
+    const groupSize = parseInt(context.getAttribute('data-group-size'));
+    this.groupingRegex = new RegExp(`.{1,${groupSize}}`, 'g');
 
     this.bindEventListeners();
   }
@@ -13,7 +15,7 @@ export default class UAC {
     const cursorPosition = this.input.selectionStart;
     const shouldRepositionCursor = cursorPosition !== this.input.value.length;
 
-    this.input.value = (this.input.value.replace(/\s/g, '').match(/.{1,4}/g) || []).join('  ');
+    this.input.value = (this.input.value.replace(/\s/g, '').match(this.groupingRegex) || []).join(' ');
 
     if (shouldRepositionCursor) {
       this.input.setSelectionRange(cursorPosition, cursorPosition);
