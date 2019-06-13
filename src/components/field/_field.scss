@@ -20,13 +20,16 @@
     margin-top: -1rem;
   }
 
+  &__items {
+    display: block;
+  }
+
   &__item {
     display: inline-block;
     position: relative;
   }
 
-  & > &,
-  &__items > & {
+  *:not(.field__group) > & {
     &__item {
       margin: 0 0 0.5rem;
       width: 100%;

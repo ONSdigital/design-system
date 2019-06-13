@@ -43,16 +43,17 @@
             </fieldset>
         {% endif %}
     {% else %}
+        {% set tag = "div" if params.mutuallyExclusive else "p" %}
         {% if not params.noField %}
-            <p{% if params.id %} id="{{ params.id }}"{% endif %} class="field{% if params.mutuallyExclusive %} js-mutually-exclusive{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}">
+            <{{ tag }}{% if params.id %} id="{{ params.id }}"{% endif %} class="field{% if params.mutuallyExclusive %} js-mutually-exclusive{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}">
         {% endif %}
             {% if params.description %}
-                <div class="field__description">{{ params.description }}</div>
+                <span class="field__description">{{ params.description }}</span>
             {% endif %}
             {{ caller() }}
             {{ mutuallyExclusive | safe }}
         {% if not params.noField %}
-            </p>
+            </{{ tag }}>
         {% endif %}
     {% endif %}
 {% endmacro %}

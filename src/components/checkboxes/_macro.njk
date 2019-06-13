@@ -4,14 +4,14 @@
 
     {% call onsField({
         "id": params.id,
-        "legend": params.legend,
         "description": params.description,
         "classes": params.classes,
         "mutuallyExclusive": params.mutuallyExclusive,
-        "legendClasses": params.legendClasses
+        "legendClasses": params.legendClasses,
+        "noField": params.noField
     }) %}
-        <div class="field__label">{{ params.checkboxesLabel }}</div>
-        <div class="field__items">
+        <span class="field__label">{{ params.checkboxesLabel }}</span>
+        <span class="field__items">
             {% for checkbox in params.checkboxes %}
                 {% set labelHTML = checkbox.label.text %}
                 {% if params.mutuallyExclusive %}  
@@ -54,6 +54,6 @@
                     <br>
                 {% endif %}
             {% endfor %}
-        </div>
+        </span>
     {% endcall %}
 {% endmacro %}
