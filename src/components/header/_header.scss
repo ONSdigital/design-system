@@ -1,6 +1,3 @@
-$logo-aspect-ratio: 272 / 24;
-$header-logo-height: 1.333rem;
-
 // Block
 .header {
   display: block;
@@ -16,22 +13,19 @@ $header-logo-height: 1.333rem;
     background: $color-white;
   }
 
-  &__grid-top {
-    height: 50px;
-  }
-
   &--internal & {
     &__top {
       background: $color-dark-blue;
     }
   }
 
-  &__logo {
-    width: $header-logo-height * $logo-aspect-ratio;
+  &__grid-top {
+    min-height: 54px;
+  }
 
-    &--print {
-      display: none;
-    }
+  &__logo {
+    display: block;
+    width: 200px;
   }
 
   &__main {
@@ -83,14 +77,6 @@ $header-logo-height: 1.333rem;
 
   // Modifier - Thin variant
   &--thin & {
-    &__top {
-      padding: 0.5rem 0;
-    }
-
-    &__grid-top {
-      height: auto;
-    }
-
     &__main {
       padding: 0.5rem 0;
 
@@ -98,9 +84,11 @@ $header-logo-height: 1.333rem;
         padding: 0.8rem 0;
       }
     }
+  }
 
-    &__logo {
-      width: 200px;
+  &--internal & {
+    &__grid-top {
+      min-height: 36px;
     }
   }
 

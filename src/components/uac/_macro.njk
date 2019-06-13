@@ -1,0 +1,21 @@
+{% from "components/input/_macro.njk" import onsInput %}
+
+{% macro onsUACInput(params) %}
+    {{ onsInput({
+        "id": params.id,
+        "type": "number",
+        "fieldClasses": "uac__field" + (" " + params.classes if params.classes else ""),
+        "classes": "uac__input js-uac",
+        "label": params.label,
+        "attributes": {
+            "maxlength": 22
+        }
+    }) }}
+
+    {% if params.securityMessage %}
+        <div class="uac__security u-mt-m">
+            <div class="uac__icon"><span class="icon icon--lock"></span></div>
+            <p class="uac__message">{{ params.securityMessage }}</p>
+        </div>
+    {% endif %}
+{% endmacro %}

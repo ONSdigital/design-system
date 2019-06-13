@@ -10,15 +10,15 @@
     }) %}
         <div class="field__items">
             {% for radio in params.radios %}
-                <div class="field__item">
-                    <div class="radio">
+                <p class="field__item">
+                    <span class="radio">
                         <input
                             type="radio"
                             id="{{ radio.id }}"
                             class="radio__input {{ radio.classes }}"
                             value="{{ radio.value }}" 
                             name="{{ params.name }}"
-                            {% if radio.checked %} checked{% endif %}
+                            {% if radio.checked or (params.value and params.value == radio.value) %} checked{% endif %}
                             {% if radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                         >
                         <label class="radio__label {{ radio.label.classes }}" for="{{ radio.id }}">
@@ -29,7 +29,7 @@
                             {% endif %}
                         </label>
                         {% if radio.other %}
-                            <div class="radio__other">
+                            <span class="radio__other">
                                 {% from "components/input/_macro.njk" import onsInput %}
                                 {{
                                     onsInput({
@@ -41,13 +41,14 @@
                                         "label": {
                                             "text": radio.other.label.text,
                                             "classes": 'u-fs-s--b'
-                                        }
+                                        },
+                                        "noField": true
                                     })
                                 }}
-                            </div>
+                            </span>
                         {% endif %}
-                    </div>
-                </div>
+                    </span>
+                </p>
                 {% if not loop.last %}
                     <br>
                 {% endif %}
