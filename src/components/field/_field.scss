@@ -25,8 +25,7 @@
     position: relative;
   }
 
-  & > &,
-  &__items > & {
+  *:not(.field__group) > & {
     &__item {
       margin: 0 0 0.5rem;
       width: 100%;
