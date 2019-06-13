@@ -112,10 +112,13 @@ Variables can be set with:
 ###### PageHeader
 
 {% md %}
-| Variable Name | Type   | Required | Description                                                                            |
-| ------------- | ------ | -------- | -------------------------------------------------------------------------------------- |
-| title         | string | false    | Title for the page header. If not specified this will default to `page.title`          |
-| logoHref      | string | false    | URL for the page header logo. If not specified the image will not be wrapped in a link |
+| Variable Name | Type   | Required                             | Description                                                                            |
+| ------------- | ------ | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| title         | string | false                                | Title for the page header. If not specified this will default to `page.title`          |
+| logoHref      | string | false                                | URL for the page header logo. If not specified the image will not be wrapped in a link |
+| titleLogo     | string | false                                | URL for image to use instead of a title string                                         |
+| titleLogoAlt  | string | false (if `titleLogo` not specified) | Alt tag for the title logo                                                             |
+| titleLogoHref | string | false                                | Will wrap the title logo in a link to the specified URL                                |
 {% endmd %}
 
 ###### PageFooter
