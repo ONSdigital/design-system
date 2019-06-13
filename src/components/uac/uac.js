@@ -1,7 +1,7 @@
 export default class UAC {
   constructor(context) {
     this.input = context;
-    const groupSize = parseInt(context.getAttribute('data-group-size'));
+    const groupSize = parseInt(context.getAttribute('data-group-size'), 10);
     this.groupingRegex = new RegExp(`.{1,${groupSize}}`, 'g');
 
     this.bindEventListeners();
