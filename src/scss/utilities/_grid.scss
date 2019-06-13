@@ -1,11 +1,5 @@
 .grid {
   box-sizing: border-box;
-  @if $grid-use-letter-spacing-hack {
-    letter-spacing: -0.32em;
-  } @else {
-    font-size: 0;
-  }
-
   margin-left: -$grid-gutters;
 }
 
@@ -128,13 +122,6 @@
   flex: 0 0 auto;
   // Fixes text overflow issues
   min-width: 0;
-
-  @if $grid-use-letter-spacing-hack {
-    letter-spacing: normal;
-    word-spacing: normal;
-  } @else {
-    font-size: $base-font-size;
-  }
 
   padding-left: $grid-gutters;
   .grid--float & {
