@@ -20,6 +20,10 @@
     margin-top: -1rem;
   }
 
+  &__items {
+    display: block;
+  }
+
   &__item {
     display: inline-block;
     position: relative;
