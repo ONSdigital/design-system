@@ -34,12 +34,12 @@
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >{{ params.value }}</textarea>
         {% if params.maxlength %}
-            <div
+            <span
                 id="{{ params.id }}-lim-remaining"
                 class="input__limit u-mt-xs u-fs-s--b u-d-no"
                 data-charcount-singular="{{ params.charCountSingular }}"
                 data-charcount-plural="{{ params.charCountPlural }}">
-            </div>
+            </span>
         {% endif %}
     {% endcall %}
 {% endmacro %}
