@@ -1,14 +1,20 @@
 {% from "components/input/_macro.njk" import onsInput %}
 
 {% macro onsUACInput(params) %}
+    {% set groupSize = params.groupSize | default(4) %}
+    {% set extraSpaces = (params.maxlength | default(16) / groupSize) - 1 %}
+    {% set maxlength = params.maxlength | default(16) + extraSpaces %}
+
     {{ onsInput({
         "id": params.id,
-        "type": "number",
+        "type": params.type,
         "fieldClasses": "uac__field" + (" " + params.classes if params.classes else ""),
         "classes": "uac__input js-uac",
         "label": params.label,
         "attributes": {
-            "maxlength": 22
+            "maxlength": maxlength, 
+            "data-group-size": groupSize,
+            "autocomplete": "off"
         }
     }) }}
 
