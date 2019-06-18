@@ -18,7 +18,7 @@
   {% endif %}
 
     <div 
-        class="panel{{ typeClass }}{{ simpleClass }}{{ spaciousClass }}{{ utilityClasses }}"
+        class="panel{{ typeClass }}{{ simpleClass }}{{ spaciousClass }}{{ utilityClasses }}{% if params.classes %} {{ params.classes }}{% endif %}"
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
     >
         {% if params and params.title %}
