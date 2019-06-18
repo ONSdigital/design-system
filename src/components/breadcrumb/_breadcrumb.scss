@@ -15,16 +15,28 @@ $breadcrumb-chevron-height: 0.65rem;
     margin: 0;
     white-space: nowrap; /* stop items from wrapping, break on chevron only */
 
-    &:not(:last-child):after {
-      @include icon('chevron-right', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
+    @include mq(xs, s) {
+      &:not(:nth-last-child(2)) {
+        display: none;
+      }
 
-      content: '';
-      margin: 0 0.4rem;
-      vertical-align: middle;
+      &:before {
+        @include icon('chevron-left', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
+
+        content: '';
+        margin: 0 0.2rem 0 0;
+        vertical-align: middle;
+      }
     }
 
-    @include mq(xs, s) {
-      margin-bottom: 0.5rem;
+    @include mq(s) {
+      &:not(:last-child):after {
+        @include icon('chevron-right', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
+
+        content: '';
+        margin: 0 0.4rem;
+        vertical-align: middle;
+      }
     }
 
     &--current {
