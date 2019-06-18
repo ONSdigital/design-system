@@ -13,19 +13,13 @@
     background: $color-white;
   }
 
-  &--internal & {
-    &__top {
-      background: $color-dark-blue;
-    }
-  }
-
   &__grid-top {
+    padding: 0.5rem 0;
     min-height: 54px;
   }
 
   &__logo {
     display: block;
-    width: 200px;
   }
 
   &__main {
@@ -87,6 +81,10 @@
   }
 
   &--internal & {
+    &__top {
+      background: $color-dark-blue;
+    }
+
     &__grid-top {
       min-height: 36px;
     }
