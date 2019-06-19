@@ -1,0 +1,20 @@
+{% macro onsCallToAction(params) %}
+    {% from "components/button/_macro.njk" import onsButton %}
+    <div class="call-to-action">
+        <div class="container">
+            <div class="grid grid--flex grid--vertical-center grid--no-wrap@s">
+                <div class="grid__col col-auto u-flex-shrink@s">
+                    <p class="call-to-action__desc u-fs-r u-mb-no@s"><strong>{{ params.headingText }}</strong> {{ params.paragraphText }}</p>
+                </div>
+                <div class="grid__col col-auto u-flex-no-grow">
+                    {{ onsButton({
+                        "text": "Start survey",
+                        "url": params.button.url,
+                        "classes": "btn--small",
+                        "innerClasses": "icon--chevron-right-white"
+                    })}}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
