@@ -26,7 +26,7 @@ export class Collapsible {
     }
 
     this.details.setAttribute('role', 'group');
-    this.summary.setAttribute('role', 'button');
+    this.summary.setAttribute('role', 'link');
     this.summary.setAttribute('aria-controls', detailsId);
 
     if (!this.isAccordion) {
