@@ -1,6 +1,7 @@
 .grid {
   box-sizing: border-box;
   margin-left: -$grid-gutters;
+  font-size: 0;
 }
 
 .grid--float {
@@ -218,50 +219,4 @@
 
 @include bp-suffix('nopush-', false) {
   left: 0;
-}
-
-.bp-helper {
-  font-family: 'Consolas', 'Lucida Grande', sans-serif;
-  font-size: 0.8rem;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  display: block;
-  z-index: 999999;
-  width: auto;
-  padding: 1px 10px;
-  background: white;
-  opacity: 0.8;
-  text-align: center;
-
-  &::before {
-    display: inline-block;
-    color: $color-text;
-  }
-
-  @each $breakpoint, $size in $grid-bp {
-    @include mq($breakpoint) {
-      $width: get-bp-width($breakpoint);
-      &::before {
-        content: '#{$breakpoint} ≥ #{$width}';
-      }
-    }
-  }
-}
-
-.grid__helper {
-  background: #eee;
-  text-align: left;
-  font-size: 0.8rem;
-  padding: $grid-gutters / 2;
-  margin-bottom: $grid-gutters;
-
-  .grid--tight & {
-    margin-bottom: $grid-gutters / 2;
-  }
-  .grid--spaced &,
-  .grid--gutterless &,
-  .grid--pixelgutter & {
-    margin-bottom: 0;
-  }
 }
