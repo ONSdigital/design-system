@@ -9,9 +9,9 @@
 
 {% if example %}
     {% set bodyClasses = bodyClasses + " patternlib-page--example" %}
-    {% if theme %}
+    {% if page.theme %}
         {% set page = {
-            "theme": theme 
+            "theme": page.theme 
         } %}
     {% endif %}
 {% endif %}
