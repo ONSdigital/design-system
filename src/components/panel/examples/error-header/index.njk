@@ -1,10 +1,9 @@
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% call
-    onsPanel({
-        title: "This page has 2 errors",
-        type: "error"
-    })
-%}
+{% call onsPanel({
+        "title": "This page has 2 errors",
+        "titleTag": "h1",
+        "type": "error"
+}) %}
 <p>These <strong>must be corrected</strong> to continue.</p>
 {% from "components/lists/_macro.njk" import onsList %}
 {{
