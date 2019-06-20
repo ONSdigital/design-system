@@ -8,7 +8,7 @@
         "classes": params.classes,
         "legendClasses": params.legendClasses
     }) %}
-        <div class="field__items">
+        <span class="field__items">
             {% for radio in params.radios %}
                 <p class="field__item">
                     <span class="radio">
@@ -53,6 +53,6 @@
                     <br>
                 {% endif %}
             {% endfor %}
-        </div>
+        </span>
     {% endcall %}
 {% endmacro %}
