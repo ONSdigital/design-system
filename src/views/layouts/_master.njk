@@ -6,6 +6,13 @@
     {% set page = {} %}
 {% endif %}
 
+{% if page.theme %}
+    {% set page = {
+        "theme": page.theme 
+        } 
+    %}
+{% endif %}
+
 {% if example %}
     {% set bodyClasses = bodyClasses + " patternlib-page--example" %}
 {% endif %}
