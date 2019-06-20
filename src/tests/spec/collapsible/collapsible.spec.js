@@ -39,16 +39,20 @@ describe('Component: Details', function() {
         expect(this.details.classList.contains('details--initialised')).to.be.false;
       });
 
-      it('then the details element should not have an aria-expanded attribute', function() {
-        expect(this.details.hasAttribute('aria-expanded')).to.be.false;
+      it('then the summary element should not have a role attribute', function() {
+        expect(this.summary.hasAttribute('role')).to.be.false;
       });
 
-      it('then the details element should not have an aria-selected attribute', function() {
-        expect(this.details.hasAttribute('aria-selected')).to.be.false;
+      it('then the summary element should not have an aria-expanded attribute', function() {
+        expect(this.summary.hasAttribute('aria-expanded')).to.be.false;
       });
 
       it('then the summary element should not have a tabindex attribute', function() {
         expect(this.summary.hasAttribute('tabindex')).to.be.false;
+      });
+
+      it('then the summary element should not have a role attribute', function() {
+        expect(this.summary.hasAttribute('role')).to.be.false;
       });
 
       it('then the summary element should not have an aria-controls attribute', function() {
@@ -77,14 +81,14 @@ describe('Component: Details', function() {
         expect(this.details.classList.contains('details--initialised')).to.be.true;
       });
 
-      it('then an aria-expanded attribute should be added to the details element', function() {
-        expect(this.details.hasAttribute('aria-expanded')).to.be.true;
-        expect(this.details.getAttribute('aria-expanded')).to.equal('false');
+      it('then an aria-expanded attribute should be added to the summary element', function() {
+        expect(this.summary.hasAttribute('aria-expanded')).to.be.true;
+        expect(this.summary.getAttribute('aria-expanded')).to.equal('false');
       });
 
-      it('then an aria-selected attribute should be added to the details element', function() {
-        expect(this.details.hasAttribute('aria-selected')).to.be.true;
-        expect(this.details.getAttribute('aria-selected')).to.equal('false');
+      it('then an role attribute should be added to the details element', function() {
+        expect(this.details.hasAttribute('role')).to.be.true;
+        expect(this.details.getAttribute('role')).to.equal('group');
       });
 
       it('then a tabindex attribute should be added to the summary element', function() {
@@ -94,7 +98,12 @@ describe('Component: Details', function() {
 
       it('then an aria-controls attribute should be added to the summary element', function() {
         expect(this.summary.hasAttribute('aria-controls')).to.be.true;
-        expect(this.summary.getAttribute('aria-controls')).to.equal(this.content.getAttribute('id'));
+        expect(this.summary.getAttribute('aria-controls')).to.equal(this.details.getAttribute('id'));
+      });
+
+      it('then an role attribute should be added to the summary element', function() {
+        expect(this.summary.hasAttribute('role')).to.be.true;
+        expect(this.summary.getAttribute('role')).to.equal('link');
       });
 
       it('then an aria-hidden attribute should be added to the content element', function() {
@@ -112,20 +121,16 @@ describe('Component: Details', function() {
             this.summary.click();
           });
 
-          it('then the open attribute on the details element should be added', function() {
-            expect(this.details.hasAttribute('aria-expanded')).to.be.true;
+          it('then the open attribute on the summary element should be added', function() {
+            expect(this.summary.hasAttribute('aria-expanded')).to.be.true;
           });
 
           it('then a details--open class should be added to the details', function() {
             expect(this.details.classList.contains('details--open')).to.be.true;
           });
 
-          it('then the aria-expanded attribute on the details element should be set to true', function() {
-            expect(this.details.getAttribute('aria-expanded')).to.equal('true');
-          });
-
-          it('then the aria-selected attribute on the details element should be set to true', function() {
-            expect(this.details.getAttribute('aria-selected')).to.equal('true');
+          it('then the aria-expanded attribute on the summary element should be set to true', function() {
+            expect(this.summary.getAttribute('aria-expanded')).to.equal('true');
           });
 
           it('then the data-ga-action attribute on the summary element should be set to "Open panel', function() {
@@ -216,19 +221,15 @@ function renderComponent(params) {
 
 function onCloseTests() {
   it('then the open attribute on the details element should be removed', function() {
-    expect(this.details.hasAttribute('aria-expanded')).to.be.true;
+    expect(this.details.hasAttribute('open')).to.be.false;
   });
 
   it('then a details--open class should be removed from details', function() {
     expect(this.details.classList.contains('details--open')).to.be.false;
   });
 
-  it('then the aria-expanded attribute on the details element should be set to false', function() {
-    expect(this.details.getAttribute('aria-expanded')).to.equal('false');
-  });
-
-  it('then the aria-selected attribute on the details element should be set to false', function() {
-    expect(this.details.getAttribute('aria-selected')).to.equal('false');
+  it('then the aria-expanded attribute on the summary element should be set to false', function() {
+    expect(this.summary.getAttribute('aria-expanded')).to.equal('false');
   });
 
   it('then the data-ga-action attribute on the summary element should be set to "Close panel', function() {
