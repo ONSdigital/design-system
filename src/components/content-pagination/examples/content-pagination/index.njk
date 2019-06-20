@@ -1,0 +1,15 @@
+{% from "components/content-pagination/_macro.njk" import onsContentPagination %}
+
+{{-
+  onsContentPagination({
+      "ariaLabel": 'Pages in this guide',
+      "contentPaginationItems": [
+          {
+              "rel": 'next',
+              "text": 'Next',
+              "url": '/prototypes/census-website/about-the-census/who-should-take-part-and-why.html',
+              "label": 'Who should take part and why'
+          }
+      ]
+  }) 
+}}
