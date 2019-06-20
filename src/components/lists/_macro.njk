@@ -7,10 +7,10 @@
 
   <{{listEl}} {% if params.id %}id="{{ params.id }}"{% endif %} class="list {{ params.classes }}">
       {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
-          <li class="list__item {{ item.listclass }}">
-              {% if item.url %}
-                  {% if item.index %}{{ loop.index }}) {% endif %} <a href="{{ item.url }}"{% if item.classes %} class="{{ item.classes }}"{% endif %}{% if item.target %} target="{{ item.target }}"{% endif %}>
-                      {{ item.text | safe }}
+          <li class="list__item {{ item.listclass }}" {% if item.current %}aria-current="true"{% endif %}>
+              {% if item.url and item.current is not defined %}
+                  {% if item.index %}{{ loop.index }}) {% endif %}{% if item.prefix %}<span class="list__prefix" aria-hidden="true">{{ item.prefix }}.</span> {% endif %} <a href="{{ item.url }}" class="list__link {{ item.classes }}" {% if item.target %} target="{{ item.target }}"{% endif %}>
+                    {% if item.prefix %}<span class="u-vh">{{ item.prefix }}.</span>{% endif %} {{ item.text | safe }}
                   </a>
               {% else %}
                   {{ item.text | safe }}
