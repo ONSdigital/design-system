@@ -15,17 +15,19 @@ export class Collapsible {
     this.buttonInner = this.details.querySelector('.js-collapsible-button-inner');
 
     // Initialise
-    const contentId = this.content.getAttribute('id');
+    const detailsId = detailsElement.getAttribute('id');
 
     if (this.button) {
       this.button.addEventListener('click', this.toggle.bind(this));
-      this.button.setAttribute('aria-controls', contentId);
+      this.button.setAttribute('aria-controls', detailsId);
       this.button.classList.remove('u-d-no');
       this.buttonOpen = this.buttonInner.innerHTML.trim();
       this.closeButton = this.details.getAttribute('data-btn-close') || this.buttonOpen;
     }
 
-    this.summary.setAttribute('aria-controls', contentId);
+    this.details.setAttribute('role', 'group');
+    this.summary.setAttribute('role', 'link');
+    this.summary.setAttribute('aria-controls', detailsId);
 
     if (!this.isAccordion) {
       this.summary.setAttribute('tabindex', 0);
@@ -58,7 +60,7 @@ export class Collapsible {
       this.isOpen = open;
       this.details[`${openAttribute}Attribute`]('open', '');
       this.details.classList[cls]('details--open');
-      this.details.setAttribute('aria-expanded', open);
+      this.summary.setAttribute('aria-expanded', open);
       this.details.setAttribute('aria-selected', open);
       this.content.setAttribute('aria-hidden', !open);
 
