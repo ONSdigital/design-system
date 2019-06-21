@@ -4,9 +4,10 @@
         <div class="container">
             <div class="grid grid--flex grid--vertical-center grid--no-wrap@s">
                 <div class="grid__col col-auto u-flex-shrink@s">
-                    <p class="call-to-action__desc u-fs-r u-mb-no@s"><strong>{{ params.headingText }}</strong> {{ params.paragraphText }}</p>
+                    <h2 class="u-fs-r--b u-di">{{ params.headingText }}</h2> 
+                    <p class="u-di">{{ params.paragraphText }}</p>
                 </div>
-                <div class="grid__col col-auto u-flex-no-grow">
+                <div class="grid__col col-auto u-flex-no-grow u-mt-xs@xs@s">
                     {{ onsButton({
                         "text": params.button.text,
                         "url": params.button.url,
