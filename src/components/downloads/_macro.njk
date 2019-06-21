@@ -9,7 +9,7 @@
                 </div>
                 <div class="download__details">
                     <h2 class="download__title">
-                        <a href="{{ download.url }}">{{ download.title }}</a>
+                        <a href="{{ download.url }}">{{ download.title }} <span class="u-vh">, {{ download.typeAbbr }} {{ download.accessibilityText }}{% if download.fileSize %}, {{ download.fileSize }}{% endif %}{% if download.pages %}, {{ download.pages }}{% endif %}</span></a>
                     </h2>
                     <p class="download__metadata u-fs-s">
                         <abbr class="download__file-type" title="{{ download.type }}">{{ download.typeAbbr }}</abbr>{% if download.fileSize %}, {{ download.fileSize }}{% endif %}{% if download.pages %}, {{ download.pages }}{% endif %}
