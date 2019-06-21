@@ -1,0 +1,16 @@
+---
+title: Table of contents
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+Requires documentation
+
+# Table of contents - simple
+{{
+    patternlibExample({"path": "components/toc/examples/toc-single/index.njk"})
+}}
+
+# Table of contents - multiple sections
+{{
+    patternlibExample({"path": "components/toc/examples/toc-multiple/index.njk"})
+}}
