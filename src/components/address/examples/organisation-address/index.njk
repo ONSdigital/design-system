@@ -11,11 +11,11 @@ layout: none
 } %}
 {% block main %}
     {% call onsQuestion({
-        "title": "What is the oranisation or company's address?",
-        "useFieldset": true
+        "title": "What is the oranisation or company's address?"
     }) %}
         {{ onsManualAddressInput({
             "id": "address",
+            "legend": "What is the oranisation or company's address?",
             "organisation": {
                 "label": "Organisation or company name"
             },
