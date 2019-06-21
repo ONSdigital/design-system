@@ -1,2 +1,6 @@
 // Census brand
-$color-header: #93328e;
+$color-branded: #93328e;
+$color-branded-tint: rgba(227, 77, 219, 0.15);
+
+$color-header: $color-branded;
+$cta-bg: $color-branded-tint;
