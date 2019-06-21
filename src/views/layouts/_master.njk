@@ -8,6 +8,11 @@
 
 {% if example %}
     {% set bodyClasses = bodyClasses + " patternlib-page--example" %}
+    {% if page.theme %}
+        {% set page = {
+            "theme": page.theme 
+        } %}
+    {% endif %}
 {% endif %}
 
 {% if page.fullWidth %}
