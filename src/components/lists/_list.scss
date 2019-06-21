@@ -10,8 +10,31 @@
 }
 
 .list--bare {
-  list-style: none;
   padding-left: 0;
+  list-style: none;
+}
+
+.list--spacious {
+  .list__item {
+    margin: 0 0 1.5rem;
+  }
+}
+
+.list--dashed {
+  @extend .list--bare;
+  .list__item {
+    position: relative;
+    margin-left: 25px;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 15px;
+      border-top: 1px solid $color-black;
+      margin-left: -25px;
+    }
+  }
 }
 
 $list-inline-spacing: 2rem;
@@ -44,6 +67,19 @@ $list-inline-spacing: 2rem;
       padding: 0.5rem 1rem;
       margin: 0 0.5rem;
     }
+  }
+}
+
+.list--prefix {
+  @extend .list--bare;
+  & .list__prefix {
+    float: left;
+    margin: 0 0.5rem 0 0;
+    font-weight: 700;
+  }
+  & .list__link {
+    display: block;
+    overflow: hidden;
   }
 }
 
