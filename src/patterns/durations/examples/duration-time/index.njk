@@ -1,48 +1,53 @@
+{% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/field/_macro.njk" import onsField %}
 {% from "components/input/_macro.njk" import onsInput %}
 
-<h1>How long did it take you complete this survey?</h1>
-{% call onsField({
-    "id": "survey-duration",
-    "legend": "Time"
+{% call onsQuestion({
+    "title": "How long did it take you complete this survey?"
 }) %}
-    <div class="field__group">
-        <p class="field__item">
-            {{ 
-                onsInput({
-                    "id": "survey-duration-hours",
-                    "type": "number",
-                    "name": "survey-duration-hours",
-                    "classes": "input--w-2",
-                    "attributes": {
-                        "min": 0,
-                        "max": 100
-                    },
-                    "suffix": {
-                        "title": "Hours"
-                    },
-                    "noField": true
-                })
-            }}
-        </p>
-        <p class="field__item">
-            {{ 
-                onsInput({
-                    "id": "survey-duration-minutes",
-                    "type": "number",
-                    "name": "survey-duration-minutes",
-                    "classes": "input--w-2",
-                    "attributes": {
-                        "min": 0,
-                        "max": 59
-                    },
-                    "suffix": {
-                        "title": "Minutes",
-                        "text": "Mins"
-                    },
-                    "noField": true
-                })
-            }}
-        </p>
-    </div>
+    {% call onsField({
+        "id": "survey-duration",
+        "legend": "Time",
+        "dontVisuallyHideLegend": true
+    }) %}
+        <div class="field__group">
+            <p class="field__item">
+                {{ 
+                    onsInput({
+                        "id": "survey-duration-hours",
+                        "type": "number",
+                        "name": "survey-duration-hours",
+                        "classes": "input--w-2",
+                        "attributes": {
+                            "min": 0,
+                            "max": 100
+                        },
+                        "suffix": {
+                            "title": "Hours"
+                        },
+                        "noField": true
+                    })
+                }}
+            </p>
+            <p class="field__item">
+                {{ 
+                    onsInput({
+                        "id": "survey-duration-minutes",
+                        "type": "number",
+                        "name": "survey-duration-minutes",
+                        "classes": "input--w-2",
+                        "attributes": {
+                            "min": 0,
+                            "max": 59
+                        },
+                        "suffix": {
+                            "title": "Minutes",
+                            "text": "Mins"
+                        },
+                        "noField": true
+                    })
+                }}
+            </p>
+        </div>
+    {% endcall %}
 {% endcall %}

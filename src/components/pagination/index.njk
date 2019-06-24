@@ -4,10 +4,25 @@ title: Pagination
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
 
-Pagination used to navigate a series of pages in a linear or semi-linear manner and allows you to display a set of results so that the viewer isn’t overwhelmed by too much information.
+Pagination is used to navigate a series of pages in a linear or semi-linear manner, allowing you to display a portion of information and avoid overwhelming the user with too much information.
 
+## Variants
+
+### Long pagination
 {{
     patternlibExample({"path": "components/pagination/examples/pagination/index.njk"})
+}}
+
+### Long pagination (no range indicator)
+
+The range indicator will be hidden on desktop, however it will still show on mobile as the page numbers don't show.
+{{
+    patternlibExample({"path": "components/pagination/examples/pagination-no-range-indicator/index.njk"})
+}}
+
+### Pager
+{{
+    patternlibExample({"path": "components/content-pagination/examples/content-pagination/index.njk"})
 }}
 
 ## When to use this component
@@ -35,14 +50,6 @@ When the number of pages exceeds the maximum display limit, ellipsis (…) are u
 
 ## How to use this component
 If the pagination component sits inline with other content on the page, then the pagination should be left aligned.
-
-## Variants
-
-### No range indicator
-The range indicator will be hidden on desktop, however it will still show on mobile as the page numbers don't show.
-{{
-    patternlibExample({"path": "components/pagination/examples/pagination-no-range-indicator/index.njk"})
-}}
 
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}

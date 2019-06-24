@@ -14,7 +14,6 @@ $details-caret-width: 1.1rem;
 
   &__title {
     transform: translateY(-1px);
-    margin: 0;
     text-decoration: underline;
     pointer-events: none;
   }
@@ -51,7 +50,7 @@ $details-caret-width: 1.1rem;
         content: '';
         display: inline-block;
         position: absolute;
-        top: 0.1rem;
+        top: 0.25rem;
         left: 0;
         width: $details-caret-width;
         height: $details-caret-width;
