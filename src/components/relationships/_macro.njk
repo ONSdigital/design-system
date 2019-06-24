@@ -1,0 +1,18 @@
+{% from "components/radios/_macro.njk" import onsRadios %}
+
+{% macro onsRelationships(params) %}
+    <div
+        class="relationships js-relationships"
+        data-title-related="{{ params.titleRelated }}"
+        data-title-unrelated="{{ params.titleUnrelated }}"
+        data-display-related="{{ params.displayRelated }}"
+        data-display-unrelated="{{ params.displayUnrelated }}"
+    >
+        {{ onsRadios({
+            "legend": params.legend,
+            "legendClasses": "js-relationship-legend",
+            "name": params.name,
+            "radios": params.radios
+        }) }}
+    </div> 
+{% endmacro %}
