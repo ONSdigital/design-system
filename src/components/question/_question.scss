@@ -8,18 +8,4 @@
       background-color: $color-emphasis;
     }
   }
-
-  &__legend {
-    margin: 0 0 1rem;
-  }
-
-  &__legend & {
-    &__title {
-      margin: 0;
-    }
-
-    &__description p {
-      margin: 1rem 0 0;
-    }
-  }
 }

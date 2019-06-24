@@ -1,12 +1,16 @@
-| Name         | Type         | Required | Description                                                                                                      |
-| ------------ | ------------ | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| id           | string       | true     | ID for the component. This is used to automatically generate IDs and names for each field if one isn't specified |
-| organisation | AddressField | false    | Configuration for the organisation field. If not specified the organisation field will not render                |
-| line1        | AddressField | true     | Configuration for the line1 field                                                                                |
-| line2        | AddressField | true     | Configuration for the line2 field                                                                                |
-| town         | AddressField | true     | Configuration for the town field                                                                                 |
-| county       | AddressField | true     | Configuration for the county field                                                                               |
-| postcode     | AddressField | true     | Configuration for the postcode field                                                                             |
+| Name                   | Type         | Required | Description                                                                                                     |
+| ---------------------- | ------------ | -------- | --------------------------------------------------------------------------------------------------------------- |
+| id                     | string       | true     | ID for the fieldset. This is used to automatically generate IDs and names for each field if one isn't specified |
+| classes                | string       | false    | Classes to add to the fieldset                                                                                  |
+| legend                 | string       | true     | Legend text for the address input                                                                               |
+| dontVisuallyHideLegend | boolean      | false    | Prevents the legend from being visually hidden by default                                                       |
+| legendClasses          | string       | false    | Classes to apply to the legend                                                                                  |
+| organisation           | AddressField | false    | Configuration for the organisation field. If not specified the organisation field will not render               |
+| line1                  | AddressField | true     | Configuration for the line1 field                                                                               |
+| line2                  | AddressField | true     | Configuration for the line2 field                                                                               |
+| town                   | AddressField | true     | Configuration for the town field                                                                                |
+| county                 | AddressField | true     | Configuration for the county field                                                                              |
+| postcode               | AddressField | true     | Configuration for the postcode field                                                                            |
 
 ## AddressField
 
