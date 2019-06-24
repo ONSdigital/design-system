@@ -11,7 +11,7 @@ This pattern should be used when you need to collect an address from a user.
 
 ## How to use this pattern
 
-The manual address input should always be wrapped in a fieldset with a legend. This can be achieved by wrapping the address input component in a [question component](/patterns/question) with the `useFieldset` parameter set to true.
+The manual address input wraps itself within a fieldset and legend, however by default the legend is visually hidden, as the legend should match the question title passed to the [question component](/patterns/question).
 
 {{
     patternlibExample({"path": "components/address/examples/address/index.njk"})

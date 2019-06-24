@@ -11,11 +11,11 @@ layout: none
 } %}
 {% block main %}
     {% call onsQuestion({
-        "title": "What is your address?",
-        "useFieldset": true
+        "title": "What is your address?"
     }) %}
         {{ onsManualAddressInput({
             "id": "address",
+            "legend": "What is your address?",
             "line1": {
                 "label": "Building and street"
             },

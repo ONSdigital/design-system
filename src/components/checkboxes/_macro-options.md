@@ -1,13 +1,14 @@
-| Name              | Type                                                          | Required | Description                                                                          |
-| ----------------- | ------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------ |
-| id                | string                                                        | false    | Id to apply to the fieldset                                                          |
-| classes           | string                                                        | false    | Classes to apply to the fieldset                                                     |
-| legend            | string                                                        | false    | The legend to apply to the fieldset                                                  |
-| name              | string                                                        | true     | The name to apply to the checkboxes                                                  |
-| checkboxes        | `Array<Checkbox>`                                             | true     | An array of checkboxes to render                                                     |
-| mutuallyExclusive | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false    | Configuration object if this is a mutually exclusive list                            |
-| legendClasses     | string                                                        | false    | Classes to apply to the legend                                                       |
-| noField           | boolean                                                       | false    | Prevents the checkboxes from being wrapped in a [field component](/components/field) |
+| Name                   | Type                                                          | Required | Description                                                                          |
+| ---------------------- | ------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------ |
+| id                     | string                                                        | false    | Id to apply to the fieldset                                                          |
+| classes                | string                                                        | false    | Classes to apply to the fieldset                                                     |
+| legend                 | string                                                        | false    | The legend to apply to the fieldset                                                  |
+| name                   | string                                                        | true     | The name to apply to the checkboxes                                                  |
+| checkboxes             | `Array<Checkbox>`                                             | true     | An array of checkboxes to render                                                     |
+| mutuallyExclusive      | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false    | Configuration object if this is a mutually exclusive list                            |
+| legendClasses          | string                                                        | false    | Classes to apply to the legend                                                       |
+| noField                | boolean                                                       | false    | Prevents the checkboxes from being wrapped in a [field component](/components/field) |
+| dontVisuallyHideLegend | boolean                                                       | false    | Prevents the legend from being visually hidden by default                            |
 
 ## Checkbox
 
