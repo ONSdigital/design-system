@@ -130,6 +130,10 @@
     display: block;
   }
 
+  &--loose {
+    padding-left: $grid-gutters * 2;
+  }
+
   .grid--flex & {
     width: auto;
   }

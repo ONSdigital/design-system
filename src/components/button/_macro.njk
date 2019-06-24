@@ -1,6 +1,14 @@
 {% macro onsButton(params) %}
-  <button
-      type="{{ params.type if params.type else ('button' if params.print else 'submit') }}"
+
+{% set tag = "a" if params.url else "button" %}
+
+  <{{ tag }}
+      {% if params.url %}
+        href="{{ params.url }}"
+        role="button"
+      {% else %}
+        type="{{ params.type if params.type else ('button' if params.print else 'submit') }}"
+      {% endif %}
       class="btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.disabled %} btn--disabled{% endif %}{% if params.print %} btn--print u-d-no js-print-btn{% endif %}"
       {% if params.id %}id="{{ params.id }}"{% endif %}
       {% if params.value %}value="{{ params.value }}"{% endif %}
@@ -9,5 +17,5 @@
       {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
       >
       <span class="btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}">{{- params.html | safe if params.html else params.text -}}</span>
-  </button>
+  </{{ tag }}>
 {% endmacro %}
