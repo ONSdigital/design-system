@@ -10,10 +10,11 @@
     {% call onsField({
         "id": params.id,
         "legend": params.legend,
-        "description": params.description,
-        "classes": "field--date" + (" " + params.classes if params.classes else ""),
-        "descriptionClasses": descriptionClasses | default(""),
+        "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
         "legendClasses": params.legendClasses,
+        "description": params.description,
+        "descriptionClasses": descriptionClasses | default(""),
+        "classes": "field--date" + (" " + params.classes if params.classes else ""),
         "mutuallyExclusive": params.mutuallyExclusive
     }) %}
         {% if params.label %}
