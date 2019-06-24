@@ -3,9 +3,27 @@ title: Relationships
 group: Ask users for...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 Help users select define relationships between household memebers.
 
 {{
     patternlibExample({"path": "components/relationships/examples/relationships/index.njk"})
 }}
+
+## Other examples
+
+### First person
+{{
+    patternlibExample({"path": "components/relationships/examples/relationships/index.njk"})
+}}
+
+
+## Research on this pattern
+{% call onsPanel() %}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/464" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+
+[Discuss 'Relationships' on Github](https://github.com/ONSdigital/design-system/issues/464)

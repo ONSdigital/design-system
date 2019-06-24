@@ -11,16 +11,16 @@ layout: none
 
 {% block main %}
     {% call onsQuestion({
-        "title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>",
+        "title": "Joe Bloggs is your <em>…</em>",
         "description": "<p>Complete the sentence by selecting the appropriate relationship.</p>"
     }) %}
         {{ onsRelationships({
-            "legend": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>",
-            "titleRelated": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>{x}</em>",
-            "titleUnrelated": "Thinking of Joe Bloggs, Amanda Bloggs is <em>unrelated</em> to Joe Bloggs",
-            "playbackRelated": "Amanda Bloggs is Joe Bloggs' <em>{x}</em>",
-            "playbackUnrelated": "Amanda Bloggs is <em>unrelated</em> to Joe Bloggs",
-            "playback": "Amanda Bloggs is Joe Bloggs' <em>…</em>",
+            "legend": "Joe Bloggs is your <em>…</em>",
+            "titleRelated": "Joe Bloggs is your <em>{x}</em>",
+            "titleUnrelated": "Joe Bloggs is <em>unrelated</em> to you",
+            "playbackRelated": "Joe Bloggs is your <em>{x}</em>",
+            "playbackUnrelated": "Joe Bloggs is <em>unrelated</em> to you",
+            "playback": "Joe Bloggs is your <em>…</em>",
             "name": "relationship",
             "radios": [
                 {
