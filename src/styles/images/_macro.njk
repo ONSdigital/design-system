@@ -1,0 +1,10 @@
+{%- macro onsImage(params) -%}
+    <figure class="figure">
+        <img class="figure__image" src="{{ params.url }}" alt="{{ params.alt }}">
+        {% if params.caption %}
+            <figcaption class="figure__caption">
+                {{ params.caption }}
+            </figcaption>
+        {% endif %}
+    </figure>
+{%- endmacro -%}
