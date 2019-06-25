@@ -46,6 +46,7 @@
 @include panel_type(error, $color-errors, $color-errors-tint);
 @include panel_type(success, $color-success, $color-success-tint);
 @include panel_type(info, $color-info, $color-info-tint);
+@include panel_type(branded, $color-branded, $color-branded-tint);
 
 .panel--simple {
   border: none;

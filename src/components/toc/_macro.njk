@@ -3,18 +3,28 @@
   <aside class="toc-container" role="complementary">
     <nav role="navigation" class="toc" aria-label="{{ params.ariaLabel }}">
       <h2 class="toc__title u-fs-r--b u-mb-s">{{ params.title }}</h2>
-      {% for list in params.lists %}
-        {% if list.listHeading %}
-          <h3 class="u-fs-r u-mb-xs">{{ list.listHeading }}<span class="u-vh"> {{ list.listHeadingHidden }}</span>:</h3>
-        {% endif %}
+      {% if params.lists %}
+        {% for list in params.lists %}
+          {% if list.listHeading %}
+            <h3 class="u-fs-r u-mb-xs">{{ list.listHeading }}<span class="u-vh"> {{ list.listHeadingHidden }}</span>:</h3>
+          {% endif %}
+          {{ 
+              onsList({
+                  "element": 'ol',
+                  "classes": 'list--dashed u-mb-m',
+                  "itemsList": list.itemsList
+              }) 
+          }}
+        {% endfor %}
+      {% elif params.itemsList %}
         {{ 
             onsList({
                 "element": 'ol',
                 "classes": 'list--dashed u-mb-m',
-                "itemsList": list.itemsList
+                "itemsList": params.itemsList
             }) 
         }}
-      {% endfor %}
+      {% endif %}
     </nav>
   </aside>
 {% endmacro %}

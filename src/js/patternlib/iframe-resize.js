@@ -7,6 +7,6 @@ domReady(() => {
       heightCalculationMethod: 'max',
       scrolling: 'omit'
     },
-    'iframe'
+    '.patternlib-example__iframe'
   );
 });
