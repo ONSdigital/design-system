@@ -6,11 +6,6 @@ export default class Relationships {
     this.legend = context.querySelector('.js-relationships-legend');
     this.playback = context.querySelector('.js-relationships-playback');
 
-    this.titleRelated = context.getAttribute('data-title-related');
-    this.titleUnrelated = context.getAttribute('data-title-unrelated');
-    this.playbackRelated = context.getAttribute('data-playback-related');
-    this.playbackUnrelated = context.getAttribute('data-playback-unrelated');
-
     this.radios.forEach(radio => radio.addEventListener('change', this.handleChange.bind(this)));
 
     this.playback.classList.remove('u-d-no');
