@@ -1,8 +1,6 @@
 // Census brand
-$census-purple: #93328e;
-$census-light-purple: rgba(227, 77, 219, 0.15);
+$color-branded: #93328e;
+$color-branded-tint: rgba(227, 77, 219, 0.15);
 
-$color-header: $census-purple;
-$cta-bg: $census-light-purple;
-$color-branded: $census-purple;
-$color-branded-tint: $census-light-purple;
+$color-header: $color-branded;
+$cta-bg: $color-branded-tint;
