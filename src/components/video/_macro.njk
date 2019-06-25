@@ -1,0 +1,7 @@
+{%- macro onsVideo(params) -%}
+    <div class="video">
+        {% if params.youtubeUrl %}
+            <iframe class="video__iframe" src="{{ params.youtubeUrl }}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {% endif %}
+    </div>
+{%- endmacro -%}
