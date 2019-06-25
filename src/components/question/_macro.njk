@@ -1,29 +1,14 @@
 {% macro onsQuestion(params) %}
-    {% set wrappingElement = "div" %}
-
-    {% if params.useFieldset %}
-        {% set wrappingElement = "fieldset" %}
-    {% endif %}
-
-    <{{wrappingElement}}
+    <div 
         {% if params.id %} id="{{ params.id }}"{% endif %}
         class="question{% if params.classes %} {{ params.classes }}{% endif %}"
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
-        {% if params.useFieldset %}
-            <legend class="question__legend{% if params.legendClasses %} {{ params.legendClasses }}{% endif %}">
-        {% endif %}
-
         <h1 class="question__title">{{ params.title | safe }}</h1>
-
         {% if params.description %}
-            <span class="question__description">{{ params.description | safe }}</span>
-        {% endif %}
-
-        {% if params.useFieldset %}
-            </legend>
+            <div class="question__description">{{ params.description | safe }}</div>
         {% endif %}
 
         {{ caller () }}
-    </{{wrappingElement}}>
+    </div>
 {% endmacro %}

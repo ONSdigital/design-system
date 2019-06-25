@@ -1,0 +1,20 @@
+{% from "components/content-pagination/_macro.njk" import onsContentPagination %}
+
+{{-
+  onsContentPagination({
+    "contentPaginationItems": [
+      {
+        "rel": 'prev',
+        "text": 'Previous',
+        "url": '#',
+        "label": 'Overview'
+      },
+      {
+        "rel": 'next',
+        "text": 'Next',
+        "url": '#',
+        "label": 'Who should take part and why'
+      }
+    ]
+  }) 
+}}
