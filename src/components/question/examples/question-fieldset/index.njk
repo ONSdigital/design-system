@@ -16,8 +16,7 @@ layout: none
     <a href="#">Previous</a>
     {% call onsQuestion({
         "title": "On 1 May 2016, what was the number of employees for Bolt and Ratchet?",
-        "description": "<p>An employee is anyone aged 16 years or over that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job or being on a training scheme.</p>",
-        "useFieldset": true
+        "description": "<p>An employee is anyone aged 16 years or over that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job or being on a training scheme.</p>"
     }) %}
         {% call onsDetails({
             "id": "question-definition",
@@ -44,6 +43,7 @@ layout: none
         {{ onsRadios({
             "id": "number-of-employees",
             "name": "number-of-employees",
+            "legend": "On 1 May 2016, what was the number of employees for Bolt and Ratchet?",
             "radios": [
                 {
                     "id": "number-of-employees-1-9",

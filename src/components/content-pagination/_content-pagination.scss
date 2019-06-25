@@ -1,0 +1,45 @@
+.content-pagination {
+  display: block;
+  margin: 1.5rem 0 2.5rem;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    margin: 0 0 1.5rem;
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__link-icon {
+    width: 1.2rem;
+    height: 0.9rem;
+  }
+
+  &__link-title {
+    display: block;
+  }
+
+  &__link-text {
+    margin: 0 0 0 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: normal;
+  }
+
+  &__link-label {
+    display: inline-block;
+    margin: 0 0 0 2rem;
+    font-size: 0.9rem;
+    text-decoration: underline;
+  }
+}
