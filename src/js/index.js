@@ -10,3 +10,4 @@ import 'components/table/sortable-table';
 import 'components/header/header-nav';
 import 'components/feedback/feedback.dom';
 import 'components/uac/uac.dom';
+import 'components/relationships/relationships.dom';
