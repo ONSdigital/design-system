@@ -1,6 +1,8 @@
 .field +,
+.figure +,
 .panel +,
 .details:not(.details--accordion) + {
+  .figure,
   .field,
   .panel,
   .details:not(.details--accordion) {

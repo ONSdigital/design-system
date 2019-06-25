@@ -3,7 +3,7 @@ title: Card
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
-The card component provides a navigation mechansim consisting of a title, descriptive text and link. Visually it frames the content, provides context and helps the user focus on the information and make a decision. 
+The card component provides a navigation mechansim consisting of a title and link, descriptive text and an optional list of further links. 
 
 {{
     patternlibExample({"path": "components/card/examples/card/index.njk"})
@@ -17,10 +17,21 @@ Good examples of where the use of cards work well include; the homepage, to crea
 
 ### How to use this component
 
-Cards should be used in the main container of the page and not within side bars, footers etc. The card component needs to be implemented using the `grid` component and the various layout options available to display cards in rows. A row should contain no more than 3 or 4 cards and stack vertically on small viewports. The example below shows a row of 3 cards using flexbox (`grid--flex`). The `html` tab shows the various classes used to achieve the layout.
+Cards should be used in the main container of the page and not within side bars, footers etc. The card component needs to be implemented using the `grid` component and the various layout options available to display cards in rows. A row should contain no more than 3 or 4 cards and stack vertically on small viewports. 
+The `html` tab shows the various classes used to achieve the layout.
+
+### Card set
+The example below shows a row of 3 cards.
 
 {{
     patternlibExample({"path": "components/card/examples/card-set/index.njk"})
+}}
+
+### Card set with list
+The example below shows a row of 3 cards with a list of links that relate to the main heading link.
+
+{{
+    patternlibExample({"path": "components/card/examples/card-lists/index.njk"})
 }}
 
 ## Research on this component
