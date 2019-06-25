@@ -1,0 +1,29 @@
+.download {
+  display: flex;
+
+  & + & {
+    margin: 2rem 0 0;
+    padding: 2em 0 0;
+    border-top: 1px solid $color-grey-3;
+  }
+
+  &__thumbnail {
+    flex: 0 0 auto;
+    padding: 0 1rem 0 0;
+    width: 120px;
+  }
+
+  &__thumbnail-link {
+    display: block;
+    border: 2px solid $color-grey-3;
+  }
+
+  &__metadata,
+  &__accessibility {
+    margin: 0.5rem 0 0;
+  }
+
+  &__title {
+    margin: 0 0 0.25rem;
+  }
+}
