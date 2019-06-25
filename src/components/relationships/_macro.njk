@@ -1,0 +1,17 @@
+{% from "components/radios/_macro.njk" import onsRadios %}
+
+{% macro onsRelationships(params) %}
+    <div
+        {% if params.id %}id="{{ params.id }}"{% endif %} 
+        class="relationships js-relationships{% if params.classes %} {{ params.classes }}{% endif %}"
+    >
+        {{ onsRadios({
+            "legend": params.legend,
+            "legendClasses": "js-relationships-legend",
+            "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
+            "name": params.name,
+            "radios": params.radios
+        }) }}
+        <p class="relationships__playback js-relationships-playback u-d-no">{{ params.playback | safe }}</p>
+    </div> 
+{% endmacro %}
