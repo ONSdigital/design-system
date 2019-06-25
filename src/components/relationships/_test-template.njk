@@ -1,0 +1,8 @@
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/relationships/_macro.njk" import onsRelationships %}
+
+{% call onsQuestion({
+    "title": params.title
+}) %}
+    {{ onsRelationships(params) }}
+{% endcall %}
