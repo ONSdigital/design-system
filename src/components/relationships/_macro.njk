@@ -4,10 +4,6 @@
     <div
         {% if params.id %}id="{{ params.id }}"{% endif %} 
         class="relationships js-relationships{% if params.classes %} {{ params.classes }}{% endif %}"
-        data-title-related="{{ params.titleRelated }}"
-        data-title-unrelated="{{ params.titleUnrelated }}"
-        data-playback-related="{{ params.playbackRelated }}"
-        data-playback-unrelated="{{ params.playbackUnrelated }}"
     >
         {{ onsRadios({
             "legend": params.legend,

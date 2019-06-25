@@ -17,21 +17,8 @@ export default class Relationships {
   }
 
   handleChange(event) {
-    const id = event.target.id;
-    const relationship = this.context
-      .querySelector(`[for=${id}`)
-      .childNodes[0].textContent.trim()
-      .toLowerCase();
-
-    if (event.target.value === 'unrelated') {
-      this.setText(this.titleUnrelated, this.playbackUnrelated, relationship);
-    } else {
-      this.setText(this.titleRelated, this.playbackRelated, relationship);
-    }
-  }
-
-  setText(title, playback, relationship) {
-    title = title.replace('{x}', relationship);
+    const radio = event.target;
+    const title = radio.getAttribute('data-title');
 
     this.legend.innerHTML = title;
 
@@ -39,6 +26,6 @@ export default class Relationships {
       this.question.innerHTML = title;
     }
 
-    this.playback.innerHTML = playback.replace('{x}', relationship);
+    this.playback.innerHTML = radio.getAttribute('data-playback');
   }
 }

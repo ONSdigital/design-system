@@ -16,10 +16,6 @@ layout: none
     }) %}
         {{ onsRelationships({
             "legend": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>",
-            "titleRelated": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>{x}</em>",
-            "titleUnrelated": "Thinking of Joe Bloggs, Amanda Bloggs is <em>unrelated</em> to Joe Bloggs",
-            "playbackRelated": "Amanda Bloggs is Joe Bloggs' <em>{x}</em>",
-            "playbackUnrelated": "Amanda Bloggs is <em>unrelated</em> to Joe Bloggs",
             "playback": "Amanda Bloggs is Joe Bloggs' <em>…</em>",
             "name": "relationship",
             "radios": [
@@ -28,6 +24,10 @@ layout: none
                     "value": "husband-wife",
                     "label": {
                         "text": "Husband or wife"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>husband or wife</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>husband or wife</em>"
                     }
                 },
                 {
@@ -35,6 +35,10 @@ layout: none
                     "value": "civil-partner",
                     "label": {
                         "text": "Legally registered civil partner"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>legally registered civil partner</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>legally registered civil partner</em>"
                     }
                 },
                 {
@@ -42,6 +46,10 @@ layout: none
                     "value": "partner",
                     "label": {
                         "text": "Partner"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>partner</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>partner</em>"
                     }
                 },
                 {
@@ -49,6 +57,10 @@ layout: none
                     "value": "son-daughter",
                     "label": {
                         "text": "Son or daughter"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>son or daughter</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>son or daughter</em>"
                     }
                 },
                 {
@@ -56,6 +68,10 @@ layout: none
                     "value": "stepchild",
                     "label": {
                         "text": "Stepchild"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepchild</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>stepchild</em>"
                     }
                 },
                 {
@@ -63,6 +79,10 @@ layout: none
                     "value": "brother-sister",
                     "label": {
                         "text": "Brother or sister"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>brother or sister</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>brother or sister</em>"
                     }
                 },
                 {
@@ -70,6 +90,10 @@ layout: none
                     "value": "stepbrother-stepsister",
                     "label": {
                         "text": "Stepbrother or stepsister"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepbrother or sister</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>stepbrother or sister</em>"
                     }
                 },
                 {
@@ -77,6 +101,10 @@ layout: none
                     "value": "mother-father",
                     "label": {
                         "text": "Mother or father"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>mother or father</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>mother or father</em>"
                     }
                 },
                 {
@@ -84,6 +112,10 @@ layout: none
                     "value": "stepmother-stepfather",
                     "label": {
                         "text": "Stepmother or stepfather"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepmother or stepfather</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>stepmother or stepfather</em>"
                     }
                 },
                 {
@@ -91,6 +123,10 @@ layout: none
                     "value": "grandchild",
                     "label": {
                         "text": "Grandchild"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>grandchild</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>grandchild</em>"
                     }
                 },
                 {
@@ -98,6 +134,10 @@ layout: none
                     "value": "grandparent",
                     "label": {
                         "text": "Grandparent"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>grandparents</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>grandparents</em>"
                     }
                 },
                 {
@@ -105,6 +145,10 @@ layout: none
                     "value": "other-relation",
                     "label": {
                         "text": "Other relation"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>other relation</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>other relation</em>"
                     }
                 },
                 {
@@ -113,6 +157,10 @@ layout: none
                     "label": {
                         "text": "Unrelated",
                         "description": "Including foster child"
+                    },
+                    "attributes": {
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is <em>unrelated</em> to Joe Bloggs",
+                        "data-playback": "Amanda Bloggs is <em>unrelated</em> to Joe Bloggs"
                     }
                 }
             ]

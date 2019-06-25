@@ -4,11 +4,6 @@ import Relationships from 'components/relationships/relationships';
 
 const params = {
   legend: 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>',
-  titleRelated: 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>{x}</em>',
-  titleUnrelated: 'Thinking of Joe Bloggs, Amanda Bloggs is <em>unrelated</em> to Joe Bloggs',
-  // eslint-disable-next-line prettier/prettier
-  playbackRelated: 'Amanda Bloggs is Joe Bloggs\' <em>{x}</em>',
-  playbackUnrelated: 'Amanda Bloggs is <em>unrelated</em> to Joe Bloggs',
   // eslint-disable-next-line prettier/prettier
   playback: 'Amanda Bloggs is Joe Bloggs\' <em>…</em>',
   name: 'relationship',
@@ -18,6 +13,11 @@ const params = {
       value: 'husband-wife',
       label: {
         text: 'Husband or wife'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>husband or wife</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>husband or wife</em>'
       }
     },
     {
@@ -25,6 +25,11 @@ const params = {
       value: 'civil-partner',
       label: {
         text: 'Legally registered civil partner'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>legally registered civil partner</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>legally registered civil partner</em>'
       }
     },
     {
@@ -32,6 +37,11 @@ const params = {
       value: 'partner',
       label: {
         text: 'Partner'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>partner</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>partner</em>'
       }
     },
     {
@@ -39,6 +49,11 @@ const params = {
       value: 'son-daughter',
       label: {
         text: 'Son or daughter'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>son or daughter</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>son or daughter</em>'
       }
     },
     {
@@ -46,6 +61,11 @@ const params = {
       value: 'stepchild',
       label: {
         text: 'Stepchild'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepchild</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepchild</em>'
       }
     },
     {
@@ -53,6 +73,11 @@ const params = {
       value: 'brother-sister',
       label: {
         text: 'Brother or sister'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>brother or sister</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>brother or sister</em>'
       }
     },
     {
@@ -60,6 +85,11 @@ const params = {
       value: 'stepbrother-stepsister',
       label: {
         text: 'Stepbrother or stepsister'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepbrother or sister</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepbrother or sister</em>'
       }
     },
     {
@@ -67,6 +97,11 @@ const params = {
       value: 'mother-father',
       label: {
         text: 'Mother or father'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>mother or father</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>mother or father</em>'
       }
     },
     {
@@ -74,6 +109,11 @@ const params = {
       value: 'stepmother-stepfather',
       label: {
         text: 'Stepmother or stepfather'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepmother or stepfather</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepmother or stepfather</em>'
       }
     },
     {
@@ -81,6 +121,11 @@ const params = {
       value: 'grandchild',
       label: {
         text: 'Grandchild'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>grandchild</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>grandchild</em>'
       }
     },
     {
@@ -88,6 +133,11 @@ const params = {
       value: 'grandparent',
       label: {
         text: 'Grandparent'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>grandparents</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>grandparents</em>'
       }
     },
     {
@@ -95,6 +145,11 @@ const params = {
       value: 'other-relation',
       label: {
         text: 'Other relation'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>other relation</em>',
+        // eslint-disable-next-line prettier/prettier
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>other relation</em>'
       }
     },
     {
@@ -103,6 +158,10 @@ const params = {
       label: {
         text: 'Unrelated',
         description: 'Including foster child'
+      },
+      attributes: {
+        'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is <em>unrelated</em> to Joe Bloggs',
+        'data-playback': 'Amanda Bloggs is <em>unrelated</em> to Joe Bloggs'
       }
     }
   ]
@@ -146,34 +205,15 @@ describe('Component: Relationships', function() {
         });
 
         it('the question title should be changed to reflect the relationship', function() {
-          expect(this.h1.innerHTML).to.equal(params.titleRelated.replace('{x}', getLabelText(this.context, this.selectedRadio)));
+          expect(this.h1.innerHTML).to.equal(this.selectedRadio.getAttribute('data-title'));
         });
 
         it('the legend should be changed to reflect the relationship', function() {
-          expect(this.legend.innerHTML).to.equal(params.titleRelated.replace('{x}', getLabelText(this.context, this.selectedRadio)));
+          expect(this.legend.innerHTML).to.equal(this.selectedRadio.getAttribute('data-title'));
         });
 
         it('the playback should be changed to reflect the relationship', function() {
-          expect(this.playback.innerHTML).to.equal(params.playbackRelated.replace('{x}', getLabelText(this.context, this.selectedRadio)));
-        });
-      });
-
-      describe('when the user says they are unrelated', function() {
-        beforeEach(function() {
-          this.selectedRadio = this.radios.find(radio => radio.value === 'unrelated');
-          this.selectedRadio.click();
-        });
-
-        it('the question title should be changed to say they are unrelated', function() {
-          expect(this.h1.innerHTML).to.equal(params.titleUnrelated.replace('{x}', getLabelText(this.context, this.selectedRadio)));
-        });
-
-        it('the legend should be changed to say they are unrelated', function() {
-          expect(this.legend.innerHTML).to.equal(params.titleUnrelated.replace('{x}', getLabelText(this.context, this.selectedRadio)));
-        });
-
-        it('the playback should be changed to say they are unrelated', function() {
-          expect(this.playback.innerHTML).to.equal(params.playbackUnrelated.replace('{x}', getLabelText(this.context, this.selectedRadio)));
+          expect(this.playback.innerHTML).to.equal(this.selectedRadio.getAttribute('data-playback'));
         });
       });
     });
@@ -201,11 +241,4 @@ function renderComponent(params) {
     radios,
     playback
   };
-}
-
-function getLabelText(context, radio) {
-  return context
-    .querySelector(`label[for=${radio.id}]`)
-    .childNodes[0].textContent.trim()
-    .toLowerCase();
 }
