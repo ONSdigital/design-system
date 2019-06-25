@@ -1,6 +1,6 @@
 {% macro onsPanel(params) %}
   {% if params and params.classes %}
-    {% set utilityClasses  = ' ' + params.classes %}
+    {% set classes  = ' ' + params.classes %}
   {% endif %}
 
   {% if params is not defined or params.title is not defined%}
@@ -18,7 +18,7 @@
   {% endif %}
 
     <div 
-        class="panel{{ typeClass }}{{ simpleClass }}{{ spaciousClass }}{{ utilityClasses }}{% if params.classes %} {{ params.classes }}{% endif %}"
+        class="panel{{ typeClass }}{{ simpleClass }}{{ spaciousClass }}{{ classes }}"
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
     >
         {% if params and params.title %}
