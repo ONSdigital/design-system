@@ -43,7 +43,7 @@ const params = {
 
 describe('Component: Navigation', function() {
   const ViewportDetailsMock = new GetViewportDetailsMock();
-  let rewiremock, nav;
+  let rewiremock;
 
   before(resolve => {
     awaitPolyfills.then(() => {
