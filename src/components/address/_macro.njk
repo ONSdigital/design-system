@@ -1,7 +1,7 @@
 {% from "components/field/_macro.njk" import onsField %}
 {% from "components/input/_macro.njk" import onsInput %}
 
-{% macro onsManualAddressInput(params) %}
+{% macro onsAddressInput(params) %}
     {% call onsField({
         "id": params.id,
         "classes": params.classes,
@@ -9,10 +9,11 @@
         "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
         "legendClasses": params.legendClasses
     }) %}
-        {% if params.organisation.label %}
+        {% if params.organisation %}
             {{
                 onsInput({
                     "id": params.id + "-organisation",
+                    "type": params.organisation.type,
                     "label": {
                         "text": params.organisation.label
                     },
@@ -31,34 +32,56 @@
                 "name": params.line1.name | default(params.id + "-line-1")
             })
         }}
-        {{
-            onsInput({
-                "id": params.line2.id | default(params.id + "-line-2"),
-                "label": {
-                    "text": params.line2.label
-                },
-                "classes": "input--w-20@m",
-                "name": params.line2.name | default(params.id + "-line-2")
-            })
-        }}
-        {{
-            onsInput({
-                "id": params.town.id | default(params.id + "-town"),
-                "label": {
-                    "text": params.town.label
-                },
-                "name": params.town.name | default(params.id + "-town")
-            })
-        }}
-        {{
-            onsInput({
-                "id": params.county.id | default(params.id + "-county"),
-                "label": {
-                    "text": params.county.label
-                },
-                "name": params.county.name | default(params.id + "-county")
-            })
-        }}
+        {% if params.line2 %}
+            {{
+                onsInput({
+                    "id": params.line2.id | default(params.id + "-line-2"),
+                    "type": params.line2.type,
+                    "label": {
+                        "text": params.line2.label
+                    },
+                    "classes": "input--w-20@m",
+                    "name": params.line2.name | default(params.id + "-line-2")
+                })
+            }}
+        {% endif %}
+        {% if params.line3 %}
+            {{
+                onsInput({
+                    "id": params.line3.id | default(params.id + "-line-3"),
+                    "type": params.line3.type,
+                    "label": {
+                        "text": params.line3.label
+                    },
+                    "classes": "input--w-20@m",
+                    "name": params.line3.name | default(params.id + "-line-3")
+                })
+            }}
+        {% endif %}
+        {% if params.town %}
+            {{
+                onsInput({
+                    "id": params.town.id | default(params.id + "-town"),
+                    "type": params.town.type,
+                    "label": {
+                        "text": params.town.label
+                    },
+                    "name": params.town.name | default(params.id + "-town")
+                })
+            }}
+        {% endif %}
+        {% if params.county %}
+            {{
+                onsInput({
+                    "id": params.county.id | default(params.id + "-county"),
+                    "type": params.county.type,
+                    "label": {
+                        "text": params.county.label
+                    },
+                    "name": params.county.name | default(params.id + "-county")
+                })
+            }}
+        {% endif %}
         {{
             onsInput({
                 "id": params.postcode.id | default(params.id + "-postcode"),
