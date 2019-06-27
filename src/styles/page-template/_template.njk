@@ -4,7 +4,7 @@
 
 {% set currentLanguageISOCode = "en" %}
 
-{% if page and page.language and page.languages %}
+{% if page and page.language and page.language.languages %}
     {% set currentLanguage = page.language.languages | selectattr("current") | first %}
     {% set currentLanguageISOCode = currentLanguage.ISOCode %}
 {% endif %}
