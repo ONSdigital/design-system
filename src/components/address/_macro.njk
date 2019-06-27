@@ -18,7 +18,8 @@
                         "text": params.organisation.label
                     },
                     "classes": "input--w-20@m",
-                    "name": params.organisation.name | default(params.id + "-organisation")
+                    "name": params.organisation.name | default(params.id + "-organisation"),
+                    "value": params.organisation.value
                 })
             }}
         {% endif %}
@@ -29,7 +30,8 @@
                     "text": params.line1.label
                 },
                 "classes": "input--w-20@m",
-                "name": params.line1.name | default(params.id + "-line-1")
+                "name": params.line1.name | default(params.id + "-line-1"),
+                "value": params.line1.value
             })
         }}
         {% if params.line2 %}
@@ -41,7 +43,8 @@
                         "text": params.line2.label
                     },
                     "classes": "input--w-20@m",
-                    "name": params.line2.name | default(params.id + "-line-2")
+                    "name": params.line2.name | default(params.id + "-line-2"),
+                    "value": params.line2.value
                 })
             }}
         {% endif %}
@@ -54,7 +57,8 @@
                         "text": params.line3.label
                     },
                     "classes": "input--w-20@m",
-                    "name": params.line3.name | default(params.id + "-line-3")
+                    "name": params.line3.name | default(params.id + "-line-3"),
+                    "value": params.line3.value
                 })
             }}
         {% endif %}
@@ -66,7 +70,8 @@
                     "label": {
                         "text": params.town.label
                     },
-                    "name": params.town.name | default(params.id + "-town")
+                    "name": params.town.name | default(params.id + "-town"),
+                    "value": params.town.value
                 })
             }}
         {% endif %}
@@ -78,7 +83,8 @@
                     "label": {
                         "text": params.county.label
                     },
-                    "name": params.county.name | default(params.id + "-county")
+                    "name": params.county.name | default(params.id + "-county"),
+                    "value": params.county.value
                 })
             }}
         {% endif %}
@@ -89,7 +95,8 @@
                     "text": params.postcode.label
                 },
                 "classes": "input--w-5",
-                "name": params.postcode.name | default(params.id + "-postcode")
+                "name": params.postcode.name | default(params.id + "-postcode"),
+                "value": params.postcode.value
             })
         }}
     {% endcall %}
