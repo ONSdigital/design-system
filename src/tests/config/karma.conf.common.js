@@ -34,7 +34,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
 
   return function(config) {
     config.set({
-      frameworks: ['mocha', 'chai-spies', 'chai', 'viewport'],
+      frameworks: ['mocha', 'chai-spies', 'chai'],
 
       files: ['../../js/polyfills/index.js', '../../tests/**/*.spec.js'],
 
@@ -52,56 +52,8 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         'karma-mocha',
         'karma-mocha-reporter',
         'karma-chai',
-        'karma-chai-spies',
-        'karma-viewport'
+        'karma-chai-spies'
       ],
-
-      viewport: {
-        breakpoints: [
-          {
-            name: 'xs',
-            size: {
-              width: 300,
-              height: 500
-            }
-          },
-          {
-            name: 's',
-            size: {
-              width: 500,
-              height: 500
-            }
-          },
-          {
-            name: 'm',
-            size: {
-              width: 740,
-              height: 500
-            }
-          },
-          {
-            name: 'l',
-            size: {
-              width: 980,
-              height: 500
-            }
-          },
-          {
-            name: 'xl',
-            size: {
-              width: 1300,
-              height: 500
-            }
-          },
-          {
-            name: 'xxl',
-            size: {
-              width: 1600,
-              height: 500
-            }
-          }
-        ]
-      },
 
       webpack: webpackConfig,
 
