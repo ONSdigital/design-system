@@ -6,21 +6,26 @@ export default class Relationships {
     this.legend = context.querySelector('.js-relationships-legend');
     this.playback = context.querySelector('.js-relationships-playback');
 
-    this.radios.forEach(radio => radio.addEventListener('change', this.handleChange.bind(this)));
+    this.radios.forEach(radio => radio.addEventListener('change', this.setPlayback.bind(this)));
+
+    this.setPlayback();
 
     this.playback.classList.remove('u-d-no');
   }
 
-  handleChange(event) {
-    const radio = event.target;
-    const title = radio.getAttribute('data-title');
+  setPlayback() {
+    const radio = this.radios.find(radio => radio.checked);
 
-    this.legend.innerHTML = title;
+    if (radio) {
+      const title = radio.getAttribute('data-title');
 
-    if (this.question) {
-      this.question.innerHTML = title;
+      this.legend.innerHTML = title;
+
+      if (this.question) {
+        this.question.innerHTML = title;
+      }
+
+      this.playback.innerHTML = radio.getAttribute('data-playback');
     }
-
-    this.playback.innerHTML = radio.getAttribute('data-playback');
   }
 }
