@@ -1,4 +1,5 @@
-import domReady from 'js/domready';
+import onViewportChange from 'js/utils/viewport-change';
+import { GetViewportDetails } from 'viewport-details';
 
 const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
@@ -10,7 +11,8 @@ export default class NavToggle {
     this.nav = nav;
     this.toggle.classList.remove('u-d-no');
 
-    this.closeNav();
+    this.setAria();
+    onViewportChange(this.setAria.bind(this));
   }
 
   registerEvents() {
@@ -33,15 +35,19 @@ export default class NavToggle {
     this.nav.setAttribute(attrHidden, 'true');
     this.nav.classList.add(hideClass);
   }
-}
 
-export function mobileNav() {
-  const toggleMainBtn = document.querySelector('.js-toggle-main');
-  const mainNavList = document.querySelector('.js-header-nav');
+  setAria() {
+    const viewportDetails = GetViewportDetails();
+    const hasAria = this.nav.hasAttribute(attrHidden);
 
-  if (toggleMainBtn) {
-    new NavToggle(toggleMainBtn, mainNavList).registerEvents();
+    if (viewportDetails.width < 740) {
+      if (!hasAria) {
+        this.closeNav();
+      }
+    } else if (hasAria) {
+      this.toggle.removeAttribute(attrExpanded);
+      this.nav.removeAttribute(attrHidden);
+      this.nav.classList.remove(hideClass);
+    }
   }
 }
-
-domReady(mobileNav);
