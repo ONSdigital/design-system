@@ -16,10 +16,11 @@
                         <input
                             type="radio"
                             id="{{ radio.id }}"
-                            class="radio__input {{ radio.classes }}"
+                            class="radio__input js-radio {{ radio.classes }}"
                             value="{{ radio.value }}" 
                             name="{{ params.name }}"
                             {% if radio.checked or (params.value and params.value == radio.value) %} checked{% endif %}
+                            {% if radio.other %} aria-controls="{{ radio.id }}-other-wrap" aria-haspopup="true"{% endif %}
                             {% if radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                         >
                         <label class="radio__label {{ radio.label.classes }}" for="{{ radio.id }}">
@@ -30,7 +31,7 @@
                             {% endif %}
                         </label>
                         {% if radio.other %}
-                            <span class="radio__other">
+                            <span class="radio__other" id="{{ radio.id }}-other-wrap">
                                 {% from "components/input/_macro.njk" import onsInput %}
                                 {{
                                     onsInput({
