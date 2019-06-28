@@ -10319,6 +10319,11 @@ thunky@^1.0.2:
   resolved "https://registry.yarnpkg.com/thunky/-/thunky-1.0.3.tgz#f5df732453407b09191dae73e2a8cc73f381a826"
   integrity sha512-YwT8pjmNcAXBZqrubu22P4FYsh2D4dxRmnWBOL8Jk8bUcRUtc5326kx32tuTmFDAZtLOGEVNl8POAR8j896Iow==
 
+tick-manager@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tick-manager/-/tick-manager-1.0.3.tgz#843aee30f3ab53a42c67f4194faa21b03a5eb52a"
+  integrity sha1-hDruMPOrU6QsZ/QZT6ohsDpetSo=
+
 timed-out@^4.0.0, timed-out@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/timed-out/-/timed-out-4.0.1.tgz#f32eacac5a175bea25d7fab565ab3ed8741ef56f"
@@ -10980,6 +10985,13 @@ vfile@^3.0.0:
     replace-ext "1.0.0"
     unist-util-stringify-position "^1.0.0"
     vfile-message "^1.0.0"
+
+viewport-details@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/viewport-details/-/viewport-details-1.5.0.tgz#811d2fe60a075f5fde0ce093ab7a9d40f60eb89e"
+  integrity sha512-obRHP4IItemkyfBDYKzgP1E6UwZlKB+LVPfoDcvcZ2kaoRPZCvcO6m6kSDqVv0GpwFmKveniSYJ3LDbaoHi+3g==
+  dependencies:
+    tick-manager "^1.0.3"
 
 vm-browserify@0.0.4:
   version "0.0.4"
