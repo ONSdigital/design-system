@@ -9,28 +9,29 @@ const params = {
     '<p>A typical photovoltaic system employs solar panels, each comprising a number of solar cells, which generate electrical power. PV installations may be ground-mounted, rooftop mounted or wall mounted. The mount may be fixed, or use a solar tracker to follow the sun across the sky.</p>',
   button: {
     close: 'Hide this'
-  }
+  },
+  saveState: null
 };
 
 describe('Component: Details', function() {
   before(() => awaitPolyfills);
 
   describe('If the component has a button', function() {
-    beforeEach(function() {
-      const component = renderComponent(params);
-
-      Object.keys(component).forEach(key => {
-        this[key] = component[key];
-      });
-    });
-
-    afterEach(function() {
-      if (this.wrapper) {
-        this.wrapper.remove();
-      }
-    });
-
     describe('before the component initialises', function() {
+      beforeEach(function() {
+        const component = renderComponent(params);
+
+        Object.keys(component).forEach(key => {
+          this[key] = component[key];
+        });
+      });
+
+      afterEach(function() {
+        if (this.wrapper) {
+          this.wrapper.remove();
+        }
+      });
+
       it('then the details element should have a open attribute', function() {
         expect(this.details.hasAttribute('open')).to.be.true;
       });
@@ -68,9 +69,20 @@ describe('Component: Details', function() {
       });
     });
 
-    describe('When the component initialises', function() {
-      beforeEach(() => {
+    describe('when the component initialises and savestate is not set', function() {
+      beforeEach(function() {
+        const component = renderComponent(params);
+
+        Object.keys(component).forEach(key => {
+          this[key] = component[key];
+        });
         collapsible();
+      });
+
+      afterEach(function() {
+        if (this.wrapper) {
+          this.wrapper.remove();
+        }
       });
 
       it('then the open attribute should be removed from the details element', function() {
@@ -121,24 +133,12 @@ describe('Component: Details', function() {
             this.summary.click();
           });
 
-          it('then the open attribute on the summary element should be added', function() {
-            expect(this.summary.hasAttribute('aria-expanded')).to.be.true;
-          });
+          onOpenTests();
 
-          it('then a details--open class should be added to the details', function() {
-            expect(this.details.classList.contains('details--open')).to.be.true;
-          });
-
-          it('then the aria-expanded attribute on the summary element should be set to true', function() {
-            expect(this.summary.getAttribute('aria-expanded')).to.equal('true');
-          });
-
-          it('then the data-ga-action attribute on the summary element should be set to "Open panel', function() {
-            expect(this.summary.getAttribute('data-ga-action')).to.equal('Open panel');
-          });
-
-          it('then the aria-hidden attribute on the content element should be set to false', function() {
-            expect(this.content.getAttribute('aria-hidden')).to.equal('false');
+          describe('and saveState isnt set', function() {
+            it('then the local storage item should not be added', function() {
+              expect(localStorage.getItem(this.details.getAttribute('id'))).to.be.null;
+            });
           });
         });
       });
@@ -163,6 +163,45 @@ describe('Component: Details', function() {
           });
 
           onCloseTests();
+        });
+      });
+    });
+
+    describe('when the component initialises, savestate is set and the element has been set in local storage', function() {
+      beforeEach(function() {
+        params.saveState = true;
+        const component = renderComponent(params);
+
+        Object.keys(component).forEach(key => {
+          this[key] = component[key];
+        });
+        localStorage.setItem(this.details.getAttribute('id'), true);
+        collapsible();
+      });
+
+      afterEach(function() {
+        if (this.wrapper) {
+          this.wrapper.remove();
+        }
+        localStorage.removeItem(this.details.getAttribute('id'));
+      });
+
+      onOpenTests();
+
+      describe('and the component is closed', function() {
+        beforeEach(function() {
+          this.summary.click();
+        });
+
+        onCloseTests();
+
+        describe('and the component is opened', function() {
+          beforeEach(function() {
+            this.summary.click();
+          });
+          it('then the local storage item should be added', function() {
+            expect(localStorage.getItem(this.details.getAttribute('id'))).to.equal('true');
+          });
         });
       });
     });
@@ -238,5 +277,31 @@ function onCloseTests() {
 
   it('then the aria-hidden attribute on the content element should be set to true', function() {
     expect(this.content.getAttribute('aria-hidden')).to.equal('true');
+  });
+
+  it('then the local storage item should be removed or not set', function() {
+    expect(localStorage.getItem(this.details.getAttribute('id'))).to.be.null;
+  });
+}
+
+function onOpenTests() {
+  it('then the open attribute on the summary element should be added', function() {
+    expect(this.summary.hasAttribute('aria-expanded')).to.be.true;
+  });
+
+  it('then a details--open class should be added to the details', function() {
+    expect(this.details.classList.contains('details--open')).to.be.true;
+  });
+
+  it('then the aria-expanded attribute on the summary element should be set to true', function() {
+    expect(this.summary.getAttribute('aria-expanded')).to.equal('true');
+  });
+
+  it('then the data-ga-action attribute on the summary element should be set to "Open panel', function() {
+    expect(this.summary.getAttribute('data-ga-action')).to.equal('Open panel');
+  });
+
+  it('then the aria-hidden attribute on the content element should be set to false', function() {
+    expect(this.content.getAttribute('aria-hidden')).to.equal('false');
   });
 }
