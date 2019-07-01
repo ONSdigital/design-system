@@ -42,12 +42,12 @@
             "classes": params.fieldClasses,
             "legendClasses": params.legendClasses,
             "noField": params.noField,
-            "legend": params.label.text if params.mutuallyExclusive,
+            "legend": params.legend or params.label.text if params.mutuallyExclusive,
             "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
             "description": params.label.description if params.mutuallyExclusive,
             "mutuallyExclusive": params.mutuallyExclusive
         }) %}
-            {% if params.label and not params.mutuallyExclusive %}
+            {% if params.label and not (params.mutuallyExclusive and not params.legend) %}
                 {{
                     onsLabel({
                         "for": params.id,
