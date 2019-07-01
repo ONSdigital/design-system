@@ -5,7 +5,7 @@
 
     {% call onsField({
         "id": params.fieldId,
-        "legend": params.label.text if params.mutuallyExclusive,
+        "legend": params.legend or params.label.text if params.mutuallyExclusive,
         "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
         "description": params.label.description if params.mutuallyExclusive,
         "mutuallyExclusive": params.mutuallyExclusive,
