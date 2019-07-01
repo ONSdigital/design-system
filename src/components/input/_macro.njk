@@ -16,36 +16,7 @@
 
     {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
 
-    {% call onsField({
-        "id": params.fieldId,
-        "classes": params.fieldClasses,
-        "legendClasses": params.legendClasses,
-        "noField": params.noField,
-        "legend": params.label.text if params.mutuallyExclusive,
-        "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
-        "description": params.label.description if params.mutuallyExclusive,
-        "mutuallyExclusive": params.mutuallyExclusive
-    }) %}
-        {% if params.label and not params.mutuallyExclusive %}
-            {{
-                onsLabel({
-                    "for": params.id,
-                    "id": params.label.id,
-                    "text": params.label.text,
-                    "classes": params.label.classes,
-                    "description": params.label.description,
-                    "attributes": params.label.attributes
-                })
-            }}
-        {% endif %}
-
-        {% if params.prefix is defined or params.suffix is defined %}
-            {% if params.prefix is defined %}
-                {% set prefixClass = " input-type--prefix" %}
-            {% endif %}
-            <span class="input-type{{ prefixClass }}">
-                <span class="input-type__inner">
-        {% endif %}
+    {% set input %}
         <input
             type="{{ type }}"
             id="{{ params.id }}"
@@ -61,16 +32,54 @@
             {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         />
-        {% if params.prefix is defined or params.suffix is defined %}
-            {% set abbr = params.prefix or params.suffix %}
-                    <abbr
-                        class="input-type__type"
-                        aria-hidden="true"
-                        title="{{ abbr.title }}"
-                        {% if abbr.id %} id="{{ abbr.id }}"{% endif %}
-                        >{{ abbr.text or abbr.title }}</abbr>
+    {% endset %}
+
+    {% if type == "hidden" %}
+        {{ input | safe }}
+    {% else %}
+        {% call onsField({
+            "id": params.fieldId,
+            "classes": params.fieldClasses,
+            "legendClasses": params.legendClasses,
+            "noField": params.noField,
+            "legend": params.label.text if params.mutuallyExclusive,
+            "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
+            "description": params.label.description if params.mutuallyExclusive,
+            "mutuallyExclusive": params.mutuallyExclusive
+        }) %}
+            {% if params.label and not params.mutuallyExclusive %}
+                {{
+                    onsLabel({
+                        "for": params.id,
+                        "id": params.label.id,
+                        "text": params.label.text,
+                        "classes": params.label.classes,
+                        "description": params.label.description,
+                        "attributes": params.label.attributes
+                    })
+                }}
+            {% endif %}
+
+            {% if params.prefix is defined or params.suffix is defined %}
+                {% if params.prefix is defined %}
+                    {% set prefixClass = " input-type--prefix" %}
+                {% endif %}
+
+                <span class="input-type{{ prefixClass }}">
+                    <span class="input-type__inner">
+                        {{ input | safe }}
+                        {% set abbr = params.prefix or params.suffix %}
+                        <abbr
+                            class="input-type__type"
+                            aria-hidden="true"
+                            title="{{ abbr.title }}"
+                            {% if abbr.id %} id="{{ abbr.id }}"{% endif %}
+                            >{{ abbr.text or abbr.title }}</abbr>
+                    </span>
                 </span>
-            </span>
-        {% endif %}
-    {% endcall %}
+            {% else %}
+                {{ input | safe }}
+            {% endif %}
+        {% endcall %}
+    {% endif %}
 {% endmacro %}
