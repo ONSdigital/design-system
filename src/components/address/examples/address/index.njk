@@ -4,7 +4,7 @@ layout: none
 {% extends "styles/page-template/_template.njk" %}
 
 {% from "components/question/_macro.njk" import onsQuestion %}
-{% from "components/address/_macro.njk" import onsManualAddressInput %}
+{% from "components/address/_macro.njk" import onsAddressInput %}
 
 {% set page = {
     "title": "Manual Address Input Example"
@@ -13,7 +13,7 @@ layout: none
     {% call onsQuestion({
         "title": "What is your address?"
     }) %}
-        {{ onsManualAddressInput({
+        {{ onsAddressInput({
             "id": "address",
             "legend": "What is your address?",
             "line1": {

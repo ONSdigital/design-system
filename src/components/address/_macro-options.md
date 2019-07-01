@@ -19,3 +19,4 @@
 | id         | string | false    | ID for the field                     |
 | name       | string | false    | Sets the name attribute on the field |
 | label.text | string | true     | The label for the input              |
+| value      | string | false    | The value for the input              |
