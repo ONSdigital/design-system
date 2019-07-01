@@ -89,6 +89,10 @@
   }
 }
 
-.input__limit--reached {
-  color: $color-red;
+.input__limit {
+  display: block;
+
+  &--reached {
+    color: $color-red;
+  }
 }
