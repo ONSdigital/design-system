@@ -44,7 +44,7 @@ export default function() {
       }),
       bs_mac_firefox: inheritBase({
         browser: 'firefox',
-        browser_version: '67.0',
+        browser_version: '66.0',
         os: 'OS X',
         os_version: 'Mojave'
       }),
