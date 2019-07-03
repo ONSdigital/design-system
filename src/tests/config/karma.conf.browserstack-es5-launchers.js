@@ -6,7 +6,6 @@ export default function() {
       'bs_ipad_air_2',
       // 'bs_android_galaxy_S5_mini',
       'bs_mac_safari',
-      'bs_windows_10_IE_edge',
       'bs_windows_10_IE_11'
     ],
 
@@ -46,12 +45,6 @@ export default function() {
       /**
        * Windows
        */
-      bs_windows_10_IE_edge: inheritBase({
-        os: 'Windows',
-        os_version: '10',
-        browser: 'Edge',
-        browser_version: '15'
-      }),
       bs_windows_10_IE_11: inheritBase({
         os: 'Windows',
         os_version: '10',
