@@ -38,7 +38,7 @@ export default function() {
        */
       bs_mac_chrome: inheritBase({
         browser: 'chrome',
-        browser_version: '76.0',
+        browser_version: '75.0',
         os: 'OS X',
         os_version: 'Mojave'
       }),
@@ -68,7 +68,7 @@ export default function() {
         os: 'Windows',
         os_version: '10',
         browser: 'Chrome',
-        browser_version: '76.0'
+        browser_version: '75.0'
       }),
       bs_windows_10_firefox: inheritBase({
         os: 'Windows',
