@@ -36,13 +36,12 @@
                           {% if params.serviceLinks %}
                               <div class="grid__col col-auto u-d-no@xs@m">
                                   <nav class="header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel }}">
-                                      <ul class="header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel }}" role="menubar">
+                                      <ul class="header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel }}">
                                           {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}
                                               <li class="header-service-nav__item">
                                                   <a
                                                     href="{{ item.url }}"
                                                     class="header-service-nav__link"
-                                                    role="menuitem"
                                                     {% if item.id %} id="{{ item.id }}"{% endif %}
                                                 >{{ item.text }}</a>
                                               </li>
