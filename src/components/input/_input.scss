@@ -14,6 +14,10 @@
 
   transition: border-color 200ms ease-in;
 
+  &::-ms-clear {
+    display: none;
+  }
+
   @include mq(s) {
     &--text,
     &--select {
