@@ -189,8 +189,9 @@ describe('Component: Details', function() {
       onOpenTests();
 
       describe('and the component is closed', function() {
-        beforeEach(function() {
+        beforeEach(function(done) {
           this.summary.click();
+          setTimeout(done);
         });
 
         onCloseTests();
@@ -198,7 +199,7 @@ describe('Component: Details', function() {
         describe('and the component is opened', function() {
           beforeEach(function(done) {
             this.summary.click();
-            setTimeout(done, 200);
+            setTimeout(done);
           });
           it('then the local storage item should be added', function() {
             expect(localStorage.getItem(this.details.getAttribute('id'))).to.equal('true');
