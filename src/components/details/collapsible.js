@@ -2,8 +2,9 @@ import CollapsibleGroup from './collapsible.group';
 
 export class Collapsible {
   constructor(detailsElement) {
+    this.saveState = detailsElement.getAttribute('data-save-state') === 'true';
+
     // State
-    this.isOpen = true;
     this.group = detailsElement.getAttribute('data-group');
     this.isAccordion = detailsElement.classList.contains('details--accordion');
 
@@ -32,8 +33,11 @@ export class Collapsible {
     if (!this.isAccordion) {
       this.summary.setAttribute('tabindex', 0);
     }
-
-    this.setOpen(false);
+    if (localStorage.getItem(detailsId)) {
+      this.setOpen(true);
+    } else {
+      this.setOpen(false);
+    }
 
     this.summary.addEventListener('click', this.toggle.bind(this));
 
@@ -78,6 +82,12 @@ export class Collapsible {
           this.onClose();
         }
       }
+    }
+
+    if (this.saveState === true && open === true) {
+      localStorage.setItem(this.details.getAttribute('id'), true);
+    } else {
+      localStorage.removeItem(this.details.getAttribute('id'));
     }
   }
 }
