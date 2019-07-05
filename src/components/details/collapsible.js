@@ -65,7 +65,6 @@ export class Collapsible {
       this.details[`${openAttribute}Attribute`]('open', '');
       this.details.classList[cls]('details--open');
       this.summary.setAttribute('aria-expanded', open);
-      this.details.setAttribute('aria-selected', open);
       this.content.setAttribute('aria-hidden', !open);
 
       this.summary.setAttribute('data-ga-action', `${action} panel`);
