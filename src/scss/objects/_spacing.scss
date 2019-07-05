@@ -1,9 +1,11 @@
 .field +,
+.fieldset +,
 .figure +,
 .panel +,
 .details:not(.details--accordion) + {
   .figure,
   .field,
+  .fieldset,
   .panel,
   .details:not(.details--accordion) {
     margin-top: 1.5rem;
