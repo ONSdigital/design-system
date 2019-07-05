@@ -1,28 +1,19 @@
 {% macro onsTextarea(params) %}
+    {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/field/_macro.njk" import onsField %}
+    {% from "components/label/_macro.njk" import onsLabel %}
 
-    {% call onsField({
-        "id": params.fieldId,
-        "legend": params.legend or params.label.text if params.mutuallyExclusive,
-        "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
-        "description": params.label.description if params.mutuallyExclusive,
-        "mutuallyExclusive": params.mutuallyExclusive,
-        "classes": params.fieldClasses,
-        "legendClasses": params.legendClasses
-    }) %}
-        {% if params.mutuallyExclusive  %}
-            {% set textareaExlusiveClass = " js-exclusive-group" %}
-        {% else %}
-            {% from "components/label/_macro.njk" import onsLabel %}
-            {{
-                onsLabel({
-                    "for": params.id,
-                    "text": params.label.text,
-                    "description": params.label.description,
-                    "classes": params.label.classes
-                })
-            }}
-        {% endif %}
+
+    {% set field %}
+        {% set textareaExlusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
+
+        {{ onsLabel({
+            "for": params.id,
+            "text": params.label.text,
+            "description": params.label.description,
+            "classes": params.label.classes
+        }) }}
+
         <textarea
             id="{{ params.id }}"
             class="input input--textarea {% if params.maxlength %} js-charlimit-input{% endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
@@ -34,6 +25,7 @@
             {% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >{{ params.value }}</textarea>
+
         {% if params.maxlength %}
             <span
                 id="{{ params.id }}-lim-remaining"
@@ -42,5 +34,32 @@
                 data-charcount-plural="{{ params.charCountPlural }}">
             </span>
         {% endif %}
-    {% endcall %}
+    {% endset %}
+
+    {% if params.mutuallyExclusive %}
+        {% call onsMutuallyExclusive({
+            "id": params.fieldId,
+            "classes": params.fieldClasses,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "description": params.description,
+            "dontWrap": params.dontWrap,
+            "checkbox": params.mutuallyExclusive.checkbox,
+            "or": params.mutuallyExclusive.or,
+            "deselectMessage": params.mutuallyExclusive.deselectMessage,
+            "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
+            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective
+        }) %}
+            {{ field | safe }}
+        {% endcall %}
+    {% elif params.dontWrap %}
+        {{ field | safe }}
+    {% else %}
+        {% call onsField({
+            "id": params.fieldId,
+            "classes": params.fieldClasses
+        }) %}
+            {{ field | safe }}
+        {% endcall %}
+    {% endif %}
 {% endmacro %}

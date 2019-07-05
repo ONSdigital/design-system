@@ -6,6 +6,6 @@
   .field,
   .panel,
   .details:not(.details--accordion) {
-    @extend .u-mt-m;
+    margin-top: 1.5rem;
   }
 }

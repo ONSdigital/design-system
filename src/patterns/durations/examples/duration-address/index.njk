@@ -1,53 +1,43 @@
 {% from "components/question/_macro.njk" import onsQuestion %}
-{% from "components/field/_macro.njk" import onsField %}
+{% from "components/fieldset/_macro.njk" import onsFieldset %}
 {% from "components/input/_macro.njk" import onsInput %}
 
 {% call onsQuestion({
     "title": "How long have you lived at this address?",
     "description": "<p>If you have lived at this address for less than a year then enter 0 into the year input.</p>"
 }) %}
-    {% call onsField({
+    {% call onsFieldset({
         "id": "address-duration",
-        "legend": "Duration",
-        "dontVisuallyHideLegend": true
+        "legend": "Duration"
     }) %}
-        <div class="field__group">
-            <p class="field__item">
-                {{ 
-                    onsInput({
-                        "id": "address-duration-years",
-                        "type": "number",
-                        "name": "address-duration-years",
-                        "classes": "input--w-2",
-                        "attributes": {
-                            "min": 0,
-                            "max": 100
-                        },
-                        "suffix": {
-                            "title": "Years"
-                        },
-                        "noField": true
-                    })
-                }}
-            </p>
-            <p class="field__item">
-                {{ 
-                    onsInput({
-                        "id": "address-duration-months",
-                        "type": "number",
-                        "name": "address-duration-months",
-                        "classes": "input--w-2",
-                        "attributes": {
-                            "min": 0,
-                            "max": 11
-                        },
-                        "suffix": {
-                            "title": "Months"
-                        },
-                        "noField": true
-                    })
-                }}
-            </p>
+        <div class="field-group">
+            {{ onsInput({
+                "id": "address-duration-years",
+                "type": "number",
+                "name": "address-duration-years",
+                "classes": "input--w-2",
+                "attributes": {
+                    "min": 0,
+                    "max": 100
+                },
+                "suffix": {
+                    "title": "Years"
+                }
+            }) }}
+         
+            {{ onsInput({
+                "id": "address-duration-months",
+                "type": "number",
+                "name": "address-duration-months",
+                "classes": "input--w-2",
+                "attributes": {
+                    "min": 0,
+                    "max": 11
+                },
+                "suffix": {
+                    "title": "Months"
+                }
+            }) }}
         </div>
     {% endcall %}
 {% endcall %}

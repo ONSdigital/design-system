@@ -1,25 +1,17 @@
 {% macro onsCheckboxes(params) %}
-    {% from "components/field/_macro.njk" import onsField %}
+    {% from "components/fieldset/_macro.njk" import onsFieldset %}
+    {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
 
-    {% call onsField({
-        "id": params.id,
-        "description": params.description,
-        "classes": params.classes,
-        "mutuallyExclusive": params.mutuallyExclusive,
-        "legend": params.legend,
-        "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
-        "legendClasses": params.legendClasses,
-        "noField": params.noField
-    }) %}
-        <span class="field__label">{{ params.checkboxesLabel }}</span>
-        <span class="field__items">
+    {% set fields %}
+        <p class="checkboxes__label">{{ params.checkboxesLabel }}</p>
+        <span class="checkboxes__items">
             {% for checkbox in params.checkboxes %}
                 {% set labelHTML = checkbox.label.text %}
                 {% if params.mutuallyExclusive %}  
                     {% set exclusiveClass = ' js-exclusive-group' %}
                 {% endif %}
-                <p class="field__item">
+                <p class="checkboxes__item">
                     {% set config = {
                         "id": checkbox.id,
                         "name": checkbox.name,
@@ -57,5 +49,39 @@
                 {% endif %}
             {% endfor %}
         </span>
-    {% endcall %}
+    {% endset %}
+
+    {% if params.mutuallyExclusive %}
+        {% call onsMutuallyExclusive({
+            "id": params.id,
+            "description": params.description,
+            "classes": params.classes,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "description": params.description,
+            "attributes": params.attributes,
+            "dontWrap": params.dontWrap,
+            "checkbox": params.mutuallyExclusive.checkbox,
+            "or": params.mutuallyExclusive.or,
+            "deselectMessage": params.mutuallyExclusive.deselectMessage,
+            "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
+            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective
+        }) %}
+            {{ fields | safe }}
+        {% endcall %}
+    {% elif params.dontWrap %}
+        {{ fields | safe }}
+    {% else %}
+        {% call onsFieldset({
+            "id": params.id,
+            "description": params.description,
+            "classes": params.classes,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "description": params.description,
+            "attributes": params.attributes
+        }) %}
+            {{ fields | safe }}
+        {% endcall %}
+    {% endif %}
 {% endmacro %}

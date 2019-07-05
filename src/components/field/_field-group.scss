@@ -1,0 +1,15 @@
+.field-group {
+  margin-top: -1.5rem;
+  font-size: 0;
+
+  .field {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    vertical-align: top;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}

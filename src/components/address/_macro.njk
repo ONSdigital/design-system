@@ -1,14 +1,8 @@
-{% from "components/field/_macro.njk" import onsField %}
+{% from "components/fieldset/_macro.njk" import onsFieldset %}
 {% from "components/input/_macro.njk" import onsInput %}
 
 {% macro onsAddressInput(params) %}
-    {% call onsField({
-        "id": params.id,
-        "classes": params.classes,
-        "legend": params.legend,
-        "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
-        "legendClasses": params.legendClasses
-    }) %}
+    {% set fields %}
         {% if params.organisation %}
             {{
                 onsInput({
@@ -99,5 +93,18 @@
                 "value": params.postcode.value
             })
         }}
-    {% endcall %}
+    {% endset %}
+
+    {% if params.dontWrap %}
+        {{ fields | safe }}
+    {% else %}
+        {% call onsFieldset({
+            "id": params.id,
+            "classes": params.classes,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses
+        }) %}
+            {{ fields | safe }}
+        {% endcall %}
+    {% endif %}
 {% endmacro %}
