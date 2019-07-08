@@ -4,7 +4,6 @@ import Checkboxes from 'components/checkboxes/checkboxes';
 
 const params = {
   legend: 'What are your favourite pizza toppings?',
-  dontVisuallyHideLegend: true,
   checkboxesLabel: 'Select all that apply',
   name: 'food-other',
   checkboxes: [

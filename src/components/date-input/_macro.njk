@@ -1,80 +1,85 @@
 {% macro onsDateInput(params) %}
-    {% from "components/field/_macro.njk" import onsField %}
+    {% from "components/fieldset/_macro.njk" import onsFieldset %}
+    {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/input/_macro.njk" import onsInput %}
-    {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
 
-    {% if params.mutuallyExclusive %}
-        {% set exclusiveClass = " js-exclusive-group" %}
-    {% endif %}
+    {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
 
-    {% call onsField({
-        "id": params.id,
-        "legend": params.legend,
-        "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
-        "legendClasses": params.legendClasses,
-        "description": params.description,
-        "descriptionClasses": descriptionClasses | default(""),
-        "classes": "field--date" + (" " + params.classes if params.classes else ""),
-        "mutuallyExclusive": params.mutuallyExclusive
-    }) %}
+    {% set fields %}
         {% if params.label %}
             <p class="u-fs-r--b u-mb-xs">{{ params.label }}</p>
         {% endif %}
-        <div class="field__group">
+
+        <div class="field-group">
             {% if params.day %}
-            <p class="field__item">
-                {{
-                    onsInput({
-                        "id": params.id + "-day",
-                        "type": "number",
-                        "name": params.day.name,
-                        "classes": "input--w-2" + exclusiveClass | default(""),
-                        "min": 1,
-                        "max": 31,
-                        "attributes": params.day.attributes,
-                        "label": params.day.label,
-                        "value": params.day.value,
-                        "noField": true
-                    })
-                }}
-            </p>
+                {{ onsInput({
+                    "id": params.id + "-day",
+                    "type": "number",
+                    "name": params.day.name,
+                    "classes": "input--w-2" + exclusiveClass | default(""),
+                    "min": 1,
+                    "max": 31,
+                    "attributes": params.day.attributes,
+                    "label": params.day.label,
+                    "value": params.day.value
+                }) }}
             {% endif %}
             {% if params.month %}
-            <p class="field__item">
-                {{
-                    onsInput({
-                        "id": params.id + "-month",
-                        "type": "number",
-                        "name": params.month.name,
-                        "classes": "input--w-2" + exclusiveClass | default(""),
-                        "min": 1,
-                        "max": 12,
-                        "attributes": params.month.attributes,
-                        "label": params.month.label,
-                        "value": params.month.value,
-                        "noField": true
-                    })
-                }}
-            </p>
+                {{ onsInput({
+                    "id": params.id + "-month",
+                    "type": "number",
+                    "name": params.month.name,
+                    "classes": "input--w-2" + exclusiveClass | default(""),
+                    "min": 1,
+                    "max": 12,
+                    "attributes": params.month.attributes,
+                    "label": params.month.label,
+                    "value": params.month.value
+                }) }}
             {% endif %}
             {% if params.year %}
-            <p class="field__item">
-                {{
-                    onsInput({
-                        "id": params.id + "-year",
-                        "type": "number",
-                        "name": params.year.name,
-                        "classes": "input--w-4" + exclusiveClass | default(""),
-                        "min": 1000,
-                        "max": 3000,
-                        "attributes": params.year.attributes,
-                        "label": params.year.label,
-                        "value": params.year.value,
-                        "noField": true
-                    })
-                }}
-            </p>
+                {{ onsInput({
+                    "id": params.id + "-year",
+                    "type": "number",
+                    "name": params.year.name,
+                    "classes": "input--w-4" + exclusiveClass | default(""),
+                    "min": 1000,
+                    "max": 3000,
+                    "attributes": params.year.attributes,
+                    "label": params.year.label,
+                    "value": params.year.value
+                }) }}
             {% endif %}
         </div>
-    {% endcall %}
+    {% endset %}
+
+    {% if params.mutuallyExclusive %}
+        {% call onsMutuallyExclusive({
+            "id": params.id,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "description": params.description,
+            "classes": params.classes,
+            "dontWrap": params.dontWrap,
+            "checkbox": params.mutuallyExclusive.checkbox,
+            "or": params.mutuallyExclusive.or,
+            "deselectMessage": params.mutuallyExclusive.deselectMessage,
+            "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
+            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective
+        }) %}
+            {{ fields | safe }}
+        {% endcall %}
+    {% elif params.noWrap %}
+        {{ fields | safe }}
+    {% else %}
+        {% call onsFieldset({
+            "id": params.id,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "description": params.description,
+            "classes": params.classes
+        }) %}
+            {{ fields | safe }}
+        {% endcall %}
+    {% endif %}
 {% endmacro %}

@@ -1,60 +1,5 @@
 .field {
   margin: 0;
-  background: none;
-
-  &__legend {
-    @extend .label;
-  }
-
-  &__label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  &__description {
-    @extend .label__description;
-  }
-
-  &__group {
-    @extend .u-cf;
-    margin-top: -1rem;
-  }
-
-  &__items {
-    display: block;
-  }
-
-  &__item {
-    display: inline-block;
-    position: relative;
-  }
-
-  *:not(.field__group) > & {
-    &__item {
-      margin: 0 0 0.5rem;
-      width: 100%;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      @include mq(m) {
-        &:not([class*='field__item--w-']) {
-          width: auto;
-          min-width: 20rem;
-        }
-      }
-    }
-  }
-
-  &__group > &__item {
-    float: left;
-    margin: 1rem 1rem 0 0;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
 
   &__other {
     display: none;
@@ -64,13 +9,6 @@
 
     input:checked ~ & {
       display: block;
-    }
-  }
-
-  // Modifiers
-  &--date & {
-    &__legend {
-      @extend .u-fs-m;
     }
   }
 }

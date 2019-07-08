@@ -6,18 +6,16 @@ const params = {
   id: 'address-duration',
   legend: 'How long have you lived at this address?',
   description: 'If you have lived at this address for less than a year then enter 0 into the year input.',
-  mutuallyExclusive: {
-    or: 'Or',
-    deselectMessage: 'Selecting this will clear the date if one has been inputted',
-    deselectGroupAdjective: 'cleared',
-    deselectCheckboxAdjective: 'deselected',
-    checkbox: {
-      id: 'duration-exclusive-checkbox',
-      name: 'no-duration',
-      value: 'no-duration',
-      label: {
-        text: 'I have not moved in to this address yet'
-      }
+  or: 'Or',
+  deselectMessage: 'Selecting this will clear the date if one has been inputted',
+  deselectGroupAdjective: 'cleared',
+  deselectCheckboxAdjective: 'deselected',
+  checkbox: {
+    id: 'duration-exclusive-checkbox',
+    name: 'no-duration',
+    value: 'no-duration',
+    label: {
+      text: 'I have not moved in to this address yet'
     }
   },
   years: {
@@ -64,7 +62,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
 
     yearsInput = document.getElementById(params.years.id);
     monthsInput = document.getElementById(params.months.id);
-    checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
+    checkbox = document.getElementById(params.checkbox.id);
     ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
@@ -95,7 +93,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
             // prettier-ignore
-            `${params.years.suffix.title} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.months.suffix.title} ${params.mutuallyExclusive.deselectGroupAdjective}.`
+            `${params.years.suffix.title} ${params.deselectGroupAdjective}. ${params.months.suffix.title} ${params.deselectGroupAdjective}.`
           );
           done();
         }, 300);
@@ -119,9 +117,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
 
       it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
         setTimeout(() => {
-          expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
-          );
+          expect(ariaAlert.innerHTML).to.equal(`${params.checkbox.label.text} ${params.deselectCheckboxAdjective}.`);
           done();
         }, 300);
       });

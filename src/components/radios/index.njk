@@ -1,9 +1,10 @@
 ---
 title: Radios
 ---
-Radios let the user select a single option from a list.
-
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+Radios let the user select a single option from a list.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios/index.njk"})
@@ -16,7 +17,7 @@ Use the radio component when you need to help users select a single option from 
 Do not use the radios component if users can choose more than one option from a list. In this case, use the [checkboxes](/components/checkboxes) component.
 
 ## How to use this component
-Radios are grouped within a `<fieldset>` which starts with a `<legend>` which lets the user know what they need to do.
+Radios are grouped within a [fieldset](/components/fieldset) which starts with a `<legend>` which lets the user know what they need to do.
 
 ## Variants
 
@@ -32,8 +33,7 @@ This variant lets the user provide an answer other to the options in the list, o
 
 The radio label must be directly followed by the `radio__description` to let the user know they will need to provide an answer if they select this option.
 
-Use this varation by wrapping the text field in a div with class `radio__other`, added directly after the radio label.
-CSS hides this div until the radio is ``:checked``.
+Use this varation by wrapping the text field in a div with class `radio__other`, added directly after the radio label. CSS hides this field until the radio is `:checked`.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-other/index.njk"})
@@ -41,12 +41,9 @@ CSS hides this div until the radio is ``:checked``.
 
 
 ## Research on this component
-{% from "components/panel/_macro.njk" import onsPanel %}
-{{ 
-    onsPanel({
-        "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='https://github.com/ONSdigital/design-system/issues/56'>Design System Forum.</a>"
-    }) 
-}}
+{%call onsPanel() %}
+    <p>If you have conducted any user research using this component, please feed back your findings via the <a href='https://github.com/ONSdigital/design-system/issues/56'>Design System Forum.</a></p>
+{% endcall %}
 
 ## Design System forum
 [Discuss 'Radios' on GitHub](https://github.com/ONSdigital/design-system/issues/56)
