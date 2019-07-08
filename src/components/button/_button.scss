@@ -28,6 +28,9 @@ $button-border-height: 3px;
 
     background: $color-button;
     color: $color-white;
+
+    // Required for Google Tag Manager
+    pointer-events: none;
   }
 
   // When preceded by another button (e.g. in a group)
