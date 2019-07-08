@@ -18,7 +18,7 @@
                     {% for tr in params.trs %}
                     <tr class="table__row">
                         {% for td in tr.tds %}
-                        <td role="cell" class="table__cell {{ td.class }}" {% if td.data %} data-th="{{ td.data }}"{% endif %} {% if td.data_sort %} data-sort-value="{{ td.data_sort }}"{% endif %}>{{ td.value | safe }}</td>
+                        <td class="table__cell {{ td.class }}" {% if td.data %} data-th="{{ td.data }}"{% endif %} {% if td.data_sort %} data-sort-value="{{ td.data_sort }}"{% endif %}>{{ td.value | safe }}</td>
                         {% endfor %}
                     </tr>
                     {% endfor %}
@@ -27,7 +27,7 @@
                 <tfoot class="table__foot">
                     <tr class="table__row">
                         {% for tfootCell in params.tfoot %}
-                        <td role="cell" class="table__cell u-fs-s">{{ tfootCell.value }}</td>
+                        <td class="table__cell u-fs-s">{{ tfootCell.value }}</td>
                         {% endfor %}
                     </tr>
                 </tfoot>

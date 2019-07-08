@@ -4,7 +4,6 @@ import Checkboxes from 'components/checkboxes/checkboxes';
 
 const params = {
   legend: 'What are your favourite pizza toppings?',
-  dontVisuallyHideLegend: true,
   checkboxesLabel: 'Select all that apply',
   name: 'food-other',
   checkboxes: [
@@ -49,6 +48,12 @@ describe('Component: Checkboxes', function() {
     Object.keys(component).forEach(key => {
       this[key] = component[key];
     });
+  });
+
+  afterEach(function() {
+    if (this.wrapper) {
+      this.wrapper.remove();
+    }
   });
 
   describe('Before the component initialises', function() {

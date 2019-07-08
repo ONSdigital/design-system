@@ -1,8 +1,13 @@
+---
+fullWidth: true
+---
 {% from "components/button/_macro.njk" import onsButton %}
-{{ 
-    onsButton({
-        "type": 'button',
-        "text": 'Submit',
-        "classes": 'btn--ghost'
-    }) 
-}}
+<div style="padding: 1rem; background: #3b7a9e">
+    {{ 
+        onsButton({
+            "type": 'button',
+            "text": 'Submit',
+            "classes": 'btn--ghost'
+        }) 
+    }}
+</div>

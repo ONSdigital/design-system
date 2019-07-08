@@ -3,6 +3,7 @@ title: Durations
 group: Ask users for...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 ## When to use this pattern
 
@@ -10,7 +11,7 @@ This pattern should be used when you need to collect a duration from a user such
 
 ## How to use this pattern
 
-Duration inputs can be created by wrapping suffixed number inputs in a `<fieldset>` with a supporting `<legend>`. The inputs should be wrapped in a `<div>` with the class `field__group` and then each input should be wrapped in a `<p>` with the class `field__item`. For example:
+Duration inputs can be created by wrapping suffixed number inputs in a [fieldset](/components/fieldset) with a supporting `<legend>`. The inputs should be wrapped in a `<div>` with the class `field-group`. For example:
 
 {{
     patternlibExample({"path": "patterns/durations/examples/duration-address/index.njk"})
@@ -21,7 +22,7 @@ Duration inputs can be created by wrapping suffixed number inputs in a `<fieldse
 }}
 
 ## Research on this pattern
-{% from "components/panel/_macro.njk" import onsPanel %}
+
 {% call onsPanel() %}
    If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/19" target="_blank">Design System forum</a>.
 {% endcall %}

@@ -1,32 +1,24 @@
 {% macro onsSelect(params) %}
     {% from "components/field/_macro.njk" import onsField %}
-
-    {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
+    {% from "components/label/_macro.njk" import onsLabel %}
 
     {% call onsField({
         "id": params.fieldId,
-        "legend": params.legend or params.label.text if params.mutuallyExclusive,
-        "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
-        "description": params.label.description if params.mutuallyExclusive,
-        "mutuallyExclusive": params.mutuallyExclusive,
         "classes": params.fieldClases,
         "legendClasses": params.legendClasses
     }) %}
-        {% if params.label and not params.mutuallyExclusive %}
-            {% from "components/label/_macro.njk" import onsLabel %}
-            {{
-                onsLabel({
-                    "for": params.id,
-                    "text": params.label.text,
-                    "description": params.label.description,
-                    "classes": params.label.classes
-                })
-            }}
-        {% endif %}
+        {{
+            onsLabel({
+                "for": params.id,
+                "text": params.label.text,
+                "description": params.label.description,
+                "classes": params.label.classes
+            })
+        }}
         <select
             id="{{ params.id }}"
             name="{{ params.name }}"
-            class="input input--select {{ params.classes }}{{ exclusiveClass }}"
+            class="input input--select {{ params.classes }}"
             {% if params.value %}value="{{ params.value}}" {% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >

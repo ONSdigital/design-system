@@ -1,0 +1,9 @@
+.radios {
+  &__items {
+    @extend .checkboxes__items;
+  }
+
+  &__item {
+    @extend .checkboxes__item;
+  }
+}
