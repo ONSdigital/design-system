@@ -1,17 +1,16 @@
 {% macro onsRadios(params) %}
-    {% from "components/field/_macro.njk" import onsField %}
+    {% from "components/fieldset/_macro.njk" import onsFieldset %}
 
-    {% call onsField({
+    {% call onsFieldset({
         "id": params.id,
-        "legend": params.legend,
-        "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
-        "description": params.description,
         "classes": params.classes,
-        "legendClasses": params.legendClasses
+        "legend": params.legend,
+        "legendClasses": params.legendClasses,
+        "description": params.description
     }) %}
-        <span class="field__items">
+        <div class="radios__items">
             {% for radio in params.radios %}
-                <p class="field__item">
+                <p class="radios__item">
                     <span class="radio">
                         <input
                             type="radio"
@@ -44,7 +43,7 @@
                                             "text": radio.other.label.text,
                                             "classes": 'u-fs-s--b'
                                         },
-                                        "noField": true
+                                        "dontWrap": true
                                     })
                                 }}
                             </span>
@@ -55,6 +54,6 @@
                     <br>
                 {% endif %}
             {% endfor %}
-        </span>
+        </div>
     {% endcall %}
 {% endmacro %}

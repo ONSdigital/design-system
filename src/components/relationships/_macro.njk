@@ -7,8 +7,7 @@
     >
         {{ onsRadios({
             "legend": params.legend,
-            "legendClasses": "js-relationships-legend",
-            "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
+            "legendClasses": "js-relationships-legend" + (" " + params.legendClasses if params.legendClasses else ""),
             "name": params.name,
             "radios": params.radios
         }) }}

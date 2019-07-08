@@ -58,6 +58,12 @@ describe('Component: Radios', function() {
     });
   });
 
+  afterEach(function() {
+    if (this.wrapper) {
+      this.wrapper.remove();
+    }
+  });
+
   describe('Before the component initialises', function() {
     it('if a checkbox has an other option, it should be given the correct aria-attributes', function() {
       this.radios.forEach(radio => {

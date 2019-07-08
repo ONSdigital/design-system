@@ -1,0 +1,47 @@
+
+{% macro onsMutuallyExclusive(params) %}
+    {% from "components/fieldset/_macro.njk" import onsFieldset %}
+    {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
+    {% set fields %}
+        <div class="js-mutually-exclusive">
+            {{ caller() }}
+            <br>
+            <p class="checkboxes__item">
+                <span class="checkboxes__label u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
+                {{
+                    onsCheckbox({
+                        "id": params.checkbox.id,
+                        "name": params.checkbox.name,
+                        "value": params.checkbox.value,
+                        "checked": params.checkbox.checked,
+                        "classes": params.checkbox.classes,
+                        "inputClasses": "js-exclusive-checkbox",
+                        "label": {
+                            "text": '<span class="u-vh">' + params.or + ', </span> ' + params.checkbox.label.text,
+                            "description": params.checkbox.label.description
+                        },
+                        "attributes": {
+                            "data-deselect-message": params.deselectMessage
+                        }
+                    })
+                }}
+            </p>
+            <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-group-adjective="{{ params.deselectGroupAdjective }}" data-checkbox-adjective="{{ params.deselectCheckboxAdjective }}"></span>
+        </div>
+    {% endset %}
+
+    {% if params.dontWrap %}
+        {{ fields | safe }}
+    {% else %}
+        {% call onsFieldset({
+            "id": params.id,
+            "classes": params.classes,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "description": params.description,
+            "attributes": params.attributes
+        }) %}
+            {{ fields | safe }}
+        {% endcall %}
+    {% endif %}
+{% endmacro %}

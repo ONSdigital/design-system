@@ -1,0 +1,33 @@
+---
+title: Fieldset
+---
+{% from "components/panel/_macro.njk" import onsPanel %}
+## When to use this component
+
+The fieldset component is used to wrap multiple form input components to provide context to the contained inputs via a `<legend>` tag.
+
+## How to use this component
+
+Generally speaking you should not need to [call](https://mozilla.github.io/nunjucks/templating.html#call) `onsFieldset` yourself as it is already called from within form input components. However if you need to create a pattern or component that requires a fieldset or you can use [nunjucks' call functionality](https://mozilla.github.io/nunjucks/templating.html#call) `onsFieldset`.
+
+### Configuration
+
+{% md %}
+| Name          | Type   | Required | Description                                                       |
+| ------------- | ------ | -------- | ----------------------------------------------------------------- |
+| id            | string | true     | The id of the field                                               |
+| classes       | string | false    | Classes to apply to the field                                     |
+| legend        | string | true     | Text for the legend                                               |
+| legendClasses | string | false    | Classes to apply to the legend element                            |
+| description   | string | false    | Description for the fieldset                                      |
+| attributes    | onject | false    | HTML attributes (for example data attributes) to add to the field |
+{% endmd %}
+
+## Research on this component
+
+{% call onsPanel() %}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/501" target="_blank">Design System forum</a>.
+{% endcall %}
+
+## Design System forum
+[Discuss 'Fieldset' on Github](https://github.com/ONSdigital/design-system/issues/501)

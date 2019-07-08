@@ -1,0 +1,25 @@
+.checkboxes {
+  &__label {
+    display: block;
+    margin: 0 0 0.5rem;
+  }
+
+  &__items {
+    display: block;
+  }
+
+  &__item {
+    display: inline-block;
+    margin: 0 0 0.5rem;
+    width: 100%;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq(m) {
+      width: auto;
+      min-width: 20rem;
+    }
+  }
+}
