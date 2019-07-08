@@ -1,7 +1,7 @@
 {% macro onsTableOfContents(params) %}
   {% from "components/lists/_macro.njk" import onsList %}
   <aside class="toc-container" role="complementary">
-    <nav role="navigation" class="toc" aria-label="{{ params.ariaLabel }}">
+    <nav class="toc" aria-label="{{ params.ariaLabel }}">
       <h2 class="toc__title u-fs-r--b u-mb-s">{{ params.title }}</h2>
       {% if params.lists %}
         {% for list in params.lists %}

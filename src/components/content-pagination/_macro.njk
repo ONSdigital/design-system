@@ -1,5 +1,5 @@
 {% macro onsContentPagination(params) %}
-  <nav class="content-pagination" role="navigation" aria-label="{{ params.ariaLabel | default("Guide pagination") }}">
+  <nav class="content-pagination" aria-label="{{ params.ariaLabel | default("Guide pagination") }}">
     <ul class="content-pagination__list">
       {% for contentPaginationItem in params.contentPaginationItems %}
         <li class="content-pagination__item">
