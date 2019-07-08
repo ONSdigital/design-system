@@ -50,6 +50,12 @@ describe('Component: Checkboxes', function() {
     });
   });
 
+  afterEach(function() {
+    if (this.wrapper) {
+      this.wrapper.remove();
+    }
+  });
+
   describe('Before the component initialises', function() {
     it('if a checkbox has an other option, it should be given the correct aria-attributes', function() {
       expect(this.checkboxWithOther.hasAttribute('aria-haspopup')).to.equal(true);
