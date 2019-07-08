@@ -1,11 +1,13 @@
 .field +,
+.fieldset +,
 .figure +,
 .panel +,
 .details:not(.details--accordion) + {
   .figure,
   .field,
+  .fieldset,
   .panel,
   .details:not(.details--accordion) {
-    @extend .u-mt-m;
+    margin-top: 1.5rem;
   }
 }

@@ -15,9 +15,9 @@ group: Questionnaires
 
 The Question should always be a `<h1>`
 
-### When the question should be a fieldset and legend
+### When the answer fields should be wrapped in a [fieldset](/components/fieldset) with legend
 
-Under certain circumstances, the question should be wrapped with a `<fieldset>` element, and the question and question description (if provided) should be wrapped in a `<legend>`. This is to provide context to screen readers about what is being asked when a user focuses on an input element for an answer.
+Under certain circumstances, the answer fields should be wrapped with a [fieldset](/components/fieldset) macro, with a legend that matches the questestion title. This is to provide context to screen readers about what is being asked when a user focuses on an input element for an answer.
 
 Questions should be wrapped in a fieldset when:
 
@@ -43,6 +43,7 @@ Questions should be wrapped in a fieldset when:
 }) }}
 
 ## Research on this pattern
+
 {% call onsPanel() %} 
     If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/367" target="_blank">Design System forum</a>.
 {% endcall %}
