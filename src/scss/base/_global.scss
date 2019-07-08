@@ -41,10 +41,3 @@ a {
     color: $color-links-hover;
   }
 }
-
-main,
-[role='main'] {
-  &:focus {
-    outline: none;
-  }
-}
