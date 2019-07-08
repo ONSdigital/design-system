@@ -1,4 +1,5 @@
 {% macro onsInput(params) %}
+    {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
 
@@ -34,52 +35,63 @@
         />
     {% endset %}
 
-    {% if type == "hidden" %}
-        {{ input | safe }}
+    {% set field %}
+        {% if params.label or not (params.prefix or params.suffix) %}
+            {{ onsLabel({
+                "for": params.id,
+                "id": params.label.id,
+                "text": params.label.text,
+                "classes": params.label.classes,
+                "description": params.label.description,
+                "attributes": params.label.attributes
+            }) }}
+        {% endif %}
+
+        {% if params.prefix or params.suffix %}
+            {% if params.prefix is defined %}
+                {% set prefixClass = " input-type--prefix" %}
+            {% endif %}
+
+            <span class="input-type{{ prefixClass }}">
+                <span class="input-type__inner">
+                    {{ input | safe }}
+                    {% set abbr = params.prefix or params.suffix %}
+                    <abbr
+                        class="input-type__type"
+                        aria-hidden="true"
+                        title="{{ abbr.title }}"
+                        {% if abbr.id %} id="{{ abbr.id }}"{% endif %}
+                        >{{ abbr.text or abbr.title }}</abbr>
+                </span>
+            </span>
+        {% else %}
+            {{ input | safe }}
+        {% endif %}
+    {% endset %}
+
+    {% if params.mutuallyExclusive %}
+        {% call onsMutuallyExclusive({
+            "id": params.fieldId,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "description": params.description,
+            "dontWrap": params.dontWrap,
+            "checkbox": params.mutuallyExclusive.checkbox,
+            "or": params.mutuallyExclusive.or,
+            "deselectMessage": params.mutuallyExclusive.deselectMessage,
+            "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
+            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective
+        }) %}
+            {{ field | safe }}
+        {% endcall %}
+    {% elif type == "hidden" or params.dontWrap %}
+        {{ field | safe }}
     {% else %}
         {% call onsField({
             "id": params.fieldId,
-            "classes": params.fieldClasses,
-            "legendClasses": params.legendClasses,
-            "noField": params.noField,
-            "legend": params.legend or params.label.text if params.mutuallyExclusive,
-            "dontVisuallyHideLegend": params.dontVisuallyHideLegend,
-            "description": params.label.description if params.mutuallyExclusive,
-            "mutuallyExclusive": params.mutuallyExclusive
+            "classes": params.fieldClasses
         }) %}
-            {% if params.label and not (params.mutuallyExclusive and not params.legend) %}
-                {{
-                    onsLabel({
-                        "for": params.id,
-                        "id": params.label.id,
-                        "text": params.label.text,
-                        "classes": params.label.classes,
-                        "description": params.label.description,
-                        "attributes": params.label.attributes
-                    })
-                }}
-            {% endif %}
-
-            {% if params.prefix is defined or params.suffix is defined %}
-                {% if params.prefix is defined %}
-                    {% set prefixClass = " input-type--prefix" %}
-                {% endif %}
-
-                <span class="input-type{{ prefixClass }}">
-                    <span class="input-type__inner">
-                        {{ input | safe }}
-                        {% set abbr = params.prefix or params.suffix %}
-                        <abbr
-                            class="input-type__type"
-                            aria-hidden="true"
-                            title="{{ abbr.title }}"
-                            {% if abbr.id %} id="{{ abbr.id }}"{% endif %}
-                            >{{ abbr.text or abbr.title }}</abbr>
-                    </span>
-                </span>
-            {% else %}
-                {{ input | safe }}
-            {% endif %}
+            {{ field | safe }}
         {% endcall %}
     {% endif %}
 {% endmacro %}

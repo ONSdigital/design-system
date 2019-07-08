@@ -16,17 +16,16 @@ Use the checkboxes component when you need to help users select multiple options
 Do not use the checkboxes component if users can only choose one option from a list. In this case, use the [radios](/components/radios) component.
 
 ## How to use this component
-Checkboxes are grouped within a `<fieldset>` which starts with a `<legend>` which lets the user know what they need to do.
+Checkboxes are grouped within a [fieldset](/components/fieldset) which starts with a `<legend>` which lets the user know what they need to do.
 
 ## Variants
 
 ### Other
 This variant lets the user provide an answer other to the options in the list, or to provide supplemental information required to describe the nature of their answer.
 
-The checkbox label must be directly followed by the ``checkbox__description`` to let the user know they will need to provide an answer if they select this option.
+The checkbox label must be directly followed by the `checkbox__description` to let the user know they will need to provide an answer if they select this option.
 
-Use this varation by wrapping the text field in a div with class ``checkbox__other``, added directly after the checkbox label.
-CSS hides this div until the checkbox is ``:checked``.
+Use this varation by wrapping the text field in a div with class `checkbox__other`, added directly after the checkbox label. CSS hides this field until the checkbox is `:checked`.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-other/index.njk"})
@@ -34,11 +33,10 @@ CSS hides this div until the checkbox is ``:checked``.
 
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
-{{ 
-    onsPanel({
-        "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
-    }) 
-}}
+
+{% call onsPanel() %}
+    <p>If you have conducted any user research using this component, please feed back your findings via the <a href='https://github.com/ONSdigital/design-system/issues/13'>Design System Forum.</a></p>
+{% endcall %}
 
 ## Design System forum
 [Discuss 'Checkboxes' on GitHub](https://github.com/ONSdigital/design-system/issues/13)
