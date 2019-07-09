@@ -12,8 +12,6 @@
   font-family: inherit;
   font-size: 1rem;
 
-  transition: border-color 200ms ease-in;
-
   &::-ms-clear {
     display: none;
   }
@@ -31,10 +29,6 @@
   &--textarea {
     // Prevent inner shadow on iOS
     -webkit-appearance: none;
-  }
-
-  &:hover {
-    border-color: $color-links-hover;
   }
 
   &:focus {
@@ -80,7 +74,6 @@
 
 .input--has-error {
   background-color: $color-light-red;
-  transition: background-color 1s ease-in-out;
 }
 
 .input--limit-reached {

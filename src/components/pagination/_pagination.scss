@@ -36,8 +36,6 @@ $pagination-item-width: 2.5rem;
     padding: $pagination-item-padding;
     border-radius: 3px;
 
-    transition: background-color 0.2s ease-in-out;
-
     &:hover,
     &:focus {
       background: $color-grey-5;

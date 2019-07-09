@@ -30,8 +30,6 @@ $details-caret-width: 1.1rem;
       cursor: pointer;
       pointer-events: initial;
 
-      transition: color 0.3s ease-in-out;
-
       &:hover,
       &:focus {
         color: $color-links-hover;
@@ -63,8 +61,6 @@ $details-caret-width: 1.1rem;
         background-repeat: no-repeat;
         background-position: 0 0;
         background-size: $details-caret-width $details-caret-width;
-
-        transition: opacity 0.2s ease-in-out;
       }
 
       &:after {

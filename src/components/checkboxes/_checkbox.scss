@@ -20,27 +20,20 @@ $checkbox-label-vertical-padding: 0.75rem;
     width: $checkbox-input-width;
     height: $checkbox-input-width;
 
-    border: 2px solid #9b9b9b;
+    border: 2px solid $color-input;
     border-radius: 0.2rem;
 
     background: url(#{$static}/img/icons/icons--check.svg) no-repeat center center;
     background-size: 0px;
 
-    transition: border-color 0.2s ease-in-out, background-size 0.2s ease-in-out;
-
     &:focus,
     &:checked {
-      border-color: $color-links-hover;
       outline: none;
     }
 
     &:checked {
       background-size: 14px;
     }
-  }
-
-  &:hover &__input {
-    border-color: $color-links-hover;
   }
 
   &__label {
@@ -81,13 +74,11 @@ $checkbox-label-vertical-padding: 0.75rem;
   }
 
   &__input:checked + &__label:before {
-    border-color: $color-links-hover;
     background: $color-grey-5;
-    box-shadow: 0 0 0 1px $color-links-hover;
+    box-shadow: 0 0 0 1px $color-input;
   }
 
   &__input:focus + &__label:before {
-    border-color: $color-links-hover;
     box-shadow: 0 0 0 3px $color-focus;
   }
 
