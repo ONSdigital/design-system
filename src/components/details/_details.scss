@@ -12,6 +12,11 @@ $details-caret-width: 1.1rem;
     }
   }
 
+  &__heading {
+    // Required for Google Tag Manager
+    pointer-events: none;
+  }
+
   &__title {
     transform: translateY(-1px);
     text-decoration: underline;
