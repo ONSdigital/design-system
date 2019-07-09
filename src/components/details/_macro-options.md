@@ -5,6 +5,7 @@
 | content           | string          | true     | HTML content for the details                                                |
 | button            | `DetailsButton` | false    | Settings for the close button. If not specified button will not render      |
 | classes           | string          | false    | Classes to add to the details element                                       |
+| saveState         | string          | false    | Allows saving of details state (open or closed) localy                      |
 | attributes        | object          | false    | HTML attributes (for example data attributes) to add to the details element |
 | summaryAttributes | object          | false    | HTML attributes (for example data attributes) to add to the summary element |
 
