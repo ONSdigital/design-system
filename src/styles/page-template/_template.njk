@@ -41,13 +41,13 @@
         {% if page.headMeta %}
             <meta property="og:description" content="{{ page.headMeta.description }}">
             <meta property="og:title" content="{{ page.title }}">
-            <meta property="og:url" content="{{ pageInfo.url }}">
+            <meta property="og:url" content="{{ page.absoluteUrl }}">
             <meta property="og:type" content="article">
             <meta property="og:site_name" content="{{ page.header.title | default(page.title) }}">
-            <meta property="og:image" content="{{ page.header.titleLogo | default(page.header.logo) }}">
+            <meta property="og:image" content="{{ assetsURL }}{{ page.header.titleLogo | default(page.header.logo) }}">
             <meta name="twitter:card" content="summary">
             <meta name="description" content="{{ page.headMeta.description }}">
-            <link rel="canonical" href="{{ page.headMeta.canonicalUrl | default(pageInfo.url) }}">
+            <link rel="canonical" href="{{ page.headMeta.canonicalUrl | default(page.absoluteUrl) }}">
         {% endif %}
         {% block headIcons %}
             <meta name="msapplication-config" content="{{ assetsURL }}/favicons/browserconfig.json">
