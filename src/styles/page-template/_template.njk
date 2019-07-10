@@ -38,7 +38,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ page_title }}</title>
         <link rel="stylesheet" href="{{ assetsURL }}/css/{{ page.theme | default('main') }}.css">
-
+        {% if page.headMeta %}
+            <meta property="og:description" content="{{ page.headMeta.description }}">
+            <meta property="og:title" content="{{ page.title }}">
+            <meta property="og:url" content="{{ pageInfo.url }}">
+            <meta property="og:type" content="article">
+            <meta property="og:site_name" content="{{ page.header.title | default(page.title) }}">
+            <meta property="og:image" content="{{ page.header.titleLogo | default(page.header.logo) }}">
+            <meta name="twitter:card" content="summary">
+            <meta name="description" content="{{ page.headMeta.description }}">
+            <link rel="canonical" href="{{ page.headMeta.canonicalUrl | default(pageInfo.url) }}">
+        {% endif %}
         {% block headIcons %}
             <meta name="msapplication-config" content="{{ assetsURL }}/favicons/browserconfig.json">
             <link rel="icon" type="image/x-icon" href="{{ assetsURL }}/favicons/favicon.ico">

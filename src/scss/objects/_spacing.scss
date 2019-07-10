@@ -1,10 +1,12 @@
 .field +,
+.field-group +,
 .fieldset +,
 .figure +,
 .panel +,
 .details:not(.details--accordion) + {
   .figure,
   .field,
+  .field-group,
   .fieldset,
   .panel,
   .details:not(.details--accordion) {
