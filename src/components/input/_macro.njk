@@ -82,7 +82,9 @@
             "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
             "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective
         }) %}
-            {{ field | safe }}
+            {% call onsField() %}
+                {{ field | safe }}
+            {% endcall %}
         {% endcall %}
     {% elif type == "hidden" or params.dontWrap %}
         {{ field | safe }}
