@@ -98,6 +98,7 @@ Variables can be set with:
 | assetsURL     | string                                              | false                         | The base url where to find CSS/JS/images etc. e.g. `http://localhost:3030`                   |
 | theme         | string                                              | false                         | The name of the css file e.g. "census" if using a theme. Defaults to "main".                 |
 | title         | string                                              | true                          | The contents for the `<title>` element                                                       |
+| headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                         | Configuration for `<meta>` information in the document `<head>`                              |
 | bodyClasses   | string                                              | false                         | Classes to add to the `<body>` element                                                       |
 | header        | `PageHeader` [_(ref)_](#pageheader)                 | true                          | Configuration for the page header                                                            |
 | language      | `Language` [_(ref)_](/components/language-selector) | false                         | Language configuration for the page                                                          |
@@ -121,6 +122,15 @@ Variables can be set with:
 | titleLogo     | string | false                                | URL for image to use instead of a title string                                         |
 | titleLogoAlt  | string | false (if `titleLogo` not specified) | Alt tag for the title logo                                                             |
 | titleLogoHref | string | false                                | Will wrap the title logo in a link to the specified URL                                |
+{% endmd %}
+
+###### HeadMeta
+
+{% md %}
+| Variable Name | Type   | Required                             | Description                                                                                                      |
+| ------------- | ------ | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| description   | string | true                                 | Description of the current page for search engines.                                                              |
+| canonicalUrl  | string | false                                | URL for the preferred page for search engines to avoid duplicate content penalties. Defaults to current page url |                                                           |
 {% endmd %}
 
 ###### PageFooter
