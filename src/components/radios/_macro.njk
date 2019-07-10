@@ -1,13 +1,7 @@
 {% macro onsRadios(params) %}
     {% from "components/fieldset/_macro.njk" import onsFieldset %}
 
-    {% call onsFieldset({
-        "id": params.id,
-        "classes": params.classes,
-        "legend": params.legend,
-        "legendClasses": params.legendClasses,
-        "description": params.description
-    }) %}
+    {% set fields %}
         <div class="radios__items">
             {% for radio in params.radios %}
                 <p class="radios__item">
@@ -56,5 +50,19 @@
                 {% endif %}
             {% endfor %}
         </div>
-    {% endcall %}
+    {% endset %}
+
+    {% if params.dontWrap %}
+        {{ fields | safe }}
+    {% else %}
+        {% call onsFieldset({
+            "id": params.id,
+            "classes": params.classes,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "description": params.description
+        }) %}
+            {{ fields | safe }}
+        {% endcall %}
+    {% endif %}
 {% endmacro %}
