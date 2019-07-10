@@ -5,6 +5,20 @@
 
     {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
 
+    {%- set numberOfFields = 0 -%}
+
+    {%- if params.day -%}
+        {%- set numberOfFields = numberOfFields + 1 -%}
+    {%- endif -%}
+
+    {%- if params.month -%}
+        {%- set numberOfFields = numberOfFields + 1 -%}
+    {%- endif -%}
+
+    {%- if params.year -%}
+        {%- set numberOfFields = numberOfFields + 1 -%}
+    {%- endif -%}
+
     {% set fields %}
         {% if params.label %}
             <p class="u-fs-r--b u-mb-xs">{{ params.label }}</p>
@@ -69,7 +83,7 @@
         }) %}
             {{ fields | safe }}
         {% endcall %}
-    {% elif params.noWrap %}
+    {% elif params.noWrap or numberOfFields == 1 %}
         {{ fields | safe }}
     {% else %}
         {% call onsFieldset({
