@@ -2,6 +2,8 @@
 layout: none
 ---
 {% extends "styles/page-template/_template.njk" %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
 {% set page = { 
     "title": "Service name",
     "footer": {
@@ -13,57 +15,17 @@ layout: none
         }
     }
 } %}
-{% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/lists/_macro.njk" import onsList %}
+
 {% block main %}
     <h1>Page not found</h1>
     <p>If you entered a web address, check it is correct.</p>
-    <p>If you pasted the web address, check you copied the entire address.</p>
-    <p>If the web address is correct or you selected a link or button, contact the survey enquiries helpline for further support.</p>
-    <p><strong>Telephone:</strong><br>
-    <a href="tel:0300 1234 931">0300 1234 931</a></p>
-    <p><strong>Opening times:</strong><br>
-    Monday to Friday: 9:00am to 5:00pm</p>
+    <p>If you pasted the web address, check you copied the whole address.</p>
+    <p>If the web address is correct or you selected a link or button, <a href="#">contact us</a> for more help.</p>
 
-    {% call onsPanel({
-            "type": "error",
-            "spacious": "true",
-            "classes": "u-mb-m"
-        })
-    %}
-    <p>To help us resolve the issue, please quote the following reference:</p>
-    {{ 
-        onsList({
-            "classes": 'list--boxes',
-            "itemsList": [
-                {
-                    "text": 'FEF8'
-                },
-                {
-                    "text": 'A838'
-                },
-                {
-                    "text": 'B831'
-                },
-                {
-                    "text": '4E26'
-                }
-            ]
-        })
-    }}
-    <h2 class="u-fs-r--b u-mb-xs u-mt-m">Your system information</h2>
-    {{ 
-        onsList({
-            "classes": 'list--bare',
-            "itemsList": [
-                {
-                    "text": 'Chrome (72.0.3626)'
-                },
-                {
-                    "text": 'Mac OS X (10.14.3)'
-                }
-            ]
-        })
-    }}
+    {% call onsPanel() %}
+        <p>You will need the following reference code when you contact us:
+            <br>
+            <strong class="u-f-mono u-fs-l u-mt-s u-d-b">Q018 45T0 PR09 SOFG</strong>
+        </p>
     {% endcall %}
 {% endblock %}
