@@ -1,16 +1,14 @@
-@mixin panel_type($name, $color, $color-bg) {
-  .panel--#{$name} {
-    background: $color-bg;
-    .panel__header {
-      background: $color;
-    }
-  }
-  .panel--simple {
-    &.panel--#{$name} {
+@mixin panel-type($name, $color, $color-bg) {
+  .panel {
+    &--#{$name} {
       border-color: $color;
+      background: $color-bg;
     }
-    .panel__header {
-      color: $color-black;
+
+    &--#{$name} & {
+      &__header {
+        background: $color;
+      }
     }
   }
 }
@@ -22,50 +20,59 @@
   > *:last-child {
     margin-bottom: 0;
   }
-}
 
-.panel__header {
-  color: $color-white;
-  margin: 0;
-  padding: 0.75rem 1rem;
-  border-radius: 0;
-}
+  &__header {
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 0;
+    color: $color-white;
+  }
 
-.panel__title {
-  margin: 0;
-}
+  &__title {
+    margin: 0;
+  }
 
-.panel__body {
-  padding: 1rem;
-  /* Removes inherited bottom margin to make whitespace inside panel equal */
-  > *:last-child {
-    margin-bottom: 0;
+  &__body {
+    padding: 1rem;
+    /* Removes inherited bottom margin to make whitespace inside panel equal */
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__error {
+    color: $color-errors;
+  }
+
+  &--simple {
+    padding: 1rem;
+    border: 0;
+    border-left: 8px solid transparent;
+    color: $color-black;
+  }
+
+  &--simple & {
+    &__header {
+      padding: 0 0 1rem;
+      background: none;
+    }
+
+    &__body {
+      padding: 0;
+      background: none;
+    }
+  }
+
+  &--spacious {
+    padding: 1rem;
+
+    @include mq(m) {
+      padding: 2rem;
+    }
   }
 }
 
-@include panel_type(error, $color-errors, $color-errors-tint);
-@include panel_type(success, $color-success, $color-success-tint);
-@include panel_type(info, $color-info, $color-info-tint);
-@include panel_type(branded, $color-branded, $color-branded-tint);
-
-.panel--simple {
-  border: none;
-  border-left: 8px solid transparent;
-  color: $color-black;
-  padding: 1rem;
-  .panel__header {
-    background: none;
-    padding: 0 0 1rem;
-  }
-  .panel__body {
-    background: none;
-    padding: 0;
-  }
-}
-
-.panel--spacious {
-  padding: 1rem;
-  @include mq(m) {
-    padding: 2rem;
-  }
-}
+@include panel-type(error, $color-errors, $color-errors-tint);
+@include panel-type(success, $color-success, $color-success-tint);
+@include panel-type(info, $color-info, $color-info-tint);
+@include panel-type(branded, $color-branded, $color-branded-tint);

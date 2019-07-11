@@ -13,10 +13,12 @@
                     },
                     "classes": "input--w-20@m",
                     "name": params.organisation.name | default(params.id + "-organisation"),
-                    "value": params.organisation.value
+                    "value": params.organisation.value,
+                    "error": params.organisation.error
                 })
             }}
         {% endif %}
+
         {{
             onsInput({
                 "id": params.line1.id | default(params.id + "-line-1"),
@@ -25,9 +27,11 @@
                 },
                 "classes": "input--w-20@m",
                 "name": params.line1.name | default(params.id + "-line-1"),
-                "value": params.line1.value
+                "value": params.line1.value,
+                "error": params.line1.error
             })
         }}
+
         {% if params.line2 %}
             {{
                 onsInput({
@@ -38,10 +42,12 @@
                     },
                     "classes": "input--w-20@m",
                     "name": params.line2.name | default(params.id + "-line-2"),
-                    "value": params.line2.value
+                    "value": params.line2.value,
+                    "error": params.line2.error
                 })
             }}
         {% endif %}
+
         {% if params.line3 %}
             {{
                 onsInput({
@@ -52,10 +58,12 @@
                     },
                     "classes": "input--w-20@m",
                     "name": params.line3.name | default(params.id + "-line-3"),
-                    "value": params.line3.value
+                    "value": params.line3.value,
+                    "error": params.line3.error
                 })
             }}
         {% endif %}
+
         {% if params.town %}
             {{
                 onsInput({
@@ -65,10 +73,12 @@
                         "text": params.town.label
                     },
                     "name": params.town.name | default(params.id + "-town"),
-                    "value": params.town.value
+                    "value": params.town.value,
+                    "error": params.town.error
                 })
             }}
         {% endif %}
+
         {% if params.county %}
             {{
                 onsInput({
@@ -78,10 +88,12 @@
                         "text": params.county.label
                     },
                     "name": params.county.name | default(params.id + "-county"),
-                    "value": params.county.value
+                    "value": params.county.value,
+                    "error": params.county.error
                 })
             }}
         {% endif %}
+
         {{
             onsInput({
                 "id": params.postcode.id | default(params.id + "-postcode"),
@@ -90,7 +102,8 @@
                 },
                 "classes": "input--w-5",
                 "name": params.postcode.name | default(params.id + "-postcode"),
-                "value": params.postcode.value
+                "value": params.postcode.value,
+                "error": params.postcode.error
             })
         }}
     {% endset %}
