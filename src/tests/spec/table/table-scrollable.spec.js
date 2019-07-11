@@ -6,87 +6,87 @@ const params = {
   scrollable: true,
   ths: [
     {
-      value: 'Column 1'
+      value: 'Column 1',
     },
     {
-      value: 'Column 2'
+      value: 'Column 2',
     },
     {
-      value: 'Column 3'
+      value: 'Column 3',
     },
     {
-      value: 'Column 4'
+      value: 'Column 4',
     },
     {
-      value: 'Column 5'
+      value: 'Column 5',
     },
     {
-      value: 'Column 6'
+      value: 'Column 6',
     },
     {
-      value: 'Column 8'
+      value: 'Column 8',
     },
     {
-      value: 'Column 9'
+      value: 'Column 9',
     },
     {
-      value: 'Column 10'
+      value: 'Column 10',
     },
     {
-      value: 'Column 11'
+      value: 'Column 11',
     },
     {
-      value: 'Column 12'
+      value: 'Column 12',
     },
     {
-      value: 'Column 13'
-    }
+      value: 'Column 13',
+    },
   ],
   trs: [
     {
       tds: [
         {
-          value: 'Monthly Business Survey - Retail Sales Index'
+          value: 'Monthly Business Survey - Retail Sales Index',
         },
         {
-          value: 'Annual Inward Foreign Direct Investment Survey'
+          value: 'Annual Inward Foreign Direct Investment Survey',
         },
         {
-          value: 'Business Register and Employment Survey'
+          value: 'Business Register and Employment Survey',
         },
         {
-          value: 'Quartely Survey of Building Materials Sand and Gravel'
+          value: 'Quartely Survey of Building Materials Sand and Gravel',
         },
         {
-          value: 'Monthly Survey of Building Materials Concrete Building Blocks'
+          value: 'Monthly Survey of Building Materials Concrete Building Blocks',
         },
         {
-          value: 'Monthly Business Survey - Retail Sales Index'
+          value: 'Monthly Business Survey - Retail Sales Index',
         },
         {
-          value: 'Annual Inward Foreign Direct Investment Survey'
+          value: 'Annual Inward Foreign Direct Investment Survey',
         },
         {
-          value: 'Business Register and Employment Survey'
+          value: 'Business Register and Employment Survey',
         },
         {
-          value: 'Quartely Survey of Building Materials Sand and Gravel'
+          value: 'Quartely Survey of Building Materials Sand and Gravel',
         },
         {
-          value: 'Monthly Survey of Building Materials Concrete Building Blocks'
+          value: 'Monthly Survey of Building Materials Concrete Building Blocks',
         },
         {
-          value: 'Monthly Business Survey - Retail Sales Index'
+          value: 'Monthly Business Survey - Retail Sales Index',
         },
         {
-          value: 'Annual Inward Foreign Direct Investment Survey'
+          value: 'Annual Inward Foreign Direct Investment Survey',
         },
         {
-          value: 'Business Register and Employment Survey'
-        }
-      ]
-    }
-  ]
+          value: 'Business Register and Employment Survey',
+        },
+      ],
+    },
+  ],
 };
 
 describe('Component: Scrollable table', function() {
@@ -153,6 +153,6 @@ function renderComponent(params) {
     wrapper,
     tableComponent,
     tableScrollEl,
-    tableEl
+    tableEl,
   };
 }

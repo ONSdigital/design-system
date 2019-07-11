@@ -9,17 +9,17 @@ const params = {
   tabs: [
     {
       title: 'Tab 1',
-      content: 'Tab 1 content'
+      content: 'Tab 1 content',
     },
     {
       title: 'Tab 2',
-      content: 'Tab 2 content'
+      content: 'Tab 2 content',
     },
     {
       title: 'Tab 3',
-      content: 'Tab 3 content'
-    }
-  ]
+      content: 'Tab 3 content',
+    },
+  ],
 };
 
 describe('Component: Tabs', () => {
@@ -243,6 +243,6 @@ function renderComponent(params) {
     tab,
     tabList,
     tabListItems,
-    tabPanels
+    tabPanels,
   };
 }

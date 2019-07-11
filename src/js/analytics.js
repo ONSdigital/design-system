@@ -16,7 +16,7 @@ export const trackElement = el => {
     hitType: 'event',
     eventCategory: el.getAttribute('data-ga-category') || '',
     eventAction: el.getAttribute('data-ga-action') || '',
-    eventLabel: el.getAttribute('data-ga-label') || ''
+    eventLabel: el.getAttribute('data-ga-label') || '',
   });
 };
 
@@ -52,7 +52,7 @@ export default function initAnalytics() {
       eventLabel: window.location.pathname
         .split('/')
         .slice(-3)
-        .join('/')
+        .join('/'),
     });
   };
 

@@ -10,7 +10,7 @@ export default function() {
       'bs_mac_safari',
       'bs_windows_10_IE_edge',
       'bs_windows_10_chrome',
-      'bs_windows_10_firefox'
+      'bs_windows_10_firefox',
     ],
 
     customLaunchers: {
@@ -40,19 +40,19 @@ export default function() {
         browser: 'chrome',
         browser_version: '75.0',
         os: 'OS X',
-        os_version: 'Mojave'
+        os_version: 'Mojave',
       }),
       bs_mac_firefox: inheritBase({
         browser: 'firefox',
         browser_version: '66.0',
         os: 'OS X',
-        os_version: 'Mojave'
+        os_version: 'Mojave',
       }),
       bs_mac_safari: inheritBase({
         browser: 'safari',
         browser_version: '12',
         os: 'OS X',
-        os_version: 'Mojave'
+        os_version: 'Mojave',
       }),
 
       /**
@@ -62,27 +62,27 @@ export default function() {
         os: 'Windows',
         os_version: '10',
         browser: 'Edge',
-        browser_version: '18'
+        browser_version: '18',
       }),
       bs_windows_10_chrome: inheritBase({
         os: 'Windows',
         os_version: '10',
         browser: 'Chrome',
-        browser_version: '75.0'
+        browser_version: '75.0',
       }),
       bs_windows_10_firefox: inheritBase({
         os: 'Windows',
         os_version: '10',
         browser: 'firefox',
-        browser_version: '67.0'
-      })
-    }
+        browser_version: '67.0',
+      }),
+    },
   };
 }
 
 function inheritBase(obj) {
   return {
     base: 'BrowserStack',
-    ...obj
+    ...obj,
   };
 }

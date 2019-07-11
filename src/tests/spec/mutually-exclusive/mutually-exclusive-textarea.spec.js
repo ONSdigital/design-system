@@ -10,7 +10,7 @@ const params = {
   classes: 'input--w-30',
   label: {
     text: 'Please provide some feedback',
-    description: 'For example describe any difficulties you experienced in the use of this service'
+    description: 'For example describe any difficulties you experienced in the use of this service',
   },
   maxlength: 200,
   charCountSingular: 'You have {x} character remaining',
@@ -25,10 +25,10 @@ const params = {
       name: 'no-feedback',
       value: 'no-feedback',
       label: {
-        text: 'I dont want to provide feedback'
-      }
-    }
-  }
+        text: 'I dont want to provide feedback',
+      },
+    },
+  },
 };
 
 describe('Component: Mutually Exclusive Textarea', () => {
@@ -104,7 +104,7 @@ describe('Component: Mutually Exclusive Textarea', () => {
       it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
           );
           done();
         }, 300);

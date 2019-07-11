@@ -12,159 +12,159 @@ const params = {
       id: 'husband-wife',
       value: 'husband-wife',
       label: {
-        text: 'Husband or wife'
+        text: 'Husband or wife',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>husband or wife</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>husband or wife</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>husband or wife</em>',
+      },
     },
     {
       id: 'civil-partner',
       value: 'civil-partner',
       label: {
-        text: 'Legally registered civil partner'
+        text: 'Legally registered civil partner',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>legally registered civil partner</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>legally registered civil partner</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>legally registered civil partner</em>',
+      },
     },
     {
       id: 'partner',
       value: 'partner',
       label: {
-        text: 'Partner'
+        text: 'Partner',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>partner</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>partner</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>partner</em>',
+      },
     },
     {
       id: 'son-daughter',
       value: 'son-daughter',
       label: {
-        text: 'Son or daughter'
+        text: 'Son or daughter',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>son or daughter</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>son or daughter</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>son or daughter</em>',
+      },
     },
     {
       id: 'stepchild',
       value: 'stepchild',
       label: {
-        text: 'Stepchild'
+        text: 'Stepchild',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepchild</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepchild</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepchild</em>',
+      },
     },
     {
       id: 'brother-sister',
       value: 'brother-sister',
       label: {
-        text: 'Brother or sister'
+        text: 'Brother or sister',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>brother or sister</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>brother or sister</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>brother or sister</em>',
+      },
     },
     {
       id: 'stepbrother-stepsister',
       value: 'stepbrother-stepsister',
       label: {
-        text: 'Stepbrother or stepsister'
+        text: 'Stepbrother or stepsister',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepbrother or sister</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepbrother or sister</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepbrother or sister</em>',
+      },
     },
     {
       id: 'mother-father',
       value: 'mother-father',
       label: {
-        text: 'Mother or father'
+        text: 'Mother or father',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>mother or father</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>mother or father</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>mother or father</em>',
+      },
     },
     {
       id: 'stepmother-stepfather',
       value: 'stepmother-stepfather',
       label: {
-        text: 'Stepmother or stepfather'
+        text: 'Stepmother or stepfather',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepmother or stepfather</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepmother or stepfather</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepmother or stepfather</em>',
+      },
     },
     {
       id: 'grandchild',
       value: 'grandchild',
       label: {
-        text: 'Grandchild'
+        text: 'Grandchild',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>grandchild</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>grandchild</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>grandchild</em>',
+      },
     },
     {
       id: 'grandparent',
       value: 'grandparent',
       label: {
-        text: 'Grandparent'
+        text: 'Grandparent',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>grandparents</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>grandparents</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>grandparents</em>',
+      },
     },
     {
       id: 'other-relation',
       value: 'other-relation',
       label: {
-        text: 'Other relation'
+        text: 'Other relation',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>other relation</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>other relation</em>'
-      }
+        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>other relation</em>',
+      },
     },
     {
       id: 'unrelated',
       value: 'unrelated',
       label: {
         text: 'Unrelated',
-        description: 'Including foster child'
+        description: 'Including foster child',
       },
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is <em>unrelated</em> to Joe Bloggs',
-        'data-playback': 'Amanda Bloggs is <em>unrelated</em> to Joe Bloggs'
-      }
-    }
-  ]
+        'data-playback': 'Amanda Bloggs is <em>unrelated</em> to Joe Bloggs',
+      },
+    },
+  ],
 };
 
 describe('Component: Relationships', function() {
@@ -239,6 +239,6 @@ function renderComponent(params) {
     h1,
     legend,
     radios,
-    playback
+    playback,
   };
 }

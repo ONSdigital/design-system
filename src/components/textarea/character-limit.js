@@ -50,7 +50,7 @@ class CharLimit {
         hitType: 'event',
         eventCategory: 'Error',
         eventAction: 'Textarea limit reached',
-        eventLabel: `Limit of ${this.maxLength} reached/exceeded`
+        eventLabel: `Limit of ${this.maxLength} reached/exceeded`,
       });
     }
   }

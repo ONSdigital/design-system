@@ -5,8 +5,8 @@ domReady(() => {
   iframeResizer(
     {
       heightCalculationMethod: 'max',
-      scrolling: 'omit'
+      scrolling: 'omit',
     },
-    '.patternlib-example__iframe'
+    '.patternlib-example__iframe',
   );
 });
