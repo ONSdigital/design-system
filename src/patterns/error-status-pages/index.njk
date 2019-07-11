@@ -84,7 +84,7 @@ The page should have:
     onsList({
         "itemsList": [
             {
-                "text": "‘Page not found – [service name] – ONS’ as the page <code>title</code>"
+                "text": "‘Page not found – [service name] – Office for National Statistics’ as the page <code>title</code>"
             }
         ]
     }) 
@@ -96,7 +96,7 @@ The page should have:
 
 ### 404 error with reference code
 
-Use an [error panel](/components/panel#error) to display any reference information your service's customer support staff may require the user to quote during a call.
+Use an [error panel](/components/panel#error) to display any reference code your service’s customer support staff may require the user to quote during a call.
 
 {{
     patternlibExample({ "path": "patterns/error-status-pages/examples/404-error-with-code/index.njk" })
@@ -113,7 +113,7 @@ The page should have:
     onsList({
         "itemsList": [
             {
-                "text": "‘An error has occurred – [service name] – ONS’ as the page <code>title</code>"
+                "text": "‘An error has occurred – [service name] – – Office for National Statistics’ as the page <code>title</code>"
             },
             {
                 "text": "a link to an alternative service that may help the user continue their task (if available)"
@@ -135,7 +135,7 @@ The page should have:
     onsList({
         "itemsList": [
             {
-                "text": "‘This service is temporarily unavailable – [service name] – ONS’ as the page <code>title</code>"
+                "text": "‘This service is temporarily unavailable – [service name] – Office for National Statistics’ as the page <code>title</code>"
             },
             {
                 "text": "the date and time the service will be available (if known)"
@@ -154,7 +154,26 @@ The page should have:
     patternlibExample({ "path": "patterns/error-status-pages/examples/503-error/index.njk" })
 }}
 
-## Timeout Error
+## Timeout
+
+Use a Timeout page when the user has been timed out of the service due to inactivity.  Explain why the timeout has occured and reassure the user that their progress has been saved. Provide a link to allow them to sign in again.
+
+The page should have:
+{{ 
+    onsList({
+        "itemsList": [
+            {
+                "text": "‘Your session has timed out due to inactivity – [service name] – Office for National Statistics’ as the page <code>title</code>"
+            },
+            {
+                "text": "information why the timeout occured and their progress has been saved"
+            },
+            {
+                "text": "a link allowing the user to sign in again"
+            }
+        ]
+    }) 
+}}
 
 {{
     patternlibExample({ "path": "patterns/error-status-pages/examples/timeout-error/index.njk" })
