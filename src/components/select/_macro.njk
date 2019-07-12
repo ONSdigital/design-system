@@ -5,7 +5,9 @@
     {% call onsField({
         "id": params.fieldId,
         "classes": params.fieldClases,
-        "legendClasses": params.legendClasses
+        "legendClasses": params.legendClasses,
+        "dontWrap": params.dontWrap,
+        "error": params.error
     }) %}
         {{
             onsLabel({

@@ -5,3 +5,4 @@
 | showPasswordText | string                               | true     | Text for the show password toggle                                                   |
 | fieldId          | string                               | false    | Id for the field                                                                    |
 | fieldClasses     | string                               | false    | Classes for the field                                                               |
+| error            | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                                 |

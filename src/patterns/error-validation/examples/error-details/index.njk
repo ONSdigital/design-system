@@ -1,21 +1,3 @@
-{% from "components/panel/_macro.njk" import onsPanel %}
-{% call 
-    onsPanel({
-        "type": "error"
-    })
-%}
-{% from "components/lists/_macro.njk" import onsList %}
-{{
-    onsList({
-        "id": 'container-test-number',
-        "classes": 'list--bare list--errors u-mb-s',
-        "itemsList": [
-            {
-                "text": 'Enter a number.'
-            }
-        ]
-    })
-}}
 {% from "components/input/_macro.njk" import onsInput %}
 {{
     onsInput({
@@ -28,30 +10,13 @@
         },
         "label": {
             "text": "Number of employees paid monthly"
+        },
+        "error": {
+            "text": "Enter a number"
         }
     })
 }}
-{% endcall %}
-{% call 
-    onsPanel({
-        "type": "error",
-        "id": "test",
-        "classes": "u-mt-m u-"
-    })
-%}
-{% from "components/lists/_macro.njk" import onsList %}
-{{
-    onsList({
-        "id": 'container-test-percent',
-        "classes": 'list--bare list--errors u-mb-s',
-        "itemsList": [
-            {
-                "text": 'Enter a number less than or equal to 100.'
-            }
-        ]
-    })
-}}
-{% from "components/input/_macro.njk" import onsInput %}
+
 {{
     onsInput({
         "id": "suffixed",
@@ -67,7 +32,9 @@
         "suffix": {
             "title": "percent",
             "text": "%"
+        },
+        "error": {
+            "text": "Enter a number less than or equal to 100"
         }
     })
 }}
-{% endcall %}

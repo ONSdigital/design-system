@@ -2,7 +2,17 @@
 {% macro onsMutuallyExclusive(params) %}
     {% from "components/fieldset/_macro.njk" import onsFieldset %}
     {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
-    {% set fields %}
+
+    {% call onsFieldset({
+        "id": params.id,
+        "classes": params.classes,
+        "legend": params.legend,
+        "legendClasses": params.legendClasses,
+        "description": params.description,
+        "attributes": params.attributes,
+        "dontWrap": params.dontWrap,
+        "error": params.error
+    }) %}
         <div class="js-mutually-exclusive">
             {{ caller() }}
             <br>
@@ -28,20 +38,5 @@
             </p>
             <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-group-adjective="{{ params.deselectGroupAdjective }}" data-checkbox-adjective="{{ params.deselectCheckboxAdjective }}"></span>
         </div>
-    {% endset %}
-
-    {% if params.dontWrap %}
-        {{ fields | safe }}
-    {% else %}
-        {% call onsFieldset({
-            "id": params.id,
-            "classes": params.classes,
-            "legend": params.legend,
-            "legendClasses": params.legendClasses,
-            "description": params.description,
-            "attributes": params.attributes
-        }) %}
-            {{ fields | safe }}
-        {% endcall %}
-    {% endif %}
+    {% endcall %}
 {% endmacro %}
