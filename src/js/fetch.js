@@ -13,7 +13,7 @@ export default function(url, options) {
     .fetch(url, {
       method: 'GET',
       credentials: 'include',
-      ...options
+      ...options,
     })
     .then(checkStatus);
 }

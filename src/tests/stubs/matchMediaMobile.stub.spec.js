@@ -2,7 +2,7 @@ const matchMediaMobileMock = () => {
   const obj = function matchMediaMock() {
     return {
       matches: false,
-      addListener() {}
+      addListener() {},
     };
   };
 

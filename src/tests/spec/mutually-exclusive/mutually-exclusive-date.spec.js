@@ -8,21 +8,21 @@ const params = {
   description: 'For example, 31 3 2018',
   day: {
     label: {
-      text: 'Day'
+      text: 'Day',
     },
-    name: 'day-exclusive'
+    name: 'day-exclusive',
   },
   month: {
     label: {
-      text: 'Month'
+      text: 'Month',
     },
-    name: 'month-exclusive'
+    name: 'month-exclusive',
   },
   year: {
     label: {
-      text: 'Year'
+      text: 'Year',
     },
-    name: 'year-exclusive'
+    name: 'year-exclusive',
   },
   mutuallyExclusive: {
     or: 'Or',
@@ -34,10 +34,10 @@ const params = {
       name: 'no-paid-job',
       value: 'no-paid-job',
       label: {
-        text: 'I have never had a paid job'
-      }
-    }
-  }
+        text: 'I have never had a paid job',
+      },
+    },
+  },
 };
 
 describe('Component: Mutually Exclusive Date Input', () => {
@@ -89,7 +89,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
             // prettier-ignore
-            `${params.day.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.month.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.year.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`
+            `${params.day.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.month.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.year.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`,
           );
           done();
         }, 300);
@@ -114,7 +114,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
       it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
           );
           done();
         }, 300);

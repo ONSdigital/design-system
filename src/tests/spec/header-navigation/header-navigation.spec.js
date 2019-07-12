@@ -6,7 +6,7 @@ import GetViewportDetailsMock from 'stubs/getViewportDetails.stub.spec';
 const params = {
   toggleButton: {
     text: 'Menu',
-    ariaLabel: 'Toggle main navigation'
+    ariaLabel: 'Toggle main navigation',
   },
   navigation: {
     classes: 'js-header-nav u-d-no',
@@ -17,28 +17,28 @@ const params = {
     itemsList: [
       {
         title: 'Surveys',
-        path: '/surveys'
+        path: '/surveys',
       },
       {
         title: 'Messages',
-        path: '#'
+        path: '#',
       },
       {
         title: 'To do',
-        path: '#'
+        path: '#',
       },
       {
         title: 'My account',
         path: '#',
-        classes: 'nav__item--secondary u-d-no@m'
+        classes: 'nav__item--secondary u-d-no@m',
       },
       {
         title: 'Sign out',
         path: '#',
-        classes: 'u-d-no@m'
-      }
-    ]
-  }
+        classes: 'u-d-no@m',
+      },
+    ],
+  },
 };
 
 describe('Component: Navigation', function() {
@@ -223,7 +223,7 @@ function renderComponent(params) {
   return {
     wrapper,
     toggleMainBtn,
-    mainNavList
+    mainNavList,
   };
 }
 

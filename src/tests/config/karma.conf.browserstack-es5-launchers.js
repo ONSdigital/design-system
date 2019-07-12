@@ -6,7 +6,7 @@ export default function() {
       'bs_ipad_air_2',
       // 'bs_android_galaxy_S5_mini',
       'bs_mac_safari',
-      'bs_windows_10_IE_11'
+      'bs_windows_10_IE_11',
     ],
 
     customLaunchers: {
@@ -18,7 +18,7 @@ export default function() {
         browserName: 'iPad',
         platform: 'MAC',
         os: 'ios',
-        os_version: '9.1'
+        os_version: '9.1',
       }),
 
       /**
@@ -39,7 +39,7 @@ export default function() {
         browser: 'safari',
         browser_version: '9.1',
         os: 'OS X',
-        os_version: 'El Capitan'
+        os_version: 'El Capitan',
       }),
 
       /**
@@ -49,15 +49,15 @@ export default function() {
         os: 'Windows',
         os_version: '10',
         browser: 'IE',
-        browser_version: '11'
-      })
-    }
+        browser_version: '11',
+      }),
+    },
   };
 }
 
 function inheritBase(obj) {
   return {
     base: 'BrowserStack',
-    ...obj
+    ...obj,
   };
 }

@@ -40,11 +40,11 @@ const serverSettings = {
     },
     stats: 'errors-only',
     headers: {
-      'Access-Control-Allow-Origin': '*'
-    }
+      'Access-Control-Allow-Origin': '*',
+    },
   },
 
-  plugins: [new LiveReloadPlugin()]
+  plugins: [new LiveReloadPlugin()],
 };
 
 export default [
@@ -54,5 +54,5 @@ export default [
   merge(common.es2015plus, serverSettings),
   merge(common.es5, serverSettings),
   merge(common.es2015plusPatternLib, serverSettings),
-  merge(common.es5PatternLib, serverSettings)
+  merge(common.es5PatternLib, serverSettings),
 ];

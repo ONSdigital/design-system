@@ -13,8 +13,8 @@ export default () => {
     safe: true,
     mergeLonghand: false,
     discardComments: {
-      removeAll: true
-    }
+      removeAll: true,
+    },
   };
 
   return [
@@ -39,10 +39,10 @@ export default () => {
           console.log('3', `/${BASE_HREF}/${DEPLOY_URL}/${url}`.replace(/\/\/+/g, '/'));
           return `/${BASE_HREF}/${DEPLOY_URL}/${url}`.replace(/\/\/+/g, '/');
         }
-      }
+      },
     }),
     autoprefixer(),
     mqoptimize(),
-    cssnano(minimizeOptions)
+    cssnano(minimizeOptions),
   ];
 };

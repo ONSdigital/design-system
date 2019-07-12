@@ -7,14 +7,14 @@ const params = {
   type: 'number',
   classes: 'input--w-5',
   attributes: {
-    min: 0
+    min: 0,
   },
   label: {
-    text: 'What is your annual income before tax?'
+    text: 'What is your annual income before tax?',
   },
   prefix: {
     title: 'Pounds',
-    text: '£'
+    text: '£',
   },
   mutuallyExclusive: {
     or: 'Or',
@@ -26,10 +26,10 @@ const params = {
       name: 'no-currency',
       value: 'no-currency',
       label: {
-        text: 'I prefer not to say'
-      }
-    }
-  }
+        text: 'I prefer not to say',
+      },
+    },
+  },
 };
 
 describe('Component: Mutually Exclusive Number Input', () => {
@@ -99,7 +99,7 @@ describe('Component: Mutually Exclusive Number Input', () => {
       it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
           );
           done();
         }, 300);

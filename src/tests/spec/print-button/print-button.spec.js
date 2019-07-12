@@ -6,7 +6,7 @@ const params = {
   id: 'button',
   type: 'button',
   text: 'Print this page',
-  print: true
+  print: true,
 };
 
 describe('Function: Print Button ', function() {
