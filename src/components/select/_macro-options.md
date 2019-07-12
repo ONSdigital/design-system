@@ -10,6 +10,7 @@
 | fieldId      | string                               | false    | Id for the field                                                                      |
 | fieldClasses | string                               | false    | Classes for the field                                                                 |
 | dontWrap     | boolean                              | false    | Prevents the select from being wrapped in a [field component](/components/field)      |
+| error        | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                                   |
 
 ## SelectOption
 

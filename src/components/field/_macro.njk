@@ -1,12 +1,29 @@
+{% from "components/error/_macro.njk" import onsError %}
+
 {% macro onsField(params) %}
     {% if not params %}
         {% set params = {} %}
     {% endif %}
-    <p 
-        {% if params.id %}id="{{ params.id }}"{% endif %}
-        class="field"
-        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-    >
-        {{ caller() }}
-    </p>
+
+    {% set field %}
+        {% if params.error %}
+            {% call onsError(params.error) %}
+                {{ caller() }}
+            {% endcall %}
+        {% else %}
+            {{ caller() }}
+        {% endif %}
+    {% endset %}
+
+    {% if params.dontWrap %}
+        {{ field | safe }}
+    {% else %}
+        <p 
+            {% if params.id %}id="{{ params.id }}"{% endif %}
+            class="field"
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+        >
+            {{ field | safe }}
+        </p>
+    {% endif %}
 {% endmacro %}

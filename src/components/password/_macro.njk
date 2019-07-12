@@ -6,7 +6,8 @@
 
     {% call onsField({
         "id": params.fieldId,
-        "classes": params.fieldClasses
+        "classes": params.fieldClasses,
+        "error": params.error
     }) %}
         {{
             onsLabel({

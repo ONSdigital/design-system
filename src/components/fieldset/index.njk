@@ -13,14 +13,15 @@ Generally speaking you should not need to [call](https://mozilla.github.io/nunju
 ### Configuration
 
 {% md %}
-| Name          | Type   | Required | Description                                                       |
-| ------------- | ------ | -------- | ----------------------------------------------------------------- |
-| id            | string | true     | The id of the field                                               |
-| classes       | string | false    | Classes to apply to the field                                     |
-| legend        | string | true     | Text for the legend                                               |
-| legendClasses | string | false    | Classes to apply to the legend element                            |
-| description   | string | false    | Description for the fieldset                                      |
-| attributes    | onject | false    | HTML attributes (for example data attributes) to add to the field |
+| Name          | Type                                 | Required | Description                                                       |
+| ------------- | ------------------------------------ | -------- | ----------------------------------------------------------------- |
+| id            | string                               | true     | The id of the field                                               |
+| classes       | string                               | false    | Classes to apply to the field                                     |
+| legend        | string                               | true     | Text for the legend                                               |
+| legendClasses | string                               | false    | Classes to apply to the legend element                            |
+| description   | string                               | false    | Description for the fieldset                                      |
+| attributes    | object                               | false    | HTML attributes (for example data attributes) to add to the field |
+| error         | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                               |
 {% endmd %}
 
 ## Research on this component

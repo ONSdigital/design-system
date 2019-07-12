@@ -2,6 +2,8 @@
     {% from "components/fieldset/_macro.njk" import onsFieldset %}
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/input/_macro.njk" import onsInput %}
+    {% from "components/error/_macro.njk" import onsError %}
+
 
     {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
 
@@ -79,19 +81,28 @@
             "or": params.mutuallyExclusive.or,
             "deselectMessage": params.mutuallyExclusive.deselectMessage,
             "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective
+            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
+            "error": params.error
         }) %}
             {{ fields | safe }}
         {% endcall %}
-    {% elif params.noWrap or numberOfFields == 1 %}
-        {{ fields | safe }}
+    {% elif numberOfFields == 1 %}
+        {% if params.error %}
+            {% call onsError(params.error) %}
+                {{ fields | safe }}
+            {% endcall %}
+        {% else %}
+            {{ fields | safe }}
+        {% endif %}
     {% else %}
         {% call onsFieldset({
             "id": params.id,
             "legend": params.legend,
             "legendClasses": params.legendClasses,
             "description": params.description,
-            "classes": params.classes
+            "classes": params.classes,
+            "dontWrap": params.dontWrap,
+            "error": params.error
         }) %}
             {{ fields | safe }}
         {% endcall %}
