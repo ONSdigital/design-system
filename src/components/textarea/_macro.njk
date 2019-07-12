@@ -48,16 +48,21 @@
             "or": params.mutuallyExclusive.or,
             "deselectMessage": params.mutuallyExclusive.deselectMessage,
             "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective
+            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
+            "error": params.error
         }) %}
-            {{ field | safe }}
+            {% call onsField({
+                "error": params.error"
+            }) %}
+                {{ field | safe }}
+            {% endcall %}
         {% endcall %}
-    {% elif params.dontWrap %}
-        {{ field | safe }}
     {% else %}
         {% call onsField({
             "id": params.fieldId,
-            "classes": params.fieldClasses
+            "classes": params.fieldClasses,
+            "dontWrap": params.dontWrap,
+            "error": params.error"
         }) %}
             {{ field | safe }}
         {% endcall %}

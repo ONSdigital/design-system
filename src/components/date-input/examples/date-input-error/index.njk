@@ -1,21 +1,4 @@
-{% from "components/panel/_macro.njk" import onsPanel %}
-{% call 
-    onsPanel({
-        "type": "error"
-    })
-%}
-{% from "components/lists/_macro.njk" import onsList %}
-{{
-    onsList({
-        "id": "container-test-number",
-        "classes": "list--bare list--errors u-mb-s",
-        "itemsList": [
-            {
-                "text": "Enter a 'period to' date later than the 'period from' date."
-            }
-        ]
-    })
-}}
+
 {% from "components/date-input/_macro.njk" import onsDateInput %}
 {{
     onsDateInput({
@@ -42,7 +25,7 @@
         }
     })
 }}
-{% from "components/date-input/_macro.njk" import onsDateInput %}
+
 {{
     onsDateInput({
         "id": "date",
@@ -65,7 +48,9 @@
                 "text": "Year"
             },
             "name": "year"
+        },
+        "error": {
+            "text": "Enter a 'period to' date later than the 'period from' date"
         }
     })
 }}
-{% endcall %}
