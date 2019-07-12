@@ -7,9 +7,9 @@ const params = {
   name: 'uac',
   label: {
     text: 'Enter the 16 character code printed on the letter',
-    description: 'Keep this code safe and only share it with others in your household'
+    description: 'Keep this code safe and only share it with others in your household',
   },
-  securityMessage: 'Your personal information is protected by law and will be kept confidential.'
+  securityMessage: 'Your personal information is protected by law and will be kept confidential.',
 };
 
 describe('Component: UAC Input', () => {

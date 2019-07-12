@@ -24,7 +24,7 @@ function focusOnInput(id) {
     input = [
       ...container.getElementsByTagName('INPUT'),
       ...container.getElementsByTagName('TEXTAREA'),
-      ...container.getElementsByTagName('SELECT')
+      ...container.getElementsByTagName('SELECT'),
     ].filter(input => {
       const type = input.getAttribute('type');
 

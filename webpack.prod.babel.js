@@ -18,9 +18,9 @@ export default [
         statsFilename: 'es6.stats.json',
         reportFilename: 'es6.stats.html',
         openAnalyzer: process.env.NODE_ENV === 'development',
-        excludeAssets: /patternlib.js/
-      })
-    ]
+        excludeAssets: /patternlib.js/,
+      }),
+    ],
   }),
   merge(common.es5, {
     plugins: [
@@ -31,10 +31,10 @@ export default [
         statsFilename: 'es5.stats.json',
         reportFilename: 'es5.stats.html',
         openAnalyzer: process.env.NODE_ENV === 'development',
-        excludeAssets: /patternlib.es5.js/
-      })
-    ]
+        excludeAssets: /patternlib.es5.js/,
+      }),
+    ],
   }),
   merge(common.es2015plusPatternLib, {}),
-  merge(common.es5PatternLib, {})
+  merge(common.es5PatternLib, {}),
 ];

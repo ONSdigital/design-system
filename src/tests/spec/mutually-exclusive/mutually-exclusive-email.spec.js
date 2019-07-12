@@ -6,7 +6,7 @@ const params = {
   id: 'email',
   type: 'email',
   label: {
-    text: 'Enter an email'
+    text: 'Enter an email',
   },
   mutuallyExclusive: {
     or: 'Or',
@@ -18,10 +18,10 @@ const params = {
       name: 'no-email',
       value: 'no-email',
       label: {
-        text: 'I dont want to receive a confirmation email'
-      }
-    }
-  }
+        text: 'I dont want to receive a confirmation email',
+      },
+    },
+  },
 };
 
 describe('Component: Mutually Exclusive Email Input', () => {
@@ -91,7 +91,7 @@ describe('Component: Mutually Exclusive Email Input', () => {
       it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
           );
           done();
         }, 300);

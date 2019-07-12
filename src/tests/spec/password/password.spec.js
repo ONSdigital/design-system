@@ -5,9 +5,9 @@ import password from 'components/password/password';
 const params = {
   id: 'password',
   label: {
-    text: 'Password'
+    text: 'Password',
   },
-  showPasswordText: 'Show password'
+  showPasswordText: 'Show password',
 };
 
 describe('Component: Password', () => {

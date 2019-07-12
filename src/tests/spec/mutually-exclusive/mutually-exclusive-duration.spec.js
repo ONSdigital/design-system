@@ -15,8 +15,8 @@ const params = {
     name: 'no-duration',
     value: 'no-duration',
     label: {
-      text: 'I have not moved in to this address yet'
-    }
+      text: 'I have not moved in to this address yet',
+    },
   },
   years: {
     id: 'address-duration-years',
@@ -25,11 +25,11 @@ const params = {
     classes: 'input--w-2 js-exclusive-group',
     attributes: {
       min: 0,
-      max: 100
+      max: 100,
     },
     suffix: {
-      title: 'Years'
-    }
+      title: 'Years',
+    },
   },
   months: {
     id: 'address-duration-months',
@@ -38,12 +38,12 @@ const params = {
     classes: 'input--w-2 js-exclusive-group',
     attributes: {
       min: 0,
-      max: 11
+      max: 11,
     },
     suffix: {
-      title: 'Months'
-    }
-  }
+      title: 'Months',
+    },
+  },
 };
 
 describe('Component: Mutually Exclusive Duration Pattern', () => {
@@ -93,7 +93,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
             // prettier-ignore
-            `${params.years.suffix.title} ${params.deselectGroupAdjective}. ${params.months.suffix.title} ${params.deselectGroupAdjective}.`
+            `${params.years.suffix.title} ${params.deselectGroupAdjective}. ${params.months.suffix.title} ${params.deselectGroupAdjective}.`,
           );
           done();
         }, 300);

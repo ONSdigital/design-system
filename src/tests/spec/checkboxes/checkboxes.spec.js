@@ -10,33 +10,33 @@ const params = {
     {
       id: 'bacon-other',
       label: {
-        text: 'Bacon'
+        text: 'Bacon',
       },
-      value: 'bacon'
+      value: 'bacon',
     },
     {
       id: 'olives-other',
       label: {
-        text: 'Olives'
+        text: 'Olives',
       },
-      value: 'olives'
+      value: 'olives',
     },
     {
       id: 'other-checkbox',
       label: {
         text: 'Other',
-        description: 'An answer is required'
+        description: 'An answer is required',
       },
       value: 'other',
       other: {
         id: 'other-textbox',
         name: 'other-answer',
         label: {
-          text: 'Please specify other'
-        }
-      }
-    }
-  ]
+          text: 'Please specify other',
+        },
+      },
+    },
+  ],
 };
 
 describe('Component: Checkboxes', function() {
@@ -62,7 +62,7 @@ describe('Component: Checkboxes', function() {
       expect(this.checkboxWithOther.getAttribute('aria-haspopup')).to.equal('true');
       expect(this.checkboxWithOther.hasAttribute('aria-controls')).to.equal(true);
       expect(this.checkboxWithOther.getAttribute('aria-controls')).to.equal(
-        `${params.checkboxes[params.checkboxes.length - 1].id}-other-wrap`
+        `${params.checkboxes[params.checkboxes.length - 1].id}-other-wrap`,
       );
     });
   });
@@ -125,6 +125,6 @@ function renderComponent(params) {
   return {
     wrapper,
     checkboxes,
-    checkboxWithOther
+    checkboxWithOther,
   };
 }

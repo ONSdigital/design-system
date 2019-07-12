@@ -2,7 +2,7 @@ const matchMediaDesktopMock = () => {
   const obj = function matchMediaMock() {
     return {
       matches: true,
-      addListener() {}
+      addListener() {},
     };
   };
   obj.hasMatchMedia = function() {

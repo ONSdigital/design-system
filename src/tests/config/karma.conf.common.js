@@ -21,15 +21,15 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
           test: /\.js$/,
           loader: 'istanbul-instrumenter-loader',
           query: {
-            esModules: true
+            esModules: true,
           },
           include: [path.resolve('./src/components/'), path.resolve('./src/js/')],
-          exclude: [path.resolve('./src/js/polyfills')]
-        }
-      ]
+          exclude: [path.resolve('./src/js/polyfills')],
+        },
+      ],
     },
 
-    plugins: [new HotModuleReplacementPlugin(), new RewireMockWebpackPlugin()]
+    plugins: [new HotModuleReplacementPlugin(), new RewireMockWebpackPlugin()],
   });
 
   return function(config) {
@@ -40,7 +40,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
 
       preprocessors: {
         '../../js/polyfills/index.js': ['webpack'],
-        '../../tests/**/*.spec.js': ['webpack']
+        '../../tests/**/*.spec.js': ['webpack'],
       },
 
       plugins: [
@@ -52,21 +52,21 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         'karma-mocha',
         'karma-mocha-reporter',
         'karma-chai',
-        'karma-chai-spies'
+        'karma-chai-spies',
       ],
 
       webpack: webpackConfig,
 
       client: {
         clearContext: false,
-        captureConsole: !process.env['RUNNING_ON_TRAVIS']
+        captureConsole: !process.env['RUNNING_ON_TRAVIS'],
       },
 
       coverageIstanbulReporter: {
         reports: ['text', 'lcovonly'],
         fixWebpackSourcePaths: true,
         combineBrowserReports: true,
-        dir: 'coverage'
+        dir: 'coverage',
         // skipFilesWithNoCoverage: true,
       },
 
@@ -78,8 +78,8 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
           success: '✅ ',
           error: '❌ ',
           warning: '⚠️ ',
-          info: 'ℹ️ '
-        }
+          info: 'ℹ️ ',
+        },
       },
 
       port: 9876,
@@ -91,7 +91,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
       autoWatch: true,
 
       customLaunchers: {
-        ...(runOnBrowserstack ? browserstackLaunchers : localLaunchers)
+        ...(runOnBrowserstack ? browserstackLaunchers : localLaunchers),
       },
 
       browsers: [...(runOnBrowserstack ? browserstackBrowsers : localBrowsers)],
@@ -102,10 +102,10 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         project: 'ONS - design-system',
         forcelocal: true,
         username: process.env.BROWSER_STACK_USERNAME,
-        accessKey: process.env.BROWSER_STACK_ACCESS_KEY
+        accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
       },
 
-      singleRun: process.env.KARMA_SINGLE_RUN !== 'false'
+      singleRun: process.env.KARMA_SINGLE_RUN !== 'false',
     });
   };
 }

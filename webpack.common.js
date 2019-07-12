@@ -19,7 +19,7 @@ const core = {
   output: {
     path: path.join(process.cwd(), OUT_DIR),
     filename: '[name].js',
-    chunkFilename: '[name].js'
+    chunkFilename: '[name].js',
   },
 
   resolve: {
@@ -29,12 +29,12 @@ const core = {
       js: path.resolve(__dirname, './src/js'),
       components: path.resolve(__dirname, './src/components'),
       tests: path.resolve(__dirname, './src/tests'),
-      stubs: path.resolve(__dirname, './src/tests/stubs')
-    }
+      stubs: path.resolve(__dirname, './src/tests/stubs'),
+    },
   },
 
   resolveLoader: {
-    modules: ['./node_modules']
+    modules: ['./node_modules'],
   },
 
   plugins: [
@@ -46,9 +46,9 @@ const core = {
 
     new CircularDependencyPlugin({
       exclude: /(\\|\/)node_modules(\\|\/)/,
-      failOnError: false
-    })
-  ]
+      failOnError: false,
+    }),
+  ],
 };
 
 const cssCore = merge(core, {
@@ -62,15 +62,15 @@ const cssCore = merge(core, {
           {
             loader: 'file-loader',
             options: {
-              name: 'css/[name].css'
-            }
+              name: 'css/[name].css',
+            },
           },
           {
             loader: 'postcss-loader',
             options: {
               indent: 'postcss',
-              plugins: postcssPlugins
-            }
+              plugins: postcssPlugins,
+            },
           },
           {
             loader: 'sass-loader',
@@ -78,26 +78,26 @@ const cssCore = merge(core, {
               sourceMap: false,
               precision: 8,
               includePaths: [path.join(process.cwd(), 'src/scss')],
-              importer: globImporter()
-            }
-          }
-        ]
-      }
-    ]
+              importer: globImporter(),
+            },
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [
     new FixStyleOnlyEntriesPlugin({
       extensions: ['scss', 'njk', 'html'],
-      silent: true
-    })
-  ]
+      silent: true,
+    }),
+  ],
 });
 
 const jsCore = merge(core, {
   output: {
     chunkFilename: 'scripts/[name].js',
-    publicPath: '/'
+    publicPath: '/',
   },
 
   module: {
@@ -108,11 +108,11 @@ const jsCore = merge(core, {
         loader: 'nunjucks-loader',
         query: {
           root: `${__dirname}/src`,
-          config: `${__dirname}/nunjucks.config.js`
-        }
-      }
-    ]
-  }
+          config: `${__dirname}/nunjucks.config.js`,
+        },
+      },
+    ],
+  },
 
   // optimization: {
   //   splitChunks: {
@@ -146,28 +146,28 @@ const es2015plusCore = merge(jsCore, {
                 {
                   modules: false,
                   targets: {
-                    browsers: ['Chrome >= 60', 'Safari >= 10.1', 'iOS >= 10.3', 'Firefox >= 54', 'Edge >= 15']
-                  }
-                }
-              ]
+                    browsers: ['Chrome >= 60', 'Safari >= 10.1', 'iOS >= 10.3', 'Firefox >= 54', 'Edge >= 15'],
+                  },
+                },
+              ],
             ],
             plugins: [
               '@babel/plugin-syntax-dynamic-import',
               '@babel/plugin-proposal-class-properties',
               '@babel/plugin-transform-runtime',
-              'rewiremock/babel'
-            ]
-          }
-        }
-      }
-    ]
-  }
+              'rewiremock/babel',
+            ],
+          },
+        },
+      },
+    ],
+  },
 });
 
 const es5Core = merge(jsCore, {
   output: {
     filename: '[name].es5.js',
-    chunkFilename: 'scripts/[name].es5.js'
+    chunkFilename: 'scripts/[name].es5.js',
   },
 
   module: {
@@ -185,30 +185,30 @@ const es5Core = merge(jsCore, {
                 {
                   modules: false,
                   targets: {
-                    browsers: ['last 3 versions']
-                  }
-                }
-              ]
+                    browsers: ['last 3 versions'],
+                  },
+                },
+              ],
             ],
             plugins: [
               '@babel/plugin-syntax-dynamic-import',
               '@babel/plugin-proposal-class-properties',
               '@babel/plugin-transform-runtime',
-              'rewiremock/babel'
-            ]
-          }
-        }
-      }
-    ]
-  }
+              'rewiremock/babel',
+            ],
+          },
+        },
+      },
+    ],
+  },
 });
 
 const scriptsEntry = {
-  'scripts/main': ['./js/public-path-override.js', './js/polyfills/index.js', './js/index.js']
+  'scripts/main': ['./js/public-path-override.js', './js/polyfills/index.js', './js/index.js'],
 };
 
 const patternLibScriptsEntry = {
-  'scripts/patternlib': ['./js/patternlib/index.js']
+  'scripts/patternlib': ['./js/patternlib/index.js'],
 };
 
 export default function(mode) {
@@ -220,7 +220,7 @@ export default function(mode) {
 
       entry: {
         'css/main': ['./scss/main.scss'],
-        'css/census': ['./scss/census.scss']
+        'css/census': ['./scss/census.scss'],
       },
 
       plugins: [
@@ -229,35 +229,35 @@ export default function(mode) {
             {
               from: {
                 glob: 'fonts/**/*',
-                dot: true
-              }
+                dot: true,
+              },
             },
             {
               from: {
                 glob: 'img/**/*',
-                dot: true
-              }
+                dot: true,
+              },
             },
             {
               from: {
                 glob: 'favicons/**/*',
-                dot: true
-              }
-            }
+                dot: true,
+              },
+            },
           ],
           {
             ignore: ['.gitkeep'],
-            debug: 'warning'
-          }
+            debug: 'warning',
+          },
         ),
 
         new ImageminPlugin({
           test: /\.(svg)$/i,
           svgo: {
-            plugins: svgoConfig
-          }
-        })
-      ]
+            plugins: svgoConfig,
+          },
+        }),
+      ],
     }),
 
     patternLibAssets: merge(cssCore, {
@@ -265,7 +265,7 @@ export default function(mode) {
 
       entry: {
         'css/patternlib': ['./scss/patternlib.scss'],
-        error: ['./scss/error.scss']
+        error: ['./scss/error.scss'],
       },
 
       plugins: [
@@ -274,30 +274,30 @@ export default function(mode) {
             {
               from: {
                 glob: 'patternlib-img/**/*',
-                dot: true
-              }
-            }
+                dot: true,
+              },
+            },
           ],
           {
             ignore: ['.gitkeep'],
-            debug: 'warning'
-          }
+            debug: 'warning',
+          },
         ),
 
         new ImageminPlugin({
           test: /\.(svg)$/i,
           svgo: {
-            plugins: svgoConfig
-          }
-        })
-      ]
+            plugins: svgoConfig,
+          },
+        }),
+      ],
     }),
 
     templates: merge(core, {
       mode,
 
       entry: {
-        html: glob.sync('./**/*.{njk,html}', { cwd: 'src', ignore: './**/_*.{njk,html}' })
+        html: glob.sync('./**/*.{njk,html}', { cwd: 'src', ignore: './**/_*.{njk,html}' }),
       },
 
       module: {
@@ -308,8 +308,8 @@ export default function(mode) {
               {
                 loader: 'file-loader',
                 options: {
-                  name: '[path][name].html'
-                }
+                  name: '[path][name].html',
+                },
               },
               {
                 loader: path.resolve('./lib/nunjucks-html-loader.js'),
@@ -318,45 +318,45 @@ export default function(mode) {
                   layoutPath: 'views/layouts',
                   context: {
                     devMode,
-                    isPatternLib: true
-                  }
-                }
-              }
-            ]
-          }
-        ]
+                    isPatternLib: true,
+                  },
+                },
+              },
+            ],
+          },
+        ],
       },
 
       plugins: [
         new FixStyleOnlyEntriesPlugin({
           extensions: ['scss', 'njk', 'html'],
-          silent: true
-        })
-      ]
+          silent: true,
+        }),
+      ],
     }),
 
     es2015plus: merge(es2015plusCore, {
       mode,
 
-      entry: scriptsEntry
+      entry: scriptsEntry,
     }),
 
     es2015plusPatternLib: merge(es2015plusCore, {
       mode,
 
-      entry: patternLibScriptsEntry
+      entry: patternLibScriptsEntry,
     }),
 
     es5: merge(es5Core, {
       mode,
 
-      entry: scriptsEntry
+      entry: scriptsEntry,
     }),
 
     es5PatternLib: merge(es5Core, {
       mode,
 
-      entry: patternLibScriptsEntry
-    })
+      entry: patternLibScriptsEntry,
+    }),
   };
 }

@@ -1,119 +1,119 @@
 export default [
   {
-    cleanupAttrs: true
+    cleanupAttrs: true,
   },
   {
-    inlineStyles: true
+    inlineStyles: true,
   },
   {
-    removeDoctype: true
+    removeDoctype: true,
   },
   {
-    removeXMLProcInst: true
+    removeXMLProcInst: true,
   },
   {
-    removeComments: true
+    removeComments: true,
   },
   {
-    removeMetadata: true
+    removeMetadata: true,
   },
   {
-    removeTitle: true
+    removeTitle: true,
   },
   {
-    removeDesc: true
+    removeDesc: true,
   },
   {
-    removeUselessDefs: true
+    removeUselessDefs: true,
   },
   {
-    removeXMLNS: false
+    removeXMLNS: false,
   },
   {
-    removeEditorsNSData: true
+    removeEditorsNSData: true,
   },
   {
-    removeEmptyAttrs: true
+    removeEmptyAttrs: true,
   },
   {
-    removeHiddenElems: true
+    removeHiddenElems: true,
   },
   {
-    removeEmptyText: true
+    removeEmptyText: true,
   },
   {
-    removeEmptyContainers: true
+    removeEmptyContainers: true,
   },
   {
-    removeViewBox: false
+    removeViewBox: false,
   },
   {
-    cleanupEnableBackground: true
+    cleanupEnableBackground: true,
   },
   {
-    minifyStyles: true
+    minifyStyles: true,
   },
   {
-    convertStyleToAttrs: true
+    convertStyleToAttrs: true,
   },
   {
-    convertColors: true
+    convertColors: true,
   },
   {
-    convertPathData: true
+    convertPathData: true,
   },
   {
-    convertTransform: true
+    convertTransform: true,
   },
   {
-    removeUnknownsAndDefaults: true
+    removeUnknownsAndDefaults: true,
   },
   {
-    removeNonInheritableGroupAttrs: true
+    removeNonInheritableGroupAttrs: true,
   },
   {
-    removeUselessStrokeAndFill: true
+    removeUselessStrokeAndFill: true,
   },
   {
-    removeUnusedNS: true
+    removeUnusedNS: true,
   },
   {
-    cleanupIDs: true
+    cleanupIDs: true,
   },
   {
-    cleanupNumericValues: true
+    cleanupNumericValues: true,
   },
   {
-    cleanupListOfValues: true
+    cleanupListOfValues: true,
   },
   {
-    moveElemsAttrsToGroup: true
+    moveElemsAttrsToGroup: true,
   },
   {
-    moveGroupAttrsToElems: true
+    moveGroupAttrsToElems: true,
   },
   {
-    collapseGroups: true
+    collapseGroups: true,
   },
   {
-    removeRasterImages: true
+    removeRasterImages: true,
   },
   {
-    mergePaths: true
+    mergePaths: true,
   },
   {
-    convertShapeToPath: true
+    convertShapeToPath: true,
   },
   {
-    sortAttrs: false
+    sortAttrs: false,
   },
   {
-    removeDimensions: true
+    removeDimensions: true,
   },
   {
-    removeScriptElement: true
+    removeScriptElement: true,
   },
   {
-    removeStyleElement: true
-  }
+    removeStyleElement: true,
+  },
 ];
