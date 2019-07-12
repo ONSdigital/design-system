@@ -10,38 +10,38 @@ const params = {
     {
       id: 'gas',
       label: {
-        text: 'Gas'
+        text: 'Gas',
       },
-      value: 'gas'
+      value: 'gas',
     },
     {
       id: 'electric',
       label: {
-        text: 'Electric'
+        text: 'Electric',
       },
-      value: 'electric'
+      value: 'electric',
     },
     {
       id: 'solid-fuel',
       label: {
-        text: 'Solid fuel'
+        text: 'Solid fuel',
       },
-      value: 'solid-fuel'
+      value: 'solid-fuel',
     },
     {
       id: 'other-fuel',
       label: {
-        text: 'Other'
+        text: 'Other',
       },
       value: 'other',
       other: {
         id: 'other-fuel-textbox',
         name: 'other-fuel-answer',
         label: {
-          text: 'Please specify'
-        }
-      }
-    }
+          text: 'Please specify',
+        },
+      },
+    },
   ],
   mutuallyExclusive: {
     or: 'or',
@@ -51,11 +51,11 @@ const params = {
     checkbox: {
       id: 'no-central-heating',
       label: {
-        text: 'No central heating'
+        text: 'No central heating',
       },
-      value: 'no-central-heating'
-    }
-  }
+      value: 'no-central-heating',
+    },
+  },
 };
 
 describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override', () => {
@@ -163,7 +163,7 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
       it('then the aria-live message should reflect the removed exclusive option', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
           );
           done();
         }, 300);
@@ -179,7 +179,7 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
         it('the aria-live message should not be updated', done => {
           setTimeout(() => {
             expect(ariaAlert.innerHTML).to.equal(
-              `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`
+              `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
             );
             done();
           }, 300);

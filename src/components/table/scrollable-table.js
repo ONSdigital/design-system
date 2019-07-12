@@ -76,7 +76,7 @@ class TableScroll {
   getOffset(el) {
     const rect = el.getBoundingClientRect();
     return {
-      left: rect.left + window.scrollX
+      left: rect.left + window.scrollX,
     };
   }
 }

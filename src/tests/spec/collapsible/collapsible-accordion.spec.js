@@ -8,7 +8,7 @@ const params = {
   id: 'accordion',
   allButton: {
     open: 'Show all',
-    close: 'Hide all'
+    close: 'Hide all',
   },
   itemsList: [
     {
@@ -17,8 +17,8 @@ const params = {
         '<h3 class="u-fs-r">Include:</h3><ul class="list"><li class="list__item">VAT</li><li class="list__item">internet sales</li><li class="list__item">retail sales from outlets in Great Britain to <a href="#">customers abroad</a></li></ul><h3 class="u-fs-r">Exclude:</h3><ul class="list"><li class="list__item">revenue from mobile phone network commission and top-up</li><li class="list__item">sales from catering facilities used by customers</li><li class="list__item">lottery sales and commission from lottery sales</li><li class="list__item">sales of car accessories and motor vehicles</li><li class="list__item">NHS receipts</li><li class="list__item">automotive fuel</li></ul>',
       button: {
         open: 'Show',
-        close: 'Hide'
-      }
+        close: 'Hide',
+      },
     },
     {
       title: 'Food sales',
@@ -26,8 +26,8 @@ const params = {
         '<h3 class="u-fs-r">Include:</h3><ul class="list"><li class="list__item">all fresh food</li><li class="list__item">other food for human consumption (except chocolate and sugar confectionery)</li><li class="list__item">soft drinks</li></ul><h3 class="u-fs-r">Exclude:</h3><ul class="list"><li class="list__item">sales from catering facilities used by customers</li></ul>',
       button: {
         open: 'Show',
-        close: 'Hide'
-      }
+        close: 'Hide',
+      },
     },
     {
       title: 'Alcohol, confectionery, soft drinks and tobacco sales',
@@ -35,10 +35,10 @@ const params = {
         '<h3 class="u-fs-r">Include:</h3><ul class="list"><li class="list__item">chocolate and sugar confectionery</li><li class="list__item">tobacco and smokers’ requisites</li></ul>',
       button: {
         open: 'Show',
-        close: 'Hide'
-      }
-    }
-  ]
+        close: 'Hide',
+      },
+    },
+  ],
 };
 
 describe('Component: Accordion', function() {
@@ -193,13 +193,13 @@ function renderComponent(params) {
       details,
       summary,
       content,
-      button
+      button,
     };
   });
 
   return {
     wrapper,
     toggleButton,
-    items
+    items,
   };
 }

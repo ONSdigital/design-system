@@ -9,42 +9,42 @@ const params = {
       id: 'email',
       value: 'email',
       label: {
-        text: 'Email'
+        text: 'Email',
       },
       other: {
         type: 'email',
         label: {
-          text: 'Enter your email address'
-        }
-      }
+          text: 'Enter your email address',
+        },
+      },
     },
     {
       id: 'phone',
       value: 'phone',
       label: {
-        text: 'Phone'
+        text: 'Phone',
       },
       other: {
         type: 'tel',
         label: {
-          text: 'Enter your phone number'
-        }
-      }
+          text: 'Enter your phone number',
+        },
+      },
     },
     {
       id: 'text',
       value: 'text',
       label: {
-        text: 'Text'
+        text: 'Text',
       },
       other: {
         type: 'tel',
         label: {
-          text: 'Enter your phone number'
-        }
-      }
-    }
-  ]
+          text: 'Enter your phone number',
+        },
+      },
+    },
+  ],
 };
 
 describe('Component: Radios', function() {
@@ -140,6 +140,6 @@ function renderComponent(params) {
 
   return {
     wrapper,
-    radios
+    radios,
   };
 }

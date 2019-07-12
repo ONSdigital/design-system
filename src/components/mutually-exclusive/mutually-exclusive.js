@@ -17,7 +17,7 @@ class MutuallyExclusive {
       element,
       labelText: this.getElementLabelText(element),
       hasValue: this.inputHasValue(element),
-      exclusive: false
+      exclusive: false,
     }));
 
     const checkboxElement = context.querySelector(`.${checkboxClass}`);
@@ -26,7 +26,7 @@ class MutuallyExclusive {
       label: context.querySelector(`label[for=${checkboxElement.id}]`),
       labelText: this.getElementLabelText(checkboxElement),
       hasValue: this.inputHasValue(checkboxElement),
-      exclusive: true
+      exclusive: true,
     };
 
     this.allInputs = [...this.groupInputs, this.checkbox];

@@ -47,7 +47,7 @@ export default class Feedback {
     fetch(this.form.action, {
       method: 'POST',
       body,
-      credentials: 'include'
+      credentials: 'include',
     })
       .then(this.onSuccess.bind(this))
       .catch(this.onError.bind(this));

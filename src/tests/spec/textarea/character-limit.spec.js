@@ -8,11 +8,11 @@ const params = {
   classes: 'input--w-30',
   label: {
     text: 'Please provide some feedback',
-    description: 'For example describe any difficulties you experienced in the use of this service'
+    description: 'For example describe any difficulties you experienced in the use of this service',
   },
   maxlength: 200,
   charCountSingular: 'You have {x} character remaining',
-  charCountPlural: 'You have {x} characters remaining'
+  charCountPlural: 'You have {x} characters remaining',
 };
 
 describe('Component: Textarea with character limit', () => {
@@ -123,7 +123,7 @@ describe('Component: Textarea with character limit', () => {
 export function populateTextarea(
   textarea,
   value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus varius mauris, vitae venenatis sem ullamcorper in. Integer eu facilisis urna. Sed convallis porttitor massa eu pulvinar.',
-  inputType = 'unitTest'
+  inputType = 'unitTest',
 ) {
   textarea.value = value;
   const event = new CustomEvent('input');

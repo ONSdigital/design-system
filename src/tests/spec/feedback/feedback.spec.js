@@ -11,27 +11,27 @@ const params = {
   closeButton: 'I dont want to provide feedback',
   textarea: {
     label: {
-      text: 'How can we improve this survey'
+      text: 'How can we improve this survey',
     },
     maxlength: 2000,
     charCountSingular: 'You have {x} character remaining',
-    charCountPlural: 'You have {x} characters remaining'
+    charCountPlural: 'You have {x} characters remaining',
   },
   name: {
     label: {
       text: 'Name (optional)',
       description:
-        'Please include your name and email address if you’re interested in taking part in further research to improve this survey'
-    }
+        'Please include your name and email address if you’re interested in taking part in further research to improve this survey',
+    },
   },
   email: {
     label: {
-      text: 'Email address (optional)'
-    }
+      text: 'Email address (optional)',
+    },
   },
   sendButton: 'Send feedback',
   thankYouMessage: 'Thank you for your feedback.',
-  errorMessage: 'There was an error sending your feedback.\n(Error code: {x})'
+  errorMessage: 'There was an error sending your feedback.\n(Error code: {x})',
 };
 
 describe('Component: Feedback', function() {
@@ -161,6 +161,6 @@ function renderComponent(params) {
     textarea,
     name,
     email,
-    submit
+    submit,
   };
 }

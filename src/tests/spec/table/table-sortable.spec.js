@@ -11,83 +11,83 @@ const params = {
   ths: [
     {
       value: 'Column 1',
-      aria_sort: 'none'
+      aria_sort: 'none',
     },
     {
       value: 'Column 2',
-      aria_sort: 'none'
+      aria_sort: 'none',
     },
     {
       value: 'Column 3',
-      aria_sort: 'none'
+      aria_sort: 'none',
     },
     {
       value: 'Column 4',
-      aria_sort: 'none'
-    }
+      aria_sort: 'none',
+    },
   ],
   trs: [
     {
       tds: [
         {
           value: 'A',
-          data_sort: '1'
+          data_sort: '1',
         },
         {
           value: 'A',
-          data_sort: '4'
+          data_sort: '4',
         },
         {
           value: 'A',
-          data_sort: '0'
+          data_sort: '0',
         },
         {
           value: 'A',
-          data_sort: '2'
-        }
-      ]
+          data_sort: '2',
+        },
+      ],
     },
     {
       tds: [
         {
           value: 'B',
-          data_sort: '2'
+          data_sort: '2',
         },
         {
           value: 'B',
-          data_sort: '4'
+          data_sort: '4',
         },
         {
           value: 'B',
-          data_sort: '0'
+          data_sort: '0',
         },
         {
           value: 'B',
-          data_sort: '2'
-        }
-      ]
+          data_sort: '2',
+        },
+      ],
     },
     {
       tds: [
         {
           value: 'C',
-          data_sort: '3'
+          data_sort: '3',
         },
         {
           value: 'C',
-          data_sort: '4'
+          data_sort: '4',
         },
         {
           value: 'C',
-          data_sort: '0'
+          data_sort: '0',
         },
         {
           value: 'C',
-          data_sort: '2'
-        }
-      ]
-    }
-  ]
+          data_sort: '2',
+        },
+      ],
+    },
+  ],
 };
 
 let originalValues = [],
@@ -235,6 +235,6 @@ function renderComponent(params) {
     wrapper,
     tableEl,
     tbody,
-    sortableHeadings
+    sortableHeadings,
   };
 }
