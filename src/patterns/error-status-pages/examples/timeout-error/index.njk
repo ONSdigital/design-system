@@ -2,6 +2,8 @@
 layout: none
 ---
 {% extends "styles/page-template/_template.njk" %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
 {% set page = { 
     "title": "Service name",
     "footer": {
@@ -13,9 +15,15 @@ layout: none
         }
     }
 } %}
+
 {% block main %}
-    <h1>This service is temporarily unavailable</h1>
-    <p>We're undergoing planned maintenance.</p>
-    <p>You will be able to use the service from 8am on Monday 4 March 2019.</p>
-    <p>You can <a href="#">contact the ONS business surveys helpline</a> if you need a new enrollment code or to speak to someone about your account.</p>
+    <h1>Your session has timed out due to inactivity</h1>
+
+    {% call onsPanel({
+        "classes": "u-mb-m"
+    }) %}
+        <p>To protect your information we have timed you out.</p>
+    {% endcall %}
+
+    <p>We have saved your progress and you will need to <a href="#">enter your unique code</a> to access the survey again.</p>
 {% endblock %}

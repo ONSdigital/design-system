@@ -5,11 +5,13 @@ anchorLinks: true
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
+
 Error and status pages tell the user there is a problem with the page they are trying to view.
 
-
 ## How to use this pattern
+
 All error and status pages should:
+
 {{ 
     onsList({
         "itemsList": [
@@ -22,7 +24,9 @@ All error and status pages should:
         ]
     }) 
 }}
+
 All error pages should not:
+
 {{ 
     onsList({
         "itemsList": [
@@ -40,6 +44,7 @@ All error pages should not:
 }}
 
 Contact information should either:
+
 {{ 
     onsList({
         "itemsList": [
@@ -54,7 +59,9 @@ Contact information should either:
 }}
 
 ## 404 error
+
 Use a 404 error page if the user has tried to view a page that does not exist. This could happen if someone:
+
 {{ 
     onsList({
         "itemsList": [
@@ -70,26 +77,33 @@ Use a 404 error page if the user has tried to view a page that does not exist. T
         ]
     }) 
 }}
+
 The page should have:
+
 {{ 
     onsList({
         "itemsList": [
             {
-                "text": "‘Page not found – [service name] – ONS’ as the page <code>title</code>"
+                "text": "‘Page not found – [service name] – Office for National Statistics’ as the page <code>title</code>"
             }
         ]
     }) 
 }}
+
 {{
     patternlibExample({ "path": "patterns/error-status-pages/examples/404-error/index.njk" })
 }}
+
 ### 404 error with reference code
-Use an [error panel](/components/panel#error) to display any reference information your service's customer support staff may require the user to quote during a call.
+
+Use an [error panel](/components/panel#error) to display any reference code your service’s customer support staff may require the user to quote during a call.
+
 {{
     patternlibExample({ "path": "patterns/error-status-pages/examples/404-error-with-code/index.njk" })
 }}
 
 ## 500 Server errors
+
 Use a server error page when there is any kind of unexpected problem with the service.  
 
 All errors should be logged and fixed as soon as possible.  Only display this page for a short period of time.  If the errors cannot be fixed quickly, then disable the service and display a [maintenance notice](#maintenance-notice) page instead.
@@ -99,7 +113,7 @@ The page should have:
     onsList({
         "itemsList": [
             {
-                "text": "‘An error has occurred – [service name] – ONS’ as the page <code>title</code>"
+                "text": "‘An error has occurred – [service name] – Office for National Statistics’ as the page <code>title</code>"
             },
             {
                 "text": "a link to an alternative service that may help the user continue their task (if available)"
@@ -107,11 +121,13 @@ The page should have:
         ]
     }) 
 }}
+
 {{
     patternlibExample({ "path": "patterns/error-status-pages/examples/500-error/index.njk" })
 }}
 
-## Maintenance notice
+### Maintenance notice (503)
+
 Use a maintenance notice page when the service needs to be disabled in order to fix problems or deploy upgrades.  As soon as you know when the service will be available again, update the page to let the user know.
 
 The page should have:
@@ -119,7 +135,7 @@ The page should have:
     onsList({
         "itemsList": [
             {
-                "text": "‘This service is temporarily unavailable – [service name] – ONS’ as the page <code>title</code>"
+                "text": "‘This service is temporarily unavailable – [service name] – Office for National Statistics’ as the page <code>title</code>"
             },
             {
                 "text": "the date and time the service will be available (if known)"
@@ -129,15 +145,39 @@ The page should have:
             }, 
             {
                 "text": "a link to an alternative service that may help the user continue their task (if available)"
-            }            
+            }
         ]
     }) 
 }}
+
 {{
-    patternlibExample({ "path": "patterns/error-status-pages/examples/maintenance-notice/index.njk" })
+    patternlibExample({ "path": "patterns/error-status-pages/examples/503-error/index.njk" })
 }}
 
+## Timeout
 
+Use a Timeout page when the user has been timed out of the service due to inactivity.  Explain why the timeout has occured and reassure the user that their progress has been saved. Provide a link to allow them to sign in again.
+
+The page should have:
+{{ 
+    onsList({
+        "itemsList": [
+            {
+                "text": "‘Your session has timed out due to inactivity – [service name] – Office for National Statistics’ as the page <code>title</code>"
+            },
+            {
+                "text": "information why the timeout occured and (if applicable) inform the user their progress has been saved"
+            },
+            {
+                "text": "a link allowing the user to sign in again"
+            }
+        ]
+    }) 
+}}
+
+{{
+    patternlibExample({ "path": "patterns/error-status-pages/examples/timeout-error/index.njk" })
+}}
 
 ## Research on this pattern
 {% from "components/panel/_macro.njk" import onsPanel %}
