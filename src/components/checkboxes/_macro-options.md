@@ -22,3 +22,4 @@
 | label        | `Label` [_(ref)_](/components/label) | true     | Settings for the checkbox label                                                    |
 | other        | `Input` [_(ref)_](/components/input) | false    | Object with settings for other input                                               |
 | attributes   | object                               | false    | HTML attributes (for example data attributes) to add to the checkbox input element |
+| error        | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                                |

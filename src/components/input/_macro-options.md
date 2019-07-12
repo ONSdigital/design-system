@@ -15,6 +15,7 @@
 | mutuallyExclusive | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false                            | Configuration object if this is a mutually exclusive input                          |
 | legend            | string                                                        | Only if mutuallyExclusive is set | Text content for the legend                                                         |
 | legendClasses     | string                                                        | false                            | Classes for the legend                                                              |
+| error             | `Error` [_(ref)_](/components/error)                          | false                            | Configuration for validation errors                                                 |
 
 ## Prefix/Suffix
 

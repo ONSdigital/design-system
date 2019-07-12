@@ -65,12 +65,11 @@
             "or": params.mutuallyExclusive.or,
             "deselectMessage": params.mutuallyExclusive.deselectMessage,
             "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective
+            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
+            "error": params.error
         }) %}
             {{ fields | safe }}
         {% endcall %}
-    {% elif params.dontWrap %}
-        {{ fields | safe }}
     {% else %}
         {% call onsFieldset({
             "id": params.id,
@@ -79,7 +78,9 @@
             "legend": params.legend,
             "legendClasses": params.legendClasses,
             "description": params.description,
-            "attributes": params.attributes
+            "attributes": params.attributes,
+            "dontWrap": params.dontWrap,
+            "error": params.error
         }) %}
             {{ fields | safe }}
         {% endcall %}
