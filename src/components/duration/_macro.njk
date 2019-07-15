@@ -1,0 +1,91 @@
+
+{% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
+{% from "components/fieldset/_macro.njk" import onsFieldset %}
+{% from "components/field/_macro.njk" import onsField %}
+{% from "components/input/_macro.njk" import onsInput %}
+
+{% macro onsDuration(params) %}
+    {% set numberOfFields = 0 %}
+
+    {% if params.field1 %}
+        {% set numberOfFields = numberOfFields + 1 %}
+    {% endif %}
+
+    {% if params.field2 %}
+        {% set numberOfFields = numberOfFields + 1 %}
+    {% endif %}
+
+    {% set fields %}
+        {% if params.label %}
+            <span class="u-fs-r--b u-mb-xs u-d-b">{{ params.label }}</span>
+        {% endif %}
+
+        {% if params.field1 %}
+            {{ onsInput({
+                "id": params.field1.id,
+                "classes": "input--w-2" + (" js-exclusive-group" if params.mutuallyExclusive else ""),
+                "type": "number",
+                "name": params.field1.name,
+                "value": params.field1.value,
+                "suffix": {
+                    "title": params.field1.label,
+                    "text": params.field1.label
+                },
+                "dontWrap": numberOfFields < 2,
+                "attributes": params.field1.attributes
+            }) }}
+        {% endif %}
+
+        {% if params.field2 %}
+            {{ onsInput({
+                "id": params.field2.id,
+                "classes": "input--w-2" + (" js-exclusive-group" if params.mutuallyExclusive else ""),
+                "type": "number",
+                "name": params.field2.name,
+                "value": params.field2.value,
+                "suffix": {
+                    "title": params.field2.label,
+                    "text": params.field2.label
+                },
+                "dontWrap": numberOfFields < 2,
+                "attributes": params.field2.attributes
+            }) }}
+        {% endif %}
+    {% endset %}
+
+    {% if params.mutuallyExclusive %}
+        {% set mutuallyExclusive = params.mutuallyExclusive | setAttributes({
+            "id": params.id,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "error": params.error,
+            "dontWrap": params.dontWrap
+        }) %}
+
+        {% call onsMutuallyExclusive(mutuallyExclusive) %}
+            <div class="field-group">
+                {{ fields | safe }}
+            </div>
+        {% endcall %}
+    {% elif numberOfFields > 1 %}
+        {% call onsFieldset({
+            "id": params.id,
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "error": params.error,
+            "dontWrap": params.dontWrap
+        }) %}
+            <div class="field-group">
+                {{ fields | safe }}
+            </div>
+        {% endcall %}
+    {% else %}
+        {% call onsField({
+            "id": params.id,
+            "error": params.error,
+            "dontWrap": params.dontWrap
+        }) %}
+            {{ fields | safe }}
+        {% endcall %}
+    {% endif %}
+{% endmacro %}

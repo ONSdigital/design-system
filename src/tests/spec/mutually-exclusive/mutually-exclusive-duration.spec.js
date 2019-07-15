@@ -1,47 +1,41 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/mutually-exclusive/test-templates/_duration.njk';
+import template from 'components/duration/_test-template.njk';
 import mutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
 
 const params = {
   id: 'address-duration',
   legend: 'How long have you lived at this address?',
   description: 'If you have lived at this address for less than a year then enter 0 into the year input.',
-  or: 'Or',
-  deselectMessage: 'Selecting this will clear the date if one has been inputted',
-  deselectGroupAdjective: 'cleared',
-  deselectCheckboxAdjective: 'deselected',
-  checkbox: {
-    id: 'duration-exclusive-checkbox',
-    name: 'no-duration',
-    value: 'no-duration',
-    label: {
-      text: 'I have not moved in to this address yet',
-    },
-  },
-  years: {
+  field1: {
     id: 'address-duration-years',
-    type: 'number',
     name: 'address-duration-years',
-    classes: 'input--w-2 js-exclusive-group',
+    label: 'Years',
     attributes: {
       min: 0,
       max: 100,
     },
-    suffix: {
-      title: 'Years',
-    },
   },
-  months: {
+  field2: {
     id: 'address-duration-months',
-    type: 'number',
     name: 'address-duration-months',
-    classes: 'input--w-2 js-exclusive-group',
+    label: 'Months',
     attributes: {
       min: 0,
       max: 11,
     },
-    suffix: {
-      title: 'Months',
+  },
+  mutuallyExclusive: {
+    or: 'Or',
+    deselectMessage: 'Selecting this will clear the date if one has been inputted',
+    deselectGroupAdjective: 'cleared',
+    deselectCheckboxAdjective: 'deselected',
+    checkbox: {
+      id: 'duration-exclusive-checkbox',
+      name: 'no-duration',
+      value: 'no-duration',
+      label: {
+        text: 'I have not moved in to this address yet',
+      },
     },
   },
 };
@@ -60,9 +54,9 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    yearsInput = document.getElementById(params.years.id);
-    monthsInput = document.getElementById(params.months.id);
-    checkbox = document.getElementById(params.checkbox.id);
+    yearsInput = document.getElementById(params.field1.id);
+    monthsInput = document.getElementById(params.field2.id);
+    checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
     ariaAlert = document.querySelector('.js-exclusive-alert');
 
     mutuallyExclusive();
@@ -93,7 +87,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
             // prettier-ignore
-            `${params.years.suffix.title} ${params.deselectGroupAdjective}. ${params.months.suffix.title} ${params.deselectGroupAdjective}.`,
+            `${params.field1.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.field2.label} ${params.mutuallyExclusive.deselectGroupAdjective}.`,
           );
           done();
         }, 300);
@@ -117,7 +111,9 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
 
       it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
         setTimeout(() => {
-          expect(ariaAlert.innerHTML).to.equal(`${params.checkbox.label.text} ${params.deselectCheckboxAdjective}.`);
+          expect(ariaAlert.innerHTML).to.equal(
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
+          );
           done();
         }, 300);
       });
