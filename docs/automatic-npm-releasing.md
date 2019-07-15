@@ -2,7 +2,7 @@
 
 When you create a release (and a tag is created) a Travis build will kick off and start building a npm bundle which will be deployed to npm.
 
-Currently the deployment to npm is done using API keys for Ben Meyrick's (`bameyrick@gmail.com`) npm account. If these need changing there are some prerequisites:
+Currently the deployment to npm is done using API keys for Richard McCarthy's (`richard.mccarthy.ons@gmail.com`) npm account. If these need changing there are some prerequisites:
 
 ### npm account
 
