@@ -1,0 +1,21 @@
+{% from "components/duration/_macro.njk" import onsDuration %}
+
+{{ onsDuration({
+    "label": "Years and months",
+    "years": {
+        "id": "years",
+        "name": "years",
+        "label": {
+            "title": "Years",
+            "text": "Years"
+        }
+    },
+    "months": {
+        "id": "months",
+        "name": "months",
+        "label": {
+            "title": "Months",
+            "text": "Months"
+        }
+    }
+}) }}

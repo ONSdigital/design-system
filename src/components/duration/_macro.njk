@@ -1,0 +1,87 @@
+
+{% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
+{% from "components/fieldset/_macro.njk" import onsFieldset %}
+{% from "components/field/_macro.njk" import onsField %}
+{% from "components/input/_macro.njk" import onsInput %}
+
+{% macro onsDuration(params) %}
+    {% set numberOfFields = 0 %}
+
+    {% if params.years %}
+        {% set numberOfFields = numberOfFields + 1 %}
+    {% endif %}
+
+    {% if params.months %}
+        {% set numberOfFields = numberOfFields + 1 %}
+    {% endif %}
+
+    {% set fields %}
+        {% if params.label %}
+            <span class="u-fs-r--b u-mb-xs u-d-b">{{ params.label }}</span>
+        {% endif %}
+
+        {% if params.years %}
+            {{ onsInput({
+                "id": params.years.id,
+                "classes": "input--w-2" + (" js-exclusive-group" if params.mutuallyExclusive else ""),
+                "name": params.years.name,
+                "value": params.years.value,
+                "suffix": {
+                    "title": params.years.label.title,
+                    "text": params.years.label.text
+                },
+                "dontWrap": numberOfFields < 2
+            }) }}
+        {% endif %}
+
+        {% if params.months %}
+            {{ onsInput({
+                "id": params.months.id,
+                "classes": "input--w-2" + (" js-exclusive-group" if params.mutuallyExclusive else ""),
+                "name": params.months.name,
+                "value": params.months.value,
+                "suffix": {
+                    "title": params.months.label.title,
+                    "text": params.months.label.text
+                },
+                "dontWrap": numberOfFields < 2
+            }) }}
+        {% endif %}
+    {% endset %}
+
+    {% if mutuallyExclusive %}
+        {% set mutuallyExclusive = mutuallyExclusive | setAttributes({
+            "id": params.id,
+            "legend": params.legend,
+            "legendClasses": params.legenedClasses,
+            "error": params.error,
+            "dontWrap": params.dontWrap
+        }) %}
+
+        {% call onsMutuallyExclusive(mutuallyExclusive) %}
+            <div class="field-group">
+                {{ fields | safe }}
+            </div>
+        {% endcall %}
+    {% elif numberOfFields > 1 %}
+        {% call onsFieldset({
+            "id": params.id,
+            "legend": params.legend,
+            "legendClasses": params.legenedClasses,
+            "error": params.error,
+            "dontWrap": params.dontWrap
+        }) %}
+            <div class="field-group">
+                {{ fields | safe }}
+            </div>
+        {% endcall %}
+    {% else %}
+        {% call onsField({
+            "id": params.id,
+            "error": params.error,
+            "dontWrap": params.dontWrap
+        }) %}
+            {{ fields | safe }}
+        {% endcall %}
+    {% endif %}
+{% endmacro %}
