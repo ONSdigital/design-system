@@ -7,11 +7,11 @@
 {% macro onsDuration(params) %}
     {% set numberOfFields = 0 %}
 
-    {% if params.years %}
+    {% if params.field1 %}
         {% set numberOfFields = numberOfFields + 1 %}
     {% endif %}
 
-    {% if params.months %}
+    {% if params.field2 %}
         {% set numberOfFields = numberOfFields + 1 %}
     {% endif %}
 
@@ -20,40 +20,44 @@
             <span class="u-fs-r--b u-mb-xs u-d-b">{{ params.label }}</span>
         {% endif %}
 
-        {% if params.years %}
+        {% if params.field1 %}
             {{ onsInput({
-                "id": params.years.id,
+                "id": params.field1.id,
                 "classes": "input--w-2" + (" js-exclusive-group" if params.mutuallyExclusive else ""),
-                "name": params.years.name,
-                "value": params.years.value,
+                "type": "number",
+                "name": params.field1.name,
+                "value": params.field1.value,
                 "suffix": {
-                    "title": params.years.label.title,
-                    "text": params.years.label.text
+                    "title": params.field1.label,
+                    "text": params.field1.label
                 },
-                "dontWrap": numberOfFields < 2
+                "dontWrap": numberOfFields < 2,
+                "attributes": params.field1.attributes
             }) }}
         {% endif %}
 
-        {% if params.months %}
+        {% if params.field2 %}
             {{ onsInput({
-                "id": params.months.id,
+                "id": params.field2.id,
                 "classes": "input--w-2" + (" js-exclusive-group" if params.mutuallyExclusive else ""),
-                "name": params.months.name,
-                "value": params.months.value,
+                "type": "number",
+                "name": params.field2.name,
+                "value": params.field2.value,
                 "suffix": {
-                    "title": params.months.label.title,
-                    "text": params.months.label.text
+                    "title": params.field2.label,
+                    "text": params.field2.label
                 },
-                "dontWrap": numberOfFields < 2
+                "dontWrap": numberOfFields < 2,
+                "attributes": params.field2.attributes
             }) }}
         {% endif %}
     {% endset %}
 
-    {% if mutuallyExclusive %}
-        {% set mutuallyExclusive = mutuallyExclusive | setAttributes({
+    {% if params.mutuallyExclusive %}
+        {% set mutuallyExclusive = params.mutuallyExclusive | setAttributes({
             "id": params.id,
             "legend": params.legend,
-            "legendClasses": params.legenedClasses,
+            "legendClasses": params.legendClasses,
             "error": params.error,
             "dontWrap": params.dontWrap
         }) %}
@@ -67,7 +71,7 @@
         {% call onsFieldset({
             "id": params.id,
             "legend": params.legend,
-            "legendClasses": params.legenedClasses,
+            "legendClasses": params.legendClasses,
             "error": params.error,
             "dontWrap": params.dontWrap
         }) %}
