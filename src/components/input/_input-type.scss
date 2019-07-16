@@ -21,7 +21,7 @@
   &__type[title] {
     display: block;
     flex: 0 0 auto;
-    padding: $input-padding $input-padding * 2;
+    padding: $input-padding-vertical $input-padding-horizontal * 2;
 
     border: 1px solid $color-input;
     background-color: $color-grey-5;
