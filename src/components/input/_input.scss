@@ -2,7 +2,7 @@
   z-index: 3;
   display: block;
   position: relative;
-  padding: $input-padding;
+  padding: $input-padding-vertical $input-padding-horizontal;
   width: 100%;
 
   border: $input-border-width solid $color-input;
@@ -11,6 +11,7 @@
   color: inherit;
   font-family: inherit;
   font-size: 1rem;
+  line-height: 1rem;
 
   &::-ms-clear {
     display: none;
@@ -53,7 +54,7 @@
 
 .input--select {
   appearance: none;
-  padding: $input-padding 2rem $input-padding 0.5rem;
+  padding: 0.5rem 2rem 0.5rem $input-padding-horizontal;
   background: $color-white url('#{$static}/img/icons/icons--chevron-down.svg') no-repeat center right 10px;
   background-size: 1rem;
 
@@ -64,6 +65,7 @@
 
 .input--textarea {
   width: 100%;
+  line-height: normal;
   resize: vertical;
 }
 
