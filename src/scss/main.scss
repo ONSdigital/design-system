@@ -1,6 +1,6 @@
 @import 'normalize-scss';
 @include normalize();
-@import 'vars/*.scss';
+@import 'vars/index';
 @import 'helpers/*.scss';
 @import 'base/*.scss';
 @import 'objects/*.scss';
