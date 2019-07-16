@@ -17,7 +17,7 @@
 
     {% set fields %}
         {% if params.label %}
-            <span class="u-fs-r--b u-mb-xs u-d-b">{{ params.label }}</span>
+            <span class="u-fs-r--b u-mb-xs u-d-b{{ ' u-mt-m' if numberOfFields < 2 }}">{{ params.label }}</span>
         {% endif %}
 
         {% if params.field1 %}
@@ -31,8 +31,9 @@
                     "title": params.field1.label,
                     "text": params.field1.label
                 },
-                "dontWrap": numberOfFields < 2,
-                "attributes": params.field1.attributes
+                "attributes": params.field1.attributes,
+                "fieldId": params.id if numberOfFields < 2,
+                "error": params.error if numberOfFields < 2
             }) }}
         {% endif %}
 
@@ -47,8 +48,9 @@
                     "title": params.field2.label,
                     "text": params.field2.label
                 },
-                "dontWrap": numberOfFields < 2,
-                "attributes": params.field2.attributes
+                "attributes": params.field2.attributes,
+                "fieldId": params.id if numberOfFields < 2,
+                "error": params.error if numberOfFields < 2
             }) }}
         {% endif %}
     {% endset %}
@@ -80,12 +82,6 @@
             </div>
         {% endcall %}
     {% else %}
-        {% call onsField({
-            "id": params.id,
-            "error": params.error,
-            "dontWrap": params.dontWrap
-        }) %}
-            {{ fields | safe }}
-        {% endcall %}
+        {{ fields | safe }}
     {% endif %}
 {% endmacro %}
