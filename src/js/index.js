@@ -7,7 +7,7 @@ import 'components/tabs/tabs';
 import 'components/details/collapsible.dom';
 import 'components/table/scrollable-table';
 import 'components/table/sortable-table';
-import 'components/header/header-nav';
+import 'components/header/header-nav.dom';
 import 'components/feedback/feedback.dom';
 import 'components/uac/uac.dom';
 import 'components/relationships/relationships.dom';
