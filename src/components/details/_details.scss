@@ -19,7 +19,6 @@ $details-caret-width: 1.1rem;
 
   &__title {
     transform: translateY(-1px);
-    text-decoration: underline;
     pointer-events: none;
   }
 
@@ -74,6 +73,10 @@ $details-caret-width: 1.1rem;
       &:after {
         background-image: url(#{$static}/img/icons/icons--chevron-right-blue-hover.svg);
       }
+    }
+
+    &__title {
+      text-decoration: underline;
     }
 
     &__content {
