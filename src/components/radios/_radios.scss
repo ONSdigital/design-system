@@ -6,4 +6,8 @@
   &__item {
     @extend .checkboxes__item;
   }
+
+  &__label {
+    @extend .checkboxes__label;
+  }
 }

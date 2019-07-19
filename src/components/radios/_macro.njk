@@ -12,6 +12,9 @@
     }) %}
         <div class="radios__items">
             {% for radio in params.radios %}
+                {% if params.or and loop.revindex0 == 0 %}
+                    <span class="radios__label u-mt-s u-fs-r--b" aria-hidden="true">{{ params.or }}, </span>
+                {% endif %}
                 <p class="radios__item">
                     <span class="radio">
                         <input
@@ -25,6 +28,9 @@
                             {% if radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                         >
                         <label class="radio__label {{ radio.label.classes }}" for="{{ radio.id }}">
+                            {% if  params.or and loop.revindex0 == 0 %}
+                                <span class="u-vh">{{ params.or }}</span>
+                            {% endif %}
                             {{ radio.label.text | safe }}
                             {% if radio.label.description %}
                                 <br>
