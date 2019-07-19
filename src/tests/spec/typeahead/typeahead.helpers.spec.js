@@ -2,7 +2,7 @@ import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 
 import { sanitiseTypeaheadText } from 'components/typeahead/typeahead.helpers';
 
-describe.only('Typeahead helpers', () => {
+describe('Typeahead helpers', () => {
   before(() => awaitPolyfills);
 
   describe('When a string with uppercase characters is supplied', () => {
