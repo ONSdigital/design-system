@@ -23,6 +23,7 @@ export default class TypeaheadUI {
     onError,
     onUnsetResult,
     suggestionFunction,
+    lang,
   }) {
     // DOM Elements
     this.context = context;
@@ -39,6 +40,7 @@ export default class TypeaheadUI {
     this.minChars = minChars || 2;
     this.resultLimit = resultLimit || null;
     this.suggestOnBoot = suggestOnBoot;
+    this.lang = lang;
 
     // Callbacks
     this.onSelect = onSelect;
@@ -65,7 +67,6 @@ export default class TypeaheadUI {
     this.blurring = false;
     this.blurTimeout = null;
     this.sanitisedQueryReplaceChars = sanitisedQueryReplaceChars;
-    this.lang = document.documentElement.getAttribute('lang').toLowerCase();
 
     this.initialise();
   }
