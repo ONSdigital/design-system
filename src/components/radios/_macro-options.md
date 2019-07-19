@@ -9,6 +9,7 @@
 | dontWrap      | boolean                              | false    | Prevents the radios from being wrapped in a [fieldset component](/components/fieldset)                                         |
 | value         | string                               | false    | Can be used to set the checked radio. This can also be achieved by setting the `checked` parameter on the `Radio` item to true |
 | error         | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                                                                            |
+| or            | string                               | false    | Text for the or label                                                                                                          |
 
 ## Radio
 
