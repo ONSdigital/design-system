@@ -1,7 +1,7 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/typeahead/_test-template.njk';
 import '../../../scss/main.scss';
-import TypeaheadUI from '../../../components/typeahead/typeahead.ui';
+import TypeaheadUI, { classTypeaheadOptionFocused } from '../../../components/typeahead/typeahead.ui';
 import eventMock from 'stubs/event.stub.spec';
 import fetchMock from 'stubs/window.fetch.stub.spec';
 
@@ -542,6 +542,176 @@ describe.only('Typeahead component', function() {
         it('then the function should resolve', function() {
           return this.typeahead.fetchSuggestions('yes').should.eventually.eql(this.result);
         });
+      });
+    });
+
+    describe('and results are unset', function() {
+      beforeEach(function() {
+        this.typeahead.results = [{ 'en-gb': 'yes' }];
+        this.typeahead.resultOptions = ['<option>yes</option>'];
+        this.typeahead.resultSelected = true;
+      });
+
+      it('then results should be reset to an empty array', function() {
+        this.typeahead.unsetResults();
+        expect(this.typeahead.results).to.eql([]);
+      });
+
+      it('then resultOptions should be reset to an empty array', function() {
+        this.typeahead.unsetResults();
+        expect(this.typeahead.resultOptions).to.eql([]);
+      });
+
+      it('then resultSelected should be reset to false', function() {
+        this.typeahead.unsetResults();
+        expect(this.typeahead.resultSelected).to.be.false;
+      });
+
+      describe('and onUnsetResult is set', function() {
+        beforeEach(function() {
+          this.typeahead.onUnsetResult = chai.spy(() => {});
+        });
+
+        it('then onUnsetResult should be called', function() {
+          this.typeahead.unsetResults();
+          expect(this.typeahead.onUnsetResult).to.have.been.called();
+        });
+      });
+    });
+
+    describe('and clearListbox is run', function() {
+      beforeEach(function() {
+        this.typeahead.listbox.innerHTML = '<p>Yes</p>';
+        this.typeahead.context.classList.add('typeahead--has-results');
+        this.typeahead.input.setAttribute('aria-activedescendant', 'yes');
+        this.typeahead.input.setAttribute('aria-expanded', 'true');
+
+        this.setAriaStatusSpy = chai.spy.on(this.typeahead, 'setAriaStatus');
+      });
+
+      it('then the listbox innerHTML should be cleared', function() {
+        this.typeahead.clearListbox();
+        expect(this.typeahead.listbox.innerHTML).to.equal('');
+      });
+
+      it('then the typeahead--has-results should be removed', function() {
+        this.typeahead.clearListbox();
+        expect(this.typeahead.context.classList.contains('typeahead--has-results')).to.be.false;
+      });
+
+      it('then the input aria-activedescendant attributes should be removed', function() {
+        this.typeahead.clearListbox();
+        expect(this.typeahead.input.hasAttribute('aria-activedescendant')).to.be.false;
+      });
+
+      it('then the input aria-expanded attributes should be removed', function() {
+        this.typeahead.clearListbox();
+        expect(this.typeahead.input.hasAttribute('aria-expanded')).to.be.false;
+      });
+
+      it('then setAriaStatus should be called', function() {
+        this.typeahead.clearListbox();
+        expect(this.setAriaStatusSpy).to.have.been.called();
+      });
+
+      describe('and preventAriaStatusUpdate is set to true', function() {
+        it('then setAriaStatus should not be called', function() {
+          this.typeahead.clearListbox(true);
+          expect(this.setAriaStatusSpy).to.not.have.been.called();
+        });
+      });
+    });
+
+    describe('and navigateResults is run', function() {
+      beforeEach(function() {
+        this.typeahead.numberOfResults = 3;
+        this.setHighlightedResultSpy = chai.spy.on(this.typeahead, 'setHighlightedResult');
+      });
+
+      describe('and the direction is 1', function() {
+        describe('and the highlightedResultIndex is not set', function() {
+          beforeEach(function() {
+            this.typeahead.highlightedResultIndex = null;
+          });
+
+          it('then setHighlightedResult should be called with an index of 0', function() {
+            this.typeahead.navigateResults(1);
+
+            expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(0);
+          });
+        });
+
+        describe('and the highlightedResultIndex is 0', function() {
+          it('then setHighlightedResult should be called with the next index', function() {
+            this.typeahead.navigateResults(1);
+
+            expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(1);
+          });
+        });
+
+        describe('and the highlightedResultIndex is the same as the number of results', function() {
+          beforeEach(function() {
+            this.typeahead.highlightedResultIndex = 2;
+          });
+
+          it('then setHighlightedResult should not be called', function() {
+            this.typeahead.navigateResults(1);
+
+            expect(this.setHighlightedResultSpy).to.not.have.been.called();
+          });
+        });
+      });
+
+      describe('and the direction is -1', function() {
+        describe('and the highlightedResultIndex is not set', function() {
+          beforeEach(function() {
+            this.typeahead.highlightedResultIndex = null;
+          });
+
+          it('then setHighlightedResult should be called with an index of 0', function() {
+            this.typeahead.navigateResults(-1);
+
+            expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(0);
+          });
+        });
+
+        describe('and the highlightedResultIndex is 0', function() {
+          it('then setHighlightedResult should be called with null', function() {
+            this.typeahead.navigateResults(-1);
+
+            expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(null);
+          });
+        });
+
+        describe('and the highlightedResultIndex is the same as the number of results', function() {
+          beforeEach(function() {
+            this.typeahead.highlightedResultIndex = 2;
+          });
+
+          it('then setHighlightedResult should be called with the previous index', function() {
+            this.typeahead.navigateResults(-1);
+
+            expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(1);
+          });
+        });
+      });
+    });
+
+    describe('and the mouse moves over a result', function() {
+      beforeEach(function() {
+        this.typeahead.highlightedResultIndex = 0;
+        this.typeahead.resultOptions = [1].map(() => {
+          const option = document.createElement('option');
+          option.className = classTypeaheadOptionFocused;
+
+          return option;
+        });
+
+        this.typeahead.handleMouseover();
+      });
+
+      it(`then the highlighted option's ${classTypeaheadOptionFocused} class should be removed`, function() {
+        expect(this.typeahead.resultOptions[0].classList.contains(classTypeaheadOptionFocused)).to.be.false;
       });
     });
   });

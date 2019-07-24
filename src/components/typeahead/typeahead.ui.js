@@ -4,12 +4,11 @@ import fetch from 'js/abortable-fetch';
 
 export const baseClass = 'js-typeahead';
 
-const classTypeaheadOption = 'typeahead__option';
-const classTypeaheadOptionFocused = `${classTypeaheadOption}--focused`;
-const classTypeaheadOptionNoResults = `${classTypeaheadOption}--no-results u-fs-s`;
-const classTypeaheadOptionMoreResults = `${classTypeaheadOption}--more-results u-fs-s`;
-const classTypeaheadHasResults = 'typeahead--has-results';
-const classPanelOff = 'panel--off';
+export const classTypeaheadOption = 'typeahead__option';
+export const classTypeaheadOptionFocused = `${classTypeaheadOption}--focused`;
+export const classTypeaheadOptionNoResults = `${classTypeaheadOption}--no-results u-fs-s`;
+export const classTypeaheadOptionMoreResults = `${classTypeaheadOption}--more-results u-fs-s`;
+export const classTypeaheadHasResults = 'typeahead--has-results';
 
 export default class TypeaheadUI {
   constructor({
@@ -442,20 +441,6 @@ export default class TypeaheadUI {
       return `${before}<strong>${match}</strong>${after}`;
     } else {
       return string;
-    }
-  }
-
-  showErrorPanel() {
-    this.setErrorPanelVisibility(true);
-  }
-
-  hideErrorPanel() {
-    this.setErrorPanelVisibility(false);
-  }
-
-  setErrorPanelVisibility(visible) {
-    if (this.errorPanel) {
-      this.errorPanel.classList[visible ? 'remove' : 'add'](classPanelOff);
     }
   }
 }
