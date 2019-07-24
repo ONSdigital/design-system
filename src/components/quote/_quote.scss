@@ -1,0 +1,17 @@
+.quote {
+  margin: 1rem 0;
+  padding: 0 0 0 3em;
+  background: url(#{$static}/img/icons/icons--quote.svg) no-repeat left 0.5rem;
+  background-size: 2rem;
+
+  &__text {
+    @extend .u-fs-l;
+    display: block;
+  }
+
+  &__ref {
+    @extend .u-fs-s;
+    display: block;
+    color: $color-text-light;
+  }
+}
