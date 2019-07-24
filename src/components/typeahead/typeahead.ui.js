@@ -346,7 +346,7 @@ export default class TypeaheadUI {
         this.setHighlightedResult(null);
 
         this.input.setAttribute('aria-expanded', !!this.numberOfResults);
-        this.context.classList[this.numberOfResults ? 'add' : 'remove'](classTypeaheadHasResults);
+        this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classTypeaheadHasResults);
       }
     }
 
