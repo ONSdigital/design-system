@@ -5,6 +5,7 @@
 | type         | string  | true     | Type of `input` or `button` – `button`, `submit` or `reset`. Defaults to `submit`.                                       |
 | name         | string  | true     | Name for the `button`                                                                                                    |
 | value        | string  | true     | Value for the `button`                                                                                                   |
+| url          | string  | false    | If provided will create a link and adds the relevant classes                                                             |
 | id           | string  | false    | ID for the `button`                                                                                                      |
 | classes      | string  | false    | Classes to add to the button component                                                                                   |
 | innerClasses | string  | false    | Classes to add to the inner button element                                                                               |
