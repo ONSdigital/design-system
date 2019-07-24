@@ -40,7 +40,7 @@ export default class TypeaheadUI {
     this.minChars = minChars || 2;
     this.resultLimit = resultLimit || null;
     this.suggestOnBoot = suggestOnBoot;
-    this.lang = lang;
+    this.lang = lang || 'en-gb';
 
     // Callbacks
     this.onSelect = onSelect;
@@ -66,7 +66,7 @@ export default class TypeaheadUI {
     this.resultSelected = false;
     this.blurring = false;
     this.blurTimeout = null;
-    this.sanitisedQueryReplaceChars = sanitisedQueryReplaceChars;
+    this.sanitisedQueryReplaceChars = sanitisedQueryReplaceChars || [];
 
     this.initialise();
   }
@@ -75,7 +75,12 @@ export default class TypeaheadUI {
     this.input.setAttribute('aria-autocomplete', 'list');
     this.input.setAttribute('aria-controls', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-describedby', this.instructions.getAttribute('id'));
+    this.input.setAttribute('aria-has-popup', true);
+    this.input.setAttribute('aria-owns', this.listbox.getAttribute('id'));
+    this.input.setAttribute('aria-expanded', false);
     this.input.setAttribute('autocomplete', this.input.getAttribute('data-autocomplete'));
+    this.input.setAttribute('role', 'combobox');
+
     this.context.classList.add('typeahead--initialised');
 
     this.bindEventListeners();
@@ -114,7 +119,7 @@ export default class TypeaheadUI {
   }
 
   handleKeyup(event) {
-    switch (event.keyCode) {
+    switch (event.key) {
       case 'ArrowUp':
       case 'ArrowDown': {
         event.preventDefault();
@@ -122,10 +127,6 @@ export default class TypeaheadUI {
       }
       case 'Enter': {
         this.selectResult();
-        break;
-      }
-      case 'ArrowLeft':
-      case 'ArrowRight': {
         break;
       }
     }

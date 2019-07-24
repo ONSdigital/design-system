@@ -63,7 +63,6 @@
 
   // Modifiers
   &:not(&--initialised) & {
-    &__preview,
     &__instructions,
     &__listbox,
     &__status {
