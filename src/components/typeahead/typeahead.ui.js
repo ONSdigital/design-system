@@ -359,7 +359,7 @@ export default class TypeaheadUI {
   setHighlightedResult(index) {
     this.highlightedResultIndex = index;
 
-    if (this.setHighlightedResult === null) {
+    if (this.highlightedResultIndex === null) {
       this.input.removeAttribute('aria-activedescendant');
     } else if (this.numberOfResults) {
       this.resultOptions.forEach((option, optionIndex) => {

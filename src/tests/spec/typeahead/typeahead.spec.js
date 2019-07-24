@@ -84,9 +84,9 @@ describe.only('Typeahead component', function() {
 
       this.typeahead = new TypeaheadUI({
         context: this.context,
-        onSelect: () => {},
-        onUnsetResult: () => {},
-        onError: () => {},
+        onSelect: async () => {},
+        onUnsetResult: async () => {},
+        onError: async () => {},
       });
     });
 
@@ -712,6 +712,237 @@ describe.only('Typeahead component', function() {
 
       it(`then the highlighted option's ${classTypeaheadOptionFocused} class should be removed`, function() {
         expect(this.typeahead.resultOptions[0].classList.contains(classTypeaheadOptionFocused)).to.be.false;
+      });
+    });
+
+    describe('and the mouse moves off a result', function() {
+      beforeEach(function() {
+        this.typeahead.highlightedResultIndex = 0;
+        this.typeahead.resultOptions = [1].map(() => {
+          const option = document.createElement('option');
+
+          return option;
+        });
+
+        this.typeahead.handleMouseout();
+      });
+
+      it(`then the highlighted option's ${classTypeaheadOptionFocused} class should be added`, function() {
+        expect(this.typeahead.resultOptions[0].classList.contains(classTypeaheadOptionFocused)).to.be.true;
+      });
+    });
+
+    describe('and the highlighted result is set', function() {
+      beforeEach(function() {
+        this.typeahead.input.setAttribute('aria-activedescendant', 'yes');
+        this.setAriaStatusSpy = chai.spy.on(this.typeahead, 'setAriaStatus');
+      });
+
+      it('then the highlightedResultsIndex should be set to match the passed index', function() {
+        this.typeahead.setHighlightedResult(1);
+        expect(this.typeahead.highlightedResultIndex).to.equal(1);
+      });
+
+      describe('if the index passed is null', function() {
+        beforeEach(function() {
+          this.typeahead.setHighlightedResult(null);
+        });
+
+        it('then the aria-activedescendant attribute should be removed from the input', function() {
+          expect(this.typeahead.input.hasAttribute('aria-activedescendant')).to.be.false;
+        });
+      });
+
+      describe('if there are no results', function() {
+        it('then the function should return without running anything', function() {
+          expect(this.setAriaStatusSpy).to.not.have.been.called();
+        });
+      });
+
+      describe('if there are results', function() {
+        beforeEach(function() {
+          this.optionIndex = 1;
+          this.typeahead.resultOptions = [0, 1, 2].map(item => {
+            const option = document.createElement('option');
+            option.id = item;
+
+            return option;
+          });
+          this.typeahead.numberOfResults = this.typeahead.resultOptions.length;
+          this.typeahead.setHighlightedResult(this.optionIndex);
+        });
+
+        it('the option with the same index as the passed index should be given a highlighted class', function() {
+          expect(this.typeahead.resultOptions[this.optionIndex].classList.contains(classTypeaheadOptionFocused)).to.be.true;
+        });
+
+        it('the option with the same index as the passed index should be given an aria-selected attribute', function() {
+          expect(this.typeahead.resultOptions[this.optionIndex].getAttribute('aria-selected')).to.equal('true');
+        });
+
+        it('the inputs aria-activedescendant attribute should be set to the id of the highlighted option', function() {
+          expect(this.typeahead.input.getAttribute('aria-activedescendant')).to.equal(this.optionIndex.toString());
+        });
+
+        it('the non highlighted options should not have the focused class', function() {
+          this.typeahead.resultOptions
+            .filter((option, index) => index !== this.optionIndex)
+            .forEach(option => {
+              expect(option.classList.contains(classTypeaheadOptionFocused)).to.be.false;
+            });
+        });
+
+        it('the non highlighted options should not have an aria-selected attribute', function() {
+          this.typeahead.resultOptions
+            .filter((option, index) => index !== this.optionIndex)
+            .forEach(option => {
+              expect(option.hasAttribute('aria-selected')).to.be.false;
+            });
+        });
+
+        it('setAriaStatus should be called', function() {
+          expect(this.setAriaStatusSpy).to.have.been.called();
+        });
+      });
+    });
+
+    describe('and the aria status is set', function() {
+      beforeEach(function() {
+        this.typeahead.ariaStatus.innerHTML = 'Yes';
+        this.typeahead.minChars = 2;
+      });
+
+      describe('if there is no content provided as an argument', function() {
+        describe('and the query is too short', function() {
+          beforeEach(function() {
+            this.typeahead.sanitisedQuery = '';
+            this.typeahead.setAriaStatus();
+          });
+
+          it('then the message should be set to type the minimum amount of characters', function() {
+            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.content.aria_min_chars);
+          });
+        });
+
+        describe('and there are no results', function() {
+          beforeEach(function() {
+            this.typeahead.query = 'Yes';
+            this.typeahead.sanitisedQuery = 'yes';
+            this.typeahead.numberOfResults = 0;
+            this.typeahead.setAriaStatus();
+          });
+
+          it('then the no results message should be set', function() {
+            expect(this.typeahead.ariaStatus.innerHTML).to.equal(`${params.content.aria_no_results}: "${this.typeahead.query}"`);
+          });
+        });
+
+        describe('and there is one result', function() {
+          beforeEach(function() {
+            this.typeahead.sanitisedQuery = 'yes';
+            this.typeahead.numberOfResults = 1;
+            this.typeahead.setAriaStatus();
+          });
+
+          it('then the one result message should be set', function() {
+            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.content.aria_one_result);
+          });
+        });
+
+        describe('and there are multiple results', function() {
+          beforeEach(function() {
+            this.typeahead.sanitisedQuery = 'yes';
+            this.typeahead.numberOfResults = 3;
+            this.typeahead.setAriaStatus();
+          });
+
+          it('then the multiple results message should be set', function() {
+            expect(this.typeahead.ariaStatus.innerHTML).to.equal(
+              params.content.aria_n_results.replace('{n}', this.typeahead.numberOfResults),
+            );
+          });
+        });
+      });
+
+      describe('if there content provided as an argument', function() {
+        beforeEach(function() {
+          this.typeahead.setAriaStatus('Hello');
+        });
+
+        it('then the aria status should be set to the provided content', function() {
+          expect(this.typeahead.ariaStatus.innerHTML).to.equal('Hello');
+        });
+      });
+    });
+
+    describe('and a result is selected', function() {
+      beforeEach(function() {
+        this.onSelectSpy = chai.spy.on(this.typeahead, 'onSelect');
+        this.clearListboxSpy = chai.spy.on(this.typeahead, 'clearListbox');
+        this.setAriaStatusSpy = chai.spy.on(this.typeahead, 'setAriaStatus');
+      });
+
+      describe('if there are no results', function() {
+        beforeEach(function() {
+          this.typeahead.selectResult(0);
+        });
+
+        it('then the function should do nothing', function() {
+          expect(this.onSelectSpy).to.not.have.been.called();
+          expect(this.clearListboxSpy).to.not.have.been.called();
+          expect(this.setAriaStatusSpy).to.not.have.been.called();
+        });
+      });
+
+      describe('if there are results', function() {
+        beforeEach(function() {
+          this.typeahead.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes' }];
+          this.typeahead.selectResult(0);
+        });
+
+        it('then resultSelected should be set to true', function() {
+          expect(this.typeahead.resultSelected).to.be.true;
+        });
+
+        it('then onSelect should be called', function() {
+          expect(this.onSelectSpy).to.have.been.called();
+        });
+
+        it('then clearListbox should be called', function() {
+          expect(this.clearListboxSpy).to.have.been.called();
+        });
+
+        it('then setAriaStatus should be called', function() {
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.content.aria_you_have_selected}: Yes.`);
+        });
+      });
+
+      describe('if there are results from an alternative', function() {
+        beforeEach(function() {
+          this.typeahead.sanitisedQuery = 'ie';
+          this.typeahead.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'] }];
+          this.typeahead.selectResult(0);
+        });
+
+        it('then setAriaStatus should be called stating the result was found from the alternative', function() {
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(
+            `${params.content.aria_you_have_selected}: Yes, ${params.content.aria_found_by_alternative_name}: ie.`,
+          );
+        });
+      });
+    });
+
+    describe('and a result is emboldened', function() {
+      describe('if the provided string includes the provided query', function() {
+        it('then the match should be wrapped in strong tags', function() {
+          expect(this.typeahead.emboldenMatch('Aberdaugleddau', 'ABER')).to.equal('<strong>Aber</strong>daugleddau');
+        });
+      });
+
+      describe('if the provided string does not include the provided query', function() {
+        it('then the string should bre returned unmodified', function() {
+          expect(this.typeahead.emboldenMatch('yes', 'no')).to.equal('yes');
+        });
       });
     });
   });
