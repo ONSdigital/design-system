@@ -1,7 +1,13 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/typeahead/_test-template.njk';
 import '../../../scss/main.scss';
-import TypeaheadUI, { classTypeaheadOptionFocused } from '../../../components/typeahead/typeahead.ui';
+import TypeaheadUI, {
+  classTypeaheadOption,
+  classTypeaheadOptionFocused,
+  classTypeaheadOptionNoResults,
+  classTypeaheadOptionMoreResults,
+  classTypeaheadHasResults,
+} from '../../../components/typeahead/typeahead.ui';
 import eventMock from 'stubs/event.stub.spec';
 import fetchMock from 'stubs/window.fetch.stub.spec';
 
@@ -29,6 +35,7 @@ const params = {
     aria_limited_results: 'Results have been limited to 10 suggestions. Type more characters to refine your search.',
     more_results: 'Continue typing to refine suggestions',
     results_title: 'Suggestions',
+    no_results: 'No results found',
   },
   autocomplete: 'off',
   apiUrl: 'https://ons-typeahead-prototypes.herokuapp.com/country-of-birth',
@@ -942,6 +949,162 @@ describe.only('Typeahead component', function() {
       describe('if the provided string does not include the provided query', function() {
         it('then the string should bre returned unmodified', function() {
           expect(this.typeahead.emboldenMatch('yes', 'no')).to.equal('yes');
+        });
+      });
+    });
+
+    describe('and results are handled', function() {
+      describe('if the user is currently deleting and there are no results', function() {
+        beforeEach(function() {
+          this.typeahead.deleting = true;
+        });
+
+        describe('if there is "no results" content', function() {
+          beforeEach(function() {
+            this.typeahead.handleResults({
+              totalResults: 0,
+              results: [],
+            });
+          });
+
+          it('then the listbox innerHTML should show the no results message', function() {
+            expect(this.typeahead.listbox.innerHTML).to.equal(
+              `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${params.content.no_results}</li>`,
+            );
+          });
+
+          it('then the input aria-expanded attribute should be set to true', function() {
+            expect(this.typeahead.input.getAttribute('aria-expanded')).to.equal('true');
+          });
+
+          it('then the context should not have the found results class', function() {
+            expect(this.context.classList.contains(classTypeaheadHasResults)).to.be.false;
+          });
+        });
+
+        describe('if there isnt any "no results" content', function() {
+          beforeEach(function() {
+            this.typeahead.content.no_results = null;
+            this.typeahead.handleResults({
+              totalResults: 0,
+              results: [],
+            });
+          });
+
+          it('then the listbox innerHTML should not be populated', function() {
+            expect(this.typeahead.listbox.innerHTML).to.equal('');
+          });
+
+          it('then the input aria-expanded attribute should be set to false', function() {
+            expect(this.typeahead.input.getAttribute('aria-expanded')).to.equal('false');
+          });
+        });
+      });
+
+      describe('if there are results', function() {
+        describe('and there is only one result that exactly matches the user input', function() {
+          beforeEach(function() {
+            this.clearListboxSpy = chai.spy.on(this.typeahead, 'clearListbox');
+            this.selectResultSpy = chai.spy.on(this.typeahead, 'selectResult');
+
+            this.typeahead.query = 'Yes';
+            this.typeahead.sanitisedQuery = 'yes';
+            this.typeahead.handleResults({
+              totalResults: 1,
+              results: [
+                {
+                  'en-gb': 'Yes',
+                  sanitisedText: 'yes',
+                },
+              ],
+            });
+          });
+
+          it('then clearListbox should be be called with preventAriaStatusUpdate set to true', function() {
+            expect(this.clearListboxSpy).to.have.been.called.with.exactly(true);
+          });
+
+          it('then selectResult should be be called with an index of 0', function() {
+            expect(this.selectResultSpy).to.have.been.called.with.exactly(0);
+          });
+        });
+
+        describe('if there is more than one result', function() {
+          beforeEach(function() {
+            this.setHighlightedResultSpy = chai.spy.on(this.typeahead, 'setHighlightedResult');
+
+            this.typeahead.query = 'Yes';
+            this.typeahead.sanitisedQuery = 'yes';
+            this.typeahead.handleResults({
+              totalResults: 2,
+              results: [
+                {
+                  'en-gb': 'Yes',
+                  sanitisedText: 'yes',
+                },
+                {
+                  'en-gb': 'Yes 2',
+                  sanitisedText: 'yes 2',
+                },
+                {
+                  'en-gb': 'Ie',
+                  sanitisedText: 'Ie',
+                  sanitisedAlternatives: ['yes'],
+                  alternatives: ['Yes'],
+                },
+              ],
+            });
+          });
+
+          it('then resultOptions should be generated', function() {
+            const option1 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
+            const option2 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--1" role="option" aria-label="Yes 2"><strong>Yes</strong> 2</li>`;
+            const option3 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--2" role="option" aria-label="Ie, (Yes)">Ie <small>(<strong>Yes</strong>)</small></li>`;
+            const html = option1 + option2 + option3;
+
+            expect(this.typeahead.listbox.innerHTML).to.equal(html);
+          });
+
+          it('then setHighlighted result should be called with null', function() {
+            expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(null);
+          });
+
+          it('then aria-expanded should be true on the input', function() {
+            expect(this.typeahead.input.getAttribute('aria-expanded')).to.equal('true');
+          });
+        });
+
+        describe('if there are more results found than returned', function() {
+          beforeEach(function() {
+            this.typeahead.query = 'Yes';
+            this.typeahead.sanitisedQuery = 'yes';
+            this.typeahead.handleResults({
+              totalResults: 3,
+              results: [
+                {
+                  'en-gb': 'Yes',
+                  sanitisedText: 'yes',
+                },
+                {
+                  'en-gb': 'Yes',
+                  sanitisedText: 'yes',
+                },
+              ],
+            });
+          });
+
+          it('then the more results item should be added', function() {
+            const option1 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
+            const option2 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--1" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
+            const option3 = `<li class="${classTypeaheadOption} ${classTypeaheadOptionMoreResults}" aria-hidden="true">${params.content.more_results}</li>`;
+            const html = option1 + option2 + option3;
+
+            expect(this.typeahead.listbox.innerHTML).to.equal(html);
+          });
+
+          it('then the context should be given the has results class', function() {
+            expect(this.context.classList.contains(classTypeaheadHasResults)).to.be.true;
+          });
         });
       });
     });

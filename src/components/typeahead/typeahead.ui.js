@@ -298,7 +298,7 @@ export default class TypeaheadUI {
     this.numberOfResults = Math.max(this.results.length, 0);
 
     if (!this.deleting || (this.numberOfResults && this.deleting)) {
-      if (this.numberOfResults.length === 1 && this.results[0].sanitisedText === this.sanitisedQuery) {
+      if (this.numberOfResults === 1 && this.results[0].sanitisedText === this.sanitisedQuery) {
         this.clearListbox(true);
         this.selectResult(0);
       } else {
@@ -337,7 +337,7 @@ export default class TypeaheadUI {
 
         if (this.numberOfResults < this.foundResults) {
           const listElement = document.createElement('li');
-          listElement.className = `${classTypeaheadOption} ${classTypeaheadOptionMoreResults} u-fs-b`;
+          listElement.className = `${classTypeaheadOption} ${classTypeaheadOptionMoreResults}`;
           listElement.setAttribute('aria-hidden', 'true');
           listElement.innerHTML = this.content.more_results;
           this.listbox.appendChild(listElement);
@@ -345,7 +345,7 @@ export default class TypeaheadUI {
 
         this.setHighlightedResult(null);
 
-        this.input.setAttribute('aria-expanded', this.numberOfResults);
+        this.input.setAttribute('aria-expanded', !!this.numberOfResults);
         this.context.classList[this.numberOfResults ? 'add' : 'remove'](classTypeaheadHasResults);
       }
     }
