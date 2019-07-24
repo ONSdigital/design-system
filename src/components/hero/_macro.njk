@@ -1,0 +1,41 @@
+{% macro onsHero(params) %}
+    <section class="hero {% if params.darkTheme %}hero--dark-theme {% endif %}{% if params.image %}hero--with-image {% endif %}">
+        {% if params.image %}
+            <picture>
+                {% if params.image %}
+                    <source media="(max-width: 739px)" srcset="{{ params.image.mobileImageSrc }}">
+                {% endif %}
+                <img class="hero__img" src="{{ params.image.src }}" alt="{{ params.image.alt }}">
+            </picture>
+        {% endif %}
+        <div class="hero__container">
+            <div class="hero__content grid grid--gutterless grid--flex grid--vertical-center">
+                <div class="container">
+                    <div class="grid__col col-8@m">
+                        <header>
+                            <h1 class="hero__title">{{ params.title }}</h1>
+                            {% if params.subtitle %}
+                                <h2 class="hero__subtitle u-fs-m">{{ params.subtitle }}</h2>
+                            {% endif %}
+                        </header>
+                        {% if params.text %}
+                            <p class="hero__text">{{ params.text | safe }}</p>
+                        {% endif %}
+                        {% if params.button %}
+                            {% from "components/button/_macro.njk" import onsButton %}
+                            {{
+                                onsButton({
+                                    "type": 'button',
+                                    "text": params.button.text,
+                                    "classes": 'u-mb-m',
+                                    "url": params.button.url,
+                                    "innerClasses": "icon--chevron-right-white"
+                                }) 
+                            }}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
