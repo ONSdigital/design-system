@@ -1,0 +1,18 @@
+{% from "components/hero/_macro.njk" import onsHero %}
+{{ 
+    onsHero({
+        darkTheme: true,
+        title: 'We count',
+        subtitle: 'Make it count. Take part in the census rehearsal.',
+        text: '<a href="#">Check if you live in a rehearsal area.</a>',
+        image: {
+            src: '/img/people.png',
+            mobileImageSrc: '/img/people-mob.png',
+            alt: 'Image number 1'
+        },
+        button: {
+            url: '#',
+            text: 'Start your census'
+        }
+    })
+}}

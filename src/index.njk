@@ -5,22 +5,17 @@ sortOrder: 1
 ---
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/card/_macro.njk" import onsCard %}
-<div class="patternlib-hero">
-    <div class="patternlib-hero__content container">
-        <header>
-            <h1 class="patternlib-hero__title u-fs-xxl">Design and build digital services for the ONS</h1>
-        </header>
-        <p class="patternlib-hero__text">Everything you need to make accessible, consistent digital products.</p>
-        {{
-            onsButton({
-            "type": 'button',
-            "text": 'Get started',
-            "classes": 'u-mb-m',
-            "url": '/get-started'
-            }) 
-        }}
-    </div>
-</div>
+{% from "components/hero/_macro.njk" import onsHero %}
+{{ 
+    onsHero({
+        title: 'Design and build digital services for the ONS',
+        text: 'Everything you need to make accessible, consistent digital products.',
+        button: {
+            url: '/get-started',
+            text: 'Get started'
+        }
+    })
+}}
 <div class="container">
     <div class="grid grid--flex grid--loose grid--column@xs@s u-mt-xl u-mb-m">
         <div class="grid__col grid__col--flex grid__col--loose u-flex-grow u-flex-no-basis@s u-mb-s col-12@xs@s">
@@ -51,7 +46,8 @@ sortOrder: 1
             -}}
         </div>
     </div>
-    <div class="grid grid--gutterless">
+    <hr>
+    <div class="grid grid--gutterless u-mt-l">
         <div class="grid__col col-8@m">
             <h3 class="u-fs-l">Design community</h3>
             <p>The ONS Design System is available for everyone and brings together the latest research, design and development from across the organisation to ensure our users have an accessible and consistent experience with our services.</p>

@@ -1,0 +1,6 @@
+{% macro onsQuote(params) %}
+    <blockquote class="quote">
+        <span class="quote__text">{{ caller() if caller else params.text | safe }}</span>
+        {% if params.ref %}<span class="quote__ref">- {{ params.ref | safe }}</span>{% endif %}
+    </blockquote>
+{% endmacro %}
