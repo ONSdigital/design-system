@@ -41,7 +41,7 @@ const params = {
   apiUrl: 'https://ons-typeahead-prototypes.herokuapp.com/country-of-birth',
 };
 
-describe.only('Typeahead component', function() {
+describe('Typeahead component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
@@ -240,7 +240,6 @@ describe.only('Typeahead component', function() {
         this.originalSetTimout = window.setTimeout;
         this.setTimeoutSpy = chai.spy.on(window, 'setTimeout');
         this.blurTimeout = this.typeahead.blurTimeout;
-        this.typeahead.handleBlur();
       });
 
       afterEach(function() {
@@ -249,15 +248,32 @@ describe.only('Typeahead component', function() {
       });
 
       it('then the blurTimout should be cleared', function() {
+        this.typeahead.handleBlur();
+
         expect(this.clearTimeoutSpy).to.have.been.called.with.exactly(this.blurTimeout);
       });
 
       it('then blurring should be set to true', function() {
+        this.typeahead.handleBlur();
+
         expect(this.typeahead.blurring).to.be.true;
       });
 
       it('then the blur timeout should be reset', function() {
+        this.typeahead.handleBlur();
+
         expect(this.setTimeoutSpy).to.have.been.called();
+      });
+
+      it('bluring should be set to true and then false 300ms later', function(done) {
+        this.typeahead.handleBlur();
+
+        expect(this.typeahead.blurring).to.be.true;
+
+        setTimeout(() => {
+          expect(this.typeahead.blurring).to.be.false;
+          done();
+        }, 300);
       });
     });
 
@@ -869,6 +885,22 @@ describe.only('Typeahead component', function() {
             );
           });
         });
+
+        describe('and there are more results found than returned', function() {
+          beforeEach(function() {
+            this.typeahead.sanitisedQuery = 'yes';
+            this.typeahead.numberOfResults = 3;
+            this.typeahead.resultLimit = 10;
+            this.typeahead.foundResults = 11;
+            this.typeahead.setAriaStatus();
+          });
+
+          it('then the multiple results message should be set', function() {
+            expect(this.typeahead.ariaStatus.innerHTML).to.equal(
+              `${params.content.aria_n_results.replace('{n}', this.typeahead.numberOfResults)} ${params.content.aria_limited_results}`,
+            );
+          });
+        });
       });
 
       describe('if there content provided as an argument', function() {
@@ -1072,6 +1104,17 @@ describe.only('Typeahead component', function() {
           it('then aria-expanded should be true on the input', function() {
             expect(this.typeahead.input.getAttribute('aria-expanded')).to.equal('true');
           });
+
+          describe('when a result is clicked', function() {
+            beforeEach(function() {
+              this.selectResultSpy = chai.spy.on(this.typeahead, 'onSelect');
+              this.typeahead.resultOptions[0].click();
+            });
+
+            it('then selectResult should be called', function() {
+              expect(this.selectResultSpy).to.have.been.called();
+            });
+          });
         });
 
         describe('if there are more results found than returned', function() {
@@ -1185,6 +1228,38 @@ describe.only('Typeahead component', function() {
 
       it('then the function should return immediately', function() {
         expect(this.abortSpy).to.have.been.called();
+      });
+    });
+  });
+
+  describe('When the component initialises with a custom suggestion function', function() {
+    beforeEach(function() {
+      const component = renderComponent(params);
+
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+
+      this.customSuggestionFuntionSpy = chai.spy(async () => {});
+
+      this.typeahead = new TypeaheadUI({
+        context: this.context,
+        onSelect: async () => {},
+        onUnsetResult: async () => {},
+        onError: async () => {},
+        suggestionFunction: this.customSuggestionFuntionSpy,
+      });
+    });
+
+    describe('when getSuggestions is called', function() {
+      beforeEach(function() {
+        this.input.value = 'Yes';
+
+        this.typeahead.getSuggestions();
+      });
+
+      it('then the custom suggeston function should be called', function() {
+        expect(this.customSuggestionFuntionSpy).to.have.been.called();
       });
     });
   });
