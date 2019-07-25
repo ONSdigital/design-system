@@ -41,7 +41,7 @@ const params = {
   apiUrl: 'https://ons-typeahead-prototypes.herokuapp.com/country-of-birth',
 };
 
-describe('Typeahead component', function() {
+describe('Typeahead.ui component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;

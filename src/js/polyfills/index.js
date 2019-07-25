@@ -57,6 +57,11 @@ if (!String.prototype.padStart) {
   console.log('String#padStart polyfill loaded');
 }
 
+if (!String.prototype.trimStart) {
+  promises.push(import('core-js/fn/string/trim-start'));
+  console.log('String#trimStart polyfill loaded');
+}
+
 if (!(window.Request && 'signal' in new Request(''))) {
   promises.push(import('./abortable-fetch'));
 
