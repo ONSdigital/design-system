@@ -64,13 +64,11 @@ if (!String.prototype.trimStart) {
 
 if (!(window.Request && 'signal' in new Request(''))) {
   promises.push(import('./abortable-fetch'));
-
   console.log('fetch and AbortController polyfills loaded');
 }
 
 if (!window.URLSearchParams) {
   promises.push(import('url-search-params-polyfill'));
-
   console.log('URLSearchParams polyfill loaded');
 }
 

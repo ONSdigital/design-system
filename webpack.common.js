@@ -198,7 +198,7 @@ const es5Core = merge(jsCore, {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules\/(?!(chai-as-promised)\/).*/,
         use: {
           loader: 'babel-loader',
           options: {
