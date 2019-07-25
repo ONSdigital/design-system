@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/password/_test-template.njk';
-import password from 'components/password/password';
+import Password from 'components/password/password';
 
 const params = {
   id: 'password',
@@ -11,11 +11,9 @@ const params = {
 };
 
 describe('Component: Password', () => {
-  let wrapper, checkboxWrap, checkbox, input;
+  let wrapper, component, checkboxWrap, checkbox, input;
 
-  before(() => {
-    return awaitPolyfills;
-  });
+  before(() => awaitPolyfills);
 
   beforeEach(() => {
     const html = template.render({ params });
@@ -24,11 +22,12 @@ describe('Component: Password', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    checkboxWrap = wrapper.querySelector('.js-password-toggle-wrap');
+    component = wrapper.querySelector('.js-password');
+    checkboxWrap = component.querySelector('.js-password-toggle-wrap');
     checkbox = document.getElementById(`${params.id}-toggle`);
     input = document.getElementById(params.id);
 
-    password();
+    new Password(component);
   });
 
   afterEach(() => {

@@ -1,13 +1,10 @@
-import domready from 'js/domready';
-
-const exclusiveWrapperClass = 'js-mutually-exclusive';
 const exclusiveGroupClass = 'js-exclusive-group';
 const checkboxClass = 'js-exclusive-checkbox';
 const voiceOverAlertClass = 'js-exclusive-alert';
 const groupAttrAdjective = 'data-group-adjective';
 const checkboxAttrAdjective = 'data-checkbox-adjective';
 
-class MutuallyExclusive {
+export default class MutuallyExclusive {
   constructor(context) {
     this.context = context;
 
@@ -154,11 +151,3 @@ class MutuallyExclusive {
     input.dispatchEvent(event);
   }
 }
-
-export default function mutuallyExclusiveInputs() {
-  const exclusiveWrapperElements = [...document.getElementsByClassName(exclusiveWrapperClass)];
-
-  exclusiveWrapperElements.forEach(element => new MutuallyExclusive(element));
-}
-
-domready(mutuallyExclusiveInputs);

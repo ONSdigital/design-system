@@ -1,11 +1,13 @@
-import { baseClass } from './typeahead.ui';
-import Typeahead from './typeahead';
 import domready from 'js/domready';
 
-function initialiseTypeaheads() {
-  const typeaheads = [...document.querySelectorAll(`.${baseClass}`)];
+async function initialiseTypeaheads() {
+  const typeaheads = [...document.querySelectorAll('js-typeahead')];
 
-  typeaheads.forEach(typeahead => new Typeahead(typeahead));
+  if (typeaheads.length) {
+    const Typeahead = (await import('./typeahead')).default;
+
+    typeaheads.forEach(typeahead => new Typeahead(typeahead));
+  }
 }
 
 domready(initialiseTypeaheads);

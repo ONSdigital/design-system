@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/details/_test-template.njk';
-import collapsible, { Collapsible } from 'components/details/collapsible';
+import Collapsible from 'components/details/collapsible';
 
 const params = {
   id: 'details',
@@ -76,7 +76,8 @@ describe('Component: Details', function() {
         Object.keys(component).forEach(key => {
           this[key] = component[key];
         });
-        collapsible();
+
+        new Collapsible(this.details);
       });
 
       afterEach(function() {
@@ -175,8 +176,10 @@ describe('Component: Details', function() {
         Object.keys(component).forEach(key => {
           this[key] = component[key];
         });
+
         localStorage.setItem(this.details.getAttribute('id'), true);
-        collapsible();
+
+        new Collapsible(this.details);
       });
 
       afterEach(function() {

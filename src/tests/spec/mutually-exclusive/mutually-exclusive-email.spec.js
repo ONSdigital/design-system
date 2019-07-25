@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/input/_test-template.njk';
-import mutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
+import MutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
 
 const params = {
   id: 'email',
@@ -25,7 +25,7 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Email Input', () => {
-  let wrapper, input, checkbox, ariaAlert;
+  let wrapper, component, input, checkbox, ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -38,11 +38,12 @@ describe('Component: Mutually Exclusive Email Input', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
+    component = document.querySelector('.js-mutually-exclusive');
     input = document.getElementById(params.id);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
     ariaAlert = document.querySelector('.js-exclusive-alert');
 
-    mutuallyExclusive();
+    new MutuallyExclusive(component);
   });
 
   afterEach(() => {
