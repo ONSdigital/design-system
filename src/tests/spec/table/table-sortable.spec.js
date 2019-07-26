@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/table/_test-template.njk';
-import tableSorter from 'components/table/sortable-table';
+import TableSort from 'components/table/sortable-table';
 
 const params = {
   sortable: true,
@@ -104,7 +104,7 @@ describe('Component: Sortable table', function() {
         this[key] = component[key];
       });
 
-      tableSorter();
+      new TableSort(this.tableEl);
 
       const trs = [...this.tbody.querySelectorAll('tr')];
       for (let i = 0; i < trs.length; i++) {

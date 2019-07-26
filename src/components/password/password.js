@@ -1,20 +1,18 @@
-import domready from 'js/domready';
-
 const classToggleWrap = 'js-password-toggle-wrap';
 const classToggle = 'js-password-toggle';
-const classPassword = 'js-password';
+const classInput = 'js-password-input';
 
-export default function bindInputChangeHandlers() {
-  const toggle = document.querySelector(`.${classToggle}`);
+export default class Password {
+  constructor(context) {
+    this.toggleWrap = context.querySelector(`.${classToggleWrap}`);
+    this.toggle = this.toggleWrap.querySelector(`.${classToggle}`);
+    this.input = context.querySelector(`.${classInput}`);
 
-  if (toggle) {
-    document.querySelector(`.${classToggleWrap}`).classList.remove('u-d-no');
-    const password = document.querySelector(`.${classPassword}`);
+    this.toggle.addEventListener('change', this.handleToggleChange.bind(this));
+    this.toggleWrap.classList.remove('u-d-no');
+  }
 
-    toggle.addEventListener('change', () => {
-      password.type = toggle.checked ? 'text' : 'password';
-    });
+  handleToggleChange() {
+    this.input.type = this.toggle.checked ? 'text' : 'password';
   }
 }
-
-domready(bindInputChangeHandlers);

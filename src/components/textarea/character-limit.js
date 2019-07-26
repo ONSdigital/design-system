@@ -1,12 +1,10 @@
-import domready from 'js/domready';
 import { trackEvent } from 'js/analytics';
 
 const inputClassLimitReached = 'input--limit-reached';
 const remainingClassLimitReached = 'input__limit--reached';
-const classLimitedInput = 'js-charlimit-input';
 const attrCharLimitRef = 'data-char-limit-ref';
 
-class CharLimit {
+export default class CharLimit {
   constructor(input) {
     this.input = input;
     this.maxLength = input.maxLength;
@@ -55,11 +53,3 @@ class CharLimit {
     }
   }
 }
-
-export default function initialise() {
-  const limitedInputs = Array.from(document.querySelectorAll(`.${classLimitedInput}`));
-
-  limitedInputs.forEach(input => new CharLimit(input));
-}
-
-domready(initialise);

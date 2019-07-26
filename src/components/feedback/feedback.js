@@ -1,9 +1,7 @@
 import fetch from 'js/abortable-fetch';
 
 export default class Feedback {
-  constructor() {
-    const buttons = [...document.querySelectorAll('.js-feedback-button')];
-
+  constructor(buttons) {
     this.details = document.querySelector('.js-feedback');
 
     if (this.details) {

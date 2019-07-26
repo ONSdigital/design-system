@@ -1,6 +1,11 @@
-import UAC from './uac';
 import domready from 'js/domready';
 
-domready(() => {
-  [...document.querySelectorAll('.js-uac')].forEach(element => new UAC(element));
+domready(async () => {
+  const uacInputs = [...document.querySelectorAll('.js-uac')];
+
+  if (uacInputs.length) {
+    const UAC = (await import('./uac')).default;
+
+    uacInputs.forEach(element => new UAC(element));
+  }
 });

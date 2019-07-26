@@ -1,8 +1,4 @@
-import domready from 'js/domready';
-
-function inPageLink() {
-  const links = [...document.getElementsByClassName('js-inpagelink')];
-
+export default function inPageLinks(links) {
   links.forEach(link => {
     const id = link.getAttribute('href').replace('#', '');
 
@@ -36,5 +32,3 @@ function focusOnInput(id) {
     input.focus();
   }
 }
-
-domready(inPageLink);
