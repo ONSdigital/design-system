@@ -1,9 +1,9 @@
 class FetchStub {
-  constructor(ok, status) {
+  constructor(ok, status, response) {
     // Wait for callbacks to be set
     setTimeout(() => {
       if (ok || !this.catchCallback) {
-        this.thenCallback({ ok, status });
+        this.thenCallback({ ok, status, json: async () => response });
       } else {
         this.catchCallback({ ok, status });
       }
@@ -21,4 +21,4 @@ class FetchStub {
   }
 }
 
-export default (ok, status) => () => new FetchStub(ok, status);
+export default (ok, status, response) => () => new FetchStub(ok, status, response);

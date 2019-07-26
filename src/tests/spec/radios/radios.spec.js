@@ -77,7 +77,7 @@ describe('Component: Radios', function() {
 
   describe('When the component initialises', function() {
     beforeEach(function() {
-      new Radios('js-radio');
+      new Radios(this.radios);
     });
 
     it('checkboxes with other options should be given aria-expanded attributes', function() {

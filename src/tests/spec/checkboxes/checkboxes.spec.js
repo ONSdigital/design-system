@@ -69,7 +69,7 @@ describe('Component: Checkboxes', function() {
 
   describe('When the component initialises', function() {
     beforeEach(function() {
-      new Checkboxes('js-checkbox');
+      new Checkboxes([...document.querySelectorAll('.js-checkbox')]);
     });
 
     it('checkboxes with other options should be given aria-expanded attributes', function() {

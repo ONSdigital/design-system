@@ -111,6 +111,30 @@ const jsCore = merge(core, {
           config: `${__dirname}/nunjucks.config.js`,
         },
       },
+      {
+        test: /\.(scss)$/,
+        exclude: /(node_modules)/,
+        include: [path.join(process.cwd(), 'src/scss')],
+        use: [
+          'style-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              indent: 'postcss',
+              plugins: postcssPlugins,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: false,
+              precision: 8,
+              includePaths: [path.join(process.cwd(), 'src/scss')],
+              importer: globImporter(),
+            },
+          },
+        ],
+      },
     ],
   },
 
@@ -174,7 +198,7 @@ const es5Core = merge(jsCore, {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules\/(?!(chai-as-promised)\/).*/,
         use: {
           loader: 'babel-loader',
           options: {

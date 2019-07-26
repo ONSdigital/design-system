@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/checkboxes/_test-template.njk';
-import mutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
+import MutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
 
 const params = {
   legend: 'What type of central heating do you have?',
@@ -59,7 +59,7 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override', () => {
-  let wrapper, exclusiveCheckbox, ariaAlert;
+  let wrapper, component, exclusiveCheckbox, ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -72,11 +72,12 @@ describe('Component: Mutually Exclusive Checkbox With Single Checkbox Override',
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
+    component = document.querySelector('.js-mutually-exclusive');
     params.checkboxes = params.checkboxes.filter(checkbox => !checkbox.exclusive);
     exclusiveCheckbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
     ariaAlert = document.querySelector('.js-exclusive-alert');
 
-    mutuallyExclusive();
+    new MutuallyExclusive(component);
   });
 
   afterEach(() => {

@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/date-input/_test-template.njk';
-import mutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
+import MutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
 
 const params = {
   id: 'date-mutually-exclusive',
@@ -41,11 +41,9 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Date Input', () => {
-  let wrapper, dayInput, monthInput, yearInput, checkbox, ariaAlert;
+  let wrapper, component, dayInput, monthInput, yearInput, checkbox, ariaAlert;
 
-  before(() => {
-    return awaitPolyfills;
-  });
+  before(() => awaitPolyfills);
 
   beforeEach(() => {
     const html = template.render({ params });
@@ -54,13 +52,15 @@ describe('Component: Mutually Exclusive Date Input', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
+    component = document.querySelector('.js-mutually-exclusive');
+
     dayInput = document.getElementById(`${params.id}-day`);
     monthInput = document.getElementById(`${params.id}-month`);
     yearInput = document.getElementById(`${params.id}-year`);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
     ariaAlert = document.querySelector('.js-exclusive-alert');
 
-    mutuallyExclusive();
+    new MutuallyExclusive(component);
   });
 
   afterEach(() => {

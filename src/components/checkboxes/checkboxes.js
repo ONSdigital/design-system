@@ -1,6 +1,6 @@
 export default class Checkboxes {
-  constructor(inputCls) {
-    this.inputs = [...document.querySelectorAll(`.${inputCls}`)];
+  constructor(inputs) {
+    this.inputs = inputs;
     this.inputs.forEach(input => input.addEventListener('change', this.setExpandedAttributes.bind(this)));
     this.setExpandedAttributes();
   }

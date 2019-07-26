@@ -3,10 +3,8 @@
 // The tab js is based on the GDS tabs component(https://design-system.service.gov.uk/components/tabs/)
 // https://github.com/alphagov/govuk-frontend/blob/master/src/components/tabs/tabs.js
 
-import domready from 'js/domready';
 import matchMedia from 'js/utils/matchMedia';
 
-const classTabs = 'tabs';
 const classTab = 'tab';
 const classTabTitle = 'tabs__title';
 const classTabList = 'tabs__list';
@@ -260,10 +258,3 @@ export default class Tabs {
     return hash;
   }
 }
-
-export function tabs() {
-  const tabsComponent = [...document.getElementsByClassName(classTabs)];
-  tabsComponent.forEach(component => new Tabs(component));
-}
-
-domready(tabs);

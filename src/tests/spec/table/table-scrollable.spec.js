@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/table/_test-template.njk';
-import tableScroll from 'components/table/scrollable-table';
+import TableScroll from 'components/table/scrollable-table';
 
 const params = {
   scrollable: true,
@@ -107,8 +107,8 @@ describe('Component: Scrollable table', function() {
   });
 
   describe('When the component initialises', function() {
-    beforeEach(() => {
-      tableScroll();
+    beforeEach(function() {
+      new TableScroll(this.tableComponent);
     });
 
     it('should add shadow elements', function() {

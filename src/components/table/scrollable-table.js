@@ -1,10 +1,7 @@
-import domready from 'js/domready';
-
-export const classTableScrollable = 'table-scrollable';
 export const classTableScrollableContent = 'table-scrollable__content';
 export const classTable = 'table';
 
-class TableScroll {
+export default class TableScroll {
   constructor(table) {
     this.table = table;
     this.tableScroll = this.table.getElementsByClassName(classTableScrollableContent);
@@ -80,9 +77,3 @@ class TableScroll {
     };
   }
 }
-
-export default function tableScroller() {
-  const tableComponent = [...document.getElementsByClassName(classTableScrollable)];
-  tableComponent.forEach(table => new TableScroll(table));
-}
-domready(tableScroller);
