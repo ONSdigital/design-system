@@ -791,6 +791,7 @@ describe('Typeahead.ui component', function() {
 
             return option;
           });
+          console.log(this.typeahead.resultOptions);
           this.typeahead.numberOfResults = this.typeahead.resultOptions.length;
           this.typeahead.setHighlightedResult(this.optionIndex);
         });
@@ -935,7 +936,8 @@ describe('Typeahead.ui component', function() {
 
       describe('if there are results', function() {
         beforeEach(function() {
-          this.typeahead.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes' }];
+          this.typeahead.sanitisedQuery = 'ye';
+          this.typeahead.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
           this.typeahead.selectResult(0);
         });
 
@@ -959,14 +961,12 @@ describe('Typeahead.ui component', function() {
       describe('if there are results from an alternative', function() {
         beforeEach(function() {
           this.typeahead.sanitisedQuery = 'ie';
-          this.typeahead.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'] }];
+          this.typeahead.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
           this.typeahead.selectResult(0);
         });
 
         it('then setAriaStatus should be called stating the result was found from the alternative', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(
-            `${params.content.aria_you_have_selected}: Yes, ${params.content.aria_found_by_alternative_name}: ie.`,
-          );
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.content.aria_you_have_selected}: Ie.`);
         });
       });
     });

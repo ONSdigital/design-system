@@ -411,7 +411,7 @@ export default class TypeaheadUI {
 
       this.resultSelected = true;
 
-      if (result.sanitisetText !== this.sanitisedQuery && result.sanitisedAlternatives.length) {
+      if (result.sanitisedText !== this.sanitisedQuery && result.sanitisedAlternatives && result.sanitisedAlternatives.length) {
         const bestMatchingAlternative = result.sanitisedAlternatives
           .map((alternative, index) => ({
             score: dice(this.sanitisedQuery, alternative),
@@ -426,6 +426,8 @@ export default class TypeaheadUI {
         } else {
           result.displayText = result[this.lang];
         }
+      } else {
+        result.displayText = result[this.lang];
       }
 
       this.onSelect(result).then(() => (this.settingResult = false));
