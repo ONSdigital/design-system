@@ -1189,7 +1189,10 @@ describe('Typeahead.ui component', function() {
     afterEach(function() {
       window.fetch = this.originalFetch;
       this.rewiremock.disable();
-      this.wrapper.remove();
+
+      if (this.wrapper) {
+        this.wrapper.remove();
+      }
     });
 
     describe('and fetch is not defined', function() {
@@ -1249,6 +1252,12 @@ describe('Typeahead.ui component', function() {
         onError: async () => {},
         suggestionFunction: this.customSuggestionFuntionSpy,
       });
+    });
+
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+      }
     });
 
     describe('when getSuggestions is called', function() {
