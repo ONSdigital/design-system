@@ -6,13 +6,25 @@
     {% set page = {} %}
 {% endif %}
 
+{% if page.lang %}
+   {% set page = page | setAttributes({
+       "language": {
+           "languages": [
+                {
+                    "ISOCode": page.lang,
+                    "current": true
+                }
+           ]
+       }
+   }) %}
+{% endif %}
 
 {% if example %}
     {% set bodyClasses = bodyClasses + " patternlib-page--example" %}
     {% if page.theme %}
-        {% set page = {
-            "theme": page.theme 
-        } %}
+        {% set page = page | setAttributes({
+            "theme": page.theme
+        }) %}
     {% endif %}
 {% endif %}
 

@@ -1,25 +1,8 @@
 ---
-layout: none
+lang: cy
 ---
-{% extends "styles/page-template/_template.njk" %}
-
 {% from "components/typeahead/_macro.njk" import onsTypeahead %}
 
-{% set page = {
-    "language": {   
-        "languages": [
-            {
-                "ISOCode": "cy",
-                "current": true
-            }
-        ]
-    }
-} %}
-
-{% block header %}
-{% endblock %}
-
-{% block main %}
 {{ onsTypeahead({
     "id": "country-of-birth",
     "label": {
@@ -38,4 +21,3 @@ layout: none
     "autocomplete": "off",
     "apiUrl": "https://ons-typeahead-prototypes.herokuapp.com/country-of-birth"
 }) }}
-{% endblock %}
