@@ -2,7 +2,6 @@ import dice from 'dice-coefficient';
 import { sortBy } from 'sort-by-typescript';
 
 import { sanitiseTypeaheadText } from './typeahead.helpers';
-import formBodyFromObject from 'js/utils/formBodyFromObject';
 import fetch from 'js/abortable-fetch';
 
 export const baseClass = 'js-typeahead';
@@ -228,14 +227,13 @@ export default class TypeaheadUI {
 
       this.abortFetch();
 
-      const body = formBodyFromObject(query);
+      const queryString = new URLSearchParams(query).toString();
 
-      this.fetch = fetch(this.apiUrl, {
-        method: 'POST',
+      this.fetch = fetch(`${this.apiUrl}?${queryString}`, {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body,
       })
         .then(async response => {
           const data = await response.json();

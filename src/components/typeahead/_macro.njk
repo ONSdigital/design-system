@@ -11,12 +11,11 @@
             "id": params.id,
             "classes": "typeahead__input js-typeahead-input" + (" " + params.inputClasses if params.inputClasses),
             "name": params.name,
-            "label": {
-                "text": params.label.text
-            },
+            "label":  params.label,
             "attributes": {
                 "data-autocomplete": params.autocomplete
-            }
+            },
+            "error": params.error
         }) }}
 
         <div class="typeahead__results js-typeahead-results">
