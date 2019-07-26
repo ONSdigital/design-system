@@ -16,7 +16,8 @@ export default class Typeahead {
 
   onSelect(result) {
     return new Promise(resolve => {
-      this.typeahead.input.value = result[this.lang];
+      this.typeahead.input.value = result.displayText;
+
       resolve();
     });
   }

@@ -1,3 +1,6 @@
+import dice from 'dice-coefficient';
+import { sortBy } from 'sort-by-typescript';
+
 import { sanitiseTypeaheadText } from './typeahead.helpers';
 import formBodyFromObject from 'js/utils/formBodyFromObject';
 import fetch from 'js/abortable-fetch';
@@ -408,19 +411,26 @@ export default class TypeaheadUI {
 
       this.resultSelected = true;
 
-      this.onSelect(result).then(() => (this.settingResult = false));
+      if (result.sanitisetText !== this.sanitisedQuery && result.sanitisedAlternatives.length) {
+        const bestMatchingAlternative = result.sanitisedAlternatives
+          .map((alternative, index) => ({
+            score: dice(this.sanitisedQuery, alternative),
+            index,
+          }))
+          .sort(sortBy('score'))[0];
 
-      let ariaAlternativeMessage = '';
+        const scoredSanitised = dice(this.sanitisedQuery, result.sanitisedText);
 
-      if (!result.sanitisedText.includes(this.sanitisedQuery) && result.sanitisedAlternatives) {
-        const alternativeMatch = result.sanitisedAlternatives.find(alternative => alternative.includes(this.sanitisedQuery));
-
-        if (alternativeMatch) {
-          ariaAlternativeMessage = `, ${this.content.aria_found_by_alternative_name}: ${alternativeMatch}`;
+        if (bestMatchingAlternative.score >= scoredSanitised) {
+          result.displayText = result.alternatives[bestMatchingAlternative.index];
+        } else {
+          result.displayText = result[this.lang];
         }
       }
 
-      const ariaMessage = `${this.content.aria_you_have_selected}: ${result[this.lang]}${ariaAlternativeMessage}.`;
+      this.onSelect(result).then(() => (this.settingResult = false));
+
+      const ariaMessage = `${this.content.aria_you_have_selected}: ${result.displayText}.`;
 
       this.clearListbox();
       this.setAriaStatus(ariaMessage);
