@@ -1,16 +1,19 @@
 class AboratableFetch {
   constructor(url, options) {
-    this.url = url;
     this.controller = new window.AbortController();
-    this.options = { ...options, signal: this.controller.signal };
+    options = { ...options, signal: this.controller.signal };
 
-    fetch(url, options).then(response => {
-      if (response.ok) {
-        this.thenCallback(response);
-      } else {
-        this.catchCallback(response);
-      }
-    });
+    fetch(url, options)
+      .then(response => {
+        if (response.ok) {
+          this.thenCallback(response);
+        } else {
+          this.catchCallback(response);
+        }
+      })
+      .catch(error => {
+        this.catchCallback(error);
+      });
   }
 
   then(callback) {

@@ -12,7 +12,8 @@
     {% endset %}
 
     {% call onsPanel({
-        "type": "error"
+        "type": "error",
+        "classes": params.classes
     }) %}
        {{ content | safe }}
     {% endcall %}

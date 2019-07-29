@@ -11,6 +11,7 @@ export const classTypeaheadOptionFocused = `${classTypeaheadOption}--focused`;
 export const classTypeaheadOptionNoResults = `${classTypeaheadOption}--no-results u-fs-s`;
 export const classTypeaheadOptionMoreResults = `${classTypeaheadOption}--more-results u-fs-s`;
 export const classTypeaheadHasResults = 'typeahead--has-results';
+export const classPanelOff = 'panel--off';
 
 export default class TypeaheadUI {
   constructor({
@@ -33,6 +34,7 @@ export default class TypeaheadUI {
     this.listbox = this.resultsContainer.querySelector(`.${baseClass}-listbox`);
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
+    this.errorPanel = context.querySelector(`.${baseClass}-error-panel`);
 
     // Settings
     this.apiUrl = apiUrl || context.getAttribute('data-api-url');
@@ -288,6 +290,10 @@ export default class TypeaheadUI {
     this.input.removeAttribute('aria-activedescendant');
     this.input.removeAttribute('aria-expanded');
 
+    if (this.errorPanel) {
+      this.hideErrorPanel();
+    }
+
     if (!preventAriaStatusUpdate) {
       this.setAriaStatus();
     }
@@ -451,6 +457,20 @@ export default class TypeaheadUI {
       return `${before}<strong>${match}</strong>${after}`;
     } else {
       return string;
+    }
+  }
+
+  showErrorPanel() {
+    this.setErrorPanelVisibility(true);
+  }
+
+  hideErrorPanel() {
+    this.setErrorPanelVisibility(false);
+  }
+
+  setErrorPanelVisibility(visible) {
+    if (this.errorPanel) {
+      this.errorPanel.classList[visible ? 'remove' : 'add'](classPanelOff);
     }
   }
 }

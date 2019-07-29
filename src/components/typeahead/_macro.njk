@@ -1,9 +1,10 @@
 {% from "components/input/_macro.njk" import onsInput %}
+{% from "components/error/_macro.njk" import onsError %}
 
 {% macro onsTypeahead(params) %}
     <div
         id="{{ params.id }}-container"
-        class="typeahead js-typeahead{% if params.classes %} {{ params.classes }}{% endif %}"
+        class="typeahead{% if not params.externalInitialiser %} js-typeahead{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"
         data-content="{{ params.content | dump }}"
         data-api-url="{{ params.apiUrl }}"
     >
@@ -17,11 +18,24 @@
             },
             "error": params.error
         }) }}
+        
+        {% set results %}
+            <div class="typeahead__results js-typeahead-results">
+                <header class="typeahead__results-title u-fs-s">{{ params.content.results_title }}</header>
+                <ul class="typeahead__listbox js-typeahead-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
+            </div>
+        {% endset %}
 
-        <div class="typeahead__results js-typeahead-results">
-            <header class="typeahead__results-title u-fs-s">{{ params.content.results_title }}</header>
-            <ul class="typeahead__listbox js-typeahead-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
-        </div>
+        {% if params.resultsErrorPanel %}
+            {% call onsError({ 
+                "text": params.resultsErrorPanel.error,
+                "classes": "panel--off js-typeahead-error-panel"
+            }) %}
+                {{ results | safe }}
+            {% endcall %}
+        {% else %}
+            {{ results | safe }}
+        {% endif %}
 
         <div class="typeahead__instructions u-vh js-typeahead-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
         <div class="typeahead__status u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 

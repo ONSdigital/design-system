@@ -1,17 +1,20 @@
 {% from "components/fieldset/_macro.njk" import onsFieldset %}
 {% from "components/input/_macro.njk" import onsInput %}
+{% from "components/typeahead/_macro.njk" import onsTypeahead %}
+{% from "components/button/_macro.njk" import onsButton %}
+
 
 {% macro onsAddressInput(params) %}
     {% set fields %}
         {% if params.organisation %}
             {{
                 onsInput({
-                    "id": params.id + "-organisation",
+                    "id": params.organisation.id | default(params.id + "-organisation"),
                     "type": params.organisation.type,
                     "label": {
                         "text": params.organisation.label
                     },
-                    "classes": "input--w-20@m",
+                    "classes": "input--w-20@m" + (" js-address-organisation" if params.typeahead else ""),
                     "name": params.organisation.name | default(params.id + "-organisation"),
                     "value": params.organisation.value,
                     "error": params.organisation.error
@@ -25,7 +28,7 @@
                 "label": {
                     "text": params.line1.label
                 },
-                "classes": "input--w-20@m",
+                "classes": "input--w-20@m" + (" js-address-line-1" if params.typeahead else ""),
                 "name": params.line1.name | default(params.id + "-line-1"),
                 "value": params.line1.value,
                 "error": params.line1.error
@@ -40,7 +43,7 @@
                     "label": {
                         "text": params.line2.label
                     },
-                    "classes": "input--w-20@m",
+                    "classes": "input--w-20@m" + (" js-address-line-2" if params.typeahead else ""),
                     "name": params.line2.name | default(params.id + "-line-2"),
                     "value": params.line2.value,
                     "error": params.line2.error
@@ -56,7 +59,7 @@
                     "label": {
                         "text": params.line3.label
                     },
-                    "classes": "input--w-20@m",
+                    "classes": "input--w-20@m" + (" js-address-line-3" if params.typeahead else ""),
                     "name": params.line3.name | default(params.id + "-line-3"),
                     "value": params.line3.value,
                     "error": params.line3.error
@@ -72,6 +75,7 @@
                     "label": {
                         "text": params.town.label
                     },
+                    "classes": " js-address-town" if params.typeahead else "",
                     "name": params.town.name | default(params.id + "-town"),
                     "value": params.town.value,
                     "error": params.town.error
@@ -87,6 +91,7 @@
                     "label": {
                         "text": params.county.label
                     },
+                    "classes": " js-address-county" if params.typeahead else "",
                     "name": params.county.name | default(params.id + "-county"),
                     "value": params.county.value,
                     "error": params.county.error
@@ -100,7 +105,7 @@
                 "label": {
                     "text": params.postcode.label
                 },
-                "classes": "input--w-5",
+                "classes": "input--w-5" + (" js-address-postcode" if params.typeahead else ""),
                 "name": params.postcode.name | default(params.id + "-postcode"),
                 "value": params.postcode.value,
                 "error": params.postcode.error
@@ -108,14 +113,87 @@
         }}
     {% endset %}
 
+    {% if params.typeahead %}
+        {% set fields %}
+            {% if params.uprn %}
+                {{
+                    onsInput({
+                        "id": params.uprn.id | default(params.id + "-uprn"),
+                        "type": "hidden",
+                        "classes": "js-address-uprn",
+                        "name": params.uprn.name | default(params.id + "-uprn"),
+                        "value": params.uprn.value
+                    })
+                }}
+            {% endif %}
+            <div class="address__manual">
+                {{ fields | safe }}
+
+                <div class="u-d-no u-mt-m js-address-search-btn-container">
+                    <p class="u-fs-r--b">{{ params.or }}</p>
+                    {{
+                        onsButton({
+                            "text": params.searchButton,
+                            "type": "button",
+                            "classes": "btn--secondary btn--small js-address-search-btn"
+                        })
+                    }}
+                </div>
+            </div>
+
+            <div class="address__search">
+                {{ onsTypeahead({
+                    "id": params.id + "-typeahead",
+                    "classes": "address__typeahead js-address-typeahead",
+                    "inputClasses": "input--w-30",
+                    "label": params.typeahead.label,
+                    "instructions": params.typeahead.instructions,
+                    "content": params.typeahead.content,
+                    "autocomplete": params.typeahead.autocomplete,
+                    "externalInitialiser": true,
+                    "resultsErrorPanel": {
+                        "error": params.selectError
+                    }
+                }) }}
+
+                <p class="u-fs-r--b u-mt-m">{{ params.or }}</p>
+                {{
+                    onsButton({
+                        "text": params.manualButton,
+                        "type": "button",
+                        "classes": "btn--secondary btn--small js-address-manual-btn"
+                    })
+                }}
+            </div> 
+        {% endset %}
+
+        {% set attributes = {
+            "data-search-url": params.searchURL,
+            "data-retrieve-url": params.retrieveURL 
+        } %}
+
+        {% if params.country %}
+            {% set attributes = attributes | setAttributes({
+                "data-country": params.country
+            }) %}
+        {% endif %}
+
+        {% if params.epoch %}
+            {% set attributes = attributes | setAttributes({
+                "data-epoch": params.epoch
+            }) %}
+        {% endif %}
+    {% endif %}
+
     {% if params.dontWrap %}
         {{ fields | safe }}
     {% else %}
         {% call onsFieldset({
             "id": params.id,
-            "classes": params.classes,
+            "classes": "address" + (" " + params.classes if params.classes else "") + (" js-address" if params.typeahead else ""),
             "legend": params.legend,
-            "legendClasses": params.legendClasses
+            "legendClasses": params.legendClasses,
+            "attributes": attributes
         }) %}
             {{ fields | safe }}
         {% endcall %}

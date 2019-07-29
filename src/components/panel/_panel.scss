@@ -70,6 +70,18 @@
       padding: 2rem;
     }
   }
+
+  &--off {
+    padding: 0;
+    border-left: 0;
+    background: transparent;
+  }
+
+  &--off & {
+    &__error {
+      display: none;
+    }
+  }
 }
 
 @include panel-type(error, $color-errors, $color-errors-tint);

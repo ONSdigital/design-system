@@ -1,0 +1,25 @@
+.address {
+  &__search {
+    display: none;
+  }
+
+  &--search & {
+    &__manual {
+      display: none;
+    }
+
+    &__search {
+      display: block;
+    }
+  }
+
+  &__typeahead {
+    .typeahead__combobox .typeahead__listbox {
+      width: 100%;
+    }
+
+    .typeahead__combobox {
+      display: block;
+    }
+  }
+}
