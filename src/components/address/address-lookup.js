@@ -201,7 +201,6 @@ export default class AddressLookup {
       })
         .then(async response => {
           const data = (await response.json()).addresses;
-
           resolve(this.mapFindResults(data));
         })
         .catch(reject);
@@ -298,7 +297,7 @@ export default class AddressLookup {
     }
 
     if (data.line3 && this.line3) {
-      this.line3 = data.line3;
+      this.line3.value = data.line3;
     }
 
     if (data.town) {
