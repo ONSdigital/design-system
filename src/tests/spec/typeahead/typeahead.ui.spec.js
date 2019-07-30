@@ -791,7 +791,7 @@ describe('Typeahead.ui component', function() {
 
             return option;
           });
-          console.log(this.typeahead.resultOptions);
+
           this.typeahead.numberOfResults = this.typeahead.resultOptions.length;
           this.typeahead.setHighlightedResult(this.optionIndex);
         });

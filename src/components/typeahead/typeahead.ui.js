@@ -342,7 +342,7 @@ export default class TypeaheadUI {
           return listElement;
         });
 
-        if (this.numberOfResults < this.foundResults) {
+        if (this.numberOfResults < this.foundResults || this.numberOfResults === 10) {
           const listElement = document.createElement('li');
           listElement.className = `${classTypeaheadOption} ${classTypeaheadOptionMoreResults}`;
           listElement.setAttribute('aria-hidden', 'true');
