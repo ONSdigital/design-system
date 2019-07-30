@@ -9,7 +9,15 @@ layout: none
 
 
 {% set page = {
-    "title": "Address Lookup Example"
+    "title": "Enghraifft Chwilio Cyfeiriadau",
+    "language": {
+        "languages": [
+            {
+                "ISOCode": "cy",
+                "current": true
+            }
+        ]
+    }
 } %}
 
 {% set form = {
@@ -18,31 +26,31 @@ layout: none
 
 {% block main %}
     {% call onsQuestion({
-        "title": "What is your address?"
+        "title": "Beth yw eich cyfeiriad?"
     }) %}
         {{ onsAddressInput({
             "id": "address",
-            "legend": "What is your address?",
+            "legend": "Beth yw eich cyfeiriad?",
             "legendClasses": "u-vh",
             "line1": {
-                "label": "Address line 1"
+                "label": "Llinell cyfeiriad 1"
             },
             "line2": {
-                "label": "Address line 2"
+                "label": "Llinell cyfeiriad 2"
             },
             "town": {
-                "label": "Town or City"
+                "label": "Tref neu Ddinas"
             },
             "county": {
-                "label": "County"
+                "label": "Sir"
             },
             "postcode": {
-                "label": "Postcode"
+                "label": "Cod post"
             },
             "uprn": {},
             "typeahead": {
                 "label": {
-                    "text": "Enter your address or postcode"
+                    "text": "Rhowch eich cyfeiriad neu'ch cod post"
                 },
                 "instructions": "Use up and down keys to navigate addresses once you\'ve typed more than two characters. Use the enter key to select a address. Touch device users, explore by touch or with swipe gestures.",
                 "content": {
@@ -53,23 +61,23 @@ layout: none
                     "aria_one_result": "There is one address available.",
                     "aria_n_results": "There are {n} addresses available.",
                     "aria_limited_results": "Results have been limited to 10 addresses. Type more characters to refine your search.",
-                    "more_results": "Continue typing to refine addresses",
-                    "results_title": "Select an address",
+                    "more_results": "Parhewch i deipio i fireinio cyfeiriadau",
+                    "results_title": "Dewiswch gyfeiriad",
                     "lookup_error": "There was an error looking up up your address. Enter your address manually.",
                     "select_address_error": "There was an error. Select and address."
                 },
                 "autocomplete": "new-address",
                 "or": "Or",
-                "searchButton": "Search for an address",
-                "manualButton": "Manually enter address",
-                "selectError": "Select an address to continue",
+                "searchButton": "Chwilio am gyfeiriad",
+                "manualButton": "Rhowch y cyfeiriad â llaw",
+                "selectError": "Dewiswch gyfeiriad i barhau",
                 "searchURL": "https://address-lookup-dummy-service.herokuapp.com/search",
                 "retrieveURL": "https://address-lookup-dummy-service.herokuapp.com/retrieve"
             }
         }) }}
 
         {{ onsButton( {
-            "text": "Submit",
+            "text": "Cyflwyno",
             "classes": "u-mt-xl"
         }) }}
     {% endcall %}

@@ -11,8 +11,22 @@ This pattern should be used when you need to collect an address from a user.
 
 ## How to use this pattern
 
+Ideally, you should use the lookup version of the address input when asking for an address.
+
+### Examples
+
+These examples are powered by an example API running on a small Node App with some dummy data. The [source code](https://github.com/ONSdigital/address-lookup-dummy-service) can be found here and is a good reference for the format in which the address lookup sends and recieves its data.
+
 {{
     patternlibExample({"path": "components/address/examples/address-lookup/index.njk"})
+}}
+
+#### Welsh lookup
+
+The address component sends a `lang` parameter in it's query string that matches the `lang` attribtue on the `<html>` element of the page.
+
+{{
+    patternlibExample({"path": "components/address/examples/address-lookup-cy/index.njk"})
 }}
 
 ## Manual only address inputs

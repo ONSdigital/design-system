@@ -130,10 +130,10 @@
                 {{ fields | safe }}
 
                 <div class="u-d-no u-mt-m js-address-search-btn-container">
-                    <p class="u-fs-r--b">{{ params.or }}</p>
+                    <p class="u-fs-r--b">{{ params.typeahead.or }}</p>
                     {{
                         onsButton({
-                            "text": params.searchButton,
+                            "text": params.typeahead.searchButton,
                             "type": "button",
                             "classes": "btn--secondary btn--small js-address-search-btn"
                         })
@@ -143,23 +143,24 @@
 
             <div class="address__search">
                 {{ onsTypeahead({
-                    "id": params.id + "-typeahead",
+                    "id": params.typeahead.id | default(params.id + "-typeahead"),
                     "classes": "address__typeahead js-address-typeahead",
                     "inputClasses": "input--w-30",
                     "label": params.typeahead.label,
+                    "name": params.typeahead.name | default(params.id + "-typeahead"),
                     "instructions": params.typeahead.instructions,
                     "content": params.typeahead.content,
                     "autocomplete": params.typeahead.autocomplete,
                     "externalInitialiser": true,
                     "resultsErrorPanel": {
-                        "error": params.selectError
+                        "error": params.typeahead.selectError
                     }
                 }) }}
 
                 <p class="u-fs-r--b u-mt-m">{{ params.or }}</p>
                 {{
                     onsButton({
-                        "text": params.manualButton,
+                        "text": params.typeahead.manualButton,
                         "type": "button",
                         "classes": "btn--secondary btn--small js-address-manual-btn"
                     })
@@ -168,19 +169,19 @@
         {% endset %}
 
         {% set attributes = {
-            "data-search-url": params.searchURL,
-            "data-retrieve-url": params.retrieveURL 
+            "data-search-url": params.typeahead.searchURL,
+            "data-retrieve-url": params.typeahead.retrieveURL 
         } %}
 
-        {% if params.country %}
+        {% if params.typeahead.country %}
             {% set attributes = attributes | setAttributes({
-                "data-country": params.country
+                "data-country": params.typeahead.country
             }) %}
         {% endif %}
 
-        {% if params.epoch %}
+        {% if params.typeahead.epoch %}
             {% set attributes = attributes | setAttributes({
-                "data-epoch": params.epoch
+                "data-epoch": params.typeahead.epoch
             }) %}
         {% endif %}
     {% endif %}

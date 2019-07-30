@@ -62,13 +62,13 @@ const params = {
       select_address_error: 'There was an error. Select and address.',
     },
     autocomplete: 'new-address',
+    or: 'Or',
+    searchButton: 'Search for an address',
+    manualButton: 'Manually enter address',
+    selectError: 'Select an address to continue.',
+    searchURL: 'https://address-lookup-dummy-service.herokuapp.com/search',
+    retrieveURL: 'https://address-lookup-dummy-service.herokuapp.com/retrieve',
   },
-  or: 'Or',
-  searchButton: 'Search for an address',
-  manualButton: 'Manually enter address',
-  selectError: 'Select an address to continue.',
-  searchURL: 'https://address-lookup-dummy-service.herokuapp.com/search',
-  retrieveURL: 'https://address-lookup-dummy-service.herokuapp.com/retrieve',
 };
 
 describe('Address component', function() {
@@ -564,7 +564,7 @@ describe('Address component', function() {
         });
 
         it('then fetch should be called with only the query and the lang', function() {
-          expect(this.fetchSpy).to.have.been.called.with.exactly(`${params.searchURL}?q=Yes&lang=en-gb`, {
+          expect(this.fetchSpy).to.have.been.called.with.exactly(`${params.typeahead.searchURL}?q=Yes&lang=en-gb`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
@@ -580,7 +580,7 @@ describe('Address component', function() {
         });
 
         it('then fetch should be called with only the query, the lang and country', function() {
-          expect(this.fetchSpy).to.have.been.called.with.exactly(`${params.searchURL}?q=Yes&lang=en-gb&country=gb-nir`, {
+          expect(this.fetchSpy).to.have.been.called.with.exactly(`${params.typeahead.searchURL}?q=Yes&lang=en-gb&country=gb-nir`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
@@ -596,7 +596,7 @@ describe('Address component', function() {
         });
 
         it('then fetch should be called with only the query, the lang and epoch', function() {
-          expect(this.fetchSpy).to.have.been.called.with.exactly(`${params.searchURL}?q=Yes&lang=en-gb&epoch=69`, {
+          expect(this.fetchSpy).to.have.been.called.with.exactly(`${params.typeahead.searchURL}?q=Yes&lang=en-gb&epoch=69`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
@@ -613,7 +613,7 @@ describe('Address component', function() {
         });
 
         it('then fetch should be called with the query, the lang, country, and epoch', function() {
-          expect(this.fetchSpy).to.have.been.called.with.exactly(`${params.searchURL}?q=Yes&lang=en-gb&country=gb-nir&epoch=69`, {
+          expect(this.fetchSpy).to.have.been.called.with.exactly(`${params.typeahead.searchURL}?q=Yes&lang=en-gb&country=gb-nir&epoch=69`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded',
@@ -770,7 +770,7 @@ describe('Address component', function() {
       it('then fetch should be called', function() {
         this.addressLookup.retrieveAddress('0');
 
-        expect(this.fetchSpy).to.have.been.called.with.exactly(`${params.retrieveURL}?q=0&lang=en-gb`, {
+        expect(this.fetchSpy).to.have.been.called.with.exactly(`${params.typeahead.retrieveURL}?q=0&lang=en-gb`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
