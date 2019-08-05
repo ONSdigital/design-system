@@ -1,4 +1,5 @@
 .download {
+  @extend .u-mb-m;
   display: flex;
 
   & + & {
