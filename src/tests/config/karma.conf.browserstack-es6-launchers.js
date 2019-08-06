@@ -12,6 +12,7 @@ export default function() {
       'bs_windows_10_chrome',
       'bs_windows_10_firefox',
     ],
+
     customLaunchers: {
       /**
        * iOS
