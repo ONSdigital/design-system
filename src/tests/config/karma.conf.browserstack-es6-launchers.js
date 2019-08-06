@@ -5,7 +5,7 @@ export default function() {
     browsers: [
       // 'bs_iphone_xs',
       // 'bs_nexus_5',
-      // 'bs_mac_chrome',
+      'bs_mac_chrome',
       // 'bs_mac_firefox',
       // 'bs_mac_safari',
       // 'bs_windows_10_IE_edge',
@@ -22,6 +22,7 @@ export default function() {
       //   os: 'ios',
       //   os_version: '12.0'
       // }),
+
       /**
        * Android
        */
@@ -31,15 +32,16 @@ export default function() {
       //   os: 'android',
       //   os_version: '5.0'
       // }),
+
       /**
        * OS X
        */
-      // bs_mac_chrome: inheritBase({
-      //   browser: 'chrome',
-      //   browser_version: '75.0',
-      //   os: 'OS X',
-      //   os_version: 'Mojave',
-      // }),
+      bs_mac_chrome: inheritBase({
+        browser: 'chrome',
+        browser_version: '75.0',
+        os: 'OS X',
+        os_version: 'Mojave',
+      }),
       // bs_mac_firefox: inheritBase({
       //   browser: 'firefox',
       //   browser_version: '66.0',
@@ -52,6 +54,7 @@ export default function() {
       //   os: 'OS X',
       //   os_version: 'Mojave',
       // }),
+
       // /**
       //  * Windows
       //  */
