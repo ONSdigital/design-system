@@ -54,7 +54,6 @@ export default function() {
         os: 'OS X',
         os_version: 'Mojave',
       }),
-
       /**
        * Windows
        */
