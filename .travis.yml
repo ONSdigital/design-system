@@ -16,8 +16,6 @@ jobs:
       on:
         tags: true
 stages:
-- name: test
-  if: tag IS NOT present
 - name: npm-bundle
   if: tag IS present
 notifications:
