@@ -1,24 +1,25 @@
 {%- macro onsCard(params) -%}
   {% from "components/lists/_macro.njk" import onsList %}
   <div class="card" aria-labelledBy="{{ params.id }}" aria-describedBy="{{ params.textId }}" role="navigation" aria-label="{{ params.ariaBy }}">
-      <h3 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
-          {% if params.url -%}
-              <a href="{{ params.url }}">
-                  {{ params.title }}
-              </a>
-          {%- else %}
-              {{ params.title }}
-          {% endif %}
-      </h3>
-      <p id="{{ params.textId }}">{{ params.text }}</p>
-      {% if params.itemsList -%}
-        {{ 
-            onsList({
-                "element": 'ul',
-                "classes": 'list--dashed',
-                "itemsList": params.itemsList
-            }) 
-        }}
-      {% endif %}
+    {%- if params.url -%}    
+      <a href="{{ params.url }}">
+        {%- if params.image -%}
+          <img class="card__image u-mb-s" alt="{{ params.image.alt }}" src="{{ params.image.src }}">
+        {%- endif -%}
+        <h3 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
+          {{ params.title }}
+        </h3>
+      </a>
+    {%- endif -%}
+    <p id="{{ params.textId }}">{{ params.text }}</p>
+    {% if params.itemsList -%}
+      {{ 
+          onsList({
+              "element": 'ul',
+              "classes": 'list--dashed',
+              "itemsList": params.itemsList
+          }) 
+      }}
+    {% endif %}
   </div>
 {%- endmacro -%}
