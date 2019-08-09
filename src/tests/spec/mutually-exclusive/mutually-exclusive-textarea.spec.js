@@ -1,7 +1,7 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/textarea/_test-template.njk';
-import mutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
-import characterLimit from 'components/textarea/character-limit';
+import MutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
+import CharacterLimit from 'components/textarea/character-limit';
 import { populateTextarea } from '../textarea/character-limit.spec';
 
 const params = {
@@ -32,7 +32,7 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Textarea', () => {
-  let wrapper, textarea, textareaRemaining, checkbox, ariaAlert;
+  let wrapper, mutuallyExclusiveComponent, textarea, textareaRemaining, checkbox, ariaAlert;
 
   before(() => {
     return awaitPolyfills;
@@ -45,13 +45,14 @@ describe('Component: Mutually Exclusive Textarea', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
+    mutuallyExclusiveComponent = document.querySelector('.js-mutually-exclusive');
     textarea = document.getElementById(params.id);
     textareaRemaining = document.getElementById(`${params.id}-lim-remaining`);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
     ariaAlert = document.querySelector('.js-exclusive-alert');
 
-    characterLimit();
-    mutuallyExclusive();
+    new CharacterLimit(textarea);
+    new MutuallyExclusive(mutuallyExclusiveComponent);
   });
 
   afterEach(() => {

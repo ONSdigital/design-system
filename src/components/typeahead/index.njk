@@ -1,0 +1,67 @@
+---
+title: Typeahead
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+Typeaheads are used to suggest options for answers and typically search code lists such as, Country of Birth, Occupations, Languages, Nationalities, etc.
+
+## Examples
+
+These examples are powered by an example API running on a small Node App with some dummy data. The [source code](https://github.com/ONSdigital/typeahead-prototypes-backend-service) can be found here and is a good reference for the format in which the typeahead sends and recieves its data.
+
+### Country of birth
+
+{{
+    patternlibExample({"path": "components/typeahead/examples/country-of-birth/index.njk"})
+}}
+
+### Country of birth (Cymraeg)
+
+The typeahead component sends a `lang` parameter in it's query string that matches the `lang` attribtue on the `<html>` element of the page.
+
+The [example API](https://github.com/ONSdigital/typeahead-prototypes-backend-service) sat behind this typeahead will search both the `cy` and the `en-gb` data to find results. If the selects a result from typing the English version of a country name, then the input will be populated with the English name, otherwise it will be populated with the Welsh match.
+
+{{
+    patternlibExample({"path": "components/typeahead/examples/country-of-birth-cy/index.njk"})
+}}
+
+## Response object
+
+The typeaheads expect the API response to return a JSON object with two keys:
+
+{% md %}
+| Key          | Type                       | Purpose                                                                                                                            |
+| ------------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| results      | Array<TypeaheadResultItem> | The results array                                                                                                                  |
+| totalResults | number                     | The total number of results the server found. This may be greater than the number of results returned if results have been limited |
+{% endmd %}
+
+### TypeaheadResultItem
+
+The TypeaheadResultItem should consist of at least a key coresponding to the searched language (e.g. `en-gb`) with it's corresponding value.
+
+#### Example response
+
+```
+{
+    "results": [
+        {
+            "en-gb": "United Kingdom",
+            "cy": "Deyrnas Unedig"
+        }
+    ],
+    "totalResults": 1
+}
+```
+
+## Research on this component
+
+{% call  onsPanel() %}
+    <p>If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/566">Design System Forum.</a></p>
+{% endcall %}
+
+## Design System forum
+
+[Discuss 'Typeahead' on GitHub](https://github.com/ONSdigital/design-system/issues/566)
+

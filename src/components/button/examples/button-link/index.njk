@@ -1,0 +1,10 @@
+{% from "components/button/_macro.njk" import onsButton %}
+{{
+    onsButton({
+        "type": 'button',
+        "text": 'Get started',
+        "classes": 'u-mb-m',
+        "url": '#',
+        "innerClasses": "icon--chevron-right-white"
+    }) 
+}}

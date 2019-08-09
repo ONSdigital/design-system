@@ -1,0 +1,52 @@
+.hero {
+  padding: 2rem 0;
+  background: $color-branded;
+  &__content {
+    height: 100%;
+  }
+}
+
+.hero__title {
+  font-size: 2.3rem;
+  @include mq(m) {
+    font-size: 3rem;
+  }
+}
+
+.hero--dark-theme {
+  h1,
+  h2,
+  p,
+  a {
+    color: $color-white;
+  }
+  a {
+    &:focus,
+    &:hover {
+      color: $color-white;
+      text-decoration: none;
+    }
+  }
+}
+
+.hero--with-image {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+
+  .hero__img {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    max-width: none;
+  }
+
+  .hero__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+  }
+}

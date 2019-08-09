@@ -1,0 +1,29 @@
+{% from "components/input/_macro.njk" import onsInput %}
+
+{% macro onsTypeahead(params) %}
+    <div
+        id="{{ params.id }}-container"
+        class="typeahead js-typeahead{% if params.classes %} {{ params.classes }}{% endif %}"
+        data-content="{{ params.content | dump }}"
+        data-api-url="{{ params.apiUrl }}"
+    >
+        {{ onsInput({
+            "id": params.id,
+            "classes": "typeahead__input js-typeahead-input" + (" " + params.inputClasses if params.inputClasses),
+            "name": params.name,
+            "label":  params.label,
+            "attributes": {
+                "data-autocomplete": params.autocomplete
+            },
+            "error": params.error
+        }) }}
+
+        <div class="typeahead__results js-typeahead-results">
+            <header class="typeahead__results-title u-fs-s">{{ params.content.results_title }}</header>
+            <ul class="typeahead__listbox js-typeahead-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
+        </div>
+
+        <div class="typeahead__instructions u-vh js-typeahead-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
+        <div class="typeahead__status u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
+    </div>
+{% endmacro %}

@@ -149,7 +149,7 @@ function renderComponent(params) {
   const name = wrapper.querySelector('.js-feedback-name');
   const email = wrapper.querySelector('.js-feedback-email');
   const submit = wrapper.querySelector('.js-feedback-send');
-  const feedback = new Feedback();
+  const feedback = new Feedback([button]);
 
   return {
     wrapper,

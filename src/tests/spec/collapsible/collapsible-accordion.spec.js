@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/accordion/_test-template.njk';
-import collapsible, { Collapsible } from 'components/details/collapsible';
+import Collapsible from 'components/details/collapsible';
 import CollapsibleGroup from 'components/details/collapsible.group';
 import eventMock from 'stubs/event.stub.spec';
 
@@ -42,14 +42,7 @@ const params = {
 };
 
 describe('Component: Accordion', function() {
-  let rewiremock;
-
-  before(done => {
-    awaitPolyfills.then(() => {
-      rewiremock = require('rewiremock/webpack').default;
-      done();
-    });
-  });
+  before(() => awaitPolyfills);
 
   beforeEach(function() {
     const component = renderComponent(params);
@@ -72,26 +65,8 @@ describe('Component: Accordion', function() {
   });
 
   describe('When the component initialises', function() {
-    it('then CollapsibleGroup class should be called', function() {
-      const mockedCollapsibleGroup = chai.spy(() => {});
-
-      rewiremock('./src/components/details/collapsible.group')
-        .es6()
-        .withDefault(mockedCollapsibleGroup);
-
-      rewiremock.enable();
-
-      const mockedCollapsible = require('components/details/collapsible').default;
-
-      mockedCollapsible();
-
-      expect(mockedCollapsibleGroup).to.have.been.called();
-
-      rewiremock.disable();
-    });
-
     it('then the toggle button element should not have a u-d-no class', function() {
-      collapsible();
+      new Collapsible(this.item.details);
       expect([...this.toggleButton.classList].includes('u-d-no')).to.be.false;
     });
 

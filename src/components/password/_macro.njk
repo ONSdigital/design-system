@@ -6,7 +6,7 @@
 
     {% call onsField({
         "id": params.fieldId,
-        "classes": params.fieldClasses,
+        "classes": "js-password" + (" " + params.fieldClasses if params.fieldClasses else ""),
         "error": params.error
     }) %}
         {{
@@ -32,7 +32,7 @@
             onsInput({
                 "id": params.id,
                 "type": "password",
-                "classes": "u-mt-xs js-password",
+                "classes": "u-mt-xs js-password-input",
                 "dontWrap": true
             })
         }}

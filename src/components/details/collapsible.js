@@ -1,6 +1,4 @@
-import CollapsibleGroup from './collapsible.group';
-
-export class Collapsible {
+export default class Collapsible {
   constructor(detailsElement) {
     this.saveState = detailsElement.getAttribute('data-save-state') === 'true';
 
@@ -89,13 +87,4 @@ export class Collapsible {
       localStorage.removeItem(this.details.getAttribute('id'));
     }
   }
-}
-
-export default function() {
-  const collapsibles = [...document.querySelectorAll('.js-collapsible')].map(element => new Collapsible(element));
-  const toggleAllButtons = [...document.querySelectorAll('.js-collapsible-all')];
-
-  toggleAllButtons.forEach(button => {
-    new CollapsibleGroup(button, collapsibles);
-  });
 }

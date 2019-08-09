@@ -1,11 +1,8 @@
-import domready from 'js/domready';
-
-export const classTableSortable = 'table--sortable';
 export const jsSortableHeadings = '[aria-sort]';
 export const classTableBody = 'table__body';
 export let status;
 
-class TableSort {
+export default class TableSort {
   constructor(table) {
     this.table = table;
     this.options = {};
@@ -146,9 +143,3 @@ class TableSort {
     this.table.parentElement.insertBefore(status, this.table.nextSibling);
   }
 }
-
-export default function tableSorter() {
-  const tableComponent = [...document.getElementsByClassName(classTableSortable)];
-  tableComponent.forEach(table => new TableSort(table));
-}
-domready(tableSorter);

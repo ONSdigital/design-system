@@ -1,4 +1,11 @@
-import DOMReady from 'js/domready';
-import Feedback from 'components/feedback/feedback';
+import domready from 'js/domready';
 
-DOMReady(() => new Feedback());
+async function initialise() {
+  const buttons = [...document.querySelectorAll('.js-feedback-button')];
+
+  if (buttons.length) {
+    const Feedback = (await import('./feedback')).default;
+    new Feedback(buttons);
+  }
+}
+domready(initialise);
