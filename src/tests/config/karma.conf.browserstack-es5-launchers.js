@@ -5,7 +5,7 @@ export default function() {
     browsers: [
       'bs_ipad_air_2',
       // 'bs_android_galaxy_S5_mini',
-      'bs_mac_safari',
+      // 'bs_mac_safari',
       'bs_windows_10_IE_11',
     ],
 
@@ -35,12 +35,12 @@ export default function() {
       /**
        * OS X
        */
-      bs_mac_safari: inheritBase({
-        browser: 'safari',
-        browser_version: '9.1',
-        os: 'OS X',
-        os_version: 'El Capitan',
-      }),
+      // bs_mac_safari: inheritBase({
+      //   browser: 'safari',
+      //   browser_version: '9.1',
+      //   os: 'OS X',
+      //   os_version: 'El Capitan',
+      // }),
 
       /**
        * Windows

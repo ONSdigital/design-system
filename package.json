@@ -15,7 +15,7 @@
     "npm-bundle": "NODE_ENV=production yarn tidy-clean && yarn webpack --config webpack.npm.babel.js && babel-node ci/generate-npm-package.js",
     "cdn-bundle": "NODE_ENV=production yarn tidy-clean && yarn webpack --config webpack.cdn.babel.js && babel-node ci/prepare-templates-for-zip.js",
     "test:local": "KARMA_SINGLE_RUN=false karma start ./src/tests/config/karma.conf.js",
-    "test": "karma start ./src/tests/config/karma.conf.js && codecov",
+    "test": "karma start ./src/tests/config/karma.conf.js && karma start ./src/tests/config/karma.conf.nomodule.js && codecov",
     "test:browserstack": "TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.js && TEST_ON_BROWSERSTACK=true karma start ./src/tests/config/karma.conf.nomodule.js",
     "tidy-clean": "rm -rf build css favicons fonts img components page-templates templates scripts coverage scss",
     "check-unused": "npx npm-check-unused",
