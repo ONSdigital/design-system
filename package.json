@@ -143,5 +143,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@ons/design-system": "^13.3.0"
   }
 }
