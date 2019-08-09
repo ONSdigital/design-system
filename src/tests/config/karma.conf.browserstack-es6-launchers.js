@@ -3,7 +3,7 @@
 export default function() {
   return {
     browsers: [
-      'bs_iphone_xs',
+      'bs_iphone_x',
       'bs_samsung_galaxy_s9',
       'bs_mac_chrome',
       'bs_mac_firefox',
@@ -17,7 +17,7 @@ export default function() {
       /**
        * iOS
        */
-      bs_iphone_xs: inheritBase({
+      bs_iphone_x: inheritBase({
         device: 'iPhone X',
         os: 'ios',
         os_version: '11.4',
