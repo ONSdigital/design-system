@@ -1,24 +1,30 @@
 {%- macro onsCard(params) -%}
   {% from "components/lists/_macro.njk" import onsList %}
-  <div class="card" aria-labelledBy="{{ params.id }}" aria-describedBy="{{ params.textId }}" role="navigation" aria-label="{{ params.ariaBy }}" {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
+  <div class="card" aria-labelledBy="{{ params.id }}" aria-describedBy="{{ params.textId }}" role="navigation" aria-label="{{ params.ariaBy }}">  
+    {%- if params.image -%}
+      <a href="{{ params.url }}" class="u-db">
+          <img class="card__image u-mb-s" alt="{{ params.image.alt }}" src="{{ params.image.src }}">
+        <h3 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
+          {{ params.title }}
+        </h3>
+      </a>
+    {%- else -%}
       <h3 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
-          {% if params.url -%}
-              <a href="{{ params.url }}">
-                  {{ params.title }}
-              </a>
-          {%- else %}
-              {{ params.title }}
-          {% endif %}
+        <a href="{{ params.url }}">
+          {{ params.title }}
+        </a>
       </h3>
-      <p id="{{ params.textId }}">{{ params.text }}</p>
-      {% if params.itemsList -%}
-        {{ 
-            onsList({
-                "element": 'ul',
-                "classes": 'list--dashed',
-                "itemsList": params.itemsList
-            }) 
-        }}
-      {% endif %}
+    {%- endif -%}
+
+    <p id="{{ params.textId }}">{{ params.text }}</p>
+    {% if params.itemsList -%}
+      {{ 
+          onsList({
+              "element": 'ul',
+              "classes": 'list--dashed',
+              "itemsList": params.itemsList
+          }) 
+      }}
+    {% endif %}
   </div>
 {%- endmacro -%}
