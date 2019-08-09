@@ -1,6 +1,6 @@
 {% from "components/card/_macro.njk" import onsCard %}
-<div class="grid grid--flex grid--loose grid--column@xs@s">
-    <div class="grid__col grid__col--loose grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
+<div class="grid grid--flex grid--column@xs@s">
+    <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
         {{-
             onsCard({
                 "ariaBy": 'Section highlight',
@@ -8,11 +8,14 @@
                 "textId": 'text1',
                 "title": 'Search for a business',
                 "url": '#',
-                "text": 'A list of UK businesses for statistical use across government.'
+                "text": 'A list of UK businesses for statistical use across government.',
+                "attributes": {
+                    "data-ga-element": 'card'
+                }
             })
         }}
     </div>
-    <div class="grid__col grid__col--loose grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
+    <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
         {{- 
             onsCard({
                 "ariaBy": 'Section highlight',
@@ -20,11 +23,14 @@
                 "textId": 'text2',
                 "title": 'Record management',
                 "url": '#',
-                "text": 'Edit, create new records and view the editing history of businesses.'
+                "text": 'Edit, create new records and view the editing history of businesses.',
+                "attributes": {
+                    "data-ga-element": 'card'
+                }
             })
         }}
     </div>
-    <div class="grid__col grid__col--loose grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
+    <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
         {{-
             onsCard({
                 "ariaBy": 'Section highlight',
@@ -32,7 +38,10 @@
                 "textId": 'text3',
                 "title": 'Address index',
                 "url": '#',
-                "text": 'The most accurate and greographical dataset of addresses and properties in the UK.'
+                "text": 'The most accurate and greographical dataset of addresses and properties in the UK.',
+                "attributes": {
+                    "data-ga-element": 'card'
+                }
             })
         }}
     </div>

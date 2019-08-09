@@ -4,7 +4,7 @@ export default function() {
   return {
     browsers: [
       // 'bs_iphone_xs',
-      // 'bs_nexus_5',
+      'bs_samsung_galaxy_s9',
       'bs_mac_chrome',
       'bs_mac_firefox',
       'bs_mac_safari',
@@ -20,18 +20,19 @@ export default function() {
       // bs_iphone_xs: inheritBase({
       //   device: 'iPhone XS Max',
       //   os: 'ios',
-      //   os_version: '12.0'
+      //   os_version: '12.1',
+      //   real_mobile: true,
       // }),
 
       /**
        * Android
        */
-      // bs_nexus_5: inheritBase({
-      //   device: 'Google Nexus 5',
-      //   platform: 'ANDROID',
-      //   os: 'android',
-      //   os_version: '5.0'
-      // }),
+      bs_samsung_galaxy_s9: inheritBase({
+        device: 'Samsung Galaxy S9 Plus',
+        os: 'android',
+        os_version: '8.0',
+        real_mobile: true,
+      }),
 
       /**
        * OS X

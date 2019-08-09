@@ -1,6 +1,6 @@
 {%- macro onsCard(params) -%}
   {% from "components/lists/_macro.njk" import onsList %}
-  <div class="card" aria-labelledBy="{{ params.id }}" aria-describedBy="{{ params.textId }}" role="navigation" aria-label="{{ params.ariaBy }}">
+  <div class="card" aria-labelledBy="{{ params.id }}" aria-describedBy="{{ params.textId }}" role="navigation" aria-label="{{ params.ariaBy }}" {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
       <h3 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
           {% if params.url -%}
               <a href="{{ params.url }}">
