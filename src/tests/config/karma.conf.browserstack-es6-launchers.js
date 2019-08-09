@@ -18,9 +18,9 @@ export default function() {
        * iOS
        */
       bs_iphone_xs: inheritBase({
-        device: 'iPhone XS',
+        device: 'iPhone X',
         os: 'ios',
-        os_version: '12.1',
+        os_version: '11.4',
         real_mobile: true,
       }),
 
