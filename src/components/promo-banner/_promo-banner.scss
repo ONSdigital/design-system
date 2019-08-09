@@ -1,12 +1,32 @@
 .promo-banner {
   padding: 2rem 0;
-  background: radial-gradient(at bottom left, $color-branded-secondary, $color-branded, $color-branded-tertiary);
+  background: $color-branded;
+  &--gradient {
+    background: radial-gradient(at bottom left, $color-branded-secondary, $color-branded, $color-branded-tertiary);
+  }
 
   &__image {
     text-align: center;
     img {
       width: 100%;
       height: auto;
+    }
+  }
+
+  &--dark-theme {
+    h1,
+    h2,
+    li,
+    p,
+    a {
+      color: $color-white;
+    }
+    a {
+      &:focus,
+      &:hover {
+        color: $color-white;
+        text-decoration: none;
+      }
     }
   }
 }
