@@ -92,6 +92,23 @@ $button-border-height: 3px;
     }
   }
 
+  &--link &__inner {
+    &:after {
+      @include icon($name: 'chevron-right-white', $height: 0.8rem);
+
+      content: '';
+
+      margin: 0 0 0 0.5rem;
+      vertical-align: middle;
+    }
+  }
+
+  &--link.btn--small &__inner {
+    &:after {
+      @include icon($name: 'chevron-right-white', $height: 0.7rem);
+    }
+  }
+
   &--loader &__inner {
     position: relative;
     transition: color 0.3s ease-in-out;

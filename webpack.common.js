@@ -170,7 +170,7 @@ const es2015plusCore = merge(jsCore, {
                 {
                   modules: false,
                   targets: {
-                    browsers: ['Chrome >= 60', 'Safari >= 10.1', 'iOS >= 10.3', 'Firefox >= 54', 'Edge >= 15'],
+                    browsers: ['last 2 Chrome versions', 'Safari >= 12', 'iOS >= 10.3', 'last 2 Firefox versions', 'last 2 Edge versions'],
                   },
                 },
               ],
@@ -209,7 +209,7 @@ const es5Core = merge(jsCore, {
                 {
                   modules: false,
                   targets: {
-                    browsers: ['last 3 versions'],
+                    browsers: ['ie 11'],
                   },
                 },
               ],
