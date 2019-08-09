@@ -19,3 +19,18 @@
   @extend .u-mt-s;
   margin-bottom: 4.5rem;
 }
+
+.page__body {
+  h2 {
+    @extend .u-fs-xl;
+  }
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+  }
+  h2:not(:first-child) {
+    margin-top: 2.5rem;
+  }
+}
