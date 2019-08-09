@@ -1,6 +1,6 @@
 {% from "components/card/_macro.njk" import onsCard %}
-<div class="grid grid--flex grid--column@xs@s">
-    <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
+<div class="grid grid--flex grid--loose grid--column@xs@s">
+    <div class="grid__col grid__col--loose grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
         {{-
             onsCard({
                 "ariaBy": 'Section highlight',
@@ -9,13 +9,14 @@
                 "title": 'Search for a business',
                 "url": '#',
                 "text": 'A list of UK businesses for statistical use across government.',
-                "attributes": {
-                    "data-ga-element": 'card'
+                "image": {
+                    "src":'https://blacklodge.census-gcp.onsdigital.uk/placeholder-thumb-650x430.png',
+                    "alt": 'alt text'
                 }
             })
         }}
     </div>
-    <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
+    <div class="grid__col grid__col--loose grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
         {{- 
             onsCard({
                 "ariaBy": 'Section highlight',
@@ -24,13 +25,14 @@
                 "title": 'Record management',
                 "url": '#',
                 "text": 'Edit, create new records and view the editing history of businesses.',
-                "attributes": {
-                    "data-ga-element": 'card'
-                }
+                "image": {
+                    "src":'https://blacklodge.census-gcp.onsdigital.uk/placeholder-thumb-650x430.png',
+                    "alt": 'alt text'
+                }                
             })
         }}
     </div>
-    <div class="grid__col grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
+    <div class="grid__col grid__col--loose grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
         {{-
             onsCard({
                 "ariaBy": 'Section highlight',
@@ -39,9 +41,10 @@
                 "title": 'Address index',
                 "url": '#',
                 "text": 'The most accurate and geographical dataset of addresses and properties in the UK.',
-                "attributes": {
-                    "data-ga-element": 'card'
-                }
+                "image": {
+                    "src":'https://blacklodge.census-gcp.onsdigital.uk/placeholder-thumb-650x430.png',
+                    "alt": 'alt text'
+                }                
             })
         }}
     </div>
