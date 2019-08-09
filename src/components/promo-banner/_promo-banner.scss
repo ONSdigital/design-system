@@ -1,0 +1,12 @@
+.promo-banner {
+  padding: 2rem 0;
+  background: radial-gradient(at bottom left, $color-branded-secondary, $color-branded, $color-branded-tertiary);
+
+  &__image {
+    text-align: center;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
