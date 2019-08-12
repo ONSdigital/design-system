@@ -8,6 +8,7 @@
 
 .hero__title {
   font-size: 2.3rem;
+  line-height: 1.2;
   @include mq(m) {
     font-size: 3rem;
   }
