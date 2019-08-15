@@ -1,6 +1,5 @@
 {% macro onsDetails(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
-    {% from "components/text-indent/_macro.njk" import onsTextIndent %}
 
     <details
         id="{{ params.id }}"
@@ -35,20 +34,18 @@
             {% if params.isAccordion %}
                 {{ params.content | safe }}{{ caller() if caller }}
             {% else %}
-                {% call onsTextIndent() %}
-                    {{ params.content | safe }}{{ caller() if caller }}
-                    {% if params.button and params.button.close and params.isAccordion != true %}
-                        {{
-                            onsButton({
-                                "type": "button",
-                                "text": params.button.open or params.button.close,
-                                "classes": "btn--small js-collapsible-button u-d-no " + (params.button.classes | default("btn--secondary")),
-                                "innerClasses": "js-collapsible-button-inner",
-                                "attributes": params.button.attributes
-                            })
-                        }}
-                    {% endif %}
-                {% endcall %}
+                {{ params.content | safe }}{{ caller() if caller }}
+                {% if params.button and params.button.close and params.isAccordion != true %}
+                    {{
+                        onsButton({
+                            "type": "button",
+                            "text": params.button.open or params.button.close,
+                            "classes": "btn--small js-collapsible-button u-d-no " + (params.button.classes | default("btn--secondary")),
+                            "innerClasses": "js-collapsible-button-inner",
+                            "attributes": params.button.attributes
+                        })
+                    }}
+                {% endif %}
             {% endif %}
         </div>
     </details>
