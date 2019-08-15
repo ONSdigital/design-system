@@ -94,7 +94,9 @@ $details-caret-width: 1.1rem;
 
     &__content {
       display: block;
-      padding: 1rem 0 0;
+      margin: 1rem 0 0 0;
+      padding: 0 0 0 1.3em;
+      border-left: 5px solid $color-grey-3;
     }
   }
 
@@ -112,7 +114,10 @@ $details-caret-width: 1.1rem;
 
       &:before,
       &:after {
-        top: 1.45rem;
+        top: 1.1rem;
+        @include mq(s) {
+          top: 1.45rem;
+        }
       }
 
       &:focus {
@@ -133,6 +138,11 @@ $details-caret-width: 1.1rem;
     &__btn {
       align-self: flex-start;
       width: auto;
+    }
+    &__content {
+      margin: 0;
+      border-left: 0;
+      padding: 0;
     }
   }
 }
