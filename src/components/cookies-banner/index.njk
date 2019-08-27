@@ -1,0 +1,24 @@
+---
+title: Cookies banner
+---
+Cookies are files saved on your phone, tablet or computer when you visit a website.
+We use cookies to store information about how you use the ONS.GOV.UK website, such as the pages you visit.
+
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{{
+    patternlibExample({"path": "components/cookies-banner/examples/cookie-banner/index.njk"})
+}}
+
+## How to use this component
+The Cookies banner must be placed directly above the ONS [header](/components/header) at the very top of the page.
+
+## Research on this component
+{% from "components/panel/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
+    }) 
+}}
+
+## Design System forum
+[Discuss 'Phase banner' on GitHub](https://github.com/ONSdigital/design-system/issues/8)

@@ -1,0 +1,30 @@
+{% macro onsCookiesBanner(params) %}
+    <div class="cookie-banner">
+        <div class="container">
+            <div class="grid grid--flex grid--gutterless grid--vertical-center">
+                <div class="grid__col col-auto u-flex-shrink">
+                    <p class="cookie-banner__desc u-mb-no@m u-mr-m">{{ params.html | safe }}</p>
+                </div>
+                <div class="grid__col col-auto u-flex-no-grow cookie-button">
+                    {% from "components/button/_macro.njk" import onsButton %}
+                        {{ 
+                            onsButton({
+                                "type": 'button',
+                                "text": 'Accept cookies',
+                                "classes": 'btn--small u-mb-xs@xs@s'
+                            }) 
+                        }},
+                        {{ 
+                            onsButton({
+                                "type": 'button',
+                                "text": 'Cookie settings',
+                                "classes": 'btn--secondary btn--small u-ml-no@xs'
+                            }) 
+                        }}
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endmacro %}
