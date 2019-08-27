@@ -3,22 +3,22 @@
         <div class="container">
             <div class="grid grid--flex grid--gutterless grid--vertical-center">
                 <div class="grid__col col-auto u-flex-shrink">
-                    <p class="cookie-banner__desc u-mb-no@m u-mr-m">{{ params.html | safe }}</p>
+                    <p class="cookie-banner__desc u-mr-m u-mb-xs u-mt-xs@m@xl u-mt-no@m">{{ params.html | safe }}</p>
                 </div>
-                <div class="grid__col col-auto u-flex-no-grow cookie-button">
+                <div class="grid__col col-auto u-flex-no-grow cookie-button u-mb-no">
                     {% from "components/button/_macro.njk" import onsButton %}
                         {{ 
                             onsButton({
                                 "type": 'button',
                                 "text": 'Accept cookies',
-                                "classes": 'btn--small u-mb-xs@xs@s'
+                                "classes": 'btn--small'
                             }) 
                         }},
                         {{ 
                             onsButton({
                                 "type": 'button',
                                 "text": 'Cookie settings',
-                                "classes": 'btn--secondary btn--small u-ml-no@xs'
+                                "classes": 'btn--secondary btn--small'
                             }) 
                         }}
                     

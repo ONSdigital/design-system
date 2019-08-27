@@ -10,3 +10,14 @@
 .cookie-button .btn__inner {
   border-bottom: 0.16666667em solid rgba(0, 0, 0, 0.3) !important;
 }
+
+@media only screen and (max-width: 400px) {
+  .cookie-button > .btn + .btn {
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .cookie-button > .btn + .btn {
+    margin-top: 0.5em;
+  }
+}
