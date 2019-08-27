@@ -8,3 +8,14 @@
   color: $cookie-banner-text;
   word-break: break-word;
 }
+
+@media only screen and (max-width: 400px) {
+  .cookie-button > .btn + .btn {
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .cookie-button > .btn + .btn {
+    margin-top: 0.5em;
+  }
+}
