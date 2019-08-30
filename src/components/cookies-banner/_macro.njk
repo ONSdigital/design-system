@@ -7,23 +7,21 @@
                 </div>
                 <div class="grid__col col-auto u-flex-no-grow cookie-button u-mb-no">
                     {% from "components/button/_macro.njk" import onsButton %}
-                        {{ 
-                            onsButton({
-                                "type": 'button',
-                                "text": 'Accept cookies',
-                                "classes": 'btn--small'
-                            }) 
-                        }},
-                        {{ 
-                            onsButton({
-                                "type": 'button',
-                                "text": 'Cookie settings',
-                                "classes": 'btn--secondary btn--small'
-                            }) 
-                        }}
-                    
+                    {{ 
+                        onsButton({
+                            "type": 'button',
+                            "text": 'Accept cookies',
+                            "classes": 'btn--small'
+                        }) 
+                    }},
+                    {{ 
+                        onsButton({
+                            "type": 'button',
+                            "text": 'Cookie settings',
+                            "classes": 'btn--secondary btn--small'
+                        }) 
+                    }}
                 </div>
-                
             </div>
         </div>
     </div>
