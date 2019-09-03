@@ -2,11 +2,9 @@
   padding: 1rem 0;
   background: $color-black;
 }
-
 .cookie-banner__desc {
   color: $color-white;
 }
-
 @media only screen and (max-width: 400px) {
   .cookie-button > .btn + .btn {
     margin-left: 0;
