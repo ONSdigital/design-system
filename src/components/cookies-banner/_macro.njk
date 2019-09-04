@@ -1,9 +1,9 @@
 {% macro onsCookiesBanner(params) %}
-    <div class="cookie-banner">
+    <div class="cookies-banner">
         <div class="container">
             <div class="grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap@s">
                 <div class="grid__col grid__col--flex col-auto u-flex-shrink@s">
-                    <p class="cookie-banner__desc u-mb-no u-mr-s u-mb-xs">{{ params.html | safe }}</p>
+                    <p class="cookies-banner__desc u-mb-no u-mr-s u-mb-xs">{{ params.html | safe }}</p>
                 </div>
                 <div class="grid__col grid__col--flex col-auto u-mb-no">
                     {% from "components/button/_macro.njk" import onsButton %}

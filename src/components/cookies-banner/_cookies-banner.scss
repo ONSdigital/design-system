@@ -1,8 +1,10 @@
-.cookie-banner {
+.cookies-banner {
+  display: none;
   padding: 1rem 0;
   background: $color-black;
 }
-.cookie-banner__desc {
+
+.cookies-banner__desc {
   color: $color-white;
   word-break: break-word;
 }
