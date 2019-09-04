@@ -52,7 +52,7 @@
                                 >
                                     {% if rowItem.valueList | length == 1 %}
                                         {{ rowItem.valueList[0].text | safe }}
-                                        {% if rowItem.valueList[0].other %}
+                                        {% if rowItem.valueList[0].other or rowItem.valueList[0].other == 0 %}
                                             <ul class="u-mb-no">
                                                 <li>{{  rowItem.valueList[0].other | safe }}</li>
                                             </ul>
@@ -62,7 +62,7 @@
                                             {% for value in (rowItem.valueList if rowItem.valueList is iterable else rowItem.valueList.items()) %}
                                                 <li>
                                                     {{ value.text | safe }}
-                                                    {% if value.other %}
+                                                    {% if value.other or value.other == 0 %}
                                                         <ul class="u-mb-no">
                                                             <li>{{ value.other | safe }}</li>
                                                         </ul>
