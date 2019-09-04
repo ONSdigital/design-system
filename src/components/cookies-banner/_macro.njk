@@ -11,12 +11,13 @@
                         onsButton({
                             "type": 'button',
                             "text": params.primaryButtonText | default('Accept cookies'),
-                            "classes": 'btn--small'
+                            "classes": 'btn--small js-accept-cookies'
                         }) 
                     }}
                     {{ 
                         onsButton({
                             "type": 'button',
+                            "url": params.secondaryButtonUrl,
                             "text": params.secondaryButtonText | default('Cookie settings'),
                             "classes": 'btn--secondary btn--small'
                         }) 
