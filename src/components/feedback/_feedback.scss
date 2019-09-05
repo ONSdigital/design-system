@@ -7,7 +7,6 @@ $feedback-caret-width: 0.8rem;
     display: inline-block;
     position: relative;
     width: 100%;
-    background: $color-header;
     outline: none;
     pointer-events: none;
 
@@ -16,7 +15,12 @@ $feedback-caret-width: 0.8rem;
     }
   }
 
+  &__link {
+    border-bottom: 5px solid $color-header;
+  }
+
   &__heading {
+    background: $color-header;
     // Required for Google Tag Manager
     pointer-events: none;
   }
@@ -27,7 +31,7 @@ $feedback-caret-width: 0.8rem;
   }
 
   .details--initialised & {
-    &__summary {
+    &__heading {
       padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + 1rem);
       color: $color-text-inverse-link;
       cursor: pointer;
