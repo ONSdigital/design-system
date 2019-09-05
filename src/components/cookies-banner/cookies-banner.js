@@ -15,19 +15,20 @@ export default class CookiesBanner {
   }
 
   showCookiesMessage() {
-    const displayCookiesBanner = this.component && cookie('seen_cookie_message') !== 'true';
+    const displayCookiesBanner = this.component && cookie('ons_cookie_message_displayed') !== 'true';
 
     if (displayCookiesBanner) {
       this.component.style.display = 'block';
 
-      if (!cookie('cookie_policy')) {
+      if (!cookie('ons_cookie_policy')) {
         approveAllCookieTypes();
       }
     }
   }
 
-  setCookiesConsent() {
-    cookie('seen_cookie_message', 'true', { days: 365 });
+  setCookiesConsent(event) {
+    event.preventDefault();
+    cookie('ons_cookie_message_displayed', 'true', { days: 365 });
     this.hideCookiesMessage();
   }
 

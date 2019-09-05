@@ -1,16 +1,19 @@
-const DEFAULT_COOKIE_CONSENT = {
+export const DEFAULT_COOKIE_CONSENT = {
   essential: true,
   settings: true,
   usage: true,
   campaigns: true,
 };
 
-const COOKIE_CATEGORIES = {
-  cookie_policy: 'essential',
-  seen_cookie_message: 'essential',
+export const COOKIE_CATEGORIES = {
+  licensing_session: 'essential',
+  ons_cookie_policy: 'essential',
+  ons_cookie_message_displayed: 'essential',
   _ga: 'usage',
   _gid: 'usage',
   _gat: 'usage',
+  _use_hitbox: 'campaigns',
+  VISITOR_INFO1_LIVE: 'campaigns',
 };
 
 export function cookie(name, value, options) {
@@ -29,7 +32,7 @@ export function cookie(name, value, options) {
 }
 
 export function setDefaultConsentCookie() {
-  setCookie('cookie_policy', JSON.stringify(DEFAULT_COOKIE_CONSENT), { days: 365 });
+  setCookie('ons_cookie_policy', JSON.stringify(DEFAULT_COOKIE_CONSENT), { days: 365 });
 }
 
 export function approveAllCookieTypes() {
@@ -37,7 +40,7 @@ export function approveAllCookieTypes() {
 }
 
 export function getConsentCookie() {
-  const consentCookie = cookie('cookie_policy');
+  const consentCookie = cookie('ons_cookie_policy');
   let consentCookieObj;
 
   if (consentCookie) {
@@ -50,6 +53,30 @@ export function getConsentCookie() {
     return null;
   }
   return consentCookieObj;
+}
+
+export function setConsentCookie(options) {
+  let cookieConsent = getConsentCookie();
+  if (!cookieConsent) {
+    cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT));
+  }
+
+  for (let cookieType in options) {
+    cookieConsent[cookieType] = options[cookieType];
+
+    if (!options[cookieType]) {
+      for (let cookies in COOKIE_CATEGORIES) {
+        if (COOKIE_CATEGORIES[cookies] === cookieType) {
+          cookie(cookies, null);
+
+          if (cookie(cookies)) {
+            document.cookie = cookies + '=;expires=' + new Date() + ';domain=.' + window.location.hostname + ';path=/';
+          }
+        }
+      }
+    }
+  }
+  setCookie('ons_cookie_policy', JSON.stringify(cookieConsent), { days: 365 });
 }
 
 export function checkConsentCookieCategory(cookieName, cookieCategory) {
@@ -69,7 +96,7 @@ export function checkConsentCookieCategory(cookieName, cookieCategory) {
 }
 
 export function checkConsentCookie(cookieName, cookieValue) {
-  if (cookieName === 'cookie_policy' || (cookieValue === null || cookieValue === false)) {
+  if (cookieName === 'ons_cookie_policy' || (cookieValue === null || cookieValue === false)) {
     return true;
   }
 

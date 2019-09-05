@@ -4,6 +4,7 @@ layout: none
 {% extends "styles/page-template/_template.njk" %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 {% set page = { 
     "title": "Service name",
@@ -33,36 +34,80 @@ layout: none
 
 {% block main %}
 <div class="page__body">
+    {% call onsPanel({
+        "classes": "u-mb-s u-d-no cookies-confirmation-message",
+        "type": "success"
+    }) %}
+        <h2>Your cookie settings were saved</h2>
+        <p>Census services may set additional cookies and, if so, will have their own cookie policy and banner.</p>
+        <a class="cookies-settings__prev-page" href="/">Go back to previous page</a>
+    {% endcall %}
     <h1 class="u-fs-xxl">Cookies on census.gov.uk</h1>
     <p>Cookies are small files saved on your phone, tablet or computer when you visit a website.</p>
     <p>We use cookies to store information about how you use the census website, such as the pages you visit.</p>
     <h2>Cookie settings</h2>
-    <p>We use three types of cookie. You can choose which cookies you're happy for us to use.</p>
-    <form data-module="cookie-settings">
-        <h3>Cookies that measure website use</h3>
-        <p>We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:</p>
+    <div class="u-db-no-js_enabled">
+        <p>We use Javascript to set most of our cookies. Unfortunately Javascript is not running on your browser, so you cannot change your settings. You can try:</p>
         <ul>
-            <li>how you got to the site</li>
-            <li>the pages you visit on census.gov.uk and how long you spend on each page</li>
-            <li>what you click on while you're visiting the site</li>
+            <li>reloading the page</li>
+            <li>turning on Javascript in your browser</li>
         </ul>
-        <p>We do not allow Google to use or share the data about how you use this site.</p>
-        <div class="u-mb-s">
+    </div>
+    <div class="u-db-no-js_disabled">
+        <p>We use three types of cookie. You can choose which cookies you're happy for us to use.</p>
+        <form data-module="cookie-settings">
+            <h3>Cookies that measure website use</h3>
+            <p>We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:</p>
+            <ul>
+                <li>how you got to the site</li>
+                <li>the pages you visit on census.gov.uk and how long you spend on each page</li>
+                <li>what you click on while you're visiting the site</li>
+            </ul>
+            <p>We do not allow Google to use or share the data about how you use this site.</p>
+            <div class="u-mb-s">
+                {{ onsRadios({
+                    "id": "cookies-measure-website-use",
+                    "name": "cookies-usage",
+                    "legend": "Do you want to allow usage tracking?",
+                    "legendClasses": "u-vh",
+                    "radios": [
+                        {
+                            "id": "on-1",
+                            "label": {
+                                "text": "On"
+                            },
+                            "value": "on"
+                        },
+                        {
+                            "id": "off-1",
+                            "label": {
+                                "text": "Off"
+                            },
+                            "value": "off"
+                        }
+                    ]
+                }) }}
+            </div>
+            <p>This selection will expire after two years.</p>
+            <h3>Cookies that help with our communications</h3>
+
+            <p>Some of our pages may contain content from other sites, like YouTube, which may set their own cookies. These sites are sometimes called “third party” services. This tells us how many people are seeing the content and whether it’s useful.</p>
+            <p>In addition, if you share a link to a census.gov.uk page, the service you share it on may set a cookie. We have no control over cookies set on other websites – you can turn them off, but not through us.</p>
             {{ onsRadios({
-                "id": "cookies-measure-website-use",
-                "name": "cookies-measure-website-use",
-                "legend": "Do you want to allow usage tracking?",
+                "id": "cookies-measure-website-comms",
+                "name": "cookies-campaigns",
+                "legend": "Do you want to allow communications tracking?",
                 "legendClasses": "u-vh",
                 "radios": [
                     {
-                        "id": "on-1",
+                        "id": "on-2",
                         "label": {
                             "text": "On"
                         },
                         "value": "on"
                     },
                     {
-                        "id": "off-1",
+                        "id": "off-2",
                         "label": {
                             "text": "Off"
                         },
@@ -70,71 +115,44 @@ layout: none
                     }
                 ]
             }) }}
-        </div>
-        <p>This selection will expire after two years.</p>
-        <h3>Cookies that help with our communications</h3>
-
-        <p>Some of our pages may contain content from other sites, like YouTube, which may set their own cookies. These sites are sometimes called “third party” services. This tells us how many people are seeing the content and whether it’s useful.</p>
-        <p>In addition, if you share a link to a census.gov.uk page, the service you share it on may set a cookie. We have no control over cookies set on other websites – you can turn them off, but not through us.</p>
-        {{ onsRadios({
-            "id": "cookies-measure-website-comms",
-            "name": "cookies-measure-website-comms",
-            "legend": "Do you want to allow communications tracking?",
-            "legendClasses": "u-vh",
-            "radios": [
-                {
-                    "id": "on-2",
-                    "label": {
-                        "text": "On"
+            <h3>Cookies that remember your settings</h3>
+            <p>These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.</p>
+            {{ onsRadios({
+                "id": "cookies-measure-website-settings",
+                "name": "cookies-settings",
+                "legend": "Do you want to allow settings?",
+                "legendClasses": "u-vh",
+                "radios": [
+                    {
+                        "id": "on-3",
+                        "label": {
+                            "text": "On"
+                        },
+                        "value": "on"
                     },
-                    "value": "on"
-                },
-                {
-                    "id": "off-2",
-                    "label": {
-                        "text": "Off"
-                    },
-                    "value": "off"
-                }
-            ]
-        }) }}
-        <h3>Cookies that remember your settings</h3>
-        <p>These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.</p>
-        {{ onsRadios({
-            "id": "cookies-measure-website-settings",
-            "name": "cookies-measure-website-settings",
-            "legend": "Do you want to allow settings?",
-            "legendClasses": "u-vh",
-            "radios": [
-                {
-                    "id": "on-3",
-                    "label": {
-                        "text": "On"
-                    },
-                    "value": "on"
-                },
-                {
-                    "id": "off-3",
-                    "label": {
-                        "text": "Off"
-                    },
-                    "value": "off"
-                }
-            ]
-        }) }} 
-        <h3>Strictly necessary cookies</h3>
-        <p>These essential cookies do things like:</p>
-        <ul>
-            <li>remember the notifications you've seen so we do not show them to you again</li>
-            <li>remember your progress through a form (for example, the census online)</li>
-        </ul>
-        <p>They always need to be on.</p>
-        {{ 
-            onsButton({
-                "type": 'button',
-                "text": 'Save changes'
-            }) 
-        }}
-    </form>
+                    {
+                        "id": "off-3",
+                        "label": {
+                            "text": "Off"
+                        },
+                        "value": "off"
+                    }
+                ]
+            }) }} 
+            <h3>Strictly necessary cookies</h3>
+            <p>These essential cookies do things like:</p>
+            <ul>
+                <li>remember the notifications you've seen so we do not show them to you again</li>
+                <li>remember your progress through a form (for example, the census online)</li>
+            </ul>
+            <p>They always need to be on.</p>
+            {{ 
+                onsButton({
+                    "type": 'submit',
+                    "text": 'Save changes'
+                }) 
+            }}
+        </form>
+    </div>
 </div>
 {% endblock %}
