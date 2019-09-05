@@ -20,6 +20,7 @@ $feedback-caret-width: 0.8rem;
   }
 
   &__heading {
+    position: relative;
     background: $color-header;
     // Required for Google Tag Manager
     pointer-events: none;
@@ -32,7 +33,7 @@ $feedback-caret-width: 0.8rem;
 
   .details--initialised & {
     &__heading {
-      padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + 1rem);
+      padding: 0.4rem 0.2rem 0.2rem ($feedback-caret-width + 1rem);
       color: $color-text-inverse-link;
       cursor: pointer;
       pointer-events: initial;
@@ -60,7 +61,7 @@ $feedback-caret-width: 0.8rem;
         content: '';
         display: inline-block;
         position: absolute;
-        top: 0.7rem;
+        top: 0.6rem;
         left: 0.7rem;
         width: $feedback-caret-width;
         height: $feedback-caret-width;
@@ -93,7 +94,7 @@ $feedback-caret-width: 0.8rem;
   }
 
   .details--open & {
-    &__summary {
+    &__heading {
       &:before,
       &:after {
         transform: rotate(90deg);
