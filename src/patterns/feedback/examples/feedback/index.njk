@@ -5,6 +5,7 @@ layout: none
 
 {% set page = { 
     "title": "Service name",
+    "theme": "census",
     "bodyClasses": "u-ha",
     "phase": {
         "badge": "BETA",
@@ -63,26 +64,14 @@ layout: none
     "feedback": {
         "id": "feedback",
         "action": "/",
-        "title": "Give feedback and help us improve this service",
-        "closeButton": "I don't want to provide feedback",
+        "title": "Give us feedback and help us improve this service",
         "textarea": {
             "label": {
-                "text": "How can we improve this survey"
+                "text": "Tell us what we could do better"
             },
-            "maxlength": 2000,
+            "maxlength": 400,
             "charCountSingular": "You have {x} character remaining",
             "charCountPlural": "You have {x} characters remaining"
-        },
-        "name": {
-            "label": {
-                "text": "Name (optional)",
-                "description": "Please include your name and email address if you’re interested in taking part in further research to improve this survey"
-            }
-        },
-        "email": {
-            "label": {
-                "text": "Email address (optional)"
-            }
         },
         "sendButton": {
             "text": "Send feedback"

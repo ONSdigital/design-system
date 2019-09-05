@@ -1,5 +1,6 @@
 {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
 {% from "components/header/_macro.njk" import onsHeader %}
+{% from "components/feedback/_macro.njk" import onsFeedback %}
 {% from "components/footer/_macro.njk" import onsFooter %}
 
 {% set currentLanguageISOCode = "en" %}
@@ -119,6 +120,27 @@
                         </form>
                     {% endif %}
                 </div>
+                {% block feedback %}             
+                    {{
+                        onsFeedback({
+                            "id": page.feedback.id | default("feedback"),
+                            "action": page.feedback.action,
+                            "title": page.feedback.title,
+                            "closeButton":{
+                                "text": page.feedback.closeButton.text,
+                                "classes":  "btn--ghost-blue" + (" " + page.feedback.closeButton.classes if params.feedback.closeButton.classes else ""),
+                                "attributes": page.feedback.closeButton.attributes
+                            },
+                            "textarea": page.feedback.textarea,
+                            "name": page.feedback.name,
+                            "email": page.feedback.email,
+                            "sendButton": page.feedback.sendButton,
+                            "thankYouMessage": page.feedback.thankYouMessage,
+                            "errorMessage": page.feedback.errorMessage,
+                            "summaryAttributes": page.feedback.summaryAttributes
+                        })
+                    }}                  
+                {% endblock %}
                 {% block footer %}
                     {% if page.footer %}
                         {{

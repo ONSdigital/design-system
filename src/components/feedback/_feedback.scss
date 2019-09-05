@@ -1,0 +1,103 @@
+$feedback-caret-width: 0.8rem;
+
+.feedback {
+  display: block;
+
+  &__summary {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    background: $color-header;
+    outline: none;
+    pointer-events: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &__heading {
+    // Required for Google Tag Manager
+    pointer-events: none;
+  }
+
+  &__title {
+    transform: translateY(-1px);
+    pointer-events: none;
+  }
+
+  .details--initialised & {
+    &__summary {
+      padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + 1rem);
+      color: $color-text-inverse-link;
+      cursor: pointer;
+      pointer-events: initial;
+
+      &:hover,
+      &:focus {
+        color: $color-text-inverse-link-hover;
+
+        &:before {
+          opacity: 0;
+        }
+
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      &:focus {
+        outline: 3px solid $color-focus;
+        outline-offset: 3px;
+      }
+
+      &:before,
+      &:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0.7rem;
+        left: 0.7rem;
+        width: $feedback-caret-width;
+        height: $feedback-caret-width;
+
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: $feedback-caret-width $feedback-caret-width;
+      }
+
+      &:after {
+        opacity: 0;
+      }
+
+      &:before {
+        background-image: url(#{$static}/img/icons/icons--chevron-right-white.svg);
+      }
+
+      &:after {
+        background-image: url(#{$static}/img/icons/icons--chevron-right-white-hover.svg);
+      }
+    }
+
+    &__title {
+      text-decoration: underline;
+    }
+
+    &__content {
+      display: none;
+    }
+  }
+
+  .details--open & {
+    &__summary {
+      &:before,
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
+
+    &__content {
+      display: block;
+    }
+  }
+}
