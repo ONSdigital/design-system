@@ -1,16 +1,11 @@
 $feedback-caret-width: 0.8rem;
 
 .feedback {
-  display: block;
-
   &__header {
     background: $color-header;
   }
 
   &__summary {
-    display: inline-block;
-    position: relative;
-    width: 100%;
     outline: none;
     pointer-events: none;
 
