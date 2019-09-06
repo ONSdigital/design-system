@@ -3,6 +3,10 @@ $feedback-caret-width: 0.8rem;
 .feedback {
   display: block;
 
+  &__header {
+    background: $color-header;
+  }
+
   &__summary {
     display: inline-block;
     position: relative;
@@ -10,18 +14,24 @@ $feedback-caret-width: 0.8rem;
     outline: none;
     pointer-events: none;
 
+    &:focus {
+      outline: 3px solid $color-focus;
+      outline-offset: 3px;
+    }
+
     &::-webkit-details-marker {
       display: none;
     }
   }
 
-  &__link {
-    border-bottom: 5px solid $color-header;
+  &__hr {
+    border-top: 5px solid $color-header;
+    margin: 0;
   }
 
-  &__heading {
+  &__link {
     position: relative;
-    background: $color-header;
+    display: inline-block;
     // Required for Google Tag Manager
     pointer-events: none;
   }
@@ -32,7 +42,7 @@ $feedback-caret-width: 0.8rem;
   }
 
   .details--initialised & {
-    &__heading {
+    &__link {
       padding: 0.4rem 0.2rem 0.2rem ($feedback-caret-width + 1rem);
       color: $color-text-inverse-link;
       cursor: pointer;
@@ -49,11 +59,6 @@ $feedback-caret-width: 0.8rem;
         &:after {
           opacity: 1;
         }
-      }
-
-      &:focus {
-        outline: 3px solid $color-focus;
-        outline-offset: 3px;
       }
 
       &:before,
@@ -94,7 +99,7 @@ $feedback-caret-width: 0.8rem;
   }
 
   .details--open & {
-    &__heading {
+    &__link {
       &:before,
       &:after {
         transform: rotate(90deg);
