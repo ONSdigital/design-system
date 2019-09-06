@@ -120,10 +120,11 @@
                         </form>
                     {% endif %}
                 </div>
-                {% block feedback %}             
+                {% block preFooter %}            
                     {{
                         onsFeedback({
                             "id": page.feedback.id | default("feedback"),
+                            "classes": "page__feedback",
                             "action": page.feedback.action,
                             "title": page.feedback.title,
                             "closeButton":{
