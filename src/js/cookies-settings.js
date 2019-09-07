@@ -77,12 +77,6 @@ export default class CookiesSettings {
   }
 
   getReferrerLink() {
-    if (document.referrer && !this.referrerUrl) {
-      return new URL(document.referrer).pathname;
-    } else if (this.referrerUrl !== null) {
-      return this.referrerUrl;
-    } else {
-      return false;
-    }
+    return true;
   }
 }
