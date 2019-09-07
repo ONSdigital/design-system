@@ -61,26 +61,28 @@ export default class CookiesSettings {
 
   showConfirmationMessage() {
     const confirmationMessage = document.querySelector('.cookies-confirmation-message');
-    const previousPageLink = document.querySelector('.cookies-settings__prev-page');
-    const referrer = this.getReferrerLink();
+    // const previousPageLink = document.querySelector('.cookies-settings__prev-page');
+    // const referrer = this.getReferrerLink();
 
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
+    // document.body.scrollTop = document.documentElement.scrollTop = 0;
 
-    if (referrer && referrer !== document.location.pathname) {
-      previousPageLink.href = referrer;
-      previousPageLink.style.display = 'block';
-    } else {
-      previousPageLink.style.display = 'none';
-    }
+    // if (referrer && referrer !== document.location.pathname) {
+    //   previousPageLink.href = referrer;
+    //   previousPageLink.style.display = 'block';
+    // } else {
+    //   previousPageLink.style.display = 'none';
+    // }
 
     confirmationMessage.classList.remove('u-d-no');
   }
 
-  getReferrerLink() {
-    if (document.referrer) {
-      return new URL(document.referrer).pathname;
-    } else {
-      return false;
-    }
-  }
+  // getReferrerLink() {
+  //   if (document.referrer && !this.referrerUrl) {
+  //     return new URL(document.referrer).pathname;
+  //   } else if (this.referrerUrl) {
+  //     return this.referrerUrl;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }
