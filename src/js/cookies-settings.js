@@ -77,6 +77,8 @@ export default class CookiesSettings {
   }
 
   getReferrerLink() {
-    return true;
+    if (document.referrer) {
+      return document.referrer;
+    }
   }
 }
