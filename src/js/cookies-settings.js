@@ -1,10 +1,9 @@
 import { cookie, setDefaultConsentCookie, setConsentCookie, setCookie } from 'js/cookies-functions';
-
 export default class CookiesSettings {
-  constructor(component) {
+  constructor(component, referrerUrl) {
     this.component = component;
+    this.referrerUrl = referrerUrl;
     this.component.addEventListener('submit', this.submitSettingsForm.bind(this));
-
     this.setInitialFormValues();
   }
 
@@ -47,7 +46,7 @@ export default class CookiesSettings {
     }
     setConsentCookie(options);
 
-    if (cookie('ons_cookie_message_displayed')) {
+    if (!cookie('ons_cookie_message_displayed')) {
       setCookie('ons_cookie_message_displayed', true, { days: 365 });
     }
 
@@ -65,6 +64,7 @@ export default class CookiesSettings {
 
     if (referrer && referrer !== document.location.pathname) {
       previousPageLink.href = referrer;
+      previousPageLink.style.display = 'block';
     } else {
       previousPageLink.style.display = 'none';
     }
@@ -73,6 +73,12 @@ export default class CookiesSettings {
   }
 
   getReferrerLink() {
-    return document.referrer ? new URL(document.referrer).pathname : false;
+    if (document.referrer && !this.referrerUrl) {
+      return new URL(document.referrer).pathname;
+    } else if (this.referrerUrl) {
+      return this.referrerUrl;
+    } else {
+      return false;
+    }
   }
 }
