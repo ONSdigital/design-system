@@ -15,7 +15,11 @@ export default class CookiesSettings {
     const currentConsentCookie = cookie('ons_cookie_policy');
     let currentConsentCookieJSON = JSON.parse(currentConsentCookie);
 
-    delete currentConsentCookieJSON['essential'];
+    try {
+      delete currentConsentCookieJSON['essential'];
+    } catch (e) {
+      console.error(e);
+    }
 
     for (let cookieType in currentConsentCookieJSON) {
       let radioButton;
