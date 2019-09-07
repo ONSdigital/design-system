@@ -83,7 +83,7 @@ describe('Component: Cookie settings', function() {
     });
 
     it('does not set a referrer if URL is the same as current page', function() {
-      new CookiesSettings(this.form, document.location.pathname);
+      new CookiesSettings(this.form, document.location.href);
 
       const button = this.form.querySelector('#submit-button');
       button.click();

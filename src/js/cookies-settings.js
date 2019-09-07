@@ -66,7 +66,7 @@ export default class CookiesSettings {
 
     document.body.scrollTop = document.documentElement.scrollTop = 0;
 
-    if (referrer && referrer !== document.location.pathname) {
+    if (referrer && referrer !== document.location.href) {
       previousPageLink.href = referrer;
       previousPageLink.style.display = 'block';
     } else {
@@ -77,8 +77,12 @@ export default class CookiesSettings {
   }
 
   getReferrerLink() {
-    if (document.referrer) {
+    if (document.referrer && !this.referrerUrl) {
       return document.referrer;
+    } else if (this.referrerUrl) {
+      return this.referrerUrl;
+    } else {
+      return false;
     }
   }
 }
