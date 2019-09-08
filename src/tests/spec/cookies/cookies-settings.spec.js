@@ -43,10 +43,10 @@ describe.only('Component: Cookie settings', function() {
   describe('submitSettingsForm', function() {
     it('updates consent cookie with any changes', function() {
       const setConsentCookieSpy = chai.spy(setConsentCookie);
-      this.form.querySelector('#settings-on').checked = false;
-      this.form.querySelector('#settings-off').checked = true;
+      document.querySelector('#settings-on').checked = false;
+      document.querySelector('#settings-off').checked = true;
 
-      const button = this.form.querySelector('#submit-button');
+      const button = document.querySelector('#submit-button');
       button.click();
 
       const cookieJSON = JSON.parse(cookie('ons_cookie_policy'));
@@ -56,28 +56,24 @@ describe.only('Component: Cookie settings', function() {
     });
   });
 
-  it('sets ons_cookie_message_displayed cookie on form submit', function(done) {
+  it('sets ons_cookie_message_displayed cookie on form submit', function() {
     const setCookieSpy = chai.spy(setCookie);
 
-    // cookie('ons_cookie_message_displayed', null);
+    cookie('ons_cookie_message_displayed', null);
+    expect(cookie('ons_cookie_message_displayed')).to.equal(null);
 
-    // expect(cookie('ons_cookie_message_displayed')).to.equal(null);
-
-    const button = this.form.querySelector('#submit-button');
+    const button = document.querySelector('#submit-button');
     button.click();
 
     expect(setCookieSpy).to.have.been.called;
-    setTimeout(() => {
-      expect(cookie('ons_cookie_message_displayed')).to.equal('true');
-      done();
-    }, 300);
+    expect(cookie('ons_cookie_message_displayed')).to.equal('true');
   });
 
   describe('showConfirmationMessage', function() {
     it('sets the previous referrer link if one is present', function() {
       new CookiesSettings(this.form, '/help');
 
-      const button = this.form.querySelector('#submit-button');
+      const button = document.querySelector('#submit-button');
       button.click();
       const previousLink = document.querySelector('.cookies-settings__prev-page');
 
@@ -88,7 +84,7 @@ describe.only('Component: Cookie settings', function() {
     it('does not set a referrer if URL is the same as current page', function() {
       new CookiesSettings(this.form, document.location.href);
 
-      const button = this.form.querySelector('#submit-button');
+      const button = document.querySelector('#submit-button');
       button.click();
       const previousLink = document.querySelector('.cookies-settings__prev-page');
 
@@ -97,7 +93,7 @@ describe.only('Component: Cookie settings', function() {
 
     it('shows a confirmation message', function() {
       const confirmationMessage = document.querySelector('.cookies-confirmation-message');
-      const button = this.form.querySelector('#submit-button');
+      const button = document.querySelector('#submit-button');
       button.click();
 
       expect(confirmationMessage.classList.contains('u-d-no')).to.be.false;
