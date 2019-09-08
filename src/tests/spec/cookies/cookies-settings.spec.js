@@ -56,7 +56,7 @@ describe.only('Component: Cookie settings', function() {
     });
   });
 
-  it('sets ons_cookie_message_displayed cookie on form submit', function() {
+  it('sets ons_cookie_message_displayed cookie on form submit', function(done) {
     const setCookieSpy = chai.spy(setCookie);
 
     // cookie('ons_cookie_message_displayed', null);
@@ -67,7 +67,10 @@ describe.only('Component: Cookie settings', function() {
     button.click();
 
     expect(setCookieSpy).to.have.been.called;
-    expect(cookie('ons_cookie_message_displayed')).to.equal('true');
+    setTimeout(() => {
+      expect(cookie('ons_cookie_message_displayed')).to.equal('true');
+      done();
+    }, 300);
   });
 
   describe('showConfirmationMessage', function() {
