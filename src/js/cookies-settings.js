@@ -1,3 +1,4 @@
+import { unset } from 'lodash';
 import { cookie, setDefaultConsentCookie, setConsentCookie, setCookie } from 'js/cookies-functions';
 export default class CookiesSettings {
   constructor(component, referrerUrl) {
@@ -16,7 +17,7 @@ export default class CookiesSettings {
     let currentConsentCookieJSON = JSON.parse(currentConsentCookie);
 
     try {
-      delete currentConsentCookieJSON['essential'];
+      _.unset(currentConsentCookieJSON, 'essential');
     } catch (e) {
       console.error(e);
     }
