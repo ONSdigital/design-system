@@ -70,7 +70,7 @@ export function setConsentCookie(options) {
           cookie(cookies, null);
 
           if (cookie(cookies)) {
-            document.cookie = cookies + '=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/';
+            document.cookie = cookies + '=;expires=' + new Date() + ';domain=.' + window.location.hostname + ';path=/';
           }
         }
       }
@@ -125,8 +125,8 @@ export function setCookie(name, value, options) {
     if (document.location.protocol === 'https:') {
       cookieString = cookieString + '; Secure';
     }
-    const domain = window.location.hostname;
-    cookieString = cookieString + '; domain=' + domain;
+    // const domain = window.location.hostname;
+    // cookieString = cookieString + '; domain=' + domain;
     document.cookie = cookieString;
   }
 }

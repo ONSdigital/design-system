@@ -100,7 +100,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         startTunnel: 'true',
         name: 'Karma unit tests',
         project: 'ONS - design-system',
-        forcelocal: false,
+        forcelocal: true,
         username: process.env.BROWSER_STACK_USERNAME,
         accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
       },
