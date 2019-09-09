@@ -1,17 +1,24 @@
 $feedback-caret-width: 0.8rem;
 
 .feedback {
+  &.details--initialised {
+    border-bottom: 5px solid $color-header;
+  }
+  &.details--open {
+    border: none;
+  }
   &__header {
     background: $color-header;
   }
 
   &__summary {
+    @extend .container;
     outline: none;
     pointer-events: none;
 
     &:focus {
       outline: 3px solid $color-focus;
-      outline-offset: 3px;
+      outline-offset: -3px;
     }
 
     &::-webkit-details-marker {
@@ -29,6 +36,7 @@ $feedback-caret-width: 0.8rem;
     display: inline-block;
     // Required for Google Tag Manager
     pointer-events: none;
+    line-height: 1rem;
   }
 
   &__title {
@@ -38,7 +46,7 @@ $feedback-caret-width: 0.8rem;
 
   .details--initialised & {
     &__link {
-      padding: 0.4rem 0.2rem 0.2rem ($feedback-caret-width + 1rem);
+      padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + 1rem);
       color: $color-text-inverse-link;
       cursor: pointer;
       pointer-events: initial;
@@ -61,7 +69,7 @@ $feedback-caret-width: 0.8rem;
         content: '';
         display: inline-block;
         position: absolute;
-        top: 0.6rem;
+        top: 0.5rem;
         left: 0.7rem;
         width: $feedback-caret-width;
         height: $feedback-caret-width;
@@ -102,6 +110,7 @@ $feedback-caret-width: 0.8rem;
 
     &__content {
       display: block;
+      border-top: 5px solid $color-header;
     }
   }
 }
