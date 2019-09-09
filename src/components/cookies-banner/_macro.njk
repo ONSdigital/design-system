@@ -1,5 +1,5 @@
 {% macro onsCookiesBanner(params) %}
-    <div class="cookies-banner">
+    <div class="cookies-banner" role="region" aria-label="{{ params.ariaLabel | default('cookie banner')}}">
         <div class="container">
             <div class="grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap@s">
                 <div class="grid__col grid__col--flex col-auto u-flex-shrink@s">

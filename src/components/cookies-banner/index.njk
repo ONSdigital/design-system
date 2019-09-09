@@ -1,6 +1,14 @@
 ---
 title: Cookies banner
 ---
+{% from "components/panel/_macro.njk" import onsPanel %}
+{{ 
+    onsPanel({
+        "body": "This component requires further documentation.",
+        "classes": "u-mb-m"
+    }) 
+}}
+
 Cookies are files saved on your phone, tablet or computer when you visit a website.
 We use cookies to store information about how you use the ONS.GOV.UK website, such as the pages you visit.
 
@@ -13,10 +21,9 @@ We use cookies to store information about how you use the ONS.GOV.UK website, su
 The Cookies banner must be placed directly above the ONS [header](/components/header) at the very top of the page.
 
 ## Research on this component
-{% from "components/panel/_macro.njk" import onsPanel %}
 {{ 
     onsPanel({
-        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
+        "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
     }) 
 }}
 
