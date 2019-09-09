@@ -17,7 +17,7 @@ export default class CookiesSettings {
     let currentConsentCookieJSON = JSON.parse(currentConsentCookie);
 
     try {
-      _.unset(currentConsentCookieJSON, 'essential');
+      unset(currentConsentCookieJSON, 'essential');
     } catch (e) {
       console.error(e);
     }
