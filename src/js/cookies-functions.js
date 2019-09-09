@@ -125,8 +125,6 @@ export function setCookie(name, value, options) {
     if (document.location.protocol === 'https:') {
       cookieString = cookieString + '; Secure';
     }
-    // const domain = window.location.hostname;
-    // cookieString = cookieString + '; domain=' + domain;
     document.cookie = cookieString;
   }
 }
