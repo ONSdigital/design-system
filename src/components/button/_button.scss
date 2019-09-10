@@ -14,11 +14,15 @@ $button-border-height: 3px;
   font-weight: 600;
   line-height: 1.15;
 
+  text-decoration: none;
   text-rendering: optimizeLegibility;
 
   vertical-align: top;
-
   cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
 
   &__inner {
     display: inherit;
@@ -94,8 +98,6 @@ $button-border-height: 3px;
 
   &--link &__inner {
     &:after {
-      @include icon($name: 'chevron-right-white', $height: 0.8rem);
-
       content: '';
 
       margin: 0 0 0 0.5rem;
@@ -103,9 +105,27 @@ $button-border-height: 3px;
     }
   }
 
-  &--link.btn--small &__inner {
+  &--link:not(.btn--secondary) &__inner {
+    &:after {
+      @include icon($name: 'chevron-right-white', $height: 0.8rem);
+    }
+  }
+
+  &--link.btn--small:not(.btn--secondary) &__inner {
     &:after {
       @include icon($name: 'chevron-right-white', $height: 0.7rem);
+    }
+  }
+
+  &--link.btn--secondary &__inner {
+    &:after {
+      @include icon($name: 'chevron-right', $height: 0.8rem);
+    }
+  }
+
+  &--link.btn--small.btn--secondary &__inner {
+    &:after {
+      @include icon($name: 'chevron-right', $height: 0.7rem);
     }
   }
 
