@@ -72,7 +72,8 @@ export function setConsentCookie(options) {
           }
           cookie(cookies, null);
           if (cookie(cookies)) {
-            document.cookie = cookies + '=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/';
+            const cookieString = cookies + '=;expires=' + new Date() + ';domain=' + document.location.hostname + ';path=/';
+            document.cookie = cookieString;
           }
         }
       }
@@ -103,7 +104,6 @@ export function checkConsentCookie(cookieName, cookieValue) {
 
   if (COOKIE_CATEGORIES[cookieName]) {
     const cookieCategory = COOKIE_CATEGORIES[cookieName];
-
     return checkConsentCookieCategory(cookieName, cookieCategory);
   } else {
     return false;
@@ -117,7 +117,6 @@ export function setCookie(name, value, options) {
     }
 
     let cookieString = name + '=' + value + '; path=/';
-
     if (options.days) {
       const date = new Date();
       date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
