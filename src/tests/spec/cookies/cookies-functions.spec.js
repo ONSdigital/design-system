@@ -9,6 +9,7 @@ import {
   checkConsentCookieCategory,
   checkConsentCookie,
   getCookie,
+  getDomain,
 } from 'js/cookies-functions';
 
 describe('Component: Cookie functions', function() {
@@ -76,7 +77,7 @@ describe('Component: Cookie functions', function() {
   });
 });
 
-describe('consent cookie methods', function() {
+describe.only('consent cookie methods', function() {
   it('can set the consent cookie to default values', function() {
     const setCookieSpy = chai.spy(setCookie);
     cookie('ons_cookie_policy', null);
@@ -117,9 +118,12 @@ describe('consent cookie methods', function() {
     expect(cookie('ons_cookie_message_displayed')).to.equal('this is an essential cookie');
 
     const setCookieSpy = chai.spy(setCookie);
-    setConsentCookie({ essential: false });
+    const getDomainSpy = chai.spy(getDomain);
 
+    setConsentCookie({ essential: false });
+    console.log(getDomain);
     expect(setCookieSpy).to.have.been.called;
+    expect(getDomainSpy).to.have.been.called;
     expect(getCookie('ons_cookie_policy')).to.contain('{"essential":false,"settings":true,"usage":true,"campaigns":true}');
 
     expect(cookie('ons_cookie_message_displayed')).to.equal(null);
