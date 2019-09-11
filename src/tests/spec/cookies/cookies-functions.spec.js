@@ -77,7 +77,7 @@ describe('Component: Cookie functions', function() {
   });
 });
 
-describe.only('consent cookie methods', function() {
+describe('consent cookie methods', function() {
   it('can set the consent cookie to default values', function() {
     const setCookieSpy = chai.spy(setCookie);
     cookie('ons_cookie_policy', null);
@@ -121,7 +121,6 @@ describe.only('consent cookie methods', function() {
     const getDomainSpy = chai.spy(getDomain);
 
     setConsentCookie({ essential: false });
-    console.log(getDomain);
     expect(setCookieSpy).to.have.been.called;
     expect(getDomainSpy).to.have.been.called;
     expect(getCookie('ons_cookie_policy')).to.contain('{"essential":false,"settings":true,"usage":true,"campaigns":true}');
