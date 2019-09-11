@@ -79,7 +79,7 @@ $checkbox-label-vertical-padding: 0.75rem;
   }
 
   &__input:focus + &__label:before {
-    box-shadow: 0 0 0 3px $color-focus;
+    @extend .input:focus;
   }
 
   &__input:not(:checked) ~ &__other {

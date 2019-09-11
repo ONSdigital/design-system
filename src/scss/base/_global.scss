@@ -36,8 +36,13 @@ a {
     color: $color-links-hover;
   }
   &:focus {
-    outline: 3px solid $color-focus;
-    outline-offset: 3px;
-    color: $color-links-hover;
+    outline: 3px solid $color-focus-text;
+    color: $color-focus-text;
+    outline: 3px solid transparent;
+    color: #0b0c0c;
+    background-color: $color-focus;
+    box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
+    text-decoration: none;
+    color: $color-focus-text !important;
   }
 }

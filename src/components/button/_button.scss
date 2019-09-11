@@ -38,14 +38,18 @@ $button-border-height: 3px;
     pointer-events: none;
   }
 
+  &:focus {
+    outline: 3px solid transparent;
+
+    .btn__inner {
+      color: $color-focus-text;
+      background-color: $color-focus;
+    }
+  }
+
   // When preceded by another button (e.g. in a group)
   & + & {
     margin-left: 0.5rem;
-  }
-
-  &:focus {
-    outline: 3px solid $color-focus;
-    outline-offset: 3px;
   }
 
   // When clicked
@@ -94,6 +98,10 @@ $button-border-height: 3px;
       margin: 0 0 0 0.5rem;
       vertical-align: middle;
     }
+  }
+
+  &--link:focus &__inner {
+    border-bottom: none;
   }
 
   &--link &__inner {
