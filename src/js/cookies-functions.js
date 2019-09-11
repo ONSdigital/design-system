@@ -6,7 +6,8 @@ export const DEFAULT_COOKIE_CONSENT = {
 };
 
 export const COOKIE_CATEGORIES = {
-  licensing_session: 'essential',
+  RH_SESSION: 'essential',
+  session: 'essential',
   ons_cookie_policy: 'essential',
   ons_cookie_message_displayed: 'essential',
   _ga: 'usage',
@@ -60,17 +61,14 @@ export function setConsentCookie(options) {
   if (!cookieConsent) {
     cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT));
   }
-
   for (let cookieType in options) {
     cookieConsent[cookieType] = options[cookieType];
-
     if (!options[cookieType]) {
       for (let cookies in COOKIE_CATEGORIES) {
         if (COOKIE_CATEGORIES[cookies] === cookieType) {
           cookie(cookies, null);
-
           if (cookie(cookies)) {
-            document.cookie = cookies + '=;expires=' + new Date() + ';domain=.' + window.location.hostname + ';path=/';
+            document.cookie = cookies + '=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/';
           }
         }
       }
@@ -81,7 +79,6 @@ export function setConsentCookie(options) {
 
 export function checkConsentCookieCategory(cookieName, cookieCategory) {
   let currentConsentCookie = getConsentCookie();
-
   if (!currentConsentCookie && COOKIE_CATEGORIES[cookieName]) {
     return true;
   }
