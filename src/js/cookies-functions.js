@@ -66,6 +66,10 @@ export function setConsentCookie(options) {
     if (!options[cookieType]) {
       for (let cookies in COOKIE_CATEGORIES) {
         if (COOKIE_CATEGORIES[cookies] === cookieType) {
+          if (cookieType === 'usage') {
+            window['ga-disable-UA-141503304-9'] = true;
+            window['ga-disable-UA-141503304-1'] = true;
+          }
           cookie(cookies, null);
           if (cookie(cookies)) {
             document.cookie = cookies + '=;expires=' + new Date() + ';domain=' + window.location.hostname + ';path=/';
