@@ -85,8 +85,8 @@ describe('consent cookie methods', function() {
     setDefaultConsentCookie();
 
     expect(setCookieSpy).to.have.been.called;
-    expect(getCookie('ons_cookie_policy')).to.contain('{"essential":true,"settings":true,"usage":true,"campaigns":true}');
-    expect(getConsentCookie()).to.contain({ essential: true, settings: true, usage: true, campaigns: true });
+    const cookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
+    expect(cookieJSON).to.contain({ essential: true, settings: true, usage: true, campaigns: true });
   });
 
   it('can set the consent cookie to approve all cookie categories', function() {
@@ -100,8 +100,8 @@ describe('consent cookie methods', function() {
     approveAllCookieTypes();
 
     expect(setCookieSpy).to.have.been.called;
-    expect(getCookie('ons_cookie_policy')).to.contain('{"essential":true,"settings":true,"usage":true,"campaigns":true}');
-    expect(getConsentCookie()).to.contain({ essential: true, settings: true, usage: true, campaigns: true });
+    const cookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
+    expect(cookieJSON).to.contain({ essential: true, settings: true, usage: true, campaigns: true });
   });
 
   it('returns null if the consent cookie does not exist', function() {
@@ -122,7 +122,7 @@ describe('consent cookie methods', function() {
     setConsentCookie({ essential: false });
     expect(setCookieSpy).to.have.been.called;
     expect(getDomainSpy).to.have.been.called;
-    expect(getCookie('ons_cookie_policy')).to.contain('{"essential":false,"settings":true,"usage":true,"campaigns":true}');
+    expect(getCookie('ons_cookie_policy')).to.contain("{'essential':false,'settings':true,'usage':true,'campaigns':true}");
 
     expect(cookie('ons_cookie_message_displayed')).to.equal(null);
   });
