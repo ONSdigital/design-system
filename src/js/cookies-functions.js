@@ -6,7 +6,8 @@ export const DEFAULT_COOKIE_CONSENT = {
 };
 
 export const COOKIE_CATEGORIES = {
-  licensing_session: 'essential',
+  RH_SESSION: 'essential',
+  session: 'essential',
   ons_cookie_policy: 'essential',
   ons_cookie_message_displayed: 'essential',
   _ga: 'usage',
@@ -56,21 +57,25 @@ export function getConsentCookie() {
 }
 
 export function setConsentCookie(options) {
+  const domain = getDomain(document.domain);
   let cookieConsent = getConsentCookie();
   if (!cookieConsent) {
     cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT));
   }
-
   for (let cookieType in options) {
     cookieConsent[cookieType] = options[cookieType];
-
     if (!options[cookieType]) {
       for (let cookies in COOKIE_CATEGORIES) {
         if (COOKIE_CATEGORIES[cookies] === cookieType) {
+          if (cookieType === 'usage') {
+            window['ga-disable-UA-141503304-9'] = true;
+            window['ga-disable-UA-141503304-1'] = true;
+          }
           cookie(cookies, null);
-
           if (cookie(cookies)) {
-            document.cookie = cookies + '=;expires=' + new Date() + ';domain=.' + window.location.hostname + ';path=/';
+            const cookieString = cookies + '=;expires=' + new Date() + ';domain=' + domain + ';path=/';
+            document.cookie = cookieString;
+            console.log(cookieString);
           }
         }
       }
@@ -81,7 +86,6 @@ export function setConsentCookie(options) {
 
 export function checkConsentCookieCategory(cookieName, cookieCategory) {
   let currentConsentCookie = getConsentCookie();
-
   if (!currentConsentCookie && COOKIE_CATEGORIES[cookieName]) {
     return true;
   }
@@ -102,7 +106,6 @@ export function checkConsentCookie(cookieName, cookieValue) {
 
   if (COOKIE_CATEGORIES[cookieName]) {
     const cookieCategory = COOKIE_CATEGORIES[cookieName];
-
     return checkConsentCookieCategory(cookieName, cookieCategory);
   } else {
     return false;
@@ -116,7 +119,6 @@ export function setCookie(name, value, options) {
     }
 
     let cookieString = name + '=' + value + '; path=/';
-
     if (options.days) {
       const date = new Date();
       date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
@@ -142,4 +144,17 @@ export function getCookie(name) {
     }
   }
   return null;
+}
+
+export function getDomain(domain) {
+  let i = 0,
+    domainName = domain,
+    p = domainName.split('.'),
+    s = '_gd' + new Date().getTime();
+  while (i < p.length - 1 && document.cookie.indexOf(s + '=' + s) == -1) {
+    domainName = p.slice(-1 - ++i).join('.');
+    document.cookie = s + '=' + s + ';domain=' + domainName + ';';
+  }
+  document.cookie = s + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + domainName + ';';
+  return domainName;
 }
