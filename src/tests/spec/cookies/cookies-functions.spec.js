@@ -9,6 +9,7 @@ import {
   checkConsentCookieCategory,
   checkConsentCookie,
   getCookie,
+  getDomain,
 } from 'js/cookies-functions';
 
 describe('Component: Cookie functions', function() {
@@ -71,7 +72,6 @@ describe('Component: Cookie functions', function() {
 
   it('deletes the cookie if value is set to null', function() {
     cookie('ons_cookie_message_displayed', null);
-
     expect(getCookie('ons_cookie_message_displayed')).to.equal(null);
   });
 });
@@ -96,7 +96,7 @@ describe('consent cookie methods', function() {
 
     expect(getConsentCookie().essential).to.equal(false);
     expect(getConsentCookie().usage).to.equal(false);
-
+    expect(getDomain(document.domain)).to.equal('localhost');
     approveAllCookieTypes();
 
     expect(setCookieSpy).to.have.been.called;
@@ -117,9 +117,11 @@ describe('consent cookie methods', function() {
     expect(cookie('ons_cookie_message_displayed')).to.equal('this is an essential cookie');
 
     const setCookieSpy = chai.spy(setCookie);
-    setConsentCookie({ essential: false });
+    const getDomainSpy = chai.spy(getDomain);
 
+    setConsentCookie({ essential: false });
     expect(setCookieSpy).to.have.been.called;
+    expect(getDomainSpy).to.have.been.called;
     expect(getCookie('ons_cookie_policy')).to.contain('{"essential":false,"settings":true,"usage":true,"campaigns":true}');
 
     expect(cookie('ons_cookie_message_displayed')).to.equal(null);
