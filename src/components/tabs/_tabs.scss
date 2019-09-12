@@ -30,8 +30,8 @@
   position: relative;
   margin: 0 0.1rem 0 0;
   padding: 0.5rem 1rem;
-  background: lighten($color-borders, 10%);
-  border: 1px solid lighten($color-borders, 10%);
+  background: lighten($color-borders, 30%);
+  border: 1px solid lighten($color-borders, 30%);
   border-radius: 3px 3px 0 0;
   overflow: visible;
   text-decoration: none;
@@ -42,11 +42,6 @@
   &:hover {
     background-color: $color-borders;
     border-color: $color-borders;
-  }
-
-  &:focus {
-    outline: 3px solid $color-focus;
-    outline-offset: 3px;
   }
 
   &[aria-selected='true'] {
@@ -69,6 +64,12 @@
       content: '';
     }
   }
+
+  &:focus {
+    outline: none;
+    background-color: $color-focus;
+    color: $color-focus-text;
+  }
 }
 
 // Tabs - Panels
@@ -83,6 +84,6 @@
   }
 
   &:focus {
-    outline: 3px solid $color-focus;
+    outline: 4px solid $color-focus;
   }
 }

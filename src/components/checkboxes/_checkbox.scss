@@ -109,5 +109,9 @@ $checkbox-label-vertical-padding: 0.75rem;
       background: transparent;
       box-shadow: none;
     }
+
+    &__input:focus + .checkbox__label:before {
+      border: none;
+    }
   }
 }

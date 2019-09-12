@@ -35,14 +35,11 @@ a {
     text-decoration: underline;
     color: $color-links-hover;
   }
-  &:focus {
-    outline: 3px solid $color-focus-text;
-    color: $color-focus-text;
+  &:focus:not(.btn--link):not(.btn--ghost):not(.download__thumbnail--link):not(.header__logo-link):not(.header__title-link):not(.tab--row) {
     outline: 3px solid transparent;
-    color: #0b0c0c;
+    color: $color-focus-text;
     background-color: $color-focus;
     box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
     text-decoration: none;
-    color: $color-focus-text !important;
   }
 }
