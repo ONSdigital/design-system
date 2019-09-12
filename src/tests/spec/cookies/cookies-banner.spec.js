@@ -32,7 +32,7 @@ describe('Component: Cookie banner', function() {
     new CookiesBanner(this.banner);
     const approveAllCookieTypesSpy = chai.spy(approveAllCookieTypes);
     expect(approveAllCookieTypesSpy).to.have.been.called;
-    const cookieJSON = JSON.parse(cookie('ons_cookie_policy'));
+    const cookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
     expect(cookieJSON).to.contain({ essential: true, settings: true, usage: true, campaigns: true });
   });
 
