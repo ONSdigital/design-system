@@ -72,12 +72,11 @@ describe('Component: Cookie functions', function() {
 
   it('deletes the cookie if value is set to null', function() {
     cookie('ons_cookie_message_displayed', null);
-
     expect(getCookie('ons_cookie_message_displayed')).to.equal(null);
   });
 });
 
-describe('consent cookie methods', function() {
+describe.only('consent cookie methods', function() {
   it('can set the consent cookie to default values', function() {
     const setCookieSpy = chai.spy(setCookie);
     cookie('ons_cookie_policy', null);
@@ -97,7 +96,7 @@ describe('consent cookie methods', function() {
 
     expect(getConsentCookie().essential).to.equal(false);
     expect(getConsentCookie().usage).to.equal(false);
-
+    expect(getDomain(document.domain)).to.equal('localhost');
     approveAllCookieTypes();
 
     expect(setCookieSpy).to.have.been.called;
