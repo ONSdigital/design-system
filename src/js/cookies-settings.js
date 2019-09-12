@@ -14,7 +14,7 @@ export default class CookiesSettings {
     }
 
     const currentConsentCookie = cookie('ons_cookie_policy');
-    let currentConsentCookieJSON = JSON.parse(currentConsentCookie);
+    let currentConsentCookieJSON = JSON.parse(currentConsentCookie.replace(/'/g, '"'));
 
     try {
       unset(currentConsentCookieJSON, 'essential');
