@@ -76,7 +76,7 @@ describe('Component: Cookie functions', function() {
   });
 });
 
-describe.only('consent cookie methods', function() {
+describe('consent cookie methods', function() {
   it('can set the consent cookie to default values', function() {
     const setCookieSpy = chai.spy(setCookie);
     cookie('ons_cookie_policy', null);
