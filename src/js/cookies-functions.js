@@ -73,6 +73,7 @@ export function setConsentCookie(options) {
           if (cookieType === 'usage') {
             window['ga-disable-UA-141503304-9'] = true;
             window['ga-disable-UA-141503304-1'] = true;
+            window['ga-disable-UA-141503304-8'] = true;
           }
           cookie(cookies, null);
           if (cookie(cookies)) {
