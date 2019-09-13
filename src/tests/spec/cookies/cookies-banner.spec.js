@@ -2,7 +2,7 @@ import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import CookiesBanner from 'components/cookies-banner/cookies-banner';
 import { cookie, setCookie, approveAllCookieTypes } from 'js/cookies-functions';
 
-describe.only('Component: Cookie banner', function() {
+describe('Component: Cookie banner', function() {
   before(() => awaitPolyfills);
 
   beforeEach(function() {
