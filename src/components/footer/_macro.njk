@@ -15,13 +15,19 @@
         {% endif %}
     {% endif %}
 
+    {% set poweredByONSLogo %}
+        <img src="/img/ons-logo-black-{{ lang }}.svg" alt="{{ poweredByAlt }}" class="footer__poweredby-img">
+    {% endset %}
+
     <footer class="footer {{ params.classes }}" data-analytics="footer" {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
         <div class="container">
-            <div class="grid">
+            <div class="grid{% if not params.OGLLink %} grid--flex{% endif %}">
                 {% if params.poweredByONS %}
-                    <div class="grid__col u-mb-m">
-                        <img src="/img/ons-logo-black-{{ lang }}.svg" alt="{{ poweredByAlt }}" class="footer__poweredby-img">
-                    </div>
+                    {% if params.OGLLink %}
+                        <div class="grid__col u-mb-m">
+                            {{ poweredByONSLogo | safe }}
+                        </div>
+                    {% endif %}
                 {% endif %}
                 {% if params.button %}
                     {% from "components/button/_macro.njk" import onsButton %}
@@ -73,7 +79,7 @@
                                 })
                             }}
                         </div>
-                        <div class="grid__col u-d-no@m u-mt-m u-mb-m">
+                        <div class="grid__col u-d-no@m u-mb-m">
                             <hr class="footer__hr">
                         </div>
                 {% endif %}
@@ -92,11 +98,9 @@
                                 }}
                             </div>
                         {% endfor %}
-                        <div class="grid__col u-mt-m u-mb-m">
-                            <hr class="footer__hr">
-                        </div>
                 {% endif %}
                 {% if params.rows %}
+                    {% if params.OGLLink %}
                         {% for row in params.rows %}
                             <div class="grid__col">
                                 {{
@@ -106,10 +110,38 @@
                                     })
                                 }}
                             </div>
-                            <div class="grid__col u-mt-m u-mb-m">
-                                <hr class="footer__hr">
-                            </div>
+                            {% if loop.length > 1 %}
+                                {% if not loop.last %}
+                                    <div class="grid__col u-mb-m">
+                                        <hr class="footer__hr">
+                                    </div>
+                                {% endif %}
+                            {% endif %}
                         {% endfor %}
+                    {% else %}
+                        {% for row in params.rows %}
+                            <div class="grid__col">
+                                {{
+                                    onsList({
+                                        "classes": 'list--bare list--inline@s u-mb-no',
+                                        "itemsList": row.itemsList
+                                    })
+                                }}
+                            </div>
+                            {% if loop.length > 1 %}
+                                {% if not loop.last %}
+                                    <div class="grid__col u-mb-m">
+                                        <hr class="footer__hr">
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            {% if loop.last %}
+                                <div class="grid__col">
+                                    <img src="/img/ons-logo-black-{{ lang }}.svg" alt="{{ poweredByAlt }}" class="footer__poweredby-img">
+                                </div>
+                            {% endif %}
+                        {% endfor %}                        
+                    {% endif %}
                 {% endif %}
                 {% if params.feedback %}
                     {% from "components/feedback/_macro.njk" import onsFeedback %}
@@ -138,16 +170,28 @@
                         <hr class="footer__hr">
                     </div>
                 {% endif %}
-                <div class="grid__col">
-                    <div class="footer__license">
-                        <img alt="OGL" class="footer__ogl-img" src="{{ params.assetsURL }}/img/UKOpenGovernmentLicence-grey.svg">
-                        {% if params.OGLLink.HTML %}
-                            {{ params.OGLLink.HTML | safe }}
-                        {% else %}
-                            {{ params.OGLLink.pre }} <a href="{{ params.OGLLink.url }}" class="footer__link">{{ params.OGLLink.link }}</a>{{ params.OGLLink.post }}
-                        {% endif %}
+                {% if params.OGLLink %}
+                    <div class="grid__col u-mb-m">
+                        <hr class="footer__hr">
                     </div>
-                </div>
+                    <div class="grid__col">
+                        <div class="footer__license">
+                            <img alt="OGL" class="footer__ogl-img" src="{{ params.assetsURL }}/img/UKOpenGovernmentLicence-grey.svg">
+                            {% if params.OGLLink.HTML %}
+                                {{ params.OGLLink.HTML | safe }}
+                            {% else %}
+                                {{ params.OGLLink.pre }} <a href="{{ params.OGLLink.url }}" class="footer__link">{{ params.OGLLink.link }}</a>{{ params.OGLLink.post }}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% elif params.poweredByONS and params.cols %}
+                    <div class="grid__col u-mb-m">
+                        <hr class="footer__hr">
+                    </div>
+                    <div class="grid__col u-mb-m">
+                        {{ poweredByONSLogo | safe }}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </footer>

@@ -1,0 +1,43 @@
+---
+"fullWidth": true
+---
+{% from "components/footer/_macro.njk" import onsFooter %}
+{{ 
+    onsFooter({
+        "poweredByONS": true,
+        "rows": [
+            {
+                "itemsList": [
+                    {
+                        "text": 'About the census',
+                        "url": '#'
+                    },
+                    {
+                        "text": 'Help with the census',
+                        "url": '#'
+                    },
+                    {
+                        "text": 'Contact us',
+                        "url": '#'
+                    }
+                ]
+            },
+            {
+                "itemsList": [
+                    {
+                        "text": 'Cookies',
+                        "url": '#'
+                    },
+                    {
+                        "text": 'Accessibility',
+                        "url": '#'
+                    },
+                    {
+                        "text": 'Privacy and data protection',
+                        "url": '#'
+                    }
+                ]
+            }
+        ]
+    }) 
+}}
