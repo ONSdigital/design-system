@@ -21,7 +21,7 @@
 
     <footer class="footer {{ params.classes }}" data-analytics="footer" {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
         <div class="container">
-            <div class="grid{% if not params.OGLLink %} grid--flex{% endif %}">
+            <div class="grid">
                 {% if params.poweredByONS %}
                     {% if params.OGLLink %}
                         <div class="grid__col u-mb-m">
@@ -127,6 +127,11 @@
                                         "itemsList": row.itemsList
                                     })
                                 }}
+                                {% if loop.last %}
+                                    <div>
+                                        <img src="/img/ons-logo-black-{{ lang }}.svg" alt="{{ poweredByAlt }}" class="footer__poweredby-img--inline">
+                                    </div>
+                                {% endif %}
                             </div>
                             {% if loop.length > 1 %}
                                 {% if not loop.last %}
@@ -135,12 +140,7 @@
                                     </div>
                                 {% endif %}
                             {% endif %}
-                            {% if loop.last %}
-                                <div class="grid__col">
-                                    <img src="/img/ons-logo-black-{{ lang }}.svg" alt="{{ poweredByAlt }}" class="footer__poweredby-img">
-                                </div>
-                            {% endif %}
-                        {% endfor %}                        
+                        {% endfor %}
                     {% endif %}
                 {% endif %}
                 {% if params.feedback %}

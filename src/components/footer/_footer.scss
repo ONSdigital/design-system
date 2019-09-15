@@ -1,3 +1,8 @@
+@mixin poweredby {
+  width: 272px;
+  height: auto;
+}
+
 .footer {
   padding: 2rem 0 4rem;
   background-color: $color-grey-5;
@@ -13,8 +18,14 @@
   }
 
   &__poweredby-img {
-    width: 272px;
-    height: auto;
+    @include poweredby;
+  }
+
+  &__poweredby-img--inline {
+    @include poweredby;
+    float: right;
+    padding-top: 0.5rem;
+    margin-top: -2rem;
   }
 
   &__hr {
