@@ -24,8 +24,8 @@
   &__poweredby-img--inline {
     @include poweredby;
     float: right;
-    padding-top: 0.5rem;
     margin-top: -2rem;
+    padding-top: 0.5rem;
   }
 
   &__hr {
