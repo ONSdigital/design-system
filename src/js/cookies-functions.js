@@ -17,6 +17,9 @@ export const COOKIE_CATEGORIES = {
   VISITOR_INFO1_LIVE: 'campaigns',
 };
 
+const domain = getDomain(document.domain);
+const setDomain = !domain.indexOf('locahost') ? ';domain=.' + domain : '';
+
 export function cookie(name, value, options) {
   if (typeof value !== 'undefined') {
     if (value === false || value === null) {
@@ -33,7 +36,8 @@ export function cookie(name, value, options) {
 }
 
 export function setDefaultConsentCookie() {
-  setCookie('ons_cookie_policy', JSON.stringify(DEFAULT_COOKIE_CONSENT), { days: 365 });
+  const defaultConsentCookie = JSON.stringify(DEFAULT_COOKIE_CONSENT).replace(/"/g, "'");
+  setCookie('ons_cookie_policy', defaultConsentCookie, { days: 365 });
 }
 
 export function approveAllCookieTypes() {
@@ -45,10 +49,10 @@ export function getConsentCookie() {
   let consentCookieObj;
 
   if (consentCookie) {
-    consentCookieObj = JSON.parse(consentCookie);
+    consentCookieObj = JSON.parse(consentCookie.replace(/'/g, '"'));
 
     if (typeof consentCookieObj !== 'object' && consentCookieObj !== null) {
-      consentCookieObj = JSON.parse(consentCookieObj);
+      consentCookieObj = JSON.parse(consentCookieObj.replace(/'/g, '"'));
     }
   } else {
     return null;
@@ -57,10 +61,9 @@ export function getConsentCookie() {
 }
 
 export function setConsentCookie(options) {
-  const domain = getDomain(document.domain);
   let cookieConsent = getConsentCookie();
   if (!cookieConsent) {
-    cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT));
+    cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT).replace(/'/g, '"'));
   }
   for (let cookieType in options) {
     cookieConsent[cookieType] = options[cookieType];
@@ -70,18 +73,18 @@ export function setConsentCookie(options) {
           if (cookieType === 'usage') {
             window['ga-disable-UA-141503304-9'] = true;
             window['ga-disable-UA-141503304-1'] = true;
+            window['ga-disable-UA-141503304-8'] = true;
           }
           cookie(cookies, null);
           if (cookie(cookies)) {
-            const cookieString = cookies + '=;expires=' + new Date() + ';domain=' + domain + ';path=/';
+            const cookieString = cookies + '=;expires=' + new Date() + setDomain + ';path=/';
             document.cookie = cookieString;
-            console.log(cookieString);
           }
         }
       }
     }
   }
-  setCookie('ons_cookie_policy', JSON.stringify(cookieConsent), { days: 365 });
+  setCookie('ons_cookie_policy', JSON.stringify(cookieConsent).replace(/"/g, "'"), { days: 365 });
 }
 
 export function checkConsentCookieCategory(cookieName, cookieCategory) {
@@ -122,7 +125,7 @@ export function setCookie(name, value, options) {
     if (options.days) {
       const date = new Date();
       date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
-      cookieString = cookieString + '; expires=' + date.toGMTString();
+      cookieString = cookieString + '; expires=' + date.toGMTString() + setDomain;
     }
     if (document.location.protocol === 'https:') {
       cookieString = cookieString + '; Secure';
