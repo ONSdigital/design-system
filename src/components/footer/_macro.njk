@@ -100,48 +100,36 @@
                         {% endfor %}
                 {% endif %}
                 {% if params.rows %}
-                    {% if params.OGLLink %}
-                        {% for row in params.rows %}
-                            <div class="grid__col">
-                                {{
-                                    onsList({
-                                        "classes": 'list--bare list--inline@s u-mb-no',
-                                        "itemsList": row.itemsList
-                                    })
-                                }}
-                            </div>
-                            {% if loop.length > 1 %}
-                                {% if not loop.last %}
-                                    <div class="grid__col u-mb-m">
-                                        <hr class="footer__hr">
-                                    </div>
-                                {% endif %}
+                    {% for row in params.rows %}
+                        {% if not params.OGLLink %}
+                            {% if loop.length > 1 and loop.last %}
+                                </div>
+                                <div class="grid grid--flex grid--vertical-center grid--between">
                             {% endif %}
-                        {% endfor %}
-                    {% else %}
-                        {% for row in params.rows %}
-                            <div class="grid__col">
-                                {{
-                                    onsList({
-                                        "classes": 'list--bare list--inline@s u-mb-no',
-                                        "itemsList": row.itemsList
-                                    })
-                                }}
+                        {% endif %}
+                        <div class="grid__col {% if loop.last %} u-mb-s u-mr-m{% endif %}">
+                            {{
+                                onsList({
+                                    "classes": 'list--bare list--inline@s u-mb-no',
+                                    "itemsList": row.itemsList
+                                })
+                            }}
+                        </div>
+                        {% if loop.length > 1 %}
+                            {% if not params.OGLLink %}
                                 {% if loop.last %}
-                                    <div>
-                                        <img src="/img/ons-logo-black-{{ lang }}.svg" alt="{{ poweredByAlt }}" class="footer__poweredby-img--inline">
-                                    </div>
-                                {% endif %}
-                            </div>
-                            {% if loop.length > 1 %}
-                                {% if not loop.last %}
-                                    <div class="grid__col u-mb-m">
-                                        <hr class="footer__hr">
+                                    <div class="grid__col grid__col--flex u-ml-s u-mb-s u-p-no">
+                                        {{ poweredByONSLogo | safe }}
                                     </div>
                                 {% endif %}
                             {% endif %}
-                        {% endfor %}
-                    {% endif %}
+                            {% if not loop.last %}
+                                <div class="grid__col u-mb-m">
+                                    <hr class="footer__hr">
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}                      
                 {% endif %}
                 {% if params.feedback %}
                     {% from "components/feedback/_macro.njk" import onsFeedback %}
