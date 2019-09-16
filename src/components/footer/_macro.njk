@@ -102,7 +102,7 @@
                 {% if params.rows %}
                     {% for row in params.rows %}
                         {% if not params.OGLLink %}
-                            {% if loop.length > 1 and loop.last %}
+                            {% if loop.last %}
                                 </div>
                                 <div class="grid grid--flex grid--vertical-center grid--between">
                             {% endif %}
@@ -115,14 +115,14 @@
                                 })
                             }}
                         </div>
-                        {% if loop.length > 1 %}
-                            {% if not params.OGLLink %}
-                                {% if loop.last %}
-                                    <div class="grid__col grid__col--flex u-ml-s u-mb-s u-p-no">
-                                        {{ poweredByONSLogo | safe }}
-                                    </div>
-                                {% endif %}
+                        {% if not params.OGLLink %}
+                            {% if loop.last %}
+                                <div class="grid__col grid__col--flex u-ml-s u-mb-s u-p-no">
+                                    {{ poweredByONSLogo | safe }}
+                                </div>
                             {% endif %}
+                        {% endif %}
+                        {% if loop.length > 1 %}                            
                             {% if not loop.last %}
                                 <div class="grid__col u-mb-m">
                                     <hr class="footer__hr">
