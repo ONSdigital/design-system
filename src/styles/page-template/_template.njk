@@ -137,7 +137,11 @@
                             "pageTitle": page.feedback.pageTitle,
                             "pageURL": page.feedback.pageURL,
                             "name": page.feedback.name,
-                            "email": page.feedback.email,
+                            "email": {
+                                "address": page.feedback.email.address,
+                                "textBefore": page.feedback.email.textBefore,
+                                "textAfter": page.feedback.email.textAfter
+                            },
                             "sendButton": page.feedback.sendButton,
                             "thankYouMessage": page.feedback.thankYouMessage,
                             "errorMessage": page.feedback.errorMessage,
