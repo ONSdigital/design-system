@@ -38,94 +38,112 @@
             <div id="{{ params.id }}-content" class="feedback__content js-collapsible-content">
                 <div class="container">                
                     <div class="grid">
-                        <div class="grid__col col-8@m u-pl-0">                        
-                            <form
-                                id="{{ params.id }}-form"
-                                class="u-mt-s js-feedback-form"
-                                method="POST"
-                                action="{{ params.action }}"
-                                novalidate
-                                data-thank-you="{{ params.thankYouMessage }}"
-                                data-error-message="{{ params.errorMessage }}">
-                                {% if csrf_token %}
-                                    <input id="csrf_token" name="csrf_token" type="hidden" value="{{ csrf_token() }}" />
-                                {% endif %}
-                                {{
-                                    onsTextarea({
-                                        "id":  params.textarea.id | default(params.id + '-textarea'),
-                                        "name": params.textarea.name | default(params.id + '-textarea'),
-                                        "label": params.textarea.label,
-                                        "classes": "js-feedback-textarea" + (" " + params.textarea.classes if params.textarea.classes else ""),
-                                        "value": params.textarea.value,
-                                        "maxlength": params.textarea.maxlength,
-                                        "charCountPlural": params.textarea.charCountPlural,
-                                        "charCountSingular": params.textarea.charCountSingular,
-                                        "attributes": params.textarea.attributes
-                                    })
-                                }}
-                                {% if params.pageTitle %}
-                                    {{
-                                        onsInput({
-                                            "id": params.pageTitle.id | default(params.id + '-page-title'),
-                                            "type": "hidden",
-                                            "name": params.pageTitle.name | default(params.id + '-page-title'),
-                                            "classes": "js-feedback-page-title" + (" " + params.pageTitle.classes if params.pageTitle.classes else ""),
-                                            "value": params.pageTitle.value,
-                                            "attributes": params.pageTitle.attributes
-                                        })
-                                    }}
-                                {% endif %}
-                                {% if params.pageURL %}
-                                    {{
-                                        onsInput({
-                                            "id": params.pageURL.id | default(params.id + '-page-url'),
-                                            "type": "hidden",
-                                            "name": params.pageURL.name | default(params.id + '-page-url'),
-                                            "classes": "js-feedback-page-title" + (" " + params.pageURL.classes if params.pageTitle.classes else ""),
-                                            "value": params.pageURL.value,
-                                            "attributes": params.pageURL.attributes
-                                        })
-                                    }}
-                                {% endif %}
-                                {% if params.name %}
-                                    {{
-                                        onsInput({
-                                            "id": params.name.id | default(params.id + '-name'),
-                                            "name": params.name.name | default(params.id + '-name'),
-                                            "label": params.name.label,
-                                            "classes": "js-feedback-name" + (" " + params.name.classes if params.name.classes else ""),
-                                            "value": params.name.value,
-                                            "attributes": params.name.attributes,
-                                            "autocomplete": "name"
-                                        })
-                                    }}
-                                {% endif %}
-                                {% if params.email %}
-                                    {{
-                                        onsInput({
-                                            "id": params.email.id | default(params.id + '-email'),
-                                            "type": "email",
-                                            "name": params.email.name | default(params.id + '-email'),
-                                            "label": params.email.label,
-                                            "classes": "js-feedback-email" + (" " + params.email.classes if params.email.classes else ""),
-                                            "value": params.name.value,
-                                            "attributes": params.name.attributes
-                                        })
-                                    }}
-                                {% endif %}    
-                                {% call onsField({
-                                    "classes": "u-mt-l u-mb-m"
-                                }) %}
-                                    {{
-                                        onsButton({
-                                            "text": params.sendButton.text,
-                                            "classes": "js-feedback-send btn--loader",
-                                            "attributes": params.sendButton.attributes
-                                        })
-                                    }}
-                                {% endcall %}
-                            </form>
+                        <div class="grid__col u-pl-0 u-mb-m u-mt-m">   
+                       
+                            <p class="feedback__content-html">
+                            Tell us what you think of this website by emailing
+                                    <a href="
+                                        mailto:
+                                        census2021.feedback@ons.gov.uk?subject=Page%20Title%20goes%20here:%20Census%202021%20Feedback&body=Body%20goes%20here"
+                                        target="_top"
+                                        >
+                                         census2021.feedback@ons.gov.uk.
+                                    </a>
+                            </p>
+                            <p>This email is for feedback only, do not include any personal details.</p>
+                            
+ 
                         </div>
+                        {% if params.action %}
+                            <div class="grid__col col-8@m u-pl-0">                       
+                                <form
+                                    id="{{ params.id }}-form"
+                                    class="u-mt-s js-feedback-form"
+                                    method="POST"
+                                    action="{{ params.action }}"
+                                    novalidate
+                                    data-thank-you="{{ params.thankYouMessage }}"
+                                    data-error-message="{{ params.errorMessage }}">
+                                    {% if csrf_token %}
+                                        <input id="csrf_token" name="csrf_token" type="hidden" value="{{ csrf_token() }}" />
+                                    {% endif %}
+                                    {{
+                                        onsTextarea({
+                                            "id":  params.textarea.id | default(params.id + '-textarea'),
+                                            "name": params.textarea.name | default(params.id + '-textarea'),
+                                            "label": params.textarea.label,
+                                            "classes": "js-feedback-textarea" + (" " + params.textarea.classes if params.textarea.classes else ""),
+                                            "value": params.textarea.value,
+                                            "maxlength": params.textarea.maxlength,
+                                            "charCountPlural": params.textarea.charCountPlural,
+                                            "charCountSingular": params.textarea.charCountSingular,
+                                            "attributes": params.textarea.attributes
+                                        })
+                                    }}
+                                    {% if params.pageTitle %}
+                                        {{
+                                            onsInput({
+                                                "id": params.pageTitle.id | default(params.id + '-page-title'),
+                                                "type": "hidden",
+                                                "name": params.pageTitle.name | default(params.id + '-page-title'),
+                                                "classes": "js-feedback-page-title" + (" " + params.pageTitle.classes if params.pageTitle.classes else ""),
+                                                "value": params.pageTitle.value,
+                                                "attributes": params.pageTitle.attributes
+                                            })
+                                        }}
+                                    {% endif %}
+                                    {% if params.pageURL %}
+                                        {{
+                                            onsInput({
+                                                "id": params.pageURL.id | default(params.id + '-page-url'),
+                                                "type": "hidden",
+                                                "name": params.pageURL.name | default(params.id + '-page-url'),
+                                                "classes": "js-feedback-page-url" + (" " + params.pageURL.classes if params.pageTitle.classes else ""),
+                                                "value": params.pageURL.value,
+                                                "attributes": params.pageURL.attributes
+                                            })
+                                        }}
+                                    {% endif %}
+                                    {% if params.name %}
+                                        {{
+                                            onsInput({
+                                                "id": params.name.id | default(params.id + '-name'),
+                                                "name": params.name.name | default(params.id + '-name'),
+                                                "label": params.name.label,
+                                                "classes": "js-feedback-name" + (" " + params.name.classes if params.name.classes else ""),
+                                                "value": params.name.value,
+                                                "attributes": params.name.attributes,
+                                                "autocomplete": "name"
+                                            })
+                                        }}
+                                    {% endif %}
+                                    {% if params.email %}
+                                        {{
+                                            onsInput({
+                                                "id": params.email.id | default(params.id + '-email'),
+                                                "type": "email",
+                                                "name": params.email.name | default(params.id + '-email'),
+                                                "label": params.email.label,
+                                                "classes": "js-feedback-email" + (" " + params.email.classes if params.email.classes else ""),
+                                                "value": params.name.value,
+                                                "attributes": params.name.attributes
+                                            })
+                                        }}
+                                    {% endif %}    
+                                    {% call onsField({
+                                        "classes": "u-mt-l u-mb-m"
+                                    }) %}
+                                        {{
+                                            onsButton({
+                                                "text": params.sendButton.text,
+                                                "classes": "js-feedback-send btn--loader",
+                                                "attributes": params.sendButton.attributes
+                                            })
+                                        }}
+                                    {% endcall %}
+                                </form>
+                            </div>
+                        {% endif %}
                     </div>    
                 </div>
             </div>
