@@ -3,7 +3,7 @@
     {% from "components/input/_macro.njk" import onsInput %}   
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/button/_macro.njk" import onsButton %}
-    <div class="{{ params.classes }}">
+    <div class="page__feedback {{ params.classes }}">
         <details
             id="{{ params.id }}"
             class="feedback js-collapsible js-feedback{% if params.classes %} {{ params.classes }}{% endif %}"
@@ -81,7 +81,7 @@
                                             "id": params.pageURL.id | default(params.id + '-page-url'),
                                             "type": "hidden",
                                             "name": params.pageURL.name | default(params.id + '-page-url'),
-                                            "classes": "js-feedback-page-title" + (" " + params.pageURL.classes if params.pageTitle.classes else ""),
+                                            "classes": "js-feedback-page-url" + (" " + params.pageURL.classes if params.pageTitle.classes else ""),
                                             "value": params.pageURL.value,
                                             "attributes": params.pageURL.attributes
                                         })

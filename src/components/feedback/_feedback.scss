@@ -34,6 +34,8 @@ $feedback-caret-width: 0.8rem;
   &__link {
     position: relative;
     display: inline-block;
+    padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+    color: $color-text-inverse-link;
     // Required for Google Tag Manager
     pointer-events: none;
     line-height: 1rem;
@@ -46,10 +48,9 @@ $feedback-caret-width: 0.8rem;
 
   .details--initialised & {
     &__link {
-      padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + 1rem);
-      color: $color-text-inverse-link;
       cursor: pointer;
       pointer-events: initial;
+      padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + 1rem);
 
       &:hover,
       &:focus {

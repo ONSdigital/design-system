@@ -73,8 +73,12 @@ layout: none
             "charCountSingular": "You have {x} character remaining",
             "charCountPlural": "You have {x} characters remaining"
         },
-        "pageTitle": true,
-        "pageURL": true,         
+        "pageTitle": {
+            "value": pageInfo.title
+        },
+        "pageURL": {
+            "value": pageInfo.url
+        },         
         "sendButton": {
             "text": "Send feedback"
         },
