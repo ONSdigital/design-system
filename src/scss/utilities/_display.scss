@@ -5,3 +5,15 @@
 @include bp-suffix('u-d-b', $create-between-breakpoints: true) {
   display: block !important;
 }
+
+.u-db-no-js_enabled {
+  body.js-enabled & {
+    display: none !important;
+  }
+}
+
+.u-db-no-js_disabled {
+  body:not(.js-enabled) & {
+    display: none !important;
+  }
+}
