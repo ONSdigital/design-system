@@ -125,7 +125,6 @@
                     {{
                         onsFeedback({
                             "id": page.feedback.id | default("feedback"),
-                            "classes": "page__feedback",
                             "action": page.feedback.action,
                             "title": page.feedback.title,
                             "closeButton":{
@@ -137,10 +136,10 @@
                             "pageTitle": page.feedback.pageTitle,
                             "pageURL": page.feedback.pageURL,
                             "name": page.feedback.name,
-                            "email": {
-                                "address": page.feedback.email.address,
-                                "textBefore": page.feedback.email.textBefore,
-                                "textAfter": page.feedback.email.textAfter
+                            "mailto": {
+                                "address": page.feedback.mailto.address,
+                                "textBefore": page.feedback.mailto.textBefore,
+                                "textAfter": page.feedback.mailto.textAfter
                             },
                             "sendButton": page.feedback.sendButton,
                             "thankYouMessage": page.feedback.thankYouMessage,

@@ -39,14 +39,14 @@
             <div id="{{ params.id }}-content" class="feedback__content js-collapsible-content">
                 <div class="container">                
                     <div class="grid">                                         
-                        {% if params.email %}
+                        {% if params.mailto.address %}
                             <div class="grid__col u-pl-0 u-mb-m u-mt-m">   
-                                <p class="feedback__content-html">
-                                {{ params.email.textBefore }}
-                                    <a href="mailto:{{ params.email.address }}?subject={{ params.pageTitle.value }}:%20Census%202021%20Feedback&body=Your%20feedback%3A%0d%0a" target="_top"
-                                        >{{ params.email.address }}.</a>
+                                <p class="feedback__content-mailto">
+                                {{ params.mailto.textBefore }}
+                                    <a href="mailto:{{ params.mailto.address }}?subject={{ params.pageTitle.value }}:%20Census%202021%20Feedback&body=Your%20feedback%3A%0d%0a" target="_top"
+                                        >{{ params.mailto.address }}.</a>
                                 </p>
-                                <p>{{ params.email.textAfter}}</p>  
+                                <p>{{ params.mailto.textAfter}}</p>  
                             </div>
                         {% endif %}
                         {% if params.action %}
