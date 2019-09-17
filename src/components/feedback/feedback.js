@@ -13,6 +13,9 @@ export default class Feedback {
       this.textarea = this.details.querySelector('.js-feedback-textarea');
       this.name = this.details.querySelector('.js-feedback-name');
       this.email = this.details.querySelector('.js-feedback-email');
+      this.pageUrl = this.details.querySelector('.js-feedback-email');
+      this.pageUrl = this.details.querySelector('.js-feedback-page-url');
+      this.pagTitle = this.details.querySelector('.js-feedback-page-title');
       this.button = this.details.querySelector('.js-feedback-send');
 
       this.form.addEventListener('submit', this.handleSubmit.bind(this));
@@ -68,7 +71,12 @@ export default class Feedback {
   }
 
   setFieldsEditability(enabled) {
-    [this.textarea, this.name, this.email, this.button].forEach(element => (element.disabled = !enabled));
+    const fields = [this.textarea, this.name, this.email, this.button];
+    fields.forEach(element => {
+      if (element !== null) {
+        element.disabled = !enabled;
+      }
+    });
 
     this.button.classList[enabled ? 'remove' : 'add']('is-loading');
   }

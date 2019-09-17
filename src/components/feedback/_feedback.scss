@@ -1,0 +1,128 @@
+$feedback-caret-width: 0.8rem;
+$feedback-caret-right-spacing: 0.4rem;
+
+.feedback {
+  &.details--initialised {
+    border-bottom: 5px solid $color-header;
+  }
+  &.details--open {
+    border: none;
+  }
+  &__header {
+    background: $color-header;
+  }
+
+  &__summary {
+    @extend .container;
+    outline: none;
+    pointer-events: none;
+
+    &:focus {
+      & .feedback__title {
+        @extend a:focus;
+        // extend summary focus background behind caret
+        padding-left: $feedback-caret-right-spacing + $feedback-caret-width;
+        margin-left: -($feedback-caret-right-spacing + $feedback-caret-width);
+      }
+      & .feedback__link {
+        &:before,
+        &:after {
+          background-image: url(#{$static}/img/icons/icons--chevron-right-black.svg);
+        }
+      }
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  &__hr {
+    border-top: 5px solid $color-header;
+    margin: 0;
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + $feedback-caret-right-spacing);
+    color: $color-text-inverse-link;
+    // Required for Google Tag Manager
+    pointer-events: none;
+    line-height: 1rem;
+  }
+
+  &__title {
+    transform: translateY(-1px);
+    pointer-events: none;
+  }
+
+  .details--initialised & {
+    &__link {
+      cursor: pointer;
+      pointer-events: initial;
+      padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + 1.4rem);
+
+      &:hover,
+      &:focus {
+        color: $color-text-inverse-link-hover;
+
+        &:before {
+          opacity: 0;
+        }
+
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      &:before,
+      &:after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0.5rem;
+        left: 1rem;
+        width: $feedback-caret-width;
+        height: $feedback-caret-width;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: $feedback-caret-width $feedback-caret-width;
+      }
+
+      &:after {
+        opacity: 0;
+      }
+
+      &:before {
+        background-image: url(#{$static}/img/icons/icons--chevron-right-white.svg);
+      }
+
+      &:after {
+        background-image: url(#{$static}/img/icons/icons--chevron-right-white-hover.svg);
+      }
+    }
+
+    &__title {
+      text-decoration: underline;
+    }
+
+    &__content {
+      display: none;
+    }
+  }
+
+  .details--open & {
+    &__link {
+      &:before,
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
+
+    &__content {
+      display: block;
+      border-top: 5px solid $color-header;
+    }
+  }
+}
