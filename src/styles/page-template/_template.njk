@@ -121,32 +121,37 @@
                         </form>
                     {% endif %}
                 </div>
-                {% block preFooter %}            
-                    {{
-                        onsFeedback({
-                            "id": page.feedback.id | default("feedback"),
-                            "action": page.feedback.action,
-                            "title": page.feedback.title,
-                            "closeButton":{
-                                "text": page.feedback.closeButton.text,
-                                "classes":  "btn--ghost-blue" + (" " + page.feedback.closeButton.classes if params.feedback.closeButton.classes else ""),
-                                "attributes": page.feedback.closeButton.attributes
-                            },
-                            "textarea": page.feedback.textarea,
-                            "pageTitle": page.feedback.pageTitle,
-                            "pageURL": page.feedback.pageURL,
-                            "name": page.feedback.name,
-                            "mailto": {
-                                "address": page.feedback.mailto.address,
-                                "textBefore": page.feedback.mailto.textBefore,
-                                "textAfter": page.feedback.mailto.textAfter
-                            },
-                            "sendButton": page.feedback.sendButton,
-                            "thankYouMessage": page.feedback.thankYouMessage,
-                            "errorMessage": page.feedback.errorMessage,
-                            "summaryAttributes": page.feedback.summaryAttributes
-                        })
-                    }}                  
+                {% block preFooter %}
+                    {% if page.feedback %}            
+                        {{
+                            onsFeedback({
+                                "id": page.feedback.id | default("feedback"),
+                                "action": page.feedback.action,
+                                "title": page.feedback.title,
+                                "closeButton":{
+                                    "text": page.feedback.closeButton.text,
+                                    "classes":  "btn--ghost-blue" + (" " + page.feedback.closeButton.classes if params.feedback.closeButton.classes else ""),
+                                    "attributes": page.feedback.closeButton.attributes
+                                },
+                                "textarea": page.feedback.textarea,
+                                "pageTitle": page.feedback.pageTitle,
+                                "pageURL": page.feedback.pageURL,
+                                "name": page.feedback.name,
+                                "mailto": {
+                                    "address": page.feedback.mailto.address,
+                                    "textBefore": page.feedback.mailto.textBefore,
+                                    "textAfter": page.feedback.mailto.textAfter,
+                                    "subject": page.feedback.mailto.subject,
+                                    "body": page.feedback.mailto.body,
+                                    "target": page.feedback.mailto.target
+                                },
+                                "sendButton": page.feedback.sendButton,
+                                "thankYouMessage": page.feedback.thankYouMessage,
+                                "errorMessage": page.feedback.errorMessage,
+                                "summaryAttributes": page.feedback.summaryAttributes
+                            })
+                        }}     
+                    {% endif %}             
                 {% endblock %}
                 {% block footer %}
                     {% if page.footer %}
