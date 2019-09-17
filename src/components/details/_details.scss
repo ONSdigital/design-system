@@ -75,6 +75,13 @@ $details-caret-right-spacing: 0.4rem;
         background-image: url(#{$static}/img/icons/icons--chevron-right-blue.svg);
       }
 
+      &:focus {
+        &:before,
+        &:after {
+          background-image: url(#{$static}/img/icons/icons--chevron-right-black.svg);
+        }
+      }
+
       &:after {
         background-image: url(#{$static}/img/icons/icons--chevron-right-blue-hover.svg);
       }

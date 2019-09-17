@@ -24,6 +24,12 @@ $feedback-caret-right-spacing: 0.4rem;
         padding-left: $feedback-caret-right-spacing + $feedback-caret-width;
         margin-left: -($feedback-caret-right-spacing + $feedback-caret-width);
       }
+      & .feedback__link {
+        &:before,
+        &:after {
+          background-image: url(#{$static}/img/icons/icons--chevron-right-black.svg);
+        }
+      }
     }
 
     &::-webkit-details-marker {
