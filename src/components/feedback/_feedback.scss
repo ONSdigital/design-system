@@ -1,4 +1,5 @@
 $feedback-caret-width: 0.8rem;
+$feedback-caret-right-spacing: 1.3rem;
 
 .feedback {
   &.details--initialised {
@@ -17,8 +18,12 @@ $feedback-caret-width: 0.8rem;
     pointer-events: none;
 
     &:focus {
-      outline: 3px solid $color-focus;
-      outline-offset: -3px;
+      & .feedback__title {
+        @extend a:focus;
+        // extend summary focus background behind caret
+        padding-left: $feedback-caret-right-spacing + $feedback-caret-width;
+        margin-left: -($feedback-caret-right-spacing + $feedback-caret-width);
+      }
     }
 
     &::-webkit-details-marker {
@@ -34,6 +39,8 @@ $feedback-caret-width: 0.8rem;
   &__link {
     position: relative;
     display: inline-block;
+    padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+    color: $color-text-inverse-link;
     // Required for Google Tag Manager
     pointer-events: none;
     line-height: 1rem;
@@ -46,10 +53,9 @@ $feedback-caret-width: 0.8rem;
 
   .details--initialised & {
     &__link {
-      padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + 1rem);
-      color: $color-text-inverse-link;
       cursor: pointer;
       pointer-events: initial;
+      padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + $feedback-caret-right-spacing);
 
       &:hover,
       &:focus {
@@ -70,7 +76,7 @@ $feedback-caret-width: 0.8rem;
         display: inline-block;
         position: absolute;
         top: 0.5rem;
-        left: 0.7rem;
+        left: 1rem;
         width: $feedback-caret-width;
         height: $feedback-caret-width;
         background-repeat: no-repeat;
