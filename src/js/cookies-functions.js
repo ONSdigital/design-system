@@ -70,11 +70,6 @@ export function setConsentCookie(options) {
     if (!options[cookieType]) {
       for (let cookies in COOKIE_CATEGORIES) {
         if (COOKIE_CATEGORIES[cookies] === cookieType) {
-          if (cookieType === 'usage') {
-            window['ga-disable-UA-141503304-9'] = true;
-            window['ga-disable-UA-141503304-1'] = true;
-            window['ga-disable-UA-141503304-8'] = true;
-          }
           cookie(cookies, null);
           if (cookie(cookies)) {
             const cookieString = cookies + '=;expires=' + new Date() + setDomain + ';path=/';
@@ -125,7 +120,7 @@ export function setCookie(name, value, options) {
     if (options.days) {
       const date = new Date();
       date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
-      cookieString = cookieString + '; expires=' + date.toGMTString() + setDomain;
+      cookieString = cookieString + '; expires=' + date.toGMTString();
     }
     if (document.location.protocol === 'https:') {
       cookieString = cookieString + '; Secure';

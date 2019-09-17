@@ -1,6 +1,6 @@
 | Name         | Type                                   | Required | Description                                                                                             |
 | ------------ | -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
-| OGLLink      | `OGLLink`                              | false     | An object containing settings for the OGL link                                                          |
+| OGLLink      | `OGLLink`                              | false    | An object containing settings for the OGL link                                                          |
 | cols         | `Array<FooterCol>`                     | false    | An array of `FooterCol` objects. _Maximum of 3_                                                         |
 | rows         | `Array<FooterRow>`                     | false    | An array of `FooterRow` objects                                                                         |
 | poweredByONS | boolean &#124; `PoweredByONS`          | false    | Whether to show the ONS logo, and optionally settings for the logo                                      |

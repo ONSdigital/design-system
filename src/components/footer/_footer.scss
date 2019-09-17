@@ -17,6 +17,10 @@
     height: auto;
   }
 
+  &__poweredby-img--small {
+    width: 150px;
+  }
+
   &__hr {
     border: 0;
     border-top: 1px solid $color-borders;
