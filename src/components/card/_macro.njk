@@ -9,11 +9,11 @@
         </h3>
       </a>
     {%- else -%}
-      <h3 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
+      <h2 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
         <a href="{{ params.url }}">
           {{ params.title }}
         </a>
-      </h3>
+      </h2>
     {%- endif -%}
 
     <p id="{{ params.textId }}">{{ params.text }}</p>
