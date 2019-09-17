@@ -4,9 +4,9 @@
     {%- if params.image -%}
       <a href="{{ params.url }}" class="u-db">
           <img class="card__image u-mb-s" alt="{{ params.image.alt }}" src="{{ params.image.src }}">
-        <h3 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
+        <h2 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
           {{ params.title }}
-        </h3>
+        </h2>
       </a>
     {%- else -%}
       <h2 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
