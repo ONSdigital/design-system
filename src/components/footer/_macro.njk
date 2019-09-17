@@ -7,26 +7,26 @@
         {% set lang = 'en' %}
     {% endif %}
 
-    {% if params.poweredByONS %}
-        {% if params.poweredByONS.alt %}
-            {% set poweredByAlt = params.poweredByONS.alt %}
+    {% if params.poweredBy %}
+        {% if params.poweredBy.alt %}
+            {% set poweredByAlt = params.poweredBy.alt %}
         {% else %}
             {% set poweredByAlt = 'Office for National Statistics' %}
         {% endif %}
     {% endif %}
 
-    {% set poweredByONSLogo %}
-        <img src="/img/ons-logo-black-{{ lang }}.svg" alt="{{ poweredByAlt }}" class="footer__poweredby-img">
+    {% set poweredByLogo %}
+        <img src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.poweredBy.logo | default('ons-logo-black-' + lang ) }}.svg" alt="{{ poweredByAlt }}" class="footer__poweredby-img {{ params.poweredBy.classes }}">
     {% endset %}
 
     <footer class="footer {{ params.classes }}" data-analytics="footer" {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
         <div class="footer__body">
             <div class="container">
                 <div class="grid">          
-                    {% if params.poweredByONS %}
+                    {% if params.poweredBy %}
                         {% if params.OGLLink %}
                             <div class="grid__col u-mb-m">
-                                {{ poweredByONSLogo | safe }}
+                                {{ poweredByLogo | safe }}
                             </div>
                         {% endif %}
                     {% endif %}
@@ -119,7 +119,7 @@
                             {% if not params.OGLLink %}
                                 {% if loop.last %}
                                     <div class="grid__col grid__col--flex u-ml-s u-mb-s u-p-no">
-                                        {{ poweredByONSLogo | safe }}
+                                        {{ poweredByLogo | safe }}
                                     </div>
                                 {% endif %}
                             {% endif %}
@@ -146,12 +146,12 @@
                                 {% endif %}
                             </div>
                         </div>
-                    {% elif params.poweredByONS or params.cols %}
+                    {% elif not params.rows and (params.poweredBy or params.cols) %}
                         <div class="grid__col u-mb-m">
                             <hr class="footer__hr">
                         </div>
                         <div class="grid__col u-mb-m">
-                            {{ poweredByONSLogo | safe }}
+                            {{ poweredByLogo | safe }}
                         </div>
                     {% endif %}
                 </div>

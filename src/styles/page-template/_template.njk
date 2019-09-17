@@ -163,7 +163,11 @@
                                 "lang": currentLanguageISOCode,
                                 "rows": page.footer.rows,
                                 "cols": page.footer.cols,
-                                "poweredByONS": page.footer.poweredByONS,
+                                "poweredBy": {
+                                    "logo": page.footer.poweredBy.logo,
+                                    "alt": page.footer.poweredBy.poweredByAlt,
+                                    "classes": page.footer.poweredBy.classes
+                                },
                                 "OGLLink": page.footer.OGLLink,
                                 "button": page.signoutButton,
                                 "feedback": page.feedback,
