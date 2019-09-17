@@ -35,6 +35,7 @@
   &:focus {
     outline: none;
     box-shadow: 0 0 0 3px $color-focus;
+    border: 2px solid $color-input;
   }
 }
 

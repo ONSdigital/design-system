@@ -59,7 +59,7 @@
           <div class="container{{ ' container--full-width' if params.fullWidth }}">
               <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                   <div class="grid__col col-auto u-flex-shrink">
-                      {% if params.titleLogoHref %}<a href="{{ params.titleLogoHref }}">{% endif %}
+                      {% if params.titleLogoHref %}<a class="header__title-link" href="{{ params.titleLogoHref }}">{% endif %}
                       {% if params.titleLogo and params.titleLogoAlt %}
                         <img class="header__title-logo" src="{{ params.assetsURL if params.assetsURL }}{{ params.titleLogo }}" alt="{{ params.titleLogoAlt }}">
                       {% else %}

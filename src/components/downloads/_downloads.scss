@@ -17,6 +17,10 @@
   &__thumbnail-link {
     display: block;
     border: 2px solid $color-grey-3;
+
+    &:focus {
+      outline: 4px solid $color-focus !important;
+    }
   }
 
   &__metadata,
