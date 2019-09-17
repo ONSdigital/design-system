@@ -9,11 +9,16 @@ layout: none
 {% from "components/table/_macro.njk" import onsTable %}
 {% block scripts %}
     <!-- Google Tag Manager -->	
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':	
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],	
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=	
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);	
-    })(window,document,'script','dataLayer','GTM-TLWR59T');</script>	
+    <script>
+        var a = /^(.*)?\s*'usage':true\s*[^;]+(.*)?$/;
+        if (document.cookie.match(a)) {
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':	
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],	
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=	
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);	
+            })(window,document,'script','dataLayer','GTM-TLWR59T');
+        }
+    </script>	
     <!-- End Google Tag Manager -->
 
     <script>
@@ -58,13 +63,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     }
                 ]
             }
-        ],
-        "OGLLink": {
-            "pre": "Mae'r holl gynnwys ar gael o dan y",
-            "link": "Drwydded Llywodraeth Leol v3.0",
-            "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "post": ", oni bai y nodir fel arall"
-        }
+        ]
     }
 } %}
 
