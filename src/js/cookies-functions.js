@@ -18,7 +18,7 @@ export const COOKIE_CATEGORIES = {
 };
 
 const domain = getDomain(document.domain);
-const setDomain = !domain.indexOf('locahost') ? ';domain=.' + domain : '';
+const setDomain = !domain.indexOf('locahost') ? ';domain=' + domain : '';
 
 export function cookie(name, value, options) {
   if (typeof value !== 'undefined') {
