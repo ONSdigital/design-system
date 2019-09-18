@@ -16,7 +16,7 @@
     {% endif %}
 
     {% set poweredByLogo %}
-        <img src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.poweredBy.logo | default('ons-logo-black-' + lang ) }}.svg" alt="{{ poweredByAlt }}" class="footer__poweredby-img {{ params.poweredBy.classes }}">
+        <img src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.poweredBy.logo | default('ons-logo-black-' + lang ) }}.svg" alt="{{ poweredByAlt | default('Office for National Statistics') }}" class="footer__poweredby-img {{ params.poweredBy.classes }}">
     {% endset %}
 
     <footer class="footer {{ params.classes }}" data-analytics="footer" {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
