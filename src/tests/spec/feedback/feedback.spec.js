@@ -29,12 +29,16 @@ const params = {
       text: 'Email address (optional)',
     },
   },
-  sendButton: 'Send feedback',
+  button: {
+    send: {
+      text: 'Send feedback',
+    },
+  },
   thankYouMessage: 'Thank you for your feedback.',
   errorMessage: 'There was an error sending your feedback.\n(Error code: {x})',
 };
 
-describe('Component: Feedback', function() {
+describe.only('Component: Feedback', function() {
   before(() => awaitPolyfills);
 
   beforeEach(function() {
