@@ -119,16 +119,16 @@ export function setCookie(name, value, options) {
       options = {};
     }
 
-    let cookieString = name + '=' + value + '; path=/';
+    let cookieString = name + '=' + value + setDomain + '; path=/';
+    console.log('domain:', setDomain);
     if (options.days) {
       const date = new Date();
       date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
-      cookieString = cookieString + '; expires=' + date.toGMTString() + setDomain;
+      cookieString = cookieString + '; expires=' + date.toGMTString();
     }
     if (document.location.protocol === 'https:') {
       cookieString = cookieString + '; Secure';
     }
-    cookieString = cookieString + setDomain;
     console.log('set cookie:', cookieString);
     document.cookie = cookieString;
   }
