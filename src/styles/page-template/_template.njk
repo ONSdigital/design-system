@@ -128,17 +128,7 @@
                                 "id": page.feedback.id | default("feedback"),
                                 "action": page.feedback.action,
                                 "title": page.feedback.title,
-                                "button": {
-                                    "close": {
-                                        "text": page.feedback.button.close.text,
-                                        "classes":  "btn--secondary btn--small" + (" " + page.feedback.button.close.classes if params.feedback.button.close.classes else ""),
-                                        "attributes": page.feedback.button.close.attributes
-                                    },
-                                    "send": {
-                                        "text": page.feedback.button.send.text,
-                                        "attributes": page.feedback.button.send.attributes
-                                    }
-                                },
+                                "button": page.feedback.button,
                                 "textarea": page.feedback.textarea,
                                 "pageTitle": page.feedback.pageTitle,
                                 "pageURL": page.feedback.pageURL,
