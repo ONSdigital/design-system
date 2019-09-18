@@ -63,6 +63,15 @@ layout: none
         "id": "feedback",
         "action": "/",
         "title": "Give us feedback and help us improve this service",
+        "button": {
+            "close": {
+                "text": "I don't want to provide feedback",
+                "classes": "btn--secondary btn--small"
+            },
+            "send": {
+                "text": "Send feedback"
+            }
+        },
         "textarea": {
             "label": {
                 "text": "Tell us what we could do better"
@@ -76,9 +85,6 @@ layout: none
         },
         "pageURL": {
             "value": pageInfo.url
-        },
-        "sendButton": {
-            "text": "Send feedback"
         },
         "thankYouMessage": "Thank you for your feedback.",
         "errorMessage": "There was an error sending your feedback.\n(Error code: {x})"

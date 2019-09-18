@@ -116,7 +116,6 @@ export function setCookie(name, value, options) {
 
   if (domain.indexOf('localhost') === -1) {
     setDomain = '; domain=' + domain;
-    console.log('setDomain:', setDomain);
   }
 
   if (checkConsentCookie(name, value)) {
@@ -125,7 +124,6 @@ export function setCookie(name, value, options) {
     }
 
     let cookieString = name + '=' + value + setDomain + '; path=/';
-    console.log('domain:', domain);
     if (options.days) {
       const date = new Date();
       date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
