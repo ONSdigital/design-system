@@ -32,24 +32,39 @@ $button-border-height: 3px;
     border-radius: $input-radius;
 
     background: $color-button;
-    color: $color-white;
+    color: $color-text-inverse;
 
     // Required for Google Tag Manager
     pointer-events: none;
   }
 
-  &:focus {
-    outline: 3px solid transparent;
-
-    .btn__inner {
-      color: $color-focus-text;
-      background-color: $color-focus;
-    }
-  }
-
   // When preceded by another button (e.g. in a group)
   & + & {
     margin-left: 0.5rem;
+  }
+
+  // When hovered
+  &:not([class*='btn--ghost']):not([class*='btn--mobile']):not([class*='btn--secondary']):not([class*='btn--print']):hover &__inner {
+    background: darken($color-button, 5%);
+  }
+
+  // When focussed
+  &:focus:not(:active):not(:hover) {
+    outline: 3px solid transparent;
+  }
+
+  &:focus:not(:active):not(:hover) &__inner {
+    color: $color-focus-text;
+    background-color: $color-focus;
+  }
+
+  &:not([class*='btn--secondary']):not([class*='btn--print']):focus:hover &__inner {
+    color: $color-text-inverse;
+  }
+
+  &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus,
+  &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus:hover {
+    outline: none;
   }
 
   // When clicked
@@ -89,6 +104,14 @@ $button-border-height: 3px;
     }
   }
 
+  // When hovered
+  &--secondary:hover &,
+  &--print:hover & {
+    &__inner {
+      background: darken($color-button-secondary, 5%);
+    }
+  }
+
   &--print &__inner {
     &:after {
       @include icon('print');
@@ -114,9 +137,13 @@ $button-border-height: 3px;
     }
   }
 
-  &--link:not(.btn--secondary) &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-white', $height: 0.8rem);
+  &--link:not(.btn--secondary) &,
+  &--link:not(.btn--secondary):active &,
+  &--link:not(.btn--secondary):hover:focus & {
+    &__inner {
+      &:after {
+        @include icon($name: 'chevron-right-white', $height: 0.8rem);
+      }
     }
   }
 
@@ -198,6 +225,10 @@ $button-border-height: 3px;
     }
   }
 
+  &--loader.is-loading:focus &__inner {
+    color: transparent !important;
+  }
+
   // Spooky Buttons
   &--ghost &,
   &--mobile & {
@@ -214,6 +245,21 @@ $button-border-height: 3px;
     &__inner {
       border-color: $color-white;
     }
+  }
+
+  &--ghost:active:focus {
+    outline: 3px solid transparent;
+  }
+
+  &--ghost:hover & {
+    &__inner {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &--ghost:focus:not(:hover) &__inner {
+    color: $color-focus-text;
+    background-color: $color-focus;
   }
 
   &--ghost-blue & {
