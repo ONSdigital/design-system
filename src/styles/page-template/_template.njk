@@ -128,24 +128,23 @@
                                 "id": page.feedback.id | default("feedback"),
                                 "action": page.feedback.action,
                                 "title": page.feedback.title,
-                                "closeButton":{
-                                    "text": page.feedback.closeButton.text,
-                                    "classes":  "btn--ghost-blue" + (" " + page.feedback.closeButton.classes if params.feedback.closeButton.classes else ""),
-                                    "attributes": page.feedback.closeButton.attributes
+                                "button": {
+                                    "close": {
+                                        "text": page.feedback.button.close.text,
+                                        "classes":  "btn--secondary btn--small" + (" " + page.feedback.button.close.classes if params.feedback.button.close.classes else ""),
+                                        "attributes": page.feedback.button.close.attributes
+                                    },
+                                    "send": {
+                                        "text": page.feedback.button.send.text,
+                                        "attributes": page.feedback.button.send.attributes
+                                    }
                                 },
                                 "textarea": page.feedback.textarea,
                                 "pageTitle": page.feedback.pageTitle,
                                 "pageURL": page.feedback.pageURL,
                                 "name": page.feedback.name,
-                                "mailto": {
-                                    "address": page.feedback.mailto.address,
-                                    "textBefore": page.feedback.mailto.textBefore,
-                                    "textAfter": page.feedback.mailto.textAfter,
-                                    "subject": page.feedback.mailto.subject,
-                                    "body": page.feedback.mailto.body,
-                                    "target": page.feedback.mailto.target
-                                },
-                                "sendButton": page.feedback.sendButton,
+                                "email": page.feedback.email,
+                                "mailto": page.feedback.mailto,
                                 "thankYouMessage": page.feedback.thankYouMessage,
                                 "errorMessage": page.feedback.errorMessage,
                                 "summaryAttributes": page.feedback.summaryAttributes
@@ -163,11 +162,7 @@
                                 "lang": currentLanguageISOCode,
                                 "rows": page.footer.rows,
                                 "cols": page.footer.cols,
-                                "poweredBy": {
-                                    "logo": page.footer.poweredBy.logo,
-                                    "alt": page.footer.poweredBy.poweredByAlt,
-                                    "classes": page.footer.poweredBy.classes
-                                },
+                                "poweredBy": page.footer.poweredBy,
                                 "OGLLink": page.footer.OGLLink,
                                 "button": page.signoutButton,
                                 "feedback": page.feedback,

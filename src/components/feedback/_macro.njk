@@ -9,7 +9,7 @@
             id="{{ params.id }}"
             class="feedback js-collapsible js-feedback{% if params.classes %} {{ params.classes }}{% endif %}"
             open
-            {% if params.button and params.button.close %} data-btn-close="{{ params.button.close }}"{% endif %}
+            {% if params.button.close.text %} data-btn-close="{{ params.button.close.text }}"{% endif %}
             {% if params.group %} data-group="{{ params.group }}"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             {% if params.saveState %} data-save-state="true"{% endif %}
@@ -22,31 +22,20 @@
                 <div class="feedback__header">
                     <div class="feedback__link">
                         <span class="feedback__title u-fs-s">{{ params.title }}</span>
-                        {% if params.button and params.button.open and params.isAccordion %}
-                            {{
-                                onsButton({
-                                    "type": "button",
-                                    "text": params.button.open,
-                                    "classes": "details__btn btn--secondary btn--small js-collapsible-button u-d-no u-d-no@xs@s",
-                                    "innerClasses": "js-collapsible-button-inner",
-                                    "attributes": params.button.attributes
-                                })
-                            }}
-                        {% endif %}
                     </div>
                 </div>
             </summary>
             <div id="{{ params.id }}-content" class="feedback__content js-collapsible-content">
                 <div class="container">                
                     <div class="grid">                                         
-                        {% if params.mailto.address %}
-                            <div class="grid__col u-pl-0 u-mb-m u-mt-m">   
+                        {% if params.mailto %}
+                            <div class="grid__col u-pl-0 u-mt-m">   
                                 <p class="feedback__content-mailto">
                                 {{ params.mailto.textBefore }}
-                                    <a href="mailto:{{ params.mailto.address }}?subject={{ params.mailto.subject | safe }}{{ params.pageTitle.value }}&{{ params.mailto.body | safe }}" target="{{ params.mailto.target | default('_top')}}"
+                                    <a href="mailto:{{ params.mailto.address }}?subject={{ params.mailto.subject | safe }}{{ params.pageTitle.value }}&body={{ params.mailto.body | safe }}" target="{{ params.mailto.target | default('_top')}}"
                                         >{{ params.mailto.address }}.</a>
                                 </p>
-                                <p>{{ params.mailto.textAfter}}</p>  
+                                <p>{{ params.mailto.textAfter}}</p>                                
                             </div>
                         {% endif %}
                         {% if params.action %}
@@ -112,7 +101,7 @@
                                             })
                                         }}
                                     {% endif %}
-                                    {% if params.email %}
+                                    {% if params.email.label %}
                                         {{
                                             onsInput({
                                                 "id": params.email.id | default(params.id + '-email'),
@@ -124,19 +113,38 @@
                                                 "attributes": params.name.attributes
                                             })
                                         }}
-                                    {% endif %}    
-                                    {% call onsField({
-                                        "classes": "u-mt-l u-mb-m"
-                                    }) %}
-                                        {{
-                                            onsButton({
-                                                "text": params.sendButton.text,
-                                                "classes": "js-feedback-send btn--loader",
-                                                "attributes": params.sendButton.attributes
-                                            })
-                                        }}
-                                    {% endcall %}
+                                    {% endif %}   
+                                    {% if params.button.send.text %} 
+                                        {% call onsField({
+                                            "classes": "u-mt-l u-mb-m"
+                                        }) %}
+                                            {{
+                                                onsButton({
+                                                    "text": params.button.send.text,
+                                                    "classes": "js-feedback-send btn--loader",
+                                                    "attributes": params.button.send.attributes
+                                                })
+                                            }}
+                                        {% endcall %}   
+                                    {% endif %} 
                                 </form>
+                            </div>
+                        {% endif %}
+                        {% if params.button.close.text %}                                         
+                            <div class="grid__col col-8@m u-pl-0">  
+                                {% call onsField({
+                                    "classes": "u-mb-m"
+                                }) %}                                        
+                                    {{
+                                        onsButton({
+                                            "text": params.button.close.text,
+                                            "classes": params.button.close.classes,
+                                            "attributes": params.button.close.attributes,
+                                            "classes": "js-collapsible-button" + (" " + params.button.close.classes if params.button.close.classes else ""),
+                                            "innerClasses": "js-collapsible-button-inner"
+                                        })
+                                    }}
+                                {% endcall %}
                             </div>
                         {% endif %}
                     </div>    
