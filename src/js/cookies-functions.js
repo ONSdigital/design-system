@@ -123,12 +123,13 @@ export function setCookie(name, value, options) {
     if (options.days) {
       const date = new Date();
       date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
-      cookieString = cookieString + '; expires=' + date.toGMTString() + setDomain;
+      cookieString = cookieString + '; expires=' + date.toGMTString();
     }
+    console.log('domain:', setDomain);
+    cookieString = cookieString + setDomain;
     if (document.location.protocol === 'https:') {
       cookieString = cookieString + '; Secure';
     }
-    cookieString = cookieString + setDomain;
     console.log('set cookie:', cookieString);
     document.cookie = cookieString;
   }
