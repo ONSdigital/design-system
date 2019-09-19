@@ -10,7 +10,7 @@ describe('Component: Cookie settings', function() {
     Object.keys(component).forEach(key => {
       this[key] = component[key];
     });
-    new CookiesSettings(this.form, null);
+    new CookiesSettings(this.form);
   });
 
   afterEach(function() {
@@ -70,28 +70,16 @@ describe('Component: Cookie settings', function() {
     expect(cookie('ons_cookie_message_displayed')).to.equal('true');
   });
 
+  it('hides the cookie banner on form submit', function() {
+    const banner = document.querySelector('.cookies-banner');
+
+    const button = this.form.querySelector('#submit-button');
+    button.click();
+
+    expect(banner.style.display).to.equal('none');
+  });
+
   describe('showConfirmationMessage', function() {
-    it('sets the previous referrer link if one is present', function() {
-      new CookiesSettings(this.form, '/help');
-
-      const button = this.form.querySelector('#submit-button');
-      button.click();
-      const previousLink = document.querySelector('.cookies-settings__prev-page');
-
-      expect(previousLink.style.display).to.equal('block');
-      expect(previousLink.href).to.contain('/help');
-    });
-
-    it('does not set a referrer if URL is the same as current page', function() {
-      new CookiesSettings(this.form, document.location.href);
-
-      const button = this.form.querySelector('#submit-button');
-      button.click();
-      const previousLink = document.querySelector('.cookies-settings__prev-page');
-
-      expect(previousLink.style.display).to.equal('none');
-    });
-
     it('shows a confirmation message', function() {
       const confirmationMessage = document.querySelector('.cookies-confirmation-message');
       const button = this.form.querySelector('#submit-button');
@@ -99,11 +87,20 @@ describe('Component: Cookie settings', function() {
 
       expect(confirmationMessage.classList.contains('u-d-no')).to.be.false;
     });
+
+    it('does not set the previous link if one is not present', function() {
+      const button = this.form.querySelector('#submit-button');
+      button.click();
+      const previousLink = document.querySelector('.cookies-settings__prev-page');
+      expect(previousLink.style.display).to.equal('none');
+    });
   });
 });
 
 function renderComponent() {
   const formHTML =
+    '<div class="cookies-banner" style="display: block;">' +
+    '</div>' +
     '<form data-module="cookie-settings">' +
     '<input type="radio" id="settings-on" name="cookies-settings" value="on">' +
     '<input type="radio" id="settings-off" name="cookies-settings" value="off">' +
