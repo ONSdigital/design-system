@@ -58,7 +58,7 @@ $button-border-height: 3px;
     background-color: $color-focus;
   }
 
-  &:not([class*='btn--secondary']):not([class*='btn--print']):focus:hover &__inner {
+  &:not([class*='btn--secondary']):not([class*='btn--print']):not([class*='btn--ghost-blue']):focus:hover &__inner {
     color: $color-text-inverse;
   }
 
@@ -144,6 +144,18 @@ $button-border-height: 3px;
     &__inner {
       &:after {
         @include icon($name: 'chevron-right-white', $height: 0.8rem);
+      }
+    }
+  }
+
+  &--link {
+    &.btn--ghost-blue,
+    &.btn--ghost-blue:active,
+    &.btn--ghost-blue:hover:focus {
+      .btn__inner {
+        &:after {
+          @include icon($name: 'chevron-right-blue', $height: 0.8rem);
+        }
       }
     }
   }
