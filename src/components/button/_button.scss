@@ -99,7 +99,7 @@ $button-border-height: 3px;
   &--print & {
     &__inner {
       background: $color-button-secondary;
-      color: $color-black;
+      color: $color-text;
       font-weight: normal;
     }
   }
@@ -123,11 +123,6 @@ $button-border-height: 3px;
     }
   }
 
-  &--link:focus &__inner {
-    background: $color-focus;
-    color: $color-focus-text;
-  }
-
   &--link &__inner {
     &:after {
       content: '';
@@ -135,6 +130,12 @@ $button-border-height: 3px;
       margin: 0 0 0 0.5rem;
       vertical-align: middle;
     }
+  }
+
+  // Link button when focussed
+  &--link:focus:not(:active):not(:hover) &__inner {
+    background: $color-focus;
+    color: $color-focus-text;
   }
 
   &--link:not(.btn--secondary) &,
@@ -153,9 +154,13 @@ $button-border-height: 3px;
     }
   }
 
-  &--link.btn--small:not(.btn--secondary) &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-white', $height: 0.7rem);
+  &--link.btn--small:not(.btn--secondary) &,
+  &--link.btn--small:not(.btn--secondary):active &,
+  &--link.btn--small:not(.btn--secondary):hover:focus & {
+    &__inner {
+      &:after {
+        @include icon($name: 'chevron-right-white', $height: 0.7rem);
+      }
     }
   }
 
