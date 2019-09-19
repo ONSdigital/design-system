@@ -1,4 +1,4 @@
-$feedback-caret-width: 0.8rem;
+$feedback-caret-width: 1rem;
 $feedback-caret-right-spacing: 0.4rem;
 
 .feedback {
@@ -45,7 +45,7 @@ $feedback-caret-right-spacing: 0.4rem;
   &__link {
     position: relative;
     display: inline-block;
-    padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + $feedback-caret-right-spacing);
+    padding: 0.4rem 0.2rem 0.2rem ($feedback-caret-width + $feedback-caret-right-spacing);
     color: $color-text-inverse-link;
     // Required for Google Tag Manager
     pointer-events: none;
@@ -61,7 +61,7 @@ $feedback-caret-right-spacing: 0.4rem;
     &__link {
       cursor: pointer;
       pointer-events: initial;
-      padding: 0.2rem 0.2rem 0.2rem ($feedback-caret-width + 1.4rem);
+      padding: 0.4rem 0.2rem 0.2rem ($feedback-caret-width + 1.4rem);
 
       &:hover,
       &:focus {
@@ -81,7 +81,7 @@ $feedback-caret-right-spacing: 0.4rem;
         content: '';
         display: inline-block;
         position: absolute;
-        top: 0.5rem;
+        top: 0.6rem;
         left: 1rem;
         width: $feedback-caret-width;
         height: $feedback-caret-width;
