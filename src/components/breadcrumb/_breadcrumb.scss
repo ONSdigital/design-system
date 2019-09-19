@@ -34,8 +34,12 @@ $breadcrumb-chevron-height: 0.65rem;
         @include icon('chevron-right', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
 
         content: '';
-        margin: 0 0.4rem;
+        margin: 0;
         vertical-align: middle;
+
+        // We have to override the icon settings so it renders correctly in ie11
+        width: 1.25rem;
+        background-position: center center;
       }
     }
 

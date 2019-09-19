@@ -16,6 +16,7 @@ $feedback-caret-right-spacing: 0.4rem;
     @extend .container;
     outline: none;
     pointer-events: none;
+    list-style: none;
 
     &:focus {
       & .feedback__title {
