@@ -98,7 +98,13 @@ export function checkConsentCookieCategory(cookieName, cookieCategory) {
 }
 
 export function checkConsentCookie(cookieName, cookieValue) {
-  if (cookieName === 'ons_cookie_policy' || (cookieValue === null || cookieValue === false)) {
+  // If we're setting the consent, session or RH_SESSION cookie OR deleting a cookie, allow by default
+  if (
+    cookieName === 'ons_cookie_policy' ||
+    cookieName === 'session' ||
+    cookieName === 'RH_SESSION' ||
+    (cookieValue === null || cookieValue === false)
+  ) {
     return true;
   }
 
@@ -106,6 +112,7 @@ export function checkConsentCookie(cookieName, cookieValue) {
     const cookieCategory = COOKIE_CATEGORIES[cookieName];
     return checkConsentCookieCategory(cookieName, cookieCategory);
   } else {
+    // Deny the cookie if it is not known to us
     return false;
   }
 }

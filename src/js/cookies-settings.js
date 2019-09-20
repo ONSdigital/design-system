@@ -37,6 +37,10 @@ export default class CookiesSettings {
   submitSettingsForm(event) {
     event.preventDefault();
 
+    if (!cookie('ons_cookie_message_displayed')) {
+      setCookie('ons_cookie_message_displayed', true, { days: 365 });
+    }
+
     const formInputs = event.target.getElementsByTagName('input');
     let options = {};
 
@@ -51,11 +55,18 @@ export default class CookiesSettings {
     }
     setConsentCookie(options);
 
-    this.hideCookiesBanner();
-    this.checkPreviousLink();
+    this.checkForPreviousPage();
     this.showConfirmationMessage();
+    this.hideCookiesBanner();
 
     return false;
+  }
+
+  checkForPreviousPage() {
+    if (1 < history.length) {
+      event.preventDefault();
+      window.history.back();
+    }
   }
 
   showConfirmationMessage() {
@@ -65,27 +76,10 @@ export default class CookiesSettings {
     confirmationMessage.classList.remove('u-d-no');
   }
 
-  checkPreviousLink() {
-    const previousPageLink = document.querySelector('.cookies-settings__prev-page');
-    if (1 < history.length) {
-      previousPageLink.addEventListener('click', this.goBack.bind(this));
-    } else {
-      previousPageLink.style.display = 'none';
-    }
-  }
-
   hideCookiesBanner() {
-    if (!cookie('ons_cookie_message_displayed')) {
-      setCookie('ons_cookie_message_displayed', true, { days: 365 });
-    }
     const cookiesBanner = document.querySelector('.cookies-banner');
     if (cookiesBanner) {
       cookiesBanner.style.display = 'none';
     }
-  }
-
-  goBack() {
-    event.preventDefault();
-    window.history.back();
   }
 }

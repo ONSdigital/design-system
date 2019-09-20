@@ -87,13 +87,6 @@ describe('Component: Cookie settings', function() {
 
       expect(confirmationMessage.classList.contains('u-d-no')).to.be.false;
     });
-
-    it('does not set the previous link if one is not present', function() {
-      const button = this.form.querySelector('#submit-button');
-      button.click();
-      const previousLink = document.querySelector('.cookies-settings__prev-page');
-      expect(previousLink.style.display).to.equal('none');
-    });
   });
 });
 
