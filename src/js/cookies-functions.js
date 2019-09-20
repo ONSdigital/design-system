@@ -71,6 +71,8 @@ export function setConsentCookie(options) {
 export function checkConsentCookie(cookieName, cookieValue) {
   if (
     cookieName === 'ons_cookie_policy' ||
+    cookieName === 'session' ||
+    cookieName === 'RH_SESSION' ||
     cookieName === 'ons_cookie_message_displayed' ||
     (cookieValue === null || cookieValue === false)
   ) {
