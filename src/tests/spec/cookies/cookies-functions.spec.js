@@ -123,24 +123,9 @@ describe('consent cookie methods', function() {
 });
 
 describe('check cookie consent', function() {
-  it('returns true if trying to set the consent cookie', function() {
-    expect(checkConsentCookie('ons_cookie_policy', { essential: true })).to.equal(true);
-  });
-
-  it('returns true if deleting a cookie', function() {
-    expect(checkConsentCookie('test_cookie', null)).to.equal(true);
-    expect(checkConsentCookie('test_cookie', false)).to.equal(true);
-  });
-
   it('does not set a default consent cookie if one is not present', function() {
     cookie('ons_cookie_policy', null);
 
     expect(getConsentCookie()).to.equal(null);
-  });
-
-  it('returns true if the consent cookie does not exist and the cookie name is recognised', function() {
-    expect(getConsentCookie()).to.equal(null);
-
-    expect(checkConsentCookie('ons_cookie_message_displayed', true)).to.equal(true);
   });
 });

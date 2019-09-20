@@ -68,18 +68,6 @@ export function setConsentCookie(options) {
   setCookie('ons_cookie_policy', JSON.stringify(cookieConsent).replace(/"/g, "'"), { days: 365 });
 }
 
-export function checkConsentCookie(cookieName, cookieValue) {
-  if (
-    cookieName === 'ons_cookie_policy' ||
-    cookieName === 'session' ||
-    cookieName === 'RH_SESSION' ||
-    cookieName === 'ons_cookie_message_displayed' ||
-    (cookieValue === null || cookieValue === false)
-  ) {
-    return true;
-  }
-}
-
 export function setCookie(name, value, options) {
   const domain = getDomain(document.domain);
   let setDomain = '';
@@ -88,23 +76,21 @@ export function setCookie(name, value, options) {
     setDomain = '; domain=' + domain;
   }
 
-  if (checkConsentCookie(name, value)) {
-    if (typeof options === 'undefined') {
-      options = {};
-    }
-
-    let cookieString = name + '=' + value + setDomain + '; path=/';
-    if (options.days) {
-      const date = new Date();
-      date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
-      cookieString = cookieString + '; expires=' + date.toGMTString();
-    }
-    if (document.location.protocol === 'https:') {
-      cookieString = cookieString + '; Secure';
-    }
-    console.log('set cookie:', cookieString);
-    document.cookie = cookieString;
+  if (typeof options === 'undefined') {
+    options = {};
   }
+
+  let cookieString = name + '=' + value + setDomain + '; path=/';
+  if (options.days) {
+    const date = new Date();
+    date.setTime(date.getTime() + options.days * 24 * 60 * 60 * 1000);
+    cookieString = cookieString + '; expires=' + date.toGMTString();
+  }
+  if (document.location.protocol === 'https:') {
+    cookieString = cookieString + '; Secure';
+  }
+  console.log('set cookie:', cookieString);
+  document.cookie = cookieString;
 }
 
 export function getCookie(name) {
