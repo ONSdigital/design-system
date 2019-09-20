@@ -42,6 +42,12 @@ The call to action button should be used when a link is the primary call to acti
     patternlibExample({"path": "components/button/examples/button-link/index.njk"})
 }}
 
+#### Call to action opening in a new window
+If a call to action button needs to open in a new window, e.g. for a web chat service, the `newWindow` parameter should be set to `true`. This will then provide a description to screen reader users to inform them the button will open a new window before they click it, as it would disable the back button in the browser.
+{{
+    patternlibExample({"path": "components/button/examples/button-link-new-window/index.njk"})
+}}
+
 ### Group
 The ghosted button is reserved for use in the header of an eQ service. It’s function is to allow the user to save and logout of the current context.
 {{
