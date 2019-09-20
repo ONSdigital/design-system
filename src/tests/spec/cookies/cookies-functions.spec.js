@@ -110,12 +110,6 @@ describe('consent cookie methods', function() {
   });
 
   it('deletes relevant cookies in that category if consent is set to false', function() {
-    setConsentCookie({ essential: true });
-
-    setCookie('ons_cookie_message_displayed', 'this is an essential cookie');
-
-    expect(cookie('ons_cookie_message_displayed')).to.equal('this is an essential cookie');
-
     const setCookieSpy = chai.spy(setCookie);
     const getDomainSpy = chai.spy(getDomain);
 
@@ -141,8 +135,6 @@ describe('check cookie consent', function() {
   it('does not set a default consent cookie if one is not present', function() {
     cookie('ons_cookie_policy', null);
 
-    checkConsentCookieCategory('ons_cookie_message_displayed', true);
-
     expect(getConsentCookie()).to.equal(null);
   });
 
@@ -150,25 +142,5 @@ describe('check cookie consent', function() {
     expect(getConsentCookie()).to.equal(null);
 
     expect(checkConsentCookie('ons_cookie_message_displayed', true)).to.equal(true);
-  });
-
-  it('returns false if the consent cookie does not exist and the cookie name is not recognised', function() {
-    expect(getConsentCookie()).to.equal(null);
-
-    expect(checkConsentCookie('fake_cookie')).to.equal(false);
-  });
-
-  it('returns the consent for a given cookie', function() {
-    setConsentCookie({ usage: false });
-
-    expect(checkConsentCookie('_ga', 'set a usage cookie')).to.equal(false);
-
-    setConsentCookie({ usage: true });
-
-    expect(checkConsentCookie('_ga', 'set a usage cookie')).to.equal(true);
-  });
-
-  it('denies consent for cookies not in our list of cookies', function() {
-    expect(checkConsentCookie('fake_cookie', 'just for testing')).to.equal(false);
   });
 });
