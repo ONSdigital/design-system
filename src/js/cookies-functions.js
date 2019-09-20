@@ -5,18 +5,6 @@ export const DEFAULT_COOKIE_CONSENT = {
   campaigns: true,
 };
 
-export const COOKIE_CATEGORIES = {
-  RH_SESSION: 'essential',
-  session: 'essential',
-  ons_cookie_policy: 'essential',
-  ons_cookie_message_displayed: 'essential',
-  _ga: 'usage',
-  _gid: 'usage',
-  _gat: 'usage',
-  _use_hitbox: 'campaigns',
-  VISITOR_INFO1_LIVE: 'campaigns',
-};
-
 export function cookie(name, value, options) {
   if (typeof value !== 'undefined') {
     if (value === false || value === null) {
@@ -59,7 +47,6 @@ export function getConsentCookie() {
 
 export function setConsentCookie(options) {
   const domain = getDomain(document.domain);
-
   let cookieConsent = getConsentCookie();
   if (!cookieConsent) {
     cookieConsent = JSON.parse(JSON.stringify(DEFAULT_COOKIE_CONSENT).replace(/'/g, '"'));
@@ -67,46 +54,27 @@ export function setConsentCookie(options) {
   for (let cookieType in options) {
     cookieConsent[cookieType] = options[cookieType];
     if (!options[cookieType]) {
-      for (let cookies in COOKIE_CATEGORIES) {
-        if (COOKIE_CATEGORIES[cookies] === cookieType) {
-          cookie(cookies, null);
-          if (cookie(cookies)) {
-            const cookieString = cookies + '=; expires=' + new Date() + '; domain=' + domain + '; path=/';
-            document.cookie = cookieString;
-            console.log('remove cookie:', cookieString);
-          }
-        }
+      if (cookieType === 'usage') {
+        const gaCookies = ['_ga', '_gid', '_gat'];
+        gaCookies.forEach(cookies => {
+          const cookieString = cookies + '=; expires=' + new Date() + '; domain=' + domain + '; path=/';
+          document.cookie = cookieString;
+          console.log('remove cookie:', cookieString);
+        });
       }
     }
   }
+
   setCookie('ons_cookie_policy', JSON.stringify(cookieConsent).replace(/"/g, "'"), { days: 365 });
 }
 
-export function checkConsentCookieCategory(cookieName, cookieCategory) {
-  let currentConsentCookie = getConsentCookie();
-  if (!currentConsentCookie && COOKIE_CATEGORIES[cookieName]) {
-    return true;
-  }
-
-  currentConsentCookie = getConsentCookie();
-  try {
-    return currentConsentCookie[cookieCategory];
-  } catch (e) {
-    console.error(e);
-    return false;
-  }
-}
-
 export function checkConsentCookie(cookieName, cookieValue) {
-  if (cookieName === 'ons_cookie_policy' || (cookieValue === null || cookieValue === false)) {
+  if (
+    cookieName === 'ons_cookie_policy' ||
+    cookieName === 'ons_cookie_message_displayed' ||
+    (cookieValue === null || cookieValue === false)
+  ) {
     return true;
-  }
-
-  if (COOKIE_CATEGORIES[cookieName]) {
-    const cookieCategory = COOKIE_CATEGORIES[cookieName];
-    return checkConsentCookieCategory(cookieName, cookieCategory);
-  } else {
-    return false;
   }
 }
 
