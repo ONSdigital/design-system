@@ -1,0 +1,10 @@
+{% from "components/button/_macro.njk" import onsButton %}
+{{
+    onsButton({
+        "type": 'button',
+        "text": 'Web chat',
+        "classes": 'u-mb-m',
+        "url": '#',
+        "newWindow": true
+    }) 
+}}

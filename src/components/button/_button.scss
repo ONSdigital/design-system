@@ -329,4 +329,22 @@ $button-border-height: 3px;
       transform: rotate(180deg);
     }
   }
+
+  &--link,
+  &--link:active,
+  &--link:hover:focus {
+    .btn__inner.icon--external-link {
+      &:after {
+        @include icon($name: 'external-link-white', $height: 0.8rem);
+      }
+    }
+  }
+
+  &--link:focus {
+    .btn__inner.icon--external-link {
+      &:after {
+        @include icon($name: 'external-link-black', $height: 0.8rem);
+      }
+    }
+  }
 }
