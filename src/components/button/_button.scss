@@ -32,24 +32,39 @@ $button-border-height: 3px;
     border-radius: $input-radius;
 
     background: $color-button;
-    color: $color-white;
+    color: $color-text-inverse;
 
     // Required for Google Tag Manager
     pointer-events: none;
   }
 
-  &:focus {
-    outline: 3px solid transparent;
-
-    .btn__inner {
-      color: $color-focus-text;
-      background-color: $color-focus;
-    }
-  }
-
   // When preceded by another button (e.g. in a group)
   & + & {
     margin-left: 0.5rem;
+  }
+
+  // When hovered
+  &:not([class*='btn--ghost']):not([class*='btn--mobile']):not([class*='btn--secondary']):not([class*='btn--print']):hover &__inner {
+    background: darken($color-button, 5%);
+  }
+
+  // When focussed
+  &:focus:not(:active):not(:hover) {
+    outline: 3px solid transparent;
+  }
+
+  &:focus:not(:active):not(:hover) &__inner {
+    color: $color-focus-text;
+    background-color: $color-focus;
+  }
+
+  &:not([class*='btn--secondary']):not([class*='btn--print']):not([class*='btn--ghost-blue']):focus:hover &__inner {
+    color: $color-text-inverse;
+  }
+
+  &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus,
+  &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus:hover {
+    outline: none;
   }
 
   // When clicked
@@ -84,8 +99,16 @@ $button-border-height: 3px;
   &--print & {
     &__inner {
       background: $color-button-secondary;
-      color: $color-black;
+      color: $color-text;
       font-weight: normal;
+    }
+  }
+
+  // When hovered
+  &--secondary:hover &,
+  &--print:hover & {
+    &__inner {
+      background: darken($color-button-secondary, 5%);
     }
   }
 
@@ -100,11 +123,6 @@ $button-border-height: 3px;
     }
   }
 
-  &--link:focus &__inner {
-    background: $color-focus;
-    color: $color-focus-text;
-  }
-
   &--link &__inner {
     &:after {
       content: '';
@@ -114,9 +132,31 @@ $button-border-height: 3px;
     }
   }
 
-  &--link:not(.btn--secondary) &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-white', $height: 0.8rem);
+  // Link button when focussed
+  &--link:focus:not(:active):not(:hover) &__inner {
+    background: $color-focus;
+    color: $color-focus-text;
+  }
+
+  &--link:not(.btn--secondary) &,
+  &--link:not(.btn--secondary):active &,
+  &--link:not(.btn--secondary):hover:focus & {
+    &__inner {
+      &:after {
+        @include icon($name: 'chevron-right-white', $height: 0.8rem);
+      }
+    }
+  }
+
+  &--link {
+    &.btn--ghost-blue,
+    &.btn--ghost-blue:active,
+    &.btn--ghost-blue:hover:focus {
+      .btn__inner {
+        &:after {
+          @include icon($name: 'chevron-right-blue', $height: 0.8rem);
+        }
+      }
     }
   }
 
@@ -126,9 +166,13 @@ $button-border-height: 3px;
     }
   }
 
-  &--link.btn--small:not(.btn--secondary) &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-white', $height: 0.7rem);
+  &--link.btn--small:not(.btn--secondary) &,
+  &--link.btn--small:not(.btn--secondary):active &,
+  &--link.btn--small:not(.btn--secondary):hover:focus & {
+    &__inner {
+      &:after {
+        @include icon($name: 'chevron-right-white', $height: 0.7rem);
+      }
     }
   }
 
@@ -198,6 +242,10 @@ $button-border-height: 3px;
     }
   }
 
+  &--loader.is-loading:focus &__inner {
+    color: transparent !important;
+  }
+
   // Spooky Buttons
   &--ghost &,
   &--mobile & {
@@ -214,6 +262,21 @@ $button-border-height: 3px;
     &__inner {
       border-color: $color-white;
     }
+  }
+
+  &--ghost:active:focus {
+    outline: 3px solid transparent;
+  }
+
+  &--ghost:hover & {
+    &__inner {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &--ghost:focus:not(:hover) &__inner {
+    color: $color-focus-text;
+    background-color: $color-focus;
   }
 
   &--ghost-blue & {
@@ -264,6 +327,24 @@ $button-border-height: 3px;
   &--mobile[aria-expanded='true'] & {
     &__inner:after {
       transform: rotate(180deg);
+    }
+  }
+
+  &--link,
+  &--link:active,
+  &--link:hover:focus {
+    .btn__inner.icon--external-link {
+      &:after {
+        @include icon($name: 'external-link-white', $height: 0.8rem);
+      }
+    }
+  }
+
+  &--link:focus {
+    .btn__inner.icon--external-link {
+      &:after {
+        @include icon($name: 'external-link-black', $height: 0.8rem);
+      }
     }
   }
 }
