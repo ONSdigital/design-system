@@ -15,6 +15,7 @@ export const COOKIE_CATEGORIES = {
   _gat: 'usage',
   _use_hitbox: 'campaigns',
   VISITOR_INFO1_LIVE: 'campaigns',
+  _fbp: 'campaigns',
 };
 
 export function cookie(name, value, options) {
