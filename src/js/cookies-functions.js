@@ -55,8 +55,16 @@ export function setConsentCookie(options) {
     cookieConsent[cookieType] = options[cookieType];
     if (!options[cookieType]) {
       if (cookieType === 'usage') {
-        const gaCookies = ['_ga', '_gid', '_gat'];
-        gaCookies.forEach(cookies => {
+        const usageCookies = ['_ga', '_gid', '_gat'];
+        usageCookies.forEach(cookies => {
+          const cookieString = cookies + '=; expires=' + new Date() + '; domain=' + domain + '; path=/';
+          document.cookie = cookieString;
+          console.log('remove cookie:', cookieString);
+        });
+      }
+      if (cookieType === 'campaigns') {
+        const campaignCookies = ['_fbp'];
+        campaignCookies.forEach(cookies => {
           const cookieString = cookies + '=; expires=' + new Date() + '; domain=' + domain + '; path=/';
           document.cookie = cookieString;
           console.log('remove cookie:', cookieString);
