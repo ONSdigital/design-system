@@ -103,8 +103,8 @@
     }
 
     &__logo-link:focus {
-      background-color: transparent;
       outline: 3px solid $color-focus;
+      background-color: transparent;
       box-shadow: none;
     }
 
