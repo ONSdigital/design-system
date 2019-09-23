@@ -1,9 +1,8 @@
 import { unset } from 'lodash';
 import { cookie, setDefaultConsentCookie, setConsentCookie, setCookie } from 'js/cookies-functions';
 export default class CookiesSettings {
-  constructor(component, referrerUrl) {
+  constructor(component) {
     this.component = component;
-    this.referrerUrl = referrerUrl;
     this.component.addEventListener('submit', this.submitSettingsForm.bind(this));
     this.setInitialFormValues();
   }
@@ -37,6 +36,11 @@ export default class CookiesSettings {
 
   submitSettingsForm(event) {
     event.preventDefault();
+
+    if (!cookie('ons_cookie_message_displayed')) {
+      setCookie('ons_cookie_message_displayed', true, { days: 365 });
+    }
+
     const formInputs = event.target.getElementsByTagName('input');
     let options = {};
 
@@ -51,39 +55,31 @@ export default class CookiesSettings {
     }
     setConsentCookie(options);
 
-    if (!cookie('ons_cookie_message_displayed')) {
-      setCookie('ons_cookie_message_displayed', true, { days: 365 });
-    }
-
+    this.checkForPreviousPage();
     this.showConfirmationMessage();
+    this.hideCookiesBanner();
 
     return false;
   }
 
+  checkForPreviousPage() {
+    if (1 < history.length) {
+      event.preventDefault();
+      window.history.back();
+    }
+  }
+
   showConfirmationMessage() {
     const confirmationMessage = document.querySelector('.cookies-confirmation-message');
-    const previousPageLink = document.querySelector('.cookies-settings__prev-page');
-    const referrer = this.getReferrerLink();
 
     document.body.scrollTop = document.documentElement.scrollTop = 0;
-
-    if (referrer && referrer !== document.location.href) {
-      previousPageLink.href = referrer;
-      previousPageLink.style.display = 'block';
-    } else {
-      previousPageLink.style.display = 'none';
-    }
-
     confirmationMessage.classList.remove('u-d-no');
   }
 
-  getReferrerLink() {
-    if (document.referrer && !this.referrerUrl) {
-      return document.referrer;
-    } else if (this.referrerUrl) {
-      return this.referrerUrl;
-    } else {
-      return false;
+  hideCookiesBanner() {
+    const cookiesBanner = document.querySelector('.cookies-banner');
+    if (cookiesBanner) {
+      cookiesBanner.style.display = 'none';
     }
   }
 }
