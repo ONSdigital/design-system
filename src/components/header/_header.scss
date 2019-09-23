@@ -22,8 +22,10 @@
     display: inline-block;
 
     &:focus {
-      outline: 4px solid $color-focus;
-      background-color: transparent;
+      outline: 3px solid transparent;
+      color: $color-focus-text;
+      background-color: $color-focus;
+      box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
     }
   }
 
@@ -98,6 +100,13 @@
   &--internal & {
     &__top {
       background: $color-dark-blue;
+    }
+
+    &__logo-link:focus {
+      background-color: transparent;
+      outline: 3px solid $color-focus;
+      color: $color-focus-text;
+      box-shadow: none;
     }
 
     &__grid-top {
