@@ -8,14 +8,11 @@
 
 .skip__link {
   display: block;
-  height: 1px;
+  height: 0px;
   width: 100%;
-  overflow: hidden;
-  position: absolute;
-  top: -30px;
   transition: top 100ms;
   color: $color-white;
-  background: $color-dark-blue;
+  background: $color-focus;
   font-weight: 600;
   font-size: 1.1rem;
   &:focus {
