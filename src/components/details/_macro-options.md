@@ -11,8 +11,9 @@
 
 ## DetailsButton
 
-| Name       | Type   | Required | Description                                                                                                           |
-| ---------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| close      | string | true     | Text for the button when the details are open                                                                         |
-| classes    | string | false    | Classes to add to the close button. If classes are provided the `btn--secondary` class will not be applied by default |
-| attributes | object | false    | HTML attributes (for example data attributes) to add to the button                                                    |
+| Name       | Type   | Required | Description                                                                                                                                                                                                                             |
+| ---------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| close      | string | true     | Text for the button when the details are open                                                                                                                                                                                           |
+| context    | string | false    | Visually hidden text appended to `close` text string to add context to close button for screen readers. String is appended with "content" and defaults to `title` if empty. (e.g. "Hide this 'What is a photovoltaic system?' content") |
+| classes    | string | false    | Classes to add to the close button. If classes are provided the `btn--secondary` class will not be applied by default                                                                                                                   |
+| attributes | object | false    | HTML attributes (for example data attributes) to add to the button                                                                                                                                                                      |
