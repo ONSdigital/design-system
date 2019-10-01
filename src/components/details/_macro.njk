@@ -1,6 +1,8 @@
 {% macro onsDetails(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
 
+    {% set titleTag = params.titleTag | default("h2") %}
+
     <details
         id="{{ params.id }}"
         class="details js-collapsible{% if params.isAccordion %} details--accordion{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"
@@ -16,7 +18,7 @@
         >
             {# Required to use display flex on Safari as it's not currently supported: https://bugs.webkit.org/show_bug.cgi?id=167111 #}
             <div class="details__heading">
-                <span class="details__title u-fs-r--b">{{ params.title }}</span>
+                <{{ titleTag }} class="details__title u-fs-r--b u-mb-no">{{ params.title }}</{{ titleTag }}>
                 {% if params.button and params.button.open and params.isAccordion %}
                     {{
                         onsButton({
