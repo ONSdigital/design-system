@@ -5,14 +5,19 @@
     margin: 0 0 1rem;
   }
 
-  &__title,
-  &__description {
+  &__title {
     em {
       background-color: $color-emphasis;
     }
   }
 
-  &__description em {
-    font-weight: normal;
+  &__description {
+    em {
+      background-color: $color-warn-tint;
+      border: 5px solid $color-warn;
+      display: block;
+      font-weight: normal;
+      padding: 1rem;
+    }
   }
 }
