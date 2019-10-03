@@ -3,9 +3,16 @@
 
   &__title {
     margin: 0 0 1rem;
+  }
 
+  &__title,
+  &__description {
     em {
       background-color: $color-emphasis;
     }
+  }
+
+  &__description em {
+    font-weight: normal;
   }
 }
