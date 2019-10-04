@@ -71,7 +71,7 @@
                       {% endif %}
                   </div>
                   {% if params.button %}
-                      <div class="grid__col col-auto u-flex-no-shrink">
+                      <div class="grid__col col-auto u-flex-no-shrink u-d-no@xs@m">
                           {{ onsButton({
                               "text": params.button.text,
                               "classes": "btn--ghost u-d-no@xs@m",
@@ -82,7 +82,7 @@
                       </div>
                   {% endif %}
                   {% if params.toggleButton %}
-                      <div class="grid__col col-auto u-flex-no-shrink">
+                      <div class="grid__col col-auto u-flex-no-shrink u-d-no@m">
                             {{ onsButton({
                                 "text": params.toggleButton.text,
                                 "classes": "btn--mobile u-ml-s u-d-no js-toggle-main",
