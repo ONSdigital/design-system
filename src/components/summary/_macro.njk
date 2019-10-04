@@ -37,7 +37,7 @@
                                     <span class="summary__icon icon--{{ rowItem.icon }}"></span>
                                 {% endif %}
 
-                                {{ rowItem.title | default(row.title) }} {{ hasIcons }}
+                                {{ rowItem.title | default(row.title) | safe }} {{ hasIcons }}
 
                                 {# Render section status for mobile if is hub #}
                                 {% if params.hub and rowItem.valueList %}
@@ -80,7 +80,7 @@
                                         <a
                                             href="{{ action.url }}"
                                             class="summary__button"
-                                            {% if action.ariaLabel %} aria-label="{{ action.ariaLabel }}"{% endif %}
+                                            {% if action.ariaLabel %} aria-label="{{ action.ariaLabel | striptags() }}"{% endif %}
                                             {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                         >{{ action.text }}</a>
                                     {% endfor %}
