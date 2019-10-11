@@ -44,8 +44,11 @@ $button-border-height: 3px;
   }
 
   // When hovered
-  &:not([class*='btn--ghost']):not([class*='btn--mobile']):not([class*='btn--secondary']):not([class*='btn--print']):hover &__inner {
-    background: darken($color-button, 5%);
+  &:not([class*='btn--ghost']):not([class*='btn--mobile']):not([class*='btn--secondary']):not([class*='btn--print']):not([class*='btn--disabled']):hover
+    & {
+    &__inner {
+      background: darken($color-button, 5%);
+    }
   }
 
   // When focussed
@@ -345,6 +348,15 @@ $button-border-height: 3px;
       &:after {
         @include icon($name: 'external-link-black', $height: 0.8rem);
       }
+    }
+  }
+
+  // Disabled buttons
+  &--disabled,
+  &--disabled:hover {
+    cursor: not-allowed;
+    .btn__inner {
+      background-color: $color-grey-1;
     }
   }
 }
