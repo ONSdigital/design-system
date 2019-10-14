@@ -33,7 +33,7 @@
                                 <p class="feedback__content-mailto">
                                 {{ params.mailto.textBefore }}
                                     <a href="mailto:{{ params.mailto.address }}?subject={{ params.mailto.subject | safe }}{{ params.pageTitle.value }}%20%28{{ params.pageURL.value }}%29&body={{ params.mailto.body | safe }}" target="{{ params.mailto.target | default('_top')}}"
-                                        >{{ params.mailto.address }}.</a>
+                                        >{{ params.mailto.address }}</a>
                                 </p>
                                 <p>{{ params.mailto.textAfter}}</p>                                
                             </div>

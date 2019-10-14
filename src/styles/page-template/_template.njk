@@ -76,7 +76,7 @@
                             })
                         }}
                     {% endblock %}
-                    {% if form %}
+                    {% if form and form.attributes %}
                         <form
                             {% if form.classes %}class="{{ form.classes }}"{% endif %}
                             method="{{ form.method | default('POST') }}"
@@ -88,6 +88,7 @@
                         {{
                             onsHeader({
                                 "title": page.header.title | default(page.title),
+                                "classes": page.header.classes,
                                 "language": page.language,
                                 "button": page.signoutButton,
                                 "toggleButton": page.toggleButton,
@@ -117,7 +118,7 @@
                         </div>
                     {% endblock %}
 
-                    {% if form %}
+                    {% if form and form.attributes %}
                         </form>
                     {% endif %}
                 </div>
