@@ -82,10 +82,6 @@ describe('Component: Feedback', function() {
       expect(this.submit.disabled).to.be.true;
     });
 
-    it('the submit button should be set to loader mode', function() {
-      expect(this.submit.classList.contains('is-loading')).to.be.true;
-    });
-
     it('the form should be posted', function() {
       expect(this.mockedFetch).to.have.been.called();
     });

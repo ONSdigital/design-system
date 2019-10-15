@@ -77,7 +77,5 @@ export default class Feedback {
         element.disabled = !enabled;
       }
     });
-
-    this.button.classList[enabled ? 'remove' : 'add']('is-loading');
   }
 }
