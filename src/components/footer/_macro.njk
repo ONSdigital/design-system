@@ -130,7 +130,11 @@
                                     </div>
                                 {% endif %}
                             {% endif %}
-                        {% endfor %}                      
+                        {% endfor %}  
+                    {% elif not params.rows and not params.cols and not params.poweredBy and not params.OGLLink %}
+                        <div class="grid__col grid__col--flex u-ml-s u-mb-s u-p-no">
+                            {{ poweredByLogo | safe }}
+                        </div>                    
                     {% endif %}
                     {% if params.OGLLink %}		
                         <div class="grid__col u-mb-m">
@@ -147,9 +151,11 @@
                             </div>
                         </div>
                     {% elif not params.rows and (params.poweredBy or params.cols) %}
-                        <div class="grid__col u-mb-m">
-                            <hr class="footer__hr">
-                        </div>
+                        {% if params.cols %}
+                            <div class="grid__col u-mb-m">
+                                <hr class="footer__hr">
+                            </div>
+                        {% endif %}
                         <div class="grid__col u-mb-m">
                             {{ poweredByLogo | safe }}
                         </div>
