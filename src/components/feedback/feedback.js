@@ -16,6 +16,7 @@ export default class Feedback {
       this.pageUrl = this.details.querySelector('.js-feedback-email');
       this.pageUrl = this.details.querySelector('.js-feedback-page-url');
       this.pagTitle = this.details.querySelector('.js-feedback-page-title');
+      this.button = this.details.querySelector('.js-feedback-send');
 
       this.form.addEventListener('submit', this.handleSubmit.bind(this));
     }
