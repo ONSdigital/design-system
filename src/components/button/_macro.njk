@@ -21,5 +21,8 @@
       {% if params.url and params.newWindow %}
         <span class="btn__new-window-description u-vh">{{ params.newWindowDescription | default("opens in a new window") }}</span>
       {% endif %}
+      {% if params.buttonContext %}
+        <span class="btn__context u-vh">{{ params.buttonContext }}</span>
+      {% endif %}
   </{{ tag }}>
 {% endmacro %}

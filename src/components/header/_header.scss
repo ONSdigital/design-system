@@ -100,6 +100,9 @@
   &--internal & {
     &__top {
       background: $color-dark-blue;
+      a {
+        color: $color-white;
+      }
     }
 
     &__logo-link:focus {
