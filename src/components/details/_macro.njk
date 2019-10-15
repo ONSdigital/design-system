@@ -40,7 +40,7 @@
                         onsButton({
                             "type": "button",
                             "text": params.button.close,
-                            "buttonContext": (params.button.context | default(params.title)) + params.button.contextSuffix,
+                            "buttonContext": (params.button.context | default(params.title)) + " " + params.button.contextSuffix,
                             "classes": "btn--small js-collapsible-button u-d-no " + (params.button.classes | default("btn--secondary")),
                             "innerClasses": "js-collapsible-button-inner",
                             "attributes": params.button.attributes
