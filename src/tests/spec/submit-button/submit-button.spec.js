@@ -40,7 +40,7 @@ describe('Function: Submit Button ', function() {
     });
   });
 
-  describe.only('Once the button is initialised', () => {
+  describe('Once the button is initialised', () => {
     beforeEach(() => {
       new SubmitButton(buttonElement);
     });
