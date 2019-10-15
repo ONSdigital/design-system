@@ -17,8 +17,6 @@ Align the primary action button to the left edge of your form.
 
 There are 2 ways to use the button component. You can use HTML or, if you are using [Nunjucks](https://mozilla.github.io/nunjucks/), you can use the Nunjucks macro.
 
-The `type` parameter defaults to `submit` to render a submit button. This will also add an onclick event that will disable the button when clicked to stop multiple submissions and add the loader style to show the user the submit is taking place.
-
 ## Variations
 ### Small
 In certain circumstances there may be the need for multiple primary actions to exist on a page. The small primary button should be used in this scenario only when each action has the same context, for example, a list containing business surveys that a user needs to complete.
@@ -72,7 +70,7 @@ Use `btn--disabled` with the `disabled=true` element attribute for buttons that 
 }}
 
 ### Loader
-The `btn--loader` class can be added to a button when there is a need to indicate to the user that the action taken place is waiting for a response i.e. uploading a file. This helps prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked.
+The `btn--loader` class will be added to a button if the type is explicitly declared as `submit` then when the button is clicked the `is-loading` class is added to start the animation and the button is disabled. This is used when there is a need to indicate to the user that the action taken place is waiting for a response i.e. uploading a file. This helps prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked.
 {{
     patternlibExample({"path": "components/button/examples/button-loader/index.njk"})
 }}
