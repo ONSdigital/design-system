@@ -17,6 +17,8 @@ Align the primary action button to the left edge of your form.
 
 There are 2 ways to use the button component. You can use HTML or, if you are using [Nunjucks](https://mozilla.github.io/nunjucks/), you can use the Nunjucks macro.
 
+The `type` parameter defaults to submit to render a submit button. This will also add an onclick event that will disable the button when clicked to stop multiple submissions and add the loader style to show the user the submit is taking place.
+
 ## Variations
 ### Small
 In certain circumstances there may be the need for multiple primary actions to exist on a page. The small primary button should be used in this scenario only when each action has the same context, for example, a list containing business surveys that a user needs to complete.
@@ -80,9 +82,6 @@ The `print` parameter can be set to `true` to render a print button. This will t
 {{
     patternlibExample({"path": "components/button/examples/button-print/index.njk"})
 }}
-
-### Submit
-The `type` parameter can be set to `submit` to render a submit button. This will also add an onclick event that will disable the button when clicked to stop multiple submissions and add the loader style to show the user the submit is taking place.
 
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
