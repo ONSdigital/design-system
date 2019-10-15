@@ -7,6 +7,5 @@ export default class SubmitButton {
   loadingButton() {
     this.button.classList.add('is-loading');
     this.button.setAttribute('disabled', true);
-    this.button.setAttribute('aria-disabled', true);
   }
 }

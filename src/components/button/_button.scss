@@ -203,7 +203,7 @@ $button-border-height: 3px;
     }
   }
 
-  &--loader &__inner {
+  &__inner {
     position: relative;
     transition: color 0.3s ease-in-out;
 
@@ -225,13 +225,13 @@ $button-border-height: 3px;
     }
   }
 
-  &--loader:focus &__inner {
+  &:focus &__inner {
     &:after {
       @include icon($name: 'loader-black', $height: 1.5em);
     }
   }
 
-  &--loader.is-loading &__inner {
+  &.is-loading &__inner {
     color: transparent;
 
     &:after {
@@ -239,7 +239,7 @@ $button-border-height: 3px;
     }
   }
 
-  &--loader.is-loading:focus &__inner {
+  &.is-loading:focus &__inner {
     color: transparent !important;
   }
 
