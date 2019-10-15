@@ -1,6 +1,13 @@
-export default class Button {
-  constructor(submitButton) {
-    submitButton.className += ' btn--loader is-loading';
-    this.disabled = submitButton.getAttribute('disabled') === 'true';
+export default class SubmitButton {
+  constructor(component) {
+    console.log(component);
+    this.button = component;
+    this.button.addEventListener('click', this.loadingButton.bind(this));
+  }
+
+  loadingButton() {
+    this.button.classList.add('is-loading');
+    this.button.setAttribute('disabled', true);
+    this.button.setAttribute('aria-disabled', true);
   }
 }
