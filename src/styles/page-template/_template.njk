@@ -63,7 +63,7 @@
         {% block head %}{% endblock %}
     </head>
     <body{% if page.bodyClasses %} class="{{ page.bodyClasses }}"{% endif %}>
-        <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
         {% block bodyStart %}{% endblock %}
         {% block body %}
             <div class="page">
