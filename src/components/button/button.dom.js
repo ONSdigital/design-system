@@ -1,11 +1,11 @@
 import domready from 'js/domready';
 
 async function submitButton() {
-  const submitButton = [...document.querySelectorAll('.js-button')];
+  const buttons = [...document.querySelectorAll('.js-button')];
 
-  if (submitButton.length) {
+  if (buttons.length) {
     const SubmitButton = (await import('./button')).default;
-    submitButton.forEach(button => {
+    buttons.forEach(button => {
       new SubmitButton(button);
     });
   }
