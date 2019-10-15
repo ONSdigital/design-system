@@ -20,8 +20,10 @@ $button-border-height: 3px;
   vertical-align: top;
   cursor: pointer;
 
-  &:hover {
-    text-decoration: none;
+  &:hover & {
+    &__inner {
+      background: darken($color-button, 5%);
+    }
   }
 
   &__inner {
@@ -41,11 +43,6 @@ $button-border-height: 3px;
   // When preceded by another button (e.g. in a group)
   & + & {
     margin-left: 0.5rem;
-  }
-
-  // When hovered
-  &:not([class*='btn--ghost']):not([class*='btn--mobile']):not([class*='btn--secondary']):not([class*='btn--print']):hover &__inner {
-    background: darken($color-button, 5%);
   }
 
   // When focussed
@@ -268,7 +265,8 @@ $button-border-height: 3px;
     outline: 3px solid transparent;
   }
 
-  &--ghost:hover & {
+  &--ghost:hover &,
+  &--mobile:hover & {
     &__inner {
       background: rgba(0, 0, 0, 0.1);
     }
@@ -354,6 +352,28 @@ $button-border-height: 3px;
     .btn__inner.icon--external-link {
       &:after {
         @include icon($name: 'external-link-black', $height: 0.8rem);
+      }
+    }
+  }
+
+  // Disabled buttons
+  &--disabled {
+    &:hover {
+      cursor: not-allowed;
+    }
+
+    &.btn--secondary,
+    &.btn--print {
+      .btn__inner {
+        background: $color-button-secondary;
+        border: 0;
+      }
+    }
+
+    &:not(.btn--secondary) {
+      .btn__inner {
+        background-color: $color-grey-1;
+        border: 0;
       }
     }
   }
