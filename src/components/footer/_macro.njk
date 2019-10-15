@@ -147,9 +147,11 @@
                             </div>
                         </div>
                     {% elif not params.rows and (params.poweredBy or params.cols) %}
-                        <div class="grid__col u-mb-m">
-                            <hr class="footer__hr">
-                        </div>
+                        {% if params.cols %}
+                            <div class="grid__col u-mb-m">
+                                <hr class="footer__hr">
+                            </div>
+                        {% endif %}
                         <div class="grid__col u-mb-m">
                             {{ poweredByLogo | safe }}
                         </div>
