@@ -1,0 +1,11 @@
+{% from "components/button/_macro.njk" import onsButton %}
+{{ 
+    onsButton({
+        "type": 'button',
+        "text": 'Submit',
+        "classes": 'btn--disabled',
+        "attributes": {
+            "disabled": "true"
+        }
+    }) 
+}}
