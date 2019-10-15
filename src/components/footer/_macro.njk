@@ -130,7 +130,11 @@
                                     </div>
                                 {% endif %}
                             {% endif %}
-                        {% endfor %}                      
+                        {% endfor %}  
+                    {% elif not params.rows and not params.cols and not params.poweredBy %}
+                        <div class="grid__col grid__col--flex u-ml-s u-mb-s u-p-no">
+                            {{ poweredByLogo | safe }}
+                        </div>                    
                     {% endif %}
                     {% if params.OGLLink %}		
                         <div class="grid__col u-mb-m">
