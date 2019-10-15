@@ -1,6 +1,5 @@
 export default class SubmitButton {
   constructor(component) {
-    console.log(component);
     this.button = component;
     this.button.addEventListener('click', this.loadingButton.bind(this));
   }
