@@ -31,6 +31,7 @@ describe('Function: Submit Button ', function() {
 
   describe('Before the button is initialised', () => {
     it('Button should have relevant classes', () => {
+      expect(buttonElement.classList.contains('btn--loader')).to.be.true;
       expect(buttonElement.classList.contains('js-button')).to.be.true;
     });
 
