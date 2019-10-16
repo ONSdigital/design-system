@@ -20,6 +20,13 @@
 
   &__logo-link {
     display: inline-block;
+
+    &:focus {
+      outline: 3px solid transparent;
+      color: $color-focus-text;
+      background-color: $color-focus;
+      box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
+    }
   }
 
   &__logo {
@@ -47,6 +54,12 @@
 
     margin: 0;
     color: $color-white;
+
+    &-link {
+      &:focus {
+        outline: 4px solid $color-focus;
+      }
+    }
 
     &--nav-adj {
       @include mq(s) {
@@ -87,6 +100,15 @@
   &--internal & {
     &__top {
       background: $color-dark-blue;
+      a {
+        color: $color-white;
+      }
+    }
+
+    &__logo-link:focus {
+      outline: 3px solid $color-focus;
+      background-color: transparent;
+      box-shadow: none;
     }
 
     &__grid-top {

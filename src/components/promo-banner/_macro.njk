@@ -1,0 +1,20 @@
+
+{% macro onsPromoBanner(params) %}
+    <section class="promo-banner{{ ' ' + 'promo-banner--gradient' if params.gradient }}{{ ' ' + 'promo-banner--dark-theme' if params.darkTheme }}">
+        <div class="container">
+            <div class="grid grid grid--gutterless">
+                <div class="grid__col col-7@s">
+                    <div class="promo-banner__content">
+                        <h2>{{ params.heading }}</h2>
+                        {{ params.content | safe }}{{ caller() if caller }}
+                    </div>
+                </div>
+                <div class="grid__col col-4@s push-1@s u-d-no@xs@s">
+                    <div class="promo-banner__image">
+                        <img alt="{{ params.image.alt }}" src="{{ params.image.src }}"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}

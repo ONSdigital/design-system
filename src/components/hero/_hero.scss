@@ -8,6 +8,7 @@
 
 .hero__title {
   font-size: 2.3rem;
+  line-height: 1.2;
   @include mq(m) {
     font-size: 3rem;
   }
@@ -16,6 +17,7 @@
 .hero--dark-theme {
   h1,
   h2,
+  li,
   p,
   a {
     color: $color-white;
@@ -47,6 +49,5 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
   }
 }

@@ -42,6 +42,12 @@ The call to action button should be used when a link is the primary call to acti
     patternlibExample({"path": "components/button/examples/button-link/index.njk"})
 }}
 
+#### Call to action opening in a new window
+If a call to action button needs to open in a new window, e.g. for a web chat service, the `newWindow` parameter should be set to `true`. This will then provide a description to screen reader users to inform them the button will open a new window before they click it, as it would disable the back button in the browser.
+{{
+    patternlibExample({"path": "components/button/examples/button-link-new-window/index.njk"})
+}}
+
 ### Group
 The ghosted button is reserved for use in the header of an eQ service. It’s function is to allow the user to save and logout of the current context.
 {{
@@ -57,8 +63,14 @@ The ghosted button is reserved for use in the header of an eQ service. It’s fu
     })
 }}
 
+### Disabled
+Use `btn--disabled` with the `disabled=true` element attribute for buttons that have no event/action but need to be displayed. 
+{{
+    patternlibExample({"path": "components/button/examples/button-disabled/index.njk"})
+}}
+
 ### Loader
-The `btn--loader` class can be added to a button when there is a need to indicate to the user that the action taken place is waiting for a response i.e. uploading a file. This helps prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked.
+The `btn--loader` class will be added to a button if the type is explicitly declared as `submit` then when the button is clicked the `is-loading` class is added to start the animation and the button is disabled. This is used when there is a need to indicate to the user that the action taken place is waiting for a response i.e. uploading a file. This helps prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked.
 {{
     patternlibExample({"path": "components/button/examples/button-loader/index.njk"})
 }}

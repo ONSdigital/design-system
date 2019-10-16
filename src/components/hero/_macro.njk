@@ -3,7 +3,7 @@
         {% if params.image %}
             <picture>
                 {% if params.image %}
-                    <source media="(max-width: 739px)" srcset="{{ params.image.mobileImageSrc }}">
+                    <source media="(max-width: 768px)" srcset="{{ params.image.mobileImageSrc }}">
                 {% endif %}
                 <img class="hero__img" src="{{ params.image.src }}" alt="{{ params.image.alt }}">
             </picture>

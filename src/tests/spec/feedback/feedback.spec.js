@@ -29,7 +29,11 @@ const params = {
       text: 'Email address (optional)',
     },
   },
-  sendButton: 'Send feedback',
+  button: {
+    send: {
+      text: 'Send feedback',
+    },
+  },
   thankYouMessage: 'Thank you for your feedback.',
   errorMessage: 'There was an error sending your feedback.\n(Error code: {x})',
 };
@@ -76,10 +80,6 @@ describe('Component: Feedback', function() {
       expect(this.name.disabled).to.be.true;
       expect(this.email.disabled).to.be.true;
       expect(this.submit.disabled).to.be.true;
-    });
-
-    it('the submit button should be set to loader mode', function() {
-      expect(this.submit.classList.contains('is-loading')).to.be.true;
     });
 
     it('the form should be posted', function() {

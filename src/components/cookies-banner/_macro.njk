@@ -1,0 +1,29 @@
+{% macro onsCookiesBanner(params) %}
+    <div class="cookies-banner" role="region" aria-label="{{ params.ariaLabel | default('cookie banner')}}">
+        <div class="container">
+            <div class="grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap@s">
+                <div class="grid__col grid__col--flex col-auto u-flex-shrink@s">
+                    <p class="cookies-banner__desc u-mr-s">{{ params.html | safe }}</p>
+                </div>
+                <div class="grid__col grid__col--flex col-auto">
+                    {% from "components/button/_macro.njk" import onsButton %}
+                    {{ 
+                        onsButton({
+                            "type": 'button',
+                            "text": params.primaryButtonText | default('Accept cookies'),
+                            "classes": 'btn--small js-accept-cookies'
+                        }) 
+                    }}
+                    {{ 
+                        onsButton({
+                            "type": 'button',
+                            "url": params.secondaryButtonUrl,
+                            "text": params.secondaryButtonText | default('Cookie settings'),
+                            "classes": 'btn--secondary btn--small btn--link'
+                        }) 
+                    }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endmacro %}

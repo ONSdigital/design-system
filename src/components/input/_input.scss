@@ -33,7 +33,8 @@
   }
 
   &:focus {
-    outline: none;
+    outline: 1px solid $color-input;
+    outline-offset: -2px;
     box-shadow: 0 0 0 3px $color-focus;
   }
 }

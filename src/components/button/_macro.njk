@@ -9,13 +9,20 @@
       {% else %}
         type="{{ params.type if params.type else ('button' if params.print else 'submit') }}"
       {% endif %}
-      class="btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.disabled %} btn--disabled{% endif %}{% if params.print %} btn--print u-d-no js-print-btn{% endif %}"
+      class="btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.url %} btn--link{% endif %}{% if params.disabled %} btn--disabled{% endif %}{% if params.print %} btn--print u-d-no js-print-btn{% endif %}{% if params.type == 'submit' %} btn--loader js-button{% endif %}"
       {% if params.id %}id="{{ params.id }}"{% endif %}
       {% if params.value %}value="{{ params.value }}"{% endif %}
       {% if params.name %}name="{{ params.name }}"{% endif %}
-      {% if params.disabled %} disabled="disabled" aria-disabled="true"{% endif %}
+      {% if params.disabled %} disabled{% endif %}
+      {% if params.url and params.newWindow %}target="_blank"{% endif %}
       {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
       >
-      <span class="btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}">{{- params.html | safe if params.html else params.text -}}</span>
+      <span class="btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}{% if params.newWindow %} icon--external-link{% endif %}">{{- params.html | safe if params.html else params.text -}}</span>
+      {% if params.url and params.newWindow %}
+        <span class="btn__new-window-description u-vh">{{ params.newWindowDescription | default("opens in a new window") }}</span>
+      {% endif %}
+      {% if params.buttonContext %}
+        <span class="btn__context u-vh">{{ params.buttonContext }}</span>
+      {% endif %}
   </{{ tag }}>
 {% endmacro %}

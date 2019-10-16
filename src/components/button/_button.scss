@@ -14,11 +14,17 @@ $button-border-height: 3px;
   font-weight: 600;
   line-height: 1.15;
 
+  text-decoration: none;
   text-rendering: optimizeLegibility;
 
   vertical-align: top;
-
   cursor: pointer;
+
+  &:hover & {
+    &__inner {
+      background: darken($color-button, 5%);
+    }
+  }
 
   &__inner {
     display: inherit;
@@ -28,7 +34,7 @@ $button-border-height: 3px;
     border-radius: $input-radius;
 
     background: $color-button;
-    color: $color-white;
+    color: $color-text-inverse;
 
     // Required for Google Tag Manager
     pointer-events: none;
@@ -39,9 +45,23 @@ $button-border-height: 3px;
     margin-left: 0.5rem;
   }
 
-  &:focus {
-    outline: 3px solid $color-focus;
-    outline-offset: 3px;
+  // When focussed
+  &:focus:not(:active):not(:hover) {
+    outline: 3px solid transparent;
+  }
+
+  &:focus:not(:active):not(:hover) &__inner {
+    color: $color-focus-text;
+    background-color: $color-focus;
+  }
+
+  &:not([class*='btn--secondary']):not([class*='btn--print']):not([class*='btn--ghost-blue']):focus:hover &__inner {
+    color: $color-text-inverse;
+  }
+
+  &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus,
+  &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus:hover {
+    outline: none;
   }
 
   // When clicked
@@ -76,8 +96,16 @@ $button-border-height: 3px;
   &--print & {
     &__inner {
       background: $color-button-secondary;
-      color: $color-black;
+      color: $color-text;
       font-weight: normal;
+    }
+  }
+
+  // When hovered
+  &--secondary:hover &,
+  &--print:hover & {
+    &__inner {
+      background: darken($color-button-secondary, 5%);
     }
   }
 
@@ -89,6 +117,89 @@ $button-border-height: 3px;
 
       margin: 0 0 0 0.5rem;
       vertical-align: middle;
+    }
+  }
+
+  &--link &__inner {
+    &:after {
+      content: '';
+
+      margin: 0 0 0 0.5rem;
+      vertical-align: middle;
+    }
+  }
+
+  // Link button when focussed
+  &--link:focus:not(:active):not(:hover) &__inner {
+    background: $color-focus;
+    color: $color-focus-text;
+  }
+
+  &--link:not(.btn--secondary) &,
+  &--link:not(.btn--secondary):active &,
+  &--link:not(.btn--secondary):hover:focus & {
+    &__inner {
+      &:after {
+        @include icon($name: 'chevron-right-white', $height: 0.8rem);
+      }
+    }
+  }
+
+  &--link {
+    &.btn--ghost-blue,
+    &.btn--ghost-blue:active,
+    &.btn--ghost-blue:hover:focus {
+      .btn__inner {
+        &:after {
+          @include icon($name: 'chevron-right-blue', $height: 0.8rem);
+        }
+      }
+    }
+  }
+
+  &--link:focus:not(.btn--secondary) &__inner {
+    &:after {
+      @include icon($name: 'chevron-right-black', $height: 0.8rem);
+    }
+  }
+
+  &--link.btn--small:not(.btn--secondary) &,
+  &--link.btn--small:not(.btn--secondary):active &,
+  &--link.btn--small:not(.btn--secondary):hover:focus & {
+    &__inner {
+      &:after {
+        @include icon($name: 'chevron-right-white', $height: 0.7rem);
+      }
+    }
+  }
+
+  &--link:focus.btn--small:not(.btn--secondary) &__inner {
+    &:after {
+      @include icon($name: 'chevron-right-black', $height: 0.7rem);
+    }
+  }
+
+  &--link.btn--secondary &__inner {
+    &:after {
+      @include icon($name: 'chevron-right', $height: 0.8rem);
+    }
+  }
+
+  &--link:focus.btn--secondary &__inner {
+    &:after {
+      @include icon($name: 'chevron-right-black', $height: 0.8rem);
+    }
+  }
+
+  &--link.btn--small.btn--secondary &__inner {
+    &:after {
+      @include icon($name: 'chevron-right', $height: 0.7rem);
+    }
+  }
+
+  &--link:focus.btn--small.btn--secondary &__inner {
+    &:after {
+      @include icon($name: 'chevron-right-black', $height: 0.7rem);
     }
   }
 
@@ -114,12 +225,22 @@ $button-border-height: 3px;
     }
   }
 
+  &--loader:focus &__inner {
+    &:after {
+      @include icon($name: 'loader-black', $height: 1.5em);
+    }
+  }
+
   &--loader.is-loading &__inner {
     color: transparent;
 
     &:after {
       opacity: 1;
     }
+  }
+
+  &--loader.is-loading:focus &__inner {
+    color: transparent !important;
   }
 
   // Spooky Buttons
@@ -138,6 +259,22 @@ $button-border-height: 3px;
     &__inner {
       border-color: $color-white;
     }
+  }
+
+  &--ghost:active:focus {
+    outline: 3px solid transparent;
+  }
+
+  &--ghost:hover &,
+  &--mobile:hover & {
+    &__inner {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &--ghost:focus:not(:hover) &__inner {
+    color: $color-focus-text;
+    background-color: $color-focus;
   }
 
   &--ghost-blue & {
@@ -188,6 +325,56 @@ $button-border-height: 3px;
   &--mobile[aria-expanded='true'] & {
     &__inner:after {
       transform: rotate(180deg);
+    }
+  }
+
+  &--mobile:focus:not(:active):not(:hover) & {
+    &__inner {
+      &:after {
+        background: {
+          image: url(#{$static}/img/icons/icons--chevron-down-black.svg);
+        }
+      }
+    }
+  }
+
+  &--link,
+  &--link:active,
+  &--link:hover:focus {
+    .btn__inner.icon--external-link {
+      &:after {
+        @include icon($name: 'external-link-white', $height: 0.8rem);
+      }
+    }
+  }
+
+  &--link:focus {
+    .btn__inner.icon--external-link {
+      &:after {
+        @include icon($name: 'external-link-black', $height: 0.8rem);
+      }
+    }
+  }
+
+  // Disabled buttons
+  &--disabled {
+    &:hover {
+      cursor: not-allowed;
+    }
+
+    &.btn--secondary,
+    &.btn--print {
+      .btn__inner {
+        background: $color-button-secondary;
+        border: 0;
+      }
+    }
+
+    &:not(.btn--secondary) {
+      .btn__inner {
+        background-color: $color-grey-1;
+        border: 0;
+      }
     }
   }
 }

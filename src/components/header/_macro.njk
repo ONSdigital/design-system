@@ -59,7 +59,7 @@
           <div class="container{{ ' container--full-width' if params.fullWidth }}">
               <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                   <div class="grid__col col-auto u-flex-shrink">
-                      {% if params.titleLogoHref %}<a href="{{ params.titleLogoHref }}">{% endif %}
+                      {% if params.titleLogoHref %}<a class="header__title-link" href="{{ params.titleLogoHref }}">{% endif %}
                       {% if params.titleLogo and params.titleLogoAlt %}
                         <img class="header__title-logo" src="{{ params.assetsURL if params.assetsURL }}{{ params.titleLogo }}" alt="{{ params.titleLogoAlt }}">
                       {% else %}
@@ -71,17 +71,18 @@
                       {% endif %}
                   </div>
                   {% if params.button %}
-                      <div class="grid__col col-auto u-flex-no-shrink">
+                      <div class="grid__col col-auto u-flex-no-shrink u-d-no@xs@m">
                           {{ onsButton({
                               "text": params.button.text,
                               "classes": "btn--ghost u-d-no@xs@m",
                               "name": params.button.name,
-                              "attributes": params.button.attributes
+                              "attributes": params.button.attributes,
+                              "url": params.button.url
                           }) }}
                       </div>
                   {% endif %}
                   {% if params.toggleButton %}
-                      <div class="grid__col col-auto u-flex-no-shrink">
+                      <div class="grid__col col-auto u-flex-no-shrink u-d-no@m">
                             {{ onsButton({
                                 "text": params.toggleButton.text,
                                 "classes": "btn--mobile u-ml-s u-d-no js-toggle-main",
@@ -100,7 +101,7 @@
       {% if params.navigation %}
           <div class="header__bottom">
               <div class="container container--gutterless@xs@m{{ ' container--full-width' if params.fullWidth }}">
-                  <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel }}">
+                  <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel }}" data-analytics="header-navigation">
                       <ul class="header-nav__list" aria-label="{{ params.navigation.ariaListLabel }}" role="menubar">
                           {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
                               <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">

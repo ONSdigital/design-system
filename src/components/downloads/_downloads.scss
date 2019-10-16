@@ -1,4 +1,5 @@
 .download {
+  @extend .u-mb-m;
   display: flex;
 
   & + & {
@@ -15,7 +16,12 @@
 
   &__thumbnail-link {
     display: block;
-    border: 2px solid $color-grey-3;
+    border: 2px solid $color-document-border;
+
+    &:focus {
+      outline: 4px solid $color-focus !important;
+      border-color: $color-document-border-focus;
+    }
   }
 
   &__metadata,

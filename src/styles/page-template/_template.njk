@@ -1,5 +1,6 @@
 {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
 {% from "components/header/_macro.njk" import onsHeader %}
+{% from "components/feedback/_macro.njk" import onsFeedback %}
 {% from "components/footer/_macro.njk" import onsFooter %}
 
 {% set currentLanguageISOCode = "en" %}
@@ -62,6 +63,7 @@
         {% block head %}{% endblock %}
     </head>
     <body{% if page.bodyClasses %} class="{{ page.bodyClasses }}"{% endif %}>
+        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
         {% block bodyStart %}{% endblock %}
         {% block body %}
             <div class="page">
@@ -74,7 +76,7 @@
                             })
                         }}
                     {% endblock %}
-                    {% if form %}
+                    {% if form and form.attributes %}
                         <form
                             {% if form.classes %}class="{{ form.classes }}"{% endif %}
                             method="{{ form.method | default('POST') }}"
@@ -86,6 +88,7 @@
                         {{
                             onsHeader({
                                 "title": page.header.title | default(page.title),
+                                "classes": page.header.classes,
                                 "language": page.language,
                                 "button": page.signoutButton,
                                 "toggleButton": page.toggleButton,
@@ -115,10 +118,31 @@
                         </div>
                     {% endblock %}
 
-                    {% if form %}
+                    {% if form and form.attributes %}
                         </form>
                     {% endif %}
                 </div>
+                {% block preFooter %}
+                    {% if page.feedback %}            
+                        {{
+                            onsFeedback({
+                                "id": page.feedback.id | default("feedback"),
+                                "action": page.feedback.action,
+                                "title": page.feedback.title,
+                                "button": page.feedback.button,
+                                "textarea": page.feedback.textarea,
+                                "pageTitle": page.feedback.pageTitle,
+                                "pageURL": page.feedback.pageURL,
+                                "name": page.feedback.name,
+                                "email": page.feedback.email,
+                                "mailto": page.feedback.mailto,
+                                "thankYouMessage": page.feedback.thankYouMessage,
+                                "errorMessage": page.feedback.errorMessage,
+                                "summaryAttributes": page.feedback.summaryAttributes
+                            })
+                        }}     
+                    {% endif %}             
+                {% endblock %}
                 {% block footer %}
                     {% if page.footer %}
                         {{
@@ -129,7 +153,7 @@
                                 "lang": currentLanguageISOCode,
                                 "rows": page.footer.rows,
                                 "cols": page.footer.cols,
-                                "poweredByONS": page.footer.poweredByONS,
+                                "poweredBy": page.footer.poweredBy,
                                 "OGLLink": page.footer.OGLLink,
                                 "button": page.signoutButton,
                                 "feedback": page.feedback,

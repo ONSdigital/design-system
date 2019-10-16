@@ -5,7 +5,12 @@ layout: none
 
 {% set page = { 
     "title": "Service name",
+    "theme": "census",
     "bodyClasses": "u-ha",
+    "button": {
+        "text": "Save and sign out",
+        "url": "/"
+    },
     "phase": {
         "badge": "BETA",
         "html": "This is a new service – your <a href=\"#feedback\" class=\"js-feedback-button\">feedback</a> will help us improve it."
@@ -39,12 +44,6 @@ layout: none
         ]
     },
     "footer": {
-        "OGLLink": {
-            "pre": 'All content is available under the',
-            "link": 'Open Government Licence v3.0',
-            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-            "post": ', except where otherwise stated'
-        },
         "rows": [
             {
                 "itemsList": [
@@ -63,29 +62,29 @@ layout: none
     "feedback": {
         "id": "feedback",
         "action": "/",
-        "title": "Give feedback and help us improve this service",
-        "closeButton": "I don't want to provide feedback",
+        "title": "Give us feedback and help us improve this service",
+        "button": {
+            "close": {
+                "text": "I don't want to provide feedback",
+                "classes": "btn--secondary btn--small"
+            },
+            "send": {
+                "text": "Send feedback"
+            }
+        },
         "textarea": {
             "label": {
-                "text": "How can we improve this survey"
+                "text": "Tell us what we could do better"
             },
-            "maxlength": 2000,
+            "maxlength": 400,
             "charCountSingular": "You have {x} character remaining",
             "charCountPlural": "You have {x} characters remaining"
         },
-        "name": {
-            "label": {
-                "text": "Name (optional)",
-                "description": "Please include your name and email address if you’re interested in taking part in further research to improve this survey"
-            }
+        "pageTitle": {
+            "value": pageInfo.title
         },
-        "email": {
-            "label": {
-                "text": "Email address (optional)"
-            }
-        },
-        "sendButton": {
-            "text": "Send feedback"
+        "pageURL": {
+            "value": pageInfo.url
         },
         "thankYouMessage": "Thank you for your feedback.",
         "errorMessage": "There was an error sending your feedback.\n(Error code: {x})"

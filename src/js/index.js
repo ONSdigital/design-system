@@ -1,5 +1,6 @@
 import './inpagelink.dom';
 import './print-button';
+import './cookies-settings.dom';
 import 'components/mutually-exclusive/mutually-exclusive.dom';
 import 'components/textarea/character-limit.dom';
 import 'components/password/password.dom';
@@ -15,3 +16,5 @@ import 'components/checkboxes/checkboxes.dom';
 import 'components/radios/radios.dom';
 import 'components/typeahead/typeahead.dom';
 import 'components/address/address-lookup.dom';
+import 'components/cookies-banner/cookies-banner.dom';
+import 'components/button/button.dom';
