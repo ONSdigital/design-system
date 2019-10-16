@@ -1,7 +1,9 @@
 {% from "components/button/_macro.njk" import onsButton %}
-{{ 
-    onsButton({
-        "type": 'submit',
-        "text": 'Submit'
-    }) 
-}}
+<form onsubmit="return false;">
+    {{ 
+        onsButton({
+            "type": 'submit',
+            "text": 'Submit'
+        }) 
+    }}
+</form>
