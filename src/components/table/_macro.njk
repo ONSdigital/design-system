@@ -5,7 +5,7 @@
     {% endif %}
             <table class="table {{ params.table_class }}" {% if params.sortable %}data-aria-sort="{{ params.sort_by }}" data-aria-asc="{{ params.aria_asc }}" data-aria-desc="{{ params.aria_desc }}"{% endif %}>
                 {% if params.caption %}
-                <caption class="table__caption">{{ params.caption }}</caption>
+                <caption class="table__caption{{ " u-vh" if params.hideCaption }}">{{ params.caption }}</caption>
                 {% endif %}
                 <thead class="table__head">
                     <tr class="table__row">
