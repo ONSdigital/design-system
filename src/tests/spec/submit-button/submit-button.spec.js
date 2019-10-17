@@ -9,7 +9,7 @@ const params = {
 };
 
 describe('Function: Submit Button ', function() {
-  let wrapper, buttonElement;
+  let wrapper, buttonElement, formElement;
 
   before(() => awaitPolyfills);
 
@@ -21,6 +21,7 @@ describe('Function: Submit Button ', function() {
     document.body.appendChild(wrapper);
 
     buttonElement = document.getElementById(params.id);
+    formElement = document.getElementsByTagName('form');
   });
 
   afterEach(() => {
@@ -42,7 +43,7 @@ describe('Function: Submit Button ', function() {
 
   describe('Once the button is initialised', () => {
     beforeEach(() => {
-      new SubmitButton(buttonElement);
+      new SubmitButton(buttonElement, formElement[0]);
     });
 
     it('Button disabled attribute should not be set', () => {
