@@ -16,6 +16,7 @@
     @include nth-element(1, 0);
     text-align: left;
     vertical-align: top;
+    overflow: hidden;
     &--numeric {
       text-align: right;
     }
@@ -24,6 +25,10 @@
   &__cell,
   &__header--row {
     border-bottom: 1px solid $color-borders;
+  }
+
+  &__row--highlight {
+    background: $color-light-green;
   }
 
   &:not(.table--responsive) .table__body .table__row:last-child {

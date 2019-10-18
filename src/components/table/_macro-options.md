@@ -2,6 +2,7 @@
 | ----------- | ------------------ | -------- | -------------------------------------------------- |
 | table_class | string             | false    | Classes to add to the table component              |
 | caption     | string             | false    | The caption for the table component                |
+| hideCaption | boolean            | false    | Visually hides the caption                         |
 | scrollable  | boolean            | false    | Sets the component to render as a scrollable table |
 | sortable    | boolean            | false    | Sets the component to render as a sortable table   |
 | ths         | Array`<th>`        | true     | An array of `th` elements for table                |
@@ -18,9 +19,10 @@
 
 ## tr
 
-| Name | Type        | Required | Description                             |
-| ---- | ----------- | -------- | --------------------------------------- |
-| tds  | Array`<td>` | true     | An array of `td` elements for each `tr` |
+| Name        | Type        | Required | Description                                        |
+| ----------- | ----------- | -------- | -------------------------------------------------- |
+| tds         | Array`<td>` | true     | An array of `td` elements for each `tr`            |
+| trHighlight | boolean     | false    | Adds a class to the table row to highlight the row |
 
 ## td
 
