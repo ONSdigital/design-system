@@ -16,3 +16,4 @@ import 'components/checkboxes/checkboxes.dom';
 import 'components/radios/radios.dom';
 import 'components/typeahead/typeahead.dom';
 import 'components/cookies-banner/cookies-banner.dom';
+import 'components/button/button.dom';

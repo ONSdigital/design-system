@@ -70,7 +70,7 @@ Use `btn--disabled` with the `disabled=true` element attribute for buttons that 
 }}
 
 ### Loader
-The `btn--loader` class can be added to a button when there is a need to indicate to the user that the action taken place is waiting for a response i.e. uploading a file. This helps prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked.
+The `btn--loader` class will be added to a button if the type is explicitly declared as `submit` then when the button is clicked the `is-loading` class is added to start the animation and the button is disabled. This is used when there is a need to indicate to the user that the action taken place is waiting for a response i.e. uploading a file. This helps prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked.
 {{
     patternlibExample({"path": "components/button/examples/button-loader/index.njk"})
 }}
