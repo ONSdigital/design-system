@@ -68,7 +68,7 @@ params = {
   submitType: 'timer',
 };
 
-describe.only('Function: Timer Button ', function() {
+describe('Function: Timer Button ', function() {
   let wrapper, buttonElement, formElement;
 
   before(() => awaitPolyfills);
@@ -117,16 +117,10 @@ describe.only('Function: Timer Button ', function() {
       });
 
       it('Button should be disabled', () => {
-        console.log(buttonElement);
         expect(buttonElement.getAttribute('disabled')).to.equal('true');
       });
 
       it('After timer button disabled attribute should not be set', () => {
-        setTimeout(function() {
-          console.log('waiting over.');
-          done();
-        }, 30000000000);
-        console.log(buttonElement);
         expect(buttonElement.getAttribute('disabled')).to.not.exist;
       });
     });
