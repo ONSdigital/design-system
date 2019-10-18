@@ -11,3 +11,4 @@
 | innerClasses | string  | false    | Classes to add to the inner button element                                                                               |
 | print        | boolean | false    | Sets button into print button mode and adds the relevant classes                                                         |
 | attributes   | object  | false    | HTML attributes (for example data attributes) to add to the button component                                             |
+| loader       | boolean | false    | If provided will create a loader button and adds the relevant classes                                                    |

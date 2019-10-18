@@ -1,12 +1,11 @@
-export default class SubmitButton {
+export default class LoaderButton {
   constructor(button, form) {
     this.button = button;
     this.form = form;
-    console.log(form);
-    this.form.addEventListener('submit', this.submitButton.bind(this));
+    this.form.addEventListener('submit', this.loaderButton.bind(this));
   }
 
-  submitButton() {
+  loaderButton() {
     this.button.classList.add('is-loading');
     this.button.setAttribute('disabled', true);
   }

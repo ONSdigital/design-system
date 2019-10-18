@@ -1,14 +1,14 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/button/_test-template.njk';
-import SubmitButton from 'components/button/button';
+import LoaderButton from 'components/button/button';
 
 const params = {
   id: 'button',
-  type: 'submit',
   text: 'Submit',
+  loader: true,
 };
 
-describe('Function: Submit Button ', function() {
+describe('Function: Loader Button ', function() {
   let wrapper, buttonElement, formElement;
 
   before(() => awaitPolyfills);
@@ -33,17 +33,13 @@ describe('Function: Submit Button ', function() {
   describe('Before the button is initialised', () => {
     it('Button should have relevant classes', () => {
       expect(buttonElement.classList.contains('btn--loader')).to.be.true;
-      expect(buttonElement.classList.contains('js-button')).to.be.true;
-    });
-
-    it('Button should be type submit', () => {
-      expect(buttonElement.getAttribute('type')).to.equal('submit');
+      expect(buttonElement.classList.contains('js-loader-btn')).to.be.true;
     });
   });
 
   describe('Once the button is initialised', () => {
     beforeEach(() => {
-      new SubmitButton(buttonElement, formElement[0]);
+      new LoaderButton(buttonElement, formElement[0]);
     });
 
     it('Button disabled attribute should not be set', () => {
