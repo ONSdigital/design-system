@@ -1,21 +1,21 @@
-.skip {
-}
-
-.skip__link {
-  display: block;
-  height: 0px;
-  width: 100%;
+.skip-link {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  top: -3rem;
+  margin: 0;
+  overflow: hidden;
   transition: top 100ms;
-  color: $color-text;
-  background: $color-focus;
   font-weight: 600;
-  text-decoration: underline;
-  font-size: 1.1rem;
+  display: block;
+  padding: 1rem;
+
   &:focus {
-    padding: 1rem;
-    max-height: 20em;
-    height: auto;
+    position: relative;
     top: 0;
-    box-shadow: 0 3px 0 0 $color-white;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    text-decoration: underline !important;
   }
 }

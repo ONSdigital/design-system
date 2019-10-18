@@ -76,6 +76,8 @@
                             })
                         }}
                     {% endblock %}
+                    {% block Banners %}
+                    {% endblock %}
                     {% if form and form.attributes %}
                         <form
                             {% if form.classes %}class="{{ form.classes }}"{% endif %}

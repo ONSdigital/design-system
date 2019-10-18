@@ -68,14 +68,21 @@ layout: none
         }
     }
 } %}
-{% block bodyStart %}
-{% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
-{{
-    onsPhaseBanner({
-        "badge": "BETA",
-        "html": 'This is a new service – your <a href="#feedback">feedback</a> will help us improve it.'
-    })
-}}
+{% block Banners %}
+    {% from "components/cookies-banner/_macro.njk" import onsCookiesBanner %}
+        {{
+            onsCookiesBanner({
+                "html": 'We use cookies to improve your experience of census.gov.uk',
+                "secondaryButtonUrl": '#'
+            })
+        }}
+    {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
+        {{
+            onsPhaseBanner({
+                "badge": "BETA",
+                "html": 'This is a new service – your <a href="#feedback">feedback</a> will help us improve it.'
+            })
+        }}
 {% endblock %}
 {% block main %}
     <h1>Page Title</h1>
