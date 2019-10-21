@@ -9,6 +9,10 @@
             <div class="question__description">{{ params.description | safe }}</div>
         {% endif %}
 
+        {% if params.instruction %}
+            <div class="question__instruction u-mb-s">{{ params.instruction | safe }}</div>
+        {% endif %}
+
         {{ caller () }}
     </div>
 {% endmacro %}

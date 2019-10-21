@@ -10,4 +10,14 @@
       background-color: $color-emphasis;
     }
   }
+  &__instruction {
+    background-color: $color-warn-tint;
+    border: 5px solid $color-warn;
+    display: block;
+    font-weight: normal;
+    padding: 1rem;
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 }
