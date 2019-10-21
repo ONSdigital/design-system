@@ -13,7 +13,6 @@ async function submitButton() {
       } else if (button.classList.contains('js-loader')) {
         submitType = 'loader';
       }
-      console.log(submitType);
       new SubmitButton(button, form[0], submitType);
     });
   }
