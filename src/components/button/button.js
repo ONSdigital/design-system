@@ -18,7 +18,7 @@ export default class SubmitButton {
   timerButton() {
     this.button.setAttribute('disabled', true);
     setTimeout(
-      function(button) {
+      () => {
         button.removeAttribute('disabled');
       },
       1000,
