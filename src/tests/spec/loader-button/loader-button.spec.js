@@ -2,14 +2,14 @@ import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/button/_test-template.njk';
 import SubmitButton from 'components/button/button';
 
-let params = {
-  id: 'button',
-  text: 'Submit',
-  submitType: 'loader',
-};
-
 describe('Function: Loader Button ', function() {
   let wrapper, buttonElement, formElement;
+
+  let params = {
+    id: 'button',
+    text: 'Submit',
+    submitType: 'loader',
+  };
 
   before(() => awaitPolyfills);
 
@@ -62,14 +62,14 @@ describe('Function: Loader Button ', function() {
   });
 });
 
-params = {
-  id: 'button',
-  text: 'Submit',
-  submitType: 'timer',
-};
-
 describe('Function: Timer Button ', function() {
   let wrapper, buttonElement, formElement;
+
+  let params = {
+    id: 'button',
+    text: 'Submit',
+    submitType: 'timer',
+  };
 
   before(() => awaitPolyfills);
 
@@ -120,8 +120,11 @@ describe('Function: Timer Button ', function() {
         expect(buttonElement.getAttribute('disabled')).to.equal('true');
       });
 
-      it('After timer button disabled attribute should not be set', () => {
-        expect(buttonElement.getAttribute('disabled')).to.not.exist;
+      it('after the timer the button disabled attribute should not be set', done => {
+        setTimeout(() => {
+          expect(buttonElement.getAttribute('disabled')).to.not.exist;
+          done();
+        }, 1500);
       });
     });
   });
