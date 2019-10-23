@@ -19,7 +19,7 @@
 
     <div 
         class="panel{{ typeClass }}{{ simpleClass }}{{ spaciousClass }}{{ classes }}"
-        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params.id %} id="{{params.id}}"{% endif %}
     >
         {% if params and params.title %}
             {% set titleTag = params.titleTag | default("div") %}

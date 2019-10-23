@@ -6,4 +6,5 @@
 | type       | string  | false    | The type of panel to render. Available options are `success`, `warn`, `error` and `branded` |
 | spacious   | boolean | false    | Will render a more spacious version of the panel if set to `true`                           |
 | classes    | string  | false    | Custom classes to add to the panel                                                          |
+| id         | string  | false    | Custom id to add to the panel                                                               |
 | attributes | object  | false    | HTML attributes to apply to the panel (e.g. data attributes)                                |
