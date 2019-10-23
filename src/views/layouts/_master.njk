@@ -2,16 +2,16 @@
 
 {% set bodyClasses = "patternlib-page" %}
 
-{% if page == null %}
-    {% set page = {} %}
+{% if pageConfig == null %}
+    {% set pageConfig =  {} %}
 {% endif %}
 
-{% if page.lang %}
-   {% set page = page | setAttributes({
+{% if pageConfig.lang %}
+   {% set pageConfig =  pageConfig | setAttributes({
        "language": {
            "languages": [
                 {
-                    "ISOCode": page.lang,
+                    "ISOCode": pageConfig.lang,
                     "current": true
                 }
            ]
@@ -21,18 +21,18 @@
 
 {% if example %}
     {% set bodyClasses = bodyClasses + " patternlib-page--example" %}
-    {% if page.theme %}
-        {% set page = page | setAttributes({
-            "theme": page.theme
+    {% if pageConfig.theme %}
+        {% set pageConfig =  pageConfig | setAttributes({
+            "theme": pageConfig.theme
         }) %}
     {% endif %}
 {% endif %}
 
-{% if page.fullWidth %}
+{% if pageConfig.fullWidth %}
     {% set bodyClasses = bodyClasses + " u-p-no" %}
 {% endif %}
 
-{% set page = page | setAttribute("bodyClasses", bodyClasses) %}
+{% set pageConfig =  pageConfig | setAttribute("bodyClasses", bodyClasses) %}
 
 {% block head %}
     <link rel="stylesheet" href="/css/patternlib.css">
