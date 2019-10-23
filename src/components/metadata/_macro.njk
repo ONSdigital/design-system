@@ -1,9 +1,13 @@
 {% macro onsMetadata(params) %}
   <dl class="metadata metadata__list grid grid--gutterless u-cf u-mb-l"{% if params.metadataLabel %} title="{{ params.metadataLabel }}" aria-label="{{ params.metadataLabel }}"{% endif %}>
     {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
-        <dt class="metadata__term grid__col col-{{ params.termCol }}@m">{{ item.term }}</dt>
+      {% if item.term | length %}
+          <dt class="metadata__term grid__col col-{{ params.termCol }}@m">{{ item.term }}</dt>
+      {% endif %}
         {% for description in item.descriptions %}
-          <dd class="metadata__value grid__col col-{{ params.descriptionCol }}@m">{{ description.description }}</dd>
+          {% if description.description | length %}
+            <dd class="metadata__value grid__col col-{{ params.descriptionCol }}@m">{{ description.description }}</dd>
+          {% endif %}
         {% endfor %}
     {% endfor %}
   </dl>
