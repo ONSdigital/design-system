@@ -4,7 +4,7 @@
     <div class="table-scrollable table-scrollable--on">
         <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.aria_label }} ">
     {% endif %}
-            <table class="table {{ params.table_class }}" {% if params.sortable %}data-aria-sort="{{ params.sort_by }}" data-aria-asc="{{ params.aria_asc }}" data-aria-desc="{{ params.aria_desc }}"{% endif %}>
+            <table {% if params.id %}id="{{params.id}}"{% endif %} class="table {{ params.table_class }}" {% if params.sortable %}data-aria-sort="{{ params.sort_by }}" data-aria-asc="{{ params.aria_asc }}" data-aria-desc="{{ params.aria_desc }}"{% endif %}>
                 {% if params.caption %}
                 <caption class="table__caption{{ " u-vh" if params.hideCaption }}">{{ params.caption }}</caption>
                 {% endif %}
