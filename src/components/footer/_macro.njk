@@ -21,7 +21,7 @@
 
     <footer class="footer {{ params.classes }}" data-analytics="footer" {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
         <div class="footer__body">
-            <div class="container">
+            <div class="container {{ ' container--wide' if params.wide }}">
                 <div class="grid">          
                     {% if params.poweredBy %}
                         {% if params.OGLLink %}
