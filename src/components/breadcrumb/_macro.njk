@@ -2,7 +2,7 @@
   <nav class="breadcrumb" aria-label="{{params.ariaLabel}}">
     <ol class="breadcrumb__items">
         {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
-            <li class="breadcrumb__item u-fs-s{{ ' breadcrumb__item--current' if item.current }}">
+            <li id="breadcrumb-{{loop.index}}" class="breadcrumb__item u-fs-s{{ ' breadcrumb__item--current' if item.current }}">
                 {% if item.current %} 
                     {{ item.text }}
                 {% else %}

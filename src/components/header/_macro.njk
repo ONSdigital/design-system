@@ -16,7 +16,7 @@
           {{ onsPhaseBanner(params.phase) }}
       {% endif %}
       <div class="header__top" role="banner">
-          <div class="container{{ ' container--full-width' if params.fullWidth }}">
+          <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
               <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                   <div class="grid__col col-auto">
                         {% if params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
@@ -56,7 +56,7 @@
           </div>
       </div>
       <div class="header__main">
-          <div class="container{{ ' container--full-width' if params.fullWidth }}">
+          <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
               <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                   <div class="grid__col col-auto u-flex-shrink">
                       {% if params.titleLogoHref %}<a class="header__title-link" href="{{ params.titleLogoHref }}">{% endif %}
@@ -100,12 +100,12 @@
       </div>
       {% if params.navigation %}
           <div class="header__bottom">
-              <div class="container container--gutterless@xs@m{{ ' container--full-width' if params.fullWidth }}">
+              <div class="container container--gutterless@xs@m{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
                   <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel }}" data-analytics="header-navigation">
                       <ul class="header-nav__list" aria-label="{{ params.navigation.ariaListLabel }}" role="menubar">
                           {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
                               <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">
-                                  <a href="{{ item.url }}" class="header-nav__link" role="menuitem">{{ item.title }}</a>
+                                  <a href="{{ item.url }}" {% if item.id %}id="{{item.id}}" {% endif %} class="header-nav__link" role="menuitem">{{ item.title }}</a>
                               </li>
                           {% endfor %}
                       </ul>

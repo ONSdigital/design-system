@@ -89,6 +89,7 @@
                             onsHeader({
                                 "title": pageConfig.header.title | default(pageConfig.title),
                                 "classes": pageConfig.header.classes,
+                                "wide": pageConfig.wide,
                                 "language": pageConfig.language,
                                 "button": pageConfig.signoutButton,
                                 "toggleButton": pageConfig.toggleButton,
@@ -148,6 +149,7 @@
                         {{
                             onsFooter({
                                 "assetsURL": assetsURL,
+                                "wide": pageConfig.wide,
                                 "classes": "page__footer",
                                 "language": pageConfig.language,
                                 "lang": currentLanguageISOCode,
