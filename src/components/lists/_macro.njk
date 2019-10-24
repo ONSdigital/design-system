@@ -9,7 +9,7 @@
       {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
           <li class="list__item {{ item.listclass }}" {% if item.current %}aria-current="true"{% endif %}>
               {% if item.url and item.current != true %}
-                  {% if item.index %}{{ loop.index }}) {% endif %}{% if item.prefix %}<span class="list__prefix" aria-hidden="true">{{ item.prefix }}.</span> {% endif %} <a href="{{ item.url }}" class="list__link {{ item.classes }}" {% if item.target %} target="{{ item.target }}"{% endif %}>
+                  {% if item.index %}{{ loop.index }}) {% endif %}{% if item.prefix %}<span class="list__prefix" aria-hidden="true">{{ item.prefix }}.</span> {% endif %} <a href="{{ item.url }}" class="list__link {{ item.classes }}" {% if item.target %} target="{{ item.target }}"{% endif %} {% if item.name %} name="{{ item.name }}"{% endif %}>
                     {% if item.prefix %}<span class="u-vh">{{ item.prefix }}.</span>{% endif %} {{ item.text | safe }}
                   </a>
               {% else %}
