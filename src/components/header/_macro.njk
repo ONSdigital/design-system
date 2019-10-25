@@ -105,7 +105,7 @@
                       <ul class="header-nav__list" aria-label="{{ params.navigation.ariaListLabel }}" role="menubar">
                           {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
                               <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">
-                                  <a href="{{ item.url }}" {% if item.id %}id="{{item.id}}" {% endif %} class="header-nav__link" role="menuitem">{{ item.title }}</a>
+                                  <a href="{{ item.url }}" {% if item.id %}id="{{ item.id }}" {% endif %} class="header-nav__link" role="menuitem">{{ item.title }}</a>
                               </li>
                           {% endfor %}
                       </ul>
