@@ -1,6 +1,7 @@
 | Name        | Type               | Required | Description                                        |
 | ----------- | ------------------ | -------- | -------------------------------------------------- |
 | table_class | string             | false    | Classes to add to the table component              |
+| id          | string             | false    | ID to add to the table component                   |
 | caption     | string             | false    | The caption for the table component                |
 | hideCaption | boolean            | false    | Visually hides the caption                         |
 | scrollable  | boolean            | false    | Sets the component to render as a scrollable table |
@@ -29,6 +30,7 @@
 | Name      | Type    | Required | Description                                                         |
 | --------- | ------- | -------- | ------------------------------------------------------------------- |
 | class     | string  | false    | Classes to add to the `td` element                                  |
+| name      | string  | false    | Name to add to the `td` element                                     |
 | data      | string  | false    | The corresponding `th` for the `td` for responsive tables           |
 | data_sort | integer | false    | numerical ordering of a column of `td` elements for sortable table  |
 | value     | string  | false    | The content for the `td` cell                                       |
