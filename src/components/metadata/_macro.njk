@@ -6,7 +6,7 @@
       {% endif %}
         {% for description in item.descriptions %}
           {% if description.description | length %}
-            <dd class="metadata__value grid__col col-{{ params.descriptionCol }}@m">{{ description.description }}</dd>
+            <dd {% if description.id %}id="{{ description.id }}" {% endif %}class="metadata__value grid__col col-{{ params.descriptionCol }}@m">{{ description.description }}</dd>
           {% endif %}
         {% endfor %}
     {% endfor %}
