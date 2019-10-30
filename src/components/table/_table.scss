@@ -15,7 +15,7 @@
     border-bottom: 2px solid $color-grey-1;
     @include nth-element(1, 0);
     text-align: left;
-    vertical-align: top;
+    vertical-align: middle;
     overflow: hidden;
     &--numeric {
       text-align: right;
