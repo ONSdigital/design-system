@@ -1,0 +1,15 @@
+{% from "components/search/_macro.njk" import onsSearch %}
+
+{{
+    onsSearch({
+        "input": {
+            "id": 'search-field',
+            "type": 'numeric',
+            "classes": 'input--w-6 u-mr-xs',
+            "label": 'Search'
+        },
+        "button": {
+            "text": 'Filter'
+        }
+    })
+}}

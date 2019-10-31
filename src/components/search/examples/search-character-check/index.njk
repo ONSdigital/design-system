@@ -1,0 +1,20 @@
+{% from "components/search/_macro.njk" import onsSearch %}
+
+{{
+    onsSearch({
+        "input": {
+            "id": 'search-field',
+            "type": 'numeric',
+            "classes": 'input--w-6 u-mr-xs',
+            "label": 'Search'
+        },
+        "button": {
+            "text": 'Filter'
+        },
+        "charcheck": 11,
+        "charCountSingular": "{x} more number needed",
+        "charCountPlural": "{x} more numbers needed",
+        "charCountOverLimitSingular": "{x} number too many",
+        "charCountOverLimitPlural": "{x} numbers too many"
+    })
+}}

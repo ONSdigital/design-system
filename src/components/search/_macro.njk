@@ -1,0 +1,38 @@
+{% macro onsSearch(params) %}
+    {% from "components/input/_macro.njk" import onsInput %}
+    {% from "components/button/_macro.njk" import onsButton %}
+    <div class="grid--flex {{ 'js-char-check' if params.charcheck }}">
+        {{ 
+            onsInput({
+                "id": params.input.id,
+                "type": params.input.type,
+                "classes": params.input.classes,
+                "label": {
+                    "text": params.input.label
+                },
+                "charcheck": params.charcheck,
+                "charCountSingular": params.charCountSingular,
+                "charCountPlural": params.charCountPlural,
+                "charCountOverLimit": params.charCountOverLimit
+            }) 
+        }}
+        {{ 
+            onsButton({
+                "type": 'button',
+                "text": params.button.text,
+                "classes": 'btn--small u-flex-align-bottom'
+            }) 
+        }}
+    </div>
+    {% if params.charcheck %}
+        <span
+            id="{{ params.input.id }}-check-remaining"
+            class="input__limit u-mt-xs u-fs-s--b u-d-no"
+            data-charcount-singular="{{ params.charCountSingular }}"
+            data-charcount-plural="{{ params.charCountPlural }}"
+            data-charcount-limit-singular="{{ params.charCountOverLimitSingular }}"
+            data-charcount-limit-plural="{{ params.charCountOverLimitPlural }}">
+        </span>
+    {% endif %}
+
+{% endmacro %}

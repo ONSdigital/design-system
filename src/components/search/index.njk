@@ -1,0 +1,34 @@
+---
+title: Search
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+The search component provides an input and button for searching a service.
+{{
+    patternlibExample({"path": "components/search/examples/search/index.njk"})
+}}
+
+### Use appropriately sized textareas
+
+A [width constraint](/components/input#width-constrained) class can be used to make the width of input smaller. If the search context is known, for instance a sequence of characters of a known size, the width constraint can help users.
+
+### Variants
+
+#### Character check
+
+The character check counter is displayed when the `charcheck`, `charCountOverLimitSingular`, `charCountOverLimitPlural`, `charCountPlural` and `charCountSingular` parameters are defined.
+
+{{
+    patternlibExample({"path": "components/search/examples/search-character-check/index.njk"})
+}}
+
+## Research on this component
+
+{% call  onsPanel() %}
+    <p>If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/656">Design System Forum.</a></p>
+{% endcall %}
+
+## Design System forum
+
+[Discuss 'textarea' on GitHub](https://github.com/ONSdigital/design-system/issues/139)
