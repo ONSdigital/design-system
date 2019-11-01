@@ -9,4 +9,12 @@
     display: inline-block;
     line-height: 1.4;
   }
+
+  &--placeholder {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    font-size: 1rem;
+    font-weight: normal;
+  }
 }

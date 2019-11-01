@@ -75,6 +75,14 @@
   width: 100%;
 }
 
+.input--placeholder {
+  background: transparent;
+
+  &:focus {
+    background: $color-white;
+  }
+}
+
 .input--limit-reached {
   border: $input-border-width solid $color-red;
 

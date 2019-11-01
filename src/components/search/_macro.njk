@@ -1,14 +1,21 @@
 {% macro onsSearch(params) %}
     {% from "components/input/_macro.njk" import onsInput %}
     {% from "components/button/_macro.njk" import onsButton %}
+
+    {% set labelPlaceholder = ' label--placeholder ' if params.accessiblePlaceholder %}
+    {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder %}
+    {% set inputClasses = params.input.classes if params.input.classes %}
+
     <div class="grid--flex {{ 'js-char-check' if params.charcheck }}">
         {{ 
             onsInput({
                 "id": params.input.id,
                 "type": params.input.type,
-                "classes": params.input.classes,
+                "pattern": params.input.pattern,
+                "classes": 'u-mr-xs ' + inputClasses + inputPlaceholder,
                 "label": {
-                    "text": params.input.label
+                    "text": params.input.label,
+                    "classes": labelPlaceholder
                 },
                 "charcheck": params.charcheck,
                 "charCountSingular": params.charCountSingular,
