@@ -7,7 +7,6 @@ export default class FocusInput {
 
   setFocusState() {
     const value = this.input.value.length;
-    console.log(value);
     this.input.classList[value > 0 ? 'add' : 'remove']('input--has-content');
   }
 }
