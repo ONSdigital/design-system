@@ -78,7 +78,8 @@
 .input--placeholder {
   background: transparent;
 
-  &:focus {
+  &:focus,
+  &.input--has-content {
     background: $color-white;
   }
 }
