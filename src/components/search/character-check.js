@@ -3,7 +3,7 @@ const remainingClassLimitReached = 'input__limit--reached';
 const attrCharCheckRef = 'data-char-check-ref';
 const attrCharCheckVal = 'data-char-check-num';
 
-export default class CharLimit {
+export default class CharCheck {
   constructor(context) {
     this.context = context;
     this.input = this.context.querySelector('input');
