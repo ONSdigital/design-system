@@ -10,6 +10,7 @@ export default class CharLimit {
     this.button = this.context.querySelector('button');
     this.checkElement = document.getElementById(this.input.getAttribute(attrCharCheckRef));
     this.checkVal = this.input.getAttribute(attrCharCheckVal);
+
     this.singularMessage = this.checkElement.getAttribute('data-charcount-singular');
     this.pluralMessage = this.checkElement.getAttribute('data-charcount-plural');
     this.charLimitSingularMessage = this.checkElement.getAttribute('data-charcount-limit-singular');
