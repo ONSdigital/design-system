@@ -19,7 +19,7 @@ const params = {
   charCountOverLimitPlural: '{x} numbers too many',
 };
 
-describe.only('Component: Search with character check', () => {
+describe('Component: Search with character check', () => {
   let wrapper, searchWrapper, searchInput, limit_readout;
 
   before(() => awaitPolyfills);
@@ -116,5 +116,6 @@ describe.only('Component: Search with character check', () => {
 function populateSearchInput(searchInput, value = '1') {
   searchInput.value = value;
   const event = new Event('input');
+  event.inputType = 'unitTest';
   searchInput.dispatchEvent(event);
 }
