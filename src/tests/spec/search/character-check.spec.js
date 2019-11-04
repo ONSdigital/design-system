@@ -115,7 +115,7 @@ describe('Component: Search with character check', () => {
 
 function populateSearchInput(searchInput, value = '1') {
   searchInput.value = value;
-  const event = new Event('input');
+  const event = new CustomEvent('input');
   event.inputType = 'unitTest';
   searchInput.dispatchEvent(event);
 }
