@@ -77,9 +77,11 @@
 
 .input--placeholder {
   background: transparent;
-
+  &::placeholder {
+    color: transparent;
+  }
   &:focus,
-  &.input--has-content {
+  &:not(:placeholder-shown) {
     background: $color-white;
   }
 }

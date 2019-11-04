@@ -3,7 +3,7 @@
     {% from "components/button/_macro.njk" import onsButton %}
 
     {% set labelPlaceholder = ' label--placeholder ' if params.accessiblePlaceholder %}
-    {% set inputPlaceholder = ' input--placeholder js-search-focus' if params.accessiblePlaceholder %}
+    {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder %}
     {% set inputClasses = params.input.classes if params.input.classes %}
 
     <div class="grid--flex {{ 'js-char-check' if params.charcheck }}">
@@ -17,6 +17,7 @@
                     "text": params.input.label,
                     "classes": labelPlaceholder
                 },
+                "accessiblePlaceholder": params.accessiblePlaceholder,
                 "charcheck": params.charcheck,
                 "charCountSingular": params.charCountSingular,
                 "charCountPlural": params.charCountPlural,

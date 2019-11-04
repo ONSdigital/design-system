@@ -18,13 +18,12 @@ export default class CharCheck {
 
     this.updateCheckReadout(null, true);
     this.setButtonState(this.checkVal);
-    this.context.addEventListener('input', this.updateCheckReadout.bind(this));
+    this.input.addEventListener('input', this.updateCheckReadout.bind(this));
   }
 
   updateCheckReadout(event, firstRun) {
     const value = this.input.value;
     const remaining = this.checkVal - value.length;
-
     // Prevent aria live announcement when component initialises
     if (!firstRun && event.inputType) {
       this.checkElement.setAttribute('aria-live', 'polite');
