@@ -80,8 +80,10 @@
   &::placeholder {
     color: transparent;
   }
-  &:focus,
-  &:not(:placeholder-shown) {
+  &:valid {
+    background: $color-white;
+  }
+  &:focus {
     background: $color-white;
   }
 }
