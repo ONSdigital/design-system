@@ -49,13 +49,13 @@ If a call to action button needs to open in a new window, e.g. for a web chat se
 }}
 
 ### Group
-The ghosted button is reserved for use in the header of an eQ service. It’s function is to allow the user to save and logout of the current context.
+Groups are used to group two or more buttons together and easily align them alongside eachother. This will allow for a page to have two actions available to the user such as Continue and Cancel.
 {{
     patternlibExample({"path": "components/button/examples/button-group/index.njk"})
 }}
 
 ### Ghost
-The ghosted button is reserved for use in the header of an eQ service. It’s function is to allow the user to save and logout of the current context.
+The ghosted button is differently styled button and has been designed to be used in a header. This then could be used to allow the user to save and logout of the current context.
 {{
     patternlibExample({
         "path": "components/button/examples/button-ghost/index.njk", 
@@ -70,9 +70,15 @@ Use `btn--disabled` with the `disabled=true` element attribute for buttons that 
 }}
 
 ### Loader
-The `btn--loader` class will be added to a button if the submittType is set to `loader` then when the button is clicked the `is-loading` class is added to start the animation and the button is disabled. You can also set submitType to `timer` this will disable the button for 1 second before the user is able to click it again. These is used when there is a need to indicate to the user that the action taken place is waiting for a response i.e. uploading a file. This helps prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked.
+The loader button is used to help prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked. This can lead to them submitting the form on the page twice. Setting SubmitType to `loader` will disable the button when clicked and will add a loading animation. This can be used when the button executes a process that can take some time to complete.
 {{
-    patternlibExample({"path": "components/button/examples/button-submit-type/index.njk"})
+    patternlibExample({"path": "components/button/examples/button-loader/index.njk"})
+}}
+
+### Timer
+The timer button is aimed at stopping forms being submitted twice when users double click the submit button. Setting SubmitType to `timer` will disable the button for one second on click.
+{{
+    patternlibExample({"path": "components/button/examples/button-timer/index.njk"})
 }}
 
 ### Print
