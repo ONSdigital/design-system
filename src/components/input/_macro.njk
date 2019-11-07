@@ -27,8 +27,8 @@
             {% if params.accessiblePlaceholder is defined %}required{% endif %}
             {% if params.value is defined %}value="{{ params.value }}"{% endif %}
             {% if params.accept is defined %}accept="{{ params.accept }}"{% endif %}
-            {% if params.min is defined %}minlength="{{ params.min }}"{% endif %}
-            {% if params.max is defined %}maxlength="{{ params.max }}"{% endif %}
+            {% if params.min is defined %}min="{{ params.min }}"{% endif %}
+            {% if params.max is defined %}max="{{ params.max }}"{% endif %}
             {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
             {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
             {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
