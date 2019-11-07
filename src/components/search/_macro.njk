@@ -5,6 +5,7 @@
     {% set labelPlaceholder = ' label--placeholder ' if params.accessiblePlaceholder %}
     {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder %}
     {% set inputClasses = params.input.classes if params.input.classes %}
+    {% set inputWidth = 'input--w-' + params.input.width | default('10') %}
 
     <div class="grid--flex {{ 'js-char-check' if params.charcheck }}">
         {{ 
@@ -12,7 +13,7 @@
                 "id": params.input.id,
                 "type": params.input.type,
                 "pattern": params.input.pattern,
-                "classes": 'u-mr-xs ' + inputClasses + inputPlaceholder,
+                "classes": 'u-mr-xs u-mb-xs ' + inputClasses + inputPlaceholder + inputWidth,
                 "label": {
                     "text": params.input.label,
                     "classes": labelPlaceholder
@@ -28,14 +29,14 @@
             onsButton({
                 "type": 'button',
                 "text": params.button.text,
-                "classes": 'btn--small u-flex-align-bottom'
+                "classes": 'btn--small u-flex-align-bottom u-mb-xs'
             }) 
         }}
     </div>
     {% if params.charcheck %}
         <span
             id="{{ params.input.id }}-check-remaining"
-            class="input__limit u-mt-xs u-fs-s--b u-d-no"
+            class="input__limit u-fs-s--b u-d-no"
             data-charcount-singular="{{ params.charCountSingular }}"
             data-charcount-plural="{{ params.charCountPlural }}"
             data-charcount-limit-singular="{{ params.charCountOverLimitSingular }}"
