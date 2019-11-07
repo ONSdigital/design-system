@@ -92,9 +92,7 @@
   border: $input-border-width solid $color-red;
 
   &:focus {
-    border: $input-border-width solid $color-red;
-    outline: none;
-    box-shadow: 0 0 0 1px $color-red;
+    outline: $input-border-width solid $color-red;
   }
 }
 
