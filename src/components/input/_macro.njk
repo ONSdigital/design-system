@@ -29,6 +29,8 @@
             {% if params.accept is defined %}accept="{{ params.accept }}"{% endif %}
             {% if params.min is defined %}min="{{ params.min }}"{% endif %}
             {% if params.max is defined %}max="{{ params.max }}"{% endif %}
+            {% if params.minLength is defined %}minlength="{{ params.minLength }}"{% endif %}
+            {% if params.maxLangth is defined %}maxlength="{{ params.maxLangth }}"{% endif %}
             {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
             {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
             {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
