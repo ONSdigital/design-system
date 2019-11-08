@@ -5,6 +5,10 @@
 | classes           | string                                                        | false                            | Classes to add to the input.                                                        |
 | name              | string                                                        | false                            | The name of the input                                                               |
 | value             | string &#124; number                                          | false                            | The value to set the input to                                                       |
+| min               | number                                                        | false                            | Minimum accepted number or date                                                     |
+| max               | number                                                        | false                            | Maximum accepted number or date                                                     |
+| minLength         | number                                                        | false                            | Minimum accepted length of input value                                              |
+| maxLength         | number                                                        | false                            | Maximum accepted length of input value                                              |
 | attributes        | object                                                        | false                            | HTML attributes (for example data attributes) to add to the input                   |
 | label             | `Label` [_(ref)_](/components/label)                          | false                            | Settings for the input label. `for` will automatically be set to match the input id |
 | prefix            | `InputPrefix`                                                 | false                            | Settings to prefix the input with                                                   |
