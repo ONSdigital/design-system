@@ -24,13 +24,17 @@
             class="input input--text input-type__input {{ params.classes }}{{ exclusiveClass }}"
             {% if params.prefix or params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined %}name="{{ params.name }}"{% endif %}
+            {% if params.accessiblePlaceholder is defined %}required{% endif %}
             {% if params.value is defined %}value="{{ params.value }}"{% endif %}
             {% if params.accept is defined %}accept="{{ params.accept }}"{% endif %}
             {% if params.min is defined %}min="{{ params.min }}"{% endif %}
             {% if params.max is defined %}max="{{ params.max }}"{% endif %}
+            {% if params.minLength is defined %}minlength="{{ params.minLength }}"{% endif %}
+            {% if params.maxLangth is defined %}maxlength="{{ params.maxLangth }}"{% endif %}
             {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
             {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
             {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
+            {% if params.charcheck %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charcheck }}"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         />
     {% endset %}
