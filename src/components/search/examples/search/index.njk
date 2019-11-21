@@ -1,0 +1,13 @@
+{% from "components/search/_macro.njk" import onsSearch %}
+
+{{
+    onsSearch({
+        "input": {
+            "id": 'search-field',
+            "type": 'text'
+        },
+        "button": {
+            "text": 'Search'
+        }
+    })
+}}

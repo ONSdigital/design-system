@@ -75,13 +75,24 @@
   width: 100%;
 }
 
+.input--placeholder {
+  background: transparent;
+  &::placeholder {
+    color: transparent;
+  }
+  &:valid {
+    background: $color-white;
+  }
+  &:focus {
+    background: $color-white;
+  }
+}
+
 .input--limit-reached {
   border: $input-border-width solid $color-red;
 
   &:focus {
-    border: $input-border-width solid $color-red;
-    outline: none;
-    box-shadow: 0 0 0 1px $color-red;
+    outline: $input-border-width solid $color-red;
   }
 }
 

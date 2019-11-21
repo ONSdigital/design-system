@@ -22,7 +22,6 @@ export default class CharLimit {
     const value = this.input.value;
     const remaining = this.maxLength - value.length;
     const message = remaining === 1 ? this.singularMessage : this.pluralMessage;
-
     // Prevent aria live announcement when component initialises
     if (!firstRun && event.inputType) {
       this.limitElement.setAttribute('aria-live', 'polite');
