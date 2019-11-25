@@ -1,4 +1,4 @@
-let clearAlertAnnounced = false;
+let clearAlertAnnounced;
 export default class ClearRadios {
   constructor(inputs, button, otherInput) {
     this.inputs = inputs;
@@ -16,6 +16,8 @@ export default class ClearRadios {
       this.otherField = parent.querySelector('.input');
       this.otherField.addEventListener('click', this.setClearAttributes.bind(this));
     }
+
+    clearAlertAnnounced = false;
   }
 
   setClearAttributes() {

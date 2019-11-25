@@ -1,37 +1,22 @@
 {% from "components/radios/_macro.njk" import onsRadios %}
-{% from "components/button/_macro.njk" import onsButton %}
-
 {{ 
     onsRadios({
         "legend": "Select your favourite topping",
-        "name": "food",
-        "clear": {
-            "text": "Clear selection",
-            "url": "/",
-            "ariaClearText": "You can clear your answer by clicking the clear selection button under the radio buttons",
-            "ariaClearedText": "You have cleared your answer"
-        },
+        "name": "food-other",
         "radios": [
             {
-                "id": "bacon",
+                "id": "bacon-other",
                 "label": {
                     "text": "Bacon"
                 },
                 "value": "bacon"
             },
             {
-                "id": "olives",
+                "id": "olives-other",
                 "label": {
                     "text": "Olives"
                 },
                 "value": "olives"
-            },
-            {
-                "id": "ham",
-                "label": {
-                    "text": "Ham"
-                },
-                "value": "ham"
             },
             {
                 "id": "other-checkbox",
