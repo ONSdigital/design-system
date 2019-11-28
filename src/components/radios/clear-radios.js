@@ -15,6 +15,7 @@ export default class ClearRadios {
       const parent = this.otherInput.parentNode;
       this.otherField = parent.querySelector('.input');
       this.otherField.addEventListener('click', this.setClearAttributes.bind(this));
+      this.otherField.addEventListener('focus', this.setClearAttributes.bind(this));
     }
 
     clearAlertAnnounced = false;
@@ -22,6 +23,7 @@ export default class ClearRadios {
 
   setClearAttributes() {
     this.button.classList.remove('u-db-no-js_enabled');
+    this.otherInput.classList.remove('u-db-no-js_enabled');
     if (clearAlertAnnounced === false) {
       this.ariaElement.innerHTML = this.clearAlert;
       clearAlertAnnounced = true;
