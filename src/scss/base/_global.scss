@@ -31,7 +31,7 @@ hr {
 
 a {
   color: $color-links;
-  &:hover {
+  &:hover:not(.btn--link):not(.btn--ghost) {
     text-decoration: underline;
     color: $color-links-hover;
   }
