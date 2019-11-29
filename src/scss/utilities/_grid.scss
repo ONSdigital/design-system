@@ -221,6 +221,10 @@
   flex-basis: 0;
 }
 
+@include bp-suffix(u-flex-align-bottom) {
+  align-self: flex-end;
+}
+
 @include bp-suffix('nopull-', false) {
   left: 0;
 }

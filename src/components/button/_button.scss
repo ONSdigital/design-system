@@ -12,7 +12,7 @@ $button-border-height: 3px;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.35;
 
   text-decoration: none;
   text-rendering: optimizeLegibility;
@@ -361,20 +361,8 @@ $button-border-height: 3px;
     &:hover {
       cursor: not-allowed;
     }
-
-    &.btn--secondary,
-    &.btn--print {
-      .btn__inner {
-        background: $color-button-secondary;
-        border: 0;
-      }
-    }
-
-    &:not(.btn--secondary) {
-      .btn__inner {
-        background-color: $color-grey-1;
-        border: 0;
-      }
+    .btn__inner {
+      opacity: 0.4;
     }
   }
 }

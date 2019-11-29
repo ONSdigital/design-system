@@ -1,0 +1,47 @@
+{% macro onsSearch(params) %}
+    {% from "components/input/_macro.njk" import onsInput %}
+    {% from "components/button/_macro.njk" import onsButton %}
+
+    {% set labelPlaceholder = ' label--placeholder ' if params.accessiblePlaceholder %}
+    {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder %}
+    {% set inputClasses = params.input.classes if params.input.classes %}
+    {% set inputWidth = 'input--w-' + params.input.width | default('10') %}
+
+    <div class="grid--flex {{ 'js-char-check' if params.charcheck }}">
+        {{ 
+            onsInput({
+                "id": params.input.id,
+                "type": params.input.type,
+                "pattern": params.input.pattern,
+                "classes": 'u-mr-xs u-mb-xs ' + inputClasses + inputPlaceholder + inputWidth,
+                "label": {
+                    "text": params.input.label,
+                    "classes": labelPlaceholder
+                },
+                "accessiblePlaceholder": params.accessiblePlaceholder,
+                "charcheck": params.charcheck,
+                "charCountSingular": params.charCountSingular,
+                "charCountPlural": params.charCountPlural,
+                "charCountOverLimit": params.charCountOverLimit
+            }) 
+        }}
+        {{ 
+            onsButton({
+                "type": 'button',
+                "text": params.button.text,
+                "classes": 'btn--small u-flex-align-bottom u-mb-xs'
+            }) 
+        }}
+    </div>
+    {% if params.charcheck %}
+        <span
+            id="{{ params.input.id }}-check-remaining"
+            class="input__limit u-fs-s--b u-d-no"
+            data-charcount-singular="{{ params.charCountSingular }}"
+            data-charcount-plural="{{ params.charCountPlural }}"
+            data-charcount-limit-singular="{{ params.charCountOverLimitSingular }}"
+            data-charcount-limit-plural="{{ params.charCountOverLimitPlural }}">
+        </span>
+    {% endif %}
+
+{% endmacro %}

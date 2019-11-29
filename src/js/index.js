@@ -3,6 +3,7 @@ import './print-button';
 import './cookies-settings.dom';
 import 'components/mutually-exclusive/mutually-exclusive.dom';
 import 'components/textarea/character-limit.dom';
+import 'components/search/character-check.dom';
 import 'components/password/password.dom';
 import 'components/tabs/tabs.dom';
 import 'components/details/collapsible.dom';
