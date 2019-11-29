@@ -4,11 +4,11 @@ title: Typeahead
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-Typeaheads are used to suggest options for answers and typically search code lists such as, Country of Birth, Occupations, Languages, Nationalities, etc.
+Typeaheads are used to suggest options for answers and typically search code lists such as, Country of Birth, Languages, Nationalities, etc.
 
 ## Examples
 
-These examples are powered by an example API running on a small Node App with some dummy data. The [source code](https://github.com/ONSdigital/typeahead-prototypes-backend-service) can be found here and is a good reference for the format in which the typeahead sends and recieves its data.
+These examples are powered by a JavaScript library called [Fuse.js](https://fusejs.io/). 
 
 ### Country of birth
 
@@ -18,9 +18,9 @@ These examples are powered by an example API running on a small Node App with so
 
 ### Country of birth (Cymraeg)
 
-The typeahead component sends a `lang` parameter in it's query string that matches the `lang` attribtue on the `<html>` element of the page.
+The typeahead component sends a `searchFields` parameter in it's query string that matches the `lang` attribtue on the `<html>` element of the page.
 
-The [example API](https://github.com/ONSdigital/typeahead-prototypes-backend-service) sat behind this typeahead will search both the `cy` and the `en-gb` data to find results. If the selects a result from typing the English version of a country name, then the input will be populated with the English name, otherwise it will be populated with the Welsh match.
+The typeahead component will search the `cy` or the `en-gb` data to find results depending on the `searchFields` parameter.
 
 {{
     patternlibExample({"path": "components/typeahead/examples/country-of-birth-cy/index.njk"})
@@ -28,14 +28,7 @@ The [example API](https://github.com/ONSdigital/typeahead-prototypes-backend-ser
 
 ## Response object
 
-The typeaheads expect the API response to return a JSON object with two keys:
-
-{% md %}
-| Key          | Type                       | Purpose                                                                                                                            |
-| ------------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| results      | Array<TypeaheadResultItem> | The results array                                                                                                                  |
-| totalResults | number                     | The total number of results the server found. This may be greater than the number of results returned if results have been limited |
-{% endmd %}
+The typeaheads expect the response from the library to return the results as JSON objects in an array.
 
 ### TypeaheadResultItem
 
