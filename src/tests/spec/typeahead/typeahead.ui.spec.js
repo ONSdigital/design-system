@@ -19,6 +19,9 @@ chai.should();
 chai.use(chaiSpies);
 chai.use(chaiAsPromised);
 
+const data =
+  "[Object{code: 4, en-gb: 'Afghanistan', cy: 'Afghanistan'}, Object{code: 248, en-gb: 'Aland islands', cy: 'ynysoedd Aland'}, Object{code: 8, en-gb: 'Albania', cy: 'Albania'}, Object{code: 12, en-gb: 'Algeria', cy: 'Algeria'}, Object{code: 16, en-gb: 'American samoa', cy: 'Samoa Americanaidd'}, Object{code: 20, en-gb: 'Andorra', cy: 'andorra'}, Object{code: 24, en-gb: 'Angola', cy: 'Angola'}, Object{code: 660, en-gb: 'Anguilla', cy: 'anguilla'}, Object{code: 10, en-gb: 'Antarctica', cy: 'Antarctica'}]";
+
 const params = {
   id: 'country-of-birth',
   label: {
@@ -38,21 +41,22 @@ const params = {
     no_results: 'No results found',
   },
   autocomplete: 'off',
-  apiUrl: 'https://ons-typeahead-prototypes.herokuapp.com/country-of-birth',
+  typeaheadData:
+    'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json',
 };
 
-describe('Typeahead.ui component', function() {
+describe.only('Typeahead.ui component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
       done();
+      this.loadJsonSpy = chai.spy.on(TypeaheadUI, 'loadJSON');
     });
   });
 
   describe('Before the component initialises', function() {
     beforeEach(function() {
       const component = renderComponent(params);
-
       Object.keys(component).forEach(key => {
         this[key] = component[key];
       });
@@ -101,6 +105,10 @@ describe('Typeahead.ui component', function() {
       if (this.wrapper) {
         this.wrapper.remove();
       }
+    });
+
+    it('then loadJSON should be called', function() {
+      expect(this.loadJsonSpy).to.have.been.called();
     });
 
     it('the input should be given the correct aria attributes', function() {

@@ -40,6 +40,7 @@ export default class TypeaheadUI {
 
     async function loadJSON(jsonPath) {
       try {
+        console.log('here');
         const jsonResponse = await fetch(jsonPath);
         if (jsonResponse.status === 500) {
           throw new Error('Error fetching json data: ' + jsonResponse.status);
