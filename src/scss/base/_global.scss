@@ -35,7 +35,7 @@ a {
     text-decoration: underline;
     color: $color-links-hover;
   }
-  &:focus:not(.btn--link):not(.btn--ghost):not(.download__thumbnail--link):not(.header__logo-link):not(.header__title-link):not(.tab--row) {
+  &:focus:not(.btn--link):not(.btn--ghost):not(.js-clear-btn):not(.download__thumbnail--link):not(.header__logo-link):not(.header__title-link):not(.tab--row) {
     outline: 3px solid transparent;
     color: $color-focus-text;
     background-color: $color-focus;
