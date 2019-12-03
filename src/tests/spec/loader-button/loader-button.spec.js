@@ -3,7 +3,7 @@ import template from 'components/button/_test-template.njk';
 import SubmitButton from 'components/button/button';
 
 describe('Function: Loader Button ', function() {
-  let wrapper, buttonElement, formElement;
+  let wrapper, buttonElement;
 
   let params = {
     id: 'button',
@@ -20,7 +20,6 @@ describe('Function: Loader Button ', function() {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
     buttonElement = document.getElementById(params.id);
-    formElement = document.getElementsByTagName('form');
   });
 
   afterEach(() => {
@@ -39,7 +38,7 @@ describe('Function: Loader Button ', function() {
 
   describe('Once the button is initialised', () => {
     beforeEach(() => {
-      new SubmitButton(buttonElement, formElement[0], params.submitType);
+      new SubmitButton(buttonElement, params.submitType);
     });
 
     it('Button disabled attribute should not be set', () => {
@@ -63,7 +62,7 @@ describe('Function: Loader Button ', function() {
 });
 
 describe('Function: Timer Button ', function() {
-  let wrapper, buttonElement, formElement;
+  let wrapper, buttonElement;
 
   let params = {
     id: 'button',
@@ -81,7 +80,6 @@ describe('Function: Timer Button ', function() {
     document.body.appendChild(wrapper);
 
     buttonElement = document.getElementById(params.id);
-    formElement = document.getElementsByTagName('form');
   });
 
   afterEach(() => {
@@ -100,7 +98,7 @@ describe('Function: Timer Button ', function() {
 
   describe('Once the button is initialised', () => {
     beforeEach(() => {
-      new SubmitButton(buttonElement, formElement[0], params.submitType);
+      new SubmitButton(buttonElement, params.submitType);
     });
 
     it('Button disabled attribute should not be set', () => {
