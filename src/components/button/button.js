@@ -1,12 +1,22 @@
+let i = 0;
 export default class SubmitButton {
-  constructor(button, form, submitType) {
+  constructor(button, submitType) {
     this.button = button;
-    this.form = form;
+    this.form = [...document.getElementsByTagName('form')];
     this.submitType = submitType;
+
     if (this.submitType == 'loader') {
-      this.form.addEventListener('submit', this.loaderButton.bind(this));
+      if (this.form.length) {
+        this.form.addEventListener('submit', this.loaderButton.bind(this));
+      } else {
+        this.button.addEventListener('click', this.loaderButton.bind(this));
+      }
     } else if (this.submitType == 'timer') {
-      this.form.addEventListener('submit', this.timerButton.bind(this));
+      if (this.form.length) {
+        this.form.addEventListener('submit', this.timerButton.bind(this));
+      } else {
+        this.button.addEventListener('click', this.timerButton.bind(this));
+      }
     }
   }
 
@@ -15,11 +25,19 @@ export default class SubmitButton {
     this.button.setAttribute('disabled', true);
   }
 
-  timerButton() {
-    this.button.setAttribute('disabled', true);
+  timerButton(event) {
+    if (this.button.tagName === 'A') {
+      i++;
+      if (i > 1) {
+        event.preventDefault();
+      }
+    } else {
+      this.button.setAttribute('disabled', true);
+    }
     setTimeout(
       button => {
         button.removeAttribute('disabled');
+        i = 0;
       },
       1000,
       this.button,
