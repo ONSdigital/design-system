@@ -21,14 +21,14 @@
 
 {% if example %}
     {% set bodyClasses = bodyClasses + " patternlib-page--example" %}
-    {% if pageConfig.theme %}
+    {% if page.theme %}
         {% set pageConfig =  pageConfig | setAttributes({
-            "theme": pageConfig.theme
+            "theme": page.theme
         }) %}
     {% endif %}
 {% endif %}
 
-{% if pageConfig.fullWidth %}
+{% if page.fullWidth %}
     {% set bodyClasses = bodyClasses + " u-p-no" %}
 {% endif %}
 
