@@ -20,7 +20,7 @@ $button-border-height: 3px;
   vertical-align: top;
   cursor: pointer;
 
-  &:hover & {
+  &:hover:not([class*='btn--disabled']):not([class*='btn--ghost']) & {
     &__inner {
       background: darken($color-button, 5%);
     }
@@ -46,13 +46,13 @@ $button-border-height: 3px;
   }
 
   // When focussed
-  &:focus:not(:active):not(:hover) {
+  &:focus & {
     outline: 3px solid transparent;
-  }
 
-  &:focus:not(:active):not(:hover) &__inner {
-    color: $color-focus-text;
-    background-color: $color-focus;
+    &__inner {
+      color: $color-focus-text;
+      background-color: $color-focus;
+    }
   }
 
   &:not([class*='btn--secondary']):not([class*='btn--print']):not([class*='btn--ghost-blue']):focus:hover &__inner {
@@ -102,10 +102,16 @@ $button-border-height: 3px;
   }
 
   // When hovered
+  & &--secondary:hover &__inner {
+    background: red;
+  }
+
   &--secondary:hover &,
   &--print:hover & {
-    &__inner {
-      background: darken($color-button-secondary, 5%);
+    &#{&} {
+      &__inner {
+        background: darken($color-button-secondary, 5%);
+      }
     }
   }
 
@@ -129,12 +135,6 @@ $button-border-height: 3px;
     }
   }
 
-  // Link button when focussed
-  &--link:focus:not(:active):not(:hover) &__inner {
-    background: $color-focus;
-    color: $color-focus-text;
-  }
-
   &--link:not(.btn--secondary) &,
   &--link:not(.btn--secondary):active &,
   &--link:not(.btn--secondary):hover:focus & {
@@ -155,6 +155,24 @@ $button-border-height: 3px;
         }
       }
     }
+  }
+
+  // Link button when focussed
+  &--link:focus:not(:active) {
+    &#{&} {
+      box-shadow: none;
+      background: transparent;
+
+      & &__inner {
+        background: $color-focus;
+        color: $color-focus-text;
+      }
+    }
+  }
+
+  // Link button when hovered
+  &--link:hover &__inner {
+    text-decoration: none;
   }
 
   &--link:focus:not(.btn--secondary) &__inner {
@@ -360,6 +378,9 @@ $button-border-height: 3px;
   &--disabled {
     &:hover {
       cursor: not-allowed;
+      &__inner {
+        color: $color-button;
+      }
     }
     .btn__inner {
       opacity: 0.4;
