@@ -35,26 +35,6 @@ export default class TypeaheadUI {
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
 
-    // Suggestion json data
-    this.typeaheadData = typeaheadData || context.getAttribute('typeahead-data');
-
-    async function loadJSON(jsonPath) {
-      try {
-        console.log('here');
-        const jsonResponse = await fetch(jsonPath);
-        if (jsonResponse.status === 500) {
-          throw new Error('Error fetching json data: ' + jsonResponse.status);
-        }
-        const jsonData = await jsonResponse.json();
-        return jsonData;
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    // Call loading of json file
-    this.data = loadJSON(this.typeaheadData);
-
     // Settings
     this.typeaheadData = typeaheadData || context.getAttribute('typeahead-data');
     this.content = JSON.parse(context.getAttribute('data-content'));
@@ -94,11 +74,11 @@ export default class TypeaheadUI {
     if (this.lang === 'en') {
       this.lang = 'en-gb';
     }
-
-    this.initialise();
+    this.fetchData();
+    this.initialiseUI();
   }
 
-  initialise() {
+  initialiseUI() {
     this.input.setAttribute('aria-autocomplete', 'list');
     this.input.setAttribute('aria-controls', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-describedby', this.instructions.getAttribute('id'));
@@ -111,6 +91,24 @@ export default class TypeaheadUI {
     this.context.classList.add('typeahead--initialised');
 
     this.bindEventListeners();
+  }
+
+  fetchData() {
+    async function loadJSON(jsonPath) {
+      try {
+        const jsonResponse = await fetch(jsonPath);
+        if (jsonResponse.status === 500) {
+          throw new Error('Error fetching json data: ' + jsonResponse.status);
+        }
+        const jsonData = await jsonResponse.json();
+        return jsonData;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    // Call loading of json file
+    this.data = loadJSON(this.typeaheadData);
   }
 
   bindEventListeners() {
@@ -165,7 +163,6 @@ export default class TypeaheadUI {
     if (!this.blurring && this.input.value.trim()) {
       this.getSuggestions();
     } else {
-      console.log('here');
       this.abortFetch();
     }
   }
@@ -220,7 +217,6 @@ export default class TypeaheadUI {
     if (!this.settingResult) {
       const query = this.input.value;
       const sanitisedQuery = sanitiseTypeaheadText(query, this.sanitisedQueryReplaceChars);
-
       if (sanitisedQuery !== this.sanitisedQuery || (force && !this.resultSelected)) {
         this.unsetResults();
         this.setAriaStatus();
@@ -230,7 +226,6 @@ export default class TypeaheadUI {
 
         if (this.sanitisedQuery.length >= this.minChars) {
           this.data.then(data => {
-            //console.log(data);
             this.fetchSuggestions(this.sanitisedQuery, data)
               .then(this.handleResults.bind(this))
               .catch(error => {
@@ -247,9 +242,9 @@ export default class TypeaheadUI {
   }
 
   async fetchSuggestions(sanitisedQuery, data) {
+    this.abortFetch();
     const results = await queryJson(sanitisedQuery, data, this.lang);
     results.forEach(result => {
-      console.log(result);
       result.sanitisedText = sanitiseTypeaheadText(result[this.lang], this.sanitisedQueryReplaceChars);
       if (this.lang !== 'en-gb') {
         const english = result['en-gb'];
@@ -263,8 +258,6 @@ export default class TypeaheadUI {
         result.alternatives = [];
         result.sanitisedAlternatives = [];
       }
-      console.log('balllllllllllls');
-      console.log(results);
     });
     return {
       results,
