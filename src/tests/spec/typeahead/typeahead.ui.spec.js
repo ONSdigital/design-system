@@ -488,28 +488,6 @@ describe('Typeahead.ui component', function() {
           expect(this.onErrorSpy).to.not.have.been.called();
         });
       });
-
-      describe('if fetch suggestion due to any other error', function() {
-        beforeEach(function(done) {
-          this.input.value = 'Testing';
-
-          this.typeahead.fetchSuggestions = () => {
-            return new Promise((resolve, reject) => {
-              reject({
-                name: 'Error',
-              });
-            });
-          };
-
-          this.typeahead.getSuggestions();
-
-          setTimeout(done);
-        });
-
-        it('then onError should be called', function() {
-          expect(this.onErrorSpy).to.have.been.called();
-        });
-      });
     });
 
     describe('and results are fetched', function() {
