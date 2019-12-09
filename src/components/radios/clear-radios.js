@@ -29,9 +29,7 @@ export default class ClearRadios {
   }
 
   clearRadios() {
-    event.preventDefault();
     this.button.classList.add('u-db-no-js_enabled');
-    this.inputs.forEach(input => (input.checked = false));
 
     this.ariaElement.innerHTML = this.clearedAlert;
     clearAlertAnnounced = false;

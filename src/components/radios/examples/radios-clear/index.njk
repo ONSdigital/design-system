@@ -1,53 +1,54 @@
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/button/_macro.njk" import onsButton %}
-
-{{ 
-    onsRadios({
-        "legend": "Select your favourite topping",
-        "name": "food",
-        "clear": {
-            "text": "Clear selection",
-            "url": "./radios-clear",
-            "ariaClearText": "You can clear your answer using the clear selection button after the radio inputs",
-            "ariaClearedText": "You have cleared your answer"
-        },
-        "radios": [
-            {
-                "id": "bacon",
-                "label": {
-                    "text": "Bacon"
-                },
-                "value": "bacon"
+<form onsubmit="return false;">
+    {{
+        onsRadios({
+            "legend": "Select your favourite topping",
+            "name": "food",
+            "clear": {
+                "text": "Clear selection",
+                "type": "reset",
+                "ariaClearText": "You can clear your answer using the clear selection button after the radio inputs",
+                "ariaClearedText": "You have cleared your answer"
             },
-            {
-                "id": "olives",
-                "label": {
-                    "text": "Olives"
-                },
-                "value": "olives"
-            },
-            {
-                "id": "ham",
-                "label": {
-                    "text": "Ham"
-                },
-                "value": "ham"
-            },
-            {
-                "id": "other-checkbox",
-                "label": {
-                    "text": "Other"
-                },
-                "value": "other",
-                "other": {
-                    "open": true,
-                    "id": "other-textbox",
-                    "name": "other-answer",
+            "radios": [
+                {
+                    "id": "bacon",
                     "label": {
-                        "text": "Please specify other"
+                        "text": "Bacon"
+                    },
+                    "value": "bacon"
+                },
+                {
+                    "id": "olives",
+                    "label": {
+                        "text": "Olives"
+                    },
+                    "value": "olives"
+                },
+                {
+                    "id": "ham",
+                    "label": {
+                        "text": "Ham"
+                    },
+                    "value": "ham"
+                },
+                {
+                    "id": "other-checkbox",
+                    "label": {
+                        "text": "Other"
+                    },
+                    "value": "other",
+                    "other": {
+                        "open": true,
+                        "id": "other-textbox",
+                        "name": "other-answer",
+                        "label": {
+                            "text": "Please specify other"
+                        }
                     }
                 }
-            }
-        ]
-    }) 
-}}
+            ]
+        })
+    }}
+</form>

@@ -68,9 +68,7 @@
          {% if params.clear %}
             {{ onsButton({
                 "text": params.clear.text,
-                "url": params.clear.url,
-                "hideCaret": true,
-                "type": "button",
+                "type": params.clear.type,
                 "classes": "btn--secondary btn--small js-clear-btn u-mt-s u-db-no-js_enabled"
             }) }}
             <span class="js-clear-radio-alert u-vh" role="alert" aria-live="polite" data-clear="{{ params.clear.ariaClearText }}" data-cleared="{{ params.clear.ariaClearedText }}"></span>
