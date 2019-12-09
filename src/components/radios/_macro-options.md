@@ -30,6 +30,5 @@
 | Name            | Type   | Required | Description                                                                 |
 | --------------- | ------ | -------- | --------------------------------------------------------------------------- |
 | text            | string | true     | The text displayed for the button                                           |
-| url             | string | true     | The url for the button for non-js use                                       |
 | ariaClearText   | string | true     | The text to be announced to screen readers when a radio has been selected   |
 | ariaClearedText | string | true     | The text to be announced to screen readers when the button has been clicked |
