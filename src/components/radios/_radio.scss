@@ -25,4 +25,8 @@
   &__other {
     @extend .checkbox__other;
   }
+
+  &__input:not(:checked) ~ &__other--open {
+    display: block;
+  }
 }
