@@ -54,7 +54,10 @@ This variant of the 'Other' radio input type shows the input instead of waiting 
 
 ### Radios with the option to clear
 
-This variant displays a 'Clear' button which allows the user to deselect/clear the fieldset so all radios are not `:checked`. The button is displayed after a radio is selected. The `aria-live` attribute is used for use in assistive technologies.
+This variant displays a 'Clear selection' button which allows the user to deselect/clear the fieldset so all radios are not `:checked`. The button is displayed after a radio is selected. The `aria-live` attribute is used for use in assistive technologies.
+{%call onsPanel() %}
+    <p><strong>Note:</strong> This should not be used if a form contains more than a single radios fieldset. The reset button will clear every input within the form.</p>
+{% endcall %}
 {{
     patternlibExample({"path": "components/radios/examples/radios-clear/index.njk"})
 }}
