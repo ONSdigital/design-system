@@ -1,10 +1,31 @@
-.card {
-  margin: 0 0 2rem;
-  width: 100%;
-  @include mq(m) {
+.message {
+  border-radius: $grid-gutters / 2;
+  margin-bottom: 2rem;
+
+  &--sent {
+    background: $color-info-tint;
+  }
+
+  &--received {
+    background: $color-success-tint;
+  }
+
+  &__head {
+    padding: $grid-gutters $grid-gutters 0 $grid-gutters;
+    border-bottom: 1px solid $color-borders;
+  }
+
+  &__metadata {
+    margin: 0 0 1rem;
+  }
+
+  &__term,
+  &__value {
+    display: inline-block;
     margin: 0;
-    .grid__col & {
-      padding-right: 1rem;
-    }
+  }
+
+  &__body {
+    padding: $grid-gutters;
   }
 }
