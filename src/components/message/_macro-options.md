@@ -1,6 +1,7 @@
-| Name         | Type   | Required | Description                        |
-| ------------ | ------ | -------- | ---------------------------------- |
-| url          | string | false    | Will wrap the text in a link       |
-| title        | string | true     | The title for the card element     |
-| text         | string | true     | The text for the card element      |
-| titleClasses | string | false    | Font size class for the card title |
+| Name      | Type   | Required | Description                            |
+| --------- | ------ | -------- | -------------------------------------- |
+| type      | string | true     | Required 'sent' or 'received' as value |
+| fromLabel | string | true     | Label for the "From" metadata          |
+| FromValue | string | true     | Value for the "From" metadata prefix   |
+| sentLabel | string | true     | Label for the "Sent" metadata prefix   |
+| sentValue | string | true     | Value for the "Sent" metadata          |
