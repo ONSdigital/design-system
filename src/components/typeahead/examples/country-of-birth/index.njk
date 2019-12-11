@@ -3,7 +3,8 @@
 {{ onsTypeahead({
     "id": "country-of-birth",
     "label": {
-        "text": "Enter the current name of the country"
+        "text": "Current name of country",
+        "description": "Enter your own answer or select from suggestions"
     },
     "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
     "content": {
@@ -16,5 +17,5 @@
         "results_title": "Suggestions"
     },
     "autocomplete": "off",
-    "apiUrl": "https://ons-typeahead-prototypes.herokuapp.com/country-of-birth"
+    "typeaheadData": "https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json"
 }) }}

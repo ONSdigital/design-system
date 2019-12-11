@@ -1,6 +1,7 @@
 import dice from 'dice-coefficient';
 import { sortBy } from 'sort-by-typescript';
 
+import queryJson from './code.list.searcher';
 import { sanitiseTypeaheadText } from './typeahead.helpers';
 import fetch from 'js/abortable-fetch';
 
@@ -15,7 +16,7 @@ export const classTypeaheadHasResults = 'typeahead--has-results';
 export default class TypeaheadUI {
   constructor({
     context,
-    apiUrl,
+    typeaheadData,
     sanitisedQueryReplaceChars,
     minChars,
     resultLimit,
@@ -35,7 +36,7 @@ export default class TypeaheadUI {
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
 
     // Settings
-    this.apiUrl = apiUrl || context.getAttribute('data-api-url');
+    this.typeaheadData = typeaheadData || context.getAttribute('typeahead-data');
     this.content = JSON.parse(context.getAttribute('data-content'));
     this.listboxId = this.listbox.getAttribute('id');
     this.minChars = minChars || 2;
@@ -69,10 +70,15 @@ export default class TypeaheadUI {
     this.blurTimeout = null;
     this.sanitisedQueryReplaceChars = sanitisedQueryReplaceChars || [];
 
-    this.initialise();
+    // Temporary fix as runner doesn't use full lang code
+    if (this.lang === 'en') {
+      this.lang = 'en-gb';
+    }
+    this.fetchData();
+    this.initialiseUI();
   }
 
-  initialise() {
+  initialiseUI() {
     this.input.setAttribute('aria-autocomplete', 'list');
     this.input.setAttribute('aria-controls', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-describedby', this.instructions.getAttribute('id'));
@@ -85,6 +91,24 @@ export default class TypeaheadUI {
     this.context.classList.add('typeahead--initialised');
 
     this.bindEventListeners();
+  }
+
+  fetchData() {
+    async function loadJSON(jsonPath) {
+      try {
+        const jsonResponse = await fetch(jsonPath);
+        if (jsonResponse.status === 500) {
+          throw new Error('Error fetching json data: ' + jsonResponse.status);
+        }
+        const jsonData = await jsonResponse.json();
+        return jsonData;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    // Call loading of json file
+    this.data = loadJSON(this.typeaheadData);
   }
 
   bindEventListeners() {
@@ -190,79 +214,50 @@ export default class TypeaheadUI {
   }
 
   getSuggestions(force) {
-    if (this.settingResult) {
-      return;
-    }
+    if (!this.settingResult) {
+      const query = this.input.value;
+      const sanitisedQuery = sanitiseTypeaheadText(query, this.sanitisedQueryReplaceChars);
+      if (sanitisedQuery !== this.sanitisedQuery || (force && !this.resultSelected)) {
+        this.unsetResults();
+        this.setAriaStatus();
 
-    const query = this.input.value;
-    const sanitisedQuery = sanitiseTypeaheadText(query, this.sanitisedQueryReplaceChars);
+        this.query = query;
+        this.sanitisedQuery = sanitisedQuery;
 
-    if (sanitisedQuery !== this.sanitisedQuery || (force && !this.resultSelected)) {
-      this.unsetResults();
-      this.setAriaStatus();
-
-      this.query = query;
-      this.sanitisedQuery = sanitisedQuery;
-
-      if (this.sanitisedQuery.length >= this.minChars) {
-        this.fetchSuggestions(this.sanitisedQuery)
-          .then(this.handleResults.bind(this))
-          .catch(error => {
-            if (error.name !== 'AbortError' && this.onError) {
-              this.onError(error);
-            }
+        if (this.sanitisedQuery.length >= this.minChars) {
+          this.data.then(data => {
+            this.fetchSuggestions(this.sanitisedQuery, data)
+              .then(this.handleResults.bind(this))
+              .catch(error => {
+                if (error.name !== 'AbortError' && this.onError) {
+                  this.onError(error);
+                }
+              });
           });
-      } else {
-        this.clearListbox();
+        } else {
+          this.clearListbox();
+        }
       }
     }
   }
 
-  fetchSuggestions(sanitisedQuery) {
-    return new Promise((resolve, reject) => {
-      const query = {
-        query: sanitisedQuery,
-        lang: this.lang,
-      };
+  async fetchSuggestions(sanitisedQuery, data) {
+    this.abortFetch();
+    const results = await queryJson(sanitisedQuery, data, this.lang);
+    results.forEach(result => {
+      result.sanitisedText = sanitiseTypeaheadText(result[this.lang], this.sanitisedQueryReplaceChars);
+      if (this.lang !== 'en-gb') {
+        const english = result['en-gb'];
+        const sanitisedAlternative = sanitiseTypeaheadText(english, this.sanitisedQueryReplaceChars);
 
-      this.abortFetch();
-
-      const queryString = new URLSearchParams(query).toString();
-
-      this.fetch = fetch(`${this.apiUrl}?${queryString}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      })
-        .then(async response => {
-          const data = await response.json();
-
-          const results = data.results;
-
-          results.forEach(result => {
-            result.sanitisedText = sanitiseTypeaheadText(result[this.lang], this.sanitisedQueryReplaceChars);
-
-            if (this.lang !== 'en-gb') {
-              const english = result['en-gb'];
-              const sanitisedAlternative = sanitiseTypeaheadText(english, this.sanitisedQueryReplaceChars);
-
-              if (sanitisedAlternative.match(sanitisedQuery)) {
-                result.alternatives = [english];
-                result.sanitisedAlternatives = [sanitisedAlternative];
-              }
-            } else {
-              result.alternatives = [];
-              result.sanitisedAlternatives = [];
-            }
-          });
-
-          resolve({
-            results,
-            totalResults: data.totalResults,
-          });
-        })
-        .catch(reject);
+        if (sanitisedAlternative.match(sanitisedQuery)) {
+          result.alternatives = [english];
+          result.sanitisedAlternatives = [sanitisedAlternative];
+        }
+      } else {
+        result.alternatives = [];
+        result.sanitisedAlternatives = [];
+      }
     });
   }
 
