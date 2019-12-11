@@ -259,10 +259,6 @@ export default class TypeaheadUI {
         result.sanitisedAlternatives = [];
       }
     });
-    return {
-      results,
-      totalResults: data.totalResults,
-    };
   }
 
   abortFetch() {
