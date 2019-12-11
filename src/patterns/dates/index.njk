@@ -21,7 +21,9 @@ Don't use the date pattern if you're asking the user about an event they are unl
 ## How to use this pattern
 The date pattern provides the user with 3 [input](/components/input) fields to enter a day, month, and year.
 
-The 3 input fields are grouped within a [fieldset](/components/fieldset) with a `<legend>` that lets the user know what they need to do.
+The 3 input fields are grouped within a [fieldset](/components/fieldset) with a `<legend>` that lets the user know what they need to enter.
+
+A `fieldset__description` is used to provide an example of the required format for the date e.g. 'For example, 31 3 1980'.
 
 {{
     onsPanel({
@@ -29,8 +31,7 @@ The 3 input fields are grouped within a [fieldset](/components/fieldset) with a 
         "body": "<p><strong>Note:</strong> Never automatically tab the user between the fields.  This can be unexpected and confusing, and may hinder normal keyboard control.</p>"
     })
 }}
-
-A `<span>` with `field__description` class is used to provide an example of the required format for the date e.g. 'For example, 31 3 1980'.
+The date fields have a `maxlength` limit set to the maximum number of digits required for day and month (2), and year (4), to prevent users entering too many digits in a single field. This is to help those users who expect auto-tabbing between the fields by preventing them from entering the full date into the first field.
 
 Each field uses the `input--w-<number>` class to set the known number of digits required for each field.
 
