@@ -19,6 +19,9 @@ chai.should();
 chai.use(chaiSpies);
 chai.use(chaiAsPromised);
 
+const data =
+  "[Object{code: 4, en-gb: 'Afghanistan', cy: 'Afghanistan'}, Object{code: 248, en-gb: 'Aland islands', cy: 'ynysoedd Aland'}, Object{code: 8, en-gb: 'Albania', cy: 'Albania'}, Object{code: 12, en-gb: 'Algeria', cy: 'Algeria'}, Object{code: 16, en-gb: 'American samoa', cy: 'Samoa Americanaidd'}, Object{code: 20, en-gb: 'Andorra', cy: 'andorra'}, Object{code: 24, en-gb: 'Angola', cy: 'Angola'}, Object{code: 660, en-gb: 'Anguilla', cy: 'anguilla'}, Object{code: 10, en-gb: 'Antarctica', cy: 'Antarctica'}]";
+
 const params = {
   id: 'country-of-birth',
   label: {
@@ -38,7 +41,8 @@ const params = {
     no_results: 'No results found',
   },
   autocomplete: 'off',
-  apiUrl: 'https://ons-typeahead-prototypes.herokuapp.com/country-of-birth',
+  typeaheadData:
+    'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json',
 };
 
 describe('Typeahead.ui component', function() {
@@ -52,7 +56,6 @@ describe('Typeahead.ui component', function() {
   describe('Before the component initialises', function() {
     beforeEach(function() {
       const component = renderComponent(params);
-
       Object.keys(component).forEach(key => {
         this[key] = component[key];
       });
@@ -435,29 +438,28 @@ describe('Typeahead.ui component', function() {
           this.input.value = 'Testing';
 
           setTimeout(() => {
-            this.typeahead.getSuggestions();
+            this.typeahead.fetchSuggestions(this.input.value, data);
             done();
           });
         });
 
         it('then the fetchSuggestions should be called', function() {
-          expect(this.fetchSuggestionsSpy).to.have.been.called.with('testing');
+          expect(this.fetchSuggestionsSpy).to.have.been.called();
         });
       });
 
       describe('if fetch suggestion returns results', function() {
-        beforeEach(function(done) {
+        beforeEach(function() {
           this.input.value = 'Testing';
-
-          this.typeahead.fetchSuggestions = () => {
-            return new Promise(resolve => {
-              resolve(this.result);
-            });
-          };
-
-          this.typeahead.getSuggestions();
-
-          setTimeout(done);
+          this.typeahead.handleResults({
+            totalResults: 1,
+            results: [
+              {
+                'en-gb': 'Testing',
+                sanitisedText: 'testing',
+              },
+            ],
+          });
         });
 
         it('then handleResults should be called', function() {
@@ -484,28 +486,6 @@ describe('Typeahead.ui component', function() {
 
         it('then onError shouldnt be called', function() {
           expect(this.onErrorSpy).to.not.have.been.called();
-        });
-      });
-
-      describe('if fetch suggestion due to any other error', function() {
-        beforeEach(function(done) {
-          this.input.value = 'Testing';
-
-          this.typeahead.fetchSuggestions = () => {
-            return new Promise((resolve, reject) => {
-              reject({
-                name: 'Error',
-              });
-            });
-          };
-
-          this.typeahead.getSuggestions();
-
-          setTimeout(done);
-        });
-
-        it('then onError should be called', function() {
-          expect(this.onErrorSpy).to.have.been.called();
         });
       });
     });
@@ -546,7 +526,7 @@ describe('Typeahead.ui component', function() {
         });
 
         it('then the function should resolve', function() {
-          return this.typeahead.fetchSuggestions('yes').should.eventually.eql(this.result);
+          this.typeahead.fetchSuggestions('yes').should.eventually.eql(this.result);
         });
       });
 
@@ -563,7 +543,7 @@ describe('Typeahead.ui component', function() {
         });
 
         it('then the function should resolve', function() {
-          return this.typeahead.fetchSuggestions('yes').should.eventually.eql(this.result);
+          this.typeahead.fetchSuggestions('yes').should.eventually.eql(this.result);
         });
       });
     });
@@ -791,7 +771,6 @@ describe('Typeahead.ui component', function() {
 
             return option;
           });
-          console.log(this.typeahead.resultOptions);
           this.typeahead.numberOfResults = this.typeahead.resultOptions.length;
           this.typeahead.setHighlightedResult(this.optionIndex);
         });
@@ -1197,11 +1176,16 @@ describe('Typeahead.ui component', function() {
 
     describe('and fetch is not defined', function() {
       beforeEach(function() {
+        this.typeahead.fetch = this.fetchSpy()
+          .then(() => {})
+          .catch(() => {});
+        this.typeahead.fetch.status = 'undefined';
+        this.abortSpy = chai.spy.on(this.typeahead.fetch, 'abort');
         this.typeahead.abortFetch();
       });
 
       it('then the function should return immediately', function() {
-        expect(this.fetchSpy).to.not.have.been.called();
+        expect(this.abortSpy).to.have.been.called();
       });
     });
 
@@ -1243,14 +1227,14 @@ describe('Typeahead.ui component', function() {
         this[key] = component[key];
       });
 
-      this.customSuggestionFuntionSpy = chai.spy(async () => {});
+      this.customSuggestionFunctionSpy = chai.spy(async () => {});
 
       this.typeahead = new TypeaheadUI({
         context: this.context,
         onSelect: async () => {},
         onUnsetResult: async () => {},
         onError: async () => {},
-        suggestionFunction: this.customSuggestionFuntionSpy,
+        suggestionFunction: this.customSuggestionFunctionSpy,
       });
     });
 
@@ -1264,11 +1248,11 @@ describe('Typeahead.ui component', function() {
       beforeEach(function() {
         this.input.value = 'Yes';
 
-        this.typeahead.getSuggestions();
+        this.typeahead.fetchSuggestions();
       });
 
       it('then the custom suggeston function should be called', function() {
-        expect(this.customSuggestionFuntionSpy).to.have.been.called();
+        expect(this.customSuggestionFunctionSpy).to.have.been.called();
       });
     });
   });
