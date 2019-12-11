@@ -5,7 +5,7 @@
         id="{{ params.id }}-container"
         class="typeahead js-typeahead{% if params.classes %} {{ params.classes }}{% endif %}"
         data-content="{{ params.content | dump }}"
-        data-api-url="{{ params.apiUrl }}"
+        typeahead-data="{{ params.typeaheadData }}"
     >
         {{ onsInput({
             "id": params.id,
