@@ -8,4 +8,13 @@ domready(async () => {
 
     new Checkboxes(checkboxes);
   }
+
+  const openOther = document.querySelector('.checkbox__other--open');
+  if (openOther) {
+    const parent = openOther.parentNode;
+    const checkboxInput = parent.querySelector('.checkbox__input');
+    const CheckCheckbox = (await import('components/radios/check-radios')).default;
+
+    new CheckCheckbox(checkboxInput, openOther);
+  }
 });
