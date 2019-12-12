@@ -8,12 +8,12 @@
         <section role="region" aria-label="Conversation: BRES 2017 clarification required for Bolts &amp; Ratchets Ltd">
             <h1 class="u-fs-l"><span class="u-vh">Subject: </span>BRES 2017 clarification required for Bolts &amp; Ratchets Ltd</h1>        
             <div class="grid grid--gutterless">
-                <div class="grid__col col-10@m">
+                <div class="grid__col col-12@m">
                     {{ 
                         onsMetadata({
                             "metadataLabel": "Information about the survey and respondant",
-                            "termCol": "2",
-                            "descriptionCol": "10",
+                            "termCol": "3",
+                            "descriptionCol": "9",
                             "itemsList": [
                                 {
                                     "term": "Survey:",
@@ -95,23 +95,20 @@
                             }
                         })
                     }}
-                    <div class="u-mt-m u-mb-m">
-                        {{ 
-                            onsButton({
-                                "type": 'button',
-                                "text": 'Send',
-                                "classes": 'btn-group__btn'
-                            }) 
-                        }}
-                        {{ 
-                            onsButton({
-                                "type": 'button',
-                                "text": 'Close conversation',
-                                "classes": 'btn--secondary btn-group__btn',
-                                "url": '#'
-                            }) 
-                        }}
-                    </div>
+                    <div class="grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap@s u-mt-m u-mb-m">
+                        <div class="grid__col">
+                            {{ 
+                                onsButton({
+                                    "type": 'button',
+                                    "text": 'Send message',
+                                    "classes": 'btn-group__btn'
+                                }) 
+                            }}
+                            </div>
+                            <div class="grid__col u-ml-m">
+                                <a href="#">Close conversation</a>
+                            </div>
+                        </div>
                 </div> 
             </div>       
         </section>

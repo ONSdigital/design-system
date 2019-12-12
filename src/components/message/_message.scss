@@ -4,10 +4,16 @@
 
   &--sent {
     background: $color-info-tint;
+    @include mq(m) {
+      margin-left: 4rem;
+    }
   }
 
   &--received {
     background: $color-success-tint;
+    @include mq(m) {
+      margin-right: 4rem;
+    }
   }
 
   &__head {
