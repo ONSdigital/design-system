@@ -24,6 +24,9 @@
 
   &__metadata {
     margin: 0;
+    @include mq(m) {
+      width: 65%;
+    }
   }
 
   &__term,
