@@ -84,6 +84,21 @@
                 David Cleere<br>
                 BRES Survey Team</p>
             {% endcall %}
+
+            {% call onsMessage({
+                    "type": 'received',
+                    "fromLabel": 'From',
+                    "fromValue": 'Jackie Turner',
+                    "sentLabel": 'Sent',
+                    "sentValue": 'Today at 13:15',
+                    "unreadLink": '#',
+                    "unreadLinkText": 'Mark unread'
+                })
+            %}
+             <p>Hi Dave<br>Brilliant.
+                <br><br>Thanks, Jacky</p>
+            {% endcall %}
+
             {{
                 onsTextarea({
                     "id": "reply",
