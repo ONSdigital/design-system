@@ -51,6 +51,12 @@
     }
   }
 
+  &--row-hover {
+    .table__body .table__row:hover {
+      background: $color-grey-5;
+    }
+  }
+
   &--responsive {
     @include mq(xs, s) {
       .table__header {
