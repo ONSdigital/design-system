@@ -112,8 +112,8 @@ describe('Typeahead.ui component', function() {
       expect(this.input.getAttribute('role')).to.equal('combobox');
     });
 
-    it('the autocomplete attribute be set to "off", "null" or undefined', function() {
-      expect(this.input.getAttribute('autocomplete')).to.be.oneOf(['off', 'null', undefined]);
+    it('the autocomplete attribute be set to be not set to on', function() {
+      expect(this.input.getAttribute('autocomplete')).to.be.oneOf(['off', 'null', undefined, '']);
     });
 
     it('the instructions, listbox, and status should become visible', function() {
