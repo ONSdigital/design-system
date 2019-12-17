@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/typeahead/_test-template.njk';
+import template from 'components/input/_test-template.njk';
 import '../../../scss/main.scss';
 import TypeaheadUI, {
   classTypeaheadOption,
@@ -7,7 +7,7 @@ import TypeaheadUI, {
   classTypeaheadOptionNoResults,
   classTypeaheadOptionMoreResults,
   classTypeaheadHasResults,
-} from '../../../components/typeahead/typeahead.ui';
+} from '../../../components/input/typeahead.ui';
 import eventMock from 'stubs/event.stub.spec';
 import fetchMock from 'stubs/window.fetch.stub.spec';
 
@@ -1147,7 +1147,7 @@ describe('Typeahead.ui component', function() {
 
       this.rewiremock.enable();
 
-      const mockedTypeaheadUI = require('components/typeahead/typeahead.ui').default;
+      const mockedTypeaheadUI = require('components/input/typeahead.ui').default;
 
       // Render
       const component = renderComponent(params);

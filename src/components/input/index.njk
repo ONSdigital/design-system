@@ -54,6 +54,42 @@ Setting the type to `tel` will bring up the correct keypad on touch devices.
     patternlibExample({"path": "components/input/examples/telephone/index.njk"})
 }}
 
+### Typeahead
+Providing the component with a path to a JSON file using the `typeaheadData` parameter will turn the component into a typeahead input uning the data in the JSON file.
+
+Typeaheads are used to suggest options for answers and typically search code lists such as, Country of Birth, Languages, Nationalities, etc.
+{{
+    patternlibExample({"path": "components/input/examples/country-of-birth/index.njk"})
+}}
+
+This example is powered by a JavaScript library called [Fuse.js](https://fusejs.io/).
+
+#### Response object
+
+The typeaheads expect the response from the library to return the results as JSON objects in an array.
+
+#### TypeaheadResultItem
+
+The TypeaheadResultItem should consist of at least a key corresponding to the searched language (e.g. `en-gb`) with its corresponding value.
+
+#### Example response
+
+```
+{
+    "results": [
+        {
+            "en-gb": "United Kingdom",
+            "cy": "Deyrnas Unedig"
+        }
+    ],
+    "totalResults": 1
+}
+```
+
+The typeahead component sends a `searchFields` parameter in it's query string that matches the `lang` attribtue on the `<html>` element of the page.
+
+The typeahead component will search the `cy` or the `en-gb` data to find results depending on the `searchFields` parameter.
+
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
