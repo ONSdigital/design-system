@@ -73,10 +73,6 @@ describe('Typeahead.ui component', function() {
       expect(this.input.hasAttribute('role')).to.be.false;
     });
 
-    it('the autocomplete attribute should not present yet', function() {
-      expect(this.input.hasAttribute('autocomplete')).to.be.false;
-    });
-
     it('the instructions, listbox, and status should be display none', function() {
       expect(getComputedStyle(this.instructions).display).to.equal('none');
       expect(getComputedStyle(this.listbox).display).to.equal('none');
@@ -116,8 +112,8 @@ describe('Typeahead.ui component', function() {
       expect(this.input.getAttribute('role')).to.equal('combobox');
     });
 
-    it('the autocomplete attribute be set to match the data-autocomplete attribute', function() {
-      expect(this.input.getAttribute('autocomplete')).to.equal(this.input.getAttribute('data-autocomplete'));
+    it('the autocomplete attribute be set to "off", "null" or undefined', function() {
+      expect(this.input.getAttribute('autocomplete')).to.be.oneOf(['off', 'null', undefined]);
     });
 
     it('the instructions, listbox, and status should become visible', function() {
