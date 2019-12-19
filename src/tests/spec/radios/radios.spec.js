@@ -6,6 +6,7 @@ import CheckRadios from 'components/radios/check-radios';
 
 const params = {
   name: 'contact-preference',
+  clearRadios: 'true',
   clear: {
     text: 'Clear selection',
     url: '/',
