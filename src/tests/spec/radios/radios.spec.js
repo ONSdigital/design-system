@@ -6,8 +6,7 @@ import CheckRadios from 'components/radios/check-radios';
 
 const params = {
   name: 'contact-preference',
-  clearRadios: 'true',
-  clear: {
+  clearRadios: {
     text: 'Clear selection',
     url: '/',
     ariaClearText: 'You can clear your answer by clicking the clear selection button under the radio buttons',
