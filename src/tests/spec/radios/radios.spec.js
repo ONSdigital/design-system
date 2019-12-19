@@ -176,7 +176,7 @@ describe('Component: Radios', function() {
       it('then the aria live message should announce that the answer has been cleared', function(done) {
         const ariaElement = document.querySelector('.js-clear-radio-alert');
         setTimeout(() => {
-          expect(ariaElement.innerHTML).to.equal(`${params.clear.ariaClearedText}`);
+          expect(ariaElement.innerHTML).to.equal(`${params.clearRadios.ariaClearedText}`);
           done();
         }, 300);
       });
