@@ -10,8 +10,7 @@
 | value         | string                               | false    | Can be used to set the checked radio. This can also be achieved by setting the `checked` parameter on the `Radio` item to true |
 | error         | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                                                                            |
 | or            | string                               | false    | Text for the or label                                                                                                          |
-| clearRadios   | boolean                              | false    | Whether the 'clear' button should be displayed                                                                                 |
-| clear         | `Object<Clear>`                      | false    | An object containing values for the clear selection button                                                                     |
+| clearRadios   | `Object<ClearRadios>`                | false    | An object containing values for the clear selection button                                                                     |
 | open          | boolean                              | false    | Whether the 'other' input should be displayed                                                                                  |
 
 ## Radio
@@ -26,7 +25,7 @@
 | other      | `Input` [_(ref)_](/components/input) | false    | Object with settings for other input                                            |
 | attributes | object                               | false    | HTML attributes (for example data attributes) to add to the radio input element |
 
-## Clear
+## ClearRadios
 
 | Name            | Type   | Required | Description                                                                 |
 | --------------- | ------ | -------- | --------------------------------------------------------------------------- |

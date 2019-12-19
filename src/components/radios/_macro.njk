@@ -1,6 +1,5 @@
 {% macro onsRadios(params) %}
     {% from "components/fieldset/_macro.njk" import onsFieldset %}
-    {% from "components/button/_macro.njk" import onsButton %}
 
     {% call onsFieldset({
         "id": params.id,
@@ -65,9 +64,10 @@
                 {% endif %}
             {% endfor %}
         </div>
-         {% if params.clearRadios %}
+        {% if params.clearRadios %}
+            {% from "components/button/_macro.njk" import onsButton %}
             {{ onsButton({
-                "text": params.clear.text,
+                "text": params.clearRadios.text | default(''),
                 "type": "reset",
                 "classes": "btn--secondary btn--small js-clear-btn u-mt-s u-db-no-js_enabled"
             }) }}
