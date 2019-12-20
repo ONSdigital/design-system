@@ -6,7 +6,7 @@ import CheckRadios from 'components/radios/check-radios';
 
 const params = {
   name: 'contact-preference',
-  clear: {
+  clearRadios: {
     text: 'Clear selection',
     url: '/',
     ariaClearText: 'You can clear your answer by clicking the clear selection button under the radio buttons',
@@ -135,7 +135,7 @@ describe('Component: Radios', function() {
       it('then the aria live message should announce that the answer can be cleared', function(done) {
         const ariaElement = document.querySelector('.js-clear-radio-alert');
         setTimeout(() => {
-          expect(ariaElement.innerHTML).to.equal(`${params.clear.ariaClearText}`);
+          expect(ariaElement.innerHTML).to.equal(`${params.clearRadios.ariaClearText}`);
           done();
         }, 300);
       });
@@ -176,7 +176,7 @@ describe('Component: Radios', function() {
       it('then the aria live message should announce that the answer has been cleared', function(done) {
         const ariaElement = document.querySelector('.js-clear-radio-alert');
         setTimeout(() => {
-          expect(ariaElement.innerHTML).to.equal(`${params.clear.ariaClearedText}`);
+          expect(ariaElement.innerHTML).to.equal(`${params.clearRadios.ariaClearedText}`);
           done();
         }, 300);
       });
