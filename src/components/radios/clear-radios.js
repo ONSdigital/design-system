@@ -10,6 +10,7 @@ export default class ClearRadios {
 
     this.inputs.forEach(input => input.addEventListener('click', this.setClearAttributes.bind(this)));
     this.button.addEventListener('click', this.clearRadios.bind(this));
+    this.checkRadios();
 
     if (this.otherInput) {
       const parent = this.otherInput.parentNode;
@@ -18,6 +19,14 @@ export default class ClearRadios {
     }
 
     clearAlertAnnounced = false;
+  }
+
+  checkRadios() {
+    this.inputs.forEach(input => {
+      if (input.checked) {
+        this.setClearAttributes();
+      }
+    });
   }
 
   setClearAttributes() {
