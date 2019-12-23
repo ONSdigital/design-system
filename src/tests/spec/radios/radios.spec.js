@@ -1,9 +1,17 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/radios/_test-template.njk';
 import Radios from 'components/checkboxes/checkboxes';
+import ClearRadios from 'components/radios/clear-radios';
+import CheckRadios from 'components/radios/check-radios';
 
 const params = {
   name: 'contact-preference',
+  clearRadios: {
+    text: 'Clear selection',
+    url: '/',
+    ariaClearText: 'You can clear your answer by clicking the clear selection button under the radio buttons',
+    ariaClearedText: 'You have cleared your answer',
+  },
   radios: [
     {
       id: 'email',
@@ -33,14 +41,15 @@ const params = {
     },
     {
       id: 'text',
-      value: 'text',
+      value: 'Open input test',
       label: {
         text: 'Text',
       },
       other: {
-        type: 'tel',
+        type: 'text',
+        open: true,
         label: {
-          text: 'Enter your phone number',
+          text: 'Enter something else',
         },
       },
     },
@@ -65,12 +74,16 @@ describe('Component: Radios', function() {
   });
 
   describe('Before the component initialises', function() {
-    it('if a checkbox has an other option, it should be given the correct aria-attributes', function() {
+    it('if a radio has an other option that is not open, it should be given the correct aria-attributes', function() {
+      let i = 0;
       this.radios.forEach(radio => {
-        expect(radio.hasAttribute('aria-haspopup')).to.equal(true);
-        expect(radio.getAttribute('aria-haspopup')).to.equal('true');
-        expect(radio.hasAttribute('aria-controls')).to.equal(true);
-        expect(radio.getAttribute('aria-controls')).to.equal(`${radio.id}-other-wrap`);
+        i++;
+        if (radio[i] < radio.length) {
+          expect(radio.hasAttribute('aria-haspopup')).to.equal(true);
+          expect(radio.getAttribute('aria-haspopup')).to.equal('true');
+          expect(radio.hasAttribute('aria-controls')).to.equal(true);
+          expect(radio.getAttribute('aria-controls')).to.equal(`${radio.id}-other-wrap`);
+        }
       });
     });
   });
@@ -78,12 +91,18 @@ describe('Component: Radios', function() {
   describe('When the component initialises', function() {
     beforeEach(function() {
       new Radios(this.radios);
+      new ClearRadios(this.radios, this.button, this.otherInput);
+      new CheckRadios(this.radioInput, this.openOther);
     });
 
-    it('checkboxes with other options should be given aria-expanded attributes', function() {
+    it('radios with other options should be given aria-expanded attributes', function() {
+      let i = 0;
       this.radios.forEach(radio => {
-        expect(radio.hasAttribute('aria-expanded')).to.equal(true);
-        expect(radio.getAttribute('aria-expanded')).to.equal('false');
+        i++;
+        if (radio[i] < radio.length) {
+          expect(radio.hasAttribute('aria-expanded')).to.equal(true);
+          expect(radio.getAttribute('aria-expanded')).to.equal('false');
+        }
       });
     });
 
@@ -93,17 +112,32 @@ describe('Component: Radios', function() {
       });
 
       // eslint-disable-next-line prettier/prettier
-      it('then the checked radio\'s aria-expanded attribute should be set to true', function() {
+      it("then the checked radio's aria-expanded attribute should be set to true", function() {
         expect(this.radios[0].getAttribute('aria-expanded')).to.equal('true');
       });
 
       // eslint-disable-next-line prettier/prettier
-      it('then the unchecked radios\' aria-expanded attribute should be set to false', function() {
+      it("then the unchecked radios' aria-expanded attribute should be set to false", function() {
+        let i = 0;
         this.radios
           .filter(radio => !radio.checked)
           .forEach(radio => {
-            expect(radio.getAttribute('aria-expanded')).to.equal('false');
+            if (radio[i] < radio.length) {
+              expect(radio.getAttribute('aria-expanded')).to.equal('false');
+            }
           });
+      });
+
+      it('then the clear button should be visible', function() {
+        expect(this.button.classList.contains('u-db-no-js_enabled')).to.equal(false);
+      });
+
+      it('then the aria live message should announce that the answer can be cleared', function(done) {
+        const ariaElement = document.querySelector('.js-clear-radio-alert');
+        setTimeout(() => {
+          expect(ariaElement.innerHTML).to.equal(`${params.clearRadios.ariaClearText}`);
+          done();
+        }, 300);
       });
 
       describe('and the radio selection is changed', function() {
@@ -112,18 +146,65 @@ describe('Component: Radios', function() {
         });
 
         // eslint-disable-next-line prettier/prettier
-        it('then the checked radio\'s aria-expanded attribute should be set to true', function() {
+        it("then the checked radio's aria-expanded attribute should be set to true", function() {
           expect(this.radios[1].getAttribute('aria-expanded')).to.equal('true');
         });
 
         // eslint-disable-next-line prettier/prettier
-        it('then the unchecked radios\' aria-expanded attribute should be set to false', function() {
+        it("then the unchecked radios' aria-expanded attribute should be set to false", function() {
+          let i = 0;
           this.radios
             .filter(radio => !radio.checked)
             .forEach(radio => {
-              expect(radio.getAttribute('aria-expanded')).to.equal('false');
+              if (radio[i] < radio.length) {
+                expect(radio.getAttribute('aria-expanded')).to.equal('false');
+              }
             });
         });
+      });
+    });
+
+    describe('and the clear button is clicked', function() {
+      beforeEach(function() {
+        this.button.click();
+      });
+
+      it('then the clear button should not be visible', function() {
+        expect(this.button.classList.contains('u-db-no-js_enabled')).to.equal(true);
+      });
+
+      it('then the aria live message should announce that the answer has been cleared', function(done) {
+        const ariaElement = document.querySelector('.js-clear-radio-alert');
+        setTimeout(() => {
+          expect(ariaElement.innerHTML).to.equal(`${params.clearRadios.ariaClearedText}`);
+          done();
+        }, 300);
+      });
+
+      it('then all radios should not be checked', function() {
+        this.radios.forEach(radio => {
+          expect(radio.checked).to.equal(false);
+        });
+      });
+
+      it('then all other input fields should be empty', function() {
+        const parent = this.otherInput.parentNode;
+        this.otherField = parent.querySelector('.input');
+        expect(this.otherField.value).to.equal('');
+      });
+    });
+
+    describe('and there is a visible input which is focused', function() {
+      beforeEach(function() {
+        const input = this.openOther.querySelector('.input');
+        input.focus();
+      });
+
+      it('then the radio button should be checked', function(done) {
+        setTimeout(() => {
+          expect(this.radioInput.checked).to.equal(true);
+          done();
+        }, 300);
       });
     });
   });
@@ -137,9 +218,17 @@ function renderComponent(params) {
   document.body.appendChild(wrapper);
 
   const radios = [...wrapper.querySelectorAll('.js-radio')];
-
+  const button = document.querySelector('.js-clear-btn');
+  const otherInput = document.querySelector('.radio__other');
+  const openOther = document.querySelector('.radio__other--open');
+  const parent = openOther.parentNode;
+  const radioInput = parent.querySelector('.radio__input');
   return {
     wrapper,
     radios,
+    button,
+    otherInput,
+    openOther,
+    radioInput,
   };
 }

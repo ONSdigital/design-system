@@ -30,7 +30,7 @@
             {% if params.min is defined %}min="{{ params.min }}"{% endif %}
             {% if params.max is defined %}max="{{ params.max }}"{% endif %}
             {% if params.minLength is defined %}minlength="{{ params.minLength }}"{% endif %}
-            {% if params.maxLangth is defined %}maxlength="{{ params.maxLangth }}"{% endif %}
+            {% if params.maxLength is defined %}maxlength="{{ params.maxLength }}"{% endif %}
             {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
             {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
             {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
@@ -40,7 +40,7 @@
     {% endset %}
 
     {% set field %}
-        {% if params.label or not (params.prefix or params.suffix) %}
+        {% if params.label or not (params.prefix or params.suffix or type == 'password') %}
             {{ onsLabel({
                 "for": params.id,
                 "id": params.label.id,

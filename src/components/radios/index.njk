@@ -21,7 +21,7 @@ Radios are grouped within a [fieldset](/components/fieldset) which starts with a
 
 ## Variants
 
-## Descriptons
+### Descriptions
 This variant allows you to add more context to the options in the list. The description is populated by providing a `description` parameter within the radio's `label` parameter.
 
 {{
@@ -33,15 +33,33 @@ This variant lets the user provide an answer other to the options in the list, o
 
 The radio label must be directly followed by the `radio__description` to let the user know they will need to provide an answer if they select this option.
 
-Use this varation by wrapping the text field in a div with class `radio__other`, added directly after the radio label. CSS hides this field until the radio is `:checked`.
+Use this variation by wrapping the text field in a div with class `radio__other`, added directly after the radio label. CSS hides this field until the radio is `:checked`.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-other/index.njk"})
 }}
 
-## Radios with an or label
+
+### Other - visible input
+This variant of the 'Other' radio input type shows the input instead of waiting for the radio to be `:checked`. This variant does not require the `radio__description` to be present.
+
+{{
+    patternlibExample({"path": "components/radios/examples/radios-other-open/index.njk"})
+}}
+
+### Radios with an 'or' label
 {{
     patternlibExample({"path": "components/radios/examples/radios-with-or/index.njk"})
+}}
+
+### Radios with the option to clear
+
+This variant displays a 'Clear selection' button which allows the user to deselect/clear the fieldset so all radios are not `:checked`. The button is displayed after a radio is selected. The `aria-live` attribute is used for use in assistive technologies.
+{%call onsPanel() %}
+    <p><strong>Note:</strong> This should not be used if a form contains more than a single radios fieldset. The reset button will clear every input within the form.</p>
+{% endcall %}
+{{
+    patternlibExample({"path": "components/radios/examples/radios-clear/index.njk"})
 }}
 
 ## Research on this component
