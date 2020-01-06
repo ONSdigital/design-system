@@ -17,12 +17,12 @@
 
     {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
     {% set input %}
-        {% if params.typeaheadData %}
+        {% if params.typeahead.typeaheadData %}
             <div
                 id="{{ params.id }}-container"
                 class="typeahead js-typeahead js-typeahead-input typeahead__input {% if params.classes %} {{ params.classes }}{% endif %}"
-                data-content="{{ params.content | dump }}"
-                typeahead-data="{{ params.typeaheadData }}"
+                data-content="{{ params.typeahead.content | dump }}"
+                typeahead-data="{{ params.typeahead.typeaheadData }}"
             >
         {% endif %}
 
@@ -46,13 +46,13 @@
                     {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                 />
 
-        {% if params.typeaheadData %}
+        {% if params.typeahead.typeaheadData %}
                 <div class="typeahead__results js-typeahead-results">
-                    <header class="typeahead__results-title u-fs-s">{{ params.content.results_title }}</header>
+                    <header class="typeahead__results-title u-fs-s">{{ params.typeahead.content.results_title }}</header>
                     <ul class="typeahead__listbox js-typeahead-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
                 </div>
 
-                <div class="typeahead__instructions u-vh js-typeahead-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
+                <div class="typeahead__instructions u-vh js-typeahead-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.typeahead.instructions }}</div>
                 <div class="typeahead__status u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
             </div>
         {% endif %}

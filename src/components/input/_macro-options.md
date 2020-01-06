@@ -20,7 +20,7 @@
 | legend            | string                                                        | Only if mutuallyExclusive is set | Text content for the legend                                                         |
 | legendClasses     | string                                                        | false                            | Classes for the legend                                                              |
 | error             | `Error` [_(ref)_](/components/error)                          | false                            | Configuration for validation errors                                                 |
-| typaheadData      | string                                                        | false                            | JSON file path for typeahead                                                        |
+| autocomplete      | string                                                        | true                             | Autocomplete attribute used to override the browsers native autocomplete            |
 
 ## Prefix/Suffix
 
@@ -32,14 +32,20 @@
 
 ## Typeahead
 
-| Name          | Type                                 | Required | Description                                                              |
-| ------------- | ------------------------------------ | -------- | ------------------------------------------------------------------------ |
-| id            | string                               | true     | ID for the input                                                         |
-| classes       | string                               | false    | CSS classes to apply to the wrapping element                             |
-| content       | TypeaheadContent                     | true     | Aria and results messaging content                                       |
-| typeaheadData | string                               | true     | URL of the JSON file with the typeahead data that needs to be searched   |
-| inputClasses  | string                               | false    | CSS classes to apply to the input                                        |
-| name          | string                               | true     | Name attribute for the input                                             |
-| label         | `Label` [_(ref)_](/components/label) | true     | Label config for the input                                               |
-| autocomplete  | string                               | true     | Autocomplete attribute used to override the browsers native autocomplete |
-| error         | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                      |
+| Name          | Type             | Required | Description                                                                     |
+| ------------- | ---------------- | -------- | ------------------------------------------------------------------------------- |
+| content       | TypeaheadContent | true     | Aria and results messaging content                                              |
+| typeaheadData | string           | true     | URL of the JSON file with the typeahead data that needs to be searched          |
+| instructions  | string           | false    | Instructions on how to use the typeahead that will be read out by screenreaders |
+
+## TypeaheadContent
+
+| Name                   | Type   | Required | Description                                                                                      |
+| ---------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------ |
+| aria_you_have_selected | string | true     | Aria message to tell the user that they have selected an answer                                  |
+| aria_min_chars         | string | true     | Aria message to tell the user how many charecters they need to enter before typeahead will start |
+| aria_one_result        | string | true     | Aria message to tell the user there is only one suggestion left                                  |
+| aria_n_results         | string | true     | Aria message to tell the user how many suggestions are left                                      |
+| aria_limited_results   | string | true     | Aria message to tell the user if the results have been limited and what they are limited to      |
+| more_results           | string | true     | Aria message to tell the user to continue to type to refine suggestions                          |
+| results_title          | string | true     | Title of results to be displayed on screen at the top of the results                             |

@@ -27,22 +27,24 @@ const params = {
   label: {
     text: 'Enter the current name of the country',
   },
-  instructions:
-    'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
-  content: {
-    aria_you_have_selected: 'You have selected',
-    aria_found_by_alternative_name: 'found by alternative name',
-    aria_min_chars: 'Type in 2 or more characters for suggestions.',
-    aria_one_result: 'There is one suggestion available.',
-    aria_n_results: 'There are {n} suggestions available.',
-    aria_limited_results: 'Results have been limited to 10 suggestions. Type more characters to refine your search.',
-    more_results: 'Continue typing to refine suggestions',
-    results_title: 'Suggestions',
-    no_results: 'No results found',
-  },
   autocomplete: 'off',
-  typeaheadData:
-    'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json',
+  typeahead: {
+    instructions:
+      'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
+    content: {
+      aria_you_have_selected: 'You have selected',
+      aria_found_by_alternative_name: 'found by alternative name',
+      aria_min_chars: 'Type in 2 or more characters for suggestions.',
+      aria_one_result: 'There is one suggestion available.',
+      aria_n_results: 'There are {n} suggestions available.',
+      aria_limited_results: 'Results have been limited to 10 suggestions. Type more characters to refine your search.',
+      more_results: 'Continue typing to refine suggestions',
+      results_title: 'Suggestions',
+      no_results: 'No results found',
+    },
+    typeaheadData:
+      'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json',
+  },
 };
 
 describe('Typeahead.ui component', function() {
@@ -819,7 +821,7 @@ describe('Typeahead.ui component', function() {
           });
 
           it('then the message should be set to type the minimum amount of characters', function() {
-            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.content.aria_min_chars);
+            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.typeahead.content.aria_min_chars);
           });
         });
 
@@ -832,7 +834,7 @@ describe('Typeahead.ui component', function() {
           });
 
           it('then the no results message should be set', function() {
-            expect(this.typeahead.ariaStatus.innerHTML).to.equal(`${params.content.aria_no_results}: "${this.typeahead.query}"`);
+            expect(this.typeahead.ariaStatus.innerHTML).to.equal(`${params.typeahead.content.aria_no_results}: "${this.typeahead.query}"`);
           });
         });
 
@@ -844,7 +846,7 @@ describe('Typeahead.ui component', function() {
           });
 
           it('then the one result message should be set', function() {
-            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.content.aria_one_result);
+            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.typeahead.content.aria_one_result);
           });
         });
 
@@ -857,7 +859,7 @@ describe('Typeahead.ui component', function() {
 
           it('then the multiple results message should be set', function() {
             expect(this.typeahead.ariaStatus.innerHTML).to.equal(
-              params.content.aria_n_results.replace('{n}', this.typeahead.numberOfResults),
+              params.typeahead.content.aria_n_results.replace('{n}', this.typeahead.numberOfResults),
             );
           });
         });
@@ -873,7 +875,9 @@ describe('Typeahead.ui component', function() {
 
           it('then the multiple results message should be set', function() {
             expect(this.typeahead.ariaStatus.innerHTML).to.equal(
-              `${params.content.aria_n_results.replace('{n}', this.typeahead.numberOfResults)} ${params.content.aria_limited_results}`,
+              `${params.typeahead.content.aria_n_results.replace('{n}', this.typeahead.numberOfResults)} ${
+                params.typeahead.content.aria_limited_results
+              }`,
             );
           });
         });
@@ -929,7 +933,7 @@ describe('Typeahead.ui component', function() {
         });
 
         it('then setAriaStatus should be called', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.content.aria_you_have_selected}: Yes.`);
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.typeahead.content.aria_you_have_selected}: Yes.`);
         });
       });
 
@@ -941,7 +945,7 @@ describe('Typeahead.ui component', function() {
         });
 
         it('then setAriaStatus should be called stating the result was found from the alternative', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.content.aria_you_have_selected}: Ie.`);
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.typeahead.content.aria_you_have_selected}: Ie.`);
         });
       });
     });
@@ -976,7 +980,7 @@ describe('Typeahead.ui component', function() {
 
           it('then the listbox innerHTML should show the no results message', function() {
             expect(this.typeahead.listbox.innerHTML).to.equal(
-              `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${params.content.no_results}</li>`,
+              `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${params.typeahead.content.no_results}</li>`,
             );
           });
 
@@ -1114,7 +1118,7 @@ describe('Typeahead.ui component', function() {
           it('then the more results item should be added', function() {
             const option1 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
             const option2 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--1" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
-            const option3 = `<li class="${classTypeaheadOption} ${classTypeaheadOptionMoreResults}" aria-hidden="true">${params.content.more_results}</li>`;
+            const option3 = `<li class="${classTypeaheadOption} ${classTypeaheadOptionMoreResults}" aria-hidden="true">${params.typeahead.content.more_results}</li>`;
             const html = option1 + option2 + option3;
 
             expect(this.typeahead.listbox.innerHTML).to.equal(html);
