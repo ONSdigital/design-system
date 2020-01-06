@@ -1,23 +1,29 @@
 {% from "components/input/_macro.njk" import onsInput %}
 
-{{ onsInput({
-    "id": "country-of-birth",
-    "label": {
-        "text": "Current name of country",
-        "description": "Enter your own answer or select from suggestions"
-    },
-    "autocomplete": "off",
-    "typeahead":{
-        "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
-        "content": {
-            "aria_you_have_selected": "You have selected",
-            "aria_min_chars": "Enter 2 or more characters for suggestions.",
-            "aria_one_result": "There is one suggestion available.",
-            "aria_n_results": "There are {n} suggestions available.",
-            "aria_limited_results": "Results have been limited to 10 suggestions. Type more characters to refine your search.",
-            "more_results": "Continue typing to refine suggestions",
-            "results_title": "Suggestions"
-        },
-        "typeaheadData": "https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json"
-    }
-}) }}
+<div class="grid grid grid--gutterless">
+    <div class="grid__col col-8@s">
+
+        {{ onsInput({
+            "id": "country-of-birth",
+            "label": {
+                "text": "Current name of country",
+                "description": "Enter your own answer or select from suggestions"
+            },
+            "autocomplete": "off",
+            "typeahead":{
+                "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+                "content": {
+                    "aria_you_have_selected": "You have selected",
+                    "aria_min_chars": "Enter 2 or more characters for suggestions.",
+                    "aria_one_result": "There is one suggestion available.",
+                    "aria_n_results": "There are {n} suggestions available.",
+                    "aria_limited_results": "Results have been limited to 10 suggestions. Type more characters to refine your search.",
+                    "more_results": "Continue typing to refine suggestions",
+                    "results_title": "Suggestions"
+                },
+                "typeaheadData": "https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json"
+            }
+        }) }}
+
+    </div>
+</div>
