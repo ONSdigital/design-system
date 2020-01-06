@@ -20,7 +20,7 @@
         {% if params.typeahead.typeaheadData %}
             <div
                 id="{{ params.id }}-container"
-                class="typeahead js-typeahead js-typeahead-input typeahead__input {% if params.classes %} {{ params.classes }}{% endif %}"
+                class="typeahead js-typeahead js-typeahead-input typeahead__input {{ params.classes }}"
                 data-content="{{ params.typeahead.content | dump }}"
                 typeahead-data="{{ params.typeahead.typeaheadData }}"
             >
