@@ -20,7 +20,7 @@
         {% if params.typeahead.typeaheadData %}
             <div
                 id="{{ params.id }}-container"
-                class="typeahead js-typeahead js-typeahead-input typeahead__input {{ params.classes }}"
+                class="js-typeahead typeahead-input {{ params.classes }}"
                 data-content="{{ params.typeahead.content | dump }}"
                 typeahead-data="{{ params.typeahead.typeaheadData }}"
             >
@@ -29,7 +29,7 @@
                 <input
                     type="{{ type }}"
                     id="{{ params.id }}"
-                    class="input input--text input-type__input typeahead__input js-typeahead-input {{ params.classes }}{{ exclusiveClass }}"
+                    class="input input--text input-type__input js-typeahead-input {{ params.classes }}{{ exclusiveClass }}"
                     {% if params.prefix or params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
                     {% if params.name is defined %}name="{{ params.name }}"{% endif %}
                     {% if params.accessiblePlaceholder is defined %}required{% endif %}
@@ -47,13 +47,13 @@
                 />
 
         {% if params.typeahead.typeaheadData %}
-                <div class="typeahead__results js-typeahead-results">
-                    <header class="typeahead__results-title u-fs-s">{{ params.typeahead.content.results_title }}</header>
-                    <ul class="typeahead__listbox js-typeahead-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
+                <div class="typeahead-input__results js-typeahead-results">
+                    <header class="typeahead-input__results-title u-fs-s">{{ params.typeahead.content.results_title }}</header>
+                    <ul class="typeahead-input__listbox js-typeahead-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
                 </div>
 
-                <div class="typeahead__instructions u-vh js-typeahead-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.typeahead.instructions }}</div>
-                <div class="typeahead__status u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
+                <div class="typeahead-input__instructions u-vh js-typeahead-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.typeahead.instructions }}</div>
+                <div class="typeahead-input__status u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
             </div>
         {% endif %}
     {% endset %}
