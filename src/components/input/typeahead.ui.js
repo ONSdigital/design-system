@@ -88,7 +88,7 @@ export default class TypeaheadUI {
     this.input.setAttribute('autocomplete', this.input.getAttribute('data-autocomplete'));
     this.input.setAttribute('role', 'combobox');
 
-    this.context.classList.add('typeahead--initialised');
+    this.context.classList.add('typeahead-input--initialised');
 
     this.bindEventListeners();
   }

@@ -583,7 +583,7 @@ describe('Typeahead.ui component', function() {
     describe('and clearListbox is run', function() {
       beforeEach(function() {
         this.typeahead.listbox.innerHTML = '<p>Yes</p>';
-        this.typeahead.context.classList.add('typeahead--has-results');
+        this.typeahead.context.classList.add('typeahead-input--has-results');
         this.typeahead.input.setAttribute('aria-activedescendant', 'yes');
         this.typeahead.input.setAttribute('aria-expanded', 'true');
 
@@ -597,7 +597,7 @@ describe('Typeahead.ui component', function() {
 
       it('then the typeahead--has-results should be removed', function() {
         this.typeahead.clearListbox();
-        expect(this.typeahead.context.classList.contains('typeahead--has-results')).to.be.false;
+        expect(this.typeahead.context.classList.contains('typeahead-input--has-results')).to.be.false;
       });
 
       it('then the input aria-activedescendant attributes should be removed', function() {

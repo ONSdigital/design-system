@@ -61,6 +61,15 @@
     }
   }
 
+  // Modifiers
+  &:not(&--initialised) & {
+    &__instructions,
+    &__listbox,
+    &__status {
+      display: none;
+    }
+  }
+
   &--has-results & {
     &__results {
       display: block;
