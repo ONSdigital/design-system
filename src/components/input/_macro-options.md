@@ -36,7 +36,7 @@
 | ------------- | ---------------- | -------- | ------------------------------------------------------------------------------- |
 | content       | TypeaheadContent | true     | Aria and results messaging content                                              |
 | typeaheadData | string           | true     | URL of the JSON file with the typeahead data that needs to be searched          |
-| instructions  | string           | false    | Instructions on how to use the typeahead that will be read out by screenreaders |
+| instructions  | string           | true    | Instructions on how to use the typeahead that will be read out by screenreaders |
 
 ## TypeaheadContent
 
