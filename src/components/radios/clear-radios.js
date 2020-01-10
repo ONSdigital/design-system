@@ -38,13 +38,18 @@ export default class ClearRadios {
   }
 
   clearRadios() {
-    this.button.classList.add('u-db-no-js_enabled');
+    event.preventDefault();
 
-    this.ariaElement.innerHTML = this.clearedAlert;
-    clearAlertAnnounced = false;
+    this.inputs.forEach(input => {
+      input.checked = false;
+    });
 
     if (this.otherField) {
       this.otherField.value = '';
     }
+
+    this.button.classList.add('u-db-no-js_enabled');
+    this.ariaElement.innerHTML = this.clearedAlert;
+    clearAlertAnnounced = false;
   }
 }
