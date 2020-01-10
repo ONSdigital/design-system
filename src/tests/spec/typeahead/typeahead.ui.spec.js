@@ -20,7 +20,7 @@ chai.use(chaiSpies);
 chai.use(chaiAsPromised);
 
 const data =
-  "[Object{code: 4, en-gb: 'Afghanistan', cy: 'Afghanistan'}, Object{code: 248, en-gb: 'Aland islands', cy: 'ynysoedd Aland'}, Object{code: 8, en-gb: 'Albania', cy: 'Albania'}, Object{code: 12, en-gb: 'Algeria', cy: 'Algeria'}, Object{code: 16, en-gb: 'American samoa', cy: 'Samoa Americanaidd'}, Object{code: 20, en-gb: 'Andorra', cy: 'andorra'}, Object{code: 24, en-gb: 'Angola', cy: 'Angola'}, Object{code: 660, en-gb: 'Anguilla', cy: 'anguilla'}, Object{code: 10, en-gb: 'Antarctica', cy: 'Antarctica'}]";
+  "[Object{code: 4, en-gb: 'Afghanistan island', cy: 'Afghanistan'}, Object{code: 248, en-gb: 'Aland islands', cy: 'ynysoedd Aland'}, Object{code: 8, en-gb: 'Albania island', cy: 'Albania'}, Object{code: 12, en-gb: 'Algeria island', cy: 'Algeria'}, Object{code: 16, en-gb: 'American samoa island', cy: 'Samoa Americanaidd'}, Object{code: 20, en-gb: 'Andorra island', cy: 'andorra'}, Object{code: 24, en-gb: 'Angola island', cy: 'Angola'}, Object{code: 660, en-gb: 'Anguilla island', cy: 'anguilla'}, Object{code: 10, en-gb: 'Antarctica island', cy: 'Antarctica'}, Object{'code': 989, 'en-gb': 'Antarctica and oceania island', 'cy': 'Antarctica a oceania'}, Object{'code': 28, 'en-gb': 'Antigua and barbuda island', 'cy': 'Antigua a Barbuda'}]";
 
 const params = {
   id: 'country-of-birth',
@@ -34,11 +34,11 @@ const params = {
     content: {
       aria_you_have_selected: 'You have selected',
       aria_found_by_alternative_name: 'found by alternative name',
-      aria_min_chars: 'Type in 2 or more characters for suggestions.',
+      aria_min_chars: 'Enter 3 or more characters for suggestions.',
       aria_one_result: 'There is one suggestion available.',
       aria_n_results: 'There are {n} suggestions available.',
-      aria_limited_results: 'Results have been limited to 10 suggestions. Type more characters to refine your search.',
-      more_results: 'Continue typing to refine suggestions',
+      aria_limited_results: 'Results have been limited to 10 suggestions. Enter more characters to improve your search.',
+      more_results: 'Continue entering to improve suggestions',
       results_title: 'Suggestions',
       no_results: 'No results found',
     },
@@ -433,7 +433,7 @@ describe('Typeahead.ui component', function() {
 
       describe('if the query is equal to or longer than the minimum characters', function() {
         beforeEach(function(done) {
-          this.input.value = 'Testing';
+          this.input.value = 'island';
 
           setTimeout(() => {
             this.typeahead.fetchSuggestions(this.input.value, data);
@@ -444,6 +444,26 @@ describe('Typeahead.ui component', function() {
         it('then the fetchSuggestions should be called', function() {
           expect(this.fetchSuggestionsSpy).to.have.been.called();
         });
+
+        // it('then only a maximum of 10 suggestions should be shown', function() {
+        //   console.log(this.typeahead);
+        //   expect(this.result.length === 10);
+        // });
+
+        // describe('and the user hits enter without selecting a suggestion', function() {
+        //   beforeEach(function() {
+        //     this.typeahead.handleFocus();
+        //     this.mockedEvent = eventMock({ key: 'Enter' });
+        //     this.typeahead.handleKeydown(this.mockedEvent);
+        //   });
+        //   it('then the listbox should be cleared', function() {
+        //     expect(this.clearListboxSpy).to.have.been.called();
+
+        //     it('and the input should not be cleared', function() {
+        //       expect(this.input.value === 'island');
+        //     });
+        //   });
+        // });
       });
 
       describe('if fetch suggestion returns results', function() {

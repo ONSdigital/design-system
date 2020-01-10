@@ -15,6 +15,6 @@ import 'components/uac/uac.dom';
 import 'components/relationships/relationships.dom';
 import 'components/checkboxes/checkboxes.dom';
 import 'components/radios/radios.dom';
-import 'components/input/typeahead.dom';
+import 'components/input/autoSuggest.dom';
 import 'components/cookies-banner/cookies-banner.dom';
 import 'components/button/button.dom';
