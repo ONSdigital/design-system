@@ -444,29 +444,6 @@ describe('Typeahead.ui component', function() {
         it('then the fetchSuggestions should be called', function() {
           expect(this.fetchSuggestionsSpy).to.have.been.called();
         });
-
-        // it('then only a maximum of 10 suggestions should be shown', function() {
-        //   console.log(this.typeahead);
-        //   expect(this.result.length === 10);
-        // });
-
-        // describe('and the user hits enter without selecting a suggestion', function() {
-        //   beforeEach(function(done) {
-        //     setTimeout(() => {
-        //       this.typeahead.handleFocus();
-        //       this.mockedEvent = eventMock({ key: 'Enter' });
-        //       this.typeahead.handleKeydown(this.mockedEvent);
-        //       done();
-        //     });
-        //   });
-        //   it('then the listbox should be cleared', function() {
-        //     expect(this.clearListboxSpy).to.have.been.called();
-
-        //     it('and the input should not be cleared', function() {
-        //       expect(this.input.value === 'island');
-        //     });
-        //   });
-        // });
       });
 
       describe('if fetch suggestion returns results', function() {
