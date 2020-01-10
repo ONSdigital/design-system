@@ -39,7 +39,7 @@ export default class TypeaheadUI {
     this.typeaheadData = typeaheadData || context.getAttribute('typeahead-data');
     this.content = JSON.parse(context.getAttribute('data-content'));
     this.listboxId = this.listbox.getAttribute('id');
-    this.minChars = minChars || 2;
+    this.minChars = minChars || 3;
     this.resultLimit = resultLimit || null;
     this.suggestOnBoot = suggestOnBoot;
     this.lang = lang || 'en-gb';
@@ -151,7 +151,11 @@ export default class TypeaheadUI {
         break;
       }
       case 'Enter': {
-        this.selectResult();
+        if (this.highlightedResultIndex == null) {
+          this.clearListbox();
+        } else {
+          this.selectResult();
+        }
         break;
       }
     }
