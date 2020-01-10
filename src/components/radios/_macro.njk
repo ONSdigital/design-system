@@ -68,7 +68,8 @@
         {% if params.clearRadios %}
             {{ onsButton({
                 "text": params.clearRadios.text,
-                "type": "reset",
+                "name": params.clearRadios.name,
+                "type": "submit",
                 "classes": "btn--secondary btn--small js-clear-btn u-mt-s u-db-no-js_enabled"
             }) }}
             <span class="js-clear-radio-alert u-vh" role="alert" aria-live="polite" data-clear="{{ params.clearRadios.ariaClearText }}" data-cleared="{{ params.clearRadios.ariaClearedText }}"></span>
