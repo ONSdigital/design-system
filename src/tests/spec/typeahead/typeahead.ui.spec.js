@@ -451,10 +451,13 @@ describe('Typeahead.ui component', function() {
         // });
 
         // describe('and the user hits enter without selecting a suggestion', function() {
-        //   beforeEach(function() {
-        //     this.typeahead.handleFocus();
-        //     this.mockedEvent = eventMock({ key: 'Enter' });
-        //     this.typeahead.handleKeydown(this.mockedEvent);
+        //   beforeEach(function(done) {
+        //     setTimeout(() => {
+        //       this.typeahead.handleFocus();
+        //       this.mockedEvent = eventMock({ key: 'Enter' });
+        //       this.typeahead.handleKeydown(this.mockedEvent);
+        //       done();
+        //     });
         //   });
         //   it('then the listbox should be cleared', function() {
         //     expect(this.clearListboxSpy).to.have.been.called();

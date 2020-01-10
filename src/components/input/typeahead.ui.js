@@ -40,7 +40,7 @@ export default class TypeaheadUI {
     this.content = JSON.parse(context.getAttribute('data-content'));
     this.listboxId = this.listbox.getAttribute('id');
     this.minChars = minChars || 3;
-    this.resultLimit = resultLimit || null;
+    this.resultLimit = resultLimit || 10;
     this.suggestOnBoot = suggestOnBoot;
     this.lang = lang || 'en-gb';
 
@@ -247,7 +247,7 @@ export default class TypeaheadUI {
 
   async fetchSuggestions(sanitisedQuery, data) {
     this.abortFetch();
-    const results = await queryJson(sanitisedQuery, data, this.lang);
+    const results = await queryJson(sanitisedQuery, data, this.lang, this.resultLimit);
     results.forEach(result => {
       result.sanitisedText = sanitiseTypeaheadText(result[this.lang], this.sanitisedQueryReplaceChars);
       if (this.lang !== 'en-gb') {

@@ -1,6 +1,6 @@
 import * as Fuse from 'fuse.js';
 
-export default function queryJson(query, data, searchFields) {
+export default function queryJson(query, data, searchFields, resultlimit) {
   const options = {
     shouldSort: true,
     threshold: 0.2,
@@ -13,7 +13,7 @@ export default function queryJson(query, data, searchFields) {
   let result = fuse.search(query);
   //limit the results to a maximum of 10
   if (result.length > 10) {
-    result = result.slice(0, 10);
+    result = result.slice(0, resultlimit);
   }
   return result;
 }
