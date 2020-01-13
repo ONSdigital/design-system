@@ -265,7 +265,7 @@ export default class TypeaheadUI {
     });
     return {
       results,
-      totalResults: data.totalResults,
+      totalResults: results.length,
     };
   }
 
@@ -298,6 +298,11 @@ export default class TypeaheadUI {
 
   handleResults(result) {
     this.foundResults = result.totalResults;
+
+    if (result.results.length > 10) {
+      result.results = result.results.slice(0, this.resultLimit);
+    }
+
     this.results = result.results;
     this.numberOfResults = Math.max(this.results.length, 0);
 
