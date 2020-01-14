@@ -428,36 +428,19 @@ describe('Typeahead.ui component', function() {
         });
       });
 
-      describe('if the query is equal to or longer than the minimum characters', function() {
-        // beforeEach(function(done) {
-        //   this.input.value = 'island';
-        //   setTimeout(() => {
-        //     this.typeahead.getSuggestions(true);
-        //     done();
-        //   });
-        // });
-
-        // it('then fetchSuggestions should be called', function(done) {
-        //   setTimeout(() => {
-        //     expect(this.fetchSuggestionsSpy).to.have.been.called();
-        //     done();
-        //   });
-        // });
-
-        describe('and the user hits enter without selecting a suggestion', function() {
-          beforeEach(function() {
-            this.typeahead.handleFocus();
-            this.mockedEvent = eventMock({ key: 'Enter' });
-            this.typeahead.handleKeyup(this.mockedEvent);
+      describe('if the query is equal to or longer than the minimum characters and the user hits enter without selecting a suggestion', function() {
+        beforeEach(function() {
+          this.typeahead.handleFocus();
+          this.mockedEvent = eventMock({ key: 'Enter' });
+          this.typeahead.handleKeyup(this.mockedEvent);
+        });
+        it('then the listbox should be cleared', function(done) {
+          setTimeout(() => {
+            expect(this.clearListboxSpy).to.have.been.called();
+            done();
           });
-          it('then the listbox should be cleared', function(done) {
-            setTimeout(() => {
-              expect(this.clearListboxSpy).to.have.been.called();
-              done();
-            });
-            it('and the input should not be cleared', function() {
-              expect(this.input.value === 'island');
-            });
+          it('and the input should not be cleared', function() {
+            expect(this.input.value === 'island');
           });
         });
       });
