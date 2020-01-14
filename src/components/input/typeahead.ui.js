@@ -7,11 +7,11 @@ import fetch from 'js/abortable-fetch';
 
 export const baseClass = 'js-typeahead';
 
-export const classTypeaheadOption = 'typeahead__option';
+export const classTypeaheadOption = 'typeahead-input__option';
 export const classTypeaheadOptionFocused = `${classTypeaheadOption}--focused`;
 export const classTypeaheadOptionNoResults = `${classTypeaheadOption}--no-results u-fs-s`;
 export const classTypeaheadOptionMoreResults = `${classTypeaheadOption}--more-results u-fs-s`;
-export const classTypeaheadHasResults = 'typeahead--has-results';
+export const classTypeaheadHasResults = 'typeahead-input--has-results';
 
 export default class TypeaheadUI {
   constructor({
@@ -39,8 +39,8 @@ export default class TypeaheadUI {
     this.typeaheadData = typeaheadData || context.getAttribute('typeahead-data');
     this.content = JSON.parse(context.getAttribute('data-content'));
     this.listboxId = this.listbox.getAttribute('id');
-    this.minChars = minChars || 2;
-    this.resultLimit = resultLimit || null;
+    this.minChars = minChars || 3;
+    this.resultLimit = resultLimit || 10;
     this.suggestOnBoot = suggestOnBoot;
     this.lang = lang || 'en-gb';
 
@@ -88,7 +88,7 @@ export default class TypeaheadUI {
     this.input.setAttribute('autocomplete', this.input.getAttribute('data-autocomplete'));
     this.input.setAttribute('role', 'combobox');
 
-    this.context.classList.add('typeahead--initialised');
+    this.context.classList.add('typeahead-input--initialised');
 
     this.bindEventListeners();
   }
@@ -151,7 +151,11 @@ export default class TypeaheadUI {
         break;
       }
       case 'Enter': {
-        this.selectResult();
+        if (this.highlightedResultIndex == null) {
+          this.clearListbox();
+        } else {
+          this.selectResult();
+        }
         break;
       }
     }
@@ -243,7 +247,7 @@ export default class TypeaheadUI {
 
   async fetchSuggestions(sanitisedQuery, data) {
     this.abortFetch();
-    const results = await queryJson(sanitisedQuery, data, this.lang);
+    const results = await queryJson(sanitisedQuery, data, this.lang, this.resultLimit);
     results.forEach(result => {
       result.sanitisedText = sanitiseTypeaheadText(result[this.lang], this.sanitisedQueryReplaceChars);
       if (this.lang !== 'en-gb') {
@@ -261,7 +265,7 @@ export default class TypeaheadUI {
     });
     return {
       results,
-      totalResults: data.totalResults,
+      totalResults: results.length,
     };
   }
 
@@ -294,6 +298,11 @@ export default class TypeaheadUI {
 
   handleResults(result) {
     this.foundResults = result.totalResults;
+
+    if (result.results.length > 10) {
+      result.results = result.results.slice(0, this.resultLimit);
+    }
+
     this.results = result.results;
     this.numberOfResults = Math.max(this.results.length, 0);
 
