@@ -3,13 +3,13 @@ import * as Fuse from 'fuse.js';
 export default function queryJson(query, data, searchFields) {
   const options = {
     shouldSort: true,
-    threshold: 0.3,
+    threshold: 0.2,
     location: 0,
-    distance: 0,
+    distance: 1000,
     keys: [searchFields],
   };
 
   const fuse = new Fuse(data, options);
-  const result = fuse.search(query);
+  let result = fuse.search(query);
   return result;
 }
