@@ -44,7 +44,7 @@ const params = {
   },
 };
 
-describe.only('Typeahead.ui component', function() {
+describe('Typeahead.ui component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
