@@ -26,6 +26,14 @@ export default class TypeaheadUI {
     onUnsetResult,
     suggestionFunction,
     lang,
+    ariaYouHaveSelected,
+    ariaMinChars,
+    ariaOneResult,
+    ariaNResults,
+    ariaLimitedResults,
+    moreResults,
+    resultsTitle,
+    noResults,
   }) {
     // DOM Elements
     this.context = context;
@@ -36,8 +44,17 @@ export default class TypeaheadUI {
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
 
     // Settings
-    this.typeaheadData = typeaheadData || context.getAttribute('typeahead-data');
-    this.content = JSON.parse(context.getAttribute('data-content'));
+    this.typeaheadData = typeaheadData || context.getAttribute('data-typeahead-data');
+
+    this.ariaYouHaveSelected = ariaYouHaveSelected || context.getAttribute('data-aria-you-have-selected');
+    this.ariaMinChars = ariaMinChars || context.getAttribute('data-aria-min-chars');
+    this.ariaOneResult = ariaOneResult || context.getAttribute('data-aria-one-result');
+    this.ariaNResults = ariaNResults || context.getAttribute('data-aria-n-results');
+    this.ariaLimitedResults = ariaLimitedResults || context.getAttribute('data-aria-limited-results');
+    this.moreResults = moreResults || context.getAttribute('data-more-results');
+    this.resultsTitle = resultsTitle || context.getAttribute('data-results-title');
+    this.noResults = noResults || context.getAttribute('data-no-results');
+
     this.listboxId = this.listbox.getAttribute('id');
     this.minChars = minChars || 3;
     this.resultLimit = resultLimit || 10;
@@ -348,7 +365,7 @@ export default class TypeaheadUI {
           const listElement = document.createElement('li');
           listElement.className = `${classTypeaheadOption} ${classTypeaheadOptionMoreResults}`;
           listElement.setAttribute('aria-hidden', 'true');
-          listElement.innerHTML = this.content.more_results;
+          listElement.innerHTML = this.moreResults;
           this.listbox.appendChild(listElement);
         }
 
@@ -358,9 +375,8 @@ export default class TypeaheadUI {
         this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classTypeaheadHasResults);
       }
     }
-
-    if (this.numberOfResults === 0 && this.content.no_results) {
-      this.listbox.innerHTML = `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${this.content.no_results}</li>`;
+    if (this.numberOfResults === 0 && this.noResults) {
+      this.listbox.innerHTML = `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${this.noResults}</li>`;
       this.input.setAttribute('aria-expanded', true);
     }
   }
@@ -392,16 +408,16 @@ export default class TypeaheadUI {
       const noResults = this.numberOfResults === 0;
 
       if (queryTooShort) {
-        content = this.content.aria_min_chars;
+        content = this.ariaMinChars;
       } else if (noResults) {
-        content = `${this.content.aria_no_results}: "${this.query}"`;
+        content = `${this.ariaNoResults}: "${this.query}"`;
       } else if (this.numberOfResults === 1) {
-        content = this.content.aria_one_result;
+        content = this.ariaOneResult;
       } else {
-        content = this.content.aria_n_results.replace('{n}', this.numberOfResults);
+        content = this.ariaNResults.replace('{n}', this.numberOfResults);
 
         if (this.resultLimit && this.foundResults > this.resultLimit) {
-          content += ` ${this.content.aria_limited_results}`;
+          content += ` ${this.ariaLimitedResults}`;
         }
       }
     }
@@ -438,7 +454,7 @@ export default class TypeaheadUI {
 
       this.onSelect(result).then(() => (this.settingResult = false));
 
-      const ariaMessage = `${this.content.aria_you_have_selected}: ${result.displayText}.`;
+      const ariaMessage = `${this.ariaYouHaveSelected}: ${result.displayText}.`;
 
       this.clearListbox();
       this.setAriaStatus(ariaMessage);
