@@ -32,20 +32,14 @@
 
 ## Typeahead
 
-| Name          | Type             | Required | Description                                                                     |
-| ------------- | ---------------- | -------- | ------------------------------------------------------------------------------- |
-| content       | TypeaheadContent | true     | Aria and results messaging content                                              |
-| typeaheadData | string           | true     | URL of the JSON file with the typeahead data that needs to be searched          |
-| instructions  | string           | true    | Instructions on how to use the typeahead that will be read out by screenreaders |
-
-## TypeaheadContent
-
-| Name                   | Type   | Required | Description                                                                                      |
-| ---------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------ |
-| aria_you_have_selected | string | true     | Aria message to tell the user that they have selected an answer                                  |
-| aria_min_chars         | string | true     | Aria message to tell the user how many charecters they need to enter before typeahead will start |
-| aria_one_result        | string | true     | Aria message to tell the user there is only one suggestion left                                  |
-| aria_n_results         | string | true     | Aria message to tell the user how many suggestions are left                                      |
-| aria_limited_results   | string | true     | Aria message to tell the user if the results have been limited and what they are limited to      |
-| more_results           | string | true     | Aria message to tell the user to continue to type to refine suggestions                          |
-| results_title          | string | true     | Title of results to be displayed on screen at the top of the results                             |
+| Name                | Type   | Required | Description                                                                                      |
+| ------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------ |
+| typeaheadData       | string | true     | URL of the JSON file with the typeahead data that needs to be searched                           |
+| instructions        | string | true     | Instructions on how to use the typeahead that will be read out by screenreaders                  |
+| ariaYouHaveSelected | string | true     | Aria message to tell the user that they have selected an answer                                  |
+| ariaMinChars        | string | true     | Aria message to tell the user how many charecters they need to enter before typeahead will start |
+| ariaOneResult       | string | true     | Aria message to tell the user there is only one suggestion left                                  |
+| ariaNResults        | string | true     | Aria message to tell the user how many suggestions are left                                      |
+| ariaLimitedResults  | string | true     | Aria message to tell the user if the results have been limited and what they are limited to      |
+| moreResults         | string | true     | Aria message to tell the user to continue to type to refine suggestions                          |
+| resultsTitle        | string | true     | Title of results to be displayed on screen at the top of the results                             |
