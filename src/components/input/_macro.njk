@@ -17,7 +17,7 @@
 
     {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
     {% set input %}
-        {% if params.typeahead.typeaheadData %}
+        {% if params.typeahead %}
             <div
                 id="{{ params.id }}-container"
                 class="js-typeahead typeahead-input {{ params.classes }}"
@@ -54,7 +54,7 @@
                     {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                 />
 
-        {% if params.typeahead.typeaheadData %}
+        {% if params.typeahead %}
                 <div class="typeahead-input__results js-typeahead-results">
                     <header class="typeahead-input__results-title u-fs-s">{{ params.typeahead.resultsTitle }}</header>
                     <ul class="typeahead-input__listbox js-typeahead-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
