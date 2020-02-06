@@ -1,10 +1,17 @@
-| Name       | Type              | Required | Description                               |
-| ---------- | ----------------- | -------- | ----------------------------------------- |
-| rows       | Array<SummaryRow> | true     | An array of rows to summarise             |
-| title      | string            | false    | The title for the summary block           |
-| groupTitle | string            | false    | The group title for the summary block     |
-| classes    | string            | false    | Classes to add to the summary component   |
-| hub        | boolean           | false    | Whether to render the summary in as a hub |
+## SummaryGroup
+
+| Name       | Type    | Required | Description                               |
+| ---------- | ------- | -------- | ----------------------------------------- |
+| groupTitle | string  | false    | The group title for the summary block     |
+| classes    | string  | false    | Classes to add to the summary component   |
+| hub        | boolean | false    | Whether to render the summary in as a hub |
+
+## Summary
+
+| Name  | Type              | Required | Description                     |
+| ----- | ----------------- | -------- | ------------------------------- |
+| rows  | Array<SummaryRow> | true     | An array of rows to summarise   |
+| title | string            | false    | The title for the summary block |
 
 ## SummaryRow
 
