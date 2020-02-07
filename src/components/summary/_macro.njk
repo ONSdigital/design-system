@@ -46,7 +46,7 @@
                                             {{ rowItem.title | default(row.title) | safe }} {{ hasIcons }}
 
                                             {# Render section status for mobile if is hub #}
-                                            {% if summary.hub and rowItem.valueList %}
+                                            {% if params.hub and rowItem.valueList %}
                                                 <span class="u-d-no@s u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
                                             {% endif %}
                                         </td>
