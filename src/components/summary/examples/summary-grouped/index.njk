@@ -1,68 +1,47 @@
 {% from "components/summary/_macro.njk" import onsSummary %}
 
-<h1>Complete survey summary</h1>
+<h1>Your answers</h1>
 
 {{
     onsSummary({
         "summaries": [
             {
+                "summaryTitle": "John Doe",
                 "groups": [
                     {
-                        "groupTitle": "Turnover",
+                        "groupTitle": "Personal details",
                         "rows": [
                             {
-                                "rowTitle": "What are the dates of the sales period you are reporting for?",
+                                "rowTitle": "Are you John Doe?",
                                 "rowItems": [
                                     {
                                         "valueList": [ 
                                             {
-                                                "text": "01 January 2015 to 02 February 2017"
+                                                "text": "Yes I am"
                                             }
                                         ]
                                     }
                                 ]
                             },
                             {
-                                "rowTitle": "Total turnover",
+                                "rowTitle": "What's your date of birth?",
                                 "rowItems": [
                                     {
                                         "valueList": [
                                             {
-                                                "text": "£234,000.00"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                ]
-            },
-            {
-                "summaryTitle": "Company 1 Ltd",
-                "groups": [
-                    {
-                        "groupTitle": "Turnover",
-                        "rows": [
-                            {
-                                "rowTitle": "What are the dates of the sales period you are reporting for?",
-                                "rowItems": [
-                                    {
-                                        "valueList": [ 
-                                            {
-                                                "text": "01 January 2015 to 02 February 2017"
+                                                "text": "1 January 1981"
                                             }
                                         ]
                                     }
                                 ]
                             },
                             {
-                                "rowTitle": "Total turnover",
+                                "rowTitle": "What is your sex?",
                                 "rowItems": [
                                     {
                                         "valueList": [
                                             {
-                                                "text": "£234,000.00"
+                                                "text": "Male"
                                             }
                                         ]
                                     }
@@ -71,27 +50,56 @@
                         ]
                     },
                     {
-                        "groupTitle": "Staff",
+                        "groupTitle": "Identity and health",
                         "rows": [
                             {
-                                "rowTitle": "What are the dates of the sales period you are reporting for?",
+                                "rowTitle": "What is your country of birth?",
                                 "rowItems": [
                                     {
                                         "valueList": [ 
                                             {
-                                                "text": "01 January 2015 to 02 February 2017"
+                                                "text": "England"
                                             }
                                         ]
                                     }
                                 ]
                             },
                             {
-                                "rowTitle": "Total Staff",
+                                "rowTitle": "What passports do you hold?",
                                 "rowItems": [
                                     {
                                         "valueList": [
                                             {
-                                                "text": "50,000"
+                                                "text": "United Kingdom"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "groupTitle": "Qualifications",
+                        "rows": [
+                            {
+                                "rowTitle": "Have you completed an apprenticeship?",
+                                "rowItems": [
+                                    {
+                                        "valueList": [ 
+                                            {
+                                                "text": "Yes"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "rowTitle": "Have you achieved a GCSE or equivalent qualification?",
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "5 GCSEs grades A* to C or 9 to 4"
                                             }
                                         ]
                                     }
