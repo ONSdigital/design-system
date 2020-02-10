@@ -8,6 +8,10 @@ $hub-row-spacing: 1.3rem;
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
+
+    & + .summary__group-title {
+      margin-top: 1.5rem;
+    }
   }
 
   &__item {

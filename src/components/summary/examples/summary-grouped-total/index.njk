@@ -1,54 +1,62 @@
 {% from "components/summary/_macro.njk" import onsSummary %}
 {{
     onsSummary({
-        "title": "Summary - Section Title",
-        "rows": [
+        "summaries": [
             {
-                "title": "Total value of acquisitions for transport assets and equipment",
-                "rowItems": [
+                "groups": [
                     {
-                        "valueList": [
+                        "groupTitle": "Summary - Section Title",
+                        "rows": [
                             {
-                                "text": "£9,000.00"
-                            }
-                        ],
-                        "actions": [
+                                "rowTitle": "Total value of acquisitions for transport assets and equipment",
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "£9,000.00"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "Change",
+                                                "ariaLabel": "Change answer",
+                                                "url": "#"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
                             {
-                                "text": "Change",
-                                "ariaLabel": "Change answer",
-                                "url": "#"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "title": "Total value of acquisitions for computers and peripheral devices (hardware)",
-                "rowItems": [
-                    {
-                        "valueList": [
+                                "rowTitle": "Total value of acquisitions for computers and peripheral devices (hardware)",
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "£225,000.00"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "Change",
+                                                "ariaLabel": "Change answer",
+                                                "url": "#"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
                             {
-                                "text": "£225,000.00"
-                            }
-                        ],
-                        "actions": [
-                            {
-                                "text": "Change",
-                                "ariaLabel": "Change answer",
-                                "url": "#"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "title": "Grand total for value of acquisitions",
-                "total": true,
-                "rowItems": [
-                    {
-                        "valueList": [
-                            {
-                                "text": "£234,000.00"
+                                "rowTitle": "Grand total for value of acquisitions",
+                                "total": true,
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "£234,000.00"
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }

@@ -1,89 +1,115 @@
 {% from "components/summary/_macro.njk" import onsSummary %}
 
-{{ 
-  onsSummary({
-    "title": "Turnover",
-    "rows": [
-        {
-            "title": "What are the dates of the sales period you are reporting for?",
-            "rowItems": [
-                {  
-                    "valueList": [
-                        {
-                            "text": "1 January 2015 to 2 February 2017"
-                        }
-                    ],
-                    "actions": [
-                        {
-                            "text": "Change",
-                            "ariaLabel": "Change answer",
-                            "url": "#"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "For the period 1 January 2015 to 2 February 2017, what was the value of your total turnover, excluding VAT?",
-            "rowItems": [
-                {
-                    "valueList": [
-                        {
-                            "text": "£180,440"
-                        }
-                    ],
-                    "actions": [
-                        {
-                            "text": "Change",
-                            "ariaLabel": "Change answer",
-                            "url": "#"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Please indicate the reasons for any changes in the total turnover",
-            "rowItems": [
-                {   
-                    "valueList": [
-                        {
-                            "text": "Change in level of business activity"
-                        },
-                        {
-                            "text": "Special/calendar events",
-                            "other": "Some other value"
-                        }
-                    ],
-                    "actions": [
-                        {
-                            "text": "Change",
-                            "ariaLabel": "Change answer",
-                            "url": "#"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Please describe the changes in total turnover in more detail",
-            "rowItems": [
-                {
-                    "valueList": [
-                        {
-                            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                        }
-                    ],
-                    "actions": [
-                        {
-                            "text": "Change",
-                            "ariaLabel": "Change answer",
-                            "url": "#"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-  }) 
+<h1>Your answers</h1>
+
+{{
+    onsSummary({
+        "summaries": [
+            {
+                "summaryTitle": "John Doe",
+                "groups": [
+                    {
+                        "groupTitle": "Personal details",
+                        "rows": [
+                            {
+                                "rowTitle": "Are you John Doe?",
+                                "rowItems": [
+                                    {
+                                        "valueList": [ 
+                                            {
+                                                "text": "Yes I am"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "rowTitle": "What's your date of birth?",
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "1 January 1981"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "rowTitle": "What is your sex?",
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "Male"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "groupTitle": "Identity and health",
+                        "rows": [
+                            {
+                                "rowTitle": "What is your country of birth?",
+                                "rowItems": [
+                                    {
+                                        "valueList": [ 
+                                            {
+                                                "text": "England"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "rowTitle": "What passports do you hold?",
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "United Kingdom"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "groupTitle": "Qualifications",
+                        "rows": [
+                            {
+                                "rowTitle": "Have you completed an apprenticeship?",
+                                "rowItems": [
+                                    {
+                                        "valueList": [ 
+                                            {
+                                                "text": "Yes"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "rowTitle": "Have you achieved a GCSE or equivalent qualification?",
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "5 GCSEs grades A* to C or 9 to 4"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    })
 }}
+

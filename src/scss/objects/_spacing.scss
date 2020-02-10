@@ -3,12 +3,14 @@
 .fieldset +,
 .figure +,
 .panel +,
+.summary__group +,
 .details:not(.details--accordion) + {
   .figure,
   .field,
   .field-group,
   .fieldset,
   .panel,
+  .summary__group,
   .details:not(.details--accordion) {
     margin-top: 1.5rem;
   }
