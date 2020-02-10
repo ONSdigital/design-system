@@ -1,27 +1,35 @@
 {% from "components/summary/_macro.njk" import onsSummary %}
 {{
     onsSummary({
-        "title": "Turnover",
-        "rows": [
+        "summaries": [
             {
-                "title": "What are the dates of the sales period you are reporting for?",
-                "rowItems": [
+                "groups": [
                     {
-                        "valueList": [ 
+                        "groupTitle": "Turnover",
+                        "rows": [
                             {
-                                "text": "01 January 2015 to 02 February 2017"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "title": "Total turnover",
-                "rowItems": [
-                    {
-                        "valueList": [
+                                "rowTitle": "What are the dates of the sales period you are reporting for?",
+                                "rowItems": [
+                                    {
+                                        "valueList": [ 
+                                            {
+                                                "text": "01 January 2015 to 02 February 2017"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
                             {
-                                "text": "£234,000.00"
+                                "rowTitle": "Total turnover",
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "£234,000.00"
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }

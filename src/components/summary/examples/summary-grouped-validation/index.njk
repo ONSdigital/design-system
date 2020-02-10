@@ -1,83 +1,91 @@
 {% from "components/summary/_macro.njk" import onsSummary %}
 {{
     onsSummary({
-        "title": "Summary - Section Title",
-        "rows": [
+        "summaries": [
             {
-                "title": "For the period 1 May 2017 to 31 May 2017, what was the total turnover of Essential Enterprise Ltd.?",
-                "rowItems": [
+                "groups": [
                     {
-                        "valueList": [
+                        "groupTitle": "Summary - Section Title",
+                        "rows": [
                             {
-                                "text": "£600.00"
-                            }
-                        ],
-                        "actions": [
+                                "rowTitle": "For the period 1 May 2017 to 31 May 2017, what was the total turnover of Essential Enterprise Ltd.?",
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "£600.00"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "Change",
+                                                "ariaLabel": "Change answer",
+                                                "url": "#"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
                             {
-                                "text": "Change",
-                                "ariaLabel": "Change answer",
-                                "url": "#"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "title": "What was the value of the business's total sales of food?",
-                "errorMessage": "Change one or more of the figures so they total the sum of £600",
-                "error": true,
-                "rowItems": [
-                    {
-                        "valueList": [
+                                "rowTitle": "What was the value of the business's total sales of food?",
+                                "errorMessage": "Change one or more of the figures so they total the sum of £600",
+                                "error": true,
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "£123.00"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "Change",
+                                                "ariaLabel": "Change answer",
+                                                "url": "#"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
                             {
-                                "text": "£123.00"
-                            }
-                        ],
-                        "actions": [
+                                "rowTitle": "What was the value of the business's total sales of alcohol, confectionery and tobacco?",
+                                "error": true,
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "£200.00"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "Change",
+                                                "ariaLabel": "Change answer",
+                                                "url": "#"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
                             {
-                                "text": "Change",
-                                "ariaLabel": "Change answer",
-                                "url": "#"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "title": "What was the value of the business's total sales of alcohol, confectionery and tobacco?",
-                "error": true,
-                "rowItems": [
-                    {
-                        "valueList": [
-                            {
-                                "text": "£200.00"
-                            }
-                        ],
-                        "actions": [
-                            {
-                                "text": "Change",
-                                "ariaLabel": "Change answer",
-                                "url": "#"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "title": "What was the value of the business's total sales of clothing and footwear?",
-                "error": true,
-                "rowItems": [
-                    {
-                        "valueList": [
-                            {
-                                "text": "£50.00"
-                            }
-                        ],
-                        "actions": [
-                            {
-                                "text": "Change",
-                                "ariaLabel": "Change answer",
-                                "url": "#"
+                                "rowTitle": "What was the value of the business's total sales of clothing and footwear?",
+                                "error": true,
+                                "rowItems": [
+                                    {
+                                        "valueList": [
+                                            {
+                                                "text": "£50.00"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "Change",
+                                                "ariaLabel": "Change answer",
+                                                "url": "#"
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }

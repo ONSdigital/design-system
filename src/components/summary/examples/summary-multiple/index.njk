@@ -1,70 +1,78 @@
 {% from "components/summary/_macro.njk" import onsSummary %}
 {{
     onsSummary({
-        "title": "Summary - Section Title",
-        "rows": [
+        "summaries": [
             {
-                "title": "What are your monthly household expenses?",
-                "rowItems": [
+                "groups": [
                     {
-                        "title": "Food",
-                        "valueList": [
+                        "groupTitle": "Summary - Section Title",
+                        "rows": [
                             {
-                                "text": "£50.00"
-                            }
-                        ],
-                        "actions": [
-                            {
-                                "text": "Change",
-                                "ariaLabel": "Change answer",
-                                "url": "#"
+                                "rowTitle": "What are your monthly household expenses?",
+                                "rowItems": [
+                                    {
+                                        "itemTitle": "Food",
+                                        "valueList": [
+                                            {
+                                                "text": "£50.00"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "Change",
+                                                "ariaLabel": "Change answer",
+                                                "url": "#"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "itemTitle": "Utilities",
+                                        "valueList": [
+                                            {
+                                                "text": "£65.00"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "Change",
+                                                "ariaLabel": "Change answer",
+                                                "url": "#"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "itemTitle": "Transport",
+                                        "valueList": [
+                                            {
+                                                "text": "£70.00"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "Change",
+                                                "ariaLabel": "Change answer",
+                                                "url": "#"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "itemTitle": "Other",
+                                        "valueList": [
+                                            {
+                                                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "Change",
+                                                "ariaLabel": "Change answer",
+                                                "url": "#"
+                                            }
+                                    ]
+                                    }
+                                ]
                             }
                         ]
-                    },
-                    {
-                        "title": "Utilities",
-                        "valueList": [
-                            {
-                                "text": "£65.00"
-                            }
-                        ],
-                        "actions": [
-                            {
-                                "text": "Change",
-                                "ariaLabel": "Change answer",
-                                "url": "#"
-                            }
-                        ]
-                    },
-                    {
-                        "title": "Transport",
-                        "valueList": [
-                            {
-                                "text": "£70.00"
-                            }
-                        ],
-                        "actions": [
-                            {
-                                "text": "Change",
-                                "ariaLabel": "Change answer",
-                                "url": "#"
-                            }
-                        ]
-                    },
-                    {
-                        "title": "Other",
-                        "valueList": [
-                            {
-                                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                            }
-                        ],
-                        "actions": [
-                            {
-                                "text": "Change",
-                                "ariaLabel": "Change answer",
-                                "url": "#"
-                            }
-                    ]
                     }
                 ]
             }
