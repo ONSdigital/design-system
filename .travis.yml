@@ -13,6 +13,7 @@ jobs:
     - provider: npm
       skip_cleanup: true
       email: richard.mccarthy.ons@gmail.com
+      edge: true
       api_key:
         secure: FzrjP+xQauLMLhHXeswa581jmxwnuI8oyl0E/pgaP8Q/Hmoz6qBRX2aO2PiosHgzVvhqbnC+QdheabYjkwH+edzY2NCJDbDLoK643oWutqnH9N3vczKR1OnMFwGpF3JKzYkVTwvYav10yundTboHPsO1PCY3S3qwjuMNAytPOLAchK/sbyHBJMGlModdn6TVy4FEWz00AADM0D5vh7FVcnimLxIv83U06LDXLtEQCcWmhj3lA/03vvexebILucNwgEOunRtY6q8LjCh2i9fxjO36Gck5YkzN2/fysyFrX57wwlZChjNwj9JnmWcbPziswhTmRJ7JAcz8+bbQs3YS7QlA14WFU/5lH3kJNvv/bqNndb62FPMtN+QM+YYnBuXF2nM5PjJPtjzJVOxFygDiqO8NfwtlF0Vt6DF+1KST3WZoBxP1EjzhvFmuYFGD2ELacee/Fn7UBs8hOCf0pGOeABFf/J2d1PHtF3lksq8faH46Sex6ppTDNwnVlBd29x2TWyIDST13Bq4iLSbCMgWbKZI80fhvvB1ubMkHW87lWbzzQMPbzWOSL+3vyJRSnCbjWYnv3FEsGJbGdJzbLTbCXgRQ4l8FOgjIdHB+OuMsRFXWl/fbWn6IYaTtWPXobmN1JunUjNItLwq5Va9OaHYt8HRcwajoN9el+pXpU4oa8sM=
       on:

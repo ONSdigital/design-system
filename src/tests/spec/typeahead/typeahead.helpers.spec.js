@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 
-import { sanitiseTypeaheadText } from 'components/typeahead/typeahead.helpers';
+import { sanitiseTypeaheadText } from 'components/input/typeahead.helpers';
 
 describe('Typeahead helpers', () => {
   before(() => awaitPolyfills);

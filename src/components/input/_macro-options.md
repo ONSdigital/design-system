@@ -20,6 +20,7 @@
 | legend            | string                                                        | Only if mutuallyExclusive is set | Text content for the legend                                                         |
 | legendClasses     | string                                                        | false                            | Classes for the legend                                                              |
 | error             | `Error` [_(ref)_](/components/error)                          | false                            | Configuration for validation errors                                                 |
+| autocomplete      | string                                                        | true                             | Autocomplete attribute used to override the browsers native autocomplete            |
 
 ## Prefix/Suffix
 
@@ -28,3 +29,17 @@
 | text  | string | true     | The text for the prefix/suffix                                                                   |
 | title | string | true     | The title of the prefix/suffix. For example where `text` is "cm", `title` would be "centimeters" |
 | id    | string | false    | Id for the prefix/suffix                                                                         |
+
+## Typeahead
+
+| Name                | Type   | Required | Description                                                                                      |
+| ------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------ |
+| typeaheadData       | string | true     | URL of the JSON file with the typeahead data that needs to be searched                           |
+| instructions        | string | true     | Instructions on how to use the typeahead that will be read out by screenreaders                  |
+| ariaYouHaveSelected | string | true     | Aria message to tell the user that they have selected an answer                                  |
+| ariaMinChars        | string | true     | Aria message to tell the user how many charecters they need to enter before typeahead will start |
+| ariaOneResult       | string | true     | Aria message to tell the user there is only one suggestion left                                  |
+| ariaNResults        | string | true     | Aria message to tell the user how many suggestions are left                                      |
+| ariaLimitedResults  | string | true     | Aria message to tell the user if the results have been limited and what they are limited to      |
+| moreResults         | string | true     | Aria message to tell the user to continue to type to refine suggestions                          |
+| resultsTitle        | string | true     | Title of results to be displayed on screen at the top of the results                             |

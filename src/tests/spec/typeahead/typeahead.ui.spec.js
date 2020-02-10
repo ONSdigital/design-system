@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/typeahead/_test-template.njk';
+import template from 'components/input/_test-template.njk';
 import '../../../scss/main.scss';
 import TypeaheadUI, {
   classTypeaheadOption,
@@ -7,7 +7,7 @@ import TypeaheadUI, {
   classTypeaheadOptionNoResults,
   classTypeaheadOptionMoreResults,
   classTypeaheadHasResults,
-} from '../../../components/typeahead/typeahead.ui';
+} from '../../../components/input/typeahead.ui';
 import eventMock from 'stubs/event.stub.spec';
 import fetchMock from 'stubs/window.fetch.stub.spec';
 
@@ -19,30 +19,27 @@ chai.should();
 chai.use(chaiSpies);
 chai.use(chaiAsPromised);
 
-const data =
-  "[Object{code: 4, en-gb: 'Afghanistan', cy: 'Afghanistan'}, Object{code: 248, en-gb: 'Aland islands', cy: 'ynysoedd Aland'}, Object{code: 8, en-gb: 'Albania', cy: 'Albania'}, Object{code: 12, en-gb: 'Algeria', cy: 'Algeria'}, Object{code: 16, en-gb: 'American samoa', cy: 'Samoa Americanaidd'}, Object{code: 20, en-gb: 'Andorra', cy: 'andorra'}, Object{code: 24, en-gb: 'Angola', cy: 'Angola'}, Object{code: 660, en-gb: 'Anguilla', cy: 'anguilla'}, Object{code: 10, en-gb: 'Antarctica', cy: 'Antarctica'}]";
-
 const params = {
   id: 'country-of-birth',
   label: {
     text: 'Enter the current name of the country',
   },
-  instructions:
-    'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
-  content: {
-    aria_you_have_selected: 'You have selected',
-    aria_found_by_alternative_name: 'found by alternative name',
-    aria_min_chars: 'Type in 2 or more characters for suggestions.',
-    aria_one_result: 'There is one suggestion available.',
-    aria_n_results: 'There are {n} suggestions available.',
-    aria_limited_results: 'Results have been limited to 10 suggestions. Type more characters to refine your search.',
-    more_results: 'Continue typing to refine suggestions',
-    results_title: 'Suggestions',
-    no_results: 'No results found',
-  },
   autocomplete: 'off',
-  typeaheadData:
-    'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json',
+  typeahead: {
+    instructions:
+      'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
+    ariaYouHaveSelected: 'You have selected',
+    ariaFoundByAlternativeName: 'found by alternative name',
+    ariaMinChars: 'Enter 3 or more characters for suggestions.',
+    ariaOneResult: 'There is one suggestion available.',
+    ariaNResults: 'There are {n} suggestions available.',
+    ariaLimitedResults: 'Results have been limited to 10 suggestions. Enter more characters to improve your search.',
+    moreResults: 'Continue entering to improve suggestions',
+    resultsTitle: 'Suggestions',
+    noResults: 'No results found',
+    typeaheadData:
+      'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json',
+  },
 };
 
 describe('Typeahead.ui component', function() {
@@ -71,10 +68,6 @@ describe('Typeahead.ui component', function() {
       const inputHasAriaAttributes = !![...this.input.attributes].find(attribute => attribute.name.includes('aria'));
       expect(inputHasAriaAttributes).to.be.false;
       expect(this.input.hasAttribute('role')).to.be.false;
-    });
-
-    it('the autocomplete attribute should not present yet', function() {
-      expect(this.input.hasAttribute('autocomplete')).to.be.false;
     });
 
     it('the instructions, listbox, and status should be display none', function() {
@@ -116,8 +109,8 @@ describe('Typeahead.ui component', function() {
       expect(this.input.getAttribute('role')).to.equal('combobox');
     });
 
-    it('the autocomplete attribute be set to match the data-autocomplete attribute', function() {
-      expect(this.input.getAttribute('autocomplete')).to.equal(this.input.getAttribute('data-autocomplete'));
+    it('the autocomplete attribute be set to be not set to on', function() {
+      expect(this.input.getAttribute('autocomplete')).to.be.oneOf(['off', 'null', undefined, '']);
     });
 
     it('the instructions, listbox, and status should become visible', function() {
@@ -433,30 +426,75 @@ describe('Typeahead.ui component', function() {
         });
       });
 
-      describe('if the query is equal to or longer than the minimum characters', function() {
-        beforeEach(function(done) {
-          this.input.value = 'Testing';
-
+      describe('if the query is equal to or longer than the minimum characters and the user hits enter without selecting a suggestion', function() {
+        beforeEach(function() {
+          this.typeahead.handleFocus();
+          this.mockedEvent = eventMock({ key: 'Enter' });
+          this.typeahead.handleKeyup(this.mockedEvent);
+        });
+        it('then the listbox should be cleared', function(done) {
           setTimeout(() => {
-            this.typeahead.fetchSuggestions(this.input.value, data);
+            expect(this.clearListboxSpy).to.have.been.called();
             done();
           });
-        });
-
-        it('then the fetchSuggestions should be called', function() {
-          expect(this.fetchSuggestionsSpy).to.have.been.called();
+          it('and the input should not be cleared', function() {
+            expect(this.input.value === 'island');
+          });
         });
       });
 
       describe('if fetch suggestion returns results', function() {
         beforeEach(function() {
-          this.input.value = 'Testing';
           this.typeahead.handleResults({
-            totalResults: 1,
+            totalResults: 12,
             results: [
               {
                 'en-gb': 'Testing',
                 sanitisedText: 'testing',
+              },
+              {
+                'en-gb': 'Afghanistan island',
+                cy: 'Afghanistan',
+              },
+              {
+                'en-gb': 'Aland islands',
+                cy: 'ynysoedd Aland',
+              },
+              {
+                'en-gb': 'Albania island',
+                cy: 'Albania',
+              },
+              {
+                'en-gb': 'Algeria island',
+                cy: 'Algeria',
+              },
+              {
+                'en-gb': 'American samoa island',
+                cy: 'Samoa Americanaidd',
+              },
+              {
+                'en-gb': 'Andorra island',
+                cy: 'andorra',
+              },
+              {
+                'en-gb': 'Angola island',
+                cy: 'Angola',
+              },
+              {
+                'en-gb': 'Anguilla island',
+                cy: 'anguilla',
+              },
+              {
+                'en-gb': 'Antarctica island',
+                cy: 'Antarctica',
+              },
+              {
+                'en-gb': 'Antarctica and oceania island',
+                cy: 'Antarctica a oceania',
+              },
+              {
+                'en-gb': 'Antigua and barbuda island',
+                cy: 'Antigua a Barbuda',
               },
             ],
           });
@@ -464,6 +502,11 @@ describe('Typeahead.ui component', function() {
 
         it('then handleResults should be called', function() {
           expect(this.handleResultsSpy).to.have.been.called();
+        });
+
+        it('then only a maximum of 10 suggestions should be shown', function() {
+          const resultsLength = this.typeahead.listbox.getElementsByTagName('li').length - 1;
+          expect(resultsLength).to.be.lessThan(11);
         });
       });
 
@@ -585,7 +628,7 @@ describe('Typeahead.ui component', function() {
     describe('and clearListbox is run', function() {
       beforeEach(function() {
         this.typeahead.listbox.innerHTML = '<p>Yes</p>';
-        this.typeahead.context.classList.add('typeahead--has-results');
+        this.typeahead.context.classList.add('typeahead-input--has-results');
         this.typeahead.input.setAttribute('aria-activedescendant', 'yes');
         this.typeahead.input.setAttribute('aria-expanded', 'true');
 
@@ -599,7 +642,7 @@ describe('Typeahead.ui component', function() {
 
       it('then the typeahead--has-results should be removed', function() {
         this.typeahead.clearListbox();
-        expect(this.typeahead.context.classList.contains('typeahead--has-results')).to.be.false;
+        expect(this.typeahead.context.classList.contains('typeahead-input--has-results')).to.be.false;
       });
 
       it('then the input aria-activedescendant attributes should be removed', function() {
@@ -823,7 +866,7 @@ describe('Typeahead.ui component', function() {
           });
 
           it('then the message should be set to type the minimum amount of characters', function() {
-            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.content.aria_min_chars);
+            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.typeahead.ariaMinChars);
           });
         });
 
@@ -836,7 +879,7 @@ describe('Typeahead.ui component', function() {
           });
 
           it('then the no results message should be set', function() {
-            expect(this.typeahead.ariaStatus.innerHTML).to.equal(`${params.content.aria_no_results}: "${this.typeahead.query}"`);
+            expect(this.typeahead.ariaStatus.innerHTML).to.equal(`${params.typeahead.ariaNoResults}: "${this.typeahead.query}"`);
           });
         });
 
@@ -848,7 +891,7 @@ describe('Typeahead.ui component', function() {
           });
 
           it('then the one result message should be set', function() {
-            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.content.aria_one_result);
+            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.typeahead.ariaOneResult);
           });
         });
 
@@ -861,7 +904,7 @@ describe('Typeahead.ui component', function() {
 
           it('then the multiple results message should be set', function() {
             expect(this.typeahead.ariaStatus.innerHTML).to.equal(
-              params.content.aria_n_results.replace('{n}', this.typeahead.numberOfResults),
+              params.typeahead.ariaNResults.replace('{n}', this.typeahead.numberOfResults),
             );
           });
         });
@@ -877,7 +920,7 @@ describe('Typeahead.ui component', function() {
 
           it('then the multiple results message should be set', function() {
             expect(this.typeahead.ariaStatus.innerHTML).to.equal(
-              `${params.content.aria_n_results.replace('{n}', this.typeahead.numberOfResults)} ${params.content.aria_limited_results}`,
+              `${params.typeahead.ariaNResults.replace('{n}', this.typeahead.numberOfResults)} ${params.typeahead.ariaLimitedResults}`,
             );
           });
         });
@@ -933,7 +976,7 @@ describe('Typeahead.ui component', function() {
         });
 
         it('then setAriaStatus should be called', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.content.aria_you_have_selected}: Yes.`);
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.typeahead.ariaYouHaveSelected}: Yes.`);
         });
       });
 
@@ -945,7 +988,7 @@ describe('Typeahead.ui component', function() {
         });
 
         it('then setAriaStatus should be called stating the result was found from the alternative', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.content.aria_you_have_selected}: Ie.`);
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.typeahead.ariaYouHaveSelected}: Ie.`);
         });
       });
     });
@@ -980,7 +1023,7 @@ describe('Typeahead.ui component', function() {
 
           it('then the listbox innerHTML should show the no results message', function() {
             expect(this.typeahead.listbox.innerHTML).to.equal(
-              `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${params.content.no_results}</li>`,
+              `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${params.typeahead.noResults}</li>`,
             );
           });
 
@@ -995,7 +1038,7 @@ describe('Typeahead.ui component', function() {
 
         describe('if there isnt any "no results" content', function() {
           beforeEach(function() {
-            this.typeahead.content.no_results = null;
+            this.typeahead.noResults = null;
             this.typeahead.handleResults({
               totalResults: 0,
               results: [],
@@ -1118,7 +1161,7 @@ describe('Typeahead.ui component', function() {
           it('then the more results item should be added', function() {
             const option1 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
             const option2 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--1" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
-            const option3 = `<li class="${classTypeaheadOption} ${classTypeaheadOptionMoreResults}" aria-hidden="true">${params.content.more_results}</li>`;
+            const option3 = `<li class="${classTypeaheadOption} ${classTypeaheadOptionMoreResults}" aria-hidden="true">${params.typeahead.moreResults}</li>`;
             const html = option1 + option2 + option3;
 
             expect(this.typeahead.listbox.innerHTML).to.equal(html);
@@ -1147,7 +1190,7 @@ describe('Typeahead.ui component', function() {
 
       this.rewiremock.enable();
 
-      const mockedTypeaheadUI = require('components/typeahead/typeahead.ui').default;
+      const mockedTypeaheadUI = require('components/input/typeahead.ui').default;
 
       // Render
       const component = renderComponent(params);

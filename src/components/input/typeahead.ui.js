@@ -7,11 +7,11 @@ import fetch from 'js/abortable-fetch';
 
 export const baseClass = 'js-typeahead';
 
-export const classTypeaheadOption = 'typeahead__option';
+export const classTypeaheadOption = 'typeahead-input__option';
 export const classTypeaheadOptionFocused = `${classTypeaheadOption}--focused`;
 export const classTypeaheadOptionNoResults = `${classTypeaheadOption}--no-results u-fs-s`;
 export const classTypeaheadOptionMoreResults = `${classTypeaheadOption}--more-results u-fs-s`;
-export const classTypeaheadHasResults = 'typeahead--has-results';
+export const classTypeaheadHasResults = 'typeahead-input--has-results';
 
 export default class TypeaheadUI {
   constructor({
@@ -26,6 +26,14 @@ export default class TypeaheadUI {
     onUnsetResult,
     suggestionFunction,
     lang,
+    ariaYouHaveSelected,
+    ariaMinChars,
+    ariaOneResult,
+    ariaNResults,
+    ariaLimitedResults,
+    moreResults,
+    resultsTitle,
+    noResults,
   }) {
     // DOM Elements
     this.context = context;
@@ -36,11 +44,20 @@ export default class TypeaheadUI {
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
 
     // Settings
-    this.typeaheadData = typeaheadData || context.getAttribute('typeahead-data');
-    this.content = JSON.parse(context.getAttribute('data-content'));
+    this.typeaheadData = typeaheadData || context.getAttribute('data-typeahead-data');
+
+    this.ariaYouHaveSelected = ariaYouHaveSelected || context.getAttribute('data-aria-you-have-selected');
+    this.ariaMinChars = ariaMinChars || context.getAttribute('data-aria-min-chars');
+    this.ariaOneResult = ariaOneResult || context.getAttribute('data-aria-one-result');
+    this.ariaNResults = ariaNResults || context.getAttribute('data-aria-n-results');
+    this.ariaLimitedResults = ariaLimitedResults || context.getAttribute('data-aria-limited-results');
+    this.moreResults = moreResults || context.getAttribute('data-more-results');
+    this.resultsTitle = resultsTitle || context.getAttribute('data-results-title');
+    this.noResults = noResults || context.getAttribute('data-no-results');
+
     this.listboxId = this.listbox.getAttribute('id');
-    this.minChars = minChars || 2;
-    this.resultLimit = resultLimit || null;
+    this.minChars = minChars || 3;
+    this.resultLimit = resultLimit || 10;
     this.suggestOnBoot = suggestOnBoot;
     this.lang = lang || 'en-gb';
 
@@ -88,7 +105,7 @@ export default class TypeaheadUI {
     this.input.setAttribute('autocomplete', this.input.getAttribute('data-autocomplete'));
     this.input.setAttribute('role', 'combobox');
 
-    this.context.classList.add('typeahead--initialised');
+    this.context.classList.add('typeahead-input--initialised');
 
     this.bindEventListeners();
   }
@@ -151,7 +168,11 @@ export default class TypeaheadUI {
         break;
       }
       case 'Enter': {
-        this.selectResult();
+        if (this.highlightedResultIndex == null) {
+          this.clearListbox();
+        } else {
+          this.selectResult();
+        }
         break;
       }
     }
@@ -243,7 +264,7 @@ export default class TypeaheadUI {
 
   async fetchSuggestions(sanitisedQuery, data) {
     this.abortFetch();
-    const results = await queryJson(sanitisedQuery, data, this.lang);
+    const results = await queryJson(sanitisedQuery, data, this.lang, this.resultLimit);
     results.forEach(result => {
       result.sanitisedText = sanitiseTypeaheadText(result[this.lang], this.sanitisedQueryReplaceChars);
       if (this.lang !== 'en-gb') {
@@ -261,7 +282,7 @@ export default class TypeaheadUI {
     });
     return {
       results,
-      totalResults: data.totalResults,
+      totalResults: results.length,
     };
   }
 
@@ -294,6 +315,11 @@ export default class TypeaheadUI {
 
   handleResults(result) {
     this.foundResults = result.totalResults;
+
+    if (result.results.length > 10) {
+      result.results = result.results.slice(0, this.resultLimit);
+    }
+
     this.results = result.results;
     this.numberOfResults = Math.max(this.results.length, 0);
 
@@ -339,7 +365,7 @@ export default class TypeaheadUI {
           const listElement = document.createElement('li');
           listElement.className = `${classTypeaheadOption} ${classTypeaheadOptionMoreResults}`;
           listElement.setAttribute('aria-hidden', 'true');
-          listElement.innerHTML = this.content.more_results;
+          listElement.innerHTML = this.moreResults;
           this.listbox.appendChild(listElement);
         }
 
@@ -349,9 +375,8 @@ export default class TypeaheadUI {
         this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classTypeaheadHasResults);
       }
     }
-
-    if (this.numberOfResults === 0 && this.content.no_results) {
-      this.listbox.innerHTML = `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${this.content.no_results}</li>`;
+    if (this.numberOfResults === 0 && this.noResults) {
+      this.listbox.innerHTML = `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${this.noResults}</li>`;
       this.input.setAttribute('aria-expanded', true);
     }
   }
@@ -383,16 +408,16 @@ export default class TypeaheadUI {
       const noResults = this.numberOfResults === 0;
 
       if (queryTooShort) {
-        content = this.content.aria_min_chars;
+        content = this.ariaMinChars;
       } else if (noResults) {
-        content = `${this.content.aria_no_results}: "${this.query}"`;
+        content = `${this.ariaNoResults}: "${this.query}"`;
       } else if (this.numberOfResults === 1) {
-        content = this.content.aria_one_result;
+        content = this.ariaOneResult;
       } else {
-        content = this.content.aria_n_results.replace('{n}', this.numberOfResults);
+        content = this.ariaNResults.replace('{n}', this.numberOfResults);
 
         if (this.resultLimit && this.foundResults > this.resultLimit) {
-          content += ` ${this.content.aria_limited_results}`;
+          content += ` ${this.ariaLimitedResults}`;
         }
       }
     }
@@ -429,7 +454,7 @@ export default class TypeaheadUI {
 
       this.onSelect(result).then(() => (this.settingResult = false));
 
-      const ariaMessage = `${this.content.aria_you_have_selected}: ${result.displayText}.`;
+      const ariaMessage = `${this.ariaYouHaveSelected}: ${result.displayText}.`;
 
       this.clearListbox();
       this.setAriaStatus(ariaMessage);
