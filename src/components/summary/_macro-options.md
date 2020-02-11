@@ -1,15 +1,29 @@
-| Name    | Type              | Required | Description                               |
-| ------- | ----------------- | -------- | ----------------------------------------- |
-| rows    | Array<SummaryRow> | true     | An array of rows to summarise             |
-| title   | string            | false    | The title for the summary block           |
-| classes | string            | false    | Classes to add to the summary component   |
-| hub     | boolean           | false    | Whether to render the summary in as a hub |
+
+| Name       | Type    | Required | Description                               |
+| ---------- | ------- | -------- | ----------------------------------------- |
+| summaries  | Array`<Summaries>` | true | An array of summaries                |
+| classes    | string  | false    | Classes to add to the summary component   |
+| hub        | boolean | false    | Whether to render the summary in as a hub |
+
+## Summaries
+
+| Name  | Type              | Required | Description                     |
+| ----- | ----------------- | -------- | ------------------------------- |
+| groups  | Array`<SummaryGroup>` | true     | An array of groups within a summary  |
+| summaryTitle | string         | false    | The title for a group of summaries   |
+
+## SummaryGroup
+
+| Name  | Type              | Required | Description                     |
+| ----- | ----------------- | -------- | ------------------------------- |
+| rows  | Array`<SummaryRows>` | true     | An array of rows within a group  |
+| groupTitle | string        | false    | The title for a summary within a group  |
 
 ## SummaryRow
 
 | Name         | Type                  | Required | Description                             |
 | ------------ | --------------------- | -------- | --------------------------------------- |
-| rowItems     | Array<SummaryRowItem> | true     | An array of items for this row          |
+| rowItems     | Array`<SummaryRowItem>` | true     | An array of items for this row          |
 | title        | string                | false    | The title for the row                   |
 | error        | boolean               | false    | Whether to render this item as an error |
 | errorMessage | string                | false    | Error message for the row               |
@@ -21,8 +35,8 @@
 | --------- | -------------------- | -------- | ---------------------------------------------------------------------- |
 | icon      | string               | false    | Name of the icon to be placed next to the title                        |
 | title     | string               | false    | Label for the row item                                                 |
-| valueList | Array<SummaryValue>  | false    | The value(s) to the row item                                           |
-| actions   | Array<SummaryAction> | false    | Configurations for action links. If not specified no links will render |
+| valueList | Array`<SummaryValue>` | false    | The value(s) to the row item                                           |
+| actions   | Array`<SummaryAction>`| false    | Configurations for action links. If not specified no links will render |
 
 ## SummaryValue
 

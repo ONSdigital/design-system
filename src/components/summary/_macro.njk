@@ -1,5 +1,6 @@
 {% macro onsSummary(params) %}
     {% set className = "summary" %}
+    {% set titleSize = "2" %}
 
     {% if params.classes %}
          {% set className = className + " " + params.classes %}
@@ -8,88 +9,96 @@
     {% if params.hub %}
         {% set className = className + " summary--hub" %}
     {% endif %}
-
     <div class="{{ className }}">
-        {% if params.title %}
-            <h2>{{ params.title }}</h2>
-        {% endif %}
-
-        <table class="summary__items">
-            {% for row in (params.rows if params.rows is iterable else params.rows.items()) %}
-                {% set itemClass = "" %}
-                {% if row.error %} {% set itemClass = " summary__item--error" %}{% endif %}
-                {% if row.total %} {% set itemClass = itemClass + " summary__item--total" %}{% endif %}
-                
-                <tbody class="summary__item{{ itemClass }}">
-                    {% if row.errorMessage or (row.rowItems | length > 1 and row.title) %}
-                        <tr class="summary__row">
-                            <th colspan="3" class="summary__row-title u-fs-r">{{  row.errorMessage or row.title }}</th>
-                        </tr>
+        {% for summary in params.summaries %}
+            <div class="summary__group">
+                {% if summary.summaryTitle %}
+                    <h2 class="summary__title u-mb-m">{{ summary.summaryTitle }}</h2>
+                    {% set titleSize = "3" %}
+                {% endif %}
+                {% for group in summary.groups %}
+                    {% if group.groupTitle %}
+                        <h{{ titleSize }} class="summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
-                    
-                    {% for rowItem in row.rowItems %}
-                        <tr class="summary__row{{ " summary__row--has-values" if rowItem.valueList else "" }}">
-                            <td 
-                                class="summary__item-title{{ " summary__item-title--has-icon" if rowItem.icon else "" }}"
-                                {% if rowItem.titleAttributes %}{% for attribute, value in (rowItem.titleAttributes.items() if rowItem.titleAttributes is mapping and rowItem.titleAttributes.items else rowItem.titleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
-                            >
-                                {% if rowItem.icon %}
-                                    <span class="summary__icon icon--{{ rowItem.icon }}"></span>
+                    <table class="summary__items">
+                        {% for row in (group.rows if group.rows is iterable else group.rows.items()) %}
+                            {% set itemClass = "" %}
+                            {% if row.error %} {% set itemClass = " summary__item--error" %}{% endif %}
+                            {% if row.total %} {% set itemClass = itemClass + " summary__item--total" %}{% endif %}
+
+                            <tbody class="summary__item{{ itemClass }}">
+                                {% if row.errorMessage or (row.rowItems | length > 1 and row.rowTitle) %}
+                                    <tr class="summary__row">
+                                        <th colspan="3" class="summary__row-title u-fs-r">{{  row.errorMessage or row.rowTitle }}</th>
+                                    </tr>
                                 {% endif %}
 
-                                {{ rowItem.title | default(row.title) | safe }} {{ hasIcons }}
+                                {% for rowItem in row.rowItems %}
+                                    <tr class="summary__row{{ " summary__row--has-values" if rowItem.valueList else "" }}">
+                                        <td
+                                            class="summary__item-title{{ " summary__item-title--has-icon" if rowItem.icon else "" }}"
+                                            {% if rowItem.titleAttributes %}{% for attribute, value in (rowItem.titleAttributes.items() if rowItem.titleAttributes is mapping and rowItem.titleAttributes.items else rowItem.titleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                        >
+                                            {% if rowItem.icon %}
+                                                <span class="summary__icon icon--{{ rowItem.icon }}"></span>
+                                            {% endif %}
 
-                                {# Render section status for mobile if is hub #}
-                                {% if params.hub and rowItem.valueList %}
-                                    <span class="u-d-no@s u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
-                                {% endif %}
-                            </td>
-                            {% if rowItem.valueList %}
-                                <td
-                                    class="summary__values"
-                                    {% if rowItem.actions == null %} colspan="2"{% endif %}
-                                    {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
-                                >
-                                    {% if rowItem.valueList | length == 1 %}
-                                        {{ rowItem.valueList[0].text | safe }}
-                                        {% if rowItem.valueList[0].other or rowItem.valueList[0].other == 0 %}
-                                            <ul class="u-mb-no">
-                                                <li>{{  rowItem.valueList[0].other | safe }}</li>
-                                            </ul>
-                                        {% endif %}
-                                    {% else %}
-                                        <ul class="u-mb-no">
-                                            {% for value in (rowItem.valueList if rowItem.valueList is iterable else rowItem.valueList.items()) %}
-                                                <li>
-                                                    {{ value.text | safe }}
-                                                    {% if value.other or value.other == 0 %}
+                                            {{ rowItem.itemTitle | default(row.rowTitle) | safe }} {{ hasIcons }}
+
+                                            {# Render section status for mobile if is hub #}
+                                            {% if params.hub and rowItem.valueList %}
+                                                <span class="u-d-no@s u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
+                                            {% endif %}
+                                        </td>
+                                        {% if rowItem.valueList %}
+                                            <td
+                                                class="summary__values"
+                                                {% if rowItem.actions == null %} colspan="2"{% endif %}
+                                                {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                            >
+                                                {% if rowItem.valueList | length == 1 %}
+                                                    {{ rowItem.valueList[0].text | safe }}
+                                                    {% if rowItem.valueList[0].other or rowItem.valueList[0].other == 0 %}
                                                         <ul class="u-mb-no">
-                                                            <li>{{ value.other | safe }}</li>
+                                                            <li>{{  rowItem.valueList[0].other | safe }}</li>
                                                         </ul>
                                                     {% endif %}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    {% endif %}
-                                </td>
-                            {% endif %}
-                            {% if rowItem.actions %}
-                                <td class="summary__actions">
-                                    {% for action in (rowItem.actions if rowItem.actions is iterable else rowItem.actions.items()) %}
-                                        {% if loop.index > 1 %}<span class="summary__spacer"></span>{% endif %}
-                                        <a
-                                            href="{{ action.url }}"
-                                            class="summary__button"
-                                            {% if action.ariaLabel %} aria-label="{{ action.ariaLabel | striptags() }}"{% endif %}
-                                            {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
-                                        >{{ action.text }}</a>
-                                    {% endfor %}
-                                </td>
-                            {% endif %}
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            {% endfor %}
-        </table>
+                                                {% else %}
+                                                    <ul class="u-mb-no">
+                                                        {% for value in (rowItem.valueList if rowItem.valueList is iterable else rowItem.valueList.items()) %}
+                                                            <li>
+                                                                {{ value.text | safe }}
+                                                                {% if value.other or value.other == 0 %}
+                                                                    <ul class="u-mb-no">
+                                                                        <li>{{ value.other | safe }}</li>
+                                                                    </ul>
+                                                                {% endif %}
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+                                            </td>
+                                        {% endif %}
+                                        {% if rowItem.actions %}
+                                            <td class="summary__actions">
+                                                {% for action in (rowItem.actions if rowItem.actions is iterable else rowItem.actions.items()) %}
+                                                    {% if loop.index > 1 %}<span class="summary__spacer"></span>{% endif %}
+                                                    <a
+                                                        href="{{ action.url }}"
+                                                        class="summary__button"
+                                                        {% if action.ariaLabel %} aria-label="{{ action.ariaLabel | striptags() }}"{% endif %}
+                                                        {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                                    >{{ action.text }}</a>
+                                                {% endfor %}
+                                            </td>
+                                        {% endif %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                {% endfor %}
+            </div>
+        {% endfor %}
     </div>
 {% endmacro %}
