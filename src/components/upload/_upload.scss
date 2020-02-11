@@ -1,16 +1,17 @@
 .input--upload {
-  border: 2px solid $color-borders;
+  border: 1px solid $color-input;
   border-radius: $input-radius;
+  font-size: 1rem;
   padding: 0;
   background: $color-white;
   width: 100%;
   &::-webkit-file-upload-button {
-    font-size: 1.25rem;
+    font-size: 1rem;
     border: none;
-    border-right: 2px solid $color-borders;
+    border-right: 1px solid $color-input;
     padding: 0.5rem 1rem;
-    background: $color-light-blue;
-    color: $color-dark-blue;
+    background: $color-button-secondary;
+    color: $color-text;
     transition: border-color 200ms ease-in;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
