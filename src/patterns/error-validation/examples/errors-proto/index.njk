@@ -6,6 +6,7 @@ layout: none
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
+{% from "components/radios/_macro.njk" import onsRadios %}
 
 {% set pageConfig =  {
     "title": "Errors Prototype"
@@ -57,6 +58,29 @@ layout: none
                     "text": "%"
                 }
             })
+        }}
+
+        {{ 
+            onsRadios({
+                "legend": "How many employees do you employ?",
+                "name": "food",
+                "radios": [
+                    {
+                        "id": "a",
+                        "label": {
+                            "text": "1 - 10 employees"
+                        },
+                        "value": "a"
+                    },
+                    {
+                        "id": "b",
+                        "label": {
+                            "text": "More than 10 employees"
+                        },
+                        "value": "b"
+                    }
+                ]
+            }) 
         }}
     {% endcall%}
 

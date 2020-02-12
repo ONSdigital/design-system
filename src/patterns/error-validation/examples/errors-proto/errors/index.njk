@@ -8,6 +8,7 @@ layout: none
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
+{% from "components/radios/_macro.njk" import onsRadios %}
 
 {% set pageConfig =  {
     "title": "Errors Prototype"
@@ -30,13 +31,19 @@ layout: none
                     {
                         "text": "Enter a number.",
                         "index": true,
-                        "url": "#container-test-number",
+                        "url": "#number",
                         "classes": "js-inpagelink"
                     },
                     {
                         "text": "Enter a number less than or equal to 100.",
                         "index": true,
-                        "url": "#container-test-percent",
+                        "url": "#suffixed",
+                        "classes": "js-inpagelink"
+                    },
+                    {
+                        "text": "Select one answer.",
+                        "index": true,
+                        "url": "#error",
                         "classes": "js-inpagelink"
                     }
                 ]
@@ -88,7 +95,33 @@ layout: none
                 }
             })
         }}
-    {% endcall %}
+
+        {{ 
+            onsRadios({
+                "legend": "How many employees do you employ?",
+                "name": "food",
+                "error": {
+                    "text": "Select one answer.",
+                    "id": "error"
+                },
+                "radios": [
+                    {
+                        "id": "a",
+                        "label": {
+                            "text": "1 - 10 employees"
+                        },
+                        "value": "a"
+                    },
+                    {
+                        "id": "b",
+                        "label": {
+                            "text": "More than 10 employees"
+                        },
+                        "value": "b"
+                    }
+                ]
+            }) 
+        }}    {% endcall %}
 
     {{
         onsButton({
