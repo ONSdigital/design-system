@@ -23,7 +23,7 @@
 
   &__header {
     margin: 0;
-    padding: 0.75rem 1rem;
+    padding: 0.75em 1em;
     border-radius: 0;
     color: $color-white;
   }
@@ -33,7 +33,7 @@
   }
 
   &__body {
-    padding: 1rem;
+    padding: 1em;
     /* Removes inherited bottom margin to make whitespace inside panel equal */
     > *:last-child {
       margin-bottom: 0;
@@ -45,7 +45,7 @@
   }
 
   &--simple {
-    padding: 1rem;
+    padding: 1em;
     border: 0;
     border-left: 8px solid transparent;
     color: $color-black;
@@ -53,7 +53,7 @@
 
   &--simple & {
     &__header {
-      padding: 0 0 1rem;
+      padding: 0 0 1em;
       background: none;
     }
 
@@ -64,10 +64,10 @@
   }
 
   &--spacious {
-    padding: 1rem;
+    padding: 1em;
 
     @include mq(m) {
-      padding: 2rem;
+      padding: 2em;
     }
   }
 }
