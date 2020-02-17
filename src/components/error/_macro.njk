@@ -6,7 +6,7 @@
             class="panel__error"
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
-            <strong>{{ params.text }}</strong>
+            <strong {% if params.id %}id="{{ params.id }}"{% endif %}>{{ params.text }}</strong>
         </p>
         {{ caller() }}
     {% endset %}
