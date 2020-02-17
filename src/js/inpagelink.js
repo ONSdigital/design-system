@@ -2,8 +2,7 @@ export default function inPageLinks(links) {
   links.forEach(link => {
     const id = link.getAttribute('href').replace('#', '');
 
-    link.addEventListener('click', event => {
-      event.preventDefault();
+    link.addEventListener('click', () => {
       focusOnInput(id);
     });
   });
@@ -11,7 +10,6 @@ export default function inPageLinks(links) {
 
 function focusOnInput(id) {
   const container = document.getElementById(id);
-
   let input;
 
   if (['INPUT', 'TEXTAREA', 'SELECT'].includes(container.tagName)) {
@@ -29,6 +27,7 @@ function focusOnInput(id) {
   }
 
   if (input) {
+    event.preventDefault();
     input.focus();
   }
 }
