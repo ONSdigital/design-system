@@ -33,7 +33,10 @@ An [error panel](/components/panel#error) must be displayed above the form when 
 
 The error `panel__header` must display the number of errors on the page.
 
-The error `panel__body` must contain an anchored list to each erroneous field or fieldset on the page, each describing the specific error and directing the user towards a resolution.  
+The error `panel__body` must contain an anchored list to each erroneous field or fieldset on the page, each describing the specific error and directing the user towards a resolution. 
+
+Each list item `url` key should contain a value that matches the id of the input that has an error and preceded with a hash i.e. `#email-input`. Javascript will focus the corresponding input.
+If the input is a fieldset of checkboxes or radios then the id should match the id provided to the error message within the error details for the input.
 
 Guidance on specific error messages can be found with each applicable [component](/components).
 
