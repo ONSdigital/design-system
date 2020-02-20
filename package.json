@@ -139,7 +139,8 @@
     "webpack-fix-style-only-entries": "^0.0.5",
     "webpack-livereload-plugin": "^2.1.1",
     "webpack-merge": "^4.1.4",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.0.0",
+    "yarn-deduplicate": "^1.1.1"
   },
   "publishConfig": {
     "access": "public"
