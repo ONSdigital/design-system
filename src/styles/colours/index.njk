@@ -18,16 +18,16 @@ Our text and background colours are designed to meet accessibility needs. We aim
                 'var': '$color-astral-blue'
             },
             {
-                'bg': '#0f8243',
-                'var': '$color-green'
+                'bg': '#033e58',
+                'var': '$color-dark-blue'
             },
             {
                 'bg': '#4263c2',
                 'var': '$color-blue'
             },
             {
-                'bg': '#033e58',
-                'var': '$color-dark-blue'
+                'bg': '#0f8243',
+                'var': '$color-green'
             },
             {
                 'bg': '#fe781f',
@@ -38,8 +38,12 @@ Our text and background colours are designed to meet accessibility needs. We aim
                 'var': '$color-red'
             },
             {
-                'bg': '#e4f972',
+                'bg': '#ffdd00',
                 'var': '$color-yellow'
+            },
+            {
+                'bg': '#e4f972',
+                'var': '$color-bright-yellow'
             }
         ]
     })
@@ -163,7 +167,7 @@ The colour palette `scss` variables shown above are assigned to a further variab
                 'bg': '#ffdd00',
                 'char': 'A',
                 'shadow': true,
-                'info': 'Yellow is used with black to provide visual affordance that an element has focus. The yellow is applied as a <code>background-color</code> with a <code>4px</code> black <code>box-shadow</code> offset by <code>-4px</code>. The text <code>color</code> is changed to black to ensure consistent contrast accessibility, regardless of the element\'s initial background colour.'
+                'info': 'Black and yellow is used to provide visual affordance that an element has focus. Any focussed text <code>color</code> is changed to black, and yellow is applied as a <code>background-color</code> with an additional <code>4px</code> black offset <code>box-shadow</code>. Changing both foreground and background colours ensures consistent [accessible colour contrast](#colour-contrast), regardless of the element\'s initial background colour.'
             }
         ]
     })
@@ -187,7 +191,7 @@ The colour palette `scss` variables shown above are assigned to a further variab
             {
                 'bg': '#e4f972',
                 'var': '$color-highlight',
-                'info': 'Yellow is used to highlight text to emphasise keywords i.e. search results and user submitted content.'
+                'info': 'Bright yellow is used to highlight text to emphasise keywords i.e. search results and user submitted content.'
             }
         ]
     })
@@ -318,12 +322,12 @@ Contrast between foreground and background colours are tested to ensure [WCAG AA
             },
             {
                 'fore': '#222222',
-                'bg': '#f0f762',
+                'bg': '#e4f972',
                 'char': 'A'
             },
             {
-                'fore': '#4263c2',
-                'bg': '#f0f762',
+                'fore': '#222222',
+                'bg': '#ffdd00',
                 'char': 'A'
             }
         ]
