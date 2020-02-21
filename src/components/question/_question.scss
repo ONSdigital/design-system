@@ -7,12 +7,12 @@
 
   &__title {
     em {
-      background-color: $color-emphasis;
+      background-color: $color-highlight;
     }
   }
   &__instruction {
-    background-color: $color-warn-tint;
-    border: 5px solid $color-warn;
+    background-color: $color-instruction-tint;
+    border: 5px solid $color-instruction;
     display: block;
     font-weight: normal;
     padding: 1rem;
