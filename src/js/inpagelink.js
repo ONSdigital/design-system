@@ -11,7 +11,6 @@ export default function inPageLinks(links) {
 
 function focusOnInput(id) {
   const container = document.getElementById(id);
-
   let input;
 
   if (['INPUT', 'TEXTAREA', 'SELECT'].includes(container.tagName)) {
@@ -30,5 +29,7 @@ function focusOnInput(id) {
 
   if (input) {
     input.focus();
+  } else {
+    container.scrollIntoView();
   }
 }

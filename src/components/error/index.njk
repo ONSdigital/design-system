@@ -10,11 +10,13 @@ The error component is used to wrap form inputs and fieldsets to to show validat
 ## How to use this component
 
 Generally speaking you should not need to [call](https://mozilla.github.io/nunjucks/templating.html#call) `onsError` yourself as it is already called from within form input components. However if you need to create a pattern or component that requires a error you can use [nunjucks' call functionality](https://mozilla.github.io/nunjucks/templating.html#call) `onsError`.
-
+{% md %}
 | Name       | Type   | Required | Description                                                       |
 | ---------- | ------ | -------- | ----------------------------------------------------------------- |
-| text       | string | true     | The id of the error message                                       |
+| text       | string | true     | The text that describes the error message                                       |
+| id         | string | false    | The id that the error link can anchor to                          |
 | attributes | object | false    | HTML attributes (for example data attributes) to add to the field |
+{% endmd %}
 
 ## Research on this component
 
