@@ -2,7 +2,8 @@ export default function inPageLinks(links) {
   links.forEach(link => {
     const id = link.getAttribute('href').replace('#', '');
 
-    link.addEventListener('click', () => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
       focusOnInput(id);
     });
   });
@@ -27,7 +28,8 @@ function focusOnInput(id) {
   }
 
   if (input) {
-    event.preventDefault();
     input.focus();
+  } else {
+    container.scrollIntoView();
   }
 }
