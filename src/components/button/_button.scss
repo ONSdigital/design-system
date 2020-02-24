@@ -123,10 +123,14 @@ $button-border-height: 3px;
   &--link &__inner {
     &:after {
       content: '';
-
       margin: 0 0 0 0.5rem;
       vertical-align: middle;
     }
+  }
+
+  // Link button when hovered
+  &--link:hover {
+    text-decoration: none;
   }
 
   // Link button when focussed
