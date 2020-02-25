@@ -185,7 +185,7 @@ $button-border-height: 3px;
 
   &--link.btn--secondary &__inner {
     &:after {
-      @include icon($name: 'chevron-right', $height: 0.8rem);
+      @include icon($name: 'chevron-right-black', $height: 0.8rem);
     }
   }
 
@@ -197,7 +197,7 @@ $button-border-height: 3px;
 
   &--link.btn--small.btn--secondary &__inner {
     &:after {
-      @include icon($name: 'chevron-right', $height: 0.7rem);
+      @include icon($name: 'chevron-right-black', $height: 0.7rem);
     }
   }
 
