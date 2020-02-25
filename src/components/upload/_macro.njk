@@ -1,19 +1,13 @@
 {% macro onsUpload(params) %}
-    {% from "components/field/_macro.njk" import onsField %}
     {% from "components/input/_macro.njk" import onsInput %}
 
-    {% call onsField({
-        "id": params.fieldId,
-        "classes": params.fieldClasses
-    }) %}
-        {{ onsInput({
-            "id": params.id,
-            "type": "file",
-            "label": params.label,
-            "classes": "input--upload",
-            "accept": params.accept,
-            "name": params.name,
-            "attributes": params.attributes
-        }) }}
-    {% endcall %}
+    {{ onsInput({
+        "id": params.id,
+        "type": "file",
+        "label": params.label,
+        "classes": "input--upload",
+        "accept": params.accept,
+        "name": params.name,
+        "attributes": params.attributes
+    }) }}
 {% endmacro %}
