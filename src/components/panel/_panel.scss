@@ -78,16 +78,15 @@
       display: inline-block;
       position: absolute;
       left: 0;
-      min-width: 35px;
-      min-height: 29px;
-      margin-top: -4px;
+      min-width: 2rem;
+      min-height: 2rem;
+      margin-top: -0.2rem;
       margin-left: 0.5rem;
-      border: 3px solid #0b0c0c;
       border-radius: 50%;
       color: #fff;
       background: #0b0c0c;
-      font-size: 26px;
-      line-height: 29px;
+      font-size: 1.5rem;
+      line-height: 2rem;
       text-align: center;
     }
   }
