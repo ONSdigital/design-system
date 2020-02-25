@@ -70,9 +70,31 @@
       padding: 2rem;
     }
   }
+
+  &--warn & {
+    &__icon {
+      color: #fff;
+      font-weight: 900;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      min-width: 35px;
+      min-height: 29px;
+      margin-top: -4px;
+      margin-left: 0.5rem;
+      border: 3px solid #0b0c0c;
+      border-radius: 50%;
+      color: #fff;
+      background: #0b0c0c;
+      font-size: 26px;
+      line-height: 29px;
+      text-align: center;
+    }
+  }
 }
 
 @include panel-type(error, $color-errors, $color-errors-tint);
 @include panel-type(success, $color-success, $color-success-tint);
 @include panel-type(info, $color-info, $color-info-tint);
 @include panel-type(branded, $color-branded, $color-branded-tint);
+@include panel-type(warn, $color-white, $color-white);
