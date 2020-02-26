@@ -2,6 +2,7 @@
 | ----------------- | --------------- | -------- | --------------------------------------------------------------------------- |
 | id                | string          | true     | id for the details                                                          |
 | title             | string          | true     | The title for the details                                                   |
+| titleTag          | string          | false    | The HTML tag to wrap the title text in. Will default to a `div`             |
 | content           | string          | true     | HTML content for the details                                                |
 | button            | `DetailsButton` | false    | Settings for the close button. If not specified button will not render      |
 | classes           | string          | false    | Classes to add to the details element                                       |
