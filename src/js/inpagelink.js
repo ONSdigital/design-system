@@ -11,25 +11,19 @@ export default function inPageLinks(links) {
 
 function focusOnInput(id) {
   const container = document.getElementById(id);
-  let input;
+  container.scrollIntoView();
 
-  if (['INPUT', 'TEXTAREA', 'SELECT'].includes(container.tagName)) {
-    input = container;
-  } else {
-    input = [
-      ...container.getElementsByTagName('INPUT'),
-      ...container.getElementsByTagName('TEXTAREA'),
-      ...container.getElementsByTagName('SELECT'),
-    ].filter(input => {
-      const type = input.getAttribute('type');
+  const input = [
+    ...container.getElementsByTagName('INPUT'),
+    ...container.getElementsByTagName('TEXTAREA'),
+    ...container.getElementsByTagName('SELECT'),
+  ].filter(input => {
+    const type = input.getAttribute('type');
 
-      return type !== 'readonly' && type !== 'hidden';
-    })[0];
-  }
+    return type !== 'readonly' && type !== 'hidden' && type !== 'checkbox' && type !== 'radio';
+  })[0];
 
   if (input) {
     input.focus();
-  } else {
-    container.scrollIntoView();
   }
 }
