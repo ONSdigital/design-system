@@ -27,6 +27,9 @@
   &.status--success:before {
     @include status-dot($color-success-dot);
   }
+  &.status--pending:before {
+    @include status-dot($color-pending-dot);
+  }
   &.status--error:before {
     @include status-dot($color-errors-dot);
   }
