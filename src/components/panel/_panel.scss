@@ -15,6 +15,7 @@
 
 .panel {
   border-radius: 0;
+  position: relative;
 
   /* Removes inherited bottom margin to make whitespace inside panel equal */
   > *:last-child {
@@ -72,12 +73,16 @@
   }
 
   &--warn & {
+    &__body {
+      padding-left: 1.8rem;
+    }
+
     &__icon {
       color: #fff;
       font-weight: 900;
       position: absolute;
-      top: 1.8rem;
-      left: 0.5rem;
+      top: 0.8rem;
+      left: 0;
       min-width: 2rem;
       min-height: 2rem;
       border-radius: 50%;
