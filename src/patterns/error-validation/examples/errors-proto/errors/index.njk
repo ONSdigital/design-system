@@ -9,6 +9,7 @@ layout: none
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/date-input/_macro.njk" import onsDateInput %}
 
 {% set pageConfig =  {
     "title": "Errors Prototype"
@@ -29,21 +30,27 @@ layout: none
                 "classes": "list--bare",
                 "itemsList": [
                     {
-                        "text": "Enter a number.",
+                        "text": "Enter a number",
                         "index": true,
                         "url": "#number",
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Enter a number less than or equal to 100.",
+                        "text": "Enter a number less than or equal to 100",
                         "index": true,
                         "url": "#suffixed",
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Select one answer.",
+                        "text": "Select one answer",
                         "index": true,
                         "url": "#error",
+                        "classes": "js-inpagelink"
+                    },
+                    {
+                        "text": "Enter a date",
+                        "index": true,
+                        "url": "#date",
                         "classes": "js-inpagelink"
                     }
                 ]
@@ -56,8 +63,8 @@ layout: none
     }) %}
         {{
             onsInput({
-                "id": "number",
                 "type": "number",
+                "id": "number-0",
                 "classes": "input--w-5",
                 "fieldClasses": "question__answer",
                 "attributes": {
@@ -68,6 +75,7 @@ layout: none
                     "text": "Number of employees paid monthly"
                 },
                 "error": {
+                    "id": "number",
                     "text": "Enter a number."
                 }
             })
@@ -75,8 +83,8 @@ layout: none
 
         {{
             onsInput({
-                "id": "suffixed",
                 "type": "number",
+                "id": "number-input",
                 "classes": "input--w-2",
                 "fieldClasses": "question__answer",
                 "value": "101",
@@ -91,7 +99,8 @@ layout: none
                     "text": "%"
                 },
                 "error": {
-                    "text": "Enter a number less than or equal to 100."
+                    "id": "suffixed",
+                    "text": "Enter a number less than or equal to 100"
                 }
             })
         }}
@@ -100,8 +109,9 @@ layout: none
             onsRadios({
                 "legend": "How many employees do you employ?",
                 "name": "food",
+                "id": "radios-1",
                 "error": {
-                    "text": "Select one answer.",
+                    "text": "Select one answer",
                     "id": "error"
                 },
                 "radios": [
@@ -121,7 +131,47 @@ layout: none
                     }
                 ]
             }) 
-        }}    {% endcall %}
+        }}    
+
+        {{
+            onsDateInput({
+                "legend": "Date of birth",
+                "description": "For example, 31 3 1980",
+                "id": "dates",
+                "day": {
+                    "label": {
+                        "text": "Day"
+                    },
+                    "name": "day",
+                    "attributes": {
+                        "autocomplete": "bday-day"
+                    }
+                },
+                "month": {
+                    "label": {
+                        "text": "Month"
+                    },
+                    "name": "month",
+                    "attributes": {
+                        "autocomplete": "bday-month"
+                    }
+                },
+                "year": {
+                    "label": {
+                        "text": "Year"
+                    },
+                    "name": "year",
+                    "attributes": {
+                        "autocomplete": "bday-year"
+                    }
+                },
+                "error": {
+                    "text": "Enter a date",
+                    "id": "date"
+                }
+            })
+        }}
+    {% endcall %}
 
     {{
         onsButton({
