@@ -7,6 +7,7 @@ layout: none
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/date-input/_macro.njk" import onsDateInput %}
 
 {% set pageConfig =  {
     "title": "Errors Prototype"
@@ -81,6 +82,40 @@ layout: none
                     }
                 ]
             }) 
+        }}
+
+        {{
+            onsDateInput({
+                "legend": "Date of birth",
+                "description": "For example, 31 3 1980",
+                "day": {
+                    "label": {
+                        "text": "Day"
+                    },
+                    "name": "day",
+                    "attributes": {
+                        "autocomplete": "bday-day"
+                    }
+                },
+                "month": {
+                    "label": {
+                        "text": "Month"
+                    },
+                    "name": "month",
+                    "attributes": {
+                        "autocomplete": "bday-month"
+                    }
+                },
+                "year": {
+                    "label": {
+                        "text": "Year"
+                    },
+                    "name": "year",
+                    "attributes": {
+                        "autocomplete": "bday-year"
+                    }
+                }
+            })
         }}
     {% endcall%}
 
