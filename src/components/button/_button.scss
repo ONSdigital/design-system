@@ -123,10 +123,14 @@ $button-border-height: 3px;
   &--link &__inner {
     &:after {
       content: '';
-
       margin: 0 0 0 0.5rem;
       vertical-align: middle;
     }
+  }
+
+  // Link button when hovered
+  &--link:hover {
+    text-decoration: none;
   }
 
   // Link button when focussed
@@ -181,7 +185,7 @@ $button-border-height: 3px;
 
   &--link.btn--secondary &__inner {
     &:after {
-      @include icon($name: 'chevron-right', $height: 0.8rem);
+      @include icon($name: 'chevron-right-black', $height: 0.8rem);
     }
   }
 
@@ -193,7 +197,7 @@ $button-border-height: 3px;
 
   &--link.btn--small.btn--secondary &__inner {
     &:after {
-      @include icon($name: 'chevron-right', $height: 0.7rem);
+      @include icon($name: 'chevron-right-black', $height: 0.7rem);
     }
   }
 
