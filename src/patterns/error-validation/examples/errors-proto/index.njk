@@ -8,6 +8,8 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/date-input/_macro.njk" import onsDateInput %}
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+{% from "components/password/_macro.njk" import onsPassword %}
 
 {% set pageConfig =  {
     "title": "Errors Prototype"
@@ -115,6 +117,38 @@ layout: none
                         "autocomplete": "bday-year"
                     }
                 }
+            })
+        }}
+        {{ 
+            onsCheckboxes({
+                "legend": "What are your favourite pizza toppings?",
+                "checkboxesLabel": "Select all that apply",
+                "name": "food",
+                "checkboxes": [
+                    {
+                        "id": "bacon",
+                        "label": {
+                            "text": "Bacon"
+                        },
+                        "value": "bacon"
+                    },
+                    {
+                        "id": "olives",
+                        "label": {
+                            "text": "Olives"
+                        },
+                        "value": "olives"
+                    }
+                ]
+            }) 
+        }}
+        {{
+            onsPassword({
+                "id": "password",
+                "label": {
+                    "text": "Password"
+                },
+                "showPasswordText": "Show password"
             })
         }}
     {% endcall%}
