@@ -1,7 +1,7 @@
 | Name               | Type                                     | Required | Description                                                                                                                       |
 | ------------------ | ---------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| id                 | string                                   | true     | ID to apply to the `<details>` element wrapping the feedback component                                                            |
-| title              | string                                   | true     | Text to show in the `<summary>` element of the wrapping details component                                                         |
+| id                 | string                                   | true     | ID to apply to the `.collapsible` element wrapping the feedback component                                                         |
+| title              | string                                   | true     | Text to show in the `.collapsible__heading` element of the wrapping collapsible element component                                 |
 | action             | string                                   | true     | The URL for the action of the feedback form                                                                                       |
 | textarea           | Textarea [_(ref)_](/components/textarea) | true     | Configuration for the textarea element, excluding `fieldId`, `fieldClasses`, and `legendClasses` parameters                       |
 | name               | Input [_(ref)_](/components/input)       | true     | Configuration for the name input excluding `type`, `prefix`, `suffix`, `fieldId`, `fieldClasses`, and `legendClasses` parameters  |

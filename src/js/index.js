@@ -6,7 +6,7 @@ import 'components/textarea/character-limit.dom';
 import 'components/search/character-check.dom';
 import 'components/password/password.dom';
 import 'components/tabs/tabs.dom';
-import 'components/details/collapsible.dom';
+import 'components/collapsible/collapsible.dom';
 import 'components/table/scrollable-table.dom';
 import 'components/table/sortable-table.dom';
 import 'components/header/header-nav.dom';
