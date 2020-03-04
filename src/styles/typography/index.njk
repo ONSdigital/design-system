@@ -9,7 +9,7 @@ anchorLinks: true
 Text is the primary way that users digest information and accomplish tasks, so it’s important to use good typographic principles to establish a clear visual hierarchy and to maximize legibility.
 
 ### Open Sans
-The primary font used in SDC is [Open Sans](https://fonts.google.com/specimen/Open+Sans), defaulting to stylistic set 2 (for open g's).
+The primary font used in SDC is <a href="https://fonts.google.com/specimen/Open+Sans" target="_blank" rel="noopener" class="icon--external-link">Open Sans</a> , defaulting to stylistic set 2 (for open g's).
 
 Open Sans, with its broad range of weights and extensive unicode support was chosen to provide a good balance between legibility, personality and readability. As the majority of our User Interface (UI) is text-based, we use weight and size to denote hierarchy and separation between content. Open Sans' letterforms also provide a good level of contrast which aid readability on poorer quality displays and for users with visual impairment.
 
@@ -78,6 +78,18 @@ Use when providing an address or contact information
     patternlibExample({"path": "styles/typography/text-indent/examples/text-indent/index.njk", "componentFolderPath": "components/text-indent"})
 }}
 
+## Links
+Links are blue and underlined by default. If your link is at the end of a sentence or paragraph, make sure that the linked text does not include the full stop.
+
+{{
+    patternlibExample({"path": "styles/typography/links/examples/link/index.html"})
+}}
+
+### External Links
+Links that link out to exernal websites using `target="_blank"` to open that websites in a new tab should also have`rel="noopener"` added to them.
+This will guard against a security vulnerability which can be exploited by malicious websites. It should also have the external link icon added as
+shown in [the icons section](#link-with-external-link-icon).
+
 ## Lists
 Use lists to break up blocks of text into concise, manageable chunks to make it easier to read.
 
@@ -140,14 +152,14 @@ __How to use:__ Use `icon--lock` class on a `<p>` element.
 ### Contribute to icons
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-   If you have any requests for icons or research findings please feed back via the <a href="https://github.com/ONSdigital/design-system/issues/95" target="_blank" rel="noopener">Design System forum</a>.
+   If you have any requests for icons or research findings please feed back via the <a href="https://github.com/ONSdigital/design-system/issues/95" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
 {% endcall %}
 
 ## Research on this style
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-   If you have conducted any user research using this style, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/233" target="_blank" rel="noopener">Design System forum</a>.
+   If you have conducted any user research using this style, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/233" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
 {% endcall %}
 
-## Design System forum 
-[Discuss 'Typography' on GitHub](https://github.com/ONSdigital/design-system/issues/233)
+## Design System forum
+<a href="https://github.com/ONSdigital/design-system/issues/233" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Typography' on GitHub</a>
