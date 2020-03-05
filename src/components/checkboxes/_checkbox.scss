@@ -24,6 +24,7 @@ $checkbox-label-vertical-padding: 0.75rem;
     border-radius: 0.2rem;
 
     background: url(#{$static}/img/icons/icons--check.svg) no-repeat center center;
+    background-color: $color-white;
     background-size: 0px;
 
     &:focus,

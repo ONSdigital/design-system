@@ -14,7 +14,7 @@
       {% if params.value %}value="{{ params.value }}"{% endif %}
       {% if params.name %}name="{{ params.name }}"{% endif %}
       {% if params.disabled %} disabled{% endif %}
-      {% if params.url and params.newWindow %}target="_blank"{% endif %}
+      {% if params.url and params.newWindow %}target="_blank" rel="noopener"{% endif %}
       {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
       >
       <span class="btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}{% if params.newWindow %} icon--external-link{% endif %}">{{- params.html | safe if params.html else params.text -}}</span>
