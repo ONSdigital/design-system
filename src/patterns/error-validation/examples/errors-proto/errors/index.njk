@@ -10,6 +10,8 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/date-input/_macro.njk" import onsDateInput %}
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+{% from "components/password/_macro.njk" import onsPassword %}
 
 {% set pageConfig =  {
     "title": "Errors Prototype"
@@ -51,6 +53,18 @@ layout: none
                         "text": "Enter a date",
                         "index": true,
                         "url": "#date",
+                        "classes": "js-inpagelink"
+                    },
+                    {
+                        "text": "Select toppings",
+                        "index": true,
+                        "url": "#check",
+                        "classes": "js-inpagelink"
+                    },
+                    {
+                        "text": "Enter password",
+                        "index": true,
+                        "url": "#pass",
                         "classes": "js-inpagelink"
                     }
                 ]
@@ -169,6 +183,46 @@ layout: none
                     "text": "Enter a date",
                     "id": "date"
                 }
+            })
+        }}
+        {{ 
+            onsCheckboxes({
+                "legend": "What are your favourite pizza toppings?",
+                "checkboxesLabel": "Select all that apply",
+                "name": "food",
+                "error": {
+                    "text": "Select answers",
+                    "id": "check"
+                },
+                "checkboxes": [
+                    {
+                        "id": "bacon",
+                        "label": {
+                            "text": "Bacon"
+                        },
+                        "value": "bacon"
+                    },
+                    {
+                        "id": "olives",
+                        "label": {
+                            "text": "Olives"
+                        },
+                        "value": "olives"
+                    }
+                ]
+            }) 
+        }}
+        {{
+            onsPassword({
+                "id": "password",
+                "label": {
+                    "text": "Password"
+                },
+                "error": {
+                    "text": "Enter password",
+                    "id": "pass"
+                },
+                "showPasswordText": "Show password"
             })
         }}
     {% endcall %}
