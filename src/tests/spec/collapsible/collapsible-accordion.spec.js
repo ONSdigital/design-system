@@ -1,7 +1,7 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/accordion/_test-template.njk';
-import Collapsible from 'components/details/collapsible';
-import CollapsibleGroup from 'components/details/collapsible.group';
+import Collapsible from 'components/collapsible/collapsible';
+import CollapsibleGroup from 'components/collapsible/collapsible.group';
 import eventMock from 'stubs/event.stub.spec';
 
 const params = {
@@ -66,19 +66,19 @@ describe('Component: Accordion', function() {
 
   describe('When the component initialises', function() {
     it('then the toggle button element should not have a u-d-no class', function() {
-      new Collapsible(this.item.details);
+      new Collapsible(this.item.collapsible);
       expect([...this.toggleButton.classList].includes('u-d-no')).to.be.false;
     });
 
-    it('then none of the summary items should have a tabindex attribute', function() {
+    it('then none of the collapsibleHeader items should have a tabindex attribute', function() {
       this.items.forEach(item => {
-        expect(item.summary.hasAttribute('tabindex')).to.be.false;
+        expect(item.collapsibleHeader.hasAttribute('tabindex')).to.be.false;
       });
     });
 
     beforeEach(function() {
       this.item = this.items[0];
-      this.collapsible = new Collapsible(this.item.details);
+      this.collapsible = new Collapsible(this.item.collapsible);
       this.group = new CollapsibleGroup(this.toggleButton, [this.collapsible]);
 
       this.collapsible.onOpen = chai.spy(this.collapsible.onOpen);
@@ -159,14 +159,14 @@ function renderComponent(params) {
 
   const toggleButton = wrapper.querySelector('.js-collapsible-all');
 
-  const items = [...wrapper.querySelectorAll('.js-collapsible')].map(details => {
-    const summary = details.querySelector('.js-collapsible-summary');
-    const content = details.querySelector('.js-collapsible-content');
-    const button = details.querySelector('.js-collapsible-button');
+  const items = [...wrapper.querySelectorAll('.js-collapsible')].map(collapsible => {
+    const collapsibleHeader = collapsible.querySelector('.js-collapsible-heading');
+    const content = collapsible.querySelector('.js-collapsible-content');
+    const button = collapsible.querySelector('.js-collapsible-button');
 
     return {
-      details,
-      summary,
+      collapsible,
+      collapsibleHeader,
       content,
       button,
     };

@@ -1,5 +1,5 @@
 {% macro onsAccordion(params) %}
-    {% from "components/details/_macro.njk" import onsDetails %}
+    {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 
     <div id="{{params.id}}" class="accordion{{ ' ' + params.classes if params.classes }}">
         {% if params.allButton %}
@@ -23,12 +23,12 @@
         {% endif %}
         {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
             {{
-                onsDetails({
+                onsCollapsible({
                     "isAccordion": true,
                     "id": params.id + "-" + (loop.index | string),
                     "button": item.button,
                     "attributes": item.attributes,
-                    "summaryAttributes": item.summaryAttributes,
+                    "headingAttributes": item.headingAttributes,
                     "title": item.title,
                     "titleTag": item.titleTag,
                     "content": item.content,

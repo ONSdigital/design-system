@@ -2,38 +2,38 @@ import fetch from 'js/abortable-fetch';
 
 export default class Feedback {
   constructor(buttons) {
-    this.details = document.querySelector('.js-feedback');
+    this.collapsible = document.querySelector('.js-feedback');
 
-    if (this.details) {
-      this.id = this.details.getAttribute('id');
+    if (this.collapsible) {
+      this.id = this.collapsible.getAttribute('id');
 
       buttons.forEach(button => button.addEventListener('click', this.openFeedback.bind(this)));
 
-      this.form = this.details.querySelector('.js-feedback-form');
-      this.textarea = this.details.querySelector('.js-feedback-textarea');
-      this.name = this.details.querySelector('.js-feedback-name');
-      this.email = this.details.querySelector('.js-feedback-email');
-      this.pageUrl = this.details.querySelector('.js-feedback-email');
-      this.pageUrl = this.details.querySelector('.js-feedback-page-url');
-      this.pagTitle = this.details.querySelector('.js-feedback-page-title');
-      this.button = this.details.querySelector('.js-feedback-send');
+      this.form = this.collapsible.querySelector('.js-feedback-form');
+      this.textarea = this.collapsible.querySelector('.js-feedback-textarea');
+      this.name = this.collapsible.querySelector('.js-feedback-name');
+      this.email = this.collapsible.querySelector('.js-feedback-email');
+      this.pageUrl = this.collapsible.querySelector('.js-feedback-email');
+      this.pageUrl = this.collapsible.querySelector('.js-feedback-page-url');
+      this.pagTitle = this.collapsible.querySelector('.js-feedback-page-title');
+      this.button = this.collapsible.querySelector('.js-feedback-send');
 
       this.form.addEventListener('submit', this.handleSubmit.bind(this));
     }
   }
 
   openFeedback() {
-    if (this.details) {
-      const summary = this.details.querySelector('.js-collapsible-summary');
+    if (this.collapsible) {
+      const collapsibleHeader = this.collapsible.querySelector('.js-collapsible-heading');
 
-      if (!this.details.open) {
-        summary.click();
+      if (!this.collapsible.open) {
+        collapsibleHeader.click();
       }
 
-      // Focus the summary item for screen readers
+      // Focus the collapsibleHeader item for screen readers
       setTimeout(() => {
-        summary.blur();
-        summary.focus();
+        collapsibleHeader.blur();
+        collapsibleHeader.focus();
       });
     }
   }
@@ -60,9 +60,9 @@ export default class Feedback {
     thankYouMessage.setAttribute('aria-live', 'assertive');
     thankYouMessage.innerText = this.form.getAttribute('data-thank-you');
 
-    this.details.parentNode.insertBefore(thankYouMessage, this.details.nextSibling);
+    this.collapsible.parentNode.insertBefore(thankYouMessage, this.collapsible.nextSibling);
 
-    this.details.remove();
+    this.collapsible.remove();
   }
 
   onError(response) {

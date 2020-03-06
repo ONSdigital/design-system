@@ -1,8 +1,8 @@
-$details-caret-width: 1.1rem;
-$details-caret-right-spacing: 0.4rem;
+$collapsible-caret-width: 1.1rem;
+$collapsible-caret-right-spacing: 0.4rem;
 
-.details {
-  &__summary {
+.collapsible {
+  &__heading {
     display: inline-block;
     position: relative;
     outline: none;
@@ -13,19 +13,13 @@ $details-caret-right-spacing: 0.4rem;
     }
   }
 
-  &__heading {
-    // Required for Google Tag Manager
-    pointer-events: none;
-  }
-
   &__title {
     transform: translateY(-1px);
-    pointer-events: none;
   }
 
   &--initialised & {
-    &__summary {
-      padding: 0 0 0 ($details-caret-width + $details-caret-right-spacing);
+    &__heading {
+      padding: 0 0 0 ($collapsible-caret-width + $collapsible-caret-right-spacing);
       color: $color-links;
       cursor: pointer;
       pointer-events: initial;
@@ -44,11 +38,11 @@ $details-caret-right-spacing: 0.4rem;
       }
 
       &:focus {
-        & .details__title {
+        & .collapsible__title {
           @extend a:focus;
-          // extend summary focus background behind caret
-          padding-left: $details-caret-right-spacing + $details-caret-width;
-          margin-left: -($details-caret-right-spacing + $details-caret-width);
+          // extend collapsible focus background behind caret
+          padding-left: $collapsible-caret-right-spacing + $collapsible-caret-width;
+          margin-left: -($collapsible-caret-right-spacing + $collapsible-caret-width);
         }
       }
 
@@ -59,12 +53,12 @@ $details-caret-right-spacing: 0.4rem;
         position: absolute;
         top: 0.1rem;
         left: 0;
-        width: $details-caret-width;
-        height: $details-caret-width;
+        width: $collapsible-caret-width;
+        height: $collapsible-caret-width;
 
         background-repeat: no-repeat;
         background-position: 0 0;
-        background-size: $details-caret-width $details-caret-width;
+        background-size: $collapsible-caret-width $collapsible-caret-width;
       }
 
       &:after {
@@ -89,6 +83,7 @@ $details-caret-right-spacing: 0.4rem;
 
     &__title {
       text-decoration: underline;
+      margin-bottom: 0;
     }
 
     &__content {
@@ -97,7 +92,7 @@ $details-caret-right-spacing: 0.4rem;
   }
 
   &--open & {
-    &__summary {
+    &__heading {
       &:before,
       &:after {
         transform: rotate(90deg);
@@ -117,7 +112,7 @@ $details-caret-right-spacing: 0.4rem;
   }
 
   &--accordion & {
-    &__summary {
+    &__heading {
       margin: 0;
       padding-top: 1rem;
       padding-bottom: 1rem;
@@ -137,7 +132,7 @@ $details-caret-right-spacing: 0.4rem;
       }
     }
 
-    &__heading {
+    &__controls {
       display: flex;
       align-items: center;
       justify-content: space-between;

@@ -1,22 +1,22 @@
 ---
-title: Details
+title: Collapsible
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/table/_macro.njk" import onsTable %}
 
-Details simplify a page by allowing the user to reveal certain content only if they need it.
+The collapsible component is used to simplify a page by allowing the user to reveal certain content only if they need it.
 
 {{
-    patternlibExample({"path": "components/details/examples/details/index.njk"})
+    patternlibExample({"path": "components/collapsible/examples/collapsible/index.njk"})
 }}
 
 ## When to use this component
-Use the details component to make a page easier to read by condensing information that is only needed by some users.
+Use the collapsible component to make a page easier to read by condensing information that is only needed by some users.
 
-Details can be used to condense a single block of content into a single selectable heading, allowing the user to reveal it if and when they need it.  
+The collapsible can be used to condense a single block of content into a single selectable heading, allowing the user to reveal it if and when they need it.  
 
-Good uses of the details component are: 
+Good uses of the collapsible component are: 
 {{ 
     onsList({
         "itemsList": [
@@ -31,27 +31,27 @@ Good uses of the details component are:
 }}
 
 ## When not to use this component
-Don't use the details component to hide information that the majority of your users will need to progress with their task.
+Don't use the collapsible component to hide information that the majority of your users will need to progress with their task.
 
 ### Alternative components
-[Accordions](/components/accordion), [tabs](/components/tabs) and details all hide sections of content which a user can show or hide.
+[Accordions](/components/accordion), [tabs](/components/tabs) and collapsible all hide sections of content which a user can show or hide.
 
-Use the details component instead of [tabs](/components/tabs) or [accordions](/components/accordion) if there is only one section of content that needs to be condensed.
-## Details with save state enabled
+Use the collapsible component instead of [tabs](/components/tabs) or [accordions](/components/accordion) if there is only one section of content that needs to be condensed.
+## Collapsible with save state enabled
 {{
-    patternlibExample({"path": "components/details/examples/details-with-save/index.njk"})
+    patternlibExample({"path": "components/collapsible/examples/collapsible-with-save/index.njk"})
 }}
 
 ## How to use this component
-The details component uses JavaScript so when it's turned off, the section of content is expanded and displayed as a standard heading and paragraph.
+The collapsible component uses JavaScript so when it's turned off, the section of content is expanded and displayed as a standard heading and paragraph.
 
-Use an appropriate heading tag (h2, h3 etc) for the `details__title` to provide the correct scemantic hierarchy to the document with the rest of the page.
+Use an appropriate heading tag (h2, h3 etc) for the `collapsible__title` to provide the correct scemantic hierarchy to the document with the rest of the page.
 
 ### Use a clear label
-The details component hides content so make sure your heading is clear so the user doesn't need to work hard to understand if they need to click on it.
+The collapsible component hides content so make sure your heading is clear so the user doesn't need to work hard to understand if they need to click on it.
 
 ### Accessibility
-The details component is made accessible by using the following `aria` attributes which are attached on `domready` via Javascript:
+The collapsible component is made accessible by using the following `aria` attributes which are attached on `domready` via Javascript:
 {{
     onsTable({
         "ths": [
@@ -69,13 +69,13 @@ The details component is made accessible by using the following `aria` attribute
             {
                 "tds": [
                     {
-                        "value": "<code>details.details</code>"
+                        "value": "<code>.collapsible</code>"
                     },
                     {
                         "value": '<code>aria-expanded="true/false"</code>'
                     },
                     {
-                        "value": "Indicates the state of the associated <code>.details__summary</code>"
+                        "value": "Indicates the state of the associated <code>.collapsible__heading</code>"
                     }
                 ]
             },
@@ -88,20 +88,20 @@ The details component is made accessible by using the following `aria` attribute
                         "value": '<code>aria-selected="true/false"</code>'
                     },
                     {
-                        "value": "Indicates the selected state of the focussed <code>.details</code> element"
+                        "value": "Indicates the selected state of the focussed <code>.collapsible</code> element"
                     }
                 ]
             },
             {
                 "tds": [
                     {
-                        "value": "<code>summary.details__summary</code>"
+                        "value": "<code>.collapsible__heading</code>"
                     },
                     {
                         "value": '<code>aria-controls="{ID}-content"</code>'
                     },
                     {
-                        "value": "Indicates the <code>id</code> of the display controller element for the associated <code>.details__content</code> block."
+                        "value": "Indicates the <code>id</code> of the display controller element for the associated <code>.collapsible__content</code> block."
                     }
                 ]
             },
@@ -114,14 +114,14 @@ The details component is made accessible by using the following `aria` attribute
                         "value": '<code>aria-controls="{ID}-content"</code>'
                     },
                     {
-                        "value": "Indicates the <code>id</code> of the display controller element for the associated <code>.details__content</code> block."
+                        "value": "Indicates the <code>id</code> of the display controller element for the associated <code>.collapsible__content</code> block."
                     }
                 ]
             },
             {
                 "tds": [
                     {
-                        "value": "<code>.details__content</code>"
+                        "value": "<code>.collapsible__content</code>"
                     },
                     {
                         "value": '<code>aria-hidden="true/false"</code>'
@@ -147,4 +147,4 @@ Optionally pass event tracking `data` attributes for Google Analytics using `dat
 }}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/148" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Details' on GitHub</a>
+<a href="https://github.com/ONSdigital/design-system/issues/148" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Collapsible' on GitHub</a>

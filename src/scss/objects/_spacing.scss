@@ -4,14 +4,14 @@
 .figure +,
 .panel +,
 .summary__group +,
-.details:not(.details--accordion) + {
+.collapsible:not(.collapsible--accordion) + {
   .figure,
   .field,
   .field-group,
   .fieldset,
   .panel,
   .summary__group,
-  .details:not(.details--accordion) {
+  .collapsible:not(.collapsible--accordion) {
     margin-top: 1.5rem;
   }
 }

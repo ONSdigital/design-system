@@ -5,7 +5,7 @@
     {% from "components/button/_macro.njk" import onsButton %}
     
     <div class="page__feedback {{ params.classes }}">
-        <details
+        <div
             id="{{ params.id }}"
             class="feedback js-collapsible js-feedback{% if params.classes %} {{ params.classes }}{% endif %}"
             open
@@ -14,17 +14,17 @@
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             {% if params.saveState %} data-save-state="true"{% endif %}
         >
-            <summary 
-                class="feedback__summary js-collapsible-summary u-p-no@xs@l"
-                {% if params.summaryAttributes %}{% for attribute, value in (params.summaryAttributes.items() if params.summaryAttributes is mapping and params.summaryAttributes.items else params.summaryAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            <div 
+                class="feedback__heading js-collapsible-heading u-p-no@xs@l"
+                {% if params.headerAttributes %}{% for attribute, value in (params.headerAttributes.items() if params.headerAttributes is mapping and params.headerAttributes.items else params.headerAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             >
                 {# Required to use display flex on Safari as it's not currently supported: https://bugs.webkit.org/show_bug.cgi?id=167111 #}
-                <div class="feedback__header">
+                <div class="feedback_controls">
                     <div class="feedback__link">
                         <span class="feedback__title u-fs-r--b">{{ params.title }}</span>
                     </div>
                 </div>
-            </summary>
+            </div>
             <div id="{{ params.id }}-content" class="feedback__content js-collapsible-content">
                 <div class="container">                
                     <div class="grid">                                         
@@ -150,6 +150,6 @@
                     </div>    
                 </div>
             </div>
-        </details>
+        </div>
     </div>
 {% endmacro %}
