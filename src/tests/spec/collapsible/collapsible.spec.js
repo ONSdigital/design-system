@@ -1,9 +1,9 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/details/_test-template.njk';
-import Collapsible from 'components/details/collapsible';
+import template from 'components/collapsible/_test-template.njk';
+import Collapsible from 'components/collapsible/collapsible';
 
 const params = {
-  id: 'details',
+  id: 'collapsible',
   title: 'What is a photovoltaic system?',
   content:
     '<p>A typical photovoltaic system employs solar panels, each comprising a number of solar cells, which generate electrical power. PV installations may be ground-mounted, rooftop mounted or wall mounted. The mount may be fixed, or use a solar tracker to follow the sun across the sky.</p>',
@@ -13,7 +13,7 @@ const params = {
   saveState: null,
 };
 
-describe('Component: Details', function() {
+describe('Component: collapsible', function() {
   before(() => awaitPolyfills);
 
   describe('If the component has a button', function() {
@@ -32,32 +32,32 @@ describe('Component: Details', function() {
         }
       });
 
-      it('then the details element should have a open attribute', function() {
-        expect(this.details.hasAttribute('open')).to.be.true;
+      it('then the collapsible element should have a open attribute', function() {
+        expect(this.collapsible.hasAttribute('open')).to.be.true;
       });
 
-      it('then the details element should not have a details--initialised class', function() {
-        expect(this.details.classList.contains('details--initialised')).to.be.false;
+      it('then the collapsible element should not have a collapsible--initialised class', function() {
+        expect(this.collapsible.classList.contains('collapsible--initialised')).to.be.false;
       });
 
-      it('then the summary element should not have a role attribute', function() {
-        expect(this.summary.hasAttribute('role')).to.be.false;
+      it('then the collapsibleHeader element should not have a role attribute', function() {
+        expect(this.collapsibleHeader.hasAttribute('role')).to.be.false;
       });
 
-      it('then the summary element should not have an aria-expanded attribute', function() {
-        expect(this.summary.hasAttribute('aria-expanded')).to.be.false;
+      it('then the collapsibleHeader element should not have an aria-expanded attribute', function() {
+        expect(this.collapsibleHeader.hasAttribute('aria-expanded')).to.be.false;
       });
 
-      it('then the summary element should not have a tabindex attribute', function() {
-        expect(this.summary.hasAttribute('tabindex')).to.be.false;
+      it('then the collapsibleHeader element should not have a tabindex attribute', function() {
+        expect(this.collapsibleHeader.hasAttribute('tabindex')).to.be.false;
       });
 
-      it('then the summary element should not have a role attribute', function() {
-        expect(this.summary.hasAttribute('role')).to.be.false;
+      it('then the collapsibleHeader element should not have a role attribute', function() {
+        expect(this.collapsibleHeader.hasAttribute('role')).to.be.false;
       });
 
-      it('then the summary element should not have an aria-controls attribute', function() {
-        expect(this.summary.hasAttribute('aria-controls')).to.be.false;
+      it('then the collapsibleHeader element should not have an aria-controls attribute', function() {
+        expect(this.collapsibleHeader.hasAttribute('aria-controls')).to.be.false;
       });
 
       it('then the content element should not have an aria-hidden attribute', function() {
@@ -77,7 +77,7 @@ describe('Component: Details', function() {
           this[key] = component[key];
         });
 
-        new Collapsible(this.details);
+        new Collapsible(this.collapsible);
       });
 
       afterEach(function() {
@@ -86,37 +86,37 @@ describe('Component: Details', function() {
         }
       });
 
-      it('then the open attribute should be removed from the details element', function() {
-        expect(this.details.hasAttribute('open')).to.be.false;
+      it('then the open attribute should be removed from the collapsible element', function() {
+        expect(this.collapsible.hasAttribute('open')).to.be.false;
       });
 
-      it('then the details--initialised class should be added to the details element', function() {
-        expect(this.details.classList.contains('details--initialised')).to.be.true;
+      it('then the collapsible--initialised class should be added to the collapsible element', function() {
+        expect(this.collapsible.classList.contains('collapsible--initialised')).to.be.true;
       });
 
-      it('then an aria-expanded attribute should be added to the summary element', function() {
-        expect(this.summary.hasAttribute('aria-expanded')).to.be.true;
-        expect(this.summary.getAttribute('aria-expanded')).to.equal('false');
+      it('then an aria-expanded attribute should be added to the collapsibleHeader element', function() {
+        expect(this.collapsibleHeader.hasAttribute('aria-expanded')).to.be.true;
+        expect(this.collapsibleHeader.getAttribute('aria-expanded')).to.equal('false');
       });
 
-      it('then an role attribute should be added to the details element', function() {
-        expect(this.details.hasAttribute('role')).to.be.true;
-        expect(this.details.getAttribute('role')).to.equal('group');
+      it('then an role attribute should be added to the collapsible element', function() {
+        expect(this.collapsible.hasAttribute('role')).to.be.true;
+        expect(this.collapsible.getAttribute('role')).to.equal('group');
       });
 
-      it('then a tabindex attribute should be added to the summary element', function() {
-        expect(this.summary.hasAttribute('tabindex')).to.be.true;
-        expect(this.summary.getAttribute('tabindex')).to.equal('0');
+      it('then a tabindex attribute should be added to the collapsibleHeader element', function() {
+        expect(this.collapsibleHeader.hasAttribute('tabindex')).to.be.true;
+        expect(this.collapsibleHeader.getAttribute('tabindex')).to.equal('0');
       });
 
-      it('then an aria-controls attribute should be added to the summary element', function() {
-        expect(this.summary.hasAttribute('aria-controls')).to.be.true;
-        expect(this.summary.getAttribute('aria-controls')).to.equal(this.details.getAttribute('id'));
+      it('then an aria-controls attribute should be added to the collapsibleHeader element', function() {
+        expect(this.collapsibleHeader.hasAttribute('aria-controls')).to.be.true;
+        expect(this.collapsibleHeader.getAttribute('aria-controls')).to.equal(this.collapsible.getAttribute('id'));
       });
 
-      it('then an role attribute should be added to the summary element', function() {
-        expect(this.summary.hasAttribute('role')).to.be.true;
-        expect(this.summary.getAttribute('role')).to.equal('link');
+      it('then an role attribute should be added to the collapsibleHeader element', function() {
+        expect(this.collapsibleHeader.hasAttribute('role')).to.be.true;
+        expect(this.collapsibleHeader.getAttribute('role')).to.equal('link');
       });
 
       it('then an aria-hidden attribute should be added to the content element', function() {
@@ -131,14 +131,14 @@ describe('Component: Details', function() {
       describe('and the component is closed', function() {
         describe('when the component is opened', function() {
           beforeEach(function() {
-            this.summary.click();
+            this.collapsibleHeader.click();
           });
 
           onOpenTests();
 
           describe('and saveState isnt set', function() {
             it('then the local storage item should not be added', function() {
-              expect(localStorage.getItem(this.details.getAttribute('id'))).to.be.null;
+              expect(localStorage.getItem(this.collapsible.getAttribute('id'))).to.be.null;
             });
           });
         });
@@ -146,13 +146,13 @@ describe('Component: Details', function() {
 
       describe('and the component has been opened', function() {
         beforeEach(function(done) {
-          this.summary.click();
+          this.collapsibleHeader.click();
           setTimeout(done);
         });
 
-        describe('when the component is closed from the summary element', function() {
+        describe('when the component is closed from the collapsibleHeader element', function() {
           beforeEach(function() {
-            this.summary.click();
+            this.collapsibleHeader.click();
           });
 
           onCloseTests();
@@ -177,23 +177,23 @@ describe('Component: Details', function() {
           this[key] = component[key];
         });
 
-        localStorage.setItem(this.details.getAttribute('id'), true);
+        localStorage.setItem(this.collapsible.getAttribute('id'), true);
 
-        new Collapsible(this.details);
+        new Collapsible(this.collapsible);
       });
 
       afterEach(function() {
         if (this.wrapper) {
           this.wrapper.remove();
         }
-        localStorage.removeItem(this.details.getAttribute('id'));
+        localStorage.removeItem(this.collapsible.getAttribute('id'));
       });
 
       onOpenTests();
 
       describe('and the component is closed', function() {
         beforeEach(function(done) {
-          this.summary.click();
+          this.collapsibleHeader.click();
           setTimeout(done);
         });
 
@@ -201,11 +201,11 @@ describe('Component: Details', function() {
 
         describe('and the component is opened', function() {
           beforeEach(function(done) {
-            this.summary.click();
+            this.collapsibleHeader.click();
             setTimeout(done);
           });
           it('then the local storage item should be added', function() {
-            expect(localStorage.getItem(this.details.getAttribute('id'))).to.equal('true');
+            expect(localStorage.getItem(this.collapsible.getAttribute('id'))).to.equal('true');
           });
         });
       });
@@ -230,7 +230,7 @@ describe('Component: Details', function() {
 
     describe('When the component initialises', function() {
       beforeEach(function() {
-        this.collapsible = new Collapsible(this.details);
+        this.collapsible = new Collapsible(this.collapsible);
       });
 
       it('there should be no closeButton or buttonOpen properties', function() {
@@ -249,35 +249,35 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const details = wrapper.querySelector('.js-collapsible');
-  const summary = details.querySelector('.js-collapsible-summary');
-  const content = details.querySelector('.js-collapsible-content');
-  const button = details.querySelector('.js-collapsible-button');
+  const collapsible = wrapper.querySelector('.js-collapsible');
+  const collapsibleHeader = collapsible.querySelector('.js-collapsible-heading');
+  const content = collapsible.querySelector('.js-collapsible-content');
+  const button = collapsible.querySelector('.js-collapsible-button');
 
   return {
     wrapper,
-    details,
-    summary,
+    collapsible,
+    collapsibleHeader,
     content,
     button,
   };
 }
 
 function onCloseTests() {
-  it('then the open attribute on the details element should be removed', function() {
-    expect(this.details.hasAttribute('open')).to.be.false;
+  it('then the open attribute on the collapsible element should be removed', function() {
+    expect(this.collapsible.hasAttribute('open')).to.be.false;
   });
 
-  it('then a details--open class should be removed from details', function() {
-    expect(this.details.classList.contains('details--open')).to.be.false;
+  it('then a collapsible--open class should be removed from collapsible', function() {
+    expect(this.collapsible.classList.contains('collapsible--open')).to.be.false;
   });
 
-  it('then the aria-expanded attribute on the summary element should be set to false', function() {
-    expect(this.summary.getAttribute('aria-expanded')).to.equal('false');
+  it('then the aria-expanded attribute on the collapsibleHeader element should be set to false', function() {
+    expect(this.collapsibleHeader.getAttribute('aria-expanded')).to.equal('false');
   });
 
-  it('then the data-ga-action attribute on the summary element should be set to "Close panel', function() {
-    expect(this.summary.getAttribute('data-ga-action')).to.equal('Close panel');
+  it('then the data-ga-action attribute on the collapsibleHeader element should be set to "Close panel', function() {
+    expect(this.collapsibleHeader.getAttribute('data-ga-action')).to.equal('Close panel');
   });
 
   it('then the aria-hidden attribute on the content element should be set to true', function() {
@@ -285,25 +285,25 @@ function onCloseTests() {
   });
 
   it('then the local storage item should be removed or not set', function() {
-    expect(localStorage.getItem(this.details.getAttribute('id'))).to.be.null;
+    expect(localStorage.getItem(this.collapsible.getAttribute('id'))).to.be.null;
   });
 }
 
 function onOpenTests() {
-  it('then the open attribute on the summary element should be added', function() {
-    expect(this.summary.hasAttribute('aria-expanded')).to.be.true;
+  it('then the open attribute on the collapsibleHeader element should be added', function() {
+    expect(this.collapsibleHeader.hasAttribute('aria-expanded')).to.be.true;
   });
 
-  it('then a details--open class should be added to the details', function() {
-    expect(this.details.classList.contains('details--open')).to.be.true;
+  it('then a collapsible--open class should be added to the collapsible', function() {
+    expect(this.collapsible.classList.contains('collapsible--open')).to.be.true;
   });
 
-  it('then the aria-expanded attribute on the summary element should be set to true', function() {
-    expect(this.summary.getAttribute('aria-expanded')).to.equal('true');
+  it('then the aria-expanded attribute on the collapsibleHeader element should be set to true', function() {
+    expect(this.collapsibleHeader.getAttribute('aria-expanded')).to.equal('true');
   });
 
-  it('then the data-ga-action attribute on the summary element should be set to "Open panel', function() {
-    expect(this.summary.getAttribute('data-ga-action')).to.equal('Open panel');
+  it('then the data-ga-action attribute on the collapsibleHeader element should be set to "Open panel', function() {
+    expect(this.collapsibleHeader.getAttribute('data-ga-action')).to.equal('Open panel');
   });
 
   it('then the aria-hidden attribute on the content element should be set to false', function() {

@@ -12,8 +12,8 @@
 | titleTag | string | false | The HTML tag that is used the title e.g. `h2`. Defaults to `div` |
 | content | string | true | The content of the accordion item |
 | button | `AccordionItemButton` | false | Settings for the button |
-| attributes | object | false | HTML attributes (for example data attributes) to add to the details element |
-| summaryAttributes | object | false | HTML attributes (for example data attributes) to add to the summary element |
+| attributes | object | false | HTML attributes (for example data attributes) to add to the collapsible element |
+| headerAttributes | object | false | HTML attributes (for example data attributes) to add to the collapsible header element |
 
 ## AccordionButton
 
