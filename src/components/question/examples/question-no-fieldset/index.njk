@@ -3,7 +3,7 @@ layout: none
 ---
 {% extends "styles/page-template/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
-{% from "components/details/_macro.njk" import onsDetails %}
+{% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 
@@ -25,7 +25,7 @@ layout: none
             }
         }) }}
 
-        {% call onsDetails({
+        {% call onsCollapsible({
             "id": "question-justification",
             "title": "Why your answer is important",
             "button": {

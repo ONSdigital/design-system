@@ -1,4 +1,4 @@
-{% from "components/details/_macro.njk" import onsDetails %}
+{% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 
@@ -27,7 +27,7 @@
     <tbody class="pl-question-anatomy__row">
         <tr>
             <td class="pl-question-anatomy__component">
-                {% call onsDetails({
+                {% call onsCollapsible({
                     "id": "question-definition",
                     "title": "Definition for employee",
                     "button": {
@@ -102,7 +102,7 @@
     <tbody class="pl-question-anatomy__row">
         <tr>
             <td class="pl-question-anatomy__component">
-                {% call onsDetails({
+                {% call onsCollapsible({
                     "id": "question-justification",
                     "title": "Why do we ask this question",
                     "button": {

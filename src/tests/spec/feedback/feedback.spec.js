@@ -60,8 +60,8 @@ describe('Component: Feedback', function() {
       this.button.click();
     });
 
-    it('the details element should be opened', function() {
-      expect(this.details.hasAttribute('open')).to.be.true;
+    it('the collapsible element should be opened', function() {
+      expect(this.collapsible.hasAttribute('open')).to.be.true;
     });
   });
 
@@ -142,8 +142,8 @@ function renderComponent(params) {
   document.body.appendChild(wrapper);
 
   const button = wrapper.querySelector('.js-feedback-button');
-  const details = wrapper.querySelector('.js-feedback');
-  const summary = details.querySelector('.js-collapsible-summary');
+  const collapsible = wrapper.querySelector('.js-feedback');
+  const collapsibleHeader = collapsible.querySelector('.js-collapsible-heading');
   const form = wrapper.querySelector('.js-feedback-form');
   const textarea = wrapper.querySelector('.js-feedback-textarea');
   const name = wrapper.querySelector('.js-feedback-name');
@@ -153,8 +153,8 @@ function renderComponent(params) {
 
   return {
     wrapper,
-    details,
-    summary,
+    collapsible,
+    collapsibleHeader,
     button,
     form,
     feedback,

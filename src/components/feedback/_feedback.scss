@@ -2,26 +2,23 @@ $feedback-caret-width: 1rem;
 $feedback-caret-right-spacing: 0.4rem;
 
 .feedback {
-  &.details--initialised {
+  &.collapsible--initialised {
     border-bottom: 5px solid $color-header;
   }
-  &.details--open {
+  &.collapsible--open {
     border: none;
   }
-  &__header {
-    background: $color-header;
-  }
 
-  &__summary {
+  &__heading {
+    background: $color-header;
     @extend .container;
     outline: none;
-    pointer-events: none;
     list-style: none;
 
     &:focus {
       & .feedback__title {
         @extend a:focus;
-        // extend summary focus background behind caret
+        // extend collapsibleHeader focus background behind caret
         padding-left: $feedback-caret-right-spacing + $feedback-caret-width;
         margin-left: -($feedback-caret-right-spacing + $feedback-caret-width);
       }
@@ -48,8 +45,6 @@ $feedback-caret-right-spacing: 0.4rem;
     display: inline-block;
     padding: 0.4rem 0.2rem 0.2rem ($feedback-caret-width + $feedback-caret-right-spacing);
     color: $color-text-inverse-link;
-    // Required for Google Tag Manager
-    pointer-events: none;
     line-height: 1rem;
   }
 
@@ -58,7 +53,7 @@ $feedback-caret-right-spacing: 0.4rem;
     pointer-events: none;
   }
 
-  .details--initialised & {
+  .collapsible--initialised & {
     &__link {
       cursor: pointer;
       pointer-events: initial;
@@ -113,7 +108,7 @@ $feedback-caret-right-spacing: 0.4rem;
     }
   }
 
-  .details--open & {
+  .collapsible--open & {
     &__link {
       &:before,
       &:after {
