@@ -24,7 +24,7 @@ A [width constraint](/components/input#width-constrained) class can be used to m
 
 ### Variants
 
-#### Character check
+#### Exact Character check
 
 The character check counter is displayed when the `charcheck`, `charCountOverLimitSingular`, `charCountOverLimitPlural`, `charCountPlural` and `charCountSingular` parameters are defined.
 
@@ -32,6 +32,18 @@ The button is disabled unless the input value matches the value supplied to the 
 
 {{
     patternlibExample({"path": "components/search/examples/search-character-check/index.njk"})
+}}
+
+#### Minimum Character check
+
+The character check counter is displayed when the `charcheck`, `charCountOverLimitSingular`, `charCountOverLimitPlural`, `charCountPlural` and `charCountSingular` parameters are defined.
+
+To only validate that the minim amount of characters required are entered, set the `charcheckMinOnly` parameter as true
+
+The button is disabled unless the input value matches the value supplied to the `charcheck` param.
+
+{{
+    patternlibExample({"path": "components/search/examples/search-character-min-check/index.njk"})
 }}
 
 ## Research on this component
