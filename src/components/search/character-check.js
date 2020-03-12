@@ -58,12 +58,14 @@ export default class CharCheck {
   }
 
   setButtonState(remaining, noMaxCheck) {
-    this.button.classList[(remaining === 0 || remaining < 0 && noMaxCheck) ? 'remove' : 'add']('btn--disabled');
-    this.button.disabled = (remaining === 0 || remaining < 0 && noMaxCheck) ? null : 'true';
+    this.button.classList[remaining === 0 || (remaining < 0 && noMaxCheck) ? 'remove' : 'add']('btn--disabled');
+    this.button.disabled = remaining === 0 || (remaining < 0 && noMaxCheck) ? null : 'true';
   }
 
   setShowMessage(remaining, noMaxCheck) {
-    this.checkElement.classList[(remaining < this.checkVal && remaining > 0) || (remaining < 0 && !noMaxCheck) ? 'remove' : 'add']('u-d-no');
+    this.checkElement.classList[(remaining < this.checkVal && remaining > 0) || (remaining < 0 && !noMaxCheck) ? 'remove' : 'add'](
+      'u-d-no',
+    );
   }
 
   setCheckClass(remaining, element, setClass) {
