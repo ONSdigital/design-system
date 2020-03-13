@@ -26,7 +26,6 @@ export default class CharCheck {
   updateCheckReadout(event, firstRun) {
     const value = this.input.value;
     const remaining = this.checkVal - value.length;
-    const noMaxCheck = this.checkMinOnly;
     // Prevent aria live announcement when component initialises
     if (!firstRun && event.inputType) {
       this.checkElement.setAttribute('aria-live', 'polite');
@@ -34,36 +33,36 @@ export default class CharCheck {
       this.checkElement.removeAttribute('aria-live');
     }
 
-    this.checkRemaining(remaining, noMaxCheck);
+    this.checkRemaining(remaining);
     this.setCheckClass(remaining, this.input, inputClassLimitReached);
     this.setCheckClass(remaining, this.checkElement, remainingClassLimitReached);
   }
 
-  checkRemaining(remaining, noMaxCheck) {
+  checkRemaining(remaining) {
     let message;
     if (remaining === 1) {
       message = this.singularMessage;
     } else if (remaining > 1) {
       message = this.pluralMessage;
-    } else if (remaining === -1 && !noMaxCheck) {
+    } else if (remaining === -1 && !this.checkMinOnly) {
       message = this.charLimitSingularMessage;
       remaining = Math.abs(remaining);
-    } else if (remaining < -1 && !noMaxCheck) {
+    } else if (remaining < -1 && !this.checkMinOnly) {
       message = this.charLimitPluralMessage;
       remaining = Math.abs(remaining);
     }
-    this.setShowMessage(remaining, noMaxCheck);
-    this.setButtonState(remaining, noMaxCheck);
+    this.setShowMessage(remaining);
+    this.setButtonState(remaining);
     this.checkElement.innerText = message.replace('{x}', remaining);
   }
 
-  setButtonState(remaining, noMaxCheck) {
-    this.button.classList[remaining === 0 || (remaining < 0 && noMaxCheck) ? 'remove' : 'add']('btn--disabled');
-    this.button.disabled = remaining === 0 || (remaining < 0 && noMaxCheck) ? null : 'true';
+  setButtonState(remaining) {
+    this.button.classList[remaining === 0 || (remaining < 0 && this.checkMinOnly) ? 'remove' : 'add']('btn--disabled');
+    this.button.disabled = remaining === 0 || (remaining < 0 && this.checkMinOnly) ? null : 'true';
   }
 
-  setShowMessage(remaining, noMaxCheck) {
-    this.checkElement.classList[(remaining < this.checkVal && remaining > 0) || (remaining < 0 && !noMaxCheck) ? 'remove' : 'add'](
+  setShowMessage(remaining) {
+    this.checkElement.classList[(remaining < this.checkVal && remaining > 0) || (remaining < 0 && !this.checkMinOnly) ? 'remove' : 'add'](
       'u-d-no',
     );
   }

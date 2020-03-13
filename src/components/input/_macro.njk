@@ -50,8 +50,7 @@
                     {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
                     {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
                     {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
-                    {% if params.charcheck %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charcheck }}"{% endif %}
-                    {% if params.charcheck %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charcheck }}" {%if params.charcheckMinOnly %}data-char-check-min-only="{{ params.charcheckMinOnly }}"{% endif %}{% endif %}
+                    {% if params.charcheck %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charcheck }}" {% if params.charcheckMinOnly %}data-char-check-min-only="{{ params.charcheckMinOnly }}"{% endif %}{% endif %}
                     {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                 />
 
