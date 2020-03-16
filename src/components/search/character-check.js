@@ -53,7 +53,9 @@ export default class CharCheck {
     }
     this.setShowMessage(remaining);
     this.setButtonState(remaining);
-    this.checkElement.innerText = message.replace('{x}', remaining);
+    if (message) {
+      this.checkElement.innerText = message.replace('{x}', remaining);
+    }
   }
 
   setButtonState(remaining) {
@@ -68,6 +70,6 @@ export default class CharCheck {
   }
 
   setCheckClass(remaining, element, setClass) {
-    element.classList[remaining < 0 ? 'add' : 'remove'](setClass);
+    element.classList[remaining < 0 && !this.checkMinOnly ? 'add' : 'remove'](setClass);
   }
 }
