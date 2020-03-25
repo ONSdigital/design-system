@@ -139,8 +139,21 @@ layout: none
                         },
                         "value": "olives"
                     }
-                ]
-            }) 
+                ],
+                "mutuallyExclusive": {
+                    "or": "Or",
+                    "deselectMessage": "Selecting this will uncheck all other checkboxes",
+                    "deselectGroupAdjective": "deselected",
+                    "deselectCheckboxAdjective": "deselected",
+                    "checkbox": {
+                        "id": "no-toppings",
+                        "label": {
+                            "text": "No toppings"
+                        },
+                        "value": "no-toppings"
+                    }
+                }
+            })
         }}
         {{
             onsPassword({
@@ -149,6 +162,29 @@ layout: none
                     "text": "Password"
                 },
                 "showPasswordText": "Show password"
+            })
+        }}
+        {{ 
+            onsInput({
+                "id": "email",
+                "type": "email",
+                "label": {
+                    "text": "Enter an email address"
+                },
+                "mutuallyExclusive": {
+                    "or": "Or",
+                    "deselectMessage": "Selecting this will clear your email address",
+                    "deselectGroupAdjective": "cleared",
+                    "deselectCheckboxAdjective": "deselected",
+                    "checkbox": {
+                        "id": "email-checkbox",
+                        "name": "no-email",
+                        "value": "no-email",
+                        "label": {
+                            "text": "I don't want to receive a confirmation email"
+                        }
+                    }
+                }
             })
         }}
     {% endcall%}

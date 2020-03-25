@@ -113,11 +113,7 @@
             "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
             "error": params.error
         }) %}
-            {% call onsField({
-                "error": params.error
-            }) %}
-                {{ field | safe }}
-            {% endcall %}
+        {{ field | safe }}
         {% endcall %}
     {% elif type == "hidden" %}
         {{ field | safe }}
