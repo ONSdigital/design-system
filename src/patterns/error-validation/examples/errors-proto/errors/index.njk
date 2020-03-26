@@ -66,6 +66,12 @@ layout: none
                         "index": true,
                         "url": "#pass",
                         "classes": "js-inpagelink"
+                    },
+                    {
+                        "text": "Enter an email address",
+                        "index": true,
+                        "url": "#email",
+                        "classes": "js-inpagelink"
                     }
                 ]
             })
@@ -209,7 +215,20 @@ layout: none
                         },
                         "value": "olives"
                     }
-                ]
+                ],
+                "mutuallyExclusive": {
+                    "or": "Or",
+                    "deselectMessage": "Selecting this will uncheck all other checkboxes",
+                    "deselectGroupAdjective": "deselected",
+                    "deselectCheckboxAdjective": "deselected",
+                    "checkbox": {
+                        "id": "no-toppings",
+                        "label": {
+                            "text": "No toppings"
+                        },
+                        "value": "no-toppings"
+                    }
+                }
             }) 
         }}
         {{
@@ -223,6 +242,33 @@ layout: none
                     "id": "pass"
                 },
                 "showPasswordText": "Show password"
+            })
+        }}
+        {{ 
+            onsInput({
+                "id": "email",
+                "type": "email",
+                "label": {
+                    "text": "Enter an email address"
+                },
+                "error": {
+                    "text": "Please enter an email address",
+                    "id": "email"
+                },
+                "mutuallyExclusive": {
+                    "or": "Or",
+                    "deselectMessage": "Selecting this will clear your email address",
+                    "deselectGroupAdjective": "cleared",
+                    "deselectCheckboxAdjective": "deselected",
+                    "checkbox": {
+                        "id": "email-checkbox",
+                        "name": "no-email",
+                        "value": "no-email",
+                        "label": {
+                            "text": "I don't want to receive a confirmation email"
+                        }
+                    }
+                }
             })
         }}
     {% endcall %}
