@@ -1,6 +1,6 @@
 {% macro onsCookiesBanner(params) %}
     <div class="cookies-banner" role="region" aria-label="{{ params.ariaLabel | default('cookie banner')}}">
-        <div class="container">
+        <div class="container cookies-banner__primary">
             <div class="grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap@s">
                 <div class="grid__col grid__col--flex col-auto u-flex-shrink@s">
                     <p class="cookies-banner__desc u-mr-s">{{ params.html | safe }}</p>
@@ -25,5 +25,15 @@
                 </div>
             </div>
         </div>
+        <div class="container cookies-banner__confirmation u-d-no">
+            {{ 
+                onsButton({
+                    "type": 'button',
+                    "text": params.confirmationButtonText | default('hide'),
+                    "classes": 'btn--secondary btn--small js-hide-button'
+                }) 
+            }}
+        </div>
+
     </div>
 {% endmacro %}

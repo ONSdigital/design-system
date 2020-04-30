@@ -3,13 +3,17 @@ import { cookie, setDefaultConsentCookie, approveAllCookieTypes, setConsentCooki
 export default class CookiesBanner {
   constructor(component) {
     this.component = component;
+    this.primaryBanner = this.component.querySelector('.cookies-banner__primary');
+    this.confirmBanner = this.component.querySelector('.cookies-banner__confirmation');
     this.button = this.component.querySelector('.js-accept-cookies');
+    this.hideButton = this.component.querySelector('.js-hide-button');
 
     this.setupCookiesEvents();
   }
 
   setupCookiesEvents() {
     this.button.addEventListener('click', this.setCookiesConsent.bind(this));
+    this.hideButton.addEventListener('click', this.hideConfirmBanner.bind(this));
 
     this.showCookiesMessage();
   }
@@ -33,10 +37,17 @@ export default class CookiesBanner {
     event.preventDefault();
     approveAllCookieTypes();
     cookie('ons_cookie_message_displayed', 'true', { days: 365 });
-    this.hideCookiesMessage();
+    this.hidePrimaryCookiesBanner();
   }
 
-  hideCookiesMessage() {
+  hidePrimaryCookiesBanner() {
+    if (this.component) {
+      this.primaryBanner.style.display = 'none';
+      this.confirmBanner.classList.remove('u-d-no');
+    }
+  }
+
+  hideConfirmBanner() {
     if (this.component) {
       this.component.style.display = 'none';
     }
