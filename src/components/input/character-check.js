@@ -1,23 +1,25 @@
 const inputClassLimitReached = 'input--limit-reached';
 const remainingClassLimitReached = 'input__limit--reached';
 const attrCharCheckRef = 'data-char-check-ref';
+const attrCharCheckCountdown = 'data-char-check-countdown';
 const attrCharCheckVal = 'data-char-check-num';
 
 export default class CharCheck {
   constructor(context) {
     this.context = context;
     this.input = this.context.querySelector('input');
-    this.button = this.context.querySelector('button');
+    this.button = this.context.parentNode.querySelector('button');
     this.checkElement = document.getElementById(this.input.getAttribute(attrCharCheckRef));
     this.checkVal = this.input.getAttribute(attrCharCheckVal);
+    this.countdown = this.input.getAttribute(attrCharCheckCountdown) || false;
+    this.singularMessage = this.checkElement.getAttribute('data-charcount-singular') || null;
+    this.pluralMessage = this.checkElement.getAttribute('data-charcount-plural') || null;
+    this.charLimitSingularMessage = this.checkElement.getAttribute('data-charcount-limit-singular') || null;
+    this.charLimitPluralMessage = this.checkElement.getAttribute('data-charcount-limit-plural') || null;
 
-    this.singularMessage = this.checkElement.getAttribute('data-charcount-singular');
-    this.pluralMessage = this.checkElement.getAttribute('data-charcount-plural');
-    this.charLimitSingularMessage = this.checkElement.getAttribute('data-charcount-limit-singular');
-    this.charLimitPluralMessage = this.checkElement.getAttribute('data-charcount-limit-plural');
-
-    this.updateCheckReadout(null, true);
-    this.setButtonState(this.checkVal);
+    if (this.button) {
+      this.setButtonState(this.checkVal);
+    }
     this.input.addEventListener('input', this.updateCheckReadout.bind(this));
   }
 
@@ -38,20 +40,24 @@ export default class CharCheck {
 
   checkRemaining(remaining) {
     let message;
-    if (remaining === 1) {
+    if (this.countdown && remaining === 1) {
       message = this.singularMessage;
     } else if (remaining === -1) {
       message = this.charLimitSingularMessage;
-      remaining = Math.abs(remaining);
     } else if (remaining < -1) {
       message = this.charLimitPluralMessage;
-      remaining = Math.abs(remaining);
-    } else {
+    } else if (this.countdown) {
       message = this.pluralMessage;
     }
-    this.setShowMessage(remaining);
-    this.setButtonState(remaining);
-    this.checkElement.innerText = message.replace('{x}', remaining);
+
+    if (message) {
+      this.checkElement.innerText = message.replace('{x}', Math.abs(remaining));
+      this.setShowMessage(remaining);
+    }
+    console.log(message);
+    if (this.button) {
+      this.setButtonState(remaining);
+    }
   }
 
   setButtonState(remaining) {

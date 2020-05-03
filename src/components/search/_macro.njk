@@ -6,8 +6,6 @@
     {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder else "" %}
     {% set inputClasses = params.input.classes if params.input.classes else "" %}
     {% set inputWidth = 'input--w-' + params.input.width | default('10') %}
-
-    <div class="grid--flex {{ 'js-char-check' if params.charcheck }}">
         {{ 
             onsInput({
                 "id": params.input.id,
@@ -21,30 +19,21 @@
                     "classes": labelPlaceholder
                 },
                 "accessiblePlaceholder": params.accessiblePlaceholder,
-                "charcheck": params.charcheck,
-                "charCountSingular": params.charCountSingular,
-                "charCountPlural": params.charCountPlural,
-                "charCountOverLimit": params.charCountOverLimit
-            }) 
-        }}
-        {{ 
-            onsButton({
-                "type": params.button.type,
-                "text": params.button.text,
-                "id": params.button.id,
-                "classes": 'btn--small u-flex-align-bottom u-mb-xs'
-            }) 
-        }}
-    </div>
-    {% if params.charcheck %}
-        <span
-            id="{{ params.input.id }}-check-remaining"
-            class="input__limit u-fs-s--b u-d-no"
-            data-charcount-singular="{{ params.charCountSingular }}"
-            data-charcount-plural="{{ params.charCountPlural }}"
-            data-charcount-limit-singular="{{ params.charCountOverLimitSingular }}"
-            data-charcount-limit-plural="{{ params.charCountOverLimitPlural }}">
-        </span>
-    {% endif %}
+                "charCheck": {
+                    "charcheckCountdown": true,
+                    "limit": params.charCheck.limit,
+                    "charCountSingular": params.charCheck.charCountSingular,
+                    "charCountPlural": params.charCheck.charCountPlural,
+                    "charCountOverLimitSingular": params.charCheck.charCountOverLimitSingular,
+                    "charCountOverLimitPlural": params.charCheck.charCountOverLimitPlural
+                },
+                "button": {
+                    "type": params.button.type,
+                    "text": params.button.text,
+                    "id": params.button.id,
+                    "classes": 'btn--small u-flex-align-bottom u-mb-xs'
+                }
 
+            }) 
+        }}
 {% endmacro %}
