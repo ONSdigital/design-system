@@ -52,12 +52,13 @@ export default class CharCheck {
 
     if (message) {
       this.checkElement.innerText = message.replace('{x}', Math.abs(remaining));
-      this.setShowMessage(remaining);
     }
-    console.log(message);
+
     if (this.button) {
       this.setButtonState(remaining);
     }
+
+    this.setShowMessage(remaining);
   }
 
   setButtonState(remaining) {
@@ -66,7 +67,7 @@ export default class CharCheck {
   }
 
   setShowMessage(remaining) {
-    this.checkElement.classList[(remaining < this.checkVal && remaining > 0) || remaining < 0 ? 'remove' : 'add']('u-d-no');
+    this.checkElement.classList[(remaining < this.checkVal && remaining > 0 && this.countdown) || remaining < 0 ? 'remove' : 'add']('u-d-no');
   }
 
   setCheckClass(remaining, element, setClass) {
