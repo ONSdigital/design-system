@@ -1,0 +1,15 @@
+{% from "components/input/_macro.njk" import onsInput %}
+{{ 
+    onsInput({
+        "id": "text",
+        "classes": 'u-mb-xs',
+        "label": {
+            "text": "Enter some text"
+        },
+        "charCheck": {
+            "limit": 11,
+            "charCountOverLimitSingular": "{x} character too many",
+            "charCountOverLimitPlural": "{x} characters too many"
+        }
+    }) 
+}}

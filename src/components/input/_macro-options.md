@@ -43,3 +43,13 @@
 | ariaLimitedResults  | string | true     | Aria message to tell the user if the results have been limited and what they are limited to      |
 | moreResults         | string | true     | Aria message to tell the user to continue to type to refine suggestions                          |
 | resultsTitle        | string | true     | Title of results to be displayed on screen at the top of the results                             |
+
+## CharCheck
+
+| Name                       | Type   | Required | Description                                                                                                                                           |
+| -------------------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| limit                      | number | false    | The maximum amount of characters a user should type in                                                                                                |
+| charCountPlural            | string | false    | Required if `charCheck` is supplied. The string that will render how many characters are remaining. `{x}` Will be replaced with the number            |
+| charCountSingular          | string | false    | Required if `charCheck` is supplied. The string that will render how many characters are remaining (singular). `{x}` Will be replaced with the number |
+| charCountOverLimitSingular | string | false    | Required if `charCheck` is supplied. The string that will render how many characters are over (singular). `{x}` Will be replaced with the number      |
+| charCountOverLimitPlural   | string | false    | Required if `charCheck` is supplied. The string that will render how many characters are over (plural). `{x}` Will be replaced with the number        |
