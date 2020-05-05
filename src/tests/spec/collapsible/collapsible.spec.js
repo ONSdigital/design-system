@@ -32,10 +32,6 @@ describe('Component: collapsible', function() {
         }
       });
 
-      it('then the collapsible element should have a open attribute', function() {
-        expect(this.collapsible.hasAttribute('open')).to.be.true;
-      });
-
       it('then the collapsible element should not have a collapsible--initialised class', function() {
         expect(this.collapsible.classList.contains('collapsible--initialised')).to.be.false;
       });

@@ -4,7 +4,6 @@
     <div
         id="{{ params.id }}"
         class="collapsible js-collapsible{% if params.isAccordion %} collapsible--accordion{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"
-        open
         {% if params.button and params.button.close %} data-btn-close="{{ params.button.close }}"{% endif %}
         {% if params.group %} data-group="{{ params.group }}"{% endif %}
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
