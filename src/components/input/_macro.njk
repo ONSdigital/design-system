@@ -2,6 +2,7 @@
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
+    {% from "components/button/_macro.njk" import onsButton %}
 
     {% if params.type == "number" %}
         {# Type must be "text" or Firefox and Safari will set a blank value to the server if non numeric characters are entered -
@@ -33,7 +34,12 @@
                 data-no-results="{{ params.typeahead.noResults }}"
             >
         {% endif %}
-
+        {% if params.charCheck.limit or params.button %}
+            <div class="grid--flex">
+                {% if params.charCheck.limit %}
+                    <div class="js-char-check">
+                {% endif %}
+        {% endif %}
                 <input
                     type="{{ type }}"
                     id="{{ params.id }}"
@@ -50,10 +56,10 @@
                     {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
                     {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
                     {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
-                    {% if params.charcheck %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charcheck }}"{% endif %}
+                    {% if params.charCheck %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
+                    {% if params.charCheck.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
                     {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                 />
-
         {% if params.typeahead %}
                 <div class="typeahead-input__results js-typeahead-results">
                     <header class="typeahead-input__results-title u-fs-s">{{ params.typeahead.resultsTitle }}</header>
@@ -63,6 +69,32 @@
                 <div class="typeahead-input__instructions u-vh js-typeahead-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.typeahead.instructions }}</div>
                 <div class="typeahead-input__status u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
             </div>
+        {% endif %}
+        {% if params.charCheck.limit or params.button %}
+            {% if params.charCheck.limit %}
+                   </div>
+            {% endif %}
+            {% if params.button %}
+                {{ 
+                    onsButton({
+                        "type": params.button.type,
+                        "text": params.button.text,
+                        "id": params.button.id,
+                        "classes": 'btn--small u-flex-align-bottom u-mb-xs'
+                    }) 
+                }}
+            {% endif %}
+            </div>
+            {% if params.charCheck.limit %}
+                <span
+                    id="{{ params.id }}-check-remaining"
+                    class="input__limit u-fs-s--b u-d-no"
+                    data-charcount-singular="{{ params.charCheck.charCountSingular }}"
+                    data-charcount-plural="{{ params.charCheck.charCountPlural }}"
+                    data-charcount-limit-singular="{{ params.charCheck.charCountOverLimitSingular }}"
+                    data-charcount-limit-plural="{{ params.charCheck.charCountOverLimitPlural }}">
+                </span>
+            {% endif %}
         {% endif %}
     {% endset %}
     {% set field %}
