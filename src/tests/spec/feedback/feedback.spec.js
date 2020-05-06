@@ -59,10 +59,6 @@ describe('Component: Feedback', function() {
     beforeEach(function() {
       this.button.click();
     });
-
-    it('the collapsible element should be opened', function() {
-      expect(this.collapsible.hasAttribute('open')).to.be.true;
-    });
   });
 
   describe('When the form is submitted successfully', function() {
