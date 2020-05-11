@@ -17,6 +17,8 @@ export default class CharCheck {
     this.charLimitSingularMessage = this.checkElement.getAttribute('data-charcount-limit-singular') || null;
     this.charLimitPluralMessage = this.checkElement.getAttribute('data-charcount-limit-plural') || null;
 
+    this.updateCheckReadout(this.input);
+
     if (this.button) {
       this.setButtonState(this.checkVal);
     }
