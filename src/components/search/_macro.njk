@@ -1,6 +1,5 @@
 {% macro onsSearch(params) %}
     {% from "components/input/_macro.njk" import onsInput %}
-    {% from "components/button/_macro.njk" import onsButton %}
 
     {% set labelPlaceholder = ' label--placeholder ' if params.accessiblePlaceholder else "" %}
     {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder else "" %}
@@ -13,7 +12,7 @@
                 "name": params.input.name,
                 "pattern": params.input.pattern,
                 "value": params.input.value,
-                "classes": 'u-mr-xs u-mb-xs ' + inputClasses + inputPlaceholder + inputWidth,
+                "classes": 'u-mr-xs ' + inputClasses + inputPlaceholder + inputWidth,
                 "label": {
                     "text": params.input.label,
                     "classes": labelPlaceholder
@@ -31,7 +30,7 @@
                     "type": params.button.type,
                     "text": params.button.text,
                     "id": params.button.id,
-                    "classes": 'btn--small u-flex-align-bottom u-mb-xs'
+                    "classes": 'btn--small u-flex-align-bottom u-mb-no'
                 }
 
             }) 

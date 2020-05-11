@@ -34,12 +34,6 @@
                 data-no-results="{{ params.typeahead.noResults }}"
             >
         {% endif %}
-        {% if params.charCheck.limit or params.button %}
-            <div class="grid--flex">
-                {% if params.charCheck.limit %}
-                    <div class="js-char-check">
-                {% endif %}
-        {% endif %}
                 <input
                     type="{{ type }}"
                     id="{{ params.id }}"
@@ -69,32 +63,6 @@
                 <div class="typeahead-input__instructions u-vh js-typeahead-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.typeahead.instructions }}</div>
                 <div class="typeahead-input__status u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
             </div>
-        {% endif %}
-        {% if params.charCheck.limit or params.button %}
-            {% if params.charCheck.limit %}
-                   </div>
-            {% endif %}
-            {% if params.button %}
-                {{ 
-                    onsButton({
-                        "type": params.button.type,
-                        "text": params.button.text,
-                        "id": params.button.id,
-                        "classes": 'btn--small u-flex-align-bottom u-mb-xs'
-                    }) 
-                }}
-            {% endif %}
-            </div>
-            {% if params.charCheck.limit %}
-                <span
-                    id="{{ params.id }}-check-remaining"
-                    class="input__limit u-fs-s--b u-d-no"
-                    data-charcount-singular="{{ params.charCheck.charCountSingular }}"
-                    data-charcount-plural="{{ params.charCheck.charCountPlural }}"
-                    data-charcount-limit-singular="{{ params.charCheck.charCountOverLimitSingular }}"
-                    data-charcount-limit-plural="{{ params.charCheck.charCountOverLimitPlural }}">
-                </span>
-            {% endif %}
         {% endif %}
     {% endset %}
     {% set field %}
@@ -126,6 +94,38 @@
                         >{{ abbr.text or abbr.title }}</abbr>
                 </span>
             </span>
+        {% elif params.charCheck.limit or params.button %}
+            {% if params.button %}
+                <span class="grid--flex">
+            {% endif %}
+            {% if params.charCheck.limit %}
+                <span class="js-char-check">
+            {% endif %}
+            {{ input | safe }}
+            {% if params.charCheck.limit %}
+                </span>
+            {% endif %}
+            {% if params.button %}
+                {{ 
+                    onsButton({
+                        "type": params.button.type,
+                        "text": params.button.text,
+                        "id": params.button.id,
+                        "classes": params.button.classes
+                    }) 
+                }}
+                </span>
+            {% endif %}
+            {% if params.charCheck.limit %}
+                <span
+                    id="{{ params.id }}-check-remaining"
+                    class="input__limit u-fs-s--b u-d-no u-mt-xs"
+                    data-charcount-singular="{{ params.charCheck.charCountSingular }}"
+                    data-charcount-plural="{{ params.charCheck.charCountPlural }}"
+                    data-charcount-limit-singular="{{ params.charCheck.charCountOverLimitSingular }}"
+                    data-charcount-limit-plural="{{ params.charCheck.charCountOverLimitPlural }}">
+                </span>
+            {% endif %}
         {% else %}
             {{ input | safe }}
         {% endif %}
@@ -156,6 +156,7 @@
             "dontWrap": params.dontWrap,
             "error": params.error
         }) %}
+        
             {{ field | safe }}
         {% endcall %}
     {% endif %}
