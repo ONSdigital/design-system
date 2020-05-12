@@ -50,8 +50,8 @@
                     {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
                     {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
                     {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
-                    {% if params.charCheck %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
-                    {% if params.charCheck.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
+                    {% if params.charCheck is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
+                    {% if params.charCheck is defined and params.charCheck.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
                     {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                 />
         {% if params.typeahead %}
