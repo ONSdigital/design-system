@@ -94,18 +94,18 @@
                         >{{ abbr.text or abbr.title }}</abbr>
                 </span>
             </span>
-        {% elif params.charCheck.limit or params.button %}
-            {% if params.button %}
+        {% elif params.charCheck is defined and params.charCheck.limit is defined or params.button is defined %}
+            {% if params.button is defined %}
                 <span class="grid--flex">
             {% endif %}
-            {% if params.charCheck.limit %}
+            {% if params.charCheck.limit is defined %}
                 <span class="js-char-check">
             {% endif %}
             {{ input | safe }}
-            {% if params.charCheck.limit %}
+            {% if params.charCheck.limit is defined %}
                 </span>
             {% endif %}
-            {% if params.button %}
+            {% if params.button is defined %}
                 {{ 
                     onsButton({
                         "type": params.button.type,
@@ -116,7 +116,7 @@
                 }}
                 </span>
             {% endif %}
-            {% if params.charCheck.limit %}
+            {% if params.charCheck.limit is defined %}
                 <span
                     id="{{ params.id }}-check-remaining"
                     class="input__limit u-fs-s--b u-d-no u-mt-xs"
