@@ -13,7 +13,7 @@ $button-border-height: 3px;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.35;
-
+  text-align: center;
   text-decoration: none;
   text-rendering: optimizeLegibility;
 
@@ -51,8 +51,8 @@ $button-border-height: 3px;
   }
 
   &:focus:not(:active):not(:hover) &__inner {
-    color: $color-focus-text;
     background-color: $color-focus;
+    color: $color-focus-text;
   }
 
   &:not([class*='btn--secondary']):not([class*='btn--print']):not([class*='btn--ghost-blue']):focus:hover &__inner {
@@ -277,8 +277,8 @@ $button-border-height: 3px;
   }
 
   &--ghost:focus:not(:hover) &__inner {
-    color: $color-focus-text;
     background-color: $color-focus;
+    color: $color-focus-text;
   }
 
   &--ghost-blue & {

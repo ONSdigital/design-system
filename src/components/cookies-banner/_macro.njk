@@ -5,22 +5,24 @@
                 <div class="grid__col grid__col--flex col-auto u-flex-shrink@s">
                     <p class="cookies-banner__desc u-mr-s">{{ params.html | safe }}</p>
                 </div>
-                <div class="grid__col grid__col--flex col-auto">
-                    {% from "components/button/_macro.njk" import onsButton %}
-                    {{ 
+                {% from "components/button/_macro.njk" import onsButton %}
+                <div class="grid__col">
+                    {{
                         onsButton({
                             "type": 'button',
                             "text": params.primaryButtonText | default('Accept cookies'),
-                            "classes": 'btn--small js-accept-cookies'
-                        }) 
+                            "classes": 'btn--small js-accept-cookies u-db cookies-banner__btn@xs@s'
+                        })
                     }}
-                    {{ 
+                </div>
+                <div class="grid__col">
+                    {{
                         onsButton({
                             "type": 'button',
                             "url": params.secondaryButtonUrl,
                             "text": params.secondaryButtonText | default('Cookie settings'),
-                            "classes": 'btn--secondary btn--small'
-                        }) 
+                            "classes": 'btn--secondary btn--small u-db u-ml-xs@s cookies-banner__btn@xs@s'
+                        })
                     }}
                 </div>
             </div>
