@@ -50,8 +50,8 @@
                     {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
                     {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
                     {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
-                    {% if params.charCheck %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
-                    {% if params.charCheck.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
+                    {% if params.charCheck is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
+                    {% if params.charCheck is defined and params.charCheck.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
                     {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                 />
         {% if params.typeahead %}
@@ -94,18 +94,18 @@
                         >{{ abbr.text or abbr.title }}</abbr>
                 </span>
             </span>
-        {% elif params.charCheck.limit or params.button %}
-            {% if params.button %}
+        {% elif params.charCheck is defined and params.charCheck.limit is defined or params.button is defined %}
+            {% if params.button is defined %}
                 <span class="grid--flex">
             {% endif %}
-            {% if params.charCheck.limit %}
+            {% if params.charCheck.limit is defined %}
                 <span class="js-char-check">
             {% endif %}
             {{ input | safe }}
-            {% if params.charCheck.limit %}
+            {% if params.charCheck.limit is defined %}
                 </span>
             {% endif %}
-            {% if params.button %}
+            {% if params.button is defined %}
                 {{ 
                     onsButton({
                         "type": params.button.type,
@@ -116,7 +116,7 @@
                 }}
                 </span>
             {% endif %}
-            {% if params.charCheck.limit %}
+            {% if params.charCheck.limit is defined %}
                 <span
                     id="{{ params.id }}-check-remaining"
                     class="input__limit u-fs-s--b u-d-no u-mt-xs"
