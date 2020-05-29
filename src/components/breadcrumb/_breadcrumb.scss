@@ -13,7 +13,7 @@ $breadcrumb-chevron-height: 0.65rem;
   &__item {
     display: inline-block;
     margin: 0;
-    white-space: nowrap; // stop items from wrapping, break on chevron only
+    white-space: nowrap; // Stop items from wrapping, break on chevron only
 
     @include mq(xs, s) {
       &:not(:nth-last-child(2)) {
@@ -28,6 +28,7 @@ $breadcrumb-chevron-height: 0.65rem;
       }
     }
 
+    // 1px over small breakpoint
     @include mq(501px) {
       &:not(:last-child):after {
         @include icon('chevron-right', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
