@@ -3,7 +3,7 @@
         {% for download in (params.downloads if params.downloads is iterable else params.downloads.items()) %}
             <section class="download">
                 <div class="download__thumbnail" aria-hidden="true">
-                    <a href="{{ download.url }}" class="download__thumbnail-link">
+                    <a href="{{ download.url }}" class="download__thumbnail-link" tabindex="-1">
                         <img src="{{ download.thumbnail }}" />
                     </a>
                 </div>
