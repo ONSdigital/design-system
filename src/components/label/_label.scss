@@ -4,6 +4,10 @@
   color: inherit;
   font-weight: 600;
 
+  &__hint {
+    margin-bottom: 0;
+  }
+
   &__description {
     @extend .u-fs-s;
     display: inline-block;

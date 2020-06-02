@@ -1,14 +1,13 @@
 {% macro onsLabel(params) %}
-  <label
-    class="label{{ " " + params.classes if params.classes else "" }}"
-    {% if params.for %} for="{{ params.for }}"{% endif %}
-    {% if params.id %} id="{{params.id}}"{% endif%}
-    {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-  >
-      {{- params.text | safe -}}
-      {%- if params.description %}
-          <br>
-          <span class="label__description">{{ params.description }}</span>
-      {% endif -%}
-  </label>
+    <label
+      class="label{{ " " + params.classes if params.classes else "" }}{{ " " + "label__hint" if params.description else "" }}"
+      {% if params.for %} for="{{ params.for }}"{% endif %}
+      {% if params.id %} id="{{ params.id }}"{% endif %}
+      {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
+    >
+        {{- params.text | safe -}}
+    </label>
+    {%- if params.description %}
+      <span {% if params.id %} id="{{ params.id }}-label-description-hint"{% else %}id="label-description-hint"{% endif %} class="label__description">{{ params.description }}</span>
+    {% endif -%}
 {% endmacro %}
