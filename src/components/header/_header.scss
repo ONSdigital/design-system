@@ -19,8 +19,6 @@
   }
 
   &__logo-link {
-    display: inline-block;
-
     &:focus {
       outline: 3px solid transparent;
       color: $color-focus-text;
