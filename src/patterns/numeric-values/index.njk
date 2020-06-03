@@ -13,7 +13,7 @@ How to ask for numeric values such as quantities, financial figures, percentages
 
 ## When to use this pattern
 This pattern should be used when you need to ask the user for numeric values such as:
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -22,14 +22,14 @@ This pattern should be used when you need to ask the user for numeric values suc
             {
                 "text": 'financial figures (e.g. salaries, expenditure, turnover etc.)'
             },
-            {        
+            {
                 "text": 'estimated percentages (e.g. the percentage of female employees etc.)'
             },
-            {        
+            {
                 "text": 'volumes and measurements (e.g. the size of a workspace etc.)'
             }
         ]
-    }) 
+    })
 }}
 
 ## How to use this pattern
@@ -53,7 +53,7 @@ Use the `prefix` parameter to specify the abbreviated prefix unit e.g. '£', and
     patternlibExample({"path": "components/input/examples/prefixed/index.njk"})
 }}
 
-### Suffixed values 
+### Suffixed values
 Use the `suffix` parameter to specify the abbreviated suffix unit e.g. 'cm', and the `title` parameter to specify the full name of the suffix unit e.g. 'Centimeters'.
 {{
     patternlibExample({"path": "components/input/examples/suffixed/index.njk"})

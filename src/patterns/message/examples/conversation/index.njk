@@ -6,8 +6,8 @@
 <div class="grid">
     <div class="grid__col col-8@m">
         <section role="region" aria-label="Conversation: BRES 2017 clarification required for Bolts &amp; Ratchets Ltd">
-            <h1 class="u-fs-l"><span class="u-vh">Subject: </span>BRES 2017 clarification required for Bolts &amp; Ratchets Ltd</h1>        
-            {{ 
+            <h1 class="u-fs-l"><span class="u-vh">Subject: </span>BRES 2017 clarification required for Bolts &amp; Ratchets Ltd</h1>
+            {{
                 onsMetadata({
                     "metadataLabel": "Information about the survey and respondant",
                     "termCol": "3",
@@ -15,7 +15,7 @@
                     "itemsList": [
                         {
                             "term": "Survey:",
-                            "descriptions": [ 
+                            "descriptions": [
                                 {
                                     "description": "Bricks & Blocks"
                                 }
@@ -23,22 +23,22 @@
                         },
                         {
                             "term": "RU Ref:",
-                            "descriptions": [ 
+                            "descriptions": [
                                 {
                                     "description": "49900000118"
-                                }                  
+                                }
                             ]
                         },
                         {
                             "term": "Business:",
-                            "descriptions": [ 
+                            "descriptions": [
                                 {
                                     "description": "Bolts & Ratchets Ltd."
-                                }                                     
+                                }
                             ]
                         }
                     ]
-                }) 
+                })
             }}
             {% call onsMessage({
                     "type": 'sent',
@@ -57,7 +57,7 @@
                 David Cleere<br>
                 BRES Survey Team</p>
             {% endcall %}
-            
+
             {% call onsMessage({
                     "type": 'received',
                     "fromLabel": 'From',
@@ -110,19 +110,19 @@
             }}
             <div class="grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap@s u-mt-m u-mb-m">
                 <div class="grid__col">
-                    {{ 
+                    {{
                         onsButton({
                             "type": 'button',
                             "text": 'Send message',
                             "classes": 'btn-group__btn'
-                        }) 
+                        })
                     }}
                     </div>
                     <div class="grid__col u-ml-m">
                         <a href="#">Close conversation</a>
                     </div>
                 </div>
-            </div> 
+            </div>
         </section>
     </div>
 </div>
