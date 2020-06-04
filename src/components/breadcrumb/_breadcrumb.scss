@@ -1,8 +1,8 @@
 $breadcrumb-chevron-height: 0.65rem;
 
 .breadcrumb {
-  display: flex;
   align-items: center;
+  display: flex;
   padding: 1rem 0;
 
   &__items {
@@ -13,33 +13,37 @@ $breadcrumb-chevron-height: 0.65rem;
   &__item {
     display: inline-block;
     margin: 0;
-    white-space: nowrap; /* stop items from wrapping, break on chevron only */
+    white-space: nowrap; // Stop items from wrapping, break on chevron only
 
-    @include mq(xs, s) {
-      &:not(:nth-last-child(2)) {
-        display: none;
-      }
+    &:not(:nth-last-child(2)) {
+      display: none;
+    }
 
-      &:before {
-        @include icon('chevron-left', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
-
-        content: '';
-        margin: 0 0.2rem 0 0;
-        vertical-align: middle;
-      }
+    &:before {
+      @include icon('chevron-left', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
+      content: '';
+      margin: 0 0.2rem 0 0;
+      vertical-align: middle;
     }
 
     @include mq(s) {
+      &:before {
+        content: none;
+      }
+
+      &:not(:nth-last-child(2)) {
+        display: inline-block;
+      }
+
       &:not(:last-child):after {
         @include icon('chevron-right', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
-
         content: '';
-        margin: 0;
         vertical-align: middle;
+        margin: 0;
 
         // We have to override the icon settings so it renders correctly in ie11
-        width: 1.25rem;
         background-position: center center;
+        width: 1.25rem;
       }
     }
 
