@@ -12,6 +12,7 @@ export const classTypeaheadOptionFocused = `${classTypeaheadOption}--focused`;
 export const classTypeaheadOptionNoResults = `${classTypeaheadOption}--no-results u-fs-s`;
 export const classTypeaheadOptionMoreResults = `${classTypeaheadOption}--more-results u-fs-s`;
 export const classTypeaheadHasResults = 'typeahead-input--has-results';
+export const classTypeaheadResultsTitle = 'typeahead-input__results-title';
 
 export default class TypeaheadUI {
   constructor({
@@ -25,6 +26,7 @@ export default class TypeaheadUI {
     onError,
     onUnsetResult,
     suggestionFunction,
+    handleUpdate,
     lang,
     ariaYouHaveSelected,
     ariaMinChars,
@@ -42,10 +44,8 @@ export default class TypeaheadUI {
     this.listbox = this.resultsContainer.querySelector(`.${baseClass}-listbox`);
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
-
     // Settings
     this.typeaheadData = typeaheadData || context.getAttribute('data-typeahead-data');
-
     this.ariaYouHaveSelected = ariaYouHaveSelected || context.getAttribute('data-aria-you-have-selected');
     this.ariaMinChars = ariaMinChars || context.getAttribute('data-aria-min-chars');
     this.ariaOneResult = ariaOneResult || context.getAttribute('data-aria-one-result');
@@ -65,9 +65,12 @@ export default class TypeaheadUI {
     this.onSelect = onSelect;
     this.onUnsetResult = onUnsetResult;
     this.onError = onError;
+    this.handleUpdate = handleUpdate;
 
     if (suggestionFunction) {
       this.fetchSuggestions = suggestionFunction;
+    } else {
+      this.fetchData();
     }
 
     // State
@@ -78,6 +81,7 @@ export default class TypeaheadUI {
     this.previousQuery = '';
     this.results = [];
     this.resultOptions = [];
+    this.data = [];
     this.foundResults = 0;
     this.numberOfResults = 0;
     this.highlightedResultIndex = 0;
@@ -91,7 +95,6 @@ export default class TypeaheadUI {
     if (this.lang === 'en') {
       this.lang = 'en-gb';
     }
-    this.fetchData();
     this.initialiseUI();
   }
 
@@ -102,6 +105,7 @@ export default class TypeaheadUI {
     this.input.setAttribute('aria-has-popup', true);
     this.input.setAttribute('aria-owns', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-expanded', false);
+    this.input.setAttribute('autocomplete', this.input.getAttribute('data-autocomplete'));
     this.input.setAttribute('role', 'combobox');
 
     this.context.classList.add('typeahead-input--initialised');
@@ -110,21 +114,14 @@ export default class TypeaheadUI {
   }
 
   fetchData() {
-    async function loadJSON(jsonPath) {
-      try {
-        const jsonResponse = await fetch(jsonPath);
-        if (jsonResponse.status === 500) {
-          throw new Error('Error fetching json data: ' + jsonResponse.status);
-        }
-        const jsonData = await jsonResponse.json();
-        return jsonData;
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    // Call loading of json file
-    this.data = loadJSON(this.typeaheadData);
+    return new Promise((resolve, reject) => {
+      fetch(this.typeaheadData)
+        .then(async response => {
+          this.data = await response.json();
+          resolve(this.data);
+        })
+        .catch(reject);
+    });
   }
 
   bindEventListeners() {
@@ -180,7 +177,10 @@ export default class TypeaheadUI {
   }
 
   handleChange() {
-    if (!this.blurring && this.input.value.trim()) {
+    if ((!this.blurring && this.input.value.trim()) || this.handleUpdate) {
+      if (this.handleUpdate) {
+        this.settingResult = false;
+      }
       this.getSuggestions();
     } else {
       this.abortFetch();
@@ -236,24 +236,22 @@ export default class TypeaheadUI {
   getSuggestions(force) {
     if (!this.settingResult) {
       const query = this.input.value;
-      const sanitisedQuery = sanitiseTypeaheadText(query, this.sanitisedQueryReplaceChars);
+      const sanitisedQuery = sanitiseTypeaheadText(query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
+
       if (sanitisedQuery !== this.sanitisedQuery || (force && !this.resultSelected)) {
         this.unsetResults();
         this.setAriaStatus();
 
         this.query = query;
         this.sanitisedQuery = sanitisedQuery;
-
         if (this.sanitisedQuery.length >= this.minChars) {
-          this.data.then(data => {
-            this.fetchSuggestions(this.sanitisedQuery, data)
-              .then(this.handleResults.bind(this))
-              .catch(error => {
-                if (error.name !== 'AbortError' && this.onError) {
-                  this.onError(error);
-                }
-              });
-          });
+          this.fetchSuggestions(this.sanitisedQuery, this.data)
+            .then(this.handleResults.bind(this))
+            .catch(error => {
+              if (error.name !== 'AbortError' && this.onError) {
+                this.onError(error);
+              }
+            });
         } else {
           this.clearListbox();
         }
@@ -313,9 +311,9 @@ export default class TypeaheadUI {
   }
 
   handleResults(result) {
+    this.resultLimit = result.limit ? result.limit : this.resultLimit;
     this.foundResults = result.totalResults;
-
-    if (result.results.length > 10) {
+    if (this.foundResults > this.resultLimit) {
       result.results = result.results.slice(0, this.resultLimit);
     }
 
@@ -357,6 +355,8 @@ export default class TypeaheadUI {
 
           this.listbox.appendChild(listElement);
 
+          this.context.querySelector(`.${classTypeaheadResultsTitle}`).classList.remove('u-d-no');
+
           return listElement;
         });
 
@@ -368,6 +368,29 @@ export default class TypeaheadUI {
           this.listbox.appendChild(listElement);
         }
 
+        if (this.resultLimit === 100 && this.foundResults > this.resultLimit) {
+          const warningListElement = document.createElement('li');
+          const warningElement = document.createElement('div');
+          const warningSpanElement = document.createElement('span');
+          const warningBodyElement = document.createElement('div');
+
+          warningListElement.setAttribute('aria-hidden', 'true');
+          warningListElement.className = 'typeahead-input__warning';
+          warningElement.className = 'panel panel--warning panel--warning--small panel--simple';
+
+          warningSpanElement.className = 'panel__icon';
+          warningSpanElement.setAttribute('aria-hidden', 'true');
+          warningSpanElement.innerHTML = '!';
+
+          warningBodyElement.className = 'panel__text';
+          warningBodyElement.innerHTML = this.foundResults + ' results found. Enter more of the address to improve results.';
+
+          warningElement.appendChild(warningSpanElement);
+          warningElement.appendChild(warningBodyElement);
+          warningListElement.appendChild(warningElement);
+          this.listbox.insertBefore(warningListElement, this.listbox.firstChild);
+        }
+
         this.setHighlightedResult(null);
 
         this.input.setAttribute('aria-expanded', !!this.numberOfResults);
@@ -375,7 +398,9 @@ export default class TypeaheadUI {
       }
     }
     if (this.numberOfResults === 0 && this.noResults) {
-      this.listbox.innerHTML = `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${this.noResults}</li>`;
+      this.context.classList.add(classTypeaheadHasResults);
+      this.context.querySelector(`.${classTypeaheadResultsTitle}`).classList.add('u-d-no');
+      this.listbox.innerHTML = `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${this.content.no_results}</li>`;
       this.input.setAttribute('aria-expanded', true);
     }
   }
@@ -420,7 +445,6 @@ export default class TypeaheadUI {
         }
       }
     }
-
     this.ariaStatus.innerHTML = content;
   }
 
@@ -429,7 +453,6 @@ export default class TypeaheadUI {
       this.settingResult = true;
 
       const result = this.results[index || this.highlightedResultIndex || 0];
-
       this.resultSelected = true;
 
       if (result.sanitisedText !== this.sanitisedQuery && result.sanitisedAlternatives && result.sanitisedAlternatives.length) {
@@ -450,8 +473,7 @@ export default class TypeaheadUI {
       } else {
         result.displayText = result[this.lang];
       }
-
-      this.onSelect(result).then(() => (this.settingResult = false));
+      this.onSelect(result);
 
       const ariaMessage = `${this.ariaYouHaveSelected}: ${result.displayText}.`;
 
@@ -461,19 +483,16 @@ export default class TypeaheadUI {
   }
 
   emboldenMatch(string, query) {
-    query = query.toLowerCase().trim();
+    let reg = new RegExp(
+      this.escapeRegExp(query)
+        .split('')
+        .join('[\\s,]*'),
+      'gi',
+    );
+    return string.replace(reg, '<strong>$&</strong>');
+  }
 
-    if (string.toLowerCase().includes(query)) {
-      const queryLength = query.length;
-      const matchIndex = string.toLowerCase().indexOf(query);
-      const matchEnd = matchIndex + queryLength;
-      const before = string.substr(0, matchIndex);
-      const match = string.substr(matchIndex, queryLength);
-      const after = string.substr(matchEnd, string.length - matchEnd);
-
-      return `${before}<strong>${match}</strong>${after}`;
-    } else {
-      return string;
-    }
+  escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 }
