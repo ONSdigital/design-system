@@ -640,10 +640,6 @@
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
 
-"@ons/design-system@^13.3.0":
-  version "13.3.0"
-  resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-13.3.0.tgz#43537f5b9f97cc55185d7ac9c3db1877d1fe6947"
-
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
