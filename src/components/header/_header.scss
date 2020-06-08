@@ -83,17 +83,6 @@
     }
   }
 
-  // Modifier - Thin variant
-  &--thin & {
-    &__main {
-      padding: 0.5rem 0;
-
-      @include mq(m) {
-        padding: 0.8rem 0;
-      }
-    }
-  }
-
   &--internal & {
     &__top {
       background: $color-dark-blue;
