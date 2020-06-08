@@ -17,6 +17,21 @@ layout: none
             "id": "address",
             "legend": "What is your address?",
             "legendClasses": "u-vh",
+            "autosuggest":{
+                "label": {
+                    "text": "Enter your address or postcode and select from results"
+                },
+                "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+                "ariaYouHaveSelected": "You have selected",
+                "ariaMinChars": "Enter 3 or more characters for suggestions.",
+                "ariaOneResult": "There is one suggestion available.",
+                "ariaNResults": "There are {n} suggestions available.",
+                "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search.",
+                "moreResults": "Continue entering to improve suggestions",
+                "resultsTitle": "Suggestions",
+                "noResults": "No results found",
+                "autocomplete": "new-password"
+            },
             "line1": {
                 "label": "Address line 1"
             },
@@ -31,7 +46,9 @@ layout: none
             },
             "postcode": {
                 "label": "Postcode"
-            }
+            },
+            "searchButton": "Search for an address",
+            "manualButton": "Manually enter address"
         }) }}
     {% endcall %}
 {% endblock %}

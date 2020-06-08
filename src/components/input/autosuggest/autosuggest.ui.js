@@ -2,22 +2,22 @@ import dice from 'dice-coefficient';
 import { sortBy } from 'sort-by-typescript';
 
 import queryJson from './code.list.searcher';
-import { sanitiseTypeaheadText } from './typeahead.helpers';
+import { sanitiseAutosuggestText } from './autosuggest.helpers';
 import fetch from 'js/abortable-fetch';
 
-export const baseClass = 'js-typeahead';
+export const baseClass = 'js-autosuggest';
 
-export const classTypeaheadOption = 'typeahead-input__option';
-export const classTypeaheadOptionFocused = `${classTypeaheadOption}--focused`;
-export const classTypeaheadOptionNoResults = `${classTypeaheadOption}--no-results u-fs-s`;
-export const classTypeaheadOptionMoreResults = `${classTypeaheadOption}--more-results u-fs-s`;
-export const classTypeaheadHasResults = 'typeahead-input--has-results';
-export const classTypeaheadResultsTitle = 'typeahead-input__results-title';
+export const classAutosuggestOption = 'autosuggest-input__option';
+export const classAutosuggestOptionFocused = `${classAutosuggestOption}--focused`;
+export const classAutosuggestOptionNoResults = `${classAutosuggestOption}--no-results u-fs-s`;
+export const classAutosuggestOptionMoreResults = `${classAutosuggestOption}--more-results u-fs-s`;
+export const classAutosuggestHasResults = 'autosuggest-input--has-results';
+export const classAutosuggestResultsTitle = 'autosuggest-input__results-title';
 
-export default class TypeaheadUI {
+export default class AutosuggestUI {
   constructor({
     context,
-    typeaheadData,
+    autosuggestData,
     sanitisedQueryReplaceChars,
     minChars,
     resultLimit,
@@ -45,7 +45,7 @@ export default class TypeaheadUI {
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
     // Settings
-    this.typeaheadData = typeaheadData || context.getAttribute('data-typeahead-data');
+    this.autosuggestData = autosuggestData || context.getAttribute('data-autosuggest-data');
     this.ariaYouHaveSelected = ariaYouHaveSelected || context.getAttribute('data-aria-you-have-selected');
     this.ariaMinChars = ariaMinChars || context.getAttribute('data-aria-min-chars');
     this.ariaOneResult = ariaOneResult || context.getAttribute('data-aria-one-result');
@@ -109,14 +109,14 @@ export default class TypeaheadUI {
     this.input.setAttribute('autocomplete', this.input.getAttribute('data-autocomplete') || 'off');
     this.input.setAttribute('role', 'combobox');
 
-    this.context.classList.add('typeahead-input--initialised');
+    this.context.classList.add('autosuggest-input--initialised');
 
     this.bindEventListeners();
   }
 
   fetchData() {
     return new Promise((resolve, reject) => {
-      fetch(this.typeaheadData)
+      fetch(this.autosuggestData)
         .then(async response => {
           this.data = await response.json();
           resolve(this.data);
@@ -206,7 +206,7 @@ export default class TypeaheadUI {
     const focusedItem = this.resultOptions[this.highlightedResultIndex];
 
     if (focusedItem) {
-      focusedItem.classList.remove(classTypeaheadOptionFocused);
+      focusedItem.classList.remove(classAutosuggestOptionFocused);
     }
   }
 
@@ -214,7 +214,7 @@ export default class TypeaheadUI {
     const focusedItem = this.resultOptions[this.highlightedResultIndex];
 
     if (focusedItem) {
-      focusedItem.classList.add(classTypeaheadOptionFocused);
+      focusedItem.classList.add(classAutosuggestOptionFocused);
     }
   }
 
@@ -237,7 +237,7 @@ export default class TypeaheadUI {
   getSuggestions(force) {
     if (!this.settingResult) {
       const query = this.input.value;
-      const sanitisedQuery = sanitiseTypeaheadText(query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
+      const sanitisedQuery = sanitiseAutosuggestText(query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
 
       if (sanitisedQuery !== this.sanitisedQuery || (force && !this.resultSelected)) {
         this.unsetResults();
@@ -264,10 +264,10 @@ export default class TypeaheadUI {
     this.abortFetch();
     const results = await queryJson(sanitisedQuery, data, this.lang, this.resultLimit);
     results.forEach(result => {
-      result.sanitisedText = sanitiseTypeaheadText(result[this.lang], this.sanitisedQueryReplaceChars);
+      result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
       if (this.lang !== 'en-gb') {
         const english = result['en-gb'];
-        const sanitisedAlternative = sanitiseTypeaheadText(english, this.sanitisedQueryReplaceChars);
+        const sanitisedAlternative = sanitiseAutosuggestText(english, this.sanitisedQueryReplaceChars);
 
         if (sanitisedAlternative.match(sanitisedQuery)) {
           result.alternatives = [english];
@@ -302,7 +302,7 @@ export default class TypeaheadUI {
 
   clearListbox(preventAriaStatusUpdate) {
     this.listbox.innerHTML = '';
-    this.context.classList.remove(classTypeaheadHasResults);
+    this.context.classList.remove(classAutosuggestHasResults);
     this.input.removeAttribute('aria-activedescendant');
     this.input.removeAttribute('aria-expanded');
 
@@ -344,7 +344,7 @@ export default class TypeaheadUI {
           }
 
           const listElement = document.createElement('li');
-          listElement.className = classTypeaheadOption;
+          listElement.className = classAutosuggestOption;
           listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
           listElement.setAttribute('role', 'option');
           listElement.setAttribute('aria-label', ariaLabel);
@@ -356,14 +356,14 @@ export default class TypeaheadUI {
 
           this.listbox.appendChild(listElement);
 
-          this.context.querySelector(`.${classTypeaheadResultsTitle}`).classList.remove('u-d-no');
+          this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.remove('u-d-no');
 
           return listElement;
         });
 
         if (this.numberOfResults < this.foundResults) {
           const listElement = document.createElement('li');
-          listElement.className = `${classTypeaheadOption} ${classTypeaheadOptionMoreResults}`;
+          listElement.className = `${classAutosuggestOption} ${classAutosuggestOptionMoreResults}`;
           listElement.setAttribute('aria-hidden', 'true');
           listElement.innerHTML = this.moreResults;
           this.listbox.appendChild(listElement);
@@ -376,7 +376,7 @@ export default class TypeaheadUI {
           const warningBodyElement = document.createElement('div');
 
           warningListElement.setAttribute('aria-hidden', 'true');
-          warningListElement.className = 'typeahead-input__warning';
+          warningListElement.className = 'autosuggest-input__warning';
           warningElement.className = 'panel panel--warning panel--warning--small panel--simple';
 
           warningSpanElement.className = 'panel__icon';
@@ -395,13 +395,13 @@ export default class TypeaheadUI {
         this.setHighlightedResult(null);
 
         this.input.setAttribute('aria-expanded', !!this.numberOfResults);
-        this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classTypeaheadHasResults);
+        this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classAutosuggestHasResults);
       }
     }
     if (this.numberOfResults === 0 && this.noResults) {
-      this.context.classList.add(classTypeaheadHasResults);
-      this.context.querySelector(`.${classTypeaheadResultsTitle}`).classList.add('u-d-no');
-      this.listbox.innerHTML = `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${this.content.no_results}</li>`;
+      this.context.classList.add(classAutosuggestHasResults);
+      this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.add('u-d-no');
+      this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${this.noResults}</li>`;
       this.input.setAttribute('aria-expanded', true);
     }
   }
@@ -414,11 +414,11 @@ export default class TypeaheadUI {
     } else if (this.numberOfResults) {
       this.resultOptions.forEach((option, optionIndex) => {
         if (optionIndex === index) {
-          option.classList.add(classTypeaheadOptionFocused);
+          option.classList.add(classAutosuggestOptionFocused);
           option.setAttribute('aria-selected', true);
           this.input.setAttribute('aria-activedescendant', option.getAttribute('id'));
         } else {
-          option.classList.remove(classTypeaheadOptionFocused);
+          option.classList.remove(classAutosuggestOptionFocused);
           option.removeAttribute('aria-selected');
         }
       });

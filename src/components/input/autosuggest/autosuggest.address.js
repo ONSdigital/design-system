@@ -1,19 +1,16 @@
-import TypeaheadUI from './typeahead.ui';
-import AddressSetter from './typeahead.address.setter';
-import { sanitiseTypeaheadText } from './typeahead.helpers';
+import AutosuggestUI from './autosuggest.ui';
+import AddressSetter from './autosuggest.address.setter';
+import { sanitiseAutosuggestText } from './autosuggest.helpers';
 
-import domready from 'js/domready';
 import abortableFetch from './abortable-fetch';
 import triggerEvent from 'js/utils/trigger-event';
 
-const classAddress = 'js-address';
-const baseClass = 'js-address-typeahead';
+const baseClass = 'js-address-autosuggest';
 const classNotEditable = 'js-address-not-editable';
 
-class AddressInput {
+export default class AutosuggestAddress {
   constructor(context) {
     this.context = context;
-    this.form = context.closest('form');
     this.lang = document.documentElement.getAttribute('lang').toLowerCase();
     this.addressReplaceChars = [','];
     this.sanitisedQuerySplitNumsChars = true;
@@ -26,18 +23,18 @@ class AddressInput {
     this.errored = false;
     this.isEditable = context.querySelector(`.${classNotEditable}`) ? false : true;
 
-    // Initialise address setter
-    if (this.isEditable) {
-      this.addressSetter = new AddressSetter(context);
-    }
-
     // Temporary fix as runner doesn't use full lang code
     if (this.lang === 'en') {
       this.lang = 'en-gb';
     }
 
-    // Initialise typeahead
-    this.typeahead = new TypeaheadUI({
+    // Initialise address setter
+    if (this.isEditable) {
+      this.addressSetter = new AddressSetter(context);
+    }
+
+    // Initialise autosuggest
+    this.autosuggest = new AutosuggestUI({
       context: context.querySelector(`.${baseClass}`),
       onSelect: this.onAddressSelect.bind(this),
       onUnsetResult: this.addressSetter ? this.addressSetter.onUnsetAddress() : null,
@@ -51,6 +48,7 @@ class AddressInput {
       handleUpdate: true,
     });
 
+    // Set up AIMS api variables and auth
     this.baseURL = 'https://whitelodge-ai-api.ai.census-gcp.onsdigital.uk/addresses/';
     this.lookupURL = `${this.baseURL}eq?input=`;
     this.retrieveURL = `${this.baseURL}eq/uprn/`;
@@ -90,7 +88,12 @@ class AddressInput {
     return new Promise((resolve, reject) => {
       const testInput = this.testFullPostcodeQuery(text);
       let limit = testInput ? 100 : 10;
-      const queryUrl = this.lookupURL + text + '&limit=' + limit;
+      let queryUrl = this.lookupURL + text + '&limit=' + limit;
+
+      if (this.lang === 'cy') {
+        queryUrl = queryUrl + '&favourwelsh=true';
+      }
+
       this.fetch = abortableFetch(queryUrl, {
         method: 'GET',
         headers: this.headers,
@@ -122,7 +125,7 @@ class AddressInput {
       }
 
       mappedResults = updatedResults.map(({ uprn, address }) => {
-        const sanitisedText = sanitiseTypeaheadText(address, this.addressReplaceChars);
+        const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
         return {
           [this.lang]: address,
           sanitisedText,
@@ -145,8 +148,8 @@ class AddressInput {
 
   retrieveAddress(id) {
     return new Promise((resolve, reject) => {
-      const queryUrl = this.retrieveURL + id + '?addresstype=paf';
-      this.fetch = abortableFetch(queryUrl, {
+      let retrieveUrl = this.retrieveURL + id + '?addresstype=' + (this.lang === 'cy' ? 'welshpaf' : 'paf');
+      this.fetch = abortableFetch(retrieveUrl, {
         method: 'GET',
         headers: this.headers,
       });
@@ -175,17 +178,17 @@ class AddressInput {
         this.retrieveAddress(selectedResult.uprn)
           .then(data => {
             if (this.isEditable) {
-              this.createAddressLines(data, resolve);
+              this.addressSetter.setAddress(this.createAddressLines(data, resolve));
             } else {
-              this.typeahead.input.value = selectedResult.displayText;
+              this.autosuggest.input.value = selectedResult.displayText;
             }
           })
           .catch(reject);
       } else if (selectedResult.postcode) {
         triggerEvent = true;
-        this.typeahead.input.value = selectedResult.postcode;
-        this.typeahead.input.focus();
-        this.typeahead.input.dispatchEvent(triggerEvent);
+        this.autosuggest.input.value = selectedResult.postcode;
+        this.autosuggest.input.focus();
+        this.autosuggest.input.dispatchEvent(triggerEvent);
       }
     });
   }
@@ -199,8 +202,9 @@ class AddressInput {
       townName: values.townName,
       postcode: values.postcode,
     };
-    this.addressSetter.setAddress(addressLines);
     resolve();
+
+    return addressLines;
   }
 
   onError() {
@@ -218,11 +222,3 @@ class AddressInput {
     }
   }
 }
-
-function addressInput() {
-  const addressInputs = [...document.querySelectorAll(`.${classAddress}`)];
-
-  addressInputs.forEach(addressInput => new AddressInput(addressInput));
-}
-
-domready(() => setTimeout(addressInput, 10));

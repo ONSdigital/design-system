@@ -1,13 +1,13 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/input/_test-template.njk';
 import '../../../scss/main.scss';
-import TypeaheadUI, {
-  classTypeaheadOption,
-  classTypeaheadOptionFocused,
-  classTypeaheadOptionNoResults,
-  classTypeaheadOptionMoreResults,
-  classTypeaheadHasResults,
-} from '../../../components/input/typeahead.ui';
+import AutosuggestUI, {
+  classAutosuggestOption,
+  classAutosuggestOptionFocused,
+  classAutosuggestOptionNoResults,
+  classAutosuggestOptionMoreResults,
+  classAutosuggestHasResults,
+} from '../../../components/input/autosuggest.ui';
 import eventMock from 'stubs/event.stub.spec';
 import fetchMock from 'stubs/window.fetch.stub.spec';
 
@@ -25,7 +25,7 @@ const params = {
     text: 'Enter the current name of the country',
   },
   autocomplete: 'off',
-  typeahead: {
+  autosuggest: {
     instructions:
       'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
     ariaYouHaveSelected: 'You have selected',
@@ -37,12 +37,12 @@ const params = {
     moreResults: 'Continue entering to improve suggestions',
     resultsTitle: 'Suggestions',
     noResults: 'No results found',
-    typeaheadData:
+    autosuggestData:
       'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json',
   },
 };
 
-describe('Typeahead.ui component', function() {
+describe('Autosuggest.ui component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
@@ -85,7 +85,7 @@ describe('Typeahead.ui component', function() {
         this[key] = component[key];
       });
 
-      this.typeahead = new TypeaheadUI({
+      this.autosuggest = new AutosuggestUI({
         context: this.context,
         onSelect: async () => {},
         onUnsetResult: async () => {},
@@ -122,8 +122,8 @@ describe('Typeahead.ui component', function() {
     describe('and the user presses the Up Arrow key', function() {
       beforeEach(function() {
         this.mockedEvent = eventMock({ key: 'ArrowUp' });
-        this.spy = chai.spy.on(this.typeahead, 'navigateResults');
-        this.typeahead.handleKeydown(this.mockedEvent);
+        this.spy = chai.spy.on(this.autosuggest, 'navigateResults');
+        this.autosuggest.handleKeydown(this.mockedEvent);
       });
 
       it('then preventDefault should be called on the event', function() {
@@ -138,8 +138,8 @@ describe('Typeahead.ui component', function() {
     describe('and the user presses the Down Arrow key', function() {
       beforeEach(function() {
         this.mockedEvent = eventMock({ key: 'ArrowDown' });
-        this.spy = chai.spy.on(this.typeahead, 'navigateResults');
-        this.typeahead.handleKeydown(this.mockedEvent);
+        this.spy = chai.spy.on(this.autosuggest, 'navigateResults');
+        this.autosuggest.handleKeydown(this.mockedEvent);
       });
 
       it('then preventDefault should be called on the event', function() {
@@ -154,7 +154,7 @@ describe('Typeahead.ui component', function() {
     describe('and the user presses the Enter key', function() {
       beforeEach(function() {
         this.mockedEvent = eventMock({ key: 'Enter' });
-        this.typeahead.handleKeydown(this.mockedEvent);
+        this.autosuggest.handleKeydown(this.mockedEvent);
       });
 
       it('then preventDefault should be called on the event', function() {
@@ -165,7 +165,7 @@ describe('Typeahead.ui component', function() {
     describe('and the user presses any other key', function() {
       beforeEach(function() {
         this.mockedEvent = eventMock({ key: 'g' });
-        this.typeahead.handleKeydown(this.mockedEvent);
+        this.autosuggest.handleKeydown(this.mockedEvent);
       });
 
       it('then preventDefault should not have been called on the event', function() {
@@ -176,7 +176,7 @@ describe('Typeahead.ui component', function() {
     describe('and the user releases the Up Arrow key', function() {
       beforeEach(function() {
         this.mockedEvent = eventMock({ key: 'ArrowUp' });
-        this.typeahead.handleKeyup(this.mockedEvent);
+        this.autosuggest.handleKeyup(this.mockedEvent);
       });
 
       it('then preventDefault should be called on the event', function() {
@@ -187,7 +187,7 @@ describe('Typeahead.ui component', function() {
     describe('and the user releases the Down Arrow key', function() {
       beforeEach(function() {
         this.mockedEvent = eventMock({ key: 'ArrowDown' });
-        this.typeahead.handleKeyup(this.mockedEvent);
+        this.autosuggest.handleKeyup(this.mockedEvent);
       });
 
       it('then preventDefault should be called on the event', function() {
@@ -198,8 +198,8 @@ describe('Typeahead.ui component', function() {
     describe('and the user presses the Enter key', function() {
       beforeEach(function() {
         this.mockedEvent = eventMock({ key: 'Enter' });
-        this.spy = chai.spy.on(this.typeahead, 'selectResult');
-        this.typeahead.handleKeyup(this.mockedEvent);
+        this.spy = chai.spy.on(this.autosuggest, 'selectResult');
+        this.autosuggest.handleKeyup(this.mockedEvent);
       });
 
       it('then navigate results (down) should be called', function() {
@@ -209,10 +209,10 @@ describe('Typeahead.ui component', function() {
 
     describe('and the user focuses the input', function() {
       beforeEach(function() {
-        this.suggestionSpy = chai.spy.on(this.typeahead, 'getSuggestions');
+        this.suggestionSpy = chai.spy.on(this.autosuggest, 'getSuggestions');
         this.originalClearTimout = window.clearTimeout;
         this.clearTimeoutSpy = chai.spy.on(window, 'clearTimeout');
-        this.typeahead.handleFocus();
+        this.autosuggest.handleFocus();
       });
 
       afterEach(function() {
@@ -224,18 +224,18 @@ describe('Typeahead.ui component', function() {
       });
 
       it('then the blurTimout should be cleared', function() {
-        expect(this.clearTimeoutSpy).to.have.been.called.with.exactly(this.typeahead.blurTimeout);
+        expect(this.clearTimeoutSpy).to.have.been.called.with.exactly(this.autosuggest.blurTimeout);
       });
     });
 
     describe('and the user blurs the input', function() {
       beforeEach(function() {
-        this.suggestionSpy = chai.spy.on(this.typeahead, 'getSuggestions');
+        this.suggestionSpy = chai.spy.on(this.autosuggest, 'getSuggestions');
         this.originalClearTimout = window.clearTimeout;
         this.clearTimeoutSpy = chai.spy.on(window, 'clearTimeout');
         this.originalSetTimout = window.setTimeout;
         this.setTimeoutSpy = chai.spy.on(window, 'setTimeout');
-        this.blurTimeout = this.typeahead.blurTimeout;
+        this.blurTimeout = this.autosuggest.blurTimeout;
       });
 
       afterEach(function() {
@@ -244,30 +244,30 @@ describe('Typeahead.ui component', function() {
       });
 
       it('then the blurTimout should be cleared', function() {
-        this.typeahead.handleBlur();
+        this.autosuggest.handleBlur();
 
         expect(this.clearTimeoutSpy).to.have.been.called.with.exactly(this.blurTimeout);
       });
 
       it('then blurring should be set to true', function() {
-        this.typeahead.handleBlur();
+        this.autosuggest.handleBlur();
 
-        expect(this.typeahead.blurring).to.be.true;
+        expect(this.autosuggest.blurring).to.be.true;
       });
 
       it('then the blur timeout should be reset', function() {
-        this.typeahead.handleBlur();
+        this.autosuggest.handleBlur();
 
         expect(this.setTimeoutSpy).to.have.been.called();
       });
 
       it('bluring should be set to true and then false 300ms later', function(done) {
-        this.typeahead.handleBlur();
+        this.autosuggest.handleBlur();
 
-        expect(this.typeahead.blurring).to.be.true;
+        expect(this.autosuggest.blurring).to.be.true;
 
         setTimeout(() => {
-          expect(this.typeahead.blurring).to.be.false;
+          expect(this.autosuggest.blurring).to.be.false;
           done();
         }, 300);
       });
@@ -275,17 +275,17 @@ describe('Typeahead.ui component', function() {
 
     describe('and the user inputs', function() {
       beforeEach(function() {
-        this.getSuggestionsSpy = chai.spy.on(this.typeahead, 'getSuggestions');
-        this.abortFetchSpy = chai.spy.on(this.typeahead, 'abortFetch');
+        this.getSuggestionsSpy = chai.spy.on(this.autosuggest, 'getSuggestions');
+        this.abortFetchSpy = chai.spy.on(this.autosuggest, 'abortFetch');
       });
 
       describe('if the input is not currently blurring and the input has a value', function() {
         beforeEach(function(done) {
-          this.typeahead.blurring = false;
-          this.typeahead.input.value = 'Test test test';
+          this.autosuggest.blurring = false;
+          this.autosuggestst.input.value = 'Test test test';
 
           setTimeout(() => {
-            this.typeahead.handleChange();
+            this.autosuggest.handleChange();
             done();
           });
         });
@@ -297,10 +297,10 @@ describe('Typeahead.ui component', function() {
 
       describe('if the input is not currently blurring and the input does not have a value', function() {
         beforeEach(function(done) {
-          this.typeahead.blurring = false;
+          this.autosuggestst.blurring = false;
 
           setTimeout(() => {
-            this.typeahead.handleChange();
+            this.autosuggestst.handleChange();
             done();
           });
         });
@@ -312,11 +312,11 @@ describe('Typeahead.ui component', function() {
 
       describe('if the input is currently blurring and the input has a value', function() {
         beforeEach(function(done) {
-          this.typeahead.blurring = true;
-          this.typeahead.input.value = 'Test test test';
+          this.autosuggestst.blurring = true;
+          this.autosuggest.input.value = 'Test test test';
 
           setTimeout(() => {
-            this.typeahead.handleChange();
+            this.autosuggest.handleChange();
             done();
           });
         });
@@ -328,10 +328,10 @@ describe('Typeahead.ui component', function() {
 
       describe('if the input is currently blurring and the input does not have a value', function() {
         beforeEach(function(done) {
-          this.typeahead.blurring = true;
+          this.autosuggest.blurring = true;
 
           setTimeout(() => {
-            this.typeahead.handleChange();
+            this.autosuggestst.handleChange();
             done();
           });
         });
@@ -344,18 +344,18 @@ describe('Typeahead.ui component', function() {
 
     describe('and suggestions are requested', function() {
       beforeEach(function() {
-        this.unsetResultsSpy = chai.spy.on(this.typeahead, 'unsetResults');
-        this.setAriaStatusSpy = chai.spy.on(this.typeahead, 'setAriaStatus');
-        this.fetchSuggestionsSpy = chai.spy.on(this.typeahead, 'fetchSuggestions');
-        this.clearListboxSpy = chai.spy.on(this.typeahead, 'clearListbox');
-        this.handleResultsSpy = chai.spy.on(this.typeahead, 'handleResults');
-        this.onErrorSpy = chai.spy.on(this.typeahead, 'onError');
+        this.unsetResultsSpy = chai.spy.on(this.autosuggest, 'unsetResults');
+        this.setAriaStatusSpy = chai.spy.on(this.autosuggestst, 'setAriaStatus');
+        this.fetchSuggestionsSpy = chai.spy.on(this.autosuggestst, 'fetchSuggestions');
+        this.clearListboxSpy = chai.spy.on(this.autosuggestst, 'clearListbox');
+        this.handleResultsSpy = chai.spy.on(this.autosuggestst, 'handleResults');
+        this.onErrorSpy = chai.spy.on(this.autosuggestst, 'onError');
       });
 
       describe('if a result is being set', function() {
         beforeEach(function() {
-          this.typeahead.settingResult = true;
-          this.typeahead.getSuggestions();
+          this.autosuggestst.settingResult = true;
+          this.autosuggestst.getSuggestions();
         });
 
         getSuggestionsNothingRunTests();
@@ -363,7 +363,7 @@ describe('Typeahead.ui component', function() {
 
       describe('if the query hasnt changed', function() {
         beforeEach(function() {
-          this.typeahead.getSuggestions();
+          this.autosuggestst.getSuggestions();
         });
 
         getSuggestionsNothingRunTests();
@@ -371,7 +371,7 @@ describe('Typeahead.ui component', function() {
 
       describe('if the query hasnt changed but force is set to true', function() {
         beforeEach(function() {
-          this.typeahead.getSuggestions(true);
+          this.autosuggestst.getSuggestions(true);
         });
 
         it('then the results should be unset', function() {
@@ -385,8 +385,8 @@ describe('Typeahead.ui component', function() {
 
       describe('if the query hasnt changed but force is set to true and a result is selected', function() {
         beforeEach(function() {
-          this.typeahead.resultSelected = true;
-          this.typeahead.getSuggestions(true);
+          this.autosuggestst.resultSelected = true;
+          this.autosuggest.getSuggestions(true);
         });
 
         getSuggestionsNothingRunTests();
@@ -397,7 +397,7 @@ describe('Typeahead.ui component', function() {
           this.input.value = 'Test';
 
           setTimeout(() => {
-            this.typeahead.getSuggestions();
+            this.autosuggestst.getSuggestions();
             done();
           });
         });
@@ -416,7 +416,7 @@ describe('Typeahead.ui component', function() {
           this.input.value = 'T';
 
           setTimeout(() => {
-            this.typeahead.getSuggestions();
+            this.autosuggestst.getSuggestions();
             done();
           });
         });
@@ -428,9 +428,9 @@ describe('Typeahead.ui component', function() {
 
       describe('if the query is equal to or longer than the minimum characters and the user hits enter without selecting a suggestion', function() {
         beforeEach(function() {
-          this.typeahead.handleFocus();
+          this.autosuggest.handleFocus();
           this.mockedEvent = eventMock({ key: 'Enter' });
-          this.typeahead.handleKeyup(this.mockedEvent);
+          this.autosuggestst.handleKeyup(this.mockedEvent);
         });
         it('then the listbox should be cleared', function(done) {
           setTimeout(() => {
@@ -445,7 +445,7 @@ describe('Typeahead.ui component', function() {
 
       describe('if fetch suggestion returns results', function() {
         beforeEach(function() {
-          this.typeahead.handleResults({
+          this.autosuggestst.handleResults({
             totalResults: 12,
             results: [
               {
@@ -505,7 +505,7 @@ describe('Typeahead.ui component', function() {
         });
 
         it('then only a maximum of 10 suggestions should be shown', function() {
-          const resultsLength = this.typeahead.listbox.getElementsByTagName('li').length - 1;
+          const resultsLength = this.autosuggest.listbox.getElementsByTagName('li').length - 1;
           expect(resultsLength).to.be.lessThan(11);
         });
       });
@@ -514,7 +514,7 @@ describe('Typeahead.ui component', function() {
         beforeEach(function(done) {
           this.input.value = 'Testing';
 
-          this.typeahead.fetchSuggestions = () => {
+          this.autosuggest.fetchSuggestions = () => {
             return new Promise((resolve, reject) => {
               reject({
                 name: 'AbortError',
@@ -522,7 +522,7 @@ describe('Typeahead.ui component', function() {
             });
           };
 
-          this.typeahead.getSuggestions();
+          this.autosuggestst.getSuggestions();
 
           setTimeout(done);
         });
@@ -535,7 +535,7 @@ describe('Typeahead.ui component', function() {
 
     describe('and results are fetched', function() {
       beforeEach(function() {
-        this.abortFetchSpy = chai.spy.on(this.typeahead, 'abortFetch');
+        this.abortFetchSpy = chai.spy.on(this.autosuggestst, 'abortFetch');
         this.originalFetch = window.fetch;
       });
 
@@ -544,7 +544,7 @@ describe('Typeahead.ui component', function() {
       });
 
       it('any running fetches should be aborted', function() {
-        this.typeahead.fetchSuggestions('yes');
+        this.autosuggestst.fetchSuggestions('yes');
         expect(this.abortFetchSpy).to.have.been.called();
       });
 
@@ -554,7 +554,7 @@ describe('Typeahead.ui component', function() {
         });
 
         it('then the function should reject', function() {
-          return this.typeahead.fetchSuggestions('yes').should.be.rejected;
+          return this.autosuggestst.fetchSuggestions('yes').should.be.rejected;
         });
       });
 
@@ -569,7 +569,7 @@ describe('Typeahead.ui component', function() {
         });
 
         it('then the function should resolve', function() {
-          this.typeahead.fetchSuggestions('yes').should.eventually.eql(this.result);
+          this.autosuggestst.fetchSuggestions('yes').should.eventually.eql(this.result);
         });
       });
 
@@ -580,89 +580,89 @@ describe('Typeahead.ui component', function() {
             totalResults: 1,
           };
 
-          this.typeahead.lang = 'cy';
+          this.autosuggestst.lang = 'cy';
 
           window.fetch = fetchMock(true, null, this.result);
         });
 
         it('then the function should resolve', function() {
-          this.typeahead.fetchSuggestions('yes').should.eventually.eql(this.result);
+          this.autosuggest.fetchSuggestions('yes').should.eventually.eql(this.result);
         });
       });
     });
 
     describe('and results are unset', function() {
       beforeEach(function() {
-        this.typeahead.results = [{ 'en-gb': 'yes' }];
-        this.typeahead.resultOptions = ['<option>yes</option>'];
-        this.typeahead.resultSelected = true;
+        this.autosuggestst.results = [{ 'en-gb': 'yes' }];
+        this.autosuggestst.resultOptions = ['<option>yes</option>'];
+        this.autosuggestst.resultSelected = true;
       });
 
       it('then results should be reset to an empty array', function() {
-        this.typeahead.unsetResults();
-        expect(this.typeahead.results).to.eql([]);
+        this.autosuggestst.unsetResults();
+        expect(this.autosuggestst.results).to.eql([]);
       });
 
       it('then resultOptions should be reset to an empty array', function() {
-        this.typeahead.unsetResults();
-        expect(this.typeahead.resultOptions).to.eql([]);
+        this.autosuggestst.unsetResults();
+        expect(this.autosuggestst.resultOptions).to.eql([]);
       });
 
       it('then resultSelected should be reset to false', function() {
-        this.typeahead.unsetResults();
-        expect(this.typeahead.resultSelected).to.be.false;
+        this.autosuggestst.unsetResults();
+        expect(this.autosuggestst.resultSelected).to.be.false;
       });
 
       describe('and onUnsetResult is set', function() {
         beforeEach(function() {
-          this.typeahead.onUnsetResult = chai.spy(() => {});
+          this.autosuggestst.onUnsetResult = chai.spy(() => {});
         });
 
         it('then onUnsetResult should be called', function() {
-          this.typeahead.unsetResults();
-          expect(this.typeahead.onUnsetResult).to.have.been.called();
+          this.autosuggestst.unsetResults();
+          expect(this.autosuggestst.onUnsetResult).to.have.been.called();
         });
       });
     });
 
     describe('and clearListbox is run', function() {
       beforeEach(function() {
-        this.typeahead.listbox.innerHTML = '<p>Yes</p>';
-        this.typeahead.context.classList.add('typeahead-input--has-results');
-        this.typeahead.input.setAttribute('aria-activedescendant', 'yes');
-        this.typeahead.input.setAttribute('aria-expanded', 'true');
+        this.autosuggestst.listbox.innerHTML = '<p>Yes</p>';
+        this.autosuggestst.context.classList.add('autosuggest-input--has-results');
+        this.autosuggestst.input.setAttribute('aria-activedescendant', 'yes');
+        this.autosuggestst.input.setAttribute('aria-expanded', 'true');
 
-        this.setAriaStatusSpy = chai.spy.on(this.typeahead, 'setAriaStatus');
+        this.setAriaStatusSpy = chai.spy.on(this.autosuggestst, 'setAriaStatus');
       });
 
       it('then the listbox innerHTML should be cleared', function() {
-        this.typeahead.clearListbox();
-        expect(this.typeahead.listbox.innerHTML).to.equal('');
+        this.autosuggestst.clearListbox();
+        expect(this.autosuggestst.listbox.innerHTML).to.equal('');
       });
 
-      it('then the typeahead--has-results should be removed', function() {
-        this.typeahead.clearListbox();
-        expect(this.typeahead.context.classList.contains('typeahead-input--has-results')).to.be.false;
+      it('then the autosuggestst--has-results should be removed', function() {
+        this.autosuggestst.clearListbox();
+        expect(this.autosuggestst.context.classList.contains('autosuggest-input--has-results')).to.be.false;
       });
 
       it('then the input aria-activedescendant attributes should be removed', function() {
-        this.typeahead.clearListbox();
-        expect(this.typeahead.input.hasAttribute('aria-activedescendant')).to.be.false;
+        this.autosuggestst.clearListbox();
+        expect(this.autosuggestst.input.hasAttribute('aria-activedescendant')).to.be.false;
       });
 
       it('then the input aria-expanded attributes should be removed', function() {
-        this.typeahead.clearListbox();
-        expect(this.typeahead.input.hasAttribute('aria-expanded')).to.be.false;
+        this.autosuggestst.clearListbox();
+        expect(this.autosuggestst.input.hasAttribute('aria-expanded')).to.be.false;
       });
 
       it('then setAriaStatus should be called', function() {
-        this.typeahead.clearListbox();
+        this.autosuggest.clearListbox();
         expect(this.setAriaStatusSpy).to.have.been.called();
       });
 
       describe('and preventAriaStatusUpdate is set to true', function() {
         it('then setAriaStatus should not be called', function() {
-          this.typeahead.clearListbox(true);
+          this.autosuggestst.clearListbox(true);
           expect(this.setAriaStatusSpy).to.not.have.been.called();
         });
       });
@@ -670,18 +670,18 @@ describe('Typeahead.ui component', function() {
 
     describe('and navigateResults is run', function() {
       beforeEach(function() {
-        this.typeahead.numberOfResults = 3;
-        this.setHighlightedResultSpy = chai.spy.on(this.typeahead, 'setHighlightedResult');
+        this.autosuggestst.numberOfResults = 3;
+        this.setHighlightedResultSpy = chai.spy.on(this.autosuggestst, 'setHighlightedResult');
       });
 
       describe('and the direction is 1', function() {
         describe('and the highlightedResultIndex is not set', function() {
           beforeEach(function() {
-            this.typeahead.highlightedResultIndex = null;
+            this.autosuggestst.highlightedResultIndex = null;
           });
 
           it('then setHighlightedResult should be called with an index of 0', function() {
-            this.typeahead.navigateResults(1);
+            this.autosuggestst.navigateResults(1);
 
             expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(0);
           });
@@ -689,7 +689,7 @@ describe('Typeahead.ui component', function() {
 
         describe('and the highlightedResultIndex is 0', function() {
           it('then setHighlightedResult should be called with the next index', function() {
-            this.typeahead.navigateResults(1);
+            this.autosuggestst.navigateResults(1);
 
             expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(1);
           });
@@ -697,11 +697,11 @@ describe('Typeahead.ui component', function() {
 
         describe('and the highlightedResultIndex is the same as the number of results', function() {
           beforeEach(function() {
-            this.typeahead.highlightedResultIndex = 2;
+            this.autosuggestst.highlightedResultIndex = 2;
           });
 
           it('then setHighlightedResult should not be called', function() {
-            this.typeahead.navigateResults(1);
+            this.autosuggestst.navigateResults(1);
 
             expect(this.setHighlightedResultSpy).to.not.have.been.called();
           });
@@ -711,11 +711,11 @@ describe('Typeahead.ui component', function() {
       describe('and the direction is -1', function() {
         describe('and the highlightedResultIndex is not set', function() {
           beforeEach(function() {
-            this.typeahead.highlightedResultIndex = null;
+            this.autosuggestst.highlightedResultIndex = null;
           });
 
           it('then setHighlightedResult should be called with an index of 0', function() {
-            this.typeahead.navigateResults(-1);
+            this.autosuggestst.navigateResults(-1);
 
             expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(0);
           });
@@ -723,7 +723,7 @@ describe('Typeahead.ui component', function() {
 
         describe('and the highlightedResultIndex is 0', function() {
           it('then setHighlightedResult should be called with null', function() {
-            this.typeahead.navigateResults(-1);
+            this.autosuggestst.navigateResults(-1);
 
             expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(null);
           });
@@ -731,11 +731,11 @@ describe('Typeahead.ui component', function() {
 
         describe('and the highlightedResultIndex is the same as the number of results', function() {
           beforeEach(function() {
-            this.typeahead.highlightedResultIndex = 2;
+            this.autosuggestst.highlightedResultIndex = 2;
           });
 
           it('then setHighlightedResult should be called with the previous index', function() {
-            this.typeahead.navigateResults(-1);
+            this.autosuggestst.navigateResults(-1);
 
             expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(1);
           });
@@ -745,57 +745,57 @@ describe('Typeahead.ui component', function() {
 
     describe('and the mouse moves over a result', function() {
       beforeEach(function() {
-        this.typeahead.highlightedResultIndex = 0;
-        this.typeahead.resultOptions = [1].map(() => {
+        this.autosuggestst.highlightedResultIndex = 0;
+        this.autosuggest.resultOptions = [1].map(() => {
           const option = document.createElement('option');
-          option.className = classTypeaheadOptionFocused;
+          option.className = classAutosuggestOptionFocused;
 
           return option;
         });
 
-        this.typeahead.handleMouseover();
+        this.autosuggest.handleMouseover();
       });
 
-      it(`then the highlighted option's ${classTypeaheadOptionFocused} class should be removed`, function() {
-        expect(this.typeahead.resultOptions[0].classList.contains(classTypeaheadOptionFocused)).to.be.false;
+      it(`then the highlighted option's ${classAutosuggestOptionFocused} class should be removed`, function() {
+        expect(this.autosuggest.resultOptions[0].classList.contains(classAutosuggestOptionFocused)).to.be.false;
       });
     });
 
     describe('and the mouse moves off a result', function() {
       beforeEach(function() {
-        this.typeahead.highlightedResultIndex = 0;
-        this.typeahead.resultOptions = [1].map(() => {
+        this.autosuggest.highlightedResultIndex = 0;
+        this.autosuggest.resultOptions = [1].map(() => {
           const option = document.createElement('option');
 
           return option;
         });
 
-        this.typeahead.handleMouseout();
+        this.autosuggest.handleMouseout();
       });
 
-      it(`then the highlighted option's ${classTypeaheadOptionFocused} class should be added`, function() {
-        expect(this.typeahead.resultOptions[0].classList.contains(classTypeaheadOptionFocused)).to.be.true;
+      it(`then the highlighted option's ${classAutosuggestOptionFocused} class should be added`, function() {
+        expect(this.autosuggest.resultOptions[0].classList.contains(classAutosuggestOptionFocused)).to.be.true;
       });
     });
 
     describe('and the highlighted result is set', function() {
       beforeEach(function() {
-        this.typeahead.input.setAttribute('aria-activedescendant', 'yes');
-        this.setAriaStatusSpy = chai.spy.on(this.typeahead, 'setAriaStatus');
+        this.autosuggest.input.setAttribute('aria-activedescendant', 'yes');
+        this.setAriaStatusSpy = chai.spy.on(this.autosuggest, 'setAriaStatus');
       });
 
       it('then the highlightedResultsIndex should be set to match the passed index', function() {
-        this.typeahead.setHighlightedResult(1);
-        expect(this.typeahead.highlightedResultIndex).to.equal(1);
+        this.autosuggest.setHighlightedResult(1);
+        expect(this.autosuggest.highlightedResultIndex).to.equal(1);
       });
 
       describe('if the index passed is null', function() {
         beforeEach(function() {
-          this.typeahead.setHighlightedResult(null);
+          this.autosuggest.setHighlightedResult(null);
         });
 
         it('then the aria-activedescendant attribute should be removed from the input', function() {
-          expect(this.typeahead.input.hasAttribute('aria-activedescendant')).to.be.false;
+          expect(this.autosuggest.input.hasAttribute('aria-activedescendant')).to.be.false;
         });
       });
 
@@ -808,38 +808,38 @@ describe('Typeahead.ui component', function() {
       describe('if there are results', function() {
         beforeEach(function() {
           this.optionIndex = 1;
-          this.typeahead.resultOptions = [0, 1, 2].map(item => {
+          this.autosuggest.resultOptions = [0, 1, 2].map(item => {
             const option = document.createElement('option');
             option.id = item;
 
             return option;
           });
-          this.typeahead.numberOfResults = this.typeahead.resultOptions.length;
-          this.typeahead.setHighlightedResult(this.optionIndex);
+          this.autosuggest.numberOfResults = this.autosuggest.resultOptions.length;
+          this.autosuggest.setHighlightedResult(this.optionIndex);
         });
 
         it('the option with the same index as the passed index should be given a highlighted class', function() {
-          expect(this.typeahead.resultOptions[this.optionIndex].classList.contains(classTypeaheadOptionFocused)).to.be.true;
+          expect(this.autosuggest.resultOptions[this.optionIndex].classList.contains(classAutosuggestOptionFocused)).to.be.true;
         });
 
         it('the option with the same index as the passed index should be given an aria-selected attribute', function() {
-          expect(this.typeahead.resultOptions[this.optionIndex].getAttribute('aria-selected')).to.equal('true');
+          expect(this.autosuggest.resultOptions[this.optionIndex].getAttribute('aria-selected')).to.equal('true');
         });
 
         it('the inputs aria-activedescendant attribute should be set to the id of the highlighted option', function() {
-          expect(this.typeahead.input.getAttribute('aria-activedescendant')).to.equal(this.optionIndex.toString());
+          expect(this.autosuggest.input.getAttribute('aria-activedescendant')).to.equal(this.optionIndex.toString());
         });
 
         it('the non highlighted options should not have the focused class', function() {
-          this.typeahead.resultOptions
+          this.autosuggest.resultOptions
             .filter((option, index) => index !== this.optionIndex)
             .forEach(option => {
-              expect(option.classList.contains(classTypeaheadOptionFocused)).to.be.false;
+              expect(option.classList.contains(classAutosuggestOptionFocused)).to.be.false;
             });
         });
 
         it('the non highlighted options should not have an aria-selected attribute', function() {
-          this.typeahead.resultOptions
+          this.autosuggest.resultOptions
             .filter((option, index) => index !== this.optionIndex)
             .forEach(option => {
               expect(option.hasAttribute('aria-selected')).to.be.false;
@@ -854,73 +854,75 @@ describe('Typeahead.ui component', function() {
 
     describe('and the aria status is set', function() {
       beforeEach(function() {
-        this.typeahead.ariaStatus.innerHTML = 'Yes';
-        this.typeahead.minChars = 2;
+        this.autosuggest.ariaStatus.innerHTML = 'Yes';
+        this.autosuggest.minChars = 2;
       });
 
       describe('if there is no content provided as an argument', function() {
         describe('and the query is too short', function() {
           beforeEach(function() {
-            this.typeahead.sanitisedQuery = '';
-            this.typeahead.setAriaStatus();
+            this.autosuggestst.sanitisedQuery = '';
+            this.autosuggest.setAriaStatus();
           });
 
           it('then the message should be set to type the minimum amount of characters', function() {
-            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.typeahead.ariaMinChars);
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.autosuggest.ariaMinChars);
           });
         });
 
         describe('and there are no results', function() {
           beforeEach(function() {
-            this.typeahead.query = 'Yes';
-            this.typeahead.sanitisedQuery = 'yes';
-            this.typeahead.numberOfResults = 0;
-            this.typeahead.setAriaStatus();
+            this.autosuggest.query = 'Yes';
+            this.autosuggestst.sanitisedQuery = 'yes';
+            this.autosuggest.numberOfResults = 0;
+            this.autosuggestst.setAriaStatus();
           });
 
           it('then the no results message should be set', function() {
-            expect(this.typeahead.ariaStatus.innerHTML).to.equal(`${params.typeahead.ariaNoResults}: "${this.typeahead.query}"`);
+            expect(this.autosuggestst.ariaStatus.innerHTML).to.equal(`${params.autosuggest.ariaNoResults}: "${this.autosuggest.query}"`);
           });
         });
 
         describe('and there is one result', function() {
           beforeEach(function() {
-            this.typeahead.sanitisedQuery = 'yes';
-            this.typeahead.numberOfResults = 1;
-            this.typeahead.setAriaStatus();
+            this.autosuggest.sanitisedQuery = 'yes';
+            this.autosuggestst.numberOfResults = 1;
+            this.autosuggestst.setAriaStatus();
           });
 
           it('then the one result message should be set', function() {
-            expect(this.typeahead.ariaStatus.innerHTML).to.equal(params.typeahead.ariaOneResult);
+            expect(this.autosuggestst.ariaStatus.innerHTML).to.equal(params.autosuggest.ariaOneResult);
           });
         });
 
         describe('and there are multiple results', function() {
           beforeEach(function() {
-            this.typeahead.sanitisedQuery = 'yes';
-            this.typeahead.numberOfResults = 3;
-            this.typeahead.setAriaStatus();
+            this.autosuggestst.sanitisedQuery = 'yes';
+            this.autosuggest.numberOfResults = 3;
+            this.autosuggestst.setAriaStatus();
           });
 
           it('then the multiple results message should be set', function() {
-            expect(this.typeahead.ariaStatus.innerHTML).to.equal(
-              params.typeahead.ariaNResults.replace('{n}', this.typeahead.numberOfResults),
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(
+              params.autosuggestst.ariaNResults.replace('{n}', this.autosuggest.numberOfResults),
             );
           });
         });
 
         describe('and there are more results found than returned', function() {
           beforeEach(function() {
-            this.typeahead.sanitisedQuery = 'yes';
-            this.typeahead.numberOfResults = 3;
-            this.typeahead.resultLimit = 10;
-            this.typeahead.foundResults = 11;
-            this.typeahead.setAriaStatus();
+            this.autosuggestst.sanitisedQuery = 'yes';
+            this.autosuggestst.numberOfResults = 3;
+            this.autosuggestst.resultLimit = 10;
+            this.autosuggestst.foundResults = 11;
+            this.autosuggestst.setAriaStatus();
           });
 
           it('then the multiple results message should be set', function() {
-            expect(this.typeahead.ariaStatus.innerHTML).to.equal(
-              `${params.typeahead.ariaNResults.replace('{n}', this.typeahead.numberOfResults)} ${params.typeahead.ariaLimitedResults}`,
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(
+              `${params.autosuggestst.ariaNResults.replace('{n}', this.autosuggest.numberOfResults)} ${
+                params.autosuggest.ariaLimitedResults
+              }`,
             );
           });
         });
@@ -928,25 +930,25 @@ describe('Typeahead.ui component', function() {
 
       describe('if there content provided as an argument', function() {
         beforeEach(function() {
-          this.typeahead.setAriaStatus('Hello');
+          this.autosuggestst.setAriaStatus('Hello');
         });
 
         it('then the aria status should be set to the provided content', function() {
-          expect(this.typeahead.ariaStatus.innerHTML).to.equal('Hello');
+          expect(this.autosuggestst.ariaStatus.innerHTML).to.equal('Hello');
         });
       });
     });
 
     describe('and a result is selected', function() {
       beforeEach(function() {
-        this.onSelectSpy = chai.spy.on(this.typeahead, 'onSelect');
-        this.clearListboxSpy = chai.spy.on(this.typeahead, 'clearListbox');
-        this.setAriaStatusSpy = chai.spy.on(this.typeahead, 'setAriaStatus');
+        this.onSelectSpy = chai.spy.on(this.autosuggestst, 'onSelect');
+        this.clearListboxSpy = chai.spy.on(this.autosuggest, 'clearListbox');
+        this.setAriaStatusSpy = chai.spy.on(this.autosuggestst, 'setAriaStatus');
       });
 
       describe('if there are no results', function() {
         beforeEach(function() {
-          this.typeahead.selectResult(0);
+          this.autosuggestst.selectResult(0);
         });
 
         it('then the function should do nothing', function() {
@@ -958,13 +960,13 @@ describe('Typeahead.ui component', function() {
 
       describe('if there are results', function() {
         beforeEach(function() {
-          this.typeahead.sanitisedQuery = 'ye';
-          this.typeahead.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
-          this.typeahead.selectResult(0);
+          this.autosuggestst.sanitisedQuery = 'ye';
+          this.autosuggestst.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
+          this.autosuggestst.selectResult(0);
         });
 
         it('then resultSelected should be set to true', function() {
-          expect(this.typeahead.resultSelected).to.be.true;
+          expect(this.autosuggestst.resultSelected).to.be.true;
         });
 
         it('then onSelect should be called', function() {
@@ -976,19 +978,19 @@ describe('Typeahead.ui component', function() {
         });
 
         it('then setAriaStatus should be called', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.typeahead.ariaYouHaveSelected}: Yes.`);
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggestst.ariaYouHaveSelected}: Yes.`);
         });
       });
 
       describe('if there are results from an alternative', function() {
         beforeEach(function() {
-          this.typeahead.sanitisedQuery = 'ie';
-          this.typeahead.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
-          this.typeahead.selectResult(0);
+          this.autosuggest.sanitisedQuery = 'ie';
+          this.autosuggestst.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
+          this.autosuggest.selectResult(0);
         });
 
         it('then setAriaStatus should be called stating the result was found from the alternative', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.typeahead.ariaYouHaveSelected}: Ie.`);
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggestst.ariaYouHaveSelected}: Ie.`);
         });
       });
     });
@@ -996,13 +998,13 @@ describe('Typeahead.ui component', function() {
     describe('and a result is emboldened', function() {
       describe('if the provided string includes the provided query', function() {
         it('then the match should be wrapped in strong tags', function() {
-          expect(this.typeahead.emboldenMatch('Aberdaugleddau', 'ABER')).to.equal('<strong>Aber</strong>daugleddau');
+          expect(this.autosuggestst.emboldenMatch('Aberdaugleddau', 'ABER')).to.equal('<strong>Aber</strong>daugleddau');
         });
       });
 
       describe('if the provided string does not include the provided query', function() {
         it('then the string should bre returned unmodified', function() {
-          expect(this.typeahead.emboldenMatch('yes', 'no')).to.equal('yes');
+          expect(this.autosuggest.emboldenMatch('yes', 'no')).to.equal('yes');
         });
       });
     });
@@ -1010,47 +1012,47 @@ describe('Typeahead.ui component', function() {
     describe('and results are handled', function() {
       describe('if the user is currently deleting and there are no results', function() {
         beforeEach(function() {
-          this.typeahead.deleting = true;
+          this.autosuggestst.deleting = true;
         });
 
         describe('if there is "no results" content', function() {
           beforeEach(function() {
-            this.typeahead.handleResults({
+            this.autosuggestst.handleResults({
               totalResults: 0,
               results: [],
             });
           });
 
           it('then the listbox innerHTML should show the no results message', function() {
-            expect(this.typeahead.listbox.innerHTML).to.equal(
-              `<li class="${classTypeaheadOption} ${classTypeaheadOptionNoResults}">${params.typeahead.noResults}</li>`,
+            expect(this.autosuggest.listbox.innerHTML).to.equal(
+              `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.autosuggest.noResults}</li>`,
             );
           });
 
           it('then the input aria-expanded attribute should be set to true', function() {
-            expect(this.typeahead.input.getAttribute('aria-expanded')).to.equal('true');
+            expect(this.autosuggest.input.getAttribute('aria-expanded')).to.equal('true');
           });
 
           it('then the context should not have the found results class', function() {
-            expect(this.context.classList.contains(classTypeaheadHasResults)).to.be.false;
+            expect(this.context.classList.contains(classAutosuggestHasResults)).to.be.false;
           });
         });
 
         describe('if there isnt any "no results" content', function() {
           beforeEach(function() {
-            this.typeahead.noResults = null;
-            this.typeahead.handleResults({
+            this.autosuggest.noResults = null;
+            this.autosuggest.handleResults({
               totalResults: 0,
               results: [],
             });
           });
 
           it('then the listbox innerHTML should not be populated', function() {
-            expect(this.typeahead.listbox.innerHTML).to.equal('');
+            expect(this.autosuggest.listbox.innerHTML).to.equal('');
           });
 
           it('then the input aria-expanded attribute should be set to false', function() {
-            expect(this.typeahead.input.getAttribute('aria-expanded')).to.equal('false');
+            expect(this.autosuggestst.input.getAttribute('aria-expanded')).to.equal('false');
           });
         });
       });
@@ -1058,12 +1060,12 @@ describe('Typeahead.ui component', function() {
       describe('if there are results', function() {
         describe('and there is only one result that exactly matches the user input', function() {
           beforeEach(function() {
-            this.clearListboxSpy = chai.spy.on(this.typeahead, 'clearListbox');
-            this.selectResultSpy = chai.spy.on(this.typeahead, 'selectResult');
+            this.clearListboxSpy = chai.spy.on(this.autosuggestst, 'clearListbox');
+            this.selectResultSpy = chai.spy.on(this.autosuggest, 'selectResult');
 
-            this.typeahead.query = 'Yes';
-            this.typeahead.sanitisedQuery = 'yes';
-            this.typeahead.handleResults({
+            this.autosuggestst.query = 'Yes';
+            this.autosuggest.sanitisedQuery = 'yes';
+            this.autosuggest.handleResults({
               totalResults: 1,
               results: [
                 {
@@ -1085,11 +1087,11 @@ describe('Typeahead.ui component', function() {
 
         describe('if there is more than one result', function() {
           beforeEach(function() {
-            this.setHighlightedResultSpy = chai.spy.on(this.typeahead, 'setHighlightedResult');
+            this.setHighlightedResultSpy = chai.spy.on(this.autosuggest, 'setHighlightedResult');
 
-            this.typeahead.query = 'Yes';
-            this.typeahead.sanitisedQuery = 'yes';
-            this.typeahead.handleResults({
+            this.autosuggestst.query = 'Yes';
+            this.autosuggestst.sanitisedQuery = 'yes';
+            this.autosuggest.handleResults({
               totalResults: 2,
               results: [
                 {
@@ -1111,12 +1113,12 @@ describe('Typeahead.ui component', function() {
           });
 
           it('then resultOptions should be generated', function() {
-            const option1 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
-            const option2 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--1" role="option" aria-label="Yes 2"><strong>Yes</strong> 2</li>`;
-            const option3 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--2" role="option" aria-label="Ie, (Yes)">Ie <small>(<strong>Yes</strong>)</small></li>`;
+            const option1 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
+            const option2 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--1" role="option" aria-label="Yes 2"><strong>Yes</strong> 2</li>`;
+            const option3 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--2" role="option" aria-label="Ie, (Yes)">Ie <small>(<strong>Yes</strong>)</small></li>`;
             const html = option1 + option2 + option3;
 
-            expect(this.typeahead.listbox.innerHTML).to.equal(html);
+            expect(this.autosuggest.listbox.innerHTML).to.equal(html);
           });
 
           it('then setHighlighted result should be called with null', function() {
@@ -1124,13 +1126,13 @@ describe('Typeahead.ui component', function() {
           });
 
           it('then aria-expanded should be true on the input', function() {
-            expect(this.typeahead.input.getAttribute('aria-expanded')).to.equal('true');
+            expect(this.autosuggest.input.getAttribute('aria-expanded')).to.equal('true');
           });
 
           describe('when a result is clicked', function() {
             beforeEach(function() {
-              this.selectResultSpy = chai.spy.on(this.typeahead, 'onSelect');
-              this.typeahead.resultOptions[0].click();
+              this.selectResultSpy = chai.spy.on(this.autosuggest, 'onSelect');
+              this.autosuggest.resultOptions[0].click();
             });
 
             it('then selectResult should be called', function() {
@@ -1141,9 +1143,9 @@ describe('Typeahead.ui component', function() {
 
         describe('if there are more results found than returned', function() {
           beforeEach(function() {
-            this.typeahead.query = 'Yes';
-            this.typeahead.sanitisedQuery = 'yes';
-            this.typeahead.handleResults({
+            this.autosuggest.query = 'Yes';
+            this.autosuggest.sanitisedQuery = 'yes';
+            this.autosuggest.handleResults({
               totalResults: 3,
               results: [
                 {
@@ -1159,16 +1161,16 @@ describe('Typeahead.ui component', function() {
           });
 
           it('then the more results item should be added', function() {
-            const option1 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
-            const option2 = `<li class="${classTypeaheadOption}" id="${this.typeahead.listboxId}__option--1" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
-            const option3 = `<li class="${classTypeaheadOption} ${classTypeaheadOptionMoreResults}" aria-hidden="true">${params.typeahead.moreResults}</li>`;
+            const option1 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
+            const option2 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--1" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
+            const option3 = `<li class="${classAutosuggestOption} ${classAutosuggestOptionMoreResults}" aria-hidden="true">${params.autosuggest.moreResults}</li>`;
             const html = option1 + option2 + option3;
 
-            expect(this.typeahead.listbox.innerHTML).to.equal(html);
+            expect(this.autosuggest.listbox.innerHTML).to.equal(html);
           });
 
           it('then the context should be given the has results class', function() {
-            expect(this.context.classList.contains(classTypeaheadHasResults)).to.be.true;
+            expect(this.context.classList.contains(classAutosuggestHasResults)).to.be.true;
           });
         });
       });
@@ -1190,7 +1192,7 @@ describe('Typeahead.ui component', function() {
 
       this.rewiremock.enable();
 
-      const mockedTypeaheadUI = require('components/input/typeahead.ui').default;
+      const mockedautosuggestUI = require('components/input/autosuggest.ui').default;
 
       // Render
       const component = renderComponent(params);
@@ -1200,7 +1202,7 @@ describe('Typeahead.ui component', function() {
         this[key] = component[key];
       });
 
-      this.typeahead = new mockedTypeaheadUI({
+      this.autosuggest = new mockedautosuggestUI({
         context: this.context,
         onSelect: () => {},
         onUnsetResult: () => {},
@@ -1219,12 +1221,12 @@ describe('Typeahead.ui component', function() {
 
     describe('and fetch is not defined', function() {
       beforeEach(function() {
-        this.typeahead.fetch = this.fetchSpy()
+        this.autosuggest.fetch = this.fetchSpy()
           .then(() => {})
           .catch(() => {});
-        this.typeahead.fetch.status = 'undefined';
-        this.abortSpy = chai.spy.on(this.typeahead.fetch, 'abort');
-        this.typeahead.abortFetch();
+        this.autosuggest.fetch.status = 'undefined';
+        this.abortSpy = chai.spy.on(this.autosuggest.fetch, 'abort');
+        this.autosuggest.abortFetch();
       });
 
       it('then the function should return immediately', function() {
@@ -1234,12 +1236,12 @@ describe('Typeahead.ui component', function() {
 
     describe('and fetch is defined but the status is equal to DONE', function() {
       beforeEach(function() {
-        this.typeahead.fetch = this.fetchSpy()
+        this.autosuggest.fetch = this.fetchSpy()
           .then(() => {})
           .catch(() => {});
-        this.typeahead.fetch.status = 'DONE';
-        this.abortSpy = chai.spy.on(this.typeahead.fetch, 'abort');
-        this.typeahead.abortFetch();
+        this.autosuggest.fetch.status = 'DONE';
+        this.abortSpy = chai.spy.on(this.autosuggest.fetch, 'abort');
+        this.autosuggest.abortFetch();
       });
 
       it('then the function should return immediately', function() {
@@ -1249,11 +1251,11 @@ describe('Typeahead.ui component', function() {
 
     describe('and fetch is defined but the status is equal not to DONE', function() {
       beforeEach(function() {
-        this.typeahead.fetch = this.fetchSpy()
+        this.autosuggest.fetch = this.fetchSpy()
           .then(() => {})
           .catch(() => {});
-        this.abortSpy = chai.spy.on(this.typeahead.fetch, 'abort');
-        this.typeahead.abortFetch();
+        this.abortSpy = chai.spy.on(this.autosuggest.fetch, 'abort');
+        this.autosuggest.abortFetch();
       });
 
       it('then the function should return immediately', function() {
@@ -1272,7 +1274,7 @@ describe('Typeahead.ui component', function() {
 
       this.customSuggestionFunctionSpy = chai.spy(async () => {});
 
-      this.typeahead = new TypeaheadUI({
+      this.autosuggest = new AutosuggestUI({
         context: this.context,
         onSelect: async () => {},
         onUnsetResult: async () => {},
@@ -1291,7 +1293,7 @@ describe('Typeahead.ui component', function() {
       beforeEach(function() {
         this.input.value = 'Yes';
 
-        this.typeahead.fetchSuggestions();
+        this.autosuggest.fetchSuggestions();
       });
 
       it('then the custom suggeston function should be called', function() {
@@ -1309,12 +1311,12 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const context = wrapper.querySelector('.js-typeahead');
-  const input = context.querySelector('.js-typeahead-input');
-  const resultsContainer = context.querySelector('.js-typeahead-results');
-  const listbox = context.querySelector('.js-typeahead-listbox');
-  const instructions = context.querySelector('.js-typeahead-instructions');
-  const status = context.querySelector('.js-typeahead-aria-status');
+  const context = wrapper.querySelector('.js-autosuggest');
+  const input = context.querySelector('.js-autosuggest-input');
+  const resultsContainer = context.querySelector('.js-autosuggest-results');
+  const listbox = context.querySelector('.js-autosuggest-listbox');
+  const instructions = context.querySelector('.js-autosuggest-instructions');
+  const status = context.querySelector('.js-autosuggest-aria-status');
 
   return {
     wrapper,

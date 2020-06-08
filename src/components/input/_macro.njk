@@ -18,52 +18,26 @@
 
     {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
     {% set input %}
-        {% if params.typeahead %}
-            <div
-                id="{{ params.id }}-container"
-                class="{% if not params.typeahead.externalInitialiser %}js-typeahead {% endif %}typeahead-input {{ params.typeahead.classes }}"
-                data-instructions="{{ params.typeahead.instructions }}"
-                data-aria-you-have-selected="{{ params.typeahead.ariaYouHaveSelected }}"
-                data-aria-min-chars="{{ params.typeahead.ariaMinChars }}"
-                data-aria-one-result="{{ params.typeahead.ariaOneResult }}"
-                data-aria-n-results="{{ params.typeahead.ariaNResults }}"
-                data-aria-limited-results="{{ params.typeahead.ariaLimitedResults }}"
-                data-more-results="{{ params.typeahead.moreResults }}"
-                data-results-title="{{ params.typeahead.resultsTitle }}"
-                data-typeahead-data="{{ params.typeahead.typeaheadData }}"
-                data-no-results="{{ params.typeahead.noResults }}"
-            >
-        {% endif %}
-                <input
-                    type="{{ type }}"
-                    id="{{ params.id }}"
-                    class="input input--text input-type__input {% if params.typeahead %}js-typeahead-input{% endif %} {{ params.classes }}{{ exclusiveClass }}"
-                    {% if params.prefix or params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
-                    {% if params.name is defined %}name="{{ params.name }}"{% endif %}
-                    {% if params.accessiblePlaceholder is defined %}required{% endif %}
-                    {% if params.value is defined %}value="{{ params.value }}"{% endif %}
-                    {% if params.accept is defined %}accept="{{ params.accept }}"{% endif %}
-                    {% if params.min is defined %}min="{{ params.min }}"{% endif %}
-                    {% if params.max is defined %}max="{{ params.max }}"{% endif %}
-                    {% if params.minLength is defined %}minlength="{{ params.minLength }}"{% endif %}
-                    {% if params.maxLength is defined %}maxlength="{{ params.maxLength }}"{% endif %}
-                    {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
-                    {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
-                    {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
-                    {% if params.charCheck is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
-                    {% if params.charCheck is defined and params.charCheck.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
-                    {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-                />
-        {% if params.typeahead %}
-                <div class="typeahead-input__results js-typeahead-results">
-                    <header class="typeahead-input__results-title u-fs-s">{{ params.typeahead.resultsTitle }}</header>
-                    <ul class="typeahead-input__listbox js-typeahead-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
-                </div>
-
-                <div class="typeahead-input__instructions u-vh js-typeahead-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.typeahead.instructions }}</div>
-                <div class="typeahead-input__status u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
-            </div>
-        {% endif %}
+        <input
+            type="{{ type }}"
+            id="{{ params.id }}"
+            class="input input--text input-type__input {% if params.autosuggest %}js-autosuggest-input{% endif %} {{ params.classes }}{{ exclusiveClass }}"
+            {% if params.prefix or params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
+            {% if params.name is defined %}name="{{ params.name }}"{% endif %}
+            {% if params.accessiblePlaceholder is defined %}required{% endif %}
+            {% if params.value is defined %}value="{{ params.value }}"{% endif %}
+            {% if params.accept is defined %}accept="{{ params.accept }}"{% endif %}
+            {% if params.min is defined %}min="{{ params.min }}"{% endif %}
+            {% if params.max is defined %}max="{{ params.max }}"{% endif %}
+            {% if params.minLength is defined %}minlength="{{ params.minLength }}"{% endif %}
+            {% if params.maxLength is defined %}maxlength="{{ params.maxLength }}"{% endif %}
+            {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
+            {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
+            {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
+            {% if params.charCheck is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
+            {% if params.charCheck is defined and params.charCheck.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+        />
     {% endset %}
     {% set field %}
         {% if params.label or not (params.prefix or params.suffix or type == 'password') %}
@@ -94,6 +68,30 @@
                         >{{ abbr.text or abbr.title }}</abbr>
                 </span>
             </span>
+        {% elif params.autosuggest %}
+            <div
+                id="{{ params.id }}-container"
+                class="{% if not params.autosuggest.externalInitialiser %}js-autosuggest {% endif %}autosuggest-input {{ params.autosuggest.classes }}"
+                data-instructions="{{ params.autosuggest.instructions }}"
+                data-aria-you-have-selected="{{ params.autosuggest.ariaYouHaveSelected }}"
+                data-aria-min-chars="{{ params.autosuggest.ariaMinChars }}"
+                data-aria-one-result="{{ params.autosuggest.ariaOneResult }}"
+                data-aria-n-results="{{ params.autosuggest.ariaNResults }}"
+                data-aria-limited-results="{{ params.autosuggest.ariaLimitedResults }}"
+                data-more-results="{{ params.autosuggest.moreResults }}"
+                data-results-title="{{ params.autosuggest.resultsTitle }}"
+                data-autosuggest-data="{{ params.autosuggest.autosuggestData }}"
+                data-no-results="{{ params.autosuggest.noResults }}"
+            >
+                    {{ input | safe }}
+                <div class="autosuggest-input__results js-autosuggest-results">
+                    <header class="autosuggest-input__results-title u-fs-s">{{ params.autosuggest.resultsTitle }}</header>
+                    <ul class="autosuggest-input__listbox js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
+                </div>
+                <div class="autosuggest-input__instructions u-vh js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.autosuggest.instructions }}</div>
+                <div class="autosuggest-input__status u-vh js-autosuggest-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
+            </div>
+
         {% elif params.charCheck is defined and params.charCheck.limit is defined or params.button is defined %}
             {% if params.button is defined %}
                 <span class="grid--flex">

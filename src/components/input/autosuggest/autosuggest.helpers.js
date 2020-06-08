@@ -1,4 +1,4 @@
-export function sanitiseTypeaheadText(string, sanitisedQueryRemoveChars = [], trimEnd = true) {
+export function sanitiseAutosuggestText(string, sanitisedQueryRemoveChars = [], trimEnd = true) {
   let sanitisedString = string.toLowerCase();
 
   sanitisedQueryRemoveChars.forEach(char => {

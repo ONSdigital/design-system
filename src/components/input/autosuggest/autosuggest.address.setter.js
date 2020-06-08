@@ -1,20 +1,21 @@
 import triggerEvent from 'js/utils/trigger-event';
 
-const classTypeaheadInput = 'js-typeahead-input';
+const classAutosuggestInput = 'js-autosuggest-input';
 const classOrganisation = 'js-address-organisation';
 const classLine1 = 'js-address-line-1';
 const classLine2 = 'js-address-line-2';
 const classTown = 'js-address-town';
 const classCounty = 'js-address-county';
 const classPostcode = 'js-address-postcode';
-const classSearchButtonContainer = 'js-address-search-btn-container';
+const classSearch = 'js-address-input__search';
+const classManual = 'js-address-input__manual';
 const classSearchButton = 'js-address-search-btn';
 const classManualButton = 'js-address-manual-btn';
 
 export default class AddressSetter {
   constructor(context) {
     this.context = context;
-    this.input = context.querySelector(`.${classTypeaheadInput}`);
+    this.input = context.querySelector(`.${classAutosuggestInput}`);
     this.organisation = context.querySelector(`.${classOrganisation}`);
     this.line1 = context.querySelector(`.${classLine1}`);
     this.line2 = context.querySelector(`.${classLine2}`);
@@ -22,7 +23,8 @@ export default class AddressSetter {
     this.county = context.querySelector(`.${classCounty}`);
     this.postcode = context.querySelector(`.${classPostcode}`);
     this.manualInputs = [this.line1, this.line2, this.town, this.county, this.postcode];
-    this.searchButtonContainer = context.querySelector(`.${classSearchButtonContainer}`);
+    this.search = context.querySelector(`.${classSearch}`);
+    this.manual = context.querySelector(`.${classManual}`);
     this.searchButton = context.querySelector(`.${classSearchButton}`);
     this.manualButton = context.querySelector(`.${classManualButton}`);
 
@@ -32,7 +34,6 @@ export default class AddressSetter {
 
     // Bind Event Listeners
     if (this.searchButton) {
-      this.searchButtonContainer.classList.remove('u-d-no');
       this.searchButton.addEventListener('click', this.toggleMode.bind(this));
     }
 
@@ -50,7 +51,8 @@ export default class AddressSetter {
   }
 
   setManualMode(manual, clearInputs) {
-    this.context.classList[manual ? 'remove' : 'add']('address-input--search');
+    this.manual.classList[manual ? 'remove' : 'add']('u-db-no-js_enabled');
+    this.search.classList[manual ? 'add' : 'remove']('u-d-no');
 
     if (clearInputs) {
       this.onUnsetAddress();
