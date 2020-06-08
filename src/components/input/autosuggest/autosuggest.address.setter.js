@@ -5,7 +5,6 @@ const classOrganisation = 'js-address-organisation';
 const classLine1 = 'js-address-line-1';
 const classLine2 = 'js-address-line-2';
 const classTown = 'js-address-town';
-const classCounty = 'js-address-county';
 const classPostcode = 'js-address-postcode';
 const classSearch = 'js-address-input__search';
 const classManual = 'js-address-input__manual';
@@ -20,9 +19,8 @@ export default class AddressSetter {
     this.line1 = context.querySelector(`.${classLine1}`);
     this.line2 = context.querySelector(`.${classLine2}`);
     this.town = context.querySelector(`.${classTown}`);
-    this.county = context.querySelector(`.${classCounty}`);
     this.postcode = context.querySelector(`.${classPostcode}`);
-    this.manualInputs = [this.line1, this.line2, this.town, this.county, this.postcode];
+    this.manualInputs = [this.line1, this.line2, this.town, this.postcode];
     this.search = context.querySelector(`.${classSearch}`);
     this.manual = context.querySelector(`.${classManual}`);
     this.searchButton = context.querySelector(`.${classSearchButton}`);
@@ -41,7 +39,7 @@ export default class AddressSetter {
       this.manualButton.addEventListener('click', this.toggleMode.bind(this));
     }
 
-    if (!(this.line1.value || this.line2.value || this.town.value || this.county.value || this.county.value)) {
+    if (!(this.line1.value || this.line2.value || this.town.value || this.postcode.value)) {
       this.toggleMode();
     }
   }
