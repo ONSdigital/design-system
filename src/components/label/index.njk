@@ -51,6 +51,12 @@ Use the optional `label__description` to show hint text to help the majority of 
     patternlibExample({"path": "components/label/examples/label-description/index.njk"})
 }}
 
+### To label checkboxes or radios
+To use it for radios or checkboxes `inputType` needs to be set to `radio` or `checkbox` which will style the component correctly, otherwise it will defualt to be styled as above for a text input.
+{{
+    patternlibExample({"path": "components/radios/examples/radios-descriptions/index.njk"})
+}}
+
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
