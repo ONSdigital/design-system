@@ -1,7 +1,6 @@
 import triggerEvent from 'js/utils/trigger-event';
 
 const classAutosuggestInput = 'js-autosuggest-input';
-const classOrganisation = 'js-address-organisation';
 const classLine1 = 'js-address-line-1';
 const classLine2 = 'js-address-line-2';
 const classTown = 'js-address-town';
@@ -15,7 +14,6 @@ export default class AddressSetter {
   constructor(context) {
     this.context = context;
     this.input = context.querySelector(`.${classAutosuggestInput}`);
-    this.organisation = context.querySelector(`.${classOrganisation}`);
     this.line1 = context.querySelector(`.${classLine1}`);
     this.line2 = context.querySelector(`.${classLine2}`);
     this.town = context.querySelector(`.${classTown}`);
