@@ -1,17 +1,16 @@
 {% from "components/input/_macro.njk" import onsInput %}
 
 <div class="grid grid--gutterless">
-    <div class="grid__col col-8@m">
+    <div class="grid__col col-8@m js-address">
 
         {{ onsInput({
-            "id": "country-of-birth",
+            "id": "address-lookup",
             "label": {
-                "text": "Current name of country",
-                "description": "Enter your own answer or select from suggestions"
+                "text": "Enter your address or postcode and select from results"
             },
             "autocomplete": "off",
             "typeahead":{
-                "classes": "js-address-typeahead",
+                "classes": "js-address-typeahead js-address-not-editable",
                 "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
                 "ariaYouHaveSelected": "You have selected",
                 "ariaMinChars": "Enter 3 or more characters for suggestions.",

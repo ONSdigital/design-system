@@ -95,6 +95,7 @@ export default class TypeaheadUI {
     if (this.lang === 'en') {
       this.lang = 'en-gb';
     }
+
     this.initialiseUI();
   }
 

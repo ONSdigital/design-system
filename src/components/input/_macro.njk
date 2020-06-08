@@ -21,7 +21,7 @@
         {% if params.typeahead %}
             <div
                 id="{{ params.id }}-container"
-                class="js-typeahead typeahead-input {{ params.classes }}"
+                class="{% if not params.typeahead.externalInitialiser %}js-typeahead {% endif %}typeahead-input {{ params.typeahead.classes }}"
                 data-instructions="{{ params.typeahead.instructions }}"
                 data-aria-you-have-selected="{{ params.typeahead.ariaYouHaveSelected }}"
                 data-aria-min-chars="{{ params.typeahead.ariaMinChars }}"
@@ -37,7 +37,7 @@
                 <input
                     type="{{ type }}"
                     id="{{ params.id }}"
-                    class="input input--text input-type__input {% if params.typeahead %} js-typeahead-input {% endif %} {{ params.classes }}{{ exclusiveClass }}"
+                    class="input input--text input-type__input {% if params.typeahead %}js-typeahead-input{% endif %} {{ params.classes }}{{ exclusiveClass }}"
                     {% if params.prefix or params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
                     {% if params.name is defined %}name="{{ params.name }}"{% endif %}
                     {% if params.accessiblePlaceholder is defined %}required{% endif %}

@@ -30,10 +30,9 @@ export default class AddressSetter {
     this.manualMode = true;
     this.addressSelected = false;
 
-    this.searchButtonContainer.classList.remove('u-d-no');
-
     // Bind Event Listeners
     if (this.searchButton) {
+      this.searchButtonContainer.classList.remove('u-d-no');
       this.searchButton.addEventListener('click', this.toggleMode.bind(this));
     }
 
