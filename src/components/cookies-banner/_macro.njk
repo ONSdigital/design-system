@@ -2,7 +2,7 @@
     <div class="cookies-banner" role="region" aria-label="{{ params.ariaLabel | default('cookie banner')}}">
         <div class="container cookies-banner__primary">
             <div class="grid">
-                <div class="grid__col col-7@m">
+                <div class="grid__col col-8@m">
                   <h2 class="cookies-banner__title u-mb-xs">{{ params.statementTitle }}</h2>
                   <p class="cookies-banner__desc">{{ params.statementText | safe }}</p>
                   {% from "components/button/_macro.njk" import onsButton %}
@@ -10,7 +10,7 @@
                       onsButton({
                           "type": 'button',
                           "text": params.primaryButtonText | default('Accept cookies'),
-                          "classes": 'btn--small js-accept-cookies u-mb-s@xs@s cookies-banner__btn'
+                          "classes": 'btn--small js-accept-cookies u-mb-xs@xs@s cookies-banner__btn'
                       })
                   }}
                   {{
