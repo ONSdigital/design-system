@@ -20,13 +20,6 @@ describe('Component: Cookie settings', function() {
   });
 
   describe('setInitialFormValues', function() {
-    it('sets a consent cookie by default', function() {
-      const setDefaultConsentCookieSpy = chai.spy(setDefaultConsentCookie);
-      expect(setDefaultConsentCookieSpy).to.have.been.called;
-      const cookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
-      expect(cookieJSON).to.contain({ essential: true, settings: false, usage: false, campaigns: false });
-    });
-
     it('sets all radio buttons to the default values', function() {
       const radioButtons = this.form[0].querySelectorAll('input[value=on]');
       const consentCookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
