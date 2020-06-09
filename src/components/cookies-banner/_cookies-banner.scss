@@ -19,4 +19,11 @@
       width: 100%;
     }
   }
+
+  a:not(.btn) {
+    color: $cookie-banner-text;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
