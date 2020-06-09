@@ -28,9 +28,13 @@ describe('Component: Cookie banner', function() {
     expect(this.banner.style.display).to.equal('block');
   });
 
-  it('sets a consent cookie by default', function() {
+  it('sets all cookies to true when accepting cookies', function() {
     new CookiesBanner(this.banner);
     const approveAllCookieTypesSpy = chai.spy(approveAllCookieTypes);
+
+    const button = this.banner.querySelector('.js-accept-cookies');
+    button.click();
+
     expect(approveAllCookieTypesSpy).to.have.been.called;
     const cookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
     expect(cookieJSON).to.contain({ essential: true, settings: true, usage: true, campaigns: true });
@@ -47,11 +51,33 @@ describe('Component: Cookie banner', function() {
     expect(setConsentCookieSpy).to.have.been.called;
   });
 
-  it('should hide when pressing the accept link', function() {
+  it('should hide the primary message when pressing the accept link', function() {
     new CookiesBanner(this.banner);
-    const hideCookiesMessageSpy = chai.spy(CookiesBanner.hideCookiesMessage);
+    const hideCookiesMessageSpy = chai.spy(CookiesBanner.hidePrimaryCookiesBanner);
 
     const button = this.banner.querySelector('.js-accept-cookies');
+    button.click();
+
+    const primaryBanner = this.banner.querySelector('.cookies-banner__primary');
+    expect(primaryBanner.style.display).to.equal('none');
+    expect(hideCookiesMessageSpy).to.have.been.called;
+  });
+
+  it('should show the secondary message when pressing the accept button', function() {
+    new CookiesBanner(this.banner);
+
+    const button = this.banner.querySelector('.js-accept-cookies');
+    button.click();
+
+    const secondaryBanner = this.banner.querySelector('.cookies-banner__confirmation');
+    expect(secondaryBanner.classList.contains('u-d-no')).to.equal(false);
+  });
+
+  it('should hide the secondary message when pressing the hide button', function() {
+    new CookiesBanner(this.banner);
+    const hideCookiesMessageSpy = chai.spy(CookiesBanner.hideConfirmBanner);
+
+    const button = this.banner.querySelector('.js-hide-button');
     button.click();
 
     expect(this.banner.style.display).to.equal('none');
@@ -68,23 +94,33 @@ describe('Component: Cookie banner', function() {
 function renderComponent() {
   const formHTML =
     '<div class="cookies-banner">' +
-    '<div class="container">' +
-    '<div class="grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap@s">' +
-    '<div class="grid__col grid__col--flex col-auto u-flex-shrink@s">' +
-    '<p class="cookies-banner__desc u-mr-s">CENSUS.GOV.UK uses cookies to make the site simpler.</p>' +
-    '</div>' +
-    '<div class="grid__col grid__col--flex col-auto">' +
-    '<button type="button" class="btn btn--small js-accept-cookies">' +
+    '<div class="container cookies-banner__primary">' +
+    '<div class="grid">' +
+    '<div class="grid__col col-8@m">' +
+    '<h2 class="cookies-banner__title u-mb-xs">Tell us whether you accept cookies</h2>' +
+    '<p class="cookies-banner__desc">We use cookies to collect information about how you use census.gov.uk. We use this information to make the website work as well as possible and improve our services.</p>' +
+    '<button type="button" class="btn btn--small js-accept-cookies u-mb-xs@xs@s cookies-banner__btn">' +
     '<span class="btn__inner">Accept cookies</span>' +
     '</button>' +
-    '<a href="#" role="button" class="btn btn--secondary btn--small btn--link">' +
+    '<a href="#" role="button" class="btn btn--secondary btn--small u-ml-no@xs@s cookies-banner__btn btn--link">' +
     '<span class="btn__inner">Cookie settings</span>' +
     '</a>' +
     '</div>' +
     '</div>' +
     '</div>' +
+    '<div class="container cookies-banner__confirmation u-d-no">' +
+    '<div class="grid grid--flex grid--between grid--gutterless grid--no-wrap@s grid--vertical-center">' +
+    '<div class="grid__col grid__col--flex col-auto u-flex-shrink@s">' +
+    '<p class="cookies-banner__desc u-mb-no@s u-mr-s@s">You’ve accepted all cookies. You can <a href="#">change your cookie settings</a> at any time.</p>' +
+    '</div>' +
+    '<div class="grid__col">' +
+    '<button type="button" class="btn btn--secondary btn--small js-hide-button">' +
+    '<span class="btn__inner">Hide</span>' +
+    '</button>' +
+    '</div>' +
+    '</div>' +
+    '</div>' +
     '</div>';
-
   const wrapper = document.createElement('div');
   wrapper.innerHTML = formHTML;
   document.body.appendChild(wrapper);
