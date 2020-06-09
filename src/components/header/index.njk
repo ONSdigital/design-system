@@ -15,18 +15,18 @@ You should use the ONS header at the top of any ONS service.
 
 ## How to use this component
 
-### External header
-{{
-    patternlibExample({ "path": "components/header/examples/external-basic/index.njk" })
-}}
-
-The external header should be used across public facing services.
-
 ### Internal
 {{
     patternlibExample({ "path": "components/header/examples/internal-basic/index.njk" })
 }}
 The internal service variant of the header. Use the modifier `header--internal` when implementing for an internal service. 
+
+### External with language and save button
+{{
+    patternlibExample({ "path": "components/header/examples/external-lang/index.njk" })
+}}
+
+The external header with language switch and save button, should be used across public facing services.
 
 ### External with description
 {{
@@ -42,33 +42,12 @@ Allows for text to be added below the title by adding the `header--hero` modifie
 
 For services that require a main navigation. For mobile users, a menu button is shown which allows the navigation menu to be open and closed using javascript.
 
-## Further examples
-
-### Social survey
-{{
-    patternlibExample({ "path": "components/header/examples/social/index.njk" })
-}}
-
-The social survey uses the standard external header with a [language selector](/patterns/language-selection) and save [button](/components/button).
-
-### Business survey
-{{
-    patternlibExample({ "path": "components/header/examples/business/index.njk" })
-}}
-
-The business survey uses the standard external header with a [language selector](/patterns/language-selection) and service links.
-
-### Internal service
-{{
-    patternlibExample({ "path": "components/header/examples/internal-service/index.njk" })
-}}
-
-An internal service uses the internal header variant with service links and a main navigation. For mobile users, a menu button is shown which allows the navigation menu to be open and closed.
-
 ### External with Welsh logo
 {{
     patternlibExample({ "path": "components/header/examples/external-welsh/index.njk" })
 }}
+
+## External with Census branding
 
 ### Census
 {{
