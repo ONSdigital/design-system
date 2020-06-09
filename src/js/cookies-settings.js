@@ -1,5 +1,5 @@
 import { unset } from 'lodash';
-import { cookie, setConsentCookie, setCookie } from 'js/cookies-functions';
+import { cookie, setDefaultConsentCookie, setConsentCookie, setCookie } from 'js/cookies-functions';
 export default class CookiesSettings {
   constructor(component) {
     this.component = component;
@@ -8,6 +8,10 @@ export default class CookiesSettings {
   }
 
   setInitialFormValues() {
+    if (!cookie('ons_cookie_policy')) {
+      setDefaultConsentCookie();
+    }
+
     const currentConsentCookie = cookie('ons_cookie_policy');
     let currentConsentCookieJSON = JSON.parse(currentConsentCookie.replace(/'/g, '"'));
 
