@@ -7,7 +7,7 @@ import AutosuggestUI, {
   classAutosuggestOptionNoResults,
   classAutosuggestOptionMoreResults,
   classAutosuggestHasResults,
-} from '../../../components/input/autosuggest.ui';
+} from '../../../components/input/autousggest/autosuggest.ui';
 import eventMock from 'stubs/event.stub.spec';
 import fetchMock from 'stubs/window.fetch.stub.spec';
 
@@ -1192,7 +1192,7 @@ describe('Autosuggest.ui component', function() {
 
       this.rewiremock.enable();
 
-      const mockedautosuggestUI = require('components/input/autosuggest.ui').default;
+      const mockedautosuggestUI = require('components/input/autousggest/autosuggest.ui').default;
 
       // Render
       const component = renderComponent(params);
