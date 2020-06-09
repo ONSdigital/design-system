@@ -7,7 +7,7 @@
             value="{{ params.value }}"
             {% if params.name %} name="{{ params.name }}"{% endif %}
             {% if params.checked %} checked{% endif %}
-            {% if params.other %} aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
+            {% if params.other and not params.other.open %} aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
         <label id="{{ params.id }}-label" class="checkbox__label {{ params.label.classes }}" for="{{ params.id }}">
@@ -18,7 +18,7 @@
             {% endif %}
         </label>
         {% if params.other %}
-            <span class="checkbox__other" id="{{ params.id }}-other-wrap">
+            <span class="checkbox__other {{ 'checkbox__other--open' if params.other.open }}" id="{{ params.id }}-other-wrap">
                 {% from "components/input/_macro.njk" import onsInput %}
                 {{
                     onsInput({

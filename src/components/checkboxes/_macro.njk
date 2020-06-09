@@ -31,6 +31,7 @@
                     {% if checkbox.other %}
                         {% set config = config | setAttributes({
                             "other": {
+                                "open": checkbox.other.open | default(false),
                                 "id": checkbox.other.id,
                                 "name": checkbox.other.name,
                                 "type": checkbox.other.type,

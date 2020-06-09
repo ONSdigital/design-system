@@ -8,7 +8,6 @@
         <div
             id="{{ params.id }}"
             class="feedback js-collapsible js-feedback{% if params.classes %} {{ params.classes }}{% endif %}"
-            open
             {% if params.button.close.text %} data-btn-close="{{ params.button.close.text }}"{% endif %}
             {% if params.group %} data-group="{{ params.group }}"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}

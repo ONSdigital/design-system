@@ -2,6 +2,7 @@
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
+    {% from "components/button/_macro.njk" import onsButton %}
 
     {% if params.type == "number" %}
         {# Type must be "text" or Firefox and Safari will set a blank value to the server if non numeric characters are entered -
@@ -33,7 +34,6 @@
                 data-no-results="{{ params.typeahead.noResults }}"
             >
         {% endif %}
-
                 <input
                     type="{{ type }}"
                     id="{{ params.id }}"
@@ -50,10 +50,10 @@
                     {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
                     {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
                     {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
-                    {% if params.charcheck %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charcheck }}"{% endif %}
+                    {% if params.charCheck is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
+                    {% if params.charCheck is defined and params.charCheck.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
                     {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                 />
-
         {% if params.typeahead %}
                 <div class="typeahead-input__results js-typeahead-results">
                     <header class="typeahead-input__results-title u-fs-s">{{ params.typeahead.resultsTitle }}</header>
@@ -94,6 +94,38 @@
                         >{{ abbr.text or abbr.title }}</abbr>
                 </span>
             </span>
+        {% elif params.charCheck is defined and params.charCheck.limit is defined or params.button is defined %}
+            {% if params.button is defined %}
+                <span class="grid--flex">
+            {% endif %}
+            {% if params.charCheck.limit is defined %}
+                <span class="js-char-check">
+            {% endif %}
+            {{ input | safe }}
+            {% if params.charCheck.limit is defined %}
+                </span>
+            {% endif %}
+            {% if params.button is defined %}
+                {{ 
+                    onsButton({
+                        "type": params.button.type,
+                        "text": params.button.text,
+                        "id": params.button.id,
+                        "classes": params.button.classes
+                    }) 
+                }}
+                </span>
+            {% endif %}
+            {% if params.charCheck.limit is defined %}
+                <span
+                    id="{{ params.id }}-check-remaining"
+                    class="input__limit u-fs-s--b u-d-no u-mt-xs"
+                    data-charcount-singular="{{ params.charCheck.charCountSingular }}"
+                    data-charcount-plural="{{ params.charCheck.charCountPlural }}"
+                    data-charcount-limit-singular="{{ params.charCheck.charCountOverLimitSingular }}"
+                    data-charcount-limit-plural="{{ params.charCheck.charCountOverLimitPlural }}">
+                </span>
+            {% endif %}
         {% else %}
             {{ input | safe }}
         {% endif %}
@@ -113,11 +145,7 @@
             "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
             "error": params.error
         }) %}
-            {% call onsField({
-                "error": params.error
-            }) %}
-                {{ field | safe }}
-            {% endcall %}
+        {{ field | safe }}
         {% endcall %}
     {% elif type == "hidden" %}
         {{ field | safe }}
@@ -128,6 +156,7 @@
             "dontWrap": params.dontWrap,
             "error": params.error
         }) %}
+        
             {{ field | safe }}
         {% endcall %}
     {% endif %}
