@@ -24,7 +24,7 @@ describe('Component: Cookie settings', function() {
       const setDefaultConsentCookieSpy = chai.spy(setDefaultConsentCookie);
       expect(setDefaultConsentCookieSpy).to.have.been.called;
       const cookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
-      expect(cookieJSON).to.contain({ essential: true, settings: true, usage: true, campaigns: true });
+      expect(cookieJSON).to.contain({ essential: true, settings: false, usage: false, campaigns: false });
     });
 
     it('sets all radio buttons to the default values', function() {
@@ -45,14 +45,14 @@ describe('Component: Cookie settings', function() {
   describe('submitSettingsForm', function() {
     it('updates consent cookie with any changes', function() {
       const setConsentCookieSpy = chai.spy(setConsentCookie);
-      this.form.querySelector('#settings-on').checked = false;
-      this.form.querySelector('#settings-off').checked = true;
+      this.form.querySelector('#settings-on').checked = true;
+      this.form.querySelector('#settings-off').checked = false;
 
       const button = this.form.querySelector('#submit-button');
       button.click();
 
       const cookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
-      expect(cookieJSON).to.contain({ settings: false, usage: true, campaigns: true });
+      expect(cookieJSON).to.contain({ settings: true, usage: false, campaigns: false });
       expect(setConsentCookieSpy).to.have.been.called;
     });
   });
