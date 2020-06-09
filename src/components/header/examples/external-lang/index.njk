@@ -1,37 +1,36 @@
 ---
 "fullWidth": true
 ---
-{% extends "styles/page-template/_template.njk" %}
+{% from "components/header/_macro.njk" import onsHeader %}
 
-{% set pageConfig = {
-    "title": "Survey title",
-    "language": {
-        "languages": [
-            {
-                "url": "#",
-                "ISOCode": "en",
-                "text": "English",
-                "buttonAriaLabel": "Language selector. Current language: English",
-                "chooseLanguage": "Choose language",
-                "current": true
-            },
-            {
-                "url": "#",
-                "ISOCode": "cy",
-                "text": "Cymraeg",
-                "buttonAriaLabel": "Dewisydd iaith. Iaith gyfredol: Cymraeg",
-                "chooseLanguage": "Dewiswch iaith",
-                "current": false
-            }
-        ]
-    },
-    "button": {
-        "text": "Save and sign out",
-        "url": "#",
-        "name": "save",
-        "ariaLabel": "Toggle main navigation"
-    }
-} %}
+{{
+    onsHeader({
+        "title": "Design system",
+        "logoHref": "#",
+        "button": {
+            "text": "Save and sign out",
+            "ariaLabel": "Toggle main navigation"
+        },
+        "language": {
+            "languages": [
+                {
+                    "url": "#",
+                    "ISOCode": "en",
+                    "text": "English",
+                    "buttonAriaLabel": "Language selector. Current language: English",
+                    "chooseLanguage": "Choose language",
+                    "current": true
+                },
+                {
+                    "url": "#",
+                    "ISOCode": "cy",
+                    "text": "Cymraeg",
+                    "buttonAriaLabel": "Dewisydd iaith. Iaith gyfredol: Cymraeg",
+                    "chooseLanguage": "Dewiswch iaith",
+                    "current": false
+                }
+            ]
+        }
+    })
+}}
 
-{% block main %}
-{% endblock %}
