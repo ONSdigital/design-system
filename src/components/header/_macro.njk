@@ -26,7 +26,7 @@
                   {% if params.language or params.serviceLinks %}
                       <div class="header__links grid__col col-auto">
                           {% if params.language %}
-                              <div class="grid__col col-auto u-d-no@xs@m {{ 'u-mr-s@m' if params.serviceLinks }}">
+                              <div class="grid__col col-auto">
                                   {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                                   {{
                                       onsLanguageSelector(params.language)
