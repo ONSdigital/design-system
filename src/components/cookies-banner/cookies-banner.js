@@ -44,6 +44,8 @@ export default class CookiesBanner {
     if (this.component) {
       this.primaryBanner.style.display = 'none';
       this.confirmBanner.classList.remove('u-d-no');
+      this.confirmBanner.setAttribute('aria-live', 'polite');
+      this.confirmBanner.setAttribute('role', 'status');
     }
   }
 

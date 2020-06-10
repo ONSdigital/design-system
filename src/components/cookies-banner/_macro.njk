@@ -34,6 +34,7 @@
                     onsButton({
                         "type": 'button',
                         "text": params.confirmationButtonText | default('Hide'),
+                        "buttonContext": params.confirmationButtonTextAria | default('this message'),
                         "classes": 'btn--secondary btn--small js-hide-button'
                     }) 
                 }}
