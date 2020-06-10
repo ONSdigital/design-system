@@ -17,7 +17,7 @@
       {% endif %}
       <div class="header__top" role="banner">
           <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
-              <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
+              <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap {{ 'header__grid-top-' + params.customHeaderLogo if params.customHeaderLogo }}">
                   <div class="grid__col col-auto">
                         {% if params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
                             <img class="header__logo" src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.logo | default('ons-logo-pos-' + currentLanguageISOCode ) }}.svg" alt="{{ params.logoAlt | default('Office for National Statistics logo') }}">
