@@ -10,15 +10,15 @@
                       onsButton({
                           "type": 'button',
                           "text": params.primaryButtonText | default('Accept cookies'),
-                          "classes": 'btn--small js-accept-cookies u-mb-xs@xs@s cookies-banner__btn'
+                          "classes": 'btn--small btn--ghost js-accept-cookies u-mb-xs@xs@s cookies-banner__btn'
                       })
                   }}
                   {{
                       onsButton({
                           "type": 'button',
                           "url": params.secondaryButtonUrl,
-                          "text": params.secondaryButtonText | default('Cookie settings'),
-                          "classes": 'btn--small u-ml-no@xs@s cookies-banner__btn'
+                          "text": params.secondaryButtonText | default('Set cookie preferences'),
+                          "classes": 'btn--small btn--ghost u-ml-no@xs@s cookies-banner__btn'
                       })
                   }}
                 </div>
@@ -35,7 +35,7 @@
                         "type": 'button',
                         "text": params.confirmationButtonText | default('Hide'),
                         "buttonContext": params.confirmationButtonTextAria | default('this message'),
-                        "classes": 'btn--secondary btn--small js-hide-button'
+                        "classes": 'btn--ghost btn--small js-hide-button'
                     }) 
                 }}
               </div>
