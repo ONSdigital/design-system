@@ -13,7 +13,11 @@
   }
 
   &__grid-top {
-    height: 46px;
+    height: 54px;
+
+    @include mq(s) {
+      height: 46px;
+    }
   }
 
   &__grid-top-nisra {
