@@ -52,7 +52,7 @@
                     {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
                     {% if params.charCheck is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
                     {% if params.charCheck is defined and params.charCheck.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
-                    {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+                    {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
                 />
         {% if params.typeahead %}
                 <div class="typeahead-input__results js-typeahead-results">
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="typeahead-input__instructions u-vh js-typeahead-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.typeahead.instructions }}</div>
-                <div class="typeahead-input__status u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
+                <div class="typeahead-input__status u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div>
             </div>
         {% endif %}
     {% endset %}
@@ -106,13 +106,13 @@
                 </span>
             {% endif %}
             {% if params.button is defined %}
-                {{ 
+                {{
                     onsButton({
                         "type": params.button.type,
                         "text": params.button.text,
                         "id": params.button.id,
                         "classes": params.button.classes
-                    }) 
+                    })
                 }}
                 </span>
             {% endif %}
@@ -156,7 +156,7 @@
             "dontWrap": params.dontWrap,
             "error": params.error
         }) %}
-        
+
             {{ field | safe }}
         {% endcall %}
     {% endif %}

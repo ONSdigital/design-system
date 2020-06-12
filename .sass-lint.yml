@@ -184,7 +184,7 @@ rules:
       - 'stroke-linecap'
       - 'stroke-dasharray'
       - 'stroke-dashoffset'
-      - 'stroke' 
+      - 'stroke'
 
       # Background
       - 'background'
@@ -196,7 +196,7 @@ rules:
       - 'box-shadow'
       - 'fill'
       - 'opacity'
-      
+
       # Typography
       - 'color'
 
