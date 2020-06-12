@@ -1,9 +1,9 @@
 {% macro onsFeedback(params) %}
     {% from "components/textarea/_macro.njk" import onsTextarea %}
-    {% from "components/input/_macro.njk" import onsInput %}   
+    {% from "components/input/_macro.njk" import onsInput %}
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/button/_macro.njk" import onsButton %}
-    
+
     <div class="page__feedback {{ params.classes }}">
         <div
             id="{{ params.id }}"
@@ -13,7 +13,7 @@
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             {% if params.saveState %} data-save-state="true"{% endif %}
         >
-            <div 
+            <div
                 class="feedback__heading js-collapsible-heading u-p-no@xs@l"
                 {% if params.headerAttributes %}{% for attribute, value in (params.headerAttributes.items() if params.headerAttributes is mapping and params.headerAttributes.items else params.headerAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             >
@@ -25,20 +25,20 @@
                 </div>
             </div>
             <div id="{{ params.id }}-content" class="feedback__content js-collapsible-content">
-                <div class="container">                
-                    <div class="grid">                                         
+                <div class="container">
+                    <div class="grid">
                         {% if params.mailto %}
-                            <div class="grid__col u-pl-0 u-mt-m u-mb-m">   
+                            <div class="grid__col u-pl-0 u-mt-m u-mb-m">
                                 <p class="feedback__content-mailto">
                                 {{ params.mailto.textBefore }}
                                     <a href="mailto:{{ params.mailto.address }}?subject={{ params.mailto.subject | safe }}{{ params.pageTitle.value }}%20%28{{ params.pageURL.value }}%29&body={{ params.mailto.body | safe }}" target="{{ params.mailto.target | default('_top')}}"
                                         >{{ params.mailto.address }}</a>
                                 </p>
-                                <p>{{ params.mailto.textAfter}}</p>                                
+                                <p>{{ params.mailto.textAfter}}</p>
                             </div>
                         {% endif %}
                         {% if params.action %}
-                            <div class="grid__col col-8@m u-pl-0">                       
+                            <div class="grid__col col-8@m u-pl-0">
                                 <form
                                     id="{{ params.id }}-form"
                                     class="u-mt-s js-feedback-form"
@@ -112,8 +112,8 @@
                                                 "attributes": params.name.attributes
                                             })
                                         }}
-                                    {% endif %}   
-                                    {% if params.button.send.text %} 
+                                    {% endif %}
+                                    {% if params.button.send.text %}
                                         {% call onsField({
                                             "classes": "u-mt-l u-mb-m"
                                         }) %}
@@ -124,16 +124,16 @@
                                                     "attributes": params.button.send.attributes
                                                 })
                                             }}
-                                        {% endcall %}   
-                                    {% endif %} 
+                                        {% endcall %}
+                                    {% endif %}
                                 </form>
                             </div>
                         {% endif %}
-                        {% if params.button.close.text %}                                         
-                            <div class="grid__col col-8@m u-pl-0">  
+                        {% if params.button.close.text %}
+                            <div class="grid__col col-8@m u-pl-0">
                                 {% call onsField({
                                     "classes": "u-mb-m"
-                                }) %}                                        
+                                }) %}
                                     {{
                                         onsButton({
                                             "text": params.button.close.text,
@@ -146,7 +146,7 @@
                                 {% endcall %}
                             </div>
                         {% endif %}
-                    </div>    
+                    </div>
                 </div>
             </div>
         </div>

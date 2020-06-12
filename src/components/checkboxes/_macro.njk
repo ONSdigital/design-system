@@ -8,7 +8,7 @@
         <div class="checkboxes__items">
             {% for checkbox in params.checkboxes %}
                 {% set labelHTML = checkbox.label.text %}
-                {% if params.mutuallyExclusive %}  
+                {% if params.mutuallyExclusive %}
                     {% set exclusiveClass = ' js-exclusive-group' %}
                 {% endif %}
                 <p class="checkboxes__item">
@@ -23,7 +23,7 @@
                             "for": checkbox.id,
                             "text": labelHTML,
                             "description": checkbox.label.description,
-                            "classes": checkbox.label.classes | default('') 
+                            "classes": checkbox.label.classes | default('')
                         },
                         "attributes": checkbox.attributes
                     } %}

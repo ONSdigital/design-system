@@ -1,5 +1,5 @@
 {% macro onsDownloads(params) %}
-    <div class="downloads{{ ' ' + params.classes if params.classes else '' }}"> 
+    <div class="downloads{{ ' ' + params.classes if params.classes else '' }}">
         {% for download in (params.downloads if params.downloads is iterable else params.downloads.items()) %}
             <section class="download">
                 <div class="download__thumbnail" aria-hidden="true">

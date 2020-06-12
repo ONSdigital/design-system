@@ -14,10 +14,10 @@ The collapsible component is used to simplify a page by allowing the user to rev
 ## When to use this component
 Use the collapsible component to make a page easier to read by condensing information that is only needed by some users.
 
-The collapsible can be used to condense a single block of content into a single selectable heading, allowing the user to reveal it if and when they need it.  
+The collapsible can be used to condense a single block of content into a single selectable heading, allowing the user to reveal it if and when they need it.
 
-Good uses of the collapsible component are: 
-{{ 
+Good uses of the collapsible component are:
+{{
     onsList({
         "itemsList": [
             {
@@ -27,7 +27,7 @@ Good uses of the collapsible component are:
                 "text": 'to show the definition of a term that may not be well understood'
             }
         ]
-    }) 
+    })
 }}
 
 ## When not to use this component
@@ -55,15 +55,15 @@ The collapsible component is made accessible by using the following `aria` attri
 {{
     onsTable({
         "ths": [
-            { 
+            {
                 "value": "Element"
             },
-            { 
+            {
                 "value": "ARIA attribute"
             },
-            { 
+            {
                 "value": "Description"
-            } 
+            }
         ],
         "trs": [
             {
@@ -136,14 +136,14 @@ The collapsible component is made accessible by using the following `aria` attri
 }}
 
 ### Google analytics
-Optionally pass event tracking `data` attributes for Google Analytics using `data-ga="click"`, `data-ga-category="definition"`, `data-ga-action="Open/Close panel"`, `data-ga-label="{TITLE}"` 
+Optionally pass event tracking `data` attributes for Google Analytics using `data-ga="click"`, `data-ga-category="definition"`, `data-ga-action="Open/Close panel"`, `data-ga-label="{TITLE}"`
 
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
-{{ 
+{{
     onsPanel({
         "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='#design-system-forum'>Design System Forum</a>"
-    }) 
+    })
 }}
 
 ## Design System forum

@@ -1,5 +1,5 @@
 ---
-title: Page template    
+title: Page template
 sortOrder: 5
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
@@ -75,7 +75,7 @@ Variables can be set with:
 | Variable Name   | Type                                | Required | Description                                                                                                                           |
 | --------------- | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | form            | `FormConfig` [_(ref)_](#formconfig) | false    | A object with configuration to wrap the current page in a form. If `form` variable is not set, the page will not be wrapped in a form |
-| pageConfig            | `PageConfig` [_(ref)_](#pageconfig) | true     | A object with configuration for the current page                                                                                      |
+| pageConfig      | `PageConfig` [_(ref)_](#pageconfig) | true     | A object with configuration for the current page                                                                                      |
 | release_version | string                              | false    | What CDN version to use. This can also be configured from the `page` configuration object                                             |
 {% endmd %}
 
@@ -192,7 +192,7 @@ To change the components that are included by default, set their equivalent bloc
 ##### Exploded view of the page template block areas
 
 {{
-    patternlibExample({ 
+    patternlibExample({
         "path": "styles/page-template/examples/block-areas/index.njk",
         "noTabs": true
     })

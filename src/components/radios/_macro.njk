@@ -22,7 +22,7 @@
                             type="radio"
                             id="{{ radio.id }}"
                             class="radio__input js-radio {{ radio.classes }}"
-                            value="{{ radio.value }}" 
+                            value="{{ radio.value }}"
                             name="{{ params.name }}"
                             {% if radio.checked or (params.value and params.value == radio.value) %} checked{% endif %}
                             {% if radio.other and not radio.other.open %} aria-controls="{{ radio.id }}-other-wrap" aria-haspopup="true"{% endif %}
@@ -75,5 +75,5 @@
             <span class="js-clear-radio-alert u-vh" role="alert" aria-live="polite" data-clear="{{ params.clearRadios.ariaClearText }}" data-cleared="{{ params.clearRadios.ariaClearedText }}"></span>
         {% endif %}
     {% endcall %}
-    
+
 {% endmacro %}
