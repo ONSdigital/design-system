@@ -3,7 +3,7 @@
     <ol class="breadcrumb__items">
         {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
             <li id="breadcrumb-{{ loop.index }}" class="breadcrumb__item u-fs-s{{ ' breadcrumb__item--current' if item.current }}">
-                {% if item.current %} 
+                {% if item.current %}
                     {{ item.text }}
                 {% else %}
                     <a href="{{ item.url }}" class="breadcrumb__link">{{ item.text }}</a>

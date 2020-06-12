@@ -9,7 +9,7 @@ Accordions let users show or hide sections of related content on the same page.
     patternlibExample({ path: "components/accordion/examples/accordion/index.njk" })
 }}
 
-## When to use this component 
+## When to use this component
 You should only use this component when you have identified a strong user need to quickly scan large sections of content, by condensing them into an overview of section headings, and show and hide those sections as needed.
 
 Accordions can benefit repeat users who need to regularly perform the same familiar tasks quickly, where they only require a few key pieces of the content to proceed.
@@ -19,7 +19,7 @@ Accordions hide content from users and are not easily noticed and understood by 
 
 Test your content considering the following alternatives before using accordions:
 {% from "components/lists/_macro.njk" import onsList %}
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -33,9 +33,9 @@ Test your content considering the following alternatives before using accordions
             },
             {
                 "text": 'divide the content across multiple pages'
-            }            
+            }
         ]
-    }) 
+    })
 }}
 
 ### Alternative components
@@ -48,7 +48,7 @@ Consider the number of sections you need to display. Tabs display horizontally s
 Use the [collapsible component](/components/collapsible) if there is only one section of content that needs to be condensed.
 
 ## How to use this component
-Accordions' functionality is provided by grouping [collapsible components](/components/collapsible) together. 
+Accordions' functionality is provided by grouping [collapsible components](/components/collapsible) together.
 
 The accordion uses JavaScript so when it's turned off, the sections of content are expanded.  The `collapsible.js` file takes care of running the open all/close all button, if one is provided.
 
