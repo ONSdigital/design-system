@@ -146,8 +146,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@ons/design-system": "^13.3.0",
-    "fuse.js": "^3.4.6"
-  }
+  "dependencies": {}
 }
