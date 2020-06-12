@@ -1,11 +1,35 @@
 ---
-"fullWidth": true
+fullWidth: true
+layout: none
 ---
-{% from "components/header/_macro.njk" import onsHeader %}
+{% extends "styles/page-template/_template.njk" %}
 
-{{
-    onsHeader({
+{% set pageConfig = {
+    "header": {
         "logoHref": "#",
         "title": "Gwasanaeth Cymraeg"
-    })
-}}
+    },
+    "language": {
+        "allLanguagesUrl": "#",
+        "languages": [
+            {
+                "url": "#",
+                "ISOCode": "en",
+                "text": "English",
+                "buttonAriaLabel": "Language selector. Current language: English",
+                "chooseLanguage": "Choose language",
+                "allLanguages": "All languages",
+                "current": false
+            },
+            {
+                "url": "#",
+                "ISOCode": "cy",
+                "text": "Cymraeg",
+                "buttonAriaLabel": "Dewisydd iaith. Iaith gyfredol: Cymraeg",
+                "chooseLanguage": "Dewiswch iaith",
+                "allLanguages": "Pob iaith",
+                "current": true
+            }
+        ]
+    }
+} %}
