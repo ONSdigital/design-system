@@ -7,7 +7,7 @@
 
 ## AccordionItem
 | Name | Type | Required | Description |
-| ----------------- | --------------------- | -------- | --------------------------------------------------------------------------- |
+| ----------------- | --------------------- | -------- | -------------------------------------------------------------------------------------- |
 | title | string | true | The title of the accordion item |
 | titleTag | string | false | The HTML tag that is used the title e.g. `h2`. Defaults to `div` |
 | content | string | true | The content of the accordion item |

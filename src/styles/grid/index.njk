@@ -24,7 +24,7 @@ Use different column widths to make up the 12 available columns:
     patternlibExample({"path": "styles/grid/examples/grid-combo/index.njk"})
 }}
 
-### Spacing 
+### Spacing
 
 Gutters are fixed for each breakpoint. 24px for screen widths `600px` and greater and 16px for below `600px`. There are options for removing gutters by using modifier classes on the grid which is useful when nesting grids.
 
@@ -55,24 +55,24 @@ Laptop (including tablet in horizontal orientation) and larger resolution device
 
 ### Breakpoints
 
-There are set breakpoints that can be accessed to adapt the layout for different screen widths. 
+There are set breakpoints that can be accessed to adapt the layout for different screen widths.
 {% md %}
-| Breakpoint 	| Variable to reference 	|
-|------------	|----------	|
-| 300px      	| xs       	|
-| 500px      	| s        	|
-| 740px      	| m        	|
-| 980px      	| l        	|
-| 1300px     	| xl       	|
-| 1600px     	| xxl      	|
+| Breakpoint | Variable to reference |
+|------------|---------------------- |
+| 300px      | xs                    |
+| 500px      | s                     |
+| 740px      | m                     |
+| 980px      | l                     |
+| 1300px     | xl                    |
+| 1600px     | xxl                   |
 {% endmd %}
 
 
 ## Using the grid system
 
-Grid columns need to be wrapped using the `.grid` class. 
+Grid columns need to be wrapped using the `.grid` class.
 
-Each column within `.grid` requires the class `.grid__col` and another class to specify the number of columns at the required breakpoint, for example `.col-6@m`. This will provide a single column, 6 columns wide at `740px` and greater. If the screen width is below `740px` the column will fill 100% of the content. 
+Each column within `.grid` requires the class `.grid__col` and another class to specify the number of columns at the required breakpoint, for example `.col-6@m`. This will provide a single column, 6 columns wide at `740px` and greater. If the screen width is below `740px` the column will fill 100% of the content.
 
 A column width can also be set between two breakpoints using the class structure `.col-6@m@xl`. This will provide a 6 column wide column between `740px` and `1300px`. Outside of these widths the column will fill 100% of the content.
 
@@ -107,7 +107,7 @@ A column width can also be set between two breakpoints using the class structure
 
 ## Creating layouts
 
-Layouts can be created by specifying the number of columns required. Grid based layouts should be wrapped with the class `.container`. This will centre the layout and provide a maximum width of `1032px`. There is an additional modifier class `container--wide` which will increase the maximum width to 1280px. If your service requires a full width layout a modifier is available by using `.container--full-width`. 
+Layouts can be created by specifying the number of columns required. Grid based layouts should be wrapped with the class `.container`. This will centre the layout and provide a maximum width of `1032px`. There is an additional modifier class `container--wide` which will increase the maximum width to 1280px. If your service requires a full width layout a modifier is available by using `.container--full-width`.
 
 A typical page layout for body content on an ONS service will use 8 columns for the main content at `740px` and greater (`.col-8@m`) as shown below:
 
@@ -122,14 +122,14 @@ If a sidebar is required, the main content should use 7 columns (`col-7@m`'). Th
     patternlibExample({"path": "styles/grid/examples/grid-7-4/index.njk"})
 }}
 
-The example below shows the use of flexbox to create the layout for the [phase banner](/components/phase-banner). 
+The example below shows the use of flexbox to create the layout for the [phase banner](/components/phase-banner).
 
 {{
     patternlibExample({
         "path": "components/phase-banner/examples/phase-banner/index.njk",
         "openTab": "html"
     })
-}}  
+}}
 
 
 ## Design System forum

@@ -14,7 +14,7 @@ Validation should occur after the user submits the form.
 ## How to use this pattern
 
 You must tell the user about missing or incorrect information when they submit a form by displaying:
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -24,7 +24,7 @@ You must tell the user about missing or incorrect information when they submit a
                 "text": 'Contextual detail and highlight for each erroneous field'
             }
         ]
-    }) 
+    })
 }}
 
 ### Error summary
@@ -33,7 +33,7 @@ An [error panel](/components/panel#error) must be displayed above the form when 
 
 The error `panel__header` must display the number of errors on the page.
 
-The error `panel__body` must contain an anchored list to each erroneous field or fieldset on the page, each describing the specific error and directing the user towards a resolution. 
+The error `panel__body` must contain an anchored list to each erroneous field or fieldset on the page, each describing the specific error and directing the user towards a resolution.
 
 Each list item `url` key should contain a value that matches the id of the `panel` that wraps the input that has an error and preceded with a hash i.e. `#email-input`. Javascript will focus the corresponding input.
 
@@ -70,10 +70,10 @@ The prototype provides an example of form validation for missing and invalid inp
 ## Research on this component
 
 {% from "components/panel/_macro.njk" import onsPanel %}
-{{ 
+{{
     onsPanel({
         "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='https://github.com/ONSdigital/design-system/issues/30'>Design System Forum.</a>"
-    }) 
+    })
 }}
 
 ## Design System forum
