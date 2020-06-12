@@ -1,23 +1,28 @@
 {% from "components/input/_macro.njk" import onsInput %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 {% macro onsUACInput(params) %}
     {% set groupSize = params.groupSize | default(4) %}
     {% set extraSpaces = (params.maxlength | default(16) / groupSize) - 1 %}
     {% set maxlength = params.maxlength | default(16) + extraSpaces %}
 
-    {{ onsInput({
-        "id": params.id,
-        "type": params.type,
-        "name": params.name,
-        "fieldClasses": "uac__field" + (" " + params.classes if params.classes else ""),
-        "classes": "uac__input js-uac",
-        "label": params.label,
-        "attributes": {
-            "maxlength": maxlength,
-            "data-group-size": groupSize,
-            "autocomplete": "off"
-        }
-    }) }}
+    {% call onsPanel() %}
+        {{ onsInput({
+            "id": params.id,
+            "type": params.type,
+            "name": params.name,
+            "classes": "uac__input js-uac",
+            "label": params.label,
+            "attributes": {
+                "maxlength": maxlength,
+                "data-group-size": groupSize,
+                "autocomplete": "off"
+            }
+        }) }}
+        {% if params.postTextboxLinkText %}
+            <a class="u-fs-s" href="{{ params.postTextboxLinkUrl }}">{{ params.postTextboxLinkText }}</a>
+        {% endif %}
+    {% endcall %}
 
     {% if params.securityMessage %}
         <div class="uac__security u-mt-m">

@@ -1,17 +1,11 @@
 .uac {
-  &__field {
-    display: inline-block;
-    position: relative;
-    padding: 1rem;
-    border: 8px solid $color-dark-blue;
-  }
-
   &__input {
     max-width: 12.6em;
     // Used to fix clipped lowercase g and y
     height: 100%;
     font-family: $font-mono;
     font-weight: bold;
+    text-transform: uppercase;
 
     @media all and (min-width: 375px) {
       font-size: 22px;
@@ -23,6 +17,10 @@
       max-width: 14.9em;
       font-size: 24px;
       letter-spacing: 0.14em;
+    }
+
+    &--padding {
+      padding-bottom: 9px;
     }
   }
 
