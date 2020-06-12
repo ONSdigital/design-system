@@ -11,7 +11,7 @@
             "id": params.id,
             "type": params.type,
             "name": params.name,
-            "classes": "uac__input js-uac",
+            "classes": "uac__input js-uac" + (" uac__input--margin" if params.postTextboxLinkText else ""),
             "label": params.label,
             "attributes": {
                 "maxlength": maxlength,
