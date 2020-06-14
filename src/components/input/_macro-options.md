@@ -48,10 +48,11 @@
 
 ## CharCheck
 
-| Name                       | Type   | Required | Description                                                                                                                                           |
-| -------------------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| limit                      | number | false    | The maximum amount of characters a user should type in                                                                                                |
-| charCountPlural            | string | false    | Required if `charCheck` is supplied. The string that will render how many characters are remaining. `{x}` Will be replaced with the number            |
-| charCountSingular          | string | false    | Required if `charCheck` is supplied. The string that will render how many characters are remaining (singular). `{x}` Will be replaced with the number |
-| charCountOverLimitSingular | string | false    | Required if `charCheck` is supplied. The string that will render how many characters are over (singular). `{x}` Will be replaced with the number      |
-| charCountOverLimitPlural   | string | false    | Required if `charCheck` is supplied. The string that will render how many characters are over (plural). `{x}` Will be replaced with the number        |
+| Name                       | Type    | Required | Description                                                                                                                                           |
+| -------------------------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| limit                      | number  | false    | The maximum amount of characters a user should type in                                                                                                |
+| charcheckCountdown         | boolean | false    | Displays the number of remaining characters allowed based on the limit                                                                                |
+| charCountPlural            | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are remaining. `{x}` Will be replaced with the number            |
+| charCountSingular          | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are remaining (singular). `{x}` Will be replaced with the number |
+| charCountOverLimitSingular | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are over (singular). `{x}` Will be replaced with the number      |
+| charCountOverLimitPlural   | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are over (plural). `{x}` Will be replaced with the number        |

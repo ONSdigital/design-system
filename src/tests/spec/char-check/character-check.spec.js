@@ -6,11 +6,14 @@ const params = {
   id: 'search-field',
   type: 'number',
   classes: 'input--w-6',
-  label: 'Filter results',
+  label: {
+    text: 'Filter results',
+  },
   searchButton: {
     text: 'Filter',
   },
   charCheck: {
+    charcheckCountdown: true,
     limit: 11,
     charCountSingular: '{x} more number needed',
     charCountPlural: '{x} more numbers needed',
