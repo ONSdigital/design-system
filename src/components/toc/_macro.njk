@@ -8,21 +8,21 @@
           {% if list.listHeading %}
             <h3 class="u-fs-r u-mb-xs">{{ list.listHeading }}<span class="u-vh"> {{ list.listHeadingHidden }}</span>:</h3>
           {% endif %}
-          {{ 
+          {{
               onsList({
                   "element": 'ol',
                   "classes": 'list--dashed u-mb-m',
                   "itemsList": list.itemsList
-              }) 
+              })
           }}
         {% endfor %}
       {% elif params.itemsList %}
-        {{ 
+        {{
             onsList({
                 "element": 'ol',
                 "classes": 'list--dashed u-mb-m',
                 "itemsList": params.itemsList
-            }) 
+            })
         }}
       {% endif %}
     </nav>

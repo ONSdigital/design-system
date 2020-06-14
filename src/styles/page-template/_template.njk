@@ -124,7 +124,7 @@
                     {% endif %}
                 </div>
                 {% block preFooter %}
-                    {% if pageConfig.feedback %}            
+                    {% if pageConfig.feedback %}
                         {{
                             onsFeedback({
                                 "id": pageConfig.feedback.id | default("feedback"),
@@ -141,8 +141,8 @@
                                 "errorMessage": pageConfig.feedback.errorMessage,
                                 "summaryAttributes": pageConfig.feedback.summaryAttributes
                             })
-                        }}     
-                    {% endif %}             
+                        }}
+                    {% endif %}
                 {% endblock %}
                 {% block footer %}
                     {% if pageConfig.footer %}
