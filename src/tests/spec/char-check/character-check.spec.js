@@ -3,13 +3,11 @@ import template from 'components/search/_test-template.njk';
 import CharCheck from 'components/input/character-check';
 
 const params = {
-  input: {
-    id: 'search-field',
-    type: 'number',
-    classes: 'input--w-6',
-    label: 'Filter results',
-  },
-  button: {
+  id: 'search-field',
+  type: 'number',
+  classes: 'input--w-6',
+  label: 'Filter results',
+  searchButton: {
     text: 'Filter',
   },
   charCheck: {
