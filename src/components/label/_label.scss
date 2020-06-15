@@ -10,6 +10,11 @@
     line-height: 1.4;
   }
 
+  &--with-description {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
   &--placeholder {
     position: absolute;
     top: 6px;

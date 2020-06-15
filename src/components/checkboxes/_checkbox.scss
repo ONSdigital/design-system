@@ -43,6 +43,10 @@ $checkbox-label-vertical-padding: 0.75rem;
     width: 100%;
     cursor: pointer;
 
+    &--with-description {
+      padding: 0 1rem 0.5rem 0.6rem;
+    }
+
     &:before {
       content: '';
       z-index: -1;
