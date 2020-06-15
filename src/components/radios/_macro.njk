@@ -1,6 +1,7 @@
 {% macro onsRadios(params) %}
     {% from "components/fieldset/_macro.njk" import onsFieldset %}
     {% from "components/button/_macro.njk" import onsButton %}
+    {% from "components/label/_macro.njk" import onsLabel %}
 
     {% call onsFieldset({
         "id": params.id,
@@ -21,25 +22,23 @@
                         <input
                             type="radio"
                             id="{{ radio.id }}"
-                            class="radio__input js-radio {{ radio.classes }}"
-                            value="{{ radio.value }}"
+                            class="radio__input js-radio{{ " " + radio.classes if radio.classes else "" }}"
+                            value="{{ radio.value }}" 
                             name="{{ params.name }}"
                             {% if radio.checked or (params.value and params.value == radio.value) %} checked{% endif %}
                             {% if radio.other and not radio.other.open %} aria-controls="{{ radio.id }}-other-wrap" aria-haspopup="true"{% endif %}
                             {% if radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                         >
-                        <label class="radio__label {{ radio.label.classes }}" for="{{ radio.id }}">
-                            {% if  params.or and loop.revindex0 == 0 %}
-                                <span class="u-vh">{{ params.or }}</span>
-                            {% endif %}
-                            {{ radio.label.text | safe }}
-                            {% if radio.label.description %}
-                                <br>
-                                <span class="radio__description u-fs-s">{{ radio.label.description }}</span>
-                            {% endif %}
-                        </label>
+                        {{ onsLabel({
+                            "for": radio.id,
+                            "inputType": "radio",
+                            "text": radio.label.text,
+                            "classes": "radio__label " + radio.label.classes | default(''),
+                            "description": radio.label.description
+                        }) }}
+
                         {% if radio.other %}
-                            <span class="radio__other {{ 'radio__other--open' if radio.other.open }}" id="{{ radio.id }}-other-wrap">
+                            <span class="radio__other{{ " " + 'radio__other--open' if radio.other.open else "" }}" id="{{ radio.id }}-other-wrap">
                                 {% from "components/input/_macro.njk" import onsInput %}
                                 {{
                                     onsInput({
