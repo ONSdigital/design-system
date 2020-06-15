@@ -9,23 +9,27 @@
   // Elements
   &__top {
     width: 100%;
-
     background: $color-white;
   }
 
   &__grid-top {
-    padding: 0.5rem 0;
-    min-height: 45px;
+    height: 54px;
+
+    @include mq(s) {
+      height: 46px;
+    }
+  }
+
+  &__grid-top-nisra {
+    height: 76px;
   }
 
   &__logo-link {
-    display: inline-block;
-
     &:focus {
       outline: 3px solid transparent;
-      color: $color-focus-text;
       background-color: $color-focus;
       box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
+      color: $color-focus-text;
     }
   }
 
@@ -82,17 +86,6 @@
       &__title {
         @extend .u-fs-m;
         @extend .u-fs-xxl\@m;
-      }
-    }
-  }
-
-  // Modifier - Thin variant
-  &--thin & {
-    &__main {
-      padding: 0.5rem 0;
-
-      @include mq(m) {
-        padding: 0.8rem 0;
       }
     }
   }
