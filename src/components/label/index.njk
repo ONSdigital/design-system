@@ -17,7 +17,7 @@ Generally speaking you should not need to implement a label yourself as the form
 All [input](/components/input) and [textarea](/components/textarea) components must have a visible label.
 
 Do:
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -27,11 +27,11 @@ Do:
                 "text": 'left-align the label above the input'
             }
         ]
-    }) 
+    })
 }}
 
 Do not:
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -41,7 +41,7 @@ Do not:
                 "text": 'place a colon at the end of the label'
             }
         ]
-    }) 
+    })
 }}
 
 ## Variants
@@ -49,6 +49,13 @@ Do not:
 Use the optional `label__description` to show hint text to help the majority of users, like how to enter their information, where to find it, or how it will be used.
 {{
     patternlibExample({"path": "components/label/examples/label-description/index.njk"})
+}}
+
+### To label checkboxes or radios
+Labels and descriptions are also used to label radios and checkboxes.
+To use it for radios or checkboxes `inputType` needs to be set to `radio` or `checkbox` which will style the component correctly, otherwise it will defualt to be styled as above for a text input.
+{{
+    patternlibExample({"path": "components/radios/examples/radios-descriptions/index.njk"})
 }}
 
 ## Research on this component

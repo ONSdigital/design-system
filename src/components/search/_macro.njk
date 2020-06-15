@@ -5,7 +5,7 @@
     {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder else "" %}
     {% set inputClasses = params.input.classes if params.input.classes else "" %}
     {% set inputWidth = 'input--w-' + params.input.width | default('10') %}
-        {{ 
+        {{
             onsInput({
                 "id": params.input.id,
                 "type": params.input.type,
@@ -33,6 +33,6 @@
                     "classes": 'btn--small u-flex-align-bottom u-mb-no'
                 }
 
-            }) 
+            })
         }}
 {% endmacro %}

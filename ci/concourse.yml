@@ -4,7 +4,7 @@ resource_types:
   source:
     repository: cfcommunity/slack-notification-resource
     tag: latest
-      
+
 resources:
 - name: ons-design-system-release
   type: github-release
@@ -51,10 +51,10 @@ jobs:
         - -exc
         - |
           apt-get update && apt-get install -y --allow-unauthenticated zip
-          
+
           cd ons-design-system-release
-          
-          mkdir design-system          
+
+          mkdir design-system
           tar -xzf source.tar.gz -C design-system --strip-components=1
 
           cd design-system
@@ -67,7 +67,7 @@ jobs:
           mkdir ../../dist/$design_system_release
           cp -R build/* ../../dist/$design_system_release
           zip -r ../../templates/templates.zip templates/*
-          
+
     on_failure:
       put: slack-alert
       params:
@@ -79,7 +79,7 @@ jobs:
             title_link: http://concourse.dev.eq.ons.digital/builds/$BUILD_ID
 
   - task: Release to S3
-    params: 
+    params:
       AWS_ACCESS_KEY_ID: ((aws_access_key))
       AWS_SECRET_ACCESS_KEY: ((aws_secret_key))
       AWS_DEFAULT_REGION: eu-west-1
@@ -95,12 +95,12 @@ jobs:
       - name: dist
 
       run:
-        path: sh        
+        path: sh
         args:
         - -exc
         - |
           aws s3 sync --acl public-read dist s3://((s3_bucket_name))/sdc/design-system/
-          
+
     on_failure:
       put: slack-alert
       params:
@@ -120,7 +120,7 @@ jobs:
             color: success
             title: Concourse Build $BUILD_ID
             title_link: http://concourse.dev.eq.ons.digital/builds/$BUILD_ID
-            
+
   - put: ons-design-system-release
     params:
       name: ons-design-system-release/version

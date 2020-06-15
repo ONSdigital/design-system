@@ -22,7 +22,7 @@
     <footer class="footer {{ params.classes }}" data-analytics="footer" {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
         <div class="footer__body">
             <div class="container {{ ' container--wide' if params.wide }}">
-                <div class="grid">          
+                <div class="grid">
                     {% if params.poweredBy %}
                         {% if params.OGLLink %}
                             <div class="grid__col u-mb-m">
@@ -123,20 +123,20 @@
                                     </div>
                                 {% endif %}
                             {% endif %}
-                            {% if loop.length > 1 %}                            
+                            {% if loop.length > 1 %}
                                 {% if not loop.last %}
                                     <div class="grid__col u-mb-m">
                                         <hr class="footer__hr">
                                     </div>
                                 {% endif %}
                             {% endif %}
-                        {% endfor %}  
+                        {% endfor %}
                     {% elif not params.rows and not params.cols and not params.poweredBy and not params.OGLLink %}
                         <div class="grid__col grid__col--flex u-ml-s u-mb-s u-p-no">
                             {{ poweredByLogo | safe }}
-                        </div>                    
+                        </div>
                     {% endif %}
-                    {% if params.OGLLink %}		
+                    {% if params.OGLLink %}
                         <div class="grid__col u-mb-m">
                             <hr class="footer__hr">
                         </div>
