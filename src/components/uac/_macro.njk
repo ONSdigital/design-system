@@ -6,7 +6,7 @@
     {% set extraSpaces = (params.maxlength | default(16) / groupSize) - 1 %}
     {% set maxlength = params.maxlength | default(16) + extraSpaces %}
 
-    {% call onsPanel() %}
+    {% set content %}
         {{ onsInput({
             "id": params.id,
             "type": params.type,
@@ -16,14 +16,25 @@
             "attributes": {
                 "maxlength": maxlength,
                 "data-group-size": groupSize,
-                "autocomplete": "off"
+                "autocomplete": "off",
+                "required": true
             },
-            "error": params.error
+            "fieldClasses": "question__answer",
+            "error": params.error,
+            "postTextboxLinkText": params.postTextboxLinkText,
+            "postTextboxLinkUrl": params.postTextboxLinkUrl
         }) }}
-        {% if params.postTextboxLinkText %}
-            <a class="u-fs-s" href="{{ params.postTextboxLinkUrl }}">{{ params.postTextboxLinkText }}</a>
-        {% endif %}
-    {% endcall %}
+    {% endset %}
+
+    {% if not params.error %}
+        {% call onsPanel({
+            "id": params.id
+        }) %}
+            {{ content | safe }}
+        {% endcall %}
+    {% else %}
+        {{ content | safe }}
+    {% endif %}
 
     {% if params.securityMessage %}
         <div class="uac__security u-mt-m">
