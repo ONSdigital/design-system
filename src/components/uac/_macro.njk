@@ -27,9 +27,7 @@
     {% endset %}
 
     {% if not params.error %}
-        {% call onsPanel({
-            "id": params.id
-        }) %}
+        {% call onsPanel() %}
             {{ content | safe }}
         {% endcall %}
     {% else %}
