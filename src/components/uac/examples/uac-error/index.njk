@@ -4,6 +4,7 @@ layout: none
 {% extends "styles/page-template/_template.njk" %}
 {% from "components/uac/_macro.njk" import onsUACInput %}
 {% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 {% set pageConfig = {
   "title": "Access Code example"
@@ -12,6 +13,29 @@ layout: none
 {% block main %}
     <h1 class="u-mt-l">Start survey</h1>
 
+    {% call
+        onsPanel({
+            title: "There is a problem with your answer",
+            type: "error"
+        })
+    %}
+    <p>These <strong>must be corrected</strong> to continue.</p>
+    {% from "components/lists/_macro.njk" import onsList %}
+    {{
+        onsList({
+            "classes": "list--bare",
+            "itemsList": [
+                {
+                    "text": "Enter an access code to continue",
+                    "index": true,
+                    "url": "#container-test-number",
+                    "classes": "js-inpagelink"
+                }
+            ]
+        })
+    }}
+    {% endcall %}
+
     {{ onsUACInput({
         "id": "uac",
         "name": "uac",
@@ -19,9 +43,12 @@ layout: none
         "postTextboxLinkUrl": "#",
         "label": {
             "text": "Enter your 16-character access code",
-            "description": "Keep this code safe and only share it with others in your household"
+            "description": "Keep this code safe. You will need to enter it every time you access your census"
         },
-        "securityMessage": "Your personal information is protected by law and will be kept confidential."
+        "securityMessage": "Your personal information is protected by law and will be kept confidential.",
+        "error": {
+            "text": "Enter an access code to continue"
+        }
     }) }}
 
     {{ onsButton({
