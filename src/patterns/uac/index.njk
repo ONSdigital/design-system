@@ -6,6 +6,12 @@ group: Ask users for...
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 {{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
+
+{{
     patternlibExample({"path": "components/uac/examples/uac/index.njk"})
 }}
 
