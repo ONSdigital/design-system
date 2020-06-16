@@ -124,7 +124,6 @@ function renderComponent() {
   const wrapper = document.createElement('div');
   wrapper.innerHTML = formHTML;
   document.body.appendChild(wrapper);
-
   const banner = wrapper.querySelector('.cookies-banner');
 
   return {
