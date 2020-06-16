@@ -1,17 +1,15 @@
-{% from "components/search/_macro.njk" import onsSearch %}
+{% from "components/input/_macro.njk" import onsInput %}
 
 {{
-    onsSearch({
-        "input": {
-            "id": 'search-field',
-            "type": 'number',
-            "width": '6',
-            "label": 'Filter results'
-        },
-        "button": {
+    onsInput({
+        "id": 'search-field',
+        "type": 'number',
+        "label": 'Filter results',
+        "searchButton": {
             "text": 'Filter'
         },
         "charCheck": {
+            "charcheckCountdown": true,
             "limit": 11,
             "charCountSingular": "{x} more character needed",
             "charCountPlural": "{x} more characters needed",

@@ -1,0 +1,14 @@
+{% macro onsCharLimit(params) %}
+    {% set content = caller() %}
+    <span class="js-char-check">
+        {{ content | safe }}
+    </span>
+    <span
+        id="{{ params.id }}-check-remaining"
+        class="input__limit u-fs-s--b u-d-no u-mt-xs"
+        data-charcount-singular="{{ params.charCountSingular }}"
+        data-charcount-plural="{{ params.charCountPlural }}"
+        data-charcount-limit-singular="{{ params.charCountOverLimitSingular }}"
+        data-charcount-limit-plural="{{ params.charCountOverLimitPlural }}">
+    </span>
+{% endmacro %}
