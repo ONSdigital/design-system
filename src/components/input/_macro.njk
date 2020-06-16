@@ -41,7 +41,7 @@
             {% if params.charCheck is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
             {% if params.charCheck is defined and params.charCheck.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-            {% if params.label.description is defined %}{% if params.label.id %}aria-describedby="{{params.id}}-label-description-hint"{% else %}aria-describedby="label-description-hint"{% endif %}{% endif %}
+            {% if params.label is defined and params.label.description is defined %}{% if params.label.id %}aria-describedby="{{params.id}}-label-description-hint"{% else %}aria-describedby="label-description-hint"{% endif %}{% endif %}
         />
     {% endset %}
     {% set field %}
