@@ -1,14 +1,14 @@
-{% from "components/search/_macro.njk" import onsSearch %}
+{% from "components/input/_macro.njk" import onsInput %}
 
 {{
-    onsSearch({
-        "accessiblePlaceholder": true,
-        "input": {
-            "id": 'search-field',
-            "type": 'text',
-            "label": 'Search this service'
+    onsInput({
+        "id": 'search-field',
+        "type": 'text',
+        "label": {
+            "text": 'Search this service'
         },
-        "button": {
+        "accessiblePlaceholder": true,
+        "searchButton": {
             "text": 'Search'
         }
     })

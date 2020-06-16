@@ -5,8 +5,8 @@ import { sanitiseAutosuggestText } from './autosuggest.helpers';
 import abortableFetch from './abortable-fetch';
 import triggerEvent from 'js/utils/trigger-event';
 
-const baseClass = 'js-address-autosuggest';
 const classNotEditable = 'js-address-not-editable';
+const classInput = 'autosuggest-input';
 
 export default class AutosuggestAddress {
   constructor(context) {
@@ -35,7 +35,7 @@ export default class AutosuggestAddress {
 
     // Initialise autosuggest
     this.autosuggest = new AutosuggestUI({
-      context: context.querySelector(`.${baseClass}`),
+      context: context.querySelector(`.${classInput}`),
       onSelect: this.onAddressSelect.bind(this),
       onUnsetResult: this.addressSetter ? this.addressSetter.onUnsetAddress() : null,
       lang: this.lang,

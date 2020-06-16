@@ -16,6 +16,10 @@
 
   &__label {
     @extend .checkbox__label;
+
+    &--with-description {
+      @extend .checkbox__label--with-description;
+    }
   }
 
   &__description {

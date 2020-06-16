@@ -1,7 +1,7 @@
 {% from "components/input/_macro.njk" import onsInput %}
 
 <div class="grid grid--gutterless">
-    <div class="grid__col col-8@m js-address">
+    <div class="grid__col col-8@m js-address-autosuggest">
 
         {{ onsInput({
             "id": "address-lookup",
@@ -10,7 +10,7 @@
             },
             "autocomplete": "off",
             "autosuggest":{
-                "classes": "js-address-autosuggest js-address-not-editable",
+                "classes": "js-address-not-editable",
                 "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
                 "ariaYouHaveSelected": "You have selected",
                 "ariaMinChars": "Enter 3 or more characters for suggestions.",

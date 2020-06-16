@@ -3,7 +3,7 @@
 
 {% macro onsAddressInput(params) %}
    {% set fields %}
-    <div id="address" class="field address-input js-address address-input--search">
+    <div id="address" class="field address-input js-address-autosuggest address-input--search">
             <div class="js-address-input__manual u-db-no-js_enabled">
                 {% if params.organisation.label %}
                     {{
@@ -72,7 +72,6 @@
                             "description": params.autosuggest.label.description
                         },
                         "autosuggest": {
-                            "classes": "js-address-autosuggest",
                             "externalInitialiser": true,
                             "instructions": params.autosuggest.instructions,
                             "autocomplete": params.autosuggest.autocomplete,

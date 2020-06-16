@@ -2,7 +2,7 @@ import domready from 'js/domready';
 
 async function initialiseAutosuggests() {
   const autosuggests = [...document.querySelectorAll('.js-autosuggest')];
-  const addressAutosuggests = [...document.querySelectorAll('.js-address')];
+  const addressAutosuggests = [...document.querySelectorAll('.js-address-autosuggest')];
 
   if (autosuggests.length) {
     const Autosuggest = (await import('./autosuggest')).default;

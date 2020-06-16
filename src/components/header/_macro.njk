@@ -17,20 +17,21 @@
       {% endif %}
       <div class="header__top" role="banner">
           <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
-              <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
+              <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap {{ 'header__grid-top-' + params.customHeaderLogo if params.customHeaderLogo }}">
                   <div class="grid__col col-auto">
-                        {% if params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
-                            <img class="header__logo" src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.logo | default('ons-logo-pos-' + currentLanguageISOCode ) }}.svg" alt="{{ params.logoAlt | default('Office for National Statistics logo') }}">
-                        {% if params.logoHref %}</a>{% endif %}
+                    {% if params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
+                      <picture>
+                        <source media="(max-width: 499px)" srcset="{{ params.assetsURL if params.assetsURL }}/img/{{ params.mobileLogo | default('ons-logo-stacked-pos-' + currentLanguageISOCode) }}.svg" alt="{{ params.logoAlt | default('Office for National Statistics logo') }}">
+                        <img class="header__logo" src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.logo | default('ons-logo-pos-' + currentLanguageISOCode) }}.svg" alt="{{ params.logoAlt | default('Office for National Statistics logo') }}">
+                      </picture>
+                    {% if params.logoHref %}</a>{% endif %}
                   </div>
                   {% if params.language or params.serviceLinks %}
                       <div class="header__links grid__col col-auto">
                           {% if params.language %}
-                              <div class="grid__col col-auto u-d-no@xs@m {{ 'u-mr-s@m' if params.serviceLinks }}">
+                              <div class="grid__col col-auto">
                                   {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
-                                  {{
-                                      onsLanguageSelector(params.language)
-                                  }}
+                                  {{ onsLanguageSelector(params.language) }}
                               </div>
                           {% endif %}
                           {% if params.serviceLinks %}
@@ -61,7 +62,7 @@
                   <div class="grid__col col-auto u-flex-shrink">
                       {% if params.titleLogoHref %}<a class="header__title-link" href="{{ params.titleLogoHref }}">{% endif %}
                       {% if params.titleLogo and params.titleLogoAlt %}
-                        <img class="header__title-logo" src="{{ params.assetsURL if params.assetsURL }}{{ params.titleLogo }}" alt="{{ params.titleLogoAlt }}">
+                        <img class="header__title-logo" src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.titleLogo }}.svg" alt="{{ params.titleLogoAlt }}">
                       {% else %}
                         <{{ title_tag }} class="header__title">{{ params.title }}</{{ title_tag }}>
                       {% endif %}

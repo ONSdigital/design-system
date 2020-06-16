@@ -8,17 +8,17 @@ layout: none
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/table/_macro.njk" import onsTable %}
 {% block scripts %}
-    <!-- Google Tag Manager -->	
+    <!-- Google Tag Manager -->
     <script>
         var a = /^(.*)?\s*'usage':true\s*[^;]+(.*)?$/;
         if (document.cookie.match(a)) {
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':	
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],	
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=	
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);	
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-TLWR59T');
         }
-    </script>	
+    </script>
     <!-- End Google Tag Manager -->
 
     <script>
@@ -32,11 +32,11 @@ layout: none
         }
     </script>
 {% endblock %}
-{% block bodyStart %}	
-<!-- Google Tag Manager (noscript) -->	
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLWR59T&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x"	
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>	
-<!-- End Google Tag Manager (noscript) -->	
+{% block bodyStart %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLWR59T&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 {% endblock %}
 {% block preHeader %}
 {% from "components/cookies-banner/_macro.njk" import onsCookiesBanner %}
@@ -47,7 +47,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })
 }}
 {% endblock %}
-{% set pageConfig =  { 
+{% set pageConfig = {
     "title": "Service name",
     "footer": {
         "rows": [
@@ -90,7 +90,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="u-db-no-js_disabled">
         <p>We use three types of cookie. You can choose which cookies you're happy for us to use.</p>
-        
+
         <form data-module="cookie-settings">
             <h3>Cookies that measure website use</h3>
             <p>We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:</p>
@@ -110,15 +110,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 {{
                     onsTable({
                         "ths": [
-                            { 
+                            {
                                 "value": "Name"
                             },
-                            { 
+                            {
                                 "value": "Purpose"
                             },
-                            { 
+                            {
                                 "value": "Expires"
-                            } 
+                            }
                         ],
                         "trs": [
                             {
@@ -207,15 +207,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 {{
                     onsTable({
                         "ths": [
-                            { 
+                            {
                                 "value": "Name"
                             },
-                            { 
+                            {
                                 "value": "Purpose"
                             },
-                            { 
+                            {
                                 "value": "Expires"
-                            } 
+                            }
                         ],
                         "trs": [
                             {
@@ -294,7 +294,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         "value": "off"
                     }
                 ]
-            }) }} 
+            }) }}
             <h3>Strictly necessary cookies</h3>
             <p>These essential cookies do things like:</p>
             <ul>
@@ -315,15 +315,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 {{
                     onsTable({
                         "ths": [
-                            { 
+                            {
                                 "value": "Name"
                             },
-                            { 
+                            {
                                 "value": "Purpose"
                             },
-                            { 
+                            {
                                 "value": "Expires"
-                            } 
+                            }
                         ],
                         "trs": [
                             {
@@ -347,15 +347,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 {{
                     onsTable({
                         "ths": [
-                            { 
+                            {
                                 "value": "Name"
                             },
-                            { 
+                            {
                                 "value": "Purpose"
                             },
-                            { 
+                            {
                                 "value": "Expires"
-                            } 
+                            }
                         ],
                         "trs": [
                             {
@@ -387,12 +387,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         ]
                     })
                 }}
-            {% endcall %}            
-            {{ 
+            {% endcall %}
+            {{
                 onsButton({
                     "type": 'submit',
                     "text": 'Save changes'
-                }) 
+                })
             }}
         </form>
     </div>
