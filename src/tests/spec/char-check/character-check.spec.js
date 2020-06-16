@@ -3,16 +3,17 @@ import template from 'components/search/_test-template.njk';
 import CharCheck from 'components/input/character-check';
 
 const params = {
-  input: {
-    id: 'search-field',
-    type: 'number',
-    classes: 'input--w-6',
-    label: 'Filter results',
+  id: 'search-field',
+  type: 'number',
+  classes: 'input--w-6',
+  label: {
+    text: 'Filter results',
   },
-  button: {
+  searchButton: {
     text: 'Filter',
   },
   charCheck: {
+    charcheckCountdown: true,
     limit: 11,
     charCountSingular: '{x} more number needed',
     charCountPlural: '{x} more numbers needed',
@@ -34,8 +35,8 @@ describe('Component: Input with character check', () => {
     document.body.appendChild(wrapper);
 
     searchWrapper = document.querySelector('.js-char-check');
-    searchInput = document.getElementById(params.input.id);
-    limit_readout = document.getElementById(`${params.input.id}-check-remaining`);
+    searchInput = document.getElementById(params.id);
+    limit_readout = document.getElementById(`${params.id}-check-remaining`);
 
     new CharCheck(searchWrapper);
   });
