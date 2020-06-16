@@ -1,13 +1,4 @@
-| Name                       | Type                                 | Required | Description                                                                                                                                           |
-| -------------------------- | ------------------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| accessiblePlaceholder      | boolean                              | false    | Will add the provided label as an accessible placeholder                                                                                              |
-| id                         | string                               | true     | The id of the input. This will also be added to the label if a label is specified                                                                     |
-| classes                    | string                               | false    | Classes to add to the input.                                                                                                                          |
-| name                       | string                               | false    | The name of the input                                                                                                                                 |
-| width                      | string                               | false    | Numeric value for [input width constraint](/components/input/#width-constrained) defaults to '6'                                                      |
-| label                      | `Label` [_(ref)_](/components/label) | false    | Settings for the input label. `for` will automatically be set to match the input id                                                                   |
-| limit                      | number                               | false    | The maximum amount of characters a user should type in                                                                                                |
-| charCountPlural            | string                               | false    | Required if `charcheck` is supplied. The string that will render how many characters are remaining. `{x}` Will be replaced with the number            |
-| charCountSingular          | string                               | false    | Required if `charcheck` is supplied. The string that will render how many characters are remaining (singular). `{x}` Will be replaced with the number |
-| charCountOverLimitSingular | string                               | false    | Required if `charcheck` is supplied. The string that will render how many characters are over (singular). `{x}` Will be replaced with the number      |
-| charCountOverLimitPlural   | string                               | false    | Required if `charcheck` is supplied. The string that will render how many characters are over (plural). `{x}` Will be replaced with the number        |
+| Name         | Type                                   | Required | Description              |
+| ------------ | -------------------------------------- | -------- | ------------------------ |
+| Input        | `Input` [_(ref)_](/components/input)   | true     | Settings for the input.  |
+| searchButton | `Button` [_(ref)_](/components/button) | true     | Settings for the button. |
