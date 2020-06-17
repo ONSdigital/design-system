@@ -1,8 +1,8 @@
 export const DEFAULT_COOKIE_CONSENT = {
   essential: true,
-  settings: true,
-  usage: true,
-  campaigns: true,
+  settings: false,
+  usage: false,
+  campaigns: false,
 };
 
 export const COOKIE_CATEGORIES = {
@@ -39,7 +39,14 @@ export function setDefaultConsentCookie() {
 }
 
 export function approveAllCookieTypes() {
-  setDefaultConsentCookie();
+  let approvedConsent = {
+    essential: true,
+    settings: true,
+    usage: true,
+    campaigns: true,
+  };
+
+  setCookie('ons_cookie_policy', JSON.stringify(approvedConsent), { days: 365 });
 }
 
 export function getConsentCookie() {
