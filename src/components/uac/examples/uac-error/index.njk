@@ -17,25 +17,24 @@ layout: none
             type: "error"
         })
     %}
+        <p>These <strong>must be corrected</strong> to continue.</p>
+        {% from "components/lists/_macro.njk" import onsList %}
+        {{
+            onsList({
+                "classes": "list--bare",
+                "itemsList": [
+                    {
+                        "text": "Enter an access code to continue",
+                        "index": true,
+                        "url": "#uac",
+                        "classes": "js-inpagelink"
+                    }
+                ]
+            })
+        }}
+    {% endcall %}
 
     <h1 class="u-mt-l">Start survey</h1>
-
-    <p>These <strong>must be corrected</strong> to continue.</p>
-    {% from "components/lists/_macro.njk" import onsList %}
-    {{
-        onsList({
-            "classes": "list--bare",
-            "itemsList": [
-                {
-                    "text": "Enter an access code to continue",
-                    "index": true,
-                    "url": "#uac",
-                    "classes": "js-inpagelink"
-                }
-            ]
-        })
-    }}
-    {% endcall %}
 
     {{ onsUACInput({
         "id": "uac",
@@ -58,7 +57,7 @@ layout: none
         "classes": "u-mb-xl"
     }) }}
 
-    <h2 class="u-fs-r--b u-mb-no">If you don't have an access code?</h2>
+    <h2>If you don't have an access code</h2>
     <p>
         You can <a href="#">request a new code</a> to start a new survey if you have lost or not received an access code. This can be sent to you by text or post.
     </p>
