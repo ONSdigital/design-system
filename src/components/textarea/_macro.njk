@@ -16,7 +16,7 @@
 
         <textarea
             id="{{ params.id }}"
-            class="input input--textarea {% if params.maxlength %} js-charlimit-input{% endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
+            class="input input--textarea {% if params.error %} input--error {% endif %}{% if params.maxlength %} js-charlimit-input{% endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
             name="{{ params.name }}"
             rows="{{ params.rows | default(8) }}"
             {% if params.maxlength %}
