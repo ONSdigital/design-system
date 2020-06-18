@@ -6,6 +6,7 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 {% set pageConfig = {
     "title": "Census 2021",
@@ -88,17 +89,27 @@ layout: none
         You can <a href="#">request a new code</a> to start a new survey if you have lost or not received an access code. This can be sent to you by text or post.
     </p>
 
-    {{
-        onsCollapsible({
-            "id": "collapsible",
-            "title": "Need to answer separately from your household?",
-            "titleTag": "h2",
-            "content": "<p>If you need to answer separately from the people you live with, you can request an individual access code to start a separate census.</p>",
-            "button": {
+    {% set content %}
+        <p>If you need to answer separately from the people you live with, you can <a href='#'>request an individual access code</a> to start a separate census.</p>
+        {% call onsPanel({
+                type: "warn"
+            })
+        %}
+        <p><strong>Someone in your household must still complete a census using a household access code</strong></p>
+        {% endcall %}
+    {% endset %}
+
+    {% call onsCollapsible({
+            id: "collapsible",
+            title: "Need to answer separately from your household?",
+            titleTag: "h2",
+            button: {
                 "close": "Hide this",
                 "contextSuffix": "content"
             }
         })
-    }}
+    %}
+        {{ content | safe }}
+    {% endcall %}
 
 {% endblock %}
