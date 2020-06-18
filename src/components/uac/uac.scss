@@ -1,15 +1,22 @@
 .uac {
   &__input {
-    max-width: 12.6em;
-    // Used to fix clipped lowercase g and y
-    height: 100%;
+    width: 15.1em;
     font-family: $font-mono;
     font-weight: bold;
     text-transform: uppercase;
 
     @media all and (min-width: 375px) {
-      font-size: 22px;
-      letter-spacing: 0.01em;
+      width: 15.1em;
+      font-size: 20px;
+      letter-spacing: 0.14em;
+    }
+
+    @media all and (max-width: 374px) {
+      max-width: 12.6em;
+    }
+
+    @media all and (max-width: 299px) {
+      max-width: 100%;
     }
 
     @include mq('s') {
