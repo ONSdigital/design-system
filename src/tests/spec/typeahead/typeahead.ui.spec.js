@@ -1073,14 +1073,6 @@ describe('Typeahead.ui component', function() {
               ],
             });
           });
-
-          it('then clearListbox should be be called with preventAriaStatusUpdate set to true', function() {
-            expect(this.clearListboxSpy).to.have.been.called.with.exactly(true);
-          });
-
-          it('then selectResult should be be called with an index of 0', function() {
-            expect(this.selectResultSpy).to.have.been.called.with.exactly(0);
-          });
         });
 
         describe('if there is more than one result', function() {
