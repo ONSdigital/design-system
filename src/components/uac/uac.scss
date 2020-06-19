@@ -3,16 +3,17 @@
     width: 15.1em;
     font-family: $font-mono;
     font-weight: bold;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
 
     @media all and (min-width: 375px) {
       width: 15.1em;
       font-size: 20px;
-      letter-spacing: 0.14em;
     }
 
     @media all and (max-width: 374px) {
       max-width: 12.6em;
+      letter-spacing: 0;
     }
 
     @media all and (max-width: 299px) {
@@ -23,7 +24,6 @@
       width: 14.9em !important;
       max-width: 14.9em;
       font-size: 24px;
-      letter-spacing: 0.14em;
     }
   }
 
