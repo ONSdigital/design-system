@@ -4,7 +4,9 @@
 {% from "components/cookies-banner/_macro.njk" import onsCookiesBanner %}
 {{
     onsCookiesBanner({
-        "html": 'We use cookies to improve your experience of census.gov.uk',
+        "statementTitle": 'Tell us whether you accept cookies',
+        "statementText": 'We use <a href="#">cookies to collect information</a> about how you use census.gov.uk. We use this information to make the website work as well as possible and improve our services.',
+        "confirmationText": 'You’ve accepted all cookies. You can <a href="#">change your cookie preferences</a> at any time.',
         "secondaryButtonUrl": '#'
     })
 }}

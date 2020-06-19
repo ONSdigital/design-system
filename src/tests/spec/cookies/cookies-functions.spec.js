@@ -86,7 +86,7 @@ describe('consent cookie methods', function() {
 
     expect(setCookieSpy).to.have.been.called;
     const cookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
-    expect(cookieJSON).to.contain({ essential: true, settings: true, usage: true, campaigns: true });
+    expect(cookieJSON).to.contain({ essential: true, settings: false, usage: false, campaigns: false });
   });
 
   it('can set the consent cookie to approve all cookie categories', function() {
@@ -122,7 +122,7 @@ describe('consent cookie methods', function() {
     setConsentCookie({ essential: false });
     expect(setCookieSpy).to.have.been.called;
     expect(getDomainSpy).to.have.been.called;
-    expect(getCookie('ons_cookie_policy')).to.contain("{'essential':false,'settings':true,'usage':true,'campaigns':true}");
+    expect(getCookie('ons_cookie_policy')).to.contain("{'essential':false,'settings':false,'usage':false,'campaigns':false}");
 
     expect(cookie('ons_cookie_message_displayed')).to.equal(null);
   });

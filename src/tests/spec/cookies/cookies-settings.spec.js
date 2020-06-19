@@ -10,7 +10,6 @@ describe('Component: Cookie settings', function() {
     Object.keys(component).forEach(key => {
       this[key] = component[key];
     });
-    new CookiesSettings(this.form);
   });
 
   afterEach(function() {
@@ -21,13 +20,15 @@ describe('Component: Cookie settings', function() {
 
   describe('setInitialFormValues', function() {
     it('sets a consent cookie by default', function() {
+      new CookiesSettings(this.form);
+
       const setDefaultConsentCookieSpy = chai.spy(setDefaultConsentCookie);
       expect(setDefaultConsentCookieSpy).to.have.been.called;
-      const cookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
-      expect(cookieJSON).to.contain({ essential: true, settings: true, usage: true, campaigns: true });
     });
 
     it('sets all radio buttons to the default values', function() {
+      new CookiesSettings(this.form);
+
       const radioButtons = this.form[0].querySelectorAll('input[value=on]');
       const consentCookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
       for (let i = 0; i < radioButtons.length; i++) {
@@ -44,20 +45,22 @@ describe('Component: Cookie settings', function() {
 
   describe('submitSettingsForm', function() {
     it('updates consent cookie with any changes', function() {
+      new CookiesSettings(this.form);
+
       const setConsentCookieSpy = chai.spy(setConsentCookie);
-      this.form.querySelector('#settings-on').checked = false;
-      this.form.querySelector('#settings-off').checked = true;
+      this.form.querySelector('#settings-on').checked = true;
+      this.form.querySelector('#settings-off').checked = false;
 
       const button = this.form.querySelector('#submit-button');
       button.click();
 
-      const cookieJSON = JSON.parse(cookie('ons_cookie_policy').replace(/'/g, '"'));
-      expect(cookieJSON).to.contain({ settings: false, usage: true, campaigns: true });
       expect(setConsentCookieSpy).to.have.been.called;
     });
   });
 
   it('sets ons_cookie_message_displayed cookie on form submit', function() {
+    new CookiesSettings(this.form);
+
     const setCookieSpy = chai.spy(setCookie);
 
     cookie('ons_cookie_message_displayed', null);
@@ -71,6 +74,8 @@ describe('Component: Cookie settings', function() {
   });
 
   it('hides the cookie banner on form submit', function() {
+    new CookiesSettings(this.form);
+
     const banner = document.querySelector('.cookies-banner');
 
     const button = this.form.querySelector('#submit-button');
@@ -81,6 +86,8 @@ describe('Component: Cookie settings', function() {
 
   describe('showConfirmationMessage', function() {
     it('shows a confirmation message', function() {
+      new CookiesSettings(this.form);
+
       const confirmationMessage = document.querySelector('.cookies-confirmation-message');
       const button = this.form.querySelector('#submit-button');
       button.click();

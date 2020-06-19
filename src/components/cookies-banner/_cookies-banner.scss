@@ -2,14 +2,21 @@
   display: none;
   padding: 1rem 0;
   background: $cookie-banner-bg;
-}
 
-.cookies-banner__desc {
-  margin-bottom: 0.3rem;
-  color: $cookie-banner-text;
-  word-break: break-word;
-}
+  &__title {
+    color: $cookie-banner-text;
+  }
 
-@include bp-suffix('cookies-banner__btn', $create-between-breakpoints: true) {
-  width: calc(100vw - 2rem);
+  &__desc {
+    margin-bottom: 1rem;
+    color: $cookie-banner-text;
+    word-break: break-word;
+  }
+
+  &__btn {
+    @include mq('xs', 's') {
+      display: block;
+      width: 100%;
+    }
+  }
 }

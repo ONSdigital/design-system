@@ -27,7 +27,7 @@
         {% if params and params.title %}
             {% set titleTag = params.titleTag | default("div") %}
             <div class="panel__header">
-                <{{ titleTag }} class="panel__title u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
+                <{{ titleTag }} {% if params.type %}data-qa="{{ params.type }}-header"{% endif %} class="panel__title u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
             </div>
         {% endif %}
         <div class="panel__body" {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ (params.body if params else "") | safe }}
