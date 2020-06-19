@@ -25,4 +25,4 @@ run:
       gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
       gcloud config set project "${PROJECT_ID}"
 
-      gsutil -m cp -r ons-design-system-release-artifact gs://census-eq-cdn/design-system/
+      gsutil -m cp -r ons-design-system-release-artifact/** gs://census-eq-cdn/design-system/
