@@ -46,7 +46,7 @@ layout: none
     }
 } %}
 
-{% block main %}
+{% block preMain %}
 
     {{
         onsBreadcrumb({
@@ -65,6 +65,9 @@ layout: none
         })
     }}
 
+{% endblock %}
+
+{% block main %}
     <h1 class="u-mt-xs">Start census</h1>
 
     {{ onsUACInput({
