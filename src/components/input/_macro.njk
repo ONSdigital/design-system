@@ -1,8 +1,10 @@
 {% macro onsInput(params) %}
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
+    {% from "components/input/_charlimit-macro.njk" import onsCharLimit %}
+    {% from "components/input/_typeahead-macro.njk" import onsTypeahead %}
+    {% from "components/search/_macro.njk" import onsSearch %}
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
-    {% from "components/button/_macro.njk" import onsButton %}
 
     {% if params.type == "number" %}
         {# Type must be "text" or Firefox and Safari will set a blank value to the server if non numeric characters are entered -
@@ -17,53 +19,30 @@
     {% endif %}
 
     {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
-    {% set input %}
-        {% if params.typeahead %}
-            <div
-                id="{{ params.id }}-container"
-                class="js-typeahead typeahead-input {{ params.classes }}"
-                data-instructions="{{ params.typeahead.instructions }}"
-                data-aria-you-have-selected="{{ params.typeahead.ariaYouHaveSelected }}"
-                data-aria-min-chars="{{ params.typeahead.ariaMinChars }}"
-                data-aria-one-result="{{ params.typeahead.ariaOneResult }}"
-                data-aria-n-results="{{ params.typeahead.ariaNResults }}"
-                data-aria-limited-results="{{ params.typeahead.ariaLimitedResults }}"
-                data-more-results="{{ params.typeahead.moreResults }}"
-                data-results-title="{{ params.typeahead.resultsTitle }}"
-                data-typeahead-data="{{ params.typeahead.typeaheadData }}"
-                data-no-results="{{ params.typeahead.noResults }}"
-            >
-        {% endif %}
-                <input
-                    type="{{ type }}"
-                    id="{{ params.id }}"
-                    class="input input--text input-type__input {% if params.typeahead %} js-typeahead-input {% endif %} {{ params.classes }}{{ exclusiveClass }}"
-                    {% if params.prefix or params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
-                    {% if params.name is defined %}name="{{ params.name }}"{% endif %}
-                    {% if params.accessiblePlaceholder is defined %}required{% endif %}
-                    {% if params.value is defined %}value="{{ params.value }}"{% endif %}
-                    {% if params.accept is defined %}accept="{{ params.accept }}"{% endif %}
-                    {% if params.min is defined %}min="{{ params.min }}"{% endif %}
-                    {% if params.max is defined %}max="{{ params.max }}"{% endif %}
-                    {% if params.minLength is defined %}minlength="{{ params.minLength }}"{% endif %}
-                    {% if params.maxLength is defined %}maxlength="{{ params.maxLength }}"{% endif %}
-                    {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
-                    {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
-                    {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
-                    {% if params.charCheck is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
-                    {% if params.charCheck is defined and params.charCheck.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
-                    {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-                />
-        {% if params.typeahead %}
-                <div class="typeahead-input__results js-typeahead-results">
-                    <header class="typeahead-input__results-title u-fs-s">{{ params.typeahead.resultsTitle }}</header>
-                    <ul class="typeahead-input__listbox js-typeahead-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
-                </div>
+    {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder else "" %}
 
-                <div class="typeahead-input__instructions u-vh js-typeahead-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.typeahead.instructions }}</div>
-                <div class="typeahead-input__status u-vh js-typeahead-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
-            </div>
-        {% endif %}
+    {% set input %}
+        <input
+            type="{{ type }}"
+            id="{{ params.id }}"
+            class="input input--text input-type__input {% if params.typeahead %} js-typeahead-input {% endif %} {% if params.searchButton %}u-mr-xs{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            {% if params.prefix or params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
+            {% if params.name is defined %}name="{{ params.name }}"{% endif %}
+            {% if params.accessiblePlaceholder is defined %}required{% endif %}
+            {% if params.value is defined %}value="{{ params.value }}"{% endif %}
+            {% if params.accept is defined %}accept="{{ params.accept }}"{% endif %}
+            {% if params.min is defined %}min="{{ params.min }}"{% endif %}
+            {% if params.max is defined %}max="{{ params.max }}"{% endif %}
+            {% if params.minLength is defined %}minlength="{{ params.minLength }}"{% endif %}
+            {% if params.maxLength is defined %}maxlength="{{ params.maxLength }}"{% endif %}
+            {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
+            {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
+            {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
+            {% if params.charCheck is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
+            {% if params.charCheck is defined and params.charCheck.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.label is defined and params.label.description is defined %}{% if params.label.id %}aria-describedby="{{params.id}}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
+        />
     {% endset %}
     {% set field %}
         {% if params.label or not (params.prefix or params.suffix or type == 'password') %}
@@ -73,7 +52,8 @@
                 "text": params.label.text,
                 "classes": params.label.classes,
                 "description": params.label.description,
-                "attributes": params.label.attributes
+                "attributes": params.label.attributes,
+                "accessiblePlaceholder": params.accessiblePlaceholder
             }) }}
         {% endif %}
 
@@ -94,44 +74,52 @@
                         >{{ abbr.text or abbr.title }}</abbr>
                 </span>
             </span>
-        {% elif params.charCheck is defined and params.charCheck.limit is defined or params.button is defined %}
-            {% if params.button is defined %}
-                <span class="grid--flex">
-            {% endif %}
-            {% if params.charCheck.limit is defined %}
-                <span class="js-char-check">
-            {% endif %}
-            {{ input | safe }}
-            {% if params.charCheck.limit is defined %}
-                </span>
-            {% endif %}
-            {% if params.button is defined %}
-                {{ 
-                    onsButton({
-                        "type": params.button.type,
-                        "text": params.button.text,
-                        "id": params.button.id,
-                        "classes": params.button.classes
-                    }) 
-                }}
-                </span>
-            {% endif %}
-            {% if params.charCheck.limit is defined %}
-                <span
-                    id="{{ params.id }}-check-remaining"
-                    class="input__limit u-fs-s--b u-d-no u-mt-xs"
-                    data-charcount-singular="{{ params.charCheck.charCountSingular }}"
-                    data-charcount-plural="{{ params.charCheck.charCountPlural }}"
-                    data-charcount-limit-singular="{{ params.charCheck.charCountOverLimitSingular }}"
-                    data-charcount-limit-plural="{{ params.charCheck.charCountOverLimitPlural }}">
-                </span>
-            {% endif %}
+        {% elif params.searchButton is defined %}
+            {% call onsSearch({
+                "accessiblePlaceholder": params.accessiblePlaceholder,
+                "searchButton": {
+                    "type": params.searchButton.type,
+                    "text": params.searchButton.text,
+                    "id": params.searchButton.id
+                }
+            }) %}
+                {{ input | safe }}
+            {% endcall %}
+        {% elif params.typeahead %}
+            {% call onsTypeahead({
+                "id": params.id,
+                "classes": params.typeahead.classes,
+                "instructions": params.typeahead.instructions,
+                "ariaYouHaveSelected": params.typeahead.ariaYouHaveSelected,
+                "ariaMinChars": params.typeahead.ariaMinChars,
+                "ariaOneResult": params.typeahead.ariaOneResult,
+                "ariaNResults": params.typeahead.ariaNResults,
+                "ariaLimitedResults": params.typeahead.ariaLimitedResults,
+                "moreResults": params.typeahead.moreResults,
+                "resultsTitle": params.typeahead.resultsTitle,
+                "typeaheadData": params.typeahead.typeaheadData,
+                "noResults": params.typeahead.noResults,
+                "resultsTitle": params.typeahead.resultsTitle
+            }) %}
+                {{ input | safe }}
+            {% endcall %}
         {% else %}
             {{ input | safe }}
         {% endif %}
     {% endset %}
 
-    {% if params.mutuallyExclusive %}
+    {% if params.charCheck is defined and params.charCheck.limit %}
+        {% call onsCharLimit({
+            "id": params.id,
+            "limit": params.charCheck.limit,
+            "charCountSingular": params.charCheck.charCountSingular,
+            "charCountPlural": params.charCheck.charCountPlural,
+            "charCountOverLimitSingular": params.charCheck.charCountOverLimitSingular,
+            "charCountOverLimitPlural": params.charCheck.charCountOverLimitPlural
+        }) %}
+            {{ field | safe }}
+        {% endcall %}
+    {% elif params.mutuallyExclusive %}
         {% call onsMutuallyExclusive({
             "id": params.fieldId,
             "legend": params.legend,
@@ -145,7 +133,7 @@
             "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
             "error": params.error
         }) %}
-        {{ field | safe }}
+            {{ field | safe }}
         {% endcall %}
     {% elif type == "hidden" %}
         {{ field | safe }}
@@ -156,7 +144,6 @@
             "dontWrap": params.dontWrap,
             "error": params.error
         }) %}
-        
             {{ field | safe }}
         {% endcall %}
     {% endif %}

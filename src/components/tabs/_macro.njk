@@ -9,7 +9,7 @@
         {% for tab in params.tabs %}
             <section id="tabId{{loop.index}}" class="tabs__panel">
                 {{tab.content | safe}}
-            </section>  
+            </section>
         {% endfor %}
     </section>
 {% endmacro %}

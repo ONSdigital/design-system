@@ -12,7 +12,7 @@ Error and status pages tell the user there is a problem with the page they are t
 
 All error and status pages should:
 
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -22,12 +22,12 @@ All error and status pages should:
                 "text": "be clear and concise, and not blame the user"
             }
         ]
-    }) 
+    })
 }}
 
 All error pages should not:
 
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -40,12 +40,12 @@ All error pages should not:
                 "text": "use red text to warn people"
             }
         ]
-    }) 
+    })
 }}
 
 Contact information should either:
 
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -55,14 +55,14 @@ Contact information should either:
                 "text": "include all numbers and opening times"
             }
         ]
-    }) 
+    })
 }}
 
 ## 404 error
 
 Use a 404 error page if the user has tried to view a page that does not exist. This could happen if someone:
 
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -75,19 +75,19 @@ Use a 404 error page if the user has tried to view a page that does not exist. T
                 "text": "selects a link or button that takes them to a page that does not exist"
             }
         ]
-    }) 
+    })
 }}
 
 The page should have:
 
-{{ 
+{{
     onsList({
         "itemsList": [
             {
                 "text": "‘Page not found – [service name] – Office for National Statistics’ as the page <code>title</code>"
             }
         ]
-    }) 
+    })
 }}
 
 {{
@@ -112,12 +112,12 @@ Use a 401 or 403 error page when the user is denied access to a service.
 
 ## 500 Server errors
 
-Use a server error page when there is any kind of unexpected problem with the service.  
+Use a server error page when there is any kind of unexpected problem with the service.
 
 All errors should be logged and fixed as soon as possible.  Only display this page for a short period of time.  If the errors cannot be fixed quickly, then disable the service and display a [maintenance notice](#maintenance-notice) page instead.
 
 The page should have:
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -125,9 +125,9 @@ The page should have:
             },
             {
                 "text": "a link to an alternative service that may help the user continue their task (if available)"
-            } 
+            }
         ]
-    }) 
+    })
 }}
 
 {{
@@ -139,7 +139,7 @@ The page should have:
 Use a maintenance notice page when the service needs to be disabled in order to fix problems or deploy upgrades.  As soon as you know when the service will be available again, update the page to let the user know.
 
 The page should have:
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -150,12 +150,12 @@ The page should have:
             },
             {
                 "text": "contact information (if it exists) that will help meet a user need"
-            }, 
+            },
             {
                 "text": "a link to an alternative service that may help the user continue their task (if available)"
             }
         ]
-    }) 
+    })
 }}
 
 {{
@@ -167,7 +167,7 @@ The page should have:
 Use a Timeout page when the user has been timed out of the service due to inactivity.  Explain why the timeout has occured and reassure the user that their progress has been saved. Provide a link to allow them to sign in again.
 
 The page should have:
-{{ 
+{{
     onsList({
         "itemsList": [
             {
@@ -180,7 +180,7 @@ The page should have:
                 "text": "a link allowing the user to sign in again"
             }
         ]
-    }) 
+    })
 }}
 
 {{

@@ -37,6 +37,10 @@
     outline-offset: -2px;
     box-shadow: 0 0 0 3px $color-focus;
   }
+
+  &--with-description {
+    margin-bottom: 0.55rem;
+  }
 }
 
 // Text input widths

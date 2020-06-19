@@ -1,24 +1,24 @@
 {% from "components/input/_macro.njk" import onsInput %}
-{{ 
+{{
     onsInput({
         "id": "number",
         "type": "number",
         "classes": "input--w-2",
-        "autocomplete": "off",        
+        "autocomplete": "off",
         "attributes": {
             "min": 0
         },
         "label": {
             "text": "Number of bedrooms"
         }
-    }) 
+    })
 }}
-{{ 
+{{
     onsInput({
         "id": "prefixed",
         "type": "number",
         "classes": "input--w-6",
-        "autocomplete": "off",        
+        "autocomplete": "off",
         "attributes": {
             "required": true
         },
@@ -29,9 +29,9 @@
             "title": "Pounds (GBP)",
             "text": "£"
         }
-    }) 
+    })
 }}
-{{ 
+{{
     onsInput({
         "id": "suffixed-percent",
         "type": "number",
@@ -47,9 +47,9 @@
             "title": "Percent",
             "text": "%"
         }
-    }) 
+    })
 }}
-{{ 
+{{
     onsInput({
         "id": "suffixed-centimeters",
         "type": "number",
@@ -66,5 +66,5 @@
             "title": "centimeters",
             "text": "cm"
         }
-    }) 
+    })
 }}

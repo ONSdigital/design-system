@@ -11,7 +11,7 @@ layout: none
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 {% from "components/password/_macro.njk" import onsPassword %}
 
-{% set pageConfig =  {
+{% set pageConfig = {
     "title": "Errors Prototype"
 } %}
 
@@ -63,7 +63,7 @@ layout: none
             })
         }}
 
-        {{ 
+        {{
             onsRadios({
                 "legend": "How many employees do you employ?",
                 "name": "food",
@@ -83,7 +83,7 @@ layout: none
                         "value": "b"
                     }
                 ]
-            }) 
+            })
         }}
 
         {{
@@ -119,7 +119,7 @@ layout: none
                 }
             })
         }}
-        {{ 
+        {{
             onsCheckboxes({
                 "legend": "What are your favourite pizza toppings?",
                 "checkboxesLabel": "Select all that apply",
@@ -164,7 +164,7 @@ layout: none
                 "showPasswordText": "Show password"
             })
         }}
-        {{ 
+        {{
             onsInput({
                 "id": "email",
                 "type": "email",

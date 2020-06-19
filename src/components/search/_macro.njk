@@ -1,38 +1,18 @@
 {% macro onsSearch(params) %}
-    {% from "components/input/_macro.njk" import onsInput %}
+    {% from "components/button/_macro.njk" import onsButton %}
 
-    {% set labelPlaceholder = ' label--placeholder ' if params.accessiblePlaceholder else "" %}
-    {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder else "" %}
-    {% set inputClasses = params.input.classes if params.input.classes else "" %}
-    {% set inputWidth = 'input--w-' + params.input.width | default('10') %}
+    {% set content = caller() %}
+
+    <span class="grid--flex">
+        {{ content | safe }}
         {{ 
-            onsInput({
-                "id": params.input.id,
-                "type": params.input.type,
-                "name": params.input.name,
-                "pattern": params.input.pattern,
-                "value": params.input.value,
-                "classes": 'u-mr-xs ' + inputClasses + inputPlaceholder + inputWidth,
-                "label": {
-                    "text": params.input.label,
-                    "classes": labelPlaceholder
-                },
-                "accessiblePlaceholder": params.accessiblePlaceholder,
-                "charCheck": {
-                    "charcheckCountdown": true,
-                    "limit": params.charCheck.limit,
-                    "charCountSingular": params.charCheck.charCountSingular,
-                    "charCountPlural": params.charCheck.charCountPlural,
-                    "charCountOverLimitSingular": params.charCheck.charCountOverLimitSingular,
-                    "charCountOverLimitPlural": params.charCheck.charCountOverLimitPlural
-                },
-                "button": {
-                    "type": params.button.type,
-                    "text": params.button.text,
-                    "id": params.button.id,
-                    "classes": 'btn--small u-flex-align-bottom u-mb-no'
-                }
-
+            onsButton({
+                "type": params.searchButton.type,
+                "text": params.searchButton.text,
+                "id": params.searchButton.id,
+                "classes": 'btn--small u-flex-align-bottom u-mb-no'
             }) 
         }}
+    </span>
+
 {% endmacro %}
