@@ -14,10 +14,11 @@
         >
 
         {{ onsLabel({
+            "id": params.id + "-label",
             "for": params.id,
             "inputType": "checkbox",
             "text": params.label.text,
-            "classes": "radio__label " + params.label.classes | default(''),
+            "classes": "checkbox__label " + params.label.classes | default(''),
             "description": params.label.description
         }) }}
 
@@ -32,6 +33,7 @@
                         "classes": "input--w-auto " + params.other.classes | default(''),
                         "attributes": params.other.attributes,
                         "label": {
+                            "id": params.other.id + "-label",
                             "text": params.other.label.text,
                             "classes": 'u-fs-s--b'
                         },
