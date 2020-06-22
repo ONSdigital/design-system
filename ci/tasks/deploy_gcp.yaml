@@ -7,7 +7,6 @@ image_resource:
 
 params:
   SERVICE_ACCOUNT_JSON: ((gcp.service_account_json))
-  PROJECT_ID:
 
 inputs:
 - name: ons-design-system-release-artifact
