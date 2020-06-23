@@ -24,4 +24,4 @@ run:
       
       gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
 
-      gsutil -m cp -r ons-design-system-release-artifact/** gs://${BUCKET_NAME}/design-system/
+      gsutil -m -h "Cache-Control:public,max-age=31536000" cp -r ons-design-system-release-artifact/** gs://${BUCKET_NAME}/design-system/
