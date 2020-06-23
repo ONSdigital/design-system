@@ -25,7 +25,7 @@
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="input input--text input-type__input {% if params.typeahead %} js-typeahead-input {% endif %} {% if params.searchButton %}u-mr-xs{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="input input--text input-type__input {% if params.error %} input--error {% endif %}{% if params.typeahead %} js-typeahead-input {% endif %} {% if params.searchButton %}u-mr-xs{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix or params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined %}name="{{ params.name }}"{% endif %}
             {% if params.accessiblePlaceholder is defined %}required{% endif %}
@@ -43,6 +43,9 @@
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             {% if params.label is defined and params.label.description is defined %}{% if params.label.id %}aria-describedby="{{params.id}}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
         />
+        {% if params.postTextboxLinkText %}
+            <a class="u-fs-s" href="{{ params.postTextboxLinkUrl }}">{{ params.postTextboxLinkText }}</a>
+        {% endif %}
     {% endset %}
     {% set field %}
         {% if params.label or not (params.prefix or params.suffix or type == 'password') %}

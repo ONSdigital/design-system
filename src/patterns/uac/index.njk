@@ -1,12 +1,32 @@
 ---
-title: Unique Access Codes
+title: Access codes
 group: Ask users for...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 {{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
+
+{{
     patternlibExample({"path": "components/uac/examples/uac/index.njk"})
+}}
+
+## Other examples
+
+### Errors
+
+{{
+    patternlibExample({"path": "components/uac/examples/uac-error/index.njk"})
+}}
+
+### Census
+
+{{
+    patternlibExample({"path": "components/uac/examples/uac-census/index.njk"})
 }}
 
 ## Research on this pattern
@@ -15,4 +35,4 @@ group: Ask users for...
 {% endcall %}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/414" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Unique Access Codes' on GitHub</a>
+<a href="https://github.com/ONSdigital/design-system/issues/414" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Access codes' on GitHub</a>
