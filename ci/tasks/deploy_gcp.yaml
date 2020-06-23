@@ -7,6 +7,7 @@ image_resource:
 
 params:
   SERVICE_ACCOUNT_JSON: ((gcp.service_account_json))
+  BUCKET_NAME:
 
 inputs:
 - name: ons-design-system-release-artifact
@@ -23,4 +24,4 @@ run:
       
       gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
 
-      gsutil -m cp -r ons-design-system-release-artifact/** gs://census-eq-cdn/design-system/
+      gsutil -m cp -r ons-design-system-release-artifact/** gs://${BUCKET_NAME}/design-system/
