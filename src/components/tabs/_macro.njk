@@ -3,7 +3,7 @@
         <h2 class="tabs__title">{{params.title}}</h2>
         <ul class="tabs__list">
             {% for tab in params.tabs %}
-                <li id="tabId{{loop.index}}Item" class="tab__list-item"><a href="#tabId{{loop.index}}" class="tab" data=ga="click" data-ga-category="tabs" data-ga-action="Show: {{tab.title}}" data-ga-label="Show: {{tab.title}}">{{tab.title}}</a></li>
+                <li id="tabId{{loop.index}}Item" class="tab__list-item"><a href="#tabId{{loop.index}}" class="tab" data-ga="click" data-ga-category="tabs" data-ga-action="Show: {{tab.title}}" data-ga-label="Show: {{tab.title}}">{{tab.title}}</a></li>
             {% endfor %}
         </ul>
         {% for tab in params.tabs %}
