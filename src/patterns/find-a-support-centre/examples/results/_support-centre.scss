@@ -23,12 +23,12 @@ Support centre listing
 }
 
 .support-centre__item:not(:first-child) {
-  border-top: 1px solid #d8d8d8;
-  padding-top: 32px;
+  border-top: 1px solid $color-grey-3;
+  padding-top: 1.5rem; // 27px
 }
 
 .support-centre__item:not(:last-child) {
-  padding-bottom: 32px;
+  padding-bottom: 1.5rem; // 27px
 }
 
 .support-centre__distance {
