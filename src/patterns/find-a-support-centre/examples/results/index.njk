@@ -1,0 +1,130 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+
+{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+
+{% set pageConfig = {
+    "title": "Census 2021",
+    "theme": "census",
+    "absoluteUrl": pageInfo.url,
+    "headMeta": {
+        "description": "Census 2021 is a UK wide population survey."
+    },
+    "header": {
+        "logoHref": "#",
+        "titleLogo": "census-logo-en",
+        "titleLogoHref": "#",
+        "titleLogoAlt": "Census 2021"
+    },
+    "language": {
+        "allLanguagesUrl": "#",
+        "languages": [
+            {
+                "url": "#",
+                "ISOCode": "en",
+                "text": "English",
+                "buttonAriaLabel": "Language selector. Current language: English",
+                "chooseLanguage": "Choose language",
+                "allLanguages": "All languages",
+                "current": true
+            },
+            {
+                "url": "#",
+                "ISOCode": "cy",
+                "text": "Cymraeg",
+                "buttonAriaLabel": "Dewisydd iaith. Iaith gyfredol: Cymraeg",
+                "chooseLanguage": "Dewiswch iaith",
+                "allLanguages": "Pob iaith",
+                "current": false
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+
+    <h1 class="u-mt-l u-fs-xxl">Support centres near <mark class="highlight">S1 1XN</mark></h1>
+
+    <ul class="support-centre">
+        
+        <li class="support-centre__item">
+
+            <h2 class="u-fs-l u-mb-xs">Sheffield Central Library</h2>
+            <span class="u-fs-r u-mb-s u-p-xxs support-centre__distance">0.7 miles away</span>
+
+            <p>First Floor, Central Library <br> Surrey Street <br> Sheffield <br> S1 1XZ</p>
+
+            <p>Find us on <a class="icon--external-link" href="https://goo.gl/maps/X48tjZkXA4RaN3LL7" target="_blank" rel="noopener nofollow">Google Maps</a> <br> Telephone: 01142 734 712</p>
+
+            {% set centreDetails %}                          
+            <h2 class="u-fs-r--b u-mb-xs">Opening Times</h2>
+
+            <p>9am to 4pm - Monday to Friday <br> 9am to 5pm - Saturday to Sunday (Census weekend)</p>
+            
+            <h2 class="u-fs-r--b u-mb-xs">Centre facilities</h2>
+
+            <ul class="support-centre__list">
+                <li class="support-centre__list-item">Public parking</li>
+                <li class="support-centre__list-item">Level access into building entrance</li>
+                <li class="support-centre__list-item">Wheelchair access</li>
+                <li class="support-centre__list-item">Staff are disability aware</li>
+                <li class="support-centre__list-item">Hearing loop system</li>
+            </ul>
+            {% endset %}
+
+            {{
+                onsCollapsible({
+                    "id": "collapsible-1",
+                    "title": "Opening times and facilities",
+                    "content": centreDetails,
+                    "button": {
+                        "close": "Hide this",
+                        "contextSuffix": "content"
+                    }
+                })
+            }}
+
+        </li>
+
+        <li class="support-centre__item">
+
+            <h2 class="u-fs-l u-mb-xs">University of Sheffield</h2>
+            <span class="u-fs-r u-mb-s u-p-xxs support-centre__distance">1.7 miles away</span>
+
+            <p>The University of Sheffield <br> Western Bank <br> Sheffield <br> S10 2TN</p>
+
+            <p>Find us on <a class="icon--external-link" href="https://goo.gl/maps/SEaVUjW2KY9wDoPE8" target="_blank" rel="noopener nofollow">Google Maps</a> <br> Telephone: 0114 222 2000</p>
+
+            {% set centreDetails %}                            
+            <h2 class="u-fs-r--b u-mb-xs">Opening Times</h2>
+
+            <p>8am to 6pm - Monday to Friday</p>
+            
+            <h2 class="u-fs-r--b u-mb-xs">Centre facilities</h2>
+
+            <ul class="support-centre__list">
+                <li class="support-centre__list-item">Public parking</li>
+                <li class="support-centre__list-item">Level access into building entrance</li>
+                <li class="support-centre__list-item">Wheelchair access</li>
+            </ul>
+            {% endset %}
+
+            {{
+                onsCollapsible({
+                    "id": "collapsible-2",
+                    "title": "Opening times and facilities",
+                    "content": centreDetails,
+                    "button": {
+                        "close": "Hide this",
+                        "contextSuffix": "content"
+                    }
+                })
+            }}
+
+        </li>
+
+    </ul>
+
+{% endblock %}

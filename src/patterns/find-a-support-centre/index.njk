@@ -1,0 +1,26 @@
+---
+title: Find a support centre
+group: Help users to...
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+{{
+    onsPanel({
+        "body": "This pattern is experimental and requires documentation.",
+        "classes": "u-mb-m"
+    })
+}}
+
+There are two parts to helping users find a support centre.
+
+## Find a support centre
+{{
+    patternlibExample({ "path": "patterns/find-a-support-centre/examples/find/index.njk" })
+}}
+
+## Support centre results
+{{
+    patternlibExample({ "path": "patterns/find-a-support-centre/examples/results/index.njk" })
+}}
