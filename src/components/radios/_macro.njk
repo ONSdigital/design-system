@@ -30,6 +30,7 @@
                             {% if radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                         >
                         {{ onsLabel({
+                            "id": radio.id + "-label",
                             "for": radio.id,
                             "inputType": "radio",
                             "text": radio.label.text,
@@ -48,6 +49,7 @@
                                         "classes": "input--w-auto " + radio.other.classes | default(''),
                                         "attributes": radio.other.attributes,
                                         "label": {
+                                            "id": radio.other.id + "-label",
                                             "text": radio.other.label.text,
                                             "classes": 'u-fs-s--b'
                                         },

@@ -1,0 +1,64 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% from "components/uac/_macro.njk" import onsUACInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+{% set pageConfig = {
+  "title": "Access code example"
+} %}
+
+{% block main %}
+    {% call
+        onsPanel({
+            title: "This page has an error",
+            type: "error"
+        })
+    %}
+        <p>This <strong>must be corrected</strong> to continue.</p>
+        {% from "components/lists/_macro.njk" import onsList %}
+        {{
+            onsList({
+                "classes": "list--bare",
+                "itemsList": [
+                    {
+                        "text": "Enter an access code to continue",
+                        "index": true,
+                        "url": "#uac",
+                        "classes": "js-inpagelink"
+                    }
+                ]
+            })
+        }}
+    {% endcall %}
+
+    <h1 class="u-mt-l">Start survey</h1>
+
+    {{ onsUACInput({
+        "id": "uac",
+        "name": "uac",
+        "postTextboxLinkText": "Where to find your access code",
+        "postTextboxLinkUrl": "#",
+        "label": {
+            "text": "Enter your 16-character access code",
+            "description": "Keep this code safe. You will need to enter it every time you access your census"
+        },
+        "securityMessage": "Your personal information is protected by law and will be kept confidential.",
+        "error": {
+            "id": "uac",
+            "text": "Enter an access code to continue"
+        }
+    }) }}
+
+    {{ onsButton({
+        "text": "Access survey",
+        "classes": "u-mb-xl"
+    }) }}
+
+    <h2>If you don't have an access code</h2>
+    <p>
+        You can <a href="#">request a new code</a> to start a new survey if you have lost or not received an access code. This can be sent to you by text or post.
+    </p>
+{% endblock %}
