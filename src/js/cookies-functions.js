@@ -107,7 +107,7 @@ export function checkConsentCookieCategory(cookieName, cookieCategory) {
 
 export function checkConsentCookie(cookieName, cookieValue) {
   // If we're setting the consent, session or RH_SESSION cookie OR deleting a cookie, allow by default
-  if (cookieName === 'ons_cookie_policy' || (cookieValue === null || cookieValue === false)) {
+  if (cookieName === 'ons_cookie_policy' || cookieValue === null || cookieValue === false) {
     return true;
   }
 

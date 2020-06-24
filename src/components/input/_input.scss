@@ -38,6 +38,12 @@
     box-shadow: 0 0 0 3px $color-focus;
   }
 
+  &--error:not(:focus) {
+    border: 1px solid $color-red;
+    outline: 1px solid $color-red;
+    outline-offset: -2px;
+  }
+
   &--with-description {
     margin-bottom: 0.55rem;
   }
