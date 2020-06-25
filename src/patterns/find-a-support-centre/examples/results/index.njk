@@ -45,87 +45,86 @@ layout: none
 
 {% block main %}
 
-    <h1 class="u-mt-l u-mb-l u-fs-xxl">Support centres near <mark class="highlight">S1 1XN</mark></h1>
+    <h1 class="u-mt-l u-fs-xxl">Support centres near <em class="highlight">S1 1XN</em></h1>
 
-    <ul class="support-centre">
+    <!-- Result 1 -->
+    <div class="u-pb-m u-pt-m">
+
+        <h2 class="u-fs-l u-mb-xs">Sheffield Central Library</h2>
+        <span class="u-mb-s tag">0.7 miles away</span>
+
+        <p>First Floor, Central Library <br> Surrey Street <br> Sheffield <br> S1 1XZ</p>
+
+        <p>Find us on <a class="icon--external-link" href="https://goo.gl/maps/X48tjZkXA4RaN3LL7" target="_blank" rel="noopener nofollow">Google Maps</a> <br> Telephone: 01142 734 712</p>
+
+        {% set centreDetails %}                          
+        <h3 class="u-fs-r--b u-mb-xs">Opening Times</h3>
+
+        <p>9am to 4pm - Monday to Friday <br> 9am to 5pm - Saturday to Sunday (Census weekend)</p>
         
-        <li class="support-centre__item">
+        <h3 class="u-fs-r--b u-mb-xs">Centre facilities</h3>
 
-            <h2 class="u-fs-l u-mb-xs">Sheffield Central Library</h2>
-            <span class="u-fs-r u-mb-s u-p-xxs support-centre__distance">0.7 miles away</span>
+        <ul class="list">
+            <li class="list__item">Public parking</li>
+            <li class="list__item">Level access into building entrance</li>
+            <li class="list__item">Wheelchair access</li>
+            <li class="list__item">Staff are disability aware</li>
+            <li class="list__item">Hearing loop system</li>
+        </ul>            
 
-            <p>First Floor, Central Library <br> Surrey Street <br> Sheffield <br> S1 1XZ</p>
+        {% endset %}
 
-            <p>Find us on <a class="icon--external-link" href="https://goo.gl/maps/X48tjZkXA4RaN3LL7" target="_blank" rel="noopener nofollow">Google Maps</a> <br> Telephone: 01142 734 712</p>
+        {{
+            onsCollapsible({
+                "id": "collapsible-1",
+                "title": "Opening times and facilities",
+                "content": centreDetails,
+                "button": {
+                    "close": "Hide this",
+                    "contextSuffix": "content"
+                }
+            })
+        }}
 
-            {% set centreDetails %}                          
-            <h2 class="u-fs-r--b u-mb-xs">Opening Times</h2>
+    </div>
 
-            <p>9am to 4pm - Monday to Friday <br> 9am to 5pm - Saturday to Sunday (Census weekend)</p>
-            
-            <h2 class="u-fs-r--b u-mb-xs">Centre facilities</h2>
+    <!-- Result 2 -->
+    <div class="u-pb-m u-pt-m u-bt">
 
-            <ul class="support-centre__list">
-                <li class="support-centre__list-item">Public parking</li>
-                <li class="support-centre__list-item">Level access into building entrance</li>
-                <li class="support-centre__list-item">Wheelchair access</li>
-                <li class="support-centre__list-item">Staff are disability aware</li>
-                <li class="support-centre__list-item">Hearing loop system</li>
-            </ul>            
+        <h2 class="u-fs-l u-mb-xs">University of Sheffield</h2>
+        <span class="u-mb-s tag">1.7 miles away</span>
 
-            {% endset %}
+        <p>The University of Sheffield <br> Western Bank <br> Sheffield <br> S10 2TN</p>
 
-            {{
-                onsCollapsible({
-                    "id": "collapsible-1",
-                    "title": "Opening times and facilities",
-                    "content": centreDetails,
-                    "button": {
-                        "close": "Hide this",
-                        "contextSuffix": "content"
-                    }
-                })
-            }}
+        <p>Find us on <a class="icon--external-link" href="https://goo.gl/maps/SEaVUjW2KY9wDoPE8" target="_blank" rel="noopener nofollow">Google Maps</a> <br> Telephone: 0114 222 2000</p>
 
-        </li>
+        {% set centreDetails %}                            
+        <h3 class="u-fs-r--b u-mb-xs">Opening Times</h3>
 
-        <li class="support-centre__item">
+        <p>8am to 6pm - Monday to Friday</p>
+        
+        <h3 class="u-fs-r--b u-mb-xs">Centre facilities</h3>
 
-            <h2 class="u-fs-l u-mb-xs">University of Sheffield</h2>
-            <span class="u-fs-r u-mb-s u-p-xxs support-centre__distance">1.7 miles away</span>
+        <ul class="list">
+            <li class="list__item">Public parking</li>
+            <li class="list__item">Level access into building entrance</li>
+            <li class="list__item">Wheelchair access</li>
+        </ul>
+        {% endset %}
 
-            <p>The University of Sheffield <br> Western Bank <br> Sheffield <br> S10 2TN</p>
+        {{
+            onsCollapsible({
+                "id": "collapsible-2",
+                "title": "Opening times and facilities",
+                "content": centreDetails,
+                "button": {
+                    "close": "Hide this",
+                    "contextSuffix": "content"
+                }
+            })
+        }}
 
-            <p>Find us on <a class="icon--external-link" href="https://goo.gl/maps/SEaVUjW2KY9wDoPE8" target="_blank" rel="noopener nofollow">Google Maps</a> <br> Telephone: 0114 222 2000</p>
+    </div>
 
-            {% set centreDetails %}                            
-            <h2 class="u-fs-r--b u-mb-xs">Opening Times</h2>
-
-            <p>8am to 6pm - Monday to Friday</p>
-            
-            <h2 class="u-fs-r--b u-mb-xs">Centre facilities</h2>
-
-            <ul class="support-centre__list">
-                <li class="support-centre__list-item">Public parking</li>
-                <li class="support-centre__list-item">Level access into building entrance</li>
-                <li class="support-centre__list-item">Wheelchair access</li>
-            </ul>
-            {% endset %}
-
-            {{
-                onsCollapsible({
-                    "id": "collapsible-2",
-                    "title": "Opening times and facilities",
-                    "content": centreDetails,
-                    "button": {
-                        "close": "Hide this",
-                        "contextSuffix": "content"
-                    }
-                })
-            }}
-
-        </li>
-
-    </ul>
 
 {% endblock %}

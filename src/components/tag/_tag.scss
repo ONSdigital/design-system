@@ -1,0 +1,9 @@
+@import 'settings/census';
+
+.tag {
+  @extend .u-fs-r;
+  @extend .u-p-xxs;
+  background-color: $color-supporting-tint-20;
+  display: inline-block;
+  text-decoration: none;
+}

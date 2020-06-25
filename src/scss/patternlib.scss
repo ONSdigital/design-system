@@ -6,9 +6,6 @@
 @import '../styles/page-template/examples/block-areas/block-areas';
 @import '../patterns/question/examples/question-anatomy/pl-question-anatomy';
 
-// Find a support centre specific styles (experimental)
-@import '../patterns/find-a-support-centre/examples/results/support-centre';
-
 .patternlib-page {
   display: flex;
   flex-direction: column;
