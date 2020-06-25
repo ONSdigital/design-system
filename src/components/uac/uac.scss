@@ -1,28 +1,29 @@
 .uac {
-  &__field {
-    display: inline-block;
-    position: relative;
-    padding: 1rem;
-    border: 8px solid $color-dark-blue;
-  }
-
   &__input {
-    max-width: 12.6em;
-    // Used to fix clipped lowercase g and y
-    height: 100%;
+    width: 15.1em;
     font-family: $font-mono;
     font-weight: bold;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
 
     @media all and (min-width: 375px) {
-      font-size: 22px;
-      letter-spacing: 0.01em;
+      width: 15.1em;
+      font-size: 20px;
+    }
+
+    @media all and (max-width: 374px) {
+      max-width: 12.6em;
+      letter-spacing: 0;
+    }
+
+    @media all and (max-width: 299px) {
+      max-width: 100%;
     }
 
     @include mq('s') {
       width: 14.9em !important;
       max-width: 14.9em;
       font-size: 24px;
-      letter-spacing: 0.14em;
     }
   }
 

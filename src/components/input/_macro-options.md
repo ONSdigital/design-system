@@ -23,6 +23,8 @@
 | autocomplete          | string                                                        | true                             | Autocomplete attribute used to override the browsers native autocomplete            |
 | accessiblePlaceholder | boolean                                                       | false                            | Will add the provided label as an accessible placeholder                            |
 | searchButton          | `Button` [_(ref)_](/components/button)                        | false                            | Settings for the button used for a search pattern.                                  |
+| postTextboxLinkText   | string                                                        | false                            | The text for the link to follow the textbox                                         |
+| postTextboxLinkUrl    | string                                                        | false                            | The url for the link to follow the textbox                                          |
 
 ## Prefix/Suffix
 
@@ -39,7 +41,7 @@
 | typeaheadData       | string | true     | URL of the JSON file with the typeahead data that needs to be searched                           |
 | instructions        | string | true     | Instructions on how to use the typeahead that will be read out by screenreaders                  |
 | ariaYouHaveSelected | string | true     | Aria message to tell the user that they have selected an answer                                  |
-| ariaMinChars        | string | true     | Aria message to tell the user how many charecters they need to enter before typeahead will start |
+| ariaMinChars        | string | true     | Aria message to tell the user how many characters they need to enter before typeahead will start |
 | ariaOneResult       | string | true     | Aria message to tell the user there is only one suggestion left                                  |
 | ariaNResults        | string | true     | Aria message to tell the user how many suggestions are left                                      |
 | ariaLimitedResults  | string | true     | Aria message to tell the user if the results have been limited and what they are limited to      |
