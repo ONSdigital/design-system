@@ -1,0 +1,36 @@
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+    repository: node
+    tag: 10.14.2
+
+inputs:
+  - name: ons-design-system-release
+
+outputs:
+  - name: ons-design-system-release-artifact
+  - name: ons-design-system-release-templates
+
+run:
+  path: sh
+  args:
+  - -exc
+  - |
+    apt-get update && apt-get install -y --allow-unauthenticated zip
+
+    cd ons-design-system-release
+
+    mkdir design-system
+    tar -xzf source.tar.gz -C design-system --strip-components=1
+
+    cd design-system
+
+    design_system_release=$(cat ../../ons-design-system-release/version)
+
+    yarn
+    RELEASE_VERSION=$design_system_release yarn cdn-bundle
+
+    mkdir ../../ons-design-system-release-artifact/$design_system_release
+    cp -R build/* ../../ons-design-system-release-artifact/$design_system_release
+    zip -r ../../ons-design-system-release-templates/templates.zip templates/*
