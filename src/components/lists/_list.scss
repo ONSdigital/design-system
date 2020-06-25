@@ -28,11 +28,11 @@
     &::before {
       content: '';
       position: absolute;
-      left: 0;
       top: 14px;
+      left: 0;
+      margin-left: -25px;
       width: 15px;
       border-top: 1px solid $color-black;
-      margin-left: -25px;
     }
   }
 }
