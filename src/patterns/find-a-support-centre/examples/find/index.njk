@@ -44,37 +44,33 @@ layout: none
 {% block main %}
 
     <h1 class="u-mt-l u-fs-xxl">Find a support centre</h1>
-
-    <div class="col-8@m">
         
-        <p>To find your nearest support centre, we need your postcode.</p>
+    <p>To find your nearest support centre, we need your postcode.</p>
 
-        {% from "components/input/_macro.njk" import onsInput %}
-        {% from "components/button/_macro.njk" import onsButton %}
+    {% from "components/input/_macro.njk" import onsInput %}
+    {% from "components/button/_macro.njk" import onsButton %}
 
-        <form method="get" action="">
+    <form method="get" action="">
 
-            {{
-                onsInput({
-                    "id": 'postal-code',
-                    "label": {
-                        "text": 'Enter your postcode'
-                    },
-                    "autocomplete": 'postal-code',
-                    "classes": 'input--w-5 u-mb-m'
-                })
-            }}
+        {{
+            onsInput({
+                "id": 'postal-code',
+                "label": {
+                    "text": 'Enter your postcode'
+                },
+                "autocomplete": 'postal-code',
+                "classes": 'input--w-5 u-mb-m'
+            })
+        }}
 
-            {{
-                onsButton({
-                    "type": 'submit',
-                    "text": 'Find',
-                    "classes": 'btn--small'
-                })
-            }}
+        {{
+            onsButton({
+                "type": 'submit',
+                "text": 'Find',
+                "classes": 'btn--small'
+            })
+        }}
 
-        </form>
-
-    </div>
+    </form>
 
 {% endblock %}
