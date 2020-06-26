@@ -4,6 +4,7 @@ layout: none
 {% extends "styles/page-template/_template.njk" %}
 
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
+{% from "components/lists/_macro.njk" import onsList %}
 
 {% set pageConfig = {
     "title": "Census 2021",
@@ -70,13 +71,27 @@ layout: none
         
         <h3 class="u-fs-r--b u-mb-xs">Centre facilities</h3>
 
-        <ul class="list">
-            <li class="list__item">Public parking</li>
-            <li class="list__item">Level access into building entrance</li>
-            <li class="list__item">Wheelchair access</li>
-            <li class="list__item">Staff are disability aware</li>
-            <li class="list__item">Hearing loop system</li>
-        </ul>  
+        {{
+            onsList({
+                "itemsList": [
+                    {
+                        "text": 'Public parking'
+                    },
+                    {
+                        "text": 'Level access into building entrance'
+                    },
+                    {
+                        "text": 'Wheelchair access'
+                    },
+                    {
+                        "text": 'Staff are disability aware'
+                    },
+                    {
+                        "text": 'Hearing loop system'
+                    }
+                ]
+            })
+        }}
 
         {% endcall %}
 
@@ -105,14 +120,23 @@ layout: none
         
         <h3 class="u-fs-r--b u-mb-xs">Centre facilities</h3>
 
-        <ul class="list">
-            <li class="list__item">Public parking</li>
-            <li class="list__item">Level access into building entrance</li>
-            <li class="list__item">Wheelchair access</li>
-        </ul>
+        {{
+            onsList({
+                "itemsList": [
+                    {
+                        "text": 'Public parking'
+                    },
+                    {
+                        "text": 'Level access into building entrance'
+                    },
+                    {
+                        "text": 'Wheelchair access'
+                    }
+                ]
+            })
+        }}
 
         {% endcall %}
-
 
     </div>
 
