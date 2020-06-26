@@ -19,7 +19,7 @@
 
     <div
         class="panel{{ typeClass }}{{ simpleClass }}{{ spaciousClass }}{{ classes }}"
-        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params.id %} id="{{params.id}}"{% endif %}
+        {% if params is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params is defined and params.id %} id="{{params.id}}"{% endif %}
     >
         {% if params and params.type == "warn" %}
             <span class="panel__icon" aria-hidden="true">!</span>
@@ -30,7 +30,7 @@
                 <{{ titleTag }} {% if params.type %}data-qa="{{ params.type }}-header"{% endif %} class="panel__title u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
             </div>
         {% endif %}
-        <div class="panel__body" {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ (params.body if params else "") | safe }}
+        <div class="panel__body" {% if params is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ (params.body if params else "") | safe }}
             {{ caller() if caller }}
         </div>
     </div>
