@@ -1,7 +1,7 @@
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call
     onsPanel({
-        title: "This page has 2 errors",
+        title: "There are 2 problems with your answer",
         type: "error"
     })
 %}
@@ -11,13 +11,13 @@
         "classes": "list--bare",
         "itemsList": [
             {
-                "text": "Enter a number",
+                "text": "Enter a number to continue",
                 "index": true,
                 "url": "#container-test-number",
                 "classes": "js-inpagelink"
             },
             {
-                "text": "Enter a number less than or equal to 100",
+                "text": "Enter a number less than or equal to 100 to continue",
                 "index": true,
                 "url": "#container-test-percent",
                 "classes": "js-inpagelink"
