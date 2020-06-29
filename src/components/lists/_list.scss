@@ -52,6 +52,7 @@ $list-inline-spacing: 2rem;
   @extend .list--bare;
   float: left;
   margin: 0 0.5rem 0 0;
+  font-family: $font-mono;
 }
 
 .list__link {
