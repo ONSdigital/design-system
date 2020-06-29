@@ -16,6 +16,14 @@ export const COOKIE_CATEGORIES = {
   _use_hitbox: 'campaigns',
   VISITOR_INFO1_LIVE: 'campaigns',
   _fbp: 'campaigns',
+  COOKIE_SUPPORT: 'essential',
+  GUEST_LANGUAGE_ID: 'essential',
+  JSESSIONID: 'essential',
+  ID: 'essential',
+  COMPANY_ID: 'essential',
+  USER_UUID: 'essential',
+  LFR_SESSION_STATE_: 'essential',
+  csfcfc: 'essential',
 };
 
 export function cookie(name, value, options) {
