@@ -8,6 +8,8 @@
 {% if pageConfig and pageConfig.language and pageConfig.language.languages %}
     {% set currentLanguage = pageConfig.language.languages | selectattr("current") | first %}
     {% set currentLanguageISOCode = currentLanguage.ISOCode %}
+    {% set otherLanguage = pageConfig.language.languages | rejectattr("current") | first %}
+    {% set otherLanguageISOCode = otherLanguage.ISOCode %}
 {% endif %}
 
 {% if pageConfig.cdn or release_version %}
@@ -22,7 +24,7 @@
 {% else %}
     {# Development #}
     {% set assetsURL = "" %}
-{% endif %}
+{% endif %} 
 
 {% if pageConfig and pageConfig.title %}
     {% set page_title = pageConfig.title %}
@@ -45,10 +47,19 @@
             <meta property="og:url" content="{{ pageConfig.absoluteUrl }}">
             <meta property="og:type" content="article">
             <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}">
-            <meta property="og:image" content="{{ assetsURL }}{{ pageConfig.header.titleLogo | default(pageConfig.header.logo) }}">
+            <meta property="og:image" content="{{ assetsURL }}{{ pageConfig.headMeta.image | default(pageConfig.header.logo) }}">
+            <meta property="og:locale" content="{{ currentLanguageISOCode }}" />
+            {% if otherLanguageISOCode %}
+                <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}" /> 
+            {% endif %}
             <meta name="twitter:card" content="summary">
             <meta name="description" content="{{ pageConfig.headMeta.description }}">
             <link rel="canonical" href="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
+            {% if pageConfig.headMeta.hreflangs %}
+                {% for item in pageConfig.headMeta.hreflangs %}
+                    <link rel="alternate" href="{{ item.url }}" hreflang="{{ item.lang }}" />
+                {% endfor %}
+            {% endif %}
         {% endif %}
         {% block headIcons %}
             <meta name="msapplication-config" content="{{ assetsURL }}/favicons/browserconfig.json">
