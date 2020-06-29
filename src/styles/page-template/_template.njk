@@ -47,7 +47,7 @@
             <meta property="og:url" content="{{ pageConfig.absoluteUrl }}">
             <meta property="og:type" content="article">
             <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}">
-            <meta property="og:image" content="{{ assetsURL }}{{ pageConfig.headMeta.image | default(pageConfig.header.logo) }}">
+            <meta property="og:image" content="{{ pageConfig.headMeta.image | default(pageConfig.header.logo) }}">
             <meta property="og:locale" content="{{ currentLanguageISOCode }}" />
             {% if otherLanguageISOCode %}
                 <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}" /> 
