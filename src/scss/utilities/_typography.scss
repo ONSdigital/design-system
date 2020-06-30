@@ -13,14 +13,14 @@
   }
 }
 
-@each $name, $props in $type_matrix {
+@each $name, $props in $type-matrix {
   .#{$name} {
     @include font-size($props, $base);
   }
 }
 
 @each $breakpoint, $size in $grid-bp {
-  @each $name, $props in $type_matrix {
+  @each $name, $props in $type-matrix {
     @include mq($breakpoint) {
       .#{$name}\@#{$breakpoint} {
         @include font-size($props, $base);

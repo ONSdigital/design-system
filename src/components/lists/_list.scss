@@ -28,11 +28,11 @@
     &::before {
       content: '';
       position: absolute;
-      left: 0;
       top: 14px;
+      left: 0;
+      margin-left: -25px;
       width: 15px;
       border-top: 1px solid $color-black;
-      margin-left: -25px;
     }
   }
 }
@@ -48,15 +48,14 @@ $list-inline-spacing: 2rem;
   }
 }
 
-.list--prefix {
+.list__prefix {
   @extend .list--bare;
-  & .list__prefix {
-    float: left;
-    margin: 0 0.5rem 0 0;
-    font-weight: 700;
-  }
-  & .list__link {
-    display: block;
-    overflow: hidden;
-  }
+  float: left;
+  margin: 0 0.5rem 0 0;
+  font-family: $font-sans-mono;
+}
+
+.list__link {
+  display: block;
+  overflow: hidden;
 }

@@ -20,31 +20,30 @@ layout: none
 
 {% block main %}
     {% call onsPanel({
-            "title": "This page has 2 errors",
+            "title": "There are 7 problems with your answer",
             "type": "error",
             "classes": "question__errors"
         })
     %}
-        <p>These <strong>must be corrected</strong> to continue.</p>
 
         {{
             onsList({
                 "classes": "list--bare",
                 "itemsList": [
                     {
-                        "text": "Enter a number",
+                        "text": "Enter a number to continue",
                         "index": true,
                         "url": "#number",
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Enter a number less than or equal to 100",
+                        "text": "Enter a number less than or equal to 100 to continue",
                         "index": true,
                         "url": "#suffixed",
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Select one answer",
+                        "text": "Select one answer to continue",
                         "index": true,
                         "url": "#error",
                         "classes": "js-inpagelink"
@@ -56,19 +55,19 @@ layout: none
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Select toppings",
+                        "text": "Select toppings to continue",
                         "index": true,
                         "url": "#check",
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Enter password",
+                        "text": "Enter password to continue",
                         "index": true,
                         "url": "#pass",
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Enter an email address",
+                        "text": "Enter an email address to continue",
                         "index": true,
                         "url": "#email",
                         "classes": "js-inpagelink"
@@ -120,7 +119,7 @@ layout: none
                 },
                 "error": {
                     "id": "suffixed",
-                    "text": "Enter a number less than or equal to 100"
+                    "text": "Enter a number less than or equal to 100 to continue"
                 }
             })
         }}
@@ -131,7 +130,7 @@ layout: none
                 "name": "food",
                 "id": "radios-1",
                 "error": {
-                    "text": "Select one answer",
+                    "text": "Select one answer to continue",
                     "id": "error"
                 },
                 "radios": [
@@ -186,7 +185,7 @@ layout: none
                     }
                 },
                 "error": {
-                    "text": "Enter a date",
+                    "text": "Enter a date to continue",
                     "id": "date"
                 }
             })
@@ -197,7 +196,7 @@ layout: none
                 "checkboxesLabel": "Select all that apply",
                 "name": "food",
                 "error": {
-                    "text": "Select answers",
+                    "text": "Select answers to continue",
                     "id": "check"
                 },
                 "checkboxes": [
@@ -238,7 +237,7 @@ layout: none
                     "text": "Password"
                 },
                 "error": {
-                    "text": "Enter password",
+                    "text": "Enter password to continue",
                     "id": "pass"
                 },
                 "showPasswordText": "Show password"
@@ -252,7 +251,7 @@ layout: none
                     "text": "Enter an email address"
                 },
                 "error": {
-                    "text": "Please enter an email address",
+                    "text": "Enter an email address to continue",
                     "id": "email"
                 },
                 "mutuallyExclusive": {
