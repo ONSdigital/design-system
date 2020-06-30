@@ -1,7 +1,7 @@
 {% macro onsLabel(params) %}
     <label
       class="{% if not params.inputType %}label {% endif %}{{ params.classes if params.classes else "" }}{% if params.description %} label--with-description{% endif %} {{' label--placeholder ' if params.accessiblePlaceholder else "" }}"
-      {% if params.id %} aria-describedby="{{ params.id }}-label-description-hint"{% else %}aria-describedby="label-description-hint"{% endif %}
+      {% if params.description %}{% if params.id %} aria-describedby="{{ params.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
       {% if params.for %} for="{{ params.for }}"{% endif %}
       {% if params.id %} id="{{ params.id }}"{% endif %}
       {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
@@ -10,7 +10,7 @@
     </label>
     {%- if params.description %}
       <span
-        {% if params.id %} id="{{ params.id }}-label-description-hint"{% else %}id="label-description-hint"{% endif %}
+        {% if params.id %} id="{{ params.id }}-description-hint"{% else %}id="description-hint"{% endif %}
         class="label__description {% if params.inputType %}{{ params.inputType }}__label--with-description{% else %} input--with-description{% endif %}">
           {{ params.description }}
       </span>

@@ -106,7 +106,7 @@ export default class AutosuggestUI {
     this.input.setAttribute('aria-has-popup', true);
     this.input.setAttribute('aria-owns', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-expanded', false);
-    this.input.setAttribute('autocomplete', this.input.getAttribute('data-autocomplete') || 'off');
+    this.input.setAttribute('autocomplete', this.input.getAttribute('data-autocomplete') || 'zz');
     this.input.setAttribute('role', 'combobox');
 
     this.context.classList.add('autosuggest-input--initialised');
@@ -322,81 +322,81 @@ export default class AutosuggestUI {
     this.numberOfResults = Math.max(this.results.length, 0);
 
     if (!this.deleting || (this.numberOfResults && this.deleting)) {
-      if (this.numberOfResults === 1 && this.results[0].sanitisedText === this.sanitisedQuery) {
-        this.clearListbox(true);
-        this.selectResult(0);
-      } else {
-        this.listbox.innerHTML = '';
-        this.resultOptions = this.results.map((result, index) => {
-          let ariaLabel = result[this.lang];
-          let innerHTML = this.emboldenMatch(ariaLabel, this.query);
+      this.listbox.innerHTML = '';
+      this.resultOptions = this.results.map((result, index) => {
+        let ariaLabel = result[this.lang];
+        let innerHTML = this.emboldenMatch(ariaLabel, this.query);
 
-          if (Array.isArray(result.sanitisedAlternatives)) {
-            const alternativeMatch = result.sanitisedAlternatives.find(
-              alternative => alternative !== result.sanitisedText && alternative.includes(this.sanitisedQuery),
-            );
+        if (Array.isArray(result.sanitisedAlternatives)) {
+          const alternativeMatch = result.sanitisedAlternatives.find(
+            alternative => alternative !== result.sanitisedText && alternative.includes(this.sanitisedQuery),
+          );
 
-            if (alternativeMatch) {
-              const alternativeText = result.alternatives[result.sanitisedAlternatives.indexOf(alternativeMatch)];
-              innerHTML += ` <small>(${this.emboldenMatch(alternativeText, this.query)})</small>`;
-              ariaLabel += `, (${alternativeText})`;
-            }
+          if (alternativeMatch) {
+            const alternativeText = result.alternatives[result.sanitisedAlternatives.indexOf(alternativeMatch)];
+            innerHTML += ` <small>(${this.emboldenMatch(alternativeText, this.query)})</small>`;
+            ariaLabel += `, (${alternativeText})`;
           }
+        }
 
-          const listElement = document.createElement('li');
-          listElement.className = classAutosuggestOption;
-          listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
-          listElement.setAttribute('role', 'option');
-          listElement.setAttribute('aria-label', ariaLabel);
-          listElement.innerHTML = innerHTML;
+        const listElement = document.createElement('li');
+        listElement.className = classAutosuggestOption;
+        listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
+        listElement.setAttribute('role', 'option');
+        listElement.setAttribute('aria-label', ariaLabel);
+        listElement.innerHTML = innerHTML;
 
-          listElement.addEventListener('click', () => {
-            this.selectResult(index);
-          });
-
-          this.listbox.appendChild(listElement);
-
-          this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.remove('u-d-no');
-
-          return listElement;
+        listElement.addEventListener('click', () => {
+          this.selectResult(index);
         });
 
-        if (this.numberOfResults < this.foundResults) {
-          const listElement = document.createElement('li');
-          listElement.className = `${classAutosuggestOption} ${classAutosuggestOptionMoreResults}`;
-          listElement.setAttribute('aria-hidden', 'true');
-          listElement.innerHTML = this.moreResults;
-          this.listbox.appendChild(listElement);
-        }
+        this.listbox.appendChild(listElement);
 
-        if (this.resultLimit === 100 && this.foundResults > this.resultLimit) {
-          const warningListElement = document.createElement('li');
-          const warningElement = document.createElement('div');
-          const warningSpanElement = document.createElement('span');
-          const warningBodyElement = document.createElement('div');
+        this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.remove('u-d-no');
 
-          warningListElement.setAttribute('aria-hidden', 'true');
-          warningListElement.className = 'autosuggest-input__warning';
-          warningElement.className = 'panel panel--warning panel--warning--small panel--simple';
+        return listElement;
+      });
 
-          warningSpanElement.className = 'panel__icon';
-          warningSpanElement.setAttribute('aria-hidden', 'true');
-          warningSpanElement.innerHTML = '!';
-
-          warningBodyElement.className = 'panel__text';
-          warningBodyElement.innerHTML = this.foundResults + ' results found. Enter more of the address to improve results.';
-
-          warningElement.appendChild(warningSpanElement);
-          warningElement.appendChild(warningBodyElement);
-          warningListElement.appendChild(warningElement);
-          this.listbox.insertBefore(warningListElement, this.listbox.firstChild);
-        }
-
-        this.setHighlightedResult(null);
-
-        this.input.setAttribute('aria-expanded', !!this.numberOfResults);
-        this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classAutosuggestHasResults);
+      if (this.numberOfResults < this.foundResults) {
+        const listElement = document.createElement('li');
+        listElement.className = `${classAutosuggestOption} ${classAutosuggestOptionMoreResults}`;
+        listElement.setAttribute('aria-hidden', 'true');
+        listElement.innerHTML = this.moreResults;
+        this.listbox.appendChild(listElement);
       }
+
+      if (this.resultLimit === 100 && this.foundResults > this.resultLimit) {
+        const warningListElement = document.createElement('li');
+        const warningElement = document.createElement('div');
+        const warningSpanElement = document.createElement('span');
+        const warningBodyElement = document.createElement('div');
+
+        warningListElement.setAttribute('aria-hidden', 'true');
+        warningListElement.className = 'autosuggest-input__warning';
+        warningElement.className = 'panel panel--warning panel--warning--small panel--simple';
+
+        warningSpanElement.className = 'panel__icon';
+        warningSpanElement.setAttribute('aria-hidden', 'true');
+        warningSpanElement.innerHTML = '!';
+
+        warningBodyElement.className = 'panel__text';
+        warningBodyElement.innerHTML = this.foundResults + ' results found. Enter more of the address to improve results.';
+
+        warningElement.appendChild(warningSpanElement);
+        warningElement.appendChild(warningBodyElement);
+        warningListElement.appendChild(warningElement);
+        this.listbox.insertBefore(warningListElement, this.listbox.firstChild);
+      }
+
+      this.setHighlightedResult(null);
+
+      this.input.setAttribute('aria-expanded', !!this.numberOfResults);
+      this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classAutosuggestHasResults);
+
+      this.setHighlightedResult(null);
+
+      this.input.setAttribute('aria-expanded', !!this.numberOfResults);
+      this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classAutosuggestHasResults);
     }
     if (this.numberOfResults === 0 && this.noResults) {
       this.context.classList.add(classAutosuggestHasResults);

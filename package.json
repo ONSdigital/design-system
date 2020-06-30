@@ -63,6 +63,7 @@
     "@babel/runtime": "^7.2.0",
     "abortcontroller-polyfill": "^1.2.3",
     "autoprefixer": "^9.3.1",
+    "autosize": "^4.0.2",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "chai": "^4.2.0",

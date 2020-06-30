@@ -110,12 +110,26 @@ export default class AutosuggestAddress {
 
   mapFindResults(results) {
     let updatedResults, mappedResults, limit;
-
-    const addresses = results.addresses;
     const total = results.total;
     const originalLimit = 10;
 
-    if (addresses[0]) {
+    if (results.partpostcode) {
+      const postcodeGroups = results.postcodes;
+      mappedResults = postcodeGroups.map(({ postcode, streetName, townName, addressCount, firstUprn }) => {
+        const addressText = addressCount === 1 ? 'address' : 'addresses';
+        return {
+          'en-gb':
+            streetName + ', ' + townName + ', ' + postcode + ' <span class="group-text">(' + addressCount + ' ' + addressText + ')</span>',
+          postcode,
+          firstUprn,
+          addressCount,
+        };
+      });
+
+      limit = originalLimit;
+      this.currentResults = mappedResults.sort();
+    } else if (results.addresses) {
+      const addresses = results.addresses;
       if (addresses[0] && addresses[0].bestMatchAddress) {
         updatedResults = addresses.map(({ uprn, bestMatchAddress }) => ({ uprn: uprn, address: bestMatchAddress }));
         limit = originalLimit;
@@ -135,7 +149,7 @@ export default class AutosuggestAddress {
 
       this.currentResults = mappedResults.sort();
     } else {
-      this.currentResults = addresses;
+      this.currentResults = results.addresses;
       limit = originalLimit;
     }
 
@@ -185,10 +199,13 @@ export default class AutosuggestAddress {
           })
           .catch(reject);
       } else if (selectedResult.postcode) {
-        triggerEvent = true;
+        const event = new Event('input', {
+          bubbles: true,
+          cancelable: true,
+        });
         this.autosuggest.input.value = selectedResult.postcode;
         this.autosuggest.input.focus();
-        this.autosuggest.input.dispatchEvent(triggerEvent);
+        this.autosuggest.input.dispatchEvent(event);
       }
     });
   }
@@ -207,7 +224,7 @@ export default class AutosuggestAddress {
     return addressLines;
   }
 
-  onError() {
+  onError(error) {
     if (this.fetch) {
       this.fetch.abort();
     }
@@ -215,7 +232,7 @@ export default class AutosuggestAddress {
     // Prevent error message from firing twice
     if (!this.errored) {
       this.errored = true;
-      console.log('error');
+      console.log('error:', error);
       setTimeout(() => {
         this.errored = false;
       });

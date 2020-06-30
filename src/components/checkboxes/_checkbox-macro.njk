@@ -10,14 +10,15 @@
             {% if params.name %} name="{{ params.name }}"{% endif %}
             {% if params.checked %} checked{% endif %}
             {% if params.other and not params.other.open %} aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
-            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
 
         {{ onsLabel({
+            "id": params.id + "-label",
             "for": params.id,
             "inputType": "checkbox",
             "text": params.label.text,
-            "classes": "radio__label " + params.label.classes | default(''),
+            "classes": "checkbox__label " + params.label.classes | default(''),
             "description": params.label.description
         }) }}
 
@@ -32,6 +33,7 @@
                         "classes": "input--w-auto " + params.other.classes | default(''),
                         "attributes": params.other.attributes,
                         "label": {
+                            "id": params.other.id + "-label",
                             "text": params.other.label.text,
                             "classes": 'u-fs-s--b'
                         },

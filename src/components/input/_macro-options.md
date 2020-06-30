@@ -23,6 +23,8 @@
 | autocomplete          | string                                                        | true                             | Autocomplete attribute used to override the browsers native autocomplete            |
 | accessiblePlaceholder | boolean                                                       | false                            | Will add the provided label as an accessible placeholder                            |
 | searchButton          | `Button` [_(ref)_](/components/button)                        | false                            | Settings for the button used for a search pattern.                                  |
+| postTextboxLinkText   | string                                                        | false                            | The text for the link to follow the textbox                                         |
+| postTextboxLinkUrl    | string                                                        | false                            | The url for the link to follow the textbox                                          |
 
 ## Prefix/Suffix
 
