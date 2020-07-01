@@ -1,8 +1,12 @@
-// Census brand
+// census brand
 $color-branded: #93328e;
 $color-branded-tint: rgba(227, 77, 219, 0.15);
 $color-branded-secondary: #ce0f69;
 $color-branded-tertiary: #483698;
+$color-branded-supporting: #00a3a6;
+$color-branded-supporting-tint: rgba(#00a3a6, 0.2);
 
+// assignment
 $color-header: $color-branded;
 $cta-bg: $color-branded-tint;
+$color-tag-bg: $color-branded-supporting-tint;

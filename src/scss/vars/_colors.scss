@@ -7,7 +7,7 @@ $color-grey-4: #d0d0d0;
 $color-grey-5: #f0f0f0;
 $color-white: #fff;
 
-// brand
+// default palette
 $color-blue: #4263c2;
 $color-light-blue: #eff0f9;
 $color-dark-blue: #033e58;
@@ -23,6 +23,14 @@ $color-bright-red: scale-color($color-red, $lightness: 20%, $saturation: 20%);
 $color-light-red: #fbecec;
 $color-yellow: #ffdd00;
 $color-bright-yellow: #e4f972;
+
+// theme branding
+$color-branded: $color-grey-5 !default;
+$color-branded-tint: $color-grey-5 !default;
+$color-branded-secondary: $color-grey-5 !default;
+$color-branded-tertiary: $color-grey-5 !default;
+$color-branded-supporting: $color-grey-5 !default;
+$color-branded-supporting-tint: $color-grey-5 !default;
 
 // assignment
 $color-header: $color-astral-blue !default;
@@ -54,11 +62,8 @@ $color-success-tint: $color-light-green !default;
 $color-success-dot: $color-bright-green !default;
 $color-pending-dot: $color-bright-amber !default;
 $color-dead: $color-grey-2 !default;
-$color-branded: $color-grey-5 !default;
-$color-branded-tint: $color-grey-5 !default;
-$color-branded-secondary: $color-grey-5 !default;
-$color-branded-tertiary: $color-grey-5 !default;
 $color-document-border: $color-grey-3 !default;
 $color-document-border-focus: $color-black !default;
 $color-instruction: $color-amber !default;
 $color-instruction-tint: $color-light-amber !default;
+$color-tag-bg: $color-light-green !default;
