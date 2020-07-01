@@ -1,0 +1,172 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+
+{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+{% set pageConfig = {
+    "title": "Census 2021",
+    "theme": "census",
+    "absoluteUrl": pageInfo.url,
+    "headMeta": {
+        "description": "Census 2021 is a UK wide population survey."
+    },
+    "header": {
+        "logoHref": "#",
+        "titleLogo": "census-logo-en",
+        "titleLogoHref": "#",
+        "titleLogoAlt": "Census 2021"
+    },
+    "language": {
+        "allLanguagesUrl": "#",
+        "languages": [
+            {
+                "url": "#",
+                "ISOCode": "en",
+                "text": "English",
+                "buttonAriaLabel": "Language selector. Current language: English",
+                "chooseLanguage": "Choose language",
+                "allLanguages": "All languages",
+                "current": true
+            },
+            {
+                "url": "#",
+                "ISOCode": "cy",
+                "text": "Cymraeg",
+                "buttonAriaLabel": "Dewisydd iaith. Iaith gyfredol: Cymraeg",
+                "chooseLanguage": "Dewiswch iaith",
+                "allLanguages": "Pob iaith",
+                "current": false
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+
+    <h1 class="u-mt-l u-fs-xxl">Support centres near <em class="highlight">S1 1XN</em></h1>
+
+    <div class="u-pb-m u-pt-m">
+
+        <h2 class="u-fs-l u-mb-xs">Sheffield Central Library</h2>
+        <span class="u-mb-s tag">0.7 miles away</span>
+
+        <p>First Floor, Central Library <br> Surrey Street <br> Sheffield <br> S1 1XZ</p>
+
+        <p><a class="icon--external-link" href="https://goo.gl/maps/X48tjZkXA4RaN3LL7" target="_blank" rel="noopener nofollow">Find on Google Maps</a></p>
+
+        {{
+            onsList({
+                "classes": 'list--bare',
+                "itemsList": [
+                    {
+                        "text": 'Telephone: 01142 734 712'
+                    },
+                    {
+                        "text": 'Email: <a href="mailto:information.library@sheffield.gov.uk">information.library@sheffield.gov.uk</a>'
+                    }
+                ]
+            })
+        }}
+
+        {% call onsCollapsible({
+            "id": 'collapsible-1',
+            "title": 'Opening times and facilities',
+            "button": {
+                "close": 'Hide this'
+            }
+        }) %}
+
+        <h3 class="u-fs-r--b u-mb-xs">Opening times</h3>
+
+        <p>9am to 4pm - Monday to Friday <br> 9am to 5pm - Saturday to Sunday (Census weekend)</p>
+        
+        <h3 class="u-fs-r--b u-mb-xs">Centre facilities</h3>
+
+        {{
+            onsList({
+                "itemsList": [
+                    {
+                        "text": 'Public parking'
+                    },
+                    {
+                        "text": 'Level access into building entrance'
+                    },
+                    {
+                        "text": 'Wheelchair access'
+                    },
+                    {
+                        "text": 'Staff are disability aware'
+                    },
+                    {
+                        "text": 'Hearing loop system'
+                    }
+                ]
+            })
+        }}
+
+        {% endcall %}
+
+    </div>
+
+    <div class="u-pb-m u-pt-m u-bt">
+
+        <h2 class="u-fs-l u-mb-xs">University of Sheffield</h2>
+        <span class="u-mb-s tag">1.7 miles away</span>
+
+        <p>The University of Sheffield <br> Western Bank <br> Sheffield <br> S10 2TN</p>
+
+        <p><a class="icon--external-link" href="https://goo.gl/maps/SEaVUjW2KY9wDoPE8" target="_blank" rel="noopener nofollow">Find on Google Maps</a></p>
+
+        {{
+            onsList({
+                "classes": 'list--bare',
+                "itemsList": [
+                    {
+                        "text": 'Telephone: 0114 222 2000'
+                    },
+                    {
+                        "text": 'Email: <a href="mailto:ask@sheffield.ac.uk">ask@sheffield.gov.uk</a>'
+                    }
+                ]
+            })
+        }}
+
+        {% call onsCollapsible({
+            "id": 'collapsible-2',
+            "title": 'Opening times and facilities',
+            "button": {
+                "close": 'Hide this'
+            }
+        }) %}
+
+        <h3 class="u-fs-r--b u-mb-xs">Opening times</h3>
+
+        <p>8am to 6pm - Monday to Friday</p>
+        
+        <h3 class="u-fs-r--b u-mb-xs">Centre facilities</h3>
+
+        {{
+            onsList({
+                "itemsList": [
+                    {
+                        "text": 'Public parking'
+                    },
+                    {
+                        "text": 'Level access into building entrance'
+                    },
+                    {
+                        "text": 'Wheelchair access'
+                    }
+                ]
+            })
+        }}
+
+        {% endcall %}
+
+    </div>
+
+
+{% endblock %}
