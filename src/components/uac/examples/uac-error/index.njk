@@ -13,11 +13,11 @@ layout: none
 {% block main %}
     {% call
         onsPanel({
-            title: "This page has an error",
+            title: "There is a problem with your answer",
             type: "error"
         })
     %}
-        <p>This <strong>must be corrected</strong> to continue.</p>
+
         {% from "components/lists/_macro.njk" import onsList %}
         {{
             onsList({
