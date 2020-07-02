@@ -4,6 +4,7 @@ build/
 .DS_store
 coverage/
 .vscode/
+.idea/
 package-lock.json
 # npm package folders
 /components/
