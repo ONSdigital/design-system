@@ -30,7 +30,7 @@ Our text and background colours are designed to meet accessibility needs. We aim
                 'var': '$color-green'
             },
             {
-                'bg': '#fe781f',
+                'bg': '#ff600a',
                 'var': '$color-amber'
             },
             {
@@ -321,6 +321,11 @@ Contrast between foreground and background colours are tested to ensure <a href=
                 'char': 'A'
             },
             {
+                'fore': '#ffffff',
+                'bg': '#ff600a',
+                'char': 'A'
+            },
+            {
                 'fore': '#222222',
                 'bg': '#e4f972',
                 'char': 'A'
@@ -340,12 +345,14 @@ Contrast between foreground and background colours are tested to ensure <a href=
     onsList({
         "itemsList": [
             {
-                "href": 'http://webaim.org/resources/contrastchecker/',
-                "text": "Web Aim's colour contrast checker"
+                "url": "http://webaim.org/resources/contrastchecker/",
+                "classes": "icon--external-link",
+                "text": "Web Aim\'s colour contrast checker"
             },
             {
-                "href": 'http://colororacle.org/',
-                "text": 'Color Oracle (free colour blindness simulator)'
+                "url": "http://colororacle.org/",
+                "classes": "icon--external-link",
+                "text": "Color Oracle (free colour blindness simulator)"
             }
         ]
     })
