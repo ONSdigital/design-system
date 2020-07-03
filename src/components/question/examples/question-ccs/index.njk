@@ -8,34 +8,37 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Anatomy of a question"
+    "title": "Interviewer led question"
 } %}
 
 {% block main %}
     <a href="#">Previous</a>
     {% call onsQuestion({
-        "title": "How many employees do you have at <em>3 Severn Road</em>?",
-        "description": "<p>An employee is anyone aged <em>16 years or over</em> that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job or being on a training scheme.</p>",
-        "instruction": "<p>Tell respondent to turn to <em>showcard 2</em></p>"
+        "title": "How many visitors do you have staying at <em class=\"highlight\">3 Severn Road</em> on Sunday 21 March 2021 ?",
+        "description": "<p>A visitor is anyone aged <em>16 years or over</em> who usually lives at another address</p>",
+        "instruction": "<p>Tell respondent to turn to <em>Showcard 2</em> or show them the Electronic Showcard below</p>"
     }) %}
-        {{ onsInput({
-            "id": "number-of-visitors",
-            "name": "number-of-visitors",
-            "type": "number",
-            "label": {
-                "text": "Number of visitors (enter 0 if no visitors)"
-            }
-        }) }}
 
         {% call onsCollapsible({
             "id": "question-justification",
-            "title": "Why your answer is important",
+            "title": "Electronic Showcard",
             "button": {
                 "close": "Hide this"
             }
         }) %}
             <p>Visitor information is collected to ensure that everyone is counted, in order to produce accurate estimates of the population, to facilitate effective planning and funding decisions.</p>
         {% endcall %}
+
+        {{ onsInput({
+            "id": "number-of-visitors",
+            "name": "number-of-visitors",
+            "type": "number",
+            "classes": "input--w-4",
+            "label": {
+                "text": "Number of visitors (enter 0 if no visitors)"
+            }
+        }) }}
+
     {% endcall %}
 
     {{ onsButton({
