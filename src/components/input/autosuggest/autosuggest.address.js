@@ -3,7 +3,6 @@ import AddressSetter from './autosuggest.address.setter';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
 
 import abortableFetch from './abortable-fetch';
-import triggerEvent from 'js/utils/trigger-event';
 
 const classNotEditable = 'js-address-not-editable';
 const classInput = 'autosuggest-input';
