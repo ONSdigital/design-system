@@ -1,4 +1,5 @@
 $font-sans: 'OpenSans', 'Helvetica Neue', Arial, sans-serif !default;
+$font-sans-mono: 'OpenSansMono', 'Helvetica Neue', Arial, sans-serif !default;
 $font-serif: Georgia, serif !default;
 $font-mono: 'RobotoMono', monospace !default;
 
@@ -9,7 +10,7 @@ $font-weight-regular: 400;
 $font-weight-bold: 600;
 $base: 18px;
 
-$type_matrix: (
+$type-matrix: (
   u-fs-xxxl: (
     small: 32px,
     large: 48px,

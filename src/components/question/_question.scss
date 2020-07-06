@@ -6,8 +6,16 @@
   }
 
   &__title {
-    em {
+    em,
+    .highlight {
       background-color: $color-highlight;
+    }
+    mark,
+    .instruction {
+      color: $color-text-inverse;
+      background-color: $color-instruction;
+      padding: 0 0.5rem;
+      margin-right: 0.5rem;
     }
   }
   &__instruction {

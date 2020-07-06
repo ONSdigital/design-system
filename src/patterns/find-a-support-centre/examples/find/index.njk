@@ -1,5 +1,4 @@
 ---
-fullWidth: true
 layout: none
 ---
 {% extends "styles/page-template/_template.njk" %}
@@ -9,17 +8,7 @@ layout: none
     "theme": "census",
     "absoluteUrl": pageInfo.url,
     "headMeta": {
-        "description": "Census 2021 is a UK wide population survey",
-        "hreflangs": [
-            {
-                "url": "#",
-                "lang": "en"
-            },
-            {
-                "url": "#",
-                "lang": "en"
-            }        
-        ]
+        "description": "Census 2021 is a UK wide population survey."
     },
     "header": {
         "logoHref": "#",
@@ -49,33 +38,39 @@ layout: none
                 "current": false
             }
         ]
-    },
-    "navigation": {
-        "id": "main-nav",
-        "ariaLabel": "Main menu",
-        "ariraListLabel": "Navigation menu",
-        "currentPath": "/get-started",
-        "itemsList": [
-            {
-                "title": "Home",
-                "path": "#"
-            },
-            {
-                "title": "About the census",
-                "path": "#"
-            },
-            {
-                "title": "Help with your census",
-                "path": "#"
-            },
-            {
-                "title": "Contact us",
-                "path": "#"
-            }
-        ]
-    },
-    "toggleButton": {
-        "text": "Menu",
-        "ariaLabel": "Toggle main navigation"
     }
 } %}
+
+{% block main %}
+
+    <h1 class="u-mt-l u-fs-xxl">Find a support centre</h1>
+        
+    <p>To find your nearest support centre, we need your postcode.</p>
+
+    {% from "components/input/_macro.njk" import onsInput %}
+    {% from "components/button/_macro.njk" import onsButton %}
+
+    <form method="get" action="">
+
+        {{
+            onsInput({
+                "id": 'postal-code',
+                "label": {
+                    "text": 'Enter your postcode'
+                },
+                "autocomplete": 'postal-code',
+                "classes": 'input--w-5 u-mb-m'
+            })
+        }}
+
+        {{
+            onsButton({
+                "type": 'submit',
+                "text": 'Find',
+                "classes": 'btn--small'
+            })
+        }}
+
+    </form>
+
+{% endblock %}
