@@ -56,6 +56,7 @@
                 <div class="patternlib-page__content">
                     <header class="patternlib-page__content-header">
                         <h1>{{ pageInfo.title }}</h1>
+                        {% if pageInfo.experimental %}<span class="pl-experimental-tag">Experimental</span>{% endif %}
                     </header>
                     {% block main %}
                     {% endblock %}
