@@ -14,9 +14,9 @@
 
 {% if pageConfig.cdn or release_version %}
     {# Production #}
-    {% set cdn_url = pageConfig.cdn.url or "https://cdn.ons.gov.uk/sdc/design-system" %}
+    {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn is defined) or "https://cdn.ons.gov.uk/sdc/design-system" %}
     {% set slash = "" if cdn_url | last == "/" else "/" %}
-    {% set assetsURL = cdn_url + slash + (pageConfig.cdn.version or release_version) %}
+    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version  if pageConfig.cdn is defined) or release_version) %}
 {% elif data and data.version %}
     {# Prototype kits #}
     {% set assetsURL = "/" + data.version %}
