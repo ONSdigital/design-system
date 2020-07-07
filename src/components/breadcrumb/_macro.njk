@@ -2,11 +2,13 @@
   <nav class="breadcrumb" aria-label="{{ params.ariaLabel }}" {% if params.id %} id="{{ params.id }}"{% endif %}>
     <ol class="breadcrumb__items">
         {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
-            {% if not item.current %}
-                <li id="breadcrumb-{{ loop.index }}" class="breadcrumb__item u-fs-s">
-                        <a href="{{ item.url }}" class="breadcrumb__link">{{ item.text }}</a>
-                </li>
-            {% endif %}
+            <li id="breadcrumb-{{ loop.index }}" class="breadcrumb__item u-fs-s{{ ' breadcrumb__item--current' if item.current }}">
+                {% if item.current %}
+                    {{ item.text }}
+                {% else %}
+                    <a href="{{ item.url }}" class="breadcrumb__link">{{ item.text }}</a>
+                {% endif %}
+            </li>
         {% endfor %}
     </ol>
   </nav>

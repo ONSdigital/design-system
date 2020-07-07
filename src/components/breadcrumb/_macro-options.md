@@ -9,4 +9,4 @@
 | ------- | ------- | --------------------- | ----------------------------------------------------------------------------------------------------------- |
 | url | string | true (unless current) | The url for the link |
 | text | string | true | The name of the page |
-| current | boolean | false | If true this will not render the item |
+| current | boolean | false | If true this will not render a link for the item and add `breadcrumb__item--current` to the item class name |
