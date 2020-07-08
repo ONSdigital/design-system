@@ -37,7 +37,7 @@
                                     <tr class="summary__row{{ " summary__row--has-values" if rowItem.valueList else "" }}">
                                         <td
                                             class="summary__item-title{{ " summary__item-title--has-icon" if rowItem.icon else "" }}"
-                                            {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                            {% if row.rowTitleAttributes %}{% for attribute, value in (row.rowTitleAttributes.items() if row.rowTitleAttributes is mapping and row.rowTitleAttributes.items else row.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                         >
                                             {% if rowItem.icon %}
                                                 <span class="summary__icon icon--{{ rowItem.icon }}"></span>

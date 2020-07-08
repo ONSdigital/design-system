@@ -20,22 +20,24 @@
 
 ## SummaryRow
 
-| Name         | Type                    | Required | Description                             |
-| ------------ | ----------------------- | -------- | --------------------------------------- |
-| rowItems     | Array`<SummaryRowItem>` | true     | An array of items for this row          |
-| title        | string                  | false    | The title for the row                   |
-| error        | boolean                 | false    | Whether to render this item as an error |
-| errorMessage | string                  | false    | Error message for the row               |
-| total        | boolean                 | false    | Whether to render this item as a total  |
+| Name               | Type                    | Required | Description                                                          |
+| ------------------ | ----------------------- | -------- | -------------------------------------------------------------------- |
+| rowItems           | Array`<SummaryRowItem>` | true     | An array of items for this row                                       |
+| rowtitle           | string                  | false    | The title for the row                                                |
+| rowTitleAttributes | object                  | false    | HTML attributes (for example data attributes) to add to the rowTitle |
+| error              | boolean                 | false    | Whether to render this item as an error                              |
+| errorMessage       | string                  | false    | Error message for the row                                            |
+| total              | boolean                 | false    | Whether to render this item as a total                               |
 
 ## SummaryRowItem
 
-| Name      | Type                   | Required | Description                                                            |
-| --------- | ---------------------- | -------- | ---------------------------------------------------------------------- |
-| icon      | string                 | false    | Name of the icon to be placed next to the title                        |
-| title     | string                 | false    | Label for the row item                                                 |
-| valueList | Array`<SummaryValue>`  | false    | The value(s) to the row item                                           |
-| actions   | Array`<SummaryAction>` | false    | Configurations for action links. If not specified no links will render |
+| Name       | Type                   | Required | Description                                                            |
+| ---------- | ---------------------- | -------- | ---------------------------------------------------------------------- |
+| icon       | string                 | false    | Name of the icon to be placed next to the title                        |
+| title      | string                 | false    | Label for the row item                                                 |
+| valueList  | Array`<SummaryValue>`  | false    | The value(s) to the row item                                           |
+| actions    | Array`<SummaryAction>` | false    | Configurations for action links. If not specified no links will render |
+| attributes | object                 | false    | HTML attributes (for example data attributes) to add to the row item   |
 
 ## SummaryValue
 
