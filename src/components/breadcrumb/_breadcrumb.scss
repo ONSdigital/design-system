@@ -1,8 +1,8 @@
 $breadcrumb-chevron-height: 0.65rem;
 
 .breadcrumb {
-  align-items: center;
   display: flex;
+  align-items: center;
   padding: 1rem 0;
 
   &__items {
@@ -38,17 +38,13 @@ $breadcrumb-chevron-height: 0.65rem;
       &:not(:last-child):after {
         @include icon('chevron-right', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
         content: '';
-        vertical-align: middle;
         margin: 0;
+        width: 1.25rem;
 
         // We have to override the icon settings so it renders correctly in ie11
         background-position: center center;
-        width: 1.25rem;
+        vertical-align: middle;
       }
-    }
-
-    &--current {
-      color: $color-text-light;
     }
   }
 
