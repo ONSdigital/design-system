@@ -49,6 +49,7 @@ $breadcrumb-chevron-height: 0.65rem;
   }
 
   &__link {
-    text-decoration: none;
+    color: #222;
+    text-decoration: underline;
   }
 }
