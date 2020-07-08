@@ -15,7 +15,7 @@ $breadcrumb-chevron-height: 0.65rem;
     margin: 0;
     white-space: nowrap; // Stop items from wrapping, break on chevron only
 
-    &:not(:nth-last-child(2)) {
+    &:not(:nth-last-child(1)) {
       display: none;
     }
 
@@ -31,7 +31,7 @@ $breadcrumb-chevron-height: 0.65rem;
         content: none;
       }
 
-      &:not(:nth-last-child(2)) {
+      &:not(:nth-last-child(1)) {
         display: inline-block;
       }
 
