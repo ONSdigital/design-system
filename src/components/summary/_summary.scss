@@ -31,7 +31,6 @@ $hub-row-spacing: 1.3rem;
 
     &--error {
       border-left: 8px solid $color-errors;
-
       background: $color-errors-tint;
     }
   }
@@ -45,7 +44,10 @@ $hub-row-spacing: 1.3rem;
   &__values,
   &__actions {
     padding: 0 0 $summary-row-spacing;
+    word-wrap: break-word;
     vertical-align: top;
+    hyphens: auto;
+    overflow-wrap: break-word;
   }
 
   &__item-title {
