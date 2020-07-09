@@ -35,6 +35,15 @@ $breadcrumb-chevron-height: 0.65rem;
         display: inline-block;
       }
 
+      &:first-child:nth-last-child(1) {
+        &:before {
+          @include icon('chevron-left', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
+          content: '';
+          margin: 0 0.2rem 0 0;
+          vertical-align: middle;
+        }
+      }
+
       &:not(:last-child):after {
         @include icon('chevron-right', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
         content: '';
