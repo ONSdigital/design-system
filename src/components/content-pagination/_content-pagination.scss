@@ -15,8 +15,17 @@
   &__link {
     display: inline-block;
     text-decoration: none;
+
     &:hover {
       text-decoration: none;
+    }
+
+    &:focus {
+      text-decoration: none;
+
+      & .content-pagination__link-label {
+        text-decoration: none;
+      }
     }
   }
 
