@@ -22,7 +22,7 @@ $breadcrumb-chevron-height: 0.65rem;
     &:before {
       @include icon('chevron-left', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
       content: '';
-      margin: 0 0.2rem 0 0;
+      margin: 0 0.2rem 0 -0.14rem;
       vertical-align: middle;
     }
 
@@ -39,7 +39,7 @@ $breadcrumb-chevron-height: 0.65rem;
         &:before {
           @include icon('chevron-left', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
           content: '';
-          margin: 0 0.2rem 0 0;
+          margin: 0 0.2rem 0 -0.14rem;
           vertical-align: middle;
         }
       }
