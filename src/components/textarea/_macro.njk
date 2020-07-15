@@ -16,17 +16,17 @@
 
         <textarea
             id="{{ params.id }}"
-            class="input input--textarea {% if params.error %} input--error {% endif %}{% if params.maxlength %} js-charlimit-input{% endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
+            class="input input--textarea {% if params.error is defined %} input--error {% endif %}{% if params.maxlength is defined %} js-charlimit-input{% endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
             name="{{ params.name }}"
             rows="{{ params.rows | default(8) }}"
-            {% if params.maxlength %}
+            {% if params.maxlength is defined %}
             maxlength="{{ params.maxlength }}"
             data-char-limit-ref="{{ params.id }}-lim-remaining"
             {% endif %}
-            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >{{ params.value }}</textarea>
 
-        {% if params.maxlength %}
+        {% if params.maxlength is defined %}
             <span
                 id="{{ params.id }}-lim-remaining"
                 class="input__limit u-mt-xs u-fs-s--b u-d-no"
