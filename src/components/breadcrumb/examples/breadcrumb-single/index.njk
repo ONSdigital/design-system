@@ -1,0 +1,17 @@
+{% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+{{
+    onsBreadcrumb({
+        "ariaLabel": 'Breadcrumb',
+        "itemsList": [
+            {
+                "url": '/',
+                "text": 'Home'
+            },
+            {
+                "url": '/components/breadcrumbs',
+                "text": 'Breadcrumbs',
+                "current": true
+            }
+        ]
+    })
+}}
