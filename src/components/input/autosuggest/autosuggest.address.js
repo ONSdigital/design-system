@@ -42,7 +42,7 @@ export default class AutosuggestAddress {
       onError: this.onError.bind(this),
       sanitisedQueryReplaceChars: this.addressReplaceChars,
       sanitisedQuerySplitNumsChars: this.sanitisedQuerySplitNumsChars,
-      minChars: 5,
+      minChars: 4,
       suggestOnBoot: true,
       handleUpdate: true,
     });
@@ -182,7 +182,7 @@ export default class AutosuggestAddress {
 
   async replaceSingleCountAddresses(items) {
     for (const item of items) {
-      if (item.addressCount === 1) {
+      if (item.addressCount === 1 && item.firstUprn !== 0) {
         let result = await this.createAddressObject(item.firstUprn);
         const matchingItem = items.findIndex(x => x.firstUprn == result.uprn);
         items[matchingItem] = result;
