@@ -93,6 +93,18 @@
       text-align: center;
     }
   }
+
+  &--icon & {
+    &__icon {
+      position: absolute;
+      left: 0;
+      padding-left: 1rem;
+    }
+
+    &__body {
+      padding-left: 1.8rem;
+    }
+  }
 }
 
 @include panel-type(error, $color-errors, $color-errors-tint);
