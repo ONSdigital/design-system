@@ -36,6 +36,7 @@ export default class AutosuggestUI {
     moreResults,
     resultsTitle,
     noResults,
+    typeMore,
   }) {
     // DOM Elements
     this.context = context;
@@ -54,7 +55,7 @@ export default class AutosuggestUI {
     this.moreResults = moreResults || context.getAttribute('data-more-results');
     this.resultsTitle = resultsTitle || context.getAttribute('data-results-title');
     this.noResults = noResults || context.getAttribute('data-no-results');
-
+    this.typeMore = typeMore || context.getAttribute('data-type-more');
     this.listboxId = this.listbox.getAttribute('id');
     this.minChars = minChars || 3;
     this.resultLimit = resultLimit || 10;
@@ -319,43 +320,45 @@ export default class AutosuggestUI {
     }
 
     this.results = result.results;
-    this.numberOfResults = Math.max(this.results.length, 0);
+    this.numberOfResults = this.results ? Math.max(this.results.length, 0) : 0;
 
     if (!this.deleting || (this.numberOfResults && this.deleting)) {
       this.listbox.innerHTML = '';
-      this.resultOptions = this.results.map((result, index) => {
-        let ariaLabel = result[this.lang];
-        let innerHTML = this.emboldenMatch(ariaLabel, this.query);
+      if (this.results) {
+        this.resultOptions = this.results.map((result, index) => {
+          let ariaLabel = result[this.lang];
+          let innerHTML = this.emboldenMatch(ariaLabel, this.query);
 
-        if (Array.isArray(result.sanitisedAlternatives)) {
-          const alternativeMatch = result.sanitisedAlternatives.find(
-            alternative => alternative !== result.sanitisedText && alternative.includes(this.sanitisedQuery),
-          );
+          if (Array.isArray(result.sanitisedAlternatives)) {
+            const alternativeMatch = result.sanitisedAlternatives.find(
+              alternative => alternative !== result.sanitisedText && alternative.includes(this.sanitisedQuery),
+            );
 
-          if (alternativeMatch) {
-            const alternativeText = result.alternatives[result.sanitisedAlternatives.indexOf(alternativeMatch)];
-            innerHTML += ` <small>(${this.emboldenMatch(alternativeText, this.query)})</small>`;
-            ariaLabel += `, (${alternativeText})`;
+            if (alternativeMatch) {
+              const alternativeText = result.alternatives[result.sanitisedAlternatives.indexOf(alternativeMatch)];
+              innerHTML += ` <small>(${this.emboldenMatch(alternativeText, this.query)})</small>`;
+              ariaLabel += `, (${alternativeText})`;
+            }
           }
-        }
 
-        const listElement = document.createElement('li');
-        listElement.className = classAutosuggestOption;
-        listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
-        listElement.setAttribute('role', 'option');
-        listElement.setAttribute('aria-label', ariaLabel);
-        listElement.innerHTML = innerHTML;
+          const listElement = document.createElement('li');
+          listElement.className = classAutosuggestOption;
+          listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
+          listElement.setAttribute('role', 'option');
+          listElement.setAttribute('aria-label', ariaLabel);
+          listElement.innerHTML = innerHTML;
 
-        listElement.addEventListener('click', () => {
-          this.selectResult(index);
+          listElement.addEventListener('click', () => {
+            this.selectResult(index);
+          });
+
+          this.listbox.appendChild(listElement);
+
+          this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.remove('u-d-no');
+
+          return listElement;
         });
-
-        this.listbox.appendChild(listElement);
-
-        this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.remove('u-d-no');
-
-        return listElement;
-      });
+      }
 
       if (this.numberOfResults < this.foundResults) {
         const listElement = document.createElement('li');
@@ -398,12 +401,18 @@ export default class AutosuggestUI {
       this.input.setAttribute('aria-expanded', !!this.numberOfResults);
       this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classAutosuggestHasResults);
     }
+
     if (this.numberOfResults === 0 && this.noResults) {
-      this.context.classList.add(classAutosuggestHasResults);
-      this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.add('u-d-no');
-      this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${this.noResults}</li>`;
-      this.input.setAttribute('aria-expanded', true);
+      this.handleNoResults(result.status);
     }
+  }
+
+  handleNoResults(status) {
+    const message = status === 400 ? this.typeMore : this.noResults;
+    this.context.classList.add(classAutosuggestHasResults);
+    this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.add('u-d-no');
+    this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
+    this.input.setAttribute('aria-expanded', true);
   }
 
   setHighlightedResult(index) {

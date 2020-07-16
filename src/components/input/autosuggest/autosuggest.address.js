@@ -100,15 +100,16 @@ export default class AutosuggestAddress {
       this.fetch
         .send()
         .then(async response => {
+          const status = response.status;
           const data = (await response.json()).response;
-          const results = await this.mapFindResults(data);
+          const results = await this.mapFindResults(data, status);
           resolve(results);
         })
         .catch(reject);
     });
   }
 
-  async mapFindResults(results) {
+  async mapFindResults(results, status) {
     let mappedResults, limit;
     const total = results.total;
     const originalLimit = 10;
@@ -119,8 +120,8 @@ export default class AutosuggestAddress {
       limit = originalLimit;
     } else if (results.addresses) {
       mappedResults = await this.addressMapping(results, originalLimit);
-      limit = mappedResults.limit;
-      this.currentResults = mappedResults.results.sort();
+      limit = mappedResults ? mappedResults.limit : null;
+      this.currentResults = mappedResults ? mappedResults.results.sort() : null;
     } else {
       this.currentResults = results.addresses;
       limit = originalLimit;
@@ -129,33 +130,36 @@ export default class AutosuggestAddress {
       results: this.currentResults,
       totalResults: total,
       limit: limit,
+      status: status,
     };
   }
 
   async addressMapping(results, originalLimit) {
     let updatedResults, limit;
     const addresses = results.addresses;
-    if (addresses[0] && addresses[0].bestMatchAddress) {
-      updatedResults = addresses.map(({ uprn, bestMatchAddress }) => ({ uprn: uprn, address: bestMatchAddress }));
-      limit = originalLimit;
-    } else if (addresses[0] && addresses[0].formattedAddress) {
-      updatedResults = addresses.map(({ uprn, formattedAddress }) => ({ uprn: uprn, address: formattedAddress }));
-      limit = 100;
-    }
 
-    results = updatedResults.map(({ uprn, address }) => {
-      const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
+    if (addresses[0]) {
+      if (addresses[0] && addresses[0].bestMatchAddress) {
+        updatedResults = addresses.map(({ uprn, bestMatchAddress }) => ({ uprn: uprn, address: bestMatchAddress }));
+        limit = originalLimit;
+      } else if (addresses[0] && addresses[0].formattedAddress) {
+        updatedResults = addresses.map(({ uprn, formattedAddress }) => ({ uprn: uprn, address: formattedAddress }));
+        limit = 100;
+      }
+
+      results = updatedResults.map(({ uprn, address }) => {
+        const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
+        return {
+          [this.lang]: address,
+          sanitisedText,
+          uprn,
+        };
+      });
       return {
-        [this.lang]: address,
-        sanitisedText,
-        uprn,
+        results: results,
+        limit: limit,
       };
-    });
-
-    return {
-      results: results,
-      limit: limit,
-    };
+    }
   }
 
   async postcodeGroupsMapping(results) {
