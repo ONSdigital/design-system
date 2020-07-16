@@ -26,7 +26,7 @@ $hub-row-spacing: 1.3rem;
       @extend .u-fs-m;
 
       border-width: 2px;
-      font-weight: bold;
+      font-weight: 700;
     }
 
     &--error {
@@ -92,7 +92,7 @@ $hub-row-spacing: 1.3rem;
       padding: $summary-row-spacing $summary-col-spacing;
 
       color: $color-errors;
-      font-weight: bold;
+      font-weight: 700;
     }
 
     &__item-title,
