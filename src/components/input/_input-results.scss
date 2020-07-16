@@ -22,6 +22,11 @@
     border-radius: $input-radius;
   }
 
+  &__group {
+    color: $color-links;
+    text-decoration: underline;
+  }
+
   &__results-title {
     padding: 0.25rem 0.5rem;
     border-bottom: 1px solid $color-input;
@@ -51,6 +56,10 @@
       border-color: $color-blue;
       background: $color-blue;
       color: $color-white;
+
+      .autosuggest-input__group {
+        color: $color-white;
+      }
     }
 
     &--no-results,

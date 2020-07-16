@@ -101,62 +101,114 @@ export default class AutosuggestAddress {
         .send()
         .then(async response => {
           const data = (await response.json()).response;
-          resolve(this.mapFindResults(data, text));
+          const results = await this.mapFindResults(data);
+          resolve(results);
         })
         .catch(reject);
     });
   }
 
-  mapFindResults(results) {
-    let updatedResults, mappedResults, limit;
+  async mapFindResults(results) {
+    let mappedResults, limit;
     const total = results.total;
     const originalLimit = 10;
 
     if (results.partpostcode) {
-      const postcodeGroups = results.postcodes;
-      mappedResults = postcodeGroups.map(({ postcode, streetName, townName, addressCount, firstUprn }) => {
-        const addressText = addressCount === 1 ? 'address' : 'addresses';
-        return {
-          'en-gb':
-            streetName + ', ' + townName + ', ' + postcode + ' <span class="group-text">(' + addressCount + ' ' + addressText + ')</span>',
-          postcode,
-          firstUprn,
-          addressCount,
-        };
-      });
-
+      mappedResults = await this.postcodeGroupsMapping(results);
+      this.currentResults = mappedResults;
       limit = originalLimit;
-      this.currentResults = mappedResults.sort();
     } else if (results.addresses) {
-      const addresses = results.addresses;
-      if (addresses[0] && addresses[0].bestMatchAddress) {
-        updatedResults = addresses.map(({ uprn, bestMatchAddress }) => ({ uprn: uprn, address: bestMatchAddress }));
-        limit = originalLimit;
-      } else if (addresses[0] && addresses[0].formattedAddress) {
-        updatedResults = addresses.map(({ uprn, formattedAddress }) => ({ uprn: uprn, address: formattedAddress }));
-        limit = 100;
-      }
-
-      mappedResults = updatedResults.map(({ uprn, address }) => {
-        const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
-        return {
-          [this.lang]: address,
-          sanitisedText,
-          uprn,
-        };
-      });
-
-      this.currentResults = mappedResults.sort();
+      mappedResults = await this.addressMapping(results, originalLimit);
+      limit = mappedResults.limit;
+      this.currentResults = mappedResults.results.sort();
     } else {
       this.currentResults = results.addresses;
       limit = originalLimit;
     }
-
     return {
       results: this.currentResults,
       totalResults: total,
       limit: limit,
     };
+  }
+
+  async addressMapping(results, originalLimit) {
+    let updatedResults, limit;
+    const addresses = results.addresses;
+    if (addresses[0] && addresses[0].bestMatchAddress) {
+      updatedResults = addresses.map(({ uprn, bestMatchAddress }) => ({ uprn: uprn, address: bestMatchAddress }));
+      limit = originalLimit;
+    } else if (addresses[0] && addresses[0].formattedAddress) {
+      updatedResults = addresses.map(({ uprn, formattedAddress }) => ({ uprn: uprn, address: formattedAddress }));
+      limit = 100;
+    }
+
+    results = updatedResults.map(({ uprn, address }) => {
+      const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
+      return {
+        [this.lang]: address,
+        sanitisedText,
+        uprn,
+      };
+    });
+
+    return {
+      results: results,
+      limit: limit,
+    };
+  }
+
+  async postcodeGroupsMapping(results) {
+    const postcodeGroups = results.postcodes;
+    let groups = postcodeGroups.map(({ postcode, streetName, townName, addressCount, firstUprn }) => {
+      return {
+        [this.lang]:
+          streetName +
+          ', ' +
+          townName +
+          ', ' +
+          postcode +
+          ' <span class="autosuggest-input__group">(' +
+          addressCount +
+          ' addresses)</span>',
+        postcode,
+        firstUprn,
+        addressCount,
+      };
+    });
+    const newGroups = await this.replaceSingleCountAddresses(groups);
+    return newGroups;
+  }
+
+  async replaceSingleCountAddresses(items) {
+    for (const item of items) {
+      if (item.addressCount === 1) {
+        let result = await this.createAddressObject(item.firstUprn);
+        const matchingItem = items.findIndex(x => x.firstUprn == result.uprn);
+        items[matchingItem] = result;
+      }
+    }
+    return items;
+  }
+
+  async createAddressObject(id) {
+    const data = await this.retrieveAddress(id);
+    const address = data.response.address.formattedAddress;
+    const uprn = data.response.address.uprn;
+    const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
+    return {
+      [this.lang]: address,
+      sanitisedText,
+      uprn,
+    };
+  }
+
+  testFullPostcodeQuery(input) {
+    const fullPostcodeRegex = /\b((?:(?:gir)|(?:[a-pr-uwyz])(?:(?:[0-9](?:[a-hjkpstuw]|[0-9])?)|(?:[a-hk-y][0-9](?:[0-9]|[abehmnprv-y])?)))) ?([0-9][abd-hjlnp-uw-z]{2})\b/i;
+    const testFullPostcode = fullPostcodeRegex.test(input);
+    if (testFullPostcode) {
+      return true;
+    }
   }
 
   retrieveAddress(id) {
@@ -175,14 +227,6 @@ export default class AutosuggestAddress {
         })
         .catch(reject);
     });
-  }
-
-  testFullPostcodeQuery(input) {
-    const fullPostcodeRegex = /\b((?:(?:gir)|(?:[a-pr-uwyz])(?:(?:[0-9](?:[a-hjkpstuw]|[0-9])?)|(?:[a-hk-y][0-9](?:[0-9]|[abehmnprv-y])?)))) ?([0-9][abd-hjlnp-uw-z]{2})\b/i;
-    const testFullPostcode = fullPostcodeRegex.test(input);
-    if (testFullPostcode) {
-      return true;
-    }
   }
 
   onAddressSelect(selectedResult) {
