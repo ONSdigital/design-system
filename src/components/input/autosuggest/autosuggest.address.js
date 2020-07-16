@@ -42,7 +42,7 @@ export default class AutosuggestAddress {
       onError: this.onError.bind(this),
       sanitisedQueryReplaceChars: this.addressReplaceChars,
       sanitisedQuerySplitNumsChars: this.sanitisedQuerySplitNumsChars,
-      minChars: 4,
+      minChars: 3,
       suggestOnBoot: true,
       handleUpdate: true,
     });
