@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/search/_test-template.njk';
-import CharCheck from 'components/input/character-check';
+import CharCheck from 'components/input/character-check/character-check';
 
 const params = {
   id: 'search-field',
