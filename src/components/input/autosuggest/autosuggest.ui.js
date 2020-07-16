@@ -373,13 +373,13 @@ export default class AutosuggestUI {
 
         warningListElement.setAttribute('aria-hidden', 'true');
         warningListElement.className = 'autosuggest-input__warning';
-        warningElement.className = 'panel panel--warning panel--warning--small panel--simple';
+        warningElement.className = 'panel panel--warn autosuggest-input__panel';
 
         warningSpanElement.className = 'panel__icon';
         warningSpanElement.setAttribute('aria-hidden', 'true');
         warningSpanElement.innerHTML = '!';
 
-        warningBodyElement.className = 'panel__text';
+        warningBodyElement.className = 'panel__body';
         warningBodyElement.innerHTML = this.foundResults + ' results found. Enter more of the address to improve results.';
 
         warningElement.appendChild(warningSpanElement);
