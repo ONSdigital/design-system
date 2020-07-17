@@ -207,7 +207,7 @@ export default class AutosuggestUI {
     if (this.input.value.length > 1 && this.input.value.length < this.minChars) {
       this.inputTimeout = setTimeout(() => {
         this.handleNoResults(false);
-      }, 3000);
+      }, 2000);
     } else {
       clearTimeout(this.inputTimeout);
     }
