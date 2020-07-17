@@ -9,7 +9,7 @@ export const baseClass = 'js-autosuggest';
 
 export const classAutosuggestOption = 'autosuggest-input__option';
 export const classAutosuggestOptionFocused = `${classAutosuggestOption}--focused`;
-export const classAutosuggestOptionNoResults = `${classAutosuggestOption}--no-results u-fs-s`;
+export const classAutosuggestOptionNoResults = `${classAutosuggestOption}--no-results`;
 export const classAutosuggestOptionMoreResults = `${classAutosuggestOption}--more-results u-fs-s`;
 export const classAutosuggestHasResults = 'autosuggest-input--has-results';
 export const classAutosuggestResultsTitle = 'autosuggest-input__results-title';
@@ -203,6 +203,16 @@ export default class AutosuggestUI {
     }, 300);
   }
 
+  checkCharCount() {
+    if (this.input.value.length > 1 && this.input.value.length < this.minChars) {
+      this.inputTimeout = setTimeout(() => {
+        this.handleNoResults(false);
+      }, 3000);
+    } else {
+      clearTimeout(this.inputTimeout);
+    }
+  }
+
   handleMouseover() {
     const focusedItem = this.resultOptions[this.highlightedResultIndex];
 
@@ -243,7 +253,7 @@ export default class AutosuggestUI {
       if (sanitisedQuery !== this.sanitisedQuery || (force && !this.resultSelected)) {
         this.unsetResults();
         this.setAriaStatus();
-
+        this.checkCharCount();
         this.query = query;
         this.sanitisedQuery = sanitisedQuery;
         if (this.sanitisedQuery.length >= this.minChars) {
@@ -408,7 +418,7 @@ export default class AutosuggestUI {
   }
 
   handleNoResults(status) {
-    const message = status === 400 ? this.typeMore : this.noResults;
+    const message = status === 400 || status === false ? this.typeMore : this.noResults;
     this.context.classList.add(classAutosuggestHasResults);
     this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.add('u-d-no');
     this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
