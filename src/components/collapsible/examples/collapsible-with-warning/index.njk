@@ -1,0 +1,26 @@
+{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+
+{%
+    call onsCollapsible({
+        "id": "collapsible",
+        "title": "Information on deleting people",
+        "titleTag": "h2",
+        "button": {
+            "close": "Hide this",
+            "contextSuffix": "content"
+        }
+    })
+%}
+
+
+{% from "components/panel/_macro.njk" import onsPanel %}
+    <p>Are you sure you want to delete this person?</p>
+    {% call onsPanel({
+            type: "warn"
+        })
+    %}
+        <p>All of the information about this person will be deleted</p>
+    {% endcall %}
+
+    <p>Deleting this person will delete all information that has been entered about them</p>
+{% endcall %}
