@@ -162,7 +162,7 @@
 .pl-grid-col {
   margin: 0 0 1rem;
   padding: 1rem;
-  background: #eee;
+  background: $color-white;
   font-size: 0.8rem;
 }
 
@@ -172,8 +172,8 @@
   top: 0;
   right: 0;
   padding: 0.3rem 0.5rem;
-  background: #e05301;
-  color: #fff;
+  background: $color-amber;
+  color: $color-white;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1rem;
