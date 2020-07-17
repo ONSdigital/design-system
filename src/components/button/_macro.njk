@@ -17,7 +17,7 @@
       {% if params.url and params.newWindow %}target="_blank" rel="noopener"{% endif %}
       {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
       >
-      <span class="btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}{% if params.newWindow %} icon--external-link{% endif %}{% if params.icon %} icon--{{ params.icon }}{% endif %}">{{- params.html | safe if params.html else params.text -}}</span>
+      <span class="btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}{% if params.icon and params.submitType != 'loader' %} icon--{{ params.icon }}{% elif params.newWindow %} icon--external-link {% endif %}">{{- params.html | safe if params.html else params.text -}}</span>
       {% if params.url and params.newWindow %}
         <span class="btn__new-window-description u-vh">{{ params.newWindowDescription | default("opens in a new window") }}</span>
       {% endif %}
