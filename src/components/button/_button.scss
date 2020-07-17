@@ -112,9 +112,7 @@ $button-border-height: 3px;
   &--print &__inner {
     &:after {
       @include icon('print');
-
       content: '';
-
       margin: 0 0 0 0.5rem;
       vertical-align: middle;
     }
@@ -308,19 +306,10 @@ $button-border-height: 3px;
       padding: 0.4rem 0.5rem;
 
       &:after {
+        @include icon($name: 'chevron-down-white', $height: 0.8rem);
         content: '';
         display: inline-block;
         margin: 0 0 0 0.5rem;
-
-        width: 12px;
-        height: 8px;
-
-        background: {
-          image: url(#{$static}/img/icons/icons--chevron-down-white.svg);
-          repeat: no-repeat;
-          size: 12px 8px;
-        }
-
         vertical-align: middle;
       }
     }
@@ -335,9 +324,7 @@ $button-border-height: 3px;
   &--mobile:focus:not(:active):not(:hover) & {
     &__inner {
       &:after {
-        background: {
-          image: url(#{$static}/img/icons/icons--chevron-down-black.svg);
-        }
+        @include icon($name: 'chevron-down-black', $height: 0.8rem);
       }
     }
   }
