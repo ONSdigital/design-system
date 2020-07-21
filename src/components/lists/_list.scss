@@ -45,6 +45,7 @@ $list-inline-spacing: 2rem;
   .list__item {
     display: inline-block;
     margin: 0 $list-inline-spacing / 2;
+    vertical-align: top;
   }
 }
 
@@ -58,4 +59,5 @@ $list-inline-spacing: 2rem;
 .list__link {
   display: inline-block;
   overflow: hidden;
+  vertical-align: top;
 }
