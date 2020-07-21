@@ -47,7 +47,7 @@
         {% endif %}
     {% endset %}
     {% set field %}
-        {% if params.label or not (params.prefix or params.suffix or type == 'password') %}
+        {% if params.label is defined %}
             {{ onsLabel({
                 "for": params.id,
                 "id": params.label.id,
