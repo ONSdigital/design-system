@@ -2,6 +2,22 @@
 
 {% set tag = "a" if params.url else "button" %}
 
+{% if params.icon %}
+  {% set iconType = params.icon.iconType %}
+  {% set iconPosition = params.icon.iconPosition %}
+{% else %}
+  {% if params.url and params.newWindow %}
+    {% set iconType = "external-link" %}
+    {% set iconPosition = "after" %}
+  {% elif params.url %}
+    {% set iconType = "chevron-right" %}
+    {% set iconPosition = "after" %}
+  {% elif params.print %}
+    {% set iconType = "print" %}
+    {% set iconPosition = "after" %}
+  {% endif %}
+{% endif %}
+
   <{{ tag }}
       {% if params.url is defined %}
         href="{{ params.url }}"
@@ -17,7 +33,12 @@
       {% if params.url is defined and params.newWindow is defined %}target="_blank" rel="noopener"{% endif %}
       {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
       >
-      <span class="btn__inner{% if params.innerClasses is defined %} {{ params.innerClasses }}{% endif %}{% if params.submitType != 'loader' %}{% if params.newWindow is defined %} icon--external-link {% elif params.exit is defined %} icon--exit {% endif %}{% endif %}">{{- params.html | safe if params.html else params.text -}}</span>
+      <span class="btn__inner{% if params.innerClasses is defined %} {{ params.innerClasses }}{% endif %}">
+        {% if iconPosition == "before" %}<svg><use xlink:href="/img/icons/icons--{{ iconType }}.svg#{{ iconType }}"></use></svg>{% endif %}
+        {{- params.html | safe if params.html is defined else params.text -}}
+        {% if iconPosition == "after" %}<svg><use xlink:href="/img/icons/icons--{{ iconType }}.svg#{{ iconType }}"></use></svg>{% endif %}
+        {% if params.submitType == "loader" %}<svg><use xlink:href="/img/icons/icons--loader.svg#loader"></use></svg>{% endif %}
+      </span>
       {% if params.url is defined and params.newWindow is defined %}
         <span class="btn__new-window-description u-vh">{{ params.newWindowDescription | default("opens in a new window") }}</span>
       {% endif %}
