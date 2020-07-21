@@ -4,9 +4,9 @@
   }
 
   &__term {
-    font-weight: $font-weight-bold;
     float: left;
     clear: both;
+    font-weight: $font-weight-bold;
 
     &:not(:first-child) {
       margin-top: 0.5rem;
@@ -14,8 +14,8 @@
   }
 
   &__value {
-    margin-left: 0; /* As normalize adds a 40px left margin */
     float: right;
+    margin-left: 0; /* As normalize adds a 40px left margin */
 
     &:not(:nth-of-type(1)) {
       @include mq(m) {
