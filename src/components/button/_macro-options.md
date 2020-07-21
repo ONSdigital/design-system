@@ -12,3 +12,11 @@
 | print        | boolean | false    | Sets button into print button mode and adds the relevant classes                                                                                                                                     |
 | attributes   | object  | false    | HTML attributes (for example data attributes) to add to the button component                                                                                                                         |
 | submitType   | string  | false    | If set to `timer` the button will only be disabled for a short time to stop double clicks from double submitting. If set to `loader` will create a loader button that includes the loading animation |
+| Icon         | `Icon`  | false    | Object that contains the settings for adding icons to buttons                                                                                                                                        |
+
+## Icon
+
+| Name         | Type   | Required | Description                                                                            |
+| ------------ | ------ | -------- | -------------------------------------------------------------------------------------- |
+| iconType     | string | true     | Name of the icon to be used                                                            |
+| iconPosition | string | true     | Position of the icon in relation to the button text. Either set to `before` or `after` |
