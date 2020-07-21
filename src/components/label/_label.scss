@@ -2,7 +2,7 @@
   display: block;
   margin-bottom: 0.4rem;
   color: inherit;
-  font-weight: 600;
+  font-weight: $font-weight-bold;
 
   &__description {
     @extend .u-fs-s;
@@ -20,6 +20,6 @@
     top: 6px;
     left: 8px;
     font-size: 1rem;
-    font-weight: normal;
+    font-weight: $font-weight-regular;
   }
 }
