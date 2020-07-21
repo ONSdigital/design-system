@@ -2,10 +2,10 @@
 @include normalize();
 
 body {
-  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
   background: #222;
   color: #fff;
-  padding: 20px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .print-error-stack {
