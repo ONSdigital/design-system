@@ -118,6 +118,7 @@ $button-border-height: 3px;
     }
   }
 
+  &--exit &__inner,
   &--link &__inner {
     &:after {
       content: '';
@@ -335,6 +336,24 @@ $button-border-height: 3px;
     .btn__inner.icon--external-link {
       &:after {
         @include icon($name: 'external-link-black', $height: 0.8rem);
+      }
+    }
+  }
+
+  &--exit,
+  &--exit:active,
+  &--exit:hover:focus {
+    .btn__inner.icon--exit {
+      &:after {
+        @include icon($name: 'exit-white', $height: 0.8rem);
+      }
+    }
+  }
+
+  &--exit:focus {
+    .btn__inner.icon--exit {
+      &:after {
+        @include icon($name: 'exit-black', $height: 0.8rem);
       }
     }
   }
