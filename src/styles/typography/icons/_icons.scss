@@ -4,6 +4,8 @@
 
 @include create-icon($name: exit-white, $position: 'after', $transform: translateY(-0.08rem));
 
+@include create-icon($name: exit-black, $position: 'after', $transform: translateY(-0.08rem));
+
 @include create-icon($name: exit-blue, $position: 'after', $transform: translateY(-0.08rem));
 
 @include create-icon($name: check-green, $margin: 1rem, $height: 1.112rem, $transform: translateY(-0.05rem));
