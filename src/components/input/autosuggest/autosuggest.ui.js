@@ -45,6 +45,8 @@ export default class AutosuggestUI {
     this.listbox = this.resultsContainer.querySelector(`.${baseClass}-listbox`);
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
+    this.form = context.closest('form');
+
     // Settings
     this.autosuggestData = autosuggestData || context.getAttribute('data-autosuggest-data');
     this.ariaYouHaveSelected = ariaYouHaveSelected || context.getAttribute('data-aria-you-have-selected');

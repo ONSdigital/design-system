@@ -24,7 +24,8 @@
                             "text": params.line1.label
                         },
                         "classes": "input--w-20@m js-address-line-1",
-                        "name": params.id + "-line-1"
+                        "name": params.id + "-line-1",
+                        "error": params.line1.error
                     })
                 }}
                 {{
@@ -84,9 +85,8 @@
                             "resultsTitle": params.autosuggest.resultsTitle,
                             "noResults": params.autosuggest.noResults,
                             "typeMore": params.autosuggest.typeMore,
-                            "resultsErrorPanel": {
-                                "error": params.selectError
-                            }
+                            "errorTitle": params.autosuggest.errorTitle,
+                            "errorMessage": params.autosuggest.errorMessage
                         }
                     })
                 }}

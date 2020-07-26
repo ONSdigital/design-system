@@ -5,6 +5,7 @@ layout: none
 
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/address/_macro.njk" import onsAddressInput %}
+{% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
     "title": "Autosuggest address example"
@@ -13,6 +14,8 @@ layout: none
     {% call onsQuestion({
         "title": "What is your address?"
     }) %}
+    
+    <form action="#">
         {{ onsAddressInput({
             "id": "address",
             "legend": "What is your address?",
@@ -31,7 +34,9 @@ layout: none
                 "resultsTitle": "Select an address",
                 "noResults": "No results found",
                 "typeMore": "Enter more of the address to get results",
-                "autocomplete": "new-password"
+                "autocomplete": "new-password",
+                "errorTitle": "There is a problem with your answer",
+                "errorMessage": "Enter an address continue"
             },
             "line1": {
                 "label": "Address line 1"
@@ -48,5 +53,12 @@ layout: none
             "searchButton": "Search for an address",
             "manualButton": "Manually enter address"
         }) }}
+        {{
+            onsButton({
+                "text": 'Save and continue',
+                "classes": "u-mt-l"
+            })
+        }}
+    </form>
     {% endcall %}
 {% endblock %}

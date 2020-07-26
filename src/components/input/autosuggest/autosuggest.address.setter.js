@@ -1,4 +1,5 @@
 import triggerEvent from 'js/utils/trigger-event';
+import AddressError from './autosuggest.address.error';
 
 const classAutosuggestInput = 'js-autosuggest-input';
 const classLine1 = 'js-address-line-1';
@@ -9,6 +10,8 @@ const classSearch = 'js-address-input__search';
 const classManual = 'js-address-input__manual';
 const classSearchButton = 'js-address-search-btn';
 const classManualButton = 'js-address-manual-btn';
+const classErrorPanel = 'panel--error';
+const classJsErrorPanel = 'js-error-panel';
 
 export default class AddressSetter {
   constructor(context) {
@@ -23,10 +26,10 @@ export default class AddressSetter {
     this.manual = context.querySelector(`.${classManual}`);
     this.searchButton = context.querySelector(`.${classSearchButton}`);
     this.manualButton = context.querySelector(`.${classManualButton}`);
+    this.errorPanel = document.querySelector(`.${classErrorPanel}`);
 
     // State
     this.manualMode = true;
-    this.addressSelected = false;
 
     // Bind Event Listeners
     if (this.searchButton) {
@@ -37,8 +40,13 @@ export default class AddressSetter {
       this.manualButton.addEventListener('click', this.toggleMode.bind(this));
     }
 
+    // Set mode
     if (!(this.line1.value || this.line2.value || this.town.value || this.postcode.value)) {
       this.toggleMode();
+    }
+
+    if (this.errorPanel) {
+      this.setManualMode(true, true);
     }
   }
 
@@ -56,6 +64,12 @@ export default class AddressSetter {
 
     if (manual) {
       this.input.value = '';
+
+      this.JsErrorPanel = document.querySelector(`.${classJsErrorPanel}`);
+      if (this.JsErrorPanel) {
+        const removeError = new AddressError(this.context);
+        removeError.removeErrorPanel();
+      }
     }
 
     this.manualMode = manual;
@@ -76,8 +90,6 @@ export default class AddressSetter {
 
     this.triggerManualInputsChanges();
 
-    this.addressSelected = true;
-
     this.setManualMode(true, false);
   }
 
@@ -93,8 +105,6 @@ export default class AddressSetter {
     if (triggerEvent) {
       this.triggerManualInputsChanges();
     }
-
-    this.addressSelected = false;
   }
 
   triggerManualInputsChanges() {

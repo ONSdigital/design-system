@@ -1,18 +1,22 @@
 import AutosuggestUI from './autosuggest.ui';
 import AddressSetter from './autosuggest.address.setter';
+import AddressError from './autosuggest.address.error';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
 
 import abortableFetch from './abortable-fetch';
 
+const classInputContainer = 'autosuggest-input';
 const classNotEditable = 'js-address-not-editable';
-const classInput = 'autosuggest-input';
+const classSearch = 'js-address-input__search';
 
 export default class AutosuggestAddress {
   constructor(context) {
     this.context = context;
+    this.search = context.querySelector(`.${classSearch}`);
     this.lang = document.documentElement.getAttribute('lang').toLowerCase();
     this.addressReplaceChars = [','];
     this.sanitisedQuerySplitNumsChars = true;
+    this.form = context.closest('form');
 
     // State
     this.currentQuery = null;
@@ -20,7 +24,9 @@ export default class AutosuggestAddress {
     this.currentResults = [];
     this.totalResults = 0;
     this.errored = false;
+    this.errorPanel = false;
     this.isEditable = context.querySelector(`.${classNotEditable}`) ? false : true;
+    this.addressSelected = false;
 
     // Temporary fix as runner doesn't use full lang code
     if (this.lang === 'en') {
@@ -32,9 +38,14 @@ export default class AutosuggestAddress {
       this.addressSetter = new AddressSetter(context);
     }
 
+    // Bind event listeners
+    if (this.form) {
+      this.form.addEventListener('submit', this.handleSubmit.bind(this));
+    }
+
     // Initialise autosuggest
     this.autosuggest = new AutosuggestUI({
-      context: context.querySelector(`.${classInput}`),
+      context: context.querySelector(`.${classInputContainer}`),
       onSelect: this.onAddressSelect.bind(this),
       onUnsetResult: this.addressSetter ? this.addressSetter.onUnsetAddress() : null,
       lang: this.lang,
@@ -240,6 +251,7 @@ export default class AutosuggestAddress {
           .then(data => {
             if (this.isEditable) {
               this.addressSetter.setAddress(this.createAddressLines(data, resolve));
+              this.addressSelected = true;
             } else {
               this.autosuggest.input.value = selectedResult.displayText;
             }
@@ -283,6 +295,15 @@ export default class AutosuggestAddress {
       setTimeout(() => {
         this.errored = false;
       });
+    }
+  }
+
+  handleSubmit(event) {
+    if (!this.addressSelected && !this.search.classList.contains('u-d-no')) {
+      event.preventDefault();
+      const handleError = new AddressError(this.context);
+      handleError.showErrorPanel();
+      this.autosuggest.setAriaStatus('There is an error. Select an address to continue');
     }
   }
 }
