@@ -24,7 +24,6 @@ export default class AutosuggestAddress {
     this.currentResults = [];
     this.totalResults = 0;
     this.errored = false;
-    this.errorPanel = false;
     this.isEditable = context.querySelector(`.${classNotEditable}`) ? false : true;
     this.addressSelected = false;
 
@@ -303,6 +302,7 @@ export default class AutosuggestAddress {
       event.preventDefault();
       const handleError = new AddressError(this.context);
       handleError.showErrorPanel();
+
       this.autosuggest.setAriaStatus('There is an error. Select an address to continue');
     }
   }
