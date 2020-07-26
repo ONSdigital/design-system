@@ -77,8 +77,9 @@ export default class AddressError {
       inputErrorPanelBody.appendChild(this.search);
 
       this.input.classList.add('input--error');
-      this.input.focus();
       this.context.appendChild(inputErrorPanel);
+
+      this.input.focus();
     }
   }
 
