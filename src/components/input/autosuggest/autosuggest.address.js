@@ -19,6 +19,7 @@ export default class AutosuggestAddress {
     this.form = context.closest('form');
     this.container = context.querySelector(`.${classInputContainer}`);
     this.errorMessage = this.container.getAttribute('data-error-message');
+    this.APIDomain = this.container.getAttribute('data-api-domain');
 
     // State
     this.currentQuery = null;
@@ -44,9 +45,6 @@ export default class AutosuggestAddress {
       this.addressSetter = new AddressSetter(context);
     }
 
-    // Check API status
-    this.checkAPIStatus();
-
     // Initialise autosuggest
     this.autosuggest = new AutosuggestUI({
       context: this.container,
@@ -63,9 +61,8 @@ export default class AutosuggestAddress {
     });
 
     // Set up AIMS api variables and auth
-    this.baseURL = 'https://whitelodge-ai-api.ai.census-gcp.onsdigital.uk/addresses/';
-    this.lookupURL = `${this.baseURL}eq?input=`;
-    this.retrieveURL = `${this.baseURL}eq/uprn/`;
+    this.lookupURL = `${this.APIDomain}/addresses/eq?input=`;
+    this.retrieveURL = `${this.APIDomain}/addresses/eq/uprn/`;
 
     this.user = 'equser';
     this.password = '$4c@ec1zLBu';
@@ -73,6 +70,9 @@ export default class AutosuggestAddress {
     this.headers = new Headers({
       Authorization: 'Basic ' + this.auth,
     });
+
+    // Check API status
+    this.checkAPIStatus();
   }
 
   checkAPIStatus() {
@@ -82,7 +82,7 @@ export default class AutosuggestAddress {
     });
     this.fetch.send().then(response => {
       const status = response.status;
-      if (status > 400) {
+      if (status > 400 && this.isEditable) {
         this.addressSetter.toggleMode();
         const searchBtn = document.querySelector('.js-address-search-btn');
         searchBtn.classList.add('u-d-no');
