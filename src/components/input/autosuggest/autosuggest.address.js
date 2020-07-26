@@ -17,6 +17,8 @@ export default class AutosuggestAddress {
     this.addressReplaceChars = [','];
     this.sanitisedQuerySplitNumsChars = true;
     this.form = context.closest('form');
+    this.container = context.querySelector(`.${classInputContainer}`);
+    this.errorMessage = this.container.getAttribute('data-error-message');
 
     // State
     this.currentQuery = null;
@@ -32,19 +34,22 @@ export default class AutosuggestAddress {
       this.lang = 'en-gb';
     }
 
-    // Initialise address setter
-    if (this.isEditable) {
-      this.addressSetter = new AddressSetter(context);
-    }
-
     // Bind event listeners
     if (this.form) {
       this.form.addEventListener('submit', this.handleSubmit.bind(this));
     }
 
+    // Initialise address setter
+    if (this.isEditable) {
+      this.addressSetter = new AddressSetter(context);
+    }
+
+    // Check API status
+    this.checkAPIStatus();
+
     // Initialise autosuggest
     this.autosuggest = new AutosuggestUI({
-      context: context.querySelector(`.${classInputContainer}`),
+      context: this.container,
       onSelect: this.onAddressSelect.bind(this),
       onUnsetResult: this.addressSetter ? this.addressSetter.onUnsetAddress() : null,
       lang: this.lang,
@@ -67,6 +72,21 @@ export default class AutosuggestAddress {
     this.auth = btoa(this.user + ':' + this.password);
     this.headers = new Headers({
       Authorization: 'Basic ' + this.auth,
+    });
+  }
+
+  checkAPIStatus() {
+    this.fetch = abortableFetch(this.lookupURL + 'CF14&limit=10', {
+      method: 'GET',
+      headers: this.headers,
+    });
+    this.fetch.send().then(response => {
+      const status = response.status;
+      if (status > 400) {
+        this.addressSetter.toggleMode();
+        const searchBtn = document.querySelector('.js-address-search-btn');
+        searchBtn.classList.add('u-d-no');
+      }
     });
   }
 
@@ -300,10 +320,11 @@ export default class AutosuggestAddress {
   handleSubmit(event) {
     if (!this.addressSelected && !this.search.classList.contains('u-d-no')) {
       event.preventDefault();
+
       const handleError = new AddressError(this.context);
       handleError.showErrorPanel();
 
-      this.autosuggest.setAriaStatus('There is an error. Select an address to continue');
+      this.autosuggest.setAriaStatus(this.errorMessage);
     }
   }
 }

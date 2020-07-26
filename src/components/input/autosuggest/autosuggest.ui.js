@@ -36,6 +36,8 @@ export default class AutosuggestUI {
     moreResults,
     resultsTitle,
     noResults,
+    errorAPI,
+    errorAPILinkText,
     typeMore,
   }) {
     // DOM Elements
@@ -57,6 +59,8 @@ export default class AutosuggestUI {
     this.moreResults = moreResults || context.getAttribute('data-more-results');
     this.resultsTitle = resultsTitle || context.getAttribute('data-results-title');
     this.noResults = noResults || context.getAttribute('data-no-results');
+    this.errorAPI = errorAPI || context.getAttribute('data-error-api');
+    this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
     this.typeMore = typeMore || context.getAttribute('data-type-more');
     this.listboxId = this.listbox.getAttribute('id');
     this.minChars = minChars || 3;
@@ -264,6 +268,7 @@ export default class AutosuggestUI {
             .catch(error => {
               if (error.name !== 'AbortError' && this.onError) {
                 this.onError(error);
+                this.handleNoResults(500);
               }
             });
         } else {
@@ -381,26 +386,8 @@ export default class AutosuggestUI {
       }
 
       if (this.resultLimit === 100 && this.foundResults > this.resultLimit) {
-        const warningListElement = document.createElement('li');
-        const warningElement = document.createElement('div');
-        const warningSpanElement = document.createElement('span');
-        const warningBodyElement = document.createElement('div');
-
-        warningListElement.setAttribute('aria-hidden', 'true');
-        warningListElement.className = 'autosuggest-input__warning';
-        warningElement.className = 'panel panel--warn autosuggest-input__panel';
-
-        warningSpanElement.className = 'panel__icon';
-        warningSpanElement.setAttribute('aria-hidden', 'true');
-        warningSpanElement.innerHTML = '!';
-
-        warningBodyElement.className = 'panel__body';
-        warningBodyElement.innerHTML = this.foundResults + ' results found. Enter more of the address to improve results.';
-
-        warningElement.appendChild(warningSpanElement);
-        warningElement.appendChild(warningBodyElement);
-        warningListElement.appendChild(warningElement);
-        this.listbox.insertBefore(warningListElement, this.listbox.firstChild);
+        let message = this.foundResults + ' results found. Enter more of the address to improve results.';
+        this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
       }
 
       this.setHighlightedResult(null);
@@ -420,11 +407,24 @@ export default class AutosuggestUI {
   }
 
   handleNoResults(status) {
-    const message = status === 400 || status === false ? this.typeMore : this.noResults;
+    let message;
     this.context.classList.add(classAutosuggestHasResults);
     this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.add('u-d-no');
-    this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
     this.input.setAttribute('aria-expanded', true);
+
+    if (status === 400 || status === false) {
+      message = this.typeMore;
+      this.setAriaStatus(message);
+      this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
+    } else if (status > 400) {
+      message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>' : '');
+      this.listbox.innerHTML = '';
+      this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
+      this.setAriaStatus(message);
+    } else {
+      message = this.noResults;
+      this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
+    }
   }
 
   setHighlightedResult(index) {
@@ -502,6 +502,30 @@ export default class AutosuggestUI {
       this.clearListbox();
       this.setAriaStatus(ariaMessage);
     }
+  }
+
+  createWarningElement(content) {
+    const warningListElement = document.createElement('li');
+    const warningElement = document.createElement('div');
+    const warningSpanElement = document.createElement('span');
+    const warningBodyElement = document.createElement('div');
+
+    warningListElement.setAttribute('aria-hidden', 'true');
+    warningListElement.className = 'autosuggest-input__warning';
+    warningElement.className = 'panel panel--warn autosuggest-input__panel';
+
+    warningSpanElement.className = 'panel__icon';
+    warningSpanElement.setAttribute('aria-hidden', 'true');
+    warningSpanElement.innerHTML = '!';
+
+    warningBodyElement.className = 'panel__body';
+    warningBodyElement.innerHTML = content;
+
+    warningElement.appendChild(warningSpanElement);
+    warningElement.appendChild(warningBodyElement);
+    warningListElement.appendChild(warningElement);
+
+    return warningListElement;
   }
 
   emboldenMatch(string, query) {

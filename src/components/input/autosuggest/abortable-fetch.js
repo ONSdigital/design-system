@@ -15,7 +15,7 @@ class AbortableFetch {
           if (response.status >= 200 && response.status < 300) {
             this.status = 'DONE';
             resolve(response);
-          } else if (response.status === 400) {
+          } else if (response.status >= 400) {
             this.status = 'DONE';
             resolve(response);
           } else {
