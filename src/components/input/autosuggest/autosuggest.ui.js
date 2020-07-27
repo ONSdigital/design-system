@@ -36,6 +36,7 @@ export default class AutosuggestUI {
     moreResults,
     resultsTitle,
     noResults,
+    tooManyResults,
     errorAPI,
     errorAPILinkText,
     typeMore,
@@ -59,6 +60,7 @@ export default class AutosuggestUI {
     this.moreResults = moreResults || context.getAttribute('data-more-results');
     this.resultsTitle = resultsTitle || context.getAttribute('data-results-title');
     this.noResults = noResults || context.getAttribute('data-no-results');
+    this.tooManyResults = tooManyResults || context.getAttribute('data-too-many-results');
     this.errorAPI = errorAPI || context.getAttribute('data-error-api');
     this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
     this.typeMore = typeMore || context.getAttribute('data-type-more');
@@ -386,7 +388,7 @@ export default class AutosuggestUI {
       }
 
       if (this.resultLimit === 100 && this.foundResults > this.resultLimit) {
-        let message = this.foundResults + ' results found. Enter more of the address to improve results.';
+        let message = this.tooManyResults.replace('{n}', this.foundResults);
         this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
       }
 

@@ -8,10 +8,12 @@ import abortableFetch from './abortable-fetch';
 const classInputContainer = 'autosuggest-input';
 const classNotEditable = 'js-address-not-editable';
 const classSearch = 'js-address-input__search';
+const classInput = 'js-autosuggest-input';
 
 export default class AutosuggestAddress {
   constructor(context) {
     this.context = context;
+    this.input = context.querySelector(`.${classInput}`);
     this.search = context.querySelector(`.${classSearch}`);
     this.lang = document.documentElement.getAttribute('lang').toLowerCase();
     this.addressReplaceChars = [','];
@@ -80,8 +82,8 @@ export default class AutosuggestAddress {
       method: 'GET',
       headers: this.headers,
     });
-    this.fetch.send().then(response => {
-      const status = response.status;
+    this.fetch.send().then(async response => {
+      const status = (await response.json()).status.code;
       if (status > 400 && this.isEditable) {
         this.addressSetter.toggleMode();
         const searchBtn = document.querySelector('.js-address-search-btn');
@@ -92,7 +94,7 @@ export default class AutosuggestAddress {
 
   suggestAddresses(query) {
     return new Promise((resolve, reject) => {
-      if (this.currentQuery === query && this.currentQuery.length && this.currentResults.length) {
+      if (this.currentQuery === query && this.currentQuery.length && (this.currentResults ? this.currentResults.length : 0)) {
         resolve({
           results: this.currentResults,
           totalResults: this.currentResults.length,
@@ -129,10 +131,11 @@ export default class AutosuggestAddress {
       });
       this.fetch
         .send()
-        .then(async response => {
-          const status = response.status;
-          const data = (await response.json()).response;
-          const results = await this.mapFindResults(data, status);
+        .then(async data => {
+          const response = await data.json();
+          const status = response.status.code;
+          const addresses = response.response;
+          const results = await this.mapFindResults(addresses, status);
           resolve(results);
         })
         .catch(reject);
@@ -318,7 +321,7 @@ export default class AutosuggestAddress {
   }
 
   handleSubmit(event) {
-    if (!this.addressSelected && !this.search.classList.contains('u-d-no')) {
+    if ((!this.addressSelected && !this.search.classList.contains('u-d-no')) || this.input.value === '') {
       event.preventDefault();
 
       const handleError = new AddressError(this.context);
