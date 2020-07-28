@@ -109,20 +109,24 @@
             {{ input | safe }}
         {% endif %}
     {% endset %}
-
+    
     {% if params.charCheck is defined and params.charCheck.limit %}
-        {% call onsCharLimit({
-            "id": params.id ~ "-check",
-            "limit": params.charCheck.limit,
-            "type": "limit",
-            "charCountSingular": params.charCheck.charCountSingular,
-            "charCountPlural": params.charCheck.charCountPlural,
-            "charCountOverLimitSingular": params.charCheck.charCountOverLimitSingular,
-            "charCountOverLimitPlural": params.charCheck.charCountOverLimitPlural
-        }) %}
-            {{ field | safe }}
-        {% endcall %}
-    {% elif params.mutuallyExclusive is defined and params.mutuallyExclusive %}
+        {% set charCheckField %}
+            {% call onsCharLimit({
+                "id": params.id ~ "-check",
+                "limit": params.charCheck.limit,
+                "type": "limit",
+                "charCountSingular": params.charCheck.charCountSingular,
+                "charCountPlural": params.charCheck.charCountPlural,
+                "charCountOverLimitSingular": params.charCheck.charCountOverLimitSingular,
+                "charCountOverLimitPlural": params.charCheck.charCountOverLimitPlural
+            }) %}
+                {{ field | safe }}
+            {% endcall %}
+        {% endset %}
+    {% endif %}
+    
+    {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
         {% call onsMutuallyExclusive({
             "id": params.fieldId,
             "legend": params.legend,
@@ -136,10 +140,18 @@
             "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
             "error": params.error
         }) %}
-            {{ field | safe }}
+            {% if charCheckField is defined and charCheckField %}
+                {{ charCheckField | safe }}
+            {% else %}
+                {{ field | safe }}
+            {% endif %}
         {% endcall %}
     {% elif type == "hidden" %}
-        {{ field | safe }}
+        {% if charCheckField is defined and charCheckField %}
+            {{ charCheckField | safe }}
+        {% else %}
+            {{ field | safe }}
+        {% endif %}
     {% else %}
         {% call onsField({
             "id": params.fieldId,
@@ -147,7 +159,11 @@
             "dontWrap": params.dontWrap,
             "error": params.error
         }) %}
-            {{ field | safe }}
+            {% if charCheckField is defined and charCheckField %}
+                {{ charCheckField | safe }}
+            {% else %}
+                {{ field | safe }}
+            {% endif %}
         {% endcall %}
     {% endif %}
 {% endmacro %}
