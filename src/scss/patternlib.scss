@@ -162,20 +162,20 @@
 .pl-grid-col {
   margin: 0 0 1rem;
   padding: 1rem;
-  background: #eee;
+  background: $color-white;
   font-size: 0.8rem;
 }
 
 .pl-experimental-tag {
-  background: #e05301;
-  color: #fff;
-  padding: 0.3rem 0.5rem;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  letter-spacing: 0.1rem;
-  font-weight: bold;
   display: inline-block;
   position: absolute;
   top: 0;
   right: 0;
+  padding: 0.3rem 0.5rem;
+  background: $color-amber;
+  color: $color-white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
 }

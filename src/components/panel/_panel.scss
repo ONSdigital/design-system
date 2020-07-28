@@ -14,8 +14,8 @@
 }
 
 .panel {
-  border-radius: 0;
   position: relative;
+  border-radius: 0;
 
   /* Removes inherited bottom margin to make whitespace inside panel equal */
   > *:last-child {
@@ -75,22 +75,34 @@
   &--warn & {
     &__body {
       padding-left: 1.8rem;
+      font-weight: $font-weight-bold;
     }
 
     &__icon {
-      color: #fff;
-      font-weight: 900;
       position: absolute;
       top: 0.8rem;
       left: 0;
       min-width: 2rem;
       min-height: 2rem;
       border-radius: 50%;
-      color: #fff;
-      background: #0b0c0c;
+      background: $color-black;
+      color: $color-white;
       font-size: 1.5rem;
+      font-weight: 900;
       line-height: 2rem;
       text-align: center;
+    }
+  }
+
+  &--icon & {
+    &__icon {
+      position: absolute;
+      left: 0;
+      padding-left: 1rem;
+    }
+
+    &__body {
+      padding-left: 1.8rem;
     }
   }
 }

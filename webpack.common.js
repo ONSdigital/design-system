@@ -249,26 +249,28 @@ export default function(mode) {
 
       plugins: [
         new CopyWebpackPlugin(
-          [
-            {
-              from: {
-                glob: 'fonts/**/*',
-                dot: true,
+          {
+            patterns: [
+              {
+                from: 'fonts/**/*',
+                globOptions: {
+                  dot: true,
+                },
               },
-            },
-            {
-              from: {
-                glob: 'img/**/*',
-                dot: true,
+              {
+                from: 'img/**/*',
+                globOptions: {
+                  dot: true,
+                },
               },
-            },
-            {
-              from: {
-                glob: 'favicons/**/*',
-                dot: true,
+              {
+                from: 'favicons/**/*',
+                globOptions: {
+                  dot: true,
+                },
               },
-            },
-          ],
+            ],
+          },
           {
             ignore: ['.gitkeep'],
             debug: 'warning',
@@ -294,14 +296,16 @@ export default function(mode) {
 
       plugins: [
         new CopyWebpackPlugin(
-          [
-            {
-              from: {
-                glob: 'patternlib-img/**/*',
-                dot: true,
+          {
+            patterns: [
+              {
+                from: 'patternlib-img/**/*',
+                globOptions: {
+                  dot: true,
+                },
               },
-            },
-          ],
+            ],
+          },
           {
             ignore: ['.gitkeep'],
             debug: 'warning',
