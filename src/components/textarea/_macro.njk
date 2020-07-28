@@ -2,6 +2,7 @@
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
+    {% from "components/input/_charlimit-macro.njk" import onsCharLimit %}
 
 
     {% set field %}
@@ -27,12 +28,13 @@
         >{{ params.value }}</textarea>
 
         {% if params.maxlength %}
-            <span
-                id="{{ params.id }}-lim-remaining"
-                class="input__limit u-mt-xs u-fs-s--b u-d-no"
-                data-charcount-singular="{{ params.charCountSingular }}"
-                data-charcount-plural="{{ params.charCountPlural }}">
-            </span>
+            {% call onsCharLimit({
+                "id": params.id ~ "-lim",
+                "limit": params.maxlength,
+                "charCountSingular": params.charCountSingular,
+                "charCountPlural": params.charCountPlural
+            }) %}
+            {% endcall %}
         {% endif %}
     {% endset %}
 
