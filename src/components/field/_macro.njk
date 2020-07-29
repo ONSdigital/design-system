@@ -19,7 +19,7 @@
         {% endif %}
     {% endset %}
 
-    {% if params.error is defined %}
+    {% if params.error is defined and params.error %}
         {% call onsError(params.error) %}
             {{ field | safe }}
         {% endcall %}
