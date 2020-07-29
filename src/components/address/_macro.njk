@@ -58,6 +58,15 @@
                         "name": params.id + "-postcode"
                     })
                 }}
+                {{
+                    onsInput({
+                        "id": params.id + "-uprn",
+                        "classes": "js-hidden-uprn",
+                        "type": "hidden",
+                        "name": params.id + "-uprn"
+                    })
+                }}
+
                 <div class="u-mt-s">
                     <a href="#" class="btn--link js-address-search-btn u-db-no-js_disabled">{{ params.searchButton }}</a>
                 </div>
