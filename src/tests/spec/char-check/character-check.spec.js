@@ -34,7 +34,7 @@ describe('Component: Input with character check', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    searchWrapper = document.querySelector('.js-char-check');
+    searchWrapper = document.querySelector('.js-char-check-input');
     searchInput = document.getElementById(params.id);
     limit_readout = document.getElementById(`${params.id}-check-remaining`);
 

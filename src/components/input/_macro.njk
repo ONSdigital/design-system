@@ -1,6 +1,6 @@
 {% macro onsInput(params) %}
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
-    {% from "components/input/_charlimit-macro.njk" import onsCharLimit %}
+    {% from "components/char-check-limit/_macro.njk" import onsCharLimit %}
     {% from "components/input/_typeahead-macro.njk" import onsTypeahead %}
     {% from "components/search/_macro.njk" import onsSearch %}
     {% from "components/field/_macro.njk" import onsField %}
@@ -115,7 +115,7 @@
             {% call onsCharLimit({
                 "id": params.id ~ "-check",
                 "limit": params.charCheck.limit,
-                "type": "limit",
+                "type": "check",
                 "charCountSingular": params.charCheck.charCountSingular,
                 "charCountPlural": params.charCheck.charCountPlural,
                 "charCountOverLimitSingular": params.charCheck.charCountOverLimitSingular,
