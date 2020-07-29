@@ -17,22 +17,22 @@
 
         <textarea
             id="{{ params.id }}"
-            class="input input--textarea {% if params.error %} input--error {% endif %}{% if params.maxlength %} js-char-limit-input{% endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
+            class="input input--textarea {% if params.error %} input--error {% endif %}{% if params.charCheck.limit %} js-char-limit-input{% endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
             name="{{ params.name }}"
             rows="{{ params.rows | default(8) }}"
-            {% if params.maxlength %}
-            maxlength="{{ params.maxlength }}"
+            {% if params.charCheck.limit %}
+            maxlength="{{ params.charCheck.limit }}"
             data-char-limit-ref="{{ params.id }}-lim-remaining"
             {% endif %}
             {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >{{ params.value }}</textarea>
 
-        {% if params.maxlength %}
+        {% if params.charCheck.limit %}
             {% call onsCharLimit({
                 "id": params.id ~ "-lim",
-                "limit": params.maxlength,
-                "charCountSingular": params.charCountSingular,
-                "charCountPlural": params.charCountPlural
+                "limit": params.charCheck.limit,
+                "charCountSingular": params.charCheck.charCountSingular,
+                "charCountPlural": params.charCheck.charCountPlural
             }) %}
             {% endcall %}
         {% endif %}
