@@ -7,7 +7,7 @@
         {% if params.button is defined and params.button.close is defined %} data-btn-close="{{ params.button.close }}"{% endif %}
         {% if params.group is defined %} data-group="{{ params.group }}"{% endif %}
         {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-        {% if params.saveState is defined and params.saveState %} data-save-state="true"{% endif %}
+        {% if params.saveState is defined %} data-save-state="true"{% endif %}
     >
         <div
             class="collapsible__heading js-collapsible-heading"
