@@ -38,6 +38,9 @@
     padding: 0;
     list-style: none;
     background: $color-white;
+    &:focus {
+      outline: none;
+    }
   }
 
   &__option {
@@ -59,6 +62,15 @@
 
       .autosuggest-input__group {
         color: $color-white;
+      }
+    }
+
+    &:active:not(&--no-results):not(&--more-results) {
+      background: $color-focus;
+      color: $color-focus-text;
+
+      .autosuggest-input__group {
+        color: $color-focus-text;
       }
     }
 

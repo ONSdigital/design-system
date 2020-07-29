@@ -160,7 +160,9 @@ export default class AutosuggestUI {
         break;
       }
       case 'Enter': {
-        event.preventDefault();
+        if (this.highlightedResultIndex !== null) {
+          event.preventDefault();
+        }
         break;
       }
     }
@@ -174,9 +176,7 @@ export default class AutosuggestUI {
         break;
       }
       case 'Enter': {
-        if (this.highlightedResultIndex == null) {
-          this.clearListbox();
-        } else {
+        if (this.highlightedResultIndex !== null) {
           this.selectResult();
         }
         break;
