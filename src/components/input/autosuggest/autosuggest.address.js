@@ -82,14 +82,26 @@ export default class AutosuggestAddress {
       method: 'GET',
       headers: this.headers,
     });
-    this.fetch.send().then(async response => {
-      const status = (await response.json()).status.code;
-      if (status > 400 && this.isEditable) {
-        this.addressSetter.toggleMode();
-        const searchBtn = document.querySelector('.js-address-search-btn');
-        searchBtn.classList.add('u-d-no');
-      }
-    });
+    this.fetch
+      .send()
+      .then(async response => {
+        const status = (await response.json()).status.code;
+        if (status > 400) {
+          if (this.isEditable) {
+            this.handleAPIError();
+          } else {
+            this.autosuggest.handleNoResults(status);
+          }
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        if (this.isEditable) {
+          this.handleAPIError();
+        } else {
+          this.autosuggest.handleNoResults(403);
+        }
+      });
   }
 
   suggestAddresses(query) {
@@ -318,6 +330,12 @@ export default class AutosuggestAddress {
         this.errored = false;
       });
     }
+  }
+
+  handleAPIError() {
+    this.addressSetter.toggleMode();
+    const searchBtn = document.querySelector('.js-address-search-btn');
+    searchBtn.classList.add('u-d-no');
   }
 
   handleSubmit(event) {
