@@ -48,8 +48,11 @@
   &--simple {
     padding: 1rem;
     border: 0;
-    border-left: 8px solid transparent;
     color: $color-black;
+  }
+
+  &--simple:not(.panel--warn) {
+    border-left: 8px solid transparent;
   }
 
   &--simple & {
