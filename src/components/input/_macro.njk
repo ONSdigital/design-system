@@ -110,7 +110,7 @@
         {% endif %}
     {% endset %}
 
-    {% if params.charCheck is defined and params.charCheck.limit %}
+    {% if params.charCheck is defined %}
         {% set charCheckField %}
             {% call onsCharLimit({
                 "id": params.id ~ "-check",
@@ -126,7 +126,7 @@
         {% endset %}
     {% endif %}
 
-    {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
+    {% if params.mutuallyExclusive is defined %}
         {% call onsMutuallyExclusive({
             "id": params.fieldId,
             "legend": params.legend,
@@ -140,18 +140,14 @@
             "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
             "error": params.error
         }) %}
-            {% if charCheckField is defined and charCheckField %}
+            {% if charCheckField is defined %}
                 {{ charCheckField | safe }}
             {% else %}
                 {{ field | safe }}
             {% endif %}
         {% endcall %}
     {% elif type == "hidden" %}
-        {% if charCheckField is defined and charCheckField %}
-            {{ charCheckField | safe }}
-        {% else %}
-            {{ field | safe }}
-        {% endif %}
+        {{ field | safe }}
     {% else %}
         {% call onsField({
             "id": params.fieldId,
@@ -159,7 +155,7 @@
             "dontWrap": params.dontWrap,
             "error": params.error
         }) %}
-            {% if charCheckField is defined and charCheckField %}
+            {% if charCheckField is defined %}
                 {{ charCheckField | safe }}
             {% else %}
                 {{ field | safe }}
