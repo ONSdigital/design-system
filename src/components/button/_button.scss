@@ -109,7 +109,7 @@ $button-border-height: 3px;
     }
   }
 
-  &--print &__inner:not([class*='icon--']) {
+  &--print &__inner {
     &:after {
       @include icon('print');
       content: '';
@@ -141,7 +141,7 @@ $button-border-height: 3px;
   &--link:not(.btn--secondary) &,
   &--link:not(.btn--secondary):active &,
   &--link:not(.btn--secondary):hover:focus & {
-    &__inner:not([class*='icon--']) {
+    &__inner {
       &:after {
         @include icon($name: 'chevron-right-white', $height: 0.8rem);
       }
@@ -152,7 +152,7 @@ $button-border-height: 3px;
     &.btn--ghost-blue,
     &.btn--ghost-blue:active,
     &.btn--ghost-blue:hover:focus {
-      .btn__inner:not([class*='icon--']) {
+      .btn__inner {
         &:after {
           @include icon($name: 'chevron-right-blue', $height: 0.8rem);
         }
@@ -160,7 +160,7 @@ $button-border-height: 3px;
     }
   }
 
-  &--link:focus:not(.btn--secondary) &__inner:not([class*='icon--']) {
+  &--link:focus:not(.btn--secondary) &__inner {
     &:after {
       @include icon($name: 'chevron-right-black', $height: 0.8rem);
     }
@@ -169,38 +169,38 @@ $button-border-height: 3px;
   &--link.btn--small:not(.btn--secondary) &,
   &--link.btn--small:not(.btn--secondary):active &,
   &--link.btn--small:not(.btn--secondary):hover:focus & {
-    &__inner:not([class*='icon--']) {
+    &__inner {
       &:after {
         @include icon($name: 'chevron-right-white', $height: 0.7rem);
       }
     }
   }
 
-  &--link:focus.btn--small:not(.btn--secondary) &__inner:not([class*='icon--']) {
+  &--link:focus.btn--small:not(.btn--secondary) &__inner {
     &:after {
       @include icon($name: 'chevron-right-black', $height: 0.7rem);
     }
   }
 
-  &--link.btn--secondary &__inner:not([class*='icon--']) {
+  &--link.btn--secondary &__inner {
     &:after {
       @include icon($name: 'chevron-right-black', $height: 0.8rem);
     }
   }
 
-  &--link:focus.btn--secondary &__inner:not([class*='icon--']) {
+  &--link:focus.btn--secondary &__inner {
     &:after {
       @include icon($name: 'chevron-right-black', $height: 0.8rem);
     }
   }
 
-  &--link.btn--small.btn--secondary &__inner:not([class*='icon--']) {
+  &--link.btn--small.btn--secondary &__inner {
     &:after {
       @include icon($name: 'chevron-right-black', $height: 0.7rem);
     }
   }
 
-  &--link:focus.btn--small.btn--secondary &__inner:not([class*='icon--']) {
+  &--link:focus.btn--small.btn--secondary &__inner {
     &:after {
       @include icon($name: 'chevron-right-black', $height: 0.7rem);
     }
@@ -221,7 +221,7 @@ $button-border-height: 3px;
     }
   }
 
-  &--loader:focus &__inner:not([class*='icon--']) {
+  &--loader:focus &__inner {
     &:after {
       @include icon($name: 'loader-black', $height: 1.5em);
     }
@@ -296,7 +296,7 @@ $button-border-height: 3px;
   }
 
   &--mobile & {
-    &__inner:not([class*='icon--']) {
+    &__inner {
       padding: 0.4rem 0.5rem;
       &:after {
         @include icon($name: 'chevron-down-white', $height: 0.8rem);
@@ -315,7 +315,7 @@ $button-border-height: 3px;
   }
 
   &--mobile:focus:not(:active):not(:hover) & {
-    &__inner:not([class*='icon--']) {
+    &__inner {
       &:after {
         @include icon($name: 'chevron-down-black', $height: 0.8rem);
       }
