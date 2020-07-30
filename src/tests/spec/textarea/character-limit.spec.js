@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/textarea/_test-template.njk';
-import CharLimit from 'components/textarea/character-limit';
+import CharLimit from 'components/char-check-limit/character-limit';
 
 const params = {
   id: 'textarea-char-limit',
@@ -10,9 +10,11 @@ const params = {
     text: 'Please provide some feedback',
     description: 'For example describe any difficulties you experienced in the use of this service',
   },
-  maxlength: 200,
-  charCountSingular: 'You have {x} character remaining',
-  charCountPlural: 'You have {x} characters remaining',
+  charCheckLimit: {
+    limit: 200,
+    charCountSingular: 'You have {x} character remaining',
+    charCountPlural: 'You have {x} characters remaining',
+  },
 };
 
 describe('Component: Textarea with character limit', () => {
@@ -53,14 +55,16 @@ describe('Component: Textarea with character limit', () => {
       });
 
       it('then the characters remaining readout reflect the number of characters remaining', () => {
-        expect(limit_readout.innerHTML).to.equal(params.charCountPlural.replace('{x}', params.maxlength - value.length));
+        expect(limit_readout.innerHTML).to.equal(
+          params.charCheckLimit.charCountPlural.replace('{x}', params.charCheckLimit.limit - value.length),
+        );
       });
     });
 
     describe('when the user reaches/exceeds the maxlength of the textarea', () => {
       let value = '';
 
-      for (let i = 0; i < params.maxlength; i++) {
+      for (let i = 0; i < params.charCheckLimit.limit; i++) {
         value += '.';
       }
 
@@ -69,7 +73,7 @@ describe('Component: Textarea with character limit', () => {
       });
 
       it('then the characters remaining readout reflect the number of characters remaining', () => {
-        expect(limit_readout.innerHTML).to.equal(params.charCountPlural.replace('{x}', 0));
+        expect(limit_readout.innerHTML).to.equal(params.charCheckLimit.charCountPlural.replace('{x}', 0));
       });
 
       it('then the textarea and readout should be given limit reached classes', () => {
@@ -82,7 +86,7 @@ describe('Component: Textarea with character limit', () => {
   describe('Given that the user has reached/exceeded the maxlength of the textarea', () => {
     let value = '';
 
-    for (let i = 0; i < params.maxlength; i++) {
+    for (let i = 0; i < params.charCheckLimit.limit; i++) {
       value += '.';
     }
 
@@ -96,7 +100,7 @@ describe('Component: Textarea with character limit', () => {
       });
 
       it('then the characters remaining readout reflect the number of characters remaining', () => {
-        expect(limit_readout.innerHTML).to.equal(params.charCountSingular.replace('{x}', 1));
+        expect(limit_readout.innerHTML).to.equal(params.charCheckLimit.charCountSingular.replace('{x}', 1));
       });
 
       it('then the textarea and readout should be given limit reached classes', () => {
