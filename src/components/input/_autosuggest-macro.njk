@@ -20,6 +20,8 @@
         data-error-message="{{ params.errorMessage }}"
         data-error-api="{{ params.errorMessageAPI }}"
         data-error-api-link-text="{{ params.errorMessageAPILinkText }}"
+        {% if params.dataQueries %}{% for query, value in (params.dataQueries.items() if params.dataQueries is mapping and params.dataQueries.items else params.dataQueries) %}data-type-{{ query }}="{{ value }}" {% endfor %}{% endif %}
+
     >
         {{ content | safe }}
         <div class="autosuggest-input__results js-autosuggest-results">

@@ -24,7 +24,6 @@ export default class AutosuggestAddress {
     this.container = context.querySelector(`.${classInputContainer}`);
     this.errorMessage = this.container.getAttribute('data-error-message');
     this.APIDomain = this.container.getAttribute('data-api-domain');
-
     // State
     this.currentQuery = null;
     this.fetch = null;
@@ -77,6 +76,9 @@ export default class AutosuggestAddress {
 
     // Check API status
     this.checkAPIStatus();
+
+    // Retrieve additional queries
+    this.getQueryTypes();
   }
 
   checkAPIStatus() {
