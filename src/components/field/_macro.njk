@@ -9,13 +9,14 @@
         {% if params.dontWrap is defined %}
             {{ caller() }}
         {% else %}
-            <p
+            <div
                 {% if params.id is defined %}id="{{ params.id }}"{% endif %}
-                class="field{% if params.classes is defined %} {{ params.classes }}{% endif %}"
+                class="field u-mb-s{% if params.classes is defined %} {{ params.classes }}{% endif %}"
                 {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+
             >
                 {{ caller() }}
-            </p>
+            </div>
         {% endif %}
     {% endset %}
 
