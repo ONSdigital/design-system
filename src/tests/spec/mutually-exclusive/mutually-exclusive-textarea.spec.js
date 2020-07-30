@@ -1,7 +1,7 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/textarea/_test-template.njk';
 import MutuallyExclusive from 'components/mutually-exclusive/mutually-exclusive';
-import CharacterLimit from 'components/textarea/character-limit';
+import CharacterLimit from 'components/char-check-limit/character-limit';
 import { populateTextarea } from '../textarea/character-limit.spec';
 
 const params = {
@@ -12,9 +12,11 @@ const params = {
     text: 'Please provide some feedback',
     description: 'For example describe any difficulties you experienced in the use of this service',
   },
-  maxlength: 200,
-  charCountSingular: 'You have {x} character remaining',
-  charCountPlural: 'You have {x} characters remaining',
+  charCheckLimit: {
+    limit: 200,
+    charCountSingular: 'You have {x} character remaining',
+    charCountPlural: 'You have {x} characters remaining',
+  },
   mutuallyExclusive: {
     or: 'Or',
     deselectMessage: 'Selecting this will clear your feedback',
@@ -76,7 +78,7 @@ describe('Component: Mutually Exclusive Textarea', () => {
       });
 
       it('then the characters remaining readout should be reset', () => {
-        expect(textareaRemaining.innerHTML).to.equal(params.charCountPlural.replace('{x}', params.maxlength));
+        expect(textareaRemaining.innerHTML).to.equal(params.charCheckLimit.charCountPlural.replace('{x}', params.charCheckLimit.limit));
       });
 
       it('then the aria alert should tell the user that the textarea has been cleared', done => {
