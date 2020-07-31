@@ -1,14 +1,23 @@
 ---
-fullWidth: true
+layout: none
 ---
-{% from "components/button/_macro.njk" import onsButton %}
-<div style="padding: 1rem 1.5rem; background: #3b7a9e">
-    {{
-        onsButton({
-            "type": 'button',
-            "text": 'Save and sign out',
-            "classes": 'btn--ghost',
-            "exit": true
-        })
-    }}
-</div>
+{% extends "styles/page-template/_template.njk" %}
+{% set pageConfig = {
+    "title": "Service name",
+    "signoutButton": {
+        "text": "Save and sign out",
+        "url": "#",
+        "exit": true
+    },
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    }
+} %}
+{% block main %}
+    <h1>Page Title</h1>
+{% endblock %}
