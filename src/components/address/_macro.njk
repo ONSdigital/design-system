@@ -3,7 +3,7 @@
 
 {% macro onsAddressInput(params) %}
     {% set fields %}
-        {% if params.organisation %}
+        {% if params.organisation is defined %}
             {{
                 onsInput({
                     "id": params.id + "-organisation",
@@ -32,7 +32,7 @@
             })
         }}
 
-        {% if params.line2 %}
+        {% if params.line2 is defined %}
             {{
                 onsInput({
                     "id": params.line2.id | default(params.id + "-line-2"),
@@ -48,7 +48,7 @@
             }}
         {% endif %}
 
-        {% if params.line3 %}
+        {% if params.line3 is defined %}
             {{
                 onsInput({
                     "id": params.line3.id | default(params.id + "-line-3"),
@@ -64,7 +64,7 @@
             }}
         {% endif %}
 
-        {% if params.town %}
+        {% if params.town is defined %}
             {{
                 onsInput({
                     "id": params.town.id | default(params.id + "-town"),
@@ -79,7 +79,7 @@
             }}
         {% endif %}
 
-        {% if params.county %}
+        {% if params.county is defined %}
             {{
                 onsInput({
                     "id": params.county.id | default(params.id + "-county"),
@@ -108,7 +108,7 @@
         }}
     {% endset %}
 
-    {% if params.dontWrap %}
+    {% if params.dontWrap is defined %}
         {{ fields | safe }}
     {% else %}
         {% call onsFieldset({

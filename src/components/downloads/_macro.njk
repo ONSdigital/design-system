@@ -9,12 +9,12 @@
                 </div>
                 <div class="download__details">
                     <h2 class="download__title">
-                        <a href="{{ download.url }}">{{ download.title }} <span class="u-vh">, {{ download.typeAbbr }} {{ download.accessibilityText }}{% if download.fileSize %}, {{ download.fileSize }}{% endif %}{% if download.pages %}, {{ download.pages }}{% endif %}</span></a>
+                        <a href="{{ download.url }}">{{ download.title }} <span class="u-vh">, {{ download.typeAbbr }} {{ download.accessibilityText }}{% if download.fileSize is defined %}, {{ download.fileSize }}{% endif %}{% if download.pages is defined %}, {{ download.pages }}{% endif %}</span></a>
                     </h2>
                     <p class="download__metadata u-fs-s">
-                        <abbr class="download__file-type" title="{{ download.type }}">{{ download.typeAbbr }}</abbr>{% if download.fileSize %}, {{ download.fileSize }}{% endif %}{% if download.pages %}, {{ download.pages }}{% endif %}
+                        <abbr class="download__file-type" title="{{ download.type }}">{{ download.typeAbbr }}</abbr>{% if download.fileSize is defined %}, {{ download.fileSize }}{% endif %}{% if download.pages is defined %}, {{ download.pages }}{% endif %}
                     </p>
-                    {% if download.accessibilityMessage and download.accessibilityURL and download.accessibilityLinkText %}
+                    {% if download.accessibilityMessage is defined and download.accessibilityURL is defined and download.accessibilityLinkText is defined %}
                         <p class="download__accessibility">
                             {{ download.accessibilityMessage }}
                             <br><a href="{{ download.accessibilityURL }}">{{ download.accessibilityLinkText }}</a>

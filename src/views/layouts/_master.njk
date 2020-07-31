@@ -6,7 +6,7 @@
     {% set pageConfig = {} %}
 {% endif %}
 
-{% if pageConfig.lang %}
+{% if pageConfig.lang is defined %}
    {% set pageConfig =  pageConfig | setAttributes({
        "language": {
            "languages": [
@@ -19,16 +19,16 @@
    }) %}
 {% endif %}
 
-{% if example %}
+{% if example is defined %}
     {% set bodyClasses = bodyClasses + " patternlib-page--example" %}
-    {% if page.theme %}
+    {% if page.theme is defined %}
         {% set pageConfig =  pageConfig | setAttributes({
             "theme": page.theme
         }) %}
     {% endif %}
 {% endif %}
 
-{% if page.fullWidth %}
+{% if page.fullWidth is defined %}
     {% set bodyClasses = bodyClasses + " u-p-no" %}
 {% endif %}
 
