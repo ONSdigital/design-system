@@ -1,0 +1,26 @@
+{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+
+{%
+    call onsCollapsible({
+        "id": "collapsible",
+        "title": "Information on deleting people",
+        "titleTag": "h2",
+        "button": {
+            "close": "Hide this",
+            "contextSuffix": "content"
+        }
+    })
+%}
+
+
+{% from "components/panel/_macro.njk" import onsPanel %}
+    <p>Need to answer separately from your household?</p>
+    {% call onsPanel({
+            type: "warn"
+        })
+    %}
+        <p>Someone in your household must still complete a census using a household access code</p>
+    {% endcall %}
+
+    
+{% endcall %}

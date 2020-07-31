@@ -1,6 +1,6 @@
 {% macro onsInput(params) %}
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
-    {% from "components/input/_charlimit-macro.njk" import onsCharLimit %}
+    {% from "components/char-check-limit/_macro.njk" import onsCharLimit %}
     {% from "components/input/_typeahead-macro.njk" import onsTypeahead %}
     {% from "components/search/_macro.njk" import onsSearch %}
     {% from "components/field/_macro.njk" import onsField %}
@@ -37,8 +37,8 @@
             {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
             {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
             {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
-            {% if params.charCheck is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
-            {% if params.charCheck is defined and params.charCheck.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
+            {% if params.charCheckLimit is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheckLimit.limit }}"{% endif %}
+            {% if params.charCheckLimit is defined and params.charCheckLimit.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
             {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             {% if params.label is defined and params.label.description is defined %}{% if params.label.id is defined %}aria-describedby="{{params.id}}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
         />
@@ -110,18 +110,23 @@
         {% endif %}
     {% endset %}
 
-    {% if params.charCheck is defined and params.charCheck.limit is defined %}
-        {% call onsCharLimit({
-            "id": params.id,
-            "limit": params.charCheck.limit,
-            "charCountSingular": params.charCheck.charCountSingular,
-            "charCountPlural": params.charCheck.charCountPlural,
-            "charCountOverLimitSingular": params.charCheck.charCountOverLimitSingular,
-            "charCountOverLimitPlural": params.charCheck.charCountOverLimitPlural
-        }) %}
-            {{ field | safe }}
-        {% endcall %}
-    {% elif params.mutuallyExclusive and params.mutuallyExclusive is defined %}
+    {% if params.charCheckLimit is defined and params.charCheckLimit.limit is defined %}
+        {% set charCheckField %}
+            {% call onsCharLimit({
+                "id": params.id ~ "-check",
+                "limit": params.charCheckLimit.limit,
+                "type": "check",
+                "charCountSingular": params.charCheckLimit.charCountSingular,
+                "charCountPlural": params.charCheckLimit.charCountPlural,
+                "charCountOverLimitSingular": params.charCheckLimit.charCountOverLimitSingular,
+                "charCountOverLimitPlural": params.charCheckLimit.charCountOverLimitPlural
+            }) %}
+                {{ field | safe }}
+            {% endcall %}
+        {% endset %}
+    {% endif %}
+
+    {% if params.mutuallyExclusive is defined %}
         {% call onsMutuallyExclusive({
             "id": params.fieldId,
             "legend": params.legend,
@@ -135,7 +140,11 @@
             "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
             "error": params.error
         }) %}
-            {{ field | safe }}
+            {% if charCheckField is defined %}
+                {{ charCheckField | safe }}
+            {% else %}
+                {{ field | safe }}
+            {% endif %}
         {% endcall %}
     {% elif type == "hidden" %}
         {{ field | safe }}
@@ -146,7 +155,11 @@
             "dontWrap": params.dontWrap,
             "error": params.error
         }) %}
-            {{ field | safe }}
+            {% if charCheckField is defined %}
+                {{ charCheckField | safe }}
+            {% else %}
+                {{ field | safe }}
+            {% endif %}
         {% endcall %}
     {% endif %}
 {% endmacro %}
