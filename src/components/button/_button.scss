@@ -154,7 +154,7 @@ $button-border-height: 3px;
     &.btn--ghost-blue:hover:focus {
       .btn__inner {
         &:after {
-          @include icon($name: 'exit-blue', $height: 0.8rem);
+          @include icon($name: 'chevron-right-blue', $height: 0.8rem);
         }
       }
     }
@@ -287,6 +287,12 @@ $button-border-height: 3px;
     }
   }
 
+  &--ghost-blue:hover & {
+    &__inner {
+      background: darken($color-grey-5, 5%);
+    }
+  }
+
   &--mobile {
     @include mq(m) {
       display: none;
@@ -334,6 +340,18 @@ $button-border-height: 3px;
     .btn__inner.icon--external-link {
       &:after {
         @include icon($name: 'external-link-black', $height: 0.8rem);
+      }
+    }
+  }
+
+  &--exit {
+    &.btn--ghost-blue,
+    &.btn--ghost-blue:active,
+    &.btn--ghost-blue:hover:focus {
+      .btn__inner.icon--exit {
+        &:after {
+          @include icon($name: 'exit-blue', $height: 0.8rem);
+        }
       }
     }
   }
