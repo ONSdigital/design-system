@@ -17,6 +17,7 @@
 | fieldClasses          | string                                                        | false                            | Classes for the field                                                               |
 | dontWrap              | boolean                                                       | false                            | Prevents the input from being wrapped in a [field component](/components/field)     |
 | mutuallyExclusive     | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false                            | Configuration object if this is a mutually exclusive input                          |
+| CharCheckLimit        | `CharCheckLimit`                                              | false                            | Configuration object if this input has a character count                            |
 | legend                | string                                                        | Only if mutuallyExclusive is set | Text content for the legend                                                         |
 | legendClasses         | string                                                        | false                            | Classes for the legend                                                              |
 | error                 | `Error` [_(ref)_](/components/error)                          | false                            | Configuration for validation errors                                                 |
@@ -48,13 +49,13 @@
 | moreResults         | string | true     | Aria message to tell the user to continue to type to refine suggestions                          |
 | resultsTitle        | string | true     | Title of results to be displayed on screen at the top of the results                             |
 
-## CharCheck
+## CharCheckLimit
 
-| Name                       | Type    | Required | Description                                                                                                                                           |
-| -------------------------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| limit                      | number  | false    | The maximum amount of characters a user should type in                                                                                                |
-| charcheckCountdown         | boolean | false    | Displays the number of remaining characters allowed based on the limit                                                                                |
-| charCountPlural            | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are remaining. `{x}` Will be replaced with the number            |
-| charCountSingular          | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are remaining (singular). `{x}` Will be replaced with the number |
-| charCountOverLimitSingular | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are over (singular). `{x}` Will be replaced with the number      |
-| charCountOverLimitPlural   | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are over (plural). `{x}` Will be replaced with the number        |
+| Name                       | Type    | Required | Description                                                                                                                                                |
+| -------------------------- | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| limit                      | number  | false    | The maximum amount of characters a user should type in                                                                                                     |
+| charcheckCountdown         | boolean | false    | Displays the number of remaining characters allowed based on the limit                                                                                     |
+| charCountPlural            | string  | false    | Required if `CharCheckLimit` is supplied. The string that will render how many characters are remaining. `{x}` Will be replaced with the number            |
+| charCountSingular          | string  | false    | Required if `CharCheckLimit` is supplied. The string that will render how many characters are remaining (singular). `{x}` Will be replaced with the number |
+| charCountOverLimitSingular | string  | false    | Required if `CharCheckLimit` is supplied. The string that will render how many characters are over (singular). `{x}` Will be replaced with the number      |
+| charCountOverLimitPlural   | string  | false    | Required if `CharCheckLimit` is supplied. The string that will render how many characters are over (plural). `{x}` Will be replaced with the number        |
