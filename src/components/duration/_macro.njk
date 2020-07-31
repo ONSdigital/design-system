@@ -7,20 +7,20 @@
 {% macro onsDuration(params) %}
     {% set numberOfFields = 0 %}
 
-    {% if params.field1 %}
+    {% if params.field1 is defined %}
         {% set numberOfFields = numberOfFields + 1 %}
     {% endif %}
 
-    {% if params.field2 %}
+    {% if params.field2 is defined %}
         {% set numberOfFields = numberOfFields + 1 %}
     {% endif %}
 
     {% set fields %}
-        {% if params.label %}
+        {% if params.label is defined %}
             <span class="u-fs-r--b u-mb-xs u-d-b{{ ' u-mt-m' if numberOfFields < 2 }}">{{ params.label }}</span>
         {% endif %}
 
-        {% if params.field1 %}
+        {% if params.field1 is defined %}
             {{ onsInput({
                 "id": params.field1.id,
                 "classes": "input--w-2" + (" js-exclusive-group" if params.mutuallyExclusive else ""),
@@ -37,7 +37,7 @@
             }) }}
         {% endif %}
 
-        {% if params.field2 %}
+        {% if params.field2 is defined %}
             {{ onsInput({
                 "id": params.field2.id,
                 "classes": "input--w-2" + (" js-exclusive-group" if params.mutuallyExclusive else ""),
