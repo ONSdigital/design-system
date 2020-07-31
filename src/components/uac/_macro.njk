@@ -26,7 +26,7 @@
         }) }}
     {% endset %}
 
-    {% if not params.error %}
+    {% if params.error is not defined %}
         {% call onsPanel() %}
             {{ content | safe }}
         {% endcall %}
@@ -34,7 +34,7 @@
         {{ content | safe }}
     {% endif %}
 
-    {% if params.securityMessage %}
+    {% if params.securityMessage is defined %}
         <div class="uac__security u-mt-m">
             <div class="uac__icon"><span class="icon icon--lock"></span></div>
             <p class="uac__message">{{ params.securityMessage }}</p>
