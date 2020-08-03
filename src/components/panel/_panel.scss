@@ -47,9 +47,14 @@
 
   &--simple {
     padding: 1rem;
-    border: 0;
     border-left: 8px solid transparent;
     color: $color-black;
+  }
+
+  &--warn {
+    margin-bottom: 1rem;
+    padding: 0 1rem 0 1rem;
+    border: 0;
   }
 
   &--simple & {
@@ -74,19 +79,19 @@
 
   &--warn & {
     &__body {
+      padding-top: 0.1rem;
       padding-left: 1.8rem;
       font-weight: $font-weight-bold;
     }
 
     &__icon {
       position: absolute;
-      top: 0.8rem;
       left: 0;
       min-width: 2rem;
       min-height: 2rem;
       border-radius: 50%;
-      background: #0b0c0c;
-      color: #fff;
+      background: $color-black;
+      color: $color-white;
       font-size: 1.5rem;
       font-weight: 900;
       line-height: 2rem;

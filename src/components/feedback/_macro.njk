@@ -7,15 +7,15 @@
     <div class="page__feedback {{ params.classes }}">
         <div
             id="{{ params.id }}"
-            class="feedback js-collapsible js-feedback{% if params.classes %} {{ params.classes }}{% endif %}"
-            {% if params.button.close.text %} data-btn-close="{{ params.button.close.text }}"{% endif %}
-            {% if params.group %} data-group="{{ params.group }}"{% endif %}
-            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-            {% if params.saveState %} data-save-state="true"{% endif %}
+            class="feedback js-collapsible js-feedback{% if params.classes is defined %} {{ params.classes }}{% endif %}"
+            {% if params.button.close.text is defined %} data-btn-close="{{ params.button.close.text }}"{% endif %}
+            {% if params.group is defined %} data-group="{{ params.group }}"{% endif %}
+            {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.saveState is defined %} data-save-state="true"{% endif %}
         >
             <div
                 class="feedback__heading js-collapsible-heading u-p-no@xs@l"
-                {% if params.headerAttributes %}{% for attribute, value in (params.headerAttributes.items() if params.headerAttributes is mapping and params.headerAttributes.items else params.headerAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+                {% if params.headerAttributes is defined %}{% for attribute, value in (params.headerAttributes.items() if params.headerAttributes is mapping and params.headerAttributes.items else params.headerAttributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             >
                 {# Required to use display flex on Safari as it's not currently supported: https://bugs.webkit.org/show_bug.cgi?id=167111 #}
                 <div class="feedback_controls">
@@ -27,7 +27,7 @@
             <div id="{{ params.id }}-content" class="feedback__content js-collapsible-content">
                 <div class="container">
                     <div class="grid">
-                        {% if params.mailto %}
+                        {% if params.mailto is defined %}
                             <div class="grid__col u-pl-0 u-mt-m u-mb-m">
                                 <p class="feedback__content-mailto">
                                 {{ params.mailto.textBefore }}
@@ -37,7 +37,7 @@
                                 <p>{{ params.mailto.textAfter}}</p>
                             </div>
                         {% endif %}
-                        {% if params.action %}
+                        {% if params.action is defined %}
                             <div class="grid__col col-8@m u-pl-0">
                                 <form
                                     id="{{ params.id }}-form"
@@ -47,7 +47,7 @@
                                     novalidate
                                     data-thank-you="{{ params.thankYouMessage }}"
                                     data-error-message="{{ params.errorMessage }}">
-                                    {% if csrf_token %}
+                                    {% if csrf_token is defined %}
                                         <input id="csrf_token" name="csrf_token" type="hidden" value="{{ csrf_token() }}" />
                                     {% endif %}
                                     {{
@@ -63,7 +63,7 @@
                                             "attributes": params.textarea.attributes
                                         })
                                     }}
-                                    {% if params.pageTitle %}
+                                    {% if params.pageTitle is defined %}
                                         {{
                                             onsInput({
                                                 "id": params.pageTitle.id | default(params.id + '-page-title'),
@@ -75,7 +75,7 @@
                                             })
                                         }}
                                     {% endif %}
-                                    {% if params.pageURL %}
+                                    {% if params.pageURL is defined %}
                                         {{
                                             onsInput({
                                                 "id": params.pageURL.id | default(params.id + '-page-url'),
@@ -87,7 +87,7 @@
                                             })
                                         }}
                                     {% endif %}
-                                    {% if params.name %}
+                                    {% if params.name is defined %}
                                         {{
                                             onsInput({
                                                 "id": params.name.id | default(params.id + '-name'),
@@ -100,7 +100,7 @@
                                             })
                                         }}
                                     {% endif %}
-                                    {% if params.email.label %}
+                                    {% if params.email.label is defined %}
                                         {{
                                             onsInput({
                                                 "id": params.email.id | default(params.id + '-email'),
@@ -113,7 +113,7 @@
                                             })
                                         }}
                                     {% endif %}
-                                    {% if params.button.send.text %}
+                                    {% if params.button.send.text is defined %}
                                         {% call onsField({
                                             "classes": "u-mt-l u-mb-m"
                                         }) %}
@@ -129,7 +129,7 @@
                                 </form>
                             </div>
                         {% endif %}
-                        {% if params.button.close.text %}
+                        {% if params.button.close.text is defined %}
                             <div class="grid__col col-8@m u-pl-0">
                                 {% call onsField({
                                     "classes": "u-mb-m"

@@ -1,22 +1,22 @@
 .table {
-  width: 100%;
   margin-bottom: 1rem;
-  border-collapse: collapse;
+  width: 100%;
   border-spacing: 0;
+  border-collapse: collapse;
 
   &__caption {
+    font-weight: 700;
     text-align: left;
-    font-weight: bold;
   }
 
   &__header,
   &__cell {
-    padding: 0.5rem 0 0.5rem 1rem;
-    border-bottom: 2px solid $color-grey-1;
     @include nth-element(1, 0);
+    padding: 0.5rem 0 0.5rem 1rem;
+    overflow: hidden;
+    border-bottom: 2px solid $color-grey-1;
     text-align: left;
     vertical-align: top;
-    overflow: hidden;
     &--numeric {
       text-align: right;
     }
@@ -70,17 +70,17 @@
       }
 
       .table__cell {
-        text-align: right;
         display: block;
         padding-left: 0;
+        text-align: right;
         &:last-child {
-          border: none;
+          border: 0;
         }
         &::before {
           content: attr(data-th);
           float: left;
-          font-weight: bold;
           padding-right: 1rem;
+          font-weight: 700;
         }
       }
     }
@@ -118,11 +118,12 @@
     }
     .table__right-shadow,
     .table__left-shadow {
-      height: 100%;
+      z-index: 200;
       position: absolute;
       top: 0;
       width: 5px;
-      z-index: 200;
+      height: 100%;
+
       &.with-transition {
         transition: box-shadow 0.4s ease-out;
       }
@@ -144,17 +145,18 @@
 
 .table--sortable {
   .table__sort-button {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0 1.1rem 0 0;
     position: relative;
-    line-height: 1rem;
+    padding: 0 1.1rem 0 0;
     overflow: visible;
+    border: 0;
+    background-color: transparent;
+    box-shadow: none;
     color: $color-links;
-    text-decoration: underline;
-    font-weight: bold;
     font-family: $font-sans;
+    font-weight: 700;
+    line-height: 1rem;
+    text-decoration: underline;
+
     &:hover {
       color: $color-links-hover;
     }
@@ -166,14 +168,14 @@
     &::before {
       content: '';
       position: absolute;
-      right: 0;
       top: 0;
+      right: 0;
       width: 12px;
       height: 21px;
-      background-size: 12px 63px;
       background-image: url('#{$static}img/icons/icons--sort-sprite.svg');
       background-repeat: no-repeat;
       background-position: 0 0;
+      background-size: 12px 63px;
     }
 
     &:focus:before {

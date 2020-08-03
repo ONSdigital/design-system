@@ -1,6 +1,6 @@
 {% macro onsInput(params) %}
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
-    {% from "components/input/_charlimit-macro.njk" import onsCharLimit %}
+    {% from "components/char-check-limit/_macro.njk" import onsCharLimit %}
     {% from "components/input/_typeahead-macro.njk" import onsTypeahead %}
     {% from "components/search/_macro.njk" import onsSearch %}
     {% from "components/field/_macro.njk" import onsField %}
@@ -12,7 +12,7 @@
         {% set type = "text" %}
         {% set pattern = "[0-9]*" %}
         {% set inputmode = "numeric" %}
-    {% elif params.type %}
+    {% elif params.type is defined %}
         {% set type = params.type %}
     {% else %}
         {% set type = "text" %}
@@ -25,8 +25,8 @@
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="input input--text input-type__input {% if params.error %} input--error {% endif %}{% if params.typeahead %} js-typeahead-input {% endif %} {% if params.searchButton %}u-mr-xs{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
-            {% if params.prefix or params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
+            class="input input--text input-type__input {% if params.error and params.error is defined %} input--error {% endif %}{% if params.typeahead is defined %} js-typeahead-input {% endif %} {% if params.searchButton is defined %}u-mr-xs{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            {% if params.prefix is defined or params.suffix is defined %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined %}name="{{ params.name }}"{% endif %}
             {% if params.value is defined %}value="{{ params.value }}"{% endif %}
             {% if params.accept is defined %}accept="{{ params.accept }}"{% endif %}
@@ -37,17 +37,17 @@
             {% if pattern is defined %}pattern="{{ pattern }}"{% endif %}
             {% if inputmode is defined %}inputmode="{{ inputmode }}"{% endif %}
             {% if params.autocomplete is defined %}autocomplete="{{ params.autocomplete }}"{% endif %}
-            {% if params.charCheck is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheck.limit }}"{% endif %}
-            {% if params.charCheck is defined and params.charCheck.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
-            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-            {% if params.label is defined and params.label.description is defined %}{% if params.label.id %}aria-describedby="{{params.id}}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
+            {% if params.charCheckLimit is defined %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheckLimit.limit }}"{% endif %}
+            {% if params.charCheckLimit is defined and params.charCheckLimit.charcheckCountdown is defined %}data-char-check-countdown="true"{% endif %}
+            {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.label is defined and params.label.description is defined %}{% if params.label.id is defined %}aria-describedby="{{params.id}}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
         />
-        {% if params.postTextboxLinkText %}
+        {% if params.postTextboxLinkText is defined %}
             <a class="u-fs-s" href="{{ params.postTextboxLinkUrl }}">{{ params.postTextboxLinkText }}</a>
         {% endif %}
     {% endset %}
     {% set field %}
-        {% if params.label or not (params.prefix or params.suffix or type == 'password') %}
+        {% if params.label is defined %}
             {{ onsLabel({
                 "for": params.id,
                 "id": params.label.id,
@@ -59,7 +59,7 @@
             }) }}
         {% endif %}
 
-        {% if params.prefix or params.suffix %}
+        {% if params.prefix is defined or params.suffix is defined %}
             {% if params.prefix is defined %}
                 {% set prefixClass = " input-type--prefix" %}
             {% endif %}
@@ -72,7 +72,7 @@
                         class="input-type__type"
                         aria-hidden="true"
                         title="{{ abbr.title }}"
-                        {% if abbr.id %} id="{{ abbr.id }}"{% endif %}
+                        {% if abbr.id is defined %} id="{{ abbr.id }}"{% endif %}
                         >{{ abbr.text or abbr.title }}</abbr>
                 </span>
             </span>
@@ -87,7 +87,7 @@
             }) %}
                 {{ input | safe }}
             {% endcall %}
-        {% elif params.typeahead %}
+        {% elif params.typeahead is defined %}
             {% call onsTypeahead({
                 "id": params.id,
                 "classes": params.typeahead.classes,
@@ -110,18 +110,23 @@
         {% endif %}
     {% endset %}
 
-    {% if params.charCheck is defined and params.charCheck.limit %}
-        {% call onsCharLimit({
-            "id": params.id,
-            "limit": params.charCheck.limit,
-            "charCountSingular": params.charCheck.charCountSingular,
-            "charCountPlural": params.charCheck.charCountPlural,
-            "charCountOverLimitSingular": params.charCheck.charCountOverLimitSingular,
-            "charCountOverLimitPlural": params.charCheck.charCountOverLimitPlural
-        }) %}
-            {{ field | safe }}
-        {% endcall %}
-    {% elif params.mutuallyExclusive %}
+    {% if params.charCheckLimit is defined and params.charCheckLimit.limit is defined %}
+        {% set charCheckField %}
+            {% call onsCharLimit({
+                "id": params.id ~ "-check",
+                "limit": params.charCheckLimit.limit,
+                "type": "check",
+                "charCountSingular": params.charCheckLimit.charCountSingular,
+                "charCountPlural": params.charCheckLimit.charCountPlural,
+                "charCountOverLimitSingular": params.charCheckLimit.charCountOverLimitSingular,
+                "charCountOverLimitPlural": params.charCheckLimit.charCountOverLimitPlural
+            }) %}
+                {{ field | safe }}
+            {% endcall %}
+        {% endset %}
+    {% endif %}
+
+    {% if params.mutuallyExclusive is defined %}
         {% call onsMutuallyExclusive({
             "id": params.fieldId,
             "legend": params.legend,
@@ -135,7 +140,11 @@
             "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
             "error": params.error
         }) %}
-            {{ field | safe }}
+            {% if charCheckField is defined %}
+                {{ charCheckField | safe }}
+            {% else %}
+                {{ field | safe }}
+            {% endif %}
         {% endcall %}
     {% elif type == "hidden" %}
         {{ field | safe }}
@@ -146,7 +155,11 @@
             "dontWrap": params.dontWrap,
             "error": params.error
         }) %}
-            {{ field | safe }}
+            {% if charCheckField is defined %}
+                {{ charCheckField | safe }}
+            {% else %}
+                {{ field | safe }}
+            {% endif %}
         {% endcall %}
     {% endif %}
 {% endmacro %}
