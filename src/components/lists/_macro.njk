@@ -2,7 +2,7 @@
     {% if params.element is defined %}
         {% set listEl = params.element | lower %}
     {% else %}
-        {% set listEl = 'ul' %}
+        {% set listEl = 'ol' %}
     {% endif %}
 
     <{{listEl}} {% if params.id is defined %}id="{{ params.id }}"{% endif %} class="list {{ params.classes }}">
