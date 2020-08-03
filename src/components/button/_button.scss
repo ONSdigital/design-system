@@ -106,11 +106,6 @@ $button-border-height: 3px;
   &--print:hover & {
     &__inner {
       background: darken($color-button-secondary, 5%);
-      svg {
-        width: 70px;
-        height: 70px;
-        fill: red;
-      }
     }
   }
 
