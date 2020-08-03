@@ -25,7 +25,7 @@
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="input input--text input-type__input {% if params.error %} input--error {% endif %}{% if params.typeahead %} js-typeahead-input {% endif %} {% if params.searchButton %}u-mr-xs{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="input input--text input-type__input {% if params.error %} input--error {% endif %}{% if params.typeahead %} js-typeahead-input {% endif %} {% if params.searchButton %}u-mr-xs@s u-mb-xs@xs@s{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix or params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined %}name="{{ params.name }}"{% endif %}
             {% if params.value is defined %}value="{{ params.value }}"{% endif %}
