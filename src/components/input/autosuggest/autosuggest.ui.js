@@ -273,8 +273,6 @@ export default class AutosuggestUI {
                 this.handleNoResults(500);
               }
             });
-        } else {
-          this.clearListbox();
         }
       }
     }
