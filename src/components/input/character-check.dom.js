@@ -1,12 +1,12 @@
 import domready from 'js/domready';
 
 async function initialise() {
-  const checkedWrapper = [...document.querySelectorAll('.js-char-check')];
+  const checkedInputs = [...document.querySelectorAll('.js-char-check-input')];
 
-  if (checkedWrapper.length) {
-    const CharCheck = (await import('./character-check')).default;
+  if (checkedInputs.length) {
+    const CharCheck = (await import('../char-check-limit/character-check')).default;
 
-    checkedWrapper.forEach(input => new CharCheck(input));
+    checkedInputs.forEach(input => new CharCheck(input));
   }
 }
 

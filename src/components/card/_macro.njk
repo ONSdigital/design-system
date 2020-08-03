@@ -15,10 +15,9 @@
     {%- endif -%}
 
     <p id="{{ params.textId }}">{{ params.text }}</p>
-    {% if params.itemsList -%}
+    {% if params.itemsList is defined -%}
       {{
           onsList({
-              "element": 'ul',
               "classes": 'list--dashed',
               "itemsList": params.itemsList
           })
