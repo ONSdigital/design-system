@@ -112,14 +112,13 @@ $button-border-height: 3px;
   &--print &__inner {
     &:after {
       @include icon('print');
-
       content: '';
-
       margin: 0 0 0 0.5rem;
       vertical-align: middle;
     }
   }
 
+  &--exit &__inner,
   &--link &__inner {
     &:after {
       content: '';
@@ -210,21 +209,14 @@ $button-border-height: 3px;
   &--loader &__inner {
     position: relative;
     transition: color 0.3s ease-in-out;
-
     &:after {
       @include icon($name: 'loader', $height: 1.5em);
-
       content: '';
-
       position: absolute;
-
       top: 50%;
       left: 50%;
-
       transform: translate(-50%, -50%);
-
       opacity: 0;
-
       transition: opacity 0.3s ease-in-out;
     }
   }
@@ -252,7 +244,6 @@ $button-border-height: 3px;
   &--mobile & {
     &__inner {
       border: 2px solid rgba(255, 255, 255, 0.6);
-
       background: transparent;
       color: $color-white;
     }
@@ -284,7 +275,6 @@ $button-border-height: 3px;
   &--ghost-blue & {
     &__inner {
       border: 2px solid $color-blue;
-
       background: transparent;
       color: $color-blue;
     }
@@ -297,6 +287,12 @@ $button-border-height: 3px;
     }
   }
 
+  &--ghost-blue:hover & {
+    &__inner {
+      background: darken($color-grey-5, 5%);
+    }
+  }
+
   &--mobile {
     @include mq(m) {
       display: none;
@@ -306,21 +302,11 @@ $button-border-height: 3px;
   &--mobile & {
     &__inner {
       padding: 0.4rem 0.5rem;
-
       &:after {
+        @include icon($name: 'chevron-down-white', $height: 0.8rem);
         content: '';
         display: inline-block;
         margin: 0 0 0 0.5rem;
-
-        width: 12px;
-        height: 8px;
-
-        background: {
-          image: url(#{$static}/img/icons/icons--chevron-down-white.svg);
-          repeat: no-repeat;
-          size: 12px 8px;
-        }
-
         vertical-align: middle;
       }
     }
@@ -335,9 +321,7 @@ $button-border-height: 3px;
   &--mobile:focus:not(:active):not(:hover) & {
     &__inner {
       &:after {
-        background: {
-          image: url(#{$static}/img/icons/icons--chevron-down-black.svg);
-        }
+        @include icon($name: 'chevron-down-black', $height: 0.8rem);
       }
     }
   }
@@ -356,6 +340,36 @@ $button-border-height: 3px;
     .btn__inner.icon--external-link {
       &:after {
         @include icon($name: 'external-link-black', $height: 0.8rem);
+      }
+    }
+  }
+
+  &--exit {
+    &.btn--ghost-blue,
+    &.btn--ghost-blue:active,
+    &.btn--ghost-blue:hover:focus {
+      .btn__inner.icon--exit {
+        &:after {
+          @include icon($name: 'exit-blue', $height: 0.8rem);
+        }
+      }
+    }
+  }
+
+  &--exit,
+  &--exit:active,
+  &--exit:hover:focus {
+    .btn__inner.icon--exit {
+      &:after {
+        @include icon($name: 'exit-white', $height: 0.8rem);
+      }
+    }
+  }
+
+  &--exit:focus {
+    .btn__inner.icon--exit {
+      &:after {
+        @include icon($name: 'exit-black', $height: 0.8rem);
       }
     }
   }
