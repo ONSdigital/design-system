@@ -2,20 +2,20 @@
 
 {% set tag = "a" if params.url else "button" %}
 
-{% if params.icon %}
+{% if params.icon is defined %}
   {% set iconType = params.icon.iconType %}
   {% set iconPosition = params.icon.iconPosition %}
 {% else %}
-  {% if params.url and params.newWindow %}
+  {% if params.url is defined and params.newWindow is defined %}
     {% set iconType = "external-link" %}
     {% set iconPosition = "after" %}
-  {% elif params.url %}
+  {% elif params.url is defined %}
     {% set iconType = "chevron-right" %}
     {% set iconPosition = "after" %}
-  {% elif params.print %}
+  {% elif params.print is defined %}
     {% set iconType = "print" %}
     {% set iconPosition = "after" %}
-  {% elif params.exit %}
+  {% elif params.exit is defined %}
     {% set iconType = "exit" %}
     {% set iconPosition = "after" %}
   {% endif %}
@@ -26,7 +26,7 @@
         href="{{ params.url }}"
         role="button"
       {% else %}
-        type="{{ params.type if params.type else ('button' if params.print else 'submit') }}"
+        type="{{ params.type if params.type is defined else ('button' if params.print is defined else 'submit') }}"
       {% endif %}
       class="btn{% if params.classes is defined %} {{ params.classes }}{% endif %}{% if params.url is defined and not params.hideCaret %} btn--link{% endif %}{% if params.disabled is defined %} btn--disabled{% endif %}{% if params.print is defined %} btn--print u-d-no js-print-btn{% endif %}{% if params.exit is defined %} btn--exit{% endif %}{% if params.submitType == "loader" %} btn--loader js-loader js-submit-btn{% endif %}{% if params.submitType == "timer" %} js-timer js-submit-btn{% endif %}"
       {% if params.id is defined %}id="{{ params.id }}"{% endif %}

@@ -106,15 +106,11 @@ $button-border-height: 3px;
   &--print:hover & {
     &__inner {
       background: darken($color-button-secondary, 5%);
-    }
-  }
-
-  &--print &__inner {
-    &:after {
-      @include icon('print');
-      content: '';
-      margin: 0 0 0 0.5rem;
-      vertical-align: middle;
+      svg {
+        width: 70px;
+        height: 70px;
+        fill: red;
+      }
     }
   }
 
