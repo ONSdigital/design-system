@@ -1,5 +1,5 @@
 {% macro onsPanel(params) %}
-  {% if params and params.classes %}
+  {% if params is defined and params.classes is defined %}
     {% set classes  = ' ' + params.classes %}
   {% endif %}
 
@@ -7,13 +7,13 @@
       {% set simpleClass = ' panel--simple' %}
   {% endif %}
 
-  {% if params and params.type %}
+  {% if params is defined and params.type is defined %}
       {% set typeClass = ' panel--' + params.type %}
   {% else %}
       {% set typeClass = ' panel--info' %}
   {% endif %}
 
-  {% if params and params.spacious %}
+  {% if params is defined and params.spacious is defined %}
       {% set spaciousClass = ' panel--spacious' %}
   {% endif %}
 
@@ -23,21 +23,21 @@
 
     <div
         class="panel{{ typeClass }}{{ iconClass }}{{ simpleClass }}{{ spaciousClass }}{{ classes }}"
-        {% if params is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params is defined and params.id %} id="{{params.id}}"{% endif %}
+        {% if params is defined and params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params is defined and params.id is defined %} id="{{params.id}}"{% endif %}
     >
-        {% if params and params.type == "warn" %}
+        {% if params is defined and params.type == "warn" %}
             <span class="panel__icon" aria-hidden="true">!</span>
         {% elif params and params.icon %}
             <span class="panel__icon icon--{{ params.icon }}"></span>
         {% endif %}
 
-        {% if params and params.title %}
+        {% if params is defined and params.title is defined %}
             {% set titleTag = params.titleTag | default("div") %}
             <div class="panel__header">
-                <{{ titleTag }} {% if params.type %}data-qa="{{ params.type }}-header"{% endif %} class="panel__title u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
+                <{{ titleTag }} {% if params.type is defined %}data-qa="{{ params.type }}-header"{% endif %} class="panel__title u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
             </div>
         {% endif %}
-        <div class="panel__body" {% if params is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ (params.body if params else "") | safe }}
+        <div class="panel__body" {% if params is defined and params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ (params.body if params else "") | safe }}
             {{ caller() if caller }}
         </div>
     </div>

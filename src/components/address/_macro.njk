@@ -5,7 +5,7 @@
    {% set fields %}
     <div id="address" class="field address-input js-address-autosuggest address-input--search">
             <div class="js-address-input__manual u-db-no-js_enabled">
-                {% if params.organisation.label %}
+                {% if params.organisation is defined %}
                     {{
                         onsInput({
                             "id": params.id + "-organisation",
@@ -17,6 +17,7 @@
                         })
                     }}
                 {% endif %}
+                {% if params.line1 is defined %}
                 {{
                     onsInput({
                         "id": params.id + "-line-1",
@@ -28,6 +29,8 @@
                         "error": params.line1.error
                     })
                 }}
+                {% endif %}
+                {% if params.line2 is defined %}
                 {{
                     onsInput({
                         "id": params.id + "-line-2",
@@ -38,6 +41,8 @@
                         "name": params.id + "-line-2"
                     })
                 }}
+                {% endif %}
+                {% if params.town is defined %}
                 {{
                     onsInput({
                         "id": params.id + "-town",
@@ -48,6 +53,8 @@
                         "name": params.id + "-town"
                     })
                 }}
+                {% endif %}
+                {% if params.postcode is defined %}
                 {{
                     onsInput({
                         "id": params.id + "-postcode",
@@ -58,6 +65,7 @@
                         "name": params.id + "-postcode"
                     })
                 }}
+                {% endif %}
                 {{
                     onsInput({
                         "id": params.id + "-uprn",
@@ -71,7 +79,7 @@
                     <a href="#" class="btn--link js-address-search-btn u-db-no-js_disabled">{{ params.searchButton }}</a>
                 </div>
             </div>
-
+            {% if params.autosuggest is defined %}
             <div class="js-address-input__search u-db-no-js_disabled">
                 {{
                     onsInput({
@@ -105,12 +113,13 @@
                         }
                     })
                 }}
+                {% endif %}
                 <a href="#" class="btn--link js-address-manual-btn">{{ params.manualButton }}</a>
             </div>
         </div>
     {% endset %}
 
-    {% if params.dontWrap %}
+    {% if params.dontWrap is defined %}
         {{ fields | safe }}
     {% else %}
         {% call onsFieldset({

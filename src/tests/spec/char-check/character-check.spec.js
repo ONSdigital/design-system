@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/search/_test-template.njk';
-import CharCheck from 'components/input/character-check/character-check';
+import CharCheck from 'components/char-check-limit/character-check';
 
 const params = {
   id: 'search-field',
@@ -12,7 +12,7 @@ const params = {
   searchButton: {
     text: 'Filter',
   },
-  charCheck: {
+  charCheckLimit: {
     charcheckCountdown: true,
     limit: 11,
     charCountSingular: '{x} more number needed',
@@ -34,7 +34,7 @@ describe('Component: Input with character check', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    searchWrapper = document.querySelector('.js-char-check');
+    searchWrapper = document.querySelector('.js-char-check-input');
     searchInput = document.getElementById(params.id);
     limit_readout = document.getElementById(`${params.id}-check-remaining`);
 
@@ -61,7 +61,9 @@ describe('Component: Input with character check', () => {
       });
 
       it('then the characters remaining readout reflect the number of characters remaining', () => {
-        expect(limit_readout.innerHTML).to.equal(params.charCheck.charCountPlural.replace('{x}', params.charCheck.limit - value.length));
+        expect(limit_readout.innerHTML).to.equal(
+          params.charCheckLimit.charCountPlural.replace('{x}', params.charCheckLimit.limit - value.length),
+        );
       });
 
       it('the char check readout should be visible', () => {
@@ -94,8 +96,8 @@ describe('Component: Input with character check', () => {
     });
 
     it('then the characters remaining readout reflect the number of characters exceeded', () => {
-      let remaining = params.charCheck.limit - value.length;
-      expect(limit_readout.innerHTML).to.equal(params.charCheck.charCountOverLimitSingular.replace('{x}', Math.abs(remaining)));
+      let remaining = params.charCheckLimit.limit - value.length;
+      expect(limit_readout.innerHTML).to.equal(params.charCheckLimit.charCountOverLimitSingular.replace('{x}', Math.abs(remaining)));
     });
 
     it('then the input and readout should be given limit reached classes', () => {

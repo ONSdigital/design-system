@@ -17,6 +17,7 @@
 | fieldClasses          | string                                                        | false                            | Classes for the field                                                               |
 | dontWrap              | boolean                                                       | false                            | Prevents the input from being wrapped in a [field component](/components/field)     |
 | mutuallyExclusive     | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false                            | Configuration object if this is a mutually exclusive input                          |
+| CharCheckLimit        | `CharCheckLimit`                                              | false                            | Configuration object if this input has a character count                            |
 | legend                | string                                                        | Only if mutuallyExclusive is set | Text content for the legend                                                         |
 | legendClasses         | string                                                        | false                            | Classes for the legend                                                              |
 | error                 | `Error` [_(ref)_](/components/error)                          | false                            | Configuration for validation errors                                                 |
@@ -34,13 +35,27 @@
 | title | string | true     | The title of the prefix/suffix. For example where `text` is "cm", `title` would be "centimeters" |
 | id    | string | false    | Id for the prefix/suffix                                                                         |
 
-## CharCheck
+## Typeahead
 
-| Name                       | Type    | Required | Description                                                                                                                                           |
-| -------------------------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| limit                      | number  | false    | The maximum amount of characters a user should type in                                                                                                |
-| charcheckCountdown         | boolean | false    | Displays the number of remaining characters allowed based on the limit                                                                                |
-| charCountPlural            | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are remaining. `{x}` Will be replaced with the number            |
-| charCountSingular          | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are remaining (singular). `{x}` Will be replaced with the number |
-| charCountOverLimitSingular | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are over (singular). `{x}` Will be replaced with the number      |
-| charCountOverLimitPlural   | string  | false    | Required if `charCheck` is supplied. The string that will render how many characters are over (plural). `{x}` Will be replaced with the number        |
+| Name                | Type   | Required | Description                                                                                      |
+| ------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------ |
+| typeaheadData       | string | true     | URL of the JSON file with the typeahead data that needs to be searched                           |
+| instructions        | string | true     | Instructions on how to use the typeahead that will be read out by screenreaders                  |
+| ariaYouHaveSelected | string | true     | Aria message to tell the user that they have selected an answer                                  |
+| ariaMinChars        | string | true     | Aria message to tell the user how many characters they need to enter before typeahead will start |
+| ariaOneResult       | string | true     | Aria message to tell the user there is only one suggestion left                                  |
+| ariaNResults        | string | true     | Aria message to tell the user how many suggestions are left                                      |
+| ariaLimitedResults  | string | true     | Aria message to tell the user if the results have been limited and what they are limited to      |
+| moreResults         | string | true     | Aria message to tell the user to continue to type to refine suggestions                          |
+| resultsTitle        | string | true     | Title of results to be displayed on screen at the top of the results                             |
+
+## CharCheckLimit
+
+| Name                       | Type    | Required | Description                                                                                                                                                |
+| -------------------------- | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| limit                      | number  | false    | The maximum amount of characters a user should type in                                                                                                     |
+| charcheckCountdown         | boolean | false    | Displays the number of remaining characters allowed based on the limit                                                                                     |
+| charCountPlural            | string  | false    | Required if `CharCheckLimit` is supplied. The string that will render how many characters are remaining. `{x}` Will be replaced with the number            |
+| charCountSingular          | string  | false    | Required if `CharCheckLimit` is supplied. The string that will render how many characters are remaining (singular). `{x}` Will be replaced with the number |
+| charCountOverLimitSingular | string  | false    | Required if `CharCheckLimit` is supplied. The string that will render how many characters are over (singular). `{x}` Will be replaced with the number      |
+| charCountOverLimitPlural   | string  | false    | Required if `CharCheckLimit` is supplied. The string that will render how many characters are over (plural). `{x}` Will be replaced with the number        |

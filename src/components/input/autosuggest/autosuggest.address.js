@@ -76,9 +76,6 @@ export default class AutosuggestAddress {
 
     // Check API status
     this.checkAPIStatus();
-
-    // Retrieve additional queries
-    this.getQueryTypes();
   }
 
   checkAPIStatus() {
@@ -295,7 +292,15 @@ export default class AutosuggestAddress {
               this.autosuggest.input.value = selectedResult.displayText;
             }
           })
-          .catch(reject);
+          .catch(error => {
+            console.log(error);
+            if (this.isEditable) {
+              this.handleAPIError();
+            } else {
+              this.autosuggest.handleNoResults(403);
+            }
+            reject();
+          });
       } else if (selectedResult.postcode) {
         const event = new Event('input', {
           bubbles: true,
@@ -344,13 +349,14 @@ export default class AutosuggestAddress {
   }
 
   handleSubmit(event) {
-    if ((!this.addressSelected && !this.search.classList.contains('u-d-no')) || this.input.value === '') {
-      event.preventDefault();
+    if (this.addressSelected !== false) {
+      if (!this.search.classList.contains('u-d-no') || this.input.value === '') {
+        event.preventDefault();
+        const handleError = new AddressError(this.context);
+        handleError.showErrorPanel();
 
-      const handleError = new AddressError(this.context);
-      handleError.showErrorPanel();
-
-      this.autosuggest.setAriaStatus(this.errorMessage);
+        this.autosuggest.setAriaStatus(this.errorMessage);
+      }
     }
   }
 }

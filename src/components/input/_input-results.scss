@@ -91,16 +91,18 @@
   &__panel.panel--warn {
     background: none;
     border: none;
+    margin: 0;
     .panel__icon {
       min-width: 26px;
       min-height: 24px;
       margin-top: 0;
       font-size: 21px;
       line-height: 25px;
+      top: 17px;
     }
 
     .panel__body {
-      padding: 0.7rem 0.8rem 0.8rem 2rem;
+      padding: 0.7rem 0.8rem 0.8rem 1rem;
       font-weight: bold;
     }
   }
