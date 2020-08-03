@@ -37,7 +37,7 @@
                     pageInfo: pageInfo,
                     anchorLinks: page.anchorLinks
                 }) %}
-                    {% if group.title %}
+                    {% if group.title is defined %}
                         <h2 class="u-mb-xs">{{ group.title }}</h2>
                     {% endif %}
                     {{
