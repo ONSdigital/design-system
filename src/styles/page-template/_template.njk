@@ -5,22 +5,22 @@
 
 {% set currentLanguageISOCode = "en" %}
 
-{% if pageConfig and pageConfig.language and pageConfig.language.languages %}
+{% if pageConfig is defined and pageConfig.language is defined and pageConfig.language.languages is defined %}
     {% set currentLanguage = pageConfig.language.languages | selectattr("current") | first %}
     {% set currentLanguageISOCode = currentLanguage.ISOCode %}
     {% set otherLanguage = pageConfig.language.languages | rejectattr("current") | first %}
     {% set otherLanguageISOCode = otherLanguage.ISOCode %}
 {% endif %}
 
-{% if pageConfig.cdn or release_version %}
+{% if pageConfig.cdn is defined or release_version is defined %}
     {# Production #}
     {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn is defined) or "https://cdn.ons.gov.uk/sdc/design-system" %}
     {% set slash = "" if cdn_url | last == "/" else "/" %}
     {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version  if pageConfig.cdn is defined) or release_version) %}
-{% elif data and data.version %}
+{% elif data is defined and data.version is defined%}
     {# Prototype kits #}
     {% set assetsURL = "/" + data.version %}
-{% elif pageConfig.assetsURL %}
+{% elif pageConfig.assetsURL is defined %}
     {# Runner Dev #}
     {% set assetsURL = pageConfig.assetsURL %}
 {% else %}
@@ -28,9 +28,9 @@
     {% set assetsURL = "" %}
 {% endif %}
 
-{% if pageConfig and pageConfig.title %}
+{% if pageConfig is defined and pageConfig.title is defined %}
     {% set page_title = pageConfig.title %}
-{% elif data and data.title %}
+{% elif data is defined and data.title is defined %}
     {% set page_title = data.title %}
 {% else %}
     {% set page_title = "" %}
@@ -43,7 +43,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ page_title }}</title>
         <link rel="stylesheet" href="{{ assetsURL }}/css/{{ pageConfig.theme | default('main') }}.css">
-        {% if pageConfig.headMeta %}
+        {% if pageConfig.headMeta is defined %}
             <meta property="og:description" content="{{ pageConfig.headMeta.description }}">
             <meta property="og:title" content="{{ pageConfig.title }}">
             <meta property="og:url" content="{{ pageConfig.absoluteUrl }}">
@@ -51,13 +51,13 @@
             <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}">
             <meta property="og:image" content="{{ pageConfig.headMeta.image | default(pageConfig.header.logo) }}">
             <meta property="og:locale" content="{{ currentLanguageISOCode }}" />
-            {% if otherLanguageISOCode %}
+            {% if otherLanguageISOCode is defined %}
                 <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}" /> 
             {% endif %}
             <meta name="twitter:card" content="summary">
             <meta name="description" content="{{ pageConfig.headMeta.description }}">
             <link rel="canonical" href="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
-            {% if pageConfig.headMeta.hreflangs %}
+            {% if pageConfig.headMeta.hreflangs is defined %}
                 {% for item in pageConfig.headMeta.hreflangs %}
                     <link rel="alternate" href="{{ item.url }}" hreflang="{{ item.lang }}" />
                 {% endfor %}
@@ -75,8 +75,8 @@
 
         {% block head %}{% endblock %}
     </head>
-    <body{% if pageConfig.bodyClasses %} class="{{ pageConfig.bodyClasses }}"{% endif %}>
-        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    <body{% if pageConfig.bodyClasses is defined %} class="{{ pageConfig.bodyClasses }}"{% endif %}>
+        <script{% if csp_nonce is defined %} nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
         {% block bodyStart %}{% endblock %}
         {% block body %}
             <div class="page">
@@ -89,11 +89,11 @@
                             })
                         }}
                     {% endblock %}
-                    {% if form and form.attributes %}
+                    {% if form is defined and form.attributes is defined %}
                         <form
-                            {% if form.classes %}class="{{ form.classes }}"{% endif %}
+                            {% if form.classes is defined %}class="{{ form.classes }}"{% endif %}
                             method="{{ form.method | default('POST') }}"
-                            {% if form.attributes %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value %}="{{value}}" {% endif %}{% endfor %}{% endif %}
+                            {% if form.attributes is defined %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value is defined %}="{{value}}" {% endif %}{% endfor %}{% endif %}
                         >
                     {% endif %}
                     {% block preHeader %}{% endblock %}
@@ -134,12 +134,12 @@
                         </div>
                     {% endblock %}
 
-                    {% if form and form.attributes %}
+                    {% if form is defined and form.attributes is defined %}
                         </form>
                     {% endif %}
                 </div>
                 {% block preFooter %}
-                    {% if pageConfig.feedback %}
+                    {% if pageConfig.feedback is defined %}
                         {{
                             onsFeedback({
                                 "id": pageConfig.feedback.id | default("feedback"),
@@ -160,7 +160,7 @@
                     {% endif %}
                 {% endblock %}
                 {% block footer %}
-                    {% if pageConfig.footer %}
+                    {% if pageConfig.footer is defined %}
                         {{
                             onsFooter({
                                 "assetsURL": assetsURL,
@@ -183,15 +183,15 @@
             {% block bodyEnd %}{% endblock %}
         {% endblock %}
 
-        {% if isPatternLib %}
+        {% if isPatternLib is defined %}
             {% set scripts = assetsURL + "/scripts/main.js," + assetsURL + "/scripts/patternlib.js" %}
         {% else %}
             {% set scripts = assetsURL + "/scripts/main.js" %}
         {% endif %}
 
-        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
+        <script{% if csp_nonce is defined %} nonce="{{ csp_nonce() }}"{% endif %}>
             (function() {
-                {% if assetsURL -%}window.ONS_assets_base_URL = "{{ assetsURL }}/";{%- endif %}
+                {% if assetsURL is defined -%}window.ONS_assets_base_URL = "{{ assetsURL }}/";{%- endif %}
                 var s = '{{ scripts | safe }}'.split(','),
                 c = document.createElement('script');
 
@@ -211,7 +211,7 @@
             })();
         </script>
 
-        {% if devMode %}
+        {% if devMode is defined %}
             <script>document.write('<script src="//' + (location.hostname || 'localhost').split(':')[0] + ':35729/livereload.js" defer><\/script>');</script>
         {% endif %}
 

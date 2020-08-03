@@ -33,7 +33,7 @@ An [error panel](/components/panel#error) must be displayed above the form when 
 
 The error `panel__header` must display the number of errors on the page if there is more than one.
 
-The error `panel__body` must contain an anchored list to each erroneous field or fieldset on the page, each describing the specific error and directing the user towards a resolution.
+The error `panel__body` must contain an anchored ordered list to each erroneous field or fieldset on the page, each describing the specific error and directing the user towards a resolution. To use an orderd list you must set `element` to "ol" when using the list macro.
 
 Each list item `url` key should contain a value that matches the id of the `panel` that wraps the input that has an error and preceded with a hash i.e. `#email-input`. Javascript will focus the corresponding input.
 
