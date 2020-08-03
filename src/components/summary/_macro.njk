@@ -56,7 +56,7 @@
                                                 {% if rowItem.actions == null %} colspan="2"{% endif %}
                                                 {% if rowItem.attributes is defined %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
-                                                {% if rowItem.valueList is defined | length == 1 %}
+                                                {% if rowItem.valueList | length == 1 %}
                                                     {{ rowItem.valueList[0].text | safe }}
                                                     {% if rowItem.valueList[0].other is defined or rowItem.valueList[0].other == 0 %}
                                                         <ul class="u-mb-no">
