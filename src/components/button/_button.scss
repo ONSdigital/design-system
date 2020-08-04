@@ -20,6 +20,13 @@ $button-border-height: 3px;
   vertical-align: top;
   cursor: pointer;
 
+  svg {
+    margin: 0 0 0 0.5rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    vertical-align: middle;
+  }
+
   &:hover & {
     &__inner {
       background: darken($color-button, 5%);
@@ -106,15 +113,6 @@ $button-border-height: 3px;
   &--print:hover & {
     &__inner {
       background: darken($color-button-secondary, 5%);
-    }
-  }
-
-  &--exit &__inner,
-  &--link &__inner {
-    &:after {
-      content: '';
-      margin: 0 0 0 0.5rem;
-      vertical-align: middle;
     }
   }
 
