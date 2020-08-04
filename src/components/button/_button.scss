@@ -209,9 +209,15 @@ $button-border-height: 3px;
     }
   }
 
-  &--ghost:focus:not(:hover) &__inner {
-    background-color: $color-focus;
-    color: $color-focus-text;
+  &--ghost:focus:not(:hover) &,
+  &--ghost-blue:focus:not(:hover) & {
+    &__inner {
+      background-color: $color-focus;
+      color: $color-focus-text;
+      svg {
+        fill: $color-black;
+      }
+    }
   }
 
   &--ghost-blue & {
