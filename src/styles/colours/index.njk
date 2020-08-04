@@ -4,10 +4,17 @@ sortOrder: 1
 ---
 {% from "styles/colours/_macro.njk" import onsColours %}
 {% from "components/lists/_macro.njk" import onsList %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 The ONS colour palette is available to services using the design system so pages and elements look consistent and coherent.
 
-Our text and background colours are designed to meet accessibility needs. We aim for <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" target="_blank" rel="noopener" class="icon--external-link">WCAG AA compliance</a> contrast as far as possible. Read more about [accessibility and colour](#colour-contrast) on this page.
+Our text and background colours are designed to meet accessibility needs. We aim for {{
+    onsExternalLink({
+        "url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast",
+        "linkText": "WCAG AA compliance"
+    })
+}} contrast as far as possible. Read more about [accessibility and colour](#colour-contrast) on this page.
 
 ## Main colour palette
 {{
@@ -167,7 +174,7 @@ The colour palette `scss` variables shown above are assigned to a further variab
                 'bg': '#ffdd00',
                 'char': 'A',
                 'shadow': true,
-                'info': 'Black and yellow is used to provide visual affordance that an element has focus. Any focussed text <code>color</code> is changed to black, and yellow is applied as a <code>background-color</code> with an additional <code>4px</code> black offset <code>box-shadow</code>. Changing both foreground and background colours ensures consistent [accessible colour contrast](#colour-contrast), regardless of the element\'s initial background colour.'
+                'info': "Black and yellow is used to provide visual affordance that an element has focus. Any focussed text <code>color</code> is changed to black, and yellow is applied as a <code>background-color</code> with an additional <code>4px</code> black offset <code>box-shadow</code>. Changing both foreground and background colours ensures consistent [accessible colour contrast](#colour-contrast), regardless of the element\'s initial background colour."
             }
         ]
     })
@@ -273,7 +280,12 @@ Each status has a primary colour and a tint for use in a status [panel](/compone
 }}
 
 ## Colour contrast
-Contrast between foreground and background colours are tested to ensure <a href="https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast" target="_blank" rel="noopener" class="icon--external-link">WCAG AA compliance</a>. Where colour is used to draw attention to an item (e.g. [panel](/components/panel)) and insufficient contrast exists between a background colour and element colour, additional techniques may be required to provide support for users unable to perceive the colour.
+Contrast between foreground and background colours are tested to ensure {{
+    onsExternalLink({
+        "url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast",
+        "linkText": "WCAG AA compliance"
+    })
+}}. Where colour is used to draw attention to an item (e.g. [panel](/components/panel)) and insufficient contrast exists between a background colour and element colour, additional techniques may be required to provide support for users unable to perceive the colour.
 
 ### Accessible text and background colour combinations
 {{
@@ -361,10 +373,20 @@ Contrast between foreground and background colours are tested to ensure <a href=
 Also, ensure you test colour contrast with people of all abilities.
 
 ## Research on this style
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-   If you have conducted any user research using this style, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/232" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
+    If you have conducted any user research using this style, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/232",
+            "linkText": "Design System forum"
+        })
+    }}
 {% endcall %}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/232" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Colours' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/232",
+        "linkText": "Discuss 'Colours' on GitHub"
+    })
+}}
