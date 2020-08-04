@@ -2,6 +2,7 @@
 title: Error
 ---
 {% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 ## When to use this component
 
@@ -21,8 +22,19 @@ Generally speaking you should not need to [call](https://mozilla.github.io/nunju
 ## Research on this component
 
 {% call onsPanel() %}
-   <p>If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/534" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a></p>
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/534",
+            "linkText": "Design System forum"
+        })
+    }}
 {% endcall %}
 
-## Design System foru
-<a href="https://github.com/ONSdigital/design-system/issues/534" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Error' on GitHub</a>
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/534",
+        "linkText": "Discuss 'Error' on GitHub"
+    })
+}}

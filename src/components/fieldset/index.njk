@@ -2,6 +2,8 @@
 title: Fieldset
 ---
 {% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+
 ## When to use this component
 
 The fieldset component is used to wrap multiple form input components to provide context to the contained inputs via a `<legend>` tag.
@@ -27,8 +29,19 @@ Generally speaking you should not need to [call](https://mozilla.github.io/nunju
 ## Research on this component
 
 {% call onsPanel() %}
-   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/501" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/501",
+            "linkText": "Design System forum"
+        })
+    }}
 {% endcall %}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/501" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Fieldset' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/501",
+        "linkText": "Discuss 'Fieldset' on GitHub"
+    })
+}}

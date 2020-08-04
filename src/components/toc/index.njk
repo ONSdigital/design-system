@@ -2,6 +2,7 @@
 title: Table of contents
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 Requires documentation
 
@@ -16,4 +17,9 @@ Requires documentation
 }}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/719" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Table of contents' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/719",
+        "linkText": "Discuss 'Table of contents' on GitHub"
+    })
+}}
