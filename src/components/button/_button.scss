@@ -133,67 +133,15 @@ $button-border-height: 3px;
   &--link:not(.btn--secondary):active &,
   &--link:not(.btn--secondary):hover:focus & {
     &__inner {
-      &:after {
-        @include icon($name: 'chevron-right-white', $height: 0.8rem);
-      }
-    }
-  }
-
-  &--link {
-    &.btn--ghost-blue,
-    &.btn--ghost-blue:active,
-    &.btn--ghost-blue:hover:focus {
-      .btn__inner {
-        &:after {
-          @include icon($name: 'chevron-right-blue', $height: 0.8rem);
-        }
+      svg {
+        fill: $color-white;
       }
     }
   }
 
   &--link:focus:not(.btn--secondary) &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.8rem);
-    }
-  }
-
-  &--link.btn--small:not(.btn--secondary) &,
-  &--link.btn--small:not(.btn--secondary):active &,
-  &--link.btn--small:not(.btn--secondary):hover:focus & {
-    &__inner {
-      &:after {
-        @include icon($name: 'chevron-right-white', $height: 0.7rem);
-      }
-    }
-  }
-
-  &--link:focus.btn--small:not(.btn--secondary) &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.7rem);
-    }
-  }
-
-  &--link.btn--secondary &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.8rem);
-    }
-  }
-
-  &--link:focus.btn--secondary &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.8rem);
-    }
-  }
-
-  &--link.btn--small.btn--secondary &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.7rem);
-    }
-  }
-
-  &--link:focus.btn--small.btn--secondary &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.7rem);
+    svg {
+      fill: $color-black;
     }
   }
 
@@ -237,6 +185,9 @@ $button-border-height: 3px;
       border: 2px solid rgba(255, 255, 255, 0.6);
       background: transparent;
       color: $color-white;
+      svg {
+        fill: $color-white;
+      }
     }
   }
 
@@ -268,6 +219,9 @@ $button-border-height: 3px;
       border: 2px solid $color-blue;
       background: transparent;
       color: $color-blue;
+      svg {
+        fill: $color-blue;
+      }
     }
   }
 
@@ -313,54 +267,6 @@ $button-border-height: 3px;
     &__inner {
       &:after {
         @include icon($name: 'chevron-down-black', $height: 0.8rem);
-      }
-    }
-  }
-
-  &--link,
-  &--link:active,
-  &--link:hover:focus {
-    .btn__inner.icon--external-link {
-      &:after {
-        @include icon($name: 'external-link-white', $height: 0.8rem);
-      }
-    }
-  }
-
-  &--link:focus {
-    .btn__inner.icon--external-link {
-      &:after {
-        @include icon($name: 'external-link-black', $height: 0.8rem);
-      }
-    }
-  }
-
-  &--exit {
-    &.btn--ghost-blue,
-    &.btn--ghost-blue:active,
-    &.btn--ghost-blue:hover:focus {
-      .btn__inner.icon--exit {
-        &:after {
-          @include icon($name: 'exit-blue', $height: 0.8rem);
-        }
-      }
-    }
-  }
-
-  &--exit,
-  &--exit:active,
-  &--exit:hover:focus {
-    .btn__inner.icon--exit {
-      &:after {
-        @include icon($name: 'exit-white', $height: 0.8rem);
-      }
-    }
-  }
-
-  &--exit:focus {
-    .btn__inner.icon--exit {
-      &:after {
-        @include icon($name: 'exit-black', $height: 0.8rem);
       }
     }
   }
