@@ -90,7 +90,7 @@
   &::placeholder {
     color: transparent;
   }
-  &:valid {
+  &:valid:not(:placeholder-shown) {
     background: $color-white;
   }
   &:focus {
