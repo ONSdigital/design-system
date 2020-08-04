@@ -349,14 +349,12 @@ export default class AutosuggestAddress {
   }
 
   handleSubmit(event) {
-    if (this.addressSelected !== false) {
-      if (!this.search.classList.contains('u-d-no') || this.input.value === '') {
-        event.preventDefault();
-        const handleError = new AddressError(this.context);
-        handleError.showErrorPanel();
+    if (!this.addressSelected && !this.search.classList.contains('u-d-no')) {
+      event.preventDefault();
+      const handleError = new AddressError(this.context);
+      handleError.showErrorPanel();
 
-        this.autosuggest.setAriaStatus(this.errorMessage);
-      }
+      this.autosuggest.setAriaStatus(this.errorMessage);
     }
   }
 }
