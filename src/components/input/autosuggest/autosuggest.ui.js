@@ -49,6 +49,7 @@ export default class AutosuggestUI {
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
     this.form = context.closest('form');
+    this.label = document.querySelector(`.${baseClass}-label`);
 
     // Settings
     this.autosuggestData = autosuggestData || context.getAttribute('data-autosuggest-data');
@@ -418,6 +419,11 @@ export default class AutosuggestUI {
       this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
     } else if (status > 400) {
       message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>' : '');
+
+      this.input.setAttribute('disabled', true);
+      this.input.value = '';
+      this.label.classList.add('u-lighter');
+
       this.listbox.innerHTML = '';
       this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
       this.setAriaStatus(message);
