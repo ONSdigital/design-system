@@ -1,7 +1,5 @@
 // The @include create-icon @mixin is located in the 'partials/helpers/_mixins.scss' file
 
-@include create-icon($name: person, $margin: 1rem, $transform: translateY(-0.15rem));
-
 @include create-icon($name: chevron-right-white, $height: 0.8rem, $position: 'after');
 
 svg {
