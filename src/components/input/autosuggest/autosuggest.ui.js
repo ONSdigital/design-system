@@ -116,7 +116,7 @@ export default class AutosuggestUI {
     this.input.setAttribute('aria-has-popup', true);
     this.input.setAttribute('aria-owns', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-expanded', false);
-    this.input.setAttribute('autocomplete', this.input.getAttribute('data-autocomplete') || 'zz');
+    this.input.setAttribute('autocomplete', this.input.getAttribute('autocomplete') || 'zz');
     this.input.setAttribute('role', 'combobox');
 
     this.context.classList.add('autosuggest-input--initialised');

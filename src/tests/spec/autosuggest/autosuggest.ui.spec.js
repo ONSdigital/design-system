@@ -110,7 +110,7 @@ describe('Autosuggest.ui component', function() {
     });
 
     it('the autocomplete attribute be set to be not set to on', function() {
-      expect(this.input.getAttribute('autocomplete')).to.be.oneOf(['off', 'null', undefined, '']);
+      expect(this.input.getAttribute('autocomplete')).to.be.oneOf(['off', 'null', undefined, '', '']);
     });
 
     it('the instructions, listbox, and status should become visible', function() {
@@ -282,7 +282,7 @@ describe('Autosuggest.ui component', function() {
       describe('if the input is not currently blurring and the input has a value', function() {
         beforeEach(function(done) {
           this.autosuggest.blurring = false;
-          this.autosuggestst.input.value = 'Test test test';
+          this.autosuggest.input.value = 'Test test test';
 
           setTimeout(() => {
             this.autosuggest.handleChange();
@@ -297,10 +297,10 @@ describe('Autosuggest.ui component', function() {
 
       describe('if the input is not currently blurring and the input does not have a value', function() {
         beforeEach(function(done) {
-          this.autosuggestst.blurring = false;
+          this.autosuggest.blurring = false;
 
           setTimeout(() => {
-            this.autosuggestst.handleChange();
+            this.autosuggest.handleChange();
             done();
           });
         });
@@ -312,7 +312,7 @@ describe('Autosuggest.ui component', function() {
 
       describe('if the input is currently blurring and the input has a value', function() {
         beforeEach(function(done) {
-          this.autosuggestst.blurring = true;
+          this.autosuggest.blurring = true;
           this.autosuggest.input.value = 'Test test test';
 
           setTimeout(() => {
@@ -331,7 +331,7 @@ describe('Autosuggest.ui component', function() {
           this.autosuggest.blurring = true;
 
           setTimeout(() => {
-            this.autosuggestst.handleChange();
+            this.autosuggest.handleChange();
             done();
           });
         });
@@ -345,17 +345,18 @@ describe('Autosuggest.ui component', function() {
     describe('and suggestions are requested', function() {
       beforeEach(function() {
         this.unsetResultsSpy = chai.spy.on(this.autosuggest, 'unsetResults');
-        this.setAriaStatusSpy = chai.spy.on(this.autosuggestst, 'setAriaStatus');
-        this.fetchSuggestionsSpy = chai.spy.on(this.autosuggestst, 'fetchSuggestions');
-        this.clearListboxSpy = chai.spy.on(this.autosuggestst, 'clearListbox');
-        this.handleResultsSpy = chai.spy.on(this.autosuggestst, 'handleResults');
-        this.onErrorSpy = chai.spy.on(this.autosuggestst, 'onError');
+        this.setAriaStatusSpy = chai.spy.on(this.autosuggest, 'setAriaStatus');
+        this.fetchSuggestionsSpy = chai.spy.on(this.autosuggest, 'fetchSuggestions');
+        this.clearListboxSpy = chai.spy.on(this.autosuggest, 'clearListbox');
+        this.handleResultsSpy = chai.spy.on(this.autosuggest, 'handleResults');
+        this.handleNoResultsSpy = chai.spy.on(this.autosuggest, 'handleNoResults');
+        this.onErrorSpy = chai.spy.on(this.autosuggest, 'onError');
       });
 
       describe('if a result is being set', function() {
         beforeEach(function() {
-          this.autosuggestst.settingResult = true;
-          this.autosuggestst.getSuggestions();
+          this.autosuggest.settingResult = true;
+          this.autosuggest.getSuggestions();
         });
 
         getSuggestionsNothingRunTests();
@@ -363,7 +364,7 @@ describe('Autosuggest.ui component', function() {
 
       describe('if the query hasnt changed', function() {
         beforeEach(function() {
-          this.autosuggestst.getSuggestions();
+          this.autosuggest.getSuggestions();
         });
 
         getSuggestionsNothingRunTests();
@@ -371,7 +372,7 @@ describe('Autosuggest.ui component', function() {
 
       describe('if the query hasnt changed but force is set to true', function() {
         beforeEach(function() {
-          this.autosuggestst.getSuggestions(true);
+          this.autosuggest.getSuggestions(true);
         });
 
         it('then the results should be unset', function() {
@@ -385,7 +386,7 @@ describe('Autosuggest.ui component', function() {
 
       describe('if the query hasnt changed but force is set to true and a result is selected', function() {
         beforeEach(function() {
-          this.autosuggestst.resultSelected = true;
+          this.autosuggest.resultSelected = true;
           this.autosuggest.getSuggestions(true);
         });
 
@@ -397,7 +398,7 @@ describe('Autosuggest.ui component', function() {
           this.input.value = 'Test';
 
           setTimeout(() => {
-            this.autosuggestst.getSuggestions();
+            this.autosuggest.getSuggestions();
             done();
           });
         });
@@ -416,36 +417,21 @@ describe('Autosuggest.ui component', function() {
           this.input.value = 'T';
 
           setTimeout(() => {
-            this.autosuggestst.getSuggestions();
+            this.autosuggest.getSuggestions();
             done();
           });
         });
 
         it('then the listbox should be cleared', function() {
-          expect(this.clearListboxSpy).to.have.been.called();
-        });
-      });
-
-      describe('if the query is equal to or longer than the minimum characters and the user hits enter without selecting a suggestion', function() {
-        beforeEach(function() {
-          this.autosuggest.handleFocus();
-          this.mockedEvent = eventMock({ key: 'Enter' });
-          this.autosuggestst.handleKeyup(this.mockedEvent);
-        });
-        it('then the listbox should be cleared', function(done) {
           setTimeout(() => {
-            expect(this.clearListboxSpy).to.have.been.called();
-            done();
-          });
-          it('and the input should not be cleared', function() {
-            expect(this.input.value === 'island');
-          });
+            expect(this.handleNoResultsSpy).to.have.been.called();
+          }, 2000);
         });
       });
 
       describe('if fetch suggestion returns results', function() {
         beforeEach(function() {
-          this.autosuggestst.handleResults({
+          this.autosuggest.handleResults({
             totalResults: 12,
             results: [
               {
@@ -522,7 +508,7 @@ describe('Autosuggest.ui component', function() {
             });
           };
 
-          this.autosuggestst.getSuggestions();
+          this.autosuggest.getSuggestions();
 
           setTimeout(done);
         });
@@ -535,7 +521,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and results are fetched', function() {
       beforeEach(function() {
-        this.abortFetchSpy = chai.spy.on(this.autosuggestst, 'abortFetch');
+        this.abortFetchSpy = chai.spy.on(this.autosuggest, 'abortFetch');
         this.originalFetch = window.fetch;
       });
 
@@ -544,7 +530,7 @@ describe('Autosuggest.ui component', function() {
       });
 
       it('any running fetches should be aborted', function() {
-        this.autosuggestst.fetchSuggestions('yes');
+        this.autosuggest.fetchSuggestions('yes');
         expect(this.abortFetchSpy).to.have.been.called();
       });
 
@@ -554,7 +540,7 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('then the function should reject', function() {
-          return this.autosuggestst.fetchSuggestions('yes').should.be.rejected;
+          return this.autosuggest.fetchSuggestions('yes').should.be.rejected;
         });
       });
 
@@ -569,7 +555,7 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('then the function should resolve', function() {
-          this.autosuggestst.fetchSuggestions('yes').should.eventually.eql(this.result);
+          this.autosuggest.fetchSuggestions('yes').should.eventually.eql(this.result);
         });
       });
 
@@ -580,7 +566,7 @@ describe('Autosuggest.ui component', function() {
             totalResults: 1,
           };
 
-          this.autosuggestst.lang = 'cy';
+          this.autosuggest.lang = 'cy';
 
           window.fetch = fetchMock(true, null, this.result);
         });
@@ -593,66 +579,66 @@ describe('Autosuggest.ui component', function() {
 
     describe('and results are unset', function() {
       beforeEach(function() {
-        this.autosuggestst.results = [{ 'en-gb': 'yes' }];
-        this.autosuggestst.resultOptions = ['<option>yes</option>'];
-        this.autosuggestst.resultSelected = true;
+        this.autosuggest.results = [{ 'en-gb': 'yes' }];
+        this.autosuggest.resultOptions = ['<option>yes</option>'];
+        this.autosuggest.resultSelected = true;
       });
 
       it('then results should be reset to an empty array', function() {
-        this.autosuggestst.unsetResults();
-        expect(this.autosuggestst.results).to.eql([]);
+        this.autosuggest.unsetResults();
+        expect(this.autosuggest.results).to.eql([]);
       });
 
       it('then resultOptions should be reset to an empty array', function() {
-        this.autosuggestst.unsetResults();
-        expect(this.autosuggestst.resultOptions).to.eql([]);
+        this.autosuggest.unsetResults();
+        expect(this.autosuggest.resultOptions).to.eql([]);
       });
 
       it('then resultSelected should be reset to false', function() {
-        this.autosuggestst.unsetResults();
-        expect(this.autosuggestst.resultSelected).to.be.false;
+        this.autosuggest.unsetResults();
+        expect(this.autosuggest.resultSelected).to.be.false;
       });
 
       describe('and onUnsetResult is set', function() {
         beforeEach(function() {
-          this.autosuggestst.onUnsetResult = chai.spy(() => {});
+          this.autosuggest.onUnsetResult = chai.spy(() => {});
         });
 
         it('then onUnsetResult should be called', function() {
-          this.autosuggestst.unsetResults();
-          expect(this.autosuggestst.onUnsetResult).to.have.been.called();
+          this.autosuggest.unsetResults();
+          expect(this.autosuggest.onUnsetResult).to.have.been.called();
         });
       });
     });
 
     describe('and clearListbox is run', function() {
       beforeEach(function() {
-        this.autosuggestst.listbox.innerHTML = '<p>Yes</p>';
-        this.autosuggestst.context.classList.add('autosuggest-input--has-results');
-        this.autosuggestst.input.setAttribute('aria-activedescendant', 'yes');
-        this.autosuggestst.input.setAttribute('aria-expanded', 'true');
+        this.autosuggest.listbox.innerHTML = '<p>Yes</p>';
+        this.autosuggest.context.classList.add('autosuggest-input--has-results');
+        this.autosuggest.input.setAttribute('aria-activedescendant', 'yes');
+        this.autosuggest.input.setAttribute('aria-expanded', 'true');
 
-        this.setAriaStatusSpy = chai.spy.on(this.autosuggestst, 'setAriaStatus');
+        this.setAriaStatusSpy = chai.spy.on(this.autosuggest, 'setAriaStatus');
       });
 
       it('then the listbox innerHTML should be cleared', function() {
-        this.autosuggestst.clearListbox();
-        expect(this.autosuggestst.listbox.innerHTML).to.equal('');
+        this.autosuggest.clearListbox();
+        expect(this.autosuggest.listbox.innerHTML).to.equal('');
       });
 
-      it('then the autosuggestst--has-results should be removed', function() {
-        this.autosuggestst.clearListbox();
-        expect(this.autosuggestst.context.classList.contains('autosuggest-input--has-results')).to.be.false;
+      it('then the autosuggest--has-results should be removed', function() {
+        this.autosuggest.clearListbox();
+        expect(this.autosuggest.context.classList.contains('autosuggest-input--has-results')).to.be.false;
       });
 
       it('then the input aria-activedescendant attributes should be removed', function() {
-        this.autosuggestst.clearListbox();
-        expect(this.autosuggestst.input.hasAttribute('aria-activedescendant')).to.be.false;
+        this.autosuggest.clearListbox();
+        expect(this.autosuggest.input.hasAttribute('aria-activedescendant')).to.be.false;
       });
 
       it('then the input aria-expanded attributes should be removed', function() {
-        this.autosuggestst.clearListbox();
-        expect(this.autosuggestst.input.hasAttribute('aria-expanded')).to.be.false;
+        this.autosuggest.clearListbox();
+        expect(this.autosuggest.input.hasAttribute('aria-expanded')).to.be.false;
       });
 
       it('then setAriaStatus should be called', function() {
@@ -662,7 +648,7 @@ describe('Autosuggest.ui component', function() {
 
       describe('and preventAriaStatusUpdate is set to true', function() {
         it('then setAriaStatus should not be called', function() {
-          this.autosuggestst.clearListbox(true);
+          this.autosuggest.clearListbox(true);
           expect(this.setAriaStatusSpy).to.not.have.been.called();
         });
       });
@@ -670,18 +656,18 @@ describe('Autosuggest.ui component', function() {
 
     describe('and navigateResults is run', function() {
       beforeEach(function() {
-        this.autosuggestst.numberOfResults = 3;
-        this.setHighlightedResultSpy = chai.spy.on(this.autosuggestst, 'setHighlightedResult');
+        this.autosuggest.numberOfResults = 3;
+        this.setHighlightedResultSpy = chai.spy.on(this.autosuggest, 'setHighlightedResult');
       });
 
       describe('and the direction is 1', function() {
         describe('and the highlightedResultIndex is not set', function() {
           beforeEach(function() {
-            this.autosuggestst.highlightedResultIndex = null;
+            this.autosuggest.highlightedResultIndex = null;
           });
 
           it('then setHighlightedResult should be called with an index of 0', function() {
-            this.autosuggestst.navigateResults(1);
+            this.autosuggest.navigateResults(1);
 
             expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(0);
           });
@@ -689,7 +675,7 @@ describe('Autosuggest.ui component', function() {
 
         describe('and the highlightedResultIndex is 0', function() {
           it('then setHighlightedResult should be called with the next index', function() {
-            this.autosuggestst.navigateResults(1);
+            this.autosuggest.navigateResults(1);
 
             expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(1);
           });
@@ -697,11 +683,11 @@ describe('Autosuggest.ui component', function() {
 
         describe('and the highlightedResultIndex is the same as the number of results', function() {
           beforeEach(function() {
-            this.autosuggestst.highlightedResultIndex = 2;
+            this.autosuggest.highlightedResultIndex = 2;
           });
 
           it('then setHighlightedResult should not be called', function() {
-            this.autosuggestst.navigateResults(1);
+            this.autosuggest.navigateResults(1);
 
             expect(this.setHighlightedResultSpy).to.not.have.been.called();
           });
@@ -711,11 +697,11 @@ describe('Autosuggest.ui component', function() {
       describe('and the direction is -1', function() {
         describe('and the highlightedResultIndex is not set', function() {
           beforeEach(function() {
-            this.autosuggestst.highlightedResultIndex = null;
+            this.autosuggest.highlightedResultIndex = null;
           });
 
           it('then setHighlightedResult should be called with an index of 0', function() {
-            this.autosuggestst.navigateResults(-1);
+            this.autosuggest.navigateResults(-1);
 
             expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(0);
           });
@@ -723,7 +709,7 @@ describe('Autosuggest.ui component', function() {
 
         describe('and the highlightedResultIndex is 0', function() {
           it('then setHighlightedResult should be called with null', function() {
-            this.autosuggestst.navigateResults(-1);
+            this.autosuggest.navigateResults(-1);
 
             expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(null);
           });
@@ -731,11 +717,11 @@ describe('Autosuggest.ui component', function() {
 
         describe('and the highlightedResultIndex is the same as the number of results', function() {
           beforeEach(function() {
-            this.autosuggestst.highlightedResultIndex = 2;
+            this.autosuggest.highlightedResultIndex = 2;
           });
 
           it('then setHighlightedResult should be called with the previous index', function() {
-            this.autosuggestst.navigateResults(-1);
+            this.autosuggest.navigateResults(-1);
 
             expect(this.setHighlightedResultSpy).to.have.been.called.with.exactly(1);
           });
@@ -745,7 +731,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the mouse moves over a result', function() {
       beforeEach(function() {
-        this.autosuggestst.highlightedResultIndex = 0;
+        this.autosuggest.highlightedResultIndex = 0;
         this.autosuggest.resultOptions = [1].map(() => {
           const option = document.createElement('option');
           option.className = classAutosuggestOptionFocused;
@@ -861,7 +847,7 @@ describe('Autosuggest.ui component', function() {
       describe('if there is no content provided as an argument', function() {
         describe('and the query is too short', function() {
           beforeEach(function() {
-            this.autosuggestst.sanitisedQuery = '';
+            this.autosuggest.sanitisedQuery = '';
             this.autosuggest.setAriaStatus();
           });
 
@@ -873,54 +859,54 @@ describe('Autosuggest.ui component', function() {
         describe('and there are no results', function() {
           beforeEach(function() {
             this.autosuggest.query = 'Yes';
-            this.autosuggestst.sanitisedQuery = 'yes';
+            this.autosuggest.sanitisedQuery = 'yes';
             this.autosuggest.numberOfResults = 0;
-            this.autosuggestst.setAriaStatus();
+            this.autosuggest.setAriaStatus();
           });
 
           it('then the no results message should be set', function() {
-            expect(this.autosuggestst.ariaStatus.innerHTML).to.equal(`${params.autosuggest.ariaNoResults}: "${this.autosuggest.query}"`);
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(`${params.autosuggest.ariaNoResults}: "${this.autosuggest.query}"`);
           });
         });
 
         describe('and there is one result', function() {
           beforeEach(function() {
             this.autosuggest.sanitisedQuery = 'yes';
-            this.autosuggestst.numberOfResults = 1;
-            this.autosuggestst.setAriaStatus();
+            this.autosuggest.numberOfResults = 1;
+            this.autosuggest.setAriaStatus();
           });
 
           it('then the one result message should be set', function() {
-            expect(this.autosuggestst.ariaStatus.innerHTML).to.equal(params.autosuggest.ariaOneResult);
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.autosuggest.ariaOneResult);
           });
         });
 
         describe('and there are multiple results', function() {
           beforeEach(function() {
-            this.autosuggestst.sanitisedQuery = 'yes';
+            this.autosuggest.sanitisedQuery = 'yes';
             this.autosuggest.numberOfResults = 3;
-            this.autosuggestst.setAriaStatus();
+            this.autosuggest.setAriaStatus();
           });
 
           it('then the multiple results message should be set', function() {
             expect(this.autosuggest.ariaStatus.innerHTML).to.equal(
-              params.autosuggestst.ariaNResults.replace('{n}', this.autosuggest.numberOfResults),
+              params.autosuggest.ariaNResults.replace('{n}', this.autosuggest.numberOfResults),
             );
           });
         });
 
         describe('and there are more results found than returned', function() {
           beforeEach(function() {
-            this.autosuggestst.sanitisedQuery = 'yes';
-            this.autosuggestst.numberOfResults = 3;
-            this.autosuggestst.resultLimit = 10;
-            this.autosuggestst.foundResults = 11;
-            this.autosuggestst.setAriaStatus();
+            this.autosuggest.sanitisedQuery = 'yes';
+            this.autosuggest.numberOfResults = 3;
+            this.autosuggest.resultLimit = 10;
+            this.autosuggest.foundResults = 11;
+            this.autosuggest.setAriaStatus();
           });
 
           it('then the multiple results message should be set', function() {
             expect(this.autosuggest.ariaStatus.innerHTML).to.equal(
-              `${params.autosuggestst.ariaNResults.replace('{n}', this.autosuggest.numberOfResults)} ${
+              `${params.autosuggest.ariaNResults.replace('{n}', this.autosuggest.numberOfResults)} ${
                 params.autosuggest.ariaLimitedResults
               }`,
             );
@@ -930,25 +916,25 @@ describe('Autosuggest.ui component', function() {
 
       describe('if there content provided as an argument', function() {
         beforeEach(function() {
-          this.autosuggestst.setAriaStatus('Hello');
+          this.autosuggest.setAriaStatus('Hello');
         });
 
         it('then the aria status should be set to the provided content', function() {
-          expect(this.autosuggestst.ariaStatus.innerHTML).to.equal('Hello');
+          expect(this.autosuggest.ariaStatus.innerHTML).to.equal('Hello');
         });
       });
     });
 
     describe('and a result is selected', function() {
       beforeEach(function() {
-        this.onSelectSpy = chai.spy.on(this.autosuggestst, 'onSelect');
+        this.onSelectSpy = chai.spy.on(this.autosuggest, 'onSelect');
         this.clearListboxSpy = chai.spy.on(this.autosuggest, 'clearListbox');
-        this.setAriaStatusSpy = chai.spy.on(this.autosuggestst, 'setAriaStatus');
+        this.setAriaStatusSpy = chai.spy.on(this.autosuggest, 'setAriaStatus');
       });
 
       describe('if there are no results', function() {
         beforeEach(function() {
-          this.autosuggestst.selectResult(0);
+          this.autosuggest.selectResult(0);
         });
 
         it('then the function should do nothing', function() {
@@ -960,13 +946,13 @@ describe('Autosuggest.ui component', function() {
 
       describe('if there are results', function() {
         beforeEach(function() {
-          this.autosuggestst.sanitisedQuery = 'ye';
-          this.autosuggestst.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
-          this.autosuggestst.selectResult(0);
+          this.autosuggest.sanitisedQuery = 'ye';
+          this.autosuggest.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
+          this.autosuggest.selectResult(0);
         });
 
         it('then resultSelected should be set to true', function() {
-          expect(this.autosuggestst.resultSelected).to.be.true;
+          expect(this.autosuggest.resultSelected).to.be.true;
         });
 
         it('then onSelect should be called', function() {
@@ -978,19 +964,19 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('then setAriaStatus should be called', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggestst.ariaYouHaveSelected}: Yes.`);
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggest.ariaYouHaveSelected}: Yes.`);
         });
       });
 
       describe('if there are results from an alternative', function() {
         beforeEach(function() {
           this.autosuggest.sanitisedQuery = 'ie';
-          this.autosuggestst.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
+          this.autosuggest.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
           this.autosuggest.selectResult(0);
         });
 
         it('then setAriaStatus should be called stating the result was found from the alternative', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggestst.ariaYouHaveSelected}: Ie.`);
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggest.ariaYouHaveSelected}: Ie.`);
         });
       });
     });
@@ -998,7 +984,7 @@ describe('Autosuggest.ui component', function() {
     describe('and a result is emboldened', function() {
       describe('if the provided string includes the provided query', function() {
         it('then the match should be wrapped in strong tags', function() {
-          expect(this.autosuggestst.emboldenMatch('Aberdaugleddau', 'ABER')).to.equal('<strong>Aber</strong>daugleddau');
+          expect(this.autosuggest.emboldenMatch('Aberdaugleddau', 'ABER')).to.equal('<strong>Aber</strong>daugleddau');
         });
       });
 
@@ -1012,12 +998,12 @@ describe('Autosuggest.ui component', function() {
     describe('and results are handled', function() {
       describe('if the user is currently deleting and there are no results', function() {
         beforeEach(function() {
-          this.autosuggestst.deleting = true;
+          this.autosuggest.deleting = true;
         });
 
         describe('if there is "no results" content', function() {
           beforeEach(function() {
-            this.autosuggestst.handleResults({
+            this.autosuggest.handleResults({
               totalResults: 0,
               results: [],
             });
@@ -1031,10 +1017,6 @@ describe('Autosuggest.ui component', function() {
 
           it('then the input aria-expanded attribute should be set to true', function() {
             expect(this.autosuggest.input.getAttribute('aria-expanded')).to.equal('true');
-          });
-
-          it('then the context should not have the found results class', function() {
-            expect(this.context.classList.contains(classAutosuggestHasResults)).to.be.false;
           });
         });
 
@@ -1052,7 +1034,7 @@ describe('Autosuggest.ui component', function() {
           });
 
           it('then the input aria-expanded attribute should be set to false', function() {
-            expect(this.autosuggestst.input.getAttribute('aria-expanded')).to.equal('false');
+            expect(this.autosuggest.input.getAttribute('aria-expanded')).to.equal('false');
           });
         });
       });
@@ -1060,10 +1042,10 @@ describe('Autosuggest.ui component', function() {
       describe('if there are results', function() {
         describe('and there is only one result that exactly matches the user input', function() {
           beforeEach(function() {
-            this.clearListboxSpy = chai.spy.on(this.autosuggestst, 'clearListbox');
+            this.clearListboxSpy = chai.spy.on(this.autosuggest, 'clearListbox');
             this.selectResultSpy = chai.spy.on(this.autosuggest, 'selectResult');
 
-            this.autosuggestst.query = 'Yes';
+            this.autosuggest.query = 'Yes';
             this.autosuggest.sanitisedQuery = 'yes';
             this.autosuggest.handleResults({
               totalResults: 1,
@@ -1081,8 +1063,8 @@ describe('Autosuggest.ui component', function() {
           beforeEach(function() {
             this.setHighlightedResultSpy = chai.spy.on(this.autosuggest, 'setHighlightedResult');
 
-            this.autosuggestst.query = 'Yes';
-            this.autosuggestst.sanitisedQuery = 'yes';
+            this.autosuggest.query = 'Yes';
+            this.autosuggest.sanitisedQuery = 'yes';
             this.autosuggest.handleResults({
               totalResults: 2,
               results: [
