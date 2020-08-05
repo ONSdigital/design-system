@@ -43,12 +43,13 @@
                                     "name": params.button.name,
                                     "value": params.button.value,
                                     "attributes": params.button.attributes,
-                                    "url": params.button.url
+                                    "url": params.button.url,
+                                    "exit": params.button.exit
                                 })
                             }}
                         </div>
                     {% endif %}
-                    {% if params.language is defined %}
+                    {% if params.language is defined and params.language %}
                             {% set currentLanguage = params.language.languages | selectattr("current") | first %}
                             <div class="grid__col u-d-no@m">
                                 {% set languageItems = params.language.languages | rejectattr("current") %}
