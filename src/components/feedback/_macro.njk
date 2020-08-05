@@ -8,7 +8,7 @@
         <div
             id="{{ params.id }}"
             class="feedback js-collapsible js-feedback{% if params.classes is defined %} {{ params.classes }}{% endif %}"
-            {% if params.button.close.text is defined %} data-btn-close="{{ params.button.close.text }}"{% endif %}
+            {% if params.button.close.text is defined and params.button.close.text %} data-btn-close="{{ params.button.close.text }}"{% endif %}
             {% if params.group is defined %} data-group="{{ params.group }}"{% endif %}
             {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             {% if params.saveState is defined %} data-save-state="true"{% endif %}
@@ -129,7 +129,7 @@
                                 </form>
                             </div>
                         {% endif %}
-                        {% if params.button.close.text is defined %}
+                        {% if params.button.close.text is defined and params.button.close.text %}
                             <div class="grid__col col-8@m u-pl-0">
                                 {% call onsField({
                                     "classes": "u-mb-m"
