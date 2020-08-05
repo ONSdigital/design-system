@@ -12,13 +12,13 @@
   {% elif params.url is defined %}
     {% set iconType = "chevron-right" %}
     {% set iconPosition = "after" %}
-  {% elif params.print is defined %}
+  {% elif params.buttonStyle == "print" %}
     {% set iconType = "print" %}
     {% set iconPosition = "after" %}
-  {% elif params.exit is defined %}
+  {% elif params.buttonStyle == "exit" %}
     {% set iconType = "exit" %}
     {% set iconPosition = "after" %}
-  {% elif params.menu is defined %}
+  {% elif params.buttonStyle == "mobile" %}
     {% set iconType = "chevron-down" %}
     {% set iconPosition = "after" %}
   {% endif %}
@@ -29,9 +29,9 @@
         href="{{ params.url }}"
         role="button"
       {% else %}
-        type="{{ params.type if params.type is defined else ('button' if params.print is defined else 'submit') }}"
+        type="{{ params.type if params.type is defined else ('button' if params.buttonStyle == "print" else 'submit') }}"
       {% endif %}
-      class="btn{% if params.classes is defined %} {{ params.classes }}{% endif %}{% if params.url is defined and not params.hideCaret %} btn--link{% endif %}{% if params.disabled is defined %} btn--disabled{% endif %}{% if params.print is defined %} btn--print u-d-no js-print-btn{% endif %}{% if params.exit is defined %} btn--exit{% endif %}{% if params.submitType == "loader" %} btn--loader js-loader js-submit-btn{% endif %}{% if params.submitType == "timer" %} js-timer js-submit-btn{% endif %}"
+      class="btn{% if params.classes is defined %} {{ params.classes }}{% endif %}{% if params.url is defined and not params.hideCaret %} btn--link{% endif %}{% if params.disabled is defined %} btn--disabled{% endif %}{% if params.buttonStyle == "print" %} btn--print u-d-no js-print-btn{% endif %}{% if params.buttonStyle == "exit" is defined %} btn--exit{% endif %}{% if params.submitType == "loader" %} btn--loader js-loader js-submit-btn{% endif %}{% if params.submitType == "timer" %} js-timer js-submit-btn{% endif %}"
       {% if params.id is defined %}id="{{ params.id }}"{% endif %}
       {% if params.value is defined %}value="{{ params.value }}"{% endif %}
       {% if params.name is defined %}name="{{ params.name }}"{% endif %}
