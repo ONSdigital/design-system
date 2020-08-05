@@ -9,11 +9,11 @@
 | id           | string  | false    | ID for the `button`                                                                                                                                                                                  |
 | classes      | string  | false    | Classes to add to the button component                                                                                                                                                               |
 | innerClasses | string  | false    | Classes to add to the inner button element                                                                                                                                                           |
-| print        | boolean | false    | Sets button into print button mode and adds the relevant classes                                                                                                                                     |
-| exit         | boolean | false    | Sets button into exit button mode and adds the relevant classes                                                                                                                                      |
 | attributes   | object  | false    | HTML attributes (for example data attributes) to add to the button component                                                                                                                         |
 | submitType   | string  | false    | If set to `timer` the button will only be disabled for a short time to stop double clicks from double submitting. If set to `loader` will create a loader button that includes the loading animation |
 | Icon         | `Icon`  | false    | Object that contains the settings for adding icons to buttons                                                                                                                                        |
+| newWindow    | boolean | false    | Opens the next page in a new tab. Used for links to external pages                                                                                                                                   |
+| buttonStyle  | string  | false    | Can be set to `print`, `exit` or `mobile`. This will style the button with the relevant classes and icons                                                                                            |
 
 ## Icon
 
