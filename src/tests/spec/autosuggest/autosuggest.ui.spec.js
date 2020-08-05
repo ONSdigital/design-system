@@ -422,9 +422,10 @@ describe('Autosuggest.ui component', function() {
           });
         });
 
-        it('then the listbox should be cleared', function() {
+        it('then the listbox should be cleared', function(done) {
           setTimeout(() => {
             expect(this.handleNoResultsSpy).to.have.been.called();
+            done();
           }, 2000);
         });
       });
