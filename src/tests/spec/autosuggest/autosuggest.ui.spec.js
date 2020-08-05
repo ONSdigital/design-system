@@ -48,7 +48,7 @@ const params = {
   },
 };
 
-describe.only('Autosuggest.ui component', function() {
+describe('Autosuggest.ui component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
@@ -1169,9 +1169,7 @@ describe.only('Autosuggest.ui component', function() {
         });
 
         it('then the listbox innerHTML should show the API error message', function() {
-          expect(this.autosuggest.listbox.innerHTML).to.equal(
-            `<li aria-hidden="true" class="autosuggest-input__warning"><div class="panel panel--warn autosuggest-input__panel"><span class="panel__icon" aria-hidden="true">!</span><div class="panel__body">${params.autosuggest.errorMessageAPI}</div></div></li>`,
-          );
+          expect(this.autosuggest.listbox.textContent).to.equal('!' + params.autosuggest.errorMessageAPI);
           expect(this.createWarningSpy).to.have.been.called();
           expect(this.handleNoResultsSpy).to.have.been.called();
         });
