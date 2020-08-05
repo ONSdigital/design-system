@@ -28,7 +28,7 @@
                   </div>
                   {% if params.language or params.serviceLinks is defined %}
                       <div class="header__links grid__col col-auto">
-                          {% if params.language is defined %}
+                          {% if params.language is defined and params.language %}
                               <div class="grid__col col-auto">
                                   {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                                   {{ onsLanguageSelector(params.language) }}
