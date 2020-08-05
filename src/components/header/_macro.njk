@@ -26,7 +26,7 @@
                       </picture>
                     {% if params.logoHref is defined %}</a>{% endif %}
                   </div>
-                  {% if params.language or params.serviceLinks is defined %}
+                  {% if params.language is defined and params.language or params.serviceLinks is defined %}
                       <div class="header__links grid__col col-auto">
                           {% if params.language is defined and params.language %}
                               <div class="grid__col col-auto">
