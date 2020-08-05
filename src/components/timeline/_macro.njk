@@ -5,7 +5,7 @@
         {% for item in params.items %}
         <div class="timeline__item">
             <h2 class="timeline__heading">{{ item.heading }}</h2>
-            {{ caller() if caller else item.content | safe }}
+            {{ item.content | safe }}
         </div>
         {% endfor %}
 
