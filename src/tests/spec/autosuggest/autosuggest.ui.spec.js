@@ -283,6 +283,7 @@ describe('Autosuggest.ui component', function() {
         beforeEach(function(done) {
           this.autosuggest.blurring = false;
           this.autosuggest.input.value = 'Test test test';
+          this.checkCharCountSpy = chai.spy.on(this.autosuggest, 'checkCharCount');
 
           setTimeout(() => {
             this.autosuggest.handleChange();
@@ -292,6 +293,10 @@ describe('Autosuggest.ui component', function() {
 
         it('then getSuggestions should be called', function() {
           expect(this.getSuggestionsSpy).to.have.been.called();
+        });
+
+        it('then checkCharCount should be called', function() {
+          expect(this.checkCharCountSpy).to.have.been.called();
         });
       });
 
@@ -349,7 +354,6 @@ describe('Autosuggest.ui component', function() {
         this.fetchSuggestionsSpy = chai.spy.on(this.autosuggest, 'fetchSuggestions');
         this.clearListboxSpy = chai.spy.on(this.autosuggest, 'clearListbox');
         this.handleResultsSpy = chai.spy.on(this.autosuggest, 'handleResults');
-        this.handleNoResultsSpy = chai.spy.on(this.autosuggest, 'handleNoResults');
         this.onErrorSpy = chai.spy.on(this.autosuggest, 'onError');
       });
 
@@ -409,23 +413,6 @@ describe('Autosuggest.ui component', function() {
 
         it('then the aria status should be set', function() {
           expect(this.setAriaStatusSpy).to.have.been.called();
-        });
-      });
-
-      describe('if the query is shorter than the minimum characters', function() {
-        beforeEach(function(done) {
-          this.input.value = 'T';
-
-          setTimeout(() => {
-            this.autosuggest.getSuggestions();
-            done();
-          });
-        });
-
-        it('then handleNoResults should be called', function() {
-          setTimeout(() => {
-            expect(this.handleNoResultsSpy).to.have.been.called();
-          }, 2000);
         });
       });
 
