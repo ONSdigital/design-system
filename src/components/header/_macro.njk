@@ -5,7 +5,7 @@
 
   {% set currentLanguageISOCode = "en" %}
 
-  {% if params.language is defined and params.language.languages is defined %}
+  {% if params.language is defined and params.language and params.language.languages is defined %}
     {% set currentLanguage = params.language.languages | selectattr("current") | first %}
     {% set currentLanguageISOCode = currentLanguage.ISOCode %}
   {% endif %}
@@ -26,7 +26,7 @@
                       </picture>
                     {% if params.logoHref is defined %}</a>{% endif %}
                   </div>
-                  {% if params.language is defined or params.serviceLinks is defined %}
+                  {% if params.language or params.serviceLinks is defined %}
                       <div class="header__links grid__col col-auto">
                           {% if params.language is defined %}
                               <div class="grid__col col-auto">

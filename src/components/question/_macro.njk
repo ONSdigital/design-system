@@ -9,7 +9,7 @@
             <div class="question__description">{{ params.description | safe }}</div>
         {% endif %}
 
-        {% if params.instruction is defined %}
+        {% if params.instruction is defined and params.instruction %}
             <div class="question__instruction u-mb-s">{{ params.instruction | safe }}</div>
         {% endif %}
 
