@@ -32,7 +32,7 @@ describe('Autosuggest helpers', () => {
 
     describe('and trim end is set to false', () => {
       it('then only the leading space should be removed', () => {
-        const result = sanitiseAutosuggestText(' only t the leading space should be removed ', [], false);
+        const result = sanitiseAutosuggestText(' only t the leading space should be removed ', [], false, false);
 
         expect(result).to.equal('only t the leading space should be removed ');
       });
