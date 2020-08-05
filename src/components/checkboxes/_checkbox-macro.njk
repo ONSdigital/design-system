@@ -8,7 +8,7 @@
             class="checkbox__input js-checkbox {{ params.inputClasses }}"
             value="{{ params.value }}"
             {% if params.name is defined %} name="{{ params.name }}"{% endif %}
-            {% if params.checked is defined and prams.checked %} checked{% endif %}
+            {% if params.checked is defined and params.checked %} checked{% endif %}
             {% if params.other is defined and not params.other.open %} aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
             {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
