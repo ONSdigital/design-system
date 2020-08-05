@@ -146,28 +146,20 @@ $button-border-height: 3px;
   &--loader &__inner {
     position: relative;
     transition: color 0.3s ease-in-out;
-    &:after {
-      @include icon($name: 'loader', $height: 1.5em);
-      content: '';
+    svg {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 24%;
+      left: 26%;
+      width: 1.5rem;
+      height: 1.5rem;
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
     }
   }
 
-  &--loader:focus &__inner {
-    &:after {
-      @include icon($name: 'loader-black', $height: 1.5em);
-    }
-  }
-
   &--loader.is-loading &__inner {
     color: transparent;
-
-    &:after {
+    svg {
       opacity: 1;
     }
   }
