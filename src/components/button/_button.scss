@@ -207,6 +207,7 @@ $button-border-height: 3px;
     }
   }
 
+  &--mobile:focus:not(:hover) &,
   &--ghost:focus:not(:hover) &,
   &--ghost-blue:focus:not(:hover) & {
     &__inner {
@@ -245,33 +246,6 @@ $button-border-height: 3px;
   &--mobile {
     @include mq(m) {
       display: none;
-    }
-  }
-
-  &--mobile & {
-    &__inner {
-      padding: 0.4rem 0.5rem;
-      &:after {
-        @include icon($name: 'chevron-down-white', $height: 0.8rem);
-        content: '';
-        display: inline-block;
-        margin: 0 0 0 0.5rem;
-        vertical-align: middle;
-      }
-    }
-  }
-
-  &--mobile[aria-expanded='true'] & {
-    &__inner:after {
-      transform: rotate(180deg);
-    }
-  }
-
-  &--mobile:focus:not(:active):not(:hover) & {
-    &__inner {
-      &:after {
-        @include icon($name: 'chevron-down-black', $height: 0.8rem);
-      }
     }
   }
 
