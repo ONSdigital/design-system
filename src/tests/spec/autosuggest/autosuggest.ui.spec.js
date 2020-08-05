@@ -23,6 +23,7 @@ const params = {
   id: 'country-of-birth',
   label: {
     text: 'Enter the current name of the country',
+    classes: 'js-autosuggest-label',
   },
   autocomplete: 'off',
   autosuggest: {
@@ -39,10 +40,15 @@ const params = {
     noResults: 'No results found',
     autosuggestData:
       'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json',
+    typeMore: 'Enter more of the address to get results',
+    tooManyResults: '{n} results found. Enter more of the address to improve results.',
+    errorTitle: 'There is a problem with your answer',
+    errorMessage: 'Enter an address continue',
+    errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
   },
 };
 
-describe('Autosuggest.ui component', function() {
+describe.only('Autosuggest.ui component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
@@ -994,12 +1000,14 @@ describe('Autosuggest.ui component', function() {
               totalResults: 0,
               results: [],
             });
+            // this.handleNoResultsSpy = chai.spy.on(this.autosuggest, 'handleNoResults');
           });
 
           it('then the listbox innerHTML should show the no results message', function() {
             expect(this.autosuggest.listbox.innerHTML).to.equal(
               `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.autosuggest.noResults}</li>`,
             );
+            // expect(this.handleNoResultsSpy).to.have.been.called();
           });
 
           it('then the input aria-expanded attribute should be set to true', function() {
@@ -1133,6 +1141,55 @@ describe('Autosuggest.ui component', function() {
           it('then the context should be given the has results class', function() {
             expect(this.context.classList.contains(classAutosuggestHasResults)).to.be.true;
           });
+        });
+      });
+    });
+
+    describe('When there are no results due to an error', function() {
+      describe('when the status code is 400', function() {
+        beforeEach(function() {
+          this.handleNoResultsSpy = chai.spy.on(this.autosuggest, 'handleNoResults');
+          this.autosuggest.handleNoResults(400);
+        });
+
+        it('then the listbox innerHTML should show the type more message', function() {
+          expect(this.autosuggest.listbox.innerHTML).to.equal(
+            `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.autosuggest.typeMore}</li>`,
+          );
+          expect(this.handleNoResultsSpy).to.have.been.called();
+        });
+      });
+
+      describe('when the status code is greater than 400', function() {
+        beforeEach(function() {
+          this.handleNoResultsSpy = chai.spy.on(this.autosuggest, 'handleNoResults');
+          this.setAriaStatusSpy = chai.spy.on(this.autosuggest, 'setAriaStatus');
+          this.createWarningSpy = chai.spy.on(this.autosuggest, 'createWarningElement');
+          this.autosuggest.handleNoResults(401);
+        });
+
+        it('then the listbox innerHTML should show the API error message', function() {
+          expect(this.autosuggest.listbox.innerHTML).to.equal(
+            `<li aria-hidden="true" class="autosuggest-input__warning"><div class="panel panel--warn autosuggest-input__panel"><span class="panel__icon" aria-hidden="true">!</span><div class="panel__body">${params.autosuggest.errorMessageAPI}</div></div></li>`,
+          );
+          expect(this.createWarningSpy).to.have.been.called();
+          expect(this.handleNoResultsSpy).to.have.been.called();
+        });
+
+        it('the input should be disabled', function() {
+          expect(this.input.hasAttribute('disabled')).to.be.true;
+        });
+
+        it('the input value should be empty', function() {
+          expect(this.input.value).to.equal('');
+        });
+
+        it('the label class should be added', function() {
+          expect(this.label.classList.contains('u-lighter')).to.be.true;
+        });
+
+        it('then the aria status should be set', function() {
+          expect(this.setAriaStatusSpy).to.have.been.called();
         });
       });
     });
@@ -1274,15 +1331,16 @@ function renderComponent(params) {
 
   const context = wrapper.querySelector('.js-autosuggest');
   const input = context.querySelector('.js-autosuggest-input');
+  const label = wrapper.querySelector('.js-autosuggest-label');
   const resultsContainer = context.querySelector('.js-autosuggest-results');
   const listbox = context.querySelector('.js-autosuggest-listbox');
   const instructions = context.querySelector('.js-autosuggest-instructions');
   const status = context.querySelector('.js-autosuggest-aria-status');
-
   return {
     wrapper,
     context,
     input,
+    label,
     resultsContainer,
     listbox,
     instructions,
