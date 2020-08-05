@@ -1,6 +1,6 @@
 {% macro onsLabel(params) %}
     <label
-      class="{% if params.inputType is not defined %}label {% endif %}{{ params.classes if params.classes else "" }}{% if params.description is defined %} label--with-description{% endif %} {{' label--placeholder ' if params.accessiblePlaceholder else "" }}"
+      class="{% if params.inputType is not defined %}label {% endif %}{{ params.classes if params.classes else "" }}{% if params.description is defined and params.description %} label--with-description{% endif %} {{' label--placeholder ' if params.accessiblePlaceholder else "" }}"
       {% if params.description is defined and params.description %}{% if params.id is defined %} aria-describedby="{{ params.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
       {% if params.for is defined %} for="{{ params.for }}"{% endif %}
       {% if params.id is defined %} id="{{ params.id }}"{% endif %}
