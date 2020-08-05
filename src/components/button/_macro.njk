@@ -18,6 +18,9 @@
   {% elif params.exit is defined %}
     {% set iconType = "exit" %}
     {% set iconPosition = "after" %}
+  {% elif params.menu is defined %}
+    {% set iconType = "chevron-down" %}
+    {% set iconPosition = "after" %}
   {% endif %}
 {% endif %}
 
