@@ -311,32 +311,32 @@ describe('Autosuggest.ui component', function() {
         });
       });
 
-      describe('if the input has a value that is greater than 1 but less than the minimum characters', function() {
-        beforeEach(function(done) {
-          this.autosuggest.input.value = 'Te';
-          this.inputTimeout = this.autosuggest.inputTimeout;
-          this.checkCharCountSpy = chai.spy.on(this.autosuggest, 'checkCharCount');
+      // describe('if the input has a value that is greater than 1 but less than the minimum characters', function() {
+      //   beforeEach(function(done) {
+      //     this.autosuggest.input.value = 'Te';
+      //     this.inputTimeout = this.autosuggest.inputTimeout;
+      //     this.checkCharCountSpy = chai.spy.on(this.autosuggest, 'checkCharCount');
 
-          setTimeout(() => {
-            this.autosuggest.handleChange();
-            done();
-          });
-        });
+      //     setTimeout(() => {
+      //       this.autosuggest.handleChange();
+      //       done();
+      //     });
+      //   });
 
-        it('then after 2 seconds the type more message should show', function() {
-          setTimeout(() => {
-            expect(this.clearTimeoutSpy).to.have.been.called.with.exactly(this.inputTimeout);
-          }, 2000);
-        });
+      //   it('then after 2 seconds the type more message should show', function() {
+      //     setTimeout(() => {
+      //       expect(this.clearTimeoutSpy).to.have.been.called.with.exactly(this.inputTimeout);
+      //     }, 2000);
+      //   });
 
-        it('then checkCharCount should be called', function() {
-          expect(this.checkCharCountSpy).to.have.been.called();
-        });
+      //   it('then checkCharCount should be called', function() {
+      //     expect(this.checkCharCountSpy).to.have.been.called();
+      //   });
 
-        it('then settingResult should be false', function() {
-          expect(this.autosuggest.settingResult).to.equal(false);
-        });
-      });
+      //   it('then settingResult should be false', function() {
+      //     expect(this.autosuggest.settingResult).to.equal(false);
+      //   });
+      // });
 
       describe('if the input is not currently blurring and the input does not have a value', function() {
         beforeEach(function(done) {
