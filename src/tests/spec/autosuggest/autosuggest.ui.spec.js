@@ -317,9 +317,10 @@ describe('Autosuggest.ui component', function() {
           this.handleNoResultsSpy = chai.spy.on(this.autosuggest, 'handleNoResults');
         });
 
-        it('then after 2 seconds the type more message should show', function() {
+        it('then after 2 seconds the type more message should show', function(done) {
           setTimeout(() => {
             expect(this.handleNoResultsSpy).to.have.been.called();
+            done();
           }, 2000);
         });
 
