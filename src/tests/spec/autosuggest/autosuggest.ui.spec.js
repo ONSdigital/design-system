@@ -312,15 +312,10 @@ describe('Autosuggest.ui component', function() {
       });
 
       describe('if the input has a value that is greater than 1 but less than the minimum characters', function() {
-        beforeEach(function(done) {
+        beforeEach(function() {
           this.autosuggest.input.value = 'Te';
           this.checkCharCountSpy = chai.spy.on(this.autosuggest, 'checkCharCount');
           this.handleNoResultsSpy = chai.spy.on(this.autosuggest, 'handleNoResults');
-
-          setTimeout(() => {
-            this.autosuggest.handleChange();
-            done();
-          });
         });
 
         it('then after 2 seconds the type more message should show', function() {
