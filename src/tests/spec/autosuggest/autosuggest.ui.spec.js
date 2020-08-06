@@ -48,7 +48,7 @@ const params = {
   },
 };
 
-describe.only('Autosuggest.ui component', function() {
+describe('Autosuggest.ui component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
