@@ -323,7 +323,7 @@ describe('Autosuggest.ui component', function() {
           });
         });
 
-        it('then after 2 seconds the type more message should show', function() {
+        it('then after 2 seconds the type more message should show', function(done) {
           setTimeout(() => {
             expect(this.clearTimeoutSpy).to.have.been.called.with.exactly(this.inputTimeout);
             done();
