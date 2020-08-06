@@ -79,7 +79,7 @@ export default class AutosuggestAddress {
   }
 
   checkAPIStatus() {
-    this.fetch = abortableFetch(this.lookupURL + 'CF14&limit=10', {
+    this.fetch = abortableFetch(this.lookupURL + 'CF142&limit=10', {
       method: 'GET',
       headers: this.headers,
     });
@@ -148,29 +148,26 @@ export default class AutosuggestAddress {
           const response = await data.json();
           const status = response.status.code;
           const addresses = response.response;
-          const results = await this.mapFindResults(addresses, status);
+          const limit = response.response.limit;
+          const results = await this.mapFindResults(addresses, limit, status);
           resolve(results);
         })
         .catch(reject);
     });
   }
 
-  async mapFindResults(results, status) {
-    let mappedResults, limit;
+  async mapFindResults(results, limit, status) {
+    let mappedResults;
     const total = results.total;
-    const originalLimit = 10;
 
     if (results.partpostcode) {
       mappedResults = await this.postcodeGroupsMapping(results);
       this.currentResults = mappedResults;
-      limit = originalLimit;
     } else if (results.addresses) {
-      mappedResults = await this.addressMapping(results, originalLimit);
-      limit = mappedResults ? mappedResults.limit : null;
+      mappedResults = await this.addressMapping(results);
       this.currentResults = mappedResults ? mappedResults.results.sort() : null;
     } else {
       this.currentResults = results.addresses;
-      limit = originalLimit;
     }
     return {
       results: this.currentResults,
@@ -180,17 +177,14 @@ export default class AutosuggestAddress {
     };
   }
 
-  async addressMapping(results, originalLimit) {
-    let updatedResults, limit;
+  async addressMapping(results) {
+    let updatedResults;
     const addresses = results.addresses;
-
     if (addresses[0]) {
       if (addresses[0] && addresses[0].bestMatchAddress) {
         updatedResults = addresses.map(({ uprn, bestMatchAddress }) => ({ uprn: uprn, address: bestMatchAddress }));
-        limit = originalLimit;
       } else if (addresses[0] && addresses[0].formattedAddress) {
         updatedResults = addresses.map(({ uprn, formattedAddress }) => ({ uprn: uprn, address: formattedAddress }));
-        limit = 100;
       }
 
       results = updatedResults.map(({ uprn, address }) => {
@@ -203,7 +197,7 @@ export default class AutosuggestAddress {
       });
       return {
         results: results,
-        limit: limit,
+        limit: results.limit,
       };
     }
   }
@@ -222,6 +216,8 @@ export default class AutosuggestAddress {
           addressCount +
           ' addresses)</span>',
         postcode,
+        streetName,
+        townName,
         firstUprn,
         addressCount,
       };
@@ -306,7 +302,7 @@ export default class AutosuggestAddress {
           bubbles: true,
           cancelable: true,
         });
-        this.autosuggest.input.value = selectedResult.postcode;
+        this.autosuggest.input.value = selectedResult.streetName + ', ' + selectedResult.townName + ', ' + selectedResult.postcode;
         this.autosuggest.input.focus();
         this.autosuggest.input.dispatchEvent(event);
       }

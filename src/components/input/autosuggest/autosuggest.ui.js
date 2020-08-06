@@ -274,6 +274,8 @@ export default class AutosuggestUI {
                 this.handleNoResults(500);
               }
             });
+        } else {
+          this.clearListbox();
         }
       }
     }
@@ -346,7 +348,6 @@ export default class AutosuggestUI {
         this.resultOptions = this.results.map((result, index) => {
           let ariaLabel = result[this.lang];
           let innerHTML = this.emboldenMatch(ariaLabel, this.query);
-
           if (Array.isArray(result.sanitisedAlternatives)) {
             const alternativeMatch = result.sanitisedAlternatives.find(
               alternative => alternative !== result.sanitisedText && alternative.includes(this.sanitisedQuery),
@@ -541,6 +542,7 @@ export default class AutosuggestUI {
         .join('[\\s,]*'),
       'gi',
     );
+
     return string.replace(reg, '<strong>$&</strong>');
   }
 

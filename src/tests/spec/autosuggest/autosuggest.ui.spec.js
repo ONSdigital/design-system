@@ -48,7 +48,7 @@ const params = {
   },
 };
 
-describe('Autosuggest.ui component', function() {
+describe.only('Autosuggest.ui component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
@@ -290,6 +290,7 @@ describe('Autosuggest.ui component', function() {
           this.autosuggest.blurring = false;
           this.autosuggest.input.value = 'Test test test';
           this.checkCharCountSpy = chai.spy.on(this.autosuggest, 'checkCharCount');
+          this.autosuggest.handleFocus();
 
           setTimeout(() => {
             this.autosuggest.handleChange();
@@ -303,6 +304,38 @@ describe('Autosuggest.ui component', function() {
 
         it('then checkCharCount should be called', function() {
           expect(this.checkCharCountSpy).to.have.been.called();
+        });
+
+        it('then settingResult should be false', function() {
+          expect(this.autosuggest.settingResult).to.equal(false);
+        });
+      });
+
+      describe('if the input has a value that is greater than 1 but less than the minimum characters', function() {
+        beforeEach(function(done) {
+          this.autosuggest.input.value = 'Te';
+          this.inputTimeout = this.autosuggest.inputTimeout;
+          this.checkCharCountSpy = chai.spy.on(this.autosuggest, 'checkCharCount');
+
+          setTimeout(() => {
+            this.autosuggest.handleChange();
+            done();
+          });
+        });
+
+        it('then after 2 seconds the type more message should show', function() {
+          setTimeout(() => {
+            expect(this.clearTimeoutSpy).to.have.been.called.with.exactly(this.inputTimeout);
+            done();
+          }, 2000);
+        });
+
+        it('then checkCharCount should be called', function() {
+          expect(this.checkCharCountSpy).to.have.been.called();
+        });
+
+        it('then settingResult should be false', function() {
+          expect(this.autosuggest.settingResult).to.equal(false);
         });
       });
 
@@ -1000,14 +1033,12 @@ describe('Autosuggest.ui component', function() {
               totalResults: 0,
               results: [],
             });
-            // this.handleNoResultsSpy = chai.spy.on(this.autosuggest, 'handleNoResults');
           });
 
           it('then the listbox innerHTML should show the no results message', function() {
             expect(this.autosuggest.listbox.innerHTML).to.equal(
               `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.autosuggest.noResults}</li>`,
             );
-            // expect(this.handleNoResultsSpy).to.have.been.called();
           });
 
           it('then the input aria-expanded attribute should be set to true', function() {
