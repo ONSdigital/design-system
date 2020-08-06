@@ -314,7 +314,6 @@ describe('Autosuggest.ui component', function() {
       describe('if the input has a value that is greater than 1 but less than the minimum characters', function() {
         beforeEach(function() {
           this.autosuggest.input.value = 'Te';
-          this.checkCharCountSpy = chai.spy.on(this.autosuggest, 'checkCharCount');
           this.handleNoResultsSpy = chai.spy.on(this.autosuggest, 'handleNoResults');
         });
 
@@ -322,10 +321,6 @@ describe('Autosuggest.ui component', function() {
           setTimeout(() => {
             expect(this.handleNoResultsSpy).to.have.been.called();
           }, 2000);
-        });
-
-        it('then checkCharCount should be called', function() {
-          expect(this.checkCharCountSpy).to.have.been.called();
         });
 
         it('then settingResult should be false', function() {
