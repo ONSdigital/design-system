@@ -1,0 +1,32 @@
+{% macro onsTimeline(params) %}
+
+    {% from "components/lists/_macro.njk" import onsList %}
+
+    <div class="timeline">
+
+        {% for item in params.items %}
+        <div class="timeline__item">
+            
+            <h2 class="timeline__heading">{{ item.heading }}</h2>
+            
+            {% if item.itemsList is defined %}
+            
+                {{
+                    onsList({
+                        "classes": 'list--bare',
+                        "itemsList": item.itemsList
+                    })
+                }}
+
+            {% else %}
+
+                {{ item.content | safe }}
+
+            {% endif %}
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+{% endmacro %}
