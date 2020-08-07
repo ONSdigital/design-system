@@ -3,6 +3,7 @@ title: Call to action
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 Documentation required
 
@@ -15,6 +16,17 @@ Documentation required
 {{
     patternlibExample({"path": "components/call-to-action/examples/call-to-action-census/index.njk"})
 }}
+
+## Research on this component
+{% call onsPanel() %}
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/712",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
 
 ## Design System forum
 {{

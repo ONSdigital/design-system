@@ -5,6 +5,7 @@ Documentation required
 
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 ## Related links - default
 {{
@@ -15,6 +16,17 @@ Documentation required
 {{
     patternlibExample({"path": "components/related-links/examples/related-links-census/index.njk"})
 }}
+
+## Research on this component
+{% call onsPanel() %}
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/718",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
 
 ## Design System forum
 {{
