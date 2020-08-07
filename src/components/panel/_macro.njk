@@ -27,8 +27,6 @@
     >
         {% if params is defined and params.type == "warn" %}
             <span class="panel__icon" aria-hidden="true">!</span>
-        {% elif params and params.icon %}
-            <span class="panel__icon icon--{{ params.icon }}"></span>
         {% endif %}
 
         {% if params is defined and params.title is defined %}
@@ -36,6 +34,9 @@
             <div class="panel__header">
                 <{{ titleTag }} {% if params.type is defined %}data-qa="{{ params.type }}-header"{% endif %} class="panel__title u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
             </div>
+        {% endif %}
+        {% if params and params.icon %}
+            <span class= "panel--icon"><svg><use xlink:href="/img/icons/icons--{{ params.icon }}.svg#{{ params.icon }}"></use></svg></span>
         {% endif %}
         <div class="panel__body" {% if params is defined and params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ (params.body if params else "") | safe }}
             {{ caller() if caller }}
