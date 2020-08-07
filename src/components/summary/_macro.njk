@@ -40,7 +40,7 @@
                                             {% if rowItem.rowTitleAttributes is defined %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                         >
                                             {% if rowItem.icon is defined %}
-                                                <span class="summary__icon icon--{{ rowItem.icon }}"></span>
+                                                <svg><use xlink:href="/img/icons/icons--{{ rowItem.icon }}.svg#{{ rowItem.icon }}"></use></svg>
                                             {% endif %}
 
                                             {{ rowItem.rowTitle | default(row.rowTitle) | safe }} {{ hasIcons }}

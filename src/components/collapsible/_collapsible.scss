@@ -27,13 +27,11 @@ $collapsible-caret-right-spacing: 0.4rem;
       &:hover,
       &:focus {
         color: $color-links-hover;
-
-        &:before {
-          opacity: 0;
-        }
-
-        &:after {
-          opacity: 1;
+        svg {
+          fill: $color-links-hover;
+          &:focus:not(:hover) {
+            fill: $color-black;
+          }
         }
       }
 
@@ -65,19 +63,16 @@ $collapsible-caret-right-spacing: 0.4rem;
         opacity: 0;
       }
 
-      &:before {
-        background-image: url(#{$static}/img/icons/icons--chevron-right-blue.svg);
-      }
-
-      &:focus {
-        &:before,
-        &:after {
-          background-image: url(#{$static}/img/icons/icons--chevron-right-black.svg);
+      svg {
+        width: $collapsible-caret-width;
+        height: $collapsible-caret-width;
+        fill: $color-blue;
+        &:focus:not(:hover) {
+          fill: $color-black;
         }
-      }
-
-      &:after {
-        background-image: url(#{$static}/img/icons/icons--chevron-right-blue-hover.svg);
+        &:hover {
+          fill: $color-links-hover;
+        }
       }
     }
 

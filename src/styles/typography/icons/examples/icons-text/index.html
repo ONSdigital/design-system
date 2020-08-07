@@ -1,1 +1,8 @@
-<div><svg><use xlink:href="/img/icons/icons--lock.svg#lock"></use></svg><p>A text string with an icon.</p></div>
+{% from "components/text-icon/_macro.njk" import onsTextIcon %}
+
+{{
+    onsTextIcon({
+        "text": "Here is some text with an icon.",
+        "icon": "lock"
+    })
+}}
