@@ -2,8 +2,13 @@
 title: Video
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
-Requires documentation
+{{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
 
 ## YouTube video
 {{
