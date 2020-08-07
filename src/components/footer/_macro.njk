@@ -147,7 +147,14 @@
                                 {% if params.OGLLink.HTML is defined %}
                                     {{ params.OGLLink.HTML | safe }}
                                 {% else %}
-                                    {{ params.OGLLink.pre }} <a href="{{ params.OGLLink.url }}" class="footer__link">{{ params.OGLLink.link }}</a>{{ params.OGLLink.post }}
+                                    {% from "components/external-link/_macro.njk" import onsExternalLink %}
+                                    {{ params.OGLLink.pre }} {{
+                                        onsExternalLink({
+                                            "url": params.OGLLink.url,
+                                            "linkText": params.OGLLink.link
+                                        })
+                                    }}{{ params.OGLLink.post }}
+                                        
                                 {% endif %}
                             </div>
                         </div>
