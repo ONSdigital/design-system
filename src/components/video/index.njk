@@ -5,7 +5,11 @@ title: Video
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-Requires documentation
+{{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
 
 ## YouTube video
 {{
