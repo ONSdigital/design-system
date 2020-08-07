@@ -1,11 +1,15 @@
 ---
 title: Promotional banner
 ---
-Documentation required
-
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+
+{{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
 
 ## Census promotional banner
 {{
@@ -23,7 +27,6 @@ Documentation required
     }}
 {% endcall %}
 
-## Design System forum
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/730",

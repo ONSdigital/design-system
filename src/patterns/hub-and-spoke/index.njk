@@ -4,8 +4,13 @@ title: Hub and Spoke
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
-Documentation required
+{{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
 
 {{
     patternlibExample({"path": "patterns/hub-and-spoke/examples/hub/index.njk"})
