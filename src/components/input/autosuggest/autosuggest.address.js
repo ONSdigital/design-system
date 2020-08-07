@@ -32,6 +32,7 @@ export default class AutosuggestAddress {
     this.errored = false;
     this.isEditable = context.querySelector(`.${classNotEditable}`) ? false : true;
     this.addressSelected = false;
+    this.groupQuery = '';
 
     // Temporary fix as runner doesn't use full lang code
     if (this.lang === 'en') {
@@ -65,6 +66,7 @@ export default class AutosuggestAddress {
 
     // Set up AIMS api variables and auth
     this.lookupURL = `${this.APIDomain}/addresses/eq?input=`;
+    this.lookupGroupURL = `${this.APIDomain}/addresses/eq/bucket?`;
     this.retrieveURL = `${this.APIDomain}/addresses/eq/uprn/`;
 
     this.user = 'equser';
@@ -105,7 +107,7 @@ export default class AutosuggestAddress {
       });
   }
 
-  suggestAddresses(query) {
+  suggestAddresses(query, [], grouping) {
     return new Promise((resolve, reject) => {
       if (this.currentQuery === query && this.currentQuery.length && (this.currentResults ? this.currentResults.length : 0)) {
         resolve({
@@ -121,18 +123,25 @@ export default class AutosuggestAddress {
         }
 
         this.reject = reject;
-        this.findAddress(query)
+        this.findAddress(query, grouping)
           .then(resolve)
           .catch(reject);
       }
     });
   }
 
-  findAddress(text) {
+  findAddress(text, group) {
     return new Promise((resolve, reject) => {
+      let queryUrl;
       const testInput = this.testFullPostcodeQuery(text);
       let limit = testInput ? 100 : 10;
-      let queryUrl = this.lookupURL + text + '&limit=' + limit;
+      if (group) {
+        queryUrl = this.lookupGroupURL + this.groupQuery;
+      } else {
+        queryUrl = this.lookupURL + text;
+      }
+
+      queryUrl = queryUrl + '&limit=' + limit;
 
       if (this.lang === 'cy') {
         queryUrl = queryUrl + '&favourwelsh=true';
@@ -301,14 +310,12 @@ export default class AutosuggestAddress {
             reject();
           });
       } else if (selectedResult.postcode) {
-        const event = new Event('input', {
-          bubbles: true,
-          cancelable: true,
-        });
         this.autosuggest.input.value =
           selectedResult.streetName + ', ' + selectedResult.townName + ', ' + selectedResult.postTown + ', ' + selectedResult.postcode;
         this.autosuggest.input.focus();
-        this.autosuggest.input.dispatchEvent(event);
+        this.groupQuery =
+          'postcode=' + selectedResult.postcode + '&streetname=' + selectedResult.streetName + '&townname=' + selectedResult.townName;
+        this.autosuggest.handleChange(true);
       }
     });
   }

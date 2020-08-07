@@ -187,12 +187,14 @@ export default class AutosuggestUI {
     this.ctrlKey = false;
   }
 
-  handleChange() {
-    if ((!this.blurring && this.input.value.trim()) || this.handleUpdate) {
-      if (this.handleUpdate) {
-        this.settingResult = false;
+  handleChange(alternative = false) {
+    if ((!this.blurring && this.input.value.trim()) || alternative === true) {
+      this.settingResult = false;
+      if (alternative === true) {
+        this.getSuggestions(false, alternative);
+      } else {
+        this.getSuggestions();
       }
-      this.getSuggestions();
     } else {
       this.abortFetch();
     }
@@ -254,7 +256,7 @@ export default class AutosuggestUI {
     }
   }
 
-  getSuggestions(force) {
+  getSuggestions(force, alternative) {
     if (!this.settingResult) {
       const query = this.input.value;
       const sanitisedQuery = sanitiseAutosuggestText(query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
@@ -266,7 +268,7 @@ export default class AutosuggestUI {
         this.query = query;
         this.sanitisedQuery = sanitisedQuery;
         if (this.sanitisedQuery.length >= this.minChars) {
-          this.fetchSuggestions(this.sanitisedQuery, this.data)
+          this.fetchSuggestions(this.sanitisedQuery, this.data, alternative)
             .then(this.handleResults.bind(this))
             .catch(error => {
               if (error.name !== 'AbortError' && this.onError) {
