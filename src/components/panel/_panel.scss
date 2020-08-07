@@ -99,6 +99,15 @@
     }
   }
 
+  &--success & {
+    &--icon {
+      position: absolute;
+      left: 0;
+      padding-left: 1rem;
+      fill: $color-green;
+    }
+  }
+
   &--icon & {
     &__icon {
       position: absolute;
