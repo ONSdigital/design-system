@@ -1,12 +1,14 @@
-a {
-  white-space: nowrap;
-  svg {
-    margin: 0 0 0 0.5rem;
-    fill: $color-grey-1;
-  }
-  &:focus {
+.external-link & {
+  a {
+    white-space: nowrap;
     svg {
-      fill: $color-black;
+      margin: 0 0 0 0.5rem;
+      fill: $color-grey-1;
+    }
+    &:focus {
+      svg {
+        fill: $color-black;
+      }
     }
   }
 }
