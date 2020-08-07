@@ -2,8 +2,13 @@
 title: Call to action
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
-Documentation required
+{{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
 
 ## Call to action - default
 {{
