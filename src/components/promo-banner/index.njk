@@ -1,16 +1,21 @@
 ---
 title: Promotional banner
 ---
-Documentation required
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+{{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
 
 ## Census promotional banner
-{% from "views/partials/example/_macro.njk" import patternlibExample %}
 {{
     patternlibExample({"path": "components/promo-banner/examples/census-promo-banner/index.njk"})
 }}
 
 ## Research on this component
-{% from "components/panel/_macro.njk" import onsPanel %}
 {{
     onsPanel({
         "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
