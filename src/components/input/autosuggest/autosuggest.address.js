@@ -204,12 +204,14 @@ export default class AutosuggestAddress {
 
   async postcodeGroupsMapping(results) {
     const postcodeGroups = results.postcodes;
-    let groups = postcodeGroups.map(({ postcode, streetName, townName, addressCount, firstUprn }) => {
+    let groups = postcodeGroups.map(({ postcode, postTown, streetName, townName, addressCount, firstUprn }) => {
       return {
         [this.lang]:
           streetName +
           ', ' +
           townName +
+          ', ' +
+          postTown +
           ', ' +
           postcode +
           ' <span class="autosuggest-input__group">(' +
@@ -218,6 +220,7 @@ export default class AutosuggestAddress {
         postcode,
         streetName,
         townName,
+        postTown,
         firstUprn,
         addressCount,
       };
@@ -302,7 +305,8 @@ export default class AutosuggestAddress {
           bubbles: true,
           cancelable: true,
         });
-        this.autosuggest.input.value = selectedResult.streetName + ', ' + selectedResult.townName + ', ' + selectedResult.postcode;
+        this.autosuggest.input.value =
+          selectedResult.streetName + ', ' + selectedResult.townName + ', ' + selectedResult.postTown + ', ' + selectedResult.postcode;
         this.autosuggest.input.focus();
         this.autosuggest.input.dispatchEvent(event);
       }
