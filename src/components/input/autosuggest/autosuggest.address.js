@@ -107,7 +107,7 @@ export default class AutosuggestAddress {
       });
   }
 
-  suggestAddresses(query, [], grouping) {
+  suggestAddresses(query, [], grouped) {
     return new Promise((resolve, reject) => {
       if (this.currentQuery === query && this.currentQuery.length && (this.currentResults ? this.currentResults.length : 0)) {
         resolve({
@@ -123,19 +123,19 @@ export default class AutosuggestAddress {
         }
 
         this.reject = reject;
-        this.findAddress(query, grouping)
+        this.findAddress(query, grouped)
           .then(resolve)
           .catch(reject);
       }
     });
   }
 
-  findAddress(text, group) {
+  findAddress(text, grouped) {
     return new Promise((resolve, reject) => {
       let queryUrl;
       const testInput = this.testFullPostcodeQuery(text);
       let limit = testInput ? 100 : 10;
-      if (group) {
+      if (grouped) {
         queryUrl = this.lookupGroupURL + this.groupQuery;
       } else {
         queryUrl = this.lookupURL + text;
@@ -218,9 +218,7 @@ export default class AutosuggestAddress {
         [this.lang]:
           streetName +
           ', ' +
-          townName +
-          ', ' +
-          postTown +
+          (townName === postTown ? postTown : townName + ', ' + postTown) +
           ', ' +
           postcode +
           ' <span class="autosuggest-input__group">(' +
@@ -311,7 +309,13 @@ export default class AutosuggestAddress {
           });
       } else if (selectedResult.postcode) {
         this.autosuggest.input.value =
-          selectedResult.streetName + ', ' + selectedResult.townName + ', ' + selectedResult.postTown + ', ' + selectedResult.postcode;
+          selectedResult.streetName +
+          ', ' +
+          (selectedResult.townName === selectedResult.postTown
+            ? selectedResult.postTown
+            : selectedResult.townName + ', ' + selectedResult.postTown) +
+          ', ' +
+          selectedResult.postcode;
         this.autosuggest.input.focus();
         this.groupQuery =
           'postcode=' + selectedResult.postcode + '&streetname=' + selectedResult.streetName + '&townname=' + selectedResult.townName;
