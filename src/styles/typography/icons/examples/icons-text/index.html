@@ -1,8 +1,9 @@
-{% from "components/text-icon/_macro.njk" import onsTextIcon %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
-{{
-    onsTextIcon({
-        "text": "Here is some text with an icon.",
-        "icon": "lock"
+{% call onsPanel({
+        type: "bare",
+        icon: "lock"
     })
-}}
+%}
+    Here is some text with an icon.
+{% endcall %}
