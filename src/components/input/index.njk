@@ -2,6 +2,8 @@
 title: Input
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 The input component lets users enter alphanumeric characters for answers that are no longer than one line, using the appropriate keyboard on touch devices.
 {{
@@ -24,7 +26,12 @@ By default, the input component will fill the width of its container up to 500px
 ### Autocomplete
 Use the `autocomplete` attribute on inputs to help the user fill out a form more quickly. This attribute lets you specify a purpose for the input so the user's browser can autofill the information for them.
 
-You will need to use the autocomplete attribute for each applicable [input purpose](https://www.w3.org/TR/WCAG21/#input-purposes) to meet AA WCAG 2.1 accessibility requirements.
+You will need to use the autocomplete attribute for each applicable {{
+    onsExternalLink({
+        "url": "https://www.w3.org/TR/WCAG21/#input-purposes",
+        "linkText": "input purpose"
+    })
+}} to meet AA WCAG 2.1 accessibility requirements.
 
 ### Description
 An optional `label__description` can be used to display a hint to help the user enter their information.
@@ -75,7 +82,12 @@ To use this component it is advised that autocomplete is switched off by setting
     patternlibExample({"path": "components/input/examples/country-of-birth/index.njk"})
 }}
 
-This example is powered by a JavaScript library called [Fuse.js](https://fusejs.io/).
+This example is powered by a JavaScript library called {{
+    onsExternalLink({
+        "url": "https://fusejs.io",
+        "linkText": "Fuse.js"
+    })
+}}.
 
 #### Response object
 
@@ -104,10 +116,20 @@ The typeahead component sends a `searchFields` parameter in it's query string th
 The typeahead component will search the `cy` or the `en-gb` data to find results depending on the `searchFields` parameter.
 
 ## Research on this component
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/163" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/163",
+            "linkText": "Design System forum"
+        })
+    }}
 {% endcall %}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/163" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Input' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/163",
+        "linkText": "Discuss 'Input' on GitHub"
+    })
+}}

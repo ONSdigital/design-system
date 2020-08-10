@@ -1,9 +1,11 @@
 ---
 title: Checkboxes
 ---
-Checkboxes let the user select one or more options from a list.
-
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+Checkboxes let the user select one or more options from a list.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes/index.njk"})
@@ -40,12 +42,20 @@ This variant of the 'Other' checkbox input type shows the input instead of waiti
 
 
 ## Research on this components
-{% from "components/panel/_macro.njk" import onsPanel %}
-
 {% call onsPanel() %}
-    <p>If you have conducted any user research using this component, please feed back your findings via the <a href='https://github.com/ONSdigital/design-system/issues/13'>Design System Forum.</a></p>
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/13",
+            "linkText": "Design System Forum"
+        })
+    }}
 {% endcall %}
 
 ## Design System forum
-[Discuss 'Checkboxes' on GitHub](https://github.com/ONSdigital/design-system/issues/13)
-<a href="https://github.com/ONSdigital/design-system/issues/13" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Checkboxes' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/13",
+        "linkText": "Discuss 'Checkboxes' on GitHub"
+    })
+}}
