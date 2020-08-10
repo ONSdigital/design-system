@@ -1,137 +1,148 @@
-/* --------------------------------
-Resource
--------------------------------- */
-
-.resource {
-  display: flex;
-}
-
-.resource__image {
-  flex: 0 0 auto;
-  margin-right: 32px;
-  width: 96px; // Max width of image
-}
-
-.resource__image-link {
-  border: 2px solid $color-grey-3;
-  box-sizing: content-box;
-  display: block;
-  width: 100%;
-
-  &:focus {
-    border-color: $color-black;
-    outline: 4px solid $color-yellow !important; // Not ideal
+.adv-filter {
+  &__gallery {
+    border-top: 1px solid $color-grey-3;
+    margin-left: 0;
+    padding-left: 0;
   }
-}
 
-.resource__meta {
-  color: $color-grey-1;
-  display: block;
-}
-
-/* --------------------------------
-Advanced filter
--------------------------------- */
-
-.adv-filter__gallery {
-  border-top: 1px solid $color-grey-3;
-  margin-left: 0;
-  padding-left: 0;
-}
-
-.adv-filter__item {
-  margin-top: 1.5rem;
-
-  &:first-of-type {
+  &__item {
     margin-top: 1.5rem;
-  }
-}
 
-.adv-filter__selection {
-  color: $color-grey-1;
-  margin-bottom: 0.5rem;
-}
-
-.adv-filter__results-options {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-
-.adv-filter__reset {
-  background-color: transparent;
-  border: 0 none;
-  cursor: pointer;
-  color: $color-grey-1;
-  font-family: inherit;
-  font-weight: normal;
-  padding: 0;
-  text-decoration: underline;
-
-  &:hover {
-    color: $color-black;
+    &:first-of-type {
+      margin-top: 1.5rem;
+    }
   }
 
-  &:focus {
-    background-color: $color-yellow;
-    box-shadow: 0 -2px $color-yellow, 0 4px $color-black;
-    color: $color-black;
-    outline: 3px solid transparent;
-    text-decoration: none;
+  &__selection {
+    color: $color-grey-1;
+    margin-bottom: 0.5rem;
   }
-}
 
-.adv-filter__results-sort {
-  align-items: center;
-  display: flex;
+  &__results-options {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
 
-  .label {
+  &__reset {
+    background-color: transparent;
+    border: 0 none;
+    cursor: pointer;
+    color: $color-grey-1;
+    font-family: inherit;
     font-weight: normal;
-    margin-bottom: 0;
-    margin-right: 0.5rem;
+    padding: 0;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-black;
+    }
+
+    &:focus {
+      background-color: $color-yellow;
+      box-shadow: 0 -2px $color-yellow, 0 4px $color-black;
+      color: $color-black;
+      outline: 3px solid transparent;
+      text-decoration: none;
+    }
   }
 
-  .input--select {
-    width: auto !important; // NASTY override of globally defined width on selects...
+  &__results-sort {
+    align-items: center;
+    display: flex;
+
+    .label {
+      font-weight: normal;
+      margin-bottom: 0;
+      margin-right: 0.5rem;
+    }
+
+    .input--select {
+      width: auto !important;
+    }
+  }
+
+  &__panel {
+    display: none;
+  }
+
+  &__panel--is-visible {
+    background-color: $color-white;
+    bottom: 0;
+    display: block;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: calc(100% - 76px); // Height of action buttons
+    overflow-y: scroll;
+    padding: 1rem;
+    position: fixed;
+    z-index: 10;
+  }
+
+  &__actions {
+    background-color: $color-white;
+    box-shadow: 0 0 5px 0 rgba($color-black, 0.5), 0 -1px 0 0 rgba($color-grey-1, 0.5);
+    bottom: 0;
+    display: flex;
+    left: 0;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    z-index: 11;
+
+    .btn:first-of-type {
+      flex-grow: 1;
+    }
+
+    .btn + .btn {
+      margin-left: 1rem;
+    }
+  }
+
+  // Not for mobile
+  @include mq(m) {
+    &__actions {
+      display: none;
+    }
+
+    &__trigger {
+      display: none;
+    }
+
+    &__panel {
+      display: block;
+    }
+
+    .no-scroll {
+      overflow: auto;
+    }
   }
 }
 
-.adv-filter__panel {
-  display: none;
-}
+// No JavaScript
+body:not(.js-enabled) {
+  .adv-filter {
+    &__actions {
+      display: none;
+    }
 
-.adv-filter__panel--is-visible {
-  background-color: $color-white;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: calc(100% - 76px); // Height of action buttons
-  overflow-y: scroll;
-  padding: 1rem;
-  position: fixed;
-  z-index: 10;
-  display: block;
-}
+    &__panel {
+      display: block;
+    }
 
-.adv-filter__actions {
-  background-color: $color-white;
-  display: flex;
-  box-shadow: 0 0 5px 0 rgba($color-black, 0.5), 0 -1px 0 0 rgba($color-grey-1, 0.5);
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  position: fixed;
-  width: 100%;
-  z-index: 11;
+    &__trigger {
+      display: none;
+    }
 
-  .btn:first-of-type {
-    flex-grow: 1;
-  }
+    &__no-results {
+      display: none;
+    }
 
-  .btn + .btn {
-    margin-left: 1rem;
+    &__selection {
+      display: none;
+    }
   }
 }
 
@@ -141,48 +152,6 @@ Advanced filter
   margin-bottom: 0; // Reset default margin bottom on list items
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
-}
-
-// Not for mobile
-@include mq(m) {
-  .adv-filter__actions {
-    display: none;
-  }
-
-  .adv-filter__trigger {
-    display: none;
-  }
-
-  .adv-filter__panel {
-    display: block;
-  }
-
-  .no-scroll {
-    overflow: auto;
-  }
-}
-
-// No JavaScript
-body:not(.js-enabled) {
-  .adv-filter__actions {
-    display: none;
-  }
-
-  .adv-filter__panel {
-    display: block;
-  }
-
-  .adv-filter__trigger {
-    display: none;
-  }
-
-  .adv-filter__no-results {
-    display: none;
-  }
-
-  .adv-filter__selection {
-    display: none;
-  }
 }
 
 // Prevent scrollbars on body

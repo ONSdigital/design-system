@@ -5,6 +5,7 @@ layout: none
 
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+{% from "components/downloads/_macro.njk" import onsDownloads %}
 
 {% set pageConfig = {
     "title": "Census 2021",
@@ -306,7 +307,7 @@ layout: none
                             <div class="adv-filter__results-options">
 
                                 <div class="adv-filter__results-count">
-                                    <span class="js-adv-filter__results-count">11</span> results of 150
+                                    <span class="js-adv-filter__results-count">9</span> results of 150
                                 </div>
 
                                 <div class="adv-filter__results-sort">
@@ -323,221 +324,226 @@ layout: none
 
                                 <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="1">
                                 
-                                    <div class="resource">
-
-                                        <div class="resource__image" aria-hidden="true">
-                                            <a class="resource__image-link" href="/patternlib-img/download-resources/documents/Print-Ready-A4GIP1-2021-v1-0-120620.pdf" tabindex="-1">
-                                                <img height="136" width="96" srcset="/patternlib-img/download-resources/img/census-2021-matters-to-everyone.png 1x, /patternlib-img/download-resources/img/census-2021-matters-to-everyone@2x.png 2x" src="/patternlib-img/download-resources/img/census-2021-matters-to-everyone.png" alt="Census 2021 matters to everyone document thumbnail">
-                                            </a>
-                                        </div>
-
-                                        <div class="resource__content">
-                                            <h3 class="u-fs-m u-mb-xs"><a href="/patternlib-img/download-resources/documents/Print-Ready-A4GIP1-2021-v1-0-120620.pdf">Census 2021 matters to everyone<span class="u-vh">, PDF document download, 866KB, 1 page</span></a></h3>
-                                            <span class="u-fs-s u-mb-xs resource__meta" aria-hidden="true">Poster, PDF, 866KB, 1 page</span>  
-                                            <p class="u-mb-no">By taking part and encouraging others to do the same, you’ll make sure your community gets the services it needs.</p>  
-                                        </div>
-
-                                    </div>
+                                    {{ onsDownloads({
+                                        "downloads": [
+                                            {
+                                                "thumbnail": {
+                                                    "path": "/patternlib-img/download-resources/img/",
+                                                    "filename": "census-2021-matters-to-everyone.png",
+                                                    "alt": "Census 2021 matters to everyone document thumbnail"
+                                                },
+                                                "url": "/patternlib-img/download-resources/documents/Print-Ready-A4GIP1-2021-v1-0-120620.pdf",                                                
+                                                "title": "Census 2021 matters to everyone",
+                                                "type": "Poster",
+                                                "meta": {
+                                                    "fileType": "PDF",
+                                                    "fileSize": "866KB",
+                                                    "filePages": "1 page"
+                                                },
+                                                "excerpt": "By taking part and encouraging others to do the same, you’ll make sure your community gets the services it needs."
+                                            }
+                                        ]
+                                    }) }}
 
                                 </li>
 
                                 <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="2">
                                 
-                                    <div class="resource">
-
-                                        <div class="resource__image" aria-hidden="true">
-                                            <a class="resource__image-link" href="/patternlib-img/download-resources/documents/Print-Ready-A4EB1-2021-v1-0-120620.pdf" tabindex="-1">
-                                                <img height="136" width="96" srcset="/patternlib-img/download-resources/img/including-everyone-in-census-2021-v2.png 1x, /patternlib-img/download-resources/img/including-everyone-in-census-2021-v2@2x.png 2x" src="/patternlib-img/download-resources/img/including-everyone-in-census-2021-v2.png" alt="Including everyone in Census 2021 document thumbnail">
-                                            </a>
-                                        </div>
-
-                                        <div class="resource__content">
-                                            <h3 class="u-fs-m u-mb-xs"><a href="/patternlib-img/download-resources/documents/Print-Ready-A4EB1-2021-v1-0-120620.pdf">Including everyone in Census 2021<span class="u-vh">, PDF document download, 499KB, 1 page</span></a></h3>
-                                            <span class="u-fs-s u-mb-xs resource__meta" aria-hidden="true">Poster, PDF, 499KB, 1 page</span>  
-                                            <p class="u-mb-no">Empty belly poster, aimed at advertising census events.</p>  
-                                        </div>
-
-                                    </div>
+                                    {{ onsDownloads({
+                                        "downloads": [
+                                            {
+                                                "thumbnail": {
+                                                    "path": "/patternlib-img/download-resources/img/",
+                                                    "filename": "including-everyone-in-census-2021-v2.png",
+                                                    "alt": "Including everyone in Census 2021 document thumbnail"
+                                                },
+                                                "url": "/patternlib-img/download-resources/documents/Print-Ready-A4EB1-2021-v1-0-120620.pdf",                                            
+                                                "title": "Including everyone in Census 2021",
+                                                "type": "Poster",
+                                                "meta": {
+                                                    "fileType": "PDF",
+                                                    "fileSize": "499KB",
+                                                    "filePages": "1 page"
+                                                },
+                                                "excerpt": "Empty belly poster, aimed at advertising census events."
+                                            }
+                                        ]
+                                    }) }}
 
                                 </li>
 
                                 <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="3">
-                                
-                                    <div class="resource">
 
-                                        <div class="resource__image" aria-hidden="true">
-                                            <a class="resource__image-link" href="/patternlib-img/download-resources/documents/A6PCA1-v1-0-Print-Ready-Pack1.pdf" tabindex="-1">
-                                                <img height="136" width="96" srcset="/patternlib-img/download-resources/img/including-everyone-in-census-2021.png 1x, /patternlib-img/download-resources/img/including-everyone-in-census-2021@2x.png 2x" src="/patternlib-img/download-resources/img/including-everyone-in-census-2021.png" alt="Including everyone in Census 2021 document thumbnail">
-                                            </a>
-                                        </div>
-
-                                        <div class="resource__content">
-                                            <h3 class="u-fs-m u-mb-xs"><a href="/patternlib-img/download-resources/documents/A6PCA1-v1-0-Print-Ready-Pack1.pdf">Including everyone in Census 2021<span class="u-vh">, PDF document download, 499KB, 1 page</span></a></h3>
-                                            <span class="u-fs-s u-mb-xs resource__meta" aria-hidden="true">Poster, PDF, 499KB, 1 page</span>  
-                                            <p class="u-mb-no">Generic poster advertising census 2021.</p>  
-                                        </div>
-
-                                    </div>
+                                    {{ onsDownloads({
+                                        "downloads": [
+                                            {
+                                                "thumbnail": {
+                                                    "path": "/patternlib-img/download-resources/img/",
+                                                    "filename": "including-everyone-in-census-2021.png",
+                                                    "alt": "Including everyone in Census 2021 document thumbnail"
+                                                },
+                                                "url": "/patternlib-img/download-resources/documents/A6PCA1-v1-0-Print-Ready-Pack1.pdf",                                                
+                                                "title": "Census awareness poster",
+                                                "type": "Poster",
+                                                "meta": {
+                                                    "fileType": "PDF",
+                                                    "fileSize": "499KB",
+                                                    "filePages": "1 page"
+                                                },
+                                                "excerpt": "Generic poster advertising census 2021."
+                                            }
+                                        ]
+                                    }) }}
 
                                 </li>
 
                                 <li class="filter__item js-filter__item" data-filter="booklet english local-authorities community-groups recruitment" data-sort-index="4">
                                 
-                                    <div class="resource">
-
-                                        <div class="resource__image" aria-hidden="true">
-                                            <a class="resource__image-link" href="/patternlib-img/download-resources/documents/CHDE1-Community-Handbook-v0.6.pdf" tabindex="-1">
-                                                <img height="136" width="96" srcset="/patternlib-img/download-resources/img/census-2021-community-handbook.png 1x, /patternlib-img/download-resources/img/census-2021-community-handbook@2x.png 2x" src="/patternlib-img/download-resources/img/census-2021-community-handbook.png" alt="Community handbook for Census 2021 document thumbnail">
-                                            </a>
-                                        </div>
-
-                                        <div class="resource__content">
-                                            <h3 class="u-fs-m u-mb-xs"><a href="/patternlib-img/download-resources/documents/CHDE1-Community-Handbook-v0.6.pdf">Community handbook for Census 2021<span class="u-vh">, PDF document download, 3.3MB, 16 pages</span></a></h3>
-                                            <span class="u-fs-s u-mb-xs resource__meta" aria-hidden="true">Booklet, PDF, 3.3MB, 16 pages</span>  
-                                            <p class="u-mb-no">This handbook explains what the census is, why it matters to everyone and how we can work together to spread the word within your community.</p>  
-                                        </div>
-
-                                    </div>
+                                    {{ onsDownloads({
+                                        "downloads": [
+                                            {
+                                                "thumbnail": {
+                                                    "path": "/patternlib-img/download-resources/img/",
+                                                    "filename": "census-2021-community-handbook.png",
+                                                    "alt": "Community handbook for Census 2021 document thumbnail"
+                                                },
+                                                "url": "/patternlib-img/download-resources/documents/CHDE1-Community-Handbook-v0.6.pdf",
+                                                "title": "Community handbook for Census 2021",
+                                                "type": "Booklet",
+                                                "meta": {
+                                                    "fileType": "PDF",
+                                                    "fileSize": "3.3MB",
+                                                    "filePages": "16 pages"
+                                                },
+                                                "excerpt": "This handbook explains what the census is, why it matters to everyone and how we can work together to spread the word within your community."
+                                            }
+                                        ]
+                                    }) }}
 
                                 </li>
 
                                 <li class="filter__item js-filter__item" data-filter="booklet english local-authorities community-groups recruitment" data-sort-index="5">
-                                
-                                    <div class="resource">
 
-                                        <div class="resource__image" aria-hidden="true">
-                                            <a class="resource__image-link" href="/patternlib-img/download-resources/documents/ONS-Census-2021-Brand-Guidelines-v3-03.pdf" tabindex="-1">
-                                                <img height="136" width="96" srcset="/patternlib-img/download-resources/img/census-2021-brand-guidelines.png 1x, /patternlib-img/download-resources/img/census-2021-brand-guidelines@2x.png 2x" src="/patternlib-img/download-resources/img/census-2021-brand-guidelines.png" alt="Brand guidelines document thumbnail preview">
-                                            </a>
-                                        </div>
-
-                                        <div class="resource__content">
-                                            <h3 class="u-fs-m u-mb-xs"><a href="/patternlib-img/download-resources/documents/ONS-Census-2021-Brand-Guidelines-v3-03.pdf">Brand guidelines for Census 2021<span class="u-vh">, PDF document download, 7.4MB, 70 pages</span></a></h3>
-                                            <span class="u-fs-s u-mb-xs resource__meta" aria-hidden="true">Booklet, PDF, 7.4MB, 70 pages</span>  
-                                            <p class="u-mb-no">Guidelines to help produce branded communications for the census, which are clear and consistent across print and digital platforms.</p>
-                                        </div>
-
-                                    </div>
+                                    {{ onsDownloads({
+                                        "downloads": [
+                                            {
+                                                "thumbnail": {
+                                                    "path": "/patternlib-img/download-resources/img/",
+                                                    "filename": "census-2021-brand-guidelines.png",
+                                                    "alt": "Brand guidelines document thumbnail preview"
+                                                },
+                                                "url": "/patternlib-img/download-resources/documents/ONS-Census-2021-Brand-Guidelines-v3-03.pdf",                                                
+                                                "title": "Brand guidelines for Census 2021",
+                                                "type": "Booklet",
+                                                "meta": {
+                                                    "fileType": "PDF",
+                                                    "fileSize": "7.4MB",
+                                                    "filePages": "70 pages"
+                                                },
+                                                "excerpt": "Guidelines to help produce branded communications for the census, which are clear and consistent across print and digital platforms."
+                                            }
+                                        ]
+                                    }) }}
 
                                 </li>
 
                                 <li class="filter__item js-filter__item" data-filter="booklet english local-authorities community-groups recruitment" data-sort-index="6">
 
-                                    <div class="resource">
-                                    
-                                        <div class="resource__image" aria-hidden="true">
-                                            <a class="resource__image-link" href="/patternlib-img/download-resources/documents/Census-Tone-of-Voice-v4-07.pdf" tabindex="-1">
-                                                <img height="136" width="96" srcset="/patternlib-img/download-resources/img/census-2021-tone-of-voice.png 1x, /patternlib-img/download-resources/img/census-2021-tone-of-voice@2x.png 2x" src="/patternlib-img/download-resources/img/census-2021-tone-of-voice.png" alt="Tone of voice for Census 2021 thumbnail preview">
-                                            </a>
-                                        </div>
-
-                                        <div class="resource__content">
-                                            <h3 class="u-fs-m u-mb-xs"><a href="/patternlib-img/download-resources/documents/Census-Tone-of-Voice-v4-07.pdf">Tone of voice for Census 2021<span class="u-vh">, PDF document download, 1.1MB, 34 pages</span></a></h3>
-                                            <span class="u-fs-s u-mb-xs resource__meta" aria-hidden="true">Booklet, PDF, 1.1MB, 34 pages</span>  
-                                            <p class="u-mb-no">A guide to how we write and talk about the census.</p>  
-                                        </div>
-
-                                    </div>
+                                    {{ onsDownloads({
+                                        "downloads": [
+                                            {
+                                                "thumbnail": {
+                                                    "path": "/patternlib-img/download-resources/img/",
+                                                    "filename": "census-2021-tone-of-voice.png",
+                                                    "alt": "Brand guidelines document thumbnail preview"
+                                                },
+                                                "url": "/patternlib-img/download-resources/documents/Census-Tone-of-Voice-v4-07.pdf",                                                
+                                                "title": "Tone of voice for Census 2021",
+                                                "type": "Booklet",
+                                                "meta": {
+                                                    "fileType": "PDF",
+                                                    "fileSize": "1.1MB",
+                                                    "filePages": "34 pages"
+                                                },
+                                                "excerpt": "A guide to how we write and talk about the census."
+                                            }
+                                        ]
+                                    }) }}
 
                                 </li>
 
                                 <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="7">
 
-                                    <div class="resource">
-                                    
-                                        <div class="resource__image" aria-hidden="true">
-                                            <a class="resource__image-link" href="#0" tabindex="-1">
-                                                <img height="136" width="96" srcset="/patternlib-img/download-resources/img/placeholder-portrait.png 1x, /patternlib-img/download-resources/img/placeholder-portrait@2x.png 2x" src="/patternlib-img/download-resources/img/placeholder-portrait.png" alt="Placeholder">
-                                            </a>
-                                        </div>
-                                    
-                                        <div class="resource__content">
-                                            <h3 class="u-fs-m u-mb-xs"><a href="#0">Default awareness pop-up stand for graphics for Census 2021<span class="u-vh">, ZIP document download, 12MB, 6 files<span></a></h3>
-                                            <span class="u-fs-s resource__meta" aria-hidden="true">Poster, ZIP, 12MB, 6 files</span>  
-                                            <p class="u-mb-no u-mt-xs">Awareness pop-up stand graphics for the initial launch engagement.</p>  
-                                        </div>
-
-                                    </div>
+                                    {{ onsDownloads({
+                                        "downloads": [
+                                            {
+                                                "thumbnail": {
+                                                    "path": "/patternlib-img/download-resources/img/",
+                                                    "filename": "placeholder-portrait.png",
+                                                    "alt": "Placeholder"
+                                                },
+                                                "url": "#0",                                                
+                                                "title": "Default awareness pop-up stand for graphics for Census 2021",
+                                                "type": "Poster",
+                                                "meta": {
+                                                    "fileType": "ZIP",
+                                                    "fileSize": "12MB",
+                                                    "filePages": "6 files"
+                                                },
+                                                "excerpt": "Awareness pop-up stand graphics for the initial launch engagement."
+                                            }
+                                        ]
+                                    }) }}
 
                                 </li>
 
                                 <li class="filter__item js-filter__item" data-filter="poster english" data-sort-index="8">
                                     
-                                    <div class="resource">
-
-                                        <div class="resource__image" aria-hidden="true">
-                                            <a class="resource__image-link" href="#0" tabindex="-1">
-                                                <img height="136" width="96" srcset="/patternlib-img/download-resources/img/placeholder-portrait.png 1x, /patternlib-img/download-resources/img/placeholder-portrait@2x.png 2x" src="/patternlib-img/download-resources/img/placeholder-portrait.png" alt="Placeholder">
-                                            </a>
-                                        </div>
-                                    
-                                        <div class="resource__content">
-                                            <h3 class="u-fs-m u-mb-xs"><a href="#0">Field officer jobs poster for Census 2021<span class="u-vh">, ZIP document download, 12MB, 6 files</span></a></h3>
-                                            <span class="u-fs-s u-mb-xs resource__meta" aria-hidden="true">Poster, ZIP, 12MB, 6 files</span>  
-                                            <p class="u-mb-no">Collection of posters to advertise a field officer job for the census 2021.</p>  
-                                        </div>
-
-                                    </div>
+                                    {{ onsDownloads({
+                                        "downloads": [
+                                            {
+                                                "thumbnail": {
+                                                    "path": "/patternlib-img/download-resources/img/",
+                                                    "filename": "placeholder-portrait.png",
+                                                    "alt": "Placeholder"
+                                                },
+                                                "url": "#0",                                                
+                                                "title": "Field officer jobs poster for Census 2021",
+                                                "type": "Poster",
+                                                "meta": {
+                                                    "fileType": "ZIP",
+                                                    "fileSize": "12MB",
+                                                    "filePages": "6 files"
+                                                },
+                                                "excerpt": "Collection of posters to advertise a field officer job for the census 2021."
+                                            }
+                                        ]
+                                    }) }}
 
                                 </li>
 
                                 <li class="filter__item js-filter__item" data-filter="logo english local-authorities community-groups recruitment" data-sort-index="9">
                                     
-                                    <div class="resource">
-                                    
-                                        <div class="resource__image" aria-hidden="true">
-                                            <a class="resource__image-link" href="#0" tabindex="-1">
-                                                <img height="136" width="96" srcset="/patternlib-img/download-resources/img/placeholder-portrait.png 1x, /patternlib-img/download-resources/img/placeholder-portrait@2x.png 2x" src="/patternlib-img/download-resources/img/placeholder-portrait.png" alt="Placeholder">
-                                            </a>
-                                        </div>
-
-                                        <div class="resource__content">
-                                            <h3 class="u-fs-m u-mb-xs"><a href="#0">Census 2021 logos pack for print and web<span class="u-vh">, ZIP document download, 5MB, 24 files</span></a></h3>
-                                            <span class="u-fs-s u-mb-xs resource__meta" aria-hidden="true">Logo, ZIP, 5MB, 24 files</span>  
-                                            <p class="u-mb-no">A collection of logos suitable for print and web advertising.</p>  
-                                        </div>
-
-                                    </div>
-
-                                </li>
-
-                                <li class="filter__item js-filter__item" data-filter="poster english" data-sort-index="10">
-                                
-                                    <div class="resource">
-
-                                        <div class="resource__image" aria-hidden="true">
-                                            <a class="resource__image-link" href="#0" tabindex="-1">
-                                                <img height="136" width="96" srcset="/patternlib-img/download-resources/img/placeholder-portrait.png 1x, /patternlib-img/download-resources/img/placeholder-portrait@2x.png 2x" src="/patternlib-img/download-resources/img/placeholder-portrait.png" alt="Placeholder">
-                                            </a>
-                                        </div>
-                                    
-                                        <div class="resource__content">
-                                            <h3 class="u-fs-m u-mb-xs"><a href="#0">Default awareness posters for Census 2021<span class="u-vh">, PDF document download, 2MB, 2 pages</span></a></h3>
-                                            <span class="u-fs-s u-mb-xs resource__meta" aria-hidden="true">Poster, PDF, 2MB, 2 pages</span>  
-                                            <p class="u-mb-no">Awareness posters for initial launch engagement.</p>  
-                                        </div>
-
-                                    </div>
-
-                                </li>
-
-                                <li class="filter__item js-filter__item" data-filter="booklet english welsh irish local-authorities community-groups recruitment" data-sort-index="11">
-                                
-                                    <div class="resource">
-
-                                        <div class="resource__image" aria-hidden="true">
-                                            <a class="resource__image-link" href="#0" tabindex="-1">
-                                                <img height="136" width="96" srcset="/patternlib-img/download-resources/img/placeholder-portrait.png 1x, /patternlib-img/download-resources/img/placeholder-portrait@2x.png 2x" src="/patternlib-img/download-resources/img/placeholder-portrait.png" alt="Placeholder">
-                                            </a>
-                                        </div>
-                                    
-                                        <div class="resource__content">
-                                            <h3 class="u-fs-m u-mb-xs"><a href="#0">Census 2021 community handbook<span class="u-vh">, PDF document download, 890KB, 24 pages</span></a></h3>
-                                            <span class="u-fs-s u-mb-xs resource__meta" aria-hidden="true">Booklet, PDF, 890KB, 24 pages</span>  
-                                            <p class="u-mb-no">A useful community handbook as a guide for the Census 2021.</p>  
-                                        </div>
-
-                                    </div>
+                                    {{ onsDownloads({
+                                        "downloads": [
+                                            {
+                                                "thumbnail": {
+                                                    "path": "/patternlib-img/download-resources/img/",
+                                                    "filename": "placeholder-portrait.png",
+                                                    "alt": "Placeholder"
+                                                },
+                                                "url": "#0",                                                
+                                                "title": "Census 2021 logos pack for print and web",
+                                                "type": "Logo",
+                                                "meta": {
+                                                    "fileType": "ZIP",
+                                                    "fileSize": "5MB",
+                                                    "filePages": "24 files"
+                                                },
+                                                "excerpt": "A collection of logos suitable for print and web advertising."
+                                            }
+                                        ]
+                                    }) }}
 
                                 </li>
 
