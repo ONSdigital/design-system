@@ -38,7 +38,12 @@ Use the [input component](/components/input) macro and set the `type` parameter 
 {% call onsPanel({
     "classes": "u-mb-s"
 }) %}
-    <strong>Note:</strong>  If you are manually using the component <code>html</code>, set the attributes <code>type="text"</code>, <code>inputmode="numeric"</code> and <code>pattern="[0-9]*"</code>. Server-side validation on <code>number</code> type input is <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1398528">not currently supported by all browsers.</a>
+    <strong>Note:</strong>  If you are manually using the component <code>html</code>, set the attributes <code>type="text"</code>, <code>inputmode="numeric"</code> and <code>pattern="[0-9]*"</code>. Server-side validation on <code>number</code> type input is {{
+        onsExternalLink({
+            "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=1398528",
+            "linkText": "not currently supported by all browsers"
+        })
+    }}.
 {% endcall %}
 ### Use appropriately-size number inputs
 You can use the [input width override utility class](/components/input#width-constrained) to set the width of the input when the maximum size of the answer is known.  The class won't limit the number of digits the user can enter, but will help the user understand what they should enter.

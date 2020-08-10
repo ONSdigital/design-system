@@ -4,6 +4,7 @@ experimental: true
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 Use the Timeline component to show a linear record of what’s happening.
 
@@ -11,6 +12,17 @@ Use the Timeline component to show a linear record of what’s happening.
 {{
     patternlibExample({"path": "components/timeline/examples/timeline/index.njk"})
 }}
+
+## Research on this component
+{% call onsPanel() %}
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/871",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
 
 ## Design System forum
 {{

@@ -26,7 +26,12 @@ This is used to inform users that Census 2021 is happening now and a clear call 
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/876" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
+   If you have conducted any user research using this component, please feed back your findings via the {{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/717",
+        "linkText": "Design System forum"
+    })
+}}
 {% endcall %}
 
 ## Design System forum
