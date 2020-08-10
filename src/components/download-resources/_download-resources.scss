@@ -19,10 +19,11 @@
   }
 
   &__results-options {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__results-sort {
+    margin-top: 0.5rem;
   }
 
   &__reset {
@@ -101,7 +102,19 @@
     }
   }
 
-  // Not for mobile
+  @include mq(s) {
+    &__results-options {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    &__results-sort {
+      margin-top: 0; // Reset
+    }
+  }
+
   @include mq(m) {
     &__actions {
       display: none;
