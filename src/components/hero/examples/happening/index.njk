@@ -1,0 +1,22 @@
+---
+"theme": census
+"fullWidth": true
+---
+{% from "components/hero/_macro.njk" import onsHero %}
+{{
+    onsHero({
+        censusTheme: true,
+        title: 'Census 2021 is happening now',
+        subtitle: 'Ready to start your census online?',
+        text: 'You will need your <a href="#0">16-character access code</a>',
+        button: {
+            url: '#0',
+            text: 'Start your census'
+        },
+        image: {
+            src: '/img/hero/',
+            filename: 'hero-man.png',
+            alt: 'Man in a multi-coloured setting'
+        }
+    })
+}}
