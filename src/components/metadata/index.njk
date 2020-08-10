@@ -2,6 +2,8 @@
 title: Metadata
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 The metadata component is a way to organise and explain a block of key-value pairs of related information.
 {{
@@ -19,10 +21,20 @@ Use [the grid](/styles/grid) to build the layout of two columns of metadata, set
 Use the `metadataLabel` to succinctly describe the description list.
 
 ## Research on this component
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/91" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/91",
+            "linkText": "Design System forum"
+        })
+    }}
 {% endcall %}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/91" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Metadata' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/91",
+        "linkText": "Discuss 'Metadata' on GitHub"
+    })
+}}
