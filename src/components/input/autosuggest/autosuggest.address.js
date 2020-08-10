@@ -360,7 +360,10 @@ export default class AutosuggestAddress {
   }
 
   handleSubmit(event) {
-    if (!this.addressSelected && !this.search.classList.contains('u-d-no')) {
+    if (
+      (!this.addressSelected && !this.search.classList.contains('u-d-no')) ||
+      (this.input.value === '' && !this.search.classList.contains('u-d-no'))
+    ) {
       event.preventDefault();
       const handleError = new AddressError(this.context);
       handleError.showErrorPanel();
