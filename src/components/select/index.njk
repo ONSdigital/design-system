@@ -3,6 +3,7 @@ title: Select
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 These should *never* be used for short lists of items that could be better served by using radio options.
 
@@ -31,8 +32,19 @@ Because the expanded list cannot be styled, this may cause usability issues wher
 ## Research on this component
 
 {% call onsPanel() %}
-   <p>If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/50" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a></p>
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/50",
+            "linkText": "Design System forum"
+        })
+    }}
 {% endcall %}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/50" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Select' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/50",
+        "linkText": "Discuss 'Select' on GitHub"
+    })
+}}
