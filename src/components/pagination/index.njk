@@ -3,6 +3,8 @@ title: Pagination
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 Pagination is used to navigate a series of pages in a linear or semi-linear manner, allowing you to display a portion of information and avoid overwhelming the user with too much information.
 
@@ -52,10 +54,20 @@ When the number of pages exceeds the maximum display limit, ellipsis (…) are u
 If the pagination component sits inline with other content on the page, then the pagination should be left aligned.
 
 ## Research on this component
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/70" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/70",
+            "linkText": "Design System forum"
+        })
+    }}
 {% endcall %}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/70" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Pagination' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/70",
+        "linkText": "Discuss 'Pagination' on GitHub"
+    })
+}}
