@@ -1,35 +1,37 @@
 .download {
-  @extend .u-mb-m;
   display: flex;
 
   & + & {
-    margin: 2rem 0 0;
-    padding: 2em 0 0;
     border-top: 1px solid $color-grey-3;
+    margin: 1.5rem 0 0;
+    padding: 1.5em 0 0;
   }
+}
 
-  &__thumbnail {
-    flex: 0 0 auto;
-    padding: 0 1rem 0 0;
-    width: 120px;
+.download__image {
+  flex: 0 0 auto;
+  margin-right: 1.5rem;
+  width: 96px;
+}
+
+.download__image-link {
+  border: 2px solid $color-grey-3;
+  box-sizing: content-box;
+  display: block;
+  width: 100%;
+
+  &:focus {
+    border-color: $color-document-border-focus;
+    outline: 4px solid $color-focus !important;
   }
+}
 
-  &__thumbnail-link {
-    display: block;
-    border: 2px solid $color-document-border;
+.download__meta {
+  color: $color-grey-1;
+  display: block;
+}
 
-    &:focus {
-      outline: 4px solid $color-focus !important;
-      border-color: $color-document-border-focus;
-    }
-  }
-
-  &__metadata,
-  &__accessibility {
-    margin: 0.5rem 0 0;
-  }
-
-  &__title {
-    margin: 0 0 0.25rem;
-  }
+.download__excerpt {
+  margin-bottom: 0;
+  max-width: 660px; // Equivalent to 8 Columns
 }
