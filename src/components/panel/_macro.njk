@@ -24,8 +24,8 @@
     {% endif %}
 
     <div
-        class="{% if params.type != bare %}panel{% endif %}{{ typeClass }}{{ iconClass }}{{ simpleClass }}{{ spaciousClass }}{{ classes }}"
-        {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params is defined and params.id is defined %} id="{{params.id}}"{% endif %}
+        class="panel{{ typeClass }}{{ iconClass }}{{ simpleClass }}{{ spaciousClass }}{{ classes }}{% if params.type == 'bare' %} panel--bare{% endif %}"
+        {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params.id is defined %} id="{{params.id}}"{% endif %}
     >
         {% if params.type == "warn" %}
             <span class="panel__icon" aria-hidden="true">!</span>
