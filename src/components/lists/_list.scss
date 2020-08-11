@@ -20,7 +20,7 @@
   }
 
   &--dashed {
-    @extend &--bare;
+    @extend .list--bare;
     &__item {
       position: relative;
       margin-left: 25px;
