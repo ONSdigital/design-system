@@ -222,6 +222,12 @@ $button-border-height: 3px;
     }
   }
 
+  &--mobile[aria-expanded='true'] {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
   &--ghost-blue:active & {
     &__inner {
       border-color: darken($color-blue, 10%);
