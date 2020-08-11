@@ -5,11 +5,11 @@ import { sanitiseAutosuggestText } from './autosuggest.helpers';
 
 import abortableFetch from './abortable-fetch';
 
-const classInputContainer = 'autosuggest-input';
-const classNotEditable = 'js-address-not-editable';
-const classSearch = 'js-address-input__search';
-const classInput = 'js-autosuggest-input';
-const classInputUPRN = 'js-hidden-uprn';
+export const classInputContainer = 'autosuggest-input';
+export const classNotEditable = 'js-address-not-editable';
+export const classSearch = 'js-address-input__search';
+export const classInput = 'js-autosuggest-input';
+export const classInputUPRN = 'js-hidden-uprn';
 
 export default class AutosuggestAddress {
   constructor(context) {

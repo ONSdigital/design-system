@@ -1,5 +1,6 @@
 ---
 title: Autosuggest
+experimental: true
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
@@ -47,6 +48,12 @@ The autosuggest component will search the `cy` or the `en-gb` data to find resul
 
 
 ### Using the address API
+{% from "components/panel/_macro.njk" import onsPanel %}
+{{
+    onsPanel({
+        "body": "This component requires documentation."
+    })
+}}
 
 {{
     patternlibExample({"path": "components/autosuggest/examples/autosuggest-address/index.njk"})
