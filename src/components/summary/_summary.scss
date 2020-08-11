@@ -52,16 +52,23 @@ $hub-row-spacing: 1.3rem;
 
   &__item-title {
     padding-top: $summary-row-spacing;
-
     &--has-icon {
       position: relative;
-      padding-left: 2rem;
+      &--text {
+        display: block;
+        padding-left: 2rem;
+        overflow: hidden;
+      }
+      &--icon {
+        position: absolute;
+        top: 1.4rem;
+        left: 0;
+        text-align: center;
+      }
+      &--check {
+        fill: $color-green;
+      }
     }
-  }
-
-  &__icon {
-    position: absolute;
-    left: 0;
   }
 
   &__actions {

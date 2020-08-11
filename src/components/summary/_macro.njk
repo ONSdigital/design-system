@@ -36,14 +36,14 @@
                                 {% for rowItem in row.rowItems %}
                                     <tr class="summary__row{{ " summary__row--has-values" if rowItem.valueList else "" }}">
                                         <td
-                                            class="summary__item-title{{ " summary__item-title--has-icon" if rowItem.icon else "" }}"
+                                            class="summary__item-title{{ " summary__item-title--has-icon" if rowItem.icon else "" }}{{ " summary__item-title--has-icon--check" if rowItem.icon == 'check' }}"
                                             {% if rowItem.rowTitleAttributes is defined %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                         >
                                             {% if rowItem.icon is defined %}
-                                                <span class="summary__icon icon--{{ rowItem.icon }}"></span>
+                                                <svg class= "summary__item-title--has-icon--icon"><use xlink:href="/img/icons/icons--{{ rowItem.icon }}.svg#{{ rowItem.icon }}"></use></svg>
                                             {% endif %}
 
-                                            {{ rowItem.rowTitle | default(row.rowTitle) | safe }} {{ hasIcons }}
+                                            <div class="summary__item--text{{ ' summary__item-title--has-icon--text' if rowItem.icon else "" }}">{{ rowItem.rowTitle | default(row.rowTitle) | safe }} {{ hasIcons }}</div>
 
                                             {# Render section status for mobile if is hub #}
                                             {% if params.hub is defined and rowItem.valueList is defined %}
