@@ -4,6 +4,7 @@ group: Ask users for...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 ## When to use this pattern
 
@@ -18,10 +19,20 @@ The manual address input wraps itself within a [fieldset](/components/fieldset) 
 }}
 
 ## Research on this pattern
-
 {% call onsPanel() %}
-   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/412" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
+    If you have conducted any user research using this pattern, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/412",
+            "linkText": "Design System forum"
+        })
+    }}
 {% endcall %}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/412" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Addresses' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/412",
+        "linkText": "Discuss 'Addresses' on GitHub"
+    })
+}}
