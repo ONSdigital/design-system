@@ -15,6 +15,8 @@ export default class AddressError {
     this.search = context.querySelector(`.${classSearch}`);
     this.errorPanel = document.querySelector(`.${classErrorPanel}`);
     this.errorTitle = this.inputContainer.getAttribute('data-error-title');
+    this.errorMessageEnter = this.inputContainer.getAttribute('data-error-enter');
+    this.errorMessageSelect = this.inputContainer.getAttribute('data-error-select');
     this.errorMessage = this.inputContainer.getAttribute('data-error-message');
   }
 
@@ -42,7 +44,7 @@ export default class AddressError {
       errorLinkElement.href = '#autosuggest-input-error';
 
       errorElementTitle.innerHTML = this.errorTitle;
-      errorLinkElement.innerHTML = this.errorMessage;
+      errorLinkElement.innerHTML = this.input.value === '' ? this.errorMessageEnter : this.errorMessageSelect;
       errorLinkElementPre.innerHTML = '1. ';
 
       errorElement.appendChild(errorElementHeader);
@@ -69,7 +71,8 @@ export default class AddressError {
       inputErrorPanel.id = 'autosuggest-input-error';
       inputErrorPanelBody.className = 'panel__body';
       inputErrorPanelP.className = 'panel__error';
-      inputErrorPanelStrong.innerHTML = this.errorMessage;
+      console.log(this.errorMessageEnter);
+      inputErrorPanelStrong.innerHTML = this.input.value === '' ? this.errorMessageEnter : this.errorMessageSelect;
 
       inputErrorPanel.appendChild(inputErrorPanelBody);
       inputErrorPanelBody.appendChild(inputErrorPanelP);

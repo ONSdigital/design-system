@@ -17,7 +17,8 @@
         data-too-many-results="{{ params.tooManyResults }}"
         data-type-more="{{ params.typeMore }}"
         data-error-title="{{ params.errorTitle }}"
-        data-error-message="{{ params.errorMessage }}"
+        data-error-enter="{{ params.errorMessageEnter }}"
+        data-error-select="{{ params.errorMessageSelect }}"
         data-error-api="{{ params.errorMessageAPI }}"
         data-error-api-link-text="{{ params.errorMessageAPILinkText }}"
         {% if params.dataQueries %}{% for query, value in (params.dataQueries.items() if params.dataQueries is mapping and params.dataQueries.items else params.dataQueries) %}data-type-{{ query }}="{{ value }}" {% endfor %}{% endif %}

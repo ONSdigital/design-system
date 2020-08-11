@@ -221,9 +221,9 @@ export default class AutosuggestAddress {
           (townName === postTown ? postTown : townName + ', ' + postTown) +
           ', ' +
           postcode +
-          ' <span class="autosuggest-input__group">(' +
+          ' (<span class="autosuggest-input__group">' +
           addressCount +
-          ' addresses)</span>',
+          ' addresses</span>)',
         postcode,
         streetName,
         townName,

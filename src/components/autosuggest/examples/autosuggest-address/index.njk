@@ -6,7 +6,7 @@
         {{ onsInput({
             "id": "address-lookup",
             "label": {
-                "text": "Enter your address or postcode and select from results",
+                "text": "Enter address or postcode and select from results",
                 "classes": "js-autosuggest-label"
             },
             "autocomplete": "off",
@@ -17,17 +17,18 @@
                 "ariaMinChars": "Enter 3 or more characters for suggestions.",
                 "ariaOneResult": "There is one suggestion available.",
                 "ariaNResults": "There are {n} suggestions available.",
-                "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search.",
-                "moreResults": "Enter more of the address to get results",
+                "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
+                "moreResults": "Enter more of the address to improve results",
                 "resultsTitle": "Select an address",
-                "noResults": "No results found",
+                "noResults": "No results found. Try entering a different part of the address",
                 "typeMore": "Enter more of the address to get results",
-                "tooManyResults": "{n} results found. Enter more of the address to improve results.",
+                "tooManyResults": "{n} results found. Enter more of the address to improve results",
                 "externalInitialiser": true,
                 "APIDomain": "https://whitelodge-ai-api.census-gcp.onsdigital.uk",
                 "isEditable": true,
                 "errorTitle": "There is a problem with your answer",
-                "errorMessage": "Enter an address continue",
+                "errorMessageEnter": "Enter an address",
+                "errorMessageSelect": "Select an address",
                 "errorMessageAPI": "Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later."
             }
         }) }}

@@ -43,7 +43,7 @@ const params = {
     typeMore: 'Enter more of the address to get results',
     tooManyResults: '{n} results found. Enter more of the address to improve results.',
     errorTitle: 'There is a problem with your answer',
-    errorMessage: 'Enter an address continue',
+    errorMessage: 'Enter an address ',
     errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
   },
 };
@@ -320,11 +320,6 @@ describe('Autosuggest.ui component', function() {
             done();
           });
         });
-
-        // it('then after 2 seconds the type more message should show', function(done) {
-        //   expect(this.handleNoResultsSpy).to.have.been.called();
-        //   done();
-        // }).timeout(2000);
 
         it('then settingResult should be false', function() {
           expect(this.autosuggest.settingResult).to.equal(false);
