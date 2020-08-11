@@ -35,9 +35,12 @@
     {% endif %}
 
     {% if params.securityMessage is defined %}
-        <div class="uac__security u-mt-m">
-            <div class="uac__icon"><span class="icon icon--lock"></span></div>
-            <p class="uac__message">{{ params.securityMessage }}</p>
-        </div>
+        {% call onsPanel({
+                type: "bare",
+                icon: "lock"
+            })
+        %}
+            {{ params.securityMessage }}
+        {% endcall %}
     {% endif %}
 {% endmacro %}
