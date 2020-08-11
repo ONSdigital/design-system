@@ -213,27 +213,6 @@ describe('Autosuggest.ui component', function() {
       });
     });
 
-    describe('and the user focuses the input', function() {
-      beforeEach(function() {
-        this.suggestionSpy = chai.spy.on(this.autosuggest, 'getSuggestions');
-        this.originalClearTimout = window.clearTimeout;
-        this.clearTimeoutSpy = chai.spy.on(window, 'clearTimeout');
-        this.autosuggest.handleFocus();
-      });
-
-      afterEach(function() {
-        window.clearTimeout = this.originalClearTimout;
-      });
-
-      it('then getSuggestions should be called', function() {
-        expect(this.suggestionSpy).to.have.been.called.with.exactly(true);
-      });
-
-      it('then the blurTimout should be cleared', function() {
-        expect(this.clearTimeoutSpy).to.have.been.called.with.exactly(this.autosuggest.blurTimeout);
-      });
-    });
-
     describe('and the user blurs the input', function() {
       beforeEach(function() {
         this.suggestionSpy = chai.spy.on(this.autosuggest, 'getSuggestions');
@@ -290,7 +269,6 @@ describe('Autosuggest.ui component', function() {
           this.autosuggest.blurring = false;
           this.autosuggest.input.value = 'Test test test';
           this.checkCharCountSpy = chai.spy.on(this.autosuggest, 'checkCharCount');
-          this.autosuggest.handleFocus();
 
           setTimeout(() => {
             this.autosuggest.handleChange();

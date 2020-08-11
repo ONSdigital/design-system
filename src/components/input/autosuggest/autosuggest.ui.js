@@ -139,7 +139,7 @@ export default class AutosuggestUI {
     this.input.addEventListener('keydown', this.handleKeydown.bind(this));
     this.input.addEventListener('keyup', this.handleKeyup.bind(this));
     this.input.addEventListener('input', this.handleChange.bind(this));
-    this.input.addEventListener('focus', this.handleFocus.bind(this));
+    // this.input.addEventListener('focus', this.handleFocus.bind(this));
     this.input.addEventListener('blur', this.handleBlur.bind(this));
 
     this.listbox.addEventListener('mouseover', this.handleMouseover.bind(this));
@@ -197,13 +197,14 @@ export default class AutosuggestUI {
       }
     } else {
       this.abortFetch();
+      this.clearListbox();
     }
   }
 
-  handleFocus() {
-    clearTimeout(this.blurTimeout);
-    this.getSuggestions(true);
-  }
+  // handleFocus() {
+  //   clearTimeout(this.blurTimeout);
+  //   this.getSuggestions(true);
+  // }
 
   handleBlur() {
     clearTimeout(this.blurTimeout);
@@ -343,7 +344,6 @@ export default class AutosuggestUI {
 
     this.results = result.results;
     this.numberOfResults = this.results ? Math.max(this.results.length, 0) : 0;
-
     if (!this.deleting || (this.numberOfResults && this.deleting)) {
       this.listbox.innerHTML = '';
       if (this.results) {
