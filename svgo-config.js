@@ -78,7 +78,7 @@ export default [
     removeUnusedNS: true,
   },
   {
-    cleanupIDs: false,
+    cleanupIDs: true,
   },
   {
     cleanupNumericValues: true,

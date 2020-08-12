@@ -4,8 +4,6 @@ group: Help users to...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
-
 {{
     onsPanel({
         "body": "You will need to delete the 'ons_cookie_message_displayed' cookie if you cannot see the banner",
@@ -49,22 +47,5 @@ javascript to set the appropriate cookies.
 If javascript is disabled a message is displayed explaining that javascript is required to set and change cookies.
 
 When the form is submitted a success panel is shown to tell the user that their preferences have been updated. The form is handled by javascript.
-
-## Research on this pattern
-{% call onsPanel() %}
-    If you have conducted any user research using this pattern, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/715",
-            "linkText": "Design System forum"
-        })
-    }}
-{% endcall %}
-
 ## Design System forum
-{{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/715",
-        "linkText": "Discuss 'Control cookies' on GitHub"
-    })
-}}
+<a href="https://github.com/ONSdigital/design-system/issues/715" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Control cookies' on GitHub</a>
