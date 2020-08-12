@@ -16,7 +16,8 @@
             {# Required to use display flex on Safari as it's not currently supported: https://bugs.webkit.org/show_bug.cgi?id=167111 #}
             <div class="collapsible__controls">
                 {% set titleTag = params.titleTag | default("div") %}
-                <{{titleTag}} class="collapsible__title u-fs-r--b">{{ params.title }}</{{titleTag}}>
+                <{{titleTag}} class="collapsible__heading__title u-fs-r--b">{{ params.title }}</{{titleTag}}>
+                <svg class="collapsible__heading__icon"><use xlink:href="/img/icons/icons--chevron-right.svg#chevron-right"></use></svg>
                 {% if params.button is defined and params.button.open is defined and params.isAccordion is defined %}
                     {{
                         onsButton({
