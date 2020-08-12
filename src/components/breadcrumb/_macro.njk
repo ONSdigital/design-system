@@ -4,7 +4,7 @@
         {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
             {% if item.current is not defined %}
                 <li id="breadcrumb-{{ loop.index }}" class="breadcrumb__item">
-                  <a href="{{ item.url }}" class="breadcrumb__link">{{ item.text }}</a>
+                        <a href="{{ item.url }}" class="breadcrumb__link">{{ item.text }}</a>
                 </li>
             {% endif %}
         {% endfor %}

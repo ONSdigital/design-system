@@ -1,4 +1,4 @@
-export function sanitiseTypeaheadText(string, sanitisedQueryRemoveChars = [], trimEnd = true) {
+export function sanitiseAutosuggestText(string, sanitisedQueryRemoveChars = [], sanitisedQuerySplitNumsChars = false, trimEnd = true) {
   let sanitisedString = string.toLowerCase();
 
   sanitisedQueryRemoveChars.forEach(char => {
@@ -6,6 +6,11 @@ export function sanitiseTypeaheadText(string, sanitisedQueryRemoveChars = [], tr
   });
 
   sanitisedString = sanitisedString.replace(/\s\s+/g, ' ');
+  sanitisedString = sanitisedString.replace('&', '%26');
+
+  if (sanitisedQuerySplitNumsChars) {
+    sanitisedString = sanitisedString.replace(/\d(?=[a-z]{3,})/gi, '$& ');
+  }
 
   sanitisedString = trimEnd ? sanitisedString.trim() : sanitisedString.trimStart();
 
