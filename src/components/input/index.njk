@@ -61,48 +61,6 @@ Used for client side validation of an input that requires a character limit. The
     patternlibExample({"path": "components/input/examples/text-character-limit/index.njk"})
 }}
 
-### Typeahead
-
-Typeaheads are used to suggest options for answers by searching code lists such as, Country of Birth, Languages, Nationalities, etc.
-
-Providing the component with a `typeahead` object will turn the component into a typeahead input using the data in the JSON file.
-This object will need to include a path to a JSON file using the `typeaheadData` parameter, a `instructions` parameter to add screenreader instructions
-to make it accessible and various parameters for aria messages also used for screenreaders.
-
-To use this component it is advised that autocomplete is switched off by setting the `autocomplete` parameter to false.
-
-{{
-    patternlibExample({"path": "components/input/examples/country-of-birth/index.njk"})
-}}
-
-This example is powered by a JavaScript library called [Fuse.js](https://fusejs.io/).
-
-#### Response object
-
-The typeaheads expect the response from the library to return the results as JSON objects in an array.
-
-#### TypeaheadResultItem
-
-The TypeaheadResultItem should consist of at least a key corresponding to the searched language (e.g. `en-gb`) with its corresponding value.
-
-#### Example response
-
-```
-{
-    "results": [
-        {
-            "en-gb": "United Kingdom",
-            "cy": "Deyrnas Unedig"
-        }
-    ],
-    "totalResults": 1
-}
-```
-
-The typeahead component sends a `searchFields` parameter in it's query string that matches the `lang` attribtue on the `<html>` element of the page.
-
-The typeahead component will search the `cy` or the `en-gb` data to find results depending on the `searchFields` parameter.
-
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
