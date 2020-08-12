@@ -17,19 +17,9 @@
                             {{- loop.index -}}
                         {%- endif -%}. </span>
                     {%- endif -%}
-                    {%- if item.external is defined -%}
-                        {% from "components/external-link/_macro.njk" import onsExternalLink %}
-                        {{
-                            onsExternalLink({
-                                "url": item.url,
-                                "linkText": item.text
-                            })
-                        }}
-                    {%- else -%}
-                        <a href="{{ item.url }}" class="list__link {{ item.classes }}" {% if item.index is defined %}data-qa="list-item-{{ loop.index }}"{% endif %} {% if item.target is defined %} target="{{ item.target }}"{% endif %} {% if item.name is defined %} name="{{ item.name }}"{% endif %}>
-                            {%- if item.prefix is defined -%}<span class="u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- item.text | safe -}}
-                        </a>
-                    {%- endif -%}
+                    <a href="{{ item.url }}" class="list__link {{ item.classes }}" {% if item.index is defined %}data-qa="list-item-{{ loop.index }}"{% endif %} {% if item.target is defined %} target="{{ item.target }}"{% endif %} {% if item.name is defined %} name="{{ item.name }}"{% endif %}>
+                        {%- if item.prefix is defined -%}<span class="u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- item.text | safe -}}
+                    </a>
                 {%- else -%}
                     {{- item.text | safe -}}
                 {%- endif -%}

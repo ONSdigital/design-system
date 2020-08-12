@@ -3,8 +3,6 @@ title: Change Language
 group: Help users to...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 
 ## When to use this pattern
 
@@ -27,20 +25,10 @@ Language selection is achieved by rendering a language selector in the header el
 }}
 
 ## Research on this pattern
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-    If you have conducted any user research using this pattern, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/10",
-            "linkText": "Design System forum"
-        })
-    }}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/109" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
 {% endcall %}
 
 ## Design System forum
-{{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/10",
-        "linkText": "Discuss 'Language selection' on GitHub"
-    })
-}}
+<a href="https://github.com/ONSdigital/design-system/issues/109" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Language selection' on GitHub</a>
