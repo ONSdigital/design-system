@@ -3,7 +3,6 @@ title: Mutually Exclusive
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 ## When to use this component
 
@@ -56,19 +55,8 @@ Inputs, radios, checkboxes, date inputs, and textareas all call this macro autom
 ## Research on this component
 
 {% call onsPanel() %}
-    If you have conducted any user research using this pattern, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/29",
-            "linkText": "Design System forum"
-        })
-    }}
+   <p>If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/29" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>.</p>
 {% endcall %}
 
 ## Design System forum
-{{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/29",
-        "linkText": "Discuss 'Mutually Exclusive' on GitHub"
-    })
-}}
+<a href="https://github.com/ONSdigital/design-system/issues/29" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Mutually Exclusive' on GitHub</a>

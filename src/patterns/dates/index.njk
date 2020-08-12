@@ -3,10 +3,10 @@ title: Dates
 group: Ask users for...
 ---
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "views/partials/example/_macro.njk" import patternlibExample %}
 
 Help users enter a known date.
+
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
 
 {{
     patternlibExample({"path": "components/date-input/examples/date-input/index.njk"})
@@ -63,20 +63,12 @@ Display: 'Enter a 'period to' date later than the 'period from' date.
 }}
 
 ## Research on this pattern
-{% call onsPanel() %}
-    If you have conducted any user research using this pattern, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/22",
-            "linkText": "Design System Forum"
-        })
-    }}
-{% endcall %}
-
-## Design System forum
+{% from "components/panel/_macro.njk" import onsPanel %}
 {{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/22",
-        "linkText": "Discuss 'Dates' on GitHub"
+    onsPanel({
+        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='#design-system-forum'>Design System Forum.</a>"
     })
 }}
+
+## Design System forum
+<a href="https://github.com/ONSdigital/design-system/issues/22" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Dates' on GitHub</a>
