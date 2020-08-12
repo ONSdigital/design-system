@@ -1,11 +1,20 @@
 ---
 title: Addresses
 group: Ask users for...
+experimental: true
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
 
+{{
+    patternlibExample({"path": "components/autosuggest/examples/autosuggest-address/index.njk"})
+}}
 ## When to use this pattern
 
 This pattern should be used when you need to collect an address from a user.
@@ -16,14 +25,6 @@ The manual address input wraps itself within a [fieldset](/components/fieldset) 
 
 {{
     patternlibExample({"path": "components/address/examples/address/index.njk"})
-}}
-
-### Asking for an organisation or company's address
-
-An additional field may be configured on the address input if you need to ask for an organisation or company name:
-
-{{
-    patternlibExample({"path": "components/address/examples/organisation-address/index.njk"})
 }}
 
 ## Research on this pattern
