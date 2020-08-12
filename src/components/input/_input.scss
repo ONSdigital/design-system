@@ -38,6 +38,11 @@
     box-shadow: 0 0 0 3px $color-focus;
   }
 
+  &:disabled {
+    border-color: $color-grey-2;
+    cursor: not-allowed;
+  }
+
   &--error:not(:focus) {
     border: 1px solid $color-red;
     outline: 1px solid $color-red;

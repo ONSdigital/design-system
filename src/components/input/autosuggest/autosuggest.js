@@ -1,11 +1,11 @@
-import TypeaheadUI from './typeahead.ui';
+import AutosuggestUI from './autosuggest.ui';
 
-export default class Typeahead {
+export default class Autosuggest {
   constructor(context) {
     this.context = context;
     this.lang = document.documentElement.getAttribute('lang').toLowerCase();
 
-    this.typeahead = new TypeaheadUI({
+    this.autosuggest = new AutosuggestUI({
       context,
       lang: this.lang,
       onSelect: this.onSelect.bind(this),
@@ -16,7 +16,7 @@ export default class Typeahead {
 
   onSelect(result) {
     return new Promise(resolve => {
-      this.typeahead.input.value = result.displayText;
+      this.autosuggest.input.value = result.displayText;
 
       resolve();
     });

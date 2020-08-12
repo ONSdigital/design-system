@@ -2,110 +2,122 @@
 {% from "components/input/_macro.njk" import onsInput %}
 
 {% macro onsAddressInput(params) %}
-    {% set fields %}
-        {% if params.organisation is defined %}
-            {{
-                onsInput({
-                    "id": params.id + "-organisation",
-                    "type": params.organisation.type,
-                    "label": {
-                        "text": params.organisation.label
-                    },
-                    "classes": "input--w-20@m",
-                    "name": params.organisation.name | default(params.id + "-organisation"),
-                    "value": params.organisation.value,
-                    "error": params.organisation.error
-                })
-            }}
-        {% endif %}
+   {% set fields %}
+    <div id="address" class="field address-input js-address-autosuggest address-input--search">
+            <div class="js-address-input__manual u-db-no-js_enabled">
+                {% if params.organisation is defined %}
+                    {{
+                        onsInput({
+                            "id": params.id + "-organisation",
+                            "label": {
+                                "text": params.organisation.label
+                            },
+                            "classes": "input--w-20@m js-address-organisation",
+                            "name": params.id + "-organisation"
+                        })
+                    }}
+                {% endif %}
+                {% if params.line1 is defined %}
+                {{
+                    onsInput({
+                        "id": params.id + "-line-1",
+                        "label": {
+                            "text": params.line1.label
+                        },
+                        "classes": "input--w-20@m js-address-line-1",
+                        "name": params.id + "-line-1",
+                        "error": params.line1.error
+                    })
+                }}
+                {% endif %}
+                {% if params.line2 is defined %}
+                {{
+                    onsInput({
+                        "id": params.id + "-line-2",
+                        "label": {
+                            "text": params.line2.label
+                        },
+                        "classes": "input--w-20@m js-address-line-2",
+                        "name": params.id + "-line-2"
+                    })
+                }}
+                {% endif %}
+                {% if params.town is defined %}
+                {{
+                    onsInput({
+                        "id": params.id + "-town",
+                        "label": {
+                            "text": params.town.label
+                        },
+                        "classes": "js-address-town",
+                        "name": params.id + "-town"
+                    })
+                }}
+                {% endif %}
+                {% if params.postcode is defined %}
+                {{
+                    onsInput({
+                        "id": params.id + "-postcode",
+                        "label": {
+                            "text": params.postcode.label
+                        },
+                        "classes": "input--w-5 js-address-postcode",
+                        "name": params.id + "-postcode"
+                    })
+                }}
+                {% endif %}
+                {{
+                    onsInput({
+                        "id": params.id + "-uprn",
+                        "classes": "js-hidden-uprn",
+                        "type": "hidden",
+                        "name": params.id + "-uprn"
+                    })
+                }}
 
-        {{
-            onsInput({
-                "id": params.line1.id | default(params.id + "-line-1"),
-                "label": {
-                    "text": params.line1.label
-                },
-                "classes": "input--w-20@m",
-                "name": params.line1.name | default(params.id + "-line-1"),
-                "value": params.line1.value,
-                "error": params.line1.error
-            })
-        }}
-
-        {% if params.line2 is defined %}
-            {{
-                onsInput({
-                    "id": params.line2.id | default(params.id + "-line-2"),
-                    "type": params.line2.type,
-                    "label": {
-                        "text": params.line2.label
-                    },
-                    "classes": "input--w-20@m",
-                    "name": params.line2.name | default(params.id + "-line-2"),
-                    "value": params.line2.value,
-                    "error": params.line2.error
-                })
-            }}
-        {% endif %}
-
-        {% if params.line3 is defined %}
-            {{
-                onsInput({
-                    "id": params.line3.id | default(params.id + "-line-3"),
-                    "type": params.line3.type,
-                    "label": {
-                        "text": params.line3.label
-                    },
-                    "classes": "input--w-20@m",
-                    "name": params.line3.name | default(params.id + "-line-3"),
-                    "value": params.line3.value,
-                    "error": params.line3.error
-                })
-            }}
-        {% endif %}
-
-        {% if params.town is defined %}
-            {{
-                onsInput({
-                    "id": params.town.id | default(params.id + "-town"),
-                    "type": params.town.type,
-                    "label": {
-                        "text": params.town.label
-                    },
-                    "name": params.town.name | default(params.id + "-town"),
-                    "value": params.town.value,
-                    "error": params.town.error
-                })
-            }}
-        {% endif %}
-
-        {% if params.county is defined %}
-            {{
-                onsInput({
-                    "id": params.county.id | default(params.id + "-county"),
-                    "type": params.county.type,
-                    "label": {
-                        "text": params.county.label
-                    },
-                    "name": params.county.name | default(params.id + "-county"),
-                    "value": params.county.value,
-                    "error": params.county.error
-                })
-            }}
-        {% endif %}
-
-        {{
-            onsInput({
-                "id": params.postcode.id | default(params.id + "-postcode"),
-                "label": {
-                    "text": params.postcode.label
-                },
-                "classes": "input--w-5",
-                "name": params.postcode.name | default(params.id + "-postcode"),
-                "value": params.postcode.value,
-                "error": params.postcode.error
-            })
-        }}
+                <div class="u-mt-s">
+                    <a href="#" class="js-address-search-btn u-db-no-js_disabled">{{ params.searchButton }}</a>
+                </div>
+            </div>
+            {% if params.autosuggest is defined %}
+            <div class="js-address-input__search u-db-no-js_disabled">
+                {{
+                    onsInput({
+                        "id": params.id + "-autosuggest",
+                        "classes": "address-input__autosuggest js-autosuggest-input input--w-50",
+                        "label": {
+                            "text": params.autosuggest.label.text,
+                            "classes": "js-autosuggest-label"
+                        },
+                        "autosuggest": {
+                            "externalInitialiser": true,
+                            "APIDomain": params.autosuggest.APIDomain,
+                            "instructions": params.autosuggest.instructions,
+                            "autocomplete": params.autosuggest.autocomplete,
+                            "isEditable": params.autosuggest.isEditable,
+                            "ariaYouHaveSelected": params.autosuggest.ariaYouHaveSelected,
+                            "ariaMinChars": params.autosuggest.ariaMinChars,
+                            "ariaOneResult": params.autosuggest.ariaOneResult,
+                            "ariaNResults": params.autosuggest.ariaNResults,
+                            "ariaLimitedResults": params.autosuggest.ariaLimitedResults,
+                            "moreResults": params.autosuggest.moreResults,
+                            "tooManyResults": params.autosuggest.tooManyResults,
+                            "resultsTitle": params.autosuggest.resultsTitle,
+                            "noResults": params.autosuggest.noResults,
+                            "typeMore": params.autosuggest.typeMore,
+                            "errorTitle": params.autosuggest.errorTitle,
+                            "errorMessageEnter": params.autosuggest.errorMessageEnter,
+                            "errorMessageSelect": params.autosuggest.errorMessageSelect,
+                            "errorMessageAPI": params.autosuggest.errorMessageAPI,
+                            "errorMessageAPILinkText": params.autosuggest.errorMessageAPILinkText,
+                            "dataQueries": params.autosuggest.dataQueries
+                        }
+                    })
+                }}
+                {% endif %}
+                <a href="#" class="js-address-manual-btn">{{ params.manualButton }}</a>
+            </div>
+        </div>
     {% endset %}
 
     {% if params.dontWrap is defined %}
