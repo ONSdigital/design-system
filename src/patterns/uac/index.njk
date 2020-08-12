@@ -4,7 +4,6 @@ group: Ask users for...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 {{
     onsPanel({
@@ -32,19 +31,8 @@ group: Ask users for...
 
 ## Research on this pattern
 {% call onsPanel() %}
-    If you have conducted any user research using this pattern, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/414",
-            "linkText": "Design System forum"
-        })
-    }}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/414" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
 {% endcall %}
 
 ## Design System forum
-{{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/414",
-        "linkText": "Discuss 'Access codes' on GitHub"
-    })
-}}
+<a href="https://github.com/ONSdigital/design-system/issues/414" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Access codes' on GitHub</a>
