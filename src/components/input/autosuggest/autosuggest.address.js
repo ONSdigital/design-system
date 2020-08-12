@@ -53,7 +53,6 @@ export default class AutosuggestAddress {
     this.autosuggest = new AutosuggestUI({
       context: this.container,
       onSelect: this.onAddressSelect.bind(this),
-      onUnsetResult: this.addressSetter ? this.addressSetter.onUnsetAddress() : null,
       lang: this.lang,
       suggestionFunction: this.suggestAddresses.bind(this),
       onError: this.onError.bind(this),
