@@ -30,10 +30,9 @@ export default class AutosuggestAddress {
     this.currentResults = [];
     this.totalResults = 0;
     this.errored = false;
-    this.isEditable = context.querySelector(`.${classNotEditable}`) ? false : true;
+    this.notEditable = context.querySelector(`.${classNotEditable}`) ? true : false;
     this.addressSelected = false;
     this.groupQuery = '';
-
     // Temporary fix as runner doesn't use full lang code
     if (this.lang === 'en') {
       this.lang = 'en-gb';
@@ -45,7 +44,7 @@ export default class AutosuggestAddress {
     }
 
     // Initialise address setter
-    if (this.isEditable) {
+    if (!this.notEditable) {
       this.addressSetter = new AddressSetter(context);
     }
 
@@ -81,6 +80,7 @@ export default class AutosuggestAddress {
   }
 
   checkAPIStatus() {
+    console.log('here');
     this.fetch = abortableFetch(this.lookupURL + 'CF142&limit=10', {
       method: 'GET',
       headers: this.headers,
@@ -90,7 +90,8 @@ export default class AutosuggestAddress {
       .then(async response => {
         const status = (await response.json()).status.code;
         if (status > 400) {
-          if (this.isEditable) {
+          console.log('status', status);
+          if (this.notEditable) {
             this.handleAPIError();
           } else {
             this.autosuggest.handleNoResults(status);
@@ -99,7 +100,7 @@ export default class AutosuggestAddress {
       })
       .catch(error => {
         console.log(error);
-        if (this.isEditable) {
+        if (this.notEditable) {
           this.handleAPIError();
         } else {
           this.autosuggest.handleNoResults(403);
@@ -108,6 +109,7 @@ export default class AutosuggestAddress {
   }
 
   suggestAddresses(query, [], grouped) {
+    console.log(query);
     return new Promise((resolve, reject) => {
       if (this.currentQuery === query && this.currentQuery.length && (this.currentResults ? this.currentResults.length : 0)) {
         resolve({
@@ -290,7 +292,7 @@ export default class AutosuggestAddress {
       if (selectedResult.uprn) {
         this.retrieveAddress(selectedResult.uprn)
           .then(data => {
-            if (this.isEditable) {
+            if (!this.notEditable) {
               this.addressSetter.setAddress(this.createAddressLines(data, resolve));
               this.addressSelected = true;
               this.InputUPRN.value = selectedResult.uprn;
@@ -300,7 +302,7 @@ export default class AutosuggestAddress {
           })
           .catch(error => {
             console.log(error);
-            if (this.isEditable) {
+            if (this.notEditable) {
               this.handleAPIError();
             } else {
               this.autosuggest.handleNoResults(403);
