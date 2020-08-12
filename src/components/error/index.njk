@@ -2,7 +2,6 @@
 title: Error
 ---
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 ## When to use this component
 
@@ -10,17 +9,7 @@ The error component is used to wrap form inputs and fieldsets to to show validat
 
 ## How to use this component
 
-Generally speaking you should not need to {{
-    onsExternalLink({
-        "url": "https://mozilla.github.io/nunjucks/templating.html#call",
-        "linkText": "call"
-    })
-}} `onsError` yourself as it is already called from within form input components. However if you need to create a pattern or component that requires a error you can use {{
-    onsExternalLink({
-        "url": "https://mozilla.github.io/nunjucks/templating.html#call",
-        "linkText": "nunjucks' call functionality"
-    })
-}} `onsError`.
+Generally speaking you should not need to [call](https://mozilla.github.io/nunjucks/templating.html#call) `onsError` yourself as it is already called from within form input components. However if you need to create a pattern or component that requires a error you can use [nunjucks' call functionality](https://mozilla.github.io/nunjucks/templating.html#call) `onsError`.
 {% md %}
 | Name       | Type   | Required | Description                                                       |
 | ---------- | ------ | -------- | ----------------------------------------------------------------- |
@@ -32,19 +21,8 @@ Generally speaking you should not need to {{
 ## Research on this component
 
 {% call onsPanel() %}
-    If you have conducted any user research using this component, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/534",
-            "linkText": "Design System forum"
-        })
-    }}
+   <p>If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/534" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a></p>
 {% endcall %}
 
-## Design System forum
-{{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/534",
-        "linkText": "Discuss 'Error' on GitHub"
-    })
-}}
+## Design System foru
+<a href="https://github.com/ONSdigital/design-system/issues/534" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Error' on GitHub</a>
