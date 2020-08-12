@@ -164,23 +164,6 @@
     &:focus {
       @extend a:focus;
     }
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 12px;
-      height: 21px;
-      background-image: url('#{$static}img/icons/icons--sort-sprite.svg');
-      background-repeat: no-repeat;
-      background-position: 0 0;
-      background-size: 12px 63px;
-    }
-
-    &:focus:before {
-      background-image: url('#{$static}img/icons/icons--sort-sprite-black.svg');
-    }
   }
 
   [aria-sort='ascending'] .table__sort-button::before {
