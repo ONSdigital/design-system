@@ -85,6 +85,8 @@
     }
 
     &__icon {
+      position: absolute;
+      left: 0;
       min-width: 2rem;
       min-height: 2rem;
       border-radius: 50%;
@@ -97,33 +99,15 @@
     }
   }
 
-  &--success & {
+  &--icon & {
     &__icon {
-      padding-left: 1rem;
-      fill: $color-green;
-    }
-    &__body {
-      padding-left: 1.8rem;
-    }
-  }
-
-  &--bare & {
-    &__icon {
-      width: 1.3rem;
-      height: 1.3rem;
-    }
-    &__body {
-      padding-top: 0.1rem;
-      padding-left: 0.5rem;
-    }
-  }
-
-  &--bare,
-  &--success,
-  &--warn {
-    .panel__icon {
       position: absolute;
       left: 0;
+      padding-left: 1rem;
+    }
+
+    &__body {
+      padding-left: 1.8rem;
     }
   }
 }
@@ -132,5 +116,4 @@
 @include panel-type(success, $color-success, $color-success-tint);
 @include panel-type(info, $color-info, $color-info-tint);
 @include panel-type(branded, $color-branded, $color-branded-tint);
-@include panel-type(warn, $color-white, $color-white);
 @include panel-type(warn, $color-white, $color-white);
