@@ -41,8 +41,8 @@ $collapsible-caret-right-spacing: 0.4rem;
         & .collapsible__title {
           @extend a:focus;
           // extend collapsible focus background behind caret
-          margin-left: -($collapsible-caret-right-spacing + $collapsible-caret-width);
           padding-left: $collapsible-caret-right-spacing + $collapsible-caret-width;
+          margin-left: -($collapsible-caret-right-spacing + $collapsible-caret-width);
         }
       }
 
@@ -82,8 +82,8 @@ $collapsible-caret-right-spacing: 0.4rem;
     }
 
     &__title {
-      margin-bottom: 0;
       text-decoration: underline;
+      margin-bottom: 0;
     }
 
     &__content {
@@ -149,8 +149,8 @@ $collapsible-caret-right-spacing: 0.4rem;
 
     &__content {
       margin: 0;
-      padding: 0;
       border-left: 0;
+      padding: 0;
     }
   }
 }
