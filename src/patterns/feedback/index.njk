@@ -3,8 +3,6 @@ title: Feedback
 group: Ask users for...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 The feedback form provides users with a way of giving feedback about a service without leaving the current task.
 
@@ -31,20 +29,10 @@ The feedback pattern is baked into the base [page template](/styles/page-templat
 }}
 
 ## Research on this pattern
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-    If you have conducted any user research using this pattern, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/236",
-            "linkText": "Design System forum"
-        })
-    }}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/236" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
 {% endcall %}
 
 ## Design System forum
-{{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/236",
-        "linkText": "Discuss 'Feedback' on GitHub"
-    })
-}}
+<a href="https://github.com/ONSdigital/design-system/issues/236" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Feedback' on GitHub</a>
