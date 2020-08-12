@@ -5,7 +5,7 @@
 
         <div class="download__image" aria-hidden="true">
             <a class="download__image-link" href="{{ download.url }}" tabindex="-1">
-                <img srcset="{{ download.thumbnail.path }}small/{{ download.thumbnail.filename }} 1x, {{ download.thumbnail.path }}large/{{ download.thumbnail.filename }} 2x" src="{{ download.thumbnail.path }}small/{{ download.thumbnail.filename }}" alt="{{ download.thumbnail.alt }}">
+                <img srcset="{{ download.thumbnail.smallSrc }}{{ download.thumbnail.filename }} 1x, {{ download.thumbnail.largeSrc }}{{ download.thumbnail.filename }} 2x" src="{{ download.thumbnail.smallSrc }}{{ download.thumbnail.filename }}" alt="{{ download.thumbnail.alt }}">
             </a>
         </div>
 
