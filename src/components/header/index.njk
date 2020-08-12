@@ -2,6 +2,8 @@
 title: Header
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 The ONS header shows users which ONS service they are on.
 
@@ -22,6 +24,8 @@ You should use the ONS header at the top of any ONS service.
 The internal service variant of the header. Use the modifier `header--internal` when implementing for an internal service. 
 
 ### External with language and save button
+
+The [ghost button](/components/button/#header-style) in the header moves to the [footer](/components/footer) when the page width is under the medium breakpoint (less than 740px).
 {{
     patternlibExample({ "path": "components/header/examples/external-lang/index.njk" })
 }}
@@ -66,12 +70,20 @@ For services that require a main navigation. For mobile users, a menu button is 
 
 
 ## Research on this component
-{% from "components/panel/_macro.njk" import onsPanel %}
-{{
-    onsPanel({
-        "body": "If you have conducted any user research using this component, please feed back your findings via the <a href='#design-system-forum'>Design System Forum</a>"
-    })
-}}
+{% call onsPanel() %}
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/160",
+            "linkText": "Design System Forum"
+        })
+    }}
+{% endcall %}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/160" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Header' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/160",
+        "linkText": "Discuss 'Header' on GitHub"
+    })
+}}

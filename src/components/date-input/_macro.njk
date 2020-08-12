@@ -22,11 +22,11 @@
     {%- endif -%}
 
     {% set fields %}
-        {% if params.label %}
+        {% if params.label is defined %}
             <p class="u-fs-r--b u-mb-xs">{{ params.label }}</p>
         {% endif %}
 
-        {% if params.day %}
+        {% if params.day is defined %}
             {{ onsInput({
                 "id": params.id + "-day",
                 "type": "number",
@@ -41,7 +41,7 @@
             }) }}
         {% endif %}
 
-        {% if params.month %}
+        {% if params.month is defined %}
             {{ onsInput({
                 "id": params.id + "-month",
                 "type": "number",
@@ -56,7 +56,7 @@
             }) }}
         {% endif %}
 
-        {% if params.year %}
+        {% if params.year is defined %}
             {{ onsInput({
                 "id": params.id + "-year",
                 "type": "number",
@@ -98,7 +98,7 @@
             {{ fields | safe }}
         {% endcall %}
     {% elif numberOfFields == 1 %}
-        {% if params.error %}
+        {% if params.error is defined %}
             {% call onsError(params.error) %}
                 {{ fields | safe }}
             {% endcall %}

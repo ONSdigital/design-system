@@ -8,7 +8,7 @@
         <div class="checkboxes__items">
             {% for checkbox in params.checkboxes %}
                 {% set labelHTML = checkbox.label.text %}
-                {% if params.mutuallyExclusive %}
+                {% if params.mutuallyExclusive is defined %}
                     {% set exclusiveClass = ' js-exclusive-group' %}
                 {% endif %}
                 <p class="checkboxes__item">
@@ -28,7 +28,7 @@
                         "attributes": checkbox.attributes
                     } %}
 
-                    {% if checkbox.other %}
+                    {% if checkbox.other is defined %}
                         {% set config = config | setAttributes({
                             "other": {
                                 "open": checkbox.other.open | default(false),
@@ -53,7 +53,7 @@
         </div>
     {% endset %}
 
-    {% if params.mutuallyExclusive %}
+    {% if params.mutuallyExclusive is defined %}
         {% call onsMutuallyExclusive({
             "id": params.id,
             "description": params.description,

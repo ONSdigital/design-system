@@ -14,7 +14,7 @@
     }) %}
         <div class="radios__items">
             {% for radio in params.radios %}
-                {% if params.or and loop.revindex0 == 0 %}
+                {% if params.or is defined and loop.revindex0 == 0 %}
                     <span class="radios__label u-mt-s u-fs-r--b" aria-hidden="true">{{ params.or }}, </span>
                 {% endif %}
                 <p class="radios__item">
@@ -25,9 +25,9 @@
                             class="radio__input js-radio{{ " " + radio.classes if radio.classes else "" }}"
                             value="{{ radio.value }}" 
                             name="{{ params.name }}"
-                            {% if radio.checked or (params.value and params.value == radio.value) %} checked {% endif %}
-                            {% if radio.other and not radio.other.open %} aria-controls="{{ radio.id }}-other-wrap" aria-haspopup="true"{% endif %}
-                            {% if radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+                            {% if (radio.checked is defined and radio.checked) or (params.value is defined and params.value == radio.value) %} checked {% endif %}
+                            {% if radio.other is defined and not radio.other.open %} aria-controls="{{ radio.id }}-other-wrap" aria-haspopup="true"{% endif %}
+                            {% if radio.attributes is defined %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                         >
                         {{ onsLabel({
                             "id": radio.id + "-label",
@@ -38,7 +38,7 @@
                             "description": radio.label.description
                         }) }}
 
-                        {% if radio.other %}
+                        {% if radio.other is defined %}
                             <span class="radio__other{{ " " + 'radio__other--open' if radio.other.open else "" }}" id="{{ radio.id }}-other-wrap">
                                 {% from "components/input/_macro.njk" import onsInput %}
                                 {{
@@ -66,7 +66,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-        {% if params.clearRadios %}
+        {% if params.clearRadios is defined %}
             {{ onsButton({
                 "text": params.clearRadios.text,
                 "name": params.clearRadios.name,

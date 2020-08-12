@@ -1,7 +1,7 @@
 {% macro onsPagination(params) %}
   {% set currentPageIndex = "" %}
   {% for page in params.pages %}
-      {% if page.current %}
+      {% if page.current is defined %}
           {% set currentPageIndex = loop.index %}
       {% endif %}
   {% endfor %}
@@ -25,7 +25,7 @@
   {% endif %}
 
 
-  <nav class="pagination {{ params.classes }}{% if params.hideRangeIndicator %} pagination--no-indicator{% endif %}" arial-label="Pagination ({{ position }})">
+  <nav class="pagination {{ params.classes }}{% if params.hideRangeIndicator is defined %} pagination--no-indicator{% endif %}" arial-label="Pagination ({{ position }})">
       <div class="pagination__position">{{ position }}</div>
       <ul class="pagination__items">
           {% if currentPageIndex != 1 %}
@@ -44,7 +44,7 @@
           {% endif %}
           {% for page in params.pages %}
               {% if loop.index >= middlePagesStart and loop.index <= middlePagesEnd %}
-                  <li class="pagination__item{% if page.current %} pagination__item--current{% endif %}">
+                  <li class="pagination__item{% if page.current is defined %} pagination__item--current{% endif %}">
                       <a href="{{ page.url }}" class="pagination__link"
                           {%- if page.current -%}
                               aria-current="true" aria-label="Current page ({{ position }})"

@@ -46,6 +46,11 @@ $list-inline-spacing: 2rem;
     display: inline-block;
     margin: 0 $list-inline-spacing / 2;
     vertical-align: top;
+    svg {
+      margin-top: 0.2rem;
+      width: 0.8rem;
+      height: 0.8rem;
+    }
   }
 }
 
@@ -54,10 +59,4 @@ $list-inline-spacing: 2rem;
   float: left;
   margin: 0 0.5rem 0 0;
   font-family: $font-sans-mono;
-}
-
-.list__link {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: top;
 }

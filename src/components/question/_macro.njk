@@ -1,15 +1,15 @@
 {% macro onsQuestion(params) %}
     <div
-        {% if params.id %} id="{{ params.id }}"{% endif %}
-        class="question{% if params.classes %} {{ params.classes }}{% endif %}"
-        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+        {% if params.id is defined %} id="{{ params.id }}"{% endif %}
+        class="question{% if params.classes is defined %} {{ params.classes }}{% endif %}"
+        {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
         <h1 class="question__title">{{ params.title | safe }}</h1>
-        {% if params.description %}
+        {% if params.description is defined %}
             <div class="question__description">{{ params.description | safe }}</div>
         {% endif %}
 
-        {% if params.instruction %}
+        {% if params.instruction is defined and params.instruction %}
             <div class="question__instruction u-mb-s">{{ params.instruction | safe }}</div>
         {% endif %}
 

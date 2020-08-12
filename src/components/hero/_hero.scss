@@ -1,6 +1,8 @@
+// Default
 .hero {
+  background-color: $color-branded;
   padding: 2rem 0;
-  background: $color-branded;
+
   &__content {
     height: 100%;
   }
@@ -9,45 +11,142 @@
 .hero__title {
   font-size: 2.3rem;
   line-height: 1.2;
+
   @include mq(m) {
     font-size: 3rem;
   }
 }
 
-.hero--dark-theme {
-  h1,
-  h2,
-  li,
-  p,
-  a {
-    color: $color-white;
-  }
-  a {
-    &:focus,
-    &:hover {
-      color: $color-white;
-      text-decoration: none;
-    }
-  }
-}
-
-.hero--with-image {
-  position: relative;
+// Census theme
+.hero--census {
+  background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
+  display: flex;
   padding: 0;
+  margin-top: 2px;
   overflow: hidden;
-
-  .hero__img {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
-    max-width: none;
-  }
+  position: relative;
 
   .hero__container {
+    align-items: flex-end;
+    display: flex;
+    min-height: 400px;
+    position: relative;
+  }
+
+  .hero__circle-image,
+  .hero__circle-gradient,
+  .hero__circle-lined,
+  .hero__circle-white {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  }
+
+  .hero__circle-image {
+    border-radius: 50%;
+    height: 382px;
+    right: -8px;
+    top: -145px;
+    width: 382px;
+    z-index: 2;
+
+    img {
+      clip-path: circle(191px at center); // Half width of circle
+      display: block;
+      height: 100%;
+    }
+  }
+
+  .hero__circle-gradient {
+    background-image: linear-gradient(-45deg, $color-branded 0%, $color-branded 20%, $color-branded-tertiary 60%, #005489 90%);
+    border-radius: 50%;
+    display: block;
+    height: 234px;
+    right: -117px; // Half with of circle
+    top: 1rem;
+    width: 234px;
+    z-index: 3;
+  }
+
+  .hero__circle-white {
+    background-color: $color-white;
+    border-radius: 50%;
+    display: block;
+    height: 913px;
+    right: 50%;
+    top: 1rem;
+    transform: translateX(50%);
+    width: 913px;
+    z-index: 1;
+  }
+
+  .hero__circle-lined {
+    top: 148px;
+    height: 171px;
+    opacity: 0.4;
+    right: -24px;
+    width: 171px;
+    z-index: 4;
+  }
+
+  .hero__details {
+    padding-top: 250px;
+    padding-bottom: 2rem;
+    position: relative;
+    z-index: 5;
+
+    &--ondark {
+      color: $color-white;
+    }
+  }
+
+  @include mq(m) {
+    .hero__details {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .hero__container {
+      align-items: center;
+    }
+
+    .hero__circle-white {
+      margin-top: -450px;
+      transform: none;
+      right: 191px; // Half the image circle
+      top: 50%;
+    }
+  }
+
+  @include mq(l) {
+    .hero__circle-image {
+      bottom: 1rem;
+      height: 560px;
+      margin: auto;
+      right: 0;
+      top: auto; // Reset
+      width: 560px;
+
+      img {
+        clip-path: circle(280px at center); // Half width of circle
+      }
+    }
+
+    .hero__circle-gradient {
+      height: 342px;
+      right: -171px; // Half width of circle
+      width: 342px;
+    }
+
+    .hero__circle-white {
+      right: 490px;
+      left: auto;
+    }
+
+    .hero__circle-lined {
+      top: auto; // Reset
+      bottom: -88px;
+      height: 248px;
+      right: 0;
+      width: 248px;
+    }
   }
 }

@@ -2,8 +2,14 @@
 title: Exporting SVGs
 sortOrder: 3
 ---
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
-When exporting SVG images for the web you should ensure that styles are exported as *inline* rather than as CSS. This is to ensure that styles are not accidentally overridden as the generated class names are not unique, and allows [SVGO](https://github.com/svg/svgo) to optimise the file without breaking it.
+When exporting SVG images for the web you should ensure that styles are exported as *inline* rather than as CSS. This is to ensure that styles are not accidentally overridden as the generated class names are not unique, and allows {{
+    onsExternalLink({
+        "url": "https://github.com/svg/svgo",
+        "linkText": "SVGO"
+    })
+}} to optimise the file without breaking it.
 
 ## How to export from Adobe Illustrator
 

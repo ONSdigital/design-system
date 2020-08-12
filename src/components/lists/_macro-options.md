@@ -14,3 +14,4 @@
 | target | string | false | If `url` is provided this will set the target for that link |
 | index | boolean | false | Will prefix the list item with index number if set to `true` |
 | prefix | string | false | Will prefix the list item with whatever prefix is set to |
+| external | boolean | false | Will style the item like an external link |

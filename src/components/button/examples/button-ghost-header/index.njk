@@ -1,0 +1,14 @@
+---
+fullWidth: true
+---
+{% from "components/button/_macro.njk" import onsButton %}
+<div style="padding: 1rem 1.5rem; background: #3b7a9e">
+    {{
+        onsButton({
+            "type": 'button',
+            "text": 'Save and sign out',
+            "classes": 'btn--ghost',
+            "buttonStyle": "exit"
+        })
+    }}
+</div>
