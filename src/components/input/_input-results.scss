@@ -1,4 +1,4 @@
-.typeahead-input {
+.autosuggest-input {
   position: relative;
 
   &__combobox {
@@ -22,6 +22,11 @@
     border-radius: $input-radius;
   }
 
+  &__group {
+    color: $color-links;
+    text-decoration: underline;
+  }
+
   &__results-title {
     padding: 0.25rem 0.5rem;
     border-bottom: 1px solid $color-input;
@@ -33,6 +38,9 @@
     padding: 0;
     list-style: none;
     background: $color-white;
+    &:focus {
+      outline: none;
+    }
   }
 
   &__option {
@@ -51,6 +59,19 @@
       border-color: $color-blue;
       background: $color-blue;
       color: $color-white;
+
+      .autosuggest-input__group {
+        color: $color-white;
+      }
+    }
+
+    &:active:not(&--no-results):not(&--more-results) {
+      background: $color-focus;
+      color: $color-focus-text;
+
+      .autosuggest-input__group {
+        color: $color-focus-text;
+      }
     }
 
     &--no-results,
@@ -58,6 +79,35 @@
       padding: 0.25rem 0.5rem;
       background: $color-grey-4;
       cursor: not-allowed;
+    }
+  }
+
+  &__warning {
+    background: #f0f0f0;
+    margin: 0;
+    padding-left: 0.5rem;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-input;
+    }
+  }
+
+  &__panel.panel--warn {
+    background: none;
+    border: none;
+    margin: 0;
+    .panel__icon {
+      min-width: 26px;
+      min-height: 24px;
+      margin-top: 0;
+      font-size: 21px;
+      line-height: 25px;
+      top: 17px;
+    }
+
+    .panel__body {
+      padding: 0.7rem 0.8rem 0.8rem 1rem;
+      font-weight: bold;
     }
   }
 

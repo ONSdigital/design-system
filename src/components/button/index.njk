@@ -2,8 +2,6 @@
 title: Button
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 
 {{
     patternlibExample({"path": "components/button/examples/button/index.njk"})
@@ -59,7 +57,7 @@ Groups are used to group two or more buttons together and easily align them alon
 ### Ghost
 The ghosted button style is for use in the [header](/components/header/#external-with-language-and-save-button) or footer. This can be used to allow a user to save and sign out of the current context.
 
-Setting the `buttonStyle` param to `exit` adds the appropriate icon for a 'sign out' or 'exit' button.
+Setting the `exit` param to `true` adds the appropriate icon for a 'sign out' or 'exit' button.
 
 #### Header style
 The ghost button style used in the [header](/components/header/#external-with-language-and-save-button).
@@ -98,26 +96,16 @@ The timer button is aimed at stopping forms being submitted twice when users dou
 }}
 
 ### Print
-The `buttonStyle` parameter can be set to `print` to render a print button. This will take care of adding iconography and classes for the `print-button.js` file to pick up. The button will not render until `print-button.js` has run, and will not be visible on printed pages.
+The `print` parameter can be set to `true` to render a print button. This will take care of adding iconography and classes for the `print-button.js` file to pick up. The button will not render until `print-button.js` has run, and will not be visible on printed pages.
 {{
     patternlibExample({"path": "components/button/examples/button-print/index.njk"})
 }}
 
 ## Research on this component
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-    If you have conducted any user research using this component, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/45",
-            "linkText": "Design System forum"
-        })
-    }}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/45" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
 {% endcall %}
 
 ## Design System forum
-{{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/45",
-        "linkText": "Discuss 'Button' on GitHub"
-    })
-}}
+<a href="https://github.com/ONSdigital/design-system/issues/45" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Button' on GitHub</a>

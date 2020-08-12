@@ -4,8 +4,6 @@ group: Help users to...
 ---
 
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 
 Highlights are visual emphasis used to draw information to the attention of the user.
 
@@ -24,20 +22,10 @@ Highlight is also used to indicate a calculated or piped value which was entered
 It should be noted that highlight should be applied to an `<em>` element. If it is applied to another element which does not carry semantic emphasis (for example `<span>`) it will fail in its intent as it no longer provides emphasis to all users.
 
 ## Research on this pattern
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-    If you have conducted any user research using this pattern, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/24",
-            "linkText": "Design System forum"
-        })
-    }}
+   If you have conducted any user research using this pattern, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/24" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
 {% endcall %}
 
 ## Design System forum
-{{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/24",
-        "linkText": "Discuss 'Highlight' on GitHub"
-    })
-}}
+<a href="https://github.com/ONSdigital/design-system/issues/24" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Highlight' on GitHub</a>

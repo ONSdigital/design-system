@@ -9,4 +9,3 @@
 | id         | string  | false    | Custom id to add to the panel                                                               |
 | attributes | object  | false    | HTML attributes to apply to the panel (e.g. data attributes)                                |
 | icon       | string  | false    | Set this to the name of the icon you want to be included before the contents of the panel   |
-| iconsPath  | string  | false    | Set this to the path to the icon you want to be included before the contents of the panel   |
