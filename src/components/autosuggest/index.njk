@@ -1,0 +1,85 @@
+---
+title: Autosuggest
+experimental: true
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+
+Autosuggests are used to suggest options for answers by searching code lists such as, addresses, countries, languages, nationalities, etc.
+
+## How to use
+
+Autosuggest functionality can be created using the [input](/components/input) component and adding the necessary parameters.
+
+To use this component it is advised that autocomplete is switched off by setting the `autocomplete` parameter to `off`.
+
+### Using a JSON file
+
+{{
+    patternlibExample({"path": "components/autosuggest/examples/autosuggest-country/index.njk"})
+}}
+
+This example is powered by a JavaScript library called {{
+        onsExternalLink({
+            "url": "https://fusejs.io",
+            "linkText": "Fuse.js"
+        })
+    }}.
+
+#### Response object
+
+The autosuggests expect the response from the library to return the results as JSON objects in an array.
+
+#### AutosuggestResultItem
+
+The AutosuggestResultItem should consist of at least a key corresponding to the searched language (e.g. `en-gb`) with its corresponding value.
+
+#### Example response
+
+```
+{
+    "results": [
+        {
+            "en-gb": "United Kingdom",
+            "cy": "Deyrnas Unedig"
+        }
+    ],
+    "totalResults": 1
+}
+```
+
+The autosuggest component sends a `searchFields` parameter in it's query string that matches the `lang` attribute on the `<html>` element of the page.
+
+The autosuggest component will search the `cy` or the `en-gb` data to find results depending on the `searchFields` parameter.
+
+
+### Using the address API
+{{
+    onsPanel({
+        "body": "This component requires documentation."
+    })
+}}
+
+{{
+    patternlibExample({"path": "components/autosuggest/examples/autosuggest-address/index.njk"})
+}}
+
+## Research on this component
+{% call onsPanel() %}
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/894",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/894",
+        "linkText": "Discuss 'Autosuggest' on GitHub"
+    })
+}}

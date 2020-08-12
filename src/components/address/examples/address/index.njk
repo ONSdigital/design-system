@@ -5,18 +5,48 @@ layout: none
 
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/address/_macro.njk" import onsAddressInput %}
+{% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Manual Address Input Example"
+    "title": "Autosuggest address example"
 } %}
 {% block main %}
     {% call onsQuestion({
         "title": "What is your address?"
     }) %}
+    
+    <form action="#">
         {{ onsAddressInput({
             "id": "address",
             "legend": "What is your address?",
             "legendClasses": "u-vh",
+            "autosuggest":{
+                "label": {
+                    "text": "Enter address or postcode and select from results"
+                },
+                "APIDomain": "https://whitelodge-ai-api.census-gcp.onsdigital.uk",
+                "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+                "ariaYouHaveSelected": "You have selected",
+                "ariaMinChars": "Enter 3 or more characters for suggestions.",
+                "ariaOneResult": "There is one suggestion available.",
+                "ariaNResults": "There are {n} suggestions available.",
+                "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
+                "moreResults": "Continue entering to improve suggestions",
+                "resultsTitle": "Select an address",
+                "noResults": "No results found. Try entering a different part of the address",
+                "tooManyResults": "{n} results found. Enter more of the address to improve results",
+                "typeMore": "Enter more of the address to get results",
+                "autocomplete": "new-password",
+                "errorTitle": "There is a problem with your answer",
+                "errorMessageEnter": "Enter an address",
+                "errorMessageSelect": "Select an address",
+                "errorMessageAPI": "Sorry, there was a problem loading addresses",
+                "errorMessageAPILinkText": "Enter address manually",
+                "dataQueries": {
+                    "epoch": true,
+                    "niboost": true
+                }
+            },
             "line1": {
                 "label": "Address line 1"
             },
@@ -24,14 +54,20 @@ layout: none
                 "label": "Address line 2"
             },
             "town": {
-                "label": "Town or City"
-            },
-            "county": {
-                "label": "County"
+                "label": "Town or city"
             },
             "postcode": {
                 "label": "Postcode"
-            }
+            },
+            "searchButton": "Search for an address",
+            "manualButton": "Manually enter address"
         }) }}
+        {{
+            onsButton({
+                "text": 'Save and continue',
+                "classes": "u-mt-xl"
+            })
+        }}
+    </form>
     {% endcall %}
 {% endblock %}
