@@ -4,7 +4,6 @@ experimental: true
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 Autosuggests are used to suggest options for answers by searching code lists such as, addresses, countries, languages, nationalities, etc.
 
@@ -20,12 +19,8 @@ To use this component it is advised that autocomplete is switched off by setting
     patternlibExample({"path": "components/autosuggest/examples/autosuggest-country/index.njk"})
 }}
 
-This example is powered by a JavaScript library called {{
-        onsExternalLink({
-            "url": "https://fusejs.io",
-            "linkText": "Fuse.js"
-        })
-    }}.
+This example is powered by a JavaScript library called [Fuse.js](https://fusejs.io/).
+
 
 #### Response object
 
@@ -66,20 +61,10 @@ The autosuggest component will search the `cy` or the `en-gb` data to find resul
 }}
 
 ## Research on this component
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-    If you have conducted any user research using this component, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/894",
-            "linkText": "Design System forum"
-        })
-    }}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/894" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
 {% endcall %}
 
 ## Design System forum
-{{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/894",
-        "linkText": "Discuss 'Autosuggest' on GitHub"
-    })
-}}
+<a href="https://github.com/ONSdigital/design-system/issues/894" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Autosuggest' on GitHub</a>
