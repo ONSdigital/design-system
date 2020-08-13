@@ -1,11 +1,11 @@
 .external-link {
   white-space: nowrap;
-  svg {
+  .svg-icon {
     margin: 0 0 0 0.5rem;
     fill: $color-grey-1;
   }
   &:focus {
-    svg {
+    .svg-icon {
       fill: $color-black;
     }
   }
