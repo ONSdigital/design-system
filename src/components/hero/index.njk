@@ -22,6 +22,17 @@ This is used to inform users that Census 2021 is happening now and a clear call 
     patternlibExample({"path": "components/hero/examples/happening/index.njk"})
 }}
 
+## How to use this component
+For the campaign-specific hero component, we use an image to complement the look and feel of the banner. We use two versions of the image, one for standard screens and the other for retina screens.
+
+Image dimension for:
+
+* standard screen is: `620px × 620px`
+* retina screen is: `1120px × 1120px`
+
+We specify a folder path for both small and large images which is defined in the macro as `smallSrc` and `largeSrc`. The filename is expected to be the same for both.
+
+
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
