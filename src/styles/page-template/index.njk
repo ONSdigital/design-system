@@ -36,18 +36,19 @@ Components can be added to the page template. The example below provides a [phas
 ## Nunjucks / Jinja
 
 ### Configuring Nunjucks or Jinja
-
-When using nunjucks or jinja you'll need to either install the components and templates from the {{
-    onsExternalLink({
-        "url": "https://www.npmjs.com/package/@ons/design-system",
-        "linkText": "@ons/design-system"
-    })
-}} npm package or use a script to download the zipped templates from the relevant {{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/releases",
-        "linkText": "design system release"
-    })
-}}.
+<p>
+    When using nunjucks or jinja you'll need to either install the components and templates from the {{
+        onsExternalLink({
+            "url": "https://www.npmjs.com/package/@ons/design-system",
+            "linkText": "@ons/design-system"
+        })
+    }} npm package or use a script to download the zipped templates from the relevant {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/releases",
+            "linkText": "design system release"
+        })
+    }}.
+</p>
 If you're using nunjucks you'll need to configure your nunjucks loader to search `node_modules/@ons/design-system/components` and `node_modules/@ons/design-system/page-templates` for the templates.
 
 If you're using jinja then you'll need to have your script copy the `components` and `page-templates` folders from the unzipped download into your `templates` folder, as this is where jinja looks for templates by default, and multiple search paths cannot be specified. The zipped templates have already got the CDN release version and paths set based of the version of the templates you've downloaded.
@@ -64,18 +65,19 @@ Once you've configured nunjucks / jinja you can extend the page template in your
 </pre>
 
 ### Changing template content
-
-The Nunjucks template allows 2 ways to change the content: {{
-    onsExternalLink({
-        "url": "https://mozilla.github.io/nunjucks/templating.html#set",
-        "linkText": "variables"
-    })
-}} or {{
-    onsExternalLink({
-        "url": "https://mozilla.github.io/nunjucks/templating.html#block",
-        "linkText": "blocks"
-    })
-}}
+<p>
+    The Nunjucks template allows 2 ways to change the content: {{
+        onsExternalLink({
+            "url": "https://mozilla.github.io/nunjucks/templating.html#set",
+            "linkText": "variables"
+        })
+    }} or {{
+        onsExternalLink({
+            "url": "https://mozilla.github.io/nunjucks/templating.html#block",
+            "linkText": "blocks"
+        })
+    }}
+</p>
 
 The main difference between a variable and a block is that blocks can contain markup.
 
