@@ -15,7 +15,12 @@
                     {%- elif item.index is defined -%}
                         {{- loop.index -}}.
                     {% elif item.prefixIcon is defined %}
-                        <svg><use xlink:href="/img/icons/icons--{{ item.prefixIcon }}.svg#{{ item.prefixIcon }}"></use></svg>
+                        {% from "components/icons/_macro.njk" import onsIcon %}
+                        {{
+                            onsIcon({
+                                "icon": item.prefixIcon
+                            })
+                        }}
                     {%- endif -%} </span>
                 {%- endif -%}
                 {%- if item.url is defined and item.current != true -%}
