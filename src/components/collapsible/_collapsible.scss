@@ -83,6 +83,13 @@ $collapsible-caret-right-spacing: 0.4rem;
 
   &--accordion {
     margin: 0;
+    &.collapsible--open {
+      .svg-icon {
+        position: absolute;
+        top: 0.25em;
+        left: 0.4em;
+      }
+    }
   }
 
   &--accordion & {
