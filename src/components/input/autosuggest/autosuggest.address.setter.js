@@ -2,8 +2,8 @@ import triggerEvent from 'js/utils/trigger-event';
 import AddressError from './autosuggest.address.error';
 
 const classAutosuggestInput = 'js-autosuggest-input';
-const classLine1 = 'js-address-line-1';
-const classLine2 = 'js-address-line-2';
+const classLine1 = 'js-address-line1';
+const classLine2 = 'js-address-line2';
 const classTown = 'js-address-town';
 const classPostcode = 'js-address-postcode';
 const classSearch = 'js-address-input__search';
@@ -41,12 +41,10 @@ export default class AddressSetter {
     }
 
     // Set mode
-    if (!(this.line1.value || this.line2.value || this.town.value || this.postcode.value)) {
+    if (this.line1.value || this.line2.value || this.town.value || this.postcode.value || this.errorPanel) {
+      this.setManualMode(true, false);
+    } else {
       this.toggleMode();
-    }
-
-    if (this.errorPanel) {
-      this.setManualMode(true, true);
     }
   }
 
