@@ -17,7 +17,13 @@
             <div class="collapsible__controls">
                 {% set titleTag = params.titleTag | default("div") %}
                 <{{titleTag}} class="collapsible__heading__title u-fs-r--b">{{ params.title }}</{{titleTag}}>
-                <svg class="collapsible__heading__icon"><use xlink:href="/img/icons/icons--chevron-right.svg#chevron-right"></use></svg>
+                <span class="collapsible__heading__icon">
+                    {% from "components/icons/_macro.njk" import onsIcon %}
+                    {{
+                        onsIcon({
+                            "icon": "chevron"
+                        })
+                    }}</span>
                 {% if params.button is defined and params.button.open is defined and params.isAccordion is defined %}
                     {{
                         onsButton({
