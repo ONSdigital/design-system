@@ -20,13 +20,13 @@
                 {% if params.line1 is defined %}
                 {{
                     onsInput({
-                        "id": params.id + "-line-1",
+                        "id": params.id + "-line1",
                         "value": params.line1.value,
                         "label": {
                             "text": params.line1.label
                         },
-                        "classes": "input--w-20@m js-address-line-1",
-                        "name": params.id + "-line-1",
+                        "classes": "input--w-20@m js-address-line1",
+                        "name": params.id + "-line1",
                         "error": params.line1.error
                     })
                 }}
@@ -34,13 +34,13 @@
                 {% if params.line2 is defined %}
                 {{
                     onsInput({
-                        "id": params.id + "-line-2",
+                        "id": params.id + "-line2",
                         "value": params.line2.value,
                         "label": {
                             "text": params.line2.label
                         },
-                        "classes": "input--w-20@m js-address-line-2",
-                        "name": params.id + "-line-2"
+                        "classes": "input--w-20@m js-address-line2",
+                        "name": params.id + "-line2"
                     })
                 }}
                 {% endif %}
