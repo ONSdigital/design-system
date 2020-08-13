@@ -20,7 +20,7 @@ $button-border-height: 3px;
   vertical-align: top;
   cursor: pointer;
 
-  svg {
+  .icon {
     margin: 0 0 0 0.5rem;
     width: 0.8rem;
     height: 0.8rem;
@@ -101,10 +101,23 @@ $button-border-height: 3px;
 
   &--secondary &,
   &--print & {
+    .icon {
+      width: 1rem;
+      height: 1rem;
+    }
     &__inner {
       background: $color-button-secondary;
       color: $color-text;
       font-weight: normal;
+    }
+  }
+
+  &--print & {
+    &__inner {
+      .icon {
+        width: 1rem;
+        height: 1rem;
+      }
     }
   }
 
@@ -131,14 +144,14 @@ $button-border-height: 3px;
   &--link:not(.btn--secondary):active &,
   &--link:not(.btn--secondary):hover:focus & {
     &__inner {
-      svg {
+      .icon {
         fill: $color-white;
       }
     }
   }
 
   &--link:focus:not(.btn--secondary) &__inner {
-    svg {
+    .icon {
       fill: $color-black;
     }
   }
@@ -183,7 +196,7 @@ $button-border-height: 3px;
       border: 2px solid rgba(255, 255, 255, 0.6);
       background: transparent;
       color: $color-white;
-      svg {
+      .icon {
         fill: $color-white;
       }
     }
@@ -213,7 +226,7 @@ $button-border-height: 3px;
     &__inner {
       background-color: $color-focus;
       color: $color-focus-text;
-      svg {
+      .icon {
         fill: $color-black;
       }
     }
@@ -224,14 +237,14 @@ $button-border-height: 3px;
       border: 2px solid $color-blue;
       background: transparent;
       color: $color-blue;
-      svg {
+      .icon {
         fill: $color-blue;
       }
     }
   }
 
   &--mobile[aria-expanded='true'] {
-    svg {
+    .icon {
       transform: rotate(270deg);
     }
   }
@@ -250,7 +263,7 @@ $button-border-height: 3px;
   }
 
   &--mobile {
-    svg {
+    .icon {
       transform: rotate(90deg);
     }
     @include mq(m) {
