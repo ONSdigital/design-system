@@ -21,3 +21,9 @@
 @include create-icon($name: chevron-down-white, $height: 0.8rem, $position: 'after');
 
 @include create-icon($name: chevron-down-black, $height: 0.8rem, $position: 'after');
+
+.svg-icon {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+}
