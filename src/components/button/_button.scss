@@ -232,7 +232,7 @@ $button-border-height: 3px;
 
   &--mobile[aria-expanded='true'] {
     svg {
-      transform: rotate(180deg);
+      transform: rotate(270deg);
     }
   }
 
@@ -250,6 +250,9 @@ $button-border-height: 3px;
   }
 
   &--mobile {
+    svg {
+      transform: rotate(90deg);
+    }
     @include mq(m) {
       display: none;
     }
