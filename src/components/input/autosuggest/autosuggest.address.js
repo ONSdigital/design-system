@@ -97,7 +97,11 @@ export default class AutosuggestAddress {
       })
       .catch(error => {
         console.log(error);
-        this.handleAPIError();
+        if (this.isEditable) {
+          this.handleAPIError();
+        } else {
+          this.autosuggest.handleNoResults(status);
+        }
       });
   }
 
@@ -348,7 +352,6 @@ export default class AutosuggestAddress {
   }
 
   handleAPIError() {
-    console.log('run!');
     this.addressSetter.toggleMode(true, false);
     const searchBtn = document.querySelector('.js-address-search-btn');
     searchBtn.classList.add('u-d-no');
