@@ -14,7 +14,6 @@ import fetchMock from 'stubs/window.fetch.stub.spec';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import chaiSpies from 'chai-spies';
-import sinon from 'sinon';
 
 chai.should();
 chai.use(chaiSpies);

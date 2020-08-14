@@ -110,7 +110,6 @@
     "minimist": "^1.2.5",
     "mocha": "8.0.1",
     "ncp": "^2.0.0",
-    "nock": "^13.0.4",
     "node-sass": "^4.14.1",
     "node-sass-glob-importer": "^5.2.0",
     "normalize-scss": "^7.0.1",
@@ -151,8 +150,5 @@
   "resolutions": {
     "minimist": "^1.2.5"
   },
-  "dependencies": {
-    "karma-sinon": "^1.0.5",
-    "sinon": "^9.0.3"
-  }
+  "dependencies": {}
 }
