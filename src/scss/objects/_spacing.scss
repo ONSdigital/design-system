@@ -9,7 +9,7 @@
   .field,
   .field-group,
   .fieldset,
-  .panel,
+  .panel:not(.panel--bare),
   .summary__group,
   .collapsible:not(.collapsible--accordion) {
     margin-top: 1.5rem;
