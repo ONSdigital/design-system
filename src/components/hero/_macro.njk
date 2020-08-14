@@ -7,7 +7,7 @@
         <div class="hero__details grid__col{% if params.censusTheme is defined %} col-6@m{%else%} col-8@m{% endif%}{% if params.censusThemeDark is defined %} hero__details--ondark{% endif%}">
 
             <header>
-               
+
                 {% if params.censusTheme is defined %}
                     <h1 class="u-fs-xxxl">{{ params.title }}</h1>
                 {% else %}
@@ -31,19 +31,18 @@
                         "classes": params.button.classes,
                         "type": 'button',
                         "text": params.button.text,
-                        "url": params.button.url,
-                        "innerClasses": "icon--chevron-right-white"
+                        "url": params.button.url
                     })
                 }}
             {% endif %}
 
         </div>
 
-        {% if params.censusTheme is defined %}           
-            
+        {% if params.censusTheme is defined %}
+
             {% if params.image is defined %}
             <div class="hero__circle-image">
-                <img height="560px" width="560px" srcset="{{ params.image.largeSrc }}{{ params.image.filename }} 1x, {{ params.image.largeSrc }}{{ params.image.filename }} 2x" src="{{ params.image.smallSrc }}{{ params.image.filename }}" alt="{{ params.image.alt }}">
+                <img height="560px" width="560px" srcset="{{ params.image.smallSrc }}{{ params.image.filename }} 1x, {{ params.image.largeSrc }}{{ params.image.filename }} 2x" src="{{ params.image.smallSrc }}{{ params.image.filename }}" alt="{{ params.image.alt }}">
             </div>
             {% endif %}
 
