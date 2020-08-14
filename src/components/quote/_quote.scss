@@ -15,11 +15,11 @@
   }
 
   .svg-icon {
+    position: absolute;
+    top: 1.3rem;
+    left: 1.6rem;
     width: 1.85rem;
     height: 1.85rem;
     fill: $color-grey-2;
-    position: absolute;
-    left: 1.6rem;
-    top: 1.3rem;
   }
 }
