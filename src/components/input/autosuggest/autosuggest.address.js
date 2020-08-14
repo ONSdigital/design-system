@@ -30,9 +30,10 @@ export default class AutosuggestAddress {
     this.currentResults = [];
     this.totalResults = 0;
     this.errored = false;
-    this.notEditable = context.querySelector(`.${classNotEditable}`) ? true : false;
+    this.isEditable = context.querySelector(`.${classNotEditable}`) ? false : true;
     this.addressSelected = false;
     this.groupQuery = '';
+
     // Temporary fix as runner doesn't use full lang code
     if (this.lang === 'en') {
       this.lang = 'en-gb';
@@ -42,9 +43,8 @@ export default class AutosuggestAddress {
     if (this.form) {
       this.form.addEventListener('submit', this.handleSubmit.bind(this));
     }
-
     // Initialise address setter
-    if (!this.notEditable) {
+    if (this.isEditable) {
       this.addressSetter = new AddressSetter(context);
     }
 
@@ -52,7 +52,6 @@ export default class AutosuggestAddress {
     this.autosuggest = new AutosuggestUI({
       context: this.container,
       onSelect: this.onAddressSelect.bind(this),
-      onUnsetResult: this.addressSetter ? this.addressSetter.onUnsetAddress() : null,
       lang: this.lang,
       suggestionFunction: this.suggestAddresses.bind(this),
       onError: this.onError.bind(this),
@@ -80,7 +79,6 @@ export default class AutosuggestAddress {
   }
 
   checkAPIStatus() {
-    console.log('here');
     this.fetch = abortableFetch(this.lookupURL + 'CF142&limit=10', {
       method: 'GET',
       headers: this.headers,
@@ -90,8 +88,7 @@ export default class AutosuggestAddress {
       .then(async response => {
         const status = (await response.json()).status.code;
         if (status > 400) {
-          console.log('status', status);
-          if (this.notEditable) {
+          if (this.isEditable) {
             this.handleAPIError();
           } else {
             this.autosuggest.handleNoResults(status);
@@ -100,16 +97,11 @@ export default class AutosuggestAddress {
       })
       .catch(error => {
         console.log(error);
-        if (this.notEditable) {
-          this.handleAPIError();
-        } else {
-          this.autosuggest.handleNoResults(403);
-        }
+        this.handleAPIError();
       });
   }
 
   suggestAddresses(query, [], grouped) {
-    console.log(query);
     return new Promise((resolve, reject) => {
       if (this.currentQuery === query && this.currentQuery.length && (this.currentResults ? this.currentResults.length : 0)) {
         resolve({
@@ -292,7 +284,7 @@ export default class AutosuggestAddress {
       if (selectedResult.uprn) {
         this.retrieveAddress(selectedResult.uprn)
           .then(data => {
-            if (!this.notEditable) {
+            if (this.isEditable) {
               this.addressSetter.setAddress(this.createAddressLines(data, resolve));
               this.addressSelected = true;
               this.InputUPRN.value = selectedResult.uprn;
@@ -302,7 +294,7 @@ export default class AutosuggestAddress {
           })
           .catch(error => {
             console.log(error);
-            if (this.notEditable) {
+            if (this.isEditable) {
               this.handleAPIError();
             } else {
               this.autosuggest.handleNoResults(403);
@@ -356,7 +348,8 @@ export default class AutosuggestAddress {
   }
 
   handleAPIError() {
-    this.addressSetter.toggleMode();
+    console.log('run!');
+    this.addressSetter.toggleMode(true, false);
     const searchBtn = document.querySelector('.js-address-search-btn');
     searchBtn.classList.add('u-d-no');
   }

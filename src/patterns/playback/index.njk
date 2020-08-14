@@ -3,8 +3,6 @@ title: Check answers
 group: Help users to...
 ---
 {% from "components/lists/_macro.njk" import onsList %}
-{% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 Allow users to check the information they have previously entered and confirm it's correct before submitting it.
 
@@ -40,38 +38,31 @@ Each method allows the respondent to check what they have have previously entere
 A [summary](/components/summary) lets the user review the answer(s) they have given to a single question or multiple questions, allowing them to edit their answers before completing the survey.
 
 <figure>
-    <img src="/patternlib-img/playback-summary.svg" alt="The playback of answer(s) within a summary">
-    <figcaption>Figure 1. An example where the respondent has completed a section or survey and their answers are played back within a summary.</figcaption>
+  <img src="/patternlib-img/playback-summary.svg" alt="The playback of answer(s) within a summary">
+  <figcaption>Figure 1. An example where the respondent has completed a section or survey and their answers are played back within a summary.</figcaption>
 </figure>
 
 ### 2. The playback of a single answer
 <figure>
-    <img src="/patternlib-img/playback-singular-answer.svg" alt="The playback of a singular answer">
-    <figcaption>Figure 2. An example where the respondent is required to confirm a single answer in order to progress.</figcaption>
+  <img src="/patternlib-img/playback-singular-answer.svg" alt="The playback of a singular answer">
+  <figcaption>Figure 2. An example where the respondent is required to confirm a single answer in order to progress.</figcaption>
 </figure>
 
 ### 3. The playback of multiple answers or a list of options
 <figure>
-   <img src="/patternlib-img/playback-multiple-answers.svg" alt="The playback of multiple answers or a list of options">
-    <figcaption>Figure 3. An example where the respondent is required to confirm multiple answers or a list of options previously entered.</figcaption>
+  <img src="/patternlib-img/playback-multiple-answers.svg" alt="The playback of multiple answers or a list of options">
+  <figcaption>Figure 3. An example where the respondent is required to confirm multiple answers or a list of options previously entered.</figcaption>
 </figure>
 
 
 ## Research on this pattern
-{% call onsPanel() %}
-    If you have conducted any user research using this pattern, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/101",
-            "linkText": "Design System Forum"
-        })
-    }}
-{% endcall %}
 
-## Design System forum
+{% from "components/panel/_macro.njk" import onsPanel %}
 {{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/101",
-        "linkText": "Discuss 'Check answers' on GitHub"
+    onsPanel({
+        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='https://github.com/ONSdigital/design-system/issues/101'>Design System Forum.</a>"
     })
 }}
+
+## Design System forum
+<a href="https://github.com/ONSdigital/design-system/issues/101" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Check answers' on GitHub</a>

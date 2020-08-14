@@ -1,17 +1,17 @@
 import triggerEvent from 'js/utils/trigger-event';
 import AddressError from './autosuggest.address.error';
 
-const classAutosuggestInput = 'js-autosuggest-input';
-const classLine1 = 'js-address-line-1';
-const classLine2 = 'js-address-line-2';
-const classTown = 'js-address-town';
-const classPostcode = 'js-address-postcode';
-const classSearch = 'js-address-input__search';
-const classManual = 'js-address-input__manual';
-const classSearchButton = 'js-address-search-btn';
-const classManualButton = 'js-address-manual-btn';
-const classErrorPanel = 'panel--error';
-const classJsErrorPanel = 'js-error-panel';
+export const classAutosuggestInput = 'js-autosuggest-input';
+export const classLine1 = 'js-address-line1';
+export const classLine2 = 'js-address-line2';
+export const classTown = 'js-address-town';
+export const classPostcode = 'js-address-postcode';
+export const classSearch = 'js-address-input__search';
+export const classManual = 'js-address-input__manual';
+export const classSearchButton = 'js-address-search-btn';
+export const classManualButton = 'js-address-manual-btn';
+export const classErrorPanel = 'panel--error';
+export const classJsErrorPanel = 'js-error-panel';
 
 export default class AddressSetter {
   constructor(context) {
@@ -41,12 +41,10 @@ export default class AddressSetter {
     }
 
     // Set mode
-    if (!(this.line1.value || this.line2.value || this.town.value || this.postcode.value)) {
+    if (this.line1.value || this.line2.value || this.town.value || this.postcode.value || this.errorPanel) {
+      this.setManualMode(true, false);
+    } else {
       this.toggleMode();
-    }
-
-    if (this.errorPanel) {
-      this.setManualMode(true, true);
     }
   }
 
