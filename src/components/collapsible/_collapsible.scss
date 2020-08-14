@@ -5,9 +5,8 @@ $collapsible-caret-right-spacing: 0.4rem;
   &__heading {
     display: inline-block;
     position: relative;
-    outline: none;
-    pointer-events: none;
     padding: 0 0 0 ($collapsible-caret-width + $collapsible-caret-right-spacing);
+    outline: none;
     color: $color-links;
     cursor: pointer;
     pointer-events: initial;
