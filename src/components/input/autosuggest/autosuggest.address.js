@@ -53,7 +53,6 @@ export default class AutosuggestAddress {
     this.autosuggest = new AutosuggestUI({
       context: this.container,
       onSelect: this.onAddressSelect.bind(this),
-      onUnsetResult: this.addressSetter ? this.addressSetter.onUnsetAddress() : null,
       lang: this.lang,
       suggestionFunction: this.suggestAddresses.bind(this),
       onError: this.onError.bind(this),
@@ -354,7 +353,7 @@ export default class AutosuggestAddress {
   }
 
   handleAPIError() {
-    this.addressSetter.toggleMode();
+    this.addressSetter.toggleMode(true, false);
     const searchBtn = document.querySelector('.js-address-search-btn');
     searchBtn.classList.add('u-d-no');
   }

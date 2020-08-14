@@ -23,8 +23,6 @@
     >
         {% if params.type == "warn" %}
             <span class="panel__icon" aria-hidden="true">!</span>
-        {% elif params.icon is defined and params.icon %}
-            <span class="panel__icon icon--{{ params.icon }}"></span>
         {% endif %}
 
         {% if params.title is defined and params.title %}
@@ -34,7 +32,14 @@
             </div>
         {% endif %}
         {% if params.icon is defined and params.icon %}
-            <span class= "panel__icon"><svg><use xlink:href="/img/icons/icons--{{ params.icon }}.svg#{{ params.icon }}"></use></svg></span>
+            {% from "components/icons/_macro.njk" import onsIcon %}
+            <span class= "panel__icon">
+                {{
+                    onsIcon({
+                        "icon": params.icon
+                    })
+                }}
+            </span>
         {% endif %}
         <div class="panel__body" {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ (params.body if params else "") | safe }}
             {{ caller() if caller }}

@@ -1,3 +1,5 @@
+{% from "components/icons/_macro.njk" import onsIcon %}
+
 {% macro onsButton(params) %}
 
 {% set tag = "a" if params.url else "button" %}
@@ -9,17 +11,14 @@
   {% if params.url is defined and params.newWindow is defined %}
     {% set iconType = "external-link" %}
     {% set iconPosition = "after" %}
-  {% elif params.url is defined %}
-    {% set iconType = "chevron-right" %}
+  {% elif params.url is defined or params.buttonStyle == "mobile" %}
+    {% set iconType = "chevron" %}
     {% set iconPosition = "after" %}
   {% elif params.buttonStyle == "print" %}
     {% set iconType = "print" %}
     {% set iconPosition = "after" %}
   {% elif params.buttonStyle == "exit" %}
     {% set iconType = "exit" %}
-    {% set iconPosition = "after" %}
-  {% elif params.buttonStyle == "mobile" %}
-    {% set iconType = "chevron-down" %}
     {% set iconPosition = "after" %}
   {% endif %}
 {% endif %}
@@ -40,9 +39,21 @@
       {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
       >
       <span class="btn__inner{% if params.innerClasses is defined %} {{ params.innerClasses }}{% endif %}">
-        {% if iconPosition == "before" %}<svg><use xlink:href="/img/icons/icons--{{ iconType }}.svg#{{ iconType }}"></use></svg>{% endif %}
+        {% if iconPosition == "before" %}
+          {{
+            onsIcon({
+                "icon": iconType
+            })
+          }}
+        {% endif %}
         {{- params.html | safe if params.html is defined else params.text -}}
-        {% if iconPosition == "after" %}<svg><use xlink:href="/img/icons/icons--{{ iconType }}.svg#{{ iconType }}"></use></svg>{% endif %}
+        {% if iconPosition == "after" %}
+          {{
+            onsIcon({
+                "icon": iconType
+            })
+          }}
+        {% endif %}
       </span>
       {% if params.url is defined and params.newWindow is defined %}
         <span class="btn__new-window-description u-vh">{{ params.newWindowDescription | default("opens in a new window") }}</span>

@@ -2,7 +2,6 @@
 title: Hero
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 A large promotional section, usually at the very top of the page, featuring a headline and a call to action.
 
@@ -23,21 +22,22 @@ This is used to inform users that Census 2021 is happening now and a clear call 
     patternlibExample({"path": "components/hero/examples/happening/index.njk"})
 }}
 
+## How to use this component
+For the campaign-specific hero component, we use an image to complement the look and feel of the banner. We use two versions of the image, one for standard screens and the other for retina screens.
+
+Image dimension for:
+
+* standard screen is: `620px × 620px`
+* retina screen is: `1120px × 1120px`
+
+We specify a folder path for both small and large images which is defined in the macro as `smallSrc` and `largeSrc`. The filename is expected to be the same for both.
+
+
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-   If you have conducted any user research using this component, please feed back your findings via the {{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/717",
-        "linkText": "Design System forum"
-    })
-}}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/876" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
 {% endcall %}
 
 ## Design System forum
-{{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/717",
-        "linkText": "Discuss 'Hero' on GitHub"
-    })
-}}
+<a href="https://github.com/ONSdigital/design-system/issues/717" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Hero' on GitHub</a>

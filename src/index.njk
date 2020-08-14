@@ -6,8 +6,6 @@ sortOrder: 1
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/card/_macro.njk" import onsCard %}
 {% from "components/hero/_macro.njk" import onsHero %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
-
 {{
     onsHero({
         title: 'Design and build digital services for the ONS',
@@ -53,13 +51,9 @@ sortOrder: 1
         <div class="grid__col col-8@m">
             <h3 class="u-fs-l">Design community</h3>
             <p>The ONS Design System is available for everyone and brings together the latest research, design and development from across the organisation to ensure our users have an accessible and consistent experience with our services.</p>
-            <p>If you would like to contribute to the design system you can {{
-                onsExternalLink({
-                    "url": "https://github.com/ONSdigital/design-system",
-                    "linkText": "Propose a new pattern or component"
-                })
-            }}
-            </p>
+            <p>If you would like to contribute to the design system you can:</p>
+            <p><a href="#">Propose a new pattern or component.</a></p>
+            <p><a href="#">View the current backlog of work.</a></p>
         </div>
     </div>
 </div>

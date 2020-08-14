@@ -2,8 +2,6 @@
 title: Upload
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 
 A file upload input allows a user to select a file from their computer's file system.
 {{
@@ -19,20 +17,10 @@ Use this component when there is a requirement for a user to select and submit a
 The `<input>` value is set to `type="file"`. A file upload input also takes the attribute `accepts=` which take a comma seperated list of file extensions with the `.` prefix for example: `accept=".xls,.xlsx,.pdf"`.
 
 ## Research on this component
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-    If you have conducted any user research using this component, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/97",
-            "linkText": "Design System forum"
-        })
-    }}
+   If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/97" target="_blank" rel="noopener" class="icon--external-link">Design System forum</a>
 {% endcall %}
 
 ## Design System forum
-{{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/97",
-        "linkText": "Discuss 'Upload' on GitHub"
-    })
-}}
+<a href="https://github.com/ONSdigital/design-system/issues/97" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Upload' on GitHub</a>

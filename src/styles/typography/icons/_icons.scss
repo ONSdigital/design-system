@@ -6,9 +6,17 @@
 
 @include create-icon($name: person, $margin: 1rem, $transform: translateY(-0.15rem));
 
+@include create-icon($name: external-link, $position: 'after');
+
 @include create-icon($name: lock, $height: 1.3rem, $transform: translateY(-0.15rem));
 
-svg {
+@include create-icon($name: chevron-right-white, $height: 0.8rem, $position: 'after');
+
+@include create-icon($name: chevron-down-white, $height: 0.8rem, $position: 'after');
+
+@include create-icon($name: chevron-down-black, $height: 0.8rem, $position: 'after');
+
+.svg-icon {
   width: 1rem;
   height: 1rem;
   vertical-align: middle;
