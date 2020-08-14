@@ -7,20 +7,18 @@ $collapsible-caret-right-spacing: 0.4rem;
     position: relative;
     outline: none;
     pointer-events: none;
-
-    &::-webkit-details-marker {
-      display: none;
-    }
-    &__title {
-      transform: translateY(-1px);
-    }
-  }
-
-  &__heading {
     padding: 0 0 0 ($collapsible-caret-width + $collapsible-caret-right-spacing);
     color: $color-links;
     cursor: pointer;
     pointer-events: initial;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &__title {
+      transform: translateY(-1px);
+    }
 
     &:focus {
       & .collapsible__heading__title {
@@ -40,13 +38,12 @@ $collapsible-caret-right-spacing: 0.4rem;
       height: $collapsible-caret-width;
       fill: $color-links;
     }
+
     &__title {
       margin-bottom: 0;
       text-decoration: underline;
     }
-  }
 
-  &__heading {
     &:hover {
       color: $color-links-hover;
       .collapsible__heading__icon {
