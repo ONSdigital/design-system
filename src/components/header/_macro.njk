@@ -79,7 +79,7 @@
                               "name": params.button.name,
                               "attributes": params.button.attributes,
                               "url": params.button.url,
-                              "exit": params.button.exit
+                              "buttonStyle": params.button.buttonStyle
                           }) }}
                       </div>
                   {% endif %}
@@ -88,6 +88,7 @@
                             {{ onsButton({
                                 "text": params.toggleButton.text,
                                 "classes": "btn--mobile u-ml-s u-d-no js-toggle-main",
+                                "buttonStyle": "mobile",
                                 "attributes": {
                                     "aria-label": params.toggleButton.ariaLabel,
                                     "aria-controls": params.navigation.id,
