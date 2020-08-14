@@ -353,7 +353,7 @@ export default class AutosuggestAddress {
   }
 
   handleAPIError() {
-    this.addressSetter.toggleMode(true, false);
+    this.addressSetter.setManualMode(true, false);
     const searchBtn = document.querySelector('.js-address-search-btn');
     searchBtn.classList.add('u-d-no');
   }
