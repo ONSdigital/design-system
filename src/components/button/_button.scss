@@ -20,6 +20,13 @@ $button-border-height: 3px;
   vertical-align: top;
   cursor: pointer;
 
+  .svg-icon {
+    margin: 0 0 0 0.5rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    vertical-align: middle;
+  }
+
   &:hover & {
     &__inner {
       background: darken($color-button, 5%);
@@ -94,10 +101,23 @@ $button-border-height: 3px;
 
   &--secondary &,
   &--print & {
+    .svg-icon {
+      width: 1rem;
+      height: 1rem;
+    }
     &__inner {
       background: $color-button-secondary;
       color: $color-text;
       font-weight: normal;
+    }
+  }
+
+  &--print & {
+    &__inner {
+      .svg-icon {
+        width: 1rem;
+        height: 1rem;
+      }
     }
   }
 
@@ -106,24 +126,6 @@ $button-border-height: 3px;
   &--print:hover & {
     &__inner {
       background: darken($color-button-secondary, 5%);
-    }
-  }
-
-  &--print &__inner {
-    &:after {
-      @include icon('print');
-      content: '';
-      margin: 0 0 0 0.5rem;
-      vertical-align: middle;
-    }
-  }
-
-  &--exit &__inner,
-  &--link &__inner {
-    &:after {
-      content: '';
-      margin: 0 0 0 0.5rem;
-      vertical-align: middle;
     }
   }
 
@@ -142,67 +144,15 @@ $button-border-height: 3px;
   &--link:not(.btn--secondary):active &,
   &--link:not(.btn--secondary):hover:focus & {
     &__inner {
-      &:after {
-        @include icon($name: 'chevron-right-white', $height: 0.8rem);
-      }
-    }
-  }
-
-  &--link {
-    &.btn--ghost-blue,
-    &.btn--ghost-blue:active,
-    &.btn--ghost-blue:hover:focus {
-      .btn__inner {
-        &:after {
-          @include icon($name: 'chevron-right-blue', $height: 0.8rem);
-        }
+      .svg-icon {
+        fill: $color-white;
       }
     }
   }
 
   &--link:focus:not(.btn--secondary) &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.8rem);
-    }
-  }
-
-  &--link.btn--small:not(.btn--secondary) &,
-  &--link.btn--small:not(.btn--secondary):active &,
-  &--link.btn--small:not(.btn--secondary):hover:focus & {
-    &__inner {
-      &:after {
-        @include icon($name: 'chevron-right-white', $height: 0.7rem);
-      }
-    }
-  }
-
-  &--link:focus.btn--small:not(.btn--secondary) &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.7rem);
-    }
-  }
-
-  &--link.btn--secondary &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.8rem);
-    }
-  }
-
-  &--link:focus.btn--secondary &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.8rem);
-    }
-  }
-
-  &--link.btn--small.btn--secondary &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.7rem);
-    }
-  }
-
-  &--link:focus.btn--small.btn--secondary &__inner {
-    &:after {
-      @include icon($name: 'chevron-right-black', $height: 0.7rem);
+    .svg-icon {
+      fill: $color-black;
     }
   }
 
@@ -246,6 +196,9 @@ $button-border-height: 3px;
       border: 2px solid rgba(255, 255, 255, 0.6);
       background: transparent;
       color: $color-white;
+      .svg-icon {
+        fill: $color-white;
+      }
     }
   }
 
@@ -267,9 +220,16 @@ $button-border-height: 3px;
     }
   }
 
-  &--ghost:focus:not(:hover) &__inner {
-    background-color: $color-focus;
-    color: $color-focus-text;
+  &--mobile:focus:not(:hover) &,
+  &--ghost:focus:not(:hover) &,
+  &--ghost-blue:focus:not(:hover) & {
+    &__inner {
+      background-color: $color-focus;
+      color: $color-focus-text;
+      .svg-icon {
+        fill: $color-black;
+      }
+    }
   }
 
   &--ghost-blue & {
@@ -277,6 +237,15 @@ $button-border-height: 3px;
       border: 2px solid $color-blue;
       background: transparent;
       color: $color-blue;
+      .svg-icon {
+        fill: $color-blue;
+      }
+    }
+  }
+
+  &--mobile[aria-expanded='true'] {
+    .svg-icon {
+      transform: rotate(270deg);
     }
   }
 
@@ -294,83 +263,11 @@ $button-border-height: 3px;
   }
 
   &--mobile {
+    .svg-icon {
+      transform: rotate(90deg);
+    }
     @include mq(m) {
       display: none;
-    }
-  }
-
-  &--mobile & {
-    &__inner {
-      padding: 0.4rem 0.5rem;
-      &:after {
-        @include icon($name: 'chevron-down-white', $height: 0.8rem);
-        content: '';
-        display: inline-block;
-        margin: 0 0 0 0.5rem;
-        vertical-align: middle;
-      }
-    }
-  }
-
-  &--mobile[aria-expanded='true'] & {
-    &__inner:after {
-      transform: rotate(180deg);
-    }
-  }
-
-  &--mobile:focus:not(:active):not(:hover) & {
-    &__inner {
-      &:after {
-        @include icon($name: 'chevron-down-black', $height: 0.8rem);
-      }
-    }
-  }
-
-  &--link,
-  &--link:active,
-  &--link:hover:focus {
-    .btn__inner.icon--external-link {
-      &:after {
-        @include icon($name: 'external-link-white', $height: 0.8rem);
-      }
-    }
-  }
-
-  &--link:focus {
-    .btn__inner.icon--external-link {
-      &:after {
-        @include icon($name: 'external-link-black', $height: 0.8rem);
-      }
-    }
-  }
-
-  &--exit {
-    &.btn--ghost-blue,
-    &.btn--ghost-blue:active,
-    &.btn--ghost-blue:hover:focus {
-      .btn__inner.icon--exit {
-        &:after {
-          @include icon($name: 'exit-blue', $height: 0.8rem);
-        }
-      }
-    }
-  }
-
-  &--exit,
-  &--exit:active,
-  &--exit:hover:focus {
-    .btn__inner.icon--exit {
-      &:after {
-        @include icon($name: 'exit-white', $height: 0.8rem);
-      }
-    }
-  }
-
-  &--exit:focus {
-    .btn__inner.icon--exit {
-      &:after {
-        @include icon($name: 'exit-black', $height: 0.8rem);
-      }
     }
   }
 
