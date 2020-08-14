@@ -164,13 +164,29 @@
     &:focus {
       @extend a:focus;
     }
+
+    & .svg-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    &:focus {
+      .svg-icon {
+        fill: $color-black;
+      }
+    }
   }
 
-  [aria-sort='ascending'] .table__sort-button::before {
-    background-position: 0 -43px;
+  [aria-sort='ascending'] .table__sort-button {
+    .svg-icon {
+      background-position: 0 -43px;
+    }
   }
 
-  [aria-sort='descending'] .table__sort-button::before {
-    background-position: 0 -22px;
+  [aria-sort='descending'] .table__sort-button {
+    .svg-icon {
+      background-position: 0 -22px;
+    }
   }
 }
