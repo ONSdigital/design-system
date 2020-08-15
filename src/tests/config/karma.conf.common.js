@@ -34,7 +34,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
 
   return function(config) {
     config.set({
-      frameworks: ['mocha', 'chai-spies', 'chai', 'sinon'],
+      frameworks: ['mocha', 'chai-spies', 'chai'],
 
       files: ['../../js/polyfills/index.js', '../../tests/**/*.spec.js'],
 
@@ -53,7 +53,6 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         'karma-mocha-reporter',
         'karma-chai',
         'karma-chai-spies',
-        'karma-sinon',
       ],
 
       webpack: webpackConfig,
