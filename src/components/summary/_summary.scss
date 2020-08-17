@@ -58,11 +58,11 @@ $hub-row-spacing: 1.3rem;
       padding-left: 2rem;
       overflow: hidden;
     }
-    &--icon {
+    &-icon {
       position: absolute;
       left: 0;
       text-align: center;
-      &-check {
+      &--check {
         fill: $color-green;
       }
     }
