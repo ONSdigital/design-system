@@ -121,7 +121,7 @@ describe('Component: Sortable table', function() {
 
     it('should create a button element in each TH', function() {
       this.sortableHeadings.forEach(heading => {
-        let headingChild = heading.childNodes[0];
+        let headingChild = heading.childNodes[1];
         for (let i = 0; i < headingChild.length; i++) {
           expect(headingChild[i].getAttribute('type')).to.equal('button');
         }
@@ -165,7 +165,7 @@ describe('Component: Sortable table', function() {
         this.sortableHeadings[0].childNodes[0].click();
       });
 
-      it('should be given the aria-sort vale of descending', function() {
+      it('should be given the aria-sort value of descending', function() {
         const th = this.sortableHeadings[0];
         expect(th.getAttribute('aria-sort')).to.equal('descending');
       });
