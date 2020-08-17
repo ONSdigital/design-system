@@ -35,7 +35,9 @@ export default class TableSort {
     button.textContent = text;
     button.addEventListener('click', this.sortButtonClicked.bind(this));
     let sortSprite = document.getElementById('sort-sprite-' + text.toLowerCase());
-    heading.insertBefore(button, sortSprite);
+    const sortSpriteParent = sortSprite.parentNode;
+    sortSpriteParent.replaceChild(button, sortSprite);
+    button.appendChild(sortSprite);
   }
 
   sortButtonClicked(event) {

@@ -154,7 +154,7 @@
       }
     }
     .table__sort-button:focus {
-      & + .svg-icon {
+      .svg-icon {
         .topTriangle {
           fill: $color-black;
         }
@@ -172,7 +172,7 @@
       }
     }
     .table__sort-button:focus {
-      & + .svg-icon {
+      .svg-icon {
         .bottomTriangle {
           fill: $color-black;
         }
@@ -183,15 +183,8 @@
   .table__header {
     position: relative;
 
-    .svg-icon {
-      width: 0.8rem;
-      height: 0.8rem;
-      fill: $color-grey-3;
-    }
-
     .table__sort-button {
-      padding: 0 1.1rem 0 0;
-      overflow: visible;
+      display: inline-block;
       border: 0;
       background-color: transparent;
       box-shadow: none;
@@ -200,14 +193,22 @@
       font-weight: 700;
       line-height: 1rem;
       text-decoration: underline;
+      white-space: nowrap;
 
       &:hover {
         color: $color-links-hover;
       }
 
+      .svg-icon {
+        padding-bottom: 0.1rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        fill: $color-grey-3;
+      }
+
       &:focus {
         @extend a:focus;
-        & + .svg-icon {
+        .svg-icon {
           fill: $color-black;
         }
       }
