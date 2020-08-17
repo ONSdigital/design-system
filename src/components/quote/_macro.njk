@@ -1,5 +1,11 @@
 {% macro onsQuote(params) %}
     <blockquote class="quote">
+        {% from "components/icons/_macro.njk" import onsIcon %}
+        {{
+            onsIcon({
+                "icon": 'quote'
+            })
+        }}
         <span class="quote__text">{{ caller() if caller else params.text | safe }}</span>
         {% if params.ref is defined %}<span class="quote__ref">- {{ params.ref | safe }}</span>{% endif %}
     </blockquote>
