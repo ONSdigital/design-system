@@ -131,7 +131,7 @@ export default class TableSort {
   updateButtonState(button, direction) {
     button.parentElement.setAttribute('aria-sort', direction);
     let message = this.options.statusMessage;
-    message = message + ' ' + button.textContent;
+    message = message + ' ' + button.textContent.replace(/^\s+|\s+$/g, '');
     message = message + ' (' + direction + ')';
     status.textContent = message;
   }

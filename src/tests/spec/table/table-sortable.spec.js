@@ -121,7 +121,7 @@ describe('Component: Sortable table', function() {
 
     it('should create a button element in each TH', function() {
       this.sortableHeadings.forEach(heading => {
-        let headingChild = heading.childNodes[0];
+        let headingChild = heading.childNodes[2];
         for (let i = 0; i < headingChild.length; i++) {
           expect(headingChild[i].getAttribute('type')).to.equal('button');
         }
@@ -139,7 +139,7 @@ describe('Component: Sortable table', function() {
     describe('Each sort button element', function() {
       it('should contain an aria-label attribute', function() {
         this.sortableHeadings.forEach(heading => {
-          let button = heading.childNodes[0];
+          let button = heading.childNodes[2];
           let headingText = heading.textContent.trim();
           expect(button.getAttribute('aria-label')).to.equal('Sort by ' + headingText);
         });
@@ -147,14 +147,14 @@ describe('Component: Sortable table', function() {
 
       it('should contain a data-index attribute', function() {
         this.sortableHeadings.forEach((heading, i) => {
-          let headingChild = heading.childNodes[0];
+          let headingChild = heading.childNodes[2];
           expect(headingChild.getAttribute('data-index')).to.equal('' + i + '');
         });
       });
 
       it('should be given the class "table__sort-button"', function() {
         this.sortableHeadings.forEach(heading => {
-          let headingChild = heading.childNodes[0];
+          let headingChild = heading.childNodes[2];
           expect(headingChild.getAttribute('class')).to.equal('table__sort-button');
         });
       });
@@ -162,7 +162,7 @@ describe('Component: Sortable table', function() {
 
     describe('When a sort button is clicked', function() {
       before(function() {
-        this.sortableHeadings[0].childNodes[0].click();
+        this.sortableHeadings[0].childNodes[2].click();
       });
 
       it('should be given the aria-sort value of descending', function() {
@@ -189,14 +189,14 @@ describe('Component: Sortable table', function() {
 
       it('should update the aria-live status', function() {
         const status = document.getElementsByClassName('sortable-table-status')[0].textContent;
-        const headingText = this.sortableHeadings[0].textContent;
+        const headingText = this.sortableHeadings[0].textContent.trim();
         expect(status).to.equal('Sort by ' + headingText + ' (descending)');
       });
     });
 
     describe('When a sort button is clicked again', function() {
       before(function() {
-        this.sortableHeadings[0].childNodes[0].click();
+        this.sortableHeadings[0].childNodes[2].click();
       });
 
       it('should be given the aria-sort vale of ascending', function() {
