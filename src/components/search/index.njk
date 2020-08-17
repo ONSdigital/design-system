@@ -3,6 +3,7 @@ title: Search
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 The search component provides an input and button for searching a service.
 {{
@@ -36,9 +37,20 @@ The button is disabled unless the input value matches the value supplied to the 
 
 ## Research on this component
 
-{% call  onsPanel() %}
-    <p>If you have conducted any user research using this component, please feed back your findings via the <a href="https://github.com/ONSdigital/design-system/issues/656">Design System Forum</a></p>
+{% call onsPanel() %}
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/656",
+            "linkText": "Design System Forum"
+        })
+    }}
 {% endcall %}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/656" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Search' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/656",
+        "linkText": "Discuss 'Search' on GitHub"
+    })
+}}

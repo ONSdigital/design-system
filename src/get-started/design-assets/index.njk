@@ -4,10 +4,16 @@ sortOrder: 2
 ---
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 ## Sketch
 
-Sketch is an application used to mock up wireframes and click through prototypes. [Download Sketch here](https://www.sketchapp.com/get/).
+Sketch is an application used to mock up wireframes and click through prototypes. {{
+    onsExternalLink({
+        "url": "https://www.sketchapp.com/get/",
+        "linkText": "Download Sketch here"
+    })
+}}
 
 ### Add the ONS Sketch Library to Sketch
 
@@ -16,7 +22,9 @@ Sketch is an application used to mock up wireframes and click through prototypes
         "element": "ol",
         "itemsList": [
             {
-                "text": '<a href="https://github.com/dudelmeister/ONS-Sketch-Library_v1.0">Download the ONS Sketch Library</a> from Github.'
+                "url":'https://github.com/dudelmeister/ONS-Sketch-Library_v1.0', 
+                "external": true,
+                "text": 'Download the ONS Sketch Library'
             },
             {
                 "text": 'Add the library to Sketch via <strong>Sketch > Preferences > Libraries</strong> by using the <strong>Add Library</strong> button.'
@@ -30,10 +38,13 @@ Sketch is an application used to mock up wireframes and click through prototypes
 
 <br>
 
-{{
-    onsPanel({
-        body: '<p>If you require any help, notice any issues or have any recommendations please <a href="https://github.com/dudelmeister/ONS-Sketch-Library_v1.0/issues">raise an issue on Github</a>.</p>'
-    })
-}}
-
+{% call onsPanel() %}
+    If you require any help, notice any issues or have any recommendations please
+    {{
+        onsExternalLink({
+            "url": "https://github.com/dudelmeister/ONS-Sketch-Library_v1.0/issues",
+            "linkText": "raise an issue on Github"
+        })
+    }}
+{% endcall %}
 
