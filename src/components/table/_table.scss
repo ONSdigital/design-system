@@ -34,13 +34,13 @@
   &:not(.table--responsive) .table__body .table__row:last-child {
     .table__cell,
     .table__header--row {
-      border: none;
+      border: 0;
     }
   }
 
   &__foot .table__cell {
     border-top: 1px solid $color-borders;
-    border-bottom: none;
+    border-bottom: 0;
   }
 
   &--dense {
@@ -144,49 +144,73 @@
 }
 
 .table--sortable {
-  .table__sort-button {
-    position: relative;
-    padding: 0 1.1rem 0 0;
-    overflow: visible;
-    border: 0;
-    background-color: transparent;
-    box-shadow: none;
-    color: $color-links;
-    font-family: $font-sans;
-    font-weight: 700;
-    line-height: 1rem;
-    text-decoration: underline;
-
-    &:hover {
-      color: $color-links-hover;
+  [aria-sort='descending'].table__header {
+    .svg-icon {
+      .topTriangle {
+        fill: $color-grey-3;
+      }
+      .bottomTriangle {
+        fill: $color-blue;
+      }
     }
-
-    &:focus {
-      @extend a:focus;
-    }
-
-    & .svg-icon {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
-    &:focus {
-      .svg-icon {
-        fill: $color-black;
+    .table__sort-button:focus {
+      & + .svg-icon {
+        .topTriangle {
+          fill: $color-black;
+        }
       }
     }
   }
 
-  [aria-sort='ascending'] .table__sort-button {
+  [aria-sort='ascending'].table__header {
     .svg-icon {
-      background-position: 0 -43px;
+      .topTriangle {
+        fill: $color-blue;
+      }
+      .bottomTriangle {
+        fill: $color-grey-3;
+      }
+    }
+    .table__sort-button:focus {
+      & + .svg-icon {
+        .bottomTriangle {
+          fill: $color-black;
+        }
+      }
     }
   }
 
-  [aria-sort='descending'] .table__sort-button {
+  .table__header {
+    position: relative;
+
     .svg-icon {
-      background-position: 0 -22px;
+      width: 0.8rem;
+      height: 0.8rem;
+      fill: $color-grey-3;
+    }
+
+    .table__sort-button {
+      padding: 0 1.1rem 0 0;
+      overflow: visible;
+      border: 0;
+      background-color: transparent;
+      box-shadow: none;
+      color: $color-links;
+      font-family: $font-sans;
+      font-weight: 700;
+      line-height: 1rem;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-links-hover;
+      }
+
+      &:focus {
+        @extend a:focus;
+        & + .svg-icon {
+          fill: $color-black;
+        }
+      }
     }
   }
 }
