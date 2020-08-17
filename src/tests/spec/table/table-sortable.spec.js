@@ -121,7 +121,7 @@ describe('Component: Sortable table', function() {
 
     it('should create a button element in each TH', function() {
       this.sortableHeadings.forEach(heading => {
-        let headingChild = heading.childNodes[1];
+        let headingChild = heading.childNodes[0];
         for (let i = 0; i < headingChild.length; i++) {
           expect(headingChild[i].getAttribute('type')).to.equal('button');
         }
@@ -140,7 +140,7 @@ describe('Component: Sortable table', function() {
       it('should contain an aria-label attribute', function() {
         this.sortableHeadings.forEach(heading => {
           let button = heading.childNodes[0];
-          let headingText = heading.textContent;
+          let headingText = heading.textContent.trim();
           expect(button.getAttribute('aria-label')).to.equal('Sort by ' + headingText);
         });
       });

@@ -27,6 +27,7 @@ export default class TableSort {
 
   createHeadingButtons(heading, i) {
     const text = heading.textContent.trim();
+    heading.childNodes[1].remove();
     const button = document.createElement('button');
     button.setAttribute('aria-label', this.table.getAttribute('data-aria-sort') + ' ' + text);
     button.setAttribute('type', 'button');
