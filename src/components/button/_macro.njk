@@ -20,6 +20,9 @@
   {% elif params.buttonStyle == "exit" %}
     {% set iconType = "exit" %}
     {% set iconPosition = "after" %}
+  {% elif params.submitType == "loader" %}
+    {% set iconType = "loader" %}
+    {% set iconPosition = "after" %}
   {% endif %}
 {% endif %}
 

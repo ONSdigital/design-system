@@ -159,14 +159,11 @@ $button-border-height: 3px;
   &--loader &__inner {
     position: relative;
     transition: color 0.3s ease-in-out;
-    svg {
-      @include icon($name: 'loader', $height: 1.5em);
-      content: '';
+    .svg-icon {
       position: absolute;
       top: 24%;
       left: 26%;
-      width: 1.5rem;
-      height: 1.5rem;
+      fill: $color-white;
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
     }
@@ -175,13 +172,13 @@ $button-border-height: 3px;
   &--loader.is-loading &__inner {
     color: transparent;
 
-    svg {
+    .svg-icon {
       opacity: 1;
     }
   }
 
   &--loader.is-loading:focus &__inner {
-    color: transparent !important;
+    fill: $color-black;
   }
 
   // Spooky Buttons
