@@ -71,6 +71,60 @@ describe('Autosuggest.address component', function() {
     });
   });
 
+  // describe('When the API status is checked', function() {
+  //   beforeEach(function() {
+  //     // Mock
+  //     this.originalFetch = window.fetch;
+
+  //     window.fetch = fetchMock(true);
+
+  //     this.fetchSpy = chai.spy(require('../../../components/input/autosuggest/abortable-fetch').default);
+  //     this.rewiremock('./src/components/input/autosuggest/abortable-fetch')
+  //       .es6()
+  //       .withDefault(this.fetchSpy);
+
+  //     this.rewiremock.enable();
+
+  //     const mockedautosuggestAddress = require('components/input/autosuggest/autosuggest.address').default;
+
+  //     // Render
+  //     const component = renderComponent(params);
+
+  //     // Initialise
+  //     Object.keys(component).forEach(key => {
+  //       this[key] = component[key];
+  //     });
+
+  //     const context = this.context;
+  //     this.autosuggestAddress = new mockedautosuggestAddress(context);
+  //   });
+
+  //   afterEach(function() {
+  //     window.fetch = this.originalFetch;
+  //     this.rewiremock.disable();
+
+  //     if (this.wrapper) {
+  //       this.wrapper.remove();
+  //     }
+  //   });
+
+  //   describe('and fetch is not defined', function() {
+  //     beforeEach(function() {
+  //       console.log(this.autosuggestAddress.fetch);
+  //       this.autosuggestAddress.fetch = this.fetchSpy()
+  //         .then(() => {})
+  //         .catch(() => {});
+  //       this.autosuggestAddress.fetch.status = 'undefined';
+  //       this.abortSpy = chai.spy.on(this.autosuggestAddress.fetch, 'abort');
+  //       this.autosuggestAddress.abortFetch();
+  //     });
+
+  //     it('then the function should return immediately', function() {
+  //       expect(this.abortSpy).to.have.been.called();
+  //     });
+  //   });
+  // });
+
   describe('When the component initialises', function() {
     beforeEach(function(done) {
       const component = renderComponent(params);
@@ -90,56 +144,48 @@ describe('Autosuggest.address component', function() {
       }
     });
 
-    describe('When the API status is checked', function() {
-      beforeEach(function(done) {
-        this.autosuggestAddress.checkAPIStatus = chai.spy(this.autosuggestAddress.checkAPIStatus);
-        this.autosuggestAddress.checkAPIStatus();
-        done();
-      });
+    // describe('When the API status is checked', function() {
+    //   beforeEach(function() {
+    //     this.handleAPIErrorSpy = chai.spy.on(this.autosuggestAddress, 'handleAPIError');
+    //   });
+    //   describe('When the API is unavilable', function() {
+    //     beforeEach(function(done) {
+    //       this.autosuggestAddress.checkAPIStatus();
+    //       setTimeout(done);
+    //     });
 
-      it('then checkAPIStatus function should be called', function() {
-        expect(this.autosuggestAddress.checkAPIStatus).to.have.been.called();
-      });
+    //     it('then handleAPIError function should be called', function() {
+    //       expect(this.handleAPIErrorSpy).to.have.been.called();
+    //     });
+    //   });
+    // });
 
-      describe('When the API is unavilable', function() {
+    describe('and the user inputs', function() {
+      beforeEach(function() {
+        this.findAddressSpy = chai.spy.on(this.autosuggestAddress, 'findAddress');
+        this.testPostcodeSpy = chai.spy.on(this.autosuggestAddress, 'testFullPostcodeQuery');
+      });
+      describe('and the value does not match an existing query', function() {
         beforeEach(function(done) {
-          this.autosuggestAddress.handleAPIError = chai.spy(this.autosuggestAddress.handleAPIError);
-          this.autosuggestAddress.handleAPIError();
-          done();
+          this.autosuggestAddress.suggestAddresses('195 colle', [], false);
+          setTimeout(done);
         });
-
-        it('then handleAPIError function should be called', function() {
-          expect(this.autosuggestAddress.handleAPIError).to.have.been.called();
+        it('then the findAddress function should be called', function() {
+          expect(this.findAddressSpy).to.have.been.called();
+        });
+      });
+      describe('and the value is a full postcode', function() {
+        const postcode = 'CF14 2NT';
+        beforeEach(function(done) {
+          this.autosuggestAddress.findAddress(postcode);
+          setTimeout(done);
+        });
+        it('then the testFullPostcodeQuery function should return true', function() {
+          expect(this.testPostcodeSpy).to.have.been.called();
+          expect(this.autosuggestAddress.testFullPostcodeQuery(postcode)).to.equal(true);
         });
       });
     });
-
-    // describe('and the api status is checked', function() {
-    //   beforeEach(function() {
-    //     this.checkAPIStatusSpy = chai.spy.on(this.autosuggestAddress, 'checkAPIStatus');
-    //   });
-
-    //   it('then the api should return a 200', function() {
-    //     console.log(this.autosuggestAddress);
-    //     expect(this.checkAPIStatusSpy).to.have.been.called();
-    //   });
-    // });
-
-    // describe('and the user inputs', function() {
-    //   beforeEach(function() {
-    //     this.suggestAddressesSpy = chai.spy.on(this.autosuggestAddress, 'suggestAddresses');
-    //   });
-
-    //   describe('then addresses should be fetched', function() {
-    //     beforeEach(function() {
-    //       this.autosuggestAddress.input.value = '195 colle';
-    //     });
-
-    //     it('then suggestAddresses should be called', function() {
-    //       // expect(this.suggestAddressesSpy).to.have.been.called();
-    //     });
-    //   });
-    // });
   });
 });
 
