@@ -36,6 +36,23 @@
                 }}
             {% endif %}
 
+            {% if params.collapsible is defined %}
+                {% from "components/collapsible/_macro.njk" import onsCollapsible %}
+                {{
+                    onsCollapsible({
+                        "classes": params.collapsible.classes,
+                        "id": params.collapsible.id,
+                        "title": params.collapsible.title,
+                        "titleTag": params.collapsible.titleTag,
+                        "content": params.collapsible.content,
+                        "button": {
+                            "close": "Hide this",
+                            "contextSuffix": "content"
+                        }
+                    })
+                }}
+            {% endif %}
+
         </div>
 
         {% if params.censusTheme is defined %}
@@ -46,7 +63,7 @@
             </div>
             {% endif %}
 
-            <div class="hero__circle-lined"><img src="/img/hero/circle-lines.svg" role="presentation" alt="" aria-hidden="true"></div>
+            <div class="hero__circle-lined"><img src="/img/circle-lines.svg" role="presentation" alt="" aria-hidden="true"></div>
             <div class="hero__circle-gradient"></div>
         {% endif %}
 
