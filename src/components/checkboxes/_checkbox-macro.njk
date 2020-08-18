@@ -1,5 +1,6 @@
 {% macro onsCheckbox(params) %}
     {% from "components/label/_macro.njk" import onsLabel %}
+    {% from "components/icons/_macro.njk" import onsIcon %}
     
     <span class="checkbox {{ params.classes }}">
         <input
@@ -13,14 +14,20 @@
             {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
 
-        {{ onsLabel({
+        {% call onsLabel({
             "id": params.id + "-label",
             "for": params.id,
             "inputType": "checkbox",
             "text": params.label.text,
             "classes": "checkbox__label " + params.label.classes | default(''),
             "description": params.label.description
-        }) }}
+        }) %}
+            {{
+                onsIcon({
+                    "icon": "check"
+                })
+            }}
+        {% endcall %}
 
         {% if params.other is defined %}
             <span class="checkbox__other {{ 'checkbox__other--open' if params.other.open }}" id="{{ params.id }}-other-wrap">

@@ -23,9 +23,10 @@ $checkbox-label-vertical-padding: 0.75rem;
     border: 2px solid $color-input;
     border-radius: 0.2rem;
 
-    background: url(#{$static}/img/icons/icons--check.svg) no-repeat center center;
     background-color: $color-white;
-    background-size: 0px;
+    .svg-icon {
+      opacity: 0;
+    }
 
     &:focus,
     &:checked {
@@ -33,7 +34,9 @@ $checkbox-label-vertical-padding: 0.75rem;
     }
 
     &:checked {
-      background-size: 14px;
+      .svg-icon {
+        opacity: 1;
+      }
     }
   }
 
