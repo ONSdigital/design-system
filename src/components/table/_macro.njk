@@ -1,5 +1,6 @@
 {% macro onsTable(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
+    {% from "components/icons/_macro.njk" import onsIcon %}
     {% if params.scrollable is defined %}
     <div class="table-scrollable table-scrollable--on">
         <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.aria_label }} ">
@@ -11,7 +12,17 @@
                 <thead class="table__head">
                     <tr class="table__row">
                         {% for th in params.ths %}
-                        <th scope="col" class="table__header {{ th.class }}"{% if th.aria_sort is defined %} aria-sort="{{ th.aria_sort }}"{% endif %}>{{ th.value }}</th>
+                        <th scope="col" class="table__header {{ th.class }}"{% if th.aria_sort is defined %} aria-sort="{{- th.aria_sort -}}"{% endif %}>
+                            <span {% if params.sortable is defined %}class="u-vh"{% endif %}>{{- th.value -}}</span>
+                            {% if params.sortable is defined %}
+                                {{
+                                    onsIcon({
+                                        "icon": "sort-sprite",
+                                        "id": th.value
+                                    })
+                                }}
+                            {% endif %}
+                        </th>
                         {% endfor %}
                     </tr>
                 </thead>
