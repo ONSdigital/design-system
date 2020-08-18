@@ -26,7 +26,8 @@ export default class TableSort {
   }
 
   createHeadingButtons(heading, i) {
-    const text = heading.textContent;
+    const text = heading.textContent.trim();
+    heading.childNodes[1].remove();
     const button = document.createElement('button');
     button.setAttribute('aria-label', this.table.getAttribute('data-aria-sort') + ' ' + text);
     button.setAttribute('type', 'button');
@@ -34,8 +35,10 @@ export default class TableSort {
     button.setAttribute('class', 'table__sort-button');
     button.textContent = text;
     button.addEventListener('click', this.sortButtonClicked.bind(this));
-    heading.textContent = '';
-    heading.appendChild(button);
+    let sortSprite = document.getElementById('sort-sprite-' + text.toLowerCase());
+    const sortSpriteParent = sortSprite.parentNode;
+    sortSpriteParent.replaceChild(button, sortSprite);
+    button.appendChild(sortSprite);
   }
 
   sortButtonClicked(event) {
@@ -128,7 +131,7 @@ export default class TableSort {
   updateButtonState(button, direction) {
     button.parentElement.setAttribute('aria-sort', direction);
     let message = this.options.statusMessage;
-    message = message + ' ' + button.textContent;
+    message = message + ' ' + button.textContent.replace(/^\s+|\s+$/g, '');
     message = message + ' (' + direction + ')';
     status.textContent = message;
   }
