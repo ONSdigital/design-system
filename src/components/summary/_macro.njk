@@ -36,14 +36,21 @@
                                 {% for rowItem in row.rowItems %}
                                     <tr class="summary__row{{ " summary__row--has-values" if rowItem.valueList else "" }}">
                                         <td
-                                            class="summary__item-title{{ " summary__item-title--has-icon" if rowItem.icon else "" }}"
+                                            class="summary__item-title"
                                             {% if rowItem.rowTitleAttributes is defined %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                         >
                                             {% if rowItem.icon is defined %}
-                                                <span class="summary__icon icon--{{ rowItem.icon }}"></span>
+                                                {% from "components/icons/_macro.njk" import onsIcon %}
+                                                <span class= "summary__item-title-icon {% if rowItem.icon == 'check' %} summary__item-title-icon--check{% endif %}">
+                                                    {{
+                                                        onsIcon({
+                                                            "icon": rowItem.icon
+                                                        })
+                                                    }}
+                                                </span>
                                             {% endif %}
 
-                                            {{ rowItem.rowTitle | default(row.rowTitle) | safe }} {{ hasIcons }}
+                                            <div class="summary__item--text{{ ' summary__item-title--text' if rowItem.icon else "" }}">{{ rowItem.rowTitle | default(row.rowTitle) | safe }} {{ hasIcons }}</div>
 
                                             {# Render section status for mobile if is hub #}
                                             {% if params.hub is defined and rowItem.valueList is defined %}
