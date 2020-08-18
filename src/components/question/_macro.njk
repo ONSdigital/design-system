@@ -4,7 +4,7 @@
         class="question{% if params.classes is defined %} {{ params.classes }}{% endif %}"
         {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
-        <h1 class="question__title">{{ params.title | safe }}</h1>
+        <h1 class="question__title" {% if params.ariaLiveQuestion is defined %} aria-live="polite"{% endif %} {% if params.ariaLabelQuestion is defined %} aria-label="{{- params.ariaLabelQuestion -}}"{% endif %}>{{ params.title | safe }}</h1>
         {% if params.description is defined %}
             <div class="question__description">{{ params.description | safe }}</div>
         {% endif %}
