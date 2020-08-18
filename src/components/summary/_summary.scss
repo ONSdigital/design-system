@@ -51,17 +51,21 @@ $hub-row-spacing: 1.3rem;
   }
 
   &__item-title {
+    position: relative;
     padding-top: $summary-row-spacing;
-
-    &--has-icon {
-      position: relative;
+    &--text {
+      display: block;
       padding-left: 2rem;
+      overflow: hidden;
     }
-  }
-
-  &__icon {
-    position: absolute;
-    left: 0;
+    &-icon {
+      position: absolute;
+      left: 0;
+      text-align: center;
+      &--check {
+        fill: $color-green;
+      }
+    }
   }
 
   &__actions {
