@@ -11,6 +11,6 @@
             "name": params.name,
             "radios": params.radios
         }) }}
-        <p class="relationships__playback js-relationships-playback u-d-no">{{ params.playback | safe }}</p>
+        <p class="relationships__playback js-relationships-playback u-d-no" aria-live="polite">{{ params.playback | safe }}</p>
     </div>
 {% endmacro %}
