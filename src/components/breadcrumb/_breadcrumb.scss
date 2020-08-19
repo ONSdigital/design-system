@@ -16,39 +16,52 @@ $breadcrumb-chevron-height: 0.65rem;
     white-space: nowrap; // Stop items from wrapping, break on chevron only
 
     &:not(:nth-last-child(1)) {
+      //small screen not last child
       display: none;
     }
 
-    &:before {
-      @include icon('chevron-left', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
-      content: '';
-      margin: 0 0.2rem 0 -0.14rem;
+    .svg-icon {
+      margin: 0 0.2rem 0;
+      width: $breadcrumb-chevron-height;
+      height: $breadcrumb-chevron-height;
       vertical-align: middle;
     }
 
-    @include mq(s) {
-      &:before {
-        content: none;
+    &:nth-last-child(1) {
+      // small screen last child
+      direction: rtl;
+      .svg-icon {
+        transform: rotate(180deg);
       }
+    }
 
+    @include mq(s) {
+      //big screen
       &:not(:nth-last-child(1)) {
+        //not last child
         display: inline-block;
       }
 
+      &:nth-last-child(1) {
+        // last child
+        direction: ltr;
+        .svg-icon {
+          display: none;
+        }
+      }
+
       &:first-child:nth-last-child(1) {
-        &:before {
-          @include icon('chevron-left', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
-          content: '';
-          margin: 0 0.2rem 0 -0.14rem;
+        //first and last child
+        direction: rtl;
+        .svg-icon {
+          display: inline-block;
           vertical-align: middle;
         }
       }
 
-      &:not(:last-child):after {
-        @include icon('chevron-right', $breadcrumb-chevron-height, $breadcrumb-chevron-height);
-        content: '';
+      &:not(:last-child).svg-icon {
+        //not last child
         margin: 0;
-        width: 1.25rem;
 
         // We have to override the icon settings so it renders correctly in ie11
         background-position: center center;
