@@ -1,13 +1,20 @@
+{% from "components/icons/_macro.njk" import onsIcon %}
+
 {% macro onsBreadcrumb(params) %}
-  <nav class="breadcrumb" aria-label="{{ params.ariaLabel }}" {% if params.id is defined %} id="{{ params.id }}"{% endif %}>
-    <ol class="breadcrumb__items u-fs-s">
-        {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
-            {% if item.current is not defined %}
-                <li id="breadcrumb-{{ loop.index }}" class="breadcrumb__item">
-                  <a href="{{ item.url }}" class="breadcrumb__link">{{ item.text }}</a>
-                </li>
-            {% endif %}
-        {% endfor %}
-    </ol>
-  </nav>
+    <nav class="breadcrumb" aria-label="{{ params.ariaLabel }}" {% if params.id is defined %} id="{{ params.id }}"{% endif %}>
+        <ol class="breadcrumb__items u-fs-s">
+            {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
+                {% if item.current is not defined %}
+                    <li id="breadcrumb-{{ loop.index }}" class="breadcrumb__item">
+                        <a href="{{ item.url }}" class="breadcrumb__link">{{ item.text }}</a>
+                        {{
+                            onsIcon({
+                                "icon": "chevron"
+                            })
+                        }}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </nav>
 {% endmacro %}
