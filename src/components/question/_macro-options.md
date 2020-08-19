@@ -6,4 +6,3 @@
 | id          | string | false    | ID for the wrapping element                                                  |
 | classes     | string | false    | Classes to add the wrapping element                                          |
 | attributes  | object | false    | HTML attributes (for example data attributes) to add to the wrapping element |
-| attributes  | object | false    | HTML attributes (for example data attributes) to add to the wrapping element |
