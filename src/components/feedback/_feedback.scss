@@ -1,5 +1,5 @@
-$feedback-caret-width: 1rem;
-$feedback-caret-right-spacing: 0.4rem;
+$feedback-caret-width: 1.1rem;
+$feedback-caret-right-spacing: 0.2rem;
 
 .feedback {
   &.collapsible--initialised {
@@ -48,16 +48,11 @@ $feedback-caret-right-spacing: 0.4rem;
   &__icon {
     display: inline-block;
     position: absolute;
-    top: 0.5rem;
-    left: 1.1rem;
-    width: $collapsible-caret-width;
-    height: $collapsible-caret-width;
+    top: 0.45rem;
+    left: 1.2rem;
+    width: $feedback-caret-width;
+    height: $feedback-caret-width;
     fill: $color-text-inverse-link;
-  }
-
-  &__hr {
-    margin: 0;
-    border-top: 5px solid $color-header;
   }
 
   &__link {
@@ -82,32 +77,6 @@ $feedback-caret-right-spacing: 0.4rem;
       &:hover,
       &:focus {
         color: $color-text-inverse-link-hover;
-
-        &:before {
-          opacity: 0;
-        }
-
-        &:after {
-          opacity: 1;
-        }
-      }
-
-      &:before,
-      &:after {
-        content: '';
-        display: inline-block;
-        position: absolute;
-        top: 0.6rem;
-        left: 1rem;
-        width: $feedback-caret-width;
-        height: $feedback-caret-width;
-        background-repeat: no-repeat;
-        background-position: 0 0;
-        background-size: $feedback-caret-width $feedback-caret-width;
-      }
-
-      &:after {
-        opacity: 0;
       }
     }
 
@@ -123,6 +92,7 @@ $feedback-caret-right-spacing: 0.4rem;
   .collapsible--open & {
     &__icon {
       top: 0.6em;
+      left: 1.3rem;
       transform: rotate(90deg);
     }
 
