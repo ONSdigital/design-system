@@ -6,27 +6,37 @@ $feedback-caret-right-spacing: 0.4rem;
     border-bottom: 5px solid $color-header;
   }
   &.collapsible--open {
-    border: none;
+    border: 0;
   }
 
   &__heading {
-    background: $color-header;
     @extend .container;
-    outline: none;
     list-style: none;
+    outline: none;
+    background: $color-header;
 
     &:focus {
       & .feedback__title {
         @extend a:focus;
         // extend collapsibleHeader focus background behind caret
-        padding-left: $feedback-caret-right-spacing + $feedback-caret-width;
         margin-left: -($feedback-caret-right-spacing + $feedback-caret-width);
+        padding-left: $feedback-caret-right-spacing + $feedback-caret-width;
       }
-      & .feedback__link {
-        &:before,
-        &:after {
-          background-image: url(#{$static}/img/icons/icons--chevron-right-black.svg);
-        }
+    }
+
+    &:hover {
+      color: $color-text-inverse-link-hover;
+      .feedback__icon {
+        fill: $color-text-inverse-link-hover;
+      }
+      & .feedback__title {
+        text-decoration: none;
+      }
+    }
+
+    &:focus {
+      .feedback__icon {
+        fill: $color-black;
       }
     }
 
@@ -35,14 +45,24 @@ $feedback-caret-right-spacing: 0.4rem;
     }
   }
 
+  &__icon {
+    display: inline-block;
+    position: absolute;
+    top: 0.5rem;
+    left: 1.1rem;
+    width: $collapsible-caret-width;
+    height: $collapsible-caret-width;
+    fill: $color-text-inverse-link;
+  }
+
   &__hr {
-    border-top: 5px solid $color-header;
     margin: 0;
+    border-top: 5px solid $color-header;
   }
 
   &__link {
-    position: relative;
     display: inline-block;
+    position: relative;
     padding: 0.4rem 0.2rem 0.2rem ($feedback-caret-width + $feedback-caret-right-spacing);
     color: $color-text-inverse-link;
     line-height: 1rem;
@@ -55,9 +75,9 @@ $feedback-caret-right-spacing: 0.4rem;
 
   .collapsible--initialised & {
     &__link {
+      padding: 0.4rem 0.2rem 0.2rem ($feedback-caret-width + 1.4rem);
       cursor: pointer;
       pointer-events: initial;
-      padding: 0.4rem 0.2rem 0.2rem ($feedback-caret-width + 1.4rem);
 
       &:hover,
       &:focus {
@@ -89,14 +109,6 @@ $feedback-caret-right-spacing: 0.4rem;
       &:after {
         opacity: 0;
       }
-
-      &:before {
-        background-image: url(#{$static}/img/icons/icons--chevron-right-white.svg);
-      }
-
-      &:after {
-        background-image: url(#{$static}/img/icons/icons--chevron-right-white-hover.svg);
-      }
     }
 
     &__title {
@@ -109,11 +121,9 @@ $feedback-caret-right-spacing: 0.4rem;
   }
 
   .collapsible--open & {
-    &__link {
-      &:before,
-      &:after {
-        transform: rotate(90deg);
-      }
+    &__icon {
+      top: 0.6em;
+      transform: rotate(90deg);
     }
 
     &__content {
