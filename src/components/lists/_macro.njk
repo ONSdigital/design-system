@@ -9,7 +9,7 @@
         {%- for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
             <li class="list__item {{ item.listclass }}" {% if item.current is defined %}aria-current="true"{% endif %}>
                 {%- if item.index is defined or item.prefix is defined or item.prefixIcon is defined -%}
-                    <span class="list__prefix" aria-hidden="true">
+                    <span class="list__prefix"{% if params.ariaHideIndex is not defined %} aria-hidden="true"{% endif %}>
                     {%- if item.prefixText is defined -%}
                         {{- item.prefixText -}}.
                     {%- elif item.index is defined -%}
