@@ -4,6 +4,8 @@ group: Help users to...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 ## When to use this pattern
 
@@ -68,13 +70,20 @@ The prototype provides an example of form validation for missing and invalid inp
 <a class="u-mb-m" href="/patterns/error-validation/examples/errors-proto/">Launch prototype</a>
 
 ## Research on this component
-
-{% from "components/panel/_macro.njk" import onsPanel %}
-{{
-    onsPanel({
-        "body": "If you have conducted any user research using this pattern, please feed back your findings via the <a href='https://github.com/ONSdigital/design-system/issues/30'>Design System Forum.</a>"
-    })
-}}
+{% call onsPanel() %}
+        If you have conducted any user research using this pattern, please feed back your findings via the
+        {{
+            onsExternalLink({
+                "url": "https://github.com/ONSdigital/design-system/issues/30",
+                "linkText": "Design System Forum"
+            })
+        }}
+{% endcall %}
 
 ## Design System forum
-<a href="https://github.com/ONSdigital/design-system/issues/30" target="_blank" rel="noopener" class="icon--external-link">Discuss 'Correct errors' on GitHub</a>
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/30",
+        "linkText": "Discuss 'Correct errors' on GitHub"
+    })
+}}

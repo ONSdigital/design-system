@@ -15,12 +15,8 @@ $collapsible-caret-right-spacing: 0.4rem;
       display: none;
     }
 
-    &__title {
-      transform: translateY(-1px);
-    }
-
     &:focus {
-      & .collapsible__heading__title {
+      & .collapsible__title {
         @extend a:focus;
         // extend collapsible focus background behind caret
         margin-left: -($collapsible-caret-right-spacing + $collapsible-caret-width);
@@ -28,32 +24,36 @@ $collapsible-caret-right-spacing: 0.4rem;
       }
     }
 
-    &__icon {
-      display: inline-block;
-      position: absolute;
-      top: -0.3rem;
-      left: 0.2rem;
-      width: $collapsible-caret-width;
-      height: $collapsible-caret-width;
-      fill: $color-links;
-    }
-
-    &__title {
-      margin-bottom: 0;
-      text-decoration: underline;
-    }
-
     &:hover {
       color: $color-links-hover;
-      .collapsible__heading__icon {
+      .collapsible__icon {
         fill: $color-links-hover;
+      }
+      & .collapsible__title {
+        text-decoration: none;
       }
     }
     &:focus {
-      .collapsible__heading__icon {
+      .collapsible__icon {
         fill: $color-black;
       }
     }
+  }
+
+  &__icon {
+    display: inline-block;
+    position: absolute;
+    top: -0.3rem;
+    left: 0.2rem;
+    width: $collapsible-caret-width;
+    height: $collapsible-caret-width;
+    fill: $color-links;
+  }
+
+  &__title {
+    transform: translateY(-1px);
+    margin-bottom: 0;
+    text-decoration: underline;
   }
 
   &__content {
@@ -61,12 +61,10 @@ $collapsible-caret-right-spacing: 0.4rem;
   }
 
   &--open & {
-    &__heading {
-      &__icon {
-        top: 0.1em;
-        left: 0.4em;
-        transform: rotate(90deg);
-      }
+    &__icon {
+      top: 0.1em;
+      left: 0.4em;
+      transform: rotate(90deg);
     }
 
     &__content {
@@ -99,17 +97,17 @@ $collapsible-caret-right-spacing: 0.4rem;
       &:focus {
         outline: none;
       }
+    }
 
-      &__title {
-        margin: 0 1rem 0 0;
-      }
+    &__title {
+      margin: 0 1rem 0 0;
+    }
 
-      &__icon {
-        @include mq(s) {
-          top: 1.1rem;
-        }
-        top: 0.8rem;
+    &__icon {
+      @include mq(s) {
+        top: 1.1rem;
       }
+      top: 0.8rem;
     }
 
     &__controls {

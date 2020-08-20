@@ -1,4 +1,5 @@
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 {%
     call onsCollapsible({
@@ -7,19 +8,20 @@
         "titleTag": "h2",
         "button": {
             "close": "Hide this",
-            "contextSuffix": "content"
+            "contextSuffix": "content",
+            "attributes": {
+                "aria-hidden": "true"
+            }
         }
     })
 %}
 
-
-{% from "components/panel/_macro.njk" import onsPanel %}
     <p>Need to answer separately from your household?</p>
     {% call onsPanel({
             type: "warn"
         })
     %}
-        <p>Someone in your household must still complete a census using a household access code</p>
+        Someone in your household must still complete a census using a household access code
     {% endcall %}
 
     

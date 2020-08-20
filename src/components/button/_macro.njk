@@ -20,6 +20,9 @@
   {% elif params.buttonStyle == "exit" %}
     {% set iconType = "exit" %}
     {% set iconPosition = "after" %}
+  {% elif params.submitType == "loader" %}
+    {% set iconType = "loader" %}
+    {% set iconPosition = "after" %}
   {% endif %}
 {% endif %}
 
@@ -61,5 +64,12 @@
       {% if params.buttonContext is defined %}
         <span class="btn__context u-vh">{{ params.buttonContext }}</span>
       {% endif %}
+      {% if params.listeners %}
+        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
+        {% for listener, value in (params.listeners.items() if params.listeners is mapping and params.listeners.items else params.listeners) %}
+          document.getElementById("{{ params.id }}").addEventListener('{{ listener }}', function(){ {{ value }} });
+        {% endfor %}
+        </script>
+      {% endif %}  
   </{{ tag }}>
 {% endmacro %}
