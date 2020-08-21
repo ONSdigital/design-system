@@ -67,7 +67,7 @@ describe('Autosuggest.address component', function() {
     });
   });
 
-  // describe('When the API status is checked', function() {
+  // describe('When a fetch is made', function() {
   //   beforeEach(function() {
   //     // Mock
   //     this.originalFetch = window.fetch;
@@ -104,19 +104,24 @@ describe('Autosuggest.address component', function() {
   //     }
   //   });
 
-  //   describe('and fetch is not defined', function() {
+  //   describe('and the fetch is successful', function() {
   //     beforeEach(function() {
-  //       console.log(this.autosuggestAddress.fetch);
-  //       this.autosuggestAddress.fetch = this.fetchSpy()
-  //         .then(() => {})
-  //         .catch(() => {});
-  //       this.autosuggestAddress.fetch.status = 'undefined';
-  //       this.abortSpy = chai.spy.on(this.autosuggestAddress.fetch, 'abort');
-  //       this.autosuggestAddress.abortFetch();
+  //       setTimeout(() => {
+  //         this.autosuggestAddress.fetch.send = this.fetchSpy()
+  //           .send()
+  //           .then(resolve => {
+  //             resolve();
+  //           })
+  //           .catch(() => {});
+  //         // this.autosuggestAddress.fetch.response.json().status.code = 200;
+  //         // this.abortSpy = chai.spy.on(this.autosuggestAddress.fetch, 'abort');
+  //         // this.autosuggestAddress.abortFetch();
+  //       });
   //     });
 
   //     it('then the function should return immediately', function() {
-  //       expect(this.abortSpy).to.have.been.called();
+  //       console.log('response', this.autosuggestAddress.fetch);
+  //       // expect(this.abortSpy).to.have.been.called();
   //     });
   //   });
   // });
@@ -138,6 +143,21 @@ describe('Autosuggest.address component', function() {
       if (this.wrapper) {
         this.wrapper.remove();
       }
+    });
+
+    describe('When a fetch is made', function() {
+      beforeEach(function() {
+        this.result = {
+          results: [{ 'en-gb': 'yes', alternatives: [], sanitisedAlternatives: [] }],
+          totalResults: 1,
+        };
+
+        window.fetch = fetchMock(true, null, this.result);
+      });
+
+      it('and the fetch successfully returns', function() {
+        this.autosuggestAddress.suggestAddresses('yes', [], false).should.eventually.eql(this.result);
+      });
     });
 
     describe('When the API status is checked', function() {
