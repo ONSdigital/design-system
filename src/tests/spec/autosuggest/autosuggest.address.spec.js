@@ -3,6 +3,7 @@ import template from 'components/address/_test-template.njk';
 import '../../../scss/main.scss';
 import AutosuggestAddress from '../../../components/input/autosuggest/autosuggest.address';
 import AddressError from '../../../components/input/autosuggest/autosuggest.address.error';
+import AddressSetter from '../../../components/input/autosuggest/autosuggest.address.setter';
 import eventMock from 'stubs/event.stub.spec';
 import fetchMock from 'stubs/window.fetch.stub.spec';
 
@@ -142,6 +143,7 @@ describe('Autosuggest.address component', function() {
     describe('When the API status is checked', function() {
       beforeEach(function(done) {
         setTimeout(() => {
+          this.checkAPIStatusSpy = chai.spy.on(this.autosuggestAddress, 'checkAPIStatus');
           this.autosuggestAddress.checkAPIStatus();
           done();
         });
@@ -266,6 +268,13 @@ describe('Autosuggest.address component', function() {
               uprn: '100100119968',
               displayText: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
             };
+            this.formattedAddress = {
+              addressLine1: '195 College Road',
+              addressLine2: 'Whitchurch',
+              addressLine3: '',
+              townName: 'Cardiff',
+              postcode: 'CF14 2NT',
+            };
             this.retrieveAddressSpy = chai.spy.on(this.autosuggestAddress, 'retrieveAddress');
             this.autosuggestAddress.onAddressSelect(this.selectedResult);
             setTimeout(done);
@@ -294,18 +303,67 @@ describe('Autosuggest.address component', function() {
             });
 
             it('then the address should be formatted correctly', function(done) {
-              const formattedAddress = {
-                addressLine1: '195 College Road',
-                addressLine2: 'Whitchurch',
-                addressLine3: '',
-                townName: 'Cardiff',
-                postcode: 'CF14 2NT',
+              expect(this.autosuggestAddress.createAddressLines(this.address, done)).to.equal(this.formattedAddress);
+            });
+          });
+
+          describe('when the address is set', function() {
+            beforeEach(function(done) {
+              this.addressSetter = new AddressSetter(this.context);
+              this.manualModeSpy = chai.spy.on(this.addressSetter, 'setManualMode');
+              this.triggerManualInputsChangesSpy = chai.spy.on(this.addressSetter, 'triggerManualInputsChanges');
+              this.addressSetter.setAddress(this.formattedAddress);
+              setTimeout(done);
+            });
+
+            it('then manual mode should be set', function() {
+              expect(this.manualModeSpy).to.have.been.called();
+            });
+
+            it('then triggerManualInputsChanges should be called', function() {
+              expect(this.triggerManualInputsChangesSpy).to.have.been.called();
+            });
+
+            it('then the manual inputs should match the formatted address lines', function() {
+              const addressline1 = this.wrapper.querySelector('#address-line1');
+              const addressline2 = this.wrapper.querySelector('#address-line2');
+              const addressTown = this.wrapper.querySelector('#address-town');
+              const addressPostcode = this.wrapper.querySelector('#address-postcode');
+
+              expect(addressline1.value).to.equal(this.formattedAddress.addressLine1);
+              expect(addressline2.value).to.equal(this.formattedAddress.addressLine2);
+              expect(addressTown.value).to.equal(this.formattedAddress.townName);
+              expect(addressPostcode.value).to.equal(this.formattedAddress.postcode);
+            });
+          });
+
+          describe('when a grouped address is selected', function() {
+            beforeEach(function(done) {
+              this.selectedResult = {
+                lang: 'Penlline Road, Whitchurch, Cardiff, CF14 2AA',
+                postcode: 'CF14 2AA',
+                streetName: 'Penlline Road',
+                townName: 'Whitchurch',
+                postTown: 'Cardiff',
               };
-              expect(this.autosuggestAddress.createAddressLines(this.address, done)).to.equal(formattedAddress);
+
+              this.handleChangeSpy = chai.spy.on(this.autosuggestAddress.autosuggest, 'handleChange');
+
+              setTimeout(() => {
+                this.autosuggestAddress.onAddressSelect(this.selectedResult);
+                done();
+              });
+            });
+
+            it('then the handleChange function will be called', function() {
+              expect(this.handleChangeSpy).to.have.been.called();
+            });
+
+            it('then input value should be the same as the selected results', function() {
+              expect(this.autosuggestAddress.input.value).to.equal(this.selectedResult.lang);
             });
           });
         });
-
         describe('when a grouped address is selected', function() {
           beforeEach(function(done) {
             this.selectedResult = {
