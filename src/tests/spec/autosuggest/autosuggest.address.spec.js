@@ -139,21 +139,20 @@ describe('Autosuggest.address component', function() {
       }
     });
 
-    // describe('When the API status is checked', function() {
-    //   beforeEach(function() {
-    //     this.handleAPIErrorSpy = chai.spy.on(this.autosuggestAddress, 'handleAPIError');
-    //   });
-    //   describe('When the API is unavilable', function() {
-    //     beforeEach(function(done) {
-    //       this.autosuggestAddress.checkAPIStatus();
-    //       setTimeout(done);
-    //     });
+    describe('When the API status is checked', function() {
+      beforeEach(function(done) {
+        setTimeout(() => {
+          this.autosuggestAddress.checkAPIStatus();
+          done();
+        });
+      });
 
-    //     it('then handleAPIError function should be called', function() {
-    //       expect(this.handleAPIErrorSpy).to.have.been.called();
-    //     });
-    //   });
-    // });
+      it('then checkAPIStatus function should be called', function() {
+        expect(this.checkAPIStatusSpy).to.have.been.called();
+      });
+      // describe('When the API is unavilable', function() {
+      // });
+    });
 
     describe('and the user inputs', function() {
       beforeEach(function() {
