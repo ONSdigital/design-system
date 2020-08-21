@@ -21,7 +21,7 @@
 
   &--dashed {
     @extend .list--bare;
-    &__item {
+    .list__item {
       position: relative;
       margin-left: 25px;
       &::before {
@@ -32,22 +32,6 @@
         margin-left: -25px;
         width: 15px;
         border-top: 1px solid $color-black;
-      }
-    }
-  }
-  $list-inline-spacing: 2rem;
-
-  @include bp-suffix('list--inline') {
-    margin: 0 $list-inline-spacing / -2;
-
-    &__item {
-      display: inline-block;
-      margin: 0 $list-inline-spacing / 2;
-      vertical-align: top;
-      .svg-icon {
-        margin-top: 0.2rem;
-        width: 0.8rem;
-        height: 0.8rem;
       }
     }
   }
@@ -63,7 +47,24 @@
     display: inline-block;
     overflow: hidden;
     vertical-align: top;
-    svg {
+    .svg-icon {
+      margin-top: 0.2rem;
+      width: 0.8rem;
+      height: 0.8rem;
+    }
+  }
+}
+
+$list-inline-spacing: 2rem;
+
+@include bp-suffix('list--inline') {
+  margin: 0 $list-inline-spacing / -2;
+
+  .list__item {
+    display: inline-block;
+    margin: 0 $list-inline-spacing / 2;
+    vertical-align: top;
+    .svg-icon {
       margin-top: 0.2rem;
       width: 0.8rem;
       height: 0.8rem;
