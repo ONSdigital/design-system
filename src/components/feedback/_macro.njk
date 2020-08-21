@@ -21,6 +21,13 @@
                 <div class="feedback_controls">
                     <div class="feedback__link">
                         <span class="feedback__title u-fs-r--b">{{ params.title }}</span>
+                        <span class="feedback__icon">
+                            {% from "components/icons/_macro.njk" import onsIcon %}
+                            {{
+                                onsIcon({
+                                    "icon": "chevron"
+                                })
+                            }}</span>
                     </div>
                 </div>
             </div>

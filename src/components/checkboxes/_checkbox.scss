@@ -44,7 +44,11 @@ $checkbox-label-vertical-padding: 0.75rem;
     cursor: pointer;
 
     &--with-description {
-      padding: 0 1rem 0.5rem 0.6rem;
+      padding: 0 1rem $checkbox-padding 0;
+    }
+
+    .label__description {
+      margin-left: -1.75rem;
     }
 
     &:before {
@@ -70,7 +74,6 @@ $checkbox-label-vertical-padding: 0.75rem;
   &__description {
     display: block;
     margin-top: 0.25rem;
-    margin-left: -($checkbox-input-width + $checkbox-padding);
   }
 
   &__other {
@@ -121,7 +124,7 @@ $checkbox-label-vertical-padding: 0.75rem;
     }
 
     &__input:focus + .checkbox__label:before {
-      border: none;
+      border: 0;
       outline: none;
     }
   }
