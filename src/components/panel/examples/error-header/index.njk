@@ -7,24 +7,24 @@
         "type": "error"
 }) %}
 
-{{
-    onsList({
-        "element": "ol",
-        "classes": "list--bare",
-        "itemsList": [
-            {
-                "text": "Enter a number to continue",
-                "index": true,
-                "url": "#container-test-number",
-                "classes": "js-inpagelink"
-            },
-            {
-                "text": "Enter a number less than or equal to 100 to continue",
-                "index": true,
-                "url": "#container-test-percent",
-                "classes": "js-inpagelink"
-            }
-        ]
-    })
-}}
+    {{
+        onsList({
+            "element": "ol",
+            "classes": "list--bare",
+            "itemsList": [
+                {
+                    "text": "Enter a number to continue",
+                    "index": true,
+                    "url": "#container-test-number",
+                    "classes": "js-inpagelink"
+                },
+                {
+                    "text": "Enter a number less than or equal to 100 to continue",
+                    "index": true,
+                    "url": "#container-test-percent",
+                    "classes": "js-inpagelink"
+                }
+            ]
+        })
+    }}
 {% endcall %}
