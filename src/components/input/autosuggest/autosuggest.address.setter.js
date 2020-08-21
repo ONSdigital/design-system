@@ -64,6 +64,7 @@ export default class AddressSetter {
       this.input.value = '';
 
       this.JsErrorPanel = document.querySelector(`.${classJsErrorPanel}`);
+      console.log(this.JsErrorPanel);
       if (this.JsErrorPanel) {
         const removeError = new AddressError(this.context);
         removeError.removeErrorPanel();

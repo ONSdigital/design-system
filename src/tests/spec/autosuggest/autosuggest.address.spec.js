@@ -145,6 +145,18 @@ describe('Autosuggest.address component', function() {
       }
     });
 
+    describe('and the address setter is initialised', function() {
+      beforeEach(function(done) {
+        this.toggleModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'toggleMode');
+        this.autosuggestAddress.addressSetter.toggleMode();
+        setTimeout(done);
+      });
+
+      it('then the setManualMode function should be called', function() {
+        expect(this.toggleModeSpy).to.have.been.called();
+      });
+    });
+
     describe('and the user inputs', function() {
       beforeEach(function() {
         this.findAddressSpy = chai.spy.on(this.autosuggestAddress, 'findAddress');
@@ -401,7 +413,7 @@ describe('Autosuggest.address component', function() {
           });
         });
 
-        describe('when the submit errors', function() {
+        describe('when the submit is invalid', function() {
           beforeEach(function(done) {
             this.errorPanel =
               '<div class="panel panel--error u-mb-m js-error-panel"><div class="panel__header"><div class="panel__title u-fs-r--b">There is a problem with your answer</div></div><div class="panel__body"><ol class="list list--bare"><li class="list__item"><span>1. </span><a class="list__link js-inpagelink js-error" href="#autosuggest-input-error">Enter an address</a></li></ol></div></div>';
@@ -418,6 +430,17 @@ describe('Autosuggest.address component', function() {
 
           it('then the input should be wrapped in an error', function() {
             expect(this.errorInput).to.exist;
+          });
+        });
+
+        describe('when the mode is set to manual', function() {
+          beforeEach(function(done) {
+            this.autosuggestAddress.addressSetter.setManualMode(true, false);
+            setTimeout(done);
+          });
+
+          it('then the error summary should be removed', function() {
+            expect(this.errorPanel).to.not.exist;
           });
         });
       });
@@ -439,12 +462,19 @@ describe('Autosuggest.address component', function() {
     });
 
     describe('When the fetch errors', function() {
-      beforeEach(function() {
+      beforeEach(function(done) {
         window.fetch = fetchMock(false);
+        this.handleAPIErrorSpy = chai.spy.on(this.autosuggestAddress, 'handleAPIError');
+        this.autosuggestAddress.suggestAddresses('yes', [], false);
+        setTimeout(done);
       });
 
       it('then the function should reject', function() {
         this.autosuggestAddress.suggestAddresses('yes', [], false).should.be.rejected;
+      });
+
+      it('then the handleAPIError function should be called', function() {
+        expect(this.handleAPIErrorSpy).to.have.been.called();
       });
     });
 
