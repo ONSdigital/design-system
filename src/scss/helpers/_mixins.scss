@@ -48,11 +48,11 @@
   $src: null;
   $extmods: (
     eot: '?',
-    svg: '#' + str-replace($name, ' ', '_')
+    svg: '#' + str-replace($name, ' ', '_'),
   );
   $formats: (
     otf: 'opentype',
-    ttf: 'truetype'
+    ttf: 'truetype',
   );
 
   @each $ext in $exts {
@@ -71,42 +71,6 @@
 
 @mixin clearfix() {
   // no-op
-}
-
-// =============================================================================
-// Icons
-// =============================================================================
-
-@mixin icon($name, $height: 1rem, $width: $height) {
-  display: inline-block;
-
-  width: $width;
-  height: $height;
-
-  background: {
-    image: url(#{$static}/img/icons/icons--#{$name}.svg);
-    repeat: no-repeat;
-    size: $width $height;
-  }
-}
-
-@mixin create-icon($name, $class-name: $name, $height: 1rem, $width: $height, $margin: 0.5rem, $position: 'before', $transform: none) {
-  .icon--#{$class-name}:#{$position} {
-    @include icon($name, $width, $height);
-
-    content: '';
-    vertical-align: middle;
-
-    @if $position == 'before' {
-      margin: 0 $margin 0 0;
-    } @else {
-      margin: 0 0 0 $margin;
-    }
-
-    @if $transform {
-      transform: $transform;
-    }
-  }
 }
 
 // =============================================================================
