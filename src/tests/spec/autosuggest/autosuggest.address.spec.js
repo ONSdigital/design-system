@@ -2,7 +2,7 @@ import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/address/_test-template.njk';
 import '../../../scss/main.scss';
 import AutosuggestAddress from '../../../components/input/autosuggest/autosuggest.address';
-import AutosuggestUI from '../../../components/input/autosuggest/autosuggest.ui';
+import AddressError from '../../../components/input/autosuggest/autosuggest.address.error';
 import eventMock from 'stubs/event.stub.spec';
 import fetchMock from 'stubs/window.fetch.stub.spec';
 
@@ -334,6 +334,46 @@ describe('Autosuggest.address component', function() {
           });
         });
       });
+
+      describe('when the form is submitted', function() {
+        describe('when the input is empty', function() {
+          beforeEach(function(done) {
+            this.setAriaStatusSpy = chai.spy.on(this.autosuggestAddress.autosuggest, 'setAriaStatus');
+
+            this.mockedEvent = eventMock({ key: 'Enter' });
+            this.autosuggestAddress.handleSubmit(this.mockedEvent);
+            setTimeout(done);
+          });
+
+          it('then preventDefault should be called on the event', function() {
+            expect(this.mockedEvent.preventDefault).to.have.been.called();
+          });
+
+          it('then setAriaStatus should be called', function() {
+            expect(this.setAriaStatusSpy).to.have.been.called();
+          });
+        });
+
+        describe('when the submit errors', function() {
+          beforeEach(function(done) {
+            this.errorPanel =
+              '<div class="panel panel--error u-mb-m js-error-panel"><div class="panel__header"><div class="panel__title u-fs-r--b">There is a problem with your answer</div></div><div class="panel__body"><ol class="list list--bare"><li class="list__item"><span>1. </span><a class="list__link js-inpagelink js-error" href="#autosuggest-input-error">Enter an address</a></li></ol></div></div>';
+            this.errorInput =
+              '<div class="panel panel--error panel--simple" id="autosuggest-input-error"><div class="panel__body"><p class="panel__error"><strong>Enter an address</strong></p>';
+            this.error = new AddressError(this.context);
+            this.error.showErrorPanel();
+            setTimeout(done);
+          });
+
+          it('then an error summary panel should be added to the DOM', function() {
+            expect(this.errorPanel).to.exist;
+          });
+
+          it('then the input should be wrapped in an error', function() {
+            expect(this.errorInput).to.exist;
+          });
+        });
+      });
     });
   });
 });
@@ -341,6 +381,7 @@ describe('Autosuggest.address component', function() {
 function renderComponent(params) {
   const html = template.render({ params });
   const wrapper = document.createElement('div');
+  wrapper.classList.add('question');
 
   document.documentElement.setAttribute('lang', 'en');
 

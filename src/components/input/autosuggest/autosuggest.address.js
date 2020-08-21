@@ -363,9 +363,8 @@ export default class AutosuggestAddress {
       (this.input.value === '' && !this.search.classList.contains('u-d-no'))
     ) {
       event.preventDefault();
-      const handleError = new AddressError(this.context);
-      handleError.showErrorPanel();
-
+      this.handleError = new AddressError(this.context);
+      this.handleError.showErrorPanel();
       this.autosuggest.setAriaStatus(this.errorMessage);
     }
   }
