@@ -145,37 +145,6 @@ describe('Autosuggest.address component', function() {
       }
     });
 
-    describe('When a fetch is made', function() {
-      beforeEach(function() {
-        this.result = {
-          results: [{ 'en-gb': 'yes', alternatives: [], sanitisedAlternatives: [] }],
-          totalResults: 1,
-        };
-
-        window.fetch = fetchMock(true, null, this.result);
-      });
-
-      it('and the fetch successfully returns', function() {
-        this.autosuggestAddress.suggestAddresses('yes', [], false).should.eventually.eql(this.result);
-      });
-    });
-
-    describe('When the API status is checked', function() {
-      beforeEach(function(done) {
-        setTimeout(() => {
-          this.checkAPIStatusSpy = chai.spy.on(this.autosuggestAddress, 'checkAPIStatus');
-          this.autosuggestAddress.checkAPIStatus();
-          done();
-        });
-      });
-
-      it('then checkAPIStatus function should be called', function() {
-        expect(this.checkAPIStatusSpy).to.have.been.called();
-      });
-      // describe('When the API is unavilable', function() {
-      // });
-    });
-
     describe('and the user inputs', function() {
       beforeEach(function() {
         this.findAddressSpy = chai.spy.on(this.autosuggestAddress, 'findAddress');
@@ -233,6 +202,7 @@ describe('Autosuggest.address component', function() {
             expect(this.mapAddressesSpy).to.have.been.called();
           });
         });
+
         describe('when the query is a part postcode', function() {
           beforeEach(function(done) {
             this.results = {
@@ -450,6 +420,45 @@ describe('Autosuggest.address component', function() {
             expect(this.errorInput).to.exist;
           });
         });
+      });
+    });
+
+    describe('When a fetch is made', function() {
+      beforeEach(function() {
+        this.result = {
+          results: [{ 'en-gb': 'yes', alternatives: [], sanitisedAlternatives: [] }],
+          totalResults: 1,
+        };
+
+        window.fetch = fetchMock(true, null, this.result);
+      });
+
+      it('and the fetch successfully returns', function() {
+        this.autosuggestAddress.suggestAddresses('yes', [], false).should.eventually.eql(this.result);
+      });
+    });
+
+    describe('When the fetch errors', function() {
+      beforeEach(function() {
+        window.fetch = fetchMock(false);
+      });
+
+      it('then the function should reject', function() {
+        this.autosuggestAddress.suggestAddresses('yes', [], false).should.be.rejected;
+      });
+    });
+
+    describe('When the API status is checked', function() {
+      beforeEach(function(done) {
+        setTimeout(() => {
+          this.checkAPIStatusSpy = chai.spy.on(this.autosuggestAddress, 'checkAPIStatus');
+          this.autosuggestAddress.checkAPIStatus();
+          done();
+        });
+      });
+
+      it('then checkAPIStatus function should be called', function() {
+        expect(this.checkAPIStatusSpy).to.have.been.called();
       });
     });
   });
