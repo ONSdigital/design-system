@@ -460,10 +460,11 @@ describe('Autosuggest.address component', function() {
       });
     });
 
-    describe('When the API status is checked', function() {
+    describe('When the API status is checked and', function() {
       beforeEach(function(done) {
         setTimeout(() => {
           this.checkAPIStatusSpy = chai.spy.on(this.autosuggestAddress, 'checkAPIStatus');
+          this.handleNoResultsSpy = chai.spy.on(this.autosuggestAddress.autosuggest, 'handleNoresults');
           this.autosuggestAddress.checkAPIStatus();
           done();
         });
@@ -471,6 +472,13 @@ describe('Autosuggest.address component', function() {
 
       it('then checkAPIStatus function should be called', function() {
         expect(this.checkAPIStatusSpy).to.have.been.called();
+      });
+
+      it('then handleNoresults message should be called upon error', function() {
+        this.autosuggestAddress.autosuggest.handleNoresults(403);
+        const noResults = 'autosuggest-input__option--no-results';
+        expect(noResults).to.exist;
+        expect(this.handleNoResultsSpy).to.have.been.called();
       });
 
       it('then fetch url should match params', function() {
@@ -483,7 +491,7 @@ describe('Autosuggest.address component', function() {
 
 function renderComponent(params) {
   const html = template.render({ params });
-  const wrapper = document.createElement('div');
+  const wrapper = document.createElement('form');
   wrapper.classList.add('question');
 
   document.documentElement.setAttribute('lang', 'en');
