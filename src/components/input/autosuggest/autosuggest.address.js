@@ -54,7 +54,6 @@ export default class AutosuggestAddress {
       onSelect: this.onAddressSelect.bind(this),
       lang: this.lang,
       suggestionFunction: this.suggestAddresses.bind(this),
-      onError: this.onError.bind(this),
       sanitisedQueryReplaceChars: this.addressReplaceChars,
       sanitisedQuerySplitNumsChars: this.sanitisedQuerySplitNumsChars,
       minChars: 3,
@@ -334,21 +333,6 @@ export default class AutosuggestAddress {
     resolve();
 
     return addressLines;
-  }
-
-  onError(error) {
-    if (this.fetch) {
-      this.fetch.abort();
-    }
-
-    // Prevent error message from firing twice
-    if (!this.errored) {
-      this.errored = true;
-      console.log('error:', error);
-      setTimeout(() => {
-        this.errored = false;
-      });
-    }
   }
 
   handleAPIError() {

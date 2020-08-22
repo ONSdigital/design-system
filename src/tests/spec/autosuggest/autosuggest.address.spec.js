@@ -147,13 +147,13 @@ describe('Autosuggest.address component', function() {
 
     describe('and the address setter is initialised', function() {
       beforeEach(function(done) {
-        this.toggleModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'toggleMode');
+        this.setManualModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'setManualMode');
         this.autosuggestAddress.addressSetter.toggleMode();
         setTimeout(done);
       });
 
       it('then the setManualMode function should be called', function() {
-        expect(this.toggleModeSpy).to.have.been.called();
+        expect(this.setManualModeSpy).to.have.been.called();
       });
     });
 

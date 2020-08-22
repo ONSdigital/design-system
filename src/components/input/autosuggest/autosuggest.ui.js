@@ -23,7 +23,6 @@ export default class AutosuggestUI {
     resultLimit,
     suggestOnBoot,
     onSelect,
-    onError,
     onUnsetResult,
     suggestionFunction,
     handleUpdate,
@@ -74,7 +73,6 @@ export default class AutosuggestUI {
     // Callbacks
     this.onSelect = onSelect;
     this.onUnsetResult = onUnsetResult;
-    this.onError = onError;
     this.handleUpdate = handleUpdate;
 
     if (suggestionFunction) {
@@ -272,8 +270,7 @@ export default class AutosuggestUI {
           this.fetchSuggestions(this.sanitisedQuery, this.data, alternative)
             .then(this.handleResults.bind(this))
             .catch(error => {
-              if (error.name !== 'AbortError' && this.onError) {
-                this.onError(error);
+              if (error.name !== 'AbortError') {
                 this.handleNoResults(500);
               }
             });
