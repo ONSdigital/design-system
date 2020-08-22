@@ -67,65 +67,6 @@ describe('Autosuggest.address component', function() {
     });
   });
 
-  // describe('When a fetch is made', function() {
-  //   beforeEach(function() {
-  //     // Mock
-  //     this.originalFetch = window.fetch;
-
-  //     window.fetch = fetchMock(true);
-
-  //     this.fetchSpy = chai.spy(require('../../../components/input/autosuggest/abortable-fetch').default);
-  //     this.rewiremock('./src/components/input/autosuggest/abortable-fetch')
-  //       .es6()
-  //       .withDefault(this.fetchSpy);
-
-  //     this.rewiremock.enable();
-
-  //     const mockedautosuggestAddress = require('components/input/autosuggest/autosuggest.address').default;
-
-  //     // Render
-  //     const component = renderComponent(params);
-
-  //     // Initialise
-  //     Object.keys(component).forEach(key => {
-  //       this[key] = component[key];
-  //     });
-
-  //     const context = this.context;
-  //     this.autosuggestAddress = new mockedautosuggestAddress(context);
-  //   });
-
-  //   afterEach(function() {
-  //     window.fetch = this.originalFetch;
-  //     this.rewiremock.disable();
-
-  //     if (this.wrapper) {
-  //       this.wrapper.remove();
-  //     }
-  //   });
-
-  //   describe('and the fetch is successful', function() {
-  //     beforeEach(function() {
-  //       setTimeout(() => {
-  //         this.autosuggestAddress.fetch.send = this.fetchSpy()
-  //           .send()
-  //           .then(resolve => {
-  //             resolve();
-  //           })
-  //           .catch(() => {});
-  //         // this.autosuggestAddress.fetch.response.json().status.code = 200;
-  //         // this.abortSpy = chai.spy.on(this.autosuggestAddress.fetch, 'abort');
-  //         // this.autosuggestAddress.abortFetch();
-  //       });
-  //     });
-
-  //     it('then the function should return immediately', function() {
-  //       console.log('response', this.autosuggestAddress.fetch);
-  //       // expect(this.abortSpy).to.have.been.called();
-  //     });
-  //   });
-  // });
-
   describe('When the component initialises', function() {
     beforeEach(function(done) {
       const component = renderComponent(params);
@@ -160,16 +101,29 @@ describe('Autosuggest.address component', function() {
     describe('and the user inputs', function() {
       beforeEach(function() {
         this.findAddressSpy = chai.spy.on(this.autosuggestAddress, 'findAddress');
+        this.abortSpy = chai.spy.on(this.autosuggestAddress.fetch, 'abort');
         this.testPostcodeSpy = chai.spy.on(this.autosuggestAddress, 'testFullPostcodeQuery');
       });
 
-      describe('when the value does not match an existing query', function() {
+      describe('and a query is sent', function() {
         beforeEach(function(done) {
           this.autosuggestAddress.suggestAddresses('195 colle', [], false);
           setTimeout(done);
         });
+
         it('then the findAddress function should be called', function() {
           expect(this.findAddressSpy).to.have.been.called();
+        });
+
+        it('then the fetch url should contain the correct limit parameter', function() {
+          this.limit = 10;
+          expect(this.autosuggestAddress.fetch.url).to.equal(
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10',
+          );
+        });
+
+        it('then any current fetches should be aborted', function() {
+          expect(this.abortSpy).to.have.been.called();
         });
       });
 
@@ -179,9 +133,17 @@ describe('Autosuggest.address component', function() {
           this.autosuggestAddress.findAddress(postcode);
           setTimeout(done);
         });
+
         it('then the testFullPostcodeQuery function should return true', function() {
           expect(this.testPostcodeSpy).to.have.been.called();
           expect(this.autosuggestAddress.testFullPostcodeQuery(postcode)).to.equal(true);
+        });
+
+        it('then the fetch url should contain the correct limit parameter', function() {
+          this.limit = 100;
+          expect(this.autosuggestAddress.fetch.url).to.equal(
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100',
+          );
         });
       });
 
@@ -489,6 +451,11 @@ describe('Autosuggest.address component', function() {
 
       it('then checkAPIStatus function should be called', function() {
         expect(this.checkAPIStatusSpy).to.have.been.called();
+      });
+
+      it('then fetch url should match params', function() {
+        this.lookupURL = 'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10';
+        expect(this.autosuggestAddress.fetch.url).to.equal(this.lookupURL);
       });
     });
   });

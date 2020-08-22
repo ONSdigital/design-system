@@ -25,7 +25,6 @@ export default class AutosuggestAddress {
     this.errorMessage = this.container.getAttribute('data-error-message');
     this.APIDomain = this.container.getAttribute('data-api-domain');
     // State
-    this.currentQuery = null;
     this.fetch = null;
     this.currentResults = [];
     this.totalResults = 0;
@@ -106,24 +105,14 @@ export default class AutosuggestAddress {
 
   suggestAddresses(query, [], grouped) {
     return new Promise((resolve, reject) => {
-      if (this.currentQuery === query && this.currentQuery.length && (this.currentResults ? this.currentResults.length : 0)) {
-        resolve({
-          results: this.currentResults,
-          totalResults: this.currentResults.length,
-        });
-      } else {
-        this.currentQuery = query;
-        this.currentResults = [];
-
-        if (this.fetch && this.fetch.status !== 'DONE') {
-          this.fetch.abort();
-        }
-
-        this.reject = reject;
-        this.findAddress(query, grouped)
-          .then(resolve)
-          .catch(reject);
+      if (this.fetch && this.fetch.status !== 'DONE') {
+        this.fetch.abort();
       }
+
+      this.reject = reject;
+      this.findAddress(query, grouped)
+        .then(resolve)
+        .catch(reject);
     });
   }
 
