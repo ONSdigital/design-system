@@ -14,7 +14,6 @@ import chaiSpies from 'chai-spies';
 chai.should();
 chai.use(chaiSpies);
 chai.use(chaiAsPromised);
-
 const params = {
   id: 'address',
   label: {
@@ -87,14 +86,35 @@ describe('Autosuggest.address component', function() {
     });
 
     describe('and the address setter is initialised', function() {
-      beforeEach(function(done) {
-        this.setManualModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'setManualMode');
-        this.autosuggestAddress.addressSetter.toggleMode();
-        setTimeout(done);
+      describe('and the manual fields are empty', function() {
+        beforeEach(function(done) {
+          this.setManualModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'setManualMode');
+          this.autosuggestAddress.addressSetter.toggleMode();
+          setTimeout(done);
+        });
+
+        it('then the setManualMode function should be called', function() {
+          expect(this.setManualModeSpy).to.have.been.called();
+        });
       });
 
-      it('then the setManualMode function should be called', function() {
-        expect(this.setManualModeSpy).to.have.been.called();
+      describe('and the manual fields contain a value', function() {
+        beforeEach(function(done) {
+          this.autosuggestAddress.input.value = 'address line 1';
+          this.wrapper.querySelector('#address-line1').value = 'address line 1';
+          this.setManualModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'setManualMode');
+          this.autosuggestAddress.addressSetter.toggleMode();
+          setTimeout(done);
+        });
+
+        it('then the manual fields should be visible', function() {
+          this.manualFields = this.wrapper.querySelector('.js-address-input__manual');
+          expect(this.manualFields.classList.contains('u-db-no-js_enabled')).to.be.false;
+        });
+
+        it('then the autosuggest input should be cleared', function() {
+          expect(this.autosuggestAddress.input.value).to.equal('');
+        });
       });
     });
 
@@ -423,7 +443,7 @@ describe('Autosuggest.address component', function() {
       });
     });
 
-    describe('When the fetch errors', function() {
+    describe('When the fetch errors an editable address', function() {
       beforeEach(function(done) {
         window.fetch = fetchMock(false);
         this.handleAPIErrorSpy = chai.spy.on(this.autosuggestAddress, 'handleAPIError');
