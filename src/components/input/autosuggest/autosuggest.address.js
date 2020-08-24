@@ -153,7 +153,6 @@ export default class AutosuggestAddress {
   }
 
   async mapFindResults(results, limit, status) {
-    console.log('HEY');
     let mappedResults;
     const total = results.total;
 

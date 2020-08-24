@@ -203,8 +203,7 @@ describe('Autosuggest.address component', function() {
 
       describe('when addresses are retrieved', function() {
         beforeEach(function(done) {
-          this.mapFindResultsSpy = chai.spy.on(this.autosuggestAddress, 'mapFindResults');
-          const response = {
+          this.response = {
             status: {
               code: 200,
             },
@@ -228,17 +227,13 @@ describe('Autosuggest.address component', function() {
 
           fetchMock.get(
             'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10',
-            JSON.stringify(response),
+            JSON.stringify(this.response),
             {
               overwriteRoutes: true,
             },
           );
           this.autosuggestAddress.findAddress('195 colle', false);
           setTimeout(done);
-        });
-
-        it('then the mapFindResults function will be called', function() {
-          expect(this.mapFindResultsSpy).to.have.been.called();
         });
 
         describe('when the query is not a part postcode', function() {
