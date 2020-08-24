@@ -260,18 +260,22 @@ describe('Autosuggest.address component', function() {
                 ],
               },
             };
-            this.mapAddressesSpy = chai.spy.on(this.autosuggestAddress, 'addressMapping');
+            this.addressMappingSpy = chai.spy.on(this.autosuggestAddress, 'addressMapping');
             this.autosuggestAddress.mapFindResults(this.results.response, 10, 200);
             setTimeout(done);
           });
 
           it('then the addressMapping function will be called', function() {
-            expect(this.mapAddressesSpy).to.have.been.called();
+            expect(this.addressMappingSpy).to.have.been.called();
           });
         });
 
         describe('when the query is a part postcode', function() {
           beforeEach(function(done) {
+            this.postcodeGroupsMappingSpy = chai.spy.on(this.autosuggestAddress, 'postcodeGroupsMapping');
+            this.replaceSingleCountAddressesSpy = chai.spy.on(this.autosuggestAddress, 'replaceSingleCountAddresses');
+            this.createAddressObjectSpy = chai.spy.on(this.autosuggestAddress, 'createAddressObject');
+
             this.results = {
               response: {
                 partpostcode: 'cf14 2',
@@ -295,9 +299,15 @@ describe('Autosuggest.address component', function() {
                 ],
               },
             };
-            this.postcodeGroupsMappingSpy = chai.spy.on(this.autosuggestAddress, 'postcodeGroupsMapping');
-            this.replaceSingleCountAddressesSpy = chai.spy.on(this.autosuggestAddress, 'replaceSingleCountAddresses');
-            this.createAddressObjectSpy = chai.spy.on(this.autosuggestAddress, 'createAddressObject');
+
+            fetchMock.get(
+              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/bucket?postcode=CF14 2AA&streetname=Penlline Road&townname=Whitchurch&limit=100',
+              JSON.stringify(this.results),
+              {
+                overwriteRoutes: true,
+              },
+            );
+
             this.autosuggestAddress.mapFindResults(this.results.response, 10, 200);
             setTimeout(done);
           });
@@ -319,6 +329,21 @@ describe('Autosuggest.address component', function() {
 
         describe('when a non-grouped address is selected', function() {
           beforeEach(function(done) {
+            this.retrieveAddressSpy = chai.spy.on(this.autosuggestAddress, 'retrieveAddress');
+            this.address = {
+              response: {
+                address: {
+                  uprn: '100100119968',
+                  formattedAddress: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
+                  addressLine1: '195 College Road',
+                  addressLine2: 'Whitchurch',
+                  addressLine3: '',
+                  townName: 'Cardiff',
+                  postcode: 'CF14 2NT',
+                  foundAddressType: 'PAF',
+                },
+              },
+            };
             this.selectedResult = {
               lang: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
               sanitisedText: '195 college road whitchurch cardiff cf14 2nt',
@@ -332,7 +357,14 @@ describe('Autosuggest.address component', function() {
               townName: 'Cardiff',
               postcode: 'CF14 2NT',
             };
-            this.retrieveAddressSpy = chai.spy.on(this.autosuggestAddress, 'retrieveAddress');
+
+            fetchMock.get(
+              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/100100119968?addresstype=paf',
+              JSON.stringify(this.address),
+              {
+                overwriteRoutes: true,
+              },
+            );
             this.autosuggestAddress.onAddressSelect(this.selectedResult);
             setTimeout(done);
           });
@@ -342,21 +374,8 @@ describe('Autosuggest.address component', function() {
           });
 
           describe('when the address is retrieved', function() {
-            beforeEach(function() {
-              this.address = {
-                response: {
-                  address: {
-                    uprn: '100100119968',
-                    formattedAddress: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
-                    addressLine1: '195 College Road',
-                    addressLine2: 'Whitchurch',
-                    addressLine3: '',
-                    townName: 'Cardiff',
-                    postcode: 'CF14 2NT',
-                    foundAddressType: 'PAF',
-                  },
-                },
-              };
+            it('then the mapFindResults function will be called', function() {
+              expect(this.mapFindResultsSpy).to.have.been.called();
             });
 
             it('then the address should be formatted correctly', function(done) {
