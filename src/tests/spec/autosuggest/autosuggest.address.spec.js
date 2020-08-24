@@ -319,6 +319,18 @@ describe('Autosuggest.address component', function() {
             it('then the createAddressObject function will be called', function() {
               expect(this.createAddressObjectSpy).to.have.been.called();
             });
+
+            describe('when the createAddressObject is called', function() {
+              const uprn = '10002511038';
+              beforeEach(function(done) {
+                this.retrieveAddressSpy = chai.spy.on(this.autosuggestAddress, 'retrieveAddress');
+                this.autosuggestAddress.createAddressObject(uprn);
+                setTimeout(done);
+              });
+              it('then the createAddressObject function will be called', function() {
+                expect(this.retrieveAddressSpy).to.have.been.called();
+              });
+            });
           });
         });
 
