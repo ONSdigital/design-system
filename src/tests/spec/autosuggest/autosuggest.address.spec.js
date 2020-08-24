@@ -8,7 +8,7 @@ import eventMock from 'stubs/event.stub.spec';
 import fetchStub from 'stubs/window.fetch.stub.spec';
 
 import chai from 'chai';
-import fetchMock from 'fetch-mock';
+import fetchMock from 'fetch-mock/esm/client';
 import chaiAsPromised from 'chai-as-promised';
 import chaiSpies from 'chai-spies';
 
@@ -99,7 +99,7 @@ describe('Autosuggest.address component', function() {
         });
       });
 
-      describe('and the manual fields contain a value', function() {
+      describe('When the manual fields contain a value', function() {
         beforeEach(function(done) {
           this.autosuggestAddress.input.value = 'address line 1';
           this.wrapper.querySelector('#address-line1').value = 'address line 1';
@@ -131,12 +131,16 @@ describe('Autosuggest.address component', function() {
             };
             fetchMock.get(
               'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10',
-              JSON.stringify(response),
+              {
+                status: 200,
+                body: JSON.stringify(response),
+              },
               {
                 overwriteRoutes: true,
               },
             );
             this.autosuggestAddress.checkAPIStatus();
+            afterEach(fetchMock.reset);
             done();
           });
         });
