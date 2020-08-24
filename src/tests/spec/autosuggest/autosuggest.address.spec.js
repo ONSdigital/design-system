@@ -202,6 +202,45 @@ describe('Autosuggest.address component', function() {
       });
 
       describe('when addresses are retrieved', function() {
+        beforeEach(function(done) {
+          this.mapFindResultsSpy = chai.spy.on(this.autosuggestAddress, 'mapFindResults');
+          const response = {
+            status: {
+              code: 200,
+            },
+            response: {
+              input: '195 colle',
+              limit: 10,
+              addresses: [
+                {
+                  uprn: '100070332099',
+                  bestMatchAddress: '196 College Road, Birmingham, B44 8HF',
+                  bestMatchAddressType: 'PAF',
+                },
+                {
+                  uprn: '100100119969',
+                  bestMatchAddress: '196 College Road, Whitchurch, Cardiff, CF14 2NZ',
+                  bestMatchAddressType: 'PAF',
+                },
+              ],
+            },
+          };
+
+          fetchMock.get(
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10',
+            JSON.stringify(response),
+            {
+              overwriteRoutes: true,
+            },
+          );
+          this.autosuggestAddress.findAddress('195 colle', false);
+          setTimeout(done);
+        });
+
+        it('then the mapFindResults function will be called', function() {
+          expect(this.mapFindResultsSpy).to.have.been.called();
+        });
+
         describe('when the query is not a part postcode', function() {
           beforeEach(function(done) {
             this.results = {
@@ -476,23 +515,6 @@ describe('Autosuggest.address component', function() {
         this.autosuggestAddress.suggestAddresses('yes', [], false).should.eventually.eql(this.result);
       });
     });
-
-    // describe('When the fetch errors an editable address', function() {
-    //   beforeEach(function(done) {
-    //     window.fetch = fetchStub(false);
-    //     this.handleAPIErrorSpy = chai.spy.on(this.autosuggestAddress, 'handleAPIError');
-    //     this.autosuggestAddress.suggestAddresses('yes', [], false);
-    //     setTimeout(done);
-    //   });
-
-    //   it('then the function should reject', function() {
-    //     this.autosuggestAddress.suggestAddresses('yes', [], false).should.be.rejected;
-    //   });
-
-    //   it('then the handleAPIError function should be called', function() {
-    //     expect(this.handleAPIErrorSpy).to.have.been.called();
-    //   });
-    // });
   });
 });
 
