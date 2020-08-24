@@ -59,7 +59,7 @@ const params = {
   manualButton: 'Manually enter address',
 };
 
-describe.only('Autosuggest.address component', function() {
+describe('Autosuggest.address component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
