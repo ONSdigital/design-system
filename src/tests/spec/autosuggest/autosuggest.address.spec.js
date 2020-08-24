@@ -59,7 +59,7 @@ const params = {
   manualButton: 'Manually enter address',
 };
 
-describe('Autosuggest.address component', function() {
+describe.only('Autosuggest.address component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
@@ -374,10 +374,6 @@ describe('Autosuggest.address component', function() {
           });
 
           describe('when the address is retrieved', function() {
-            it('then the mapFindResults function will be called', function() {
-              expect(this.mapFindResultsSpy).to.have.been.called();
-            });
-
             it('then the address should be formatted correctly', function(done) {
               expect(this.autosuggestAddress.createAddressLines(this.address, done)).to.equal(this.formattedAddress);
             });
