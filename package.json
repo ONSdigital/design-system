@@ -80,7 +80,7 @@
     "eslint-cli": "^1.1.1",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "fetch-mock": "^9.10.7",
+    "fetch-mock": "6.5.2",
     "file-loader": "^2.0.0",
     "frontmatter": "^0.0.3",
     "fuse.js": "^3.6.1",

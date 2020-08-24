@@ -8,9 +8,9 @@ import eventMock from 'stubs/event.stub.spec';
 import fetchStub from 'stubs/window.fetch.stub.spec';
 
 import chai from 'chai';
-import fetchMock from 'fetch-mock/esm/client';
 import chaiAsPromised from 'chai-as-promised';
 import chaiSpies from 'chai-spies';
+import fetchMock from 'fetch-mock';
 
 chai.should();
 chai.use(chaiSpies);
@@ -131,19 +131,16 @@ describe('Autosuggest.address component', function() {
             };
             fetchMock.get(
               'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10',
-              {
-                status: 200,
-                body: JSON.stringify(response),
-              },
+              JSON.stringify(response),
               {
                 overwriteRoutes: true,
               },
             );
             this.autosuggestAddress.checkAPIStatus();
-            afterEach(fetchMock.reset);
             done();
           });
         });
+
         it('then fetch url should match params', function() {
           this.lookupURL = 'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10';
           expect(this.autosuggestAddress.fetch.url).to.equal(this.lookupURL);
