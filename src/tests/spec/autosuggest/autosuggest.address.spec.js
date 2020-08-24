@@ -86,7 +86,7 @@ describe('Autosuggest.address component', function() {
       }
     });
 
-    describe('and the address setter is initialised', function() {
+    describe('When the address setter is initialised', function() {
       describe('and the manual fields are empty', function() {
         beforeEach(function(done) {
           this.setManualModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'setManualMode');
@@ -115,6 +115,38 @@ describe('Autosuggest.address component', function() {
 
         it('then the autosuggest input should be cleared', function() {
           expect(this.autosuggestAddress.input.value).to.equal('');
+        });
+      });
+    });
+
+    describe('When the API status is checked', function() {
+      describe('When the API returns a 401 or greater', function() {
+        beforeEach(function(done) {
+          this.handleAPIErrorSpy = chai.spy.on(this.autosuggestAddress, 'handleAPIError');
+          setTimeout(() => {
+            const response = {
+              status: {
+                code: 403,
+              },
+            };
+            fetchMock.get(
+              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10',
+              JSON.stringify(response),
+              {
+                overwriteRoutes: true,
+              },
+            );
+            this.autosuggestAddress.checkAPIStatus();
+            done();
+          });
+        });
+        it('then fetch url should match params', function() {
+          this.lookupURL = 'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10';
+          expect(this.autosuggestAddress.fetch.url).to.equal(this.lookupURL);
+        });
+
+        it('then handleAPIError function should be called', function() {
+          expect(this.handleAPIErrorSpy).to.have.been.called();
         });
       });
     });
@@ -458,44 +490,6 @@ describe('Autosuggest.address component', function() {
 
       it('then the handleAPIError function should be called', function() {
         expect(this.handleAPIErrorSpy).to.have.been.called();
-      });
-    });
-
-    describe('When the API status is checked', function() {
-      describe('When the API returns a 401 or greater', function() {
-        beforeEach(function(done) {
-          this.handleAPIErrorSpy = chai.spy.on(this.autosuggestAddress, 'handleAPIError');
-          setTimeout(() => {
-            const response = {
-              status: {
-                code: 403,
-              },
-            };
-            fetchMock.get(
-              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10',
-              JSON.stringify(response),
-              {
-                overwriteRoutes: true,
-              },
-            );
-            this.autosuggestAddress.checkAPIStatus();
-            done();
-          });
-        });
-        it('then fetch url should match params', function() {
-          this.lookupURL = 'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10';
-          expect(this.autosuggestAddress.fetch.url).to.equal(this.lookupURL);
-        });
-
-        it('then handleAPIError function should be called', function() {
-          expect(this.handleAPIErrorSpy).to.have.been.called();
-        });
-
-        // it('then error message should show', function() {
-        //   this.autosuggestAddress.autosuggest.handleNoresults(403);
-        //   const noResults = 'autosuggest-input__option--no-results';
-        //   expect(noResults).to.exist;
-        // });
       });
     });
   });
