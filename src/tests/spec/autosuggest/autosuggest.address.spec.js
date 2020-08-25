@@ -336,17 +336,39 @@ describe('Autosuggest.address component', function() {
 
               describe('When the result is returned', function() {
                 beforeEach(function(done) {
-                  const uprn = '10002511038';
+                  this.address = {
+                    response: {
+                      address: {
+                        uprn: '100100119968',
+                        formattedAddress: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
+                        addressLine1: '195 College Road',
+                        addressLine2: 'Whitchurch',
+                        addressLine3: '',
+                        townName: 'Cardiff',
+                        postcode: 'CF14 2NT',
+                        foundAddressType: 'PAF',
+                      },
+                    },
+                  };
+                  fetchMock.get(
+                    'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/100100119968?addresstype=paf',
+                    JSON.stringify(this.address),
+                    {
+                      overwriteRoutes: true,
+                    },
+                  );
+                  const uprn = '100100119968';
+                  const lang = 'en-gb';
                   this.createdObject = {
-                    engb: 'Parish Office Building, Newborough Avenue, Llanishen, Cardiff, CF14 5AA',
-                    sanitisedText: 'parish office building newborough avenue llanishen cardiff cf14 5aa',
-                    uprn: '10090717921',
+                    [lang]: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
+                    sanitisedText: '195 college road whitchurch cardiff cf14 2nt',
+                    uprn: '100100119968',
                   };
                   this.createAddressObject = this.autosuggestAddress.createAddressObject(uprn);
                   setTimeout(done);
                 });
                 it('then the object will contain the values', function() {
-                  this.createAddressObject.should.eventually.eql(this.createdObject);
+                  return this.createAddressObject.should.eventually.eql(this.createdObject);
                 });
               });
             });
