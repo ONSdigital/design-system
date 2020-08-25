@@ -85,7 +85,6 @@ export default class AutosuggestAddress {
       .send()
       .then(async response => {
         const status = (await response.json()).status.code;
-        console.log(status);
         if (status > 400) {
           if (this.isEditable) {
             this.handleAPIError();
@@ -129,7 +128,6 @@ export default class AutosuggestAddress {
       }
 
       queryUrl = queryUrl + '&limit=' + limit;
-
       if (this.lang === 'cy') {
         queryUrl = queryUrl + '&favourwelsh=true';
       }

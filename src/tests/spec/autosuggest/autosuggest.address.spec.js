@@ -59,6 +59,8 @@ const params = {
   manualButton: 'Manually enter address',
 };
 
+let lang = 'en';
+
 describe('Autosuggest.address component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
@@ -327,8 +329,25 @@ describe('Autosuggest.address component', function() {
                 this.autosuggestAddress.createAddressObject(uprn);
                 setTimeout(done);
               });
-              it('then the createAddressObject function will be called', function() {
+
+              it('then the retrieveAddress function will be called', function() {
                 expect(this.retrieveAddressSpy).to.have.been.called();
+              });
+
+              describe('When the result is returned', function() {
+                beforeEach(function(done) {
+                  const uprn = '10002511038';
+                  this.createdObject = {
+                    engb: 'Parish Office Building, Newborough Avenue, Llanishen, Cardiff, CF14 5AA',
+                    sanitisedText: 'parish office building newborough avenue llanishen cardiff cf14 5aa',
+                    uprn: '10090717921',
+                  };
+                  this.createAddressObject = this.autosuggestAddress.createAddressObject(uprn);
+                  setTimeout(done);
+                });
+                it('then the object will contain the values', function() {
+                  this.createAddressObject.should.eventually.eql(this.createdObject);
+                });
               });
             });
           });
@@ -538,6 +557,35 @@ describe('Autosuggest.address component', function() {
       });
     });
   });
+
+  describe('when the language is Welsh', function() {
+    beforeEach(function(done) {
+      lang = 'cy';
+      const component = renderComponent(params);
+
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+
+      const context = this.context;
+      this.autosuggestAddress = new AutosuggestAddress(context);
+      this.autosuggestAddress.suggestAddresses('195 colle', [], false);
+      setTimeout(done);
+    });
+
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+      }
+    });
+
+    it('then the fetch url should contain the favour Welsh parameter', function() {
+      this.limit = 10;
+      expect(this.autosuggestAddress.fetch.url).to.equal(
+        'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&favourwelsh=true',
+      );
+    });
+  });
 });
 
 function renderComponent(params) {
@@ -545,7 +593,7 @@ function renderComponent(params) {
   const wrapper = document.createElement('form');
   wrapper.classList.add('question');
 
-  document.documentElement.setAttribute('lang', 'en');
+  document.documentElement.setAttribute('lang', lang);
 
   wrapper.innerHTML = html;
 
