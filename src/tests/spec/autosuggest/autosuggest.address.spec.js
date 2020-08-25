@@ -336,37 +336,41 @@ describe('Autosuggest.address component', function() {
 
               describe('When the result is returned', function() {
                 beforeEach(function(done) {
-                  this.address = {
-                    response: {
-                      address: {
-                        uprn: '100100119968',
-                        formattedAddress: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
-                        addressLine1: '195 College Road',
-                        addressLine2: 'Whitchurch',
-                        addressLine3: '',
-                        townName: 'Cardiff',
-                        postcode: 'CF14 2NT',
-                        foundAddressType: 'PAF',
+                  setTimeout(() => {
+                    this.address = {
+                      response: {
+                        address: {
+                          uprn: '100100119968',
+                          formattedAddress: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
+                          addressLine1: '195 College Road',
+                          addressLine2: 'Whitchurch',
+                          addressLine3: '',
+                          townName: 'Cardiff',
+                          postcode: 'CF14 2NT',
+                          foundAddressType: 'PAF',
+                        },
                       },
-                    },
-                  };
-                  fetchMock.get(
-                    'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/100100119968?addresstype=paf',
-                    JSON.stringify(this.address),
-                    {
-                      overwriteRoutes: true,
-                    },
-                  );
-                  const uprn = '100100119968';
-                  const lang = 'en-gb';
-                  this.createdObject = {
-                    [lang]: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
-                    sanitisedText: '195 college road whitchurch cardiff cf14 2nt',
-                    uprn: '100100119968',
-                  };
-                  this.createAddressObject = this.autosuggestAddress.createAddressObject(uprn);
-                  setTimeout(done);
+                    };
+                    fetchMock.get(
+                      'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/100100119968?addresstype=paf',
+                      JSON.stringify(this.address),
+                      {
+                        overwriteRoutes: true,
+                      },
+                    );
+                    const uprn = '100100119968';
+                    const lang = 'en-gb';
+                    this.createdObject = {
+                      [lang]: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
+                      sanitisedText: '195 college road whitchurch cardiff cf14 2nt',
+                      uprn: '100100119968',
+                    };
+
+                    this.createAddressObject = this.autosuggestAddress.createAddressObject(uprn);
+                    done();
+                  });
                 });
+
                 it('then the object will contain the values', function() {
                   return this.createAddressObject.should.eventually.eql(this.createdObject);
                 });
