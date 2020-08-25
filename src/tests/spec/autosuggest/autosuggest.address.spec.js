@@ -358,14 +358,19 @@ describe('Autosuggest.address component', function() {
                         overwriteRoutes: true,
                       },
                     );
-                    const uprn = '100100119968';
-                    this.createAddressObject = this.autosuggestAddress.createAddressObject(uprn);
+                    const lang = 'en-gb';
+                    this.createdObject = {
+                      [lang]: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
+                      sanitisedText: '195 college road whitchurch cardiff cf14 2nt',
+                      uprn: '100100119968',
+                    };
                     done();
                   });
                 });
 
                 it('then the object will contain the values', function() {
-                  return this.createAddressObject.should.eventually.be.a('object');
+                  const uprn = '100100119968';
+                  this.autosuggestAddress.createAddressObject(uprn).should.eventually.eql(this.createdObject);
                 });
               });
             });
