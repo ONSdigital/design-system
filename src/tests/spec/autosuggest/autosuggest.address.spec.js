@@ -383,33 +383,33 @@ describe('Autosuggest.address component', function() {
             this.address = {
               response: {
                 address: {
-                  uprn: '100100119968',
-                  formattedAddress: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
-                  addressLine1: '195 College Road',
-                  addressLine2: 'Whitchurch',
-                  addressLine3: '',
-                  townName: 'Cardiff',
-                  postcode: 'CF14 2NT',
+                  uprn: '100081151291',
+                  formattedAddress: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
+                  addressLine1: 'University Of Hertfordshire',
+                  addressLine2: 'Meridian House 32-36',
+                  addressLine3: 'The Common',
+                  townName: 'Hatfield',
+                  postcode: 'AL10 0NZ',
                   foundAddressType: 'PAF',
                 },
               },
             };
             this.selectedResult = {
-              lang: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
-              sanitisedText: '195 college road whitchurch cardiff cf14 2nt',
-              uprn: '100100119968',
-              displayText: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
+              lang: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
+              sanitisedText: 'university of hertfordshir meridian house 32-36 the common, hatfield, al10 0nz',
+              uprn: '100081151291',
+              displayText: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
             };
             this.formattedAddress = {
-              addressLine1: '195 College Road',
-              addressLine2: 'Whitchurch',
+              addressLine1: 'University Of Hertfordshire, Meridian House 32-36',
+              addressLine2: 'The Common',
               addressLine3: '',
-              townName: 'Cardiff',
-              postcode: 'CF14 2NT',
+              townName: 'Hatfield',
+              postcode: 'AL10 0NZ',
             };
 
             fetchMock.get(
-              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/100100119968?addresstype=paf',
+              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/100081151291?addresstype=paf',
               JSON.stringify(this.address),
               {
                 overwriteRoutes: true,
