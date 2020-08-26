@@ -186,7 +186,25 @@ describe('Autosuggest.address component', function() {
       describe('when the value is a full postcode', function() {
         const postcode = 'CF14 2NT';
         beforeEach(function(done) {
+          this.results = {
+            response: {
+              input: 'CF14 2NT',
+              addresses: [
+                {
+                  uprn: '100070332099',
+                  formattedAddress: '196 College Road, Birmingham, B44 8HF',
+                  addressType: 'PAF',
+                },
+                {
+                  uprn: '100100119969',
+                  formattedAddress: '196 College Road, Whitchurch, Cardiff, CF14 2NZ',
+                  addressType: 'PAF',
+                },
+              ],
+            },
+          };
           this.autosuggestAddress.findAddress(postcode);
+          this.addressMappingSpy = chai.spy.on(this.autosuggestAddress, 'addressMapping');
           setTimeout(done);
         });
 
@@ -200,6 +218,11 @@ describe('Autosuggest.address component', function() {
           expect(this.autosuggestAddress.fetch.url).to.equal(
             'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100',
           );
+        });
+
+        it('then the addressMapping function will be called', function() {
+          this.autosuggestAddress.mapFindResults(this.results.response, 10, 200);
+          expect(this.addressMappingSpy).to.have.been.called();
         });
       });
 
@@ -656,6 +679,97 @@ describe('Autosuggest.address component', function() {
       expect(this.autosuggestAddress.fetch.url).to.equal(
         'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&favourwelsh=true',
       );
+    });
+  });
+
+  describe('When the component initialises a non-editable address lookup', function() {
+    const paramsAlt = {
+      id: 'address',
+      label: {
+        text: 'Enter an address',
+        classes: 'js-autosuggest-label',
+      },
+      autocomplete: 'off',
+      autosuggest: {
+        instructions:
+          'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
+        ariaYouHaveSelected: 'You have selected',
+        ariaFoundByAlternativeName: 'found by alternative name',
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+        ariaMinChars: 'Enter 3 or more characters for suggestions.',
+        ariaOneResult: 'There is one suggestion available.',
+        ariaNResults: 'There are {n} suggestions available.',
+        ariaLimitedResults: 'Results have been limited to 10 suggestions. Enter more characters to improve your search.',
+        moreResults: 'Continue entering to improve suggestions',
+        resultsTitle: 'Suggestions',
+        noResults: 'No results found',
+        typeMore: 'Enter more of the address to get results',
+        tooManyResults: '{n} results found. Enter more of the address to improve results.',
+        errorTitle: 'There is a problem with your answer',
+        errorMessage: 'Enter an address ',
+        errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
+        externalInitialiser: true,
+      },
+      line1: {
+        label: 'Address line 1',
+      },
+      line2: {
+        label: 'Address line 2',
+      },
+      town: {
+        label: 'Town or city',
+      },
+      postcode: {
+        label: 'Postcode',
+      },
+      searchButton: 'Search for an address',
+      manualButton: 'Manually enter address',
+    };
+
+    beforeEach(function(done) {
+      const component = renderComponent(paramsAlt);
+
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+
+      const context = this.context;
+      this.autosuggestAddress = new AutosuggestAddress(context);
+      done();
+    });
+
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+      }
+    });
+
+    describe('When the API status is checked', function() {
+      describe('When the API returns a 401 or greater', function() {
+        beforeEach(function(done) {
+          this.handleNoResultsSpy = chai.spy.on(this.autosuggestAddress.autosuggest, 'handleNoResults');
+          setTimeout(() => {
+            const response = {
+              status: {
+                code: 403,
+              },
+            };
+            fetchMock.get(
+              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10',
+              JSON.stringify(response),
+              {
+                overwriteRoutes: true,
+              },
+            );
+            this.autosuggestAddress.checkAPIStatus();
+            done();
+          });
+        });
+
+        it('then handleNoResults function should be called', function() {
+          expect(this.handleNoResultsSpy).to.have.been.called();
+        });
+      });
     });
   });
 });

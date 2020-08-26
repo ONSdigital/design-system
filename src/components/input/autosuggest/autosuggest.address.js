@@ -198,7 +198,6 @@ export default class AutosuggestAddress {
 
   async postcodeGroupsMapping(results) {
     const postcodeGroups = results.postcodes;
-    console.log('GROUPS:', postcodeGroups);
     let groups = postcodeGroups.map(({ postcode, postTown, streetName, townName, addressCount, firstUprn }) => {
       return {
         [this.lang]:
