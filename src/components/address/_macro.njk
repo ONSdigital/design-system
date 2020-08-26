@@ -73,12 +73,12 @@
                 {{
                     onsInput({
                         "id": params.id + "-uprn",
-                        "classes": "js-hidden-uprn",
+                        "classes": "js-hidden-uprn u-d-no",
                         "type": "hidden",
-                        "name": params.id + "-uprn"
+                        "name": params.id + "-uprn",
+                        "value": params.uprn.value
                     })
                 }}
-
                 <div class="u-mt-s">
                     <a href="#" class="js-address-search-btn u-db-no-js_disabled">{{ params.searchButton }}</a>
                 </div>

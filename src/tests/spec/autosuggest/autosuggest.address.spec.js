@@ -486,6 +486,36 @@ describe('Autosuggest.address component', function() {
             });
           });
         });
+
+        describe('when there is an error retrieving the address', function() {
+          beforeEach(function(done) {
+            this.selectedResult = {
+              uprn: 'bad',
+            };
+            this.handleAPIErrorSpy = chai.spy.on(this.autosuggestAddress, 'handleAPIError');
+            setTimeout(() => {
+              const response = {
+                status: {
+                  code: 400,
+                },
+              };
+              fetchMock.get(
+                'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/bad?addresstype=paf',
+                JSON.stringify(response),
+                {
+                  overwriteRoutes: true,
+                },
+              );
+              this.autosuggestAddress.onAddressSelect(this.selectedResult);
+              done();
+            });
+          });
+
+          it('then handleAPIError function should be called', function() {
+            this.autosuggestAddress.onAddressSelect(this.selectedResult).should.eventually.be.called();
+          });
+        });
+
         describe('when a grouped address is selected', function() {
           beforeEach(function(done) {
             this.selectedResult = {
