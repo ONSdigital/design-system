@@ -272,7 +272,7 @@ describe('Autosuggest.address component', function() {
             this.postcodeGroupsMappingSpy = chai.spy.on(this.autosuggestAddress, 'postcodeGroupsMapping');
             this.replaceSingleCountAddressesSpy = chai.spy.on(this.autosuggestAddress, 'replaceSingleCountAddresses');
             this.createAddressObjectSpy = chai.spy.on(this.autosuggestAddress, 'createAddressObject');
-
+            const lang = 'en-gb';
             this.results = {
               response: {
                 partpostcode: 'cf14 2',
@@ -297,6 +297,23 @@ describe('Autosuggest.address component', function() {
               },
             };
 
+            this.items = [
+              {
+                addressCount: 41,
+                [lang]: 'Penlline Road, Whitchurch, Cardiff, CF14 2AA (<span class="autosuggest-input__group">41 addresses</span>)',
+                firstUprn: 10002526869,
+                postTown: 'Cardiff',
+                postcode: 'CF14 2AA',
+                streetName: 'Penlline Road',
+                townName: 'Whitchurch',
+              },
+              {
+                [lang]: 'Penlline Road, Whitchurch, Cardiff, CF14 2AB',
+                sanitisedText: 'penlline road, whitchurch, cardiff, cf14 2ab',
+                uprn: '10002511038',
+              },
+            ];
+
             fetchMock.get(
               'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/bucket?postcode=CF14 2AA&streetname=Penlline Road&townname=Whitchurch&limit=100',
               JSON.stringify(this.results),
@@ -311,6 +328,7 @@ describe('Autosuggest.address component', function() {
 
           it('then the postcodeGroupsMapping function will be called', function() {
             expect(this.postcodeGroupsMappingSpy).to.have.been.called();
+            this.autosuggestAddress.postcodeGroupsMapping(this.results).should.eventually.eql(this.items);
           });
 
           it('then the replaceSingleCountAddresses function will be called', function() {
