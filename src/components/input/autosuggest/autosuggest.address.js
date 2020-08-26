@@ -26,7 +26,6 @@ export default class AutosuggestAddress {
     this.APIDomain = this.container.getAttribute('data-api-domain');
     // State
     this.fetch = null;
-    this.currentResults = [];
     this.totalResults = 0;
     this.errored = false;
     this.isEditable = context.querySelector(`.${classNotEditable}`) ? false : true;
@@ -151,20 +150,20 @@ export default class AutosuggestAddress {
   }
 
   async mapFindResults(results, limit, status) {
-    let mappedResults;
+    let mappedResults, currentResults;
     const total = results.total;
 
     if (results.partpostcode) {
       mappedResults = await this.postcodeGroupsMapping(results);
-      this.currentResults = mappedResults;
+      currentResults = mappedResults;
     } else if (results.addresses) {
       mappedResults = await this.addressMapping(results);
-      this.currentResults = mappedResults ? mappedResults.results.sort() : null;
+      currentResults = mappedResults ? mappedResults.results.sort() : null;
     } else {
-      this.currentResults = results.addresses;
+      currentResults = results.addresses;
     }
     return {
-      results: this.currentResults,
+      results: currentResults,
       totalResults: total,
       limit: limit,
       status: status,
