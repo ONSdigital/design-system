@@ -178,7 +178,7 @@ describe('Autosuggest.address component', function() {
         it('then the fetch url should contain the correct limit parameter', function() {
           this.limit = 10;
           expect(this.autosuggestAddress.fetch.url).to.equal(
-            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=R*&verbose=true',
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10',
           );
         });
 
@@ -224,7 +224,7 @@ describe('Autosuggest.address component', function() {
         it('then the fetch url should contain the correct limit parameter', function() {
           this.limit = 100;
           expect(this.autosuggestAddress.fetch.url).to.equal(
-            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100&classificationfilter=R*&verbose=true',
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100',
           );
         });
 
@@ -259,7 +259,7 @@ describe('Autosuggest.address component', function() {
           };
 
           fetchMock.get(
-            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=R*&verbose=true',
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10',
             JSON.stringify(this.response),
             {
               overwriteRoutes: true,
@@ -346,7 +346,7 @@ describe('Autosuggest.address component', function() {
             ];
 
             fetchMock.get(
-              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/bucket?postcode=CF14 2AA&streetname=Penlline Road&townname=Whitchurch&limit=100&classificationfilter=R*&verbose=true',
+              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/bucket?postcode=CF14 2AA&streetname=Penlline Road&townname=Whitchurch&limit=100',
               JSON.stringify(this.results),
               {
                 overwriteRoutes: true,
@@ -685,7 +685,7 @@ describe('Autosuggest.address component', function() {
     it('then the fetch url should contain the favour Welsh parameter', function() {
       this.limit = 10;
       expect(this.autosuggestAddress.fetch.url).to.equal(
-        'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=R*&verbose=true&favourwelsh=true',
+        'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&favourwelsh=true',
       );
     });
   });
@@ -693,45 +693,9 @@ describe('Autosuggest.address component', function() {
   describe('When the component initialises a non-editable address lookup', function() {
     const paramsAlt = {
       id: 'address',
-      label: {
-        text: 'Enter an address',
-        classes: 'js-autosuggest-label',
-      },
-      autocomplete: 'off',
       autosuggest: {
-        instructions:
-          'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
-        ariaYouHaveSelected: 'You have selected',
-        ariaFoundByAlternativeName: 'found by alternative name',
-        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
-        ariaMinChars: 'Enter 3 or more characters for suggestions.',
-        ariaOneResult: 'There is one suggestion available.',
-        ariaNResults: 'There are {n} suggestions available.',
-        ariaLimitedResults: 'Results have been limited to 10 suggestions. Enter more characters to improve your search.',
-        moreResults: 'Continue entering to improve suggestions',
-        resultsTitle: 'Suggestions',
-        noResults: 'No results found',
-        typeMore: 'Enter more of the address to get results',
-        tooManyResults: '{n} results found. Enter more of the address to improve results.',
-        errorTitle: 'There is a problem with your answer',
-        errorMessage: 'Enter an address ',
-        errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
         externalInitialiser: true,
       },
-      line1: {
-        label: 'Address line 1',
-      },
-      line2: {
-        label: 'Address line 2',
-      },
-      town: {
-        label: 'Town or city',
-      },
-      postcode: {
-        label: 'Postcode',
-      },
-      searchButton: 'Search for an address',
-      manualButton: 'Manually enter address',
     };
 
     beforeEach(function(done) {
@@ -777,6 +741,189 @@ describe('Autosuggest.address component', function() {
         it('then handleNoResults function should be called', function() {
           expect(this.handleNoResultsSpy).to.have.been.called();
         });
+      });
+    });
+  });
+
+  describe('When the component initialises with options - english, epoch, educational', function() {
+    const paramsOptions = {
+      id: 'address',
+      autosuggest: {
+        externalInitialiser: true,
+        options: {
+          region_code: 'gb-eng',
+          one_year_ago: true,
+          address_type: 'educational',
+        },
+      },
+    };
+
+    beforeEach(function(done) {
+      lang = 'en-gb';
+      const component = renderComponent(paramsOptions);
+
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+
+      const context = this.context;
+      this.autosuggestAddress = new AutosuggestAddress(context);
+      done();
+    });
+
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+      }
+    });
+
+    describe('and a query is sent', function() {
+      beforeEach(function(done) {
+        this.autosuggestAddress.suggestAddresses('195 colle', [], false);
+        setTimeout(done);
+      });
+
+      it('then the fetch url should contain the correct parameters', function() {
+        this.limit = 10;
+        expect(this.autosuggestAddress.fetch.url).to.equal('/addresses/eq?input=195 colle&limit=10&classificationfilter=CE*&epoch=72');
+      });
+    });
+  });
+
+  describe('When the component initialises with options - ni, educational', function() {
+    const paramsOptions = {
+      id: 'address',
+      autosuggest: {
+        externalInitialiser: true,
+        options: {
+          region_code: 'gb-nir',
+          address_type: 'educational',
+        },
+      },
+    };
+
+    beforeEach(function(done) {
+      lang = 'en-gb';
+      const component = renderComponent(paramsOptions);
+
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+
+      const context = this.context;
+      this.autosuggestAddress = new AutosuggestAddress(context);
+      done();
+    });
+
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+      }
+    });
+
+    describe('and a query is sent', function() {
+      beforeEach(function(done) {
+        this.autosuggestAddress.suggestAddresses('195 colle', [], false);
+        setTimeout(done);
+      });
+
+      it('then the fetch url should contain the correct parameters', function() {
+        this.limit = 10;
+        expect(this.autosuggestAddress.fetch.url).to.equal(
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=CE*&fromsource=nionly',
+        );
+      });
+    });
+  });
+
+  describe('When the component initialises with options - ni, workplace', function() {
+    const paramsOptions = {
+      id: 'address',
+      autosuggest: {
+        externalInitialiser: true,
+        options: {
+          region_code: 'gb-nir',
+          address_type: 'workplace',
+        },
+      },
+    };
+
+    beforeEach(function(done) {
+      lang = 'en-gb';
+      const component = renderComponent(paramsOptions);
+
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+
+      const context = this.context;
+      this.autosuggestAddress = new AutosuggestAddress(context);
+      done();
+    });
+
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+      }
+    });
+
+    describe('and a query is sent', function() {
+      beforeEach(function(done) {
+        this.autosuggestAddress.suggestAddresses('195 colle', [], false);
+        setTimeout(done);
+      });
+
+      it('then the fetch url should contain the correct parameters', function() {
+        this.limit = 10;
+        expect(this.autosuggestAddress.fetch.url).to.equal(
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&fromsource=niboost',
+        );
+      });
+    });
+  });
+
+  describe('When the component initialises with options - wales, workplace', function() {
+    const paramsOptions = {
+      id: 'address',
+      autosuggest: {
+        externalInitialiser: true,
+        options: {
+          region_code: 'gb-wls',
+          address_type: 'workplace',
+        },
+      },
+    };
+
+    beforeEach(function(done) {
+      lang = 'en-gb';
+      const component = renderComponent(paramsOptions);
+
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+
+      const context = this.context;
+      this.autosuggestAddress = new AutosuggestAddress(context);
+      done();
+    });
+
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+      }
+    });
+
+    describe('and a query is sent', function() {
+      beforeEach(function(done) {
+        this.autosuggestAddress.suggestAddresses('195 colle', [], false);
+        setTimeout(done);
+      });
+
+      it('then the fetch url should contain the correct parameters', function() {
+        this.limit = 10;
+        expect(this.autosuggestAddress.fetch.url).to.equal(
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&fromsource=ewboost',
+        );
       });
     });
   });

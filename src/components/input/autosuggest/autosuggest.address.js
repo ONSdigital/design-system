@@ -69,7 +69,7 @@ export default class AutosuggestAddress {
     // Query string options
     this.regionCode = this.container.getAttribute('data-type-region_code');
     this.epoch = this.container.getAttribute('data-type-one_year_ago');
-    this.classificationFilter = this.container.getAttribute('data-type-address_type') || 'R*&verbose=true';
+    this.classificationFilter = this.container.getAttribute('data-type-address_type');
 
     this.user = 'equser';
     this.password = '$4c@ec1zLBu';
@@ -327,22 +327,23 @@ export default class AutosuggestAddress {
   }
 
   generateURLParams(baseURL, uprn) {
-    let fullURL;
+    let fullURL = baseURL;
 
     if (!uprn) {
       // Partial query
-      if (this.classificationFilter === 'educational') {
-        this.classificationFilter = 'CE*'; // Convert keyword to code pattern match
+      if (this.classificationFilter && this.classificationFilter !== 'residential') {
+        if (this.classificationFilter === 'educational') {
+          this.classificationFilter = 'CE*'; // Convert keyword to code pattern match
+        }
+        fullURL = fullURL + '&classificationfilter=' + this.classificationFilter;
       }
 
-      fullURL = baseURL + '&classificationfilter=' + this.classificationFilter; // defaults to 'R*' (residential)
-
-      if (this.regionCode === ('gb-eng' || 'gb-wls') && this.classificationFilter === 'workplace') {
+      if ((this.regionCode === 'gb-eng' || this.regionCode === 'gb-wls') && this.classificationFilter === 'workplace') {
         fullURL = fullURL + '&fromsource=ewboost';
       }
 
       if (this.regionCode === 'gb-nir') {
-        if (this.classificationFilter === 'workplace' || (this.epoch && this.classificationFilter === 'R*')) {
+        if (this.classificationFilter === 'workplace') {
           fullURL = fullURL + '&fromsource=niboost';
         } else if (this.classificationFilter === 'CE*') {
           fullURL = fullURL + '&fromsource=nionly';
@@ -366,7 +367,7 @@ export default class AutosuggestAddress {
       fullURL = baseURL + '?addresstype=' + addressType;
     }
 
-    if (this.epoch) {
+    if (this.epoch === 'true') {
       fullURL = fullURL + '&epoch=72';
     }
 
