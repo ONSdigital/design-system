@@ -42,6 +42,9 @@ const params = {
     errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
     externalInitialiser: true,
     isEditable: true,
+    options: {
+      region_code: 'gb-eng',
+    },
   },
   line1: {
     label: 'Address line 1',
@@ -159,6 +162,7 @@ describe('Autosuggest.address component', function() {
         this.findAddressSpy = chai.spy.on(this.autosuggestAddress, 'findAddress');
         this.abortSpy = chai.spy.on(this.autosuggestAddress.fetch, 'abort');
         this.testPostcodeSpy = chai.spy.on(this.autosuggestAddress, 'testFullPostcodeQuery');
+        this.generateURLParamsSpy = chai.spy.on(this.autosuggestAddress, 'generateURLParams');
       });
 
       describe('and a query is sent', function() {
@@ -174,7 +178,7 @@ describe('Autosuggest.address component', function() {
         it('then the fetch url should contain the correct limit parameter', function() {
           this.limit = 10;
           expect(this.autosuggestAddress.fetch.url).to.equal(
-            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10',
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=R*&verbose=true',
           );
         });
 
@@ -213,10 +217,14 @@ describe('Autosuggest.address component', function() {
           expect(this.autosuggestAddress.testFullPostcodeQuery(postcode)).to.equal(true);
         });
 
+        it('then the generateURLParams function should be called', function() {
+          expect(this.generateURLParamsSpy).to.have.been.called();
+        });
+
         it('then the fetch url should contain the correct limit parameter', function() {
           this.limit = 100;
           expect(this.autosuggestAddress.fetch.url).to.equal(
-            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100',
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100&classificationfilter=R*&verbose=true',
           );
         });
 
@@ -251,7 +259,7 @@ describe('Autosuggest.address component', function() {
           };
 
           fetchMock.get(
-            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10',
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=R*&verbose=true',
             JSON.stringify(this.response),
             {
               overwriteRoutes: true,
@@ -338,7 +346,7 @@ describe('Autosuggest.address component', function() {
             ];
 
             fetchMock.get(
-              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/bucket?postcode=CF14 2AA&streetname=Penlline Road&townname=Whitchurch&limit=100',
+              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/bucket?postcode=CF14 2AA&streetname=Penlline Road&townname=Whitchurch&limit=100&classificationfilter=R*&verbose=true',
               JSON.stringify(this.results),
               {
                 overwriteRoutes: true,
@@ -677,7 +685,7 @@ describe('Autosuggest.address component', function() {
     it('then the fetch url should contain the favour Welsh parameter', function() {
       this.limit = 10;
       expect(this.autosuggestAddress.fetch.url).to.equal(
-        'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&favourwelsh=true',
+        'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=R*&verbose=true&favourwelsh=true',
       );
     });
   });

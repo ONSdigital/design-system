@@ -23,7 +23,7 @@ export default class AutosuggestAddress {
     this.form = context.closest('form');
     this.container = context.querySelector(`.${classInputContainer}`);
     this.errorMessage = this.container.getAttribute('data-error-message');
-    this.APIDomain = this.container.getAttribute('data-api-domain');
+
     // State
     this.fetch = null;
     this.totalResults = 0;
@@ -41,6 +41,7 @@ export default class AutosuggestAddress {
     if (this.form) {
       this.form.addEventListener('submit', this.handleSubmit.bind(this));
     }
+
     // Initialise address setter
     if (this.isEditable) {
       this.addressSetter = new AddressSetter(context);
@@ -60,9 +61,15 @@ export default class AutosuggestAddress {
     });
 
     // Set up AIMS api variables and auth
+    this.APIDomain = this.container.getAttribute('data-api-domain');
     this.lookupURL = `${this.APIDomain}/addresses/eq?input=`;
     this.lookupGroupURL = `${this.APIDomain}/addresses/eq/bucket?`;
     this.retrieveURL = `${this.APIDomain}/addresses/eq/uprn/`;
+
+    // Query string options
+    this.regionCode = this.container.getAttribute('data-type-region_code');
+    this.epoch = this.container.getAttribute('data-type-one_year_ago');
+    this.classificationFilter = this.container.getAttribute('data-type-address_type') || 'R*&verbose=true';
 
     this.user = 'equser';
     this.password = '$4c@ec1zLBu';
@@ -120,18 +127,12 @@ export default class AutosuggestAddress {
       let queryUrl;
       const testInput = this.testFullPostcodeQuery(text);
       let limit = testInput ? 100 : 10;
-      if (grouped) {
-        queryUrl = this.lookupGroupURL + this.groupQuery;
-      } else {
-        queryUrl = this.lookupURL + text;
-      }
 
-      queryUrl = queryUrl + '&limit=' + limit;
-      if (this.lang === 'cy') {
-        queryUrl = queryUrl + '&favourwelsh=true';
-      }
+      queryUrl = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
 
-      this.fetch = abortableFetch(queryUrl, {
+      const fullQueryURL = this.generateURLParams(queryUrl);
+
+      this.fetch = abortableFetch(fullQueryURL, {
         method: 'GET',
         headers: this.headers,
       });
@@ -253,8 +254,11 @@ export default class AutosuggestAddress {
 
   retrieveAddress(id) {
     return new Promise((resolve, reject) => {
-      let retrieveUrl = this.retrieveURL + id + '?addresstype=' + (this.lang === 'cy' ? 'welshpaf' : 'paf');
-      this.fetch = abortableFetch(retrieveUrl, {
+      let retrieveUrl = this.retrieveURL + id;
+
+      const fullUPRNURL = this.generateURLParams(retrieveUrl, id);
+
+      this.fetch = abortableFetch(fullUPRNURL, {
         method: 'GET',
         headers: this.headers,
       });
@@ -320,6 +324,53 @@ export default class AutosuggestAddress {
     resolve();
 
     return addressLines;
+  }
+
+  generateURLParams(baseURL, uprn) {
+    let fullURL;
+
+    if (!uprn) {
+      // Partial query
+      if (this.classificationFilter === 'educational') {
+        this.classificationFilter = 'CE*'; // Convert keyword to code pattern match
+      }
+
+      fullURL = baseURL + '&classificationfilter=' + this.classificationFilter; // defaults to 'R*' (residential)
+
+      if (this.regionCode === ('gb-eng' || 'gb-wls') && this.classificationFilter === 'workplace') {
+        fullURL = fullURL + '&fromsource=ewboost';
+      }
+
+      if (this.regionCode === 'gb-nir') {
+        if (this.classificationFilter === 'workplace' || (this.epoch && this.classificationFilter === 'R*')) {
+          fullURL = fullURL + '&fromsource=niboost';
+        } else if (this.classificationFilter === 'CE*') {
+          fullURL = fullURL + '&fromsource=nionly';
+        }
+      }
+
+      if (this.lang === 'cy') {
+        fullURL = fullURL + '&favourwelsh=true';
+      }
+    } else if (uprn) {
+      // UPRN endpoint query
+      let addressType;
+
+      if (this.regionCode === 'gb-nir') {
+        addressType = 'nisra';
+      } else if (this.lang === 'cy') {
+        addressType = 'welshpaf';
+      } else {
+        addressType = 'paf';
+      }
+      fullURL = baseURL + '?addresstype=' + addressType;
+    }
+
+    if (this.epoch) {
+      fullURL = fullURL + '&epoch=72';
+    }
+
+    return fullURL;
   }
 
   handleAPIError() {
