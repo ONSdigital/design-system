@@ -880,6 +880,17 @@ describe('Autosuggest.address component', function() {
         );
       });
     });
+
+    describe('and an address is selected', function() {
+      beforeEach(function(done) {
+        this.autosuggestAddress.retrieveAddress('11000000');
+        setTimeout(done);
+      });
+
+      it('then the retrieve url should contain the correct parameters', function() {
+        expect(this.autosuggestAddress.fetch.url).to.equal('/addresses/eq/uprn/11000000?addresstype=nisra');
+      });
+    });
   });
 
   describe('When the component initialises with options - wales, workplace', function() {
@@ -895,7 +906,7 @@ describe('Autosuggest.address component', function() {
     };
 
     beforeEach(function(done) {
-      lang = 'en-gb';
+      lang = 'cy';
       const component = renderComponent(paramsOptions);
 
       Object.keys(component).forEach(key => {
@@ -922,8 +933,19 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&fromsource=ewboost',
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&fromsource=ewboost&favourwelsh=true',
         );
+      });
+    });
+
+    describe('and an address is selected', function() {
+      beforeEach(function(done) {
+        this.autosuggestAddress.retrieveAddress('11000000');
+        setTimeout(done);
+      });
+
+      it('then the retrieve url should contain the correct parameters', function() {
+        expect(this.autosuggestAddress.fetch.url).to.equal('/addresses/eq/uprn/11000000?addresstype=welshpaf');
       });
     });
   });

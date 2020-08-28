@@ -327,48 +327,55 @@ export default class AutosuggestAddress {
   }
 
   generateURLParams(baseURL, uprn) {
-    let fullURL = baseURL;
+    let fullURL = baseURL,
+      addressType;
+
+    const classificationFilterParam = '&classificationfilter=',
+      ewboostParam = '&fromsource=ewboost',
+      niboostParam = '&fromsource=niboost',
+      nionlyParam = '&fromsource=nionly',
+      favourwelshParam = '&favourwelsh=true',
+      addresstypeParam = '?addresstype=',
+      epochParam = '&epoch=72';
+
+    if (this.classificationFilter === 'educational') {
+      this.classificationFilter = 'CE*'; // Convert keyword to code pattern match until AIMS keyword available
+    }
+
+    if (this.regionCode === 'gb-nir') {
+      addressType = 'nisra';
+    } else if (this.lang === 'cy') {
+      addressType = 'welshpaf';
+    } else {
+      addressType = 'paf';
+    }
 
     if (!uprn) {
-      // Partial query
       if (this.classificationFilter && this.classificationFilter !== 'residential') {
-        if (this.classificationFilter === 'educational') {
-          this.classificationFilter = 'CE*'; // Convert keyword to code pattern match
-        }
-        fullURL = fullURL + '&classificationfilter=' + this.classificationFilter;
+        fullURL = fullURL + classificationFilterParam + this.classificationFilter;
       }
 
       if ((this.regionCode === 'gb-eng' || this.regionCode === 'gb-wls') && this.classificationFilter === 'workplace') {
-        fullURL = fullURL + '&fromsource=ewboost';
+        fullURL = fullURL + ewboostParam;
       }
 
       if (this.regionCode === 'gb-nir') {
         if (this.classificationFilter === 'workplace') {
-          fullURL = fullURL + '&fromsource=niboost';
+          fullURL = fullURL + niboostParam;
         } else if (this.classificationFilter === 'CE*') {
-          fullURL = fullURL + '&fromsource=nionly';
+          fullURL = fullURL + nionlyParam;
         }
       }
 
       if (this.lang === 'cy') {
-        fullURL = fullURL + '&favourwelsh=true';
+        fullURL = fullURL + favourwelshParam;
       }
     } else if (uprn) {
-      // UPRN endpoint query
-      let addressType;
-
-      if (this.regionCode === 'gb-nir') {
-        addressType = 'nisra';
-      } else if (this.lang === 'cy') {
-        addressType = 'welshpaf';
-      } else {
-        addressType = 'paf';
-      }
-      fullURL = baseURL + '?addresstype=' + addressType;
+      fullURL = baseURL + addresstypeParam + addressType;
     }
 
     if (this.epoch === 'true') {
-      fullURL = fullURL + '&epoch=72';
+      fullURL = fullURL + epochParam;
     }
 
     return fullURL;
