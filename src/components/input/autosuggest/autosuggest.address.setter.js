@@ -55,6 +55,9 @@ export default class AddressSetter {
   setManualMode(manual, clearInputs) {
     this.manual.classList[manual ? 'remove' : 'add']('u-db-no-js_enabled');
     this.search.classList[manual ? 'add' : 'remove']('u-d-no');
+    if (this.errorPanel) {
+      this.errorPanel.classList[manual ? 'remove' : 'add']('u-d-no');
+    }
 
     if (clearInputs) {
       this.onUnsetAddress();
