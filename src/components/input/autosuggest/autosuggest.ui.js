@@ -19,6 +19,7 @@ export default class AutosuggestUI {
     context,
     autosuggestData,
     sanitisedQueryReplaceChars,
+    sanitisedQuerySplitNumsChars,
     minChars,
     resultLimit,
     suggestOnBoot,
@@ -98,6 +99,7 @@ export default class AutosuggestUI {
     this.blurring = false;
     this.blurTimeout = null;
     this.sanitisedQueryReplaceChars = sanitisedQueryReplaceChars || [];
+    this.sanitisedQuerySplitNumsChars = sanitisedQuerySplitNumsChars || false;
 
     // Temporary fix as runner doesn't use full lang code
     if (this.lang === 'en') {
