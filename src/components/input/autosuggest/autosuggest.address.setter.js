@@ -1,4 +1,3 @@
-import triggerEvent from 'js/utils/trigger-event';
 import AddressError from './autosuggest.address.error';
 
 export const classAutosuggestInput = 'js-autosuggest-input';
@@ -89,8 +88,6 @@ export default class AddressSetter {
     this.town.value = addressLines.townName;
     this.postcode.value = addressLines.postcode;
 
-    this.triggerManualInputsChanges();
-
     this.setManualMode(true, false);
   }
 
@@ -98,17 +95,9 @@ export default class AddressSetter {
     this.clearManualInputs();
   }
 
-  clearManualInputs(triggerEvent = true) {
+  clearManualInputs() {
     this.manualInputs.forEach(input => {
       input.value = '';
     });
-
-    if (triggerEvent) {
-      this.triggerManualInputsChanges();
-    }
-  }
-
-  triggerManualInputsChanges() {
-    this.manualInputs.forEach(triggerEvent);
   }
 }
