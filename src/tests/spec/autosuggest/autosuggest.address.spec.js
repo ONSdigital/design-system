@@ -482,17 +482,12 @@ describe('Autosuggest.address component', function() {
             beforeEach(function(done) {
               this.addressSetter = new AddressSetter(this.context);
               this.manualModeSpy = chai.spy.on(this.addressSetter, 'setManualMode');
-              this.triggerManualInputsChangesSpy = chai.spy.on(this.addressSetter, 'triggerManualInputsChanges');
               this.addressSetter.setAddress(this.formattedAddress);
               setTimeout(done);
             });
 
             it('then manual mode should be set', function() {
               expect(this.manualModeSpy).to.have.been.called();
-            });
-
-            it('then triggerManualInputsChanges should be called', function() {
-              expect(this.triggerManualInputsChangesSpy).to.have.been.called();
             });
 
             it('then the manual inputs should match the formatted address lines', function() {
