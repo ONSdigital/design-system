@@ -27,7 +27,6 @@ export default class AutosuggestUI {
     onUnsetResult,
     suggestionFunction,
     handleUpdate,
-    lang,
     ariaYouHaveSelected,
     ariaMinChars,
     ariaOneResult,
