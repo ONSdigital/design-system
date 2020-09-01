@@ -32,15 +32,23 @@ This example is powered by a JavaScript library called {{
 
 The autosuggests expect the response from the library to return the results as an array.
 
-#### Example response
+#### Example data
 
 ```
-{
-    "results": [
-        "United Kingdom"
-    ],
-    "totalResults": 1
-}
+[
+    "Wales",
+    "Scotland",
+    "England",
+    "United Kingdom"
+]
+```
+
+#### Example response if someone typed in "Uni"
+
+```
+[
+    {item: "United Kingdom"}
+]
 ```
 
 ### Using the address API

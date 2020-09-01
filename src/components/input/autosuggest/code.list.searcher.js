@@ -10,5 +10,6 @@ export default function queryJson(query, data) {
 
   const fuse = new Fuse(data, options);
   let result = fuse.search(query);
+  console.log(result);
   return result;
 }
