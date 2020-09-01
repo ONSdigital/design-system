@@ -31,7 +31,7 @@
                 {% if option.disabled is defined and option.disabled %}disabled {% endif %}
                 {% if params.attributes is defined %}{% for attribute, value in option.attributes %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
             >
-                {{ option.text }}
+                {{- option.text -}}
             </option>
             {% endfor %}
         </select>
