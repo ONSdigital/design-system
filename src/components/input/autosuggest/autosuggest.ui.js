@@ -19,11 +19,11 @@ export default class AutosuggestUI {
     context,
     autosuggestData,
     sanitisedQueryReplaceChars,
+    sanitisedQuerySplitNumsChars,
     minChars,
     resultLimit,
     suggestOnBoot,
     onSelect,
-    onError,
     onUnsetResult,
     suggestionFunction,
     handleUpdate,
@@ -74,7 +74,6 @@ export default class AutosuggestUI {
     // Callbacks
     this.onSelect = onSelect;
     this.onUnsetResult = onUnsetResult;
-    this.onError = onError;
     this.handleUpdate = handleUpdate;
 
     if (suggestionFunction) {
@@ -100,6 +99,7 @@ export default class AutosuggestUI {
     this.blurring = false;
     this.blurTimeout = null;
     this.sanitisedQueryReplaceChars = sanitisedQueryReplaceChars || [];
+    this.sanitisedQuerySplitNumsChars = sanitisedQuerySplitNumsChars || false;
 
     // Temporary fix as runner doesn't use full lang code
     if (this.lang === 'en') {
@@ -272,8 +272,7 @@ export default class AutosuggestUI {
           this.fetchSuggestions(this.sanitisedQuery, this.data, alternative)
             .then(this.handleResults.bind(this))
             .catch(error => {
-              if (error.name !== 'AbortError' && this.onError) {
-                this.onError(error);
+              if (error.name !== 'AbortError') {
                 this.handleNoResults(500);
               }
             });

@@ -23,11 +23,9 @@ export default class AutosuggestAddress {
     this.form = context.closest('form');
     this.container = context.querySelector(`.${classInputContainer}`);
     this.errorMessage = this.container.getAttribute('data-error-message');
-    this.APIDomain = this.container.getAttribute('data-api-domain');
+
     // State
-    this.currentQuery = null;
     this.fetch = null;
-    this.currentResults = [];
     this.totalResults = 0;
     this.errored = false;
     this.isEditable = context.querySelector(`.${classNotEditable}`) ? false : true;
@@ -55,7 +53,6 @@ export default class AutosuggestAddress {
       onSelect: this.onAddressSelect.bind(this),
       lang: this.lang,
       suggestionFunction: this.suggestAddresses.bind(this),
-      onError: this.onError.bind(this),
       sanitisedQueryReplaceChars: this.addressReplaceChars,
       sanitisedQuerySplitNumsChars: this.sanitisedQuerySplitNumsChars,
       minChars: 3,
@@ -64,9 +61,15 @@ export default class AutosuggestAddress {
     });
 
     // Set up AIMS api variables and auth
+    this.APIDomain = this.container.getAttribute('data-api-domain');
     this.lookupURL = `${this.APIDomain}/addresses/eq?input=`;
     this.lookupGroupURL = `${this.APIDomain}/addresses/eq/bucket?`;
     this.retrieveURL = `${this.APIDomain}/addresses/eq/uprn/`;
+
+    // Query string options
+    this.regionCode = this.container.getAttribute('data-type-region_code');
+    this.epoch = this.container.getAttribute('data-type-one_year_ago');
+    this.classificationFilter = this.container.getAttribute('data-type-address_type');
 
     this.user = 'equser';
     this.password = '$4c@ec1zLBu';
@@ -101,31 +104,21 @@ export default class AutosuggestAddress {
         if (this.isEditable) {
           this.handleAPIError();
         } else {
-          this.autosuggest.handleNoResults(403);
+          this.autosuggest.handleNoResults(status);
         }
       });
   }
 
   suggestAddresses(query, [], grouped) {
     return new Promise((resolve, reject) => {
-      if (this.currentQuery === query && this.currentQuery.length && (this.currentResults ? this.currentResults.length : 0)) {
-        resolve({
-          results: this.currentResults,
-          totalResults: this.currentResults.length,
-        });
-      } else {
-        this.currentQuery = query;
-        this.currentResults = [];
-
-        if (this.fetch && this.fetch.status !== 'DONE') {
-          this.fetch.abort();
-        }
-
-        this.reject = reject;
-        this.findAddress(query, grouped)
-          .then(resolve)
-          .catch(reject);
+      if (this.fetch && this.fetch.status !== 'DONE') {
+        this.fetch.abort();
       }
+
+      this.reject = reject;
+      this.findAddress(query, grouped)
+        .then(resolve)
+        .catch(reject);
     });
   }
 
@@ -134,19 +127,12 @@ export default class AutosuggestAddress {
       let queryUrl;
       const testInput = this.testFullPostcodeQuery(text);
       let limit = testInput ? 100 : 10;
-      if (grouped) {
-        queryUrl = this.lookupGroupURL + this.groupQuery;
-      } else {
-        queryUrl = this.lookupURL + text;
-      }
 
-      queryUrl = queryUrl + '&limit=' + limit;
+      queryUrl = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
 
-      if (this.lang === 'cy') {
-        queryUrl = queryUrl + '&favourwelsh=true';
-      }
+      const fullQueryURL = this.generateURLParams(queryUrl);
 
-      this.fetch = abortableFetch(queryUrl, {
+      this.fetch = abortableFetch(fullQueryURL, {
         method: 'GET',
         headers: this.headers,
       });
@@ -165,20 +151,20 @@ export default class AutosuggestAddress {
   }
 
   async mapFindResults(results, limit, status) {
-    let mappedResults;
+    let mappedResults, currentResults;
     const total = results.total;
 
     if (results.partpostcode) {
       mappedResults = await this.postcodeGroupsMapping(results);
-      this.currentResults = mappedResults;
+      currentResults = mappedResults;
     } else if (results.addresses) {
       mappedResults = await this.addressMapping(results);
-      this.currentResults = mappedResults ? mappedResults.results.sort() : null;
+      currentResults = mappedResults ? mappedResults.results.sort() : null;
     } else {
-      this.currentResults = results.addresses;
+      currentResults = results.addresses;
     }
     return {
-      results: this.currentResults,
+      results: currentResults,
       totalResults: total,
       limit: limit,
       status: status,
@@ -268,8 +254,11 @@ export default class AutosuggestAddress {
 
   retrieveAddress(id) {
     return new Promise((resolve, reject) => {
-      let retrieveUrl = this.retrieveURL + id + '?addresstype=' + (this.lang === 'cy' ? 'welshpaf' : 'paf');
-      this.fetch = abortableFetch(retrieveUrl, {
+      let retrieveUrl = this.retrieveURL + id;
+
+      const fullUPRNURL = this.generateURLParams(retrieveUrl, id);
+
+      this.fetch = abortableFetch(fullUPRNURL, {
         method: 'GET',
         headers: this.headers,
       });
@@ -337,19 +326,59 @@ export default class AutosuggestAddress {
     return addressLines;
   }
 
-  onError(error) {
-    if (this.fetch) {
-      this.fetch.abort();
+  generateURLParams(baseURL, uprn) {
+    let fullURL = baseURL,
+      addressType;
+
+    const classificationFilterParam = '&classificationfilter=',
+      ewboostParam = '&fromsource=ewboost',
+      niboostParam = '&fromsource=niboost',
+      nionlyParam = '&fromsource=nionly',
+      favourwelshParam = '&favourwelsh=true',
+      addresstypeParam = '?addresstype=',
+      epochParam = '&epoch=72';
+
+    if (this.classificationFilter === 'educational') {
+      this.classificationFilter = 'CE*'; // Convert keyword to code pattern match until AIMS keyword available
     }
 
-    // Prevent error message from firing twice
-    if (!this.errored) {
-      this.errored = true;
-      console.log('error:', error);
-      setTimeout(() => {
-        this.errored = false;
-      });
+    if (this.regionCode === 'gb-nir') {
+      addressType = 'nisra';
+    } else if (this.lang === 'cy') {
+      addressType = 'welshpaf';
+    } else {
+      addressType = 'paf';
     }
+
+    if (!uprn) {
+      if (this.classificationFilter && this.classificationFilter !== 'residential') {
+        fullURL = fullURL + classificationFilterParam + this.classificationFilter;
+      }
+
+      if ((this.regionCode === 'gb-eng' || this.regionCode === 'gb-wls') && this.classificationFilter === 'workplace') {
+        fullURL = fullURL + ewboostParam;
+      }
+
+      if (this.regionCode === 'gb-nir') {
+        if (this.classificationFilter === 'workplace') {
+          fullURL = fullURL + niboostParam;
+        } else if (this.classificationFilter === 'CE*') {
+          fullURL = fullURL + nionlyParam;
+        }
+      }
+
+      if (this.lang === 'cy') {
+        fullURL = fullURL + favourwelshParam;
+      }
+    } else if (uprn) {
+      fullURL = baseURL + addresstypeParam + addressType;
+    }
+
+    if (this.epoch === 'true') {
+      fullURL = fullURL + epochParam;
+    }
+
+    return fullURL;
   }
 
   handleAPIError() {
@@ -364,9 +393,8 @@ export default class AutosuggestAddress {
       (this.input.value === '' && !this.search.classList.contains('u-d-no'))
     ) {
       event.preventDefault();
-      const handleError = new AddressError(this.context);
-      handleError.showErrorPanel();
-
+      this.handleError = new AddressError(this.context);
+      this.handleError.showErrorPanel();
       this.autosuggest.setAriaStatus(this.errorMessage);
     }
   }
