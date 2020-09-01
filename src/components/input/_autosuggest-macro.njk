@@ -2,7 +2,7 @@
     {% set content = caller() %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}js-autosuggest{% endif %} {% if params.isEditable %}js-address-not-editable{% endif %} autosuggest-input {{ params.classes }}"
+        class="{% if not params.externalInitialiser %}js-autosuggest{% endif %} {% if not params.isEditable %}js-address-not-editable{% endif %} autosuggest-input {{ params.classes }}"
         data-api-domain="{{ params.APIDomain }}"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
@@ -21,7 +21,7 @@
         data-error-select="{{ params.errorMessageSelect }}"
         data-error-api="{{ params.errorMessageAPI }}"
         data-error-api-link-text="{{ params.errorMessageAPILinkText }}"
-        {% if params.dataQueries %}{% for query, value in (params.dataQueries.items() if params.dataQueries is mapping and params.dataQueries.items else params.dataQueries) %}data-type-{{ query }}="{{ value }}" {% endfor %}{% endif %}
+        {% if params.options %}{% for query, value in (params.options.items() if params.options is mapping and params.options.items else params.options) %}data-type-{{ query }}="{{ value }}" {% endfor %}{% endif %}
 
     >
         {{ content | safe }}
