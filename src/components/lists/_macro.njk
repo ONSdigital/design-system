@@ -1,4 +1,5 @@
 {% macro onsList(params) %}
+    {% set classes = params.classes | lower %}
     {% if params.element is defined %}
         {% set listEl = params.element | lower %}
     {% else %}
@@ -9,10 +10,10 @@
         {%- for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
             <li class="list__item {{ item.listclass }}" {% if item.current is defined %}aria-current="true"{% endif %}>
                 {%- if item.index is defined or item.prefix is defined or item.prefixIcon is defined -%}
-                    <span class="list__prefix" aria-hidden="true">
+                    <span class="list__prefix"{% if listEl !== 'ol' %} aria-hidden="true"{% endif %}>
                     {%- if item.prefixText is defined -%}
                         {{- item.prefixText -}}.
-                    {%- elif item.index is defined -%}
+                    {%- elif (item.index is defined and listEl !== 'ol') or (item.index is defined and listEl == 'ol' and 'list--bare' in classes) -%}
                         {{- loop.index -}}.
                     {% elif item.prefixIcon is defined %}
                         {% from "components/icons/_macro.njk" import onsIcon %}
