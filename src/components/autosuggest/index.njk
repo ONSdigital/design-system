@@ -30,30 +30,18 @@ This example is powered by a JavaScript library called {{
 
 #### Response object
 
-The autosuggests expect the response from the library to return the results as JSON objects in an array.
-
-#### AutosuggestResultItem
-
-The AutosuggestResultItem should consist of at least a key corresponding to the searched language (e.g. `en-gb`) with its corresponding value.
+The autosuggests expect the response from the library to return the results as an array.
 
 #### Example response
 
 ```
 {
     "results": [
-        {
-            "en-gb": "United Kingdom",
-            "cy": "Deyrnas Unedig"
-        }
+        "United Kingdom"
     ],
     "totalResults": 1
 }
 ```
-
-The autosuggest component sends a `searchFields` parameter in it's query string that matches the `lang` attribute on the `<html>` element of the page.
-
-The autosuggest component will search the `cy` or the `en-gb` data to find results depending on the `searchFields` parameter.
-
 
 ### Using the address API
 {{
