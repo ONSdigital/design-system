@@ -71,7 +71,7 @@
 .input--select {
   appearance: none;
   padding: 0.5rem 2rem 0.5rem $input-padding-horizontal;
-  background: $color-white url('#{$static}/img/icons/icons--chevron-down.svg') no-repeat center right 10px;
+  background: $color-white url('#{$static}/img/icons--chevron-down.svg') no-repeat center right 10px;
   background-size: 1rem;
 
   &::-ms-expand {

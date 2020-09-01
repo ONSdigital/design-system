@@ -95,7 +95,6 @@ describe('Autosuggest.ui component', function() {
         context: this.context,
         onSelect: async () => {},
         onUnsetResult: async () => {},
-        onError: async () => {},
       });
     });
 
@@ -358,7 +357,6 @@ describe('Autosuggest.ui component', function() {
         this.fetchSuggestionsSpy = chai.spy.on(this.autosuggest, 'fetchSuggestions');
         this.clearListboxSpy = chai.spy.on(this.autosuggest, 'clearListbox');
         this.handleResultsSpy = chai.spy.on(this.autosuggest, 'handleResults');
-        this.onErrorSpy = chai.spy.on(this.autosuggest, 'onError');
       });
 
       describe('if a result is being set', function() {
@@ -502,10 +500,6 @@ describe('Autosuggest.ui component', function() {
           this.autosuggest.getSuggestions();
 
           setTimeout(done);
-        });
-
-        it('then onError shouldnt be called', function() {
-          expect(this.onErrorSpy).to.not.have.been.called();
         });
       });
     });
@@ -1218,7 +1212,6 @@ describe('Autosuggest.ui component', function() {
         context: this.context,
         onSelect: () => {},
         onUnsetResult: () => {},
-        onError: () => {},
       });
     });
 
@@ -1290,7 +1283,6 @@ describe('Autosuggest.ui component', function() {
         context: this.context,
         onSelect: async () => {},
         onUnsetResult: async () => {},
-        onError: async () => {},
         suggestionFunction: this.customSuggestionFunctionSpy,
       });
     });
@@ -1349,6 +1341,5 @@ function getSuggestionsNothingRunTests() {
     expect(this.fetchSuggestionsSpy).to.not.have.been.called();
     expect(this.clearListboxSpy).to.not.have.been.called();
     expect(this.handleResultsSpy).to.not.have.been.called();
-    expect(this.onErrorSpy).to.not.have.been.called();
   });
 }
