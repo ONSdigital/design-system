@@ -11,10 +11,6 @@
 .hero__title {
   font-size: 2.3rem;
   line-height: 1.2;
-
-  @include mq(m) {
-    font-size: 3rem;
-  }
 }
 
 // Census theme
@@ -44,7 +40,7 @@
     border-radius: 50%;
     height: 382px;
     right: -8px;
-    top: -145px;
+    top: -117px;
     width: 382px;
     z-index: 2;
 
@@ -70,11 +66,11 @@
     background-color: $color-white;
     border-radius: 50%;
     display: block;
-    height: 913px;
-    right: 50%;
-    top: 1rem;
-    transform: translateX(50%);
-    width: 913px;
+    height: 990px;
+    left: 50%;
+    margin-left: -495px; // Half of circle
+    top: 27px;
+    width: 990px;
     z-index: 1;
   }
 
@@ -88,7 +84,7 @@
   }
 
   .hero__details {
-    padding-top: 250px;
+    padding-top: 283px;
     padding-bottom: 2rem;
     position: relative;
     z-index: 5;
@@ -99,34 +95,39 @@
   }
 
   @include mq(m) {
+    .hero__title {
+      font-size: 3rem;
+    }
+
     .hero__details {
       padding-top: 2rem;
-      padding-bottom: 2rem;
+    }
+
+    .hero__circle-white {
+      left: -331px;
+      top: -288px;
+      margin: auto; // Reset
     }
 
     .hero__container {
       align-items: center;
     }
-
-    .hero__circle-white {
-      margin-top: -450px;
-      transform: none;
-      right: 191px; // Half the image circle
-      top: 50%;
-    }
   }
 
   @include mq(l) {
+    .hero__details {
+      padding-right: 1rem;
+    }
+
     .hero__circle-image {
-      bottom: 1rem;
-      height: 560px;
+      top: -176px;
+      height: 558px;
       margin: auto;
       right: 0;
-      top: auto; // Reset
-      width: 560px;
+      width: 558px;
 
       img {
-        clip-path: circle(280px at center); // Half width of circle
+        clip-path: circle(279px at center); // Half width of circle
       }
     }
 
@@ -137,16 +138,14 @@
     }
 
     .hero__circle-white {
-      right: 490px;
-      left: auto;
+      top: -369px;
     }
 
     .hero__circle-lined {
-      top: auto; // Reset
-      bottom: -88px;
-      height: 248px;
+      top: 292px; // Reset
+      height: 243px;
       right: 0;
-      width: 248px;
+      width: 243px;
     }
   }
 }
