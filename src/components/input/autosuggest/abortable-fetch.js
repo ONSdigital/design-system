@@ -24,7 +24,7 @@ class AbortableFetch {
           }
         })
         .catch(error => {
-          this.status = 'DONE';
+          this.status = 'undefined';
           reject(error);
         });
     });

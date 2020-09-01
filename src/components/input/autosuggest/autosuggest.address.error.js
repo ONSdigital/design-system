@@ -71,7 +71,6 @@ export default class AddressError {
       inputErrorPanel.id = 'autosuggest-input-error';
       inputErrorPanelBody.className = 'panel__body';
       inputErrorPanelP.className = 'panel__error';
-      console.log(this.errorMessageEnter);
       inputErrorPanelStrong.innerHTML = this.input.value === '' ? this.errorMessageEnter : this.errorMessageSelect;
 
       inputErrorPanel.appendChild(inputErrorPanelBody);

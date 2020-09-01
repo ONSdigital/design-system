@@ -3,8 +3,8 @@
 
 {% macro onsAddressInput(params) %}
    {% set fields %}
-    <div id="address" class="field address-input js-address-autosuggest address-input--search">
-            <div class="js-address-input__manual u-db-no-js_enabled">
+    <div id="address" class="field address-input {% if params.autosuggest is defined %}js-address-autosuggest {% endif %}address-input--search">
+            <div class="js-address-input__manual{% if params.autosuggest is defined %} u-db-no-js_enabled{% endif %}">
                 {% if params.organisation is defined %}
                     {{
                         onsInput({
@@ -73,53 +73,55 @@
                 {{
                     onsInput({
                         "id": params.id + "-uprn",
-                        "classes": "js-hidden-uprn",
+                        "classes": "js-hidden-uprn u-d-no",
                         "type": "hidden",
-                        "name": params.id + "-uprn"
+                        "name": params.id + "-uprn",
+                        "value": params.uprn.value
                     })
                 }}
-
-                <div class="u-mt-s">
-                    <a href="#" class="js-address-search-btn u-db-no-js_disabled">{{ params.searchButton }}</a>
-                </div>
+                {% if params.autosuggest is defined %}
+                    <div class="u-mt-s">
+                        <a href="#" class="js-address-search-btn u-db-no-js_disabled">{{ params.searchButton }}</a>
+                    </div>
+                {% endif %}
             </div>
             {% if params.autosuggest is defined %}
-            <div class="js-address-input__search u-db-no-js_disabled">
-                {{
-                    onsInput({
-                        "id": params.id + "-autosuggest",
-                        "classes": "address-input__autosuggest js-autosuggest-input input--w-50",
-                        "label": {
-                            "text": params.autosuggest.label.text,
-                            "classes": "js-autosuggest-label"
-                        },
-                        "autosuggest": {
-                            "externalInitialiser": true,
-                            "APIDomain": params.autosuggest.APIDomain,
-                            "instructions": params.autosuggest.instructions,
-                            "autocomplete": params.autosuggest.autocomplete,
-                            "isEditable": params.autosuggest.isEditable,
-                            "ariaYouHaveSelected": params.autosuggest.ariaYouHaveSelected,
-                            "ariaMinChars": params.autosuggest.ariaMinChars,
-                            "ariaOneResult": params.autosuggest.ariaOneResult,
-                            "ariaNResults": params.autosuggest.ariaNResults,
-                            "ariaLimitedResults": params.autosuggest.ariaLimitedResults,
-                            "moreResults": params.autosuggest.moreResults,
-                            "tooManyResults": params.autosuggest.tooManyResults,
-                            "resultsTitle": params.autosuggest.resultsTitle,
-                            "noResults": params.autosuggest.noResults,
-                            "typeMore": params.autosuggest.typeMore,
-                            "errorTitle": params.autosuggest.errorTitle,
-                            "errorMessageEnter": params.autosuggest.errorMessageEnter,
-                            "errorMessageSelect": params.autosuggest.errorMessageSelect,
-                            "errorMessageAPI": params.autosuggest.errorMessageAPI,
-                            "errorMessageAPILinkText": params.autosuggest.errorMessageAPILinkText,
-                            "dataQueries": params.autosuggest.dataQueries
-                        }
-                    })
-                }}
+                <div class="js-address-input__search u-db-no-js_disabled">
+                    {{
+                        onsInput({
+                            "id": params.id + "-autosuggest",
+                            "classes": "address-input__autosuggest js-autosuggest-input input--w-50",
+                            "label": {
+                                "text": params.autosuggest.label.text,
+                                "classes": "js-autosuggest-label"
+                            },
+                            "autosuggest": {
+                                "externalInitialiser": true,
+                                "APIDomain": params.autosuggest.APIDomain,
+                                "instructions": params.autosuggest.instructions,
+                                "autocomplete": params.autosuggest.autocomplete,
+                                "isEditable": params.autosuggest.isEditable,
+                                "ariaYouHaveSelected": params.autosuggest.ariaYouHaveSelected,
+                                "ariaMinChars": params.autosuggest.ariaMinChars,
+                                "ariaOneResult": params.autosuggest.ariaOneResult,
+                                "ariaNResults": params.autosuggest.ariaNResults,
+                                "ariaLimitedResults": params.autosuggest.ariaLimitedResults,
+                                "moreResults": params.autosuggest.moreResults,
+                                "tooManyResults": params.autosuggest.tooManyResults,
+                                "resultsTitle": params.autosuggest.resultsTitle,
+                                "noResults": params.autosuggest.noResults,
+                                "typeMore": params.autosuggest.typeMore,
+                                "errorTitle": params.autosuggest.errorTitle,
+                                "errorMessageEnter": params.autosuggest.errorMessageEnter,
+                                "errorMessageSelect": params.autosuggest.errorMessageSelect,
+                                "errorMessageAPI": params.autosuggest.errorMessageAPI,
+                                "errorMessageAPILinkText": params.autosuggest.errorMessageAPILinkText,
+                                "options": params.autosuggest.options
+                            }
+                        })
+                    }}
+                    <a href="#" class="js-address-manual-btn">{{ params.manualButton }}</a>
                 {% endif %}
-                <a href="#" class="js-address-manual-btn">{{ params.manualButton }}</a>
             </div>
         </div>
     {% endset %}
