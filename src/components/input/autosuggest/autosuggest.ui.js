@@ -69,7 +69,6 @@ export default class AutosuggestUI {
     this.minChars = minChars || 3;
     this.resultLimit = resultLimit || 10;
     this.suggestOnBoot = suggestOnBoot;
-    this.lang = lang || 'en-gb';
 
     // Callbacks
     this.onSelect = onSelect;
@@ -100,11 +99,6 @@ export default class AutosuggestUI {
     this.blurring = false;
     this.blurTimeout = null;
     this.sanitisedQueryReplaceChars = sanitisedQueryReplaceChars || [];
-
-    // Temporary fix as runner doesn't use full lang code
-    if (this.lang === 'en') {
-      this.lang = 'en-gb';
-    }
 
     this.initialiseUI();
   }
@@ -139,7 +133,6 @@ export default class AutosuggestUI {
     this.input.addEventListener('keydown', this.handleKeydown.bind(this));
     this.input.addEventListener('keyup', this.handleKeyup.bind(this));
     this.input.addEventListener('input', this.handleChange.bind(this));
-    // this.input.addEventListener('focus', this.handleFocus.bind(this));
     this.input.addEventListener('blur', this.handleBlur.bind(this));
 
     this.listbox.addEventListener('mouseover', this.handleMouseover.bind(this));
@@ -200,11 +193,6 @@ export default class AutosuggestUI {
       this.clearListbox();
     }
   }
-
-  // handleFocus() {
-  //   clearTimeout(this.blurTimeout);
-  //   this.getSuggestions(true);
-  // }
 
   handleBlur() {
     clearTimeout(this.blurTimeout);
@@ -286,21 +274,9 @@ export default class AutosuggestUI {
 
   async fetchSuggestions(sanitisedQuery, data) {
     this.abortFetch();
-    const results = await queryJson(sanitisedQuery, data, this.lang, this.resultLimit);
+    const results = await queryJson(sanitisedQuery, data, this.resultLimit);
     results.forEach(result => {
-      result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
-      if (this.lang !== 'en-gb') {
-        const english = result['en-gb'];
-        const sanitisedAlternative = sanitiseAutosuggestText(english, this.sanitisedQueryReplaceChars);
-
-        if (sanitisedAlternative.match(sanitisedQuery)) {
-          result.alternatives = [english];
-          result.sanitisedAlternatives = [sanitisedAlternative];
-        }
-      } else {
-        result.alternatives = [];
-        result.sanitisedAlternatives = [];
-      }
+      result.sanitisedText = sanitiseAutosuggestText(result.item, this.sanitisedQueryReplaceChars);
     });
     return {
       results,
@@ -348,7 +324,7 @@ export default class AutosuggestUI {
       this.listbox.innerHTML = '';
       if (this.results) {
         this.resultOptions = this.results.map((result, index) => {
-          let ariaLabel = result[this.lang];
+          let ariaLabel = result.item;
           let innerHTML = this.emboldenMatch(ariaLabel, this.query);
           if (Array.isArray(result.sanitisedAlternatives)) {
             const alternativeMatch = result.sanitisedAlternatives.find(
@@ -499,10 +475,10 @@ export default class AutosuggestUI {
         if (bestMatchingAlternative.score >= scoredSanitised) {
           result.displayText = result.alternatives[bestMatchingAlternative.index];
         } else {
-          result.displayText = result[this.lang];
+          result.displayText = result.item;
         }
       } else {
-        result.displayText = result[this.lang];
+        result.displayText = result.item;
       }
       this.onSelect(result).then(() => (this.settingResult = false));
 
@@ -544,7 +520,6 @@ export default class AutosuggestUI {
         .join('[\\s,]*'),
       'gi',
     );
-
     return string.replace(reg, '<strong>$&</strong>');
   }
 

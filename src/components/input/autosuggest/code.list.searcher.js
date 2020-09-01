@@ -1,12 +1,11 @@
-import * as Fuse from 'fuse.js';
+import Fuse from 'fuse.js';
 
-export default function queryJson(query, data, searchFields) {
+export default function queryJson(query, data) {
   const options = {
     shouldSort: true,
     threshold: 0.2,
     location: 0,
     distance: 1000,
-    keys: [searchFields],
   };
 
   const fuse = new Fuse(data, options);
