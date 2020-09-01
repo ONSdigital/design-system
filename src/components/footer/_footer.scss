@@ -25,4 +25,14 @@
     border: 0;
     border-top: 1px solid $color-borders;
   }
+
+  a {
+    color: $color-grey-1;
+    text-decoration: underline;
+
+    &:hover {
+      color: $color-black;
+      text-decoration: none;
+    }
+  }
 }
