@@ -10,6 +10,7 @@
 | town          | AddressField | false    | Configuration for the town field                                                                                |
 | county        | AddressField | false    | Configuration for the county field                                                                              |
 | postcode      | AddressField | true     | Configuration for the postcode field                                                                            |
+| uprn          | AddressField | true     | Configuration for the uprn field                                                                                |
 | dontWrap      | boolean      | false    | Set to true to prevent the address fields from being wrapped in a fieldset                                      |
 
 ## AddressField
