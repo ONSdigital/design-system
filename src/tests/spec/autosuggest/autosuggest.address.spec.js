@@ -303,7 +303,6 @@ describe('Autosuggest.address component', function() {
             this.postcodeGroupsMappingSpy = chai.spy.on(this.autosuggestAddress, 'postcodeGroupsMapping');
             this.replaceSingleCountAddressesSpy = chai.spy.on(this.autosuggestAddress, 'replaceSingleCountAddresses');
             this.createAddressObjectSpy = chai.spy.on(this.autosuggestAddress, 'createAddressObject');
-            const lang = 'en-gb';
             this.results = {
               response: {
                 partpostcode: 'cf14 2',
@@ -331,7 +330,7 @@ describe('Autosuggest.address component', function() {
             this.items = [
               {
                 addressCount: 41,
-                [lang]: 'Penlline Road, Whitchurch, Cardiff, CF14 2AA (<span class="autosuggest-input__group">41 addresses</span>)',
+                item: 'Penlline Road, Whitchurch, Cardiff, CF14 2AA (<span class="autosuggest-input__group">41 addresses</span>)',
                 firstUprn: 10002526869,
                 postTown: 'Cardiff',
                 postcode: 'CF14 2AA',
@@ -339,7 +338,7 @@ describe('Autosuggest.address component', function() {
                 townName: 'Whitchurch',
               },
               {
-                [lang]: 'Penlline Road, Whitchurch, Cardiff, CF14 2AB',
+                item: 'Penlline Road, Whitchurch, Cardiff, CF14 2AB',
                 sanitisedText: 'penlline road, whitchurch, cardiff, cf14 2ab',
                 uprn: '10002511038',
               },
@@ -407,9 +406,8 @@ describe('Autosuggest.address component', function() {
                         overwriteRoutes: true,
                       },
                     );
-                    const lang = 'en-gb';
                     this.createdObject = {
-                      [lang]: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
+                      item: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
                       sanitisedText: '195 college road whitchurch cardiff cf14 2nt',
                       uprn: '100100119968',
                     };
@@ -444,7 +442,7 @@ describe('Autosuggest.address component', function() {
               },
             };
             this.selectedResult = {
-              lang: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
+              item: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
               sanitisedText: 'university of hertfordshir meridian house 32-36 the common, hatfield, al10 0nz',
               uprn: '100081151291',
               displayText: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
@@ -506,7 +504,7 @@ describe('Autosuggest.address component', function() {
           describe('when a grouped address is selected', function() {
             beforeEach(function(done) {
               this.selectedResult = {
-                lang: 'Penlline Road, Whitchurch, Cardiff, CF14 2AA',
+                item: 'Penlline Road, Whitchurch, Cardiff, CF14 2AA',
                 postcode: 'CF14 2AA',
                 streetName: 'Penlline Road',
                 townName: 'Whitchurch',
@@ -526,7 +524,7 @@ describe('Autosuggest.address component', function() {
             });
 
             it('then input value should be the same as the selected results', function() {
-              expect(this.autosuggestAddress.input.value).to.equal(this.selectedResult.lang);
+              expect(this.autosuggestAddress.input.value).to.equal(this.selectedResult.item);
             });
           });
         });
@@ -563,7 +561,7 @@ describe('Autosuggest.address component', function() {
         describe('when a grouped address is selected', function() {
           beforeEach(function(done) {
             this.selectedResult = {
-              lang: 'Penlline Road, Whitchurch, Cardiff, CF14 2AA',
+              item: 'Penlline Road, Whitchurch, Cardiff, CF14 2AA',
               postcode: 'CF14 2AA',
               streetName: 'Penlline Road',
               townName: 'Whitchurch',
@@ -583,7 +581,7 @@ describe('Autosuggest.address component', function() {
           });
 
           it('then input value should be the same as the selected results', function() {
-            expect(this.autosuggestAddress.input.value).to.equal(this.selectedResult.lang);
+            expect(this.autosuggestAddress.input.value).to.equal(this.selectedResult.item);
           });
         });
       });

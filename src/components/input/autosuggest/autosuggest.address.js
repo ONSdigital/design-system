@@ -184,7 +184,7 @@ export default class AutosuggestAddress {
       results = updatedResults.map(({ uprn, address }) => {
         const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
         return {
-          [this.lang]: address,
+          item: address,
           sanitisedText,
           uprn,
         };
@@ -200,7 +200,7 @@ export default class AutosuggestAddress {
     const postcodeGroups = results.postcodes;
     let groups = postcodeGroups.map(({ postcode, postTown, streetName, townName, addressCount, firstUprn }) => {
       return {
-        [this.lang]:
+        item:
           streetName +
           ', ' +
           (townName === postTown ? postTown : townName + ', ' + postTown) +
@@ -238,7 +238,7 @@ export default class AutosuggestAddress {
     const uprn = data.response.address.uprn;
     const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
     return {
-      [this.lang]: address,
+      item: address,
       sanitisedText,
       uprn,
     };
