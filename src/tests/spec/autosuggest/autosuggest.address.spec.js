@@ -641,7 +641,7 @@ describe('Autosuggest.address component', function() {
     describe('When a fetch is made', function() {
       beforeEach(function() {
         this.result = {
-          results: [{ 'en-gb': 'yes', alternatives: [], sanitisedAlternatives: [] }],
+          results: [{ item: 'yes', alternatives: [], sanitisedAlternatives: [] }],
           totalResults: 1,
         };
 
