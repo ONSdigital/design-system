@@ -19,7 +19,7 @@
 
         {% if params.inputType is defined %}
             {% if params.inputType == "checkbox" or params.inputType == "radio" %}
-                {%- if params.description is defined %}
+                {%- if params.description is defined and params.description %}
                     <br>
                     {{ field | safe }}
                 {% endif -%}
@@ -27,7 +27,7 @@
             </label>
         {% else %}
             </label>
-            {%- if params.description is defined %}
+            {%- if params.description is defined and params.description %}
                 {{ field | safe }}
             {% endif -%}
         {% endif %}
