@@ -32,11 +32,6 @@ export default class AutosuggestAddress {
     this.addressSelected = false;
     this.groupQuery = '';
 
-    // Temporary fix as runner doesn't use full lang code
-    if (this.lang === 'en') {
-      this.lang = 'en-gb';
-    }
-
     // Bind event listeners
     if (this.form) {
       this.form.addEventListener('submit', this.handleSubmit.bind(this));
@@ -51,7 +46,6 @@ export default class AutosuggestAddress {
     this.autosuggest = new AutosuggestUI({
       context: this.container,
       onSelect: this.onAddressSelect.bind(this),
-      lang: this.lang,
       suggestionFunction: this.suggestAddresses.bind(this),
       sanitisedQueryReplaceChars: this.addressReplaceChars,
       sanitisedQuerySplitNumsChars: this.sanitisedQuerySplitNumsChars,
