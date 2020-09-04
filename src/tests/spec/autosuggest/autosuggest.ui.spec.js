@@ -39,7 +39,7 @@ const params = {
     resultsTitle: 'Suggestions',
     noResults: 'No results found',
     autosuggestData:
-      'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/368a3ea741f72c62c735c319ff7e33e3c1bfdc53/country-of-birth.json',
+      'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/4dede1d6e757cf0bb836228600676c62ceb4f86c/country-of-birth.json',
     typeMore: 'Enter more of the address to get results',
     tooManyResults: '{n} results found. Enter more of the address to improve results.',
     errorTitle: 'There is a problem with your answer',
@@ -424,51 +424,51 @@ describe('Autosuggest.ui component', function() {
             totalResults: 12,
             results: [
               {
-                'en-gb': 'Testing',
+                en: 'Testing',
                 sanitisedText: 'testing',
               },
               {
-                'en-gb': 'Afghanistan island',
+                en: 'Afghanistan island',
                 cy: 'Afghanistan',
               },
               {
-                'en-gb': 'Aland islands',
+                en: 'Aland islands',
                 cy: 'ynysoedd Aland',
               },
               {
-                'en-gb': 'Albania island',
+                en: 'Albania island',
                 cy: 'Albania',
               },
               {
-                'en-gb': 'Algeria island',
+                en: 'Algeria island',
                 cy: 'Algeria',
               },
               {
-                'en-gb': 'American samoa island',
+                en: 'American samoa island',
                 cy: 'Samoa Americanaidd',
               },
               {
-                'en-gb': 'Andorra island',
+                en: 'Andorra island',
                 cy: 'andorra',
               },
               {
-                'en-gb': 'Angola island',
+                en: 'Angola island',
                 cy: 'Angola',
               },
               {
-                'en-gb': 'Anguilla island',
+                en: 'Anguilla island',
                 cy: 'anguilla',
               },
               {
-                'en-gb': 'Antarctica island',
+                en: 'Antarctica island',
                 cy: 'Antarctica',
               },
               {
-                'en-gb': 'Antarctica and oceania island',
+                en: 'Antarctica and oceania island',
                 cy: 'Antarctica a oceania',
               },
               {
-                'en-gb': 'Antigua and barbuda island',
+                en: 'Antigua and barbuda island',
                 cy: 'Antigua a Barbuda',
               },
             ],
@@ -532,7 +532,7 @@ describe('Autosuggest.ui component', function() {
       describe('and the fetch successfully returns', function() {
         beforeEach(function() {
           this.result = {
-            results: [{ 'en-gb': 'yes', alternatives: [], sanitisedAlternatives: [] }],
+            results: [{ en: 'yes', alternatives: [], sanitisedAlternatives: [] }],
             totalResults: 1,
           };
 
@@ -547,7 +547,7 @@ describe('Autosuggest.ui component', function() {
       describe('and the fetch successfully returns welsh results found from english names', function() {
         beforeEach(function() {
           this.result = {
-            results: [{ 'en-gb': 'Yes', cy: 'ie', alternatives: ['Yes'], sanitisedAlternatives: ['yes'] }],
+            results: [{ en: 'Yes', cy: 'ie', alternatives: ['Yes'], sanitisedAlternatives: ['yes'] }],
             totalResults: 1,
           };
 
@@ -564,7 +564,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and results are unset', function() {
       beforeEach(function() {
-        this.autosuggest.results = [{ 'en-gb': 'yes' }];
+        this.autosuggest.results = [{ en: 'yes' }];
         this.autosuggest.resultOptions = ['<option>yes</option>'];
         this.autosuggest.resultSelected = true;
       });
@@ -932,7 +932,7 @@ describe('Autosuggest.ui component', function() {
       describe('if there are results', function() {
         beforeEach(function() {
           this.autosuggest.sanitisedQuery = 'ye';
-          this.autosuggest.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
+          this.autosuggest.results = [{ en: 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
           this.autosuggest.selectResult(0);
         });
 
@@ -956,7 +956,7 @@ describe('Autosuggest.ui component', function() {
       describe('if there are results from an alternative', function() {
         beforeEach(function() {
           this.autosuggest.sanitisedQuery = 'ie';
-          this.autosuggest.results = [{ 'en-gb': 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
+          this.autosuggest.results = [{ en: 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
           this.autosuggest.selectResult(0);
         });
 
@@ -1036,7 +1036,7 @@ describe('Autosuggest.ui component', function() {
               totalResults: 1,
               results: [
                 {
-                  'en-gb': 'Yes',
+                  en: 'Yes',
                   sanitisedText: 'yes',
                 },
               ],
@@ -1054,15 +1054,15 @@ describe('Autosuggest.ui component', function() {
               totalResults: 2,
               results: [
                 {
-                  'en-gb': 'Yes',
+                  en: 'Yes',
                   sanitisedText: 'yes',
                 },
                 {
-                  'en-gb': 'Yes 2',
+                  en: 'Yes 2',
                   sanitisedText: 'yes 2',
                 },
                 {
-                  'en-gb': 'Ie',
+                  en: 'Ie',
                   sanitisedText: 'Ie',
                   sanitisedAlternatives: ['yes'],
                   alternatives: ['Yes'],
@@ -1108,11 +1108,11 @@ describe('Autosuggest.ui component', function() {
               totalResults: 3,
               results: [
                 {
-                  'en-gb': 'Yes',
+                  en: 'Yes',
                   sanitisedText: 'yes',
                 },
                 {
-                  'en-gb': 'Yes',
+                  en: 'Yes',
                   sanitisedText: 'yes',
                 },
               ],
