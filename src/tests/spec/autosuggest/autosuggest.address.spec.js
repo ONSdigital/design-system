@@ -303,7 +303,7 @@ describe('Autosuggest.address component', function() {
             this.postcodeGroupsMappingSpy = chai.spy.on(this.autosuggestAddress, 'postcodeGroupsMapping');
             this.replaceSingleCountAddressesSpy = chai.spy.on(this.autosuggestAddress, 'replaceSingleCountAddresses');
             this.createAddressObjectSpy = chai.spy.on(this.autosuggestAddress, 'createAddressObject');
-            const lang = 'en-gb';
+            const lang = 'en';
             this.results = {
               response: {
                 partpostcode: 'cf14 2',
@@ -407,7 +407,7 @@ describe('Autosuggest.address component', function() {
                         overwriteRoutes: true,
                       },
                     );
-                    const lang = 'en-gb';
+                    const lang = 'en';
                     this.createdObject = {
                       [lang]: '195 College Road, Whitchurch, Cardiff, CF14 2NT',
                       sanitisedText: '195 college road whitchurch cardiff cf14 2nt',
@@ -643,7 +643,7 @@ describe('Autosuggest.address component', function() {
     describe('When a fetch is made', function() {
       beforeEach(function() {
         this.result = {
-          results: [{ 'en-gb': 'yes', alternatives: [], sanitisedAlternatives: [] }],
+          results: [{ en: 'yes', alternatives: [], sanitisedAlternatives: [] }],
           totalResults: 1,
         };
 
@@ -754,7 +754,7 @@ describe('Autosuggest.address component', function() {
     };
 
     beforeEach(function(done) {
-      lang = 'en-gb';
+      lang = 'en';
       const component = renderComponent(paramsOptions);
 
       Object.keys(component).forEach(key => {
@@ -798,7 +798,7 @@ describe('Autosuggest.address component', function() {
     };
 
     beforeEach(function(done) {
-      lang = 'en-gb';
+      lang = 'en';
       const component = renderComponent(paramsOptions);
 
       Object.keys(component).forEach(key => {
@@ -844,7 +844,7 @@ describe('Autosuggest.address component', function() {
     };
 
     beforeEach(function(done) {
-      lang = 'en-gb';
+      lang = 'en';
       const component = renderComponent(paramsOptions);
 
       Object.keys(component).forEach(key => {
