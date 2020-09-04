@@ -61,6 +61,7 @@
     "@babel/preset-env": "^7.1.6",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.2.0",
+    "bl": "4.0.3",
     "abortcontroller-polyfill": "^1.2.3",
     "autoprefixer": "^9.3.1",
     "autosize": "^4.0.2",
@@ -150,8 +151,5 @@
   },
   "resolutions": {
     "minimist": "^1.2.5"
-  },
-  "dependencies": {
-    "bl": "4.0.3"
   }
 }
