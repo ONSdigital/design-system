@@ -150,5 +150,8 @@
   },
   "resolutions": {
     "minimist": "^1.2.5"
+  },
+  "dependencies": {
+    "bl": "4.0.3"
   }
 }
