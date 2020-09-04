@@ -69,7 +69,7 @@ export default class AutosuggestUI {
     this.minChars = minChars || 3;
     this.resultLimit = resultLimit || 10;
     this.suggestOnBoot = suggestOnBoot;
-    this.lang = lang || 'en-gb';
+    this.lang = lang || 'en';
 
     // Callbacks
     this.onSelect = onSelect;
@@ -100,11 +100,6 @@ export default class AutosuggestUI {
     this.blurTimeout = null;
     this.sanitisedQueryReplaceChars = sanitisedQueryReplaceChars || [];
     this.sanitisedQuerySplitNumsChars = sanitisedQuerySplitNumsChars || false;
-
-    // Temporary fix as runner doesn't use full lang code
-    if (this.lang === 'en') {
-      this.lang = 'en-gb';
-    }
 
     this.initialiseUI();
   }
@@ -288,8 +283,8 @@ export default class AutosuggestUI {
     const results = await queryJson(sanitisedQuery, data, this.lang, this.resultLimit);
     results.forEach(result => {
       result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
-      if (this.lang !== 'en-gb') {
-        const english = result['en-gb'];
+      if (this.lang !== 'en') {
+        const english = result['en'];
         const sanitisedAlternative = sanitiseAutosuggestText(english, this.sanitisedQueryReplaceChars);
 
         if (sanitisedAlternative.match(sanitisedQuery)) {
