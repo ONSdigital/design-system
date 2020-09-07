@@ -88,7 +88,6 @@
     "highlight.js": "^9.13.1",
     "husky": "^1.2.0",
     "iframe-resizer": "^3.6.5",
-    "imagemin-webpack-plugin": "^2.4.1",
     "istanbul-instrumenter-loader": "^3.0.1",
     "js-beautify": "^1.11.0",
     "karma": "5.1.0",
