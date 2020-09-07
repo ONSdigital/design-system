@@ -34,7 +34,7 @@ The autosuggests expect the response from the library to return the results as J
 
 #### AutosuggestResultItem
 
-The AutosuggestResultItem should consist of at least a key corresponding to the searched language (e.g. `en-gb`) with its corresponding value.
+The AutosuggestResultItem should consist of at least a key corresponding to the searched language (e.g. `en`) with its corresponding value.
 
 #### Example response
 
@@ -42,7 +42,7 @@ The AutosuggestResultItem should consist of at least a key corresponding to the 
 {
     "results": [
         {
-            "en-gb": "United Kingdom",
+            "en": "United Kingdom",
             "cy": "Deyrnas Unedig"
         }
     ],
@@ -52,7 +52,7 @@ The AutosuggestResultItem should consist of at least a key corresponding to the 
 
 The autosuggest component sends a `searchFields` parameter in it's query string that matches the `lang` attribute on the `<html>` element of the page.
 
-The autosuggest component will search the `cy` or the `en-gb` data to find results depending on the `searchFields` parameter.
+The autosuggest component will search the `cy` or the `en` data to find results depending on the `searchFields` parameter.
 
 
 ### Using the address API
