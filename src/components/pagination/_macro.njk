@@ -1,7 +1,7 @@
 {% macro onsPagination(params) %}
   {% set currentPageIndex = "" %}
   {% for page in params.pages %}
-      {% if page.current is defined %}
+      {% if page.current is defined and page.current %}
           {% set currentPageIndex = loop.index %}
       {% endif %}
   {% endfor %}
@@ -44,7 +44,7 @@
           {% endif %}
           {% for page in params.pages %}
               {% if loop.index >= middlePagesStart and loop.index <= middlePagesEnd %}
-                  <li class="pagination__item{% if page.current is defined %} pagination__item--current{% endif %}">
+                  <li class="pagination__item{% if page.current is defined and page.current == true %} pagination__item--current{% endif %}">
                       <a href="{{ page.url }}" class="pagination__link"
                           {%- if page.current -%}
                               aria-current="true" aria-label="Current page ({{ position }})"
