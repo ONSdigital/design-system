@@ -3,6 +3,7 @@ export default function skipToMain(link) {
   link.addEventListener('click', event => {
     event.preventDefault();
     document.getElementById(id).tabIndex = 0;
+    document.getElementById(id).style.outline = 'none';
     document.getElementById(id).focus();
   });
 }
