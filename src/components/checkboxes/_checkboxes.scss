@@ -17,7 +17,7 @@
       margin-bottom: 0;
     }
 
-    @include mq(m) {
+    @include mq(s) {
       width: auto;
       min-width: 20rem;
     }
