@@ -1,7 +1,6 @@
 .field {
-  @extend .u-mb-s;
   position: relative;
-  margin: 0;
+  margin-bottom: 1rem;
 
   &__other {
     display: none;
@@ -12,6 +11,12 @@
     input:checked ~ & {
       display: block;
     }
+  }
+}
+
+.mutually-exclusive {
+  .field {
+    margin-bottom: 0rem;
   }
 }
 

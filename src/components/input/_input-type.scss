@@ -59,10 +59,6 @@
     }
   }
 
-  &--prefix {
-    @extend .u-mb-s;
-  }
-
   &--prefix & {
     &__type[title] {
       order: 0;
