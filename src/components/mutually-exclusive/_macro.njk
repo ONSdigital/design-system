@@ -16,10 +16,9 @@
         "dontWrap": params.dontWrap,
         "error": params.error
     }) %}
-        <div class="js-mutually-exclusive">
+        <div class="js-mutually-exclusive mutually-exclusive">
             {{ content | safe }}
-            <br>
-            <p class="checkboxes__item">
+            <p class="checkboxes--mutually-exclusive__item u-mt-s">
                 <span class="checkboxes__label u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
                 {{
                     onsCheckbox({
