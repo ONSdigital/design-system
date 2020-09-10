@@ -19,14 +19,13 @@
     {% endif %}
 
     {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
-    {% set exclusiveSpacing = " u-mb-s" if params.mutuallyExclusive and not params.prefix is defined else "" %}
     {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder else "" %}
 
     {% set input %}
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="input input--text input-type__input {% if params.error and params.error is defined %} input--error {% endif %}{% if params.autosuggest is defined %} js-autosuggest-input {% endif %} {% if params.searchButton is defined %}u-mr-xs@s u-mb-xs@xs@s{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ exclusiveSpacing }}{{ inputPlaceholder }}"
+            class="input input--text input-type__input {% if params.error and params.error is defined %} input--error {% endif %}{% if params.autosuggest is defined %} js-autosuggest-input {% endif %} {% if params.searchButton is defined %}u-mr-xs@s u-mb-xs@xs@s{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix is defined or params.suffix is defined %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined %}name="{{ params.name }}"{% endif %}
             {% if params.value is defined %}value="{{ params.value }}"{% endif %}
@@ -71,7 +70,7 @@
 
         {% if params.prefix is defined or params.suffix is defined %}
             {% if params.prefix is defined %}
-                {% set prefixClass = " input-type--prefix u-mb-s" %}
+                {% set prefixClass = " input-type--prefix" %}
             {% endif %}
 
             <span class="input-type{{ prefixClass }}">

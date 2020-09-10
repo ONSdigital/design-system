@@ -1,6 +1,7 @@
 .field {
-  margin: 0;
+  @extend .u-mb-s;
   position: relative;
+  margin: 0;
 
   &__other {
     display: none;
