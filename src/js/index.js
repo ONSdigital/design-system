@@ -20,3 +20,4 @@ import 'components/cookies-banner/cookies-banner.dom';
 import 'components/button/button.dom';
 import 'components/skip-to-content/skip-to-content.dom';
 import 'components/download-resources/download-resources';
+import 'components/panel/panel.dom';
