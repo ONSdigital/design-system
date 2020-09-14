@@ -22,4 +22,9 @@
       min-width: 20rem;
     }
   }
+
+  &--mutually-exclusive__item {
+    @extend .checkboxes__item;
+    margin-bottom: 0;
+  }
 }
