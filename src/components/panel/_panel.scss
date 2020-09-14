@@ -49,10 +49,6 @@
     }
   }
 
-  &__error {
-    color: $color-errors;
-  }
-
   &--simple {
     padding: 1rem;
     border-left: 8px solid transparent;
@@ -89,8 +85,8 @@
     &__body {
       padding-top: 0.222rem; // 4px
       padding-left: 1.8rem;
-      font-weight: $font-weight-bold;
       min-height: 2rem; // Height of icon
+      font-weight: $font-weight-bold;
     }
 
     &__icon {
