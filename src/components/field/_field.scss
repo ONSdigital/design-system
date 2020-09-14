@@ -1,6 +1,6 @@
 .field {
-  margin: 0;
   position: relative;
+  margin-bottom: 1rem;
 
   &__other {
     display: none;
@@ -11,6 +11,12 @@
     input:checked ~ & {
       display: block;
     }
+  }
+}
+
+.mutually-exclusive {
+  .field {
+    margin-bottom: 0rem;
   }
 }
 
