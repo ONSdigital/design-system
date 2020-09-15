@@ -43,8 +43,7 @@ Util.setAttributes = function(el, attrs) {
 */
 
 Util.getChildrenByClassName = function(el, className) {
-  let children = el.children,
-    childrenByClass = [];
+  let childrenByClass = [];
   for (let i = 0; i < el.children.length; i++) {
     if (Util.hasClass(el.children[i], className)) childrenByClass.push(el.children[i]);
   }
@@ -57,8 +56,7 @@ Util.is = function(elem, selector) {
   }
 
   let qa = typeof selector === 'string' ? document.querySelectorAll(selector) : selector,
-    length = qa.length,
-    returnArr = [];
+    length = qa.length;
 
   while (length--) {
     if (qa[length] === elem) {
@@ -74,7 +72,7 @@ Util.setHeight = function(start, to, element, duration, cb) {
   let change = to - start,
     currentTime = null;
 
-  var animateHeight = function(timestamp) {
+  let animateHeight = function(timestamp) {
     if (!currentTime) currentTime = timestamp;
     let progress = timestamp - currentTime;
     let val = parseInt((progress / duration) * change + start);
@@ -99,7 +97,7 @@ Util.scrollTo = function(final, duration, cb, scrollEl) {
 
   if (!scrollEl) start = window.scrollY || document.documentElement.scrollTop;
 
-  var animateScroll = function(timestamp) {
+  let animateScroll = function(timestamp) {
     if (!currentTime) currentTime = timestamp;
     let progress = timestamp - currentTime;
     if (progress > duration) progress = duration;
@@ -241,7 +239,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
 // FILTERS
 
 (function() {
-  var Filter = function(opts) {
+  let Filter = function(opts) {
     this.options = Util.extend(Filter.defaults, opts); // Used to store custom filter/sort functions
     this.element = this.options.element;
     this.elementId = this.element.getAttribute('id');
@@ -343,7 +341,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     checkInitialFiltering(filter);
 
     // Reset filtering results if filter selection was changed by an external control (e.g., form reset)
-    filter.element.addEventListener('update-filter-results', function(event) {
+    filter.element.addEventListener('update-filter-results', function() {
       // Reset filters first
       for (let i = 0; i < filter.controllers.length; i++) filter.filterString[i] = '';
       filter.sortingString = '';
@@ -357,7 +355,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
       // Buttons list
       let selectedButton = filter.controllers[i].getElementsByClassName('js-filter-selected');
       if (selectedButton.length > 0) {
-        var sort = selectedButton[0].getAttribute('data-sort');
+        let sort = selectedButton[0].getAttribute('data-sort');
         sort
           ? setSortingString(filter, selectedButton[0].getAttribute('data-sort'), selectedButton[0])
           : setFilterString(filter, i, 'button');
@@ -367,14 +365,14 @@ Math.easeInOutQuad = function(t, b, c, d) {
       // Input list
       let selectedInput = filter.controllers[i].querySelectorAll('input:checked');
       if (selectedInput.length > 0) {
-        var sort = selectedInput[0].getAttribute('data-sort');
+        let sort = selectedInput[0].getAttribute('data-sort');
         sort ? setSortingString(filter, sort, selectedInput[0]) : setFilterString(filter, i, 'input');
         continue;
       }
 
       // Select item
       if (filter.controllers[i].tagName.toLowerCase() == 'select') {
-        var sort = filter.controllers[i].getAttribute('data-sort');
+        let sort = filter.controllers[i].getAttribute('data-sort');
         sort
           ? setSortingString(filter, filter.controllers[i].value, filter.controllers[i].options[filter.controllers[i].selectedIndex])
           : setFilterString(filter, i, 'select');
@@ -385,7 +383,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
       let radioInput = filter.controllers[i].querySelector('input[type="radio"]'),
         checkboxInput = filter.controllers[i].querySelector('input[type="checkbox"]');
       if (!radioInput && !checkboxInput) {
-        var sort = filter.controllers[i].getAttribute('data-sort');
+        let sort = filter.controllers[i].getAttribute('data-sort');
         let filterString = filter.controllers[i].getAttribute('data-filter');
         if (sort) setSortingString(filter, sort, filter.controllers[i]);
         else if (filterString) setFilterString(filter, i, 'custom');
@@ -407,7 +405,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     if (type == 'input') {
       let checkedInputs = filter.controllers[index].querySelectorAll('input:checked');
       filter.filterString[index] = '';
-      for (var i = 0; i < checkedInputs.length; i++) {
+      for (let i = 0; i < checkedInputs.length; i++) {
         filter.filterString[index] = filter.filterString[index] + checkedInputs[i].getAttribute('data-filter') + ':';
       }
     } else if (type == 'select') {
@@ -421,7 +419,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     } else if (type == 'button') {
       let selectedButtons = filter.controllers[index].querySelectorAll('.js-filter-selected');
       filter.filterString[index] = '';
-      for (var i = 0; i < selectedButtons.length; i++) {
+      for (let i = 0; i < selectedButtons.length; i++) {
         filter.filterString[index] = filter.filterString[index] + selectedButtons[i].getAttribute('data-filter') + ':';
       }
     } else if (type == 'custom') {
@@ -512,7 +510,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
     // Check if we have custom options
     let customFilterArray = [];
-    for (var j = 0; j < subfilter.length; j++) {
+    for (let j = 0; j < subfilter.length; j++) {
       if (filter.options[subfilter[j]]) {
         // Custom function
         customFilterArray[subfilter[j]] = filter.options[subfilter[j]](filter.items);
@@ -522,7 +520,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     for (let i = 0; i < filter.items.length; i++) {
       let filterValues = filter.items[i].getAttribute('data-filter').split(' ');
       let present = false;
-      for (var j = 0; j < subfilter.length; j++) {
+      for (let j = 0; j < subfilter.length; j++) {
         if (filter.options[subfilter[j]] && customFilterArray[subfilter[j]][i]) {
           // Custom function
           present = true;
@@ -547,7 +545,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
       'height: ' + parseFloat(filter.element.offsetHeight) + 'px; width: ' + parseFloat(filter.element.offsetWidth) + 'px;',
     );
 
-    for (var i = 0; i < filter.items.length; i++) {
+    for (let i = 0; i < filter.items.length; i++) {
       // Remove u-hidden class from items now visible and scale to zero
       if (Util.hasClass(filter.items[i], 'u-hidden') && filter.filterList[i]) {
         filter.items[i].setAttribute('data-scale', 'on');
@@ -560,7 +558,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     storeOffset(filter, filter.itemsIterPosition);
 
     // Translate items so that they are in the right initial position
-    for (var i = 0; i < filter.items.length; i++) {
+    for (let i = 0; i < filter.items.length; i++) {
       if (filter.items[i].getAttribute('data-scale') != 'on') {
         filter.items[i].setAttribute(
           'style',
@@ -644,13 +642,13 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
   function resetItems(filter) {
     // Animation was off or animation is over -> reset attributes
-    for (var i = 0; i < filter.items.length; i++) {
+    for (let i = 0; i < filter.items.length; i++) {
       filter.items[i].removeAttribute('style');
       Util.toggleClass(filter.items[i], 'u-hidden', !filter.filterList[i]);
       filter.items[i].removeAttribute('data-scale');
     }
 
-    for (var i = 0; i < filter.items.length; i++) {
+    for (let i = 0; i < filter.items.length; i++) {
       // Reorder
       filter.element.appendChild(filter.items[filter.sortingList[i][1]]);
     }
@@ -688,7 +686,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
       colNumber;
 
     // Get offset first visible element
-    for (var i = 0; i < filter.items.length; i++) {
+    for (let i = 0; i < filter.items.length; i++) {
       if (!Util.hasClass(filter.items[i], 'u-hidden')) {
         (itemStyle = window.getComputedStyle(filter.items[i])),
           (itemWidth = parseFloat(itemStyle.getPropertyValue('width'))),
@@ -701,7 +699,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
       }
     }
 
-    for (var i = 1; i < filter.items.length; i++) {
+    for (let i = 1; i < filter.items.length; i++) {
       let x = i < colNumber ? i : i % colNumber,
         y = i < colNumber ? 0 : Math.floor(i / colNumber);
       filter.itemsGrid[i] = [filter.itemsGrid[0][0] + x * (itemWidth + marginX), filter.itemsGrid[0][1] + y * (itemHeight + marginY)];
@@ -764,7 +762,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
   window.Filter = Filter;
 
   // Init Filter object
-  var filterGallery = document.getElementsByClassName('js-filter'),
+  let filterGallery = document.getElementsByClassName('js-filter'),
     reducedMotion = Util.osHasReducedMotion();
   if (filterGallery.length > 0) {
     for (let i = 0; i < filterGallery.length; i++) {
@@ -796,7 +794,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
   function initAdvFilter(filter) {
     if (filter.form.length > 0) {
       // Reset form
-      filter.form[0].addEventListener('reset', function(event) {
+      filter.form[0].addEventListener('reset', function() {
         setTimeout(function() {
           resetFilters(filter);
           resetGallery(filter);
@@ -817,7 +815,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
     // Reset results count
     if (filter.resultsCount.length > 0) {
-      filter.resultsList.addEventListener('filter-selection-updated', function(event) {
+      filter.resultsList.addEventListener('filter-selection-updated', function() {
         updateResultsCount(filter);
       });
     }
@@ -828,13 +826,13 @@ Math.easeInOutQuad = function(t, b, c, d) {
     // Custom select
     let customSelect = filter.element.getElementsByClassName('js-select');
     if (customSelect.length > 0) {
-      for (var i = 0; i < customSelect.length; i++) customSelect[i].dispatchEvent(new CustomEvent('select-updated'));
+      for (let i = 0; i < customSelect.length; i++) customSelect[i].dispatchEvent(new CustomEvent('select-updated'));
     }
 
     // Custom slider
     let customSlider = filter.element.getElementsByClassName('js-slider');
     if (customSlider.length > 0) {
-      for (var i = 0; i < customSlider.length; i++) customSlider[i].dispatchEvent(new CustomEvent('slider-updated'));
+      for (let i = 0; i < customSlider.length; i++) customSlider[i].dispatchEvent(new CustomEvent('slider-updated'));
     }
   }
 
