@@ -2,12 +2,10 @@ import * as path from 'path';
 import merge from 'webpack-merge';
 import glob from 'glob';
 import globImporter from 'node-sass-glob-importer';
-import { NoEmitOnErrorsPlugin, NamedModulesPlugin } from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import FixStyleOnlyEntriesPlugin from 'webpack-fix-style-only-entries';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import ImageminPlugin from 'imagemin-webpack-plugin';
 import postcssPlugins from './postcss.config';
 import svgoConfig from './svgo-config';
 
@@ -37,11 +35,12 @@ const core = {
     modules: ['./node_modules'],
   },
 
+  optimization: {
+    noEmitOnErrors: true,
+    namedModules: true,
+  },
+
   plugins: [
-    new NoEmitOnErrorsPlugin(),
-
-    new NamedModulesPlugin(),
-
     new ProgressBarPlugin(),
 
     new CircularDependencyPlugin({
@@ -137,21 +136,6 @@ const jsCore = merge(core, {
       },
     ],
   },
-
-  // optimization: {
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       vendors: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         chunks: 'all',
-  //         priority: 1,
-  //         reuseExistingChunk: true,
-  //         minChunks: 2,
-  //         name: 'scripts/vendors',
-  //       }
-  //     }
-  //   },
-  // }
 });
 
 const es2015plusCore = merge(jsCore, {
@@ -247,6 +231,23 @@ export default function(mode) {
         'css/census': ['./scss/census.scss'],
       },
 
+      module: {
+        rules: [
+          {
+            test: /\.svg$/,
+            use: [
+              { loader: 'file-loader' },
+              {
+                loader: 'svgo-loader',
+                options: {
+                  plugins: svgoConfig,
+                },
+              },
+            ],
+          },
+        ],
+      },
+
       plugins: [
         new CopyWebpackPlugin(
           {
@@ -276,13 +277,6 @@ export default function(mode) {
             debug: 'warning',
           },
         ),
-
-        new ImageminPlugin({
-          test: /\.(svg)$/i,
-          svgo: {
-            plugins: svgoConfig,
-          },
-        }),
       ],
     }),
 
@@ -292,6 +286,22 @@ export default function(mode) {
       entry: {
         'css/patternlib': ['./scss/patternlib.scss'],
         error: ['./scss/error.scss'],
+      },
+      module: {
+        rules: [
+          {
+            test: /\.svg$/,
+            use: [
+              { loader: 'file-loader' },
+              {
+                loader: 'svgo-loader',
+                options: {
+                  plugins: svgoConfig,
+                },
+              },
+            ],
+          },
+        ],
       },
 
       plugins: [
@@ -311,13 +321,6 @@ export default function(mode) {
             debug: 'warning',
           },
         ),
-
-        new ImageminPlugin({
-          test: /\.(svg)$/i,
-          svgo: {
-            plugins: svgoConfig,
-          },
-        }),
       ],
     }),
 
