@@ -7,6 +7,7 @@ import CircularDependencyPlugin from 'circular-dependency-plugin';
 import FixStyleOnlyEntriesPlugin from 'webpack-fix-style-only-entries';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import postcssPlugins from './postcss.config';
+import svgoConfig from './svgo-config';
 
 const OUT_DIR = 'build';
 
@@ -230,6 +231,23 @@ export default function(mode) {
         'css/census': ['./scss/census.scss'],
       },
 
+      module: {
+        rules: [
+          {
+            test: /\.svg$/,
+            use: [
+              { loader: 'file-loader' },
+              {
+                loader: 'svgo-loader',
+                options: {
+                  plugins: svgoConfig,
+                },
+              },
+            ],
+          },
+        ],
+      },
+
       plugins: [
         new CopyWebpackPlugin(
           {
@@ -268,6 +286,22 @@ export default function(mode) {
       entry: {
         'css/patternlib': ['./scss/patternlib.scss'],
         error: ['./scss/error.scss'],
+      },
+      module: {
+        rules: [
+          {
+            test: /\.svg$/,
+            use: [
+              { loader: 'file-loader' },
+              {
+                loader: 'svgo-loader',
+                options: {
+                  plugins: svgoConfig,
+                },
+              },
+            ],
+          },
+        ],
       },
 
       plugins: [
