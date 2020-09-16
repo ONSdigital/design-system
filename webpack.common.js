@@ -135,21 +135,6 @@ const jsCore = merge(core, {
       },
     ],
   },
-
-  // optimization: {
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       vendors: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         chunks: 'all',
-  //         priority: 1,
-  //         reuseExistingChunk: true,
-  //         minChunks: 2,
-  //         name: 'scripts/vendors',
-  //       }
-  //     }
-  //   },
-  // }
 });
 
 const es2015plusCore = merge(jsCore, {
