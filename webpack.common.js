@@ -2,7 +2,6 @@ import * as path from 'path';
 import merge from 'webpack-merge';
 import glob from 'glob';
 import globImporter from 'node-sass-glob-importer';
-import { NoEmitOnErrorsPlugin, NamedModulesPlugin } from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import FixStyleOnlyEntriesPlugin from 'webpack-fix-style-only-entries';
@@ -35,11 +34,12 @@ const core = {
     modules: ['./node_modules'],
   },
 
+  optimization: {
+    noEmitOnErrors: true,
+    namedModules: true,
+  },
+
   plugins: [
-    new NoEmitOnErrorsPlugin(),
-
-    new NamedModulesPlugin(),
-
     new ProgressBarPlugin(),
 
     new CircularDependencyPlugin({
