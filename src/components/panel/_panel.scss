@@ -22,6 +22,14 @@
     margin-bottom: 0;
   }
 
+  & .field {
+    margin-bottom: 0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
   &__header {
     margin: 0;
     padding: 0.75rem 1rem;
@@ -39,10 +47,6 @@
     > *:last-child {
       margin-bottom: 0;
     }
-  }
-
-  &__error {
-    color: $color-errors;
   }
 
   &--simple {
@@ -81,8 +85,8 @@
     &__body {
       padding-top: 0.222rem; // 4px
       padding-left: 1.8rem;
-      font-weight: $font-weight-bold;
       min-height: 2rem; // Height of icon
+      font-weight: $font-weight-bold;
     }
 
     &__icon {
