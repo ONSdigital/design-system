@@ -8,7 +8,7 @@
 
 ## Page
 
-| Name    | Type    | Required | Description                 |
-| ------- | ------- | -------- | --------------------------- |
-| url     | string  | true     | URL for the page            |
-| current | boolean | true     | If this is the current page |
+| Name    | Type    | Required | Description                             |
+| ------- | ------- | -------- | --------------------------------------- |
+| url     | string  | true     | URL for the page                        |
+| current | boolean | false    | If this is the current page set to true |
