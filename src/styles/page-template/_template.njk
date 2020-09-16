@@ -43,6 +43,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ page_title }}</title>
         <link rel="stylesheet" href="{{ assetsURL }}/css/{{ pageConfig.theme | default('main') }}.css">
+        <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css">
         {% if pageConfig.headMeta is defined %}
             <meta property="og:description" content="{{ pageConfig.headMeta.description }}">
             <meta property="og:title" content="{{ pageConfig.title }}">
