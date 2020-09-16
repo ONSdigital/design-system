@@ -1,6 +1,33 @@
 .btn,
 .summary__actions,
 footer,
-.cookies-banner {
+.cookies-banner,
+.language-links,
+.breadcrumb {
   display: none;
+}
+
+.header {
+  &__main,
+  &__bottom {
+    background: transparent;
+  }
+
+  &__title {
+    color: #222;
+  }
+
+  &-nav {
+    &__item--active {
+      border-color: #222;
+    }
+    &__link,
+    &__link:hover {
+      color: #222;
+    }
+  }
+
+  & &__svg-logo {
+    fill: #222;
+  }
 }
