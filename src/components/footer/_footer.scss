@@ -8,22 +8,15 @@
 
   &__ogl-img {
     margin: 0 0.5rem 0.2rem 0;
-    height: 1.333333rem;
-    opacity: 0.75;
-  }
-
-  &__poweredby-img {
-    width: 272px;
-    height: auto;
-  }
-
-  &__poweredby-img--small {
-    width: 150px;
   }
 
   &__hr {
     border: 0;
-    border-top: 1px solid $color-borders;
+    border-top: 1px solid $color-grey-2;
+  }
+
+  .list__link {
+    margin-right: 0;
   }
 
   a {
