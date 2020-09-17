@@ -2,4 +2,14 @@
   width: 1rem;
   height: 1rem;
   vertical-align: middle;
+
+  &--l {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &--s {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
 }
