@@ -49,6 +49,10 @@
     }
   }
 
+  &__error {
+    color: $color-errors;
+  }
+
   &--simple {
     padding: 1rem;
     border-left: 8px solid transparent;
