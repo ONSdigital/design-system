@@ -47,6 +47,15 @@
     > *:last-child {
       margin-bottom: 0;
     }
+    &.svg-icon-margin--xl {
+      padding-left: 2.5rem !important;
+    }
+    &.svg-icon-margin--l {
+      padding-left: 2.3rem !important;
+    }
+    &.svg-icon-margin--m {
+      padding-left: 2rem !important;
+    }
   }
 
   &__error {
