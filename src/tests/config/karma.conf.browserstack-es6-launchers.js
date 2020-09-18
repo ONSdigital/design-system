@@ -20,7 +20,7 @@ export default function() {
       bs_iphone_xs: inheritBase({
         device: 'iPhone XS Max',
         os: 'ios',
-        os_version: '12.1',
+        os_version: '12.0',
         real_mobile: true,
       }),
 
@@ -30,7 +30,7 @@ export default function() {
       bs_samsung_galaxy_s9: inheritBase({
         device: 'Samsung Galaxy S9 Plus',
         os: 'android',
-        os_version: '8.0',
+        os_version: '9.0',
         real_mobile: true,
       }),
 
@@ -39,7 +39,7 @@ export default function() {
        */
       bs_mac_chrome: inheritBase({
         browser: 'chrome',
-        browser_version: '86.0',
+        browser_version: '85.0',
         os: 'OS X',
         os_version: 'Mojave',
       }),
@@ -51,7 +51,7 @@ export default function() {
       }),
       bs_mac_safari: inheritBase({
         browser: 'safari',
-        browser_version: '13',
+        browser_version: '12.1',
         os: 'OS X',
         os_version: 'Mojave',
       }),
@@ -63,19 +63,19 @@ export default function() {
         os: 'Windows',
         os_version: '10',
         browser: 'Edge',
-        browser_version: '18',
+        browser_version: '85',
       }),
       bs_windows_10_chrome: inheritBase({
         os: 'Windows',
         os_version: '10',
         browser: 'Chrome',
-        browser_version: '75.0',
+        browser_version: '85.0',
       }),
       bs_windows_10_firefox: inheritBase({
         os: 'Windows',
         os_version: '10',
         browser: 'firefox',
-        browser_version: '67.0',
+        browser_version: '80.0',
       }),
     },
   };
