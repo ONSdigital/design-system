@@ -62,17 +62,17 @@ Guidance on specific error messages can be found with each applicable [component
 
 The prototype provides an example of form validation for missing and invalid inputs.  Attempt to submit the form as it is to see the validation in action.
 
-<div class="panel panel--info panel--simple u-mb-m">
-    <div class="panel__body">
-        <strong>Note:</strong> The form in the example prototype will always fail validation.
-    </div>
-</div>
+{{
+    onsPanel({
+        body: "<strong>Note:</strong> The form in the example prototype will always fail validation."
+    })
+}}
 
 {{
     onsButton({
         "type": 'button',
         "text": 'Launch prototype',
-        "classes": 'u-mb-m',
+        "classes": 'u-mt-m',
         "url": '/patterns/error-validation/examples/errors-proto/'
     })
 }}
