@@ -12,10 +12,38 @@ layout: none
 {% from "components/date-input/_macro.njk" import onsDateInput %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 {% from "components/password/_macro.njk" import onsPassword %}
+{% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
 
 {% set pageConfig = {
     "title": "Errors Prototype"
 } %}
+
+{% block preMain %}
+    {{
+        onsBreadcrumb({
+            "ariaLabel": 'Breadcrumb',
+            "itemsList": [
+                {
+                    "url": '/',
+                    "text": 'Home'
+                },
+                {
+                    "url": '/patterns',
+                    "text": 'Patterns'
+                },
+                {
+                    "url": '/patterns/error-validation',
+                    "text": 'Correct errors'
+                },
+                {
+                    "url": '/patterns/error-validation/examples/errors-proto/',
+                    "text": 'Error Prototype',
+                    "current": true
+                }
+            ]
+        })
+    }}
+{% endblock %}
 
 
 {% block main %}
