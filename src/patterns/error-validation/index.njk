@@ -6,6 +6,7 @@ group: Help users to...
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/button/_macro.njk" import onsButton %}
 
 ## When to use this pattern
 
@@ -67,7 +68,14 @@ The prototype provides an example of form validation for missing and invalid inp
     </div>
 </div>
 
-<a class="u-mb-m" href="/patterns/error-validation/examples/errors-proto/">Launch prototype</a>
+{{
+    onsButton({
+        "type": 'button',
+        "text": 'Launch prototype',
+        "classes": 'u-mb-m',
+        "url": '/patterns/error-validation/examples/errors-proto/'
+    })
+}}
 
 ## Research on this component
 {% call onsPanel() %}
