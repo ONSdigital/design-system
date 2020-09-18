@@ -18,8 +18,12 @@ footer,
   }
 
   &-nav {
+    display: block;
+    &__item {
+      display: inline-block;
+    }
     &__item--active {
-      border-color: #222;
+      border: 0;
     }
     &__link,
     &__link:hover {
