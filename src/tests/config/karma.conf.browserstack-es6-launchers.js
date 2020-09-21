@@ -28,7 +28,7 @@ export default function() {
        * Android
        */
       bs_google_pixel_4: inheritBase({
-        device: '"Google Pixel 4',
+        device: 'Google Pixel 4',
         os: 'android',
         os_version: '11.0',
         real_mobile: true,
