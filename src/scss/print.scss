@@ -1,3 +1,5 @@
+$color-black: #222;
+
 .btn,
 .summary__actions,
 footer,
@@ -14,7 +16,7 @@ footer,
   }
 
   &__title {
-    color: #222;
+    color: $color-black;
   }
 
   &-nav {
@@ -27,17 +29,45 @@ footer,
     }
     &__link,
     &__link:hover {
-      color: #222;
+      color: $color-black;
     }
   }
 
   & &__svg-logo {
-    fill: #222;
+    fill: $color-black;
   }
 }
 
-@media print {
-  a::after {
-    content: ' (' attr(href) ') ';
+a::after {
+  content: ' (' attr(href) ') ';
+}
+
+.collapsible {
+  &--initialised & {
+    &__icon {
+      display: none;
+    }
+
+    &__title {
+      margin-bottom: 1rem;
+      margin-left: -1.5rem;
+      color: $color-black;
+      text-decoration: none;
+    }
+
+    &__content {
+      display: block;
+    }
+  }
+}
+
+.hero {
+  &__circle-image {
+    display: none;
+  }
+
+  &__details {
+    position: absolute;
+    top: 0;
   }
 }

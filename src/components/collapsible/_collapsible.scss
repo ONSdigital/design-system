@@ -60,23 +60,6 @@ $collapsible-caret-right-spacing: 0.4rem;
     &__content {
       display: none;
     }
-
-    @media print {
-      &__icon {
-        display: none;
-      }
-
-      &__title {
-        margin-bottom: 1rem;
-        margin-left: -1.5rem;
-        color: $color-black;
-        text-decoration: none;
-      }
-
-      &__content {
-        display: block;
-      }
-    }
   }
 
   &__icon {
