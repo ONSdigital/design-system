@@ -51,7 +51,7 @@ export default function() {
       // }),
       bs_mac_safari: inheritBase({
         browser: 'safari',
-        browser_version: '12.1',
+        browser_version: '13.0',
         os: 'OS X',
         os_version: 'Catalina',
       }),
