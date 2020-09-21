@@ -35,3 +35,9 @@ footer,
     fill: #222;
   }
 }
+
+@media print {
+  a::after {
+    content: ' (' attr(href) ') ';
+  }
+}
