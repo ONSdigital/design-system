@@ -10,7 +10,7 @@ export default function() {
       'bs_mac_safari',
       'bs_windows_10_IE_edge',
       'bs_windows_10_chrome',
-      'bs_windows_10_firefox',
+      // 'bs_windows_10_firefox',
     ],
 
     customLaunchers: {
@@ -71,12 +71,12 @@ export default function() {
         browser: 'Chrome',
         browser_version: 'latest',
       }),
-      bs_windows_10_firefox: inheritBase({
-        os: 'Windows',
-        os_version: '10',
-        browser: 'firefox',
-        browser_version: '56.0',
-      }),
+      // bs_windows_10_firefox: inheritBase({
+      //   os: 'Windows',
+      //   os_version: '10',
+      //   browser: 'firefox',
+      //   browser_version: '56.0',
+      // }),
     },
   };
 }
