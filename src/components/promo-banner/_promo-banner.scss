@@ -1,8 +1,8 @@
 .promo-banner {
   padding: 2rem 0;
-  background: $color-branded;
+  background: $color-primary-purple;
   &--gradient {
-    background: radial-gradient(at bottom left, $color-branded-secondary, $color-branded, $color-branded-tertiary);
+    background: radial-gradient(at bottom left, $color-accent-pink, $color-primary-purple, $color-secondary-blue);
   }
 
   &__image {

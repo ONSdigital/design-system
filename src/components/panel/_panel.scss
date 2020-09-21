@@ -149,6 +149,6 @@
 @include panel-type(error, $color-errors, $color-errors-tint);
 @include panel-type(success, $color-success, $color-success-tint);
 @include panel-type(info, $color-info, $color-info-tint);
-@include panel-type(branded, $color-branded, $color-branded-tint);
+@include panel-type(branded, $color-primary-purple, $color-primary-purple-tint);
 @include panel-type(warn, $color-white, $color-white);
 @include panel-type(warn, $color-white, $color-white);

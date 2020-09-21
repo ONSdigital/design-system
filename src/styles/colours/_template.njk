@@ -2,14 +2,14 @@
     {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
         <div class="patternlib-swatch grid grid--flex grid--gutterless grid--no-wrap">
             <div class="patternlib-swatch__color u-flex-no-shrink"
-                style="background-color:{{ item.bg }}; {% if item.border is defined -%} border:1px solid #ccc;{% endif -%}{% if item.shadow is defined %}border-radius:0; -webkit-box-shadow: 0 -2px {{ item.bg }}, 0 4px {{ item.fore }};
+                style="{% if item.gradient is defined and item.gradient and item.bg2 is defined and item.bg2 %}background: linear-gradient(to bottom left, {{ item.bg }} 0%, {{ item.bg2 }} 100%);{% else %}background-color:{{ item.bg }};{% endif -%}{% if item.border is defined -%} border:1px solid #ccc;{% endif -%}{% if item.shadow is defined %}border-radius:0; -webkit-box-shadow: 0 -2px {{ item.bg }}, 0 4px {{ item.fore }};
                 box-shadow: 0 -2px {{ item.bg }}, 0 4px {{ item.fore }};{% endif -%}">
             {% if item.char is defined -%}<span class="patternlib-swatch__char" style="color:{{ item.fore }}">{{ item.char }}</span>{% endif -%}
             </div>
             <div class="patternlib-swatch__codes u-flex-no-grow">
                 {% if item.var is defined -%}
-                    <span class="patternlib-swatch__hex">{{ item.bg }}</span>
-                    <code class="patternlib-swatch__var">{{ item.var }}</code>
+                    <span class="patternlib-swatch__hex">{{ item.bg }}{% if item.gradient is defined and item.gradient and item.bg2 is defined and item.bg2 %} {{ item.bg2 }}{% endif %}</span>
+                    {% if item.gradient is not defined and not item.gradient %}<code class="patternlib-swatch__var">{{ item.var }}</code>{% endif %}
                 {% endif -%}
 
                 {% if item.fore is defined -%}
@@ -18,7 +18,7 @@
                 {% endif -%}
             </div>
             {% if item.info is defined -%}
-            <div class="patternlib-swatch__info grid__col u-flex-shrink">{{ item.info|safe  }}</div>
+            <div class="patternlib-swatch__info grid__col u-flex-shrink">{{ item.info | safe }}</div>
             {% endif -%}
         </div>
     {% endfor -%}
