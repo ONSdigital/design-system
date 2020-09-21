@@ -44,10 +44,10 @@ export default function() {
         os_version: 'Catalina',
       }),
       bs_mac_firefox: inheritBase({
-        browser: 'Firefox',
-        browser_version: 'latest',
+        browser: 'firefox',
+        browser_version: '70.0',
         os: 'OS X',
-        os_version: 'Catalina',
+        os_version: 'High Sierra',
       }),
       bs_mac_safari: inheritBase({
         browser: 'safari',
