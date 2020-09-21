@@ -9,6 +9,10 @@ footer,
   display: none;
 }
 
+a::after {
+  content: ' (' attr(href) ') ';
+}
+
 .header {
   &__main,
   &__bottom {
@@ -38,10 +42,6 @@ footer,
   }
 }
 
-a::after {
-  content: ' (' attr(href) ') ';
-}
-
 .collapsible {
   &--initialised & {
     &__icon {
@@ -62,12 +62,5 @@ a::after {
 }
 
 .hero {
-  &__circle-image {
-    display: none;
-  }
-
-  &__details {
-    position: absolute;
-    top: 0;
-  }
+  -webkit-print-color-adjust: exact;
 }
