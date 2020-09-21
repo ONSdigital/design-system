@@ -45,7 +45,7 @@ export default function() {
       }),
       bs_mac_firefox: inheritBase({
         browser: 'firefox',
-        browser_version: '56.0',
+        browser_version: '70.0',
         os: 'OS X',
         os_version: 'Catalina',
       }),
