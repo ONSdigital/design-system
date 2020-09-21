@@ -6,11 +6,11 @@ export default function() {
       'bs_iphone_11_pro',
       'bs_google_pixel_4',
       'bs_mac_chrome',
-      // 'bs_mac_firefox',
+      'bs_mac_firefox',
       'bs_mac_safari',
       'bs_windows_10_IE_edge',
       'bs_windows_10_chrome',
-      // 'bs_windows_10_firefox',
+      'bs_windows_10_firefox',
     ],
 
     customLaunchers: {
@@ -43,12 +43,12 @@ export default function() {
         os: 'OS X',
         os_version: 'Catalina',
       }),
-      // bs_mac_firefox: inheritBase({
-      //   browser: 'firefox',
-      //   browser_version: 'latest',
-      //   os: 'OS X',
-      //   os_version: 'Catalina',
-      // }),
+      bs_mac_firefox: inheritBase({
+        browser: 'firefox',
+        browser_version: '56.0',
+        os: 'OS X',
+        os_version: 'Catalina',
+      }),
       bs_mac_safari: inheritBase({
         browser: 'safari',
         browser_version: '13.0',
@@ -71,12 +71,12 @@ export default function() {
         browser: 'Chrome',
         browser_version: 'latest',
       }),
-      // bs_windows_10_firefox: inheritBase({
-      //   os: 'Windows',
-      //   os_version: '10',
-      //   browser: 'firefox',
-      //   browser_version: 'latest',
-      // }),
+      bs_windows_10_firefox: inheritBase({
+        os: 'Windows',
+        os_version: '10',
+        browser: 'firefox',
+        browser_version: '56.0',
+      }),
     },
   };
 }
