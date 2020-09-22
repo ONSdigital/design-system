@@ -6,8 +6,6 @@
         {% set listEl = 'ul' %}
     {% endif %}
 
-    {% set prefixClass = " list--bare" if params.itemsList[0].prefix is defined else "" %}
-
     <{{listEl}} {% if params.id is defined %}id="{{ params.id }}"{% endif %} class="list {{ params.classes }}{{ prefixClass }}">
         {%- for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
             <li class="list__item {{ item.listclass }}" {% if item.current is defined %}aria-current="true"{% endif %}>
