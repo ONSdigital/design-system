@@ -6,7 +6,7 @@
         {% set listEl = 'ul' %}
     {% endif %}
 
-    <{{listEl}} {% if params.id is defined %}id="{{ params.id }}"{% endif %} class="list {{ params.classes }}{{ prefixClass }}">
+    <{{listEl}} {% if params.id is defined %}id="{{ params.id }}"{% endif %} class="list {{ params.classes }}">
         {%- for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
             <li class="list__item {{ item.listclass }}" {% if item.current is defined %}aria-current="true"{% endif %}>
                 {%- if item.index is defined or item.prefix is defined or item.prefixIcon is defined -%}
