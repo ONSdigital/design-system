@@ -1,15 +1,15 @@
 // Census brand
 $color-black: #222;
-$color-primary-purple: #902082;
-$color-primary-purple-tint: rgba(227, 77, 219, 0.15);
-$color-accent-pink: #df0667;
-$color-secondary-blue: #3c388e;
-$color-accent-teal: #00a3a6;
-$color-accent-teal-tint: rgba(#00a3a6, 0.2);
+$color-branded: #902082;
+$color-branded-tint: rgba(227, 77, 219, 0.15);
+$color-branded-secondary: #df0667;
+$color-branded-tertiary: #3c388e;
+$color-branded-supporting: #00a3a6;
+$color-branded-supporting-tint: rgba(#00a3a6, 0.2);
 $color-census-gradient: linear-gradient(to bottom left, #902082 0%, #3c388e 100%);
 
 // Assignment
-$color-header: $color-primary-purple;
-$cta-bg: $color-primary-purple-tint;
-$color-tag-bg: $color-accent-teal-tint;
+$color-header: $color-branded;
+$cta-bg: $color-branded-tint;
+$color-tag-bg: $color-branded-supporting-tint;
 $color-links-hover: $color-black;

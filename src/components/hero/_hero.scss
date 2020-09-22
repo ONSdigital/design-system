@@ -1,7 +1,7 @@
 // Default
 .hero {
   padding: 2rem 0;
-  background-color: $color-primary-purple;
+  background-color: $color-branded;
 
   &__content {
     height: 100%;
@@ -20,7 +20,7 @@
   margin-top: 2px;
   padding: 0;
   overflow: hidden;
-  background-image: linear-gradient(46deg, $color-secondary-blue 0%, $color-primary-purple 100%);
+  background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
 
   .hero__container {
     display: flex;
@@ -59,7 +59,7 @@
     width: 234px;
     height: 234px;
     border-radius: 50%;
-    background-image: linear-gradient(-45deg, $color-primary-purple 0%, $color-primary-purple 20%, $color-secondary-blue 60%, #005489 90%);
+    background-image: linear-gradient(-45deg, $color-branded 0%, $color-branded 20%, $color-branded-tertiary 60%, #005489 90%);
   }
 
   .hero__circle-white {
