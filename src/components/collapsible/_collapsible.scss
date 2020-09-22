@@ -2,61 +2,67 @@ $collapsible-caret-width: 1.1rem;
 $collapsible-caret-right-spacing: 0.4rem;
 
 .collapsible {
-  &__heading {
-    display: inline-block;
-    position: relative;
-    padding: 0 0 0 ($collapsible-caret-width + $collapsible-caret-right-spacing);
-    outline: none;
-    color: $color-links;
-    cursor: pointer;
-    pointer-events: initial;
+  &--initialised & {
+    &__heading {
+      display: inline-block;
+      position: relative;
+      padding: 0 0 0 ($collapsible-caret-width + $collapsible-caret-right-spacing);
+      outline: none;
+      color: $color-links;
+      cursor: pointer;
+      pointer-events: initial;
 
-    &::-webkit-details-marker {
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &:focus {
+        & .collapsible__title {
+          @extend a:focus;
+          // extend collapsible focus background behind caret
+          margin-left: -($collapsible-caret-right-spacing + $collapsible-caret-width);
+          padding-left: $collapsible-caret-right-spacing + $collapsible-caret-width;
+        }
+      }
+
+      &:hover {
+        color: $color-links-hover;
+        .collapsible__icon {
+          fill: $color-links-hover;
+        }
+        & .collapsible__title {
+          text-decoration: none;
+        }
+      }
+      &:focus {
+        .collapsible__icon {
+          fill: $color-black;
+        }
+      }
+    }
+
+    &__icon {
+      display: inline-block;
+      position: absolute;
+      top: -0.2rem;
+      left: 0.2rem;
+      width: $collapsible-caret-width;
+      height: $collapsible-caret-width;
+      fill: $color-links;
+    }
+
+    &__title {
+      transform: translateY(-1px);
+      margin-bottom: 0;
+      text-decoration: underline;
+    }
+
+    &__content {
       display: none;
-    }
-
-    &:focus {
-      & .collapsible__title {
-        @extend a:focus;
-        // extend collapsible focus background behind caret
-        margin-left: -($collapsible-caret-right-spacing + $collapsible-caret-width);
-        padding-left: $collapsible-caret-right-spacing + $collapsible-caret-width;
-      }
-    }
-
-    &:hover {
-      color: $color-links-hover;
-      .collapsible__icon {
-        fill: $color-links-hover;
-      }
-      & .collapsible__title {
-        text-decoration: none;
-      }
-    }
-    &:focus {
-      .collapsible__icon {
-        fill: $color-black;
-      }
     }
   }
 
   &__icon {
-    display: inline-block;
-    position: absolute;
-    top: -0.3rem;
-    left: 0.2rem;
-    width: $collapsible-caret-width;
-    height: $collapsible-caret-width;
-    fill: $color-links;
-  }
-
-  &__title {
-    transform: translateY(-1px);
-    margin-bottom: 0;
-    text-decoration: underline;
-  }
-
-  &__content {
     display: none;
   }
 
@@ -105,9 +111,8 @@ $collapsible-caret-right-spacing: 0.4rem;
 
     &__icon {
       @include mq(s) {
-        top: 1.1rem;
+        top: 1.2rem;
       }
-      top: 0.8rem;
     }
 
     &__controls {
