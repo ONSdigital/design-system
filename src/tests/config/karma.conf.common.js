@@ -105,7 +105,10 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         username: process.env.BROWSER_STACK_USERNAME,
         accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
       },
-
+      browserDisconnectTolerance: 0,
+      browserDisconnectTimeout: 3e5,
+      browserSocketTimeout: 1.2e5,
+      browserNoActivityTimeout: 3e5,
       singleRun: process.env.KARMA_SINGLE_RUN !== 'false',
     });
   };
