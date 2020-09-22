@@ -101,14 +101,13 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         name: 'Karma unit tests',
         project: 'ONS - design-system',
         forcelocal: true,
-        browserDisconnectTimeout: 10000,
         username: process.env.BROWSER_STACK_USERNAME,
         accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
       },
-      browserDisconnectTolerance: 0,
-      browserDisconnectTimeout: 3e5,
-      browserSocketTimeout: 1.2e5,
-      browserNoActivityTimeout: 3e5,
+      captureTimeout: 60000,
+      browserDisconnectTimeout: 10000,
+      browserDisconnectTolerance: 1,
+      browserNoActivityTimeout: 60000,
       singleRun: process.env.KARMA_SINGLE_RUN !== 'false',
     });
   };
