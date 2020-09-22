@@ -107,7 +107,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
       captureTimeout: 60000,
       browserDisconnectTimeout: 10000,
       browserDisconnectTolerance: 1,
-      browserNoActivityTimeout: 60000,
+      browserNoActivityTimeout: 400000,
       singleRun: process.env.KARMA_SINGLE_RUN !== 'false',
     });
   };
