@@ -6,7 +6,7 @@ export default function() {
       'bs_iphone_11_pro',
       'bs_google_pixel_4',
       'bs_mac_chrome',
-      'bs_mac_firefox',
+      // 'bs_mac_firefox',
       'bs_mac_safari',
       'bs_windows_10_IE_edge',
       'bs_windows_10_chrome',
@@ -43,12 +43,12 @@ export default function() {
         os: 'OS X',
         os_version: 'Catalina',
       }),
-      bs_mac_firefox: inheritBase({
-        browser: 'firefox',
-        browser_version: '70.0',
-        os: 'OS X',
-        os_version: 'High Sierra',
-      }),
+      // bs_mac_firefox: inheritBase({
+      //   browser: 'firefox',
+      //   browser_version: '70.0',
+      //   os: 'OS X',
+      //   os_version: 'High Sierra',
+      // }),
       bs_mac_safari: inheritBase({
         browser: 'safari',
         browser_version: '13.0',
