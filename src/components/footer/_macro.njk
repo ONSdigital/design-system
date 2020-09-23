@@ -1,12 +1,15 @@
 {% macro onsFooter(params) %}
 
+
     {% from "components/lists/_macro.njk" import onsList %}
+
 
     {% if params.lang is defined %}
         {% set lang = params.lang %}
     {% else %}
         {% set lang = 'en' %}
     {% endif %}
+
 
     {% if params.poweredBy is defined %}
         {% if params.poweredBy.alt is defined %}
@@ -16,24 +19,27 @@
         {% endif %}
     {% endif %}
 
+
     {% set poweredByLogo %}
-        <img class="footer__poweredby-img {{ params.poweredBy.classes }}" src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.poweredBy.logo | default('ons-logo-black-' + lang ) }}.svg" alt="{{ poweredByAlt | default('Office for National Statistics') }}">
+        <img src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.poweredBy.logo | default('ons-logo-black-' + lang ) }}.svg" alt="{{ poweredByAlt | default('Office for National Statistics') }}">
     {% endset %}
+
 
     {% set crestLogo %}
         <img src="{{ params.assetsURL if params.assetsURL }}/img/crest.svg" alt="Royal coat of arms of the United Kingdom">
     {% endset %}
 
+
     <footer class="footer{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
-
+     
         <div class="footer__body">
-
+        
             <div class="container {{ ' container--wide' if params.wide }}">
-
+               
                 <div class="grid">
 
                     {% if params.poweredBy is defined %}
-
+                     
                         {% if params.OGLLink is defined %}
                             <div class="grid__col u-mb-m">
                                 {{ poweredByLogo | safe }}
@@ -43,7 +49,7 @@
                     {% endif %}
 
                     {% if params.button is defined %}
-
+                      
                         {% from "components/button/_macro.njk" import onsButton %}
                         <div class="grid__col u-mb-m u-d-no@m">
                             {{
@@ -66,9 +72,9 @@
                     {% endif %}
 
                     {% if params.language is defined and params.language %}
-
+                       
                         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
-
+                       
                         <div class="grid__col u-d-no@m">
                             {% set languageItems = params.language.languages | rejectattr("current") %}
                             {% if currentLanguage.allLanguages is defined and params.language.allLanguagesUrl is defined %}
@@ -80,7 +86,7 @@
                             {% endif %}
                             {{
                                 onsList({
-                                    "classes": 'list--bare list--inline@s u-mb-no',
+                                    "classes": 'list--bare list--inline@m u-mb-no',
                                     "itemsList": languageItems
                                 })
                             }}
@@ -92,30 +98,15 @@
 
                     {% endif %}
 
-                    {% if params.serviceLinks is defined %}
-
-                        <div class="grid__col u-d-no@m">
-                            {{
-                                onsList({
-                                    "classes": 'list--bare list--inline u-mb-no',
-                                    "itemsList": params.serviceLinks.itemsList
-                                })
-                            }}
-                        </div>
-
-                        <div class="grid__col u-d-no@m u-mb-m">
-                            <hr class="footer__hr">
-                        </div>
-
-                    {% endif %}
-
                     {% if params.cols is defined %}
-
+                        
                         {% for col in params.cols %}
                             <div class="grid__col col-4@m{{ " u-mt-m@xs@m" if loop.index > 1 }}">
+                                
                                 {% if col.title %}
                                     <h2 class="u-fs-r--b footer__heading">{{ col.title }}</h2>
                                 {% endif %}
+
                                 {{
                                     onsList({
                                         "classes": 'list--bare u-mb-no',
@@ -127,84 +118,84 @@
 
                     {% endif %}
 
+                    {% if params.cols is defined and params.rows is defined %}
+
+                        <div class="grid__col u-mb-m">
+                            <hr class="footer__hr">
+                        </div>
+
+                    {% endif %}
+
                     {% if params.rows is defined %}
 
                         {% for row in params.rows %}
 
-                            {% if params.OGLLink is not defined %}
-
-                                {% if params.crest is defined and params.cols is defined %}
-                                    <div class="grid__col u-mb-m">
-                                        <hr class="footer__hr">
-                                    </div>
-                                {% endif %}
+                           {% if params.OGLLink is not defined %}
 
                                 {% if loop.last %}
                                     </div>
-                                    <div class="grid grid--flex grid--vertical-center grid--between">
+                                    <div class="grid grid--flex{% if params.crest is not defined %} grid--vertical-center{% endif %} grid--between">
                                 {% endif %}
 
                             {% endif %}
 
-                            <div class="grid__col{% if loop.last %} u-mb-s u-mr-m{% endif %}">
-
+                            <div class="grid__col">
+                                
                                 {{
                                     onsList({
-                                        "classes": 'list--bare list--inline@s u-mb-no',
+                                        "classes": 'list--bare list--inline@m u-mb-no',
                                         "itemsList": row.itemsList
                                     })
                                 }}
 
-                                {% if params.crest is defined and loop.last %}
+                                {% if params.OGLLink is not defined and params.crest is defined %}
 
-                                <div class="u-mt-s">
-                                    {{ poweredByLogo | safe }}
-                                </div>
+                                    {% if loop.last %}
+                                        <div class="u-mt-m u-mb-s">
+                                            {{ poweredByLogo | safe }}
+                                        </div>
+                                    {% endif %}
 
                                 {% endif %}
 
                             </div>
 
-                            {% if params.OGLLink is not defined %}
+                            {% if params.OGLLink is not defined and params.crest is not defined %}
+                              
+                                {% if loop.last %}
+                                    <div class="grid__col grid__col--flex">
+                                        {{ poweredByLogo | safe }}
+                                    </div>
+                                {% endif %}
+
+                            {% elif params.OGLLink is not defined %}
 
                                 {% if loop.last %}
-
-                                    {% if params.crest is defined %}
-
-                                        <div class="grid__col u-mb-m">
-                                            {{ crestLogo | safe }}
-                                        </div>
-
-                                    {% else %}
-
-                                        <div class="grid__col grid__col--flex u-ml-s u-mb-s u-p-no">
-                                            {{ poweredByLogo | safe }}
-                                        </div>
-
-                                    {% endif %}
-
+                                    <div class="grid__col">
+                                        {{ crestLogo | safe }}
+                                    </div>
                                 {% endif %}
 
                             {% endif %}
 
                             {% if loop.length > 1 %}
-
+                               
                                 {% if not loop.last %}
-
                                     <div class="grid__col u-mb-m">
                                         <hr class="footer__hr">
                                     </div>
-
                                 {% endif %}
 
                             {% endif %}
-
+                        
                         {% endfor %}
 
-                    {% elif params.rows is not defined and params.cols is not defined and params.poweredBy is not defined and params.OGLLink is not defined %}
-                        <div class="grid__col grid__col--flex u-ml-s u-mb-s u-p-no">
+                    {% elif params.rows is not defined and params.cols is not defined and params.poweredBy is not defined and params.OGLLink is not defined and params.crest is not defined %}
+
+                        <div class="grid__col grid__col--flex">
                             {{ poweredByLogo | safe }}
                         </div>
+
                     {% endif %}
 
                     {% if params.OGLLink is defined %}
@@ -234,17 +225,19 @@
                         </div>
 
                     {% elif params.rows is not defined and (params.poweredBy is defined or params.cols is defined) %}
-
+                       
                         {% if params.cols is defined %}
                             <div class="grid__col u-mb-m">
                                 <hr class="footer__hr">
                             </div>
                         {% endif %}
 
-                        <div class="grid__col u-mb-m">
+                        <div class="grid__col">
                             {{ poweredByLogo | safe }}
                         </div>
+
                     {% endif %}
+
 
                 </div>
 
@@ -255,3 +248,4 @@
     </footer>
 
 {% endmacro %}
+
