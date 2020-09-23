@@ -283,18 +283,8 @@ export default class AutosuggestUI {
     const results = await queryJson(sanitisedQuery, data, this.lang, this.resultLimit);
     results.forEach(result => {
       result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
-      if (this.lang !== 'en') {
-        const english = result['en'];
-        const sanitisedAlternative = sanitiseAutosuggestText(english, this.sanitisedQueryReplaceChars);
-
-        if (sanitisedAlternative.match(sanitisedQuery)) {
-          result.alternatives = [english];
-          result.sanitisedAlternatives = [sanitisedAlternative];
-        }
-      } else {
-        result.alternatives = [];
-        result.sanitisedAlternatives = [];
-      }
+      result.alternatives = [];
+      result.sanitisedAlternatives = [];
     });
     return {
       results,
