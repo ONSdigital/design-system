@@ -2,14 +2,14 @@
 
     {% from "components/lists/_macro.njk" import onsList %}
 
-    {% if params.lang is defined %}
+    {% if params.lang is defined and params.lang %}
         {% set lang = params.lang %}
     {% else %}
         {% set lang = 'en' %}
     {% endif %}
 
-    {% if params.poweredBy is defined %}
-        {% if params.poweredBy.alt is defined %}
+    {% if params.poweredBy is defined and params.poweredBy %}
+        {% if params.poweredBy.alt is defined and params.poweredBy.alt %}
             {% set poweredByAlt = params.poweredBy.alt %}
         {% else %}
             {% set poweredByAlt = 'Office for National Statistics' %}
@@ -24,7 +24,7 @@
         <img src="{{ params.assetsURL if params.assetsURL }}/img/crest.svg" alt="Royal coat of arms of the United Kingdom">
     {% endset %}
 
-    <footer class="footer{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
+    <footer class="footer{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
 
         <div class="footer__body">
 
@@ -32,9 +32,9 @@
 
                 <div class="grid">
 
-                    {% if params.poweredBy is defined %}
+                    {% if params.poweredBy is defined and params.poweredBy %}
 
-                        {% if params.OGLLink is defined %}
+                        {% if params.OGLLink is defined and params.OGLLink %}
                             <div class="grid__col u-mb-m">
                                 {{ poweredByLogo | safe }}
                             </div>
@@ -42,7 +42,7 @@
 
                     {% endif %}
 
-                    {% if params.button is defined %}
+                    {% if params.button is defined and params.button %}
 
                         {% from "components/button/_macro.njk" import onsButton %}
                         <div class="grid__col u-mb-m u-d-no@m">
@@ -71,7 +71,7 @@
 
                         <div class="grid__col u-d-no@m">
                             {% set languageItems = params.language.languages | rejectattr("current") %}
-                            {% if currentLanguage.allLanguages is defined and params.language.allLanguagesUrl is defined %}
+                            {% if currentLanguage.allLanguages is defined and currentLanguage.allLanguages and params.language.allLanguagesUrl is defined and params.language.allLanguagesUrl %}
                                 {% set languageItems = (languageItems.push({
                                     "url": params.language.allLanguagesUrl,
                                     "text": currentLanguage.allLanguages,
@@ -92,7 +92,7 @@
 
                     {% endif %}
 
-                    {% if params.serviceLinks is defined %}
+                    {% if params.serviceLinks is defined and params.serviceLinks %}
 
                         <div class="grid__col u-d-no@m">
                             {{
@@ -109,7 +109,7 @@
 
                     {% endif %}
 
-                    {% if params.cols is defined %}
+                    {% if params.cols is defined and params.cols %}
 
                         {% for col in params.cols %}
                             <div class="grid__col col-4@m{{ " u-mt-m@xs@m" if loop.index > 1 }}">
@@ -127,13 +127,13 @@
 
                     {% endif %}
 
-                    {% if params.rows is defined %}
+                    {% if params.rows is defined and params.rows %}
 
                         {% for row in params.rows %}
 
                             {% if params.OGLLink is not defined %}
 
-                                {% if params.crest is defined and params.cols is defined %}
+                                {% if params.crest is defined and params.crest and params.cols is defined and params.cols %}
                                     <div class="grid__col u-mb-m">
                                         <hr class="footer__hr">
                                     </div>
@@ -155,7 +155,7 @@
                                     })
                                 }}
 
-                                {% if params.crest is defined and loop.last %}
+                                {% if params.crest is defined and params.crest and loop.last %}
 
                                 <div class="u-mt-s">
                                     {{ poweredByLogo | safe }}
@@ -169,7 +169,7 @@
 
                                 {% if loop.last %}
 
-                                    {% if params.crest is defined %}
+                                    {% if params.crest is defined and params.crest %}
 
                                         <div class="grid__col u-mb-m">
                                             {{ crestLogo | safe }}
@@ -207,7 +207,7 @@
                         </div>
                     {% endif %}
 
-                    {% if params.OGLLink is defined %}
+                    {% if params.OGLLink is defined and params.OGLLink %}
 
                         <div class="grid__col u-mb-m">
                             <hr class="footer__hr">
@@ -217,7 +217,7 @@
 
                             <div class="footer__license">
                                 <img class="footer__ogl-img" src="{{ params.assetsURL }}/img/UKOpenGovernmentLicence-grey.svg" alt="Open Government Licence">
-                                {% if params.OGLLink.HTML is defined %}
+                                {% if params.OGLLink.HTML is defined and params.OGLLink.HTML %}
                                     {{ params.OGLLink.HTML | safe }}
                                 {% else %}
                                     {% from "components/external-link/_macro.njk" import onsExternalLink %}
@@ -233,9 +233,9 @@
 
                         </div>
 
-                    {% elif params.rows is not defined and (params.poweredBy is defined or params.cols is defined) %}
+                    {% elif params.rows is not defined and (params.poweredBy is defined and params.poweredBy or params.cols is defined and params.cols) %}
 
-                        {% if params.cols is defined %}
+                        {% if params.cols is defined and params.cols %}
                             <div class="grid__col u-mb-m">
                                 <hr class="footer__hr">
                             </div>

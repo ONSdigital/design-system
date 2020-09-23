@@ -4,7 +4,7 @@
     <li class="message-item" aria-labelledby="{{ message.id }}">
       <h3 class="message-item__subject" id="{{ message.id }}">
         <a href="{{ message.url }}" class="u-fs-r--b">{{ message.subject }}</a>
-        {% if message.unread is defined %}<span class="u-fs-s">({{ params.unreadText }})</span>{% endif %}
+        {% if message.unread is defined and message.unread %}<span class="u-fs-s">({{ params.unreadText }})</span>{% endif %}
       </h3>
         <dl class="message-item__metadata" aria-label="{{ params.ariaLabelMetaData }}">
           <dt class="message-item__metadata-term u-vh">{{ params.fromLabel }}:</dt>

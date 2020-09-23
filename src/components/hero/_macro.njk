@@ -1,30 +1,30 @@
 {% macro onsHero(params) %}
 
-<section class="hero grid--gutterless{% if params.censusTheme is defined %} hero--census{% endif %}">
+<section class="hero grid--gutterless{% if params.censusTheme is defined and params.censusTheme %} hero--census{% endif %}">
 
     <div class="hero__container container">
 
-        <div class="hero__details grid__col{% if params.censusTheme is defined %} col-6@m{%else%} col-8@m{% endif%}{% if params.censusThemeDark is defined %} hero__details--ondark{% endif%}">
+        <div class="hero__details grid__col{% if params.censusTheme is defined and params.censusTheme %} col-6@m{%else%} col-8@m{% endif%}{% if params.censusThemeDark is defined and params.censusThemeDark %} hero__details--ondark{% endif%}">
 
             <header>
 
-                {% if params.censusTheme is defined %}
+                {% if params.censusTheme is defined and params.censusTheme %}
                     <h1 class="u-fs-xxxl">{{ params.title }}</h1>
                 {% else %}
                     <h1 class="hero__title">{{ params.title }}</h1>
                 {% endif %}
 
-                {% if params.subtitle is defined %}
+                {% if params.subtitle is defined and params.subtitle %}
                     <h2 class="u-fs-r--b">{{ params.subtitle }}</h2>
                 {% endif %}
 
             </header>
 
-            {% if params.text is defined %}
+            {% if params.text is defined and params.text %}
                 <p class="hero__text">{{ params.text | safe }}</p>
             {% endif %}
 
-            {% if params.button is defined %}
+            {% if params.button is defined and params.button %}
                 {% from "components/button/_macro.njk" import onsButton %}
                 {{
                     onsButton({
@@ -36,7 +36,7 @@
                 }}
             {% endif %}
 
-            {% if params.collapsible is defined %}
+            {% if params.collapsible is defined and params.collapsible %}
                 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
                 {{
                     onsCollapsible({
@@ -55,9 +55,9 @@
 
         </div>
 
-        {% if params.censusTheme is defined %}
+        {% if params.censusTheme is defined and params.censusTheme %}
 
-            {% if params.image is defined %}
+            {% if params.image is defined and params.image %}
             <div class="hero__circle-image">
                 <img height="558px" width="558px" srcset="{{ params.image.smallSrc }}{{ params.image.filename }} 1x, {{ params.image.largeSrc }}{{ params.image.filename }} 2x" src="{{ params.image.smallSrc }}{{ params.image.filename }}" alt="{{ params.image.alt }}">
             </div>

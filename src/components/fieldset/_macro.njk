@@ -6,13 +6,13 @@
             {{ caller() }}
         {% else %}
             <fieldset
-                {% if params.id %}id="{{ params.id }}"{% endif %}
-                class="fieldset{% if params.classes is defined %} {{ params.classes }}{% endif %}"
-                {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+                {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}
+                class="fieldset{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
+                {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             >
-                <legend class="fieldset__legend{% if params.legendClasses is defined %} {{ params.legendClasses }}{% endif %}">
+                <legend class="fieldset__legend{% if params.legendClasses is defined and params.legendClasses %} {{ params.legendClasses }}{% endif %}">
                     {{- params.legend | safe -}}
-                    {% if params.description is defined %}
+                    {% if params.description is defined and params.description %}
                         <br>
                         <span class="fieldset__description">{{ params.description }}</span>
                     {% endif %}
@@ -22,7 +22,7 @@
         {% endif %}
     {% endset %}
 
-    {% if params.error is defined %}
+    {% if params.error is defined and params.error %}
         {% call onsError(params.error) %}
             {{ fieldset | safe }}
         {% endcall %}
