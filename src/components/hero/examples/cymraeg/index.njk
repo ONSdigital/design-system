@@ -1,0 +1,19 @@
+---
+"theme": census
+"fullWidth": true
+---
+{% from "components/hero/_macro.njk" import onsHero %}
+{{
+    onsHero({
+        censusTheme: true,
+        censusThemeDark: true,
+        title: 'Paratowch ar gyfer Cyfrifiad 2021',
+        text: 'Diwrnod y Cyfrifiad fydd dydd Sul 21 Mawrth 2021.',
+        image: {
+            smallSrc: '/img/small/',
+            largeSrc: '/img/large/',
+            filename: 'woman-in-purple-dress-shirt.jpg',
+            alt: 'Menyw mewn crys ffrog borffor gan ddefnyddio gliniadur'
+        }
+    })
+}}
