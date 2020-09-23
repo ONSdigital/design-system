@@ -62,7 +62,13 @@
                   <div class="grid__col col-auto u-flex-shrink">
                       {% if params.titleLogoHref is defined %}<a class="header__title-link" href="{{ params.titleLogoHref }}">{% endif %}
                       {% if params.titleLogo is defined and params.titleLogoAlt is defined %}
-                        <img class="header__title-logo" src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.titleLogo }}.svg" alt="{{ params.titleLogoAlt }}">
+                        {% from "components/icons/_macro.njk" import onsIcon %}
+                        {{
+                            onsIcon({
+                                "icon": params.titleLogo,
+                                "altText": params.titleLogoAlt
+                            })
+                        }}
                       {% else %}
                         <{{ title_tag }} class="header__title">{{ params.title }}</{{ title_tag }}>
                       {% endif %}

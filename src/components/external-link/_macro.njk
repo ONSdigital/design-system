@@ -1,5 +1,3 @@
-{% from "components/icons/_macro.njk" import onsIcon %}
-
 {# Icon needed to be directly put here instead of calling macro to solve an issue with extra space on the end of links being underlined #}
 {% macro onsExternalLink(params) %}
     <a href="{{ params.url }}" class="external-link" target="_blank" rel="noopener">{{- params.linkText -}}<svg id="external-link" class="svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">

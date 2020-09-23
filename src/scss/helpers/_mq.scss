@@ -13,14 +13,14 @@
     @if $to-operator != none and $to-operator == '<' {
       $to: $to - 1;
     }
-    @media only screen and (max-width: $to) {
+    @media (max-width: $to) {
       @content;
     }
   } @else if $to == none {
     @if $from-operator != none and $from-operator == '<' {
       $from: $from + 1;
     }
-    @media only screen and (min-width: $from) {
+    @media (min-width: $from) {
       @content;
     }
   } @else {
@@ -30,7 +30,7 @@
     @if $to-operator != none and $to-operator == '<' {
       $to: $to - 1;
     }
-    @media only screen and (min-width: $from) and (max-width: $to) {
+    @media (min-width: $from) and (max-width: $to) {
       @content;
     }
   }
