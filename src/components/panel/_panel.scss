@@ -69,8 +69,10 @@
   }
 
   &--warn {
+    display: table;
     margin-bottom: 1rem;
     padding: 0 1rem 0 1rem;
+    min-height: 2rem; // Height of icon
     border: 0;
   }
 
@@ -96,10 +98,10 @@
 
   &--warn & {
     &__body {
-      padding-top: 0.222rem; // 4px
+      display: table-cell;
       padding-left: 1.8rem;
-      min-height: 2rem; // Height of icon
       font-weight: $font-weight-bold;
+      vertical-align: middle;
     }
 
     &__icon {
