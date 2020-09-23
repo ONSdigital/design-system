@@ -34,7 +34,7 @@
                 <{{ titleTag }} {% if params.type is defined %}data-qa="{{ params.type }}-header"{% endif %} class="panel__title u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
             </div>
         {% endif %}
-        {% if if params is defined and params.icon is defined and params.icon %}
+        {% if params is defined and params.icon is defined and params.icon %}
             {% from "components/icons/_macro.njk" import onsIcon %}
             <span class= "panel__icon">
                 {{
