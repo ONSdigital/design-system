@@ -96,7 +96,6 @@ describe('consent cookie methods', function() {
 
     expect(getConsentCookie().essential).to.equal(false);
     expect(getConsentCookie().usage).to.equal(false);
-    expect(getDomain(document.domain)).to.equal('localhost');
     approveAllCookieTypes();
 
     expect(setCookieSpy).to.have.been.called;
