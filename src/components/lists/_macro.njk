@@ -11,8 +11,8 @@
             <li class="list__item {{ item.listclass }}" {% if item.current is defined and item.current %}aria-current="true"{% endif %}>
                 {%- if item.index is defined and item.index or item.prefix is defined and item.prefix or item.prefixIcon is defined and item.prefixIcon -%}
                     <span class="list__prefix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
-                    {%- if item.prefixText is defined and item.prefixText -%}
-                        {{- item.prefixText -}}.
+                    {%- if item.prefix is defined and item.prefix -%}
+                        {{- item.prefix -}}.
                     {%- elif (item.index is defined and item.index and listEl != 'ol') or (item.index is defined and item.index and listEl == 'ol' and 'list--bare' in classes) -%}
                         {{- loop.index -}}.
                     {% elif item.prefixIcon is defined and item.prefixIcon %}
