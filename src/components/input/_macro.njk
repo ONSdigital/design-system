@@ -18,7 +18,7 @@
         {% set type = "text" %}
     {% endif %}
 
-    {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
+    {% set exclusiveClass = " js-exclusive-group-item" if params.mutuallyExclusive else "" %}
     {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder else "" %}
 
     {% set input %}

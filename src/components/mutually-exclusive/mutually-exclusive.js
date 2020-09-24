@@ -1,5 +1,7 @@
-const exclusiveGroupClass = 'js-exclusive-group';
+const exclusiveGroupItemClass = 'js-exclusive-group-item';
+const exclusiveGroupItemLabelClass = 'js-exclusive-group-item-label';
 const checkboxClass = 'js-exclusive-checkbox';
+const checkboxLabelClass = 'js-exclusive-checkbox-label';
 const voiceOverAlertClass = 'js-exclusive-alert';
 const groupAttrAdjective = 'data-group-adjective';
 const checkboxAttrAdjective = 'data-checkbox-adjective';
@@ -8,11 +10,11 @@ export default class MutuallyExclusive {
   constructor(context) {
     this.context = context;
 
-    const groupInputs = [...context.getElementsByClassName(exclusiveGroupClass)];
+    const groupInputs = [...context.getElementsByClassName(exclusiveGroupItemClass)];
     this.numberOfGroupInputs = groupInputs.length;
     this.groupInputs = groupInputs.map(element => ({
       element,
-      labelText: this.getElementLabelText(element),
+      labelText: this.getNextSibling(element, exclusiveGroupItemLabelClass),
       hasValue: this.inputHasValue(element),
       exclusive: false,
     }));
@@ -20,8 +22,8 @@ export default class MutuallyExclusive {
     const checkboxElement = context.querySelector(`.${checkboxClass}`);
     this.checkbox = {
       element: checkboxElement,
-      label: context.querySelector(`label[for=${checkboxElement.id}]`),
-      labelText: this.getElementLabelText(checkboxElement),
+      label: context.querySelector(`.${checkboxLabelClass}`),
+      labelText: context.querySelector(`.${checkboxLabelClass}`).innerHTML,
       hasValue: this.inputHasValue(checkboxElement),
       exclusive: true,
     };
@@ -87,30 +89,16 @@ export default class MutuallyExclusive {
     }
   }
 
-  getElementLabelText(element) {
-    let label = this.context.querySelector(`label[for=${element.id}]`);
+  getNextSibling = function(element, selector) {
+    let sibling = element.nextElementSibling;
 
-    if (!label && this.numberOfGroupInputs > 1) {
-      label = element.parentNode.querySelector('abbr');
+    if (!selector) return sibling;
+
+    while (sibling) {
+      if (sibling.matches(selector)) return sibling;
+      sibling = sibling.nextElementSibling;
     }
-
-    if (!label) {
-      label = this.context.querySelector('legend');
-    }
-
-    // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
-    let labelText;
-
-    if (label.tagName === 'ABBR') {
-      labelText = label.getAttribute('title');
-    } else if (label.tagName === 'LEGEND' && label.querySelector('h1')) {
-      labelText = label.querySelector('h1').innerText;
-    } else {
-      labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
-    }
-
-    return labelText;
-  }
+  };
 
   inputHasValue(input) {
     if (input.type === 'checkbox') {
