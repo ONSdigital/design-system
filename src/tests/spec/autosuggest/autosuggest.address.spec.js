@@ -43,7 +43,7 @@ const params = {
     externalInitialiser: true,
     isEditable: true,
     options: {
-      region_code: 'gb-eng',
+      regionCode: 'gb-eng',
     },
   },
   line1: {
@@ -746,9 +746,9 @@ describe('Autosuggest.address component', function() {
       autosuggest: {
         externalInitialiser: true,
         options: {
-          region_code: 'gb-eng',
-          one_year_ago: true,
-          address_type: 'educational',
+          regionCode: 'gb-eng',
+          oneYearAgo: true,
+          addressType: 'educational',
         },
       },
     };
@@ -791,8 +791,8 @@ describe('Autosuggest.address component', function() {
       autosuggest: {
         externalInitialiser: true,
         options: {
-          region_code: 'gb-nir',
-          address_type: 'educational',
+          regionCode: 'gb-nir',
+          addressType: 'educational',
         },
       },
     };
@@ -837,8 +837,8 @@ describe('Autosuggest.address component', function() {
       autosuggest: {
         externalInitialiser: true,
         options: {
-          region_code: 'gb-nir',
-          address_type: 'workplace',
+          regionCode: 'gb-nir',
+          addressType: 'workplace',
         },
       },
     };
@@ -894,8 +894,8 @@ describe('Autosuggest.address component', function() {
       autosuggest: {
         externalInitialiser: true,
         options: {
-          region_code: 'gb-wls',
-          address_type: 'workplace',
+          regionCode: 'gb-wls',
+          addressType: 'workplace',
         },
       },
     };

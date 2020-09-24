@@ -90,7 +90,7 @@
                     {{
                         onsInput({
                             "id": params.id + "-autosuggest",
-                            "classes": "address-input__autosuggest js-autosuggest-input input--w-50 u-mb-s",
+                            "classes": "address-input__autosuggest js-autosuggest-input input--w-50 u-mb-no",
                             "label": {
                                 "text": params.autosuggest.label.text,
                                 "classes": "js-autosuggest-label"
@@ -120,7 +120,7 @@
                             }
                         })
                     }}
-                    <a href="#" class="js-address-manual-btn">{{ params.manualButton }}</a>
+                    <a href="#" class="js-address-manual-btn u-mt-s u-dib">{{ params.manualButton }}</a>
                 </div>
             {% endif %}
         </div>
