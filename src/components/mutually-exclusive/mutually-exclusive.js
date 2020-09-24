@@ -89,7 +89,7 @@ export default class MutuallyExclusive {
     }
   }
 
-  getNextSibling = function(element, selector) {
+  getNextSibling(element, selector) {
     let sibling = element.nextElementSibling;
 
     if (!selector) return sibling;
@@ -98,7 +98,7 @@ export default class MutuallyExclusive {
       if (sibling.matches(selector)) return sibling;
       sibling = sibling.nextElementSibling;
     }
-  };
+  }
 
   inputHasValue(input) {
     if (input.type === 'checkbox') {
