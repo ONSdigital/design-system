@@ -2,7 +2,7 @@
   &__gallery {
     margin-left: 0;
     padding-left: 0;
-    border-top: 1px solid $color-grey-3;
+    border-top: 1px solid $color-grey-4;
   }
 
   &__item {
@@ -164,7 +164,7 @@ body:not(.js-enabled) {
   margin-bottom: 0; // Reset default margin bottom on list items
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid $color-grey-3;
+  border-bottom: 1px solid $color-grey-4;
 }
 
 // Prevent scrollbars on body
