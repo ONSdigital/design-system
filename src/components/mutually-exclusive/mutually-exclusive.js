@@ -14,7 +14,7 @@ export default class MutuallyExclusive {
     this.numberOfGroupInputs = groupInputs.length;
     this.groupInputs = groupInputs.map(element => ({
       element,
-      labelText: this.getNextSibling(element, exclusiveGroupItemLabelClass),
+      labelText: this.getElementLabelText(element, exclusiveGroupItemClass, exclusiveGroupItemLabelClass),
       hasValue: this.inputHasValue(element),
       exclusive: false,
     }));
@@ -89,14 +89,14 @@ export default class MutuallyExclusive {
     }
   }
 
-  getNextSibling(element, selector) {
-    let sibling = element.nextElementSibling;
+  getElementLabelText(element, elementClass, selector) {
+    if (element.classList.contains(elementClass)) {
+      let sibling = element.nextElementSibling;
 
-    if (!selector) return sibling;
-
-    while (sibling) {
-      if (sibling.matches(selector)) return sibling;
-      sibling = sibling.nextElementSibling;
+      while (sibling) {
+        if (sibling.matches(selector)) return sibling.innerHTML;
+        sibling = sibling.nextElementSibling;
+      }
     }
   }
 
