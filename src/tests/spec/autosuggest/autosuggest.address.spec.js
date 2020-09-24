@@ -42,6 +42,7 @@ const params = {
     errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
     externalInitialiser: true,
     isEditable: true,
+    mandatory: true,
     options: {
       region_code: 'gb-eng',
     },
