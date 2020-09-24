@@ -1,0 +1,31 @@
+---
+"fullWidth": true
+"theme": census
+---
+
+{% from "components/promo-banner/_macro.njk" import onsPromoBanner %}
+
+{% call
+    onsPromoBanner({
+        "darkTheme": true,
+        "image": {
+            "alt": 'Map showing the UK locations for the census rehearsal: Carlisle, Ceredigion, Hackney and Tower Hamlets',
+            "src": '/img/rehearsal-areas.svg'
+        }
+    })
+%}
+
+<h2>Are you in a census rehearsal area?</h2>
+    
+<p>To ensure Census 2021 is a success, we are practising in four areas of England and Wales.</p>
+
+<ul>
+    <li>Carlisle</li>
+    <li>Ceredigion</li>
+    <li>Hackney</li>
+    <li>Tower Hamlets</li>
+</ul>
+
+<p>Find out more <a href="#0">about the rehearsal</a> and what to do if you receive a letter inviting you to take part.</p>
+
+{% endcall %}
