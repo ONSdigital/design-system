@@ -7,6 +7,7 @@ import abortableFetch from './abortable-fetch';
 
 export const classInputContainer = 'autosuggest-input';
 export const classNotEditable = 'js-address-not-editable';
+export const classMandatory = 'js-address-mandatory';
 export const classSearch = 'js-address-input__search';
 export const classInput = 'js-autosuggest-input';
 export const classInputUPRN = 'js-hidden-uprn';
@@ -29,6 +30,7 @@ export default class AutosuggestAddress {
     this.totalResults = 0;
     this.errored = false;
     this.isEditable = context.querySelector(`.${classNotEditable}`) ? false : true;
+    this.isMandatory = context.querySelector(`.${classMandatory}`) ? true : false;
     this.addressSelected = false;
     this.groupQuery = '';
 
@@ -62,9 +64,9 @@ export default class AutosuggestAddress {
     this.retrieveURL = `${this.APIDomain}/addresses/eq/uprn/`;
 
     // Query string options
-    this.regionCode = this.container.getAttribute('data-type-region_code');
-    this.epoch = this.container.getAttribute('data-type-one_year_ago');
-    this.classificationFilter = this.container.getAttribute('data-type-address_type');
+    this.regionCode = this.container.getAttribute('data-options-region-code');
+    this.epoch = this.container.getAttribute('data-options-one-year-ago');
+    this.classificationFilter = this.container.getAttribute('data-options-address-type');
 
     this.user = 'equser';
     this.password = '$4c@ec1zLBu';
@@ -384,8 +386,8 @@ export default class AutosuggestAddress {
 
   handleSubmit(event) {
     if (
-      (!this.addressSelected && !this.search.classList.contains('u-d-no')) ||
-      (this.input.value === '' && !this.search.classList.contains('u-d-no'))
+      (!this.addressSelected && this.input.value !== '' && !this.search.classList.contains('u-d-no')) ||
+      (this.isMandatory === true && !this.search.classList.contains('u-d-no'))
     ) {
       event.preventDefault();
       this.handleError = new AddressError(this.context);
