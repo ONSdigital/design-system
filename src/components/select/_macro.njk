@@ -21,15 +21,15 @@
             id="{{ params.id }}"
             name="{{ params.name }}"
             class="input input--select {{ params.classes }}"
-            {% if params.value is defined %}value="{{ params.value}}" {% endif %}
-            {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.value is defined and params.value %}value="{{ params.value}}" {% endif %}
+            {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
             {% for option in params.options %}
             <option value="{{ option.value | default(option.text) }}"
-                {% if option.id is defined %}"id"="{{ option.id }}" {% endif %}
+                {% if option.id is defined and option.id %}"id"="{{ option.id }}" {% endif %}
                 {% if option.selected is defined and option.selected %}selected {% endif %}
                 {% if option.disabled is defined and option.disabled %}disabled {% endif %}
-                {% if params.attributes is defined %}{% for attribute, value in option.attributes %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
+                {% if params.attributes is defined and params.attributes %}{% for attribute, value in option.attributes %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
             >
                 {{- option.text -}}
             </option>
