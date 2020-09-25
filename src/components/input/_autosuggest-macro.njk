@@ -2,7 +2,7 @@
     {% set content = caller() %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}js-autosuggest{% endif %} {% if not params.isEditable %}js-address-not-editable{% endif %} autosuggest-input {{ params.classes }}"
+        class="{% if not params.externalInitialiser %}js-autosuggest{% endif %} {% if not params.isEditable %}js-address-not-editable{% endif %} {% if params.mandatory %}js-address-mandatory{% endif %} autosuggest-input {{ params.classes }}"
         data-api-domain="{{ params.APIDomain }}"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
@@ -21,8 +21,9 @@
         data-error-select="{{ params.errorMessageSelect }}"
         data-error-api="{{ params.errorMessageAPI }}"
         data-error-api-link-text="{{ params.errorMessageAPILinkText }}"
-        {% if params.options %}{% for query, value in (params.options.items() if params.options is mapping and params.options.items else params.options) %}data-type-{{ query }}="{{ value }}" {% endfor %}{% endif %}
-
+        {% if params.options.oneYearAgo is defined and params.options.oneYearAgo %}data-options-one-year-ago="true"{% endif %}
+        {% if params.options.regionCode and params.options.regionCode is defined %}data-options-region-code="{{ params.options.regionCode }}"{% endif %}
+        {% if params.options.addressType and params.options.addressType is defined %}data-options-address-type="{{ params.options.addressType }}"{% endif %}
     >
         {{ content | safe }}
         <div class="autosuggest-input__results js-autosuggest-results">
