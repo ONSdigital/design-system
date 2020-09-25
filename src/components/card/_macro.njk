@@ -15,7 +15,7 @@
     {%- endif -%}
 
     <p id="{{ params.textId }}">{{ params.text }}</p>
-    {% if params.itemsList is defined -%}
+    {% if params.itemsList is defined and params.itemsList -%}
       {{
           onsList({
               "classes": 'list--dashed',
