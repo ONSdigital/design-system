@@ -1,11 +1,11 @@
 {% macro onsStatus(params) %}
-    {% if params.type is defined %}
+    {% if params.type is defined and params.type %}
         {% set typeClass = ' status--' + params.type %}
     {% else %}
         {% set typeClass = ' status--info' %}
     {% endif %}
 
-    {% if params.size is defined == 'small' %}
+    {% if params.size is defined and params.size == 'small' %}
         {% set sizeClass = ' status--small' %}
     {% endif %}
 

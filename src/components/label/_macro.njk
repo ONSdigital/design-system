@@ -2,22 +2,22 @@
 
     {% set field %}
         <span
-          {% if params.id is defined %} id="{{ params.id }}-description-hint"{% else %}id="description-hint"{% endif %}
-          class="label__description {% if params.inputType is defined %}{{ params.inputType }}__label--with-description{% else %} input--with-description{% endif %}">
+          {% if params.id is defined and params.id %} id="{{ params.id }}-description-hint"{% else %}id="description-hint"{% endif %}
+          class="label__description {% if params.inputType is defined and params.inputType %}{{ params.inputType }}__label--with-description{% else %} input--with-description{% endif %}">
               {{ params.description }}
         </span>
     {% endset %}
 
     <label
         class="{% if params.inputType is not defined %}label {% endif %}{{ params.classes if params.classes else "" }}{% if params.description is defined and params.description %} label--with-description{% endif %} {{' label--placeholder ' if params.accessiblePlaceholder else "" }}"
-        {% if params.description is defined and params.description %}{% if params.id is defined %} aria-describedby="{{ params.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
-        {% if params.for is defined %} for="{{ params.for }}"{% endif %}
-        {% if params.id is defined %} id="{{ params.id }}"{% endif %}
-        {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
+        {% if params.description is defined and params.description %}{% if params.id is defined and params.id %} aria-describedby="{{ params.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
+        {% if params.for is defined and params.for %} for="{{ params.for }}"{% endif %}
+        {% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %}
+        {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
     >
         {{- params.text | safe -}}
 
-        {% if params.inputType is defined %}
+        {% if params.inputType is defined and params.inputType %}
             {% if params.inputType == "checkbox" or params.inputType == "radio" %}
                 {%- if params.description is defined and params.description %}
                     <br>
