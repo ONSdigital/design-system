@@ -64,9 +64,9 @@ export default class AutosuggestAddress {
     this.retrieveURL = `${this.APIDomain}/addresses/eq/uprn/`;
 
     // Query string options
-    this.regionCode = this.container.getAttribute('data-type-region_code');
-    this.epoch = this.container.getAttribute('data-type-one_year_ago');
-    this.classificationFilter = this.container.getAttribute('data-type-address_type');
+    this.regionCode = this.container.getAttribute('data-options-region-code');
+    this.epoch = this.container.getAttribute('data-options-one-year-ago');
+    this.classificationFilter = this.container.getAttribute('data-options-address-type');
 
     this.user = 'equser';
     this.password = '$4c@ec1zLBu';
