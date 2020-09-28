@@ -120,22 +120,23 @@ Variables can be set with:
 ##### PageConfig
 
 {% md %}
-| Variable Name | Type                                                | Required                      | Description                                                                                  |
-| ------------- | --------------------------------------------------- | ----------------------------- | -------------------------------------------------------------------------------------------- |
-| cdn           | string                                              | false                         | What CDN version to use                                                                      |
-| assetsURL     | string                                              | false                         | The base url where to find CSS/JS/images etc. e.g. `http://localhost:3030`                   |
-| theme         | string                                              | false                         | The name of the css file e.g. "census" if using a theme. Defaults to "main".                 |
-| title         | string                                              | true                          | The contents for the `<title>` element                                                       |
-| headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                         | Configuration for `<meta>` information in the document `<head>`                              |
-| bodyClasses   | string                                              | false                         | Classes to add to the `<body>` element                                                       |
-| header        | `PageHeader` [_(ref)_](#pageheader)                 | true                          | Configuration for the page header                                                            |
-| language      | `Language` [_(ref)_](/components/language-selector) | false                         | Language configuration for the page                                                          |
-| signoutButton | `Button` [_(ref)_](/components/button)              | false                         | Configuration for the save and sign out button. If not specified, the button will not render |
-| toggleButton  | `HeaderToggleButton` [_(ref)_](/components/header)  | true if `navigation` supplied | Configuration for the mobile navigation toggle button                                        |
-| phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                         | Settings for the Phase banner                                                                |
-| serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                         | An array to render the service links list                                                    |
-| footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                          | Configuration for the page footer                                                            |
-| feedback      | `Feedback` [_(ref)_](/patterns/feedback)            | false                         | Configuration for the feedback component                                                     |
+| Variable Name | Type                                                | Required                          | Description                                                                                  |
+| ------------- | --------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------- |
+| cdn           | string                                              | false                             | What CDN version to use                                                                      |
+| assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc. e.g. `http://localhost:3030`                   |
+| theme         | string                                              | false                             | The name of the css file e.g. "census" if using a theme. Defaults to "main".                 |
+| title         | string                                              | true                              | The contents for the `<title>` element                                                       |
+| headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                             | Configuration for `<meta>` information in the document `<head>`                              |
+| bodyClasses   | string                                              | false                             | Classes to add to the `<body>` element                                                       |
+| header        | `PageHeader` [_(ref)_](#pageheader)                 | true                              | Configuration for the page header                                                            |
+| language      | `Language` [_(ref)_](/components/language-selector) | false                             | Language configuration for the page                                                          |
+| signoutButton | `Button` [_(ref)_](/components/button)              | false                             | Configuration for the save and sign out button. If not specified, the button will not render |
+| toggleButton  | `HeaderToggleButton` [_(ref)_](/components/header)  | true (if `navigation` supplied)   | Configuration for the mobile navigation toggle button                                        |
+| navigation    | `HeaderNavigation` [_(ref)_](/components/header)    | true (if `toggleButton` supplied) | Configuration for header navigation links                                                    |
+| phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                             | Settings for the Phase banner                                                                |
+| serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                             | An array to render the service links list                                                    |
+| footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                              | Configuration for the page footer                                                            |
+| feedback      | `Feedback` [_(ref)_](/patterns/feedback)            | false                             | Configuration for the feedback component                                                     |
 {% endmd %}
 
 ###### PageHeader
