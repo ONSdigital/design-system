@@ -78,7 +78,7 @@
                     {{ input | safe }}
                     {% set abbr = params.prefix or params.suffix %}
                     <abbr
-                        class="input-type__type"
+                        class="input-type__type js-input-abbr"
                         aria-hidden="true"
                         title="{{ abbr.title }}"
                         {% if abbr.id is defined and abbr.id %} id="{{ abbr.id }}"{% endif %}

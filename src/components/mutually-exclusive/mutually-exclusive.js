@@ -3,6 +3,7 @@ const checkboxClass = 'js-exclusive-checkbox';
 const voiceOverAlertClass = 'js-exclusive-alert';
 const groupAttrAdjective = 'data-group-adjective';
 const checkboxAttrAdjective = 'data-checkbox-adjective';
+const inputAbbrClass = 'js-input-abbr';
 
 export default class MutuallyExclusive {
   constructor(context) {
@@ -91,7 +92,7 @@ export default class MutuallyExclusive {
     let label = this.context.querySelector(`label[for=${element.id}]`);
 
     if (!label && this.numberOfGroupInputs > 1) {
-      label = element.parentNode.querySelector('abbr');
+      label = element.parentNode.querySelector(`.${inputAbbrClass}`);
     }
 
     if (!label) {
@@ -101,7 +102,7 @@ export default class MutuallyExclusive {
     // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
     let labelText;
 
-    if (label.tagName === 'ABBR') {
+    if (label.classList.contains(inputAbbrClass)) {
       labelText = label.getAttribute('title');
     } else if (label.tagName === 'LEGEND' && label.querySelector('h1')) {
       labelText = label.querySelector('h1').innerText;
