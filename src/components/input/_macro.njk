@@ -151,7 +151,7 @@
         {% call onsMutuallyExclusive({
             "id": params.fieldId,
             "legend": params.legend,
-            "legendClasses": params.legendClasses,
+            "legendClasses": params.legendClasses ~ " js-input-legend",
             "description": params.description,
             "dontWrap": params.dontWrap,
             "checkbox": params.mutuallyExclusive.checkbox,

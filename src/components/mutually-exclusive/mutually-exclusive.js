@@ -4,6 +4,7 @@ const voiceOverAlertClass = 'js-exclusive-alert';
 const groupAttrAdjective = 'data-group-adjective';
 const checkboxAttrAdjective = 'data-checkbox-adjective';
 const inputAbbrClass = 'js-input-abbr';
+const inputLegendClass = 'js-input-legend';
 
 export default class MutuallyExclusive {
   constructor(context) {
@@ -96,7 +97,7 @@ export default class MutuallyExclusive {
     }
 
     if (!label) {
-      label = this.context.querySelector('legend');
+      label = this.context.querySelector(`.${inputLegendClass}`);
     }
 
     // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
@@ -104,7 +105,7 @@ export default class MutuallyExclusive {
 
     if (label.classList.contains(inputAbbrClass)) {
       labelText = label.getAttribute('title');
-    } else if (label.tagName === 'LEGEND' && label.querySelector('h1')) {
+    } else if (label.classList.contains(inputLegendClass) && label.querySelector('h1')) {
       labelText = label.querySelector('h1').innerText;
     } else {
       labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
