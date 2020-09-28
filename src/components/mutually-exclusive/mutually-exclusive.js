@@ -23,7 +23,7 @@ export default class MutuallyExclusive {
     this.checkbox = {
       element: checkboxElement,
       label: context.querySelector(`.${checkboxLabelClass}`),
-      labelText: context.querySelector(`.${checkboxLabelClass}`).innerHTML,
+      labelText: this.getElementLabelText(checkboxElement, checkboxClass, checkboxLabelClass),
       hasValue: this.inputHasValue(checkboxElement),
       exclusive: true,
     };
@@ -94,7 +94,11 @@ export default class MutuallyExclusive {
       let sibling = element.nextElementSibling;
 
       while (sibling) {
-        if (sibling.matches(selector)) return sibling.innerHTML;
+        if (sibling.classList.contains(selector)) {
+          // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
+          let labelText = [...sibling.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
+          return labelText;
+        }
         sibling = sibling.nextElementSibling;
       }
     }
