@@ -1,7 +1,5 @@
 const exclusiveGroupItemClass = 'js-exclusive-group-item';
-const exclusiveGroupItemLabelClass = 'js-exclusive-group-item-label';
 const checkboxClass = 'js-exclusive-checkbox';
-const checkboxLabelClass = 'js-exclusive-checkbox-label';
 const voiceOverAlertClass = 'js-exclusive-alert';
 const groupAttrAdjective = 'data-group-adjective';
 const checkboxAttrAdjective = 'data-checkbox-adjective';
@@ -14,7 +12,7 @@ export default class MutuallyExclusive {
     this.numberOfGroupInputs = groupInputs.length;
     this.groupInputs = groupInputs.map(element => ({
       element,
-      labelText: this.getElementLabelText(element, exclusiveGroupItemClass, exclusiveGroupItemLabelClass),
+      labelText: this.getElementLabelText(element),
       hasValue: this.inputHasValue(element),
       exclusive: false,
     }));
@@ -22,8 +20,8 @@ export default class MutuallyExclusive {
     const checkboxElement = context.querySelector(`.${checkboxClass}`);
     this.checkbox = {
       element: checkboxElement,
-      label: context.querySelector(`.${checkboxLabelClass}`),
-      labelText: this.getElementLabelText(checkboxElement, checkboxClass, checkboxLabelClass),
+      label: context.querySelector(`label[for=${checkboxElement.id}]`),
+      labelText: this.getElementLabelText(checkboxElement),
       hasValue: this.inputHasValue(checkboxElement),
       exclusive: true,
     };
@@ -89,19 +87,29 @@ export default class MutuallyExclusive {
     }
   }
 
-  getElementLabelText(element, elementClass, selector) {
-    if (element.classList.contains(elementClass)) {
-      let sibling = element.nextElementSibling;
+  getElementLabelText(element) {
+    let label = this.context.querySelector(`label[for=${element.id}]`);
 
-      while (sibling) {
-        if (sibling.classList.contains(selector)) {
-          // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
-          let labelText = [...sibling.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
-          return labelText;
-        }
-        sibling = sibling.nextElementSibling;
-      }
+    if (!label && this.numberOfGroupInputs > 1) {
+      label = element.parentNode.querySelector('abbr');
     }
+
+    if (!label) {
+      label = this.context.querySelector('legend');
+    }
+
+    // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
+    let labelText;
+
+    if (label.tagName === 'ABBR') {
+      labelText = label.getAttribute('title');
+    } else if (label.tagName === 'LEGEND' && label.querySelector('h1')) {
+      labelText = label.querySelector('h1').innerText;
+    } else {
+      labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
+    }
+
+    return labelText;
   }
 
   inputHasValue(input) {
