@@ -1,6 +1,5 @@
 {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
 {% from "components/header/_macro.njk" import onsHeader %}
-{% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
 {% from "components/feedback/_macro.njk" import onsFeedback %}
 {% from "components/footer/_macro.njk" import onsFooter %}
 
@@ -126,13 +125,16 @@
                     {% block pageContent %}
                         <div class="page__container container {{ containerClasses }}">
                             {% block preMain %}
-                            {{
-                                onsBreadcrumb({
-                                    "id": pageConfig.breadcrumbs.id,
-                                    "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
-                                    "itemsList": pageConfig.breadcrumbs.itemsList
-                                })
-                            }}
+                                {% if pageConfig.breadcrumbs is defined and pageConfig.breadcrumbs %}
+                                    {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+                                    {{
+                                        onsBreadcrumb({
+                                            "id": pageConfig.breadcrumbs.id,
+                                            "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
+                                            "itemsList": pageConfig.breadcrumbs.itemsList
+                                        })
+                                    }}
+                                {% endif %}
                             {% endblock %}
                             <div class="grid">
                                 <div class="grid__col col-8@m">
