@@ -6,7 +6,7 @@
 
 ## BreadcrumbItem
 | Name | Type | Required | Description |
-| ------- | ------- | --------------------- | ----------------------------------------------------------------------------------------------------------- |
-| url | string | true (unless current) | The url for the link |
+| ---------- | ------- | --------- | ------------------------------------------------------------------------------ |
+| url | string | true | The url for the link |
 | text | string | true | The name of the page |
-| current | boolean | false | If true this will not render the item |
+| attributes | object | false | HTML attributes (for example data attributes) to add to the breadcrumb element |
