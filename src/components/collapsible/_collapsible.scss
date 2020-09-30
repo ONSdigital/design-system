@@ -1,4 +1,4 @@
-$collapsible-caret-width: 1.1rem;
+$collapsible-caret-width: 1.5rem;
 
 .collapsible {
   &--initialised & {
@@ -67,8 +67,8 @@ $collapsible-caret-width: 1.1rem;
 
   &--open & {
     &__icon {
-      top: 0.1em;
-      left: 0.3em;
+      top: 0.1rem;
+      left: -0.1rem;
       transform: rotate(90deg);
     }
 
@@ -85,8 +85,8 @@ $collapsible-caret-width: 1.1rem;
     &.collapsible--open {
       .svg-icon {
         position: absolute;
-        top: 0.25em;
-        left: 0.4em;
+        top: 0.25rem;
+        left: 0.4rem;
       }
     }
   }
