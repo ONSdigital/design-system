@@ -1,7 +1,11 @@
-{% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+---
+fullWidth: true
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
 
-{{
-    onsBreadcrumb({
+{% set pageConfig = {
+    "breadcrumbs": {
         "ariaLabel": 'Previous',
         "itemsList": [
             {
@@ -13,5 +17,5 @@
                 }
             }
         ]
-    })
-}}
+    }
+} %}
