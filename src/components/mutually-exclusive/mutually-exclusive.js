@@ -1,14 +1,16 @@
-const exclusiveGroupClass = 'js-exclusive-group';
+const exclusiveGroupItemClass = 'js-exclusive-group-item';
 const checkboxClass = 'js-exclusive-checkbox';
 const voiceOverAlertClass = 'js-exclusive-alert';
 const groupAttrAdjective = 'data-group-adjective';
 const checkboxAttrAdjective = 'data-checkbox-adjective';
+const inputAbbrClass = 'js-input-abbr';
+const inputLegendClass = 'js-input-legend';
 
 export default class MutuallyExclusive {
   constructor(context) {
     this.context = context;
 
-    const groupInputs = [...context.getElementsByClassName(exclusiveGroupClass)];
+    const groupInputs = [...context.getElementsByClassName(exclusiveGroupItemClass)];
     this.numberOfGroupInputs = groupInputs.length;
     this.groupInputs = groupInputs.map(element => ({
       element,
@@ -91,19 +93,19 @@ export default class MutuallyExclusive {
     let label = this.context.querySelector(`label[for=${element.id}]`);
 
     if (!label && this.numberOfGroupInputs > 1) {
-      label = element.parentNode.querySelector('abbr');
+      label = element.parentNode.querySelector(`.${inputAbbrClass}`);
     }
 
     if (!label) {
-      label = this.context.querySelector('legend');
+      label = this.context.querySelector(`.${inputLegendClass}`);
     }
 
     // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
     let labelText;
 
-    if (label.tagName === 'ABBR') {
+    if (label.classList.contains(inputAbbrClass)) {
       labelText = label.getAttribute('title');
-    } else if (label.tagName === 'LEGEND' && label.querySelector('h1')) {
+    } else if (label.classList.contains(inputLegendClass) && label.querySelector('h1')) {
       labelText = label.querySelector('h1').innerText;
     } else {
       labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
