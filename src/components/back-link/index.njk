@@ -1,0 +1,49 @@
+---
+title: Back link
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+
+The back link reuses the same interface and parameters as the [Breadcrumbs](/components/Breadcrumbs) component.
+Always place back links before a page’s `<main>` content element.  This makes sure the [Skip to content](/components/skip-to-content) link allows the user to skip all navigation, including the back link.
+Where possible this should be set in the [page template](/styles/page-template/) in `pageConfig`. This will ensure it will have the correct placing on the page.
+
+{{
+    patternlibExample({"path": "components/back-link/examples/back-link/index.njk"})
+}}
+
+## When to use this component
+Use the back link to help users go back to the previous page in a linear transaction, or the previous question in a questionnaire.  Use 'previous' as the label in a questionnaire when the previous page is a question.
+
+## When not to use this component
+Don’t use the back links component on websites with a flat structure.
+
+If you’re using other navigational elements on the page, such as a sidebar, consider whether your users need the additional support of back links.
+
+## Research on this component
+Based upon {{
+    onsExternalLink({
+        "url": "https://w3c.github.io/aria-practices/examples/breadcrumb/index.html",
+        "linkText": "W3 principles"
+    })
+}}
+
+{% call onsPanel() %}
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/43",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/43",
+        "linkText": "Discuss 'Back link' on GitHub"
+    })
+}}
