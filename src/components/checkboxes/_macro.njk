@@ -9,7 +9,7 @@
             {% for checkbox in params.checkboxes %}
                 {% set labelHTML = checkbox.label.text %}
                 {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
-                    {% set exclusiveClass = ' js-exclusive-group' %}
+                    {% set exclusiveClass = ' js-exclusive-group-item' %}
                 {% endif %}
                 <p class="checkboxes__item">
                     {% set config = {
