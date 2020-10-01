@@ -2,7 +2,7 @@
     {% set content = caller() %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}js-autosuggest{% endif %} {% if not params.isEditable %}js-address-not-editable{% endif %} {% if params.mandatory %}js-address-mandatory{% endif %} autosuggest-input {{ params.classes }}"
+        class="{% if not params.externalInitialiser %}js-autosuggest{% endif %} {% if not params.isEditable %}js-address-not-editable{% endif %} {% if params.mandatory is defined and params.mandatory %}js-address-mandatory{% endif %} autosuggest-input {{ params.classes }}"
         data-api-domain="{{ params.APIDomain }}"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
@@ -21,9 +21,11 @@
         data-error-select="{{ params.errorMessageSelect }}"
         data-error-api="{{ params.errorMessageAPI }}"
         data-error-api-link-text="{{ params.errorMessageAPILinkText }}"
+        {% if params.options is defined and params.options %}
         {% if params.options.oneYearAgo is defined and params.options.oneYearAgo %}data-options-one-year-ago="true"{% endif %}
-        {% if params.options.regionCode and params.options.regionCode is defined %}data-options-region-code="{{ params.options.regionCode }}"{% endif %}
-        {% if params.options.addressType and params.options.addressType is defined %}data-options-address-type="{{ params.options.addressType }}"{% endif %}
+        {% if params.options.regionCode is defined and params.options.regionCode %}data-options-region-code="{{ params.options.regionCode }}"{% endif %}
+        {% if params.options.addressType is defined and params.options.addressType %}data-options-address-type="{{ params.options.addressType }}"{% endif %}
+        {% endif %}
     >
         {{ content | safe }}
         <div class="autosuggest-input__results js-autosuggest-results">

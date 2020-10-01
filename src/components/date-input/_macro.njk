@@ -5,7 +5,7 @@
     {% from "components/error/_macro.njk" import onsError %}
 
 
-    {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
+    {% set exclusiveClass = " js-exclusive-group-item" if params.mutuallyExclusive else "" %}
 
     {%- set numberOfFields = 0 -%}
 
@@ -22,11 +22,11 @@
     {%- endif -%}
 
     {% set fields %}
-        {% if params.label is defined %}
+        {% if params.label is defined and params.label %}
             <p class="u-fs-r--b u-mb-xs">{{ params.label }}</p>
         {% endif %}
 
-        {% if params.day is defined %}
+        {% if params.day is defined and params.day %}
             {{ onsInput({
                 "id": params.id + "-day",
                 "type": "number",
@@ -41,7 +41,7 @@
             }) }}
         {% endif %}
 
-        {% if params.month is defined %}
+        {% if params.month is defined and params.month %}
             {{ onsInput({
                 "id": params.id + "-month",
                 "type": "number",
@@ -56,7 +56,7 @@
             }) }}
         {% endif %}
 
-        {% if params.year is defined %}
+        {% if params.year is defined and params.year %}
             {{ onsInput({
                 "id": params.id + "-year",
                 "type": "number",
@@ -80,7 +80,7 @@
         {% endset %}
     {% endif %}
 
-    {% if params.mutuallyExclusive %}
+    {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
         {% call onsMutuallyExclusive({
             "id": params.id,
             "legend": params.legend,
@@ -98,7 +98,7 @@
             {{ fields | safe }}
         {% endcall %}
     {% elif numberOfFields == 1 %}
-        {% if params.error is defined %}
+        {% if params.error is defined and params.error %}
             {% call onsError(params.error) %}
                 {{ fields | safe }}
             {% endcall %}

@@ -25,7 +25,7 @@
   {% endif %}
 
 
-  <nav class="pagination {{ params.classes }}{% if params.hideRangeIndicator is defined %} pagination--no-indicator{% endif %}" arial-label="Pagination ({{ position }})">
+  <nav class="pagination {{ params.classes }}{% if params.hideRangeIndicator is defined and params.hideRangeIndicator %} pagination--no-indicator{% endif %}" arial-label="Pagination ({{ position }})">
       <div class="pagination__position">{{ position }}</div>
       <ul class="pagination__items">
           {% if currentPageIndex != 1 %}
