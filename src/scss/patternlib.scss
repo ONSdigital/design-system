@@ -1,6 +1,5 @@
 @import 'vars/index';
 @import 'helpers/*.scss';
-@import 'base/*.scss';
 
 @import '../views/partials/**/*.scss';
 @import '../styles/page-template/examples/block-areas/block-areas';
@@ -162,7 +161,7 @@
 .pl-grid-col {
   margin: 0 0 1rem;
   padding: 1rem;
-  background: $color-white;
+  background: $color-grey-5;
   font-size: 0.8rem;
 }
 
