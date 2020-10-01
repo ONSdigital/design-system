@@ -6,7 +6,7 @@
 
 
     {% set field %}
-        {% set textareaExlusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
+        {% set textareaExlusiveClass = " js-exclusive-group-item" if params.mutuallyExclusive else "" %}
 
         {{ onsLabel({
             "for": params.id,

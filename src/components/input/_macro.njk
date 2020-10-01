@@ -18,7 +18,7 @@
         {% set type = "text" %}
     {% endif %}
 
-    {% set exclusiveClass = " js-exclusive-group" if params.mutuallyExclusive else "" %}
+    {% set exclusiveClass = " js-exclusive-group-item" if params.mutuallyExclusive else "" %}
     {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder else "" %}
 
     {% set input %}
@@ -78,7 +78,7 @@
                     {{ input | safe }}
                     {% set abbr = params.prefix or params.suffix %}
                     <abbr
-                        class="input-type__type"
+                        class="input-type__type js-input-abbr"
                         aria-hidden="true"
                         title="{{ abbr.title }}"
                         {% if abbr.id is defined and abbr.id %} id="{{ abbr.id }}"{% endif %}
@@ -151,7 +151,7 @@
         {% call onsMutuallyExclusive({
             "id": params.fieldId,
             "legend": params.legend,
-            "legendClasses": params.legendClasses,
+            "legendClasses": params.legendClasses ~ " js-input-legend",
             "description": params.description,
             "dontWrap": params.dontWrap,
             "checkbox": params.mutuallyExclusive.checkbox,
