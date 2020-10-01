@@ -7,7 +7,7 @@
 {% endif %}
 
 {% if pageConfig.lang is defined and pageConfig.lang %}
-   {% set pageConfig =  pageConfig | setAttributes({
+   {% set pageConfig = pageConfig | setAttributes({
        "language": {
            "languages": [
                 {
@@ -22,7 +22,7 @@
 {% if example is defined and example %}
     {% set bodyClasses = bodyClasses + " patternlib-page--example" %}
     {% if page.theme is defined and page.theme %}
-        {% set pageConfig =  pageConfig | setAttributes({
+        {% set pageConfig = pageConfig | setAttributes({
             "theme": page.theme
         }) %}
     {% endif %}
@@ -32,7 +32,7 @@
     {% set bodyClasses = bodyClasses + " u-p-no" %}
 {% endif %}
 
-{% set pageConfig =  pageConfig | setAttribute("bodyClasses", bodyClasses) %}
+{% set pageConfig = pageConfig | setAttribute("bodyClasses", bodyClasses) %}
 
 {% block head %}
     <link rel="stylesheet" href="/css/patternlib.css">
