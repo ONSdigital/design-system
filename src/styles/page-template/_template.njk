@@ -124,18 +124,17 @@
                     {% endblock %}
                     {% block pageContent %}
                         <div class="page__container container {{ containerClasses }}">
-                            {% block preMain %}
-                                {% if pageConfig.breadcrumbs is defined and pageConfig.breadcrumbs %}
-                                    {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
-                                    {{
-                                        onsBreadcrumb({
-                                            "id": pageConfig.breadcrumbs.id,
-                                            "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
-                                            "itemsList": pageConfig.breadcrumbs.itemsList
-                                        })
-                                    }}
-                                {% endif %}
-                            {% endblock %}
+                            {% if pageConfig.breadcrumbs is defined and pageConfig.breadcrumbs %}
+                                {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+                                {{
+                                    onsBreadcrumb({
+                                        "id": pageConfig.breadcrumbs.id,
+                                        "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
+                                        "itemsList": pageConfig.breadcrumbs.itemsList
+                                    })
+                                }}
+                            {% endif %}
+                            {% block preMain %}{% endblock %}
                             <div class="grid">
                                 <div class="grid__col col-8@m">
                                     <main id="main-content" class="page__main {{ pageClasses }}">
