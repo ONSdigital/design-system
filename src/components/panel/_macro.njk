@@ -1,5 +1,5 @@
 {% macro onsPanel(params) %}
-    {% if params is defined and params and params.classes is defined %}
+    {% if params is defined and params and params.classes is defined and params.classes %}
         {% set classes  = ' ' + params.classes %}
     {% endif %}
 
@@ -16,13 +16,13 @@
         {% set typeClass = ' panel--info' %}
     {% endif %}
 
-    {% if params is defined and params and params.spacious is defined %}
+    {% if params is defined and params and params.spacious is defined and params.spacious %}
         {% set spaciousClass = ' panel--spacious' %}
     {% endif %}
 
     <div
         class="panel{{ typeClass }}{{ iconClass }}{{ simpleClass }}{{ spaciousClass }}{{ errorJsClass }}{{ classes }}"
-        {% if params is defined and params and params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params is defined and params and params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params is defined and params and params.id is defined %} id="{{params.id}}"{% endif %}
+        {% if params is defined and params and params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params is defined and params and params.attributes is mapping and params.attributes.items is defined and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params is defined and params and params.id is defined and params.id %} id="{{params.id}}"{% endif %}
     >
         {% if params is defined and params and params.type == "warn" %}
             <span class="panel__icon" aria-hidden="true">!</span>
@@ -45,7 +45,7 @@
                 }}
             </span>
         {% endif %}
-        <div class="panel__body{% if params is defined and params and params.iconSize is defined and params.iconSize %} svg-icon-margin--{{ params.iconSize }}{% endif %}" {% if params is defined and params and params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params is defined and params and params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ (params.body if params else "") | safe }}
+        <div class="panel__body{% if params is defined and params and params.iconSize is defined and params.iconSize %} svg-icon-margin--{{ params.iconSize }}{% endif %}" {% if params is defined and params and params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params is defined and params and params.attributes is mapping and params.attributes.items is defined and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ (params.body if params else "") | safe }}
             {{ caller() if caller }}
         </div>
     </div>
