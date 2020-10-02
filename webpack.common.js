@@ -10,6 +10,7 @@ import postcssPlugins from './postcss.config';
 import svgoConfig from './svgo-config';
 
 const OUT_DIR = 'build';
+const CHUNK_PATH = process.env.CHUNK_PATH || '/';
 
 const core = {
   context: `${__dirname}/src`,
@@ -96,7 +97,7 @@ const cssCore = merge(core, {
 const jsCore = merge(core, {
   output: {
     chunkFilename: 'scripts/[name].js',
-    publicPath: path.join(process.cwd(), OUT_DIR),
+    publicPath: CHUNK_PATH,
   },
 
   module: {
