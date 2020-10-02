@@ -781,7 +781,9 @@ describe('Autosuggest.address component', function() {
 
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
-        expect(this.autosuggestAddress.fetch.url).to.equal('/addresses/eq?input=195 colle&limit=10&classificationfilter=CE*&epoch=72');
+        expect(this.autosuggestAddress.fetch.url).to.equal(
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&epoch=72',
+        );
       });
     });
   });
@@ -826,7 +828,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=CE*&fromsource=nionly',
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&fromsource=nionly',
         );
       });
     });
