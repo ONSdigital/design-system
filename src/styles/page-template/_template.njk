@@ -1,6 +1,5 @@
 {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
 {% from "components/header/_macro.njk" import onsHeader %}
-{% from "components/feedback/_macro.njk" import onsFeedback %}
 {% from "components/footer/_macro.njk" import onsFooter %}
 
 {% set currentLanguageISOCode = "en" %}
@@ -139,27 +138,31 @@
                         </form>
                     {% endif %}
                 </div>
-                {% block preFooter %}
                     {% if pageConfig.feedback is defined and pageConfig.feedback %}
-                        {{
-                            onsFeedback({
-                                "id": pageConfig.feedback.id | default("feedback"),
-                                "action": pageConfig.feedback.action,
-                                "title": pageConfig.feedback.title,
-                                "button": pageConfig.feedback.button,
-                                "textarea": pageConfig.feedback.textarea,
-                                "pageTitle": pageConfig.feedback.pageTitle,
-                                "pageURL": pageConfig.feedback.pageURL,
-                                "name": pageConfig.feedback.name,
-                                "email": pageConfig.feedback.email,
-                                "mailto": pageConfig.feedback.mailto,
-                                "thankYouMessage": pageConfig.feedback.thankYouMessage,
-                                "errorMessage": pageConfig.feedback.errorMessage,
-                                "summaryAttributes": pageConfig.feedback.summaryAttributes
-                            })
-                        }}
+                        <div class="grid">
+                            <div class="grid__col col-8@m">
+                                {% from "components/feedback/_macro.njk" import onsFeedback %}
+                                {{
+                                    onsFeedback({
+                                        "id": pageConfig.feedback.id | default("feedback"),
+                                        "action": pageConfig.feedback.action,
+                                        "title": pageConfig.feedback.title,
+                                        "button": pageConfig.feedback.button,
+                                        "textarea": pageConfig.feedback.textarea,
+                                        "pageTitle": pageConfig.feedback.pageTitle,
+                                        "pageURL": pageConfig.feedback.pageURL,
+                                        "name": pageConfig.feedback.name,
+                                        "email": pageConfig.feedback.email,
+                                        "mailto": pageConfig.feedback.mailto,
+                                        "thankYouMessage": pageConfig.feedback.thankYouMessage,
+                                        "errorMessage": pageConfig.feedback.errorMessage,
+                                        "summaryAttributes": pageConfig.feedback.summaryAttributes
+                                    })
+                                }}
+                            </div>
+                        </div>
                     {% endif %}
-                {% endblock %}
+                {% block preFooter %}{% endblock %}
                 {% block footer %}
                     {% if pageConfig.footer is defined and pageConfig.footer %}
                         {{
@@ -175,7 +178,6 @@
                                 "crest": pageConfig.footer.crest,
                                 "OGLLink": pageConfig.footer.OGLLink,
                                 "button": pageConfig.signoutButton,
-                                "feedback": pageConfig.feedback,
                                 "serviceLinks": pageConfig.serviceLinks
                             })
                         }}
