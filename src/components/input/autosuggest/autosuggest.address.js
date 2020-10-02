@@ -121,13 +121,16 @@ export default class AutosuggestAddress {
 
   findAddress(text, grouped) {
     return new Promise((resolve, reject) => {
-      let queryUrl;
+      let queryURL, fullQueryURL;
       const testInput = this.testFullPostcodeQuery(text);
       let limit = testInput ? 100 : 10;
 
-      queryUrl = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
+      queryURL = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
 
-      const fullQueryURL = this.generateURLParams(queryUrl);
+      fullQueryURL = this.generateURLParams(queryURL);
+      // if (testInput && grouped !== false) {
+      //   fullQueryURL = fullQueryURL + '&groupfullpostcodes=true';
+      // }
 
       this.fetch = abortableFetch(fullQueryURL, {
         method: 'GET',
@@ -335,10 +338,6 @@ export default class AutosuggestAddress {
       addresstypeParam = '?addresstype=',
       epochParam = '&epoch=72';
 
-    if (this.classificationFilter === 'educational') {
-      this.classificationFilter = 'CE*'; // Convert keyword to code pattern match until AIMS keyword available
-    }
-
     if (this.regionCode === 'gb-nir') {
       addressType = 'nisra';
     } else if (this.lang === 'cy') {
@@ -359,7 +358,7 @@ export default class AutosuggestAddress {
       if (this.regionCode === 'gb-nir') {
         if (this.classificationFilter === 'workplace') {
           fullURL = fullURL + niboostParam;
-        } else if (this.classificationFilter === 'CE*') {
+        } else if (this.classificationFilter === 'educational') {
           fullURL = fullURL + nionlyParam;
         }
       }
