@@ -15,12 +15,8 @@ $hub-row-spacing: 1.3rem;
   }
 
   &__item {
+    border-bottom: 1px solid $color-borders;
     line-height: 1.4;
-
-    &:not(:last-child),
-    &:nth-of-type(1) {
-      border-bottom: 1px solid $color-borders;
-    }
 
     &--total {
       @extend .u-fs-m;
