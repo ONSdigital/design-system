@@ -1,4 +1,15 @@
 .feedback {
-  padding: 1rem;
-  border: 3px solid $color-branded;
+  &__body {
+    padding: 1rem;
+    border: 3px solid $color-branded;
+  }
+
+  &__footer {
+    .svg-icon {
+      margin-top: -0.5rem;
+      margin-left: 1rem;
+      width: 1.6rem !important;
+      height: 1.6rem !important;
+    }
+  }
 }

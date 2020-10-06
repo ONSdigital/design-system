@@ -1,23 +1,17 @@
 {% macro onsFeedback(params) %}
     {% from "components/textarea/_macro.njk" import onsTextarea %}
-    {% from "components/field/_macro.njk" import onsField %}
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/radios/_macro.njk" import onsRadios %}
-    {% from "components/collapsible/_macro.njk" import onsCollapsible %}
+    {% from "components/select/_macro.njk" import onsSelect %}
 
     <div class="feedback {{ params.classes }}">
-        <h2>What do you think about this service?</h2>
-        <p>Your comments will help us make improvements</p>
-        {%
-            call onsCollapsible({
-                "id": "feedbackCollapsible",
-                "title": "Give feedback"
-            })
-        %}
+        <div class="feedback__body">
+            <h2>What do you think about this service?</h2>
+            <p>Your comments will help us make improvements</p>
             {{
                 onsRadios({
-                    "legend": "Select your favourite topping",
-                    "name": "food",
+                    "legend": "Select what your feedback is about",
+                    "name": "feedback-type",
                     "radios": [
                         {
                             "id": "questions",
@@ -45,6 +39,55 @@
                 })
             }}
             {{
+                onsSelect({
+                    "id": "select",
+                    "name": "select",
+                    "label": {
+                        "text": "Question topic"
+                    },
+                    "options": [
+                        {
+                            "value": "",
+                            "text": "Select an option",
+                            "disabled": true,
+                            "selected": true
+                        },
+                        {
+                            "value": "general",
+                            "text": "General"
+                        },
+                        {
+                            "value": "people-who-live-here",
+                            "text": "People who live here"
+                        },
+                        {
+                            "value": "visitors",
+                            "text": "Visitors"
+                        },
+                        {
+                            "value": "houshold-accommodation",
+                            "text": "Houshold and accommodation"
+                        },
+                        {
+                            "value": "personal-details",
+                            "text": "Personal details"
+                        },
+                        {
+                            "value": "health",
+                            "text": "Health"
+                        },
+                        {
+                            "value": "qualifications",
+                            "text": "Qualifications"
+                        },
+                        {
+                            "value": "employment",
+                            "text": "Employment"
+                        }
+                    ]
+                })
+            }}
+            {{
                 onsTextarea({
                     "id": "feedback-textarea",
                     "name": "feedback-text",
@@ -62,9 +105,16 @@
             }}
             {{
                 onsButton({
-                    "text": "Send feedback"
+                    "text": "Send feedback",
+                    "classes": "u-mt-m"
                 })
             }}
-        {% endcall %}
+        </div>
+        <div class="feedback__footer">
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.26 25.28">
+                <polyline points="25.26 0 21 0 21 0 3 18 3 0 0 0 0 25.28" style="fill:#902082"></polyline>
+                <polygon points="3 0 21 0 3 18 3 0" style="fill:#fff"></polygon>
+            </svg>
+        </div>
     </div>
 {% endmacro %}
