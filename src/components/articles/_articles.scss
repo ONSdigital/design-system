@@ -1,0 +1,60 @@
+.article {
+  max-width: 660px; // Equivalent to 8 Columns;
+
+  @include mq(s) {
+    align-items: flex-start;
+    display: flex;
+  }
+
+  & + & {
+    border-top: 1px solid $color-grey-4;
+    margin: 1.5rem 0 0;
+    padding: 1.5em 0 0;
+  }
+
+  &__image {
+    flex-shrink: 0;
+    margin-bottom: 1rem;
+    width: 140px;
+
+    @include mq(s) {
+      display: flex;
+      margin-bottom: 0;
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__image-link {
+    box-sizing: border-box;
+    display: inline-block;
+    outline-offset: 0;
+    vertical-align: top;
+
+    &:focus {
+      box-shadow: 0 0 0 2px $color-black !important;
+      outline-offset: 2px;
+      outline: 4px solid $color-focus !important;
+    }
+  }
+
+  &__meta {
+    color: $color-grey-1;
+    display: flex;
+    margin-bottom: 1rem;
+    padding-left: 0;
+
+    &-item {
+      display: block;
+      margin: 0 1rem 0 0;
+      padding-left: 0;
+    }
+
+    &-link {
+      color: inherit;
+
+      &:hover {
+        color: $color-black;
+      }
+    }
+  }
+}
