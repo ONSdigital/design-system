@@ -6,8 +6,9 @@ jobs:
   include:
   - stage: test
     script: yarn test
-  - stage: test-percy
+  - stage: build
     script: yarn build
+  - stage: test-percy
     script: npx percy snapshot build/
   - stage: npm-bundle
     script: yarn npm-bundle && npm version $TRAVIS_BRANCH --allow-same-version -m
