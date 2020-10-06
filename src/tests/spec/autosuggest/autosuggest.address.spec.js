@@ -712,33 +712,33 @@ describe('Autosuggest.address component', function() {
       }
     });
 
-    describe('When the API status is checked', function() {
-      describe('When the API returns a 401 or greater', function() {
-        beforeEach(function(done) {
-          this.handleNoResultsSpy = chai.spy.on(this.autosuggestAddress.autosuggest, 'handleNoResults');
-          setTimeout(() => {
-            const response = {
-              status: {
-                code: 403,
-              },
-            };
-            fetchMock.get(
-              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10',
-              JSON.stringify(response),
-              {
-                overwriteRoutes: true,
-              },
-            );
-            this.autosuggestAddress.checkAPIStatus();
-            done();
-          });
-        });
+    // describe('When the API status is checked', function() {
+    //   describe('When the API returns a 401 or greater', function() {
+    //     beforeEach(function(done) {
+    //       this.handleNoResultsSpy = chai.spy.on(this.autosuggestAddress.autosuggest, 'handleNoResults');
+    //       setTimeout(() => {
+    //         const response = {
+    //           status: {
+    //             code: 403,
+    //           },
+    //         };
+    //         fetchMock.get(
+    //           'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10',
+    //           JSON.stringify(response),
+    //           {
+    //             overwriteRoutes: true,
+    //           },
+    //         );
+    //         this.autosuggestAddress.checkAPIStatus();
+    //         done();
+    //       });
+    //     });
 
-        it('then handleNoResults function should be called', function() {
-          expect(this.handleNoResultsSpy).to.have.been.called();
-        });
-      });
-    });
+    //     it('then handleNoResults function should be called', function() {
+    //       expect(this.handleNoResultsSpy).to.have.been.called();
+    //     });
+    //   });
+    // });
   });
 
   describe('When the component initialises with options - english, epoch, educational', function() {
