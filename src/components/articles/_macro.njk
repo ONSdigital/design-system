@@ -1,0 +1,32 @@
+{% macro onsArticles(params) %}
+
+    {% for article in (params.articles if params.articles is iterable else params.articles.items()) %}
+    <article class="article{{ ' ' + params.classes if params.classes else '' }}">
+
+        <div class="article__image" aria-hidden="true">
+            <a class="article__image-link" href="{{ article.url }}" tabindex="-1">
+                <img srcset="{{ article.thumbnail.smallSrc }}{{ article.thumbnail.filename }} 1x, {{ article.thumbnail.largeSrc }}{{ article.thumbnail.filename }} 2x" src="{{ article.thumbnail.smallSrc }}{{ article.thumbnail.filename }}" alt="{{ article.thumbnail.alt }}">
+            </a>
+        </div>
+    
+        <div class="article__content">
+            
+            <h2 class="article__heading">
+                <a href="{{ article.url }}">{{ article.title }}</a>
+            </h2>
+            
+            <ul class="u-fs-s article__meta">
+                {%- if article.date is defined and article.date %}<li class="article__meta-item"><span class="u-hidden">Posted on </span> <time datetime="{{ article.date.iso }}">{{ article.date.short }}</time></li>{% endif %}
+                {%- if article.category is defined and article.category %}<li class="article__meta-item"><span class="u-hidden">in </span> <a class="article__meta-link" href="{{ article.category.url }}">{{ article.category.title }}</a></li>{% endif %}
+            </ul>
+
+            {% if article.excerpt is defined and article.excerpt %}
+            <p class="u-mb-no">{{ article.excerpt | safe }}</p>
+            {% endif %}
+
+        </div>
+
+    </article>
+    {% endfor %}
+
+{% endmacro %}
