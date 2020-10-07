@@ -9,7 +9,7 @@ jobs:
   - stage: build
     script: yarn build
   - stage: test-percy
-    script: npx percy snapshot dave
+    script: npx percy snapshot src/build/
   - stage: npm-bundle
     script: yarn npm-bundle && npm version $TRAVIS_BRANCH --allow-same-version -m
       "chore - release version %s [skip ci]" --allow-empty
