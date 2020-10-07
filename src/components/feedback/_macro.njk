@@ -6,107 +6,36 @@
 
     <div class="feedback {{ params.classes }}">
         <div class="feedback__body">
-            <h2>What do you think about this service?</h2>
-            <p>Your comments will help us make improvements</p>
+            <h2>{{ params.header }}</h2>
+            <p>{{ params.content }}</p>
             {{
                 onsRadios({
-                    "legend": "Select what your feedback is about",
-                    "name": "feedback-type",
-                    "radios": [
-                        {
-                            "id": "questions",
-                            "label": {
-                                "text": "The census questions",
-                                "description": "For example, questions not clear, answer options not relevant"
-                            },
-                            "value": "questions"
-                        },
-                        {
-                            "id": "design",
-                            "label": {
-                                "text": "Page design and structure"
-                            },
-                            "value": "design"
-                        },
-                        {
-                            "id": "general",
-                            "label": {
-                                "text": "General feedback about this service"
-                            },
-                            "value": "general"
-                        }
-                    ]
+                    "legend": params.radios.legend,
+                    "name": params.radios.name,
+                    "radios": params.radios.radioButtons
                 })
             }}
             {{
                 onsSelect({
-                    "id": "select",
-                    "name": "select",
-                    "label": {
-                        "text": "Question topic"
-                    },
-                    "options": [
-                        {
-                            "value": "",
-                            "text": "Select an option",
-                            "disabled": true,
-                            "selected": true
-                        },
-                        {
-                            "value": "general",
-                            "text": "General"
-                        },
-                        {
-                            "value": "people-who-live-here",
-                            "text": "People who live here"
-                        },
-                        {
-                            "value": "visitors",
-                            "text": "Visitors"
-                        },
-                        {
-                            "value": "houshold-accommodation",
-                            "text": "Houshold and accommodation"
-                        },
-                        {
-                            "value": "personal-details",
-                            "text": "Personal details"
-                        },
-                        {
-                            "value": "health",
-                            "text": "Health"
-                        },
-                        {
-                            "value": "qualifications",
-                            "text": "Qualifications"
-                        },
-                        {
-                            "value": "employment",
-                            "text": "Employment"
-                        }
-                    ]
+                    "id": params.select.id,
+                    "name": params.select.name,
+                    "label": params.select.label,
+                    "options": params.select.options
                 })
             }}
             {{
                 onsTextarea({
-                    "id": "feedback-textarea",
-                    "name": "feedback-text",
-                    "classes": "input--w-30",
-                    "label": {
-                        "text": "Enter your feedback",
-                        "description": "Do not include confidential information, such as your contact details"
-                    },
-                    "charCheckLimit": {
-                        "limit": 1000,
-                        "charCountSingular": "You have {x} character remaining",
-                        "charCountPlural": "You have {x} characters remaining"
-                    }
+                    "id": params.textarea.id,
+                    "name": params.textarea.name,
+                    "classes": params.textarea.classes,
+                    "label": params.textarea.label,
+                    "charCheckLimit": params.textarea.charCheckLimit
                 })
             }}
             {{
                 onsButton({
-                    "text": "Send feedback",
-                    "classes": "u-mt-m"
+                    "text": params.button.text,
+                    "classes": params.button.classes
                 })
             }}
         </div>
