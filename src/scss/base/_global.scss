@@ -43,9 +43,3 @@ a {
     text-decoration: none;
   }
 }
-
-//needed to make bottom borders consistant and always add a border when a link or collapsible is used after a summary because unable to select previous element if element exists in css
-.post-summary-separator {
-  @extend .u-mb-m;
-  border-bottom: 1px solid $color-borders;
-}
