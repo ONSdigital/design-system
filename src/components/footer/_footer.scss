@@ -28,4 +28,11 @@
       text-decoration: none;
     }
   }
+
+  .poweredbylogo {
+    @include mq('xs', 'm') {
+      width: 100% !important;
+      margin-top: 1.5rem;
+    }
+  }
 }
