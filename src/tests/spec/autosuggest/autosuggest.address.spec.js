@@ -15,6 +15,7 @@ import fetchMock from 'fetch-mock';
 chai.should();
 chai.use(chaiSpies);
 chai.use(chaiAsPromised);
+
 const params = {
   id: 'address',
   label: {
