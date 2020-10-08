@@ -6,8 +6,6 @@ jobs:
   include:
   - stage: test
     script: yarn test
-  - stage: build
-    script: yarn build
   - stage: test-percy
     script: yarn build && npx percy snapshot build/components --snapshot-files **/examples/**/*.html
   - stage: npm-bundle
