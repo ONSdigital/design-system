@@ -1,43 +1,12 @@
 {% macro onsFeedback(params) %}
-    {% from "components/textarea/_macro.njk" import onsTextarea %}
-    {% from "components/button/_macro.njk" import onsButton %}
-    {% from "components/radios/_macro.njk" import onsRadios %}
-    {% from "components/select/_macro.njk" import onsSelect %}
 
     <div class="feedback {{ params.classes }}">
         <div class="feedback__body">
             <h2>{{ params.header }}</h2>
             <p>{{ params.content }}</p>
-            {{
-                onsRadios({
-                    "legend": params.radios.legend,
-                    "name": params.radios.name,
-                    "radios": params.radios.radioButtons
-                })
-            }}
-            {{
-                onsSelect({
-                    "id": params.select.id,
-                    "name": params.select.name,
-                    "label": params.select.label,
-                    "options": params.select.options
-                })
-            }}
-            {{
-                onsTextarea({
-                    "id": params.textarea.id,
-                    "name": params.textarea.name,
-                    "classes": params.textarea.classes,
-                    "label": params.textarea.label,
-                    "charCheckLimit": params.textarea.charCheckLimit
-                })
-            }}
-            {{
-                onsButton({
-                    "text": params.button.text,
-                    "classes": params.button.classes
-                })
-            }}
+            <div>
+                <a href="{{ params.url }}">{{- params.linkText -}}</a>
+            </div>
         </div>
         <div class="feedback__footer">
             <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.26 25.28">
