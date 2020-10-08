@@ -1,9 +1,29 @@
 .article {
-  max-width: 660px; // Equivalent to 8 Columns;
-
   @include mq(s) {
     align-items: flex-start;
     display: flex;
+  }
+
+  // Featured
+  &--featured {
+    background-color: $color-grey-5;
+    border-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    & .article__image {
+      margin-right: 0;
+      margin-bottom: 1.5rem;
+
+      @include mq(m) {
+        margin-right: 1.5rem;
+        margin-bottom: 0;
+      }
+    }
+
+    & .article__image img {
+      width: 100%;
+    }
   }
 
   & + & {
@@ -12,10 +32,13 @@
     padding: 1.5em 0 0;
   }
 
+  &__content {
+    max-width: 660px; // Equivalent to 8 Columns;
+  }
+
   &__image {
     flex-shrink: 0;
     margin-bottom: 1rem;
-    width: 140px;
 
     @include mq(s) {
       display: flex;
@@ -32,8 +55,8 @@
 
     &:focus {
       box-shadow: 0 0 0 2px $color-black !important;
-      outline-offset: 2px;
       outline: 4px solid $color-focus !important;
+      outline-offset: 2px;
     }
   }
 
