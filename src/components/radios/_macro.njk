@@ -40,6 +40,7 @@
 
                         {% if radio.other is defined and radio.other %}
                             <span class="radio__other{{ " " + 'radio__other--open' if radio.other.open else "" }}" id="{{ radio.id }}-other-wrap">
+                            {% if radio.other.otherType is defined and radio.other.otherType and radio.other.otherType == "input" %}
                                 {% from "components/input/_macro.njk" import onsInput %}
                                 {{
                                     onsInput({
@@ -57,7 +58,22 @@
                                         "value": radio.other.value
                                     })
                                 }}
-                            </span>
+                            {% elif radio.other.otherType is defined and radio.other.otherType and radio.other.otherType == "select" %}
+                                {% from "components/select/_macro.njk" import onsSelect %}
+                                {{
+                                    onsSelect({
+                                        "id": radio.other.id,
+                                        "name": radio.other.name,
+                                        "options": radio.other.options,
+                                        "label": {
+                                            "id": radio.other.id + "-label",
+                                            "text": radio.other.label.text,
+                                            "classes": 'u-fs-s--b'
+                                        }
+                                    })
+                                }}
+                            {% endif %}
+                             </span>
                         {% endif %}
                     </span>
                 </p>

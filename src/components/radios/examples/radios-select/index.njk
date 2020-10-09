@@ -19,18 +19,55 @@
                 "value": "olives"
             },
             {
-                "id": "other-checkbox",
+                "id": "other-radio",
                 "label": {
                     "text": "Other"
                 },
                 "value": "other",
                 "other": {
                     "open": true,
-                    "id": "other-textbox",
+                    "otherType": "select",
+                    "id": "other-select",
                     "name": "other-answer",
                     "label": {
                         "text": "Please specify other"
-                    }
+                    },
+                    "options": [
+                        {
+                            "value": "",
+                            "text": "Select an option",
+                            "disabled": true,
+                            "selected": true
+                        },
+                        {
+                            "value": "bart",
+                            "text": "Bart Simpson"
+                        },
+                        {
+                            "value": "homer",
+                            "text": "Homer Simpson"
+                        },
+                        {
+                            "value": "marge",
+                            "text": "Marge Simpson"
+                        },
+                        {
+                            "value": "lisa",
+                            "text": "Lisa Simpson"
+                        },
+                        {
+                            "value": "maggie",
+                            "text": "Maggie Simpson"
+                        },
+                        {
+                            "value": "ned",
+                            "text": "Ned Flanders"
+                        },
+                        {
+                            "value": "7-dwarves",
+                            "text": "The 7 Dwarves: Grumpy, Happy, Sleepy, Bashful, Sneezy, Dopey, Doc"
+                        }
+                    ]
                 }
             }
         ]
