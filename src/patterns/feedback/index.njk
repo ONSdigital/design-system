@@ -6,9 +6,7 @@ group: Ask users for...
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 
-The feedback form provides users with a way of giving feedback about a service without leaving the current task.
-
-The form is collapsed and positioned above the footer and submits without refreshing the page. The user is notified of the successful submission of feedback.
+The feedback pattern provides a way of guiding users to a feedback form for a service. It is recommended to be placed above the footer.
 
 {{
     patternlibExample({"path": "patterns/feedback/examples/feedback/index.njk"})
@@ -20,7 +18,7 @@ The feedback pattern should be used to get feedback about your service or survey
 
 ## How to use this pattern
 
-The feedback pattern is baked into the base [page template](/styles/page-template) via the [header component](/components/header) and the [footer component](/components/footer).
+The feedback pattern is baked into the base [page template](/styles/page-template).
 
 ## Research on this pattern
 {% call onsPanel() %}
