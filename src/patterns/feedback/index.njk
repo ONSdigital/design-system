@@ -1,0 +1,32 @@
+---
+title: Feedback from
+group: Ask users for...
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+
+
+## Feedback form pattern
+{{
+    patternlibExample({ "path": "patterns/feedback/examples/feedback-form/index.njk" })
+}}
+
+## Research on this pattern
+{% call onsPanel() %}
+    If you have conducted any user research using this pattern, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/1076",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/1076",
+        "linkText": "Discuss 'Feedback' on GitHub"
+    })
+}}
