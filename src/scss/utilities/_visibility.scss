@@ -5,14 +5,14 @@
 
 .u-visuallyhidden,
 .u-vh {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
   position: absolute;
+  margin: -1px;
+  padding: 0;
   width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
   user-select: none;
 }
 
@@ -20,12 +20,12 @@
 .u-vh.u-focusable:active,
 .u-visuallyhidden.u-focusable:focus,
 .u-vh.u-focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
   position: static;
+  margin: 0;
   width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
 }
 
 .u-invisible {
@@ -33,9 +33,9 @@
 }
 
 .u-ir {
-  background-color: transparent;
-  border: 0;
   overflow: hidden;
+  border: 0;
+  background-color: transparent;
 }
 
 .u-ir::before {
