@@ -28,6 +28,9 @@
 
   &__other {
     @extend .checkbox__other;
+    .input--select {
+      width: 18.5rem !important;
+    }
   }
 
   &__input:not(:checked) ~ &__other--open {
