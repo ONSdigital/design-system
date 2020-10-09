@@ -123,6 +123,16 @@
                     {% endblock %}
                     {% block pageContent %}
                         <div class="page__container container {{ containerClasses }}">
+                            {% if pageConfig.breadcrumbs is defined and pageConfig.breadcrumbs %}
+                                {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+                                {{
+                                    onsBreadcrumb({
+                                        "id": pageConfig.breadcrumbs.id,
+                                        "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
+                                        "itemsList": pageConfig.breadcrumbs.itemsList
+                                    })
+                                }}
+                            {% endif %}
                             {% block preMain %}{% endblock %}
                             <div class="grid">
                                 <div class="grid__col col-8@m">
