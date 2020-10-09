@@ -27,7 +27,7 @@ The example below shows the minimum requirements for an ONS page template.
 
 ## Customised page template
 
-Components can be added to the page template. The example below provides a [phase banner](/components/phase-banner), [language selector](/patterns/language-selection), [save button](/components/button) and [footer links](/components/footer).
+Components can be added to the page template. The example below provides a [phase banner](/components/phase-banner), [language selector](/patterns/language-selection), [breadcrumbs](/components/breadcrumb), [save button](/components/button) and [footer links](/components/footer).
 
 {{
     patternlibExample({ "path": "styles/page-template/examples/custom/index.njk" })
@@ -128,6 +128,7 @@ Variables can be set with:
 | title         | string                                              | true                              | The contents for the `<title>` element                                                       |
 | cspNonce      | string                                              | false                             | The Content Security Policy (CSP) nonce value                                                      |
 | headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                             | Configuration for `<meta>` information in the document `<head>`                              |
+| breadcrumbs   | `Breadcrumbs` [_(ref)_](/components/breadcrumb)     | false                             | Configuration for the breadcrumbs or back link                                               |
 | bodyClasses   | string                                              | false                             | Classes to add to the `<body>` element                                                       |
 | header        | `PageHeader` [_(ref)_](#pageheader)                 | true                              | Configuration for the page header                                                            |
 | language      | `Language` [_(ref)_](/components/language-selector) | false                             | Language configuration for the page                                                          |
