@@ -39,7 +39,7 @@
                         }) }}
 
                         {% if radio.other is defined and radio.other %}
-                            {% set otherType = params.other.otherType | default('input') %}
+                            {% set otherType = radio.other.otherType | default('input') %}
                             <span class="radio__other{{ " " + 'radio__other--open' if radio.other.open else "" }}" id="{{ radio.id }}-other-wrap">
                             {% if otherType == "input" %}
                                 {% from "components/input/_macro.njk" import onsInput %}
