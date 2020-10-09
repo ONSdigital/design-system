@@ -21,7 +21,9 @@
 
     &:focus {
       border-color: $color-document-border-focus;
+      box-shadow: none;
       outline: 4px solid $color-focus !important;
+      outline-offset: 0;
     }
   }
 
