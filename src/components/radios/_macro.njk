@@ -39,8 +39,9 @@
                         }) }}
 
                         {% if radio.other is defined and radio.other %}
+                            {% set otherType = params.other.otherType | default('input') %}
                             <span class="radio__other{{ " " + 'radio__other--open' if radio.other.open else "" }}" id="{{ radio.id }}-other-wrap">
-                            {% if radio.other.otherType is defined and radio.other.otherType and radio.other.otherType == "input" %}
+                            {% if otherType == "input" %}
                                 {% from "components/input/_macro.njk" import onsInput %}
                                 {{
                                     onsInput({
@@ -58,7 +59,7 @@
                                         "value": radio.other.value
                                     })
                                 }}
-                            {% elif radio.other.otherType is defined and radio.other.otherType and radio.other.otherType == "select" %}
+                            {% elif otherType == "select" %}
                                 {% from "components/select/_macro.njk" import onsSelect %}
                                 {{
                                     onsSelect({
