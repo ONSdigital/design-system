@@ -6,7 +6,9 @@ title: Breadcrumbs
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application. This should be placed before a page’s main content.
+A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application. 
+Always place breadcrumbs before a page’s `<main>` content element.  This makes sure the [Skip to content](/components/skip-to-content) link allows the user to skip all navigation, including the breadcrumbs.
+Where possible this should be set in the [page template](/styles/page-template/) in `pageConfig`. This will ensure it will have the correct placing on the page.
 
 {{
     patternlibExample({"path": "components/breadcrumb/examples/breadcrumb/index.njk"})
