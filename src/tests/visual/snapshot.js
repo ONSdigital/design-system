@@ -11,7 +11,6 @@ const options = {
   to: ['build/scripts', 'build/css/'],
 };
 
-const percyOptions = { headless: false };
 PercyScript.run(async (page, percySnapshot) => {
   try {
     await replace(options);
@@ -26,4 +25,4 @@ PercyScript.run(async (page, percySnapshot) => {
   await page.waitFor('.collapsible--initialised');
   await percySnapshot('Accordion');
   server.close();
-}, percyOptions);
+});
