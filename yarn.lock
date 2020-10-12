@@ -1007,13 +1007,6 @@
     which "^2.0.1"
     winston "^3.0.0"
 
-"@percy/puppeteer@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@percy/puppeteer/-/puppeteer-1.1.0.tgz#3b055cd4931865f131b3b525be5971ec4a7c8012"
-  integrity sha512-ndQDSC4UYE0WrK+6e14xpuz4FktSG2FwiQJ7n68QVm4TcgetdeXkgcAn1xtwvDbLpEcMyzcQEPBJMOMNf7Nfdg==
-  dependencies:
-    "@percy/agent" "~0"
-
 "@percy/script@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@percy/script/-/script-1.1.0.tgz#52bc91d774d576a01f663c6f0e158a59181f9a75"
@@ -9575,6 +9568,15 @@ replace-ext@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-1.0.0.tgz#de63128373fcbf7c3ccfa4de5a480c45a67958eb"
   integrity sha1-3mMSg3P8v3w8z6TeWkgMRaZ5WOs=
+
+replace-in-file@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/replace-in-file/-/replace-in-file-6.1.0.tgz#9f9ddd7bb70d6ad231d2ad692e1b646e73d06647"
+  integrity sha512-URzjyF3nucvejuY13HFd7O+Q6tFJRLKGHLYVvSh+LiZj3gFXzSYGnIkQflnJJulCAI2/RTZaZkpOtdVdW0EhQA==
+  dependencies:
+    chalk "^4.0.0"
+    glob "^7.1.6"
+    yargs "^15.3.1"
 
 request-promise-core@1.1.4:
   version "1.1.4"

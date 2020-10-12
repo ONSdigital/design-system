@@ -6,8 +6,8 @@ jobs:
   include:
   - stage: test
     script: yarn test
-  - stage: test-percy
-    script: yarn build && npx percy snapshot build/components --snapshot-files **/examples/**/*.html
+  - stage: test-visual
+    script: yarn build && npx percy exec -- node src/tests/visual/snapshot.js
   - stage: npm-bundle
     script: yarn npm-bundle && npm version $TRAVIS_BRANCH --allow-same-version -m
       "chore - release version %s [skip ci]" --allow-empty
