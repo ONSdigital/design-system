@@ -11,6 +11,7 @@
 | text | string | true | The text for the list item |
 | name | string | false | The name attribute for the list item |
 | url | string | false | Will wrap the text in a link |
+| rel | string | false | allows setting of rel attribute for list item links |
 | target | string | false | If `url` is provided this will set the target for that link |
 | index | boolean | false | Will prefix the list item with index number if set to `true` |
 | external | boolean | false | Will style the item like an external link |
