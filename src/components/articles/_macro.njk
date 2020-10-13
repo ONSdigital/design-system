@@ -32,7 +32,16 @@
 
                         <ul class="u-fs-s article__meta">
                             {%- if article.date is defined and article.date %}<li class="article__meta-item"><span class="u-hidden">Posted on </span> <time datetime="{{ article.date.iso }}">{{ article.date.short }}</time></li>{% endif %}
-                            {%- if article.category is defined and article.category %}<li class="article__meta-item"><span class="u-hidden">in </span> <a class="article__meta-link" href="{{ article.category.url }}">{{ article.category.title }}</a></li>{% endif %}
+                            {%- if article.category is defined and article.category %}
+                                <li class="article__meta-item">
+                                    <span class="u-hidden">in </span> 
+                                    {%- if article.category.url is defined and article.category.url %}
+                                        <a class="article__meta-link" href="{{ article.category.url }}">{{ article.category.title }}</a>
+                                    {% else %}
+                                        {{ article.category.title }}
+                                    {% endif %}
+                                </li>
+                            {% endif %}
                         </ul>
 
                         {% if article.excerpt is defined and article.excerpt %}
