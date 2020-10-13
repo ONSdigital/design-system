@@ -21,6 +21,9 @@ jobs:
 stages:
 - name: test
   if: tag IS NOT present
+  branches:
+    only: 
+      - master
 - name: npm-bundle
   if: tag IS present
 notifications:
