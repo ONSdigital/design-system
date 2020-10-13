@@ -73,14 +73,14 @@
 .grid--pixelgutter {
   margin-left: 1px;
   .grid__col {
-    padding-left: 1px;
     margin-bottom: 1px;
+    padding-left: 1px;
   }
 }
 
 .grid--flex {
-  flex-flow: row wrap;
   display: flex;
+  flex-flow: row wrap;
 
   &.grid--center {
     justify-content: center;
@@ -106,32 +106,32 @@
 @include bp-suffix(grid--bordered, false) {
   margin-left: 0;
   .grid__col {
+    flex: 1 1 auto;
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-top: 1px solid $color-borders;
     border-bottom: 1px solid $color-borders;
-    flex: 1 1 auto;
     &:first-of-type {
-      border-right: 1px solid $color-borders;
       padding-left: 0;
+      border-right: 1px solid $color-borders;
     }
   }
 }
 
 .grid__col {
   display: inline-block;
-  width: 100%;
-  vertical-align: top;
   box-sizing: border-box;
-  background-clip: content-box;
   flex: 0 0 auto;
+  padding-left: $grid-gutters;
+  width: 100%;
   // Fixes text overflow issues
   min-width: 0;
+  vertical-align: top;
+  background-clip: content-box;
 
-  padding-left: $grid-gutters;
   .grid--float & {
-    float: left;
     display: block;
+    float: left;
   }
 
   &--loose {
