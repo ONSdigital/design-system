@@ -1,13 +1,31 @@
 ---
-title: Feedback from
+title: Feedback
 group: Ask users for...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 
+{{
+    onsPanel({
+        "body": "This component requires documentation."
+    })
+}}
+
+## When to use this pattern
+Follow this pattern whenever you need to prompt your users to give feedback.
+
+## How to use this pattern
+You use the feedback call to action on a page where you want to ask for feedback. The link in this call to action will then link to another page with the feeback form pattern on it.
+
+## Feedback call to action component
+This will prompt users to give feedback. Which will then link to the form.
+{{
+    patternlibExample({"path": "components/feedback/examples/feedback/index.njk"})
+}}
 
 ## Feedback form pattern
+This pattern will allow the users to then submit they're feedback.
 {{
     patternlibExample({ "path": "patterns/feedback/examples/feedback-form/index.njk" })
 }}
