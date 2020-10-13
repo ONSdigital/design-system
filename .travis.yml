@@ -20,7 +20,7 @@ jobs:
         tags: true
 stages:
 - name: test
-  if: tag IS NOT present
+  if: tag IS NOT present OR branch = master OR type = pull_request
   branches:
     only: 
       - master
