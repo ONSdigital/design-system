@@ -3,20 +3,22 @@
   height: 1rem;
   vertical-align: middle;
 
+  &--xxl {
+    width: 2rem;
+    height: 2rem;
+  }
+
   &--xl {
-    margin-top: 0.3rem;
     width: 1.5rem;
     height: 1.5rem;
   }
 
   &--l {
-    margin-top: 0.2rem;
     width: 1.4rem;
     height: 1.4rem;
   }
 
   &--m {
-    margin-top: 0.2rem;
     width: 1.2rem;
     height: 1.2rem;
   }
