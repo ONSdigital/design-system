@@ -19,7 +19,8 @@
                         {% from "components/icons/_macro.njk" import onsIcon %}
                         {{
                             onsIcon({
-                                "icon": item.prefixIcon
+                                "icon": item.prefixIcon,
+                                "iconSize": item.iconSize
                             })
                         }}
                     {%- endif -%} </span>
