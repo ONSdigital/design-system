@@ -1,27 +1,27 @@
 {% macro onsIcon(params) %}
     {% if params.icon == "check" %}
-        <svg class="{% if params.iconSize %}svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 13 10" xmlns="http://www.w3.org/2000/svg">
+        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 13 10" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.35,3.9l-.71-.71a.5.5,0,0,0-.71,0h0L5.79,10.34,3.07,7.61a.51.51,0,0,0-.71,0l-.71.71a.51.51,0,0,0,0,.71l3.78,3.78a.5.5,0,0,0,.71,0h0L14.35,4.6A.5.5,0,0,0,14.35,3.9Z" transform="translate(-1.51 -3.04)"/>
         </svg>
     {% elif params.icon == "chevron" %}
-        <svg class="{% if params.iconSize %}svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 7.5 12.85" xmlns="http://www.w3.org/2000/svg">
+        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 7.5 12.85" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.74,14.28l-.57-.56a.5.5,0,0,1,0-.71h0l5-5-5-5a.5.5,0,0,1,0-.71h0l.57-.56a.5.5,0,0,1,.71,0h0l5.93,5.93a.5.5,0,0,1,0,.7L6.45,14.28a.5.5,0,0,1-.71,0Z" transform="translate(-5.02 -1.59)"/>
         </svg>
     {% elif params.icon == "exit" %}
-        <svg class="{% if params.iconSize %}svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
             <path d="M13.85,7.65l-2.5-2.5a.5.5,0,0,0-.71,0,.48.48,0,0,0-.15.36V7h-3a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3v1.5A.49.49,0,0,0,11,11a.48.48,0,0,0,.34-.14l2.51-2.5a.49.49,0,0,0,0-.68Z" transform="translate(-2 -2)"/>
             <path d="M8.5,14h-6a.5.5,0,0,1-.5-.5V2.5A.5.5,0,0,1,2.5,2h6a.5.5,0,0,1,.5.5V3a.5.5,0,0,1-.5.5h-5v9h5A.5.5,0,0,1,9,13v.5A.5.5,0,0,1,8.5,14Z" transform="translate(-2 -2)"/>
         </svg>
     {% elif params.icon == "quote" %}
-        <svg class="{% if params.iconSize %}svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
+        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
             <path d="M13.44.77h-3l-2 4v6h6v-6h-3l2-4zm-8 0h-3l-2 4v6h6v-6h-3l2-4z" transform="translate(-0.44 -0.77)"/>
         </svg>
     {% elif params.icon == "lock" %}
-        <svg class="{% if params.iconSize %}svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 10 13" xmlns="http://www.w3.org/2000/svg">
+        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 10 13" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.25,6h-.72V4.49a3.5,3.5,0,0,0-7,0V6H3.75A.77.77,0,0,0,3,6.75v6.5a.77.77,0,0,0,.75.75h8.5a.77.77,0,0,0,.75-.75V6.75A.77.77,0,0,0,12.25,6ZM5.54,4.49a2.5,2.5,0,1,1,5,0V6h-5ZM9,11.66a.3.3,0,0,1-.26.34H7.29A.29.29,0,0,1,7,11.69v0l.39-1.82a1,1,0,1,1,1.4-.18.77.77,0,0,1-.18.18Z" transform="translate(-3 -0.99)"/>
         </svg>
     {% elif params.icon == "external-link" %}
-        <svg class="{% if params.iconSize %}svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
             <path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"/>
             <path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"/>
         </svg>
@@ -31,24 +31,24 @@
             <path class="bottomTriangle" d="M6 18.6l6-7.2H0l6 7.2zm0 3.6l6 7.2H0l6-7.2z"/>
         </svg>
     {% elif params.icon == "print" %}
-        <svg class="{% if params.iconSize %}svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
             <path d="M17 4H3C1.3 4 0 5.2 0 6.8v5.5h4V16h12v-3.7h4V6.8C20 5.2 18.7 4 17 4zm-3 10H6V9h8v5zm3-6a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm-1-8H4v3h12V0z"/>
         </svg>
     {% elif params.icon == "person" %}
-        <svg class="{% if params.iconSize %}svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
             <path d="M7,9H9a5,5,0,0,1,5,5H2A5,5,0,0,1,7,9Z" transform="translate(-2 -2)"/>
             <circle cx="6" cy="3" r="3"/>
         </svg>
     {% elif params.icon == "facebook" %}
-        <svg class="{% if params.iconSize %}svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" id="icon-facebook" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" id="icon-facebook" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.5,31.9V20.72h3.73l0.72-4.62H18.5v-3c0-1.26,0.62-2.5,2.61-2.5h2.02V6.66c-1.18-0.19-2.38-0.3-3.58-0.31c-3.66,0-6.04,2.22-6.04,6.22v3.53H9.44v4.62h4.06V31.9C5.09,30.57-0.8,22.89,0.09,14.43C0.98,5.96,8.34-0.33,16.84,0.12S32,7.59,32,16.1C32,23.97,26.27,30.67,18.5,31.9z"/>
         </svg>
     {% elif params.icon == "twitter" %}
-        <svg class="{% if params.iconSize %}svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" id="icon-twitter" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" id="icon-twitter" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M24.04,12.95c0,0.17,0,0.33,0,0.5c0.01,4.01-2.17,7.71-5.69,9.64c-3.52,1.93-7.81,1.78-11.19-0.38c0.31,0.04,0.61,0.05,0.92,0.05c1.73,0,3.42-0.58,4.78-1.65c-1.65-0.04-3.09-1.11-3.6-2.68c0.25,0.05,0.51,0.07,0.76,0.07c0.34,0,0.68-0.05,1.01-0.14C9.23,18,7.93,16.4,7.95,14.55v-0.05c0.54,0.29,1.13,0.46,1.74,0.48c-1.66-1.12-2.2-3.33-1.23-5.08c1.96,2.41,4.85,3.87,7.95,4.03c-0.07-0.29-0.1-0.58-0.1-0.88c0-1.58,0.97-3,2.44-3.59c1.47-0.58,3.15-0.21,4.23,0.94c0.86-0.17,1.69-0.49,2.45-0.94c-0.28,0.9-0.88,1.65-1.69,2.13c0.76-0.09,1.51-0.29,2.21-0.6C25.43,11.76,24.79,12.42,24.04,12.95zM16,0C7.16,0,0,7.16,0,16s7.16,16,16,16s16-7.16,16-16c0-4.24-1.69-8.31-4.69-11.31S20.24,0,16,0z"/>
         </svg>
     {% elif params.icon == "instagram" %}
-        <svg class="{% if params.iconSize %}svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" id="icon-instagram" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" id="icon-instagram" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M21.34,9.46c0.66,0,1.2,0.54,1.2,1.2c0,0.66-0.54,1.2-1.2,1.2c-0.66,0-1.2-0.54-1.2-1.2C20.14,10,20.68,9.46,21.34,9.46z M16,12.67c-1.84,0-3.33,1.49-3.33,3.33c0,1.84,1.49,3.33,3.33,3.33c1.84,0,3.33-1.49,3.33-3.33C19.33,14.16,17.84,12.67,16,12.67z M16,10.86c2.84,0,5.14,2.3,5.14,5.14c0,2.84-2.3,5.14-5.14,5.14c-2.84,0-5.14-2.3-5.14-5.14C10.86,13.16,13.16,10.86,16,10.86z M16.56,7.8h-1.11c-2.17,0-2.51,0.01-3.49,0.06c-0.97,0.04-1.5,0.21-1.86,0.34C9.64,8.39,9.3,8.6,8.95,8.95C8.6,9.3,8.39,9.64,8.2,10.1c-0.14,0.35-0.3,0.88-0.34,1.86c-0.04,0.98-0.06,1.32-0.06,3.49v1.11c0,2.17,0.01,2.51,0.06,3.49c0.04,0.97,0.21,1.5,0.34,1.86c0.18,0.47,0.4,0.8,0.75,1.15c0.35,0.35,0.68,0.57,1.15,0.75c0.35,0.14,0.88,0.3,1.86,0.34c0.94,0.04,1.29,0.06,3.23,0.06h1.61c1.94,0,2.3-0.02,3.23-0.06c0.97-0.04,1.5-0.21,1.86-0.34c0.47-0.18,0.8-0.4,1.15-0.75c0.35-0.35,0.57-0.68,0.75-1.15c0.14-0.35,0.3-0.88,0.34-1.86c0.04-0.94,0.06-1.29,0.06-3.23v-1.61c0-1.94-0.02-2.3-0.06-3.23c-0.04-0.97-0.21-1.5-0.34-1.86c-0.18-0.47-0.4-0.8-0.75-1.15C22.7,8.6,22.36,8.39,21.9,8.2c-0.35-0.14-0.88-0.3-1.86-0.34C19.06,7.82,18.72,7.8,16.56,7.8z M17.03,6c1.8,0,2.18,0.02,3.1,0.06c1.06,0.05,1.79,0.22,2.43,0.46c0.66,0.26,1.22,0.6,1.77,1.15c0.56,0.56,0.9,1.11,1.15,1.77c0.25,0.64,0.42,1.36,0.46,2.43c0.05,0.99,0.06,1.35,0.06,3.58v1.09c0,2.22-0.01,2.59-0.06,3.58c-0.05,1.06-0.22,1.79-0.46,2.43c-0.26,0.66-0.6,1.22-1.15,1.77c-0.56,0.56-1.11,0.9-1.77,1.15c-0.64,0.25-1.36,0.42-2.43,0.46C19.13,25.99,18.77,26,16.55,26h-1.09c-2.22,0-2.59-0.01-3.58-0.06c-1.06-0.05-1.79-0.22-2.43-0.46c-0.66-0.26-1.22-0.6-1.77-1.15c-0.56-0.56-0.9-1.11-1.15-1.77c-0.25-0.64-0.42-1.36-0.46-2.43C6.02,19.21,6,18.83,6,17.03v-2.06c0-1.8,0.02-2.18,0.06-3.1c0.05-1.06,0.22-1.79,0.46-2.43c0.26-0.66,0.6-1.22,1.15-1.77c0.56-0.56,1.11-0.9,1.77-1.15c0.64-0.25,1.36-0.42,2.43-0.46C12.79,6.02,13.17,6,14.97,6H17.03z M16,0C7.16,0,0,7.16,0,16s7.16,16,16,16s16-7.16,16-16c0-4.24-1.69-8.31-4.69-11.31S20.24,0,16,0z"/>
         </svg>
     {% elif params.icon == "loader" %}
