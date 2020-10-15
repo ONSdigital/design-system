@@ -1,5 +1,5 @@
 {% macro onsFeedback(params) %}
-    {% set headerSize = params.headerSize | default("2") %}
+    {% set headingLevel = params.headingLevel | default("2") %}
     <div id="params.id" class="feedback">
         <h{{ headerSize }}>{{ params.header }}</h{{ headerSize }}>
         <p>{{ params.content }}</p>
