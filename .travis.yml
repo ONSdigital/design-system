@@ -24,7 +24,7 @@ stages:
 - name: test
   if: tag IS NOT present
 - name: test-visual
-  if: type = pull_request
+  if: branch = master
 - name: npm-bundle
   if: tag IS present
 notifications:
