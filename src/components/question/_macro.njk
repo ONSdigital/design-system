@@ -4,10 +4,12 @@
         class="question{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
-        {% if params.readDescriptionFirst is defined and params.readDescriptionFirst == true and params.description is defined and params.description %}
-            <div class="question__description u-vh">{{ params.description | safe }}</div>
-        {% endif %}
-        <h1 class="question__title">{{ params.title | safe }}</h1>
+        <h1 class="question__title">
+            {% if params.readDescriptionFirst is defined and params.readDescriptionFirst == true and params.description is defined and params.description %}
+                <div class="question__description u-vh">{{ params.description | safe }}</div>
+            {% endif %}
+            {{ params.title | safe }}
+        </h1>
         {% if params.description is defined and params.description %}
             <div class="question__description"{% if params.readDescriptionFirst is defined and params.readDescriptionFirst == true %} aria-hidden="true"{% endif %}>{{ params.description | safe }}</div>
         {% endif %}
