@@ -136,6 +136,10 @@
     }
   }
 
+  &--bare {
+    border-left: 0;
+  }
+
   &--bare,
   &--success,
   &--warn {
