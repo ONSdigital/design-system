@@ -19,7 +19,8 @@
                         {% from "components/icons/_macro.njk" import onsIcon %}
                         {{
                             onsIcon({
-                                "icon": item.prefixIcon
+                                "icon": item.prefixIcon,
+                                "iconSize": item.iconSize
                             })
                         }}
                     {%- endif -%} </span>
@@ -34,7 +35,7 @@
                             })
                         }}
                     {%- else -%}
-                        <a href="{{ item.url }}" class="list__link {{ item.classes }}" {% if item.index is defined and item.index %}data-qa="list-item-{{ loop.index }}"{% endif %} {% if item.target is defined and item.target %} target="{{ item.target }}"{% endif %} {% if item.name is defined and item.name %} name="{{ item.name }}"{% endif %}>
+                        <a href="{{ item.url }}" class="list__link {{ item.classes }}" {% if item.index is defined and item.index %}data-qa="list-item-{{ loop.index }}"{% endif %} {% if item.target is defined and item.target %} target="{{ item.target }}"{% endif %} {% if item.name is defined and item.name %} name="{{ item.name }}"{% endif %} {% if item.rel is defined and item.rel %} rel="{{ item.rel }}"{% endif %}>
                             {%- if item.prefix is defined and item.prefix -%}<span class="u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- item.text | safe -}}
                         </a>
                     {%- endif -%}
