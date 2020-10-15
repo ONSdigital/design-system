@@ -30,7 +30,7 @@ PercyScript.run(async (page, percySnapshot) => {
   await page.evaluate(radio => document.querySelector(radio).click(), radio);
   await percySnapshot('Radio - selected', { widths: [1300] });
 
-  // Accordion
+  // Accordions
   await page.goto(`${testURL}/build/components/accordion/examples/accordion/index.html`);
   page.waitForSelector('.collapsible--initialised');
   let buttonAll = '.js-collapsible-all';
