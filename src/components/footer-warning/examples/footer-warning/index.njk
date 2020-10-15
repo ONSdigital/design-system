@@ -1,7 +1,10 @@
-{% from "components/footer-warning/_macro.njk" import onsFooterWarning %}
-{% call onsFooterWarning({
-    })
-%}
-    Make sure you <a href='#0'>leave this page</a> or close your browser if you are using a shared service
-{% endcall %}
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
 
+{% set pageConfig = {
+  "title": "Footer Warning example",
+  "footer": true,
+  "footerWarning": true
+} %}
