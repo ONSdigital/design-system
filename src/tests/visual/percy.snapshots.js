@@ -22,14 +22,20 @@ PercyScript.run(async (page, percySnapshot) => {
   await page.goto(`${testURL}/build/components/checkboxes/examples/checkboxes/index.html`);
   let checkbox = 'input[id="bacon"]';
   await page.evaluate(checkbox => document.querySelector(checkbox).click(), checkbox);
-  await percySnapshot('Checked checkbox', { widths: [1300] });
+  await percySnapshot('Checkbox - checked', { widths: [1300] });
+
+  // Radios
+  await page.goto(`${testURL}/build/components/radios/examples/radios/index.html`);
+  let radio = 'input[id="bacon"]';
+  await page.evaluate(radio => document.querySelector(radio).click(), radio);
+  await percySnapshot('Radio - selected', { widths: [1300] });
 
   // Accordion
   await page.goto(`${testURL}/build/components/accordion/examples/accordion/index.html`);
   page.waitForSelector('.collapsible--initialised');
   let buttonAll = '.js-collapsible-all';
   await page.evaluate(buttonAll => document.querySelector(buttonAll).click(), buttonAll);
-  await percySnapshot('Open accordion', { widths: [1300] });
+  await percySnapshot('Accordion - all open', { widths: [1300] });
 
   server.close();
 });
