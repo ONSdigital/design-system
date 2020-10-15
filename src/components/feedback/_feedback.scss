@@ -2,6 +2,9 @@
   position: relative;
   padding: 1rem;
   border: 3px solid $color-branded;
+  &__link {
+    font-weight: $font-weight-bold;
+  }
   &:before {
     content: '';
     position: absolute;
