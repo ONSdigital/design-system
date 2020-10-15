@@ -1,0 +1,63 @@
+---
+title: Card
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+The card component provides a navigation mechansim consisting of a title and link, descriptive text and an optional list of further links.
+
+{{
+    patternlibExample({"path": "components/card/examples/card/index.njk"})
+}}
+
+## When to use this component
+
+Use the card component to signpost users to pages and to provide context and further information on the contents of the destination page.
+
+Good examples of where the use of cards work well include; the homepage, to create a collection of the main areas of the service and provide further affordance of what the service offers; hub level pages, to show the key content areas of what could be a deep structure; as a consistent pattern of navigation at any level within a site structure.
+
+### How to use this component
+
+Cards should be used in the main container of the page and not within side bars, footers etc. The card component needs to be implemented using the `grid` component and the various layout options available to display cards in rows. A row should contain no more than 3 or 4 cards and stack vertically on small viewports.
+The `html` tab shows the various classes used to achieve the layout.
+
+### Card set
+The example below shows a row of 3 cards.
+
+{{
+    patternlibExample({"path": "components/card/examples/card-set/index.njk"})
+}}
+
+### Card set with list
+The example below shows a row of 3 cards with a list of links that relate to the main heading link.
+
+{{
+    patternlibExample({"path": "components/card/examples/card-lists/index.njk"})
+}}
+
+### Cards with images
+The example below shows a row of 3 cards with thumbnail images.
+
+{{
+    patternlibExample({"path": "components/card/examples/card-image/index.njk"})
+}}
+
+## Research on this component
+{% call onsPanel() %}
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/48",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/48",
+        "linkText": "Discuss 'Card' on GitHub"
+    })
+}}

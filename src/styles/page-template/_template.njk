@@ -148,21 +148,12 @@
                         </form>
                     {% endif %}
                 </div>
-                    {% if pageConfig.feedback is defined and pageConfig.feedback %}
-                        <div class="grid">
-                            <div class="grid__col col-8@m">
-                                {% from "components/feedback/_macro.njk" import onsFeedback %}
-                                {{
-                                    onsFeedback({
-                                        "id": pageConfig.feedback.id | default("feedback"),
-                                        "header": pageConfig.feedback.header,
-                                        "content": pageConfig.feedback.content,
-                                        "url": pageConfig.feedback.url,
-                                        "linkText": pageConfig.feedback.linkText
-                                    })
-                                }}
-                            </div>
-                        </div>
+                    {% if pageConfig.footerWarning is defined and pageConfig.footerWarning %}
+                        {% from "components/footer-warning/_macro.njk" import onsFooterWarning %}
+                        {{
+                            onsFooterWarning({
+                            })
+                        }}
                     {% endif %}
                 {% block preFooter %}{% endblock %}
                 {% block footer %}

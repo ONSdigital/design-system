@@ -1,0 +1,18 @@
+{%- macro onsFooterWarning(params) -%}
+    {% from "components/panel/_macro.njk" import onsPanel %}
+    <div class="footer-warning">
+        <div class="container">
+            <div class="grid">
+                <div class="grid__col">
+                    {% call onsPanel({
+                            "type": "warn",
+                            "classes": "panel--warn--footer"
+                        })
+                    %}
+                        Make sure you <a href='#0'>leave this</a> page or close your browser if you are using a shared service
+                    {% endcall %}
+                </div>
+            </div>
+        </div>
+    </div>
+{%- endmacro -%}
