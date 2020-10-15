@@ -5,6 +5,7 @@ layout: none
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/textarea/_macro.njk" import onsTextarea %}
 {% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 {% set pageConfig = {
     "title": "Census 2021",
@@ -38,10 +39,43 @@ layout: none
 {% block main %}
     <h1>Give feedback about this service</h1>
 
+    {% call
+        onsPanel({
+            title: "There is a problem with your answer",
+            type: "error"
+        })
+    %}
+        {% from "components/lists/_macro.njk" import onsList %}
+        {{
+            onsList({
+                "element": "ol",
+                "classes": "list--bare",
+                "itemsList": [
+                    {
+                        "text": "Select what your feedback is about",
+                        "index": true,
+                        "url": "#feedback-type",
+                        "classes": "js-inpagelink"
+                    },
+                    {
+                        "text": "Enter your feedback",
+                        "index": true,
+                        "url": "#feedback-content",
+                        "classes": "js-inpagelink"
+                    }
+                ]
+            })
+        }}
+    {% endcall %}
+
     {{
         onsRadios({
             "legend": "Select what your feedback is about",
             "name": "feedback-type",
+            "error": {
+                "id": "feedback-type",
+                "text": "Select what your feedback is about"
+            },
             "radios": [
                 {
                     "id": "questions",
@@ -130,6 +164,10 @@ layout: none
                 "limit": 1000,
                 "charCountSingular": "You have {x} character remaining",
                 "charCountPlural": "You have {x} characters remaining"
+            },
+            "error": {
+                "id": "feedback-content",
+                "text": "Enter your feedback"
             }
         })
     }}
