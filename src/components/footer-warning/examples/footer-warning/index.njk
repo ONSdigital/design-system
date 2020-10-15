@@ -1,12 +1,7 @@
-{% from "components/card/_macro.njk" import onsCard %}
-{{
-    onsCard({
-        "ariaBy": 'Section highlight',
-        "id": 'title',
-        "textId": 'text',
-        "titleSize": '3',
-        "title": 'Search for a business',
-        "url": '#0',
-        "text": 'A list of UK businesses for statistical use across government.'
+{% from "components/footer-warning/_macro.njk" import onsFooterWarning %}
+{% call onsFooterWarning({
     })
-}}
+%}
+    Make sure you <a href='#0'>leave this page</a> or close your browser if you are using a shared service
+{% endcall %}
+

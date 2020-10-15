@@ -9,7 +9,7 @@
                             "classes": "panel--warn--footer"
                         })
                     %}
-                        Make sure you <a href='#0'>leave this</a> page or close your browser if you are using a shared service
+                        {{ caller() if caller }}
                     {% endcall %}
                 </div>
             </div>
