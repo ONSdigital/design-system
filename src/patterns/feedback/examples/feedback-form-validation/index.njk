@@ -37,8 +37,6 @@ layout: none
     }
 } %}
 {% block main %}
-    <h1>Give feedback about this service</h1>
-
     {% call
         onsPanel({
             title: "There are 2 problems with this page",
@@ -67,6 +65,8 @@ layout: none
             })
         }}
     {% endcall %}
+
+    <h1>Give feedback about this service</h1>
 
     {{
         onsRadios({
