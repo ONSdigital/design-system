@@ -384,6 +384,7 @@ export default class AutosuggestAddress {
   }
 
   handleSubmit(event) {
+    this.addressSetter.checkManualInputsValues(false);
     if (
       (!this.addressSelected && this.input.value !== '' && !this.search.classList.contains('u-d-no')) ||
       (this.isMandatory === true && !this.search.classList.contains('u-d-no'))

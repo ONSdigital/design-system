@@ -5,6 +5,7 @@ export const classLine1 = 'js-address-line1';
 export const classLine2 = 'js-address-line2';
 export const classTown = 'js-address-town';
 export const classPostcode = 'js-address-postcode';
+export const classInputUPRN = 'js-hidden-uprn';
 export const classSearch = 'js-address-input__search';
 export const classManual = 'js-address-input__manual';
 export const classSearchButton = 'js-address-search-btn';
@@ -20,6 +21,7 @@ export default class AddressSetter {
     this.line2 = context.querySelector(`.${classLine2}`);
     this.town = context.querySelector(`.${classTown}`);
     this.postcode = context.querySelector(`.${classPostcode}`);
+    this.uprn = context.querySelector(`.${classInputUPRN}`);
     this.manualInputs = [this.line1, this.line2, this.town, this.postcode];
     this.search = context.querySelector(`.${classSearch}`);
     this.manual = context.querySelector(`.${classManual}`);
@@ -29,6 +31,7 @@ export default class AddressSetter {
 
     // State
     this.manualMode = true;
+    this.originalValues = [];
 
     // Bind Event Listeners
     if (this.searchButton) {
@@ -42,6 +45,7 @@ export default class AddressSetter {
     // Set mode
     if (this.line1.value || this.line2.value || this.town.value || this.postcode.value || this.errorPanel) {
       this.setManualMode(true, false);
+      this.checkManualInputsValues(true);
     } else {
       this.toggleMode();
     }
@@ -99,5 +103,22 @@ export default class AddressSetter {
     this.manualInputs.forEach(input => {
       input.value = '';
     });
+  }
+
+  checkManualInputsValues(onLoad) {
+    if (onLoad) {
+      this.originalValues = this.manualInputs.map(input => {
+        return input.value;
+      });
+    } else {
+      if (this.uprn.value !== '' && this.originalValues.length) {
+        this.newValues = this.manualInputs.map(input => {
+          return input.value;
+        });
+        if (this.originalValues.toString() !== this.newValues.toString()) {
+          this.uprn.value = '';
+        }
+      }
+    }
   }
 }
