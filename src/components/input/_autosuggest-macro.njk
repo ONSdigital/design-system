@@ -2,7 +2,7 @@
     {% set content = caller() %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}js-autosuggest{% endif %} {% if not params.isEditable %}js-address-not-editable{% endif %} {% if params.mandatory is defined and params.mandatory %}js-address-mandatory{% endif %} autosuggest-input {{ params.classes }}"
+        class="{% if not params.externalInitialiser %}js-autosuggest{% endif %} {% if not params.isEditable %}js-address-not-editable{% endif %} {% if params.mandatory is defined and params.mandatory == true %}js-address-mandatory{% endif %} autosuggest-input {{ params.classes }}"
         data-api-domain="{{ params.APIDomain }}"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
