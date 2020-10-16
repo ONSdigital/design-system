@@ -9,7 +9,7 @@
                             "classes": "panel--warn--footer"
                         })
                     %}
-                        {{ caller() if caller }}
+                        {{ params.pre }} <a href="{{ params.url }}">{{ params.link }}</a> {{ params.post }}
                     {% endcall %}
                 </div>
             </div>

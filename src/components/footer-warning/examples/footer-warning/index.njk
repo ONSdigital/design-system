@@ -4,7 +4,12 @@ layout: none
 {% extends "styles/page-template/_template.njk" %}
 
 {% set pageConfig = {
-  "title": "Footer Warning example",
-  "footer": true,
-  "footerWarning": true
+    "title": "Footer Warning example",
+    "footer": true,
+    "footerWarning": {
+        "pre": "Make sure you",
+        "link": "leave this page",
+        "url": "#0",
+        "post": "or close your browser if you are using a shared service"
+    }
 } %}

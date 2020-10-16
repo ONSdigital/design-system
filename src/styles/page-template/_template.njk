@@ -166,11 +166,14 @@
                 {% endif %}
                 {% if pageConfig.footerWarning is defined and pageConfig.footerWarning %}
                     {% from "components/footer-warning/_macro.njk" import onsFooterWarning %}
-                    {% call onsFooterWarning({
+                    {{
+                        onsFooterWarning({
+                            "pre": pageConfig.footerWarning.pre,
+                            "link": pageConfig.footerWarning.link,
+                            "url": pageConfig.footerWarning.url,
+                            "post": pageConfig.footerWarning.post
                         })
-                    %}
-                        Make sure you <a href='#0'>leave this page</a> or close your browser if you are using a shared service
-                    {% endcall %}
+                    }}
                 {% endif %}
                 {% block preFooter %}{% endblock %}
                 {% block footer %}
