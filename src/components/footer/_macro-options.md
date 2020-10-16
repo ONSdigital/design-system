@@ -16,6 +16,15 @@
 | link | string | true     | The text of the OGL link     |
 | post | string | true     | The text after the OGL link  |
 
+## FooterWarning
+
+| Name | Type   | Required | Description                      |
+| ---- | ------ | -------- | -------------------------------- |
+| pre  | string | true     | The text before the warning link |
+| url  | string | true     | The url for the warning link     |
+| link | string | true     | The text of the warning link     |
+| post | string | true     | The text after the warning link  |
+
 ## FooterCol
 
 | Name      | Type                                                   | Required | Description                    |

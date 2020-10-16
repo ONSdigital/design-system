@@ -164,17 +164,6 @@
                         </div>
                     </div>
                 {% endif %}
-                {% if pageConfig.footerWarning is defined and pageConfig.footerWarning %}
-                    {% from "components/footer-warning/_macro.njk" import onsFooterWarning %}
-                    {{
-                        onsFooterWarning({
-                            "pre": pageConfig.footerWarning.pre,
-                            "link": pageConfig.footerWarning.link,
-                            "url": pageConfig.footerWarning.url,
-                            "post": pageConfig.footerWarning.post
-                        })
-                    }}
-                {% endif %}
                 {% block preFooter %}{% endblock %}
                 {% block footer %}
                     {% if pageConfig.footer is defined and pageConfig.footer %}
@@ -191,7 +180,8 @@
                                 "crest": pageConfig.footer.crest,
                                 "OGLLink": pageConfig.footer.OGLLink,
                                 "button": pageConfig.signoutButton,
-                                "serviceLinks": pageConfig.serviceLinks
+                                "serviceLinks": pageConfig.serviceLinks,
+                                "footerWarning": pageConfig.footerWarning
                             })
                         }}
                     {% endif %}
