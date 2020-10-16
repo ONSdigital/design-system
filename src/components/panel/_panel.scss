@@ -125,6 +125,11 @@
     &__icon {
       padding-left: 1rem;
       fill: $color-green;
+      .svg-icon--xl,
+      .svg-icon--l,
+      .svg-icon--m {
+        margin-top: 0.2rem !important;
+      }
     }
     &__body {
       padding-left: 1.8rem;
