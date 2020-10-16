@@ -24,27 +24,23 @@
         <img src="{{ params.assetsURL if params.assetsURL }}/img/crest.svg" alt="Royal coat of arms of the United Kingdom">
     {% endset %}
 
-    {% if params.footerWarning is defined and params.footerWarning %}
-        {% from "components/panel/_macro.njk" import onsPanel %}
-        <div class="footer__warning">
-            <div class="container">
-                <div class="grid">
-                    <div class="grid__col">
-                        {% call onsPanel({
-                                "type": "warn",
-                                "classes": "panel--warn--footer"
-                            })
-                        %}
-                            {{ params.footerWarning.pre }} <a href="{{ params.footerWarning.url }}">{{ params.footerWarning.link }}</a> {{ params.footerWarning.post }}
-                        {% endcall %}
-                    </div>
+    <footer class="footer">
+        {% if params.footerWarning is defined and params.footerWarning %}
+            {% from "components/panel/_macro.njk" import onsPanel %}
+            <div class="footer__warning">
+                <div class="container">
+                    {% call onsPanel({
+                            "type": "warn",
+                            "classes": "panel--warn--footer"
+                        })
+                    %}
+                        {{ params.footerWarning.pre }} <a href="{{ params.footerWarning.url }}">{{ params.footerWarning.link }}</a> {{ params.footerWarning.post }}
+                    {% endcall %}
                 </div>
             </div>
-        </div>
-    {% endif %}
+        {% endif %}
 
-    <footer class="footer{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
-        <div class="footer__body">
+        <div class="footer--body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
             <div class="container {{ ' container--wide' if params.wide }}">
                 <div class="grid">
 
