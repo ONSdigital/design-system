@@ -49,11 +49,6 @@
     overflow: hidden;
     vertical-align: top;
     white-space: normal;
-    .svg-icon {
-      margin-top: 0.2rem;
-      width: 0.8rem;
-      height: 0.8rem;
-    }
   }
 }
 
@@ -66,10 +61,5 @@ $list-inline-spacing: 2rem;
     display: inline-block;
     margin: 0 $list-inline-spacing / 2;
     vertical-align: top;
-    .svg-icon {
-      margin-top: 0.2rem;
-      width: 0.8rem;
-      height: 0.8rem;
-    }
   }
 }
