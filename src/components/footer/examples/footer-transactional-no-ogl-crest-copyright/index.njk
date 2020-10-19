@@ -1,0 +1,51 @@
+---
+"fullWidth": true
+---
+{% from "components/footer/_macro.njk" import onsFooter %}
+{{
+    onsFooter({
+        "crest": true,
+        "rows": [
+            {
+                "itemsList": [
+                    {
+                        "text": 'About the census',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Help with the census',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Contact us',
+                        "url": '#0'
+                    }
+                ]
+            },
+            {
+                "itemsList": [
+                    {
+                        "text": 'Cookies',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Accessibility statement',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Privacy and data protection',
+                        "url": '#0'
+                    }
+                ]
+            }
+        ],
+        "copyrightDeclaration": {
+            "copyright": 'Crown copyright and database rights 2020 OS 100019153.',
+            "usage": {
+                "text": 'Use of address data for the postcode lookups is subject to the',
+                "link": 'terms and conditions',
+                "url": '#0'
+            }
+        }
+    })
+}}
