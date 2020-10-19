@@ -852,6 +852,11 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@ons/design-system/25.1.3@npm:@ons/design-system@25.1.3":
+  version "25.1.3"
+  resolved "https://registry.yarnpkg.com/@ons/design-system/-/design-system-25.1.3.tgz#e0010438981a610c753c22766ef02fcc96c6b4e4"
+  integrity sha512-jiHgEtyHQKI4OQB6d9paM/Z5vAsxr9yFivzZ7Dv05RNrv0luNQ9/+lyyv8nPGW1yQt3Gt7D4m7NO2b6zcztHTw==
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
