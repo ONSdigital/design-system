@@ -72,6 +72,12 @@
     margin-bottom: 1rem;
     padding: 0 1rem 0 1rem;
     border: 0;
+
+    &--footer {
+      margin-bottom: 0;
+      padding: 1rem;
+      background-color: $color-grey-4 !important;
+    }
   }
 
   &--simple & {
