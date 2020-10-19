@@ -92,6 +92,10 @@ For badged services where ONS is providing services to external organisations, w
 
 #### Footer Warning
 
+Use this along with an 'Exit' [ghost button](https://ons-design-system.netlify.app/components/button/#ghost) in the [header](https://ons-design-system.netlify.app/components/header/#external-with-language-and-save-button), if you need to show sensitive information on a post-submission page, such as the user's address or a response ID.
+
+The warning link and header button should clear any `sessionStorage` and should both send the user to a page outside of the transaction.
+
 {{
     patternlibExample({"path": "components/footer/examples/footer-warning/index.njk"})
 }}
