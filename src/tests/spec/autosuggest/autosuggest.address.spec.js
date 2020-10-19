@@ -66,7 +66,7 @@ const params = {
 
 let lang = 'en';
 
-describe('Autosuggest.address component', function() {
+describe.only('Autosuggest.address component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
@@ -595,6 +595,35 @@ describe('Autosuggest.address component', function() {
 
           it('then setAriaStatus should be called', function() {
             expect(this.setAriaStatusSpy).to.have.been.called();
+          });
+        });
+
+        describe('when the selected address is manually changed', function() {
+          beforeEach(function(done) {
+            this.addressSetter = new AddressSetter(this.context);
+            this.formattedAddress = {
+              addressLine1: 'University Of Hertfordshire, Meridian House 32-36',
+              addressLine2: 'The Common',
+              addressLine3: '',
+              townName: 'Hatfield',
+              postcode: 'AL10 0NZ',
+            };
+            this.addressSetter.setAddress(this.formattedAddress);
+            this.autosuggestAddress.addressSetter.setManualMode(true, false);
+            const uprn = document.querySelector('#address-uprn');
+            uprn.value = '1111111';
+            this.addressSetter.checkManualInputsValues(true);
+            const line1 = document.querySelector('#address-line1');
+            line1.value = 'Somewhere else';
+            this.addressSetter.checkManualInputsValues(false);
+            setTimeout(done);
+          });
+
+          it('then the urpn field should be empty', function() {
+            beforeEach(function(done) {
+              setTimeout(done);
+            });
+            expect(document.querySelector('#address-uprn').value).to.equal('');
           });
         });
 

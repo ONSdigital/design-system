@@ -22,7 +22,7 @@ export default class AddressSetter {
     this.town = context.querySelector(`.${classTown}`);
     this.postcode = context.querySelector(`.${classPostcode}`);
     this.uprn = context.querySelector(`.${classInputUPRN}`);
-    this.manualInputs = [this.line1, this.line2, this.town, this.postcode];
+    this.manualInputs = [this.line1, this.line2, this.town, this.postcode, this.uprn];
     this.search = context.querySelector(`.${classSearch}`);
     this.manual = context.querySelector(`.${classManual}`);
     this.searchButton = context.querySelector(`.${classSearchButton}`);
