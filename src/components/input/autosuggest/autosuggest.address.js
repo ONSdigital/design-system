@@ -128,9 +128,9 @@ export default class AutosuggestAddress {
       queryURL = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
 
       fullQueryURL = this.generateURLParams(queryURL);
-      // if (testInput && grouped !== false) {
-      //   fullQueryURL = fullQueryURL + '&groupfullpostcodes=true';
-      // }
+      if (testInput && grouped !== false) {
+        fullQueryURL = fullQueryURL + '&groupfullpostcodes=combo';
+      }
 
       this.fetch = abortableFetch(fullQueryURL, {
         method: 'GET',
@@ -154,7 +154,7 @@ export default class AutosuggestAddress {
     let mappedResults, currentResults;
     const total = results.total;
 
-    if (results.partpostcode) {
+    if (results.partpostcode || (results.groupfullpostcodes === 'combo' && results.postcodes.length > 1)) {
       mappedResults = await this.postcodeGroupsMapping(results);
       currentResults = mappedResults;
     } else if (results.addresses) {
