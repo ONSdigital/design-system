@@ -66,7 +66,7 @@ const params = {
 
 let lang = 'en';
 
-describe.only('Autosuggest.address component', function() {
+describe('Autosuggest.address component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
