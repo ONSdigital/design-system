@@ -78,7 +78,7 @@ describe('Component: Input with character check', () => {
         populateSearchInput(searchInput, value);
       });
 
-      it('then aria-live should be set to assertive', () => {
+      it('then aria-live should be set to polite', () => {
         expect(limit_readout.getAttribute('aria-live')).to.equal('polite');
       });
     });
