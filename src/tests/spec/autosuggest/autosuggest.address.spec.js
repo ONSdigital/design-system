@@ -215,7 +215,7 @@ describe('Autosuggest.address component', function() {
         it('then the fetch url should contain the correct limit parameter', function() {
           this.limit = 100;
           expect(this.autosuggestAddress.fetch.url).to.equal(
-            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100',
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100&groupfullpostcodes=combo',
           );
         });
 
