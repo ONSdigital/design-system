@@ -58,7 +58,6 @@ $hub-row-spacing: 1.3rem;
 
   &__item-title {
     position: relative;
-    width: 50%;
     &--text {
       display: block;
       padding-left: 2rem;
@@ -136,9 +135,40 @@ $hub-row-spacing: 1.3rem;
     }
   }
 
-  @include mq(s) {
-    &__row--has-values & {
+  // Breakpoints
+  @include mq(xs, s, none, '<') {
+    &__item-title,
+    &__values,
+    &__actions {
+      display: block;
+    }
+
+    &--hub & {
       &__values {
+        display: none;
+      }
+    }
+  }
+
+  @include mq(s) {
+    &__item-title,
+    &__values,
+    &__actions {
+      padding-top: $summary-row-spacing;
+      vertical-align: top;
+
+      &:not(:last-child) {
+        padding-right: $summary-col-spacing;
+      }
+    }
+
+    &__actions {
+      text-align: right;
+    }
+
+    &__row--has-values & {
+      &__values,
+      &__item-title {
         width: 50%;
       }
     }
