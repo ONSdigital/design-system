@@ -1,7 +1,7 @@
 import inPageLinks from '../../../js/inpagelink';
 
 const classAutosuggest = 'js-address-autosuggest';
-const classErrorPanel = 'js-error-panel';
+const classErrorPanel = 'js-autosuggest-error-panel';
 const classInputContainer = 'autosuggest-input';
 const classInput = 'js-autosuggest-input';
 const classSearch = 'js-address-input__search';
@@ -34,7 +34,7 @@ export default class AddressError {
       const errorLinkElement = document.createElement('a');
       const errorLinkElementPre = document.createElement('span');
 
-      errorElement.className = 'panel panel--error u-mb-m js-error-panel';
+      errorElement.className = 'panel panel--error u-mb-m js-error-panel js-autosuggest-error-panel';
       errorElementHeader.className = 'panel__header';
       errorElementTitle.className = 'panel__title u-fs-r--b';
       errorBodyElement.className = 'panel__body';
@@ -86,8 +86,7 @@ export default class AddressError {
   }
 
   removeErrorPanel() {
-    const errorPanel = document.querySelector(`.${classErrorPanel}`);
-    errorPanel.remove();
+    this.errorPanel.remove();
 
     this.autosuggest.appendChild(this.search);
     this.input.classList.remove('input--error');
