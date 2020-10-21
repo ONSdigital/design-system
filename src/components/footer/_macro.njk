@@ -209,10 +209,8 @@
                 {% if params.copyrightDeclaration is defined and params.copyrightDeclaration %}
                 <div class="grid">
                     <div class="grid__col u-mt-m">
-                        {% if params.copyrightDeclaration is defined and params.copyrightDeclaration.HTML %}
-                            {{ params.copyrightDeclaration.HTML | safe }}
-                        {% else %}
-                            <p class="u-fs-s u-mb-no">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.usage.text }} <a href="{{ params.copyrightDeclaration.usage.url }}">{{ params.copyrightDeclaration.usage.link }}</a>.</p>
+                        {% if params.copyrightDeclaration is defined and params.copyrightDeclaration %}
+                            <p class="u-fs-s u-mb-no">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }} <a href="{{ params.copyrightDeclaration.url }}">{{ params.copyrightDeclaration.link }}</a>.</p>
                         {% endif %}
                     </div>
                 </div>
