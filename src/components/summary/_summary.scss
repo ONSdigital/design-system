@@ -4,11 +4,9 @@ $hub-row-spacing: 1.3rem;
 
 .summary {
   &__items {
-    margin-bottom: 0;
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
-
     & + .summary__group-title {
       margin-top: 1.5rem;
     }
@@ -16,7 +14,6 @@ $hub-row-spacing: 1.3rem;
 
   &__item {
     line-height: 1.4;
-
     &:not(:last-child),
     &:nth-of-type(1) {
       border-bottom: 1px solid $color-borders;
@@ -24,7 +21,6 @@ $hub-row-spacing: 1.3rem;
 
     &--total {
       @extend .u-fs-m;
-
       border-width: 2px;
       font-weight: 700;
     }
@@ -43,16 +39,26 @@ $hub-row-spacing: 1.3rem;
   &__item-title,
   &__values,
   &__actions {
-    padding: 0 0 $summary-row-spacing;
+    display: table-cell;
+    padding: $summary-row-spacing $summary-col-spacing $summary-row-spacing 0;
     word-wrap: break-word;
     vertical-align: top;
     hyphens: manual;
     overflow-wrap: break-word;
   }
 
+  &__row {
+    display: table-row;
+  }
+
+  &__actions {
+    padding-right: 0;
+    white-space: nowrap;
+  }
+
   &__item-title {
     position: relative;
-    padding-top: $summary-row-spacing;
+    width: 50%;
     &--text {
       display: block;
       padding-left: 2rem;
@@ -68,19 +74,12 @@ $hub-row-spacing: 1.3rem;
     }
   }
 
-  &__actions {
-    white-space: nowrap;
-  }
-
   &__spacer {
     display: inline-block;
-
     margin: 0 0.25rem;
     width: 1px;
     height: 1rem;
-
     background: $color-black;
-
     vertical-align: middle;
   }
 
@@ -94,7 +93,6 @@ $hub-row-spacing: 1.3rem;
   &__item--error & {
     &__row-title {
       padding: $summary-row-spacing $summary-col-spacing;
-
       color: $color-errors;
       font-weight: 700;
     }
@@ -128,7 +126,6 @@ $hub-row-spacing: 1.3rem;
 
     &__item-title {
       @extend .u-fs-r--b;
-
       padding-top: $hub-row-spacing;
     }
   }
@@ -139,39 +136,8 @@ $hub-row-spacing: 1.3rem;
     }
   }
 
-  // Breakpoints
-  @include mq(xs, s, none, '<') {
-    &__item-title,
-    &__values,
-    &__actions {
-      display: block;
-    }
-
-    &--hub & {
-      &__values {
-        display: none;
-      }
-    }
-  }
-
   @include mq(s) {
-    &__item-title,
-    &__values,
-    &__actions {
-      padding-top: $summary-row-spacing;
-      vertical-align: top;
-
-      &:not(:last-child) {
-        padding-right: $summary-col-spacing;
-      }
-    }
-
-    &__actions {
-      text-align: right;
-    }
-
     &__row--has-values & {
-      &__item-title,
       &__values {
         width: 50%;
       }
