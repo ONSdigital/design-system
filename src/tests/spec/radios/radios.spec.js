@@ -206,6 +206,12 @@ describe('Component: Radios', function() {
           done();
         }, 300);
       });
+    });
+
+    describe('and there is a visible input and the radio is focused', function() {
+      beforeEach(function() {
+        this.radioInput.focus();
+      });
 
       it('then the input should have a tab index of 0', function(done) {
         setTimeout(() => {
