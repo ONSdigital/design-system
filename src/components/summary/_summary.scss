@@ -167,8 +167,8 @@ $hub-row-spacing: 1.3rem;
     }
 
     &__row--has-values & {
-      &__values,
-      &__item-title {
+      &__item-title,
+      &__values {
         width: 50%;
       }
     }
