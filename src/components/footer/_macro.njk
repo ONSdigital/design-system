@@ -94,6 +94,10 @@
                         </div>
                     {% endif %}
 
+                    {% if params.newTabWarning is defined and params.newTabWarning %}
+                        <p class="u-fs-r footer__new-tab-warning">{{ params.newTabWarning }}</p>
+                    {% endif %}
+
                     {% if params.cols is defined and params.cols %}
                         {% for col in params.cols %}
                             <div class="grid__col col-4@m{{ " u-mt-m@xs@m" if loop.index > 1 }}">
@@ -117,6 +121,7 @@
                     {% endif %}
 
                     {% if params.rows is defined and params.rows %}
+
                         {% for row in params.rows %}
 
                            {% if params.OGLLink is not defined %}
