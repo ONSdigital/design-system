@@ -144,18 +144,18 @@ export default class AutosuggestUI {
   handleKeydown(event) {
     this.ctrlKey = (event.ctrlKey || event.metaKey) && event.key !== 'v';
 
-    switch (event.key) {
-      case 'ArrowUp': {
+    switch (event.keyCode) {
+      case 38: {
         event.preventDefault();
         this.navigateResults(-1);
         break;
       }
-      case 'ArrowDown': {
+      case 40: {
         event.preventDefault();
         this.navigateResults(1);
         break;
       }
-      case 'Enter': {
+      case 13: {
         if (this.highlightedResultIndex !== null) {
           event.preventDefault();
         }
@@ -165,13 +165,13 @@ export default class AutosuggestUI {
   }
 
   handleKeyup(event) {
-    switch (event.key) {
-      case 'ArrowUp':
-      case 'ArrowDown': {
+    switch (event.keyCode) {
+      case 40:
+      case 38: {
         event.preventDefault();
         break;
       }
-      case 'Enter': {
+      case 13: {
         if (this.highlightedResultIndex !== null) {
           this.selectResult();
         }
@@ -238,7 +238,6 @@ export default class AutosuggestUI {
 
   navigateResults(direction) {
     let index = 0;
-
     if (this.highlightedResultIndex !== null) {
       index = this.highlightedResultIndex + direction;
     }
@@ -258,11 +257,10 @@ export default class AutosuggestUI {
       const sanitisedQuery = sanitiseAutosuggestText(query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
 
       if (sanitisedQuery !== this.sanitisedQuery || (force && !this.resultSelected)) {
-        this.unsetResults();
-        this.setAriaStatus();
-        this.checkCharCount();
         this.query = query;
         this.sanitisedQuery = sanitisedQuery;
+        this.unsetResults();
+        this.checkCharCount();
         if (this.sanitisedQuery.length >= this.minChars) {
           this.fetchSuggestions(this.sanitisedQuery, this.data, alternative)
             .then(this.handleResults.bind(this))
@@ -328,6 +326,7 @@ export default class AutosuggestUI {
 
     this.results = result.results;
     this.numberOfResults = this.results ? Math.max(this.results.length, 0) : 0;
+    this.setAriaStatus();
     if (!this.deleting || (this.numberOfResults && this.deleting)) {
       this.listbox.innerHTML = '';
       if (this.results) {
@@ -449,7 +448,7 @@ export default class AutosuggestUI {
       if (queryTooShort) {
         content = this.ariaMinChars;
       } else if (noResults) {
-        content = `${this.ariaNoResults}: "${this.query}"`;
+        content = `${this.noResults}: "${this.query}"`;
       } else if (this.numberOfResults === 1) {
         content = this.ariaOneResult;
       } else {
