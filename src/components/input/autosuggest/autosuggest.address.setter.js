@@ -11,7 +11,7 @@ export const classManual = 'js-address-input__manual';
 export const classSearchButton = 'js-address-search-btn';
 export const classManualButton = 'js-address-manual-btn';
 export const classErrorPanel = 'panel--error';
-export const classJsErrorPanel = 'js-error-panel';
+export const classJsErrorPanel = 'js-autosuggest-error-panel';
 
 export default class AddressSetter {
   constructor(context) {
