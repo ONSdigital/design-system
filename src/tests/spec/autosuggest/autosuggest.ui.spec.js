@@ -126,7 +126,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user presses the Up Arrow key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'ArrowUp' });
+        this.mockedEvent = eventMock({ keyCode: 38 });
         this.spy = chai.spy.on(this.autosuggest, 'navigateResults');
         this.autosuggest.handleKeydown(this.mockedEvent);
       });
@@ -142,7 +142,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user presses the Down Arrow key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'ArrowDown' });
+        this.mockedEvent = eventMock({ keyCode: 40 });
         this.spy = chai.spy.on(this.autosuggest, 'navigateResults');
         this.autosuggest.handleKeydown(this.mockedEvent);
       });
@@ -158,7 +158,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user presses the Enter key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'Enter' });
+        this.mockedEvent = eventMock({ keyCode: 13 });
         this.autosuggest.handleKeydown(this.mockedEvent);
       });
 
@@ -180,7 +180,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user releases the Up Arrow key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'ArrowUp' });
+        this.mockedEvent = eventMock({ key: 38 });
         this.autosuggest.handleKeyup(this.mockedEvent);
       });
 
@@ -191,7 +191,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user releases the Down Arrow key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'ArrowDown' });
+        this.mockedEvent = eventMock({ key: 40 });
         this.autosuggest.handleKeyup(this.mockedEvent);
       });
 
@@ -202,7 +202,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user presses the Enter key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'Enter' });
+        this.mockedEvent = eventMock({ key: 13 });
         this.spy = chai.spy.on(this.autosuggest, 'selectResult');
         this.autosuggest.handleKeyup(this.mockedEvent);
       });
