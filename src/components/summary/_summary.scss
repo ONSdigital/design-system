@@ -47,10 +47,6 @@ $hub-row-spacing: 1.3rem;
     overflow-wrap: break-word;
   }
 
-  &__row {
-    display: table-row;
-  }
-
   &__actions {
     padding-right: 0;
     white-space: nowrap;
@@ -151,6 +147,10 @@ $hub-row-spacing: 1.3rem;
   }
 
   @include mq(s) {
+    &__row {
+      display: flex;
+    }
+
     &__item-title,
     &__values,
     &__actions {
@@ -163,7 +163,8 @@ $hub-row-spacing: 1.3rem;
     }
 
     &__actions {
-      text-align: right;
+      margin-right: 0;
+      margin-left: auto;
     }
 
     &__row--has-values & {
