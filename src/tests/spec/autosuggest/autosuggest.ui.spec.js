@@ -412,10 +412,6 @@ describe('Autosuggest.ui component', function() {
         it('then the results should be unset', function() {
           expect(this.unsetResultsSpy).to.have.been.called();
         });
-
-        it('then the aria status should be set', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called();
-        });
       });
 
       describe('if fetch suggestion returns results', function() {
