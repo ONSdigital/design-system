@@ -180,7 +180,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user releases the Up Arrow key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 38 });
+        this.mockedEvent = eventMock({ keyCode: 38 });
         this.autosuggest.handleKeyup(this.mockedEvent);
       });
 
@@ -191,7 +191,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user releases the Down Arrow key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 40 });
+        this.mockedEvent = eventMock({ keyCode: 40 });
         this.autosuggest.handleKeyup(this.mockedEvent);
       });
 
@@ -202,7 +202,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user presses the Enter key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 13 });
+        this.mockedEvent = eventMock({ keyCode: 13 });
         this.spy = chai.spy.on(this.autosuggest, 'selectResult');
         this.autosuggest.handleKeyup(this.mockedEvent);
       });
@@ -850,7 +850,7 @@ describe('Autosuggest.ui component', function() {
           });
 
           it('then the no results message should be set', function() {
-            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(`${params.autosuggest.ariaNoResults}: "${this.autosuggest.query}"`);
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(`${params.autosuggest.noResults}: "${this.autosuggest.query}"`);
           });
         });
 
