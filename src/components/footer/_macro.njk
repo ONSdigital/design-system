@@ -122,6 +122,13 @@
 
                     {% if params.rows is defined and params.rows %}
                         {% for row in params.rows %}
+                            {% if row.itemsList | length > 2 and ((params.crest is defined and params.crest) or (params.poweredBy is defined and params.poweredBy) or (params.OGLLink is not defined and params.crest is not defined)) %}
+                                {% set listSpacing = " list--inline@l" %}
+                            {% elif row.itemsList | length > 2 %}
+                                {% set listSpacing = " list--inline@m" %}
+                            {% else %}
+                                {% set listSpacing = " list--inline@s" %}
+                            {% endif %}
 
                            {% if params.OGLLink is not defined %}
                                 {% if loop.last %}
@@ -133,7 +140,7 @@
                             <div class="grid__col">
                                 {{
                                     onsList({
-                                        "classes": 'list--bare u-mb-no list--inline@l',
+                                        "classes": "list--bare u-mb-no" ~ listSpacing,
                                         "itemsList": row.itemsList
                                     })
                                 }}
