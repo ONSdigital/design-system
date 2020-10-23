@@ -148,7 +148,7 @@
 
                             {% if params.OGLLink is not defined and params.crest is not defined %}
                                 {% if loop.last %}
-                                    <div class="grid__col grid__col--flex poweredbylogo">
+                                    <div class="grid__col grid__col--flex u-mt-m@xs@m">
                                         {{ poweredByLogo | safe }}
                                     </div>
                                 {% endif %}
@@ -171,7 +171,7 @@
                         {% endfor %}
 
                     {% elif params.rows is not defined and params.cols is not defined and params.poweredBy is not defined and params.OGLLink is not defined and params.crest is not defined %}
-                        <div class="grid__col grid__col--flex poweredbylogo">
+                        <div class="grid__col grid__col--flex u-mt-m@xs@m">
                             {{ poweredByLogo | safe }}
                         </div>
                     {% endif %}
