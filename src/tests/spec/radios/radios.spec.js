@@ -208,10 +208,10 @@ describe('Component: Radios', function() {
       });
     });
 
-    describe('and there is a visible input and the radio is focused', function() {
+    describe('and there is a visible input and the radio is checked', function() {
       beforeEach(function() {
         this.input = this.openOther.querySelector('.input');
-        this.radioInput.focus();
+        this.radioInput.click();
       });
 
       it('then the input should have a tab index of 0', function(done) {
