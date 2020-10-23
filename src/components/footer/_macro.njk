@@ -95,7 +95,9 @@
                     {% endif %}
 
                     {% if params.newTabWarning is defined and params.newTabWarning %}
-                        <p class="u-fs-s footer__new-tab-warning">{{ params.newTabWarning }}</p>
+                        <div class="grid__col">
+                            <p class="u-fs-s u-mb-m">{{ params.newTabWarning }}</p>
+                        </div>
                     {% endif %}
 
                     {% if params.cols is defined and params.cols %}
