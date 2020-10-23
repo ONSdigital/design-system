@@ -71,6 +71,18 @@ describe('Component: Input with character check', () => {
       });
     });
 
+    describe('when the user types something into the input', () => {
+      let value = '1';
+
+      beforeEach(() => {
+        populateSearchInput(searchInput, value);
+      });
+
+      it('then aria-live should be set to polite', () => {
+        expect(limit_readout.getAttribute('aria-live')).to.equal('polite');
+      });
+    });
+
     describe('when the user reaches the charcheck limit of the input', () => {
       let value = '11111111111';
 
@@ -98,6 +110,10 @@ describe('Component: Input with character check', () => {
     it('then the characters remaining readout reflect the number of characters exceeded', () => {
       let remaining = params.charCheckLimit.limit - value.length;
       expect(limit_readout.innerHTML).to.equal(params.charCheckLimit.charCountOverLimitSingular.replace('{x}', Math.abs(remaining)));
+    });
+
+    it('then aria-live should be set to assertive', () => {
+      expect(limit_readout.getAttribute('aria-live')).to.equal('assertive');
     });
 
     it('then the input and readout should be given limit reached classes', () => {
