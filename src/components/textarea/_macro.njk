@@ -23,6 +23,7 @@
             {% if params.charCheckLimit.limit is defined and params.charCheckLimit.limit %}
             maxlength="{{ params.charCheckLimit.limit }}"
             data-char-limit-ref="{{ params.id }}-lim-remaining"
+            aria-describedby="{{ params.id }}-lim-remaining"
             {% endif %}
             {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >{{ params.value }}</textarea>
