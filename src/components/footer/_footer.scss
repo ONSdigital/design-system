@@ -38,5 +38,12 @@
     .list__link {
       margin-right: 0;
     }
+
+    .poweredbylogo {
+      @include mq('xs', 'm') {
+        margin-top: 1.5rem;
+        width: 100% !important;
+      }
+    }
   }
 }
