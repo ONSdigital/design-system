@@ -6,7 +6,7 @@ export default class CheckRadios {
 
     this.setInputBlurAttributes();
     this.input.addEventListener('focus', this.checkRadio.bind(this));
-    this.radio.addEventListener('focus', this.setInputFocusAttributes.bind(this));
+    this.radio.addEventListener('change', this.setInputFocusAttributes.bind(this));
     this.radio.addEventListener('blur', this.setInputBlurAttributes.bind(this));
   }
 
@@ -15,7 +15,7 @@ export default class CheckRadios {
   }
 
   setInputFocusAttributes() {
-    this.input.tabIndex = 0;
+    this.input.tabIndex = this.radio.checked ? 0 : -1;
   }
 
   setInputBlurAttributes() {
