@@ -37,6 +37,7 @@
   }
 
   .hero__circle-image {
+    background-color: $color-white;
     z-index: 2;
     top: -117px;
     right: -8px;
@@ -45,9 +46,9 @@
     border-radius: 50%;
 
     img {
+      border-radius: 50%;
       display: block;
       height: 100%;
-      clip-path: circle(191px at center); // Half width of circle
     }
   }
 
@@ -126,10 +127,6 @@
       margin: auto;
       width: 558px;
       height: 558px;
-
-      img {
-        clip-path: circle(279px at center); // Half width of circle
-      }
     }
 
     .hero__circle-gradient {
