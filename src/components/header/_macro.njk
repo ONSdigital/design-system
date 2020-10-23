@@ -10,12 +10,12 @@
     {% set currentLanguageISOCode = currentLanguage.ISOCode %}
   {% endif %}
 
-  <header class="header {{ params.classes if params.classes }}">
+  <header class="header {{ params.classes if params.classes }}" role="banner">
       {% if params.phase is defined and params.phase %}
           {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
           {{ onsPhaseBanner(params.phase) }}
       {% endif %}
-      <div class="header__top" role="banner">
+      <div class="header__top">
           <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
               <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap {{ 'header__grid-top-' + params.customHeaderLogo if params.customHeaderLogo }}">
 
