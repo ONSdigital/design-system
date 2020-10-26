@@ -50,6 +50,8 @@ $hub-row-spacing: 1.3rem;
   }
 
   &__actions {
+    margin-right: 0;
+    margin-left: auto;
     padding-right: 0;
     white-space: nowrap;
   }
@@ -165,8 +167,7 @@ $hub-row-spacing: 1.3rem;
     }
 
     &__actions {
-      margin-right: 0;
-      margin-left: auto;
+      text-align: right;
     }
 
     &__row--has-values & {
