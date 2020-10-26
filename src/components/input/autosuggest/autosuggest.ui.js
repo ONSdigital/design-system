@@ -33,6 +33,7 @@ export default class AutosuggestUI {
     ariaOneResult,
     ariaNResults,
     ariaLimitedResults,
+    ariaGroupedResults,
     moreResults,
     resultsTitle,
     noResults,
@@ -58,6 +59,7 @@ export default class AutosuggestUI {
     this.ariaOneResult = ariaOneResult || context.getAttribute('data-aria-one-result');
     this.ariaNResults = ariaNResults || context.getAttribute('data-aria-n-results');
     this.ariaLimitedResults = ariaLimitedResults || context.getAttribute('data-aria-limited-results');
+    this.ariaGroupedResults = ariaGroupedResults || context.getAttribute('data-aria-grouped-results');
     this.moreResults = moreResults || context.getAttribute('data-more-results');
     this.resultsTitle = resultsTitle || context.getAttribute('data-results-title');
     this.noResults = noResults || context.getAttribute('data-no-results');
@@ -332,7 +334,8 @@ export default class AutosuggestUI {
       if (this.results) {
         this.resultOptions = this.results.map((result, index) => {
           let ariaLabel = result[this.lang];
-          let innerHTML = this.emboldenMatch(ariaLabel, this.query);
+          ariaLabel = ariaLabel.split('(<span class="autosuggest-input__group">')[0];
+          let innerHTML = this.emboldenMatch(result[this.lang], this.query);
           if (Array.isArray(result.sanitisedAlternatives)) {
             const alternativeMatch = result.sanitisedAlternatives.find(
               alternative => alternative !== result.sanitisedText && alternative.includes(this.sanitisedQuery),
@@ -425,7 +428,15 @@ export default class AutosuggestUI {
           option.classList.add(classAutosuggestOptionFocused);
           option.setAttribute('aria-selected', true);
           this.input.setAttribute('aria-activedescendant', option.getAttribute('id'));
-          this.setAriaStatus(option.getAttribute('aria-label'));
+          const groupedResult = option.querySelector('.autosuggest-input__group');
+          const ariaLabel = option.getAttribute('aria-label');
+          if (groupedResult) {
+            let groupedAriaMsg = this.ariaGroupedResults.replace('{n}', groupedResult.innerHTML);
+            groupedAriaMsg = groupedAriaMsg.replace('{x}', ariaLabel);
+            this.setAriaStatus(groupedAriaMsg);
+          } else {
+            this.setAriaStatus(ariaLabel);
+          }
         } else {
           option.classList.remove(classAutosuggestOptionFocused);
           option.removeAttribute('aria-selected');
@@ -438,7 +449,6 @@ export default class AutosuggestUI {
     if (!content) {
       const queryTooShort = this.sanitisedQuery.length < this.minChars;
       const noResults = this.numberOfResults === 0;
-
       if (queryTooShort) {
         content = this.ariaMinChars;
       } else if (noResults) {
