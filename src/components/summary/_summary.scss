@@ -50,13 +50,6 @@ $hub-row-spacing: 1.3rem;
     overflow-wrap: break-word;
   }
 
-  &__actions {
-    margin-right: 0;
-    margin-left: auto;
-    padding-right: 0;
-    white-space: nowrap;
-  }
-
   &__item-title {
     position: relative;
     &--text {
@@ -72,6 +65,13 @@ $hub-row-spacing: 1.3rem;
         fill: $color-green;
       }
     }
+  }
+
+  &__actions {
+    margin-right: 0;
+    margin-left: auto;
+    padding-right: 0;
+    white-space: nowrap;
   }
 
   &__spacer {
