@@ -15,10 +15,10 @@ const params = {
   charCheckLimit: {
     charcheckCountdown: true,
     limit: 11,
-    charCountSingular: '{x} more number needed',
-    charCountPlural: '{x} more numbers needed',
     charCountOverLimitSingular: '{x} number too many',
     charCountOverLimitPlural: '{x} numbers too many',
+    charCountSingular: 'You have {x} character remaining',
+    charCountPlural: 'You have {x} characters remaining',
   },
 };
 
@@ -50,6 +50,12 @@ describe('Component: Input with character check', () => {
   describe('Given that the char check helper has initialised correctly', () => {
     it('the char check readout should be invisible', () => {
       expect(limit_readout.classList.contains('u-d-no')).to.equal(true);
+    });
+
+    it('then the character limit readout should reflect the number of characters remaining', () => {
+      expect(limit_readout.innerHTML).to.equal(
+        params.charCheckLimit.charCountPlural.replace('{x}', params.charCheckLimit.limit - value.length),
+      );
     });
   });
 
