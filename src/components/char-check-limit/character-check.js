@@ -51,9 +51,12 @@ export default class CharCheck {
     } else if (this.countdown) {
       message = this.pluralMessage;
     }
-
     if (message) {
+      this.checkElement.classList.remove('u-vh');
       this.checkElement.innerText = message.replace('{x}', Math.abs(remaining));
+    } else {
+      this.checkElement.classList.add('u-vh');
+      this.checkElement.innerText = this.pluralMessage.replace('{x}', Math.abs(remaining));
     }
 
     if (this.button) {
