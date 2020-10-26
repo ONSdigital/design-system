@@ -39,6 +39,7 @@ export default class CharLimit {
 
   setLimitClass(remaining, element, limitClass) {
     element.classList[remaining > 0 ? 'remove' : 'add'](limitClass);
+    this.limitElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
   }
 
   track(remaining) {
