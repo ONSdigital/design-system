@@ -76,5 +76,6 @@ export default class CharCheck {
 
   setCheckClass(remaining, element, setClass) {
     element.classList[remaining < 0 ? 'add' : 'remove'](setClass);
+    this.checkElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
   }
 }
