@@ -381,11 +381,6 @@ export default class AutosuggestUI {
 
       this.input.setAttribute('aria-expanded', !!this.numberOfResults);
       this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classAutosuggestHasResults);
-
-      this.setHighlightedResult(null);
-
-      this.input.setAttribute('aria-expanded', !!this.numberOfResults);
-      this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classAutosuggestHasResults);
     }
 
     if (this.numberOfResults === 0 && this.noResults) {
@@ -430,13 +425,12 @@ export default class AutosuggestUI {
           option.classList.add(classAutosuggestOptionFocused);
           option.setAttribute('aria-selected', true);
           this.input.setAttribute('aria-activedescendant', option.getAttribute('id'));
+          this.setAriaStatus(option.getAttribute('aria-label'));
         } else {
           option.classList.remove(classAutosuggestOptionFocused);
           option.removeAttribute('aria-selected');
         }
       });
-
-      this.setAriaStatus();
     }
   }
 
