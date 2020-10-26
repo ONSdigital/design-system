@@ -84,7 +84,6 @@ $hub-row-spacing: 1.3rem;
   &__item--total & {
     &__values {
       @extend .u-fs-m;
-      width: 57% !important;
     }
   }
 
