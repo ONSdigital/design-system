@@ -53,9 +53,7 @@ describe('Component: Input with character check', () => {
     });
 
     it('then the character limit readout should reflect the number of characters remaining', () => {
-      expect(limit_readout.innerHTML).to.equal(
-        params.charCheckLimit.charCountPlural.replace('{x}', params.charCheckLimit.limit - value.length),
-      );
+      expect(limit_readout.innerHTML).to.equal(params.charCheckLimit.charCountPlural.replace('{x}', params.charCheckLimit.limit));
     });
   });
 
