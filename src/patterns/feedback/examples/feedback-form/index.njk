@@ -1,0 +1,142 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/textarea/_macro.njk" import onsTextarea %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "title": "Census 2021",
+    "theme": "census",
+    "absoluteUrl": pageInfo.url,
+    "headMeta": {
+        "description": "Census 2021 is a UK wide population survey"
+    },
+    "header": {
+        "logoHref": "#0",
+        "titleLogo": "census-logo-en",
+        "titleLogoHref": "#0",
+        "titleLogoAlt": "Census 2021"
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Back',
+        "itemsList": [
+            {
+                "url": '/',
+                "id": "back",
+                "text": 'Back',
+                "attributes": {
+                    "data-attribute": "Example attribute"
+                }
+            }
+        ]
+    },
+    "footer": {
+    }
+} %}
+{% block main %}
+    <h1>Give feedback about this service</h1>
+
+    {{
+        onsRadios({
+            "legend": "Select what your feedback is about",
+            "name": "feedback-type",
+            "radios": [
+                {
+                    "id": "questions",
+                    "label": {
+                        "text": "The census questions",
+                        "description": "For example, questions not clear, answer options not relevant"
+                    },
+                    "value": "questions",
+                    "other": {
+                        "otherType": "select",
+                        "id": "other-select",
+                        "classes": "input--block",
+                        "name": "topic",
+                        "label": {
+                        "text": "Question topic"
+                        },
+                        "options": [
+                            {
+                                "value": "",
+                                "text": "Select an option",
+                                "disabled": true,
+                                "selected": true
+                            },
+                            {
+                                "value": "general",
+                                "text": "General"
+                            },
+                            {
+                                "value": "people-who-live-here",
+                                "text": "People who live here"
+                            },
+                            {
+                                "value": "visitors",
+                                "text": "Visitors"
+                            },
+                            {
+                                "value": "houshold-accommodation",
+                                "text": "Houshold and accommodation"
+                            },
+                            {
+                                "value": "personal-details",
+                                "text": "Personal details"
+                            },
+                            {
+                                "value": "health",
+                                "text": "Health"
+                            },
+                            {
+                                "value": "qualifications",
+                                "text": "Qualifications"
+                            },
+                            {
+                                "value": "employment",
+                                "text": "Employment"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "design",
+                    "label": {
+                        "text": "Page design and structure"
+                    },
+                    "value": "design"
+                },
+                {
+                    "id": "general",
+                    "label": {
+                        "text": "General feedback about this service"
+                    },
+                    "value": "general"
+                }
+            ]
+        })
+    }}
+    {{
+        onsTextarea({
+            "id": "feedback-textarea",
+            "name": "feedback-text",
+            "classes": "input--w-30",
+            "label": {
+                "text": "Enter your feedback",
+                "description": "Do not include confidential information, such as your contact details"
+            },
+            "charCheckLimit": {
+                "limit": 1000,
+                "charCountSingular": "You have {x} character remaining",
+                "charCountPlural": "You have {x} characters remaining"
+            }
+        })
+    }}
+    {{
+        onsButton({
+            "text": "Send feedback",
+            "classes": "u-mt-m"
+        })
+    }}
+{% endblock %}

@@ -1,24 +1,4 @@
 .footer {
-  padding: 2rem 0 4rem;
-  background-color: $color-grey-5;
-
-  &__heading {
-    margin: 0 0 1rem;
-  }
-
-  &__ogl-img {
-    margin: 0 0.5rem 0.2rem 0;
-  }
-
-  &__hr {
-    border: 0;
-    border-top: 1px solid $color-grey-3;
-  }
-
-  .list__link {
-    margin-right: 0;
-  }
-
   a {
     color: $color-grey-1;
     text-decoration: underline;
@@ -29,10 +9,36 @@
     }
   }
 
-  .poweredbylogo {
-    @include mq('xs', 'm') {
-      width: 100% !important;
-      margin-top: 1.5rem;
+  &__warning {
+    background-color: $color-grey-4;
+  }
+
+  &--body {
+    padding: 2rem 0 4rem;
+    background-color: $color-grey-5;
+
+    &__heading {
+      margin: 0 0 1rem;
+    }
+
+    &__ogl-img {
+      margin: 0 0.5rem 0.2rem 0;
+    }
+
+    &__hr {
+      border: 0;
+      border-top: 1px solid $color-grey-3;
+    }
+
+    .list__link {
+      margin-right: 0;
+    }
+
+    .poweredbylogo {
+      @include mq('xs', 'm') {
+        margin-top: 1.5rem;
+        width: 100% !important;
+      }
     }
   }
 }
