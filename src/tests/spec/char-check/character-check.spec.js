@@ -98,6 +98,19 @@ describe('Component: Input with character check', () => {
         expect(limit_readout.classList.contains('u-d-no')).to.equal(true);
       });
     });
+
+    describe('when the user has 1 character remaining before the limit is reached', () => {
+      let value = '1111111111';
+
+      beforeEach(() => {
+        populateSearchInput(searchInput, value);
+      });
+
+      it('then the characters remaining readout reflect the number of characters remaining', () => {
+        let remaining = params.charCheckLimit.limit - value.length;
+        expect(limit_readout.innerHTML).to.equal(params.charCheckLimit.charCountSingular.replace('{x}', Math.abs(remaining)));
+      });
+    });
   });
 
   describe('Given that the user has exceeded the charcheck limit of the input by 1', () => {
