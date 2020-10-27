@@ -10,6 +10,7 @@ The footer provides links to supplementary information about your service and th
 {{
     patternlibExample({"path": "components/footer/examples/footer/index.njk"})
 }}
+
 ## When to use this component
 You should use the appropriate ONS footer at the bottom of any ONS service.
 
@@ -79,6 +80,12 @@ For badged services where ONS is providing services to external organisations, w
     patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl-crest/index.njk'})
 }}
 
+#### Transactional – Two rows - Powered by ONS with Crest and Copyright
+Copyright information for use within a service that uses postcode lookup functionality.
+{{
+    patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl-crest-copyright/index.njk'})
+}}
+
 #### Transactional – Two rows - Powered by ONS with Crest (Cymraeg)
 {{
     patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl-crest-cymraeg/index.njk'})
@@ -87,6 +94,16 @@ For badged services where ONS is providing services to external organisations, w
 #### Transactional – Two rows - Powered by NISRA with Crest
 {{
     patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl-crest-nisra/index.njk'})
+}}
+
+#### Footer Warning
+
+Use this along with an 'Exit' [ghost button](https://ons-design-system.netlify.app/components/button/#ghost) in the [header](https://ons-design-system.netlify.app/components/header/#external-with-language-and-save-button), if you need to show sensitive information on a post-submission page, such as the user's address or a response ID.
+
+The warning link and header button should clear any `sessionStorage` and should both send the user to a page outside of the transaction.
+
+{{
+    patternlibExample({"path": "components/footer/examples/footer-warning/index.njk"})
 }}
 
 #### Default

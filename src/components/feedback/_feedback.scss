@@ -1,16 +1,33 @@
 .feedback {
-  &__body {
-    padding: 1rem;
-    border: 3px solid $color-branded;
+  position: relative;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 3px solid $color-branded;
+  &__link {
+    font-weight: $font-weight-bold;
   }
-
-  &__footer {
-    .svg-icon {
-      margin-top: -0.5rem;
-      margin-left: 1rem;
-      width: 1.6rem !important;
-      height: 1.6rem !important;
-      fill: $color-branded;
-    }
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 17px;
+    width: 0px;
+    height: 0px;
+    border-top: 15px solid $color-branded;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid $color-branded;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -23px;
+    left: 20px;
+    width: 0px;
+    height: 0px;
+    border-top: 12px solid #fff;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 12px solid #fff;
   }
 }
