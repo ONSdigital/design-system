@@ -79,10 +79,6 @@ $checkbox-label-vertical-padding: 0.75rem;
   &__other {
     display: block;
     padding: 0 $checkbox-padding $checkbox-padding;
-
-    .input--select {
-      width: 18.5rem !important;
-    }
   }
 
   &__input:checked + &__label:before {

@@ -17,3 +17,4 @@
 | external | boolean | false | Will style the item like an external link |
 | prefix | string | false | Will prefix the list item with whatever prefix is set to |
 | prefixIcon | string | false | If set to an icon name will prefix the item with that icon |
+| iconSize | string | false | Icon size can be set to `m`, `l`, `xl`, `xxl` |

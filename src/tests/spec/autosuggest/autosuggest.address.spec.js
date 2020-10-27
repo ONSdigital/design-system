@@ -215,7 +215,7 @@ describe('Autosuggest.address component', function() {
         it('then the fetch url should contain the correct limit parameter', function() {
           this.limit = 100;
           expect(this.autosuggestAddress.fetch.url).to.equal(
-            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100',
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100&groupfullpostcodes=combo',
           );
         });
 
@@ -595,6 +595,35 @@ describe('Autosuggest.address component', function() {
 
           it('then setAriaStatus should be called', function() {
             expect(this.setAriaStatusSpy).to.have.been.called();
+          });
+        });
+
+        describe('when the selected address is manually changed', function() {
+          beforeEach(function(done) {
+            this.addressSetter = new AddressSetter(this.context);
+            this.formattedAddress = {
+              addressLine1: 'University Of Hertfordshire, Meridian House 32-36',
+              addressLine2: 'The Common',
+              addressLine3: '',
+              townName: 'Hatfield',
+              postcode: 'AL10 0NZ',
+            };
+            this.addressSetter.setAddress(this.formattedAddress);
+            this.autosuggestAddress.addressSetter.setManualMode(true, false);
+            const uprn = document.querySelector('#address-uprn');
+            uprn.value = '1111111';
+            this.addressSetter.checkManualInputsValues(true);
+            const line1 = document.querySelector('#address-line1');
+            line1.value = 'Somewhere else';
+            this.addressSetter.checkManualInputsValues(false);
+            setTimeout(done);
+          });
+
+          it('then the urpn field should be empty', function() {
+            beforeEach(function(done) {
+              setTimeout(done);
+            });
+            expect(document.querySelector('#address-uprn').value).to.equal('');
           });
         });
 

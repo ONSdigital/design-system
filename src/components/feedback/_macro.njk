@@ -1,18 +1,8 @@
 {% macro onsFeedback(params) %}
-
+    {% set headingLevel = params.headingLevel | default("2") %}
     <div id="params.id" class="feedback">
-        <div class="feedback__body">
-            <h2>{{ params.header }}</h2>
-            <p>{{ params.content }}</p>
-            <div>
-                <a href="{{ params.url }}">{{- params.linkText -}}</a>
-            </div>
-        </div>
-        <div class="feedback__footer">
-            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.26 25.28">
-                <polyline points="25.26 0 21 0 21 0 3 18 3 0 0 0 0 25.28"></polyline>
-                <polygon points="3 0 21 0 3 18 3 0" style="fill:#fff"></polygon>
-            </svg>
-        </div>
+        <h{{ headingLevel }}{% if params.headingClasses is defined and params.headingClasses %} class="{{ params.headingClasses }}"{% endif %}>{{ params.heading }}</h{{ headingLevel }}>
+        <p>{{ params.content }}</p>
+        <a href="{{ params.url }}" class="feedback__link">{{- params.linkText -}}</a>
     </div>
 {% endmacro %}
