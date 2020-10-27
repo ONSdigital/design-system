@@ -4,7 +4,6 @@ $hub-row-spacing: 1.3rem;
 
 .summary {
   &__items {
-    display: table;
     margin-bottom: 0;
     width: 100%;
     border-spacing: 0;
@@ -15,7 +14,6 @@ $hub-row-spacing: 1.3rem;
   }
 
   &__item {
-    display: table-row;
     line-height: 1.4;
     &:not(:last-child),
     &:nth-of-type(1) {
@@ -42,7 +40,6 @@ $hub-row-spacing: 1.3rem;
   &__item-title,
   &__values,
   &__actions {
-    display: table-cell;
     padding: $summary-row-spacing $summary-col-spacing $summary-row-spacing 0;
     word-wrap: break-word;
     vertical-align: top;
