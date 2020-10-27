@@ -141,6 +141,21 @@ $hub-row-spacing: 1.3rem;
       display: block;
     }
 
+    &__values,
+    &__actions {
+      padding-top: 0;
+    }
+
+    &__row {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    dd {
+      margin-inline-start: 0 !important;
+    }
+
     &--hub & {
       &__values {
         display: none;
@@ -151,6 +166,8 @@ $hub-row-spacing: 1.3rem;
   @include mq(s) {
     &__row {
       display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
 
     &__item-title,
@@ -162,10 +179,6 @@ $hub-row-spacing: 1.3rem;
       &:not(:last-child) {
         padding-right: $summary-col-spacing;
       }
-    }
-
-    &__actions {
-      text-align: right;
     }
 
     &__row--has-values & {
