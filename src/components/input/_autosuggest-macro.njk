@@ -10,6 +10,8 @@
         data-aria-one-result="{{ params.ariaOneResult }}"
         data-aria-n-results="{{ params.ariaNResults }}"
         data-aria-limited-results="{{ params.ariaLimitedResults }}"
+        data-aria-grouped-results="{{ params.ariaGroupedResults }}"
+        data-group-count="{{ params.groupCount }}"
         data-more-results="{{ params.moreResults }}"
         data-results-title="{{ params.resultsTitle }}"
         data-autosuggest-data="{{ params.autosuggestData }}"
@@ -33,6 +35,6 @@
             <ul class="autosuggest-input__listbox js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
         </div>
         <div class="autosuggest-input__instructions u-vh js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
-        <div class="autosuggest-input__status u-vh js-autosuggest-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
+        <div class="autosuggest-input__status u-vh js-autosuggest-aria-status" aria-live="assertive" role="status" tabindex="-1"></div> 
     </div>
 {% endmacro %}

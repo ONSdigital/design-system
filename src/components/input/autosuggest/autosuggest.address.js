@@ -24,6 +24,7 @@ export default class AutosuggestAddress {
     this.form = context.closest('form');
     this.container = context.querySelector(`.${classInputContainer}`);
     this.errorMessage = this.container.getAttribute('data-error-message');
+    this.groupCount = this.container.getAttribute('data-group-count');
 
     // State
     this.fetch = null;
@@ -207,8 +208,8 @@ export default class AutosuggestAddress {
           ', ' +
           postcode +
           ' (<span class="autosuggest-input__group">' +
-          addressCount +
-          ' addresses</span>)',
+          this.groupCount.replace(`{n}`, addressCount) +
+          '</span>)',
         postcode,
         streetName,
         townName,
