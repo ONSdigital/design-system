@@ -140,6 +140,7 @@ $hub-row-spacing: 1.3rem;
     &__values,
     &__actions {
       display: block;
+      margin-left: 0;
     }
 
     &__values,
@@ -151,10 +152,6 @@ $hub-row-spacing: 1.3rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-    }
-
-    dd {
-      margin-inline-start: 0 !important;
     }
 
     &--hub & {
