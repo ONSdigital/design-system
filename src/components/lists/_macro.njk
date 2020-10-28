@@ -8,7 +8,7 @@
 
     <{{listEl}} {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="list {{ params.classes }}">
         {%- for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
-            <li class="list__item {% if item.prefixIcon is defined and item.prefixIcon %}u-cf {% endif %}{{ item.listclass }}" {% if item.current is defined and item.current %}aria-current="true"{% endif %}>
+            <li class="list__item {% if item.prefixIcon is defined and item.prefixIcon %}list__item--icon {% endif %}{{ item.listclass }}" {% if item.current is defined and item.current %}aria-current="true"{% endif %}>
                 {%- if item.index is defined and item.index or item.prefix is defined and item.prefix or item.prefixIcon is defined and item.prefixIcon -%}
                     <span class="list__prefix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
                     {%- if item.prefix is defined and item.prefix -%}
