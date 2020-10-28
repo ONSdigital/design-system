@@ -48,13 +48,11 @@ export default class CharCheck {
       message = this.charLimitSingularMessage;
     } else if (remaining < -1) {
       message = this.charLimitPluralMessage;
-    } else if (this.countdown) {
+    } else {
       message = this.pluralMessage;
     }
 
-    if (message) {
-      this.checkElement.innerText = message.replace('{x}', Math.abs(remaining));
-    }
+    this.checkElement.innerText = message.replace('{x}', Math.abs(remaining));
 
     if (this.button) {
       this.setButtonState(remaining);
