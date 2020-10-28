@@ -48,6 +48,8 @@
 | ariaOneResult           | string            | true     | Aria message to tell the user there is only one suggestion left                                                                                    |
 | ariaNResults            | string            | true     | Aria message to tell the user how many suggestions are left                                                                                        |
 | ariaLimitedResults      | string            | true     | Aria message to tell the user if the results have been limited and what they are limited to                                                        |
+| groupCount              | string            | true     | Aria message to tell the user the number of addresses in a group e.g. {n} addresses                                                                |
+| ariaGroupedResults      | string            | true     | Aria message to tell the user about a grouped result e.g There are {n} for {x}                                                                     |
 | moreResults             | string            | true     | Aria message to tell the user to continue to type to refine suggestions                                                                            |
 | noResults               | string            | true     | message to tell the user there are no results                                                                                                      |
 | tooManyResults          | string            | true     | message to tell the user there are too many results to display and the user should refine the search                                               |

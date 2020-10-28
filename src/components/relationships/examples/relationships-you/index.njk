@@ -2,7 +2,6 @@
 layout: none
 ---
 {% extends "styles/page-template/_template.njk" %}
-{% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/relationships/_macro.njk" import onsRelationships %}
 
 {% set pageConfig = {
@@ -10,161 +9,160 @@ layout: none
 } %}
 
 {% block main %}
-    {% call onsQuestion({
-        "title": "Joe Bloggs is your <em>…</em>",
-        "description": "<p>Complete the sentence by selecting the appropriate relationship.</p>"
-    }) %}
-        {{ onsRelationships({
-            "legend": "Joe Bloggs is your <em>…</em>",
-            "legendClasses": "u-vh",
-            "playback": "Joe Bloggs is your <em>…</em>",
-            "name": "relationship",
-            "radios": [
-                {
-                    "id": "husband-wife",
-                    "value": "husband-wife",
-                    "label": {
-                        "text": "Husband or wife"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>husband or wife</em>",
-                        "data-playback": "Joe Bloggs is your <em>husband or wife</em>"
-                    }
+    {{ onsRelationships({
+        "question": {
+            "title": "Joe Bloggs is your <em>…</em>",
+            "description": "<p>Complete the sentence by selecting the appropriate relationship.</p>"
+        },
+        "legend": "Joe Bloggs is your <em>…</em>",
+        "legendClasses": "u-vh",
+        "playback": "Joe Bloggs is your <em>…</em>",
+        "name": "relationship",
+        "radios": [
+            {
+                "id": "husband-wife",
+                "value": "husband-wife",
+                "label": {
+                    "text": "Husband or wife"
                 },
-                {
-                    "id": "civil-partner",
-                    "value": "civil-partner",
-                    "label": {
-                        "text": "Legally registered civil partner"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>legally registered civil partner</em>",
-                        "data-playback": "Joe Bloggs is your <em>legally registered civil partner</em>"
-                    }
-                },
-                {
-                    "id": "partner",
-                    "value": "partner",
-                    "label": {
-                        "text": "Partner"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>partner</em>",
-                        "data-playback": "Joe Bloggs is your <em>partner</em>"
-                    }
-                },
-                {
-                    "id": "son-daughter",
-                    "value": "son-daughter",
-                    "label": {
-                        "text": "Son or daughter"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>son or daughter</em>",
-                        "data-playback": "Joe Bloggs is your <em>son or daughter</em>"
-                    }
-                },
-                {
-                    "id": "stepchild",
-                    "value": "stepchild",
-                    "label": {
-                        "text": "Stepchild"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>stepchild</em>",
-                        "data-playback": "Joe Bloggs is your <em>stepchild</em>"
-                    }
-                },
-                {
-                    "id": "brother-sister",
-                    "value": "brother-sister",
-                    "label": {
-                        "text": "Brother or sister"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>brother or sister</em>",
-                        "data-playback": "Joe Bloggs is your <em>brother or sister</em>"
-                    }
-                },
-                {
-                    "id": "stepbrother-stepsister",
-                    "value": "stepbrother-stepsister",
-                    "label": {
-                        "text": "Stepbrother or stepsister"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>stepbrother or sister</em>",
-                        "data-playback": "Joe Bloggs is your <em>stepbrother or sister</em>"
-                    }
-                },
-                {
-                    "id": "mother-father",
-                    "value": "mother-father",
-                    "label": {
-                        "text": "Mother or father"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>mother or father</em>",
-                        "data-playback": "Joe Bloggs is your <em>mother or father</em>"
-                    }
-                },
-                {
-                    "id": "stepmother-stepfather",
-                    "value": "stepmother-stepfather",
-                    "label": {
-                        "text": "Stepmother or stepfather"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>stepmother or stepfather</em>",
-                        "data-playback": "Joe Bloggs is your <em>stepmother or stepfather</em>"
-                    }
-                },
-                {
-                    "id": "grandchild",
-                    "value": "grandchild",
-                    "label": {
-                        "text": "Grandchild"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>grandchild</em>",
-                        "data-playback": "Joe Bloggs is your <em>grandchild</em>"
-                    }
-                },
-                {
-                    "id": "grandparent",
-                    "value": "grandparent",
-                    "label": {
-                        "text": "Grandparent"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>grandparent</em>",
-                        "data-playback": "Joe Bloggs is your <em>grandparent</em>"
-                    }
-                },
-                {
-                    "id": "other-relation",
-                    "value": "other-relation",
-                    "label": {
-                        "text": "Other relation"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is your <em>other relation</em>",
-                        "data-playback": "Joe Bloggs is your <em>other relation</em>"
-                    }
-                },
-                {
-                    "id": "unrelated",
-                    "value": "unrelated",
-                    "label": {
-                        "text": "Unrelated",
-                        "description": "Including foster child"
-                    },
-                    "attributes": {
-                        "data-title": "Joe Bloggs is <em>unrelated</em> to you",
-                        "data-playback": "Joe Bloggs is <em>unrelated</em> to you"
-                    }
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>husband or wife</em>",
+                    "data-playback": "Joe Bloggs is your <em>husband or wife</em>"
                 }
-            ]
-        }) }}
-    {% endcall %}
+            },
+            {
+                "id": "civil-partner",
+                "value": "civil-partner",
+                "label": {
+                    "text": "Legally registered civil partner"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>legally registered civil partner</em>",
+                    "data-playback": "Joe Bloggs is your <em>legally registered civil partner</em>"
+                }
+            },
+            {
+                "id": "partner",
+                "value": "partner",
+                "label": {
+                    "text": "Partner"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>partner</em>",
+                    "data-playback": "Joe Bloggs is your <em>partner</em>"
+                }
+            },
+            {
+                "id": "son-daughter",
+                "value": "son-daughter",
+                "label": {
+                    "text": "Son or daughter"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>son or daughter</em>",
+                    "data-playback": "Joe Bloggs is your <em>son or daughter</em>"
+                }
+            },
+            {
+                "id": "stepchild",
+                "value": "stepchild",
+                "label": {
+                    "text": "Stepchild"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>stepchild</em>",
+                    "data-playback": "Joe Bloggs is your <em>stepchild</em>"
+                }
+            },
+            {
+                "id": "brother-sister",
+                "value": "brother-sister",
+                "label": {
+                    "text": "Brother or sister"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>brother or sister</em>",
+                    "data-playback": "Joe Bloggs is your <em>brother or sister</em>"
+                }
+            },
+            {
+                "id": "stepbrother-stepsister",
+                "value": "stepbrother-stepsister",
+                "label": {
+                    "text": "Stepbrother or stepsister"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>stepbrother or sister</em>",
+                    "data-playback": "Joe Bloggs is your <em>stepbrother or sister</em>"
+                }
+            },
+            {
+                "id": "mother-father",
+                "value": "mother-father",
+                "label": {
+                    "text": "Mother or father"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>mother or father</em>",
+                    "data-playback": "Joe Bloggs is your <em>mother or father</em>"
+                }
+            },
+            {
+                "id": "stepmother-stepfather",
+                "value": "stepmother-stepfather",
+                "label": {
+                    "text": "Stepmother or stepfather"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>stepmother or stepfather</em>",
+                    "data-playback": "Joe Bloggs is your <em>stepmother or stepfather</em>"
+                }
+            },
+            {
+                "id": "grandchild",
+                "value": "grandchild",
+                "label": {
+                    "text": "Grandchild"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>grandchild</em>",
+                    "data-playback": "Joe Bloggs is your <em>grandchild</em>"
+                }
+            },
+            {
+                "id": "grandparent",
+                "value": "grandparent",
+                "label": {
+                    "text": "Grandparent"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>grandparent</em>",
+                    "data-playback": "Joe Bloggs is your <em>grandparent</em>"
+                }
+            },
+            {
+                "id": "other-relation",
+                "value": "other-relation",
+                "label": {
+                    "text": "Other relation"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is your <em>other relation</em>",
+                    "data-playback": "Joe Bloggs is your <em>other relation</em>"
+                }
+            },
+            {
+                "id": "unrelated",
+                "value": "unrelated",
+                "label": {
+                    "text": "Unrelated",
+                    "description": "Including foster child"
+                },
+                "attributes": {
+                    "data-title": "Joe Bloggs is <em>unrelated</em> to you",
+                    "data-playback": "Joe Bloggs is <em>unrelated</em> to you"
+                }
+            }
+        ]
+    }) }}
 {% endblock %}
