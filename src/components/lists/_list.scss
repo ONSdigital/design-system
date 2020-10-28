@@ -6,12 +6,6 @@
     &:last-child {
       margin: 0;
     }
-
-    &--icon {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5rem;
-    }
   }
 
   &--bare {
@@ -56,16 +50,35 @@
     vertical-align: top;
     white-space: normal;
   }
+
+  &--icons {
+    .list__item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+  }
 }
 
-$list-inline-spacing: 2rem;
-
 @include bp-suffix('list--inline') {
-  margin: 0 $list-inline-spacing / -2;
+  &:not(.list--icons) {
+    margin: 0 1rem;
+    .list__item {
+      display: inline-block;
+      margin: 0 1rem;
+      vertical-align: top;
+    }
+  }
 
-  .list__item {
-    display: inline-block;
-    margin: 0 $list-inline-spacing / 2;
-    vertical-align: top;
+  &.list--icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    .list__item {
+      margin: 0 1rem 1rem;
+      &:first-child {
+        margin: 0 1rem 1rem 0;
+      }
+    }
   }
 }
