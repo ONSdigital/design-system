@@ -13,16 +13,16 @@
     background-color: $color-grey-4;
   }
 
+  &__ogl-img {
+    margin: 0 0.5rem 0.2rem 0;
+  }
+
   &--body {
     padding: 2rem 0 4rem;
     background-color: $color-grey-5;
 
     &__heading {
       margin: 0 0 1rem;
-    }
-
-    &__ogl-img {
-      margin: 0 0.5rem 0.2rem 0;
     }
 
     &__hr {
