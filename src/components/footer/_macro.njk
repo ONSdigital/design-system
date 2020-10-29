@@ -17,7 +17,7 @@
     {% endif %}
 
     {% set poweredByLogo %}
-        <img src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.poweredBy.logo | default('ons-logo-black-' + lang ) }}.svg" alt="{{ poweredByAlt | default('Office for National Statistics') }}">
+        <img src="{{ params.assetsURL if params.assetsURL }}/img/{% if params.poweredBy is defined and params.poweredBy and params.poweredBy.logo is defined and params.poweredBy.logo %}{{ params.poweredBy.logo }}{% else %}{{'ons-logo-black-' + lang }}{% endif %}.svg" alt="{{ poweredByAlt | default('Office for National Statistics') }}">
     {% endset %}
 
     {% set crestLogo %}
@@ -34,7 +34,7 @@
                             "classes": "panel--warn--footer"
                         })
                     %}
-                        {{ params.footerWarning.pre }} <a href="{{ params.footerWarning.url }}">{{ params.footerWarning.link }}</a> {{ params.footerWarning.post }}
+                        {{ params.footerWarning | safe }}
                     {% endcall %}
                 </div>
             </div>
