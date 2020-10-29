@@ -1,7 +1,7 @@
 | Name                 | Type                                   | Required | Description                                                                                          |
 | -------------------- | -------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | OGLLink              | `OGLLink`                              | false    | An object containing settings for the OGL link                                                       |
-| footerWarning        | `footerWarning`                        | false    | An object containing settings for the Footer Warning                                                 |
+| footerWarning        | string                                 | false    | The content for the footer warning                                                                   |
 | copyrightDeclaration | `copyrightDeclaration`                 | false    | An object containing settings for the Copyright Declaration                                          |
 | cols                 | `Array<FooterCol>`                     | false    | An array of `FooterCol` objects. _Maximum of 3_                                                      |
 | rows                 | `Array<FooterRow>`                     | false    | An array of `FooterRow` objects                                                                      |
@@ -19,15 +19,6 @@
 | url  | string | true     | The url for the OGL link     |
 | link | string | true     | The text of the OGL link     |
 | post | string | true     | The text after the OGL link  |
-
-## FooterWarning
-
-| Name | Type   | Required | Description                      |
-| ---- | ------ | -------- | -------------------------------- |
-| pre  | string | true     | The text before the warning link |
-| url  | string | true     | The url for the warning link     |
-| link | string | true     | The text of the warning link     |
-| post | string | true     | The text after the warning link  |
 
 ## CopyrightDeclaration
 
