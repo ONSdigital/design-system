@@ -4,6 +4,8 @@ $hub-row-spacing: 1.3rem;
 
 .summary {
   &__items {
+    display: flex;
+    flex-direction: column;
     margin-top: 0;
     margin-bottom: 0;
     width: 100%;
@@ -51,7 +53,6 @@ $hub-row-spacing: 1.3rem;
   &__item-title {
     position: relative;
     &--text {
-      display: block;
       padding-left: 2rem;
       overflow: hidden;
     }
@@ -63,13 +64,6 @@ $hub-row-spacing: 1.3rem;
         fill: $color-green;
       }
     }
-  }
-
-  &__actions {
-    margin-right: 0;
-    margin-left: auto;
-    padding-right: 0;
-    white-space: nowrap;
   }
 
   &__spacer {
@@ -139,8 +133,13 @@ $hub-row-spacing: 1.3rem;
     &__item-title,
     &__values,
     &__actions {
-      display: block;
       margin-left: 0;
+    }
+
+    &__actions {
+      margin-right: 0;
+      padding-right: 0;
+      white-space: nowrap;
     }
 
     &__values,
@@ -151,20 +150,12 @@ $hub-row-spacing: 1.3rem;
     &__row {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    &--hub & {
-      &__values {
-        display: none;
-      }
     }
   }
 
   @include mq(s) {
     &__row {
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
     }
 
