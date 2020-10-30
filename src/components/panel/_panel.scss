@@ -47,14 +47,20 @@
     > *:last-child {
       margin-bottom: 0;
     }
+    &.svg-icon-margin--xxl {
+      padding-left: 3.3rem !important;
+    }
     &.svg-icon-margin--xl {
-      padding-left: 2.5rem !important;
+      padding-left: 2.8rem !important;
     }
     &.svg-icon-margin--l {
-      padding-left: 2.3rem !important;
+      padding-left: 2.5rem !important;
     }
     &.svg-icon-margin--m {
-      padding-left: 2rem !important;
+      padding-left: 2.2rem !important;
+    }
+    &.svg-icon-margin--s {
+      padding-left: 1.4rem !important;
     }
   }
 
@@ -125,10 +131,8 @@
     &__icon {
       padding-left: 1rem;
       fill: $color-green;
-      .svg-icon--xl,
-      .svg-icon--l,
-      .svg-icon--m {
-        margin-top: 0.2rem !important;
+      .svg-icon {
+        margin-top: -15% !important;
       }
     }
     &__body {
