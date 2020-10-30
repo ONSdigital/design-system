@@ -42,7 +42,7 @@
 
         {% if params.button is defined and params.button %}
             {% from "components/button/_macro.njk" import onsButton %}
-            <div class="footer__signout-button-box u-d-no@m">
+            <div class="footer__button-container u-d-no@m">
                 {{
                     onsButton({
                         "id": params.button.id,
