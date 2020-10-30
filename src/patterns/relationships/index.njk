@@ -12,6 +12,14 @@ Help users define relationships between household memebers.
     patternlibExample({"path": "components/relationships/examples/relationships/index.njk"})
 }}
 
+## When to use this pattern 
+This pattern should be used when you need to collect the relationship between two people.
+
+## How to use this pattern 
+Call `onsRelationships` within `onsQuestion`, setting `readDescriptionFirst: true` so the description is read before the incomplete heading sentence by screen readers, to add context.
+
+The pattern is enhanced with javascript, to complete the sentence in the heading and `playback` when the user selects a radio option.
+
 ## Other examples
 
 ### First person
