@@ -8,7 +8,13 @@ group: Ask users for...
 
 Help users define relationships between household memebers.
 
-If this is used within a the question macro its recommended that `readDescriptionFirst` in the question params is set to true on so that the description is read first by screenreaders which will make more sense to the user.
+## When to use this pattern 
+This pattern should be used when you need to collect the relationship between two people.
+
+## How to use this pattern 
+Call `onsRelationships` within `onsQuestion`, setting `readDescriptionFirst: true` so the description is read before the incomplete heading sentence by screen readers, to add context.
+
+The pattern is enhanced with javascript, to complete the sentence in the heading and `playback` when the user selects a radio option.
 
 {{
     patternlibExample({"path": "components/relationships/examples/relationships/index.njk"})
