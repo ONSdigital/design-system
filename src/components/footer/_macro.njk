@@ -40,33 +40,33 @@
             </div>
         {% endif %}
 
+        {% if params.button is defined and params.button %}
+            {% from "components/button/_macro.njk" import onsButton %}
+            <div class="footer__button-container u-d-no@m">
+                {{
+                    onsButton({
+                        "id": params.button.id,
+                        "type": params.button.type,
+                        "classes": "btn--ghost" + (" " + params.button.classes if params.button.classes else ""),
+                        "text": params.button.text,
+                        "html": params.button.html,
+                        "name": params.button.name,
+                        "value": params.button.value,
+                        "attributes": params.button.attributes,
+                        "url": params.button.url,
+                        "buttonStyle": params.button.buttonStyle
+                    })
+                }}
+            </div>
+        {% endif %}
+
         <div class="footer--body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
-            <div class="container {{ ' container--wide' if params.wide }}">
+            <div class="container{{ ' container--wide' if params.wide }}">
                 <div class="grid">
 
                     {% if params.poweredBy is defined and params.poweredBy and params.OGLLink is defined and params.OGLLink %}
                         <div class="grid__col u-mb-m">
                             {{ poweredByLogo | safe }}
-                        </div>
-                    {% endif %}
-
-                    {% if params.button is defined and params.button %}
-                        {% from "components/button/_macro.njk" import onsButton %}
-                        <div class="grid__col u-mb-m u-d-no@m">
-                            {{
-                                onsButton({
-                                    "id": params.button.id,
-                                    "type": params.button.type,
-                                    "classes": "btn--ghost-blue" + (" " + params.button.classes if params.button.classes else ""),
-                                    "text": params.button.text,
-                                    "html": params.button.html,
-                                    "name": params.button.name,
-                                    "value": params.button.value,
-                                    "attributes": params.button.attributes,
-                                    "url": params.button.url,
-                                    "buttonStyle": params.button.buttonStyle
-                                })
-                            }}
                         </div>
                     {% endif %}
 
