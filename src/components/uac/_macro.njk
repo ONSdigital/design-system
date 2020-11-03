@@ -40,7 +40,8 @@
     {% if params.securityMessage is defined and params.securityMessage %}
         {% call onsPanel({
                 "type": "bare",
-                "icon": "lock"
+                "icon": "lock",
+                "classes": "u-mb-s"
             })
         %}
             {{ params.securityMessage }}
