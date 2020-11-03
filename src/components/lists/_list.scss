@@ -46,9 +46,11 @@
   }
 
   &--icons {
+    margin-bottom: -0.5rem !important;
     .list__item {
       display: flex;
       align-items: center;
+      margin-bottom: 0.5rem !important;
     }
   }
 }
@@ -67,8 +69,5 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    .list__item {
-      margin: 0 1rem 0 0;
-    }
   }
 }
