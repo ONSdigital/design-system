@@ -27,7 +27,10 @@
     {% endset %}
 
     {% if params.error is not defined %}
-        {% call onsPanel() %}
+        {% call onsPanel({
+                "classes": "u-mb-s"
+            })
+        %}
             {{ content | safe }}
         {% endcall %}
     {% else %}
