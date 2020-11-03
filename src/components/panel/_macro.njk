@@ -3,7 +3,7 @@
         {% set classes  = ' ' + params.classes %}
     {% endif %}
 
-    {% if params is not defined or params.title is not defined%}
+    {% if params is not defined or params.title is not defined and params.type != "bare" %}
         {% set noTitleClass = ' panel--no-title' %}
     {% endif %}
 
