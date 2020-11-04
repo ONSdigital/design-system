@@ -28,6 +28,7 @@
 | text      | string | true     | The text that comes before the link on the copyright declaration |
 | link      | string | true     | The text for the copyright link                                  |
 | url       | string | true     | The url for the copyright link                                   |
+| target    | string | false    | Allows the setting of the target attribute on the copyright link |
 
 ## FooterCol
 

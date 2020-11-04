@@ -221,7 +221,7 @@
                 {% if params.copyrightDeclaration is defined and params.copyrightDeclaration %}
                 <div class="grid">
                     <div class="grid__col u-mt-m">
-                        <p class="u-fs-s u-mb-no">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }} <a href="{{ params.copyrightDeclaration.url }}">{{ params.copyrightDeclaration.link }}</a>.</p>
+                        <p class="u-fs-s u-mb-no">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }} <a href="{{ params.copyrightDeclaration.url }}" target="{{ params.copyrightDeclaration.target }}">{{ params.copyrightDeclaration.link }}</a>.</p>
                     </div>
                 </div>
                 {% endif %}
