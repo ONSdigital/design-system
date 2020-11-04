@@ -57,10 +57,10 @@
 
 @include bp-suffix('list--inline') {
   &:not(.list--icons) {
-    margin: 0 1rem;
+    margin: 0 1rem 0 0;
     .list__item {
       display: inline-block;
-      margin: 0 1rem;
+      margin: 0 1rem 0 0;
       vertical-align: top;
     }
   }
