@@ -109,6 +109,7 @@ $collapsible-caret-width: 1.5rem;
     }
 
     &__icon {
+      top: 0.8rem;
       @include mq(s) {
         top: 1.15rem;
       }
