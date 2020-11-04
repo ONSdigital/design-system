@@ -8,6 +8,12 @@
     }
   }
 
+  &--spacious {
+    .list__item {
+      margin: 0 0 1.5rem;
+    }
+  }
+
   &--bare {
     padding-left: 0;
     list-style: none;
