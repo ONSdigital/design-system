@@ -18,67 +18,67 @@
                     }}
                 {% endif %}
                 {% if params.line1 is defined and params.line1 %}
-                {{
-                    onsInput({
-                        "id": params.id + "-line1",
-                        "value": params.line1.value,
-                        "label": {
-                            "text": params.line1.label
-                        },
-                        "classes": "input--w-20@m js-address-line1",
-                        "name": params.id + "-line1",
-                        "error": params.line1.error
-                    })
-                }}
+                    {{
+                        onsInput({
+                            "id": params.id + "-line1",
+                            "value": params.line1.value,
+                            "label": {
+                                "text": params.line1.label
+                            },
+                            "classes": "input--w-20@m js-address-line1",
+                            "name": params.id + "-line1",
+                            "error": params.line1.error
+                        })
+                    }}
                 {% endif %}
                 {% if params.line2 is defined and params.line2 %}
-                {{
-                    onsInput({
-                        "id": params.id + "-line2",
-                        "value": params.line2.value,
-                        "label": {
-                            "text": params.line2.label
-                        },
-                        "classes": "input--w-20@m js-address-line2",
-                        "name": params.id + "-line2"
-                    })
-                }}
+                    {{
+                        onsInput({
+                            "id": params.id + "-line2",
+                            "value": params.line2.value,
+                            "label": {
+                                "text": params.line2.label
+                            },
+                            "classes": "input--w-20@m js-address-line2",
+                            "name": params.id + "-line2"
+                        })
+                    }}
                 {% endif %}
                 {% if params.town is defined and params.town %}
-                {{
-                    onsInput({
-                        "id": params.id + "-town",
-                        "value": params.town.value,
-                        "label": {
-                            "text": params.town.label
-                        },
-                        "classes": "js-address-town",
-                        "name": params.id + "-town"
-                    })
-                }}
+                    {{
+                        onsInput({
+                            "id": params.id + "-town",
+                            "value": params.town.value,
+                            "label": {
+                                "text": params.town.label
+                            },
+                            "classes": "js-address-town",
+                            "name": params.id + "-town"
+                        })
+                    }}
                 {% endif %}
                 {% if params.postcode is defined and params.postcode %}
-                {{
-                    onsInput({
-                        "id": params.id + "-postcode",
-                        "value": params.postcode.value,
-                        "label": {
-                            "text": params.postcode.label
-                        },
-                        "classes": "input--w-5 js-address-postcode",
-                        "name": params.id + "-postcode"
-                    })
-                }}
+                    {{
+                        onsInput({
+                            "id": params.id + "-postcode",
+                            "value": params.postcode.value,
+                            "label": {
+                                "text": params.postcode.label
+                            },
+                            "classes": "input--w-5 js-address-postcode",
+                            "name": params.id + "-postcode"
+                        })
+                    }}
                 {% endif %}
-                {{
-                    onsInput({
-                        "id": params.id + "-uprn",
-                        "classes": "js-hidden-uprn u-d-no",
-                        "type": "hidden",
-                        "name": params.id + "-uprn",
-                        "value": params.uprn.value
-                    })
-                }}
+                    {{
+                        onsInput({
+                            "id": params.id + "-uprn",
+                            "classes": "js-hidden-uprn u-d-no",
+                            "type": "hidden",
+                            "name": params.id + "-uprn",
+                            "value": params.uprn.value
+                        })
+                    }}
                 {% if params.autosuggest is defined and params.autosuggest %}
                     <div class="u-mt-s">
                         <a href="#" class="js-address-search-btn u-db-no-js_disabled">{{ params.searchButton }}</a>

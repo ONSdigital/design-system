@@ -9,6 +9,12 @@
     }
   }
 
+  &__button-container {
+    padding: 1rem;
+    background-color: $color-header;
+    background-clip: border-box;
+  }
+
   &__warning {
     background-color: $color-grey-4;
   }
