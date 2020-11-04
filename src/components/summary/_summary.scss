@@ -7,7 +7,8 @@ $hub-row-spacing: 1.3rem;
     display: flex;
     flex-direction: column;
     margin-top: 0;
-    margin-bottom: 0;
+    // To stop double bottom border when there is only one item and a link or collapsibile follows the summary
+    margin-bottom: -1px;
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
