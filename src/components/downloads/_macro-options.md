@@ -1,12 +1,13 @@
-| Name      | Type        | Required | Description                                                                          |
-| --------- | ----------- | -------- | ------------------------------------------------------------------------------------ |
-| title     | string      | true     | The title for the download                                                           |
-| excerpt   | string      | true     | A short extract of text (e.g. a short sentence to give some context of the download) |
-| url       | string      | true     | The url for the document download (e.g. a pdf file, zip file)                        |
-| type      | string      | true     | Type of file (e.g. Poster, Booklet, Flyer)                                           |
-| classes   | string      | false    | Custom classes to add to the downloads                                               |
-| thumbnail | `Thumbnail` | true     | An object containing path and filename attributes for the image                      |
-| meta      | `Meta`      | true     | An object containing information about file type, size and number of pages           |
+| Name           | Type        | Required | Description                                                                          |
+| -------------- | ----------- | -------- | ------------------------------------------------------------------------------------ |
+| title          | string      | true     | The title for the download                                                           |
+| excerpt        | string      | true     | A short extract of text (e.g. a short sentence to give some context of the download) |
+| url            | string      | true     | The url for the document download (e.g. a pdf file, zip file)                        |
+| type           | string      | true     | Type of file (e.g. Poster, Booklet, Flyer)                                           |
+| classes        | string      | false    | Custom classes to add to the downloads                                               |
+| thumbnail      | `Thumbnail` | true     | An object containing path and filename attributes for the image                      |
+| meta           | `Meta`      | true     | An object containing information about file type, size and number of pages           |
+| placeholderURL | string      | false    | Optional base path for placeholder image                                             |
 
 ## Thumbnail
 
