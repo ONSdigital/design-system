@@ -3,8 +3,8 @@
         {% set classes  = ' ' + params.classes %}
     {% endif %}
 
-    {% if params is not defined or params.title is not defined%}
-        {% set simpleClass = ' panel--simple' %}
+    {% if params is not defined or params.title is not defined and params.type != "bare" %}
+        {% set noTitleClass = ' panel--no-title' %}
     {% endif %}
 
     {% if params is defined and params and params.type is defined and params.type %}
@@ -21,7 +21,7 @@
     {% endif %}
 
     <div
-        class="panel{{ typeClass }}{{ iconClass }}{{ simpleClass }}{{ spaciousClass }}{{ errorJsClass }}{{ classes }}"
+        class="panel{{ typeClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ errorJsClass }}{{ classes }}"
         {% if params is defined and params and params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params is defined and params and params.attributes is mapping and params.attributes.items is defined and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params is defined and params and params.id is defined and params.id %} id="{{params.id}}"{% endif %}
     >
         {% if params is defined and params and params.type == "warn" %}
