@@ -13,7 +13,8 @@
 
     {% call onsPanel({
         "type": "error",
-        "id": params.id
+        "id": params.id,
+        "classes": "u-mb-s"
     }) %}
        {{ content | safe }}
     {% endcall %}

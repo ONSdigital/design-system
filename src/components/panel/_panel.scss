@@ -68,12 +68,6 @@
     color: $color-errors;
   }
 
-  &--simple {
-    padding: 1rem;
-    border-left: 8px solid transparent;
-    color: $color-black;
-  }
-
   &--warn {
     margin-bottom: 1rem;
     padding: 0 1rem 0 1rem;
@@ -86,13 +80,10 @@
     }
   }
 
-  &--simple & {
-    &__header {
-      padding: 0 0 1rem;
-      background: none;
-    }
-
-    &__body {
+  &--no-title {
+    padding: 1rem;
+    border-left: 8px solid transparent;
+    .panel__body {
       padding: 0;
       background: none;
     }
@@ -146,13 +137,8 @@
       height: 1.3rem;
     }
     &__body {
-      padding-top: 0.1rem;
-      padding-left: 0.5rem;
+      padding: 0.1rem 0 0 1.5rem;
     }
-  }
-
-  &--bare {
-    border-left: 0;
   }
 
   &--bare,
