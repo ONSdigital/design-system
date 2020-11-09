@@ -4,12 +4,6 @@
 {% from "components/footer/_macro.njk" import onsFooter %}
 {{
     onsFooter({
-        "OGLLink": {
-            "pre": "All content is available under the",
-            "link": "Open Government Licence v3.0",
-            "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "post": ", except where otherwise stated"
-        },
         "cols": [
             {
                 "title": 'Legal information',
@@ -54,6 +48,12 @@
                     }
                 ]
             }
-        ]
+        ],
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
     })
 }}
