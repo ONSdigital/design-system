@@ -1,8 +1,9 @@
-| Name      | Type               | Required | Description                               |
-| --------- | ------------------ | -------- | ----------------------------------------- |
-| summaries | Array`<Summaries>` | true     | An array of summaries                     |
-| classes   | string             | false    | Classes to add to the summary component   |
-| hub       | boolean            | false    | Whether to render the summary in as a hub |
+| Name        | Type                 | Required | Description                                      |
+| ----------- | -------------------- | -------- | ------------------------------------------------ |
+| summaries   | Array`<Summaries>`   | true     | An array of summaries                            |
+| classes     | string               | false    | Classes to add to the summary component          |
+| hub         | boolean              | false    | Whether to render the summary in as a hub        |
+| summaryLink | Array`<SummaryLink>` | false    | Settings for the link to apear after the summary |
 
 ## Summaries
 
@@ -54,3 +55,11 @@
 | url        | string | true     | URL to edit the answer                                                                  |
 | ariaLabel  | string | false    | An aria-label to apply to the link if you need it to be more verbose for screen readers |
 | attributes | object | false    | HTML attributes (for example data attributes) to add to the action link                 |
+
+## SummaryLink
+
+| Name   | Type   | Required | Description                                 |
+| ------ | ------ | -------- | ------------------------------------------- |
+| url    | string | true     | The url for the link to follow the summary  |
+| text   | string | true     | The text for the link to follow the summary |
+| dataQa | string | true     | The text data-qa attribute                  |

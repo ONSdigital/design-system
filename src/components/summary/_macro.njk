@@ -108,4 +108,10 @@
             </div>
         {% endfor %}
     </div>
+
+    {% if params.summaryLink is defined and params.summaryLink %}
+        <div class="u-mb-l u-pt-s u-bt">
+            <a data-qa="{{ params.summaryLink.dataQa }}" href="{{ params.summaryLink.url }}">{{ params.summaryLink.text }}</a>
+        </div>
+    {% endif %}
 {% endmacro %}
