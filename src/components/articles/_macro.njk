@@ -1,0 +1,64 @@
+{% macro onsArticles(params) %}
+
+    {% for article in (params.articles if params.articles is iterable else params.articles.items()) %}
+    <article class="article{% if article.featured %} article--featured {% endif %}{{ ' ' + params.classes if params.classes else '' }}">
+
+
+        {% if article.featured is defined and article.featured %}
+        <div class="container">
+            <div class="grid u-pt-l u-pb-l">
+                <div class="grid__col col-5@m">
+                {% endif %}
+
+
+                    <div class="article__image" aria-hidden="true">
+                        <a class="article__image-link" href="{{ article.url }}" tabindex="-1">
+                            <img srcset="{{ article.image.smallSrc }}{{ article.image.filename }} 1x, {{ article.image.largeSrc }}{{ article.image.filename }} 2x" src="{{ article.image.smallSrc }}{{ article.image.filename }}" alt="{{ article.image.alt }}">
+                        </a>
+                    </div>
+
+
+                {% if article.featured is defined and article.featured %}
+                </div>
+                <div class="grid__col col-7@m">
+                {% endif %}
+
+
+                    <div class="article__content">
+
+                        <h2 class="article__heading">
+                            <a href="{{ article.url }}">{{ article.title }}</a>
+                        </h2>
+
+                        <ul class="u-fs-s article__meta">
+                            {%- if article.date is defined and article.date %}<li class="article__meta-item"><span class="u-hidden">Posted on </span> <time datetime="{{ article.date.iso }}">{{ article.date.short }}</time></li>{% endif %}
+                            {%- if article.category is defined and article.category %}
+                                <li class="article__meta-item">
+                                    <span class="u-hidden">in </span> 
+                                    {%- if article.category.url is defined and article.category.url %}
+                                        <a class="article__meta-link" href="{{ article.category.url }}">{{ article.category.title }}</a>
+                                    {% else %}
+                                        {{ article.category.title }}
+                                    {% endif %}
+                                </li>
+                            {% endif %}
+                        </ul>
+
+                        {% if article.excerpt is defined and article.excerpt %}
+                        <p class="u-mb-no">{{ article.excerpt | safe }}</p>
+                        {% endif %}
+
+                    </div>
+
+
+                {% if article.featured is defined and article.featured %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+
+    </article>
+    {% endfor %}
+
+{% endmacro %}

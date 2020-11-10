@@ -2,7 +2,7 @@
     {% set content = caller() %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}js-autosuggest{% endif %} {% if not params.isEditable %}js-address-not-editable{% endif %} autosuggest-input {{ params.classes }}"
+        class="{% if not params.externalInitialiser %}js-autosuggest{% endif %} {% if not params.isEditable %}js-address-not-editable{% endif %} {% if params.mandatory is defined and params.mandatory == true %}js-address-mandatory{% endif %} autosuggest-input {{ params.classes }}"
         data-api-domain="{{ params.APIDomain }}"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
@@ -10,6 +10,8 @@
         data-aria-one-result="{{ params.ariaOneResult }}"
         data-aria-n-results="{{ params.ariaNResults }}"
         data-aria-limited-results="{{ params.ariaLimitedResults }}"
+        data-aria-grouped-results="{{ params.ariaGroupedResults }}"
+        data-group-count="{{ params.groupCount }}"
         data-more-results="{{ params.moreResults }}"
         data-results-title="{{ params.resultsTitle }}"
         data-autosuggest-data="{{ params.autosuggestData }}"
@@ -21,8 +23,11 @@
         data-error-select="{{ params.errorMessageSelect }}"
         data-error-api="{{ params.errorMessageAPI }}"
         data-error-api-link-text="{{ params.errorMessageAPILinkText }}"
-        {% if params.options %}{% for query, value in (params.options.items() if params.options is mapping and params.options.items else params.options) %}data-type-{{ query }}="{{ value }}" {% endfor %}{% endif %}
-
+        {% if params.options is defined and params.options %}
+        {% if params.options.oneYearAgo is defined and params.options.oneYearAgo %}data-options-one-year-ago="true"{% endif %}
+        {% if params.options.regionCode is defined and params.options.regionCode %}data-options-region-code="{{ params.options.regionCode }}"{% endif %}
+        {% if params.options.addressType is defined and params.options.addressType %}data-options-address-type="{{ params.options.addressType }}"{% endif %}
+        {% endif %}
     >
         {{ content | safe }}
         <div class="autosuggest-input__results js-autosuggest-results">
@@ -30,6 +35,6 @@
             <ul class="autosuggest-input__listbox js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
         </div>
         <div class="autosuggest-input__instructions u-vh js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
-        <div class="autosuggest-input__status u-vh js-autosuggest-aria-status" aria-live="polite" role="status" tabindex="-1"></div> 
+        <div class="autosuggest-input__status u-vh js-autosuggest-aria-status" aria-live="assertive" role="status" tabindex="-1"></div> 
     </div>
 {% endmacro %}

@@ -27,10 +27,18 @@ The example below shows the minimum requirements for an ONS page template.
 
 ## Customised page template
 
-Components can be added to the page template. The example below provides a [phase banner](/components/phase-banner), [language selector](/patterns/language-selection), [save button](/components/button) and [footer links](/components/footer).
+Components can be added to the page template. The example below provides a [phase banner](/components/phase-banner), [language selector](/patterns/language-selection), [breadcrumbs](/components/breadcrumb), [save button](/components/button) and [footer links](/components/footer).
 
 {{
     patternlibExample({ "path": "styles/page-template/examples/custom/index.njk" })
+}}
+
+## Census page template
+
+The example below shows a themed census version of the ONS page template.
+
+{{
+    patternlibExample({ "path": "styles/page-template/examples/census/index.njk" })
 }}
 
 ## Nunjucks / Jinja
@@ -112,22 +120,24 @@ Variables can be set with:
 ##### PageConfig
 
 {% md %}
-| Variable Name | Type                                                | Required                      | Description                                                                                  |
-| ------------- | --------------------------------------------------- | ----------------------------- | -------------------------------------------------------------------------------------------- |
-| cdn           | string                                              | false                         | What CDN version to use                                                                      |
-| assetsURL     | string                                              | false                         | The base url where to find CSS/JS/images etc. e.g. `http://localhost:3030`                   |
-| theme         | string                                              | false                         | The name of the css file e.g. "census" if using a theme. Defaults to "main".                 |
-| title         | string                                              | true                          | The contents for the `<title>` element                                                       |
-| headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                         | Configuration for `<meta>` information in the document `<head>`                              |
-| bodyClasses   | string                                              | false                         | Classes to add to the `<body>` element                                                       |
-| header        | `PageHeader` [_(ref)_](#pageheader)                 | true                          | Configuration for the page header                                                            |
-| language      | `Language` [_(ref)_](/components/language-selector) | false                         | Language configuration for the page                                                          |
-| signoutButton | `Button` [_(ref)_](/components/button)              | false                         | Configuration for the save and sign out button. If not specified, the button will not render |
-| toggleButton  | `HeaderToggleButton` [_(ref)_](/components/header)  | true if `navigation` supplied | Configuration for the mobile navigation toggle button                                        |
-| phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                         | Settings for the Phase banner                                                                |
-| serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                         | An array to render the service links list                                                    |
-| footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                          | Configuration for the page footer                                                            |
-| feedback      | `Feedback` [_(ref)_](/patterns/feedback)            | false                         | Configuration for the feedback component                                                     |
+| Variable Name | Type                                                | Required                          | Description                                                                                  |
+| ------------- | --------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------- |
+| cdn           | string                                              | false                             | What CDN version to use                                                                      |
+| assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc. e.g. `http://localhost:3030`                   |
+| theme         | string                                              | false                             | The name of the css file e.g. "census" if using a theme. Defaults to "main".                 |
+| title         | string                                              | true                              | The contents for the `<title>` element                                                       |
+| cspNonce      | string                                              | false                             | The Content Security Policy (CSP) nonce value                                                      |
+| headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                             | Configuration for `<meta>` information in the document `<head>`                              |
+| breadcrumbs   | `Breadcrumbs` [_(ref)_](/components/breadcrumb)     | false                             | Configuration for the breadcrumbs or back link                                               |
+| bodyClasses   | string                                              | false                             | Classes to add to the `<body>` element                                                       |
+| header        | `PageHeader` [_(ref)_](#pageheader)                 | true                              | Configuration for the page header                                                            |
+| language      | `Language` [_(ref)_](/components/language-selector) | false                             | Language configuration for the page                                                          |
+| signoutButton | `Button` [_(ref)_](/components/button)              | false                             | Configuration for the save and sign out button. If not specified, the button will not render |
+| toggleButton  | `HeaderToggleButton` [_(ref)_](/components/header)  | true (if `navigation` supplied)   | Configuration for the mobile navigation toggle button                                        |
+| navigation    | `HeaderNavigation` [_(ref)_](/components/header)    | true (if `toggleButton` supplied) | Configuration for header navigation links                                                    |
+| phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                             | Settings for the Phase banner                                                                |
+| serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                             | An array to render the service links list                                                    |
+| footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                              | Configuration for the page footer                                                            |
 {% endmd %}
 
 ###### PageHeader
@@ -156,12 +166,18 @@ Variables can be set with:
 ###### PageFooter
 
 {% md %}
-| Variable Name | Type                                                        | Required | Description                                                        |
-| ------------- | ----------------------------------------------------------- | -------- | ------------------------------------------------------------------ |
-| OGLLink       | `OGLLink` [_(ref)_](/components/footer)                     | true     | An object containing settings for the OGL link                     |
-| cols          | `FooterCol` [_(ref)_](/components/footer)                   | false    | An array of `FooterCol` objects. _Maximum of 3_                    |
-| rows          | `FooterRow` [_(ref)_](/components/footer)                   | false    | An array of `FooterRow` objects                                    |
-| poweredByONS  | boolean &#124; `PoweredByONS` [_(ref)_](/components/footer) | false    | Whether to show the ONS logo, and optionally settings for the logo |
+| Variable Name        | Type                                   | Required | Description                                                                                             |
+| -------------------- | -------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| OGLLink              | `OGLLink`                              | false    | An object containing settings for the OGL link                                                          |
+| footerWarning        | `footerWarning`                        | false    | An object containing settings for the Footer Warning                                                    |
+| copyrightDeclaration | `copyrightDeclaration`                 | false    | An object containing settings for the Copyright Declaration                                             |
+| cols                 | `Array<FooterCol>`                     | false    | An array of `FooterCol` objects. _Maximum of 3_                                                         |
+| rows                 | `Array<FooterRow>`                     | false    | An array of `FooterRow` objects                                                                         |
+| poweredBy            | boolean &#124; `PoweredBy   `          | false    | Whether to show the ONS logo, and optionally settings for the logo                                      |
+| lang                 | string                                 | false    | The current page language. Will change out the ONS logo if `poweredBy` is provided. Defaults to `en`    |
+| button               | `Button` [_(ref)_](/components/button) | false    | Settings for save and sign out using the button component                                               |
+| newTabWarning        | string                                 | false    | Text for warning of links opening in new tabs                                                           |
+| crest                | boolean                                | false    | If set to true will add the UK coat of arms to the footer                                               |
 {% endmd %}
 
 #### Blocks

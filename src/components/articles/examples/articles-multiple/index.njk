@@ -1,0 +1,43 @@
+{% from "components/articles/_macro.njk" import onsArticles %}
+{{ onsArticles({
+    "articles": [
+        {
+            "image": {
+                "smallSrc": '/img/small/',
+                "largeSrc": '/img/large/',
+                "filename": 'placeholder-news.png',
+                "alt": 'Census 2021 placeholer'
+            },
+            "url": '#0',
+            "title": 'A new approach to counting rooms and bedrooms',
+            "date": {
+                "short": '20 May 2020',
+                "iso": '2020-05-20'
+            },
+            "category": {
+                "title": 'Press releases',
+                "url": '#0'
+            },
+            "excerpt": 'As part of preparations for the 2021 Census, Andy Teague explains how ONS will be estimating the number of rooms and bedrooms at an address.'
+        },
+        {
+            "image": {
+                "smallSrc": '/img/small/',
+                "largeSrc": '/img/large/',
+                "filename": 'placeholder-news.png',
+                "alt": 'Census 2021 placeholer'
+            },
+            "url": '#0',
+            "title": 'The next steps towards the 2021 Census',
+            "date": {
+                "short": '20 May 2020',
+                "iso": '2020-05-20'
+            },
+            "category": {
+                "title": 'Press releases',
+                "url": '#0'
+            },
+            "excerpt": 'The Office for National Statistics (ONS) has appointed a census engagement manager to support Tower Hamlets residents help rehearse the census this October.'
+        }
+    ]
+}) }}

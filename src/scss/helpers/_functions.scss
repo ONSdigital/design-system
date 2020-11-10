@@ -1,11 +1,11 @@
 @function ems($pxval, $base: $base) {
-  $emSize: $pxval / $base;
-  @return #{$emSize}em;
+  $em-size: $pxval / $base;
+  @return #{$em-size}em;
 }
 
 @function rems($pxval, $base: $base) {
-  $remSize: $pxval / $base;
-  @return #{$remSize}rem;
+  $rem-size: $pxval / $base;
+  @return #{$rem-size}rem;
 }
 
 @function strip-unit($num) {
@@ -22,7 +22,7 @@
 
 @function map-set($map, $key, $value) {
   $new: (
-    $key: $value
+    $key: $value,
   );
 
   @return map-merge($map, $new);

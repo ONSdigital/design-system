@@ -48,13 +48,11 @@ export default class CharCheck {
       message = this.charLimitSingularMessage;
     } else if (remaining < -1) {
       message = this.charLimitPluralMessage;
-    } else if (this.countdown) {
+    } else {
       message = this.pluralMessage;
     }
 
-    if (message) {
-      this.checkElement.innerText = message.replace('{x}', Math.abs(remaining));
-    }
+    this.checkElement.innerText = message.replace('{x}', Math.abs(remaining));
 
     if (this.button) {
       this.setButtonState(remaining);
@@ -76,5 +74,6 @@ export default class CharCheck {
 
   setCheckClass(remaining, element, setClass) {
     element.classList[remaining < 0 ? 'add' : 'remove'](setClass);
+    this.checkElement.setAttribute('aria-live', [remaining > 0 ? 'polite' : 'assertive']);
   }
 }

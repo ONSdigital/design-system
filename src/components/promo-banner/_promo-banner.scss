@@ -1,32 +1,66 @@
 .promo-banner {
-  padding: 2rem 0;
-  background: $color-branded;
-  &--gradient {
-    background: radial-gradient(at bottom left, $color-branded-secondary, $color-branded, $color-branded-tertiary);
+  background-color: $color-branded;
+  background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
+  overflow: hidden;
+  padding-bottom: 5em;
+  padding-top: 3em;
+  position: relative;
+
+  &::after {
+    background-image: url(#{$static}/img/census-promo-banner.svg);
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    bottom: 0;
+    content: '';
+    height: 244px;
+    left: 50%;
+    max-width: none;
+    position: absolute;
+    transform: translate(-50%, 50%);
+    width: 100%;
+  }
+
+  &__content {
+    :last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__image {
     text-align: center;
+
     img {
-      width: 100%;
       height: auto;
+      width: 100%;
     }
   }
 
   &--dark-theme {
     h1,
     h2,
+    h3,
+    h4,
+    h5,
     li,
     p,
     a {
       color: $color-white;
     }
+
     a {
       &:focus,
       &:hover {
         color: $color-white;
         text-decoration: none;
       }
+    }
+  }
+
+  &--has-image {
+    padding-bottom: 3em;
+
+    &::after {
+      content: none;
     }
   }
 }

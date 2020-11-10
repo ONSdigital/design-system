@@ -25,6 +25,7 @@ layout: none
                     "text": "Enter address or postcode and select from results"
                 },
                 "isEditable": true,
+                "mandatory": true,
                 "APIDomain": "https://whitelodge-ai-api.census-gcp.onsdigital.uk",
                 "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
                 "ariaYouHaveSelected": "You have selected",
@@ -32,6 +33,8 @@ layout: none
                 "ariaOneResult": "There is one suggestion available.",
                 "ariaNResults": "There are {n} suggestions available.",
                 "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
+                "ariaGroupedResults": "There are {n} for {x}",
+                "groupCount": "{n} addresses",
                 "moreResults": "Enter more of the address to improve results",
                 "resultsTitle": "Select an address",
                 "noResults": "No results found. Try entering a different part of the address",
@@ -44,9 +47,8 @@ layout: none
                 "errorMessageAPI": "Sorry, there was a problem loading addresses",
                 "errorMessageAPILinkText": "Enter address manually",
                 "options": {
-                    "region_code": "gb-eng",
-                    "one_year_ago": false,
-                    "address_type": "residential"
+                    "regionCode": "gb-eng",
+                    "addressType": "residential"
                 }
             },
             "line1": {

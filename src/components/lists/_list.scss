@@ -3,21 +3,20 @@
   padding: 0 0 0 1.5rem;
 
   &__item {
-    white-space: nowrap;
     &:last-child {
       margin: 0;
     }
-  }
-
-  &--bare {
-    padding-left: 0;
-    list-style: none;
   }
 
   &--spacious {
     .list__item {
       margin: 0 0 1.5rem;
     }
+  }
+
+  &--bare {
+    padding-left: 0;
+    list-style: none;
   }
 
   &--dashed {
@@ -50,27 +49,31 @@
     overflow: hidden;
     vertical-align: top;
     white-space: normal;
-    .svg-icon {
-      margin-top: 0.2rem;
-      width: 0.8rem;
-      height: 0.8rem;
+  }
+
+  &--icons {
+    margin-bottom: -0.5rem;
+    .list__item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
     }
   }
 }
 
-$list-inline-spacing: 2rem;
-
 @include bp-suffix('list--inline') {
-  margin: 0 $list-inline-spacing / -2;
-
-  .list__item {
-    display: inline-block;
-    margin: 0 $list-inline-spacing / 2;
-    vertical-align: top;
-    .svg-icon {
-      margin-top: 0.2rem;
-      width: 0.8rem;
-      height: 0.8rem;
+  &:not(.list--icons) {
+    margin: 0 1rem 0 0;
+    .list__item {
+      display: inline-block;
+      margin: 0 1rem 0 0;
+      vertical-align: top;
     }
+  }
+
+  &.list--icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
   }
 }

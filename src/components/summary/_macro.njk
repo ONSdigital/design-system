@@ -2,34 +2,34 @@
     {% set className = "summary" %}
     {% set titleSize = "2" %}
 
-    {% if params.classes is defined %}
+    {% if params.classes is defined and params.classes %}
          {% set className = className + " " + params.classes %}
     {% endif %}
 
-    {% if params.hub is defined %}
+    {% if params.hub is defined and params.hub %}
         {% set className = className + " summary--hub" %}
     {% endif %}
     <div class="{{ className }}">
         {% for summary in params.summaries %}
             <div class="summary__group">
-                {% if summary.summaryTitle is defined %}
+                {% if summary.summaryTitle is defined and summary.summaryTitle %}
                     <h2 class="summary__title u-mb-m">{{ summary.summaryTitle }}</h2>
                     {% set titleSize = "3" %}
                 {% endif %}
                 {% for group in summary.groups %}
-                    {% if group.groupTitle is defined %}
+                    {% if group.groupTitle is defined and group.groupTitle %}
                         <h{{ titleSize }} class="summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
                     <table class="summary__items">
                         {% for row in (group.rows if group.rows is iterable else group.rows.items()) %}
                             {% set itemClass = "" %}
-                            {% if row.error is defined %} {% set itemClass = " summary__item--error" %}{% endif %}
-                            {% if row.total is defined %} {% set itemClass = itemClass + " summary__item--total" %}{% endif %}
+                            {% if row.error is defined and row.error %} {% set itemClass = " summary__item--error" %}{% endif %}
+                            {% if row.total is defined and row.total %} {% set itemClass = itemClass + " summary__item--total" %}{% endif %}
 
                             <tbody class="summary__item{{ itemClass }}">
-                                {% if row.errorMessage is defined or (row.rowItems | length > 1 and row.rowTitle) %}
+                                {% if row.errorMessage is defined and row.errorMessage or (row.rowItems | length > 1 and row.rowTitle) %}
                                     <tr class="summary__row">
-                                        <th colspan="3" class="summary__row-title u-fs-r">{{  row.errorMessage or row.rowTitle }}</th>
+                                        <th colspan="3" class="summary__row-title u-fs-r">{{ row.errorMessage or row.rowTitle }}</th>
                                     </tr>
                                 {% endif %}
 
@@ -37,9 +37,9 @@
                                     <tr class="summary__row{{ " summary__row--has-values" if rowItem.valueList else "" }}">
                                         <td
                                             class="summary__item-title"
-                                            {% if rowItem.rowTitleAttributes is defined %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                            {% if rowItem.rowTitleAttributes is defined and rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                         >
-                                            {% if rowItem.icon is defined %}
+                                            {% if rowItem.icon is defined and rowItem.icon %}
                                                 {% from "components/icons/_macro.njk" import onsIcon %}
                                                 <span class= "summary__item-title-icon {% if rowItem.icon == 'check' %} summary__item-title-icon--check{% endif %}">
                                                     {{
@@ -53,21 +53,21 @@
                                             <div class="summary__item--text{{ ' summary__item-title--text' if rowItem.icon else "" }}">{{ rowItem.rowTitle | default(row.rowTitle) | safe }} {{ hasIcons }}</div>
 
                                             {# Render section status for mobile if is hub #}
-                                            {% if params.hub is defined and rowItem.valueList is defined %}
+                                            {% if params.hub is defined and params.hub and rowItem.valueList is defined and rowItem.valueList %}
                                                 <span class="u-d-no@s u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
                                             {% endif %}
                                         </td>
-                                        {% if rowItem.valueList is defined %}
+                                        {% if rowItem.valueList is defined and rowItem.valueList %}
                                             <td
                                                 class="summary__values"
                                                 {% if rowItem.actions == null %} colspan="2"{% endif %}
-                                                {% if rowItem.attributes is defined %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                                {% if rowItem.attributes is defined and rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
                                                 {% if rowItem.valueList | length == 1 %}
                                                     {{ rowItem.valueList[0].text | safe }}
-                                                    {% if rowItem.valueList[0].other is defined or rowItem.valueList[0].other == 0 %}
+                                                    {% if rowItem.valueList[0].other is defined and rowItem.valueList[0].other or rowItem.valueList[0].other == 0 %}
                                                         <ul class="u-mb-no">
-                                                            <li>{{  rowItem.valueList[0].other | safe }}</li>
+                                                            <li>{{ rowItem.valueList[0].other | safe }}</li>
                                                         </ul>
                                                     {% endif %}
                                                 {% else %}
@@ -75,7 +75,7 @@
                                                         {% for value in (rowItem.valueList if rowItem.valueList is iterable else rowItem.valueList.items()) %}
                                                             <li>
                                                                 {{ value.text | safe }}
-                                                                {% if value.other is defined or value.other == 0 %}
+                                                                {% if value.other is defined and value.other or value.other == 0 %}
                                                                     <ul class="u-mb-no">
                                                                         <li>{{ value.other | safe }}</li>
                                                                     </ul>
@@ -86,15 +86,15 @@
                                                 {% endif %}
                                             </td>
                                         {% endif %}
-                                        {% if rowItem.actions is defined %}
+                                        {% if rowItem.actions is defined and rowItem.actions %}
                                             <td class="summary__actions">
                                                 {% for action in (rowItem.actions if rowItem.actions is iterable else rowItem.actions.items()) %}
                                                     {% if loop.index > 1 %}<span class="summary__spacer"></span>{% endif %}
                                                     <a
                                                         href="{{ action.url }}"
                                                         class="summary__button"
-                                                        {% if action.ariaLabel is defined %} aria-label="{{ action.ariaLabel | striptags() }}"{% endif %}
-                                                        {% if action.attributes is defined %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                                        {% if action.ariaLabel is defined and action.ariaLabel %} aria-label="{{ action.ariaLabel | striptags() }}"{% endif %}
+                                                        {% if action.attributes is defined and action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                                     >{{ action.text }}</a>
                                                 {% endfor %}
                                             </td>

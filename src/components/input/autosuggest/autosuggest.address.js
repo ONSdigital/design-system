@@ -7,6 +7,7 @@ import abortableFetch from './abortable-fetch';
 
 export const classInputContainer = 'autosuggest-input';
 export const classNotEditable = 'js-address-not-editable';
+export const classMandatory = 'js-address-mandatory';
 export const classSearch = 'js-address-input__search';
 export const classInput = 'js-autosuggest-input';
 export const classInputUPRN = 'js-hidden-uprn';
@@ -23,12 +24,14 @@ export default class AutosuggestAddress {
     this.form = context.closest('form');
     this.container = context.querySelector(`.${classInputContainer}`);
     this.errorMessage = this.container.getAttribute('data-error-message');
+    this.groupCount = this.container.getAttribute('data-group-count');
 
     // State
     this.fetch = null;
     this.totalResults = 0;
     this.errored = false;
     this.isEditable = context.querySelector(`.${classNotEditable}`) ? false : true;
+    this.isMandatory = context.querySelector(`.${classMandatory}`) ? true : false;
     this.addressSelected = false;
     this.groupQuery = '';
 
@@ -62,9 +65,9 @@ export default class AutosuggestAddress {
     this.retrieveURL = `${this.APIDomain}/addresses/eq/uprn/`;
 
     // Query string options
-    this.regionCode = this.container.getAttribute('data-type-region_code');
-    this.epoch = this.container.getAttribute('data-type-one_year_ago');
-    this.classificationFilter = this.container.getAttribute('data-type-address_type');
+    this.regionCode = this.container.getAttribute('data-options-region-code');
+    this.epoch = this.container.getAttribute('data-options-one-year-ago');
+    this.classificationFilter = this.container.getAttribute('data-options-address-type');
 
     this.user = 'equser';
     this.password = '$4c@ec1zLBu';
@@ -119,13 +122,16 @@ export default class AutosuggestAddress {
 
   findAddress(text, grouped) {
     return new Promise((resolve, reject) => {
-      let queryUrl;
+      let queryURL, fullQueryURL;
       const testInput = this.testFullPostcodeQuery(text);
       let limit = testInput ? 100 : 10;
 
-      queryUrl = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
+      queryURL = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
 
-      const fullQueryURL = this.generateURLParams(queryUrl);
+      fullQueryURL = this.generateURLParams(queryURL);
+      if (testInput && grouped !== false) {
+        fullQueryURL = fullQueryURL + '&groupfullpostcodes=combo';
+      }
 
       this.fetch = abortableFetch(fullQueryURL, {
         method: 'GET',
@@ -149,7 +155,7 @@ export default class AutosuggestAddress {
     let mappedResults, currentResults;
     const total = results.total;
 
-    if (results.partpostcode) {
+    if (results.partpostcode || (results.groupfullpostcodes === 'combo' && results.postcodes.length > 1)) {
       mappedResults = await this.postcodeGroupsMapping(results);
       currentResults = mappedResults;
     } else if (results.addresses) {
@@ -202,8 +208,8 @@ export default class AutosuggestAddress {
           ', ' +
           postcode +
           ' (<span class="autosuggest-input__group">' +
-          addressCount +
-          ' addresses</span>)',
+          this.groupCount.replace(`{n}`, addressCount) +
+          '</span>)',
         postcode,
         streetName,
         townName,
@@ -333,10 +339,6 @@ export default class AutosuggestAddress {
       addresstypeParam = '?addresstype=',
       epochParam = '&epoch=72';
 
-    if (this.classificationFilter === 'educational') {
-      this.classificationFilter = 'CE*'; // Convert keyword to code pattern match until AIMS keyword available
-    }
-
     if (this.regionCode === 'gb-nir') {
       addressType = 'nisra';
     } else if (this.lang === 'cy') {
@@ -357,7 +359,7 @@ export default class AutosuggestAddress {
       if (this.regionCode === 'gb-nir') {
         if (this.classificationFilter === 'workplace') {
           fullURL = fullURL + niboostParam;
-        } else if (this.classificationFilter === 'CE*') {
+        } else if (this.classificationFilter === 'educational') {
           fullURL = fullURL + nionlyParam;
         }
       }
@@ -383,9 +385,10 @@ export default class AutosuggestAddress {
   }
 
   handleSubmit(event) {
+    this.addressSetter.checkManualInputsValues(false);
     if (
-      (!this.addressSelected && !this.search.classList.contains('u-d-no')) ||
-      (this.input.value === '' && !this.search.classList.contains('u-d-no'))
+      (!this.addressSelected && this.input.value !== '' && !this.search.classList.contains('u-d-no')) ||
+      (this.isMandatory === true && !this.search.classList.contains('u-d-no'))
     ) {
       event.preventDefault();
       this.handleError = new AddressError(this.context);

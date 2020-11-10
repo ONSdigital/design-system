@@ -1,12 +1,15 @@
 // Census brand
+$color-black: #222;
 $color-branded: #902082;
-$color-branded-tint: rgba(227, 77, 219, 0.15);
-$color-branded-secondary: #ce0f69;
+$color-branded-tint: rgba(144, 32, 130, 0.1); // 10% of brand colour
+$color-branded-secondary: #df0667;
 $color-branded-tertiary: #3c388e;
 $color-branded-supporting: #00a3a6;
 $color-branded-supporting-tint: rgba(#00a3a6, 0.2);
+$color-census-gradient: linear-gradient(to bottom left, #902082 0%, #3c388e 100%);
 
 // Assignment
 $color-header: $color-branded;
 $cta-bg: $color-branded-tint;
 $color-tag-bg: $color-branded-supporting-tint;
+$color-links-hover: $color-black;

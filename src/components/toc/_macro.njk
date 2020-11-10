@@ -3,9 +3,9 @@
   <aside class="toc-container" role="complementary">
     <nav class="toc" aria-label="{{ params.ariaLabel }}">
       <h2 class="toc__title u-fs-r--b u-mb-s">{{ params.title }}</h2>
-      {% if params.lists is defined %}
+      {% if params.lists is defined and params.lists %}
         {% for list in params.lists %}
-          {% if list.listHeading is defined %}
+          {% if list.listHeading is defined and list.listHeading %}
             <h3 class="u-fs-r u-mb-xs">{{ list.listHeading }}<span class="u-vh"> {{ list.listHeadingHidden }}</span>:</h3>
           {% endif %}
           {{
@@ -16,7 +16,7 @@
               })
           }}
         {% endfor %}
-      {% elif params.itemsList is defined %}
+      {% elif params.itemsList is defined and params.itemsList %}
         {{
             onsList({
                 "element": 'ol',

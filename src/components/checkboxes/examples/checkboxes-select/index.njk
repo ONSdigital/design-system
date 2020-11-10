@@ -1,0 +1,63 @@
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+{{
+    onsCheckboxes({
+        "legend": "Select your favourite topping",
+        "checkboxesLabel": "Select all that apply",
+        "name": "food-other",
+        "checkboxes": [
+            {
+                "id": "bacon-other",
+                "label": {
+                    "text": "Bacon"
+                },
+                "value": "bacon"
+            },
+            {
+                "id": "olives-other",
+                "label": {
+                    "text": "Olives"
+                },
+                "value": "olives"
+            },
+            {
+                "id": "pepperoni-other",
+                "label": {
+                    "text": "Pepperoni"
+                },
+                "value": "pepperoni",
+                "other": {
+                    "otherType": "select",
+                    "id": "pepperoni-heat-level",
+                    "name": "pepperoni-heat-level",
+                    "label": {
+                        "text": "Please specify heat level"
+                    },
+                    "options": [
+                        {
+                            "value": "",
+                            "text": "Select heat level",
+                            "disabled": true,
+                            "selected": true
+                        },
+                        {
+                            "value": "mild",
+                            "text": "Mild"
+                        },
+                        {
+                            "value": "medium",
+                            "text": "Medium"
+                        },
+                        {
+                            "value": "hot",
+                            "text": "Hot"
+                        },
+                        {
+                            "value": "extra hot",
+                            "text": "Extra Hot"
+                        }
+                    ]
+                }
+            }
+        ]
+    })
+}}

@@ -6,6 +6,7 @@ group: Help users to...
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/button/_macro.njk" import onsButton %}
 
 ## When to use this pattern
 
@@ -61,13 +62,22 @@ Guidance on specific error messages can be found with each applicable [component
 
 The prototype provides an example of form validation for missing and invalid inputs.  Attempt to submit the form as it is to see the validation in action.
 
-<div class="panel panel--info panel--simple u-mb-m">
-    <div class="panel__body">
-        <strong>Note:</strong> The form in the example prototype will always fail validation.
-    </div>
-</div>
+{{
+    onsPanel({
+        body: "<strong>Note:</strong> The form in the example prototype will always fail validation."
+    })
+}}
 
-<a class="u-mb-m" href="/patterns/error-validation/examples/errors-proto/">Launch prototype</a>
+<div>
+    {{
+        onsButton({
+            "type": 'button',
+            "text": 'Launch prototype',
+            "classes": 'u-mt-m',
+            "url": '/patterns/error-validation/examples/errors-proto/'
+        })
+    }}
+</div>
 
 ## Research on this component
 {% call onsPanel() %}

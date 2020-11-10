@@ -1,6 +1,6 @@
 ---
-title: Anatomy of a question
-group: Questionnaires
+title: Question
+group: Pages
 ---
 
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
@@ -28,6 +28,8 @@ Questions should be wrapped in a fieldset when:
 * If any of the answers to the questions are [Radios](/components/radios)
 * If one of the answers to the question is a [Date](/patterns/dates)
 * If any of the answers to the question are a [Duration](/patterns/durations)
+
+If this is wrapping a relationships pattern its recommended that `readDescriptionFirst` is set to true on so that the description is read first by screenreaders which will make more sense to the user.
 
 ## Examples
 

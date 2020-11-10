@@ -14,7 +14,7 @@
     }) %}
         <div class="radios__items">
             {% for radio in params.radios %}
-                {% if params.or is defined and loop.revindex0 == 0 %}
+                {% if params.or is defined and params.or and loop.revindex0 == 0 %}
                     <span class="radios__label u-mt-s u-fs-r--b" aria-hidden="true">{{ params.or }}, </span>
                 {% endif %}
                 <p class="radios__item">
@@ -26,8 +26,8 @@
                             value="{{ radio.value }}" 
                             name="{{ params.name }}"
                             {% if (radio.checked is defined and radio.checked) or (params.value is defined and params.value == radio.value) %} checked {% endif %}
-                            {% if radio.other is defined and not radio.other.open %} aria-controls="{{ radio.id }}-other-wrap" aria-haspopup="true"{% endif %}
-                            {% if radio.attributes is defined %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value is defined %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+                            {% if radio.other is defined and radio.other and not radio.other.open %} aria-controls="{{ radio.id }}-other-wrap" aria-haspopup="true"{% endif %}
+                            {% if radio.attributes is defined and radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                         >
                         {{ onsLabel({
                             "id": radio.id + "-label",
@@ -38,8 +38,10 @@
                             "description": radio.label.description
                         }) }}
 
-                        {% if radio.other is defined %}
+                        {% if radio.other is defined and radio.other %}
+                            {% set otherType = radio.other.otherType | default('input') %}
                             <span class="radio__other{{ " " + 'radio__other--open' if radio.other.open else "" }}" id="{{ radio.id }}-other-wrap">
+                            {% if otherType == "input" %}
                                 {% from "components/input/_macro.njk" import onsInput %}
                                 {{
                                     onsInput({
@@ -57,6 +59,24 @@
                                         "value": radio.other.value
                                     })
                                 }}
+                            {% elif otherType == "select" %}
+                                {% from "components/select/_macro.njk" import onsSelect %}
+                                {{
+                                    onsSelect({
+                                        "id": radio.other.id,
+                                        "name": radio.other.name,
+                                        "options": radio.other.options,
+                                        "classes": radio.other.classes,
+                                        "label": {
+                                            "id": radio.other.id + "-label",
+                                            "text": radio.other.label.text,
+                                            "classes": 'u-fs-s--b'
+                                        },
+                                        "dontWrap": true,
+                                        "value": radio.other.value
+                                    })
+                                }}
+                            {% endif %}
                             </span>
                         {% endif %}
                     </span>
@@ -66,7 +86,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-        {% if params.clearRadios is defined %}
+        {% if params.clearRadios is defined and params.clearRadios %}
             {{ onsButton({
                 "text": params.clearRadios.text,
                 "name": params.clearRadios.name,

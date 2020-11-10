@@ -1,0 +1,59 @@
+---
+title: Articles
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+The article component contains media, title, metadata and excerpt.
+
+## Featured article
+Below is a featured article placed at the top of the page to add emphasis to a chosen item. The featured article should only appear once on a page.
+
+{{
+    patternlibExample({"path": "components/articles/examples/articles-featured/index.njk"})
+}}
+
+## Single article
+{{
+    patternlibExample({"path": "components/articles/examples/articles-single/index.njk"})
+}}
+
+## Multiple articles
+{{
+    patternlibExample({"path": "components/articles/examples/articles-multiple/index.njk"})
+}}
+
+## How to use this component
+We use two versions of the image, one for standard screens and the other for retina screens.
+
+Image dimension for standard news articles:
+
+* standard screen is: `140px × 92px`
+* retina screen is: `280px × 184px`
+
+Image dimensions for a featured news article:
+
+* standard screen is: `379px × 248px`
+* retina screen is: `758px × 496px`
+
+We specify a folder path for both small and large images, which is defined in the macro as `smallSrc` and `largeSrc`. The filename is expected to be the same for both.
+
+## Research on this pattern
+{% call onsPanel() %}
+    If you have conducted any user research using this pattern, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/1066",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/1066",
+        "linkText": "Discuss 'Articles' on GitHub"
+    })
+}}

@@ -1,21 +1,31 @@
 {%- macro onsCard(params) -%}
+
   {% from "components/lists/_macro.njk" import onsList %}
+
+  {% set titleSize = params.titleSize | default('2') %}
+
   <div class="card" aria-labelledBy="{{ params.id }}" aria-describedBy="{{ params.textId }}" role="navigation" aria-label="{{ params.ariaBy }}">
+    
     {%- if params.image -%}
+    
       <a href="{{ params.url }}" class="u-db">
-        <img class="card__image u-mb-s" alt="{{ params.image.alt }}" src="{{ params.image.src }}">
-        <h2 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
+        <img class="card__image u-mb-s" src="{{ params.image.src }}" alt="{{ params.image.alt }}">
+        <h{{ titleSize }} class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
           {{ params.title }}
-        </h2>
+        </h{{ titleSize }}>
       </a>
+
     {%- else -%}
-      <h2 class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
+
+      <h{{ titleSize }} class="{{ params.titleClasses | default('u-fs-m') }}" id="{{ params.id }}">
         <a href="{{ params.url }}">{{ params.title }}</a>
-      </h2>
+      </h{{ titleSize }}>
+
     {%- endif -%}
 
     <p id="{{ params.textId }}">{{ params.text }}</p>
-    {% if params.itemsList is defined -%}
+
+    {% if params.itemsList is defined and params.itemsList -%}
       {{
           onsList({
               "classes": 'list--dashed',
@@ -23,5 +33,6 @@
           })
       }}
     {% endif %}
+
   </div>
 {%- endmacro -%}

@@ -5,15 +5,16 @@ title: Promotional banner
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 
+A promotional section used for breaking up page content, featuring a headline and a call to action.
+
+## Default
 {{
-    onsPanel({
-        "body": "This pattern requires documentation."
-    })
+    patternlibExample({"path": 'components/promo-banner/examples/promo-banner/index.njk'})
 }}
 
-## Census promotional banner
+## Promotional banner with image
 {{
-    patternlibExample({"path": "components/promo-banner/examples/census-promo-banner/index.njk"})
+    patternlibExample({"path": 'components/promo-banner/examples/promo-banner-with-image/index.njk'})
 }}
 
 ## Research on this component
@@ -21,8 +22,8 @@ title: Promotional banner
     If you have conducted any user research using this pattern, please feed back your findings via the
     {{
         onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/730",
-            "linkText": "Design System Forum"
+            "url": 'https://github.com/ONSdigital/design-system/issues/730',
+            "linkText": 'Design System Forum'
         })
     }}
 {% endcall %}
@@ -30,7 +31,7 @@ title: Promotional banner
 ## Design System forum
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/730",
-        "linkText": "Discuss 'Promotional banner' on GitHub"
+        "url": 'https://github.com/ONSdigital/design-system/issues/730',
+        "linkText": 'Discuss ‘Promotional banner’ on GitHub'
     })
 }}

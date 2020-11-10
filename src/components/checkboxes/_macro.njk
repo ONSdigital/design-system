@@ -8,8 +8,8 @@
         <div class="checkboxes__items">
             {% for checkbox in params.checkboxes %}
                 {% set labelHTML = checkbox.label.text %}
-                {% if params.mutuallyExclusive is defined %}
-                    {% set exclusiveClass = ' js-exclusive-group' %}
+                {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
+                    {% set exclusiveClass = ' js-exclusive-group-item' %}
                 {% endif %}
                 <p class="checkboxes__item">
                     {% set config = {
@@ -28,13 +28,15 @@
                         "attributes": checkbox.attributes
                     } %}
 
-                    {% if checkbox.other is defined %}
+                    {% if checkbox.other is defined and checkbox.other %}
                         {% set config = config | setAttributes({
                             "other": {
                                 "open": checkbox.other.open | default(false),
                                 "id": checkbox.other.id,
                                 "name": checkbox.other.name,
                                 "type": checkbox.other.type,
+                                "otherType": checkbox.other.otherType,
+                                "options": checkbox.other.options,
                                 "classes": checkbox.other.classes | default('') + exclusiveClass | default(''),
                                 "attributes": checkbox.other.attributes,
                                 "label": {
@@ -53,7 +55,7 @@
         </div>
     {% endset %}
 
-    {% if params.mutuallyExclusive is defined %}
+    {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
         {% call onsMutuallyExclusive({
             "id": params.id,
             "description": params.description,

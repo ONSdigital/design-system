@@ -129,6 +129,12 @@ Bare lists should be used to display a list of navigational links, for example, 
     patternlibExample({"path": "styles/typography/lists/examples/list-bare/index.njk", "componentFolderPath": "components/lists"})
 }}
 
+#### Dashed list
+Dashed lists should be used to display a list of content navigational links.
+{{
+    patternlibExample({"path": "styles/typography/lists/examples/list-dashed/index.njk", "componentFolderPath": "components/lists"})
+}}
+
 #### Inline list
 Inline lists should be used to display a horizontal row of links, for example, a list of pages displayed in the [transactional footer](/components/footer#transactional).
 {{
@@ -136,13 +142,18 @@ Inline lists should be used to display a horizontal row of links, for example, a
 }}
 
 ## Icons
-Icons are used to provide affordance to improve user experience. Icons shouldn't be used as decoration and implemented only if there is a user need. We only use icons with text if we have evidence to suggest that it helps the user complete their task.
+Icons are used to provide affordance to improve user experience. Icons shouldn't be used as decoration and implemented only if there is a user need. We only use icons with text if we have evidence to suggest that it helps the user complete their task. When using icons its recommended to use the `list--icons` class, this will space the icons correctly.
 
 __Our current icon set can be used in the following scenarios:__
 
 ### List with progress check icons
 {{
     patternlibExample({"path": "styles/typography/icons/examples/icons-list/index.njk", "componentFolderPath": "components/lists" })
+}}
+
+### List with social icons
+{{
+    patternlibExample({"path": "styles/typography/icons/examples/icons-social-list/index.njk", "componentFolderPath": "components/lists" })
 }}
 __How to use:__ Set `icon` to the name of the icon you want to use on each list item.
 
@@ -154,7 +165,7 @@ __How to use:__ Use the `onsExternalLink` macro using the `url` and `linkText` p
 
 ### Text with secure icon
 {{
-    patternlibExample({"path": "styles/typography/icons/examples/icons-text/index.html"})
+    patternlibExample({"path": "components/panel/examples/bare/index.njk"})
 }}
 __How to use:__ Use the panel component setting `type` to "bare" and icon to the name of the icon you want to use.
 

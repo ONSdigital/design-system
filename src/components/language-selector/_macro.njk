@@ -4,7 +4,7 @@
     <ul class="language-links">
         {% for language in alternativeLanguages %}
             <li class="language-links__item">
-                <a href="{{ language.url }}" lang="{{ language.ISOCode }}" {% if language.attributes is defined %}{% for attribute, value in (language.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ language.text }}</a>
+                <a href="{{ language.url }}" lang="{{ language.ISOCode }}" {% if language.attributes is defined and language.attributes %}{% for attribute, value in (language.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ language.text }}</a>
             </li>
         {% endfor %}
     </ul>

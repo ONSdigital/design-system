@@ -4,7 +4,7 @@
         {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
               <li class="patternlib-subnav__item {{ ' patternlib-subnav__item--active' if (item.url == params.currentPath) }}">
                   <a href="{{ item.url }}" class="patternlib-subnav__link">{{ item.title }}</a>
-                  {% if item.anchors is defined %}
+                  {% if item.anchors is defined and item.anchors %}
                       <ul class="patternlib-subnav__sub-items">
                           {% for anchor in item.anchors %}
                               <li class="patternlib-subnav__item">

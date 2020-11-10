@@ -2,7 +2,7 @@
     {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 
     <div id="{{params.id}}" class="accordion{{ ' ' + params.classes if params.classes }}">
-        {% if params.allButton is defined %}
+        {% if params.allButton is defined and params.allButton %}
             {% from "components/button/_macro.njk" import onsButton %}
             {% set attributes = params.allButton.attributes | default({}) %}
 

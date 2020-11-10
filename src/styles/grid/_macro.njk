@@ -13,7 +13,7 @@
       {%- endfor %}
   </div>
 
-  {% if params.container is defined -%}
+  {% if params.container is defined and params.container -%}
     </div>
   {% endif -%}
 {% endmacro %}

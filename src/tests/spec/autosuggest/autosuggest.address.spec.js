@@ -15,6 +15,7 @@ import fetchMock from 'fetch-mock';
 chai.should();
 chai.use(chaiSpies);
 chai.use(chaiAsPromised);
+
 const params = {
   id: 'address',
   label: {
@@ -42,8 +43,9 @@ const params = {
     errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
     externalInitialiser: true,
     isEditable: true,
+    mandatory: true,
     options: {
-      region_code: 'gb-eng',
+      regionCode: 'gb-eng',
     },
   },
   line1: {
@@ -125,35 +127,24 @@ describe('Autosuggest.address component', function() {
     });
 
     describe('When the API status is checked', function() {
-      describe('When the API returns a 401 or greater', function() {
-        beforeEach(function(done) {
-          this.handleAPIErrorSpy = chai.spy.on(this.autosuggestAddress, 'handleAPIError');
-          setTimeout(() => {
-            const response = {
-              status: {
-                code: 403,
-              },
-            };
-            fetchMock.get(
-              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10',
-              JSON.stringify(response),
-              {
-                overwriteRoutes: true,
-              },
-            );
-            this.autosuggestAddress.checkAPIStatus();
-            done();
+      beforeEach(function(done) {
+        setTimeout(() => {
+          const response = {
+            status: {
+              code: 403,
+            },
+          };
+          fetchMock.get('https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10', JSON.stringify(response), {
+            overwriteRoutes: true,
           });
+          this.autosuggestAddress.checkAPIStatus();
+          done();
         });
+      });
 
-        it('then fetch url should match params', function() {
-          this.lookupURL = 'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10';
-          expect(this.autosuggestAddress.fetch.url).to.equal(this.lookupURL);
-        });
-
-        it('then handleAPIError function should be called', function() {
-          expect(this.handleAPIErrorSpy).to.have.been.called();
-        });
+      it('then fetch url should match params', function() {
+        this.lookupURL = 'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10';
+        expect(this.autosuggestAddress.fetch.url).to.equal(this.lookupURL);
       });
     });
 
@@ -224,7 +215,7 @@ describe('Autosuggest.address component', function() {
         it('then the fetch url should contain the correct limit parameter', function() {
           this.limit = 100;
           expect(this.autosuggestAddress.fetch.url).to.equal(
-            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100',
+            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF14 2NT&limit=100&groupfullpostcodes=combo',
           );
         });
 
@@ -607,6 +598,35 @@ describe('Autosuggest.address component', function() {
           });
         });
 
+        describe('when the selected address is manually changed', function() {
+          beforeEach(function(done) {
+            this.addressSetter = new AddressSetter(this.context);
+            this.formattedAddress = {
+              addressLine1: 'University Of Hertfordshire, Meridian House 32-36',
+              addressLine2: 'The Common',
+              addressLine3: '',
+              townName: 'Hatfield',
+              postcode: 'AL10 0NZ',
+            };
+            this.addressSetter.setAddress(this.formattedAddress);
+            this.autosuggestAddress.addressSetter.setManualMode(true, false);
+            const uprn = document.querySelector('#address-uprn');
+            uprn.value = '1111111';
+            this.addressSetter.checkManualInputsValues(true);
+            const line1 = document.querySelector('#address-line1');
+            line1.value = 'Somewhere else';
+            this.addressSetter.checkManualInputsValues(false);
+            setTimeout(done);
+          });
+
+          it('then the urpn field should be empty', function() {
+            beforeEach(function(done) {
+              setTimeout(done);
+            });
+            expect(document.querySelector('#address-uprn').value).to.equal('');
+          });
+        });
+
         describe('when the submit is invalid', function() {
           beforeEach(function(done) {
             this.errorPanel =
@@ -710,34 +730,6 @@ describe('Autosuggest.address component', function() {
         this.wrapper.remove();
       }
     });
-
-    describe('When the API status is checked', function() {
-      describe('When the API returns a 401 or greater', function() {
-        beforeEach(function(done) {
-          this.handleNoResultsSpy = chai.spy.on(this.autosuggestAddress.autosuggest, 'handleNoResults');
-          setTimeout(() => {
-            const response = {
-              status: {
-                code: 403,
-              },
-            };
-            fetchMock.get(
-              'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10',
-              JSON.stringify(response),
-              {
-                overwriteRoutes: true,
-              },
-            );
-            this.autosuggestAddress.checkAPIStatus();
-            done();
-          });
-        });
-
-        it('then handleNoResults function should be called', function() {
-          expect(this.handleNoResultsSpy).to.have.been.called();
-        });
-      });
-    });
   });
 
   describe('When the component initialises with options - english, epoch, educational', function() {
@@ -746,53 +738,9 @@ describe('Autosuggest.address component', function() {
       autosuggest: {
         externalInitialiser: true,
         options: {
-          region_code: 'gb-eng',
-          one_year_ago: true,
-          address_type: 'educational',
-        },
-      },
-    };
-
-    beforeEach(function(done) {
-      lang = 'en';
-      const component = renderComponent(paramsOptions);
-
-      Object.keys(component).forEach(key => {
-        this[key] = component[key];
-      });
-
-      const context = this.context;
-      this.autosuggestAddress = new AutosuggestAddress(context);
-      done();
-    });
-
-    afterEach(function() {
-      if (this.wrapper) {
-        this.wrapper.remove();
-      }
-    });
-
-    describe('and a query is sent', function() {
-      beforeEach(function(done) {
-        this.autosuggestAddress.suggestAddresses('195 colle', [], false);
-        setTimeout(done);
-      });
-
-      it('then the fetch url should contain the correct parameters', function() {
-        this.limit = 10;
-        expect(this.autosuggestAddress.fetch.url).to.equal('/addresses/eq?input=195 colle&limit=10&classificationfilter=CE*&epoch=72');
-      });
-    });
-  });
-
-  describe('When the component initialises with options - ni, educational', function() {
-    const paramsOptions = {
-      id: 'address',
-      autosuggest: {
-        externalInitialiser: true,
-        options: {
-          region_code: 'gb-nir',
-          address_type: 'educational',
+          regionCode: 'gb-eng',
+          oneYearAgo: true,
+          addressType: 'educational',
         },
       },
     };
@@ -825,7 +773,53 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=CE*&fromsource=nionly',
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&epoch=72',
+        );
+      });
+    });
+  });
+
+  describe('When the component initialises with options - ni, educational', function() {
+    const paramsOptions = {
+      id: 'address',
+      autosuggest: {
+        externalInitialiser: true,
+        options: {
+          regionCode: 'gb-nir',
+          addressType: 'educational',
+        },
+      },
+    };
+
+    beforeEach(function(done) {
+      lang = 'en';
+      const component = renderComponent(paramsOptions);
+
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+
+      const context = this.context;
+      this.autosuggestAddress = new AutosuggestAddress(context);
+      done();
+    });
+
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+      }
+    });
+
+    describe('and a query is sent', function() {
+      beforeEach(function(done) {
+        this.autosuggestAddress.suggestAddresses('195 colle', [], false);
+        setTimeout(done);
+      });
+
+      it('then the fetch url should contain the correct parameters', function() {
+        this.limit = 10;
+        expect(this.autosuggestAddress.fetch.url).to.equal(
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&fromsource=nionly',
         );
       });
     });
@@ -837,8 +831,8 @@ describe('Autosuggest.address component', function() {
       autosuggest: {
         externalInitialiser: true,
         options: {
-          region_code: 'gb-nir',
-          address_type: 'workplace',
+          regionCode: 'gb-nir',
+          addressType: 'workplace',
         },
       },
     };
@@ -894,8 +888,8 @@ describe('Autosuggest.address component', function() {
       autosuggest: {
         externalInitialiser: true,
         options: {
-          region_code: 'gb-wls',
-          address_type: 'workplace',
+          regionCode: 'gb-wls',
+          addressType: 'workplace',
         },
       },
     };

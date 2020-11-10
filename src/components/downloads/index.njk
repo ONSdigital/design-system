@@ -5,23 +5,39 @@ title: Downloads
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-{{
-    onsPanel({
-        "body": "This component requires documentation."
-    })
-}}
-
 Displays a link to download an attachment and metadata about the file.
+
+{{	
+    onsPanel({	
+        "body": "This component requires documentation."	
+    })	
+}}
 
 ## Single download
 {{
     patternlibExample({"path": "components/downloads/examples/downloads-single/index.njk"})
 }}
 
+## Single download (no image)
+In situations an image is not used, we require a fallback image to prevent a broken link.
+{{
+    patternlibExample({"path": "components/downloads/examples/downloads-single-noimage/index.njk"})
+}}
+
 ## Multiple downloads
 {{
     patternlibExample({"path": "components/downloads/examples/downloads-multiple/index.njk"})
 }}
+
+## How to use this component
+We use two versions of the image, one for standard screens and the other for retina screens.
+
+Image dimension for:
+
+* standard screen is: `96px × 136px`
+* retina screen is: `192px × 272px`
+
+We specify a folder path for both small and large images, which is defined in the macro as `smallSrc` and `largeSrc`. The filename is expected to be the same for both.
 
 ## Research on this pattern
 {% call onsPanel() %}

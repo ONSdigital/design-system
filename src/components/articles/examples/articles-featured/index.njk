@@ -1,0 +1,25 @@
+{% from "components/articles/_macro.njk" import onsArticles %}
+{{ onsArticles({
+    "articles": [
+        {
+            "featured": true,
+            "image": {
+                "smallSrc": '/img/small/',
+                "largeSrc": '/img/large/',
+                "filename": 'placeholder-news-medium.png',
+                "alt": 'Census 2021 placeholer'
+            },
+            "url": '#0',
+            "title": 'For the first time the ONS is using administrative data to count number of rooms',
+            "date": {
+                "short": '20 May 2020',
+                "iso": '2020-05-20'
+            },
+            "category": {
+                "title": 'Press releases',
+                "url": '#0'
+            },
+            "excerpt": 'Earlier this year, we asked people who use census data what they thought of our plans for 2021 Census outputs.'
+        }
+    ]
+}) }}

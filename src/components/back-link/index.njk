@@ -1,0 +1,54 @@
+---
+title: Back link
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+A back link is used to help the user go back to the previous page of a transaction or questionnaire.
+
+{{
+    patternlibExample({"path": "components/back-link/examples/back-link/index.njk"})
+}}
+
+## When to use this component
+Always use the back link component on a [question page](/patterns/question/). Use 'previous' as the label in a questionnaire when the previous page is a question.
+
+You should also use a back link on every page of linear transaction, if it makes sense to do so. 
+
+Research has shown users don't often trust the browser back button when navigating back through transactions, especially after submitting form data in financial transactions. Providing a back link helps users feel in control of your service.
+
+## When not to use this component
+Don't use the back link component together with the [breadcrumbs](/components/breadcrumb) component. Don't use it on a website content page that is part of a multi-level heirarchy. 
+
+## How to use this component
+The back link reuses the same interface and parameters as the [breadcrumbs](/components/breadcrumb) component.
+
+Always place back links before a page’s `<main>` content element.  This makes sure the [Skip to content](/components/skip-to-content) link allows the user to skip all navigation, including the back link.
+Where possible this should be set in the [page template](/styles/page-template/) in `pageConfig`. This will ensure it will have the correct placing on the page.
+
+## Research on this component
+Based upon {{
+    onsExternalLink({
+        "url": "https://w3c.github.io/aria-practices/examples/breadcrumb/index.html",
+        "linkText": "W3 principles"
+    })
+}}
+
+{% call onsPanel() %}
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/1055",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/1055",
+        "linkText": "Discuss 'Back link' on GitHub"
+    })
+}}

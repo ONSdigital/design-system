@@ -1,7 +1,7 @@
 {%- macro onsImage(params) -%}
     <figure class="figure">
         <img class="figure__image" src="{{ params.url }}" alt="{{ params.alt }}">
-        {% if params.caption is defined %}
+        {% if params.caption is defined and params.caption %}
             <figcaption class="figure__caption">
                 {{ params.caption }}
             </figcaption>

@@ -6,6 +6,13 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  & &__svg-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    fill: $color-white;
+  }
+
   // Elements
   &__top {
     width: 100%;

@@ -228,6 +228,7 @@ export default function(mode) {
 
       entry: {
         'css/main': ['./scss/main.scss'],
+        'css/print': ['./scss/print.scss'],
         'css/census': ['./scss/census.scss'],
       },
 

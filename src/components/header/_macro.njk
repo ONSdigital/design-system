@@ -5,28 +5,30 @@
 
   {% set currentLanguageISOCode = "en" %}
 
-  {% if params.language is defined and params.language and params.language.languages is defined %}
+  {% if params.language is defined and params.language and params.language.languages is defined and params.language.languages %}
     {% set currentLanguage = params.language.languages | selectattr("current") | first %}
     {% set currentLanguageISOCode = currentLanguage.ISOCode %}
   {% endif %}
 
-  <header class="header {{ params.classes if params.classes }}">
-      {% if params.phase is defined %}
+  <header class="header {{ params.classes if params.classes }}" role="banner">
+      {% if params.phase is defined and params.phase %}
           {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
           {{ onsPhaseBanner(params.phase) }}
       {% endif %}
-      <div class="header__top" role="banner">
+      <div class="header__top">
           <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
               <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap {{ 'header__grid-top-' + params.customHeaderLogo if params.customHeaderLogo }}">
+
                   <div class="grid__col col-auto">
-                    {% if params.logoHref is defined %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
+                    {% if params.logoHref is defined and params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
                       <picture>
-                        <source media="(max-width: 499px)" srcset="{{ params.assetsURL if params.assetsURL }}/img/{{ params.mobileLogo | default('ons-logo-stacked-pos-' + currentLanguageISOCode) }}.svg" alt="{{ params.logoAlt | default('Office for National Statistics logo') }}">
-                        <img class="header__logo" src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.logo | default('ons-logo-pos-' + currentLanguageISOCode) }}.svg" alt="{{ params.logoAlt | default('Office for National Statistics logo') }}">
+                        <source media="(max-width: 499px)" srcset="{{ params.assetsURL if params.assetsURL is defined and params.assetsURL }}/img/{{ params.mobileLogo | default('ons-logo-stacked-pos-' + currentLanguageISOCode) }}.svg" alt="{{ params.logoAlt | default('Office for National Statistics logo') }}">
+                        <img class="header__logo" src="{{ params.assetsURL if params.assetsURL is defined and params.assetsURL }}/img/{{ params.logo | default('ons-logo-pos-' + currentLanguageISOCode) }}.svg" alt="{{ params.logoAlt | default('Office for National Statistics logo') }}">
                       </picture>
-                    {% if params.logoHref is defined %}</a>{% endif %}
+                    {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
                   </div>
-                  {% if params.language is defined and params.language or params.serviceLinks is defined %}
+
+                  {% if params.language is defined and params.language or params.serviceLinks is defined and params.serviceLinks %}
                       <div class="header__links grid__col col-auto">
                           {% if params.language is defined and params.language %}
                               <div class="grid__col col-auto">
@@ -34,7 +36,7 @@
                                   {{ onsLanguageSelector(params.language) }}
                               </div>
                           {% endif %}
-                          {% if params.serviceLinks is defined %}
+                          {% if params.serviceLinks is defined and params.serviceLinks %}
                               <div class="grid__col col-auto u-d-no@xs@m">
                                   <nav class="header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel }}">
                                       <ul class="header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel }}">
@@ -43,7 +45,7 @@
                                                   <a
                                                     href="{{ item.url }}"
                                                     class="header-service-nav__link"
-                                                    {% if item.id is defined %} id="{{ item.id }}"{% endif %}
+                                                    {% if item.id is defined and item.id %} id="{{ item.id }}"{% endif %}
                                                 >{{ item.text }}</a>
                                               </li>
                                           {% endfor %}
@@ -60,18 +62,24 @@
           <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
               <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                   <div class="grid__col col-auto u-flex-shrink">
-                      {% if params.titleLogoHref is defined %}<a class="header__title-link" href="{{ params.titleLogoHref }}">{% endif %}
-                      {% if params.titleLogo is defined and params.titleLogoAlt is defined %}
-                        <img class="header__title-logo" src="{{ params.assetsURL if params.assetsURL }}/img/{{ params.titleLogo }}.svg" alt="{{ params.titleLogoAlt }}">
+                      {% if params.titleLogoHref is defined and params.titleLogoHref %}<a class="header__title-link" href="{{ params.titleLogoHref }}">{% endif %}
+                      {% if params.titleLogo is defined and params.titleLogo and params.titleLogoAlt is defined and params.titleLogoAlt %}
+                        {% from "components/icons/_macro.njk" import onsIcon %}
+                        {{
+                            onsIcon({
+                                "icon": params.titleLogo,
+                                "altText": params.titleLogoAlt
+                            })
+                        }}
                       {% else %}
                         <{{ title_tag }} class="header__title">{{ params.title }}</{{ title_tag }}>
                       {% endif %}
-                      {% if params.titleLogoHref is defined %}</a>{% endif %}
-                      {% if params.desc is defined %}
+                      {% if params.titleLogoHref is defined and params.titleLogoHref %}</a>{% endif %}
+                      {% if params.desc is defined and params.desc %}
                           <p class="header__desc">{{ params.desc }}</p>
                       {% endif %}
                   </div>
-                  {% if params.button is defined %}
+                  {% if params.button is defined and params.button %}
                       <div class="grid__col col-auto u-flex-no-shrink u-d-no@xs@m">
                           {{ onsButton({
                               "text": params.button.text,
@@ -83,7 +91,7 @@
                           }) }}
                       </div>
                   {% endif %}
-                  {% if params.toggleButton is defined %}
+                  {% if params.toggleButton is defined and params.toggleButton %}
                       <div class="grid__col col-auto u-flex-no-shrink u-d-no@m">
                             {{ onsButton({
                                 "text": params.toggleButton.text,
@@ -101,14 +109,14 @@
               </div>
           </div>
       </div>
-      {% if params.navigation is defined %}
+      {% if params.navigation is defined and params.navigation %}
           <div class="header__bottom">
               <div class="container container--gutterless@xs@m{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
                   <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel }}" data-analytics="header-navigation">
                       <ul class="header-nav__list" aria-label="{{ params.navigation.ariaListLabel }}" role="menubar">
                           {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
                               <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">
-                                  <a href="{{ item.url }}" {% if item.id is defined %}id="{{ item.id }}" {% endif %} class="header-nav__link" role="menuitem">{{ item.title }}</a>
+                                  <a href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %} class="header-nav__link" role="menuitem">{{ item.title }}</a>
                               </li>
                           {% endfor %}
                       </ul>

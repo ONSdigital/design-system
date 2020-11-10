@@ -1,0 +1,47 @@
+---
+"fullWidth": true
+---
+{% from "components/footer/_macro.njk" import onsFooter %}
+{{
+    onsFooter({
+        "poweredBy": {
+            "logo": 'nisra-logo-black-en',
+            "alt": 'NISRA - Northern Ireland Statistics and Research Agency'
+        },
+        "crest": true,
+        "rows": [
+            {
+                "itemsList": [
+                    {
+                        "text": 'About the census',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Help with the census',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Contact us',
+                        "url": '#0'
+                    }
+                ]
+            },
+            {
+                "itemsList": [
+                    {
+                        "text": 'Cookies',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Accessibility statement',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Privacy and data protection',
+                        "url": '#0'
+                    }
+                ]
+            }
+        ]
+    })
+}}

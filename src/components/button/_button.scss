@@ -21,7 +21,7 @@ $button-border-height: 3px;
   cursor: pointer;
 
   .svg-icon {
-    margin: 0 0 0 0.5rem;
+    margin: 0 0 0.1rem 0.5rem;
     width: 0.8rem;
     height: 0.8rem;
     vertical-align: middle;
@@ -62,7 +62,7 @@ $button-border-height: 3px;
     color: $color-focus-text;
   }
 
-  &:not([class*='btn--secondary']):not([class*='btn--print']):not([class*='btn--ghost-blue']):focus:hover &__inner {
+  &:not([class*='btn--secondary']):not([class*='btn--print']):focus:hover &__inner {
     color: $color-text-inverse;
   }
 
@@ -207,6 +207,11 @@ $button-border-height: 3px;
     outline: 3px solid transparent;
   }
 
+  &--ghost:focus:hover,
+  &--mobile:focus:hover {
+    outline: none;
+  }
+
   &--ghost:hover &,
   &--mobile:hover & {
     &__inner {
@@ -214,9 +219,8 @@ $button-border-height: 3px;
     }
   }
 
-  &--mobile:focus:not(:hover) &,
   &--ghost:focus:not(:hover) &,
-  &--ghost-blue:focus:not(:hover) & {
+  &--mobile:focus:not(:hover) & {
     &__inner {
       background-color: $color-focus;
       color: $color-focus-text;
@@ -226,33 +230,9 @@ $button-border-height: 3px;
     }
   }
 
-  &--ghost-blue & {
-    &__inner {
-      border: 2px solid $color-blue;
-      background: transparent;
-      color: $color-blue;
-      .svg-icon {
-        fill: $color-blue;
-      }
-    }
-  }
-
   &--mobile[aria-expanded='true'] {
     .svg-icon {
       transform: rotate(270deg);
-    }
-  }
-
-  &--ghost-blue:active & {
-    &__inner {
-      border-color: darken($color-blue, 10%);
-      color: darken($color-blue, 10%);
-    }
-  }
-
-  &--ghost-blue:hover & {
-    &__inner {
-      background: darken($color-grey-5, 5%);
     }
   }
 

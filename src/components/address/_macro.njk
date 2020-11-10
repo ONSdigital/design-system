@@ -3,9 +3,9 @@
 
 {% macro onsAddressInput(params) %}
    {% set fields %}
-    <div id="address" class="field address-input {% if params.autosuggest is defined %}js-address-autosuggest {% endif %}address-input--search">
-            <div class="js-address-input__manual{% if params.autosuggest is defined %} u-db-no-js_enabled{% endif %}">
-                {% if params.organisation is defined %}
+    <div id="address" class="field address-input {% if params.autosuggest is defined and params.autosuggest %}js-address-autosuggest {% endif %}address-input--search">
+            <div class="js-address-input__manual{% if params.autosuggest is defined and params.autosuggest %} u-db-no-js_enabled{% endif %}">
+                {% if params.organisation is defined and params.organisation %}
                     {{
                         onsInput({
                             "id": params.id + "-organisation",
@@ -17,80 +17,80 @@
                         })
                     }}
                 {% endif %}
-                {% if params.line1 is defined %}
-                {{
-                    onsInput({
-                        "id": params.id + "-line1",
-                        "value": params.line1.value,
-                        "label": {
-                            "text": params.line1.label
-                        },
-                        "classes": "input--w-20@m js-address-line1",
-                        "name": params.id + "-line1",
-                        "error": params.line1.error
-                    })
-                }}
+                {% if params.line1 is defined and params.line1 %}
+                    {{
+                        onsInput({
+                            "id": params.id + "-line1",
+                            "value": params.line1.value,
+                            "label": {
+                                "text": params.line1.label
+                            },
+                            "classes": "input--w-20@m js-address-line1",
+                            "name": params.id + "-line1",
+                            "error": params.line1.error
+                        })
+                    }}
                 {% endif %}
-                {% if params.line2 is defined %}
-                {{
-                    onsInput({
-                        "id": params.id + "-line2",
-                        "value": params.line2.value,
-                        "label": {
-                            "text": params.line2.label
-                        },
-                        "classes": "input--w-20@m js-address-line2",
-                        "name": params.id + "-line2"
-                    })
-                }}
+                {% if params.line2 is defined and params.line2 %}
+                    {{
+                        onsInput({
+                            "id": params.id + "-line2",
+                            "value": params.line2.value,
+                            "label": {
+                                "text": params.line2.label
+                            },
+                            "classes": "input--w-20@m js-address-line2",
+                            "name": params.id + "-line2"
+                        })
+                    }}
                 {% endif %}
-                {% if params.town is defined %}
-                {{
-                    onsInput({
-                        "id": params.id + "-town",
-                        "value": params.town.value,
-                        "label": {
-                            "text": params.town.label
-                        },
-                        "classes": "js-address-town",
-                        "name": params.id + "-town"
-                    })
-                }}
+                {% if params.town is defined and params.town %}
+                    {{
+                        onsInput({
+                            "id": params.id + "-town",
+                            "value": params.town.value,
+                            "label": {
+                                "text": params.town.label
+                            },
+                            "classes": "js-address-town",
+                            "name": params.id + "-town"
+                        })
+                    }}
                 {% endif %}
-                {% if params.postcode is defined %}
-                {{
-                    onsInput({
-                        "id": params.id + "-postcode",
-                        "value": params.postcode.value,
-                        "label": {
-                            "text": params.postcode.label
-                        },
-                        "classes": "input--w-5 js-address-postcode",
-                        "name": params.id + "-postcode"
-                    })
-                }}
+                {% if params.postcode is defined and params.postcode %}
+                    {{
+                        onsInput({
+                            "id": params.id + "-postcode",
+                            "value": params.postcode.value,
+                            "label": {
+                                "text": params.postcode.label
+                            },
+                            "classes": "input--w-5 js-address-postcode",
+                            "name": params.id + "-postcode"
+                        })
+                    }}
                 {% endif %}
-                {{
-                    onsInput({
-                        "id": params.id + "-uprn",
-                        "classes": "js-hidden-uprn u-d-no",
-                        "type": "hidden",
-                        "name": params.id + "-uprn",
-                        "value": params.uprn.value
-                    })
-                }}
-                {% if params.autosuggest is defined %}
+                    {{
+                        onsInput({
+                            "id": params.id + "-uprn",
+                            "classes": "js-hidden-uprn u-d-no",
+                            "type": "hidden",
+                            "name": params.id + "-uprn",
+                            "value": params.uprn.value
+                        })
+                    }}
+                {% if params.autosuggest is defined and params.autosuggest %}
                     <div class="u-mt-s">
                         <a href="#" class="js-address-search-btn u-db-no-js_disabled">{{ params.searchButton }}</a>
                     </div>
                 {% endif %}
             </div>
-            {% if params.autosuggest is defined %}
+            {% if params.autosuggest is defined and params.autosuggest %}
                 <div class="js-address-input__search u-db-no-js_disabled">
                     {{
                         onsInput({
                             "id": params.id + "-autosuggest",
-                            "classes": "address-input__autosuggest js-autosuggest-input input--w-50 u-mb-s",
+                            "classes": "address-input__autosuggest js-autosuggest-input input--w-50 u-mb-no",
                             "label": {
                                 "text": params.autosuggest.label.text,
                                 "classes": "js-autosuggest-label"
@@ -98,6 +98,7 @@
                             "autosuggest": {
                                 "externalInitialiser": true,
                                 "APIDomain": params.autosuggest.APIDomain,
+                                "mandatory": params.autosuggest.mandatory,
                                 "instructions": params.autosuggest.instructions,
                                 "autocomplete": params.autosuggest.autocomplete,
                                 "isEditable": params.autosuggest.isEditable,
@@ -106,6 +107,8 @@
                                 "ariaOneResult": params.autosuggest.ariaOneResult,
                                 "ariaNResults": params.autosuggest.ariaNResults,
                                 "ariaLimitedResults": params.autosuggest.ariaLimitedResults,
+                                "ariaGroupedResults": params.autosuggest.ariaGroupedResults,
+                                "groupCount": params.autosuggest.groupCount,
                                 "moreResults": params.autosuggest.moreResults,
                                 "tooManyResults": params.autosuggest.tooManyResults,
                                 "resultsTitle": params.autosuggest.resultsTitle,
@@ -120,13 +123,13 @@
                             }
                         })
                     }}
-                    <a href="#" class="js-address-manual-btn">{{ params.manualButton }}</a>
+                    <a href="#" class="js-address-manual-btn u-mt-s u-dib">{{ params.manualButton }}</a>
                 </div>
             {% endif %}
         </div>
     {% endset %}
 
-    {% if params.dontWrap is defined %}
+    {% if params.dontWrap is defined and params.dontWrap %}
         {{ fields | safe }}
     {% else %}
         {% call onsFieldset({

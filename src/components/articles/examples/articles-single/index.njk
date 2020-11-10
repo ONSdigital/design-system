@@ -1,0 +1,24 @@
+{% from "components/articles/_macro.njk" import onsArticles %}
+{{ onsArticles({
+    "articles": [
+        {
+            "image": {
+                "smallSrc": '/img/small/',
+                "largeSrc": '/img/large/',
+                "filename": 'placeholder-news.png',
+                "alt": 'Census 2021 placeholer'
+            },
+            "url": '#0',
+            "title": 'Find out what users told us about our plans for 2021 Census Outputs',
+            "date": {
+                "short": '20 May 2020',
+                "iso": '2020-05-20'
+            },
+            "category": {
+                "title": 'Press releases',
+                "url": '#0'
+            },
+            "excerpt": 'Earlier this year, we asked people who use census data what they thought of our plans for 2021 Census outputs.'
+        }
+    ]
+}) }}

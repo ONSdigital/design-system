@@ -1,0 +1,29 @@
+{% from "components/lists/_macro.njk" import onsList %}
+{{
+    onsList({
+        "classes": 'list--bare list--inline list--icons',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Twitter',
+                "prefixIcon": 'twitter',
+                "iconSize": 'xxl',
+                "rel": 'noreferrer external'
+            },
+            {
+                "url": '#0',
+                "text": 'Facebook',
+                "prefixIcon": 'facebook',
+                "iconSize": 'xxl',
+                "rel": 'noreferrer external'
+            },
+            {
+                "url": '#0',
+                "text": 'Instagram',
+                "prefixIcon": 'instagram',
+                "iconSize": 'xxl',
+                "rel": 'noreferrer external'
+            }
+        ]
+    })
+}}

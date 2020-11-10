@@ -1,0 +1,111 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% set pageConfig = {
+    "theme": 'census',
+    "header": {
+        "logoHref": pageInfo.rootPath,
+        "titleLogo": 'census-logo-en',
+        "titleLogoHref": pageInfo.rootPath + '/home',
+        "titleLogoAlt": 'Census 2021'
+    },
+    "title": "Service name",
+    "language": {
+        "languages": [
+            {
+                "url": '#0',
+                "ISOCode": 'en',
+                "text": 'English',
+                "buttonAriaLabel": 'Language selector. Current language: English',
+                "chooseLanguage": 'Choose language',
+                "current": true
+            },
+            {
+                "url": '#',
+                "ISOCode": 'cy',
+                "text": 'Cymraeg',
+                "buttonAriaLabel": 'Dewisydd iaith. Iaith gyfredol: Cymraeg',
+                "chooseLanguage": 'Dewiswch iaith',
+                "current": false
+            }
+        ]
+    },
+    "footer": {
+        "crest": true,
+        "cols": [
+            {
+                "title": 'Get in touch',
+                "itemsList": [
+                    {
+                        "text": 'Contact us',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Media enquiries',
+                        "url": '#0'
+                    }
+                ]
+            },
+            {
+                "title": 'Get involved',
+                "itemsList": [
+                    {
+                        "text": 'Local authorities',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Community groups',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'School campaigns',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Jobs',
+                        "url": '#0'
+                    }
+                ]
+            },
+            {
+                "title": 'About the census',
+                "itemsList": [
+                    {
+                        "text": 'What is the census',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Why you should take part',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Census stories',
+                        "url": '#0'
+                    }
+                ]
+            }
+        ],
+        "rows": [
+            {
+                "itemsList": [
+                    {
+                        "text": 'Cookies',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Accessibility',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Privacy and data protection',
+                        "url": '#0'
+                    }
+                ]
+            }
+        ]
+    }
+} %}
+{% block main %}
+    <h1>Page Title</h1>
+{% endblock %}

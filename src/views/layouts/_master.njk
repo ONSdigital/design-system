@@ -6,8 +6,8 @@
     {% set pageConfig = {} %}
 {% endif %}
 
-{% if pageConfig.lang is defined %}
-   {% set pageConfig =  pageConfig | setAttributes({
+{% if pageConfig.lang is defined and pageConfig.lang %}
+   {% set pageConfig = pageConfig | setAttributes({
        "language": {
            "languages": [
                 {
@@ -19,20 +19,20 @@
    }) %}
 {% endif %}
 
-{% if example is defined %}
+{% if example is defined and example %}
     {% set bodyClasses = bodyClasses + " patternlib-page--example" %}
-    {% if page.theme is defined %}
-        {% set pageConfig =  pageConfig | setAttributes({
+    {% if page.theme is defined and page.theme %}
+        {% set pageConfig = pageConfig | setAttributes({
             "theme": page.theme
         }) %}
     {% endif %}
 {% endif %}
 
-{% if page.fullWidth is defined %}
+{% if page.fullWidth is defined and page.fullWidth %}
     {% set bodyClasses = bodyClasses + " u-p-no" %}
 {% endif %}
 
-{% set pageConfig =  pageConfig | setAttribute("bodyClasses", bodyClasses) %}
+{% set pageConfig = pageConfig | setAttribute("bodyClasses", bodyClasses) %}
 
 {% block head %}
     <link rel="stylesheet" href="/css/patternlib.css">

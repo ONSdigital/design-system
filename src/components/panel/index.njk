@@ -31,6 +31,7 @@ There are two panel types for errors; error with header and error. See the [corr
 #### Error with header
 Used to provide feedback to the user that something is in an error state. This can range from input validation errors to server downtime.
 Content should be descriptive of the error and always direct the user towards a resolution.
+We recommend setting `titleTag` to `h1` if used for error summaries like the example below.
 {{
     patternlibExample({"path": "components/panel/examples/error-header/index.njk"})
 }}
@@ -49,6 +50,12 @@ The spacious variant can be used on all inline variants.
 ### Branded - census
 {{
     patternlibExample({"path": "components/panel/examples/branded/index.njk"})
+}}
+
+### Bare
+The bare variant is used to show plain text next to an icon. This is used in the access code pattern.
+{{
+    patternlibExample({"path": "components/panel/examples/bare/index.njk"})
 }}
 
 ## Research on this component

@@ -4,11 +4,11 @@
 
 {% set tag = "a" if params.url else "button" %}
 
-{% if params.icon is defined %}
+{% if params.icon is defined and params.icon %}
   {% set iconType = params.icon.iconType %}
   {% set iconPosition = params.icon.iconPosition %}
 {% else %}
-  {% if params.url is defined and params.newWindow is defined %}
+  {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}
     {% set iconType = "external-link" %}
     {% set iconPosition = "after" %}
   {% elif params.buttonStyle == "print" %}
@@ -20,28 +20,28 @@
   {% elif params.submitType == "loader" %}
     {% set iconType = "loader" %}
     {% set iconPosition = "after" %}
-  {% elif params.url is defined or params.buttonStyle == "mobile" %}
+  {% elif params.url is defined and params.url or params.buttonStyle == "mobile" %}
     {% set iconType = "chevron" %}
     {% set iconPosition = "after" %}
   {% endif %}
 {% endif %}
 
   <{{ tag }}
-      {% if params.url is defined %}
+      {% if params.url is defined and params.url %}
         href="{{ params.url }}"
         role="button"
       {% else %}
-        type="{{ params.type if params.type is defined else ('button' if params.buttonStyle == "print" else 'submit') }}"
+        type="{{ params.type if params.type is defined and params.type else ('button' if params.buttonStyle == "print" else 'submit') }}"
       {% endif %}
-      class="btn{% if params.classes is defined %} {{ params.classes }}{% endif %}{% if params.url is defined and not params.hideCaret %} btn--link{% endif %}{% if params.disabled is defined %} btn--disabled{% endif %}{% if params.buttonStyle == "print" %} btn--print u-d-no js-print-btn{% endif %}{% if params.buttonStyle == "exit" %} btn--exit{% endif %}{% if params.submitType == "loader" %} btn--loader js-loader js-submit-btn{% endif %}{% if params.submitType == "timer" %} js-timer js-submit-btn{% endif %}"
-      {% if params.id is defined %}id="{{ params.id }}"{% endif %}
-      {% if params.value is defined %}value="{{ params.value }}"{% endif %}
-      {% if params.name is defined %}name="{{ params.name }}"{% endif %}
-      {% if params.disabled is defined %} disabled{% endif %}
-      {% if params.url is defined and params.newWindow is defined %}target="_blank" rel="noopener"{% endif %}
-      {% if params.attributes is defined %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+      class="btn{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.url is defined and params.url and not params.hideCaret %} btn--link{% endif %}{% if params.disabled is defined and params.disabled %} btn--disabled{% endif %}{% if params.buttonStyle == "print" %} btn--print u-d-no js-print-btn{% endif %}{% if params.buttonStyle == "exit" %} btn--exit{% endif %}{% if params.submitType == "loader" %} btn--loader js-loader js-submit-btn{% endif %}{% if params.submitType == "timer" %} js-timer js-submit-btn{% endif %}"
+      {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}
+      {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
+      {% if params.name is defined and params.name %}name="{{ params.name }}"{% endif %}
+      {% if params.disabled is defined and params.disabled %} disabled{% endif %}
+      {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}target="_blank" rel="noopener"{% endif %}
+      {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
       >
-      <span class="btn__inner{% if params.innerClasses is defined %} {{ params.innerClasses }}{% endif %}">
+      <span class="btn__inner{% if params.innerClasses is defined and params.innerClasses %} {{ params.innerClasses }}{% endif %}">
         {% if iconPosition == "before" %}
           {{
             onsIcon({
@@ -49,7 +49,7 @@
             })
           }}
         {% endif %}
-        {{- params.html | safe if params.html is defined else params.text -}}
+        {{- params.html | safe if params.html is defined and params.html else params.text -}}
         {% if iconPosition == "after" %}
           {{
             onsIcon({
@@ -58,18 +58,18 @@
           }}
         {% endif %}
       </span>
-      {% if params.url is defined and params.newWindow is defined %}
+      {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}
         <span class="btn__new-window-description u-vh">{{ params.newWindowDescription | default("opens in a new window") }}</span>
       {% endif %}
-      {% if params.buttonContext is defined %}
+      {% if params.buttonContext is defined and params.buttonContext %}
         <span class="btn__context u-vh">{{ params.buttonContext }}</span>
       {% endif %}
       {% if params.listeners %}
-        <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
+        <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% endif %}>
         {% for listener, value in (params.listeners.items() if params.listeners is mapping and params.listeners.items else params.listeners) %}
           document.getElementById("{{ params.id }}").addEventListener('{{ listener }}', function(){ {{ value }} });
         {% endfor %}
         </script>
-      {% endif %}  
+      {% endif %}
   </{{ tag }}>
 {% endmacro %}

@@ -10,7 +10,8 @@
 | title         | string                                             | true                                 | The title for the service                                                   |
 | desc          | string                                             | false                                | Tagline/description for the service                                         |
 | button        | `Button` [_(ref)_](/components/button)             | false                                | Settings for save and sign out using the button component                   |
-| navigation    | `Array<Navigation>`                                | false                                | An array to render the main navigation                                      |
+| navigation    | `Array<Navigation>`                                | true (if `toggleButton` supplied)    | An array of all navigation links                                            |
+| toggleButton  | `Array<ToggleButton>`                              | true (if `navigation` supplied)      | Configuration for the mobile navigation toggle button                       |
 | titleAsH1     | boolean                                            | false                                | Override to render the header title as a H1                                 |
 | titleLogo     | string                                             | false                                | URL for image to use instead of a title string                              |
 | titleLogoAlt  | string                                             | false (if `titleLogo` not specified) | Alt tag for the title logo                                                  |
@@ -27,6 +28,13 @@
 | ariaListLabel | string        | true     | The aria-label added to the navigation list                                                                                                 |
 | itemsList     | `Array<Item>` | true     | An array of list items to render in the navigation element                                                                                  |
 | siteBasePath  | string        | false    | If the base path for your site is not `/` (i.e. in a prototype), you can use this to get the active functionality working on your Home link |
+
+## ToggleButton
+
+| Name      | Type   | Required | Description                           |
+| --------- | ------ | -------- | ------------------------------------- |
+| text      | string | true     | Text to be displayed on toggle button |
+| ariaLabel | string | true     | Aria label for toggle button          |
 
 ## Item
 

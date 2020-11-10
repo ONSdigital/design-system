@@ -12,17 +12,46 @@ layout: none
 {% from "components/date-input/_macro.njk" import onsDateInput %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 {% from "components/password/_macro.njk" import onsPassword %}
+{% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
 
 {% set pageConfig = {
     "title": "Errors Prototype"
 } %}
+
+{% block preMain %}
+    {{
+        onsBreadcrumb({
+            "ariaLabel": 'Breadcrumb',
+            "itemsList": [
+                {
+                    "url": '/',
+                    "text": 'Home'
+                },
+                {
+                    "url": '/patterns',
+                    "text": 'Patterns'
+                },
+                {
+                    "url": '/patterns/error-validation',
+                    "text": 'Correct errors'
+                },
+                {
+                    "url": '/patterns/error-validation/examples/errors-proto/',
+                    "text": 'Error Prototype',
+                    "current": true
+                }
+            ]
+        })
+    }}
+{% endblock %}
 
 
 {% block main %}
     {% call onsPanel({
             "title": "There are 7 problems with your answer",
             "type": "error",
-            "classes": "question__errors"
+            "classes": "question__errors",
+            "titleTag": "h1"
         })
     %}
 
@@ -41,17 +70,17 @@ layout: none
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Select one answer",
-                        "url": "#error",
+                        "text": "Select an answer",
+                        "url": "#radios",
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Enter a date",
+                        "text": "Enter a date of birth",
                         "url": "#date",
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Select toppings",
+                        "text": "Select at least one answer",
                         "url": "#check",
                         "classes": "js-inpagelink"
                     },
@@ -121,9 +150,9 @@ layout: none
             onsRadios({
                 "legend": "How many employees do you employ?",
                 "name": "food",
-                "id": "radios-1",
+                "id": "radios",
                 "error": {
-                    "text": "Select one answer",
+                    "text": "Select an answer",
                     "id": "error"
                 },
                 "radios": [
@@ -137,9 +166,24 @@ layout: none
                     {
                         "id": "b",
                         "label": {
-                            "text": "More than 10 employees"
+                            "text": "6 - 10 employees"
                         },
                         "value": "b"
+                    },
+                    {
+                        "id": "c",
+                        "label": {
+                            "text": "More than 10 employees"
+                        },
+                        "value": "other",
+                        "other": {
+                            "open": true,
+                            "id": "other-textbox",
+                            "name": "other-answer",
+                            "label": {
+                                "text": "Please specify other"
+                            }
+                        }
                     }
                 ]
             })
@@ -178,7 +222,7 @@ layout: none
                     }
                 },
                 "error": {
-                    "text": "Enter a date",
+                    "text": "Enter a date of birth",
                     "id": "date"
                 }
             })
@@ -189,7 +233,7 @@ layout: none
                 "checkboxesLabel": "Select all that apply",
                 "name": "food",
                 "error": {
-                    "text": "Select answers",
+                    "text": "Select at least one answer",
                     "id": "check"
                 },
                 "checkboxes": [
@@ -241,7 +285,7 @@ layout: none
                 "id": "email",
                 "type": "email",
                 "label": {
-                    "text": "Enter an email address"
+                    "text": "Email address"
                 },
                 "error": {
                     "text": "Enter an email address",

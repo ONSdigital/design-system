@@ -10,10 +10,38 @@ layout: none
 {% from "components/date-input/_macro.njk" import onsDateInput %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 {% from "components/password/_macro.njk" import onsPassword %}
+{% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
 
 {% set pageConfig = {
     "title": "Errors Prototype"
 } %}
+
+{% block preMain %}
+    {{
+        onsBreadcrumb({
+            "ariaLabel": 'Breadcrumb',
+            "itemsList": [
+                {
+                    "url": '/',
+                    "text": 'Home'
+                },
+                {
+                    "url": '/patterns',
+                    "text": 'Patterns'
+                },
+                {
+                    "url": '/patterns/error-validation',
+                    "text": 'Correct errors'
+                },
+                {
+                    "url": '/patterns/error-validation/examples/errors-proto/',
+                    "text": 'Error Prototype',
+                    "current": true
+                }
+            ]
+        })
+    }}
+{% endblock %}
 
 {% set form = {
     "method": "GET",
@@ -78,9 +106,24 @@ layout: none
                     {
                         "id": "b",
                         "label": {
-                            "text": "More than 10 employees"
+                            "text": "6 - 10 employees"
                         },
                         "value": "b"
+                    },
+                    {
+                        "id": "c",
+                        "label": {
+                            "text": "More than 10 employees"
+                        },
+                        "value": "other",
+                        "other": {
+                            "open": true,
+                            "id": "other-textbox",
+                            "name": "other-answer",
+                            "label": {
+                                "text": "Please specify other"
+                            }
+                        }
                     }
                 ]
             })

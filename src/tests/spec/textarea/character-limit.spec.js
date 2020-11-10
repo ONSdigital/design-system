@@ -4,7 +4,7 @@ import CharLimit from 'components/char-check-limit/character-limit';
 
 const params = {
   id: 'textarea-char-limit',
-  name: 'feedback-limmited',
+  name: 'feedback-limited',
   classes: 'input--w-30',
   label: {
     text: 'Please provide some feedback',
