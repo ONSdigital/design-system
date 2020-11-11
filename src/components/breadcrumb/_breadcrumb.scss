@@ -36,7 +36,7 @@ $breadcrumb-chevron-height: 0.65rem;
       }
     }
 
-    @include mq(s) {
+    @include mq(m) {
       //big screen
       &:not(:nth-last-child(1)) {
         //not last child
