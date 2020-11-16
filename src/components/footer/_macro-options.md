@@ -5,6 +5,7 @@
 | copyrightDeclaration | `copyrightDeclaration`                 | false    | An object containing settings for the Copyright Declaration                                          |
 | cols                 | `Array<FooterCol>`                     | false    | An array of `FooterCol` objects. _Maximum of 3_                                                      |
 | rows                 | `Array<FooterRow>`                     | false    | An array of `FooterRow` objects                                                                      |
+| legal                | `Array<LegalRow>`                      | false    | An array of `LegalRow` objects                                                                       |
 | poweredBy            | boolean &#124; `PoweredBy`             | false    | Whether to show the ONS logo, and optionally settings for the logo                                   |
 | lang                 | string                                 | false    | The current page language. Will change out the ONS logo if `poweredBy` is provided. Defaults to `en` |
 | button               | `Button` [_(ref)_](/components/button) | false    | Settings for save and sign out using the button component                                            |
@@ -38,6 +39,12 @@
 | title     | string                                                 | false    | The title of the column        |
 
 ## FooterRow
+
+| Name      | Type                                                   | Required | Description                 |
+| --------- | ------------------------------------------------------ | -------- | --------------------------- |
+| itemsList | `Array<ListItem>` [_(ref)_](/styles/typography/#lists) | true     | A list of links for the row |
+
+## LegalRow
 
 | Name      | Type                                                   | Required | Description                 |
 | --------- | ------------------------------------------------------ | -------- | --------------------------- |
