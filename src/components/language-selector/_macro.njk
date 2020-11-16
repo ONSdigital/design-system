@@ -1,7 +1,8 @@
 {% macro onsLanguageSelector(params) %}
     {% set alternativeLanguages = params.languages | rejectattr("current") %}
+    {% set languageNumber = params.languages | length %}
 
-    <ul class="language-links u-d-no@xs@m">
+    <ul class="language-links{% if languageNumber and languageNumber != 2 %} u-d-no@xs@m{% endif %}">
         {% for language in alternativeLanguages %}
             <li class="language-links__item">
                 <a href="{{ language.url }}" lang="{{ language.ISOCode }}" {% if language.attributes is defined and language.attributes %}{% for attribute, value in (language.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ language.text }}</a>
