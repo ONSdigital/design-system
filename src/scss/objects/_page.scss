@@ -16,8 +16,11 @@
 }
 
 .page__main {
-  @extend .u-mt-s;
+  margin-top: 2.5rem;
   margin-bottom: 4.5rem;
+  @include mq('xs', 'm') {
+    margin-top: 1.5rem;
+  }
 }
 
 .page__body {
