@@ -11,8 +11,7 @@
     {% set otherLanguageISOCode = otherLanguage.ISOCode %}
 {% endif %}
 
-
-{% set pageColNumber = pageConfig.pageColNumber if pageConfig.pageColNumber is defined and pageConfig.pageColNumber else "8" %}
+{% set pageColNumber = "8" %}
 
 {% if pageConfig.cdn is defined and pageConfig.cdn or release_version is defined and release_version %}
     {# Production #}
