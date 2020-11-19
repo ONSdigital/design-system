@@ -14,10 +14,11 @@
 
 ## SummaryGroup
 
-| Name       | Type                 | Required | Description                            |
-| ---------- | -------------------- | -------- | -------------------------------------- |
-| rows       | Array`<SummaryRows>` | true     | An array of rows within a group        |
-| groupTitle | string               | false    | The title for a summary within a group |
+| Name       | Type                    | Required | Description                                             |
+| ---------- | ----------------------- | -------- | ------------------------------------------------------- |
+| rows       | Array`<SummaryRows>`    | true     | An array of rows within a group                         |
+| groupTitle | string                  | false    | The title for a summary within a group                  |
+| headers    | Array`<SummaryHeaders>` | false    | An array of headers to describe the data in the summary |
 
 ## SummaryRow
 

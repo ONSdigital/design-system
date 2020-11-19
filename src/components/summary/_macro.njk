@@ -21,6 +21,16 @@
                         <h{{ titleSize }} class="summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
                     <table class="summary__items">
+                        {% if group.headers is defined and group.headers %}
+                            <thead class="u-vh">
+                                <tr>
+                                    {% for header in group.headers %}
+                                        <th>{{ header }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                        {% endif %}
+
                         {% for row in (group.rows if group.rows is iterable else group.rows.items()) %}
                             {% set itemClass = "" %}
                             {% if row.error is defined and row.error %} {% set itemClass = " summary__item--error" %}{% endif %}
