@@ -26,7 +26,6 @@
 
     <footer class="footer">
 
-
         {% if params.footerWarning is defined and params.footerWarning %}
             {% from "components/panel/_macro.njk" import onsPanel %}
             <div class="footer__warning">
@@ -41,7 +40,6 @@
                 </div>
             </div>
         {% endif %}
-
 
         {% if params.button is defined and params.button %}
             {% from "components/button/_macro.njk" import onsButton %}
@@ -63,13 +61,10 @@
             </div>
         {% endif %}
 
-
         <div class="footer--body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
-            
 
             <div class="container{{ ' container--wide' if params.wide }}">
-              
-             
+
                 <div class="grid">
 
 
@@ -78,7 +73,6 @@
                             {{ poweredByLogo | safe }}
                         </div>
                     {% endif %}
-
 
                     {% if params.language is defined and params.language %}
                         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
@@ -103,13 +97,11 @@
                         </div>
                     {% endif %}
 
-
                     {% if params.newTabWarning is defined and params.newTabWarning %}
                         <div class="grid__col">
                             <p class="u-fs-s u-mb-m">{{ params.newTabWarning }}</p>
                         </div>
                     {% endif %}
-
 
                     {% if params.cols is defined and params.cols %}
                         {% for col in params.cols %}
@@ -127,13 +119,11 @@
                         {% endfor %}
                     {% endif %}
 
-
                     {% if params.cols is defined and params.cols and params.rows is defined and params.rows %}
                         <div class="grid__col u-mb-m">
                             <hr class="footer__hr">
                         </div>
                     {% endif %}
-
 
                     {% if params.rows is defined and params.rows %}
 
@@ -160,7 +150,6 @@
                         {% endfor %}
 
                     {% endif %}
-
 
                     {% if params.OGLLink is defined and params.OGLLink %}
 
@@ -190,13 +179,11 @@
 
                     {% endif %}
 
-
                     {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined %}
                         <div class="grid__col u-mb-m">
                             <hr class="footer__hr">
                         </div>
                     {% endif %}
-
 
                     {% if params.OGLLink is not defined and params.legal is not defined %}
 
@@ -212,21 +199,19 @@
 
                     {% endif %}
 
-
                 </div>
 
-
-                {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined %}
+                {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined or params.cols is defined and params.cols and params.OGLLink is not defined %}
 
                     <div class="grid grid--flex grid--vertical-top grid--between">
 
                         {% if params.legal is defined and params.legal %}
-                            
+
                             <!-- Legal -->
                             {% for legal in params.legal %}
-                                
+
                                 <div class="grid__col">
-                                  
+
                                     {{
                                         onsList({
                                             "classes": 'list--bare u-mb-m list--inline',
@@ -249,7 +234,7 @@
                             <div class="grid__col">
                                 {{ crestLogo | safe }}
                             </div>
-                        {% else %}
+                        {% elif params.legal is defined and params.legal %}
                             <!-- Powered by -->
                             <div class="grid__col">
                                 <div class="poweredbylogo">{{ poweredByLogo | safe }}</div>
@@ -260,12 +245,11 @@
 
                 {% endif %}
 
-
                 {% if params.copyrightDeclaration is defined and params.copyrightDeclaration %}
-                    
+
                     <!-- Copyright -->
                     <div class="grid"> 
-                
+
                         <div class="grid__col u-mt-s">
                             <p class="u-fs-s u-mb-no">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }} <a href="{{ params.copyrightDeclaration.url }}" {% if params.copyrightDeclaration.newWindow is defined and params.copyrightDeclaration.newWindow %}target="_blank" rel="noopener"{% endif %}>{{ params.copyrightDeclaration.link }}</a>.</p>
                         </div>
@@ -274,14 +258,10 @@
 
                 {% endif %}
 
-
             </div>
-
 
         </div>
 
-
     </footer>
-
 
 {% endmacro %}
