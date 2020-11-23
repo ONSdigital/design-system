@@ -198,11 +198,6 @@ export default class AutosuggestUI {
     }
   }
 
-  // handleFocus() {
-  //   clearTimeout(this.blurTimeout);
-  //   this.getSuggestions(true);
-  // }
-
   handleBlur() {
     clearTimeout(this.blurTimeout);
     this.blurring = true;
@@ -401,7 +396,7 @@ export default class AutosuggestUI {
       message = this.typeMore;
       this.setAriaStatus(message);
       this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
-    } else if (status > 400) {
+    } else if (status > 400 || status === '') {
       message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>' : '');
 
       this.input.setAttribute('disabled', true);
