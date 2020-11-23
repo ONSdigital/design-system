@@ -108,7 +108,6 @@ export default class AddressSetter {
 
   checkManualInputsValues(onLoad) {
     if (onLoad) {
-      console.log(onLoad);
       this.originalValues = this.manualInputs.map(input => {
         return input.value;
       });
