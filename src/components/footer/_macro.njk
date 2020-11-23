@@ -202,7 +202,7 @@
 
                 </div>
 
-                {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined %}
+                {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined or params.cols is defined and params.cols and params.OGLLink is not defined %}
 
                     <div class="grid grid--flex grid--vertical-top grid--between">
 
@@ -235,7 +235,7 @@
                             <div class="grid__col">
                                 {{ crestLogo | safe }}
                             </div>
-                        {% else %}
+                        {% elif params.legal is defined and params.legal %}
                             <!-- Powered by -->
                             <div class="grid__col">
                                 <div class="poweredbylogo">{{ poweredByLogo | safe }}</div>
