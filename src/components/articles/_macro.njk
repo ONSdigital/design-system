@@ -17,7 +17,7 @@
 
                             {% if article.featured is defined and article.featured %}
 
-                                {% if article.image is defined and article.image and article.image.filename %}
+                                {% if article.image is defined and article.image and article.image.filename is defined and article.image.filename %}
                                     <img height="248" width="379" srcset="{{ article.image.smallSrc }}{{ article.image.filename }} 1x, {{ article.image.largeSrc }}{{ article.image.filename }} 2x" src="{{ article.image.smallSrc }}{{ article.image.filename }}" alt="{{ article.image.alt }}" loading="lazy">
                                 {% else %}
                                     <img height="248" width="379" srcset="{{ article.placeholderURL if article.placeholderURL is defined and article.placeholderURL }}/img/small/placeholder-news-medium.png 1x, {{ article.placeholderURL if article.placeholderURL is defined and article.placeholderURL }}/img/large/placeholder-news-medium.png 2x" src="{{ article.placeholderURL if article.placeholderURL is defined and article.placeholderURL }}/img/small/placeholder-news-medium.png" alt="Image placeholder" loading="lazy">
