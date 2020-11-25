@@ -10,14 +10,12 @@ export const classNotEditable = 'js-address-not-editable';
 export const classMandatory = 'js-address-mandatory';
 export const classSearch = 'js-address-input__search';
 export const classInput = 'js-autosuggest-input';
-export const classInputUPRN = 'js-hidden-uprn';
 
 export default class AutosuggestAddress {
   constructor(context) {
     this.context = context;
     this.input = context.querySelector(`.${classInput}`);
     this.search = context.querySelector(`.${classSearch}`);
-    this.InputUPRN = context.querySelector(`.${classInputUPRN}`);
     this.lang = document.documentElement.getAttribute('lang').toLowerCase();
     this.addressReplaceChars = [','];
     this.sanitisedQuerySplitNumsChars = true;
@@ -282,7 +280,6 @@ export default class AutosuggestAddress {
             if (this.isEditable) {
               this.addressSetter.setAddress(this.createAddressLines(data, resolve));
               this.addressSelected = true;
-              this.InputUPRN.value = selectedResult.uprn;
             } else {
               this.autosuggest.input.value = selectedResult.displayText;
             }
@@ -321,6 +318,7 @@ export default class AutosuggestAddress {
       addressLine3: values.addressLine3,
       townName: values.townName,
       postcode: values.postcode,
+      uprn: values.uprn,
     };
     resolve();
 
