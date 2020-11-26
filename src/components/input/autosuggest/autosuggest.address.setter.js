@@ -45,7 +45,6 @@ export default class AddressSetter {
     // Set mode
     if (this.line1.value || this.line2.value || this.town.value || this.postcode.value || this.errorPanel) {
       this.setManualMode(true, false);
-      this.checkManualInputsValues(true);
     } else {
       this.toggleMode();
     }
@@ -74,6 +73,7 @@ export default class AddressSetter {
         const removeError = new AddressError(this.context);
         removeError.removeErrorPanel();
       }
+      this.checkManualInputsValues(true);
     }
 
     this.manualMode = manual;
@@ -91,6 +91,7 @@ export default class AddressSetter {
 
     this.town.value = addressLines.townName;
     this.postcode.value = addressLines.postcode;
+    this.uprn.value = addressLines.uprn;
 
     this.setManualMode(true, false);
   }
@@ -110,14 +111,12 @@ export default class AddressSetter {
       this.originalValues = this.manualInputs.map(input => {
         return input.value;
       });
-    } else {
-      if (this.uprn.value !== '' && this.originalValues.length) {
-        this.newValues = this.manualInputs.map(input => {
-          return input.value;
-        });
-        if (this.originalValues.toString() !== this.newValues.toString()) {
-          this.uprn.value = '';
-        }
+    } else if (this.uprn.value !== '' && this.originalValues.length) {
+      this.newValues = this.manualInputs.map(input => {
+        return input.value;
+      });
+      if (this.originalValues.toString() !== this.newValues.toString()) {
+        this.uprn.value = '';
       }
     }
   }

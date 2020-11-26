@@ -29,8 +29,9 @@
       <div class="pagination__position">{{ position }}</div>
       <ul class="pagination__items">
           {% if currentPageIndex != 1 %}
+              {% set prevPageIndex = currentPageIndex - 2 %}
               <li class="pagination__item pagination__item--previous">
-                  <a href="{{ params.pages[currentPageIndex - 1].url }}" class="pagination__link" rel="prev" aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})">{{ params.previous }}</a>
+                  <a href="{{ params.pages[prevPageIndex].url }}" class="pagination__link" rel="prev" aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})">{{ params.previous }}</a>
               </li>
           {% endif %}
           {% if currentPageIndex > 3 %}
@@ -72,7 +73,7 @@
           {% endif %}
           {% if totalPages > 1 and totalPages != currentPageIndex %}
               <li class="pagination__item pagination__item--next">
-                  <a href="{{ params.pages[currentPageIndex + 1].url }}" class="pagination__link" rel="next" aria-label="Go to the next page (Page {{ currentPageIndex + 1 }})">{{ params.next }}</a>
+                  <a href="{{ params.pages[currentPageIndex].url }}" class="pagination__link" rel="next" aria-label="Go to the next page (Page {{ currentPageIndex + 1 }})">{{ params.next }}</a>
               </li>
           {% endif %}
       </ul>
