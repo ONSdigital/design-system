@@ -3,6 +3,7 @@ $summary-col-spacing: 1rem;
 $hub-row-spacing: 1.3rem;
 
 .summary {
+  @extend .u-mb-l;
   &__items {
     // To stop double bottom border when there is only one item and a link or collapsibile follows the summary
     margin-bottom: -1px;
