@@ -1,10 +1,11 @@
 {% from "components/summary/_macro.njk" import onsSummary %}
 
 {{ onsSummary({
+    "classes": "u-mb-l",
     "summaries": [
-            {
-                "groups": [
-                    {
+        {
+            "groups": [
+                {
                     "headers":["Name", "Action"],
                     "rows": [
                         {
@@ -62,13 +63,14 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "summaryLink": {
+                        "text": "Add someone to this household",
+                        "url": "#0",
+                        "dataQa": "add-item-link"
+                    }
                 }
             ]
         }
     ]
 }) }}
-
-<div class="u-mb-l u-pt-s u-bt">
-    <a data-qa="add-item-link" href="#0">Add someone to this household</a>
-</div>
