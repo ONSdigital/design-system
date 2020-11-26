@@ -9,7 +9,7 @@
 
     {% if params is defined and params and params.type is defined and params.type %}
         {% set typeClass = ' panel--' + params.type %}
-        {% if params is defined and params and params.type == 'error' %}
+        {% if params is defined and params and params.type == 'error' and params.DSExample != true %}
             {% set errorJsClass = ' js-error-panel' %}
         {% endif %}
     {% else %}
@@ -36,7 +36,7 @@
         {% endif %}
         {% if params is defined and params and params.icon is defined and params.icon %}
             {% from "components/icons/_macro.njk" import onsIcon %}
-            <span class= "panel__icon">
+            <span class= "panel__icon u-fs-{{ params.iconSize }}">
                 {{
                     onsIcon({
                         "icon": params.icon,
