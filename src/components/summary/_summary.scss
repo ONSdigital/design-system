@@ -73,6 +73,10 @@ $hub-row-spacing: 1.3rem;
     white-space: nowrap;
   }
 
+  &__add-link {
+    @extend .u-pt-s;
+  }
+
   &__spacer {
     display: inline-block;
 

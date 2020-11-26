@@ -120,7 +120,7 @@
                     {% endif %}
 
                     {% if group.summaryLink is defined and group.summaryLink %}
-                        <div class="u-pt-s{% if group.placeholderText is not defined and group.rows is defined and group.rows %} u-bt{% endif %}">
+                        <div class="summary__add-link{% if group.placeholderText is not defined and group.rows is defined and group.rows %} u-bt{% endif %}">
                             <a data-qa="{{ group.summaryLink.dataQa }}" href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
                         </div>
                     {% endif %}
