@@ -70,12 +70,12 @@
 
   &--warn {
     margin-bottom: 1rem;
-    padding: 0 1rem 0 1rem;
+    padding: 0;
     border: 0 !important;
 
     &--footer {
       margin-bottom: 0;
-      padding: 1rem;
+      padding: 1rem !important;
       background-color: $color-grey-4 !important;
     }
   }
@@ -84,8 +84,10 @@
     padding: 1rem;
     border-left: 8px solid transparent;
     .panel__body {
-      padding: 0;
       background: none;
+    }
+    &.panel--warn {
+      padding: 0;
     }
   }
 
@@ -99,8 +101,7 @@
 
   &--warn & {
     &__body {
-      padding-top: 0.222rem; // 4px
-      padding-left: 1.8rem;
+      padding: 0.222rem 0 0 2.8rem;
       min-height: 2rem; // Height of icon
       font-weight: $font-weight-bold;
     }
