@@ -38,8 +38,13 @@
 
   &__prefix {
     @extend .list--bare;
-    float: left;
     margin: 0 0.5rem 0 0;
+    font-family: $font-sans-mono;
+  }
+
+  &__suffix {
+    @extend .list--bare;
+    margin: 0 0 0 0.5rem;
     font-family: $font-sans-mono;
   }
 

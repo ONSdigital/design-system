@@ -42,6 +42,22 @@
                 {%- else -%}
                     {{- item.text | safe -}}
                 {%- endif -%}
+                {%- if item.index is defined and item.index or item.suffix is defined and item.suffix or item.suffixIcon is defined and item.suffixIcon -%}
+                    <span class="list__suffix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
+                    {%- if item.suffix is defined and item.suffix -%}
+                        {{- item.suffix -}}.
+                    {%- elif (item.index is defined and item.index and listEl != 'ol') or (item.index is defined and item.index and listEl == 'ol' and 'list--bare' in classes) -%}
+                        {{- loop.index -}}.
+                    {% elif item.suffixIcon is defined and item.suffixIcon %}
+                        {% from "components/icons/_macro.njk" import onsIcon %}
+                        {{
+                            onsIcon({
+                                "icon": item.suffixIcon,
+                                "iconSize": item.iconSize
+                            })
+                        }}
+                    {%- endif -%} </span>
+                {%- endif -%}
             </li>
         {%- endfor -%}
     </{{listEl}}>

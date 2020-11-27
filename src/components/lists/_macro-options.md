@@ -7,7 +7,7 @@
 
 ## ListItem
 | Name | Type | Required | Description |
-| ---------- | ------- | -------- | ------------------------------------------------------------ |
+| -------------- | ------- | -------- | ------------------------------------------------------------ |
 | text | string | true | The text for the list item |
 | name | string | false | The name attribute for the list item |
 | url | string | false | Will wrap the text in a link |
@@ -15,6 +15,9 @@
 | target | string | false | If `url` is provided this will set the target for that link |
 | index | boolean | false | Will prefix the list item with index number if set to `true` |
 | external | boolean | false | Will style the item like an external link |
-| prefix | string | false | Will prefix the list item with whatever prefix is set to |
-| prefixIcon | string | false | If set to an icon name will prefix the item with that icon |
-| iconSize | string | false | Icon size can be set to `m`, `l`, `xl`, `xxl` |
+| prefix | string | true | Will prefix the list item with whatever prefix is set to |
+| prefixIcon | string | true | If set to an icon name will prefix the item with that icon |
+| prefixIconSize | string | true | Icon size can be set to `m`, `l`, `xl`, `xxl` |
+| suffix | string | true | Will suffix the list item with whatever suffix is set to |
+| suffixIcon | string | true | If set to an icon name will suffix the item with that icon |
+| suffixIconSize | string | true | Icon size can be set to `m`, `l`, `xl`, `xxl` |
