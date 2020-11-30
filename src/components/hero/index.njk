@@ -2,7 +2,7 @@
 title: Hero
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 
 A large promotional section, usually at the very top of the page, featuring a headline and a call to action.
 
@@ -46,18 +46,20 @@ We specify a folder path for both small and large images which is defined in the
 ## Research on this component
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel() %}
-   If you have conducted any user research using this component, please feed back your findings via the {{
-    onsExternalLink({
+    If you have conducted any user research using this component, please feed back your findings via the {{
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/717",
-        "linkText": "Design System forum"
+        "linkText": "Design System forum",
+        "type": "external"
     })
 }}
 {% endcall %}
 
 ## Design System forum
 {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/876",
-        "linkText": "Discuss 'Hero' on GitHub"
+        "linkText": "Discuss 'Hero' on GitHub",
+        "type": "external"
     })
 }}

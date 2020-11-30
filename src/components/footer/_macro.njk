@@ -166,11 +166,12 @@
                                 {% if params.OGLLink.HTML is defined and params.OGLLink.HTML %}
                                     {{ params.OGLLink.HTML | safe }}
                                 {% else %}
-                                    {% from "components/external-link/_macro.njk" import onsExternalLink %}
+                                    {% from "components/icon-link/_macro.njk" import onsIconLink %}
                                     {{ params.OGLLink.pre }} {{
-                                        onsExternalLink({
+                                        onsIconLink({
                                             "url": params.OGLLink.url,
-                                            "linkText": params.OGLLink.link
+                                            "linkText": params.OGLLink.link,
+                                            "type": params.OGLLink.type
                                         })
                                     }}{{ params.OGLLink.post }}
                                 {% endif %}

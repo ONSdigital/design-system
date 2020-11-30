@@ -3,7 +3,7 @@ title: Label
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 ## When to use this component
@@ -64,17 +64,19 @@ To use it for radios or checkboxes `inputType` needs to be set to `radio` or `ch
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsExternalLink({
+        onsIconLink({
             "url": "https://github.com/ONSdigital/design-system/issues/40",
-            "linkText": "Design System forum"
+            "linkText": "Design System forum",
+            "type": "external"
         })
     }}
 {% endcall %}
 
 ## Design System forum
 {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/40",
-        "linkText": "Discuss 'Label' on GitHub"
+        "linkText": "Discuss 'Label' on GitHub",
+        "type": "external"
     })
 }}

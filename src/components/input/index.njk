@@ -2,7 +2,7 @@
 title: Input
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 The input component lets users enter alphanumeric characters for answers that are no longer than one line, using the appropriate keyboard on touch devices.
@@ -27,9 +27,10 @@ By default, the input component will fill the width of its container up to 500px
 Use the `autocomplete` attribute on inputs to help the user fill out a form more quickly. This attribute lets you specify a purpose for the input so the user's browser can autofill the information for them.
 
 You will need to use the autocomplete attribute for each applicable {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://www.w3.org/TR/WCAG21/#input-purposes",
-        "linkText": "input purpose"
+        "linkText": "input purpose",
+        "type": "external"
     })
 }} to meet AA WCAG 2.1 accessibility requirements.
 
@@ -72,17 +73,19 @@ Used for client side validation of an input that requires a character limit. The
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsExternalLink({
+        onsIconLink({
             "url": "https://github.com/ONSdigital/design-system/issues/163",
-            "linkText": "Design System forum"
+            "linkText": "Design System forum",
+            "type": "external"
         })
     }}
 {% endcall %}
 
 ## Design System forum
 {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/163",
-        "linkText": "Discuss 'Input' on GitHub"
+        "linkText": "Discuss 'Input' on GitHub",
+        "type": "external"
     })
 }}

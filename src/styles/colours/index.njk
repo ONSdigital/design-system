@@ -5,14 +5,15 @@ sortOrder: 1
 {% from "styles/colours/_macro.njk" import onsColours %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 
 The ONS colour palette is available to services using the design system so pages and elements look consistent and coherent.
 
 Our text and background colours are designed to meet accessibility needs. We aim for {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast",
-        "linkText": "WCAG AA compliance"
+        "linkText": "WCAG AA compliance",
+        "type": "external"
     })
 }} contrast as far as possible. Read more about [accessibility and colour](#colour-contrast) on this page.
 
@@ -314,9 +315,10 @@ Each status has a primary colour and a tint for use in a status [panel](/compone
 
 ## Colour contrast
 Contrast between foreground and background colours are tested to ensure {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast",
-        "linkText": "WCAG AA compliance"
+        "linkText": "WCAG AA compliance",
+        "type": "external"
     })
 }}. Where colour is used to draw attention to an item (e.g. [panel](/components/panel)) and insufficient contrast exists between a background colour and element colour, additional techniques may be required to provide support for users unable to perceive the colour.
 
@@ -409,17 +411,19 @@ Also, ensure you test colour contrast with people of all abilities.
 {% call onsPanel() %}
     If you have conducted any user research using this style, please feed back your findings via the
     {{
-        onsExternalLink({
+        onsIconLink({
             "url": "https://github.com/ONSdigital/design-system/issues/232",
-            "linkText": "Design System forum"
+            "linkText": "Design System forum",
+            "type": "external"
         })
     }}
 {% endcall %}
 
 ## Design System forum
 {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/232",
-        "linkText": "Discuss 'Colours' on GitHub"
+        "linkText": "Discuss 'Colours' on GitHub",
+        "type": "external"
     })
 }}

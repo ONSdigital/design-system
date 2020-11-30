@@ -27,11 +27,12 @@
                 {%- endif -%}
                 {%- if item.url is defined and item.url and item.current != true -%}
                     {%- if item.external is defined and item.external -%}
-                        {% from "components/external-link/_macro.njk" import onsExternalLink %}
+                        {% from "components/icon-link/_macro.njk" import onsIconLink %}
                         {{
-                            onsExternalLink({
+                            onsIconLink({
                                 "url": item.url,
-                                "linkText": item.text
+                                "linkText": item.text,
+                                "type": item.type
                             })
                         }}
                     {%- else -%}

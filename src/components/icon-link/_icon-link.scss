@@ -1,4 +1,4 @@
-.external-link {
+.icon-link {
   white-space: nowrap;
   .svg-icon {
     margin: 0 0 0 0.25rem;
@@ -8,6 +8,11 @@
   &:focus {
     .svg-icon {
       fill: $color-black;
+    }
+  }
+  &:hover {
+    .svg-icon {
+      fill: $color-links-hover;
     }
   }
 }

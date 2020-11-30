@@ -2,7 +2,7 @@
 title: Error
 ---
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 
 ## When to use this component
 
@@ -11,14 +11,16 @@ The error component is used to wrap form inputs and fieldsets to to show validat
 ## How to use this component
 
 Generally speaking you should not need to {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://mozilla.github.io/nunjucks/templating.html#call",
-        "linkText": "call"
+        "linkText": "call",
+        "type": "external"
     })
 }} `onsError` yourself as it is already called from within form input components. However if you need to create a pattern or component that requires a error you can use {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://mozilla.github.io/nunjucks/templating.html#call",
-        "linkText": "nunjucks' call functionality"
+        "linkText": "nunjucks' call functionality",
+        "type": "external"
     })
 }} `onsError`.
 {% md %}
@@ -35,17 +37,19 @@ Generally speaking you should not need to {{
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsExternalLink({
+        onsIconLink({
             "url": "https://github.com/ONSdigital/design-system/issues/534",
-            "linkText": "Design System forum"
+            "linkText": "Design System forum",
+            "type": "external"
         })
     }}
 {% endcall %}
 
 ## Design System forum
 {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/534",
-        "linkText": "Discuss 'Error' on GitHub"
+        "linkText": "Discuss 'Error' on GitHub",
+        "type": "external"
     })
 }}

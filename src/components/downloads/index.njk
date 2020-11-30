@@ -2,7 +2,7 @@
 title: Downloads
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 Displays a link to download an attachment and metadata about the file.
@@ -43,17 +43,19 @@ We specify a folder path for both small and large images, which is defined in th
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the
     {{
-        onsExternalLink({
+        onsIconLink({
             "url": "https://github.com/ONSdigital/design-system/issues/716",
-            "linkText": "Design System forum"
+            "linkText": "Design System forum",
+            "type": "external"
         })
     }}
 {% endcall %}
 
 ## Design System forum
 {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/716",
-        "linkText": "Discuss 'Downloads' on GitHub"
+        "linkText": "Discuss 'Downloads' on GitHub",
+        "type": "external"
     })
 }}

@@ -2,12 +2,13 @@
 title: Exporting SVGs
 sortOrder: 3
 ---
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 
 When exporting SVG images for the web you should ensure that styles are exported as *inline* rather than as CSS. This is to ensure that styles are not accidentally overridden as the generated class names are not unique, and allows {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/svg/svgo",
-        "linkText": "SVGO"
+        "linkText": "SVGO",
+        "type": "external"
     })
 }} to optimise the file without breaking it.
 

@@ -2,7 +2,7 @@
 title: Articles
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 The article component contains media, title, metadata and excerpt.
@@ -43,17 +43,19 @@ We specify a folder path for both small and large images, which is defined in th
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the
     {{
-        onsExternalLink({
+        onsIconLink({
             "url": "https://github.com/ONSdigital/design-system/issues/1066",
-            "linkText": "Design System forum"
+            "linkText": "Design System forum",
+            "type": "external"
         })
     }}
 {% endcall %}
 
 ## Design System forum
 {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/1066",
-        "linkText": "Discuss 'Articles' on GitHub"
+        "linkText": "Discuss 'Articles' on GitHub",
+        "type": "external"
     })
 }}

@@ -2,7 +2,7 @@
 title: Password
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 The password component lets the user enter a hidden password which they can show if they need to check what they've entered.
@@ -20,17 +20,19 @@ The `<input>` and `<label>` is separated by a [checkbox component](/components/c
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsExternalLink({
+        onsIconLink({
             "url": "https://github.com/ONSdigital/design-system/issues/141",
-            "linkText": "Design System forum"
+            "linkText": "Design System forum",
+            "type": "external"
         })
     }}
 {% endcall %}
 
 ## Design System forum
 {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/141",
-        "linkText": "Discuss 'Password' on GitHub"
+        "linkText": "Discuss 'Password' on GitHub",
+        "type": "external"
     })
 }}

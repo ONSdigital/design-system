@@ -4,7 +4,7 @@ group: Ask users for...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 
 ## When to use this pattern
 
@@ -26,17 +26,19 @@ Duration inputs can be created by using the duration component. For example:
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the
     {{
-        onsExternalLink({
+        onsIconLink({
             "url": "https://github.com/ONSdigital/design-system/issues/19",
-            "linkText": "Design System forum"
+            "linkText": "Design System forum",
+            "type": "external"
         })
     }}
 {% endcall %}
 
 ## Design System forum
 {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/19",
-        "linkText": "Discuss 'Durations' on GitHub"
+        "linkText": "Discuss 'Durations' on GitHub",
+        "type": "external"
     })
 }}

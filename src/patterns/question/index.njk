@@ -5,7 +5,7 @@ group: Pages
 
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 
 {{ patternlibExample({
     "path": "patterns/question/examples/question-anatomy/index.njk",
@@ -62,17 +62,19 @@ If this is wrapping a relationships pattern its recommended that `readDescriptio
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the 
     {{
-        onsExternalLink({
+        onsIconLink({
             "url": "https://github.com/ONSdigital/design-system/issues/367",
-            "linkText": "Design System forum"
+            "linkText": "Design System forum",
+            "type": "external"
         })
     }}
 {% endcall %}
 
 ## Design System forum
 {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/367",
-        "linkText": "Discuss 'Question' on GitHub"
+        "linkText": "Discuss 'Question' on GitHub",
+        "type": "external"
     })
 }}

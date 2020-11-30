@@ -5,7 +5,7 @@ experimental: true
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/icon-link/_macro.njk" import onsIconLink %}
 
 There are two parts to helping users find a support centre.
 
@@ -23,17 +23,19 @@ There are two parts to helping users find a support centre.
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the
     {{
-        onsExternalLink({
+        onsIconLink({
             "url": "https://github.com/ONSdigital/design-system/issues/879",
-            "linkText": "Design System forum"
+            "linkText": "Design System forum",
+            "type": "external"
         })
     }}
 {% endcall %}
 
 ## Design System forum
 {{
-    onsExternalLink({
+    onsIconLink({
         "url": "https://github.com/ONSdigital/design-system/issues/879",
-        "linkText": "Discuss 'Find a support centre' on GitHub"
+        "linkText": "Discuss 'Find a support centre' on GitHub",
+        "type": "external"
     })
 }}
