@@ -84,6 +84,7 @@
     padding: 1rem;
     border-left: 8px solid transparent;
     .panel__body {
+      padding: 0;
       background: none;
     }
     &.panel--warn {
