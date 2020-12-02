@@ -1,5 +1,4 @@
 @include font-face(OpenSans, '#{$static}/fonts/opensans-regular', $weight: $font-weight-regular, $style: null, $exts: woff2 woff);
 @include font-face(OpenSans, '#{$static}/fonts/opensans-bold', $weight: $font-weight-bold, $style: null, $exts: woff2 woff);
-@include font-face(OpenSansMono, '#{$static}/fonts/opensans-regular', $weight: $font-weight-regular, $style: null, $exts: ttf);
 @include font-face(RobotoMono, '#{$static}/fonts/robotomono-regular', $weight: $font-weight-regular, $style: null, $exts: woff2 woff);
 @include font-face(RobotoMono, '#{$static}/fonts/robotomono-bold', $weight: $font-weight-bold, $style: null, $exts: woff2 woff);
