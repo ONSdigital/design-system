@@ -2,8 +2,8 @@
 | ------------- | -------------------------------------------------- | ------------------------------------ | --------------------------------------------------------------------------- |
 | phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)  | false                                | Settings for the Phase banner component                                     |
 | fullWidth     | boolean                                            | false                                | Set the header to be the full width of the viewport                         |
-| logoHref      | string                                             | false                                | Path for the logo link. Defaults to "/"                                     |
-| logo          | string                                             | false                                | Path for the logo. Defaults to "ons-logo-pos"                               |
+| logoHref      | string                                             | false                                | Path for the masthead logo link. Defaults to "/"                            |
+| logo          | string                                             | false                                | Path for the masthead logo. Defaults to "ons-logo-pos"                      |
 | mobileLogo    | string                                             | false                                | Path for the mobile version of the logo. Defaults to "ons-logo-stacked-pos" |
 | language      | `Language` [_(ref)_](/patterns/language-selection) | false                                | Settings for the language selection component                               |
 | serviceLinks  | `Array<Navigation>`                                | false                                | An array to render the service links list                                   |
