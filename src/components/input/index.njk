@@ -44,7 +44,9 @@ An optional `label__description` can be used to display a hint to help the user 
 ### Width constrained
 Where possible, you should make the inputs the right width for the size of content they are intended for to help users understand what they should enter.  For example, UK postcodes never consist of more than 8 characters.
 
-Inputs can have their widths constrained (but not limited) to the number of expected characters using the `input--w-<number>` class. Available widths are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50.
+Inputs can have their widths constrained (but not limited) to the number of expected characters using the `input--w-<number>` or `input-number--w-<number>` classes.
+`input--w-<number>` is based on the character width of a 'W' and is to be used on fields that will contain any text. `input-number--w-<number>` is based on the character width of '4' and is to be used on fields that only contain numbers.
+Available widths for both classes are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50.
 {{
     patternlibExample({"path": "components/input/examples/text-width-constrained/index.njk"})
 }}
