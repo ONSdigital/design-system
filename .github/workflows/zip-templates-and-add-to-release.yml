@@ -1,0 +1,33 @@
+name: zip-templates-and-add-to-release
+on:
+  release:
+    types: [published]
+jobs:
+  add-templates-to-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: |
+          npm install -g yarn
+          sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
+          yarn install
+      - name: Download latest release
+        run: |
+          curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tarball_url" | wget -i - -O source.tar.gz
+          mkdir design-system
+          tar -xzf source.tar.gz -C design-system --strip-components=1
+          cd design-system
+      - name: Build templates
+        run: RELEASE_VERSION=$GITHUB_REF yarn cdn-bundle
+      - name: Zip templates
+        run: zip -r templates.zip templates/*
+      - uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: templates.zip
+          tag: $GITHUB_REF
+          overwrite: true
