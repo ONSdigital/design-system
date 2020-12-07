@@ -59,7 +59,7 @@
 
             {% if params.image is defined and params.image %}
             <div class="hero__circle-image">
-                <img height="558px" width="558px" srcset="{{ params.image.smallSrc }}{{ params.image.filename }} 1x, {{ params.image.largeSrc }}{{ params.image.filename }} 2x" src="{{ params.image.smallSrc }}{{ params.image.filename }}" alt="{{ params.image.alt }}">
+                <img height="558" width="558" srcset="{{ params.image.smallSrc }}{{ params.image.filename }} 1x, {{ params.image.largeSrc }}{{ params.image.filename }} 2x" src="{{ params.image.smallSrc }}{{ params.image.filename }}" alt="{{ params.image.alt }}">
             </div>
             {% endif %}
 
@@ -68,6 +68,7 @@
             </svg>
 
             <div class="hero__circle-gradient"></div>
+
         {% endif %}
 
         {% if params.censusThemeDark is not defined %}
