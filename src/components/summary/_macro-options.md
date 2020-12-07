@@ -13,11 +13,13 @@
 
 ## SummaryGroup
 
-| Name       | Type                    | Required | Description                                             |
-| ---------- | ----------------------- | -------- | ------------------------------------------------------- |
-| rows       | Array`<SummaryRows>`    | true     | An array of rows within a group                         |
-| groupTitle | string                  | false    | The title for a summary within a group                  |
-| headers    | Array`<SummaryHeaders>` | false    | An array of headers to describe the data in the summary |
+| Name            | Type                    | Required | Description                                                                |
+| --------------- | ----------------------- | -------- | -------------------------------------------------------------------------- |
+| rows            | Array`<SummaryRows>`    | false    | An array of rows within a group                                            |
+| placeholderText | string                  | false    | A message to be shown as a placeholder if there are no rows in the summary |
+| groupTitle      | string                  | false    | The title for a summary within a group                                     |
+| headers         | Array`<SummaryHeaders>` | false    | An array of headers to describe the data in the summary                    |
+| summaryLink     | Array`<SummaryLink>`    | false    | Settings for the link to apear after the summary                           |
 
 ## SummaryRow
 
@@ -55,3 +57,11 @@
 | url        | string | true     | URL to edit the answer                                                                  |
 | ariaLabel  | string | false    | An aria-label to apply to the link if you need it to be more verbose for screen readers |
 | attributes | object | false    | HTML attributes (for example data attributes) to add to the action link                 |
+
+## SummaryLink
+
+| Name   | Type   | Required | Description                                 |
+| ------ | ------ | -------- | ------------------------------------------- |
+| url    | string | true     | The url for the link to follow the summary  |
+| text   | string | true     | The text for the link to follow the summary |
+| dataQa | string | true     | The text data-qa attribute                  |
