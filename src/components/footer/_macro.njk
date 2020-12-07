@@ -108,7 +108,7 @@
                         {% for col in params.cols %}
                             <div class="grid__col col-4@m{{ " u-mt-m@xs@m" if loop.index > 1 }}">
                                 {% if col.title %}
-                                    <h2 class="u-fs-r--b footer__heading">{{ col.title }}</h2>
+                                    <h2 class="footer__heading u-fs-r--b">{{ col.title }}</h2>
                                 {% endif %}
                                 {{
                                     onsList({
@@ -207,13 +207,13 @@
 
                                     {{
                                         onsList({
-                                            "classes": 'list--bare u-mb-m list--inline',
+                                            "classes": 'list--bare list--inline u-mb-m',
                                             "itemsList": legal.itemsList
                                         })
                                     }}
 
                                     {% if params.crest is defined and params.crest %}
-                                        <div class="u-mb-m poweredbylogo">{{ poweredByLogo | safe }}</div>
+                                        <div class="poweredbylogo u-mb-m">{{ poweredByLogo | safe }}</div>
                                     {% endif %}
 
                                 </div>
