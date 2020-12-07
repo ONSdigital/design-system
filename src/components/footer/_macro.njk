@@ -61,12 +61,7 @@
             </div>
         {% endif %}
 
-<<<<<<< Updated upstream
         <div class="footer__body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
-
-=======
-        <div class="footer--body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
->>>>>>> Stashed changes
             <div class="container{{ ' container--wide' if params.wide }}">
                 <div class="grid">
                     {% if params.poweredBy is defined and params.poweredBy and params.OGLLink is defined and params.OGLLink %}
