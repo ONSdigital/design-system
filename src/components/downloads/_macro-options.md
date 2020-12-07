@@ -15,7 +15,6 @@
 | -------- | ------ | -------- | ----------------------------------------------------------- |
 | smallSrc | string | true     | Path to the non-retina version of the image                 |
 | largeSrc | string | true     | Path to the retina version of the image                     |
-| filename | string | true     | Filename including type extension (e.g. placeholder.png)    |
 | alt      | string | true     | Alt tag to explain the appearance and function of the image |
 
 ## Meta
