@@ -46,8 +46,8 @@
                         "titleTag": params.collapsible.titleTag,
                         "content": params.collapsible.content,
                         "button": {
-                            "close": "Hide this",
-                            "contextSuffix": "content"
+                            "close": 'Hide this',
+                            "contextSuffix": 'content'
                         }
                     })
                 }}
@@ -71,7 +71,8 @@
 
         {% endif %}
 
-        {% if params.censusThemeDark is not defined %}
+        
+        {% if params.censusThemeDark is not defined or params.censusThemeDark === false %}
             <div class="hero__circle-white"></div>
         {% endif %}
 
