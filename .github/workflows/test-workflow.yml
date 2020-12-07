@@ -1,0 +1,12 @@
+name: test-workflow
+on:
+  push:
+    branches:
+      - test-workflow
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm -v
