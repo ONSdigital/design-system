@@ -59,7 +59,11 @@
 
             {% if params.image is defined and params.image %}
             <div class="hero__circle-image">
+<<<<<<< HEAD
                 <img height="558" width="558" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}">
+=======
+                <img height="558" width="558" srcset="{{ params.image.smallSrc }}{{ params.image.filename }} 1x, {{ params.image.largeSrc }}{{ params.image.filename }} 2x" src="{{ params.image.smallSrc }}{{ params.image.filename }}" alt="{{ params.image.alt }}">
+>>>>>>> origin/master
             </div>
             {% endif %}
 

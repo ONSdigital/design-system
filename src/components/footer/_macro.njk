@@ -76,7 +76,8 @@
 
                     {% if params.language is defined and params.language %}
                         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
-                        <div class="grid__col u-d-no@m">
+                        {% set languageNumber = params.language.languages | length %}
+                        <div class="grid__col {% if languageNumber and languageNumber != 2 %} u-d-no@m{% elif languageNumber %} u-d-no{% endif %}">
                             {% set languageItems = params.language.languages | rejectattr("current") %}
                             {% if currentLanguage.allLanguages is defined and currentLanguage.allLanguages and params.language.allLanguagesUrl is defined and params.language.allLanguagesUrl %}
                                 {% set languageItems = (languageItems.push({
@@ -92,7 +93,7 @@
                                 })
                             }}
                         </div>
-                        <div class="grid__col u-d-no@m u-mb-m">
+                        <div class="grid__col {% if languageNumber and languageNumber != 2 %} u-d-no@m{% elif languageNumber %} u-d-no{% endif %} u-mb-m">
                             <hr class="footer__hr">
                         </div>
                     {% endif %}
@@ -179,24 +180,16 @@
 
                     {% endif %}
 
-                    {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined %}
+                    {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined or params.OGLLink is not defined and params.legal is not defined and (params.rows is defined and params.rows or params.cols is defined and params.cols) %}
                         <div class="grid__col u-mb-m">
                             <hr class="footer__hr">
                         </div>
                     {% endif %}
 
                     {% if params.OGLLink is not defined and params.legal is not defined %}
-
-                        {% if params.cols is defined and params.cols %}
-                            <div class="grid__col u-mb-m">
-                                <hr class="footer__hr">
-                            </div>
-                        {% endif %}
-
                         <div class="grid__col">
                             {{ poweredByLogo | safe }}
                         </div>
-
                     {% endif %}
 
                 </div>
@@ -219,7 +212,7 @@
                                         })
                                     }}
 
-                                    {% if params.crest is defined %}
+                                    {% if params.crest is defined and params.crest %}
                                         <div class="u-mb-m poweredbylogo">{{ poweredByLogo | safe }}</div>
                                     {% endif %}
 

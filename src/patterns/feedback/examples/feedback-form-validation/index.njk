@@ -41,7 +41,8 @@ layout: none
     {% call
         onsPanel({
             title: "There are 2 problems with this page",
-            type: "error"
+            type: "error",
+            "DSExample": true
         })
     %}
         {% from "components/lists/_macro.njk" import onsList %}
@@ -77,7 +78,8 @@ layout: none
                 "name": "feedback-type",
                 "error": {
                     "id": "feedback-type",
-                    "text": "Select what your feedback is about"
+                    "text": "Select what your feedback is about",
+                    "DSExample": true
                 },
                 "radios": [
                     {
@@ -170,7 +172,8 @@ layout: none
                 },
                 "error": {
                     "id": "feedback-content",
-                    "text": "Enter your feedback"
+                    "text": "Enter your feedback",
+                    "DSExample": true
                 }
             })
         }}
