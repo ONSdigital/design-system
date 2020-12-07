@@ -4,8 +4,6 @@ $hub-row-spacing: 1.3rem;
 
 .summary {
   &__items {
-    // To stop double bottom border when there is only one item and a link or collapsibile follows the summary
-    margin-bottom: -1px;
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
@@ -71,6 +69,10 @@ $hub-row-spacing: 1.3rem;
 
   &__actions {
     white-space: nowrap;
+  }
+
+  &__add-link {
+    @extend .u-pt-s;
   }
 
   &__spacer {
