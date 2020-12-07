@@ -1,0 +1,33 @@
+---
+title: Share page
+experimental: true
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+Use the 'Share page' component to allow site visitors to share a page on Twitter and/or Facebook.
+
+# Example
+{{
+    patternlibExample({"path": "components/share/examples/share/index.njk"})
+}}
+
+## Research on this component
+{% call onsPanel() %}
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/issues/1190",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/1190",
+        "linkText": "Discuss 'Share page' on GitHub"
+    })
+}}

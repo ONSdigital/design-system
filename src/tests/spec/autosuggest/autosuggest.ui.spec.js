@@ -1176,6 +1176,37 @@ describe('Autosuggest.ui component', function() {
           expect(this.setAriaStatusSpy).to.have.been.called();
         });
       });
+
+      describe('when there is no status code', function() {
+        beforeEach(function() {
+          this.handleNoResultsSpy = chai.spy.on(this.autosuggest, 'handleNoResults');
+          this.setAriaStatusSpy = chai.spy.on(this.autosuggest, 'setAriaStatus');
+          this.createWarningSpy = chai.spy.on(this.autosuggest, 'createWarningElement');
+          this.autosuggest.handleNoResults('');
+        });
+
+        it('then the listbox innerHTML should show the API error message', function() {
+          expect(this.autosuggest.listbox.textContent).to.equal('!' + params.autosuggest.errorMessageAPI);
+          expect(this.createWarningSpy).to.have.been.called();
+          expect(this.handleNoResultsSpy).to.have.been.called();
+        });
+
+        it('the input should be disabled', function() {
+          expect(this.input.hasAttribute('disabled')).to.be.true;
+        });
+
+        it('the input value should be empty', function() {
+          expect(this.input.value).to.equal('');
+        });
+
+        it('the label class should be added', function() {
+          expect(this.label.classList.contains('u-lighter')).to.be.true;
+        });
+
+        it('then the aria status should be set', function() {
+          expect(this.setAriaStatusSpy).to.have.been.called();
+        });
+      });
     });
   });
 
