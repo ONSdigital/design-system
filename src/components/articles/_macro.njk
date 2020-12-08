@@ -14,20 +14,19 @@
                     <div class="article__image" aria-hidden="true">
 
                         <a class="article__image-link" href="{{ article.url }}" tabindex="-1">
-                            <img srcset="{{ article.image.smallSrc }} 1x, {{ article.image.largeSrc }} 2x" src="{{ article.image.smallSrc }}" alt="{{ article.image.alt }}">
 
                             {% if article.featured is defined and article.featured %}
 
-                                {% if article.image is defined and article.image and article.image.filename is defined and article.image.filename %}
-                                    <img height="248" width="379" srcset="{{ article.image.smallSrc }}{{ article.image.filename }} 1x, {{ article.image.largeSrc }}{{ article.image.filename }} 2x" src="{{ article.image.smallSrc }}{{ article.image.filename }}" alt="{{ article.image.alt }}" loading="lazy">
+                                {% if article.image is defined and article.image and article.image.smallSrc is defined and article.image.smallSrc %}
+                                    <img height="248" width="379" srcset="{{ article.image.smallSrc }} 1x, {{ article.image.largeSrc }} 2x" src="{{ article.image.smallSrc }}" alt="{{ article.image.alt }}" loading="lazy">
                                 {% else %}
                                     <img height="248" width="379" srcset="{{ article.placeholderURL if article.placeholderURL is defined and article.placeholderURL }}/img/small/placeholder-news-medium.png 1x, {{ article.placeholderURL if article.placeholderURL is defined and article.placeholderURL }}/img/large/placeholder-news-medium.png 2x" src="{{ article.placeholderURL if article.placeholderURL is defined and article.placeholderURL }}/img/small/placeholder-news-medium.png" alt="Image placeholder" loading="lazy">
                                 {% endif %}
 
                             {% else %}
 
-                                {% if article.image is defined and article.image and article.image.filename is defined and article.image.filename %}
-                                    <img height="92" width="140" srcset="{{ article.image.smallSrc }}{{ article.image.filename }} 1x, {{ article.image.largeSrc }}{{ article.image.filename }} 2x" src="{{ article.image.smallSrc }}{{ article.image.filename }}" alt="{{ article.image.alt }}" loading="lazy">
+                                {% if article.image is defined and article.image and article.image.smallSrc is defined and article.image.smallSrc %}
+                                    <img height="92" width="140" srcset="{{ article.image.smallSrc }} 1x, {{ article.image.largeSrc }} 2x" src="{{ article.image.smallSrc }}" alt="{{ article.image.alt }}" loading="lazy">
                                 {% else %}
                                     <img height="92" width="140" srcset="{{ article.placeholderURL if article.placeholderURL is defined and article.placeholderURL }}/img/small/placeholder-news.png 1x, {{ article.placeholderURL if article.placeholderURL is defined and article.placeholderURL }}/img/large/placeholder-news.png 2x" src="{{ article.placeholderURL if article.placeholderURL is defined and article.placeholderURL }}/img/small/placeholder-news.png" alt="Image placeholder" loading="lazy">
                                 {% endif %}
