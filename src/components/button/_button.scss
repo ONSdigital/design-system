@@ -24,6 +24,7 @@ $button-border-height: 3px;
     margin: 0 0 0.1rem 0.5rem;
     width: 0.8rem;
     height: 0.8rem;
+    fill: $color-text-inverse;
     vertical-align: middle;
   }
 
@@ -101,14 +102,13 @@ $button-border-height: 3px;
 
   &--secondary &,
   &--print & {
-    .svg-icon {
-      width: 1rem;
-      height: 1rem;
-    }
     &__inner {
       background: $color-button-secondary;
       color: $color-text;
       font-weight: normal;
+      .svg-icon {
+        fill: $color-text;
+      }
     }
   }
 
@@ -173,7 +173,6 @@ $button-border-height: 3px;
 
   &--loader.is-loading &__inner {
     color: transparent;
-
     .svg-icon {
       opacity: 1;
     }
