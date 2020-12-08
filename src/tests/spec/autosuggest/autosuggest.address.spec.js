@@ -922,7 +922,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&=wboost=10&favourwelsh=true',
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&wboost=10&favourwelsh=true',
         );
       });
     });
