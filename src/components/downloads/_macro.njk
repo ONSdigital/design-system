@@ -4,10 +4,10 @@
 
         <div class="download__image" aria-hidden="true">
             <a class="download__image-link" href="{{ download.url }}" tabindex="-1">
-                {% if download.thumbnail is defined and download.thumbnail and download.thumbnail.filename %}
-                    <img srcset="{{ download.thumbnail.smallSrc }}{{ download.thumbnail.filename }} 1x, {{ download.thumbnail.largeSrc }}{{ download.thumbnail.filename }} 2x" src="{{ download.thumbnail.smallSrc }}{{ download.thumbnail.filename }}" alt="{{ download.thumbnail.alt }}">
+                {% if download.thumbnail is defined and download.thumbnail and download.thumbnail.smallSrc is defined and download.thumbnail.smallSrc and download.thumbnail.largeSrc is defined and download.thumbnail.largeSrc %}
+                    <img srcset="{{ download.thumbnail.smallSrc }} 1x, {{ download.thumbnail.largeSrc }} 2x" src="{{ download.thumbnail.smallSrc }}" alt="{{ download.thumbnail.alt }}" loading="lazy">
                 {% else %}
-                    <img srcset="{{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/small/placeholder-portrait.png 1x, {{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/large/placeholder-portrait.png 2x" src="{{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/small/placeholder-portrait.png" alt="Image placeholder">
+                    <img srcset="{{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/small/placeholder-portrait.png 1x, {{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/large/placeholder-portrait.png 2x" src="{{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/small/placeholder-portrait.png" alt="Image placeholder" loading="lazy">
                 {% endif %}
             </a>
         </div>
