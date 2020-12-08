@@ -23,18 +23,9 @@
     margin: 0 0.5rem 0.2rem 0;
   }
 
-  &--body {
+  &__body {
     padding: 2rem 0 4rem;
     background-color: $color-grey-5;
-
-    &__heading {
-      margin: 0 0 1rem;
-    }
-
-    &__hr {
-      border: 0;
-      border-top: 1px solid $color-grey-3;
-    }
 
     .list__link {
       margin-right: 0;
