@@ -75,7 +75,7 @@
 
     &--footer {
       margin-bottom: 0;
-      padding: 1rem !important;
+      padding: 1rem 0 !important;
       background-color: $color-grey-4 !important;
     }
   }
@@ -148,6 +148,10 @@
   &--warn {
     .panel__icon {
       position: absolute;
+    }
+  }
+  &--success {
+    .panel__icon {
       left: 0;
     }
   }
