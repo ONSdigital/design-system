@@ -12,7 +12,7 @@
 | attributes   | object  | false    | HTML attributes (for example data attributes) to add to the button component                                                                                                                         |
 | listeners    | object  | false    | Creates a `script` element that adds an event listener to the element by `id`. Takes `key { event }` and `value { function }`                                                                        |
 | submitType   | string  | false    | If set to `timer` the button will only be disabled for a short time to stop double clicks from double submitting. If set to `loader` will create a loader button that includes the loading animation |
-| Icon         | `Icon`  | false    | Object that contains the settings for adding icons to buttons                                                                                                                                        |
+| Icon         | object  | false    | Object that contains the settings for adding icons to buttons                                                                                                                                        |
 | newWindow    | boolean | false    | Opens the next page in a new tab. Used for links to external pages                                                                                                                                   |
 | buttonStyle  | string  | false    | Can be set to `print`, `exit` or `mobile`. This will style the button with the relevant classes and icons                                                                                            |
 
