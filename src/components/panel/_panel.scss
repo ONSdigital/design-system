@@ -17,7 +17,7 @@
   position: relative;
   border-radius: 0;
 
-  /* Removes inherited bottom margin to make whitespace inside panel equal */
+  // Removes inherited bottom margin to make whitespace inside panel equal
   > *:last-child {
     margin-bottom: 0;
   }
@@ -43,7 +43,7 @@
 
   &__body {
     padding: 1rem;
-    /* Removes inherited bottom margin to make whitespace inside panel equal */
+    // Removes inherited bottom margin to make whitespace inside panel equal
     > *:last-child {
       margin-bottom: 0;
     }
@@ -77,6 +77,24 @@
       margin-bottom: 0;
       padding: 1rem !important;
       background-color: $color-grey-4 !important;
+    }
+  }
+
+  &--warn-ondark {
+    background: $color-branded-tertiary !important;
+    color: $color-white;
+    padding: 1rem 0 !important;
+    position: relative;
+
+    &:before {
+      background: inherit;
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200vw;
+      z-index: -1;
     }
   }
 
@@ -120,6 +138,13 @@
     }
   }
 
+  &--warn-ondark & {
+    &__icon {
+      background: $color-white;
+      color: $color-branded-tertiary;
+    }
+  }
+
   &--success & {
     &__icon {
       padding-left: 1rem;
@@ -157,5 +182,4 @@
 @include panel-type(success, $color-success, $color-success-tint);
 @include panel-type(info, $color-info, $color-info-tint);
 @include panel-type(branded, $color-branded, $color-branded-tint);
-@include panel-type(warn, $color-white, $color-white);
 @include panel-type(warn, $color-white, $color-white);
