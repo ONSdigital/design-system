@@ -14,6 +14,7 @@
                     <div class="article__image" aria-hidden="true">
 
                         <a class="article__image-link" href="{{ article.url }}" tabindex="-1">
+                            <img srcset="{{ article.image.smallSrc }} 1x, {{ article.image.largeSrc }} 2x" src="{{ article.image.smallSrc }}" alt="{{ article.image.alt }}">
 
                             {% if article.featured is defined and article.featured %}
 
