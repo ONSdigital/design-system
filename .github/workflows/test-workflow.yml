@@ -11,5 +11,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm -v
+      - run: -exc
+          |
+          apt-get update && apt-get install -y --allow-unauthenticated zip
+
+          cd ons-design-system-release
+
+          mkdir design-system
+          tar -xzf source.tar.gz -C design-system --strip-components=1
+
+          cd design-system
+
+          design_system_release=$(cat ../../ons-design-system-release/version)
+
+          yarn
+          RELEASE_VERSION=$design_system_release yarn cdn-bundle
+
+          mkdir ../../dist/$design_system_release
+          cp -R build/* ../../dist/$design_system_release
+          zip -r ../../templates/templates.zip templates/*
