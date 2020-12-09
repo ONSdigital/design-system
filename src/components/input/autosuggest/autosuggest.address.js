@@ -68,31 +68,14 @@ export default class AutosuggestAddress {
     this.epoch = this.container.getAttribute('data-options-one-year-ago');
     this.classificationFilter = this.container.getAttribute('data-options-address-type');
 
-    // Set authorization
-    this.setAuthorization(this.authorizationToken);
-
     // Check API status
     this.checkAPIStatus();
-  }
-
-  setAuthorization(token) {
-    if (token) {
-      this.authorization = `Bearer ${token}`;
-    } else {
-      this.user = 'equser';
-      this.password = '$4c@ec1zLBu';
-      this.credentials = btoa(`${this.user}:${this.password}`);
-      this.authorization = `Basic ${this.credentials}`;
-    }
-    this.headers = new Headers({
-      Authorization: this.authorization,
-    });
   }
 
   checkAPIStatus() {
     this.fetch = abortableFetch(this.lookupURL + 'CF142&limit=10', {
       method: 'GET',
-      headers: this.headers,
+      headers: this.setAuthorization(this.authorizationToken),
     });
     this.fetch
       .send()
@@ -144,7 +127,7 @@ export default class AutosuggestAddress {
 
       this.fetch = abortableFetch(fullQueryURL, {
         method: 'GET',
-        headers: this.headers,
+        headers: this.setAuthorization(this.authorizationToken),
       });
       this.fetch
         .send()
@@ -270,7 +253,7 @@ export default class AutosuggestAddress {
 
       this.fetch = abortableFetch(fullUPRNURL, {
         method: 'GET',
-        headers: this.headers,
+        headers: this.setAuthorization(this.authorizationToken),
       });
 
       this.fetch
@@ -409,5 +392,19 @@ export default class AutosuggestAddress {
       this.handleError.showErrorPanel();
       this.autosuggest.setAriaStatus(this.errorMessage);
     }
+  }
+
+  setAuthorization(token) {
+    if (token) {
+      this.authorization = `Bearer ${token}`;
+    } else {
+      this.user = 'equser';
+      this.password = '$4c@ec1zLBu';
+      this.credentials = btoa(`${this.user}:${this.password}`);
+      this.authorization = `Basic ${this.credentials}`;
+    }
+    return new Headers({
+      Authorization: this.authorization,
+    });
   }
 }

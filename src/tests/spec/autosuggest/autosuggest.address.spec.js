@@ -30,6 +30,7 @@ const params = {
     isEditable: true,
     mandatory: true,
     APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+    APIDomainBearerToken: 'someToken',
     instructions:
       "Use up and down keys to navigate suggestions once you've typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
     ariaYouHaveSelected: 'You have selected',
@@ -739,7 +740,7 @@ describe('Autosuggest.address component', function() {
     });
   });
 
-  describe('When the component initialises with options - english, epoch, educational', function() {
+  describe('When the component initialises with options - english, epoch, workplace', function() {
     const paramsOptions = {
       id: 'address',
       autosuggest: {
@@ -748,7 +749,7 @@ describe('Autosuggest.address component', function() {
         options: {
           regionCode: 'gb-eng',
           oneYearAgo: true,
-          addressType: 'educational',
+          addressType: 'workplace',
         },
       },
     };
@@ -781,7 +782,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&epoch=72',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&epoch=72',
         );
       });
     });
