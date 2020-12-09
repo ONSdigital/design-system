@@ -744,7 +744,7 @@ describe('Autosuggest.address component', function() {
       id: 'address',
       autosuggest: {
         externalInitialiser: true,
-        APIDomain: '',
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk/',
         options: {
           regionCode: 'gb-eng',
           oneYearAgo: true,
@@ -781,7 +781,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&epoch=72',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&epoch=72',
         );
       });
     });
@@ -791,7 +791,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       autosuggest: {
-        APIDomain: '',
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk/',
         externalInitialiser: true,
         options: {
           regionCode: 'gb-nir',
@@ -828,7 +828,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&niboost=10',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&niboost=10',
         );
       });
     });
@@ -838,7 +838,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       autosuggest: {
-        APIDomain: '',
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk/',
         externalInitialiser: true,
         options: {
           regionCode: 'gb-nir',
@@ -875,7 +875,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&eboost=0&sboost=0&wboost=0',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&eboost=0&sboost=0&wboost=0',
         );
       });
     });
@@ -887,7 +887,9 @@ describe('Autosuggest.address component', function() {
       });
 
       it('then the retrieve url should contain the correct parameters', function() {
-        expect(this.autosuggestAddress.fetch.url).to.equal('/addresses/eq/uprn/11000000?addresstype=nisra');
+        expect(this.autosuggestAddress.fetch.url).to.equal(
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/11000000?addresstype=nisra',
+        );
       });
     });
   });
@@ -896,7 +898,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       autosuggest: {
-        APIDomain: '',
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk/',
         externalInitialiser: true,
         options: {
           regionCode: 'gb-wls',
@@ -933,7 +935,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&wboost=10&favourwelsh=true',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&wboost=10&favourwelsh=true',
         );
       });
     });
@@ -945,7 +947,9 @@ describe('Autosuggest.address component', function() {
       });
 
       it('then the retrieve url should contain the correct parameters', function() {
-        expect(this.autosuggestAddress.fetch.url).to.equal('/addresses/eq/uprn/11000000?addresstype=welshpaf');
+        expect(this.autosuggestAddress.fetch.url).to.equal(
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/11000000?addresstype=welshpaf',
+        );
       });
     });
   });
