@@ -10,6 +10,7 @@ layout: none
 {% set pageConfig = {
     "title": "Census 2021",
     "theme": "census",
+    "pageColNumber": "12",
     "absoluteUrl": pageInfo.url,
     "headMeta": {
         "description": "Census 2021 is a UK wide population survey."
@@ -45,536 +46,450 @@ layout: none
     }
 } %}
 
-{% block pageContent %}
+{% block main %}
+    <h1>Download resources</h1>
+    <div class="col-8@m u-mb-l">
+        <p>Access promotional materials and resources relating to Census 2021.</p>
+    </div>
 
-<div class="page__container container">
+    <div class="js-adv-filter">
+        <div class="grid grid--column@xs@s u-mb-m@m">
+            <div class="grid__col col-4@m">
+                {{
+                    onsButton({
+                        "type": 'button',
+                        "text": 'Show filters',
+                        "classes": 'adv-filter__trigger js-adv-filter__trigger btn btn--secondary btn--small u-mb-m',
+                        "attributes": {
+                            "aria-label": 'Toggle filters',
+                            "aria-expanded": 'false',
+                            "aria-controls": 'filter-panel'
+                        }
+                    })
+                }}
+                <div class="adv-filter__panel js-adv-filter__panel" id="filter-panel">
+                    <h2 class="u-fs-l">Filters</h2>
+                    <form class="js-adv-filter__form" method="POST">
+                        <button class="adv-filter__reset js-adv-filter__reset" type="reset">Reset all filters</button>
 
-    <div class="grid">
+                        <!-- Audience -->
+                        <div class="adv-filter__item js-adv-filter__item" data-default-text="All audiences" data-multi-select-text="{n} filters selected">
+                            <fieldset class="fieldset" aria-controls="adv-filter-gallery">
+                                <legend class="fieldset__legend">Audience</legend>
+                                <div class="adv-filter__selection">
+                                    <span class="u-vh">Active filters: </span>
+                                    <span class="u-fs-s js-adv-filter__selection">All audiences</span>
+                                </div>
+                                {{
+                                    onsCheckboxes({
+                                        "dontWrap": "true",
+                                        "legend": "Audience",
+                                        "name": "audience",
+                                        "checkboxes": [
+                                            {
+                                                "classes": "checkbox--toggle",
+                                                "id": "local-authorities",
+                                                "label": {
+                                                    "text": "Local authorities"
+                                                },
+                                                "value": "local-authorities",
+                                                "attributes": {
+                                                    "data-filter": "local-authorities"
+                                                }
+                                            },
+                                            {
+                                                "classes": "checkbox--toggle",
+                                                "id": "community-groups",
+                                                "label": {
+                                                    "text": "Community groups"
+                                                },
+                                                "value": "community-groups",
+                                                "attributes": {
+                                                    "data-filter": "community-groups"
+                                                }
+                                            },
+                                            {
+                                                "classes": "checkbox--toggle",
+                                                "id": "general-public",
+                                                "label": {
+                                                    "text": "General public"
+                                                },
+                                                "value": "general-public",
+                                                "attributes": {
+                                                    "data-filter": "general-public"
+                                                }
+                                            },
+                                            {
+                                                "classes": "checkbox--toggle",
+                                                "id": "recruitment",
+                                                "label": {
+                                                    "text": "Recruitment"
+                                                },
+                                                "value": "recruitment",
+                                                "attributes": {
+                                                    "data-filter": "recruitment"
+                                                }
+                                            }
+                                        ]
+                                    })
+                                }}
+                            </fieldset>
+                        </div>
 
-        <div class="grid__col col-12@m">
+                        <!-- Type -->
+                        <div class="adv-filter__item js-adv-filter__item" data-default-text="All types" data-multi-select-text="{n} filters selected">
+                            <fieldset class="fieldset" aria-controls="adv-filter-gallery">
+                                <legend class="fieldset__legend">Type</legend>
+                                <div class="adv-filter__selection">
+                                    <span class="u-vh">Active filters: </span>
+                                    <span class="u-fs-s js-adv-filter__selection">All types</span>
+                                </div>
+                                {{
+                                    onsCheckboxes({
+                                        "dontWrap": "true",
+                                        "legend": "Audience",
+                                        "name": "audience",
+                                        "checkboxes": [
+                                            {
+                                                "classes": "checkbox--toggle",
+                                                "id": "booklet",
+                                                "label": {
+                                                    "text": "Booklet"
+                                                },
+                                                "value": "booklet",
+                                                "attributes": {
+                                                    "data-filter": "booklet"
+                                                }
+                                            },
+                                            {
+                                                "classes": "checkbox--toggle",
+                                                "id": "logo",
+                                                "label": {
+                                                    "text": "Logo"
+                                                },
+                                                "value": "logo",
+                                                "attributes": {
+                                                    "data-filter": "logo"
+                                                }
+                                            },
+                                            {
+                                                "classes": "checkbox--toggle",
+                                                "id": "poster",
+                                                "label": {
+                                                    "text": "Poster"
+                                                },
+                                                "value": "poster",
+                                                "attributes": {
+                                                    "data-filter": "poster"
+                                                }
+                                            }
+                                        ]
+                                    })
+                                }}
+                            </fieldset>
+                        </div>
 
-            <main class="page__main" id="main-content" role="main">
+                        <!-- Languages -->
+                        <div class="adv-filter__item js-adv-filter__item" data-default-text="All languages" data-multi-select-text="{n} filters selected">
+                            <fieldset class="fieldset" aria-controls="adv-filter-gallery">
+                                <legend class="fieldset__legend">Language</legend>
+                                <div class="adv-filter__selection">
+                                    <span class="u-vh">Active filters: </span>
+                                    <span class="u-fs-s js-adv-filter__selection">All languages</span>
+                                </div>
+                                {{
+                                    onsCheckboxes({
+                                        "dontWrap": "true",
+                                        "legend": "Audience",
+                                        "name": "audience",
+                                        "checkboxes": [
+                                            {
+                                                "classes": "checkbox--toggle",
+                                                "id": "english",
+                                                "label": {
+                                                    "text": "English"
+                                                },
+                                                "value": "english",
+                                                "attributes": {
+                                                    "data-filter": "english"
+                                                }
+                                            },
+                                            {
+                                                "classes": "checkbox--toggle",
+                                                "id": "welsh",
+                                                "label": {
+                                                    "text": "Welsh (Cymraeg)"
+                                                },
+                                                "value": "welsh",
+                                                "attributes": {
+                                                    "data-filter": "welsh"
+                                                }
+                                            },
+                                            {
+                                                "classes": "checkbox--toggle",
+                                                "id": "irish",
+                                                "label": {
+                                                    "text": "Irish (Gaeilge)"
+                                                },
+                                                "value": "irish",
+                                                "attributes": {
+                                                    "data-filter": "irish"
+                                                }
+                                            }
+                                        ]
+                                    })
+                                }}
+                            </fieldset>
+                        </div>
 
-                <h1 class="u-mt-l u-fs-xxl">Download resources</h1>
-
-                <div class="col-8@m u-mb-l">
-                    <p>Access promotional materials and resources relating to Census 2021.</p>
-                </div>
-
-                <div class="js-adv-filter">
-
-                    <div class="grid grid--column@xs@s u-mb-m@m">
-
-                        <div class="grid__col col-4@m">
-
+                        <div class="adv-filter__actions">
                             {{
                                 onsButton({
                                     "type": 'button',
-                                    "text": 'Show filters',
-                                    "classes": 'adv-filter__trigger js-adv-filter__trigger btn btn--secondary btn--small u-mb-m',
-                                    "attributes": {
-                                        "aria-label": 'Toggle filters',
-                                        "aria-expanded": 'false',
-                                        "aria-controls": 'filter-panel'
-                                    }
+                                    "html": 'Show (<span class="js-adv-filter__show-results">7</span> results)',
+                                    "classes": 'btn btn--small js-adv-filter__show'
                                 })
                             }}
-
-                            <div class="adv-filter__panel js-adv-filter__panel" id="filter-panel">
-
-                                <h2 class="u-fs-l">Filters</h2>
-
-                                <form class="js-adv-filter__form" method="POST">
-
-                                    <button class="adv-filter__reset js-adv-filter__reset" type="reset">Reset all filters</button>
-                                    
-                                    <!-- Audience -->
-                                    <div class="adv-filter__item js-adv-filter__item" data-default-text="All audiences" data-multi-select-text="{n} filters selected">
-
-                                        <fieldset class="fieldset" aria-controls="adv-filter-gallery">
-
-                                            <legend class="fieldset__legend">Audience</legend>
-                                            
-                                            <div class="adv-filter__selection">
-                                                <span class="u-vh">Active filters: </span>
-                                                <span class="u-fs-s js-adv-filter__selection">All audiences</span>
-                                            </div>
-
-                                            {{
-                                                onsCheckboxes({
-                                                    "dontWrap": "true",
-                                                    "legend": "Audience",
-                                                    "name": "audience",
-                                                    "checkboxes": [
-                                                        {
-                                                            "classes": "checkbox--toggle",
-                                                            "id": "local-authorities",
-                                                            "label": {
-                                                                "text": "Local authorities"
-                                                            },
-                                                            "value": "local-authorities",
-                                                            "attributes": {
-                                                                "data-filter": "local-authorities"
-                                                            }
-                                                        },
-                                                        {
-                                                            "classes": "checkbox--toggle",
-                                                            "id": "community-groups",
-                                                            "label": {
-                                                                "text": "Community groups"
-                                                            },
-                                                            "value": "community-groups",
-                                                            "attributes": {
-                                                                "data-filter": "community-groups"
-                                                            }
-                                                        },
-                                                        {
-                                                            "classes": "checkbox--toggle",
-                                                            "id": "general-public",
-                                                            "label": {
-                                                                "text": "General public"
-                                                            },
-                                                            "value": "general-public",
-                                                            "attributes": {
-                                                                "data-filter": "general-public"
-                                                            }
-                                                        },
-                                                        {
-                                                            "classes": "checkbox--toggle",
-                                                            "id": "recruitment",
-                                                            "label": {
-                                                                "text": "Recruitment"
-                                                            },
-                                                            "value": "recruitment",
-                                                            "attributes": {
-                                                                "data-filter": "recruitment"
-                                                            }
-                                                        }
-                                                    ]
-                                                })
-                                            }}
-
-                                        </fieldset>
-
-                                    </div>
-
-                                    <!-- Type -->
-                                    <div class="adv-filter__item js-adv-filter__item" data-default-text="All types" data-multi-select-text="{n} filters selected">
-
-                                        <fieldset class="fieldset" aria-controls="adv-filter-gallery">
-
-                                            <legend class="fieldset__legend">Type</legend>
-                                            
-                                            <div class="adv-filter__selection">
-                                                <span class="u-vh">Active filters: </span>
-                                                <span class="u-fs-s js-adv-filter__selection">All types</span>
-                                            </div>
-
-                                            {{
-                                                onsCheckboxes({
-                                                    "dontWrap": "true",
-                                                    "legend": "Audience",
-                                                    "name": "audience",
-                                                    "checkboxes": [
-                                                        {
-                                                            "classes": "checkbox--toggle",
-                                                            "id": "booklet",
-                                                            "label": {
-                                                                "text": "Booklet"
-                                                            },
-                                                            "value": "booklet",
-                                                            "attributes": {
-                                                                "data-filter": "booklet"
-                                                            }
-                                                        },
-                                                        {
-                                                            "classes": "checkbox--toggle",
-                                                            "id": "logo",
-                                                            "label": {
-                                                                "text": "Logo"
-                                                            },
-                                                            "value": "logo",
-                                                            "attributes": {
-                                                                "data-filter": "logo"
-                                                            }
-                                                        },
-                                                        {
-                                                            "classes": "checkbox--toggle",
-                                                            "id": "poster",
-                                                            "label": {
-                                                                "text": "Poster"
-                                                            },
-                                                            "value": "poster",
-                                                            "attributes": {
-                                                                "data-filter": "poster"
-                                                            }
-                                                        }
-                                                    ]
-                                                })
-                                            }}
-
-                                        </fieldset>
-
-                                    </div>
-
-                                    <!-- Languages -->
-                                    <div class="adv-filter__item js-adv-filter__item" data-default-text="All languages" data-multi-select-text="{n} filters selected">
-
-                                        <fieldset class="fieldset" aria-controls="adv-filter-gallery">
-
-                                            <legend class="fieldset__legend">Language</legend>
-                                            
-                                            <div class="adv-filter__selection">
-                                                <span class="u-vh">Active filters: </span>
-                                                <span class="u-fs-s js-adv-filter__selection">All languages</span>
-                                            </div>
-
-                                            {{
-                                                onsCheckboxes({
-                                                    "dontWrap": "true",
-                                                    "legend": "Audience",
-                                                    "name": "audience",
-                                                    "checkboxes": [
-                                                        {
-                                                            "classes": "checkbox--toggle",
-                                                            "id": "english",
-                                                            "label": {
-                                                                "text": "English"
-                                                            },
-                                                            "value": "english",
-                                                            "attributes": {
-                                                                "data-filter": "english"
-                                                            }
-                                                        },
-                                                        {
-                                                            "classes": "checkbox--toggle",
-                                                            "id": "welsh",
-                                                            "label": {
-                                                                "text": "Welsh (Cymraeg)"
-                                                            },
-                                                            "value": "welsh",
-                                                            "attributes": {
-                                                                "data-filter": "welsh"
-                                                            }
-                                                        },
-                                                        {
-                                                            "classes": "checkbox--toggle",
-                                                            "id": "irish",
-                                                            "label": {
-                                                                "text": "Irish (Gaeilge)"
-                                                            },
-                                                            "value": "irish",
-                                                            "attributes": {
-                                                                "data-filter": "irish"
-                                                            }
-                                                        }
-                                                    ]
-                                                })
-                                            }}
-
-                                        </fieldset>
-
-                                    </div>
-
-                                    <div class="adv-filter__actions">
-
-                                        {{
-                                            onsButton({
-                                                "type": 'button',
-                                                "html": 'Show (<span class="js-adv-filter__show-results">7</span> results)',
-                                                "classes": 'btn btn--small js-adv-filter__show'
-                                            })
-                                        }}
-
-                                        {{ 
-                                            onsButton({
-                                                "type": 'button',
-                                                "text": 'Close',
-                                                "classes": 'btn--small btn--secondary js-adv-filter__close'
-                                            }) 
-                                        }}
-
-                                    </div>
-
-                                </form>
-
-                            </div>
-
+                            {{ 
+                                onsButton({
+                                    "type": 'button',
+                                    "text": 'Close',
+                                    "classes": 'btn--small btn--secondary js-adv-filter__close'
+                                }) 
+                            }}
                         </div>
+                    </form>
+                </div>
+            </div>
 
-                        <div class="grid__col col-8@m">
-                            
-                            <div class="adv-filter__results-options">
-
-                                <div class="adv-filter__results-count">
-                                    <span class="js-adv-filter__results-count">9</span> results of 150
-                                </div>
-
-                                <div class="adv-filter__results-sort">
-                                    <label class="label" for="sort">Sort by</label>
-                                    <select class="input input--select" id="sort" name="sort" aria-controls="adv-filter-gallery" data-sort="true">
-                                        <option value="index" data-sort-number="true">Latest</option>
-                                        <option value="index" data-sort-order="desc" data-sort-number="true">Oldest</option>
-                                    </select>
-                                </div>
-
-                            </div>
-
-                            <ul class="adv-filter__gallery js-adv-filter__gallery" id="adv-filter-gallery" data-filter-animation="off">
-
-                                <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="1">
-                                
-                                    {{ onsDownloads({
-                                        "downloads": [
-                                            {
-                                                "thumbnail": {
-                                                    "smallSrc": "/patternlib-img/download-resources/img/small/",
-                                                    "largeSrc": "/patternlib-img/download-resources/img/large/",
-                                                    "filename": "census-2021-matters-to-everyone.png",
-                                                    "alt": "Census 2021 matters to everyone document thumbnail"
-                                                },
-                                                "url": "/patternlib-img/download-resources/documents/Print-Ready-A4GIP1-2021-v1-0-120620.pdf",                                                
-                                                "title": "Census 2021 matters to everyone",
-                                                "type": "Poster",
-                                                "meta": {
-                                                    "fileType": "PDF",
-                                                    "fileSize": "866KB",
-                                                    "filePages": "1 page"
-                                                },
-                                                "excerpt": "By taking part and encouraging others to do the same, you’ll make sure your community gets the services it needs."
-                                            }
-                                        ]
-                                    }) }}
-
-                                </li>
-
-                                <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="2">
-                                
-                                    {{ onsDownloads({
-                                        "downloads": [
-                                            {
-                                                "thumbnail": {
-                                                    "smallSrc": "/patternlib-img/download-resources/img/small/",
-                                                    "largeSrc": "/patternlib-img/download-resources/img/large/",
-                                                    "filename": "including-everyone-in-census-2021-v2.png",
-                                                    "alt": "Including everyone in Census 2021 document thumbnail"
-                                                },
-                                                "url": "/patternlib-img/download-resources/documents/Print-Ready-A4EB1-2021-v1-0-120620.pdf",                                            
-                                                "title": "Including everyone in Census 2021",
-                                                "type": "Poster",
-                                                "meta": {
-                                                    "fileType": "PDF",
-                                                    "fileSize": "499KB",
-                                                    "filePages": "1 page"
-                                                },
-                                                "excerpt": "Empty belly poster, aimed at advertising census events."
-                                            }
-                                        ]
-                                    }) }}
-
-                                </li>
-
-                                <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="3">
-
-                                    {{ onsDownloads({
-                                        "downloads": [
-                                            {
-                                                "thumbnail": {
-                                                    "smallSrc": "/patternlib-img/download-resources/img/small/",
-                                                    "largeSrc": "/patternlib-img/download-resources/img/large/",
-                                                    "filename": "including-everyone-in-census-2021.png",
-                                                    "alt": "Including everyone in Census 2021 document thumbnail"
-                                                },
-                                                "url": "/patternlib-img/download-resources/documents/A6PCA1-v1-0-Print-Ready-Pack1.pdf",                                                
-                                                "title": "Census awareness poster",
-                                                "type": "Poster",
-                                                "meta": {
-                                                    "fileType": "PDF",
-                                                    "fileSize": "499KB",
-                                                    "filePages": "1 page"
-                                                },
-                                                "excerpt": "Generic poster advertising census 2021."
-                                            }
-                                        ]
-                                    }) }}
-
-                                </li>
-
-                                <li class="filter__item js-filter__item" data-filter="booklet english local-authorities community-groups recruitment" data-sort-index="4">
-                                
-                                    {{ onsDownloads({
-                                        "downloads": [
-                                            {
-                                                "thumbnail": {
-                                                    "smallSrc": "/patternlib-img/download-resources/img/small/",
-                                                    "largeSrc": "/patternlib-img/download-resources/img/large/",
-                                                    "filename": "census-2021-community-handbook.png",
-                                                    "alt": "Community handbook for Census 2021 document thumbnail"
-                                                },
-                                                "url": "/patternlib-img/download-resources/documents/CHDE1-Community-Handbook-v0.6.pdf",
-                                                "title": "Community handbook for Census 2021",
-                                                "type": "Booklet",
-                                                "meta": {
-                                                    "fileType": "PDF",
-                                                    "fileSize": "3.3MB",
-                                                    "filePages": "16 pages"
-                                                },
-                                                "excerpt": "This handbook explains what the census is, why it matters to everyone and how we can work together to spread the word within your community."
-                                            }
-                                        ]
-                                    }) }}
-
-                                </li>
-
-                                <li class="filter__item js-filter__item" data-filter="booklet english local-authorities community-groups recruitment" data-sort-index="5">
-
-                                    {{ onsDownloads({
-                                        "downloads": [
-                                            {
-                                                "thumbnail": {
-                                                    "smallSrc": "/patternlib-img/download-resources/img/small/",
-                                                    "largeSrc": "/patternlib-img/download-resources/img/large/",
-                                                    "filename": "census-2021-brand-guidelines.png",
-                                                    "alt": "Brand guidelines document thumbnail preview"
-                                                },
-                                                "url": "/patternlib-img/download-resources/documents/ONS-Census-2021-Brand-Guidelines-v3-03.pdf",                                                
-                                                "title": "Brand guidelines for Census 2021",
-                                                "type": "Booklet",
-                                                "meta": {
-                                                    "fileType": "PDF",
-                                                    "fileSize": "7.4MB",
-                                                    "filePages": "70 pages"
-                                                },
-                                                "excerpt": "Guidelines to help produce branded communications for the census, which are clear and consistent across print and digital platforms."
-                                            }
-                                        ]
-                                    }) }}
-
-                                </li>
-
-                                <li class="filter__item js-filter__item" data-filter="booklet english local-authorities community-groups recruitment" data-sort-index="6">
-
-                                    {{ onsDownloads({
-                                        "downloads": [
-                                            {
-                                                "thumbnail": {
-                                                    "smallSrc": "/patternlib-img/download-resources/img/small/",
-                                                    "largeSrc": "/patternlib-img/download-resources/img/large/",
-                                                    "filename": "census-2021-tone-of-voice.png",
-                                                    "alt": "Brand guidelines document thumbnail preview"
-                                                },
-                                                "url": "/patternlib-img/download-resources/documents/Census-Tone-of-Voice-v4-07.pdf",                                                
-                                                "title": "Tone of voice for Census 2021",
-                                                "type": "Booklet",
-                                                "meta": {
-                                                    "fileType": "PDF",
-                                                    "fileSize": "1.1MB",
-                                                    "filePages": "34 pages"
-                                                },
-                                                "excerpt": "A guide to how we write and talk about the census."
-                                            }
-                                        ]
-                                    }) }}
-
-                                </li>
-
-                                <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="7">
-
-                                    {{ onsDownloads({
-                                        "downloads": [
-                                            {
-                                                "thumbnail": {
-                                                    "smallSrc": "/patternlib-img/download-resources/img/small/",
-                                                    "largeSrc": "/patternlib-img/download-resources/img/large/",
-                                                    "filename": "placeholder-portrait.png",
-                                                    "alt": "Placeholder"
-                                                },
-                                                "url": "#0",                                                
-                                                "title": "Default awareness pop-up stand for graphics for Census 2021",
-                                                "type": "Poster",
-                                                "meta": {
-                                                    "fileType": "ZIP",
-                                                    "fileSize": "12MB",
-                                                    "filePages": "6 files"
-                                                },
-                                                "excerpt": "Awareness pop-up stand graphics for the initial launch engagement."
-                                            }
-                                        ]
-                                    }) }}
-
-                                </li>
-
-                                <li class="filter__item js-filter__item" data-filter="poster english" data-sort-index="8">
-                                    
-                                    {{ onsDownloads({
-                                        "downloads": [
-                                            {
-                                                "thumbnail": {
-                                                    "smallSrc": "/patternlib-img/download-resources/img/small/",
-                                                    "largeSrc": "/patternlib-img/download-resources/img/large/",
-                                                    "filename": "placeholder-portrait.png",
-                                                    "alt": "Placeholder"
-                                                },
-                                                "url": "#0",                                                
-                                                "title": "Field officer jobs poster for Census 2021",
-                                                "type": "Poster",
-                                                "meta": {
-                                                    "fileType": "ZIP",
-                                                    "fileSize": "12MB",
-                                                    "filePages": "6 files"
-                                                },
-                                                "excerpt": "Collection of posters to advertise a field officer job for the census 2021."
-                                            }
-                                        ]
-                                    }) }}
-
-                                </li>
-
-                                <li class="filter__item js-filter__item" data-filter="logo english local-authorities community-groups recruitment" data-sort-index="9">
-                                    
-                                    {{ onsDownloads({
-                                        "downloads": [
-                                            {
-                                                "thumbnail": {
-                                                    "smallSrc": "/patternlib-img/download-resources/img/small/",
-                                                    "largeSrc": "/patternlib-img/download-resources/img/large/",
-                                                    "filename": "placeholder-portrait.png",
-                                                    "alt": "Placeholder"
-                                                },
-                                                "url": "#0",                                                
-                                                "title": "Census 2021 logos pack for print and web",
-                                                "type": "Logo",
-                                                "meta": {
-                                                    "fileType": "ZIP",
-                                                    "fileSize": "5MB",
-                                                    "filePages": "24 files"
-                                                },
-                                                "excerpt": "A collection of logos suitable for print and web advertising."
-                                            }
-                                        ]
-                                    }) }}
-
-                                </li>
-
-                            </ul>
-
-                            <div class="adv-filter__no-results" data-fallback-gallery-id="adv-filter-gallery">
-                                <h2>No results found</h2>
-                                <p>There are no results found due to your filters setup.</p>
-                            </div>
-                    
-                        </div>
-
+            <div class="grid__col col-8@m">
+                <div class="adv-filter__results-options">
+                    <div class="adv-filter__results-count">
+                        <span class="js-adv-filter__results-count">9</span> results of 150
                     </div>
 
+                    <div class="adv-filter__results-sort">
+                        <label class="label" for="sort">Sort by</label>
+                        <select class="input input--select" id="sort" name="sort" aria-controls="adv-filter-gallery" data-sort="true">
+                            <option value="index" data-sort-number="true">Latest</option>
+                            <option value="index" data-sort-order="desc" data-sort-number="true">Oldest</option>
+                        </select>
+                    </div>
                 </div>
 
-            </main>
+                <ul class="adv-filter__gallery js-adv-filter__gallery" id="adv-filter-gallery" data-filter-animation="off">
+                    <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="1">
+                        {{ onsDownloads({
+                            "downloads": [
+                                {
+                                    "thumbnail": {
+                                        "smallSrc": "/patternlib-img/download-resources/img/small/census-2021-matters-to-everyone.png",
+                                        "largeSrc": "/patternlib-img/download-resources/img/large/census-2021-matters-to-everyone.png",
+                                        "alt": "Census 2021 matters to everyone document thumbnail"
+                                    },
+                                    "url": "/patternlib-img/download-resources/documents/Print-Ready-A4GIP1-2021-v1-0-120620.pdf",
+                                    "title": "Census 2021 matters to everyone",
+                                    "type": "Poster",
+                                    "meta": {
+                                        "fileType": "PDF",
+                                        "fileSize": "866KB",
+                                        "filePages": "1 page"
+                                    },
+                                    "excerpt": "By taking part and encouraging others to do the same, you’ll make sure your community gets the services it needs."
+                                }
+                            ]
+                        }) }}
+                    </li>
 
+                    <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="2">
+                        {{ onsDownloads({
+                            "downloads": [
+                                {
+                                    "thumbnail": {
+                                        "smallSrc": "/patternlib-img/download-resources/img/small/including-everyone-in-census-2021-v2.png",
+                                        "largeSrc": "/patternlib-img/download-resources/img/large/including-everyone-in-census-2021-v2.png",
+                                        "alt": "Including everyone in Census 2021 document thumbnail"
+                                    },
+                                    "url": "/patternlib-img/download-resources/documents/Print-Ready-A4EB1-2021-v1-0-120620.pdf",
+                                    "title": "Including everyone in Census 2021",
+                                    "type": "Poster",
+                                    "meta": {
+                                        "fileType": "PDF",
+                                        "fileSize": "499KB",
+                                        "filePages": "1 page"
+                                    },
+                                    "excerpt": "Empty belly poster, aimed at advertising census events."
+                                }
+                            ]
+                        }) }}
+                    </li>
+
+                    <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="3">
+                        {{ onsDownloads({
+                            "downloads": [
+                                {
+                                    "thumbnail": {
+                                        "smallSrc": "/patternlib-img/download-resources/img/small/including-everyone-in-census-2021.png",
+                                        "largeSrc": "/patternlib-img/download-resources/img/large/including-everyone-in-census-2021.png",
+                                        "alt": "Including everyone in Census 2021 document thumbnail"
+                                    },
+                                    "url": "/patternlib-img/download-resources/documents/A6PCA1-v1-0-Print-Ready-Pack1.pdf",
+                                    "title": "Census awareness poster",
+                                    "type": "Poster",
+                                    "meta": {
+                                        "fileType": "PDF",
+                                        "fileSize": "499KB",
+                                        "filePages": "1 page"
+                                    },
+                                    "excerpt": "Generic poster advertising census 2021."
+                                }
+                            ]
+                        }) }}
+                    </li>
+
+                    <li class="filter__item js-filter__item" data-filter="booklet english local-authorities community-groups recruitment" data-sort-index="4">
+                        {{ onsDownloads({
+                            "downloads": [
+                                {
+                                    "thumbnail": {
+                                        "smallSrc": "/patternlib-img/download-resources/img/small/census-2021-community-handbook.png",
+                                        "largeSrc": "/patternlib-img/download-resources/img/large/census-2021-community-handbook.png",
+                                        "alt": "Community handbook for Census 2021 document thumbnail"
+                                    },
+                                    "url": "/patternlib-img/download-resources/documents/CHDE1-Community-Handbook-v0.6.pdf",
+                                    "title": "Community handbook for Census 2021",
+                                    "type": "Booklet",
+                                    "meta": {
+                                        "fileType": "PDF",
+                                        "fileSize": "3.3MB",
+                                        "filePages": "16 pages"
+                                    },
+                                    "excerpt": "This handbook explains what the census is, why it matters to everyone and how we can work together to spread the word within your community."
+                                }
+                            ]
+                        }) }}
+                    </li>
+
+                    <li class="filter__item js-filter__item" data-filter="booklet english local-authorities community-groups recruitment" data-sort-index="5">
+                        {{ onsDownloads({
+                            "downloads": [
+                                {
+                                    "thumbnail": {
+                                        "smallSrc": "/patternlib-img/download-resources/img/small/census-2021-brand-guidelines.png",
+                                        "largeSrc": "/patternlib-img/download-resources/img/large/census-2021-brand-guidelines.png",
+                                        "alt": "Brand guidelines document thumbnail preview"
+                                    },
+                                    "url": "/patternlib-img/download-resources/documents/ONS-Census-2021-Brand-Guidelines-v3-03.pdf",
+                                    "title": "Brand guidelines for Census 2021",
+                                    "type": "Booklet",
+                                    "meta": {
+                                        "fileType": "PDF",
+                                        "fileSize": "7.4MB",
+                                        "filePages": "70 pages"
+                                    },
+                                    "excerpt": "Guidelines to help produce branded communications for the census, which are clear and consistent across print and digital platforms."
+                                }
+                            ]
+                        }) }}
+                    </li>
+                    <li class="filter__item js-filter__item" data-filter="booklet english local-authorities community-groups recruitment" data-sort-index="6">
+                        {{ onsDownloads({
+                            "downloads": [
+                                {
+                                    "thumbnail": {
+                                        "smallSrc": "/patternlib-img/download-resources/img/small/census-2021-tone-of-voice.png",
+                                        "largeSrc": "/patternlib-img/download-resources/img/large/census-2021-tone-of-voice.png",
+                                        "alt": "Brand guidelines document thumbnail preview"
+                                    },
+                                    "url": "/patternlib-img/download-resources/documents/Census-Tone-of-Voice-v4-07.pdf",
+                                    "title": "Tone of voice for Census 2021",
+                                    "type": "Booklet",
+                                    "meta": {
+                                        "fileType": "PDF",
+                                        "fileSize": "1.1MB",
+                                        "filePages": "34 pages"
+                                    },
+                                    "excerpt": "A guide to how we write and talk about the census."
+                                }
+                            ]
+                        }) }}
+                    </li>
+
+                    <li class="filter__item js-filter__item" data-filter="poster english local-authorities community-groups recruitment" data-sort-index="7">
+                        {{ onsDownloads({
+                            "downloads": [
+                                {
+                                    "thumbnail": {
+                                        "smallSrc": "/patternlib-img/download-resources/img/small/placeholder-portrait.png",
+                                        "largeSrc": "/patternlib-img/download-resources/img/large/placeholder-portrait.png",
+                                        "alt": "Placeholder"
+                                    },
+                                    "url": "#0",
+                                    "title": "Default awareness pop-up stand for graphics for Census 2021",
+                                    "type": "Poster",
+                                    "meta": {
+                                        "fileType": "ZIP",
+                                        "fileSize": "12MB",
+                                        "filePages": "6 files"
+                                    },
+                                    "excerpt": "Awareness pop-up stand graphics for the initial launch engagement."
+                                }
+                            ]
+                        }) }}
+                    </li>
+
+                    <li class="filter__item js-filter__item" data-filter="poster english" data-sort-index="8">
+                        {{ onsDownloads({
+                            "downloads": [
+                                {
+                                    "thumbnail": {
+                                        "smallSrc": "/patternlib-img/download-resources/img/small/placeholder-portrait.png",
+                                        "largeSrc": "/patternlib-img/download-resources/img/large/placeholder-portrait.png",
+                                        "alt": "Placeholder"
+                                    },
+                                    "url": "#0",
+                                    "title": "Field officer jobs poster for Census 2021",
+                                    "type": "Poster",
+                                    "meta": {
+                                        "fileType": "ZIP",
+                                        "fileSize": "12MB",
+                                        "filePages": "6 files"
+                                    },
+                                    "excerpt": "Collection of posters to advertise a field officer job for the census 2021."
+                                }
+                            ]
+                        }) }}
+                    </li>
+
+                    <li class="filter__item js-filter__item" data-filter="logo english local-authorities community-groups recruitment" data-sort-index="9">
+                        {{ onsDownloads({
+                            "downloads": [
+                                {
+                                    "thumbnail": {
+                                        "smallSrc": "/patternlib-img/download-resources/img/small/placeholder-portrait.png",
+                                        "largeSrc": "/patternlib-img/download-resources/img/large/placeholder-portrait.png",
+                                        "alt": "Placeholder"
+                                    },
+                                    "url": "#0",
+                                    "title": "Census 2021 logos pack for print and web",
+                                    "type": "Logo",
+                                    "meta": {
+                                        "fileType": "ZIP",
+                                        "fileSize": "5MB",
+                                        "filePages": "24 files"
+                                    },
+                                    "excerpt": "A collection of logos suitable for print and web advertising."
+                                }
+                            ]
+                        }) }}
+                    </li>
+                </ul>
+
+                <div class="adv-filter__no-results" data-fallback-gallery-id="adv-filter-gallery">
+                    <h2>No results found</h2>
+                    <p>There are no results found due to your filters setup.</p>
+                </div>
+            </div>
         </div>
-
     </div>
-
-</div>
-
 {% endblock %}
