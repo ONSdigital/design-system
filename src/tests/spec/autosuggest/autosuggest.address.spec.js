@@ -737,6 +737,7 @@ describe('Autosuggest.address component', function() {
       id: 'address',
       autosuggest: {
         externalInitialiser: true,
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
         options: {
           regionCode: 'gb-eng',
           oneYearAgo: true,
@@ -783,6 +784,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       autosuggest: {
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
         externalInitialiser: true,
         options: {
           regionCode: 'gb-nir',
@@ -829,6 +831,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       autosuggest: {
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
         externalInitialiser: true,
         options: {
           regionCode: 'gb-nir',
@@ -886,6 +889,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       autosuggest: {
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
         externalInitialiser: true,
         options: {
           regionCode: 'gb-wls',
