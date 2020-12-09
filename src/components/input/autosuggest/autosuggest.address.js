@@ -23,6 +23,7 @@ export default class AutosuggestAddress {
     this.container = context.querySelector(`.${classInputContainer}`);
     this.errorMessage = this.container.getAttribute('data-error-message');
     this.groupCount = this.container.getAttribute('data-group-count');
+    this.authorizationToken = this.container.getAttribute('data-authorization-token');
 
     // State
     this.fetch = null;
@@ -67,15 +68,25 @@ export default class AutosuggestAddress {
     this.epoch = this.container.getAttribute('data-options-one-year-ago');
     this.classificationFilter = this.container.getAttribute('data-options-address-type');
 
-    this.user = 'equser';
-    this.password = '$4c@ec1zLBu';
-    this.auth = btoa(this.user + ':' + this.password);
-    this.headers = new Headers({
-      Authorization: 'Basic ' + this.auth,
-    });
+    // Set authorization
+    this.setAuthorization(this.authorizationToken);
 
     // Check API status
     this.checkAPIStatus();
+  }
+
+  setAuthorization(token) {
+    if (token) {
+      this.authorization = `Bearer ${token}`;
+    } else {
+      this.user = 'equser';
+      this.password = '$4c@ec1zLBu';
+      this.credentials = btoa(`${this.user}:${this.password}`);
+      this.authorization = `Basic ${this.credentials}`;
+    }
+    this.headers = new Headers({
+      Authorization: this.authorization,
+    });
   }
 
   checkAPIStatus() {
