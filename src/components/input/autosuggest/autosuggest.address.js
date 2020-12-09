@@ -330,9 +330,10 @@ export default class AutosuggestAddress {
       addressType;
 
     const classificationFilterParam = '&classificationfilter=',
-      ewboostParam = '&fromsource=ewboost',
-      niboostParam = '&fromsource=niboost',
-      nionlyParam = '&fromsource=nionly',
+      eboostParam = '&eboost=10',
+      wboostParam = '&wboost=10',
+      niboostParam = '&eboost=0&sboost=0&wboost=0',
+      nionlyParam = '&niboost=10',
       favourwelshParam = '&favourwelsh=true',
       addresstypeParam = '?addresstype=',
       epochParam = '&epoch=72';
@@ -350,8 +351,12 @@ export default class AutosuggestAddress {
         fullURL = fullURL + classificationFilterParam + this.classificationFilter;
       }
 
-      if ((this.regionCode === 'gb-eng' || this.regionCode === 'gb-wls') && this.classificationFilter === 'workplace') {
-        fullURL = fullURL + ewboostParam;
+      if (this.classificationFilter === 'workplace') {
+        if (this.regionCode === 'gb-eng') {
+          fullURL = fullURL + eboostParam;
+        } else if (this.regionCode === 'gb-wls') {
+          fullURL = fullURL + wboostParam;
+        }
       }
 
       if (this.regionCode === 'gb-nir') {
