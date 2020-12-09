@@ -821,7 +821,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&fromsource=nionly',
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&niboost=10',
         );
       });
     });
@@ -868,7 +868,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&fromsource=niboost',
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&eboost=0&sboost=0&wboost=0',
         );
       });
     });
@@ -926,7 +926,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&fromsource=ewboost&favourwelsh=true',
+          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&wboost=10&favourwelsh=true',
         );
       });
     });
