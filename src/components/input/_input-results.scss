@@ -83,9 +83,9 @@
   }
 
   &__warning {
-    background: #f0f0f0;
     margin: 0;
     padding-left: 0.5rem;
+    background: #f0f0f0;
 
     &:not(:last-child) {
       border-bottom: 1px solid $color-input;
@@ -93,20 +93,20 @@
   }
 
   &__panel.panel--warn {
-    background: none;
-    border: none;
     margin: 0;
+    border: 0;
+    background: none;
     .panel__icon {
+      top: 17px;
+      margin-top: 0;
       min-width: 26px;
       min-height: 24px;
-      margin-top: 0;
       font-size: 21px;
       line-height: 25px;
-      top: 17px;
     }
 
     .panel__body {
-      padding: 0.7rem 0.8rem 0.8rem 1rem;
+      padding: 0.8rem 0.8rem 0.8rem 2rem;
       font-weight: bold;
     }
   }
