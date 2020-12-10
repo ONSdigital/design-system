@@ -11,4 +11,4 @@
 | icon       | string  | false    | Set this to the name of the icon you want to be included before the contents of the panel                                                                   |
 | iconSize   | string  | false    | Set this to the size of the icon you want can be set to "m", "l" "xl" to match heading size. Defaults to the size of regualar text                          |
 | iconsPath  | string  | false    | Set this to the path to the icon you want to be included before the contents of the panel                                                                   |
-| DSExample  | boolean | false    | Set this to `true` when using error panels in Design System examples. This will stop the page focusing on the panel on load - _only for use in DS examples_ |
+| dsExample  | boolean | false    | Set this to `true` when using error panels in Design System examples. This will stop the page focusing on the panel on load - _only for use in DS examples_ |
