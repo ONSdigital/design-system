@@ -61,13 +61,9 @@
             </div>
         {% endif %}
 
-        <div class="footer--body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
-
+        <div class="footer__body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
             <div class="container{{ ' container--wide' if params.wide }}">
-
                 <div class="grid">
-
-
                     {% if params.poweredBy is defined and params.poweredBy and params.OGLLink is defined and params.OGLLink %}
                         <div class="grid__col u-mb-m">
                             {{ poweredByLogo | safe }}
@@ -108,7 +104,7 @@
                         {% for col in params.cols %}
                             <div class="grid__col col-4@m{{ " u-mt-m@xs@m" if loop.index > 1 }}">
                                 {% if col.title %}
-                                    <h2 class="u-fs-r--b footer__heading">{{ col.title }}</h2>
+                                    <h2 class="footer__heading u-fs-r--b">{{ col.title }}</h2>
                                 {% endif %}
                                 {{
                                     onsList({
@@ -127,9 +123,7 @@
                     {% endif %}
 
                     {% if params.rows is defined and params.rows %}
-
                         {% for row in params.rows %}
-
                             <!-- Rows -->
                             <div class="grid__col">
                                 {{
@@ -139,7 +133,6 @@
                                     })
                                 }}
                             </div>
-
                             {% if loop.length > 1 %}
                                 {% if not loop.last %}
                                     <div class="grid__col u-mb-m">
@@ -147,20 +140,16 @@
                                     </div>
                                 {% endif %}
                             {% endif %}
-
                         {% endfor %}
-
                     {% endif %}
 
                     {% if params.OGLLink is defined and params.OGLLink %}
-
                         <!-- OGL -->
                         <div class="grid__col u-mb-m">
                             <hr class="footer__hr">
                         </div>
 
                         <div class="grid__col">
-
                             <div class="footer__license">
                                 <img class="footer__ogl-img" src="{{ params.assetsURL }}/img/UKOpenGovernmentLicence-grey.svg" alt="Open Government Licence">
                                 {% if params.OGLLink.HTML is defined and params.OGLLink.HTML %}
@@ -175,59 +164,39 @@
                                     }}{{ params.OGLLink.post }}
                                 {% endif %}
                             </div>
-
                         </div>
-
                     {% endif %}
 
-                    {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined %}
+                    {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined or params.OGLLink is not defined and params.legal is not defined and (params.rows is defined and params.rows or params.cols is defined and params.cols) %}
                         <div class="grid__col u-mb-m">
                             <hr class="footer__hr">
                         </div>
                     {% endif %}
 
                     {% if params.OGLLink is not defined and params.legal is not defined %}
-
-                        {% if params.cols is defined and params.cols %}
-                            <div class="grid__col u-mb-m">
-                                <hr class="footer__hr">
-                            </div>
-                        {% endif %}
-
                         <div class="grid__col">
                             {{ poweredByLogo | safe }}
                         </div>
-
                     {% endif %}
-
                 </div>
 
                 {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined or params.cols is defined and params.cols and params.OGLLink is not defined %}
-
                     <div class="grid grid--flex grid--vertical-top grid--between">
-
                         {% if params.legal is defined and params.legal %}
-
                             <!-- Legal -->
                             {% for legal in params.legal %}
-
                                 <div class="grid__col">
-
                                     {{
                                         onsList({
-                                            "classes": 'list--bare u-mb-m list--inline',
+                                            "classes": 'list--bare list--inline u-mb-m',
                                             "itemsList": legal.itemsList
                                         })
                                     }}
-
-                                    {% if params.crest is defined %}
-                                        <div class="u-mb-m poweredbylogo">{{ poweredByLogo | safe }}</div>
+                                    {% if params.crest is defined and params.crest %}
+                                        <div class="poweredbylogo u-mb-m">{{ poweredByLogo | safe }}</div>
                                     {% endif %}
-
                                 </div>
-
                             {% endfor %}
-
                         {% endif %}
 
                         {% if params.crest is defined and params.crest %}
@@ -243,26 +212,19 @@
                         {% endif %}
 
                     </div>
-
                 {% endif %}
 
                 {% if params.copyrightDeclaration is defined and params.copyrightDeclaration %}
-
                     <!-- Copyright -->
                     <div class="grid"> 
-
                         <div class="grid__col u-mt-s">
                             <p class="u-fs-s u-mb-no">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }} <a href="{{ params.copyrightDeclaration.url }}" {% if params.copyrightDeclaration.newWindow is defined and params.copyrightDeclaration.newWindow %}target="_blank" rel="noopener"{% endif %}>{{ params.copyrightDeclaration.link }}</a>.</p>
                         </div>
-
                     </div>
-
                 {% endif %}
 
             </div>
-
         </div>
-
     </footer>
 
 {% endmacro %}

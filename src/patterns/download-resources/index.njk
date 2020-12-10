@@ -4,23 +4,23 @@ group: Help users to...
 experimental: true
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 Allow users to filter and sort downloadable resources.
 
-## Example
+## Download resources
 {{
-    patternlibExample({ "path": "patterns/download-resources/examples/index.njk" })
+    patternlibExample({ "path": "patterns/download-resources/examples/download-resources/index.njk" })
 }}
 
-
-## Research on this component
+## Research on this pattern
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the
     {{
         onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/888",
+            "url": "https://github.com/ONSdigital/design-system/discussions/888",
             "linkText": "Design System forum"
         })
     }}
@@ -29,7 +29,7 @@ Allow users to filter and sort downloadable resources.
 ## Design System forum
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/888",
+        "url": "https://github.com/ONSdigital/design-system/discussions/888",
         "linkText": "Discuss 'Download resources' on GitHub"
     })
 }}

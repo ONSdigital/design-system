@@ -39,7 +39,7 @@
   &__prefix {
     @extend .list--bare;
     margin: 0 0.5rem 0 0;
-    font-family: $font-sans-mono;
+    font-family: $font-mono;
   }
 
   &__suffix {
