@@ -36,16 +36,18 @@
     }
   }
 
-  &__prefix {
+  &__prefix,
+  &__suffix {
     @extend .list--bare;
-    margin: 0 0.5rem 0 0;
     font-family: $font-mono;
   }
 
+  &__prefix {
+    margin: 0 0.5rem 0 0;
+  }
+
   &__suffix {
-    @extend .list--bare;
     margin: 0 0 0 0.5rem;
-    font-family: $font-sans-mono;
   }
 
   &__link {
