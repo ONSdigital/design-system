@@ -48,14 +48,12 @@ The example below shows a themed census version of the ONS page template.
 When using nunjucks or jinja you'll need to either install the components and templates from the {{
     onsExternalLink({
         "url": "https://www.npmjs.com/package/@ons/design-system",
-        "linkText": "@ons/design-system",
-        "type": "external"
+        "linkText": "@ons/design-system"
     })
 }} npm package or use a script to download the zipped templates from the relevant {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/releases",
-        "linkText": "design system release",
-        "type": "external"
+        "linkText": "design system release"
     })
 }}.
 If you're using nunjucks you'll need to configure your nunjucks loader to search `node_modules/@ons/design-system/components` and `node_modules/@ons/design-system/page-templates` for the templates.
@@ -78,14 +76,12 @@ Once you've configured nunjucks / jinja you can extend the page template in your
 The Nunjucks template allows 2 ways to change the content: {{
     onsExternalLink({
         "url": "https://mozilla.github.io/nunjucks/templating.html#set",
-        "linkText": "variables",
-        "type": "external"
+        "linkText": "variables"
     })
 }} or {{
     onsExternalLink({
         "url": "https://mozilla.github.io/nunjucks/templating.html#block",
-        "linkText": "blocks",
-        "type": "external"
+        "linkText": "blocks"
     })
 }}
 
@@ -243,7 +239,6 @@ To change the components that are included by default, set their equivalent bloc
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/195",
-        "linkText": "Design System forum",
-        "type": "external"
+        "linkText": "Design System forum"
     })
 }}
