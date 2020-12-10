@@ -2,7 +2,7 @@
 title: Field
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 ## When to use this component
@@ -10,13 +10,13 @@ The field component is used to wrap form input components to provide layout.
 
 ## How to use this component
 Generally speaking you should not need to {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://mozilla.github.io/nunjucks/templating.html#call",
         "linkText": "call",
         "type": "external"
     })
 }} `onsField` yourself as it is already called from within form input components. However if you need to create a pattern or component that requires a field you can use {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://mozilla.github.io/nunjucks/templating.html#call",
         "linkText": "nunjucks' call functionality",
         "type": "external"
@@ -40,7 +40,7 @@ The field will render as a `<div>` with the class `field`.
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
            "url": "https://github.com/ONSdigital/design-system/issues/35",
            "linkText": "Design System forum",
             "type": "external"
@@ -50,7 +50,7 @@ The field will render as a `<div>` with the class `field`.
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/35",
         "linkText": "Discuss 'Field' on GitHub",
         "type": "external"

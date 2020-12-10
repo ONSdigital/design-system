@@ -4,12 +4,12 @@ sortOrder: 2
 ---
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 ## Sketch
 
 Sketch is an application used to mock up wireframes and click through prototypes. {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://www.sketchapp.com/get/",
         "linkText": "Download Sketch here",
         "type": "external"
@@ -42,7 +42,7 @@ Sketch is an application used to mock up wireframes and click through prototypes
 {% call onsPanel() %}
     If you require any help, notice any issues or have any recommendations please
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/dudelmeister/ONS-Sketch-Library_v1.0/issues",
             "linkText": "raise an issue on Github",
             "type": "external"

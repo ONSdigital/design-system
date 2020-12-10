@@ -5,14 +5,14 @@ anchorLinks: true
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 ## Font
 Text is the primary way that users digest information and accomplish tasks, so it’s important to use good typographic principles to establish a clear visual hierarchy and to maximize legibility.
 
 ### Open Sans
 The primary font used in SDC is {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://fonts.google.com/specimen/Open+Sans",
         "linkText": "Open Sans",
         "type": "external"
@@ -94,7 +94,7 @@ Links are blue and underlined by default. If your link is at the end of a senten
 }}
 
 ### External Links
-Links that link out to exernal websites using the `onsIconLink` macro will have `target="_blank"` to open websites in a new tab and will also have`rel="noopener"` added to them.
+Links that link out to exernal websites using the `onsExternalLink` macro will have `target="_blank"` to open websites in a new tab and will also have`rel="noopener"` added to them.
 This will guard against a security vulnerability which can be exploited by malicious websites. It will also have the external link icon added as
 shown in [the icons section](#link-with-external-link-icon).
 
@@ -165,15 +165,15 @@ __How to use:__ Set `icon` to the name of the icon you want to use on each list 
 
 ### Link with external link icon
 {{
-    patternlibExample({"path": "components/icon-link/examples/icon-link-external/index.njk"})
+    patternlibExample({"path": "components/external-link/examples/external-link-external/index.njk"})
 }}
 
 ### Link with language icon
 {{
-    patternlibExample({"path": "components/icon-link/examples/icon-link-language/index.njk"})
+    patternlibExample({"path": "components/external-link/examples/external-link-language/index.njk"})
 }}
 
-__How to use:__ Use the `onsIconLink` macro using the `url`, `type` and `linkText` params.
+__How to use:__ Use the `onsExternalLink` macro using the `url`, `type` and `linkText` params.
 
 ### Text with secure icon
 {{
@@ -185,7 +185,7 @@ __How to use:__ Use the panel component setting `type` to "bare" and icon to the
 {% call onsPanel() %}
     If you have any requests for icons or research findings please feed back via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/95",
             "linkText": "Design System forum",
             "type": "external"
@@ -197,7 +197,7 @@ __How to use:__ Use the panel component setting `type` to "bare" and icon to the
 {% call onsPanel() %}
     If you have conducted any user research using this style, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/233",
             "linkText": "Design System forum",
             "type": "external"
@@ -207,7 +207,7 @@ __How to use:__ Use the panel component setting `type` to "bare" and icon to the
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/233",
         "linkText": "Discuss 'Typography' on GitHub",
         "type": "external"

@@ -3,7 +3,7 @@ title: Grid
 sortOrder: 2
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 Use the ONS grid system to lay out the content on your service’s pages.
 
@@ -135,7 +135,7 @@ The example below shows the use of flexbox to create the layout for the [phase b
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/72",
         "linkText": "Discuss 'Grid' on GitHub",
         "type": "external"

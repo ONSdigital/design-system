@@ -2,7 +2,7 @@
 title: Header
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 The ONS header shows users which ONS service they are on.
@@ -73,7 +73,7 @@ For services that require a main navigation. For mobile users, a menu button is 
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/160",
             "linkText": "Design System Forum",
             "type": "external"
@@ -83,7 +83,7 @@ For services that require a main navigation. For mobile users, a menu button is 
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/160",
         "linkText": "Discuss 'Header' on GitHub",
         "type": "external"

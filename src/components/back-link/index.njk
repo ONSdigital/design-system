@@ -2,7 +2,7 @@
 title: Back link
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 A back link is used to help the user go back to the previous page of a transaction or questionnaire.
@@ -29,7 +29,7 @@ Where possible this should be set in the [page template](/styles/page-template/)
 
 ## Research on this component
 Based upon {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://w3c.github.io/aria-practices/examples/breadcrumb/index.html",
         "linkText": "W3 principles",
         "type": "external"
@@ -39,7 +39,7 @@ Based upon {{
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/1055",
             "linkText": "Design System forum",
             "type": "external"
@@ -49,7 +49,7 @@ Based upon {{
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/1055",
         "linkText": "Discuss 'Back link' on GitHub",
         "type": "external"

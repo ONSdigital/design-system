@@ -3,7 +3,7 @@ title: Breadcrumbs
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application. 
@@ -54,7 +54,7 @@ When the component only has a single breadcrumb it will display like this.
 
 ## Research on this component
 Based upon {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://w3c.github.io/aria-practices/examples/breadcrumb/index.html",
         "linkText": "W3 principles",
         "type": "external"
@@ -64,7 +64,7 @@ Based upon {{
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/43",
             "linkText": "Design System forum",
             "type": "external"
@@ -74,7 +74,7 @@ Based upon {{
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/43",
         "linkText": "Discuss 'Breadcrumbs' on GitHub",
         "type": "external"

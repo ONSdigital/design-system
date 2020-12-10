@@ -3,7 +3,7 @@ title: Promotional banner
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 A promotional section used for breaking up page content, featuring a headline and a call to action.
 
@@ -21,7 +21,7 @@ A promotional section used for breaking up page content, featuring a headline an
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": 'https://github.com/ONSdigital/design-system/issues/730',
             "linkText": 'Design System Forum',
             "type": "external"
@@ -31,7 +31,7 @@ A promotional section used for breaking up page content, featuring a headline an
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": 'https://github.com/ONSdigital/design-system/issues/730',
         "linkText": 'Discuss ‘Promotional banner’ on GitHub',
         "type": "external"

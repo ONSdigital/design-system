@@ -5,7 +5,7 @@ group: Ask users for...
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 How to ask for numeric values such as quantities, financial figures, percentages or units of measurement.
 {{
@@ -39,7 +39,7 @@ Use the [input component](/components/input) macro and set the `type` parameter 
     "classes": "u-mb-s"
 }) %}
     <strong>Note:</strong> If you are manually using the component <code>html</code>, set the attributes <code>type="text"</code>, <code>inputmode="numeric"</code> and <code>pattern="[0-9]*"</code>. Server-side validation on <code>number</code> type input is {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=1398528",
             "linkText": "not currently supported by all browsers",
             "type": "external"
@@ -70,7 +70,7 @@ Use the `suffix` parameter to specify the abbreviated suffix unit e.g. 'cm', and
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/279",
             "linkText": "Design System forum",
             "type": "external"
@@ -80,7 +80,7 @@ Use the `suffix` parameter to specify the abbreviated suffix unit e.g. 'cm', and
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/279",
         "linkText": "Discuss 'Numeric values' on GitHub",
         "type": "external"

@@ -3,7 +3,7 @@ title: Dates
 group: Ask users for...
 ---
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 
 Help users enter a known date.
@@ -66,7 +66,7 @@ Display: 'Enter a 'period to' date later than the 'period from' date.
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/22",
             "linkText": "Design System Forum",
             "type": "external"
@@ -76,7 +76,7 @@ Display: 'Enter a 'period to' date later than the 'period from' date.
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/22",
         "linkText": "Discuss 'Dates' on GitHub",
         "type": "external"

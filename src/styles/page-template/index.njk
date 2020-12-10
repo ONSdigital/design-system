@@ -3,7 +3,7 @@ title: Page template
 sortOrder: 5
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 Use the page template to create pages with the core components and markup required for an ONS service.
 
@@ -46,13 +46,13 @@ The example below shows a themed census version of the ONS page template.
 ### Configuring Nunjucks or Jinja
 
 When using nunjucks or jinja you'll need to either install the components and templates from the {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://www.npmjs.com/package/@ons/design-system",
         "linkText": "@ons/design-system",
         "type": "external"
     })
 }} npm package or use a script to download the zipped templates from the relevant {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/releases",
         "linkText": "design system release",
         "type": "external"
@@ -76,13 +76,13 @@ Once you've configured nunjucks / jinja you can extend the page template in your
 ### Changing template content
 
 The Nunjucks template allows 2 ways to change the content: {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://mozilla.github.io/nunjucks/templating.html#set",
         "linkText": "variables",
         "type": "external"
     })
 }} or {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://mozilla.github.io/nunjucks/templating.html#block",
         "linkText": "blocks",
         "type": "external"
@@ -241,7 +241,7 @@ To change the components that are included by default, set their equivalent bloc
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/195",
         "linkText": "Design System forum",
         "type": "external"

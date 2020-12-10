@@ -3,7 +3,7 @@ title: Autosuggest
 experimental: true
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 Autosuggests are used to suggest options for answers by searching code lists such as, addresses, countries, languages, nationalities, etc.
@@ -21,7 +21,7 @@ To use this component it is advised that autocomplete is switched off by setting
 }}
 
 This example is powered by a JavaScript library called {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://fusejs.io",
             "linkText": "Fuse.js",
             "type": "external"
@@ -71,7 +71,7 @@ The autosuggest component will search the `cy` or the `en` data to find results 
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/894",
             "linkText": "Design System forum",
             "type": "external"
@@ -81,7 +81,7 @@ The autosuggest component will search the `cy` or the `en` data to find results 
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/894",
         "linkText": "Discuss 'Autosuggest' on GitHub",
         "type": "external"

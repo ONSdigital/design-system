@@ -3,7 +3,7 @@ title: Textarea
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 A textarea lets users enter multiple lines of text, such as when answering an open-ended question.
 
@@ -50,7 +50,7 @@ The character limit counter is displayed when the `charCheckLimit` object is def
 {% call  onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/139",
             "linkText": "Design System Forum",
             "type": "external"
@@ -60,7 +60,7 @@ The character limit counter is displayed when the `charCheckLimit` object is def
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/139",
         "linkText": "Discuss 'Textarea' on GitHub",
         "type": "external"

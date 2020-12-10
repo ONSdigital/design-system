@@ -2,7 +2,7 @@
 title: Card
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 The card component provides a navigation mechansim consisting of a title and link, descriptive text and an optional list of further links.
@@ -47,7 +47,7 @@ The example below shows a row of 3 cards with thumbnail images.
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/48",
             "linkText": "Design System forum",
             "type": "external"
@@ -57,7 +57,7 @@ The example below shows a row of 3 cards with thumbnail images.
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/48",
         "linkText": "Discuss 'Card' on GitHub",
         "type": "external"

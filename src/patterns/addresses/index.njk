@@ -5,7 +5,7 @@ experimental: true
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 {{
     patternlibExample({"path": "components/autosuggest/examples/autosuggest-address/index.njk"})
@@ -26,7 +26,7 @@ The manual address input wraps itself within a [fieldset](/components/fieldset) 
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/412",
             "linkText": "Design System forum",
             "type": "external"
@@ -36,7 +36,7 @@ The manual address input wraps itself within a [fieldset](/components/fieldset) 
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/412",
         "linkText": "Discuss 'Addresses' on GitHub",
         "type": "external"

@@ -4,7 +4,7 @@ title: Collapsible
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/table/_macro.njk" import onsTable %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 The collapsible component is used to simplify a page by allowing the user to reveal certain content only if they need it.
@@ -151,7 +151,7 @@ Optionally pass event tracking `data` attributes for Google Analytics using `dat
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/148",
             "linkText": "Design System Forum",
             "type": "external"
@@ -161,7 +161,7 @@ Optionally pass event tracking `data` attributes for Google Analytics using `dat
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/148",
         "linkText": "Discuss 'Collapsible' on GitHub",
         "type": "external"

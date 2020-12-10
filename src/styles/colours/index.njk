@@ -5,12 +5,12 @@ sortOrder: 1
 {% from "styles/colours/_macro.njk" import onsColours %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 The ONS colour palette is available to services using the design system so pages and elements look consistent and coherent.
 
 Our text and background colours are designed to meet accessibility needs. We aim for {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast",
         "linkText": "WCAG AA compliance",
         "type": "external"
@@ -315,7 +315,7 @@ Each status has a primary colour and a tint for use in a status [panel](/compone
 
 ## Colour contrast
 Contrast between foreground and background colours are tested to ensure {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast",
         "linkText": "WCAG AA compliance",
         "type": "external"
@@ -411,7 +411,7 @@ Also, ensure you test colour contrast with people of all abilities.
 {% call onsPanel() %}
     If you have conducted any user research using this style, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/232",
             "linkText": "Design System forum",
             "type": "external"
@@ -421,7 +421,7 @@ Also, ensure you test colour contrast with people of all abilities.
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/232",
         "linkText": "Discuss 'Colours' on GitHub",
         "type": "external"

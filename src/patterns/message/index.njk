@@ -4,7 +4,7 @@ group: Help users to...
 experimental: true
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 ## Messages - message list
@@ -53,7 +53,7 @@ Each message can be stacked to display the conversation/thread.
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
    {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/676",
             "linkText": "Design System forum",
             "type": "external"
@@ -63,7 +63,7 @@ Each message can be stacked to display the conversation/thread.
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/676",
         "linkText": "Discuss 'Messages' on GitHub",
         "type": "external"

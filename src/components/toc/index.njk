@@ -2,7 +2,7 @@
 title: Table of contents
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 {{
@@ -25,7 +25,7 @@ title: Table of contents
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
-        onsIconLink({
+        onsExternalLink({
             "url": "https://github.com/ONSdigital/design-system/issues/719",
             "linkText": "Design System forum",
             "type": "external"
@@ -35,7 +35,7 @@ title: Table of contents
 
 ## Design System forum
 {{
-    onsIconLink({
+    onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/issues/719",
         "linkText": "Discuss 'Table of contents' on GitHub",
         "type": "external"

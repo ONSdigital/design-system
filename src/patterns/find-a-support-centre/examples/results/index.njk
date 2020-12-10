@@ -5,7 +5,7 @@ layout: none
 
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/lists/_macro.njk" import onsList %}
-{% from "components/icon-link/_macro.njk" import onsIconLink %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 
 {% set pageConfig = {
     "title": "Census 2021",
@@ -57,7 +57,7 @@ layout: none
         <p>First Floor, Central Library <br> Surrey Street <br> Sheffield <br> S1 1XZ</p>
 
         <p>{{
-            onsIconLink({
+            onsExternalLink({
                 "url": "https://goo.gl/maps/X48tjZkXA4RaN3LL7",
                 "linkText": 'Find<span class="u-vh"> Sheffield Central Library</span> on Google Maps',
                 "type": "external"
@@ -126,7 +126,7 @@ layout: none
         <p>The University of Sheffield <br> Western Bank <br> Sheffield <br> S10 2TN</p>
 
         <p>{{
-            onsIconLink({
+            onsExternalLink({
                 "url": "https://goo.gl/maps/SEaVUjW2KY9wDoPE8",
                 "linkText": 'Find<span class="u-vh"> University of Sheffield</span> on Google Maps',
                 "type": "external"
