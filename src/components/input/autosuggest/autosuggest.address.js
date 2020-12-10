@@ -23,6 +23,7 @@ export default class AutosuggestAddress {
     this.container = context.querySelector(`.${classInputContainer}`);
     this.errorMessage = this.container.getAttribute('data-error-message');
     this.groupCount = this.container.getAttribute('data-group-count');
+    this.authorizationToken = this.container.getAttribute('data-authorization-token');
 
     // State
     this.fetch = null;
@@ -67,13 +68,6 @@ export default class AutosuggestAddress {
     this.epoch = this.container.getAttribute('data-options-one-year-ago');
     this.classificationFilter = this.container.getAttribute('data-options-address-type');
 
-    this.user = 'equser';
-    this.password = '$4c@ec1zLBu';
-    this.auth = btoa(this.user + ':' + this.password);
-    this.headers = new Headers({
-      Authorization: 'Basic ' + this.auth,
-    });
-
     // Check API status
     this.checkAPIStatus();
   }
@@ -81,7 +75,7 @@ export default class AutosuggestAddress {
   checkAPIStatus() {
     this.fetch = abortableFetch(this.lookupURL + 'CF142&limit=10', {
       method: 'GET',
-      headers: this.headers,
+      headers: this.setAuthorization(this.authorizationToken),
     });
     this.fetch
       .send()
@@ -133,7 +127,7 @@ export default class AutosuggestAddress {
 
       this.fetch = abortableFetch(fullQueryURL, {
         method: 'GET',
-        headers: this.headers,
+        headers: this.setAuthorization(this.authorizationToken),
       });
       this.fetch
         .send()
@@ -259,7 +253,7 @@ export default class AutosuggestAddress {
 
       this.fetch = abortableFetch(fullUPRNURL, {
         method: 'GET',
-        headers: this.headers,
+        headers: this.setAuthorization(this.authorizationToken),
       });
 
       this.fetch
@@ -330,9 +324,10 @@ export default class AutosuggestAddress {
       addressType;
 
     const classificationFilterParam = '&classificationfilter=',
-      ewboostParam = '&fromsource=ewboost',
-      niboostParam = '&fromsource=niboost',
-      nionlyParam = '&fromsource=nionly',
+      eboostParam = '&eboost=10',
+      wboostParam = '&wboost=10',
+      niboostParam = '&eboost=0&sboost=0&wboost=0',
+      nionlyParam = '&niboost=10',
       favourwelshParam = '&favourwelsh=true',
       addresstypeParam = '?addresstype=',
       epochParam = '&epoch=72';
@@ -350,8 +345,12 @@ export default class AutosuggestAddress {
         fullURL = fullURL + classificationFilterParam + this.classificationFilter;
       }
 
-      if ((this.regionCode === 'gb-eng' || this.regionCode === 'gb-wls') && this.classificationFilter === 'workplace') {
-        fullURL = fullURL + ewboostParam;
+      if (this.classificationFilter === 'workplace') {
+        if (this.regionCode === 'gb-eng') {
+          fullURL = fullURL + eboostParam;
+        } else if (this.regionCode === 'gb-wls') {
+          fullURL = fullURL + wboostParam;
+        }
       }
 
       if (this.regionCode === 'gb-nir') {
@@ -393,5 +392,19 @@ export default class AutosuggestAddress {
       this.handleError.showErrorPanel();
       this.autosuggest.setAriaStatus(this.errorMessage);
     }
+  }
+
+  setAuthorization(token) {
+    if (token) {
+      this.authorization = `Bearer ${token}`;
+    } else {
+      this.user = 'equser';
+      this.password = '$4c@ec1zLBu';
+      this.credentials = btoa(`${this.user}:${this.password}`);
+      this.authorization = `Basic ${this.credentials}`;
+    }
+    return new Headers({
+      Authorization: this.authorization,
+    });
   }
 }

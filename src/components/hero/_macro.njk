@@ -46,8 +46,8 @@
                         "titleTag": params.collapsible.titleTag,
                         "content": params.collapsible.content,
                         "button": {
-                            "close": "Hide this",
-                            "contextSuffix": "content"
+                            "close": 'Hide this',
+                            "contextSuffix": 'content'
                         }
                     })
                 }}
@@ -59,7 +59,7 @@
 
             {% if params.image is defined and params.image %}
             <div class="hero__circle-image">
-                <img height="558px" width="558px" srcset="{{ params.image.smallSrc }}{{ params.image.filename }} 1x, {{ params.image.largeSrc }}{{ params.image.filename }} 2x" src="{{ params.image.smallSrc }}{{ params.image.filename }}" alt="{{ params.image.alt }}">
+                <img height="558" width="558" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}">
             </div>
             {% endif %}
 
@@ -68,9 +68,11 @@
             </svg>
 
             <div class="hero__circle-gradient"></div>
+
         {% endif %}
 
-        {% if params.censusThemeDark is not defined %}
+        
+        {% if params.censusThemeDark is not defined or params.censusThemeDark === false %}
             <div class="hero__circle-white"></div>
         {% endif %}
 

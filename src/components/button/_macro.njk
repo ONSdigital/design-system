@@ -2,32 +2,32 @@
 
 {% macro onsButton(params) %}
 
-{% set tag = "a" if params.url else "button" %}
-
-{% if params.icon is defined and params.icon %}
-  {% set iconType = params.icon.iconType %}
-  {% set iconPosition = params.icon.iconPosition %}
-{% else %}
-  {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}
-    {% set iconType = "external-link" %}
-    {% set iconPosition = "after" %}
-  {% elif params.buttonStyle == "print" %}
-    {% set iconType = "print" %}
-    {% set iconPosition = "after" %}
-  {% elif params.buttonStyle == "exit" %}
-    {% set iconType = "exit" %}
-    {% set iconPosition = "after" %}
-  {% elif params.submitType == "loader" %}
-    {% set iconType = "loader" %}
-    {% set iconPosition = "after" %}
-  {% elif params.url is defined and params.url or params.buttonStyle == "mobile" %}
-    {% set iconType = "chevron" %}
-    {% set iconPosition = "after" %}
+  {% if params.icon is defined and params.icon %}
+    {% set iconType = params.icon.iconType %}
+    {% set iconPosition = params.icon.iconPosition %}
+  {% else %}
+    {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}
+      {% set iconType = "external-link" %}
+      {% set iconPosition = "after" %}
+    {% elif params.buttonStyle == "print" %}
+      {% set iconType = "print" %}
+      {% set iconPosition = "after" %}
+    {% elif params.buttonStyle == "exit" %}
+      {% set iconType = "exit" %}
+      {% set iconPosition = "after" %}
+    {% elif params.submitType == "loader" %}
+      {% set iconType = "loader" %}
+      {% set iconPosition = "after" %}
+    {% elif params.url is defined and params.url or params.buttonStyle == "mobile" %}
+      {% set iconType = "chevron" %}
+      {% set iconPosition = "after" %}
+    {% endif %}
   {% endif %}
-{% endif %}
+
+  {% set tag = "a" if params.url or params.buttonStyle == "exit" else "button" %}
 
   <{{ tag }}
-      {% if params.url is defined and params.url %}
+      {% if params.url is defined and params.url or params.buttonStyle == "exit" %}
         href="{{ params.url }}"
         role="button"
       {% else %}
@@ -42,21 +42,21 @@
       {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
       >
       <span class="btn__inner{% if params.innerClasses is defined and params.innerClasses %} {{ params.innerClasses }}{% endif %}">
-        {% if iconPosition == "before" %}
+        {%- if iconPosition == "before" %}
           {{
             onsIcon({
                 "icon": iconType
             })
           }}
-        {% endif %}
+        {% endif -%}
         {{- params.html | safe if params.html is defined and params.html else params.text -}}
-        {% if iconPosition == "after" %}
+        {%- if iconPosition == "after" %}
           {{
             onsIcon({
                 "icon": iconType
             })
           }}
-        {% endif %}
+        {% endif -%}
       </span>
       {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}
         <span class="btn__new-window-description u-vh">{{ params.newWindowDescription | default("opens in a new window") }}</span>
