@@ -70,119 +70,201 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 } %}
 
 {% block main %}
-<div class="page__body">
-    {% call onsPanel({
-        "classes": "u-mb-s u-d-no cookies-confirmation-message",
-        "type": "success"
-    }) %}
-        <p class="u-fs-r-b">Your cookie settings have been saved</p>
-        <p>Some parts of the census may use additional cookies and will have their own cookie policy and banner.</p>
-    {% endcall %}
-    <h1 class="u-fs-xxl">Cookies on census.gov.uk</h1>
-    <p>Cookies are small files saved on your phone, tablet or computer when you visit a website.</p>
-    <p>We use cookies to store information about how you use the census website, such as the pages you visit.</p>
-    <h2>Cookie settings</h2>
-    <div class="u-db-no-js_enabled">
-        <p>We use JavaScript to set our cookies. Javascript is not running on your browser so you cannot change your settings.</p>
-        <p>You can try:</p>
-        <ul>
-            <li>turning on JavaScript in your browser</li>
-            <li>reloading the page in case there was a temporary fault with JavaScript</li>
-        </ul>
-    </div>
-    <div class="u-db-no-js_disabled">
-        <p>We use three types of cookie. You can choose which cookies you're happy for us to use.</p>
-
-        <form data-module="cookie-settings">
-            <h3>Cookies that measure website use</h3>
-            <p>We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:</p>
+    <div class="page__body">
+        {% call onsPanel({
+            "classes": "u-mb-s u-d-no cookies-confirmation-message",
+            "type": "success"
+        }) %}
+            <p class="u-fs-r-b">Your cookie settings have been saved</p>
+            <p>Some parts of the census may use additional cookies and will have their own cookie policy and banner.</p>
+        {% endcall %}
+        <h1 class="u-fs-xxl">Cookies on census.gov.uk</h1>
+        <p>Cookies are small files saved on your phone, tablet or computer when you visit a website.</p>
+        <p>We use cookies to store information about how you use the census website, such as the pages you visit.</p>
+        <h2>Cookie settings</h2>
+        <div class="u-db-no-js_enabled">
+            <p>We use JavaScript to set our cookies. Javascript is not running on your browser so you cannot change your settings.</p>
+            <p>You can try:</p>
             <ul>
-                <li>how you got to the site</li>
-                <li>the pages you visit on census.gov.uk and how long you spend on each page</li>
-                <li>what you click on while you're visiting the site</li>
+                <li>turning on JavaScript in your browser</li>
+                <li>reloading the page in case there was a temporary fault with JavaScript</li>
             </ul>
-            {% call onsCollapsible({
-                "id": "cookies-measure-website-use-details",
-                "classes": "u-mb-s",
-                "title": "Learn more about these Google Analytics cookies",
-                "button": {
-                    "close": "Hide this"
-                }
-            }) %}
-                {{
-                    onsTable({
-                        "ths": [
+        </div>
+        <div class="u-db-no-js_disabled">
+            <p>We use three types of cookie. You can choose which cookies you're happy for us to use.</p>
+
+            <form data-module="cookie-settings">
+                <h3>Cookies that measure website use</h3>
+                <p>We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:</p>
+                <ul>
+                    <li>how you got to the site</li>
+                    <li>the pages you visit on census.gov.uk and how long you spend on each page</li>
+                    <li>what you click on while you're visiting the site</li>
+                </ul>
+                {% call onsCollapsible({
+                    "id": "cookies-measure-website-use-details",
+                    "classes": "u-mb-s",
+                    "title": "Learn more about these Google Analytics cookies",
+                    "button": {
+                        "close": "Hide this"
+                    }
+                }) %}
+                    {{
+                        onsTable({
+                            "ths": [
+                                {
+                                    "value": "Name"
+                                },
+                                {
+                                    "value": "Purpose"
+                                },
+                                {
+                                    "value": "Expires"
+                                }
+                            ],
+                            "trs": [
+                                {
+                                    "tds": [
+                                        {
+                                            "value": "<code>_ga</code>"
+                                        },
+                                        {
+                                            "value": 'This helps us count how many people visit census.gov.uk by tracking if you’ve visited before'
+                                        },
+                                        {
+                                            "value": "2 years"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tds": [
+                                        {
+                                            "value": "<code>_gid</code>"
+                                        },
+                                        {
+                                            "value": 'This helps us count how many people visit census.gov.uk by tracking if you’ve visited before'
+                                        },
+                                        {
+                                            "value": "24 hours"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tds": [
+                                        {
+                                            "value": "<code>_gat</code>"
+                                        },
+                                        {
+                                            "value": 'Used to manage the rate at which page view requests are made'
+                                        },
+                                        {
+                                            "value": "10 minutes"
+                                        }
+                                    ]
+                                }
+                            ]
+                        })
+                    }}
+                {% endcall %}
+                <p>We do not allow Google to use or share the data about how you use this site.</p>
+                <div class="u-mb-s">
+                    {{ onsRadios({
+                        "id": "cookies-measure-website-use",
+                        "name": "cookies-usage",
+                        "legend": "Do you want to allow usage tracking?",
+                        "legendClasses": "u-vh",
+                        "radios": [
                             {
-                                "value": "Name"
+                                "id": "on-1",
+                                "label": {
+                                    "text": "On"
+                                },
+                                "value": "on"
                             },
                             {
-                                "value": "Purpose"
-                            },
-                            {
-                                "value": "Expires"
-                            }
-                        ],
-                        "trs": [
-                            {
-                                "tds": [
-                                    {
-                                        "value": "<code>_ga</code>"
-                                    },
-                                    {
-                                        "value": 'This helps us count how many people visit census.gov.uk by tracking if you’ve visited before'
-                                    },
-                                    {
-                                        "value": "2 years"
-                                    }
-                                ]
-                            },
-                            {
-                                "tds": [
-                                    {
-                                        "value": "<code>_gid</code>"
-                                    },
-                                    {
-                                        "value": 'This helps us count how many people visit census.gov.uk by tracking if you’ve visited before'
-                                    },
-                                    {
-                                        "value": "24 hours"
-                                    }
-                                ]
-                            },
-                            {
-                                "tds": [
-                                    {
-                                        "value": "<code>_gat</code>"
-                                    },
-                                    {
-                                        "value": 'Used to manage the rate at which page view requests are made'
-                                    },
-                                    {
-                                        "value": "10 minutes"
-                                    }
-                                ]
+                                "id": "off-1",
+                                "label": {
+                                    "text": "Off"
+                                },
+                                "value": "off"
                             }
                         ]
-                    })
-                }}
-            {% endcall %}
-            <p>We do not allow Google to use or share the data about how you use this site.</p>
-            <div class="u-mb-s">
+                    }) }}
+                </div>
+                <p>This selection will expire after two years.</p>
+
+                <h3>Cookies that help with our communications</h3>
+                <p>Some of our pages may contain content from other sites, like YouTube, which may set their own cookies. These sites are sometimes called “third party” services. This tells us how many people are seeing the content and whether it’s useful.</p>
+                <p>In addition, if you share a link to a census.gov.uk page, the service you share it on may set a cookie. We have no control over cookies set on other websites – you can turn them off, but not through us.</p>
+                <h4>YouTube videos</h4>
+                <p>We use YouTube to show videos on some census.gov.uk pages. YouTube sets cookies when you visit one of these pages.</p>
+                {% call onsCollapsible({
+                    "id": "cookies-measure-website-comms-details",
+                    "classes": "u-mb-s",
+                    "title": "Learn more about these YouTube cookies",
+                    "button": {
+                        "close": "Hide this"
+                    }
+                }) %}
+                    {{
+                        onsTable({
+                            "ths": [
+                                {
+                                    "value": "Name"
+                                },
+                                {
+                                    "value": "Purpose"
+                                },
+                                {
+                                    "value": "Expires"
+                                }
+                            ],
+                            "trs": [
+                                {
+                                    "tds": [
+                                        {
+                                            "value": "<code>_use_hitbox</code>"
+                                        },
+                                        {
+                                            "value": 'This is a randomly generated number that identifies your browser'
+                                        },
+                                        {
+                                            "value": "When you close your browser"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tds": [
+                                        {
+                                            "value": "<code>VISITOR_INFO1_LIVE</code>"
+                                        },
+                                        {
+                                            "value": 'Lets Youtube count the views of embedded Youtube videos'
+                                        },
+                                        {
+                                            "value": "9 months"
+                                        }
+                                    ]
+                                }
+                            ]
+                        })
+                    }}
+                {% endcall %}
                 {{ onsRadios({
-                    "id": "cookies-measure-website-use",
-                    "name": "cookies-usage",
-                    "legend": "Do you want to allow usage tracking?",
+                    "id": "cookies-measure-website-comms",
+                    "name": "cookies-campaigns",
+                    "legend": "Do you want to allow communications tracking?",
                     "legendClasses": "u-vh",
                     "radios": [
                         {
-                            "id": "on-1",
+                            "id": "on-2",
                             "label": {
                                 "text": "On"
                             },
                             "value": "on"
                         },
                         {
-                            "id": "off-1",
+                            "id": "off-2",
                             "label": {
                                 "text": "Off"
                             },
@@ -190,214 +272,133 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         }
                     ]
                 }) }}
-            </div>
-            <p>This selection will expire after two years.</p>
 
-            <h3>Cookies that help with our communications</h3>
-            <p>Some of our pages may contain content from other sites, like YouTube, which may set their own cookies. These sites are sometimes called “third party” services. This tells us how many people are seeing the content and whether it’s useful.</p>
-            <p>In addition, if you share a link to a census.gov.uk page, the service you share it on may set a cookie. We have no control over cookies set on other websites – you can turn them off, but not through us.</p>
-            <h4>YouTube videos</h4>
-            <p>We use YouTube to show videos on some census.gov.uk pages. YouTube sets cookies when you visit one of these pages.</p>
-            {% call onsCollapsible({
-                "id": "cookies-measure-website-comms-details",
-                "classes": "u-mb-s",
-                "title": "Learn more about these YouTube cookies",
-                "button": {
-                    "close": "Hide this"
-                }
-            }) %}
+                <h3>Cookies that remember your settings</h3>
+                <p>These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.</p>
+                {{ onsRadios({
+                    "id": "cookies-measure-website-settings",
+                    "name": "cookies-settings",
+                    "legend": "Do you want to allow settings?",
+                    "legendClasses": "u-vh",
+                    "radios": [
+                        {
+                            "id": "on-3",
+                            "label": {
+                                "text": "On"
+                            },
+                            "value": "on"
+                        },
+                        {
+                            "id": "off-3",
+                            "label": {
+                                "text": "Off"
+                            },
+                            "value": "off"
+                        }
+                    ]
+                }) }}
+                <h3>Strictly necessary cookies</h3>
+                <p>These essential cookies do things like:</p>
+                <ul>
+                    <li>remember the notifications you've seen so we do not show them to you again</li>
+                    <li>remember your progress through a form (for example, the census online)</li>
+                </ul>
+                <p>They always need to be on.</p>
+                {% call onsCollapsible({
+                    "id": "cookies-essential-details",
+                    "classes": "u-mb-l",
+                    "title": "Learn more about these essential cookies",
+                    "button": {
+                        "close": "Hide this"
+                    }
+                }) %}
+                    <h4>Your progress when filling in a survey or questionnaire</h4>
+                    <p>We’ll set a cookie to remember your progress through a survey or questionnaire. These cookies do not store your personal data and are deleted once you’ve completed the survey or questionnaire.</p>
+                    {{
+                        onsTable({
+                            "ths": [
+                                {
+                                    "value": "Name"
+                                },
+                                {
+                                    "value": "Purpose"
+                                },
+                                {
+                                    "value": "Expires"
+                                }
+                            ],
+                            "trs": [
+                                {
+                                    "tds": [
+                                        {
+                                            "value": "<code>licensing_session</code>"
+                                        },
+                                        {
+                                            "value": 'Set to remember information you’ve entered into a form'
+                                        },
+                                        {
+                                            "value": "When you close your browser"
+                                        }
+                                    ]
+                                }
+                            ]
+                        })
+                    }}
+                    <h4>Cookie message</h4>
+                    <p>You may see a banner when you visit census.gov.uk inviting you to accept cookies or review your settings. We’ll set cookies so that your computer knows you’ve seen it and not to show it again, and also to store your settings.</p>
+                    {{
+                        onsTable({
+                            "ths": [
+                                {
+                                    "value": "Name"
+                                },
+                                {
+                                    "value": "Purpose"
+                                },
+                                {
+                                    "value": "Expires"
+                                }
+                            ],
+                            "trs": [
+                                {
+                                    "tds": [
+                                        {
+                                            "value": "<code>ons_cookie_message_displayed</code>"
+                                        },
+                                        {
+                                            "value": 'Lets us know that you’ve seen our cookie message'
+                                        },
+                                        {
+                                            "value": "1 year"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tds": [
+                                        {
+                                            "value": "<code>ons_cookie_policy</code>"
+                                        },
+                                        {
+                                            "value": 'Saves your cookie consent settings'
+                                        },
+                                        {
+                                            "value": "1 year"
+                                        }
+                                    ]
+                                }
+                            ]
+                        })
+                    }}
+                {% endcall %}
                 {{
-                    onsTable({
-                        "ths": [
-                            {
-                                "value": "Name"
-                            },
-                            {
-                                "value": "Purpose"
-                            },
-                            {
-                                "value": "Expires"
-                            }
-                        ],
-                        "trs": [
-                            {
-                                "tds": [
-                                    {
-                                        "value": "<code>_use_hitbox</code>"
-                                    },
-                                    {
-                                        "value": 'This is a randomly generated number that identifies your browser'
-                                    },
-                                    {
-                                        "value": "When you close your browser"
-                                    }
-                                ]
-                            },
-                            {
-                                "tds": [
-                                    {
-                                        "value": "<code>VISITOR_INFO1_LIVE</code>"
-                                    },
-                                    {
-                                        "value": 'Lets Youtube count the views of embedded Youtube videos'
-                                    },
-                                    {
-                                        "value": "9 months"
-                                    }
-                                ]
-                            }
-                        ]
+                    onsButton({
+                        "type": 'submit',
+                        "text": 'Save changes',
+                        "dsExample": true
                     })
                 }}
-            {% endcall %}
-            {{ onsRadios({
-                "id": "cookies-measure-website-comms",
-                "name": "cookies-campaigns",
-                "legend": "Do you want to allow communications tracking?",
-                "legendClasses": "u-vh",
-                "radios": [
-                    {
-                        "id": "on-2",
-                        "label": {
-                            "text": "On"
-                        },
-                        "value": "on"
-                    },
-                    {
-                        "id": "off-2",
-                        "label": {
-                            "text": "Off"
-                        },
-                        "value": "off"
-                    }
-                ]
-            }) }}
 
-            <h3>Cookies that remember your settings</h3>
-            <p>These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.</p>
-            {{ onsRadios({
-                "id": "cookies-measure-website-settings",
-                "name": "cookies-settings",
-                "legend": "Do you want to allow settings?",
-                "legendClasses": "u-vh",
-                "radios": [
-                    {
-                        "id": "on-3",
-                        "label": {
-                            "text": "On"
-                        },
-                        "value": "on"
-                    },
-                    {
-                        "id": "off-3",
-                        "label": {
-                            "text": "Off"
-                        },
-                        "value": "off"
-                    }
-                ]
-            }) }}
-            <h3>Strictly necessary cookies</h3>
-            <p>These essential cookies do things like:</p>
-            <ul>
-                <li>remember the notifications you've seen so we do not show them to you again</li>
-                <li>remember your progress through a form (for example, the census online)</li>
-            </ul>
-            <p>They always need to be on.</p>
-            {% call onsCollapsible({
-                "id": "cookies-essential-details",
-                "classes": "u-mb-l",
-                "title": "Learn more about these essential cookies",
-                "button": {
-                    "close": "Hide this"
-                }
-            }) %}
-                <h4>Your progress when filling in a survey or questionnaire</h4>
-                <p>We’ll set a cookie to remember your progress through a survey or questionnaire. These cookies do not store your personal data and are deleted once you’ve completed the survey or questionnaire.</p>
-                {{
-                    onsTable({
-                        "ths": [
-                            {
-                                "value": "Name"
-                            },
-                            {
-                                "value": "Purpose"
-                            },
-                            {
-                                "value": "Expires"
-                            }
-                        ],
-                        "trs": [
-                            {
-                                "tds": [
-                                    {
-                                        "value": "<code>licensing_session</code>"
-                                    },
-                                    {
-                                        "value": 'Set to remember information you’ve entered into a form'
-                                    },
-                                    {
-                                        "value": "When you close your browser"
-                                    }
-                                ]
-                            }
-                        ]
-                    })
-                }}
-                <h4>Cookie message</h4>
-                <p>You may see a banner when you visit census.gov.uk inviting you to accept cookies or review your settings. We’ll set cookies so that your computer knows you’ve seen it and not to show it again, and also to store your settings.</p>
-                {{
-                    onsTable({
-                        "ths": [
-                            {
-                                "value": "Name"
-                            },
-                            {
-                                "value": "Purpose"
-                            },
-                            {
-                                "value": "Expires"
-                            }
-                        ],
-                        "trs": [
-                            {
-                                "tds": [
-                                    {
-                                        "value": "<code>ons_cookie_message_displayed</code>"
-                                    },
-                                    {
-                                        "value": 'Lets us know that you’ve seen our cookie message'
-                                    },
-                                    {
-                                        "value": "1 year"
-                                    }
-                                ]
-                            },
-                            {
-                                "tds": [
-                                    {
-                                        "value": "<code>ons_cookie_policy</code>"
-                                    },
-                                    {
-                                        "value": 'Saves your cookie consent settings'
-                                    },
-                                    {
-                                        "value": "1 year"
-                                    }
-                                ]
-                            }
-                        ]
-                    })
-                }}
-            {% endcall %}
-            {{
-                onsButton({
-                    "type": 'submit',
-                    "text": 'Save changes',
-                    "dsExample": true
-                })
-            }}
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 {% endblock %}
