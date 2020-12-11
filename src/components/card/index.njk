@@ -37,11 +37,21 @@ The example below shows a row of 3 cards with a list of links that relate to the
 }}
 
 ### Cards with images
-The example below shows a row of 3 cards with thumbnail images.
+The example below shows a row of 3 cards with images.
 
 {{
     patternlibExample({"path": "components/card/examples/card-image/index.njk"})
 }}
+
+## How to use this component
+If using the card pattern with images, we have two versions of the image, one for standard screens and the other for retina screens.
+
+Image dimensions (width × height):
+
+* standard screen is: `303px × 200px`
+* retina screen is: `606px × 400px`
+
+We specify a small and a large image path, which is defined in the macro as `smallSrc` and `largeSrc`.
 
 ## Research on this component
 {% call onsPanel() %}
