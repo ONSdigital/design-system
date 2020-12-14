@@ -2,6 +2,7 @@
   margin: 0 0 1rem;
   padding: 0 0 0 3em;
   background-size: 2rem;
+  position: relative;
 
   &__text {
     display: block;
@@ -9,16 +10,22 @@
 
   &__ref {
     @extend .u-fs-s;
+    position: relative;
     display: block;
     color: $color-text-light;
+    margin-top: 0.5rem;
   }
 
   .svg-icon {
     position: absolute;
-    top: 1.3rem;
-    left: 1.6rem;
+    top: -0.125rem;
+    left: 0;
     width: 1.85rem;
     height: 1.85rem;
     fill: $color-grey-2;
+
+    @include mq(m) {
+      top: 0;
+    }
   }
 }
