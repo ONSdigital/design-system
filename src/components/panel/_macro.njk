@@ -1,7 +1,7 @@
 {% macro onsPanel(params) %}
-    
+
     {% if params is defined and params and params.classes is defined and params.classes %}
-        {% set classes  = ' ' + params.classes %}
+        {% set classes = ' ' + params.classes %}
     {% endif %}
 
     {% if params is not defined or params.title is not defined and params.type != "bare" %}
