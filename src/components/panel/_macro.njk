@@ -10,7 +10,7 @@
 
     {% if params is defined and params and params.type is defined and params.type %}
         {% set typeClass = ' panel--' + params.type %}
-        {% if isPatternLib is defined and isPatternLib %}
+         {% if params is defined and params and params.type == 'error' and params.dsExample != true %}
             {% set errorJsClass = ' js-error-panel' %}
         {% endif %}
     {% else %}
