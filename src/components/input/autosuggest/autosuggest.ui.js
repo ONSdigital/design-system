@@ -92,6 +92,7 @@ export default class AutosuggestUI {
     this.previousQuery = '';
     this.results = [];
     this.resultOptions = [];
+    this.allSelections = [];
     this.data = [];
     this.foundResults = 0;
     this.numberOfResults = 0;
@@ -136,7 +137,7 @@ export default class AutosuggestUI {
     this.input.addEventListener('keydown', this.handleKeydown.bind(this));
     this.input.addEventListener('keyup', this.handleKeyup.bind(this));
     this.input.addEventListener('input', this.handleChange.bind(this));
-    // this.input.addEventListener('focus', this.handleFocus.bind(this));
+    this.input.addEventListener('focus', this.handleFocus.bind(this));
     this.input.addEventListener('blur', this.handleBlur.bind(this));
 
     this.listbox.addEventListener('mouseover', this.handleMouseover.bind(this));
@@ -198,6 +199,13 @@ export default class AutosuggestUI {
     }
   }
 
+  handleFocus() {
+    // if allowMultiple
+    if (this.allSelections.length) {
+      this.input.value = `${this.input.value}, `;
+    }
+  }
+
   handleBlur() {
     clearTimeout(this.blurTimeout);
     this.blurring = true;
@@ -250,7 +258,13 @@ export default class AutosuggestUI {
 
   getSuggestions(force, alternative) {
     if (!this.settingResult) {
-      const query = this.input.value;
+      let query = this.input.value;
+
+      // if allowMultiple
+      if (this.allSelections.length) {
+        query = query.split(', ').find(item => !this.allSelections.includes(item));
+      }
+
       const sanitisedQuery = sanitiseAutosuggestText(query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
 
       if (sanitisedQuery !== this.sanitisedQuery || (force && !this.resultSelected)) {
@@ -278,8 +292,6 @@ export default class AutosuggestUI {
     const results = await queryJson(sanitisedQuery, data, this.lang, this.resultLimit);
     results.forEach(result => {
       result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
-      result.alternatives = [];
-      result.sanitisedAlternatives = [];
     });
     return {
       results,
@@ -331,17 +343,6 @@ export default class AutosuggestUI {
           let ariaLabel = result[this.lang];
           ariaLabel = ariaLabel.split('(<span class="autosuggest-input__group">')[0];
           let innerHTML = this.emboldenMatch(result[this.lang], this.query);
-          if (Array.isArray(result.sanitisedAlternatives)) {
-            const alternativeMatch = result.sanitisedAlternatives.find(
-              alternative => alternative !== result.sanitisedText && alternative.includes(this.sanitisedQuery),
-            );
-
-            if (alternativeMatch) {
-              const alternativeText = result.alternatives[result.sanitisedAlternatives.indexOf(alternativeMatch)];
-              innerHTML += ` <small>(${this.emboldenMatch(alternativeText, this.query)})</small>`;
-              ariaLabel += `, (${alternativeText})`;
-            }
-          }
 
           const listElement = document.createElement('li');
           listElement.className = classAutosuggestOption;
@@ -468,24 +469,12 @@ export default class AutosuggestUI {
       const result = this.results[index || this.highlightedResultIndex || 0];
       this.resultSelected = true;
 
-      if (result.sanitisedText !== this.sanitisedQuery && result.sanitisedAlternatives && result.sanitisedAlternatives.length) {
-        const bestMatchingAlternative = result.sanitisedAlternatives
-          .map((alternative, index) => ({
-            score: dice(this.sanitisedQuery, alternative),
-            index,
-          }))
-          .sort(sortBy('score'))[0];
+      // if allowMultiple
+      this.allSelections.push(result[this.lang]);
+      result.displayText = this.allSelections.join(', ');
+      // else
+      //result.displayText = result[this.lang];
 
-        const scoredSanitised = dice(this.sanitisedQuery, result.sanitisedText);
-
-        if (bestMatchingAlternative.score >= scoredSanitised) {
-          result.displayText = result.alternatives[bestMatchingAlternative.index];
-        } else {
-          result.displayText = result[this.lang];
-        }
-      } else {
-        result.displayText = result[this.lang];
-      }
       this.onSelect(result).then(() => (this.settingResult = false));
 
       const ariaMessage = `${this.ariaYouHaveSelected}: ${result.displayText}.`;

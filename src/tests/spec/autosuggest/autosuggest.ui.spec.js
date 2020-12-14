@@ -30,7 +30,6 @@ const params = {
     instructions:
       'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
     ariaYouHaveSelected: 'You have selected',
-    ariaFoundByAlternativeName: 'found by alternative name',
     ariaMinChars: 'Enter 3 or more characters for suggestions.',
     ariaOneResult: 'There is one suggestion available.',
     ariaNResults: 'There are {n} suggestions available.',
@@ -528,7 +527,7 @@ describe('Autosuggest.ui component', function() {
       describe('and the fetch successfully returns', function() {
         beforeEach(function() {
           this.result = {
-            results: [{ en: 'yes', alternatives: [], sanitisedAlternatives: [] }],
+            results: [{ en: 'yes' }],
             totalResults: 1,
           };
 
@@ -543,7 +542,7 @@ describe('Autosuggest.ui component', function() {
       describe('and the fetch successfully returns welsh results found from english names', function() {
         beforeEach(function() {
           this.result = {
-            results: [{ en: 'Yes', cy: 'ie', alternatives: ['Yes'], sanitisedAlternatives: ['yes'] }],
+            results: [{ en: 'Yes', cy: 'ie' }],
             totalResults: 1,
           };
 
@@ -928,7 +927,7 @@ describe('Autosuggest.ui component', function() {
       describe('if there are results', function() {
         beforeEach(function() {
           this.autosuggest.sanitisedQuery = 'ye';
-          this.autosuggest.results = [{ en: 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
+          this.autosuggest.results = [{ en: 'Yes', sanitisedText: 'yes' }];
           this.autosuggest.selectResult(0);
         });
 
@@ -946,18 +945,6 @@ describe('Autosuggest.ui component', function() {
 
         it('then setAriaStatus should be called', function() {
           expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggest.ariaYouHaveSelected}: Yes.`);
-        });
-      });
-
-      describe('if there are results from an alternative', function() {
-        beforeEach(function() {
-          this.autosuggest.sanitisedQuery = 'ie';
-          this.autosuggest.results = [{ en: 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
-          this.autosuggest.selectResult(0);
-        });
-
-        it('then setAriaStatus should be called stating the result was found from the alternative', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggest.ariaYouHaveSelected}: Ie.`);
         });
       });
     });
@@ -1060,8 +1047,6 @@ describe('Autosuggest.ui component', function() {
                 {
                   en: 'Ie',
                   sanitisedText: 'Ie',
-                  sanitisedAlternatives: ['yes'],
-                  alternatives: ['Yes'],
                 },
               ],
             });
