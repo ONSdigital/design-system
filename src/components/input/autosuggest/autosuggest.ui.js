@@ -198,7 +198,7 @@ export default class AutosuggestUI {
   }
 
   handleFocus() {
-    if (this.allowMultiple === 'true' && this.allSelections.length) {
+    if (this.allowMultiple === 'true' && this.allSelections.length && this.input.value.slice(-1) !== ' ') {
       this.input.value = `${this.input.value}, `;
     }
   }
