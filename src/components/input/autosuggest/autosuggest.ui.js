@@ -1,6 +1,3 @@
-import dice from 'dice-coefficient';
-import { sortBy } from 'sort-by-typescript';
-
 import queryJson from './code.list.searcher';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
 import fetch from 'js/abortable-fetch';
@@ -67,6 +64,7 @@ export default class AutosuggestUI {
     this.errorAPI = errorAPI || context.getAttribute('data-error-api');
     this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
     this.typeMore = typeMore || context.getAttribute('data-type-more');
+    this.allowMultiple = context.getAttribute('data-allow-multiple') || false;
     this.listboxId = this.listbox.getAttribute('id');
     this.minChars = minChars || 3;
     this.resultLimit = resultLimit || 10;
@@ -200,8 +198,7 @@ export default class AutosuggestUI {
   }
 
   handleFocus() {
-    // if allowMultiple
-    if (this.allSelections.length) {
+    if (this.allowMultiple === 'true' && this.allSelections.length) {
       this.input.value = `${this.input.value}, `;
     }
   }
@@ -260,8 +257,7 @@ export default class AutosuggestUI {
     if (!this.settingResult) {
       let query = this.input.value;
 
-      // if allowMultiple
-      if (this.allSelections.length) {
+      if (this.allowMultiple === 'true' && this.allSelections.length) {
         query = query.split(', ').find(item => !this.allSelections.includes(item));
       }
 
@@ -469,11 +465,12 @@ export default class AutosuggestUI {
       const result = this.results[index || this.highlightedResultIndex || 0];
       this.resultSelected = true;
 
-      // if allowMultiple
-      this.allSelections.push(result[this.lang]);
-      result.displayText = this.allSelections.join(', ');
-      // else
-      //result.displayText = result[this.lang];
+      if (this.allowMultiple === 'true') {
+        this.allSelections.push(result[this.lang]);
+        result.displayText = this.allSelections.join(', ');
+      } else {
+        result.displayText = result[this.lang];
+      }
 
       this.onSelect(result).then(() => (this.settingResult = false));
 
