@@ -1044,10 +1044,6 @@ describe('Autosuggest.ui component', function() {
                   en: 'Yes 2',
                   sanitisedText: 'yes 2',
                 },
-                {
-                  en: 'Ie',
-                  sanitisedText: 'Ie',
-                },
               ],
             });
           });
@@ -1055,8 +1051,7 @@ describe('Autosuggest.ui component', function() {
           it('then resultOptions should be generated', function() {
             const option1 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
             const option2 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--1" role="option" aria-label="Yes 2"><strong>Yes</strong> 2</li>`;
-            const option3 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--2" role="option" aria-label="Ie, (Yes)">Ie <small>(<strong>Yes</strong>)</small></li>`;
-            const html = option1 + option2 + option3;
+            const html = option1 + option2;
 
             expect(this.autosuggest.listbox.innerHTML).to.equal(html);
           });
