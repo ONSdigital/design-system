@@ -49,6 +49,7 @@ layout: none
 
 {% block main %}
     <h1 class="u-mb-l u-fs-xxl">Languages</h1>
+    
     {{
         onsPanel({
             "classes": 'u-mb-m',
@@ -67,21 +68,22 @@ layout: none
                     <p class="u-mb-no@m">If you can’t find your language, or need more help, please call our free language helpline on <b>0800 587 2021</b>.</p>
                 </div>
 
-                <div class="grid__col col-5@md">
+                <div class="grid__col col-5@md u-db-no-js_disabled">
                     {{ onsSelect({
-                        "id": 'select',
-                        "name": 'select',
+                        "classes": 'js-language-filter__select',
+                        "id": 'language-fiter-select',
+                        "name": 'language-fiter-select',
                         "label": {
                             "text": 'Sort languages by'
                         },
                         "options": [
                             {
                                 "text": 'Native language',
-                                "value": 'native-language'
+                                "value": 'language-native'
                             },
                             {
                                 "text": 'English',
-                                "value": 'english'
+                                "value": 'language-english'
                             }
                         ]
                     }) }}
@@ -325,26 +327,217 @@ layout: none
 
         </div>
 
-        <div class="js-language-filter__content u-hidden no-js:is-hidden" id="language-english">
+        <div class="js-language-filter__content u-hidden u-db-no-js_disabled" id="language-english">
 
-            {{ onsList({
-                "classes": 'list--bare',
-                "itemsList": [
-                    {
-                        "url": '#',
-                        "text": 'Who we are',
-                        "target": '_blank'
-                    },
-                    {
-                        "url": '#',
-                        "text": 'What we do'
-                    },
-                    {
-                        "url": '#',
-                        "text": 'Where to find us'
-                    }
-                ]
-            }) }}
+            <div class="grid u-mt-m">
+
+                <div class="grid__col col-4@m">
+
+                    {{ onsList({
+                        "classes": 'list--bare list--languages',
+                        "itemsList": [
+                            {
+                                "url": '#0',
+                                "text": 'Albanian (Shqiptare)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Amharic (አማርኛ)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Arabic (عربى)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Armenian (հայերեն)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Bengali (বাংলা)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Bosnian (Bosanski)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'British Sign Language - BSL'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Bulgarian (български)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Burmese (မြန်မာဘာသာ)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Cantonese (粵語)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Czech (čeština)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Farsi (فارسی)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'French (Le français)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'German (Deutsche)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Greek (Ελληνικά)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Gujarati (ગુજરાતી)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Hebrew (עִברִית)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Hebrew (עִברִית)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Hungarian (Magyar)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Italian (Italiano)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Japanese (日本人)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Korean (한국어)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Kurdish (Kurdî)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Latvian (Latvietis)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Latvian (Latvietis)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Lithuanians (Lietuvi)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Malayalam (മലയാളം)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Mandarin (普通話)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Nepali (नेपाली)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Polish (Polskie)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Portuguese (Português)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Pothwari (پوٹھواری)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Punjabi (Gurmukhi) (ਪੰਜਾਬੀ)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Romanian (Română)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Russian (русский)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Slovak (Slovák)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Slovenian (Slovenščina)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Somali (Soomaali)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Swahili (Kiswahili)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Tagalog'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Tamil (தமிழ்)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Tetum'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Thai (ไทย)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Tigrinya (ትግርኛ)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Turkish (Türk)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Ukrainian (Український)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Urdu (اردو)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Vietnamese (Tiếng Việt)'
+                            },
+                            {
+                                "url": '#0',
+                                "text": 'Yiddish (יידיש)'
+                            }
+                        ]
+                    }) }}
+
+                </div>
+
+            </div>
 
         </div>
 
