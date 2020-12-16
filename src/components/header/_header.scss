@@ -67,6 +67,7 @@
     color: $color-white;
 
     &-link {
+      display: block;
       &:focus {
         outline: 4px solid $color-focus;
       }
