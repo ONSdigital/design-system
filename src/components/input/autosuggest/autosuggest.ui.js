@@ -210,6 +210,10 @@ export default class AutosuggestUI {
     this.blurTimeout = setTimeout(() => {
       this.blurring = false;
     }, 300);
+
+    if (this.allowMultiple === 'true' && this.input.value.slice(-2) === ', ') {
+      this.input.value = this.input.value.slice(0, -2);
+    }
   }
 
   checkCharCount() {
@@ -467,6 +471,8 @@ export default class AutosuggestUI {
 
       if (this.allowMultiple === 'true') {
         this.allSelections.push(result[this.lang]);
+        this.allSelections = [...new Set(this.allSelections)]; // remove dups that are created from using "enter" key
+
         result.displayText = this.allSelections.join(', ');
       } else {
         result.displayText = result[this.lang];
