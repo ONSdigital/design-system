@@ -7,6 +7,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   & &__svg-logo {
+    display: block;
     width: 100%;
     height: auto;
     fill: $color-white;
