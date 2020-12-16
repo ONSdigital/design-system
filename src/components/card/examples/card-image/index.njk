@@ -1,51 +1,56 @@
 {% from "components/card/_macro.njk" import onsCard %}
-<div class="grid grid--flex grid--loose grid--column@xs@s">
-    <div class="grid__col grid__col--loose grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
-        {{-
-            onsCard({
+<div class="container">
+
+    <div class="grid grid--column@xs@s">
+
+        <div class="grid__col col-4@m">
+            {{ onsCard({
                 "ariaBy": 'Section highlight',
                 "id": 'title1',
                 "textId": 'text1',
-                "title": 'Search for a business',
+                "title": 'About the census',
                 "url": '#0',
-                "text": 'A list of UK businesses for statistical use across government.',
+                "text": 'The census is a survey that gives us information about all the households in England and Wales.',
                 "image": {
-                    "src": '/img/card-placeholder.svg',
-                    "alt": 'Placeholder text'
+                    "smallSrc": "/img/small/placeholder-card.png",
+                    "largeSrc": "/img/large/placeholder-card.png",
+                    "alt": "Image placeholder"
                 }
-            })
-        }}
-    </div>
-    <div class="grid__col grid__col--loose grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
-        {{-
-            onsCard({
+            }) }}
+        </div>
+
+        <div class="grid__col col-4@m">
+            {{ onsCard({
                 "ariaBy": 'Section highlight',
                 "id": 'title2',
                 "textId": 'text2',
-                "title": 'Record management',
+                "title": 'Working on the census',
                 "url": '#0',
-                "text": 'Edit, create new records and view the editing history of businesses.',
+                "text": 'For Census 2021, we’ll be hiring at least 30,000 field staff across England and Wales.',
                 "image": {
-                    "src": '/img/card-placeholder.svg',
-                    "alt": 'Placeholder text'
+                    "smallSrc": "/img/small/placeholder-card.png",
+                    "largeSrc": "/img/large/placeholder-card.png",
+                    "alt": "Image placeholder"
                 }
-            })
-        }}
-    </div>
-    <div class="grid__col grid__col--loose grid__col--flex u-flex-grow u-flex-no-basis@s col-12@xs@s">
-        {{-
-            onsCard({
+            }) }}
+        </div>
+
+        <div class="grid__col col-4@m">
+            {{ onsCard({
                 "ariaBy": 'Section highlight',
                 "id": 'title3',
                 "textId": 'text3',
-                "title": 'Address index',
+                "title": 'Your data and security',
                 "url": '#0',
-                "text": 'The most accurate and geographical dataset of addresses and properties in the UK.',
+                "text": 'How we keep your data safe and what happens to your personal information.',
                 "image": {
-                    "src": '/img/card-placeholder.svg',
-                    "alt": 'Placeholder text'
+                    "smallSrc": "/img/small/placeholder-card.png",
+                    "largeSrc": "/img/large/placeholder-card.png",
+                    "alt": "Image placeholder"
                 }
-            })
-        }}
+            }) }}
+        </div>
+
     </div>
+    
 </div>
