@@ -1322,7 +1322,7 @@ describe('Autosuggest.ui component', function() {
       },
       autocomplete: 'off',
       autosuggest: {
-        allowMuliple: 'true',
+        allowMultiple: 'true',
         instructions:
           'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
         ariaYouHaveSelected: 'You have selected',
@@ -1367,14 +1367,19 @@ describe('Autosuggest.ui component', function() {
     describe('when a result is selected', function() {
       beforeEach(function(done) {
         this.autosuggest.sanitisedQuery = 'ye';
-        this.autosuggest.results = [{ en: 'Yes' }];
-        this.autosuggest.selectResult(1);
+        this.autosuggest.results = [{ en: 'Yes', sanitisedText: 'yes' }];
+        this.autosuggest.selectResult(0);
+        this.input.value = 'Yes';
+        this.autosuggest.handleFocus();
         setTimeout(done);
       });
 
-      it('the input value should be populated with the selection', function() {
-        console.log(this.input.value);
-        expect(this.input.value).to.equal('Yes');
+      it('the allSelections array should be updated with the selection', function() {
+        expect(this.autosuggest.allSelections).to.contain('Yes');
+      });
+
+      it('the input value should contain a comma when focused', function() {
+        expect(this.input.value).to.equal('Yes, ');
       });
     });
   });
