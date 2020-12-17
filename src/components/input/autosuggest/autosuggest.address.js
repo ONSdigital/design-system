@@ -326,8 +326,8 @@ export default class AutosuggestAddress {
     const classificationFilterParam = '&classificationfilter=',
       eboostParam = '&eboost=10',
       wboostParam = '&wboost=10',
-      niboostParam = '&eboost=0&sboost=0&wboost=0',
-      nionlyParam = '&niboost=10',
+      nionlyParam = '&eboost=0&sboost=0&wboost=0',
+      niboostParam = '&niboost=10',
       favourwelshParam = '&favourwelsh=true',
       addresstypeParam = '?addresstype=',
       epochParam = '&epoch=72';
@@ -354,10 +354,10 @@ export default class AutosuggestAddress {
       }
 
       if (this.regionCode === 'gb-nir') {
-        if (this.classificationFilter === 'workplace') {
-          fullURL = fullURL + niboostParam;
-        } else if (this.classificationFilter === 'educational') {
+        if (this.classificationFilter === 'educational') {
           fullURL = fullURL + nionlyParam;
+        } else {
+          fullURL = fullURL + niboostParam;
         }
       }
 
