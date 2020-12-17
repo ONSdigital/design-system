@@ -20,6 +20,11 @@
   white-space: nowrap;
 }
 
+// Utility class to set direction right to left
+.u-rtl {
+  direction: rtl;
+}
+
 // Set an element's width to be auto at specified breakpoint
 @include bp-suffix(u-wa--) {
   width: auto;
