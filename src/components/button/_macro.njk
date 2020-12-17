@@ -24,7 +24,7 @@
     {% endif %}
   {% endif %}
 
-  {% set tag = "a" if params.url or params.buttonStyle == "exit" else "button" %}
+  {% set tag = "a" if params.url or params.buttonStyle == "exit" or params.dsExample is defined and params.dsExample else "button" %}
 
   <{{ tag }}
       {% if params.url is defined and params.url or params.buttonStyle == "exit" %}

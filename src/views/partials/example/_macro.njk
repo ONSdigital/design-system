@@ -1,71 +1,71 @@
 {% macro patternlibExample(params) %}
-  {% set params = helpers.generateExampleParams(params, helpers.addDependency) %}
-  <div class="patternlib-example js-example">
-    <a href="{{ params.link }}" target="_blank" class="patternlib-example__link u-fs-s">Open this example in a new window</a>
-    <div class="patternlib-example__frame">
-        <iframe class="patternlib-example__iframe" frameborder="0" scrolling="auto" src="{{ params.link }}" style="background-color: {{ params.backgroundColor | default ('#fff') }}"></iframe>
-    </div>
-    <div class="patternlib-example__source">
-        <input id="{{ params.name }}-html" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "html" %} checked {% endif %}>
-        {% if params.raw is defined and params.raw %}
-            <input id="{{ params.name }}-nunjucks" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "nunjucks" %} checked {% endif %}>
-        {% endif %}
-        {% if params.template is defined and params.template %}
-            <input id="{{ params.name }}-template" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "template" %} checked {% endif %}>
-        {% endif %}
-        {% if params.scss is defined and params.scss %}
-            <input id="{{ params.name }}-scss" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example"{% if params.openTab == "scss" %} checked {% endif %}>
-        {% endif %}
-        {% if params.noTabs is not defined %}
-            <div class="patternlib-example__tabs">
-                {% if params.noHTMLTab is not defined %}
-                    <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-html">HTML</label>
-                {% endif %}
-                {% if params.raw is defined and params.raw and not params.noRawTab %}
-                    <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-nunjucks">Nunjucks</label>
-                {% endif %}
-                {% if params.template is defined and params.template and not params.noTemplateTab %}
-                    <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-template">Nunjucks Template</label>
-                {% endif %}
-                {% if params.scss is defined and params.scss and not params.noScssTab %}
-                    <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-scss">SCSS</label>
-                {% endif %}
-            </div>
-        {% endif %}
-        <div class="patternlib-example__panels">
-            <div class="patternlib-example__panel">
-                <pre class="patternlib-example__pre">
-                    <code class="patternlib-example__code html">{{ params.html }}</code>
-                </pre>
-            </div>
-            {%- if params.raw -%}
-            <div class="patternlib-example__panel">
-                {% if params.options is defined and params.options %}
-                    <details class="macro-options">
-                        <summary class="macro-options__summary">Nunjucks macro options</summary>
-                        <div class="macro-options__content">{{ params.options | safe }}</div>
-                    </details>
-                {% endif %}
-                <pre class="patternlib-example__pre">
-                    <code class="patternlib-example__code js">{{ params.raw }}</code>
-                </pre>
-            </div>
-            {%- endif -%}
-            {%- if params.template -%}
+    {% set params = helpers.generateExampleParams(params, helpers.addDependency) %}
+    <div class="patternlib-example js-example">
+        <a href="{{ params.link }}" target="_blank" class="patternlib-example__link u-fs-s">Open this example in a new window</a>
+        <div class="patternlib-example__frame">
+            <iframe class="patternlib-example__iframe" frameborder="0" scrolling="auto" src="{{ params.link }}" style="background-color: {{ params.backgroundColor | default ('#fff') }}"></iframe>
+        </div>
+        <div class="patternlib-example__source">
+            <input id="{{ params.name }}-html" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "html" %} checked {% endif %}>
+            {% if params.raw is defined and params.raw %}
+                <input id="{{ params.name }}-nunjucks" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "nunjucks" %} checked {% endif %}>
+            {% endif %}
+            {% if params.template is defined and params.template %}
+                <input id="{{ params.name }}-template" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "template" %} checked {% endif %}>
+            {% endif %}
+            {% if params.scss is defined and params.scss %}
+                <input id="{{ params.name }}-scss" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example"{% if params.openTab == "scss" %} checked {% endif %}>
+            {% endif %}
+            {% if params.noTabs is not defined %}
+                <div class="patternlib-example__tabs">
+                    {% if params.noHTMLTab is not defined %}
+                        <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-html">HTML</label>
+                    {% endif %}
+                    {% if params.raw is defined and params.raw and not params.noRawTab %}
+                        <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-nunjucks">Nunjucks</label>
+                    {% endif %}
+                    {% if params.template is defined and params.template and not params.noTemplateTab %}
+                        <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-template">Nunjucks Template</label>
+                    {% endif %}
+                    {% if params.scss is defined and params.scss and not params.noScssTab %}
+                        <label class="patternlib-example__tab u-fs-r--b js-example-tab" for="{{ params.name }}-scss">SCSS</label>
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div class="patternlib-example__panels">
                 <div class="patternlib-example__panel">
                     <pre class="patternlib-example__pre">
-                        <code class="patternlib-example__code html">{{ params.template }}</code>
+                        <code class="patternlib-example__code html">{{ params.html }}</code>
                     </pre>
                 </div>
-            {%- endif -%}
-            {%- if params.scss -%}
+                {%- if params.raw -%}
                 <div class="patternlib-example__panel">
+                    {% if params.options is defined and params.options %}
+                        <details class="macro-options">
+                            <summary class="macro-options__summary">Nunjucks macro options</summary>
+                            <div class="macro-options__content">{{ params.options | safe }}</div>
+                        </details>
+                    {% endif %}
                     <pre class="patternlib-example__pre">
-                        <code class="patternlib-example__code scss">{{ params.scss }}</code>
+                        <code class="patternlib-example__code js">{{ params.raw }}</code>
                     </pre>
                 </div>
-            {%- endif -%}
+                {%- endif -%}
+                {%- if params.template -%}
+                    <div class="patternlib-example__panel">
+                        <pre class="patternlib-example__pre">
+                            <code class="patternlib-example__code html">{{ params.template }}</code>
+                        </pre>
+                    </div>
+                {%- endif -%}
+                {%- if params.scss -%}
+                    <div class="patternlib-example__panel">
+                        <pre class="patternlib-example__pre">
+                            <code class="patternlib-example__code scss">{{ params.scss }}</code>
+                        </pre>
+                    </div>
+                {%- endif -%}
+            </div>
         </div>
     </div>
-  </div>
 {% endmacro %}
