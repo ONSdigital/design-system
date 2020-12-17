@@ -7,6 +7,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   & &__svg-logo {
+    display: block;
     width: 100%;
     height: auto;
     fill: $color-white;
@@ -66,6 +67,7 @@
     color: $color-white;
 
     &-link {
+      display: block;
       &:focus {
         outline: 4px solid $color-focus;
       }

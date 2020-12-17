@@ -59,6 +59,12 @@
       margin-bottom: 0.5rem;
     }
   }
+
+  &--languages {
+    .list__link {
+      margin-right: 0;
+    }
+  }
 }
 
 @include bp-suffix('list--inline') {
