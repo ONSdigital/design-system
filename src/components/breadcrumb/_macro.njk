@@ -5,7 +5,7 @@
         <ol class="breadcrumb__items u-fs-s">
             {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
                 <li id="breadcrumb-{{ loop.index }}" class="breadcrumb__item">
-                    <a href="{{ item.url }}" class="breadcrumb__link"
+                    <a href="{{ item.url }}" class="breadcrumb__link"{% if item.id is defined and item.id %} id="{{ item.id }}"{% endif %}
                     {% if item.attributes is defined and item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                     >{{ item.text }}</a>
                     {{
