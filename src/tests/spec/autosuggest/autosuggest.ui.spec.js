@@ -1312,6 +1312,72 @@ describe('Autosuggest.ui component', function() {
       });
     });
   });
+
+  describe('When the component initialises with the allowMultiple parameter', function() {
+    const paramsOptions = {
+      id: 'country-of-birth',
+      label: {
+        text: 'Enter the current name of the country',
+        classes: 'js-autosuggest-label',
+      },
+      autocomplete: 'off',
+      autosuggest: {
+        allowMuliple: 'true',
+        instructions:
+          'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
+        ariaYouHaveSelected: 'You have selected',
+        ariaMinChars: 'Enter 3 or more characters for suggestions.',
+        ariaOneResult: 'There is one suggestion available.',
+        ariaNResults: 'There are {n} suggestions available.',
+        ariaLimitedResults: 'Results have been limited to 10 suggestions. Enter more characters to improve your search.',
+        moreResults: 'Continue entering to improve suggestions',
+        resultsTitle: 'Suggestions',
+        noResults: 'No results found',
+        autosuggestData:
+          'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/4dede1d6e757cf0bb836228600676c62ceb4f86c/country-of-birth.json',
+        typeMore: 'Enter more of the address to get results',
+        tooManyResults: '{n} results found. Enter more of the address to improve results.',
+        errorTitle: 'There is a problem with your answer',
+        errorMessage: 'Enter an address ',
+        errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
+      },
+    };
+
+    beforeEach(function(done) {
+      const component = renderComponent(paramsOptions);
+
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+
+      this.autosuggest = new AutosuggestUI({
+        context: this.context,
+        onSelect: async () => {},
+        onUnsetResult: async () => {},
+      });
+      done();
+    });
+
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+      }
+    });
+
+    describe('when a result is selected', function() {
+      beforeEach(function(done) {
+        this.autosuggest.sanitisedQuery = 'ye';
+        this.autosuggest.results = [{ en: 'Yes' }];
+        this.autosuggest.selectResult(1);
+        setTimeout(done);
+      });
+
+      it('the input value should be populated with the selection', function() {
+        console.log(this.input.value);
+        expect(this.input.value).to.equal('Yes');
+      });
+    });
+  });
 });
 
 function renderComponent(params) {
