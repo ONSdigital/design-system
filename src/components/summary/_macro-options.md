@@ -60,8 +60,8 @@
 
 ## SummaryLink
 
-| Name   | Type   | Required | Description                                 |
-| ------ | ------ | -------- | ------------------------------------------- |
-| url    | string | true     | The url for the link to follow the summary  |
-| text   | string | true     | The text for the link to follow the summary |
-| dataQa | string | true     | The text data-qa attribute                  |
+| Name       | Type   | Required | Description                                                              |
+| ---------- | ------ | -------- | ------------------------------------------------------------------------ |
+| url        | string | true     | The url for the link to follow the summary                               |
+| text       | string | true     | The text for the link to follow the summary                              |
+| attributes | object | false    | HTML attributes (for example data attributes) to add to the summary link |
