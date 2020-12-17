@@ -476,7 +476,6 @@ export default class AutosuggestUI {
       } else {
         result.displayText = result[this.lang];
       }
-      console.log(this.allSelections);
       this.onSelect(result).then(() => (this.settingResult = false));
 
       const ariaMessage = `${this.ariaYouHaveSelected}: ${result.displayText}.`;
