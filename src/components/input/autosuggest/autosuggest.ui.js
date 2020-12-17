@@ -259,16 +259,15 @@ export default class AutosuggestUI {
 
   getSuggestions(force, alternative) {
     if (!this.settingResult) {
-      let query = this.input.value;
+      this.query = this.input.value;
 
       if (this.allowMultiple === 'true' && this.allSelections.length) {
-        query = query.split(', ').find(item => !this.allSelections.includes(item));
+        this.query = this.query.split(', ').find(item => !this.allSelections.includes(item));
       }
 
-      const sanitisedQuery = sanitiseAutosuggestText(query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
+      const sanitisedQuery = sanitiseAutosuggestText(this.query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
 
       if (sanitisedQuery !== this.sanitisedQuery || (force && !this.resultSelected)) {
-        this.query = query;
         this.sanitisedQuery = sanitisedQuery;
         this.unsetResults();
         this.checkCharCount();

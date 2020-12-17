@@ -1382,6 +1382,32 @@ describe('Autosuggest.ui component', function() {
         expect(this.input.value).to.equal('Yes, ');
       });
     });
+
+    describe('when the user blurs the input', function() {
+      beforeEach(function(done) {
+        this.autosuggest.allSelections = ['Yes'];
+        this.input.value = 'Yes, ';
+        this.autosuggest.handleBlur();
+        setTimeout(done);
+      });
+
+      it('the input value should not contain a comma', function() {
+        expect(this.input.value).to.equal('Yes');
+      });
+    });
+
+    describe('when the input contains selected results and a new query', function() {
+      beforeEach(function(done) {
+        this.autosuggest.allSelections = ['Yes', 'Hello'];
+        this.input.value = 'Yes, Hello, Something';
+        this.autosuggest.getSuggestions();
+        setTimeout(done);
+      });
+
+      it('the query should only contain the new query', function() {
+        expect(this.autosuggest.query).to.equal('Something');
+      });
+    });
   });
 });
 
