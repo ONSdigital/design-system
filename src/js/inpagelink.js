@@ -1,5 +1,5 @@
 export default function inPageLinks(links) {
-  if (!document.getElementById('patternlib-page__example') === null) {
+  if (document.getElementById('patternlib-page__example') === null) {
     links.forEach(link => {
       const id = link.getAttribute('href').replace('#', '');
 
