@@ -104,7 +104,7 @@
                                                         <a
                                                             href="{{ action.url }}"
                                                             class="summary__button"
-                                                            {% if action.ariaLabel is defined and action.ariaLabel %} aria-label="{{ action.ariaLabel | striptags() }}"{% endif %}
+                                                            {% if action.ariaLabel is defined and action.ariaLabel %} aria-label="{{ action.ariaLabel }}"{% endif %}
                                                             {% if action.attributes is defined and action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                                         >{{ action.text }}</a>
                                                     {% endfor %}
