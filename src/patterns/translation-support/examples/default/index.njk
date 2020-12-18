@@ -50,52 +50,46 @@ layout: none
 {% block main %}
     <h1 class="u-mb-l u-fs-xxl">Languages</h1>
     
-    {{
-        onsPanel({
-            "classes": 'u-mb-m',
-            "body": '<p>Os oes angen y wefan hon arnoch yn Gymraeg, ewch i <a href="#0">cyfrifiad.gov.uk</a></p>'
-        })
-    }}
+    {{onsPanel({
+        "classes": 'u-mb-m',
+        "body": '<p>Os oes angen y wefan hon arnoch yn Gymraeg, ewch i <a href="#0">cyfrifiad.gov.uk</a></p>'
+    })}}
 
     <div class="language-filter js-language-filter">
 
-        <div class="u-bb">
+        <div class="grid grid--flex grid--vertical-top grid--between">
 
-            <div class="grid grid--flex grid--vertical-top grid--between u-mb-m">
+            <div class="grid__col col-7@m">
+                <p>Translation support is available for the following languages.</p>
+                <p>If you can’t find your language, or need more help, please call our free language helpline on <b>0800 587 2021</b>.</p>
+            </div>
 
-                <div class="grid__col col-7@m">
-                    <p>Translation support is available for the following languages.</p>
-                    <p class="u-mb-no@m">If you can’t find your language, or need more help, please call our free language helpline on <b>0800 587 2021</b>.</p>
-                </div>
-
-                <div class="grid__col col-5@md u-db-no-js_disabled">
-                    {{ onsSelect({
-                        "classes": 'js-language-filter__select',
-                        "id": 'language-fiter-select',
-                        "name": 'language-fiter-select',
-                        "label": {
-                            "text": 'Sort languages by'
+            <div class="grid__col col-5@md u-mb-m u-db-no-js_disabled">
+                {{ onsSelect({
+                    "classes": 'js-language-filter__select',
+                    "id": 'language-fiter-select',
+                    "name": 'language-fiter-select',
+                    "label": {
+                        "text": 'Sort languages by'
+                    },
+                    "options": [
+                        {
+                            "text": 'Native language',
+                            "value": 'language-native'
                         },
-                        "options": [
-                            {
-                                "text": 'Native language',
-                                "value": 'language-native'
-                            },
-                            {
-                                "text": 'English',
-                                "value": 'language-english'
-                            }
-                        ]
-                    }) }}
-                </div>
-
+                        {
+                            "text": 'English',
+                            "value": 'language-english'
+                        }
+                    ]
+                }) }}
             </div>
 
         </div>
 
         <div class="js-language-filter__content" id="language-native">
 
-            <div class="grid u-mt-m">
+            <div class="grid">
 
                 <div class="grid__col col-4@m">
 
@@ -329,7 +323,7 @@ layout: none
 
         <div class="js-language-filter__content u-hidden u-db-no-js_disabled" id="language-english">
 
-            <div class="grid u-mt-m">
+            <div class="grid">
 
                 <div class="grid__col col-4@m">
 
