@@ -276,6 +276,7 @@ export default class AutosuggestUI {
             .then(this.handleResults.bind(this))
             .catch(error => {
               if (error.name !== 'AbortError') {
+                console.log('error:', error);
                 this.handleNoResults(500);
               }
             });
