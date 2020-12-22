@@ -147,7 +147,7 @@ export default class AutosuggestAddress {
     let mappedResults, currentResults;
     const total = results.total;
 
-    if (results.partpostcode || (results.groupfullpostcodes === 'combo' && results.postcodes.length > 1)) {
+    if (results.partpostcode || (results.groupfullpostcodes === 'combo' && results.postcodes && results.postcodes.length > 1)) {
       mappedResults = await this.postcodeGroupsMapping(results);
       currentResults = mappedResults;
     } else if (results.addresses) {
@@ -169,17 +169,26 @@ export default class AutosuggestAddress {
     const addresses = results.addresses;
     if (addresses[0]) {
       if (addresses[0] && addresses[0].bestMatchAddress) {
-        updatedResults = addresses.map(({ uprn, bestMatchAddress }) => ({ uprn: uprn, address: bestMatchAddress }));
+        updatedResults = addresses.map(({ uprn, bestMatchAddress, bestMatchAddressType }) => ({
+          uprn: uprn,
+          address: bestMatchAddress,
+          type: bestMatchAddressType,
+        }));
       } else if (addresses[0] && addresses[0].formattedAddress) {
-        updatedResults = addresses.map(({ uprn, formattedAddress }) => ({ uprn: uprn, address: formattedAddress }));
+        updatedResults = addresses.map(({ uprn, formattedAddress, addressType }) => ({
+          uprn: uprn,
+          address: formattedAddress,
+          type: addressType,
+        }));
       }
 
-      results = updatedResults.map(({ uprn, address }) => {
+      results = updatedResults.map(({ uprn, address, type }) => {
         const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
         return {
           [this.lang]: address,
           sanitisedText,
           uprn,
+          type,
         };
       });
       return {
@@ -245,11 +254,11 @@ export default class AutosuggestAddress {
     }
   }
 
-  retrieveAddress(id) {
+  retrieveAddress(id, type = null) {
     return new Promise((resolve, reject) => {
       let retrieveUrl = this.retrieveURL + id;
 
-      const fullUPRNURL = this.generateURLParams(retrieveUrl, id);
+      const fullUPRNURL = this.generateURLParams(retrieveUrl, id, type);
 
       this.fetch = abortableFetch(fullUPRNURL, {
         method: 'GET',
@@ -269,7 +278,7 @@ export default class AutosuggestAddress {
   onAddressSelect(selectedResult) {
     return new Promise((resolve, reject) => {
       if (selectedResult.uprn) {
-        this.retrieveAddress(selectedResult.uprn)
+        this.retrieveAddress(selectedResult.uprn, selectedResult.type)
           .then(data => {
             if (this.isEditable) {
               this.addressSetter.setAddress(this.createAddressLines(data, resolve));
@@ -319,7 +328,7 @@ export default class AutosuggestAddress {
     return addressLines;
   }
 
-  generateURLParams(baseURL, uprn) {
+  generateURLParams(baseURL, uprn, type) {
     let fullURL = baseURL,
       addressType;
 
@@ -332,10 +341,8 @@ export default class AutosuggestAddress {
       addresstypeParam = '?addresstype=',
       epochParam = '&epoch=72';
 
-    if (this.regionCode === 'gb-nir') {
-      addressType = 'nisra';
-    } else if (this.lang === 'cy') {
-      addressType = 'welshpaf';
+    if (type) {
+      addressType = type.toLowerCase();
     } else {
       addressType = 'paf';
     }
