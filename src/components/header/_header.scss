@@ -11,6 +11,10 @@
     width: 100%;
     height: auto;
     fill: $color-white;
+
+    @include mq(xs, s) {
+      max-width: 145px;
+    }
   }
 
   // Elements
