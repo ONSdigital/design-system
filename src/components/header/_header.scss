@@ -40,8 +40,10 @@
     }
   }
 
-  &__logo {
-    margin-bottom: 2px;
+  @include mq(s) {
+    &__logo {
+      margin-bottom: 2px;
+    }
   }
 
   &__main {
