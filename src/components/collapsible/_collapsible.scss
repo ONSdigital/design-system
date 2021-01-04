@@ -53,6 +53,8 @@ $collapsible-caret-width: 1.5rem;
     &__title {
       transform: translateY(-1px);
       margin-bottom: 0;
+      font-size: 1rem;
+      font-weight: $font-weight-bold;
       text-decoration: underline;
     }
 

@@ -3,6 +3,7 @@
 | autosuggestData         | string            | true     | URL of the JSON file with the autosuggest data that needs to be searched                                                                           |
 | APIDomain               | string            | false    | Set an api domain when using an external API to suggest results                                                                                    |
 | APIDomainBearerToken    | string            | false    | Set a bearer token for api authorization on the AIMS address api. Defaults to basic auth                                                           |
+| allowMultiple           | boolean           | false    | Allows the component to accept multiple selections                                                                                                 |
 | instructions            | string            | true     | Instructions on how to use the autosuggest that will be read out by screenreaders                                                                  |
 | ariaYouHaveSelected     | string            | true     | Aria message to tell the user that they have selected an answer                                                                                    |
 | ariaMinChars            | string            | true     | Aria message to tell the user how many charecters they need to enter before autosuggest will start                                                 |
