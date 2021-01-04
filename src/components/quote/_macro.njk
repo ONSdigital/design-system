@@ -7,6 +7,6 @@
             })
         }}
         <span class="quote__text u-fs-{{ params.textFontSize if params.textFontSize is defined and params.textFontSize else 'l' }}">{{ caller() if caller else params.text | safe }}</span>
-        {% if params.ref is defined and params.ref %}<span class="quote__ref">- {{ params.ref | safe }}</span>{% endif %}
+        {% if params.ref is defined and params.ref %}<span class="quote__ref">&mdash; {{ params.ref | safe }}</span>{% endif %}
     </blockquote>
 {% endmacro %}

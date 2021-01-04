@@ -9,8 +9,7 @@ inputs:
   - name: ons-design-system-release
 
 outputs:
-  - name: ons-design-system-release-artifact
-  - name: ons-design-system-release-templates
+  - name: gcs-bucket-release-artifact
 
 run:
   path: sh
@@ -31,6 +30,6 @@ run:
     yarn
     RELEASE_VERSION=$design_system_release yarn cdn-bundle
 
-    mkdir ../../ons-design-system-release-artifact/$design_system_release
-    cp -R build/* ../../ons-design-system-release-artifact/$design_system_release
-    zip -r ../../ons-design-system-release-templates/templates.zip templates/*
+    output_path="../../gcs-bucket-release-artifact/design-system/$design_system_release"
+    mkdir -p $output_path
+    cp -R build/* $output_path
