@@ -469,14 +469,8 @@ export default class AutosuggestUI {
       this.resultSelected = true;
 
       if (this.allowMultiple === 'true') {
-        this.currentSelections = this.input.value.split(', ').filter(items => this.allSelections.includes(items));
-        this.allSelections = [];
-        if (this.currentSelections.length) {
-          this.allSelections = this.currentSelections;
-        }
-        this.allSelections.push(result[this.lang]);
-        this.allSelections = [...new Set(this.allSelections)];
-        result.displayText = this.allSelections.join(', ');
+        let value = this.storeExistingSelections(result[this.lang]);
+        result.displayText = value;
       } else {
         result.displayText = result[this.lang];
       }
@@ -511,6 +505,18 @@ export default class AutosuggestUI {
     warningListElement.appendChild(warningElement);
 
     return warningListElement;
+  }
+
+  storeExistingSelections(value) {
+    this.currentSelections = this.input.value.split(', ').filter(items => this.allSelections.includes(items));
+    this.allSelections = [];
+    if (this.currentSelections.length) {
+      this.allSelections = this.currentSelections;
+    }
+    this.allSelections.push(value);
+    this.allSelections = [...new Set(this.allSelections)];
+
+    return this.allSelections.join(', ');
   }
 
   emboldenMatch(string, query) {
