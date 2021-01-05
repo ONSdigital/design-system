@@ -1,12 +1,21 @@
 {% macro onsList(params) %}
     {% set classes = params.classes | lower %}
+    
+    {% if params.itemsList[0].prefix %}
+        {% set otherClasses = 'list--bare list--prefix' %}
+    {% elif params.itemsList[0].prefixIcon %}
+        {% set otherClasses = 'list--bare list--icons' %}
+    {% else %}
+        {% set otherClasses = '' %}
+    {% endif %}
+
     {% if params.element is defined and params.element %}
         {% set listEl = params.element | lower %}
     {% else %}
         {% set listEl = 'ul' %}
     {% endif %}
 
-    <{{listEl}} {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="list {{ params.classes }}">
+    <{{listEl}} {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="list {{ params.classes }} {{ otherClasses }}">
         {%- for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
             <li class="list__item {{ item.listclass }}" {% if item.current is defined and item.current %}aria-current="true"{% endif %}>
                
