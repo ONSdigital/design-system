@@ -44,24 +44,22 @@
     white-space: normal;
   }
 
-  &--prefix &,
-  &--icons & {
-    &__prefix {
-      margin-right: 0.5rem;
-      font-family: $font-mono;
-    }
-    &__item {
-      display: flex;
-      align-items: top;
-    }
+  &__prefix {
+    margin-right: 0.5rem;
   }
 
+  &__suffix {
+    margin-left: 0.5rem;
+  }
+
+  &__prefix,
+  &__suffix {
+    font-family: $font-mono;
+  }
+
+  &--prefix &,
   &--suffix &,
   &--icons & {
-    &__suffix {
-      margin-left: 0.5rem;
-      font-family: $font-mono;
-    }
     &__item {
       display: flex;
       align-items: top;
