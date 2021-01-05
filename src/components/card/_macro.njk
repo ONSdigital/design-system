@@ -9,10 +9,17 @@
     {%- if params.image -%}
     
       <a href="{{ params.url }}" class="u-db">
-        <img class="card__image u-mb-s" src="{{ params.image.src }}" alt="{{ params.image.alt }}">
+
+        {% if params.image is defined and params.image and params.image.smallSrc is defined and params.image.smallSrc %}
+            <img class="card__image u-mb-s" height="200" width="303" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}" loading="lazy">
+        {% else %}
+            <img class="card__image u-mb-s" height="100" width="303" srcset="{{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/small/placeholder-card.png 1x, {{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/large/placeholder-card.png 2x" src="{{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/small/placeholder-card.png" alt="Image placeholder" loading="lazy">
+        {% endif %}
+
         <h{{ titleSize }} class="{{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
           {{ params.title }}
         </h{{ titleSize }}>
+
       </a>
 
     {%- else -%}

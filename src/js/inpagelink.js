@@ -1,12 +1,14 @@
 export default function inPageLinks(links) {
-  links.forEach(link => {
-    const id = link.getAttribute('href').replace('#', '');
+  if (document.getElementById('patternlib-page__example') === null) {
+    links.forEach(link => {
+      const id = link.getAttribute('href').replace('#', '');
 
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      focusOnInput(id);
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        focusOnInput(id);
+      });
     });
-  });
+  }
 }
 
 function focusOnInput(id) {
