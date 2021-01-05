@@ -61,8 +61,14 @@
   &--suffix &,
   &--icons & {
     &__item {
+      align-items: flex-start;
       display: flex;
-      align-items: top;
+    }
+  }
+
+  &--social & {
+    &__item {
+      align-items: center;
     }
   }
 
