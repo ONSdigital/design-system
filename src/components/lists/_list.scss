@@ -44,15 +44,25 @@
     white-space: normal;
   }
 
+  &__prefix {
+    margin-right: 0.5rem;
+  }
+
+  &__suffix {
+    margin-left: 0.5rem;
+  }
+
+  &__prefix,
+  &__suffix {
+    font-family: $font-mono;
+  }
+
   &--prefix &,
+  &--suffix &,
   &--icons & {
-    &__prefix {
-      margin-right: 0.5rem;
-      font-family: $font-mono;
-    }
     &__item {
-      align-items: flex-start;
       display: flex;
+      align-items: flex-start;
     }
   }
 
