@@ -10,4 +10,9 @@
       fill: $color-black;
     }
   }
+  &:hover {
+    .svg-icon {
+      fill: $color-links-hover;
+    }
+  }
 }
