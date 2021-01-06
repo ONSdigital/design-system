@@ -259,10 +259,11 @@ export default class AutosuggestUI {
 
   getSuggestions(force, alternative) {
     if (!this.settingResult) {
-      this.query = this.input.value;
-
       if (this.allowMultiple === 'true' && this.allSelections.length) {
-        this.query = this.query.split(', ').find(item => !this.allSelections.includes(item));
+        const newQuery = this.input.value.split(', ').find(item => !this.allSelections.includes(item));
+        this.query = newQuery ? newQuery : this.input.value;
+      } else {
+        this.query = this.input.value;
       }
 
       const sanitisedQuery = sanitiseAutosuggestText(this.query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
@@ -522,7 +523,7 @@ export default class AutosuggestUI {
   emboldenMatch(string, query) {
     let reg = new RegExp(
       this.escapeRegExp(query)
-        .split(/\\?[\s,_.:*-]+/)
+        .split(' ')
         .join('[\\s,]*'),
       'gi',
     );
