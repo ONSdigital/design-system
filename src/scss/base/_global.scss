@@ -33,7 +33,7 @@ a {
   color: $color-links;
   &:hover {
     color: $color-links-hover;
-    text-decoration: none;
+    text-decoration: underline solid $color-links-hover 2px;
   }
   &:focus:not(.btn--link):not(.btn--ghost):not(.js-clear-btn):not(.download__thumbnail--link):not(.header__logo-link):not(.header__title-link):not(.tab--row):not(.skip__link) {
     outline: 3px solid transparent;
