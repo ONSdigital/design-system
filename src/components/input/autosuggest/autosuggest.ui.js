@@ -47,7 +47,7 @@ export default class AutosuggestUI {
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
     this.form = context.closest('form');
-    this.label = document.querySelector(`.${baseClass}-label`);
+    this.label = document.querySelector('.label');
 
     // Settings
     this.autosuggestData = autosuggestData || context.getAttribute('data-autosuggest-data');
@@ -259,10 +259,11 @@ export default class AutosuggestUI {
 
   getSuggestions(force, alternative) {
     if (!this.settingResult) {
-      this.query = this.input.value;
-
       if (this.allowMultiple === 'true' && this.allSelections.length) {
-        this.query = this.query.split(', ').find(item => !this.allSelections.includes(item));
+        const newQuery = this.input.value.split(', ').find(item => !this.allSelections.includes(item));
+        this.query = newQuery ? newQuery : this.input.value;
+      } else {
+        this.query = this.input.value;
       }
 
       const sanitisedQuery = sanitiseAutosuggestText(this.query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
@@ -469,10 +470,8 @@ export default class AutosuggestUI {
       this.resultSelected = true;
 
       if (this.allowMultiple === 'true') {
-        this.allSelections.push(result[this.lang]);
-        this.allSelections = [...new Set(this.allSelections)]; // remove dups that are created from using "enter" key
-
-        result.displayText = this.allSelections.join(', ');
+        let value = this.storeExistingSelections(result[this.lang]);
+        result.displayText = value;
       } else {
         result.displayText = result[this.lang];
       }
@@ -509,10 +508,22 @@ export default class AutosuggestUI {
     return warningListElement;
   }
 
+  storeExistingSelections(value) {
+    this.currentSelections = this.input.value.split(', ').filter(items => this.allSelections.includes(items));
+    this.allSelections = [];
+    if (this.currentSelections.length) {
+      this.allSelections = this.currentSelections;
+    }
+    this.allSelections.push(value);
+    this.allSelections = [...new Set(this.allSelections)];
+
+    return this.allSelections.join(', ');
+  }
+
   emboldenMatch(string, query) {
     let reg = new RegExp(
       this.escapeRegExp(query)
-        .split('')
+        .split(' ')
         .join('[\\s,]*'),
       'gi',
     );
