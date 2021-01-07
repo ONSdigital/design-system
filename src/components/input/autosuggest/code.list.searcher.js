@@ -4,7 +4,7 @@ export default function queryJson(query, data, searchFields) {
   const options = {
     shouldSort: true,
     threshold: 0.2,
-    location: 0,
+    location: 1,
     distance: 1000,
     keys: [searchFields],
   };
