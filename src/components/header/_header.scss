@@ -12,7 +12,7 @@
     height: auto;
     fill: $color-white;
 
-    @include mq(xs, s) {
+    @include mq(xs, 375px) {
       max-width: 145px;
     }
   }
@@ -54,7 +54,7 @@
     padding: 0.56rem 0;
     background: $color-header;
 
-    @include mq(m) {
+    @include mq(375px) {
       padding: 1.1rem 0;
     }
 
