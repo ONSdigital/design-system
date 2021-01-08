@@ -13,6 +13,7 @@
     fill: $color-white;
 
     @include mq(xs, 374px) {
+      padding: 0.45rem 0;
       max-width: 145px;
     }
   }
