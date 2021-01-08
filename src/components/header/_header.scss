@@ -12,7 +12,7 @@
     height: auto;
     fill: $color-white;
 
-    @include mq(xs, 375px) {
+    @include mq(xs, 374px) {
       max-width: 145px;
     }
   }
