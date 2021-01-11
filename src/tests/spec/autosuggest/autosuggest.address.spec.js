@@ -829,7 +829,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&niboost=10',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&eboost=0&sboost=0&wboost=0',
         );
       });
     });
@@ -876,7 +876,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&eboost=0&sboost=0&wboost=0',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&niboost=10',
         );
       });
     });
@@ -889,7 +889,7 @@ describe('Autosuggest.address component', function() {
 
       it('then the retrieve url should contain the correct parameters', function() {
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/11000000?addresstype=nisra',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/11000000?addresstype=paf',
         );
       });
     });
@@ -949,7 +949,7 @@ describe('Autosuggest.address component', function() {
 
       it('then the retrieve url should contain the correct parameters', function() {
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/11000000?addresstype=welshpaf',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/11000000?addresstype=paf',
         );
       });
     });
