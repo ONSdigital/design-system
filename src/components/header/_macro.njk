@@ -22,7 +22,7 @@
                   <div class="grid__col col-auto">
                     {% if params.logoHref is defined and params.logoHref %}<a tabindex="-1" class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
                       <picture>
-                        <source media="(max-width: 500px)" srcset="{{ params.assetsURL if params.assetsURL is defined and params.assetsURL }}/img/{{ params.mobileLogo | default('ons-logo-stacked-pos-' + currentLanguageISOCode) }}.svg">
+                        <source media="(max-width: 399px)" srcset="{{ params.assetsURL if params.assetsURL is defined and params.assetsURL }}/img/{{ params.mobileLogo | default('ons-logo-stacked-pos-' + currentLanguageISOCode) }}.svg">
                         <img tabindex="0" class="header__logo" src="{{ params.assetsURL if params.assetsURL is defined and params.assetsURL }}/img/{{ params.logo | default('ons-logo-pos-' + currentLanguageISOCode) }}.svg" alt="{{ params.logoAlt | default('Office for National Statistics logo') }}">
                       </picture>
                     {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
