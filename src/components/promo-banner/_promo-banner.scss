@@ -48,10 +48,14 @@
     }
 
     a {
-      &:focus,
       &:hover {
-        color: $color-white;
-        text-decoration: none;
+        text-decoration: underline solid $color-white 2px;
+      }
+    }
+
+    h3 {
+      a:hover {
+        text-decoration: underline solid $color-white 3px;
       }
     }
   }
