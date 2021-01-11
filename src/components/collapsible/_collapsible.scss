@@ -30,7 +30,7 @@ $collapsible-caret-width: 1.5rem;
           fill: $color-links-hover;
         }
         & .collapsible__title {
-          text-decoration: none;
+          text-decoration: underline solid $color-links-hover 2px;
         }
       }
       &:focus {
