@@ -44,6 +44,7 @@
     background-color: darken($color-button-secondary, 5%);
     border-color: darken($color-button-secondary, 5%);
     color: $color-text;
+    text-decoration: underline solid $color-text 2px;
   }
 
   &[aria-selected='true'] {
