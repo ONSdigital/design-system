@@ -60,7 +60,7 @@
                 {%- else -%}
                     {{- itemText | safe -}}
                 {%- endif -%}
-                {%- if item.index is defined and item.index or item.suffix is defined and item.suffix or item.suffixIcon is defined and item.suffixIcon -%}
+                {%- if item.suffix is defined and item.suffix or item.suffixIcon is defined and item.suffixIcon -%}
                     <span class="list__suffix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
                     {%- if item.suffix is defined and item.suffix -%}
                         {{- item.suffix -}}
