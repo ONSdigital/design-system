@@ -27,7 +27,7 @@
   &__grid-top {
     height: 54px;
 
-    @include mq(s) {
+    @include mq(400px) {
       height: 46px;
     }
   }
@@ -57,7 +57,7 @@
     padding: 0.56rem 0;
     background: $color-header;
 
-    @include mq(400px) {
+    @include mq(m) {
       padding: 1.1rem 0;
     }
 
@@ -84,7 +84,7 @@
     }
 
     &--nav-adj {
-      @include mq(s) {
+      @include mq(399px) {
         padding-top: 0.2rem;
       }
     }
