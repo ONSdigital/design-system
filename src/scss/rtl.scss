@@ -1,0 +1,80 @@
+.rtl {
+  direction: rtl;
+
+  ul {
+    padding-left: 0;
+    padding-right: 1.5rem;
+  }
+
+  // List
+  .list {
+    padding: 0 1.5rem 0 0;
+
+    &__link {
+      margin-right: 0;
+      margin-left: 1rem;
+    }
+
+    &--dashed {
+      padding-right: 0;
+
+      .list__item {
+        margin-left: auto;
+        margin-right: 25px;
+
+        &::before {
+          left: auto;
+          margin-left: 0;
+          margin-right: -25px;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  // Panel
+  .panel {
+    border-left: none;
+    border-right: 8px solid transparent;
+
+    &--info {
+      border-color: $color-info;
+    }
+
+    &--warn,
+    &--warn-branded {
+      .panel__body {
+        padding: 0.222rem 2.8rem 0.222rem 0;
+      }
+    }
+
+    &--bare {
+      .panel__body {
+        padding: 0.1rem 1.5rem 0 0;
+      }
+    }
+  }
+
+  // Buttons
+  .btn {
+    .svg-icon {
+      margin: 0 0.5rem 0.1rem 0;
+      transform: rotate(180deg);
+    }
+  }
+
+  // Content pagination
+  .content-pagination {
+    &__link-text {
+      margin: 0 0.5rem 0 0;
+    }
+  }
+
+  // Download
+  .download {
+    &__image {
+      margin-right: 0;
+      margin-left: 1.5rem;
+    }
+  }
+}

@@ -136,6 +136,7 @@
                                 }}
                             {% endif %}
                             {% block preMain %}{% endblock %}
+                            {% if pageConfig.rtl is defined and pageConfig.rtl %}<div class="rtl">{% endif %}
                             <div class="grid">
                                 <div class="grid__col col-{{ pageColNumber }}@m">
                                     <main id="main-content" class="page__main {{ pageClasses }}">
@@ -143,6 +144,7 @@
                                     </main>
                                 </div>
                             </div>
+                            {% if pageConfig.rtl is defined and pageConfig.rtl %}</div>{% endif %}
                         </div>
                     {% endblock %}
 
