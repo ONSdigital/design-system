@@ -6,26 +6,24 @@ export default class SubmitButton {
     this.submitType = submitType;
 
     if (this.submitType == 'loader') {
-      if (this.form.length) {
-        this.form.addEventListener('submit', this.loaderButton.bind(this));
-      } else {
-        this.button.addEventListener('click', this.loaderButton.bind(this));
-      }
+      this.button.addEventListener('click', this.loaderButton.bind(this));
     } else if (this.submitType == 'timer') {
-      if (this.form.length) {
-        this.form.addEventListener('submit', this.timerButton.bind(this));
-      } else {
-        this.button.addEventListener('click', this.timerButton.bind(this));
-      }
+      this.button.addEventListener('click', this.timerButton.bind(this));
     }
   }
 
   loaderButton() {
+    if (this.form && this.form.length) {
+      this.form.submit();
+    }
     this.button.classList.add('is-loading');
     this.button.setAttribute('disabled', true);
   }
 
   timerButton(event) {
+    if (this.form && this.form.length) {
+      this.form.submit();
+    }
     if (this.button.tagName === 'A') {
       i++;
       if (i > 1) {
