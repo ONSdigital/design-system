@@ -5,7 +5,7 @@
 
     &:hover {
       color: $color-black;
-      text-decoration: none;
+      text-decoration: underline solid $color-black 2px;
     }
   }
 
