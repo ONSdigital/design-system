@@ -280,15 +280,15 @@ export default class AutosuggestAddress {
       if (selectedResult.uprn) {
         this.retrieveAddress(selectedResult.uprn, selectedResult.type)
           .then(data => {
-            if (data.status.code >= 403) {
-              this.autosuggest.handleNoResults(403);
-            } else {
-              if (this.isEditable) {
+            if (this.isEditable) {
+              if (data.status.code >= 403) {
+                this.autosuggest.handleNoResults(403);
+              } else {
                 this.addressSetter.setAddress(this.createAddressLines(data, resolve));
                 this.addressSelected = true;
-              } else {
-                this.autosuggest.input.value = selectedResult.displayText;
               }
+            } else {
+              this.autosuggest.input.value = selectedResult.displayText;
             }
           })
           .catch(error => {
