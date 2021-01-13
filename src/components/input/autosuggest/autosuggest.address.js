@@ -281,8 +281,12 @@ export default class AutosuggestAddress {
         this.retrieveAddress(selectedResult.uprn, selectedResult.type)
           .then(data => {
             if (this.isEditable) {
-              this.addressSetter.setAddress(this.createAddressLines(data, resolve));
-              this.addressSelected = true;
+              if (data.status.code >= 403) {
+                this.autosuggest.handleNoResults(403);
+              } else {
+                this.addressSetter.setAddress(this.createAddressLines(data, resolve));
+                this.addressSelected = true;
+              }
             } else {
               this.autosuggest.input.value = selectedResult.displayText;
             }
