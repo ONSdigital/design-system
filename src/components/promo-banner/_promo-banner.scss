@@ -21,6 +21,8 @@
   }
 
   &__content {
+    position: relative;
+    z-index: 1;
     :last-child {
       margin-bottom: 0;
     }
