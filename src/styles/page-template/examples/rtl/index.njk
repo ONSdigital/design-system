@@ -14,6 +14,7 @@ layout: none
 
 {% set pageConfig = {
     "theme": 'census',
+    "pageColNumber": "12",
     "rtl": true,
     "header": {
         "logoHref": pageInfo.rootPath,
@@ -21,7 +22,7 @@ layout: none
         "titleLogoHref": pageInfo.rootPath + '/home',
         "titleLogoAlt": 'Census 2021'
     },
-    "title": "Service name",
+    "title": "Census 2021",
     "language": {
         "languages": [
             {
@@ -121,99 +122,61 @@ layout: none
 {% block main %}
 
     <h1 class="u-mb-l">
-        <span class="u-fs-m u-db u-mb-xs u-lighter">Bosnian help and support</span>
+        <span class="u-fs-m u-db u-mb-xs u-lighter">اللغة العربية (Arabic)</span>
         <span class="u-vh">: </span>
-        <span class="u-fs-xxl u-db">Overview</span>
+        <span class="u-fs-xxl u-db">نظرة عامة</span>
     </h1>
 
     {{ onsTableOfContents({
-        "title": 'Contents',
+        "title": 'محتويات',
         "ariaLabel": 'Pages in this guide',
         "itemsList": [
             {
-                "url": pageInfo.rootPath + '#0',
-                "text": 'Overview',
+                "url": '#0',
+                "text": 'نظرة عامة',
                 "current": true
             },
             {
-                "url": pageInfo.rootPath + '#0',
-                "text": 'Completing your census online'
+                "url": '#0',
+                "text": 'استكمال التعداد الخاص بك عبر الإنترنت'
             },
             {
-                "url": pageInfo.rootPath + '#0',
-                "text": 'Completing your census on paper'
+                "url": '#0',
+                "text": 'استكمال التعداد الخاص بك عبر النسخة الورقية'
             }
         ]
     }) }}
 
     <div class="page__body">
 
-        <h2>What is the census?</h2>
+        <h2>ما هو التعداد السكاني؟</h2>
 
-        <p>The census is a survey that happens every 10 years and gives us a picture of all the people and households in England and Wales. The next census takes place on Sunday 21 March 2021.</p>
+        <p>التعداد السكاني هو مسح يتم كل 10 سنوات ويعطينا صورة عن جميع الأشخاص والأُسر في أيرلندا الشمالية</p>
+        <p>يطرح التعداد نفس الأسئلة على الجميع في نفس اليوم - <strong>يوم التعداد: الأحد 21 مارس 2021</strong></p>
 
-        <p>The information collected from the census helps to plan and fund public services in local areas, including language services. For example, the NHS may need to provide translation and interpretation services in particular regions.</p>
+        <h2>لماذا يجب المشاركة</h2>
+        <p>تُستخدم المعلومات التي تم جمعها في التعداد للمساعدة في اتخاذ قرارات حول كيفية تخطيط وتمويل الخدمات الحيوية مثل التعليم والنقل والصحة</p>
+        <p>يجب إكمال التعداد بموجب القانون. إذا لم تقم بذلك ، أو قدمت معلومات خاطئة ، فقد يتم مقاضاتك وتغريمك ما يصل إلى 1000 جنيه إسترليني</p>
 
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Get started',
-                "classes": 'u-mb-m',
-                "url": '#'
-            })
-        }}
+        <h2>متى يجب أن تكمل التعداد الخاص بك </h2>
+        <p>يجب الانتهاء من ملء الاستبيان الخاص بك بحلول <strong>يوم ا</strong><strong>لأحد 21 مارس</strong><strong> 2021</strong>، أو في أقرب فرصة بعد ذلك<strong>.</strong> يجب أن تكون إجاباتك حول أسرتك في هذا التاريخ</p>
+        <p>إذا لم تكمل التعداد الخاص بك ، فقد يقوم أحد موظفي التعداد الميدانيين بزيارتك بعد يوم التعداد بفترة وجيزة</p>
 
-        <p>The Office for National Statistics (ONS) plans and runs the census in England and Wales.</p>
-
-        {{
-            onsPanel({
-                "body": "You must fill in your census form in English. You can also answer in Welsh if you live in Wales."
-            })
-        }}
-
-        <h2>Who has to complete the census</h2>
-
-        <p>The census asks questions about you and your household, and it’s important that everyone in England and Wales takes part.</p>
-
-        {% call onsPanel({
-                "type": 'warn'
-            })
-        %}
-            You must complete the census by law
-        {% endcall %}
-
-        <p>It is an offence to supply false information or to not complete the census, and you could be fined up to £1,000. Some questions are clearly labelled as voluntary. It is not an offence if you do not answer these.</p>
-
-        {% call onsPanel({
-                type: 'bare',
-                icon: 'lock'
-            })
-        %}
-            Your personal information is protected by law and will be kept confidential
-        {% endcall %}
-
-        <h3>Staying in the UK for less than three months</h3>
-
-        <p>You are not responsible for filling in the census if you’re staying in the UK for less than three months. The owner of your accommodation may ask you some questions so that they can fill in the census about the people staying in the household.</p>
-
-        <h2>When to complete your census</h2>
-
-        <p>All households should complete the census on <strong>Sunday 21 March 2021</strong> or as soon as possible after. If you’ve responded before 21 March and things have changed, you can <a href="{{pageInfo.rootPath}}/contact-us">let us know</a>.</p>
-
-        <p>Your circumstances may have changed during the coronavirus pandemic. Answer all questions based on your situation as it is now.</p>
-
-        <h2>How to complete your census</h2>
-
-        <p>You can choose to either:</p>
+        <h2>من الذين يتعين عليهم الإجابة على أسئلة التعداد</h2>
+        <p>يجب على رب الأسرة ملء استبيان التعداد للأسرة.</p>
+        <p>رب الأسرة هو الشخص الذي يمتلك أو يستأجر العقار ، إما كليًا أو مشتركًا ، أو هو شخص مسؤول كليًا أو مشتركًا عن دفع فواتير ونفقات الأسرة</p>
+        
+        <h2>كيف يجب أن تكمل التعداد الخاص بك</h2>
+        <p>يمكنك اختيار إما</p>
 
         {{ onsList({
             "itemsList": [
                 {
-                    "text": 'fill in your census online',
+                    "text": 'استكمال التعداد الخاص بك عبر الإنترنت',
                     "url": '#0'
                 },
                 {
-                    "text": 'fill in your census on paper',
+                    "text": 'ستكمال التعداد الخاص بك عبر النسخة الورقية',
                     "url": '#0'
                 }
             ]
@@ -224,15 +187,15 @@ layout: none
                 "contentPaginationItems": [
                     {
                         "rel": 'prev',
-                        "text": 'Previous',
-                        "url": pageInfo.rootPath + '#0',
-                        "label": 'Completing your census online'
+                        "text": 'السابق',
+                        "url": '#0',
+                        "label": 'استكمال التعداد الخاص بك عبر الإنترنت'
                     },
                     {
                         "rel": 'next',
-                        "text": 'Next',
-                        "url": pageInfo.rootPath + '#0',
-                        "label": 'Completing your census online'
+                        "text": 'التالى',
+                        "url": '#0',
+                        "label": 'ستكمال التعداد الخاص بك عبر النسخة الورقية'
                     }
                 ]
             }) }}
