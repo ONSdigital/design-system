@@ -11,6 +11,10 @@
     width: 100%;
     height: auto;
     fill: $color-white;
+
+    @include mq(xs, s) {
+      max-width: 145px;
+    }
   }
 
   // Elements
@@ -40,8 +44,10 @@
     }
   }
 
-  &__logo {
-    margin-bottom: 2px;
+  @include mq(s) {
+    &__logo {
+      margin-bottom: 2px;
+    }
   }
 
   &__main {
@@ -65,6 +71,7 @@
 
     margin: 0;
     color: $color-white;
+    line-height: 1.85 !important;
 
     &-link {
       display: block;

@@ -135,6 +135,19 @@ Dashed lists should be used to display a list of content navigational links.
     patternlibExample({"path": "styles/typography/lists/examples/list-dashed/index.njk", "componentFolderPath": "components/lists"})
 }}
 
+#### Prefixed list
+The prefix list allows each list item to contain a string as a prefix to the item. The prefixed string uses our monospaced font to ensure spacing and alignment is correct.
+{{
+    patternlibExample({"path": "styles/typography/lists/examples/list-prefix/index.njk", "componentFolderPath": "components/lists"})
+}}
+
+#### Suffixed list
+The suffix list works the same as the prefix but just comes after the list item and the full stop isn’t included.
+{{
+    patternlibExample({"path": "styles/typography/lists/examples/list-suffix/index.njk", "componentFolderPath": "components/lists"})
+}}
+
+
 #### Inline list
 Inline lists should be used to display a horizontal row of links, for example, a list of pages displayed in the [transactional footer](/components/footer#transactional).
 {{
@@ -142,13 +155,18 @@ Inline lists should be used to display a horizontal row of links, for example, a
 }}
 
 ## Icons
-Icons are used to provide affordance to improve user experience. Icons shouldn't be used as decoration and implemented only if there is a user need. We only use icons with text if we have evidence to suggest that it helps the user complete their task. When using icons its recommended to use the `list--icons` class, this will space the icons correctly.
+Icons are used to provide affordance to improve user experience. Icons shouldn't be used as decoration and implemented only if there is a user need. We only use icons with text if we have evidence to suggest that it helps the user complete their task.
 
 __Our current icon set can be used in the following scenarios:__
 
-### List with progress check icons
+### List with progress check icons prefix
 {{
-    patternlibExample({"path": "styles/typography/icons/examples/icons-list/index.njk", "componentFolderPath": "components/lists" })
+    patternlibExample({"path": "styles/typography/icons/examples/icons-list-prefix/index.njk", "componentFolderPath": "components/lists" })
+}}
+
+### List with progress check icons suffix
+{{
+    patternlibExample({"path": "styles/typography/icons/examples/icons-list-suffix/index.njk", "componentFolderPath": "components/lists" })
 }}
 
 ### List with social icons
@@ -159,8 +177,9 @@ __How to use:__ Set `icon` to the name of the icon you want to use on each list 
 
 ### Link with external link icon
 {{
-    patternlibExample({"path": "styles/typography/icons/examples/icons-link/index.html"})
+    patternlibExample({"path": "components/external-link/examples/external-link/index.njk"})
 }}
+
 __How to use:__ Use the `onsExternalLink` macro using the `url` and `linkText` params.
 
 ### Text with secure icon
