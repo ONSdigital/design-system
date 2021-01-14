@@ -1,8 +1,10 @@
 let i = 0;
+export const classPatternLibForm = 'js-patternlib-form';
 export default class SubmitButton {
   constructor(button, submitType) {
     this.button = button;
     this.form = [...document.getElementsByTagName('form')][0];
+    this.patternLibForm = this.form.classList.contains(classPatternLibForm) ? true : false;
     this.submitType = submitType;
 
     if (this.submitType == 'loader') {
@@ -13,7 +15,8 @@ export default class SubmitButton {
   }
 
   loaderButton() {
-    if (this.form && this.form.length) {
+    if (this.form && this.form.length && !this.patternLibForm) {
+      console.log(this.form);
       this.form.submit();
     }
     this.button.classList.add('is-loading');
@@ -21,7 +24,7 @@ export default class SubmitButton {
   }
 
   timerButton(event) {
-    if (this.form && this.form.length) {
+    if (this.form && this.form.length && !this.patternLibForm) {
       this.form.submit();
     }
     if (this.button.tagName === 'A') {
