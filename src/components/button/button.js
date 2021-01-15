@@ -15,6 +15,9 @@ export default class SubmitButton {
   }
 
   loaderButton() {
+    if (this.form && this.form.length && !this.patternLibForm) {
+      this.form.submit();
+    }
     this.button.classList.add('is-loading');
     this.button.setAttribute('disabled', true);
   }
