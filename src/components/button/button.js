@@ -35,8 +35,8 @@ export default class SubmitButton {
       this.submitButton.setAttribute('disabled', true);
     }
     setTimeout(
-      button => {
-        button.removeAttribute('disabled');
+      submitButton => {
+        submitButton.removeAttribute('disabled');
         i = 0;
       },
       1000,
