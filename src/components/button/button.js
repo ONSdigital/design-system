@@ -26,13 +26,13 @@ export default class SubmitButton {
     if (this.formEl && this.formEl.length && !this.patternLibForm) {
       this.formEl.submit();
     }
-    if (this.button.tagName === 'A') {
+    if (this.submitButton.tagName === 'A') {
       i++;
       if (i > 1) {
         event.preventDefault();
       }
     } else {
-      this.button.setAttribute('disabled', true);
+      this.submitButton.setAttribute('disabled', true);
     }
     setTimeout(
       button => {
@@ -40,7 +40,7 @@ export default class SubmitButton {
         i = 0;
       },
       1000,
-      this.button,
+      this.submitButton,
     );
   }
 }
