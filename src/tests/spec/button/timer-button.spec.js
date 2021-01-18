@@ -63,15 +63,10 @@ describe.only('Function: Timer Button ', function() {
     });
 
     describe('one second after the button is clicked', () => {
-      beforeEach(function(done) {
+      it('the button disabled attribute should not be set', () => {
         setTimeout(() => {
           expect(buttonElement.getAttribute('disabled')).to.not.exist;
-          done();
         }, 1000);
-      });
-
-      it('the button disabled attribute should not be set', () => {
-        expect(buttonElement.getAttribute('disabled')).to.not.exist;
       });
     });
   });
