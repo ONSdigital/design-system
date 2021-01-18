@@ -85,7 +85,6 @@ describe('Function: Timer Button ', function() {
 
     form = [...document.getElementsByTagName('form')][0];
     form.classList.add('js-patternlib-form');
-    console.log(form);
     buttonElement = document.getElementById(params.id);
   });
 
@@ -97,7 +96,6 @@ describe('Function: Timer Button ', function() {
 
   describe('Before the button is initialised', () => {
     it('Button should have relevant classes', () => {
-      expect(buttonElement.classList.contains('btn--loader')).to.be.false;
       expect(buttonElement.classList.contains('js-timer')).to.be.true;
       expect(buttonElement.classList.contains('js-submit-btn')).to.be.true;
     });
