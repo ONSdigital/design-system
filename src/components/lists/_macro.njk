@@ -23,8 +23,12 @@
                
                 {% set itemText = item.text %}
 
-                {# For Craft support we also support title #}
-                {% if item.title is defined %}{% set itemText = item.title %}{% endif %}
+                {# For Craft support we also support title and navigation title #}
+                {% if item.navigationTitle is defined and item.navigationTitle %}
+                    {% set itemText = item.navigationTitle %}
+                {% elif item.title is defined and item.title %}
+                    {% set itemText = item.title %}
+                {% endif %}
                
                 {%- if item.index is defined and item.index or item.prefix is defined and item.prefix or item.prefixIcon is defined and item.prefixIcon -%}
                     <span class="list__prefix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
