@@ -18,8 +18,8 @@ export default class SubmitButton {
     if (this.formEl && this.formEl.length && !this.patternLibForm) {
       this.formEl.submit();
     }
-    this.button.classList.add('is-loading');
-    this.button.setAttribute('disabled', true);
+    this.submitButton.classList.add('is-loading');
+    this.submitButton.setAttribute('disabled', true);
   }
 
   timerButton(event) {
