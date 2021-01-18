@@ -54,12 +54,12 @@ describe.only('Function: Timer Button ', function() {
         expect(buttonElement.getAttribute('disabled')).to.equal('true');
       });
 
-      // it('after the timer the button disabled attribute should not be set', done => {
-      //   setTimeout(() => {
-      //     expect(buttonElement.getAttribute('disabled')).to.not.exist;
-      //     done();
-      //   }, 1500);
-      // });
+      it('after the timer the button disabled attribute should not be set', function(done) {
+        setTimeout(() => {
+          expect(buttonElement.getAttribute('disabled')).to.not.exist;
+          done();
+        }, 1500);
+      });
     });
   });
 });
