@@ -58,7 +58,7 @@ describe.only('Function: Timer Button ', function() {
         setTimeout(() => {
           expect(buttonElement.getAttribute('disabled')).to.not.exist;
           done();
-        }, 1000);
+        }, 800);
       });
     });
   });
