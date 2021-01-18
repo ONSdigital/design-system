@@ -16,7 +16,7 @@ describe('Function: Timer Button ', function() {
   beforeEach(() => {
     const html = template.render({ params });
 
-    wrapper = document.createElement('form');
+    wrapper = document.createElement('div');
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
