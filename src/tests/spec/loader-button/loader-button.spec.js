@@ -16,9 +16,13 @@ describe('Function: Loader Button ', function() {
   beforeEach(() => {
     const html = template.render({ params });
 
-    wrapper = document.createElement('div');
+    wrapper = document.createElement('form');
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
+
+    form = [...document.getElementsByTagName('form')][0];
+    form.classList.add('js-patternlib-form');
+
     buttonElement = document.getElementById(params.id);
   });
 
@@ -62,7 +66,7 @@ describe('Function: Loader Button ', function() {
 });
 
 describe('Function: Timer Button ', function() {
-  let wrapper, buttonElement;
+  let wrapper, form, buttonElement;
 
   let params = {
     id: 'button',
@@ -76,10 +80,12 @@ describe('Function: Timer Button ', function() {
     const html = template.render({ params });
 
     wrapper = document.createElement('form');
-    wrapper.classList.add('js-patternlib-form');
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
+    form = [...document.getElementsByTagName('form')][0];
+    form.classList.add('js-patternlib-form');
+    console.log(form);
     buttonElement = document.getElementById(params.id);
   });
 
