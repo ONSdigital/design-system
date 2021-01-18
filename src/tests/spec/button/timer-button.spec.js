@@ -44,26 +44,5 @@ describe.only('Function: Timer Button ', function() {
     it('Button disabled attribute should not be set', () => {
       expect(buttonElement.getAttribute('disabled')).to.not.exist;
     });
-
-    describe('and the button is clicked', () => {
-      beforeEach(() => {
-        buttonElement.click();
-      });
-
-      it('Button should not have loading style applied', () => {
-        expect(buttonElement.classList.contains('is-loading')).to.be.false;
-      });
-
-      it('Button should be disabled', () => {
-        expect(buttonElement.getAttribute('disabled')).to.equal('true');
-      });
-
-      it('after the timer the button disabled attribute should not be set', done => {
-        setTimeout(() => {
-          expect(buttonElement.getAttribute('disabled')).to.not.exist;
-          done();
-        }, 1500);
-      });
-    });
   });
 });
