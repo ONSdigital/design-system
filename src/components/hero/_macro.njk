@@ -10,7 +10,7 @@
             <header>
                 {% if params.preTitleImage is defined and params.preTitleImage %}
                     {% set preTitleImageWithModifier = params.preTitleImage.name|replace(r/(\.[^\.]+)$/, "--" + skinName + "$1") %}
-                    <img class="u-mb-xs" src="{{ params.placeholderURL }}/img/{{ preTitleImageWithModifier }}" alt="{{ params.preTitleImage.alt }}">
+                    <img class="hero__pre-title" src="{{ params.placeholderURL }}/img/{{ preTitleImageWithModifier }}" alt="{{ params.preTitleImage.alt }}">
                 {% endif %}            
                 {% if params.censusTheme is defined and params.censusTheme %}
                     <h1 class="u-fs-xxxl">{{ params.title }}</h1>
