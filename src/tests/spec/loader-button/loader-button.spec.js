@@ -62,7 +62,7 @@ describe('Function: Loader Button ', function() {
 });
 
 describe('Function: Timer Button ', function() {
-  let wrapper, buttonElement;
+  let wrapper, form, buttonElement;
 
   let params = {
     id: 'button',
@@ -76,8 +76,10 @@ describe('Function: Timer Button ', function() {
     const html = template.render({ params });
 
     wrapper = document.createElement('div');
-    wrapper.innerHTML = html;
-    document.body.appendChild(wrapper);
+    form = wrapper.createElement('form');
+    form.classList.add('js-patternlib-form');
+    form.innerHTML = html;
+    document.body.appendChild(form);
 
     buttonElement = document.getElementById(params.id);
   });
