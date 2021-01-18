@@ -2,7 +2,7 @@ import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/button/_test-template.njk';
 import SubmitButton from 'components/button/button';
 
-describe.only('Function: Timer Button ', function() {
+describe('Function: Timer Button ', function() {
   let wrapper, buttonElement;
 
   let params = {
