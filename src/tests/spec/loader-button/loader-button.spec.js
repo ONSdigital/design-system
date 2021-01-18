@@ -78,7 +78,7 @@ describe('Function: Timer Button ', function() {
     wrapper = document.createElement('form');
     wrapper.classList.add('js-patternlib-form');
     wrapper.innerHTML = html;
-    document.body.appendChild(form);
+    document.body.appendChild(wrapper);
 
     buttonElement = document.getElementById(params.id);
   });
