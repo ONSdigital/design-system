@@ -34,13 +34,10 @@ export default class SubmitButton {
     } else {
       this.submitButton.setAttribute('disabled', true);
     }
-    setTimeout(
-      submitButton => {
-        submitButton.removeAttribute('disabled');
-        i = 0;
-      },
-      1000,
-      this.submitButton,
-    );
+
+    setTimeout(() => {
+      this.submitButton.removeAttribute('disabled');
+      i = 0;
+    }, 1000);
   }
 }
