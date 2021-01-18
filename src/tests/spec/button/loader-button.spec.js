@@ -2,8 +2,8 @@ import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/button/_test-template.njk';
 import SubmitButton from 'components/button/button';
 
-describe('Function: Loader Button ', function() {
-  let wrapper, form, buttonElement;
+describe.only('Function: Loader Button ', function() {
+  let wrapper, buttonElement;
 
   let params = {
     id: 'button',
