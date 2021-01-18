@@ -8,6 +8,14 @@
   }
 }
 
+.hero__pre-title {
+  margin-bottom: 0.5rem;
+
+  @include mq(xs, m) {
+    max-width: 145px;
+  }
+}
+
 .hero__title {
   font-size: 2.3rem;
   line-height: 1.2;
