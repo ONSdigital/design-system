@@ -45,6 +45,12 @@ describe('Function: Loader Button ', function() {
       new SubmitButton(buttonElement, params.submitType);
     });
 
+    afterEach(() => {
+      if (wrapper) {
+        wrapper.remove();
+      }
+    });
+
     it('Button disabled attribute should not be set', () => {
       expect(buttonElement.getAttribute('disabled')).to.not.exist;
     });
@@ -52,6 +58,12 @@ describe('Function: Loader Button ', function() {
     describe('and the button is clicked', () => {
       beforeEach(() => {
         buttonElement.click();
+      });
+
+      afterEach(() => {
+        if (wrapper) {
+          wrapper.remove();
+        }
       });
 
       it('Button should have loading style applied', () => {
