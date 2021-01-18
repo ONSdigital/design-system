@@ -3,7 +3,7 @@ import template from 'components/button/_test-template.njk';
 import SubmitButton from 'components/button/button';
 
 describe('Function: Loader Button ', function() {
-  let wrapper, buttonElement;
+  let wrapper, form, buttonElement;
 
   let params = {
     id: 'button',
