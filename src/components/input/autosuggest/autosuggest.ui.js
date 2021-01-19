@@ -515,7 +515,10 @@ export default class AutosuggestUI {
       this.allSelections = this.currentSelections;
     }
     this.allSelections.push(value);
-    this.allSelections = [...new Set(this.allSelections)];
+
+    this.allSelections = this.allSelections.filter(function(value, index, array) {
+      return array.indexOf(value) == index;
+    });
 
     return this.allSelections.join(', ');
   }
