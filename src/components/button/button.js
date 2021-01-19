@@ -15,13 +15,12 @@ export default class SubmitButton {
   }
 
   loaderButton() {
-    this.submitForm();
     this.submitButton.classList.add('is-loading');
     this.submitButton.setAttribute('disabled', true);
+    this.submitForm();
   }
 
   timerButton(event) {
-    this.submitForm();
     if (this.submitButton.tagName === 'A') {
       i++;
       if (i > 1) {
@@ -30,7 +29,7 @@ export default class SubmitButton {
     } else {
       this.submitButton.setAttribute('disabled', true);
     }
-
+    this.submitForm();
     setTimeout(() => {
       this.submitButton.removeAttribute('disabled');
       i = 0;
