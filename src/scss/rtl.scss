@@ -76,6 +76,14 @@
     &__link-text {
       margin: 0 0.5rem 0 0;
     }
+
+    &__link-label {
+      margin: 0 2rem 0 0;
+    }
+
+    &__link-icon {
+      transform: rotate(180deg);
+    }
   }
 
   // Download
