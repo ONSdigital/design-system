@@ -15,17 +15,11 @@ export default class SubmitButton {
   }
 
   loaderButton() {
-    if (this.formEl && this.formEl.length && !this.patternLibForm) {
-      this.formEl.submit();
-    }
     this.submitButton.classList.add('is-loading');
     this.submitButton.setAttribute('disabled', true);
   }
 
   timerButton(event) {
-    if (this.formEl && this.formEl.length && !this.patternLibForm) {
-      this.formEl.submit();
-    }
     if (this.submitButton.tagName === 'A') {
       i++;
       if (i > 1) {
