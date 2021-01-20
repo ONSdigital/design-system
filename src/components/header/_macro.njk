@@ -37,7 +37,7 @@
                               </div>
                           {% endif %}
                           {% if params.serviceLinks is defined and params.serviceLinks %}
-                              <div class="grid__col col-auto u-d-no@xs@m">
+                              <div class="grid__col col-auto u-d-no@xxs@m">
                                   <nav class="header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel }}">
                                       <ul class="header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel }}">
                                           {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}
@@ -80,10 +80,10 @@
                       {% endif %}
                   </div>
                   {% if params.button is defined and params.button %}
-                      <div class="grid__col col-auto u-flex-no-shrink u-d-no@xs@m">
+                      <div class="grid__col col-auto u-flex-no-shrink u-d-no@xxs@m">
                           {{ onsButton({
                               "text": params.button.text,
-                              "classes": "btn--ghost u-d-no@xs@m",
+                              "classes": "btn--ghost u-d-no@xxs@m",
                               "name": params.button.name,
                               "attributes": params.button.attributes,
                               "url": params.button.url,
@@ -111,7 +111,7 @@
       </div>
       {% if params.navigation is defined and params.navigation %}
           <div class="header__bottom">
-              <div class="container container--gutterless@xs@m{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
+              <div class="container container--gutterless@xxs@m{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
                   <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel }}" data-analytics="header-navigation">
                       <ul class="header-nav__list" aria-label="{{ params.navigation.ariaListLabel }}" role="menubar">
                           {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}

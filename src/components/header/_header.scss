@@ -12,11 +12,8 @@
     height: auto;
     fill: $color-white;
 
-    @include mq(xss) {
-      padding: 0.58rem 0;
-    }
-
-    @include mq(xs, 399px) {
+    @include mq(xxs, 399px) {
+      padding: 0.38rem 0;
       max-width: 160px;
     }
 
@@ -34,13 +31,13 @@
   &__grid-top {
     height: 54px;
 
-    @include mq(xss) {
+    @include mq(xs) {
       height: 46px;
     }
   }
 
   &__grid-top-nisra {
-    @include mq(xss) {
+    @include mq(xs) {
       height: 76px;
     }
   }
@@ -54,7 +51,7 @@
     }
   }
 
-  @include mq(xss) {
+  @include mq(xs) {
     &__logo {
       margin-bottom: 2px;
     }
@@ -63,14 +60,6 @@
   &__main {
     padding: 0.56rem 0;
     background: $color-header;
-
-    @include mq(xss) {
-      padding: 1.1rem 0;
-    }
-
-    @include mq(m) {
-      padding: 0.84rem 0;
-    }
 
     &--border {
       padding: 0.934rem 0;
@@ -81,7 +70,7 @@
 
   &__title {
     @extend .u-fs-r--b;
-    @extend .u-fs-xl\@xss;
+    @extend .u-fs-xl\@xxs;
 
     margin: 0;
     color: $color-white;
@@ -103,7 +92,7 @@
 
   &__desc {
     @extend .u-fs-s;
-    @extend .u-fs-r\@xss;
+    @extend .u-fs-r\@s;
 
     margin: 0;
     color: $color-white;
