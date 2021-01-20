@@ -25,7 +25,7 @@ function focusOnInput(id) {
     return type !== 'readonly' && type !== 'hidden' && type !== 'checkbox' && type !== 'radio';
   })[0];
 
-  if (input) {
+  if (input && input.getAttribute('tabindex') !== '-1') {
     input.focus();
   }
 }
