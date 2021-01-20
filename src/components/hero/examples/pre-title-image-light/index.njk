@@ -1,0 +1,25 @@
+---
+"theme": census
+"fullWidth": true
+---
+{% from "components/hero/_macro.njk" import onsHero %}
+{{
+    onsHero({
+        censusTheme: true,
+        preTitleImage: {
+            name: 'its-about-us.svg',
+            alt: 'It’s about us'
+        },
+        title: 'Start your legacy',
+        subtitle: 'Ready to start your census online?',
+        button: {
+            url: '#0',
+            text: 'Start census'
+        },
+        image: {
+            smallSrc: '/img/small/students.jpg',
+            largeSrc: '/img/large/students.jpg',
+            alt: 'Two university students sitting down'
+        }
+    })
+}}
