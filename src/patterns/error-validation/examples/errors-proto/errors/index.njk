@@ -45,16 +45,13 @@ layout: none
     }}
 {% endblock %}
 
-
 {% block main %}
     {% call onsPanel({
             "title": "There are 7 problems with your answer",
             "type": "error",
-            "classes": "question__errors",
             "titleTag": "h1"
         })
     %}
-
         {{
             onsList({
                 "element": "ol",
