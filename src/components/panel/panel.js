@@ -1,4 +1,4 @@
 export default function errorPanel(panel) {
-  panel.setAttribute('tabIndex', 0);
+  panel.setAttribute('tabIndex', -1);
   panel.focus();
 }
