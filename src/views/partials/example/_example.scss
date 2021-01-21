@@ -1,4 +1,4 @@
-@import '~highlight.js/styles/vs2015';
+@import '~prismjs/themes/prism-tomorrow';
 
 .patternlib-example {
   $c: &;
@@ -68,6 +68,7 @@
 
   &__pre {
     margin: 0;
+    font-size: 0.8rem !important;
     white-space: normal;
   }
 }
