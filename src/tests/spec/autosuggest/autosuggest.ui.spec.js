@@ -107,7 +107,7 @@ describe('Autosuggest.ui component', function() {
       expect(this.input.getAttribute('aria-autocomplete')).to.equal('list');
       expect(this.input.getAttribute('aria-controls')).to.equal(this.listbox.getAttribute('id'));
       expect(this.input.getAttribute('aria-describedby')).to.equal(this.instructions.getAttribute('id'));
-      expect(this.input.getAttribute('aria-has-popup')).to.equal('true');
+      expect(this.input.getAttribute('aria-haspopup')).to.equal('true');
       expect(this.input.getAttribute('aria-owns')).to.equal(this.listbox.getAttribute('id'));
       expect(this.input.getAttribute('aria-expanded')).to.equal('false');
       expect(this.input.getAttribute('role')).to.equal('combobox');
