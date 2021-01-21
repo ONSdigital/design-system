@@ -109,7 +109,7 @@ export default class AutosuggestUI {
     this.input.setAttribute('aria-autocomplete', 'list');
     this.input.setAttribute('aria-controls', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-describedby', this.instructions.getAttribute('id'));
-    this.input.setAttribute('aria-has-popup', true);
+    this.input.setAttribute('aria-haspopup', true);
     this.input.setAttribute('aria-owns', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-expanded', false);
     this.input.setAttribute('autocomplete', this.input.getAttribute('autocomplete') || 'zz');
