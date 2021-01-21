@@ -34,7 +34,7 @@
         {{ content | safe }}
         <div class="autosuggest-input__results js-autosuggest-results">
             <header class="autosuggest-input__results-title u-fs-s">{{ params.resultsTitle }}</header>
-            <ul class="autosuggest-input__listbox js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" tabindex="-1"></ul>
+            <ul class="autosuggest-input__listbox js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" aria-label="{{ params.ariaResultsLabel }}" tabindex="-1"></ul>
         </div>
         <div class="autosuggest-input__instructions u-vh js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
         <div class="autosuggest-input__status u-vh js-autosuggest-aria-status" aria-live="assertive" role="status" tabindex="-1"></div> 
