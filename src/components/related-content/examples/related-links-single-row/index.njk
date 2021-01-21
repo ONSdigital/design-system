@@ -1,0 +1,31 @@
+---
+"theme": census
+---
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
+
+{{
+     onsRelatedContent({
+
+        "rows": [
+            {
+                "id": 'related-content',
+                "title": 'Related content',
+                "itemsList": [
+                    {
+                        "text": 'Find a census support centre',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Languages',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Contact us',
+                        "url": '#0'
+                    }
+                ]
+            }
+        ]
+
+    })
+}}
