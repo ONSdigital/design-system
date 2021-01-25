@@ -35,7 +35,7 @@
             <div class="patternlib-example__panels">
                 <div class="patternlib-example__panel">
                     <pre class="patternlib-example__pre">
-                        <code class="patternlib-example__code html">{{ params.html }}</code>
+                        <code class="patternlib-example__code language-markup">{{ params.html }}</code>
                     </pre>
                 </div>
                 {%- if params.raw -%}
@@ -47,21 +47,21 @@
                         </details>
                     {% endif %}
                     <pre class="patternlib-example__pre">
-                        <code class="patternlib-example__code js">{{ params.raw }}</code>
+                        <code class="patternlib-example__code language-javascript">{{ params.raw }}</code>
                     </pre>
                 </div>
                 {%- endif -%}
                 {%- if params.template -%}
                     <div class="patternlib-example__panel">
                         <pre class="patternlib-example__pre">
-                            <code class="patternlib-example__code html">{{ params.template }}</code>
+                            <code class="patternlib-example__code language-markup">{{ params.template }}</code>
                         </pre>
                     </div>
                 {%- endif -%}
                 {%- if params.scss -%}
                     <div class="patternlib-example__panel">
                         <pre class="patternlib-example__pre">
-                            <code class="patternlib-example__code scss">{{ params.scss }}</code>
+                            <code class="patternlib-example__code language-css">{{ params.scss }}</code>
                         </pre>
                     </div>
                 {%- endif -%}
