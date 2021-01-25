@@ -10,7 +10,6 @@
 
     <label
         class="{% if params.inputType is not defined %}label {% endif %}{{ params.classes if params.classes else "" }}{% if params.description is defined and params.description %} label--with-description{% endif %} {{' label--placeholder ' if params.accessiblePlaceholder else "" }}"
-        {% if params.description is defined and params.description %}{% if params.id is defined and params.id %} aria-describedby="{{ params.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
         {% if params.for is defined and params.for %} for="{{ params.for }}"{% endif %}
         {% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %}
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
