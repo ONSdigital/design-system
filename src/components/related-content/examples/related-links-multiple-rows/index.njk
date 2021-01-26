@@ -1,0 +1,57 @@
+---
+"theme": census
+---
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
+
+{{
+     onsRelatedContent({
+        "ariaLabel": 'Related links to help with the census',
+        "rows": [
+            {
+                "id": 'related-help-with-the-census',
+                "title": 'Help with the census',
+                "itemsList": [
+                    {
+                        "text": 'I’m moving house',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'What if I’m away or abroad on Census Day?',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Get an access code or paper census',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Find a census support centre',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Languages',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Accessibility',
+                        "url": '#0'
+                    }
+                ]
+            },
+            {
+                "id": 'related-content',
+                "title": 'Related content',
+                "itemsList": [
+                    {
+                        "text": 'How we will contact or visit you',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Media enquiries',
+                        "url": '#0'
+                    }
+                ]
+            }
+        ]
+
+    })
+}}
