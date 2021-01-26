@@ -1,11 +1,11 @@
 {% macro onsList(params) %}
     {% set classes = params.classes | lower %}
     
-    {% if params.itemsList[0].prefix %}
+    {% if params.itemsList[0] is defined and params.itemsList[0].prefix %}
         {% set otherClasses = 'list--bare list--prefix' %}
-    {% elif params.itemsList[0].suffix %}
+    {% elif params.itemsList[0] is defined and params.itemsList[0].suffix %}
         {% set otherClasses = 'list--bare list--suffix' %}
-    {% elif params.itemsList[0].prefixIcon or params.itemsList[0].suffixIcon %}
+    {% elif params.itemsList[0] is defined and (params.itemsList[0].prefixIcon or params.itemsList[0].suffixIcon) %}
         {% set otherClasses = 'list--bare list--icons' %}
     {% else %}
         {% set otherClasses = '' %}
