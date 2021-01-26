@@ -72,7 +72,7 @@
                             })
                         }}
                       {% else %}
-                        <{{ title_tag }} class="header__title">{{ params.title }}</{{ title_tag }}>
+                        <{{ title_tag }} class="header__title{% if params.desc is defined and params.desc %} header__title--with-description{% endif %}">{{ params.title }}</{{ title_tag }}>
                       {% endif %}
                       {% if params.titleLogoHref is defined and params.titleLogoHref %}</a>{% endif %}
                       {% if params.desc is defined and params.desc %}

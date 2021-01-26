@@ -71,10 +71,16 @@
   &__title {
     @extend .u-fs-r--b;
     @extend .u-fs-xl\@xxs;
-
     margin: 0;
     color: $color-white;
-    line-height: 2.5 !important;
+
+    &--with-description {
+      line-height: 1.7 !important;
+    }
+
+    &:not(&--with-description) {
+      line-height: 2.5 !important;
+    }
 
     @include mq(xs, m) {
       line-height: 1.75 !important;
@@ -101,8 +107,10 @@
   &__desc {
     @extend .u-fs-s;
     @extend .u-fs-r\@s;
-
     margin: 0;
+    @include mq(m) {
+      margin: 0 0 1rem;
+    }
     color: $color-white;
   }
 
