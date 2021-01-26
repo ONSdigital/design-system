@@ -11,11 +11,10 @@
 
 ## Thumbnail
 
-| Name     | Type   | Required | Description                                                 |
-| -------- | ------ | -------- | ----------------------------------------------------------- |
-| smallSrc | string | true     | Path to the non-retina version of the image                 |
-| largeSrc | string | true     | Path to the retina version of the image                     |
-| alt      | string | true     | Alt tag to explain the appearance and function of the image |
+| Name     | Type   | Required | Description                                 |
+| -------- | ------ | -------- | ------------------------------------------- |
+| smallSrc | string | true     | Path to the non-retina version of the image |
+| largeSrc | string | true     | Path to the retina version of the image     |
 
 ## Meta
 
