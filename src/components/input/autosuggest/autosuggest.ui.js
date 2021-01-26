@@ -109,7 +109,7 @@ export default class AutosuggestUI {
     this.input.setAttribute('aria-autocomplete', 'list');
     this.input.setAttribute('aria-controls', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-describedby', this.instructions.getAttribute('id'));
-    this.input.setAttribute('aria-has-popup', true);
+    this.input.setAttribute('aria-haspopup', true);
     this.input.setAttribute('aria-owns', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-expanded', false);
     this.input.setAttribute('autocomplete', this.input.getAttribute('autocomplete') || 'zz');
@@ -515,7 +515,10 @@ export default class AutosuggestUI {
       this.allSelections = this.currentSelections;
     }
     this.allSelections.push(value);
-    this.allSelections = [...new Set(this.allSelections)];
+
+    this.allSelections = this.allSelections.filter(function(value, index, array) {
+      return array.indexOf(value) == index;
+    });
 
     return this.allSelections.join(', ');
   }

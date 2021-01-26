@@ -19,15 +19,14 @@
 
 ## Navigation
 
-| Name          | Type          | Required | Description                                                                                                                                 |
-| ------------- | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| currentPath   | string        | true     | Path to the default active page                                                                                                             |
-| classes       | string        | false    | Additional css classes for the navigation element                                                                                           |
-| id            | string        | true     | A unique ID for the navigation element                                                                                                      |
-| ariaLabel     | string        | true     | The aria-label added to the navigation element                                                                                              |
-| ariaListLabel | string        | true     | The aria-label added to the navigation list                                                                                                 |
-| itemsList     | `Array<Item>` | true     | An array of list items to render in the navigation element                                                                                  |
-| siteBasePath  | string        | false    | If the base path for your site is not `/` (i.e. in a prototype), you can use this to get the active functionality working on your Home link |
+| Name         | Type          | Required | Description                                                                                                                                 |
+| ------------ | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| currentPath  | string        | true     | Path to the default active page                                                                                                             |
+| classes      | string        | false    | Additional css classes for the navigation element                                                                                           |
+| id           | string        | true     | A unique ID for the navigation element                                                                                                      |
+| ariaLabel    | string        | true     | The aria-label added to the navigation element                                                                                              |
+| itemsList    | `Array<Item>` | true     | An array of list items to render in the navigation element                                                                                  |
+| siteBasePath | string        | false    | If the base path for your site is not `/` (i.e. in a prototype), you can use this to get the active functionality working on your Home link |
 
 ## ToggleButton
 

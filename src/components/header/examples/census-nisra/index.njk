@@ -5,7 +5,7 @@ layout: none
 {% extends "styles/page-template/_template.njk" %}
 
 {% set pageConfig = {
-    "theme": "census",
+    "theme": 'census',
     "header": {
         "logo": "nisra-logo-en",
         "logoAlt": "Northern Ireland Statistics and Research Agency logo",
@@ -16,31 +16,30 @@ layout: none
         "titleLogoAlt": "Census 2021"
     },
     "navigation": {
-        "id": "main-nav",
-        "ariaLabel": "Main menu",
-        "ariraListLabel": "Navigation menu",
-        "currentPath": "/get-started",
+        "id": 'main-nav',
+        "ariaLabel": 'Main menu',
+        "currentPath": '/get-started',
         "itemsList": [
             {
-                "title": "Home",
-                "path": "#0"
+                "title": 'Home',
+                "url": '#0'
             },
             {
-                "title": "About the census",
-                "path": "#0"
+                "title": 'About the census',
+                "url": '#0'
             },
             {
-                "title": "Help with your census",
-                "path": "#0"
+                "title": 'Help with your census',
+                "url": '#0'
             },
             {
-                "title": "Contact us",
-                "path": "#0"
+                "title": 'Contact us',
+                "url": '#0'
             }
         ]
     },
     "toggleButton": {
-        "text": "Menu",
-        "ariaLabel": "Toggle main navigation"
+        "text": 'Menu',
+        "ariaLabel": 'Toggle main navigation'
     }
 } %}
