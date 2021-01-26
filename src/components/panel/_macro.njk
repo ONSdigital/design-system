@@ -31,7 +31,7 @@
             {% if params is defined and params and params.type == "warn" or params.type == "warn-branded" %}
                 <span class="panel__icon" aria-hidden="true">!</span>
                 <strong>
-                <span class="u-vh">Warning</span>
+                <span class="u-vh">{{ params.iconText | default("Warning: ") }}</span>
             {% endif %}
 
             {% if params is defined and params and params.title is defined and params.title %}
