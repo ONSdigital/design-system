@@ -6,7 +6,7 @@
   {% set classes = ' ' + params.classes %}
 {% endif %}
 
-  <aside class="related-content{{ classes }}" role="complementary">
+  <aside class="related-content{{ classes }}" aria-label="{{ params.ariaLabel }}">
 
     <div class="related-content__body">
 
@@ -33,7 +33,7 @@
         <h2 class="related-content__title u-fs-r--b u-mb-xs">{{ params.title }}</h2>
 
         <div class="related-content__body">
-            {{ (params.body if params else "") | safe }}{{ caller() if caller }}
+          {{ (params.body if params else "") | safe }}{{ caller() if caller }}
         </div>
 
       {% endif %}
