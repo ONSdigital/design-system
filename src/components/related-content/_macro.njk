@@ -3,10 +3,10 @@
 {% from "components/lists/_macro.njk" import onsList %}
 
 {% if params is defined and params and params.classes is defined and params.classes %}
-    {% set classes = ' ' + params.classes %}
+  {% set classes = ' ' + params.classes %}
 {% endif %}
 
-  <div class="related-content{{ classes }}">
+  <aside class="related-content{{ classes }}" role="complementary">
 
     <div class="related-content__body">
 
@@ -19,10 +19,10 @@
             {% endif %}
             <nav class="related-content__navigation" aria-labelledby="{{ row.id }}">
               {{
-                  onsList({
-                    "classes": 'list--bare',
-                    "itemsList": row.itemsList
-                  })
+                onsList({
+                  "classes": 'list--bare',
+                  "itemsList": row.itemsList
+                })
               }}
             </nav>
           </div>
@@ -40,6 +40,6 @@
 
     </div>
 
-  </div>
+  </aside>
 
 {% endmacro %}
