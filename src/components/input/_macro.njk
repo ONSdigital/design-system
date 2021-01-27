@@ -99,6 +99,7 @@
         {% elif params.autosuggest is defined and params.autosuggest %}
             {% call onsAutosuggest({
                 "id": params.id,
+                "labelId": params.label.id,
                 "classes": params.autosuggest.classes,
                 "APIDomain": params.autosuggest.APIDomain,
                 "APIDomainBearerToken": params.autosuggest.APIDomainBearerToken,
