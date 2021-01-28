@@ -58,7 +58,7 @@
   }
 
   &--responsive {
-    @include mq(xxs, s) {
+    @include mq(xs, s) {
       .table__header {
         display: none;
       }
@@ -112,7 +112,7 @@
     }
     .table__header,
     .table__cell {
-      @include mq(xxs, m) {
+      @include mq(xs, m) {
         white-space: nowrap;
       }
     }

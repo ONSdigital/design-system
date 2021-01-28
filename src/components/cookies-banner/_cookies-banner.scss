@@ -14,7 +14,7 @@
   }
 
   &__btn {
-    @include mq(xxs, 499px) {
+    @include mq('xs', 499px) {
       display: block;
       width: 100%;
     }
