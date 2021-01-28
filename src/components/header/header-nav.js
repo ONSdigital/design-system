@@ -3,7 +3,7 @@ import { GetViewportDetails } from 'viewport-details';
 
 const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
-const hideClass = 'u-d-no@xxs@m';
+const hideClass = 'u-d-no@xs@m';
 
 export default class NavToggle {
   constructor(toggle, nav) {

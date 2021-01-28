@@ -99,10 +99,10 @@ function renderComponent() {
     '<div class="grid__col col-8@m">' +
     '<h2 class="cookies-banner__title u-mb-xs">Tell us whether you accept cookies</h2>' +
     '<p class="cookies-banner__desc">We use cookies to collect information about how you use census.gov.uk. We use this information to make the website work as well as possible and improve our services.</p>' +
-    '<button type="button" class="btn btn--small js-accept-cookies u-mb-xs@xxs@s cookies-banner__btn">' +
+    '<button type="button" class="btn btn--small js-accept-cookies u-mb-xs@xs@s cookies-banner__btn">' +
     '<span class="btn__inner">Accept all cookies</span>' +
     '</button>' +
-    '<a href="#" role="button" class="btn btn--secondary btn--small u-ml-no@xxs@s cookies-banner__btn btn--link">' +
+    '<a href="#" role="button" class="btn btn--secondary btn--small u-ml-no@xs@s cookies-banner__btn btn--link">' +
     '<span class="btn__inner">Cookie settings</span>' +
     '</a>' +
     '</div>' +

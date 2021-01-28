@@ -126,7 +126,7 @@ describe('Component: Navigation', function() {
           });
 
           it('Should not have the hidden class', function() {
-            expect(this.mainNavList.classList.contains('u-d-no@xxs@m')).to.be.false;
+            expect(this.mainNavList.classList.contains('u-d-no@xs@m')).to.be.false;
           });
         });
 
@@ -140,7 +140,7 @@ describe('Component: Navigation', function() {
           });
 
           it('Should not have the hidden class', function() {
-            expect(this.mainNavList.classList.contains('u-d-no@xxs@m')).to.be.true;
+            expect(this.mainNavList.classList.contains('u-d-no@xs@m')).to.be.true;
           });
         });
 
