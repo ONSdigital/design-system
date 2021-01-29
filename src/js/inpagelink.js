@@ -22,7 +22,7 @@ function focusOnInput(id) {
   ].filter(input => {
     const type = input.getAttribute('type');
 
-    return type !== 'readonly' && type !== 'hidden' && type !== 'checkbox' && type !== 'radio';
+    return type !== 'readonly' && type !== 'hidden';
   })[0];
 
   if (input && input.getAttribute('tabindex') !== '-1') {
