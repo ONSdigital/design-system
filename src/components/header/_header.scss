@@ -8,17 +8,18 @@
 
   & &__svg-logo {
     display: block;
-    width: 100%;
-    height: auto;
     fill: $color-white;
 
     @include mq(xxs, 399px) {
-      padding: 0.38rem 0;
-      max-width: 160px;
+      margin: 0.38rem 0;
     }
 
     @include mq(m) {
-      padding: 0.84rem 0;
+      margin: 0.84rem 0;
+    }
+
+    @include mq(xxs, 399px) {
+      max-width: 160px;
     }
   }
 
@@ -92,8 +93,11 @@
 
     &-link {
       display: block;
+
       &:focus {
-        outline: 4px solid $color-focus;
+        .header__svg-logo {
+          fill: $color-black !important;
+        }
       }
     }
 
