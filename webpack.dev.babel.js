@@ -28,7 +28,6 @@ const serverSettings = {
   devServer: {
     contentBase: path.join(__dirname, 'build'),
     compress: false,
-    disableHostCheck: true,
     port,
     after: function() {
       setTimeout(() => {
