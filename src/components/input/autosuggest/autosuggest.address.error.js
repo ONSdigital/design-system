@@ -34,7 +34,7 @@ export default class AddressError {
       const errorLinkElement = document.createElement('a');
       const errorLinkElementPre = document.createElement('span');
 
-      errorElement.className = 'panel panel--error u-mb-m js-error-panel js-autosuggest-error-panel';
+      errorElement.className = 'panel panel--error u-mb-m js-autosuggest-error-panel';
       errorElementHeader.className = 'panel__header';
       errorElementTitle.className = 'panel__title u-fs-r--b';
       errorBodyElement.className = 'panel__body';
