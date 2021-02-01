@@ -2,9 +2,11 @@ import domready from 'js/domready';
 import skipToMain from './skip-to-content';
 
 async function initaliseSkipToLink() {
-  const link = document.querySelector('.skip__link');
-  if (link) {
-    skipToMain(link);
+  const links = [...document.querySelectorAll('.skip__link')];
+  if (links.length) {
+    links.forEach(link => {
+      skipToMain(link);
+    });
   }
 }
 
