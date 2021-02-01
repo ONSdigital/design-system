@@ -2,10 +2,8 @@
 {% from "components/lists/_macro.njk" import onsList %}
 
 {% call onsPanel({
-        "title": 'There are 2 problems with your answer',
-        "titleTag": 'h1',
-        "type": 'error',
-        "dsExample": isPatternLib
+        "title": "There are 2 problems with your answer",
+        "type": "error"
 }) %}
     {{
         onsList({
