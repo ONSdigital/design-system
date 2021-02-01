@@ -33,7 +33,7 @@
             {% if params is defined and params %}
                 {% if params.title is defined and params.title %}
                     {% if params is defined and params and params.type == 'error' %}
-                        {% set defaultTitleTag = "h1" %}
+                        {% set defaultTitleTag = "h2" %}
                     {% else %}
                         {% set defaultTitleTag = "div" %}
                     {% endif %}
