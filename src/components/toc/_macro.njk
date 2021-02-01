@@ -1,6 +1,13 @@
 {% macro onsTableOfContents(params) %}
   {% from "components/lists/_macro.njk" import onsList %}
+  {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
   <aside class="toc-container" role="complementary">
+    {{
+        onsSkipToContent({
+            "url": params.skipLink.url,
+            "text": params.skipLink.text
+        })
+    }}
     <nav class="toc" aria-label="{{ params.ariaLabel }}">
       <h2 class="toc__title u-fs-r--b u-mb-s">{{ params.title }}</h2>
       {% if params.lists is defined and params.lists %}
