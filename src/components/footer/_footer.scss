@@ -1,38 +1,38 @@
 .footer {
-  padding: 2rem 0 4rem;
-  background-color: $color-grey-5;
-
-  &__heading {
-    margin: 0 0 1rem;
-  }
-
-  &__ogl-img {
-    margin: 0 0.5rem 0.2rem 0;
-  }
-
-  &__hr {
-    border: 0;
-    border-top: 1px solid $color-grey-3;
-  }
-
-  .list__link {
-    margin-right: 0;
-  }
-
   a {
     color: $color-grey-1;
     text-decoration: underline;
 
     &:hover {
       color: $color-black;
-      text-decoration: none;
+      text-decoration: underline solid $color-black 2px;
     }
   }
 
-  .poweredbylogo {
-    @include mq('xs', 'm') {
-      width: 100% !important;
-      margin-top: 1.5rem;
+  &__button-container {
+    padding: 1rem;
+    background-color: $color-header;
+    background-clip: border-box;
+  }
+
+  &__warning {
+    background-color: $color-grey-4;
+  }
+
+  &__ogl-img {
+    margin: 0 0.5rem 0.2rem 0;
+  }
+
+  &__body {
+    padding: 2rem 0 4rem;
+    background-color: $color-grey-5;
+
+    .list__link {
+      margin-right: 0;
+    }
+
+    .poweredbylogo {
+      min-height: 1.5rem;
     }
   }
 }

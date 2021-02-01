@@ -1,0 +1,21 @@
+---
+"theme": census
+"fullWidth": true
+---
+{% from "components/hero/_macro.njk" import onsHero %}
+{{
+    onsHero({
+        censusTheme: true,
+        censusThemeDark: true,
+        preTitleImage: {
+            name: 'its-about-us.svg',
+            alt: 'It’s about us'
+        },
+        title: 'Start your legacy',
+        text: 'The census is happening on <strong>Sunday 21 March 2021</strong>',
+        image: {
+            smallSrc: '/img/small/students.jpg',
+            largeSrc: '/img/large/students.jpg'
+        }
+    })
+}}

@@ -8,6 +8,14 @@
   }
 }
 
+.hero__pre-title {
+  margin-bottom: 0.5rem;
+
+  @include mq(xs, m) {
+    max-width: 145px;
+  }
+}
+
 .hero__title {
   font-size: 2.3rem;
   line-height: 1.2;
@@ -17,6 +25,7 @@
 .hero--census {
   display: flex;
   position: relative;
+  margin-bottom: 2px;
   margin-top: 2px;
   padding: 0;
   overflow: hidden;
@@ -37,6 +46,7 @@
   }
 
   .hero__circle-image {
+    background-color: $color-white;
     z-index: 2;
     top: -117px;
     right: -8px;
@@ -45,9 +55,9 @@
     border-radius: 50%;
 
     img {
+      border-radius: 50%;
       display: block;
       height: 100%;
-      clip-path: circle(191px at center); // Half width of circle
     }
   }
 
@@ -126,10 +136,6 @@
       margin: auto;
       width: 558px;
       height: 558px;
-
-      img {
-        clip-path: circle(279px at center); // Half width of circle
-      }
     }
 
     .hero__circle-gradient {

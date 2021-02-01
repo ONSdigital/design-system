@@ -8,15 +8,15 @@
     }
   }
 
-  &--bare {
-    padding-left: 0;
-    list-style: none;
-  }
-
   &--spacious {
     .list__item {
       margin: 0 0 1.5rem;
     }
+  }
+
+  &--bare {
+    padding-left: 0;
+    list-style: none;
   }
 
   &--dashed {
@@ -36,40 +36,70 @@
     }
   }
 
-  &__prefix {
-    @extend .list--bare;
-    float: left;
-    margin: 0 0.5rem 0 0;
-    font-family: $font-sans-mono;
-  }
-
   &__link {
     display: inline-block;
     margin-right: 1rem;
     overflow: hidden;
     vertical-align: top;
     white-space: normal;
-    .svg-icon {
-      margin-top: 0.2rem;
-      width: 0.8rem;
-      height: 0.8rem;
+  }
+
+  &__prefix {
+    margin-right: 0.5rem;
+  }
+
+  &__suffix {
+    margin-left: 0.5rem;
+  }
+
+  &__prefix,
+  &__suffix {
+    font-family: $font-mono;
+  }
+
+  &--prefix &,
+  &--suffix &,
+  &--icons & {
+    &__item {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  &--social & {
+    &__item {
+      align-items: center;
+    }
+  }
+
+  &--icons {
+    margin-bottom: 0;
+    .list__item {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &--languages {
+    margin-bottom: 0;
+    .list__link {
+      margin-right: 0;
     }
   }
 }
 
-$list-inline-spacing: 2rem;
-
 @include bp-suffix('list--inline') {
-  margin: 0 $list-inline-spacing / -2;
-
-  .list__item {
-    display: inline-block;
-    margin: 0 $list-inline-spacing / 2;
-    vertical-align: top;
-    .svg-icon {
-      margin-top: 0.2rem;
-      width: 0.8rem;
-      height: 0.8rem;
+  &:not(.list--icons) {
+    margin: 0 1rem 0 0;
+    .list__item {
+      display: inline-block;
+      margin: 0 1rem 0 0;
+      vertical-align: top;
     }
+  }
+
+  &.list--icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
   }
 }

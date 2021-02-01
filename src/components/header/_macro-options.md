@@ -2,8 +2,8 @@
 | ------------- | -------------------------------------------------- | ------------------------------------ | --------------------------------------------------------------------------- |
 | phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)  | false                                | Settings for the Phase banner component                                     |
 | fullWidth     | boolean                                            | false                                | Set the header to be the full width of the viewport                         |
-| logoHref      | string                                             | false                                | Path for the logo link. Defaults to "/"                                     |
-| logo          | string                                             | false                                | Path for the logo. Defaults to "ons-logo-pos"                               |
+| logoHref      | string                                             | false                                | Path for the masthead logo link. Defaults to "/"                            |
+| logo          | string                                             | false                                | Path for the masthead logo. Defaults to "ons-logo-pos"                      |
 | mobileLogo    | string                                             | false                                | Path for the mobile version of the logo. Defaults to "ons-logo-stacked-pos" |
 | language      | `Language` [_(ref)_](/patterns/language-selection) | false                                | Settings for the language selection component                               |
 | serviceLinks  | `Array<Navigation>`                                | false                                | An array to render the service links list                                   |
@@ -19,15 +19,14 @@
 
 ## Navigation
 
-| Name          | Type          | Required | Description                                                                                                                                 |
-| ------------- | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| currentPath   | string        | true     | Path to the default active page                                                                                                             |
-| classes       | string        | false    | Additional css classes for the navigation element                                                                                           |
-| id            | string        | true     | A unique ID for the navigation element                                                                                                      |
-| ariaLabel     | string        | true     | The aria-label added to the navigation element                                                                                              |
-| ariaListLabel | string        | true     | The aria-label added to the navigation list                                                                                                 |
-| itemsList     | `Array<Item>` | true     | An array of list items to render in the navigation element                                                                                  |
-| siteBasePath  | string        | false    | If the base path for your site is not `/` (i.e. in a prototype), you can use this to get the active functionality working on your Home link |
+| Name         | Type          | Required | Description                                                                                                                                 |
+| ------------ | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| currentPath  | string        | true     | Path to the default active page                                                                                                             |
+| classes      | string        | false    | Additional css classes for the navigation element                                                                                           |
+| id           | string        | true     | A unique ID for the navigation element                                                                                                      |
+| ariaLabel    | string        | true     | The aria-label added to the navigation element                                                                                              |
+| itemsList    | `Array<Item>` | true     | An array of list items to render in the navigation element                                                                                  |
+| siteBasePath | string        | false    | If the base path for your site is not `/` (i.e. in a prototype), you can use this to get the active functionality working on your Home link |
 
 ## ToggleButton
 

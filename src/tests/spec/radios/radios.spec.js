@@ -196,13 +196,27 @@ describe('Component: Radios', function() {
 
     describe('and there is a visible input which is focused', function() {
       beforeEach(function() {
-        const input = this.openOther.querySelector('.input');
-        input.focus();
+        this.input = this.openOther.querySelector('.input');
+        this.input.focus();
       });
 
       it('then the radio button should be checked', function(done) {
         setTimeout(() => {
           expect(this.radioInput.checked).to.equal(true);
+          done();
+        }, 300);
+      });
+    });
+
+    describe('and there is a visible input and the radio is checked', function() {
+      beforeEach(function() {
+        this.input = this.openOther.querySelector('.input');
+        this.radioInput.click();
+      });
+
+      it('then the input should have a tab index of 0', function(done) {
+        setTimeout(() => {
+          expect(this.input.getAttribute('tabindex')).to.equal('0');
           done();
         }, 300);
       });

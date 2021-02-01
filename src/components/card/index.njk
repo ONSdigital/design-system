@@ -17,7 +17,7 @@ Use the card component to signpost users to pages and to provide context and fur
 
 Good examples of where the use of cards work well include; the homepage, to create a collection of the main areas of the service and provide further affordance of what the service offers; hub level pages, to show the key content areas of what could be a deep structure; as a consistent pattern of navigation at any level within a site structure.
 
-### How to use this component
+## How to use this component
 
 Cards should be used in the main container of the page and not within side bars, footers etc. The card component needs to be implemented using the `grid` component and the various layout options available to display cards in rows. A row should contain no more than 3 or 4 cards and stack vertically on small viewports.
 The `html` tab shows the various classes used to achieve the layout.
@@ -37,18 +37,28 @@ The example below shows a row of 3 cards with a list of links that relate to the
 }}
 
 ### Cards with images
-The example below shows a row of 3 cards with thumbnail images.
+The example below shows a row of 3 cards with images.
 
 {{
     patternlibExample({"path": "components/card/examples/card-image/index.njk"})
 }}
+
+## How to use this component
+If using the card pattern with images, we have two versions of the image, one for standard screens and the other for retina screens.
+
+Image dimensions (width × height):
+
+* standard screen is: `303px × 200px`
+* retina screen is: `606px × 400px`
+
+We specify a small and a large image path, which is defined in the macro as `smallSrc` and `largeSrc`.
 
 ## Research on this component
 {% call onsPanel() %}
     If you have conducted any user research using this component, please feed back your findings via the
     {{
         onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/48",
+            "url": "https://github.com/ONSdigital/design-system/discussions/48",
             "linkText": "Design System forum"
         })
     }}
@@ -57,7 +67,7 @@ The example below shows a row of 3 cards with thumbnail images.
 ## Design System forum
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/48",
+        "url": "https://github.com/ONSdigital/design-system/discussions/48",
         "linkText": "Discuss 'Card' on GitHub"
     })
 }}

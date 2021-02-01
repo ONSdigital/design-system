@@ -10,20 +10,20 @@ export const classNotEditable = 'js-address-not-editable';
 export const classMandatory = 'js-address-mandatory';
 export const classSearch = 'js-address-input__search';
 export const classInput = 'js-autosuggest-input';
-export const classInputUPRN = 'js-hidden-uprn';
 
 export default class AutosuggestAddress {
   constructor(context) {
     this.context = context;
     this.input = context.querySelector(`.${classInput}`);
     this.search = context.querySelector(`.${classSearch}`);
-    this.InputUPRN = context.querySelector(`.${classInputUPRN}`);
     this.lang = document.documentElement.getAttribute('lang').toLowerCase();
     this.addressReplaceChars = [','];
     this.sanitisedQuerySplitNumsChars = true;
     this.form = context.closest('form');
     this.container = context.querySelector(`.${classInputContainer}`);
     this.errorMessage = this.container.getAttribute('data-error-message');
+    this.groupCount = this.container.getAttribute('data-group-count');
+    this.authorizationToken = this.container.getAttribute('data-authorization-token');
 
     // State
     this.fetch = null;
@@ -68,13 +68,6 @@ export default class AutosuggestAddress {
     this.epoch = this.container.getAttribute('data-options-one-year-ago');
     this.classificationFilter = this.container.getAttribute('data-options-address-type');
 
-    this.user = 'equser';
-    this.password = '$4c@ec1zLBu';
-    this.auth = btoa(this.user + ':' + this.password);
-    this.headers = new Headers({
-      Authorization: 'Basic ' + this.auth,
-    });
-
     // Check API status
     this.checkAPIStatus();
   }
@@ -82,7 +75,7 @@ export default class AutosuggestAddress {
   checkAPIStatus() {
     this.fetch = abortableFetch(this.lookupURL + 'CF142&limit=10', {
       method: 'GET',
-      headers: this.headers,
+      headers: this.setAuthorization(this.authorizationToken),
     });
     this.fetch
       .send()
@@ -128,13 +121,13 @@ export default class AutosuggestAddress {
       queryURL = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
 
       fullQueryURL = this.generateURLParams(queryURL);
-      // if (testInput && grouped !== false) {
-      //   fullQueryURL = fullQueryURL + '&groupfullpostcodes=true';
-      // }
+      if (testInput && grouped !== false) {
+        fullQueryURL = fullQueryURL + '&groupfullpostcodes=combo';
+      }
 
       this.fetch = abortableFetch(fullQueryURL, {
         method: 'GET',
-        headers: this.headers,
+        headers: this.setAuthorization(this.authorizationToken),
       });
       this.fetch
         .send()
@@ -154,7 +147,7 @@ export default class AutosuggestAddress {
     let mappedResults, currentResults;
     const total = results.total;
 
-    if (results.partpostcode) {
+    if (results.partpostcode || (results.groupfullpostcodes === 'combo' && results.postcodes && results.postcodes.length > 1)) {
       mappedResults = await this.postcodeGroupsMapping(results);
       currentResults = mappedResults;
     } else if (results.addresses) {
@@ -176,17 +169,26 @@ export default class AutosuggestAddress {
     const addresses = results.addresses;
     if (addresses[0]) {
       if (addresses[0] && addresses[0].bestMatchAddress) {
-        updatedResults = addresses.map(({ uprn, bestMatchAddress }) => ({ uprn: uprn, address: bestMatchAddress }));
+        updatedResults = addresses.map(({ uprn, bestMatchAddress, bestMatchAddressType }) => ({
+          uprn: uprn,
+          address: bestMatchAddress,
+          type: bestMatchAddressType,
+        }));
       } else if (addresses[0] && addresses[0].formattedAddress) {
-        updatedResults = addresses.map(({ uprn, formattedAddress }) => ({ uprn: uprn, address: formattedAddress }));
+        updatedResults = addresses.map(({ uprn, formattedAddress, addressType }) => ({
+          uprn: uprn,
+          address: formattedAddress,
+          type: addressType,
+        }));
       }
 
-      results = updatedResults.map(({ uprn, address }) => {
+      results = updatedResults.map(({ uprn, address, type }) => {
         const sanitisedText = sanitiseAutosuggestText(address, this.addressReplaceChars);
         return {
           [this.lang]: address,
           sanitisedText,
           uprn,
+          type,
         };
       });
       return {
@@ -207,8 +209,8 @@ export default class AutosuggestAddress {
           ', ' +
           postcode +
           ' (<span class="autosuggest-input__group">' +
-          addressCount +
-          ' addresses</span>)',
+          this.groupCount.replace(`{n}`, addressCount) +
+          '</span>)',
         postcode,
         streetName,
         townName,
@@ -252,15 +254,15 @@ export default class AutosuggestAddress {
     }
   }
 
-  retrieveAddress(id) {
+  retrieveAddress(id, type = null) {
     return new Promise((resolve, reject) => {
       let retrieveUrl = this.retrieveURL + id;
 
-      const fullUPRNURL = this.generateURLParams(retrieveUrl, id);
+      const fullUPRNURL = this.generateURLParams(retrieveUrl, id, type);
 
       this.fetch = abortableFetch(fullUPRNURL, {
         method: 'GET',
-        headers: this.headers,
+        headers: this.setAuthorization(this.authorizationToken),
       });
 
       this.fetch
@@ -276,12 +278,15 @@ export default class AutosuggestAddress {
   onAddressSelect(selectedResult) {
     return new Promise((resolve, reject) => {
       if (selectedResult.uprn) {
-        this.retrieveAddress(selectedResult.uprn)
+        this.retrieveAddress(selectedResult.uprn, selectedResult.type)
           .then(data => {
             if (this.isEditable) {
-              this.addressSetter.setAddress(this.createAddressLines(data, resolve));
-              this.addressSelected = true;
-              this.InputUPRN.value = selectedResult.uprn;
+              if (data.status.code >= 403) {
+                this.autosuggest.handleNoResults(403);
+              } else {
+                this.addressSetter.setAddress(this.createAddressLines(data, resolve));
+                this.addressSelected = true;
+              }
             } else {
               this.autosuggest.input.value = selectedResult.displayText;
             }
@@ -320,28 +325,28 @@ export default class AutosuggestAddress {
       addressLine3: values.addressLine3,
       townName: values.townName,
       postcode: values.postcode,
+      uprn: values.uprn,
     };
     resolve();
 
     return addressLines;
   }
 
-  generateURLParams(baseURL, uprn) {
+  generateURLParams(baseURL, uprn, type) {
     let fullURL = baseURL,
       addressType;
 
     const classificationFilterParam = '&classificationfilter=',
-      ewboostParam = '&fromsource=ewboost',
-      niboostParam = '&fromsource=niboost',
-      nionlyParam = '&fromsource=nionly',
+      eboostParam = '&eboost=10',
+      wboostParam = '&wboost=10',
+      nionlyParam = '&eboost=0&sboost=0&wboost=0',
+      niboostParam = '&niboost=10',
       favourwelshParam = '&favourwelsh=true',
       addresstypeParam = '?addresstype=',
       epochParam = '&epoch=72';
 
-    if (this.regionCode === 'gb-nir') {
-      addressType = 'nisra';
-    } else if (this.lang === 'cy') {
-      addressType = 'welshpaf';
+    if (type) {
+      addressType = type.toLowerCase();
     } else {
       addressType = 'paf';
     }
@@ -351,15 +356,19 @@ export default class AutosuggestAddress {
         fullURL = fullURL + classificationFilterParam + this.classificationFilter;
       }
 
-      if ((this.regionCode === 'gb-eng' || this.regionCode === 'gb-wls') && this.classificationFilter === 'workplace') {
-        fullURL = fullURL + ewboostParam;
+      if (this.classificationFilter === 'workplace') {
+        if (this.regionCode === 'gb-eng') {
+          fullURL = fullURL + eboostParam;
+        } else if (this.regionCode === 'gb-wls') {
+          fullURL = fullURL + wboostParam;
+        }
       }
 
       if (this.regionCode === 'gb-nir') {
-        if (this.classificationFilter === 'workplace') {
-          fullURL = fullURL + niboostParam;
-        } else if (this.classificationFilter === 'educational') {
+        if (this.classificationFilter === 'educational') {
           fullURL = fullURL + nionlyParam;
+        } else {
+          fullURL = fullURL + niboostParam;
         }
       }
 
@@ -384,6 +393,7 @@ export default class AutosuggestAddress {
   }
 
   handleSubmit(event) {
+    this.addressSetter.checkManualInputsValues(false);
     if (
       (!this.addressSelected && this.input.value !== '' && !this.search.classList.contains('u-d-no')) ||
       (this.isMandatory === true && !this.search.classList.contains('u-d-no'))
@@ -393,5 +403,19 @@ export default class AutosuggestAddress {
       this.handleError.showErrorPanel();
       this.autosuggest.setAriaStatus(this.errorMessage);
     }
+  }
+
+  setAuthorization(token) {
+    if (token) {
+      this.authorization = `Bearer ${token}`;
+    } else {
+      this.user = 'equser';
+      this.password = '$4c@ec1zLBu';
+      this.credentials = btoa(`${this.user}:${this.password}`);
+      this.authorization = `Basic ${this.credentials}`;
+    }
+    return new Headers({
+      Authorization: this.authorization,
+    });
   }
 }

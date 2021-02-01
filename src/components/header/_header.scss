@@ -8,9 +8,13 @@
 
   & &__svg-logo {
     display: block;
-    fill: $color-white;
-    height: auto;
     width: 100%;
+    height: auto;
+    fill: $color-white;
+
+    @include mq(xs, s) {
+      max-width: 145px;
+    }
   }
 
   // Elements
@@ -31,7 +35,7 @@
     height: 76px;
   }
 
-  &__logo-link {
+  &__logo {
     &:focus {
       outline: 3px solid transparent;
       background-color: $color-focus;
@@ -40,8 +44,10 @@
     }
   }
 
-  &__logo {
-    display: block;
+  @include mq(s) {
+    &__logo {
+      margin-bottom: 2px;
+    }
   }
 
   &__main {
@@ -65,8 +71,10 @@
 
     margin: 0;
     color: $color-white;
+    line-height: 1.85 !important;
 
     &-link {
+      display: block;
       &:focus {
         outline: 4px solid $color-focus;
       }

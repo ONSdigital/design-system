@@ -30,7 +30,6 @@ const params = {
     instructions:
       'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
     ariaYouHaveSelected: 'You have selected',
-    ariaFoundByAlternativeName: 'found by alternative name',
     ariaMinChars: 'Enter 3 or more characters for suggestions.',
     ariaOneResult: 'There is one suggestion available.',
     ariaNResults: 'There are {n} suggestions available.',
@@ -108,7 +107,7 @@ describe('Autosuggest.ui component', function() {
       expect(this.input.getAttribute('aria-autocomplete')).to.equal('list');
       expect(this.input.getAttribute('aria-controls')).to.equal(this.listbox.getAttribute('id'));
       expect(this.input.getAttribute('aria-describedby')).to.equal(this.instructions.getAttribute('id'));
-      expect(this.input.getAttribute('aria-has-popup')).to.equal('true');
+      expect(this.input.getAttribute('aria-haspopup')).to.equal('true');
       expect(this.input.getAttribute('aria-owns')).to.equal(this.listbox.getAttribute('id'));
       expect(this.input.getAttribute('aria-expanded')).to.equal('false');
       expect(this.input.getAttribute('role')).to.equal('combobox');
@@ -126,7 +125,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user presses the Up Arrow key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'ArrowUp' });
+        this.mockedEvent = eventMock({ keyCode: 38 });
         this.spy = chai.spy.on(this.autosuggest, 'navigateResults');
         this.autosuggest.handleKeydown(this.mockedEvent);
       });
@@ -142,7 +141,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user presses the Down Arrow key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'ArrowDown' });
+        this.mockedEvent = eventMock({ keyCode: 40 });
         this.spy = chai.spy.on(this.autosuggest, 'navigateResults');
         this.autosuggest.handleKeydown(this.mockedEvent);
       });
@@ -158,7 +157,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user presses the Enter key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'Enter' });
+        this.mockedEvent = eventMock({ keyCode: 13 });
         this.autosuggest.handleKeydown(this.mockedEvent);
       });
 
@@ -180,7 +179,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user releases the Up Arrow key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'ArrowUp' });
+        this.mockedEvent = eventMock({ keyCode: 38 });
         this.autosuggest.handleKeyup(this.mockedEvent);
       });
 
@@ -191,7 +190,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user releases the Down Arrow key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'ArrowDown' });
+        this.mockedEvent = eventMock({ keyCode: 40 });
         this.autosuggest.handleKeyup(this.mockedEvent);
       });
 
@@ -202,7 +201,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and the user presses the Enter key', function() {
       beforeEach(function() {
-        this.mockedEvent = eventMock({ key: 'Enter' });
+        this.mockedEvent = eventMock({ keyCode: 13 });
         this.spy = chai.spy.on(this.autosuggest, 'selectResult');
         this.autosuggest.handleKeyup(this.mockedEvent);
       });
@@ -412,10 +411,6 @@ describe('Autosuggest.ui component', function() {
         it('then the results should be unset', function() {
           expect(this.unsetResultsSpy).to.have.been.called();
         });
-
-        it('then the aria status should be set', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called();
-        });
       });
 
       describe('if fetch suggestion returns results', function() {
@@ -532,7 +527,7 @@ describe('Autosuggest.ui component', function() {
       describe('and the fetch successfully returns', function() {
         beforeEach(function() {
           this.result = {
-            results: [{ en: 'yes', alternatives: [], sanitisedAlternatives: [] }],
+            results: [{ en: 'yes' }],
             totalResults: 1,
           };
 
@@ -547,7 +542,7 @@ describe('Autosuggest.ui component', function() {
       describe('and the fetch successfully returns welsh results found from english names', function() {
         beforeEach(function() {
           this.result = {
-            results: [{ en: 'Yes', cy: 'ie', alternatives: ['Yes'], sanitisedAlternatives: ['yes'] }],
+            results: [{ en: 'Yes', cy: 'ie' }],
             totalResults: 1,
           };
 
@@ -850,7 +845,7 @@ describe('Autosuggest.ui component', function() {
           });
 
           it('then the no results message should be set', function() {
-            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(`${params.autosuggest.ariaNoResults}: "${this.autosuggest.query}"`);
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(`${params.autosuggest.noResults}: "${this.autosuggest.query}"`);
           });
         });
 
@@ -932,7 +927,7 @@ describe('Autosuggest.ui component', function() {
       describe('if there are results', function() {
         beforeEach(function() {
           this.autosuggest.sanitisedQuery = 'ye';
-          this.autosuggest.results = [{ en: 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
+          this.autosuggest.results = [{ en: 'Yes', sanitisedText: 'yes' }];
           this.autosuggest.selectResult(0);
         });
 
@@ -950,18 +945,6 @@ describe('Autosuggest.ui component', function() {
 
         it('then setAriaStatus should be called', function() {
           expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggest.ariaYouHaveSelected}: Yes.`);
-        });
-      });
-
-      describe('if there are results from an alternative', function() {
-        beforeEach(function() {
-          this.autosuggest.sanitisedQuery = 'ie';
-          this.autosuggest.results = [{ en: 'Yes', sanitisedText: 'yes', sanitisedAlternatives: ['ie'], alternatives: ['Ie'] }];
-          this.autosuggest.selectResult(0);
-        });
-
-        it('then setAriaStatus should be called stating the result was found from the alternative', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggest.ariaYouHaveSelected}: Ie.`);
         });
       });
     });
@@ -1061,12 +1044,6 @@ describe('Autosuggest.ui component', function() {
                   en: 'Yes 2',
                   sanitisedText: 'yes 2',
                 },
-                {
-                  en: 'Ie',
-                  sanitisedText: 'Ie',
-                  sanitisedAlternatives: ['yes'],
-                  alternatives: ['Yes'],
-                },
               ],
             });
           });
@@ -1074,8 +1051,7 @@ describe('Autosuggest.ui component', function() {
           it('then resultOptions should be generated', function() {
             const option1 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
             const option2 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--1" role="option" aria-label="Yes 2"><strong>Yes</strong> 2</li>`;
-            const option3 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--2" role="option" aria-label="Ie, (Yes)">Ie <small>(<strong>Yes</strong>)</small></li>`;
-            const html = option1 + option2 + option3;
+            const html = option1 + option2;
 
             expect(this.autosuggest.listbox.innerHTML).to.equal(html);
           });
@@ -1156,6 +1132,37 @@ describe('Autosuggest.ui component', function() {
           this.setAriaStatusSpy = chai.spy.on(this.autosuggest, 'setAriaStatus');
           this.createWarningSpy = chai.spy.on(this.autosuggest, 'createWarningElement');
           this.autosuggest.handleNoResults(401);
+        });
+
+        it('then the listbox innerHTML should show the API error message', function() {
+          expect(this.autosuggest.listbox.textContent).to.equal('!' + params.autosuggest.errorMessageAPI);
+          expect(this.createWarningSpy).to.have.been.called();
+          expect(this.handleNoResultsSpy).to.have.been.called();
+        });
+
+        it('the input should be disabled', function() {
+          expect(this.input.hasAttribute('disabled')).to.be.true;
+        });
+
+        it('the input value should be empty', function() {
+          expect(this.input.value).to.equal('');
+        });
+
+        it('the label class should be added', function() {
+          expect(this.label.classList.contains('u-lighter')).to.be.true;
+        });
+
+        it('then the aria status should be set', function() {
+          expect(this.setAriaStatusSpy).to.have.been.called();
+        });
+      });
+
+      describe('when there is no status code', function() {
+        beforeEach(function() {
+          this.handleNoResultsSpy = chai.spy.on(this.autosuggest, 'handleNoResults');
+          this.setAriaStatusSpy = chai.spy.on(this.autosuggest, 'setAriaStatus');
+          this.createWarningSpy = chai.spy.on(this.autosuggest, 'createWarningElement');
+          this.autosuggest.handleNoResults('');
         });
 
         it('then the listbox innerHTML should show the API error message', function() {
@@ -1302,6 +1309,103 @@ describe('Autosuggest.ui component', function() {
 
       it('then the custom suggeston function should be called', function() {
         expect(this.customSuggestionFunctionSpy).to.have.been.called();
+      });
+    });
+  });
+
+  describe('When the component initialises with the allowMultiple parameter', function() {
+    const paramsOptions = {
+      id: 'country-of-birth',
+      label: {
+        text: 'Enter the current name of the country',
+        classes: 'js-autosuggest-label',
+      },
+      autocomplete: 'off',
+      autosuggest: {
+        allowMultiple: 'true',
+        instructions:
+          'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
+        ariaYouHaveSelected: 'You have selected',
+        ariaMinChars: 'Enter 3 or more characters for suggestions.',
+        ariaOneResult: 'There is one suggestion available.',
+        ariaNResults: 'There are {n} suggestions available.',
+        ariaLimitedResults: 'Results have been limited to 10 suggestions. Enter more characters to improve your search.',
+        moreResults: 'Continue entering to improve suggestions',
+        resultsTitle: 'Suggestions',
+        noResults: 'No results found',
+        autosuggestData:
+          'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/4dede1d6e757cf0bb836228600676c62ceb4f86c/country-of-birth.json',
+        typeMore: 'Enter more of the address to get results',
+        tooManyResults: '{n} results found. Enter more of the address to improve results.',
+        errorTitle: 'There is a problem with your answer',
+        errorMessage: 'Enter an address ',
+        errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
+      },
+    };
+
+    beforeEach(function(done) {
+      const component = renderComponent(paramsOptions);
+
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+
+      this.autosuggest = new AutosuggestUI({
+        context: this.context,
+        onSelect: async () => {},
+        onUnsetResult: async () => {},
+      });
+      done();
+    });
+
+    afterEach(function() {
+      if (this.wrapper) {
+        this.wrapper.remove();
+      }
+    });
+
+    describe('when a result is selected', function() {
+      beforeEach(function(done) {
+        this.autosuggest.sanitisedQuery = 'ye';
+        this.autosuggest.results = [{ en: 'Yes', sanitisedText: 'yes' }];
+        this.autosuggest.selectResult(0);
+        this.input.value = 'Yes';
+        this.autosuggest.handleFocus();
+        setTimeout(done);
+      });
+
+      it('the allSelections array should be updated with the selection', function() {
+        expect(this.autosuggest.allSelections).to.contain('Yes');
+      });
+
+      it('the input value should contain a comma when focused', function() {
+        expect(this.input.value).to.equal('Yes, ');
+      });
+    });
+
+    describe('when the user blurs the input', function() {
+      beforeEach(function(done) {
+        this.autosuggest.allSelections = ['Yes'];
+        this.input.value = 'Yes, ';
+        this.autosuggest.handleBlur();
+        setTimeout(done);
+      });
+
+      it('the input value should not contain a comma', function() {
+        expect(this.input.value).to.equal('Yes');
+      });
+    });
+
+    describe('when the input contains selected results and a new query', function() {
+      beforeEach(function(done) {
+        this.autosuggest.allSelections = ['Yes', 'Hello'];
+        this.input.value = 'Yes, Hello, Something';
+        this.autosuggest.getSuggestions();
+        setTimeout(done);
+      });
+
+      it('the query should only contain the new query', function() {
+        expect(this.autosuggest.query).to.equal('Something');
       });
     });
   });

@@ -5,20 +5,34 @@ title: Images
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-{{
-    onsPanel({
-        "body": "This pattern requires documentation."
-    })
-}}
+Adds an image to the page with an optional caption.
+
+## Improved approach for retina screens
+
+Uses two versions of the image, one for standard screens and the other for retina screens.
+
+We specify a folder path for both small and large images which is defined in the macro as `smallSrc` and `largeSrc`. The filename is expected to be the same for both.
+
+If the image is decorative and does not convey important information, do not add an alt tag. This will then be hidden from screen reader users.
 
 {{
-    patternlibExample({"path": "components/images/examples/image/index.njk"})
+    patternlibExample({"path": 'components/images/examples/new/index.njk'})
+}}
+
+## Old approach
+
+Specifies a single image that would appear blurry on retina displays.
+
+This continues to use the original macro property `url` for the image path.
+
+{{
+    patternlibExample({"path": 'components/images/examples/old/index.njk'})
 }}
 
 ## Design System forum
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/713",
-        "linkText": "Discuss 'Images' on GitHub"
+        "url": 'https://github.com/ONSdigital/design-system/discussions/713',
+        "linkText": "Discuss ‘Images’ on GitHub"
     })
 }}

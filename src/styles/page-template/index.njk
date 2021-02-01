@@ -41,6 +41,14 @@ The example below shows a themed census version of the ONS page template.
     patternlibExample({ "path": "styles/page-template/examples/census/index.njk" })
 }}
 
+## Census page template (right-to-left)
+
+The example below shows a themed census version of the ONS page template which sets the direction property from right-to-left.
+
+{{
+    patternlibExample({ "path": "styles/page-template/examples/rtl/index.njk" })
+}}
+
 ## Nunjucks / Jinja
 
 ### Configuring Nunjucks or Jinja
@@ -126,7 +134,7 @@ Variables can be set with:
 | assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc. e.g. `http://localhost:3030`                   |
 | theme         | string                                              | false                             | The name of the css file e.g. "census" if using a theme. Defaults to "main".                 |
 | title         | string                                              | true                              | The contents for the `<title>` element                                                       |
-| cspNonce      | string                                              | false                             | The Content Security Policy (CSP) nonce value                                                      |
+| cspNonce      | string                                              | false                             | The Content Security Policy (CSP) nonce value                                                |
 | headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                             | Configuration for `<meta>` information in the document `<head>`                              |
 | breadcrumbs   | `Breadcrumbs` [_(ref)_](/components/breadcrumb)     | false                             | Configuration for the breadcrumbs or back link                                               |
 | bodyClasses   | string                                              | false                             | Classes to add to the `<body>` element                                                       |
@@ -138,7 +146,7 @@ Variables can be set with:
 | phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                             | Settings for the Phase banner                                                                |
 | serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                             | An array to render the service links list                                                    |
 | footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                              | Configuration for the page footer                                                            |
-| feedback      | `Feedback` [_(ref)_](/patterns/feedback)            | false                             | Configuration for the feedback component                                                     |
+| pageColNumber | string                                              | false                             | sets the number of grid columns for the page (defaults to 8)                                 |
 {% endmd %}
 
 ###### PageHeader
@@ -161,18 +169,24 @@ Variables can be set with:
 | Variable Name | Type   | Required                             | Description                                                                                                      |
 | ------------- | ------ | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | description   | string | true                                 | Description of the current page for search engines.                                                              |
-| canonicalUrl  | string | false                                | URL for the preferred page for search engines to avoid duplicate content penalties. Defaults to current page url |                                                           |
+| canonicalUrl  | string | false                                | URL for the preferred page for search engines to avoid duplicate content penalties. Defaults to current page url |
 {% endmd %}
 
 ###### PageFooter
 
 {% md %}
-| Variable Name | Type                                                        | Required | Description                                                        |
-| ------------- | ----------------------------------------------------------- | -------- | ------------------------------------------------------------------ |
-| OGLLink       | `OGLLink` [_(ref)_](/components/footer)                     | true     | An object containing settings for the OGL link                     |
-| cols          | `FooterCol` [_(ref)_](/components/footer)                   | false    | An array of `FooterCol` objects. _Maximum of 3_                    |
-| rows          | `FooterRow` [_(ref)_](/components/footer)                   | false    | An array of `FooterRow` objects                                    |
-| poweredByONS  | boolean &#124; `PoweredByONS` [_(ref)_](/components/footer) | false    | Whether to show the ONS logo, and optionally settings for the logo |
+| Variable Name        | Type                                                     | Required | Description                                                                                          |
+| -------------------- | -------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| OGLLink              | `OGLLink` [_(ref)_](/components/footer)                  | false    | An object containing settings for the OGL link                                                       |
+| footerWarning        | `footerWarning` [_(ref)_](/components/footer)            | false    | An object containing settings for the Footer Warning                                                 |
+| copyrightDeclaration | `copyrightDeclaration` [_(ref)_](/components/footer)     | false    | An object containing settings for the Copyright Declaration                                          |
+| cols                 | `Array<FooterCol>` [_(ref)_](/components/footer)         | false    | An array of `FooterCol` objects. _Maximum of 3_                                                      |
+| rows                 | `Array<FooterRow>` [_(ref)_](/components/footer)         | false    | An array of `FooterRow` objects                                                                      |
+| poweredBy            | boolean &#124; `PoweredBy` [_(ref)_](/components/footer) | false    | Whether to show the ONS logo, and optionally settings for the logo                                   |
+| lang                 | string                                                   | false    | The current page language. Will change out the ONS logo if `poweredBy` is provided. Defaults to `en` |
+| button               | `Button` [_(ref)_](/components/button)                   | false    | Settings for save and sign out using the button component                                            |
+| newTabWarning        | string                                                   | false    | Text for warning of links opening in new tabs                                                        |
+| crest                | boolean                                                  | false    | If set to true will add the UK coat of arms to the footer                                            |
 {% endmd %}
 
 #### Blocks
@@ -232,7 +246,7 @@ To change the components that are included by default, set their equivalent bloc
 ## Design System forum
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/195",
+        "url": "https://github.com/ONSdigital/design-system/discussions/195",
         "linkText": "Design System forum"
     })
 }}

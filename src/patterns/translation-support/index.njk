@@ -1,0 +1,40 @@
+---
+title: Translation support
+group: Help users to...
+experimental: true
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+
+Allow users to access support in various languages.
+
+{{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
+
+{{
+    patternlibExample({ "path": "patterns/translation-support/examples/default/index.njk" })
+}}
+
+## Research on this pattern
+{% call onsPanel() %}
+    If you have conducted any user research using this pattern, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/discussions/1249",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/1249",
+        "linkText": "Discuss 'Translation support' on GitHub"
+    })
+}}

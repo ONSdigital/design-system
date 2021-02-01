@@ -1,6 +1,3 @@
-import dice from 'dice-coefficient';
-import { sortBy } from 'sort-by-typescript';
-
 import queryJson from './code.list.searcher';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
 import fetch from 'js/abortable-fetch';
@@ -33,6 +30,7 @@ export default class AutosuggestUI {
     ariaOneResult,
     ariaNResults,
     ariaLimitedResults,
+    ariaGroupedResults,
     moreResults,
     resultsTitle,
     noResults,
@@ -49,7 +47,7 @@ export default class AutosuggestUI {
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
     this.form = context.closest('form');
-    this.label = document.querySelector(`.${baseClass}-label`);
+    this.label = document.querySelector('.label');
 
     // Settings
     this.autosuggestData = autosuggestData || context.getAttribute('data-autosuggest-data');
@@ -58,6 +56,7 @@ export default class AutosuggestUI {
     this.ariaOneResult = ariaOneResult || context.getAttribute('data-aria-one-result');
     this.ariaNResults = ariaNResults || context.getAttribute('data-aria-n-results');
     this.ariaLimitedResults = ariaLimitedResults || context.getAttribute('data-aria-limited-results');
+    this.ariaGroupedResults = ariaGroupedResults || context.getAttribute('data-aria-grouped-results');
     this.moreResults = moreResults || context.getAttribute('data-more-results');
     this.resultsTitle = resultsTitle || context.getAttribute('data-results-title');
     this.noResults = noResults || context.getAttribute('data-no-results');
@@ -65,6 +64,7 @@ export default class AutosuggestUI {
     this.errorAPI = errorAPI || context.getAttribute('data-error-api');
     this.errorAPILinkText = errorAPILinkText || context.getAttribute('data-error-api-link-text');
     this.typeMore = typeMore || context.getAttribute('data-type-more');
+    this.allowMultiple = context.getAttribute('data-allow-multiple') || false;
     this.listboxId = this.listbox.getAttribute('id');
     this.minChars = minChars || 3;
     this.resultLimit = resultLimit || 10;
@@ -90,6 +90,7 @@ export default class AutosuggestUI {
     this.previousQuery = '';
     this.results = [];
     this.resultOptions = [];
+    this.allSelections = [];
     this.data = [];
     this.foundResults = 0;
     this.numberOfResults = 0;
@@ -108,7 +109,7 @@ export default class AutosuggestUI {
     this.input.setAttribute('aria-autocomplete', 'list');
     this.input.setAttribute('aria-controls', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-describedby', this.instructions.getAttribute('id'));
-    this.input.setAttribute('aria-has-popup', true);
+    this.input.setAttribute('aria-haspopup', true);
     this.input.setAttribute('aria-owns', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-expanded', false);
     this.input.setAttribute('autocomplete', this.input.getAttribute('autocomplete') || 'zz');
@@ -134,7 +135,7 @@ export default class AutosuggestUI {
     this.input.addEventListener('keydown', this.handleKeydown.bind(this));
     this.input.addEventListener('keyup', this.handleKeyup.bind(this));
     this.input.addEventListener('input', this.handleChange.bind(this));
-    // this.input.addEventListener('focus', this.handleFocus.bind(this));
+    this.input.addEventListener('focus', this.handleFocus.bind(this));
     this.input.addEventListener('blur', this.handleBlur.bind(this));
 
     this.listbox.addEventListener('mouseover', this.handleMouseover.bind(this));
@@ -144,18 +145,18 @@ export default class AutosuggestUI {
   handleKeydown(event) {
     this.ctrlKey = (event.ctrlKey || event.metaKey) && event.key !== 'v';
 
-    switch (event.key) {
-      case 'ArrowUp': {
+    switch (event.keyCode) {
+      case 38: {
         event.preventDefault();
         this.navigateResults(-1);
         break;
       }
-      case 'ArrowDown': {
+      case 40: {
         event.preventDefault();
         this.navigateResults(1);
         break;
       }
-      case 'Enter': {
+      case 13: {
         if (this.highlightedResultIndex !== null) {
           event.preventDefault();
         }
@@ -165,13 +166,13 @@ export default class AutosuggestUI {
   }
 
   handleKeyup(event) {
-    switch (event.key) {
-      case 'ArrowUp':
-      case 'ArrowDown': {
+    switch (event.keyCode) {
+      case 40:
+      case 38: {
         event.preventDefault();
         break;
       }
-      case 'Enter': {
+      case 13: {
         if (this.highlightedResultIndex !== null) {
           this.selectResult();
         }
@@ -196,10 +197,11 @@ export default class AutosuggestUI {
     }
   }
 
-  // handleFocus() {
-  //   clearTimeout(this.blurTimeout);
-  //   this.getSuggestions(true);
-  // }
+  handleFocus() {
+    if (this.allowMultiple === 'true' && this.allSelections.length && this.input.value.slice(-1) !== ' ') {
+      this.input.value = `${this.input.value}, `;
+    }
+  }
 
   handleBlur() {
     clearTimeout(this.blurTimeout);
@@ -208,6 +210,10 @@ export default class AutosuggestUI {
     this.blurTimeout = setTimeout(() => {
       this.blurring = false;
     }, 300);
+
+    if (this.allowMultiple === 'true' && this.input.value.slice(-2) === ', ') {
+      this.input.value = this.input.value.slice(0, -2);
+    }
   }
 
   checkCharCount() {
@@ -238,7 +244,6 @@ export default class AutosuggestUI {
 
   navigateResults(direction) {
     let index = 0;
-
     if (this.highlightedResultIndex !== null) {
       index = this.highlightedResultIndex + direction;
     }
@@ -254,20 +259,25 @@ export default class AutosuggestUI {
 
   getSuggestions(force, alternative) {
     if (!this.settingResult) {
-      const query = this.input.value;
-      const sanitisedQuery = sanitiseAutosuggestText(query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
+      if (this.allowMultiple === 'true' && this.allSelections.length) {
+        const newQuery = this.input.value.split(', ').find(item => !this.allSelections.includes(item));
+        this.query = newQuery ? newQuery : this.input.value;
+      } else {
+        this.query = this.input.value;
+      }
+
+      const sanitisedQuery = sanitiseAutosuggestText(this.query, this.sanitisedQueryReplaceChars, this.sanitisedQuerySplitNumsChars);
 
       if (sanitisedQuery !== this.sanitisedQuery || (force && !this.resultSelected)) {
-        this.unsetResults();
-        this.setAriaStatus();
-        this.checkCharCount();
-        this.query = query;
         this.sanitisedQuery = sanitisedQuery;
+        this.unsetResults();
+        this.checkCharCount();
         if (this.sanitisedQuery.length >= this.minChars) {
           this.fetchSuggestions(this.sanitisedQuery, this.data, alternative)
             .then(this.handleResults.bind(this))
             .catch(error => {
               if (error.name !== 'AbortError') {
+                console.log('error:', error);
                 this.handleNoResults(500);
               }
             });
@@ -283,8 +293,6 @@ export default class AutosuggestUI {
     const results = await queryJson(sanitisedQuery, data, this.lang, this.resultLimit);
     results.forEach(result => {
       result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
-      result.alternatives = [];
-      result.sanitisedAlternatives = [];
     });
     return {
       results,
@@ -328,23 +336,14 @@ export default class AutosuggestUI {
 
     this.results = result.results;
     this.numberOfResults = this.results ? Math.max(this.results.length, 0) : 0;
+    this.setAriaStatus();
     if (!this.deleting || (this.numberOfResults && this.deleting)) {
       this.listbox.innerHTML = '';
       if (this.results) {
         this.resultOptions = this.results.map((result, index) => {
           let ariaLabel = result[this.lang];
-          let innerHTML = this.emboldenMatch(ariaLabel, this.query);
-          if (Array.isArray(result.sanitisedAlternatives)) {
-            const alternativeMatch = result.sanitisedAlternatives.find(
-              alternative => alternative !== result.sanitisedText && alternative.includes(this.sanitisedQuery),
-            );
-
-            if (alternativeMatch) {
-              const alternativeText = result.alternatives[result.sanitisedAlternatives.indexOf(alternativeMatch)];
-              innerHTML += ` <small>(${this.emboldenMatch(alternativeText, this.query)})</small>`;
-              ariaLabel += `, (${alternativeText})`;
-            }
-          }
+          ariaLabel = ariaLabel.split('(<span class="autosuggest-input__group">')[0];
+          let innerHTML = this.emboldenMatch(result[this.lang], this.query);
 
           const listElement = document.createElement('li');
           listElement.className = classAutosuggestOption;
@@ -382,11 +381,6 @@ export default class AutosuggestUI {
 
       this.input.setAttribute('aria-expanded', !!this.numberOfResults);
       this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classAutosuggestHasResults);
-
-      this.setHighlightedResult(null);
-
-      this.input.setAttribute('aria-expanded', !!this.numberOfResults);
-      this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classAutosuggestHasResults);
     }
 
     if (this.numberOfResults === 0 && this.noResults) {
@@ -404,7 +398,7 @@ export default class AutosuggestUI {
       message = this.typeMore;
       this.setAriaStatus(message);
       this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
-    } else if (status > 400) {
+    } else if (status > 400 || status === '') {
       message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>' : '');
 
       this.input.setAttribute('disabled', true);
@@ -431,13 +425,20 @@ export default class AutosuggestUI {
           option.classList.add(classAutosuggestOptionFocused);
           option.setAttribute('aria-selected', true);
           this.input.setAttribute('aria-activedescendant', option.getAttribute('id'));
+          const groupedResult = option.querySelector('.autosuggest-input__group');
+          const ariaLabel = option.getAttribute('aria-label');
+          if (groupedResult) {
+            let groupedAriaMsg = this.ariaGroupedResults.replace('{n}', groupedResult.innerHTML);
+            groupedAriaMsg = groupedAriaMsg.replace('{x}', ariaLabel);
+            this.setAriaStatus(groupedAriaMsg);
+          } else {
+            this.setAriaStatus(ariaLabel);
+          }
         } else {
           option.classList.remove(classAutosuggestOptionFocused);
           option.removeAttribute('aria-selected');
         }
       });
-
-      this.setAriaStatus();
     }
   }
 
@@ -445,11 +446,10 @@ export default class AutosuggestUI {
     if (!content) {
       const queryTooShort = this.sanitisedQuery.length < this.minChars;
       const noResults = this.numberOfResults === 0;
-
       if (queryTooShort) {
         content = this.ariaMinChars;
       } else if (noResults) {
-        content = `${this.ariaNoResults}: "${this.query}"`;
+        content = `${this.noResults}: "${this.query}"`;
       } else if (this.numberOfResults === 1) {
         content = this.ariaOneResult;
       } else {
@@ -466,25 +466,12 @@ export default class AutosuggestUI {
   selectResult(index) {
     if (this.results.length) {
       this.settingResult = true;
-
       const result = this.results[index || this.highlightedResultIndex || 0];
       this.resultSelected = true;
 
-      if (result.sanitisedText !== this.sanitisedQuery && result.sanitisedAlternatives && result.sanitisedAlternatives.length) {
-        const bestMatchingAlternative = result.sanitisedAlternatives
-          .map((alternative, index) => ({
-            score: dice(this.sanitisedQuery, alternative),
-            index,
-          }))
-          .sort(sortBy('score'))[0];
-
-        const scoredSanitised = dice(this.sanitisedQuery, result.sanitisedText);
-
-        if (bestMatchingAlternative.score >= scoredSanitised) {
-          result.displayText = result.alternatives[bestMatchingAlternative.index];
-        } else {
-          result.displayText = result[this.lang];
-        }
+      if (this.allowMultiple === 'true') {
+        let value = this.storeExistingSelections(result[this.lang]);
+        result.displayText = value;
       } else {
         result.displayText = result[this.lang];
       }
@@ -521,10 +508,25 @@ export default class AutosuggestUI {
     return warningListElement;
   }
 
+  storeExistingSelections(value) {
+    this.currentSelections = this.input.value.split(', ').filter(items => this.allSelections.includes(items));
+    this.allSelections = [];
+    if (this.currentSelections.length) {
+      this.allSelections = this.currentSelections;
+    }
+    this.allSelections.push(value);
+
+    this.allSelections = this.allSelections.filter(function(value, index, array) {
+      return array.indexOf(value) == index;
+    });
+
+    return this.allSelections.join(', ');
+  }
+
   emboldenMatch(string, query) {
     let reg = new RegExp(
       this.escapeRegExp(query)
-        .split('')
+        .split(' ')
         .join('[\\s,]*'),
       'gi',
     );

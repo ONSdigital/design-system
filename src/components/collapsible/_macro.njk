@@ -16,7 +16,7 @@
             {# Required to use display flex on Safari as it's not currently supported: https://bugs.webkit.org/show_bug.cgi?id=167111 #}
             <div class="collapsible__controls">
                 {% set titleTag = params.titleTag | default("div") %}
-                <{{titleTag}} class="collapsible__title u-fs-r--b">{{ params.title }}</{{titleTag}}>
+                <{{ titleTag }} class="collapsible__title">{{ params.title }}</{{ titleTag }}>
                 <span class="collapsible__icon">
                     {% from "components/icons/_macro.njk" import onsIcon %}
                     {{

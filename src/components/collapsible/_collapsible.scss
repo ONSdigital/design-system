@@ -30,7 +30,7 @@ $collapsible-caret-width: 1.5rem;
           fill: $color-links-hover;
         }
         & .collapsible__title {
-          text-decoration: none;
+          text-decoration: underline solid $color-links-hover 2px;
         }
       }
       &:focus {
@@ -51,8 +51,11 @@ $collapsible-caret-width: 1.5rem;
     }
 
     &__title {
+      text-underline-position: under;
       transform: translateY(-1px);
       margin-bottom: 0;
+      font-size: 1rem;
+      font-weight: $font-weight-bold;
       text-decoration: underline;
     }
 
@@ -109,6 +112,7 @@ $collapsible-caret-width: 1.5rem;
     }
 
     &__icon {
+      top: 0.8rem;
       @include mq(s) {
         top: 1.15rem;
       }

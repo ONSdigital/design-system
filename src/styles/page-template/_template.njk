@@ -11,6 +11,8 @@
     {% set otherLanguageISOCode = otherLanguage.ISOCode %}
 {% endif %}
 
+{% set pageColNumber = pageConfig.pageColNumber | default("8") %}
+
 {% if pageConfig.cdn is defined and pageConfig.cdn or release_version is defined and release_version %}
     {# Production #}
     {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn is defined and pageConfig.cdn) or "https://cdn.ons.gov.uk/sdc/design-system" %}
@@ -135,7 +137,7 @@
                             {% endif %}
                             {% block preMain %}{% endblock %}
                             <div class="grid">
-                                <div class="grid__col col-8@m">
+                                <div class="grid__col col-{{ pageColNumber }}@m">
                                     <main id="main-content" class="page__main {{ pageClasses }}">
                                         {% block main %}{% endblock %}
                                     </main>
@@ -148,22 +150,6 @@
                         </form>
                     {% endif %}
                 </div>
-                    {% if pageConfig.feedback is defined and pageConfig.feedback %}
-                        <div class="grid">
-                            <div class="grid__col col-8@m">
-                                {% from "components/feedback/_macro.njk" import onsFeedback %}
-                                {{
-                                    onsFeedback({
-                                        "id": pageConfig.feedback.id | default("feedback"),
-                                        "header": pageConfig.feedback.header,
-                                        "content": pageConfig.feedback.content,
-                                        "url": pageConfig.feedback.url,
-                                        "linkText": pageConfig.feedback.linkText
-                                    })
-                                }}
-                            </div>
-                        </div>
-                    {% endif %}
                 {% block preFooter %}{% endblock %}
                 {% block footer %}
                     {% if pageConfig.footer is defined and pageConfig.footer %}
@@ -180,7 +166,10 @@
                                 "crest": pageConfig.footer.crest,
                                 "OGLLink": pageConfig.footer.OGLLink,
                                 "button": pageConfig.signoutButton,
-                                "serviceLinks": pageConfig.serviceLinks
+                                "footerWarning": pageConfig.footer.footerWarning,
+                                "copyrightDeclaration": pageConfig.footer.copyrightDeclaration,
+                                "newTabWarning": pageConfig.footer.newTabWarning,
+                                "legal": pageConfig.footer.legal
                             })
                         }}
                     {% endif %}

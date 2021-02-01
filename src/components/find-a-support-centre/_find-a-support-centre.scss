@@ -1,0 +1,7 @@
+.distance {
+  @extend .u-fs-r;
+  @extend .u-p-xxs;
+  display: inline-block;
+  background-color: $color-tag-bg;
+  text-decoration: none;
+}

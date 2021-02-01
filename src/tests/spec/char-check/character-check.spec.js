@@ -15,10 +15,10 @@ const params = {
   charCheckLimit: {
     charcheckCountdown: true,
     limit: 11,
-    charCountSingular: '{x} more number needed',
-    charCountPlural: '{x} more numbers needed',
     charCountOverLimitSingular: '{x} number too many',
     charCountOverLimitPlural: '{x} numbers too many',
+    charCountSingular: 'You have {x} character remaining',
+    charCountPlural: 'You have {x} characters remaining',
   },
 };
 
@@ -51,6 +51,10 @@ describe('Component: Input with character check', () => {
     it('the char check readout should be invisible', () => {
       expect(limit_readout.classList.contains('u-d-no')).to.equal(true);
     });
+
+    it('then the character limit readout should reflect the number of characters remaining', () => {
+      expect(limit_readout.innerHTML).to.equal(params.charCheckLimit.charCountPlural.replace('{x}', params.charCheckLimit.limit));
+    });
   });
 
   describe('Given that the user has not typed into the search input', () => {
@@ -71,6 +75,18 @@ describe('Component: Input with character check', () => {
       });
     });
 
+    describe('when the user types something into the input', () => {
+      let value = '1';
+
+      beforeEach(() => {
+        populateSearchInput(searchInput, value);
+      });
+
+      it('then aria-live should be set to polite', () => {
+        expect(limit_readout.getAttribute('aria-live')).to.equal('polite');
+      });
+    });
+
     describe('when the user reaches the charcheck limit of the input', () => {
       let value = '11111111111';
 
@@ -82,9 +98,22 @@ describe('Component: Input with character check', () => {
         expect(limit_readout.classList.contains('u-d-no')).to.equal(true);
       });
     });
+
+    describe('when the user has 1 character remaining before the limit is reached', () => {
+      let value = '1111111111';
+
+      beforeEach(() => {
+        populateSearchInput(searchInput, value);
+      });
+
+      it('then the characters remaining readout reflect the number of characters remaining', () => {
+        let remaining = params.charCheckLimit.limit - value.length;
+        expect(limit_readout.innerHTML).to.equal(params.charCheckLimit.charCountSingular.replace('{x}', Math.abs(remaining)));
+      });
+    });
   });
 
-  describe('Given that the user has exceeded the charcheck limit of the input', () => {
+  describe('Given that the user has exceeded the charcheck limit of the input by 1', () => {
     let value = '111111111111';
 
     beforeEach(() => {
@@ -98,6 +127,36 @@ describe('Component: Input with character check', () => {
     it('then the characters remaining readout reflect the number of characters exceeded', () => {
       let remaining = params.charCheckLimit.limit - value.length;
       expect(limit_readout.innerHTML).to.equal(params.charCheckLimit.charCountOverLimitSingular.replace('{x}', Math.abs(remaining)));
+    });
+
+    it('then aria-live should be set to assertive', () => {
+      expect(limit_readout.getAttribute('aria-live')).to.equal('assertive');
+    });
+
+    it('then the input and readout should be given limit reached classes', () => {
+      expect(searchInput.classList.contains('input--limit-reached')).to.equal(true);
+      expect(limit_readout.classList.contains('input__limit--reached')).to.equal(true);
+    });
+  });
+
+  describe('Given that the user has exceeded the charcheck limit of the input by more than 1', () => {
+    let value = '1111111111111';
+
+    beforeEach(() => {
+      populateSearchInput(searchInput, value);
+    });
+
+    it('the char check readout should be visible', () => {
+      expect(limit_readout.classList.contains('u-d-no')).to.equal(false);
+    });
+
+    it('then the characters remaining readout reflect the number of characters exceeded', () => {
+      let remaining = params.charCheckLimit.limit - value.length;
+      expect(limit_readout.innerHTML).to.equal(params.charCheckLimit.charCountOverLimitPlural.replace('{x}', Math.abs(remaining)));
+    });
+
+    it('then aria-live should be set to assertive', () => {
+      expect(limit_readout.getAttribute('aria-live')).to.equal('assertive');
     });
 
     it('then the input and readout should be given limit reached classes', () => {

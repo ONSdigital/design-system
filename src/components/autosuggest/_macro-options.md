@@ -2,12 +2,17 @@
 | ----------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | autosuggestData         | string            | true     | URL of the JSON file with the autosuggest data that needs to be searched                                                                           |
 | APIDomain               | string            | false    | Set an api domain when using an external API to suggest results                                                                                    |
+| APIDomainBearerToken    | string            | false    | Set a bearer token for api authorization on the AIMS address api. Defaults to basic auth                                                           |
+| allowMultiple           | boolean           | false    | Allows the component to accept multiple selections                                                                                                 |
 | instructions            | string            | true     | Instructions on how to use the autosuggest that will be read out by screenreaders                                                                  |
 | ariaYouHaveSelected     | string            | true     | Aria message to tell the user that they have selected an answer                                                                                    |
 | ariaMinChars            | string            | true     | Aria message to tell the user how many charecters they need to enter before autosuggest will start                                                 |
+| ariaResultsLabel        | string            | true     | Aria message to tell the user that suggestions are available                                                                                       |
 | ariaOneResult           | string            | true     | Aria message to tell the user there is only one suggestion left                                                                                    |
 | ariaNResults            | string            | true     | Aria message to tell the user how many suggestions are left                                                                                        |
 | ariaLimitedResults      | string            | true     | Aria message to tell the user if the results have been limited and what they are limited to                                                        |
+| ariaGroupedResults      | string            | true     | Aria message to tell the user about a grouped result e.g There are {n} for {x}                                                                     |
+| groupCount              | string            | true     | Aria message to tell the user the number of addresses in a group e.g. {n} addresses                                                                |
 | moreResults             | string            | true     | Aria message to tell the user to continue to type to refine suggestions                                                                            |
 | noResults               | string            | true     | message to tell the user there are no results                                                                                                      |
 | tooManyResults          | string            | true     | message to tell the user there are too many results to display and the user should refine the search                                               |

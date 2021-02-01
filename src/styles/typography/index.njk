@@ -135,6 +135,19 @@ Dashed lists should be used to display a list of content navigational links.
     patternlibExample({"path": "styles/typography/lists/examples/list-dashed/index.njk", "componentFolderPath": "components/lists"})
 }}
 
+#### Prefixed list
+The prefix list allows each list item to contain a string as a prefix to the item. The prefixed string uses our monospaced font to ensure spacing and alignment is correct.
+{{
+    patternlibExample({"path": "styles/typography/lists/examples/list-prefix/index.njk", "componentFolderPath": "components/lists"})
+}}
+
+#### Suffixed list
+The suffix list works the same as the prefix but just comes after the list item and the full stop isn’t included.
+{{
+    patternlibExample({"path": "styles/typography/lists/examples/list-suffix/index.njk", "componentFolderPath": "components/lists"})
+}}
+
+
 #### Inline list
 Inline lists should be used to display a horizontal row of links, for example, a list of pages displayed in the [transactional footer](/components/footer#transactional).
 {{
@@ -146,9 +159,14 @@ Icons are used to provide affordance to improve user experience. Icons shouldn't
 
 __Our current icon set can be used in the following scenarios:__
 
-### List with progress check icons
+### List with progress check icons prefix
 {{
-    patternlibExample({"path": "styles/typography/icons/examples/icons-list/index.njk", "componentFolderPath": "components/lists" })
+    patternlibExample({"path": "styles/typography/icons/examples/icons-list-prefix/index.njk", "componentFolderPath": "components/lists" })
+}}
+
+### List with progress check icons suffix
+{{
+    patternlibExample({"path": "styles/typography/icons/examples/icons-list-suffix/index.njk", "componentFolderPath": "components/lists" })
 }}
 
 ### List with social icons
@@ -159,13 +177,14 @@ __How to use:__ Set `icon` to the name of the icon you want to use on each list 
 
 ### Link with external link icon
 {{
-    patternlibExample({"path": "styles/typography/icons/examples/icons-link/index.html"})
+    patternlibExample({"path": "components/external-link/examples/external-link/index.njk"})
 }}
+
 __How to use:__ Use the `onsExternalLink` macro using the `url` and `linkText` params.
 
 ### Text with secure icon
 {{
-    patternlibExample({"path": "styles/typography/icons/examples/icons-text/index.html"})
+    patternlibExample({"path": "components/panel/examples/bare/index.njk"})
 }}
 __How to use:__ Use the panel component setting `type` to "bare" and icon to the name of the icon you want to use.
 
@@ -174,7 +193,7 @@ __How to use:__ Use the panel component setting `type` to "bare" and icon to the
     If you have any requests for icons or research findings please feed back via the
     {{
         onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/95",
+            "url": "https://github.com/ONSdigital/design-system/discussions/95",
             "linkText": "Design System forum"
         })
     }}
@@ -185,7 +204,7 @@ __How to use:__ Use the panel component setting `type` to "bare" and icon to the
     If you have conducted any user research using this style, please feed back your findings via the
     {{
         onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/233",
+            "url": "https://github.com/ONSdigital/design-system/discussions/233",
             "linkText": "Design System forum"
         })
     }}
@@ -194,7 +213,7 @@ __How to use:__ Use the panel component setting `type` to "bare" and icon to the
 ## Design System forum
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/233",
+        "url": "https://github.com/ONSdigital/design-system/discussions/233",
         "linkText": "Discuss 'Typography' on GitHub"
     })
 }}

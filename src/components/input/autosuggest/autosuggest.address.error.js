@@ -1,7 +1,7 @@
 import inPageLinks from '../../../js/inpagelink';
 
 const classAutosuggest = 'js-address-autosuggest';
-const classErrorPanel = 'js-error-panel';
+const classErrorPanel = 'js-autosuggest-error-panel';
 const classInputContainer = 'autosuggest-input';
 const classInput = 'js-autosuggest-input';
 const classSearch = 'js-address-input__search';
@@ -34,7 +34,7 @@ export default class AddressError {
       const errorLinkElement = document.createElement('a');
       const errorLinkElementPre = document.createElement('span');
 
-      errorElement.className = 'panel panel--error u-mb-m js-error-panel';
+      errorElement.className = 'panel panel--error u-mb-m js-autosuggest-error-panel';
       errorElementHeader.className = 'panel__header';
       errorElementTitle.className = 'panel__title u-fs-r--b';
       errorBodyElement.className = 'panel__body';
@@ -44,7 +44,6 @@ export default class AddressError {
       errorLinkElement.href = '#autosuggest-input-error';
 
       errorElementTitle.innerHTML = this.errorTitle;
-      errorLinkElement.innerHTML = this.input.value === '' ? this.errorMessageEnter : this.errorMessageSelect;
       errorLinkElementPre.innerHTML = '1. ';
 
       errorElement.appendChild(errorElementHeader);
@@ -71,8 +70,7 @@ export default class AddressError {
       inputErrorPanel.id = 'autosuggest-input-error';
       inputErrorPanelBody.className = 'panel__body';
       inputErrorPanelP.className = 'panel__error';
-      inputErrorPanelStrong.innerHTML = this.input.value === '' ? this.errorMessageEnter : this.errorMessageSelect;
-
+      inputErrorPanelStrong.className = 'panel__error-message';
       inputErrorPanel.appendChild(inputErrorPanelBody);
       inputErrorPanelBody.appendChild(inputErrorPanelP);
       inputErrorPanelP.appendChild(inputErrorPanelStrong);
@@ -83,11 +81,13 @@ export default class AddressError {
 
       this.input.focus();
     }
+
+    document.querySelector('.js-error').innerHTML = this.input.value === '' ? this.errorMessageEnter : this.errorMessageSelect;
+    document.querySelector('.panel__error-message').innerHTML = this.input.value === '' ? this.errorMessageEnter : this.errorMessageSelect;
   }
 
   removeErrorPanel() {
-    const errorPanel = document.querySelector(`.${classErrorPanel}`);
-    errorPanel.remove();
+    this.errorPanel.remove();
 
     this.autosuggest.appendChild(this.search);
     this.input.classList.remove('input--error');
