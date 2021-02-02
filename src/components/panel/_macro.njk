@@ -32,7 +32,12 @@
 
             {% if params is defined and params %}
                 {% if params.title is defined and params.title %}
-                    {% set titleTag = params.titleTag | default("div") %}
+                    {% if params is defined and params and params.type == 'error' %}
+                        {% set defaultTitleTag = "h2" %}
+                    {% else %}
+                        {% set defaultTitleTag = "div" %}
+                    {% endif %}
+                    {% set titleTag = params.titleTag | default(defaultTitleTag) %}
                     <div class="panel__header">
                         <{{ titleTag }} id="error-summary-title" {% if params is defined and params and params.type is defined and params.type %}data-qa="{{ params.type }}-header"{% endif %} class="panel__title u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
                     </div>
