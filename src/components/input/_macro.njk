@@ -25,7 +25,7 @@
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="input input--text input-type__input {% if params.error is defined and params.error %} input--error {% endif %}{% if params.autosuggest is defined and params.autosuggest %} js-autosuggest-input {% endif %} {% if params.searchButton is defined and params.searchButton %}u-mr-xs@s u-mb-xs@xs@s{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="input input--text input-type__input {% if params.error is defined and params.error %} input--error {% endif %}{% if params.autosuggest is defined and params.autosuggest %} js-autosuggest-input {% endif %} {% if params.searchButton is defined and params.searchButton %}u-mr-xs@s u-mb-xs@xxs@s{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix is defined and params.prefix or params.suffix is defined and params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined and params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
