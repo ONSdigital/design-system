@@ -58,7 +58,21 @@
     @extend .u-fs-xl\@xxs;
     margin: 0;
     color: $color-white;
-
+    &--with-description {
+      line-height: 1.7 !important;
+    }
+    &:not(&--with-description) {
+      line-height: 1.5 !important;
+      @include mq(m) {
+        line-height: 2.5 !important;
+      }
+    }
+    @include mq(xs, m) {
+      line-height: 1.75 !important;
+    }
+    @include mq(xxs, xs) {
+      line-height: 1.7 !important;
+    }
     &-link {
       display: block;
       &:focus {
