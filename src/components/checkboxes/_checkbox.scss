@@ -51,6 +51,17 @@ $checkbox-label-vertical-padding: 0.75rem;
       margin-left: -1.75rem;
     }
 
+    &:after {
+      content: '';
+      position: absolute;
+      top: 18.5px;
+      left: 16px;
+      border-radius: 50%;
+      border: 6px solid red;
+      z-index: 1;
+      opacity: 0;
+    }
+
     &:before {
       content: '';
       z-index: -1;
@@ -69,6 +80,10 @@ $checkbox-label-vertical-padding: 0.75rem;
     * {
       pointer-events: none;
     }
+  }
+
+  &__input:checked + .checkbox__label:after {
+    opacity: 1;
   }
 
   &__description {
