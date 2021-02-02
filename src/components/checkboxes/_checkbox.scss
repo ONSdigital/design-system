@@ -24,12 +24,10 @@ $checkbox-label-vertical-padding: 0.75rem;
     background: url(#{$static}/img/icons--check.svg) no-repeat center center;
     background-color: $color-white;
     background-size: 0px;
-
     &:focus,
     &:checked {
       outline: none;
     }
-
     &:checked {
       background-size: 14px;
     }
