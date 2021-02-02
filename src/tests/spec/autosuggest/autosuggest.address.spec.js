@@ -782,7 +782,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&eboost=10&epoch=72',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&eboost=10&epoch=75',
         );
       });
     });
