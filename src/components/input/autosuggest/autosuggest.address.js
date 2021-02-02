@@ -343,7 +343,7 @@ export default class AutosuggestAddress {
       niboostParam = '&niboost=10',
       favourwelshParam = '&favourwelsh=true',
       addresstypeParam = '?addresstype=',
-      epochParam = '&epoch=72';
+      epochParam = '&epoch=75';
 
     if (type) {
       addressType = type.toLowerCase();

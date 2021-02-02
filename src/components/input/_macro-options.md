@@ -73,7 +73,7 @@
 | ---------- | ------ | -------- | ------------------------------------------------ |
 | regionCode | string | false    | Sets the provided region code e.g. en-gb         |
 | adressType | string | false    | Sets the provided address type e.g. resedential  |
-| oneYearAgo | string | false    | If "true" will set a query parameter of epoch=72 |
+| oneYearAgo | string | false    | If "true" will set a query parameter of epoch=75 |
 
 ## CharCheckLimit
 
