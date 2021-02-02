@@ -12,17 +12,15 @@ $checkbox-label-vertical-padding: 0.75rem;
     z-index: 1;
     box-sizing: border-box;
     appearance: none;
-
     position: absolute;
     top: $checkbox-padding + 0.15rem;
     left: $checkbox-padding;
-
-    width: $checkbox-input-width;
-    height: $checkbox-input-width;
-
+    top: 12px;
+    left: 12px;
+    width: 24px;
+    height: 24px;
     border: 2px solid $color-input;
     border-radius: 0.2rem;
-
     background: url(#{$static}/img/icons--check.svg) no-repeat center center;
     background-color: $color-white;
     background-size: 0px;
@@ -51,17 +49,6 @@ $checkbox-label-vertical-padding: 0.75rem;
       margin-left: -1.75rem;
     }
 
-    &:after {
-      content: '';
-      position: absolute;
-      top: 18.5px;
-      left: 16px;
-      border-radius: 50%;
-      border: 6px solid red;
-      z-index: 1;
-      opacity: 0;
-    }
-
     &:before {
       content: '';
       z-index: -1;
@@ -70,20 +57,13 @@ $checkbox-label-vertical-padding: 0.75rem;
       right: 0;
       bottom: 0;
       left: 0;
-
       border: 1px solid $color-input;
       border-radius: 3px;
-
       background: $color-white;
     }
-
     * {
       pointer-events: none;
     }
-  }
-
-  &__input:checked + .checkbox__label:after {
-    opacity: 1;
   }
 
   &__description {

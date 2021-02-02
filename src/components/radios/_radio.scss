@@ -3,14 +3,15 @@
 
   &__input {
     @extend .checkbox__input;
-
     border-radius: 50%;
-    background: $color-grey-5;
-
-    box-shadow: inset 0 0 0 3px $color-white;
 
     &:checked {
       background: $color-input;
+      background: none;
+
+      + .checkbox__label:after {
+        opacity: 1;
+      }
     }
   }
 
@@ -19,6 +20,19 @@
 
     &--with-description {
       @extend .checkbox__label--with-description;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      border-radius: 50%;
+      height: 12px;
+      background-color: currentColor;
+      width: 12px;
+      z-index: 1;
+      opacity: 0;
     }
   }
 
