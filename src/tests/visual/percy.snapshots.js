@@ -13,7 +13,7 @@ PercyScript.run(async (page, percySnapshot) => {
   const urls = await generateURLs();
   for (const url of urls) {
     await page.goto(url.url);
-    await percySnapshot(url.name, { widths: [420, 1300] });
+    await percySnapshot(url.name, { widths: [375, 1300] });
   }
 
   // Snapshots of interactive components with state
