@@ -27,36 +27,55 @@
 
             {% if params is defined and params and params.type == "warn" or params.type == "warn-branded" %}
                 <span class="panel__icon" aria-hidden="true">!</span>
-                <strong>
-                <span class="u-vh">{{ params.iconText | default("Warning: ") }}</span>
+                <span class="u-vh">{{ params.assistiveTextPrefix | default("Warning: ") }}</span>
             {% endif %}
 
-            {% if params is defined and params and params.title is defined and params.title %}
-                {% set titleTag = params.titleTag | default("div") %}
-                <div class="panel__header">
-                    <{{ titleTag }} id="error-summary-title" {% if params is defined and params and params.type is defined and params.type %}data-qa="{{ params.type }}-header"{% endif %} class="panel__title u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
-                </div>
-            {% endif %}
+            {% if params is defined and params %}
+                {% if params.title is defined and params.title %}
+                    {% if params is defined and params and params.type == 'error' %}
+                        {% set defaultTitleTag = "h2" %}
+                    {% else %}
+                        {% set defaultTitleTag = "div" %}
+                    {% endif %}
+                    {% set titleTag = params.titleTag | default(defaultTitleTag) %}
+                    <div class="panel__header">
+                        <{{ titleTag }} id="error-summary-title" {% if params is defined and params and params.type is defined and params.type %}data-qa="{{ params.type }}-header"{% endif %} class="panel__title u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
+                    </div>
+                {% else %}
+                    {% if params.type is not defined or params.type == "branded" %}
+                        <span class="u-vh">{{ params.assistiveTextPrefix | default("Important information: ") }}</span>
+                    {% else %}
+                        {% if params.type is defined and params.type == "success" %}
+                            <span class="u-vh">{{ params.assistiveTextPrefix | default("Completed: ") }}</span>
+                        {% elif params.type is defined and params.type == "error" %}
+                            <span class="u-vh">{{ params.assistiveTextPrefix | default("Error: ") }}</span>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
 
-            {% if params is defined and params and params.icon is defined and params.icon %}
-                {% from "components/icons/_macro.njk" import onsIcon %}
-                <span class= "panel__icon u-fs-{{ params.iconSize }}">
-                    {{
-                        onsIcon({
-                            "icon": params.icon,
-                            "iconSize": params.iconSize
-                        })
-                    }}
-                </span>
+                {% if params.icon is defined and params.icon %}
+                    {% from "components/icons/_macro.njk" import onsIcon %}
+                    <span class= "panel__icon u-fs-{{ params.iconSize }}">
+                        {{
+                            onsIcon({
+                                "icon": params.icon,
+                                "iconSize": params.iconSize
+                            })
+                        }}
+                    </span>
+                {% endif %}
             {% endif %}
 
             <div class="panel__body{% if params is defined and params and params.iconSize is defined and params.iconSize %} svg-icon-margin--{{ params.iconSize }}{% endif %}" {% if params is defined and params and params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params is defined and params and params.attributes is mapping and params.attributes.items is defined and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ (params.body if params else "") | safe }}
+                {% if params is defined and params and params.type == "warn" or params.type == "warn-branded" %}
+                    <strong>
+                {% endif %}
                 {{ caller() if caller }}
-            </div>
+                {% if params is defined and params and params.type == "warn" or params.type == "warn-branded" %}
+                    </strong>
+                {% endif %}
 
-            {% if params is defined and params and params.type == "warn" or params.type == "warn-branded" %}
-                </strong>
-            {% endif %}
+            </div>
 
         </div>
 
