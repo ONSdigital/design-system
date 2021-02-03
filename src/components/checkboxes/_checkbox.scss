@@ -12,22 +12,26 @@ $checkbox-label-vertical-padding: 0.75rem;
     z-index: 1;
     box-sizing: border-box;
     appearance: none;
+
     position: absolute;
     top: $checkbox-padding + 0.15rem;
     left: $checkbox-padding;
-    top: 13px;
-    left: 12px;
-    width: 24px;
-    height: 24px;
+
+    width: $checkbox-input-width;
+    height: $checkbox-input-width;
+
     border: 2px solid $color-input;
     border-radius: 0.2rem;
+
     background: url(#{$static}/img/icons--check.svg) no-repeat center center;
     background-color: $color-white;
     background-size: 0px;
+
     &:focus,
     &:checked {
       outline: none;
     }
+
     &:checked {
       background-size: 14px;
     }
@@ -55,10 +59,13 @@ $checkbox-label-vertical-padding: 0.75rem;
       right: 0;
       bottom: 0;
       left: 0;
+
       border: 1px solid $color-input;
       border-radius: 3px;
+
       background: $color-white;
     }
+
     * {
       pointer-events: none;
     }
