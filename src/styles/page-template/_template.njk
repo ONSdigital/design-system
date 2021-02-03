@@ -11,6 +11,11 @@
     {% set otherLanguageISOCode = otherLanguage.ISOCode %}
 {% endif %}
 
+{# Favicons #}
+{% if pageConfig is defined and pageConfig and pageConfig.theme is defined and pageConfig.theme %}
+    {% set favicons = pageConfig.theme + "/" + currentLanguageISOCode + "/" %}
+{% endif %}
+
 {% set pageColNumber = pageConfig.pageColNumber | default("8") %}
 
 {% if pageConfig.cdn is defined and pageConfig.cdn or release_version is defined and release_version %}
@@ -66,13 +71,13 @@
             {% endif %}
         {% endif %}
         {% block headIcons %}
-            <meta name="msapplication-config" content="{{ assetsURL }}/favicons/browserconfig.json">
-            <link rel="icon" type="image/x-icon" href="{{ assetsURL }}/favicons/favicon.ico">
-            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-32x32.png" sizes="32x32">
-            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-16x16.png" sizes="16x16">
-            <link rel="mask-icon" color="#5bbad5" href="{{ assetsURL }}/favicons/safari-pinned-tab.svg">
-            <link rel="apple-touch-icon" type="image/png" href="{{ assetsURL }}/favicons/apple-touch-icon.png" sizes="180x180">
-            <link rel="manifest" href="{{ assetsURL }}/favicons/manifest.json">
+            <meta name="msapplication-config" content="{{ assetsURL }}/favicons/{{ favicons }}browserconfig.json">
+            <link rel="icon" type="image/x-icon" href="{{ assetsURL }}/favicons/{{ favicons }}favicon.ico">
+            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/{{ favicons }}favicon-32x32.png" sizes="32x32">
+            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/{{ favicons }}favicon-16x16.png" sizes="16x16">
+            <link rel="mask-icon" color="#5bbad5" href="{{ assetsURL }}/favicons/{{ favicons }}safari-pinned-tab.svg">
+            <link rel="apple-touch-icon" type="image/png" href="{{ assetsURL }}/favicons/{{ favicons }}apple-touch-icon.png" sizes="180x180">
+            <link rel="manifest" href="{{ assetsURL }}/favicons/{{ favicons }}manifest.json">
         {% endblock %}
 
         {% block head %}{% endblock %}
