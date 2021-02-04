@@ -130,6 +130,10 @@ layout: none
     {{ onsTableOfContents({
         "title": 'محتويات',
         "ariaLabel": 'Pages in this guide',
+        "skipLink": {
+            "url": "#section-content",
+            "text": "Skip to guide content"
+        },
         "itemsList": [
             {
                 "url": '#0',
@@ -147,7 +151,7 @@ layout: none
         ]
     }) }}
 
-    <div class="page__body">
+    <div id="section-content" class="page__body">
 
         <h2>ما هو التعداد السكاني؟</h2>
 
