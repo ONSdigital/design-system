@@ -9,7 +9,7 @@ jobs:
   - stage: test-visual
     if: |
       commit_message =~ /([test-visual])/ AND \
-      type = pull_request
+      type = push
     script: yarn test-visual
   - stage: npm-bundle
     script: yarn npm-bundle && npm version $TRAVIS_BRANCH --allow-same-version -m
