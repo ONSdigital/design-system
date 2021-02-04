@@ -7,8 +7,7 @@ jobs:
   - stage: test
     script: yarn test
   - stage: test-visual
-    if: |
-      commit_message =~ /([test-visual])/
+    if: commit_message =~ /([test-visual])/
     script: yarn test-visual
   - stage: npm-bundle
     script: yarn npm-bundle && npm version $TRAVIS_BRANCH --allow-same-version -m
