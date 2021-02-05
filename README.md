@@ -81,7 +81,7 @@ yarn test:browserstack
 
 ## Run visual regression tests
 
-To run visual regression (VR) tests on pull requests using our VR testing tool [percy.io](https://percy.io) you must include `[test-visual]` in your commit message e.g. `git commit -m "Update button border width [test-visual]". This prevents unnecessary builds and saves the limited quota we have available.
+To run visual regression (VR) tests on pull requests using our VR testing tool [percy.io](https://percy.io) you must include `[test-visual]` in your commit message e.g. `git commit -m "Update button border width [test-visual]"`. This prevents unnecessary builds and saves the limited quota we have available.
 
 ## Build
 

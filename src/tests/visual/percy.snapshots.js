@@ -10,11 +10,11 @@ PercyScript.run(async (page, percySnapshot) => {
   console.log(`Server started at ${testURL}`);
 
   // Get all snapshots of components, patterns and styles
-  // const urls = await generateURLs();
-  // for (const url of urls) {
-  //   await page.goto(url.url);
-  //   await percySnapshot(url.name, { widths: [375, 1300] });
-  // }
+  const urls = await generateURLs();
+  for (const url of urls) {
+    await page.goto(url.url);
+    await percySnapshot(url.name, { widths: [375, 1300] });
+  }
 
   // Snapshots of interactive components with state
 
