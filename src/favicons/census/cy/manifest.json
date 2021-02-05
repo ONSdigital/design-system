@@ -1,0 +1,20 @@
+{
+  "name": "Cyfrifiad2021",
+  "short_name": "Cyfrifiad2021",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "content_security_policy": "script-src 'self' https://cdn.ons.gov.uk; object-src 'self' https://cdn.ons.gov.uk;",
+  "theme_color": "#902082",
+  "background_color": "#902082",
+  "display": "standalone"
+}
