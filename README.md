@@ -79,6 +79,10 @@ _Note_: You will need to set your `BROWSER_STACK_USERNAME` and `BROWSER_STACK_AC
 yarn test:browserstack
 ```
 
+## Run visual regression tests
+
+To run visual regression (VR) tests on pull requests using our VR testing tool [percy.io](https://percy.io) you must include `[test-visual]` in your commit message e.g. `git commit -m "Update button border width [test-visual]"`. This prevents unnecessary builds and saves the limited quota we have available.
+
 ## Build
 
 Generate a build into `./build`. Will also create [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) reports for both the ES6 and ES5 bundle and open them in your default browser.
