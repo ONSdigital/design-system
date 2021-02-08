@@ -1,0 +1,81 @@
+// High Contrast Mode
+@media screen and (-ms-high-contrast: active), (forced-colors: active) {
+  // Brightness makes all images black, except transparent parts, which remain transparent
+  // Then, invert(1) makes the black parts white
+  .header__logo,
+  .footer__ogl-img,
+  .quote .svg-icon,
+  .collapsible__icon .svg-icon,
+  .footer img {
+    filter: brightness(0) invert(1);
+  }
+
+  // IE11 fallback
+  .collapsible__icon .svg-icon,
+  .breadcrumb__item .svg-icon,
+  .panel .svg-icon,
+  .list--icons .svg-icon {
+    fill: currentColor;
+  }
+
+  // Matches icon with the link colour
+  .external-link {
+    svg {
+      fill: currentColor !important;
+    }
+  }
+
+  // Adds a border to container error warning panel
+  .panel--error {
+    border: 1px solid currentColor;
+
+    .panel__header {
+      border-bottom: 1px solid currentColor;
+    }
+  }
+
+  // Adds some style adjustments to the focused item to make it obvious something is selected
+  .js-autosuggest .autosuggest-input__option--focused {
+    text-decoration: underline;
+    padding-left: 1.5rem;
+  }
+
+  .radio__input:checked + .radio__label {
+    position: relative;
+
+    // These off pixels are not nice, but due to the way the form controls have been built I have had no choice
+    // I would strongly revisit doing the checkboxes and radios again and fix these non-whole pixel values
+    &:after {
+      content: '';
+      position: absolute;
+      top: 18.5px;
+      left: 16px;
+      height: 12.5px;
+      width: 12.5px;
+      border-radius: 50%;
+      border: 6px solid currentColor;
+      z-index: 1;
+    }
+  }
+
+  // Had to do this without messing with the existing SVG
+  .input--select {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iY2hldnJvbi1kb3duIiBjbGFzcz0ic3ZnLWljb24iIHZpZXdCb3g9IjAgMCAxMiA4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMS4yIDBMNiA1LjQgMTAuOCAwIDEyIDEuMyA2IDggMCAxLjN6Ii8+Cjwvc3ZnPgo=');
+    background-size: 12px 8px;
+  }
+
+  // I would have approached the mark differently, but without changing the existing approach this fixes it
+  .timeline__item:before {
+    border: 2px solid currentColor;
+  }
+
+  // Buttons
+  .btn__inner .svg-icon {
+    fill: currentColor !important;
+  }
+
+  // Hero pre title
+  .hero__pre-title {
+    filter: brightness(0) invert(1);
+  }
+}
