@@ -91,7 +91,7 @@
     "iframe-resizer": "4.2.11",
     "istanbul-instrumenter-loader": "^3.0.1",
     "js-beautify": "^1.11.0",
-    "karma": "6.0.1",
+    "karma": "6.1.0",
     "karma-browserstack-launcher": "1.6.0",
     "karma-chai": "^0.1.0",
     "karma-chai-spies": "^0.1.4",
