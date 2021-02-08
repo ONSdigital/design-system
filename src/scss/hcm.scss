@@ -1,5 +1,4 @@
 // High Contrast Mode
-
 @media screen and (-ms-high-contrast: active), (forced-colors: active) {
   // Brightness makes all images black, except transparent parts, which remain transparent
   // Then, invert(1) makes the black parts white
