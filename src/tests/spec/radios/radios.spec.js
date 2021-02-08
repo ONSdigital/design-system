@@ -20,6 +20,7 @@ const params = {
         text: 'Email',
       },
       other: {
+        id: 'email-other',
         type: 'email',
         label: {
           text: 'Enter your email address',
@@ -33,6 +34,7 @@ const params = {
         text: 'Phone',
       },
       other: {
+        id: 'tel-other',
         type: 'tel',
         label: {
           text: 'Enter your phone number',
@@ -46,6 +48,7 @@ const params = {
         text: 'Text',
       },
       other: {
+        id: 'text-other',
         type: 'text',
         open: true,
         label: {
