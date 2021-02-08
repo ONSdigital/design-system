@@ -12,7 +12,10 @@
   }
 
   // IE11 fallback
-  .collapsible__icon .svg-icon {
+  .collapsible__icon .svg-icon,
+  .breadcrumb__item .svg-icon,
+  .panel .svg-icon,
+  .list--icons .svg-icon {
     fill: currentColor;
   }
 
@@ -21,6 +24,21 @@
     svg {
       fill: currentColor !important;
     }
+  }
+
+  // Adds a border to container error warning panel
+  .panel--error {
+    border: 1px solid currentColor;
+
+    .panel__header {
+      border-bottom: 1px solid currentColor;
+    }
+  }
+
+  // Adds some style adjustments to the focused item to make it obvious something is selected
+  .js-autosuggest .autosuggest-input__option--focused {
+    text-decoration: underline;
+    padding-left: 1.5rem;
   }
 
   .radio__input:checked + .radio__label {
