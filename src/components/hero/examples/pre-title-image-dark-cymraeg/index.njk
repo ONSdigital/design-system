@@ -1,0 +1,21 @@
+---
+"theme": census
+"fullWidth": true
+---
+{% from "components/hero/_macro.njk" import onsHero %}
+{{
+    onsHero({
+        censusTheme: true,
+        censusThemeDark: true,
+        preTitleImage: {
+            name: 'ni-syn-cyfrif.svg',
+            alt: 'Ni syn cyfrif'
+        },
+        title: 'Dechreuwch eich gwaddol',
+        text: 'Bydd y cyfrifiad yn digwydd ddydd <strong>Sul 21 Mawrth 2021</strong>',
+        image: {
+            smallSrc: '/img/small/students.jpg',
+            largeSrc: '/img/large/students.jpg'
+        }
+    })
+}}

@@ -25,7 +25,7 @@
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="input input--text input-type__input {% if params.error is defined and params.error %} input--error {% endif %}{% if params.autosuggest is defined and params.autosuggest %} js-autosuggest-input {% endif %} {% if params.searchButton is defined and params.searchButton %}u-mr-xs@s u-mb-xs@xs@s{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="input input--text input-type__input {% if params.error is defined and params.error %} input--error {% endif %}{% if params.autosuggest is defined and params.autosuggest %} js-autosuggest-input {% endif %} {% if params.searchButton is defined and params.searchButton %}u-mr-xs@s u-mb-xs@xxs@s{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix is defined and params.prefix or params.suffix is defined and params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined and params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
@@ -42,7 +42,7 @@
             {% if params.charCheckLimit is defined and params.charCheckLimit %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheckLimit.limit }}" aria-describedby="{{ params.id }}-check-remaining"{% endif %}
             {% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.charcheckCountdown is defined and params.charCheckLimit.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
             {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-            {% if params.label is defined and params.label and params.label.description is defined and params.label.description %}{% if params.label.id is defined and params.label.id %}aria-describedby="{{params.id}}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
+            {% if params.label is defined and params.label and params.label.description is defined and params.label.description %}{% if params.label.id is defined and params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
         />
         {% if params.listeners %}
             <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% endif %}>
@@ -99,6 +99,7 @@
         {% elif params.autosuggest is defined and params.autosuggest %}
             {% call onsAutosuggest({
                 "id": params.id,
+                "labelId": params.label.id,
                 "classes": params.autosuggest.classes,
                 "APIDomain": params.autosuggest.APIDomain,
                 "APIDomainBearerToken": params.autosuggest.APIDomainBearerToken,

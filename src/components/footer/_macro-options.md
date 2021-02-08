@@ -23,13 +23,10 @@
 
 ## CopyrightDeclaration
 
-| Name      | Type    | Required | Description                                                      |
-| --------- | ------- | -------- | ---------------------------------------------------------------- |
-| copyright | string  | true     | The text for the copyright declaration                           |
-| text      | string  | true     | The text that comes before the link on the copyright declaration |
-| link      | string  | true     | The text for the copyright link                                  |
-| url       | string  | true     | The url for the copyright link                                   |
-| newWindow | boolean | false    | If set to true opens the copyright link in a new tab             |
+| Name      | Type   | Required | Description                                         |
+| --------- | ------ | -------- | --------------------------------------------------- |
+| copyright | string | true     | The text for the copyright declaration              |
+| text      | string | true     | The text that comes after the copyright declaration |
 
 ## FooterCol
 

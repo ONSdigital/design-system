@@ -102,7 +102,7 @@
 
                     {% if params.cols is defined and params.cols %}
                         {% for col in params.cols %}
-                            <div class="grid__col col-4@m{{ " u-mt-m@xs@m" if loop.index > 1 }}">
+                            <div class="grid__col col-4@m{{ " u-mt-m@xxs@m" if loop.index > 1 }}">
                                 {% if col.title %}
                                     <h2 class="footer__heading u-fs-r--b">{{ col.title }}</h2>
                                 {% endif %}
@@ -218,7 +218,7 @@
                     <!-- Copyright -->
                     <div class="grid"> 
                         <div class="grid__col u-mt-s">
-                            <p class="u-fs-s u-mb-no">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }} <a href="{{ params.copyrightDeclaration.url }}" {% if params.copyrightDeclaration.newWindow is defined and params.copyrightDeclaration.newWindow %}target="_blank" rel="noopener"{% endif %}>{{ params.copyrightDeclaration.link }}</a>.</p>
+                            <p class="u-fs-s u-mb-no">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }}</p>
                         </div>
                     </div>
                 {% endif %}

@@ -638,7 +638,7 @@ describe('Autosuggest.address component', function() {
         describe('when the submit is invalid', function() {
           beforeEach(function(done) {
             this.errorPanel =
-              '<div class="panel panel--error u-mb-m js-error-panel"><div class="panel__header"><div class="panel__title u-fs-r--b">There is a problem with your answer</div></div><div class="panel__body"><ol class="list list--bare"><li class="list__item"><span>1. </span><a class="list__link js-inpagelink js-error" href="#autosuggest-input-error">Enter an address</a></li></ol></div></div>';
+              '<div class="panel panel--error u-mb-m"><div class="panel__header"><div class="panel__title u-fs-r--b">There is a problem with your answer</div></div><div class="panel__body"><ol class="list list--bare"><li class="list__item"><span>1. </span><a class="list__link js-inpagelink js-error" href="#autosuggest-input-error">Enter an address</a></li></ol></div></div>';
             this.errorInput =
               '<div class="panel panel--error panel--simple" id="autosuggest-input-error"><div class="panel__body"><p class="panel__error"><strong>Enter an address</strong></p>';
             this.error = new AddressError(this.context);
@@ -782,7 +782,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&eboost=10&epoch=72',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&eboost=10&epoch=75',
         );
       });
     });

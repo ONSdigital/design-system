@@ -20,4 +20,3 @@ import 'components/button/button.dom';
 import 'components/skip-to-content/skip-to-content.dom';
 import 'components/download-resources/download-resources';
 import 'components/select/select';
-import 'components/panel/panel.dom';

@@ -31,7 +31,10 @@
   }
 
   &:focus {
-    outline: none;
+    border-color: $color-document-border-focus;
+    box-shadow: none;
+    outline: 4px solid $color-focus !important;
+    outline-offset: 0;
   }
 
   &__header {
@@ -47,10 +50,13 @@
 
   &__body {
     padding: 1rem;
+
     // Removes inherited bottom margin to make whitespace inside panel equal
-    > *:last-child {
+    > *:last-child,
+    strong > *:last-child {
       margin-bottom: 0;
     }
+
     &.svg-icon-margin--xxl {
       padding-left: 3.3rem !important;
     }
