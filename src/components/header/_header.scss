@@ -30,18 +30,8 @@
     @include mq(xs) {
       height: 76px;
     }
-  }
-  &__logo {
-    &:focus {
-      outline: 3px solid transparent;
-      background-color: $color-focus;
-      box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
-      color: $color-focus-text;
-    }
-  }
-  @include mq(xs) {
-    &__logo {
-      margin-bottom: 2px;
+    .header__logo-link:focus {
+      padding-top: 2rem !important;
     }
   }
   &__main {
@@ -108,8 +98,11 @@
   &--internal & {
     &__top {
       background: $color-dark-blue;
-      a {
-        color: $color-white;
+      .masthead__svg-logo {
+        fill: $color-white;
+        &--acent {
+          fill: $color-lime-green;
+        }
       }
     }
     &__logo-link:focus {
@@ -121,6 +114,51 @@
       min-height: 36px;
     }
   }
+
+  .masthead__svg-logo {
+    margin-top: 0.3rem;
+    fill: $color-dark-blue;
+    &--acent {
+      fill: $color-lime-green;
+    }
+  }
+
+  &__logo-link:focus {
+    .masthead__svg-logo {
+      fill: $color-black !important;
+      &--acent {
+        fill: $color-black !important;
+      }
+    }
+    .masthead__nisra-svg-logo {
+      .st0 {
+        fill: $color-black !important;
+      }
+      .st1 {
+        fill: $color-black !important;
+      }
+      .st2 {
+        fill: $color-black !important;
+      }
+    }
+  }
+  .masthead__nisra-svg-logo {
+    .st0 {
+      fill: #3d7cc9;
+    }
+    .st1 {
+      fill: #cddb00;
+    }
+    .st2 {
+      fill: #00205c;
+    }
+  }
+
+  &__logo-link,
+  &__logo-link:hover {
+    text-decoration: none;
+  }
+
   &__bottom {
     background: $color-header;
   }
