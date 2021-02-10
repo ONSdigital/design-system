@@ -340,7 +340,7 @@ export default class AutosuggestAddress {
       eboostParam = '&eboost=10',
       wboostParam = '&wboost=10',
       nionlyParam = '&eboost=0&sboost=0&wboost=0',
-      niboostParam = '&niboost=10',
+      niboostParam = '&nboost=10',
       favourwelshParam = '&favourwelsh=true',
       addresstypeParam = '?addresstype=',
       epochParam = '&epoch=75';
