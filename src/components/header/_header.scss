@@ -25,6 +25,11 @@
     @include mq(xs) {
       height: 46px;
     }
+    .masthead-mobile-logo > {
+      .header__logo-link:focus {
+        padding-top: 0.5rem !important;
+      }
+    }
   }
   &__grid-top-nisra {
     @include mq(xxs) {
