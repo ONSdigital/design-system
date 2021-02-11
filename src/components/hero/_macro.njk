@@ -1,9 +1,11 @@
 {% macro onsHero(params) %}
+
 {% if params.censusThemeDark is defined and params.censusThemeDark %}
     {% set skinName = "dark" %}
 {% else %}
     {% set skinName = "light" %}
 {% endif %}
+
 <section class="hero grid--gutterless{% if params.censusTheme is defined and params.censusTheme %} hero--census{% endif %}">
     <div class="hero__container container">
         <div class="hero__details grid__col{% if params.censusTheme is defined and params.censusTheme %} col-6@m{%else%} col-8@m{% endif%}{% if params.censusThemeDark is defined and params.censusThemeDark %} hero__details--ondark{% endif%}">
