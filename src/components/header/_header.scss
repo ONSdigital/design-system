@@ -159,6 +159,19 @@
     }
   }
 
+  .masthead-logo-responsive > {
+    .masthead-logo {
+      @include mq(xxs, 399px) {
+        display: none;
+      }
+    }
+    .masthead-mobile-logo {
+      @include mq(400px) {
+        display: none;
+      }
+    }
+  }
+
   &__logo-link,
   &__logo-link:hover {
     text-decoration: none;
