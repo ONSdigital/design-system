@@ -27,7 +27,7 @@
     }
     .masthead-mobile-logo > {
       .header__logo-link:focus {
-        padding-top: 0.5rem !important;
+        padding-top: 0.5rem;
       }
     }
   }
@@ -35,8 +35,13 @@
     @include mq(xs) {
       height: 76px;
     }
+    @include mq(xxs, xs) {
+      .header__logo-link:focus {
+        padding-top: 0.8rem !important;
+      }
+    }
     .header__logo-link:focus {
-      padding-top: 2rem !important;
+      padding-top: 2rem;
     }
   }
   &__main {
