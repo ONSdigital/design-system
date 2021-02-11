@@ -32,7 +32,7 @@
     }
   }
   &__grid-top-nisra {
-    @include mq(xxs) {
+    @include mq(xs) {
       height: 76px;
     }
     .header__logo-link:focus {
