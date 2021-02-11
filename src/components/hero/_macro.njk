@@ -47,8 +47,8 @@
                         "titleTag": params.collapsible.titleTag,
                         "content": params.collapsible.content,
                         "button": {
-                            "close": params.collapsible.button.close | default('Hide this'),
-                            "contextSuffix": params.collapsible.button.contextSuffix | default('content')
+                            "close": params.collapsible.closeButtonText | default('Hide this'),
+                            "contextSuffix": params.collapsible.closeButtonContextSuffix | default('content')
                         }
                     })
                 }}
