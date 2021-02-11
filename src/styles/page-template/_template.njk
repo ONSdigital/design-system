@@ -16,8 +16,6 @@
     {% set metaicons = pageConfig.theme + "/" + currentLanguageISOCode + "/" %}
 {% endif %}
 
-
-
 {% set pageColNumber = pageConfig.pageColNumber | default("8") %}
 
 {% if pageConfig.cdn is defined and pageConfig.cdn or release_version is defined and release_version %}
@@ -140,6 +138,7 @@
                                 "assetsURL": assetsURL,
                                 "serviceLinks": pageConfig.serviceLinks,
                                 "logo": pageConfig.header.logo,
+                                "mobileLogo": pageConfig.header.mobileLogo,
                                 "logoAlt": pageConfig.header.logoAlt,
                                 "logoHref": pageConfig.header.logoHref,
                                 "titleLogo": pageConfig.header.titleLogo,

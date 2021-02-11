@@ -27,7 +27,7 @@
     }
   }
   &__grid-top-nisra {
-    @include mq(xs) {
+    @include mq(xxs) {
       height: 76px;
     }
     .header__logo-link:focus {
