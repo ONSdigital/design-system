@@ -96,7 +96,7 @@
 
                     {% if params.newTabWarning is defined and params.newTabWarning %}
                         <div class="grid__col">
-                            <p class="u-fs-s u-mb-m">{{ params.newTabWarning }}</p>
+                            <p class="u-fs-s u-mb-m">{{ params.newTabWarning | safe }}</p>
                         </div>
                     {% endif %}
 
