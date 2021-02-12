@@ -25,7 +25,7 @@
     @include mq(xs) {
       height: 46px;
     }
-    .masthead-mobile-logo > {
+    .header__logo--small > {
       .header__logo-link:focus {
         padding-top: 0.5rem;
       }
@@ -108,7 +108,7 @@
   &--internal & {
     &__top {
       background: $color-dark-blue;
-      .masthead__svg-logo {
+      &--svg-logo {
         fill: $color-white;
         &--acent {
           fill: $color-lime-green;
@@ -125,7 +125,7 @@
     }
   }
 
-  .masthead__svg-logo {
+  &__top--svg-logo {
     margin-top: 0.3rem;
     fill: $color-dark-blue;
     &--acent {
@@ -134,13 +134,13 @@
   }
 
   &__logo-link:focus {
-    .masthead__svg-logo {
+    .header__top--svg-logo {
       fill: $color-black !important;
       &--acent {
         fill: $color-black !important;
       }
     }
-    .masthead__nisra-svg-logo {
+    .header__top--nisra-svg-logo {
       .st0 {
         fill: $color-black !important;
       }
@@ -152,7 +152,7 @@
       }
     }
   }
-  .masthead__nisra-svg-logo {
+  .header__top--nisra-svg-logo {
     .st0 {
       fill: #3d7cc9;
     }
@@ -164,13 +164,13 @@
     }
   }
 
-  .masthead-logo-responsive > {
-    .masthead-logo {
+  &__top-logo-responsive > {
+    .header__logo--large {
       @include mq(xxs, 399px) {
         display: none;
       }
     }
-    .masthead-mobile-logo {
+    .header__logo--small {
       @include mq(400px) {
         display: none;
       }

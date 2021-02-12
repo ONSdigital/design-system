@@ -19,8 +19,8 @@
             <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
                 <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap {{ 'header__grid-top-' + params.customHeaderLogo if params.customHeaderLogo }}">
 
-                    <div class="grid__col col-auto{% if params.mobileLogo is defined and params.mobileLogo %} masthead-logo-responsive{% endif %}">
-                        <div class="masthead-logo">
+                    <div class="grid__col col-auto{% if params.mobileLogo is defined and params.mobileLogo %} header__top-logo-responsive{% endif %}">
+                        <div class="header__logo--large">
                             {% if params.logoHref is defined and params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
                             {{
                                 onsIcon({
@@ -31,7 +31,7 @@
                             {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
                         </div>
                         {% if params.mobileLogo is defined and params.mobileLogo %}
-                            <div class="masthead-mobile-logo">
+                            <div class="header__logo--small">
                                 {% if params.logoHref is defined and params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
                                 {{
                                     onsIcon({
