@@ -19,7 +19,7 @@
             <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
                 <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap {{ 'header__grid-top-' + params.customHeaderLogo if params.customHeaderLogo }}">
 
-                    <div class="grid__col col-auto{% if params.mobileLogo is defined and params.mobileLogo %} header__top-logo-responsive{% endif %}">
+                    <div class="grid__col col-auto">
                         <div class="header__logo--large">
                             {% if params.logoHref is defined and params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
                             {{
@@ -30,18 +30,16 @@
                             }}
                             {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
                         </div>
-                        {% if params.mobileLogo is defined and params.mobileLogo %}
-                            <div class="header__logo--small">
-                                {% if params.logoHref is defined and params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
-                                {{
-                                    onsIcon({
-                                        "icon": params.mobileLogo | default('ons-logo-stacked-' + currentLanguageISOCode),
-                                        "altText": params.logoAlt | default('Office for National Statistics logo')
-                                    })
-                                }}
-                                {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
-                            </div>
-                        {% endif %}
+                        <div class="header__logo--small">
+                            {% if params.logoHref is defined and params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
+                            {{
+                                onsIcon({
+                                    "icon": params.mobileLogo | default('ons-logo-stacked-' + currentLanguageISOCode),
+                                    "altText": params.logoAlt | default('Office for National Statistics logo')
+                                })
+                            }}
+                            {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
+                        </div>
                     </div>
 
                     {% if params.language is defined and params.language or params.serviceLinks is defined and params.serviceLinks %}

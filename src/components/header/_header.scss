@@ -163,17 +163,14 @@
       fill: #00205c;
     }
   }
-
-  &__top-logo-responsive > {
-    .header__logo--large {
-      @include mq(xxs, 399px) {
-        display: none;
-      }
+  .header__logo--large {
+    @include mq(xxs, 399px) {
+      display: none;
     }
-    .header__logo--small {
-      @include mq(400px) {
-        display: none;
-      }
+  }
+  .header__logo--small {
+    @include mq(400px) {
+      display: none;
     }
   }
 
