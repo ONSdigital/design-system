@@ -71,14 +71,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 {% block main %}
     <div class="page__body">
+        <h1 class="u-fs-xxl">Cookies on census.gov.uk</h1>
         {% call onsPanel({
             "classes": "u-mb-s u-d-no cookies-confirmation-message",
-            "type": "success"
+            "type": "success",
+            "icon": "check",
+            "iconSize": "xl"
         }) %}
             <p class="u-fs-r-b">Your cookie settings have been saved</p>
             <p>Some parts of the census may use additional cookies and will have their own cookie policy and banner.</p>
+            <a class="js-return-link" href="#">Return to previous page</a>
         {% endcall %}
-        <h1 class="u-fs-xxl">Cookies on census.gov.uk</h1>
+
         <p>Cookies are small files saved on your phone, tablet or computer when you visit a website.</p>
         <p>We use cookies to store information about how you use the census website, such as the pages you visit.</p>
         <h2>Cookie settings</h2>
@@ -393,8 +397,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 {{
                     onsButton({
                         "type": 'submit',
-                        "text": 'Save changes',
-                        "dsExample": isPatternLib
+                        "text": 'Save changes'
                     })
                 }}
 

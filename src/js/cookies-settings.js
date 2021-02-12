@@ -3,7 +3,12 @@ import { cookie, setDefaultConsentCookie, setConsentCookie, setCookie } from 'js
 export default class CookiesSettings {
   constructor(component) {
     this.component = component;
+    this.returnLink = document.querySelector('.js-return-link');
+    this.confirmationMessage = document.querySelector('.cookies-confirmation-message');
+    this.cookiesBanner = document.querySelector('.cookies-banner');
+
     this.component.addEventListener('submit', this.submitSettingsForm.bind(this));
+
     this.setInitialFormValues();
   }
 
@@ -55,31 +60,33 @@ export default class CookiesSettings {
     }
     setConsentCookie(options);
 
-    this.checkForPreviousPage();
     this.showConfirmationMessage();
     this.hideCookiesBanner();
 
     return false;
   }
 
-  checkForPreviousPage() {
-    if (1 < history.length) {
-      event.preventDefault();
-      window.history.back();
-    }
-  }
-
   showConfirmationMessage() {
-    const confirmationMessage = document.querySelector('.cookies-confirmation-message');
-
-    document.body.scrollTop = document.documentElement.scrollTop = 0;
-    confirmationMessage.classList.remove('u-d-no');
+    this.confirmationMessage.classList.remove('u-d-no');
+    this.confirmationMessage.scrollIntoView();
+    this.setConfirmationMessageAttributes();
   }
 
   hideCookiesBanner() {
-    const cookiesBanner = document.querySelector('.cookies-banner');
-    if (cookiesBanner) {
-      cookiesBanner.style.display = 'none';
+    if (this.cookiesBanner) {
+      this.cookiesBanner.style.display = 'none';
+    }
+  }
+
+  setConfirmationMessageAttributes() {
+    this.confirmationMessage.setAttribute('role', 'alert');
+    if (document.referrer) {
+      this.confirmationMessage.setAttribute('autofocus', 'autofocus');
+      this.confirmationMessage.setAttribute('tabindex', '-1');
+      this.confirmationMessage.focus();
+      this.returnLink.href = document.referrer;
+    } else {
+      this.returnLink.style.display = 'none';
     }
   }
 }
