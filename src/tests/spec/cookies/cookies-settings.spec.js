@@ -111,7 +111,7 @@ function renderComponent() {
     '<button id="submit-button" type="submit">Submit</button>' +
     '</form>' +
     '<div class="cookies-confirmation-message u-d-no">' +
-    '<a class="cookies-settings__prev-page" style="display: none;" href="#">View previous page</a>' +
+    '<a class="js-return-link" href="#">Return to previous page</a>' +
     '</div>';
 
   const wrapper = document.createElement('div');
