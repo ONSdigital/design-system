@@ -68,7 +68,7 @@ export default class CookiesSettings {
 
   showConfirmationMessage() {
     this.confirmationMessage.classList.remove('u-d-no');
-    this.confirmationMessage.scrollIntoView();
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
     this.setConfirmationMessageAttributes();
   }
 
