@@ -47,6 +47,9 @@
   &__main {
     padding: 0.56rem 0;
     background: $color-header;
+    @include mq(m) {
+      height: 95px;
+    }
     &--border {
       padding: 0.934rem 0;
       border-top: 3px solid $color-header;
@@ -78,6 +81,16 @@
       &:focus {
         .header__svg-logo {
           fill: $color-black !important;
+        }
+      }
+      //to allow for differences in size between welsh and english logos
+      &-census-logo-en {
+        height: 30px;
+        @include mq(m) {
+          margin-top: 1.35rem !important;
+        }
+        @include mq(xs) {
+          margin-top: 0.2rem;
         }
       }
     }

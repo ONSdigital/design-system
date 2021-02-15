@@ -76,7 +76,7 @@
             <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
                 <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
                     <div class="grid__col col-auto u-flex-shrink">
-                        {% if params.titleLogoHref is defined and params.titleLogoHref %}<a class="header__title-link" href="{{ params.titleLogoHref }}">{% endif %}
+                        {% if params.titleLogoHref is defined and params.titleLogoHref %}<a class="header__title-link{% if params.titleLogoHref is defined and params.titleLogoHref and params.titleLogo == 'census-logo-en' %} header__title-link-census-logo-en{% endif %}" href="{{ params.titleLogoHref }}">{% endif %}
                         {% if params.titleLogo is defined and params.titleLogo and params.titleLogoAlt is defined and params.titleLogoAlt %}
                             {% from "components/icons/_macro.njk" import onsIcon %}
                             {{
