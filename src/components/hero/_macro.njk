@@ -1,14 +1,40 @@
 {% macro onsHero(params) %}
 
+
+{# style adjustments if dark or light skin #}
 {% if params.censusThemeDark is defined and params.censusThemeDark %}
     {% set skinName = "dark" %}
 {% else %}
     {% set skinName = "light" %}
 {% endif %}
 
+
+{# If hero contains a collapsible, style it differently #}
+{% if params.collapsible is defined and params.collapsible %}
+    {% set containerClasses = " hero__container--has-collapsible" %}
+{% endif %}
+
+
+{# if hero is census specific, change column usage #}
+{% if params.censusTheme is defined and params.censusTheme %}
+    {% set detailsColumns = "6" %}
+{% else %}
+    {% set detailsColumns = "8" %}
+{% endif %}
+
+
+{# if hero style is a dark theme, change theme #}
+{% if params.censusThemeDark is defined and params.censusThemeDark %}
+    {% set detailsClasses = " hero__details--ondark" %}
+{% endif %}
+
+
 <section class="hero grid--gutterless{% if params.censusTheme is defined and params.censusTheme %} hero--census{% endif %}">
-    <div class="hero__container container">
-        <div class="hero__details grid__col{% if params.censusTheme is defined and params.censusTheme %} col-6@m{%else%} col-8@m{% endif%}{% if params.censusThemeDark is defined and params.censusThemeDark %} hero__details--ondark{% endif%}">
+   
+    <div class="hero__container container{{ containerClasses }}">
+       
+        <div class="hero__details{{ detailsClasses }} grid__col col-{{ detailsColumns }}@m">
+        
             <header>
                 {% if params.preTitleImage is defined and params.preTitleImage %}
                     {% set preTitleImageWithModifier = params.preTitleImage.name|replace(r/(\.[^\.]+)$/, "--" + skinName + "$1") %}
@@ -23,9 +49,11 @@
                     <h2 class="u-fs-r--b">{{ params.subtitle }}</h2>
                 {% endif %}
             </header>
+
             {% if params.text is defined and params.text %}
                 <p class="hero__text">{{ params.text | safe }}</p>
             {% endif %}
+
             {% if params.button is defined and params.button %}
                 {% from "components/button/_macro.njk" import onsButton %}
                 {{
@@ -37,11 +65,12 @@
                     })
                 }}
             {% endif %}
+
             {% if params.collapsible is defined and params.collapsible %}
                 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
                 {{
                     onsCollapsible({
-                        "classes": params.collapsible.classes,
+                        "classes": 'u-mb-s ' + params.collapsible.classes,
                         "id": params.collapsible.id,
                         "title": params.collapsible.title,
                         "titleTag": params.collapsible.titleTag,
@@ -53,24 +82,32 @@
                     })
                 }}
             {% endif %}
+
             {% if params.suffixText is defined and params.suffixText %}
-                <p class="hero__suffixText u-fs-s u-mt-l u-mb-no">{{ params.suffixText | safe }}</p>
+                <p class="hero__suffixText u-fs-s u-mt-m u-mb-no">{{ params.suffixText | safe }}</p>
             {% endif %}
+
         </div>
         {% if params.censusTheme is defined and params.censusTheme %}
+           
             {% if params.image is defined and params.image %}
             <div class="hero__circle-image">
                 <img height="558" width="558" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="">
             </div>
             {% endif %}
+
             <svg class="hero__circle-lined" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 243 243" aria-hidden="true">
                 <path d="M211.25,203.37c1.01-1.12,2.01-2.24,2.97-3.43l25-48.6c0.42-1.47,0.78-2.93,1.07-4.42L211.25,203.37zM192.12,220.32c0.66-0.44,1.25-0.85,1.89-1.34l48.96-95.17c0.03-0.8,0.04-1.57,0.01-2.36L192.12,220.32z M178.35,228.81c0.56-0.24,1.1-0.54,1.64-0.84l62.16-120.82c-0.09-0.58-0.16-1.19-0.27-1.82L178.35,228.81z M165.96,234.53c0.54-0.2,1.02-0.39,1.52-0.61L239.7,93.54c-0.11-0.54-0.22-1.07-0.38-1.6L165.96,234.53z M154.53,238.39c0.48-0.09,0.94-0.24,1.43-0.42l80.34-156.16c-0.13-0.5-0.28-0.96-0.48-1.41L154.53,238.39z M143.84,240.89c0.42-0.07,0.89-0.12,1.35-0.27l87-169.12c-0.14-0.46-0.37-0.87-0.56-1.25L143.84,240.89z M133.65,242.35c0.38,0,0.84-0.05,1.27-0.12l92.61-180.02c-0.19-0.38-0.41-0.79-0.64-1.1L133.65,242.35z M123.86,243c0.4-0.03,0.82-0.01,1.24-0.08l97.28-189.09c-0.19-0.38-0.45-0.72-0.66-1.06L123.86,243z M114.59,242.76c0.38,0.1,0.77,0.11,1.17,0.07L216.88,46.27c-0.2-0.35-0.43-0.66-0.74-0.91L114.59,242.76z M2.67,96.04l29.04-56.45c-1.04,1.1-2.02,2.24-2.97,3.43l-25,48.6C3.32,93.09,2.99,94.56,2.67,96.04z M106.68,242.11L211.02,39.3c-0.25-0.27-0.5-0.54-0.8-0.8L105.57,241.93C105.95,242.03,106.31,242.07,106.68,242.11z M97.97,240.67L204.78,33.05c-0.25-0.27-0.5-0.54-0.8-0.79L96.87,240.48C97.25,240.59,97.61,240.63,97.97,240.67z M89.58,238.71L198.31,27.36c-0.27-0.23-0.57-0.49-0.86-0.68L88.53,238.41C88.86,238.53,89.23,238.63,89.58,238.71z M0,119.49l49.26-95.75c-0.68,0.47-1.31,0.96-1.97,1.49L0.07,117.02C0.02,117.86-0.01,118.67,0,119.49z M81.45,236.17L191.51,22.22c-0.27-0.24-0.55-0.43-0.9-0.6L80.43,235.79C80.77,235.96,81.1,236.08,81.45,236.17z M73.58,233.08L184.43,17.62c-0.27-0.23-0.61-0.41-0.91-0.57L72.59,232.67C72.9,232.83,73.24,233,73.58,233.08z M0.88,136.14L63.32,14.78c-0.6,0.32-1.14,0.62-1.7,0.96L0.68,134.2C0.69,134.84,0.77,135.51,0.88,136.14z M65.99,229.56L177.16,13.49c-0.04-0.02-0.04-0.02-0.08-0.04c-0.3-0.16-0.57-0.29-0.9-0.41l-111.12,216c0.28,0.2,0.55,0.33,0.86,0.49C65.96,229.55,65.96,229.55,65.99,229.56z M58.68,225.41L169.53,9.95c-0.28-0.19-0.65-0.33-0.99-0.41L57.77,224.85C58.03,225.08,58.36,225.29,58.68,225.41z M3.33,149.74L75.79,8.91c-0.54,0.21-1.03,0.39-1.52,0.62L2.95,148.15C3.06,148.69,3.19,149.19,3.33,149.74z M51.64,220.83L161.71,6.89c-0.31-0.16-0.67-0.3-1.01-0.38L50.75,220.23C51.01,220.46,51.34,220.67,51.64,220.83z M6.75,161.38L87.24,4.92c-0.5,0.13-0.96,0.27-1.42,0.42L6.26,159.98C6.41,160.44,6.56,160.9,6.75,161.38z M44.82,215.73L153.59,4.3c-0.36-0.14-0.7-0.22-1.07-0.26L43.98,215.01C44.23,215.28,44.5,215.51,44.82,215.73z M10.88,171.7L98.04,2.28c-0.42,0.07-0.88,0.12-1.32,0.23L10.3,170.49C10.47,170.91,10.69,171.32,10.88,171.7z M38.29,210.05L145.18,2.29c-0.38-0.1-0.75-0.14-1.11-0.19L37.49,209.26C37.74,209.53,37.99,209.8,38.29,210.05z M32.09,203.83L136.51,0.86c-0.36-0.04-0.76-0.11-1.15-0.11L31.34,202.96C31.56,203.27,31.85,203.56,32.09,203.83z M15.57,180.96L108.29,0.71c-0.44,0.02-0.84,0.05-1.27,0.12l-92.1,179.03C15.12,180.24,15.32,180.59,15.57,180.96z M26.21,196.9L127.45,0.11c-0.4-0.06-0.78-0.07-1.19-0.03L25.5,195.95C25.7,196.29,25.93,196.6,26.21,196.9z M20.67,189.32L118.06,0c-0.41,0.03-0.83,0.01-1.25,0.08L20.01,188.26C20.19,188.64,20.46,188.97,20.67,189.32z"/>
             </svg>
             <div class="hero__circle-gradient"></div>
+
             {% if params.censusThemeDark is not defined or params.censusThemeDark === false %}
                 <div class="hero__circle-white"></div>
             {% endif %}
+
         {% endif %}
+
     </div>
+
 </section>
 {% endmacro %}
