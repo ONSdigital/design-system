@@ -125,6 +125,10 @@
     }
     .hero__container {
       align-items: center;
+
+      &--has-collapsible {
+        align-items: flex-start; // Prevents undesired shift if not enough content
+      }
     }
   }
   @include mq(l) {
