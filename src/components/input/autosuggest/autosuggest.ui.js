@@ -380,7 +380,13 @@ export default class AutosuggestUI {
       this.setHighlightedResult(null);
 
       this.input.setAttribute('aria-expanded', !!this.numberOfResults);
-      this.context.classList[!!this.numberOfResults ? 'add' : 'remove'](classAutosuggestHasResults);
+
+      if (!!this.numberOfResults && this.sanitisedQuery.length >= this.minChars) {
+        this.context.classList.add(classAutosuggestHasResults);
+      } else {
+        this.context.classList.remove(classAutosuggestHasResults);
+        this.clearListbox();
+      }
     }
 
     if (this.numberOfResults === 0 && this.noResults) {
