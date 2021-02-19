@@ -59,6 +59,7 @@
                     {%- else -%}
                         <a href="{{ item.url }}" class="list__link {{ item.classes }}" {% if item.index is defined and item.index %}data-qa="list-item-{{ loop.index }}"{% endif %} {% if item.target is defined and item.target %} target="{{ item.target }}"{% endif %} {% if item.name is defined and item.name %} name="{{ item.name }}"{% endif %} {% if item.rel is defined and item.rel %} rel="{{ item.rel }}"{% endif %}>
                             {%- if item.prefix is defined and item.prefix -%}<span class="u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- itemText | safe -}}
+                            {%- if item.target is defined and item.target == "_blank" -%}<span class="u-vh">(opens in a new window)</span>{%- endif -%}
                         </a>
                     {%- endif -%}
                 {%- else -%}
