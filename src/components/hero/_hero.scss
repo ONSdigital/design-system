@@ -37,7 +37,7 @@
   .hero__circle-image,
   .hero__circle-gradient,
   .hero__circle-lined,
-  .hero__circle-white {
+  .hero__circle {
     position: absolute;
   }
   .hero__circle-image {
@@ -47,7 +47,7 @@
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background-color: $color-white;
+    background-color: $color-grey-5;
     img {
       display: block;
       height: 100%;
@@ -64,7 +64,8 @@
     border-radius: 50%;
     background-image: linear-gradient(-45deg, $color-branded 0%, $color-branded 20%, $color-branded-tertiary 60%, #005489 90%);
   }
-  .hero__circle-white {
+  .hero__circle {
+    background-color: $color-grey-5;
     z-index: 1;
     display: block;
     top: 27px;
@@ -73,7 +74,6 @@
     width: 990px;
     height: 990px;
     border-radius: 50%;
-    background-color: $color-white;
   }
   .hero__circle-lined {
     z-index: 4;
@@ -112,7 +112,7 @@
       width: 234px;
       height: 234px;
     }
-    .hero__circle-white {
+    .hero__circle {
       top: -288px;
       left: -331px;
       margin: auto; // Reset
@@ -147,7 +147,7 @@
       width: 342px;
       height: 342px;
     }
-    .hero__circle-white {
+    .hero__circle {
       top: -369px;
     }
     .hero__circle-lined {
