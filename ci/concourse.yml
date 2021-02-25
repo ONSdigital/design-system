@@ -94,6 +94,8 @@ jobs:
         type: docker-image
         source:
           repository: mesosphere/aws-cli
+          username: ((dockerhub_username))
+          password: ((dockerhub_password))
 
       inputs:
       - name: dist
