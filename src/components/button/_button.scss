@@ -2,6 +2,7 @@ $button-border-height: 3px;
 
 .btn {
   display: inline-block;
+  position: relative;
   margin: 0;
   padding: 0;
   border: 0;
@@ -11,7 +12,6 @@ $button-border-height: 3px;
   font-size: 1rem;
   font-weight: $font-weight-bold;
   line-height: 1.35;
-  position: relative;
   text-align: center;
   text-decoration: none;
   text-rendering: optimizeLegibility;
@@ -20,13 +20,13 @@ $button-border-height: 3px;
 
   // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
   &:after {
-    border: ems($button-border-height) solid transparent;
-    bottom: 0;
     content: '';
-    left: 0;
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: ems($button-border-height) solid transparent;
   }
 
   .svg-icon {
@@ -167,8 +167,10 @@ $button-border-height: 3px;
     transition: color 0.3s ease-in-out;
     .svg-icon {
       position: absolute;
-      top: 24%;
-      left: 26%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
       width: 1.5rem;
       height: 1.5rem;
       fill: $color-white;
