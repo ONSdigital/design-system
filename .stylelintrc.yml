@@ -22,10 +22,7 @@ rules:
         - true
         - ignore:
             - comments
-    no-descending-specificity:
-        - true
-        - ignore:
-            - selectors-within-list
+    no-descending-specificity: null
     no-extra-semicolons: true
     color-no-invalid-hex: true
     number-no-trailing-zeros: true
@@ -49,7 +46,7 @@ rules:
         - ignore: ['blockless-at-rules', 'pseudo-classes']
 
     # Name Formats
-    selector-class-pattern: ^[A-Z].*$
+    selector-class-pattern: null
     scss/at-mixin-pattern: ^[A-Z].*$
 
     # Style Guide
