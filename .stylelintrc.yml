@@ -47,7 +47,7 @@ rules:
 
     # Name Formats
     selector-class-pattern: null
-    scss/at-mixin-pattern: ^[A-Z].*$
+    scss/at-mixin-pattern: null
 
     # Style Guide
     indentation: 4
