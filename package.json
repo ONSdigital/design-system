@@ -44,7 +44,7 @@
     ],
     "*.scss": [
       "prettier --print-width 140 --single-quote --parser postcss --write",
-      "stylelint-fix",
+      "yarn run stylelint-fix",
       "git add"
     ]
   },
