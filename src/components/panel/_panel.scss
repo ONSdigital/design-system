@@ -146,6 +146,7 @@
     &--success & {
         &__icon {
             fill: $color-success;
+            left: 0;
             padding-left: 1rem;
             .svg-icon {
                 margin-top: -15% !important;
@@ -172,11 +173,6 @@
     &--warn-branded {
         .panel__icon {
             position: absolute;
-        }
-    }
-    &--success {
-        .panel__icon {
-            left: 0;
         }
     }
 }
