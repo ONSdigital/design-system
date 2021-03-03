@@ -22,7 +22,6 @@
     "check-unused": "npx npm-check-unused",
     "dedupe-deps": "npx yarn-deduplicate yarn.lock",
     "lint-staged": "lint-staged",
-    "stylelint": "stylelint '**/*.scss'",
     "stylelint-fix": "stylelint '**/*.scss' --fix"
   },
   "husky": {
