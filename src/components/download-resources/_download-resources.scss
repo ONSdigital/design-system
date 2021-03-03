@@ -22,10 +22,6 @@
         margin-bottom: 1.5rem;
     }
 
-    &__results-sort {
-        margin-top: 0.5rem;
-    }
-
     &__reset {
         background-color: transparent;
         border: 0 none;
@@ -54,6 +50,7 @@
     &__results-sort {
         align-items: center;
         display: flex;
+        margin-top: 0.5rem;
 
         .label {
             font-weight: normal;
