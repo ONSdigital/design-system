@@ -18,7 +18,7 @@
 
         &:hover {
             text-decoration: none;
-            & .content-pagination__link-label {
+            .content-pagination__link-label {
                 text-decoration: underline solid $color-links-hover 2px;
             }
         }
@@ -26,7 +26,7 @@
         &:focus {
             text-decoration: none;
 
-            & .content-pagination__link-label {
+            .content-pagination__link-label {
                 text-decoration: none;
             }
         }

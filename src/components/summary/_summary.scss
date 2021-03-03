@@ -8,7 +8,7 @@ $hub-row-spacing: 1.3rem;
         border-spacing: 0;
         width: 100%;
 
-        & + .summary__group-title {
+        + .summary__group-title {
             margin-top: 1.5rem;
         }
     }

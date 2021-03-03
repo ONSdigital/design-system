@@ -68,7 +68,7 @@
         padding-bottom: 0;
         padding-top: 0;
 
-        & .article__image {
+        .article__image {
             margin-bottom: 1.5rem;
             margin-right: 0;
             max-width: 379px;
@@ -79,7 +79,7 @@
             }
         }
 
-        & .article__image img {
+        .article__image img {
             width: 100%;
         }
     }

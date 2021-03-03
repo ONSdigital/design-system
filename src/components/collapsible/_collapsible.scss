@@ -16,7 +16,7 @@ $collapsible-caret-width: 1.5rem;
             }
 
             &:focus {
-                & .collapsible__title {
+                .collapsible__title {
                     @extend a:focus;
                     // extend collapsible focus background behind caret
                     margin-left: -$collapsible-caret-width;
@@ -29,7 +29,7 @@ $collapsible-caret-width: 1.5rem;
                 .collapsible__icon {
                     fill: $color-links-hover;
                 }
-                & .collapsible__title {
+                .collapsible__title {
                     text-decoration: underline solid $color-links-hover 2px;
                 }
             }
