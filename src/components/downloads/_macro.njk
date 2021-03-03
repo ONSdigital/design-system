@@ -15,29 +15,29 @@
         </div>
 
         <div class="download__content">
-                
-                <h3 class="u-fs-m u-mt-no u-mb-xs">
-                    <a href="{{ download.url }}">{{ download.title }}<span class="u-vh">, 
-                    
-                    {%- if download.meta is defined and download.meta %}
-                
-                        {% set metaItems = [] %}
 
-                        {% if download.meta.fileType is defined and download.meta.fileType %}{% set metaItems = (metaItems.push(download.meta.fileType + ' document download'), metaItems) %}{% endif %}
-                        {% if download.meta.fileSize is defined and download.meta.fileSize %}{% set metaItems = (metaItems.push(download.meta.fileSize), metaItems) %}{% endif %}
-                        {% if download.meta.filePages is defined and download.meta.filePages %}{% set metaItems = (metaItems.push(download.meta.filePages), metaItems) %}{% endif %}
+            <h3 class="u-fs-m u-mt-no u-mb-xs">
+                <a href="{{ download.url }}">{{ download.title }}<span class="u-vh">, 
 
-                        {{ metaItems|join(', ') }}
+                {%- if download.meta is defined and download.meta %}
 
-                    {% endif -%}
-                    
-                    </span></a>
-                </h3>
+                    {% set metaItems = [] %}
+
+                    {% if download.meta.fileType is defined and download.meta.fileType %}{% set metaItems = (metaItems.push(download.meta.fileType + ' document download'), metaItems) %}{% endif %}
+                    {% if download.meta.fileSize is defined and download.meta.fileSize %}{% set metaItems = (metaItems.push(download.meta.fileSize), metaItems) %}{% endif %}
+                    {% if download.meta.filePages is defined and download.meta.filePages %}{% set metaItems = (metaItems.push(download.meta.filePages), metaItems) %}{% endif %}
+
+                    {{ metaItems|join(', ') }}
+
+                {% endif -%}
+
+                </span></a>
+            </h3>
 
             <span class="u-fs-s u-mb-xs download__meta" aria-hidden="true">
 
                 {%- if download.type is defined and download.type %}
-                    {{ download.type }}
+                    {{ download.type }}{%- if download.meta is defined and download.meta %},{% endif %}
                 {% endif %}
 
                 {%- if download.meta is defined and download.meta %}
@@ -51,9 +51,9 @@
                     {{ metaItems|join(', ') }}
 
                 {% endif -%}
-            
+
             </span>
-            
+
             {% if download.excerpt is defined and download.excerpt %}
                 <p class="download__excerpt">{{ download.excerpt | safe }}</p>
             {% endif %}
