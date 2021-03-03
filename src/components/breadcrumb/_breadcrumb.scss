@@ -1,8 +1,8 @@
 $breadcrumb-chevron-height: 0.65rem;
 
 .breadcrumb {
-  display: flex;
   align-items: center;
+  display: flex;
   padding: 1rem 0;
 
   &__items {
@@ -21,18 +21,18 @@ $breadcrumb-chevron-height: 0.65rem;
     }
 
     .svg-icon {
-      margin: 0 0.2rem 0;
-      width: $breadcrumb-chevron-height;
       height: $breadcrumb-chevron-height;
+      margin: 0 0.2rem;
       vertical-align: middle;
+      width: $breadcrumb-chevron-height;
     }
 
     &:nth-last-child(1) {
       // small screen last child
       direction: rtl;
       .svg-icon {
-        transform: rotate(180deg);
         margin-left: -0.13rem;
+        transform: rotate(180deg);
       }
     }
 
