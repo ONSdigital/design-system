@@ -46,5 +46,5 @@ $nbsp-width: 0.256rem;
 
     @return calc(
         #{$padding-width + $chars-width + $num-chars-width + $chars-space-width + $spaces-width} + #{($input-border-width * 2) + 2px}
-  );
+    );
 }

@@ -1,80 +1,80 @@
 $breadcrumb-chevron-height: 0.65rem;
 
 .breadcrumb {
-  align-items: center;
-  display: flex;
-  padding: 1rem 0;
+    align-items: center;
+    display: flex;
+    padding: 1rem 0;
 
-  &__items {
-    margin: 0;
-    padding: 0;
-  }
-
-  &__item {
-    display: inline-block;
-    margin: 0;
-    white-space: nowrap; // Stop items from wrapping, break on chevron only
-
-    &:not(:nth-last-child(1)) {
-      //small screen not last child
-      display: none;
-    }
-
-    .svg-icon {
-      height: $breadcrumb-chevron-height;
-      margin: 0 0.2rem;
-      vertical-align: middle;
-      width: $breadcrumb-chevron-height;
-    }
-
-    &:nth-last-child(1) {
-      // small screen last child
-      direction: rtl;
-      .svg-icon {
-        margin-left: -0.13rem;
-        transform: rotate(180deg);
-      }
-    }
-
-    @include mq(s) {
-      //big screen
-      &:not(:nth-last-child(1)) {
-        //not last child
-        display: inline-block;
-      }
-
-      &:nth-last-child(1) {
-        // last child
-        direction: ltr;
-        .svg-icon {
-          display: none;
-        }
-      }
-
-      &:first-child:nth-last-child(1) {
-        //first and last child
-        direction: rtl;
-        .svg-icon {
-          display: inline-block;
-          vertical-align: middle;
-        }
-      }
-
-      &:not(:last-child).svg-icon {
-        //not last child
+    &__items {
         margin: 0;
-
-        /* stylelint-disable */
-        // We have to override the icon settings so it renders correctly in ie11
-        background-position: center center;
-        vertical-align: middle;
-        /* stylelint-enable */
-      }
+        padding: 0;
     }
-  }
 
-  &__link {
-    color: $color-text;
-    text-decoration: underline;
-  }
+    &__item {
+        display: inline-block;
+        margin: 0;
+        white-space: nowrap; // Stop items from wrapping, break on chevron only
+
+        &:not(:nth-last-child(1)) {
+            //small screen not last child
+            display: none;
+        }
+
+        .svg-icon {
+            height: $breadcrumb-chevron-height;
+            margin: 0 0.2rem;
+            vertical-align: middle;
+            width: $breadcrumb-chevron-height;
+        }
+
+        &:nth-last-child(1) {
+            // small screen last child
+            direction: rtl;
+            .svg-icon {
+                margin-left: -0.13rem;
+                transform: rotate(180deg);
+            }
+        }
+
+        @include mq(s) {
+            //big screen
+            &:not(:nth-last-child(1)) {
+                //not last child
+                display: inline-block;
+            }
+
+            &:nth-last-child(1) {
+                // last child
+                direction: ltr;
+                .svg-icon {
+                    display: none;
+                }
+            }
+
+            &:first-child:nth-last-child(1) {
+                //first and last child
+                direction: rtl;
+                .svg-icon {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+
+            &:not(:last-child).svg-icon {
+                //not last child
+                margin: 0;
+
+                /* stylelint-disable */
+                // We have to override the icon settings so it renders correctly in ie11
+                background-position: center center;
+                vertical-align: middle;
+                /* stylelint-enable */
+            }
+        }
+    }
+
+    &__link {
+        color: $color-text;
+        text-decoration: underline;
+    }
 }
