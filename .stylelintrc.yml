@@ -63,6 +63,7 @@ rules:
     font-family-no-duplicate-names: true
     string-quotes: single
     selector-max-compound-selectors: 6
+    order/order: null
 
     # Inner Spacing
     function-calc-no-unspaced-operator: true
