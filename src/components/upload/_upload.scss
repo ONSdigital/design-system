@@ -7,7 +7,7 @@
     width: 100%;
     &::-webkit-file-upload-button {
         background: $color-button-secondary;
-        border: none;
+        border: 0;
         border-bottom-right-radius: 0;
         border-right: 1px solid $color-input;
         border-top-right-radius: 0;
