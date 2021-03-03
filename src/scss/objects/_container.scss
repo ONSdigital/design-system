@@ -1,33 +1,33 @@
 .container {
-  box-sizing: border-box;
-  margin: 0 auto;
-  padding: 0 $grid-gutters;
-  width: 100%;
-  max-width: $grid-max-width;
-
-  @include mq(s) {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: $grid-max-width;
     padding: 0 $grid-gutters;
-  }
+    width: 100%;
 
-  &--wide {
-    max-width: $grid-max-1280;
-  }
+    @include mq(s) {
+        padding: 0 $grid-gutters;
+    }
 
-  &--full-width {
-    max-width: 100%;
-  }
+    &--wide {
+        max-width: $grid-max-1280;
+    }
+
+    &--full-width {
+        max-width: 100%;
+    }
 }
 
 .grid--align-bottom {
-  .grid__col {
-    vertical-align: bottom;
-  }
+    .grid__col {
+        vertical-align: bottom;
+    }
 }
 
 .grid__col {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 @include bp-suffix('container--gutterless', $create-between-breakpoints: true) {
-  padding: 0;
+    padding: 0;
 }

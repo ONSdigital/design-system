@@ -1,80 +1,93 @@
 @mixin mq($from: none, $to: none, $from-operator: none, $to-operator: none) {
-  @if $from != none and type-of($from) == 'string' {
-    $from: get-bp-width($from);
-  }
+    @if $from != none and type-of($from) == 'string' {
+        $from: get-bp-width($from);
+    }
 
-  @if $to != none and type-of($to) == 'string' {
-    $to: get-bp-width($to);
-  }
+    @if $to != none and type-of($to) == 'string' {
+        $to: get-bp-width($to);
+    }
 
-  @if ($from == none or $from <= nth(nth($grid-bp, 1), 2)) and $to == none {
-    @content;
-  } @else if $from == none or $from <= nth(nth($grid-bp, 1), 2) {
-    @if $to-operator != none and $to-operator == '<' {
-      $to: $to - 1;
+    @if ($from == none or $from <= nth(nth($grid-bp, 1), 2)) and $to == none {
+        @content;
     }
-    @media (max-width: $to) {
-      @content;
+
+    @else if $from == none or $from <= nth(nth($grid-bp, 1), 2) {
+        @if $to-operator != none and $to-operator == '<' {
+            $to: $to - 1;
+        }
+
+        @media (max-width: $to) {
+            @content;
+        }
     }
-  } @else if $to == none {
-    @if $from-operator != none and $from-operator == '<' {
-      $from: $from + 1;
+
+    @else if $to == none {
+        @if $from-operator != none and $from-operator == '<' {
+            $from: $from + 1;
+        }
+
+        @media (min-width: $from) {
+            @content;
+        }
     }
-    @media (min-width: $from) {
-      @content;
+
+    @else {
+        @if $from-operator != none and $from-operator == '<' {
+            $from: $from + 1;
+        }
+
+        @if $to-operator != none and $to-operator == '<' {
+            $to: $to - 1;
+        }
+
+        @media (min-width: $from) and (max-width: $to) {
+            @content;
+        }
     }
-  } @else {
-    @if $from-operator != none and $from-operator == '<' {
-      $from: $from + 1;
-    }
-    @if $to-operator != none and $to-operator == '<' {
-      $to: $to - 1;
-    }
-    @media (min-width: $from) and (max-width: $to) {
-      @content;
-    }
-  }
 }
 
 @function get-bp-width($name, $breakpoints: $grid-bp) {
-  @if map-has-key($breakpoints, $name) {
-    @return map-get($breakpoints, $name);
-  } @else {
-    @warn 'Breakpoint #{$name} wasn\'t found in $breakpoints.';
-  }
+    @if map-has-key($breakpoints, $name) {
+        @return map-get($breakpoints, $name);
+    }
+
+    @else {
+        @warn 'Breakpoint #{$name} wasn\'t found in $breakpoints.';
+    }
 }
 
 /// @param {Number} $number - Number to remove unit from
 /// @return {Number} - Unitless number
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
-  }
-  @return $number;
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
 }
 
 @mixin bp-suffix($class, $original: true, $breakpoints: $grid-bp, $create-between-breakpoints: false) {
-  @if $original {
-    .#{$class} {
-      @content;
-    }
-  }
-
-  @each $breakpoint-min, $size in $breakpoints {
-    @include mq($breakpoint-min) {
-      .#{$class}\@#{$breakpoint-min} {
-        @content;
-      }
-    }
-
-    @if $create-between-breakpoints {
-      @each $breakpoint-max, $size in $grid-bp {
-        @include mq($breakpoint-min, $breakpoint-max, $to-operator: '<') {
-          .#{$class}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+    @if $original {
+        .#{$class} {
             @content;
-          }
         }
-      }
     }
-  }
+
+    @each $breakpoint-min, $size in $breakpoints {
+        @include mq($breakpoint-min) {
+            .#{$class}\@#{$breakpoint-min} {
+                @content;
+            }
+        }
+
+        @if $create-between-breakpoints {
+            @each $breakpoint-max, $size in $grid-bp {
+                @include mq($breakpoint-min, $breakpoint-max, $to-operator: '<') {
+                    .#{$class}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+                        @content;
+                    }
+                }
+            }
+        }
+    }
 }

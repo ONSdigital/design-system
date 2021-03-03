@@ -2,57 +2,57 @@ $pagination-item-padding: 0.5rem;
 $pagination-item-width: 2.5rem;
 
 .pagination {
-  $ctx: &;
+    $ctx: &;
 
-  &__items {
-    margin: 0 $pagination-item-padding * -1;
-    padding: 0;
-  }
-
-  &__item {
-    display: none;
-    text-align: center;
-
-    &--previous,
-    &--next {
-      display: inline-block;
+    &__items {
+        margin: 0 $pagination-item-padding * -1;
+        padding: 0;
     }
 
-    @include mq(m) {
-      &:not(&--previous) {
-        display: inline-block;
-      }
-    }
-  }
-
-  &__item,
-  &__link {
-    min-width: $pagination-item-width;
-    height: $pagination-item-width;
-  }
-
-  &__link {
-    display: block;
-    padding: $pagination-item-padding;
-    border-radius: 3px;
-
-    &:hover,
-    &:focus {
-      background: $color-grey-5;
-    }
-  }
-
-  &__item--current &__link {
-    background: $color-links-hover;
-    color: $color-white;
-    text-decoration: none;
-  }
-
-  &--no-indicator & {
-    &__position {
-      @include mq(m) {
+    &__item {
         display: none;
-      }
+        text-align: center;
+
+        &--previous,
+        &--next {
+            display: inline-block;
+        }
+
+        @include mq(m) {
+            &:not(&--previous) {
+                display: inline-block;
+            }
+        }
     }
-  }
+
+    &__item,
+    &__link {
+        height: $pagination-item-width;
+        min-width: $pagination-item-width;
+    }
+
+    &__link {
+        border-radius: 3px;
+        display: block;
+        padding: $pagination-item-padding;
+
+        &:hover,
+        &:focus {
+            background: $color-grey-5;
+        }
+    }
+
+    &__item--current &__link {
+        background: $color-links-hover;
+        color: $color-white;
+        text-decoration: none;
+    }
+
+    &--no-indicator & {
+        &__position {
+            @include mq(m) {
+                display: none;
+            }
+        }
+    }
 }

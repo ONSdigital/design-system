@@ -1,32 +1,32 @@
 .question {
-  margin: 1rem 0 0;
+    margin: 1rem 0 0;
 
-  &__title {
-    margin: 0 0 1rem;
-  }
+    &__title {
+        margin: 0 0 1rem;
+    }
 
-  &__title {
-    em,
-    .highlight {
-      background-color: $color-highlight;
+    &__title {
+        em,
+        .highlight {
+            background-color: $color-highlight;
+        }
+        mark,
+        .instruction {
+            background-color: $color-instruction;
+            color: $color-text-inverse;
+            margin-right: 0.5rem;
+            padding: 0 0.5rem;
+        }
     }
-    mark,
-    .instruction {
-      margin-right: 0.5rem;
-      padding: 0 0.5rem;
-      background-color: $color-instruction;
-      color: $color-text-inverse;
-    }
-  }
-  &__instruction {
-    display: block;
-    padding: 1rem;
-    border: 5px solid $color-instruction;
-    background-color: $color-instruction-tint;
-    font-weight: $font-weight-regular;
+    &__instruction {
+        background-color: $color-instruction-tint;
+        border: 5px solid $color-instruction;
+        display: block;
+        font-weight: $font-weight-regular;
+        padding: 1rem;
 
-    p:last-of-type {
-      margin-bottom: 0;
+        p:last-of-type {
+            margin-bottom: 0;
+        }
     }
-  }
 }

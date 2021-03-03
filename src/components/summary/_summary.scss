@@ -3,185 +3,181 @@ $summary-col-spacing: 1rem;
 $hub-row-spacing: 1.3rem;
 
 .summary {
-  &__items {
-    width: 100%;
-    border-spacing: 0;
-    border-collapse: collapse;
+    &__items {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
 
-    & + .summary__group-title {
-      margin-top: 1.5rem;
-    }
-  }
-
-  &__item {
-    line-height: 1.4;
-
-    &:not(:last-child),
-    &:nth-of-type(1) {
-      border-bottom: 1px solid $color-borders;
+        & + .summary__group-title {
+            margin-top: 1.5rem;
+        }
     }
 
-    &--total {
-      @extend .u-fs-m;
+    &__item {
+        line-height: 1.4;
 
-      border-width: 2px;
-      font-weight: 700;
+        &:not(:last-child),
+        &:nth-of-type(1) {
+            border-bottom: 1px solid $color-borders;
+        }
+
+        &--total {
+            @extend .u-fs-m;
+
+            border-width: 2px;
+            font-weight: 700;
+        }
+
+        &--error {
+            background: $color-errors-tint;
+            border-left: 8px solid $color-errors;
+        }
     }
 
-    &--error {
-      border-left: 8px solid $color-errors;
-      background: $color-errors-tint;
-    }
-  }
-
-  &__row-title {
-    padding: $summary-row-spacing 0;
-    text-align: left;
-  }
-
-  &__item-title,
-  &__values,
-  &__actions {
-    padding: 0 0 $summary-row-spacing;
-    word-wrap: break-word;
-    vertical-align: top;
-    hyphens: manual;
-    overflow-wrap: break-word;
-  }
-
-  &__item-title {
-    position: relative;
-    padding-top: $summary-row-spacing;
-    &--text {
-      display: block;
-      padding-left: 2rem;
-      overflow: hidden;
-    }
-    &-icon {
-      position: absolute;
-      left: 0;
-      text-align: center;
-      &--check {
-        fill: $color-green;
-      }
-    }
-  }
-
-  &__actions {
-    white-space: nowrap;
-  }
-
-  &__spacer {
-    display: inline-block;
-
-    margin: 0 0.25rem;
-    width: 1px;
-    height: 1rem;
-
-    background: $color-black;
-
-    vertical-align: middle;
-  }
-
-  // Item Modifiers
-  &__item--total & {
-    &__values {
-      @extend .u-fs-m;
-    }
-  }
-
-  &__item--error & {
     &__row-title {
-      padding: $summary-row-spacing $summary-col-spacing;
-
-      color: $color-errors;
-      font-weight: 700;
+        padding: $summary-row-spacing 0;
+        text-align: left;
     }
 
     &__item-title,
     &__values,
     &__actions {
-      padding-right: $summary-col-spacing;
-      padding-left: $summary-col-spacing;
-
-      @include mq('s') {
-        padding-right: $summary-col-spacing / 2;
-        padding-left: $summary-col-spacing / 2;
-
-        &:first-child {
-          padding-left: $summary-col-spacing;
-        }
-
-        &:last-child {
-          padding-right: $summary-col-spacing;
-        }
-      }
-    }
-  }
-
-  // Modifiers
-  &--hub & {
-    &__actions {
-      padding: 0 0 $hub-row-spacing;
+        hyphens: manual;
+        overflow-wrap: break-word;
+        padding: 0 0 $summary-row-spacing;
+        vertical-align: top;
+        word-wrap: break-word;
     }
 
     &__item-title {
-      @extend .u-fs-r--b;
-
-      padding-top: $hub-row-spacing;
+        padding-top: $summary-row-spacing;
+        position: relative;
+        &--text {
+            display: block;
+            overflow: hidden;
+            padding-left: 2rem;
+        }
+        &-icon {
+            left: 0;
+            position: absolute;
+            text-align: center;
+            &--check {
+                fill: $color-green;
+            }
+        }
     }
-  }
 
-  &:not(&--hub) & {
-    &__values {
-      @extend .u-fs-r--b;
-    }
-  }
-
-  // Breakpoints
-  @include mq(xxs, s, none, '<') {
-    &__item-title,
-    &__values,
     &__actions {
-      display: block;
+        white-space: nowrap;
     }
 
+    &__spacer {
+        background: $color-black;
+        display: inline-block;
+        height: 1rem;
+        margin: 0 0.25rem;
+        vertical-align: middle;
+        width: 1px;
+    }
+
+    // Item Modifiers
+    &__item--total & {
+        &__values {
+            @extend .u-fs-m;
+        }
+    }
+
+    &__item--error & {
+        &__row-title {
+            color: $color-errors;
+            font-weight: 700;
+            padding: $summary-row-spacing $summary-col-spacing;
+        }
+
+        &__item-title,
+        &__values,
+        &__actions {
+            padding-left: $summary-col-spacing;
+            padding-right: $summary-col-spacing;
+
+            @include mq('s') {
+                padding-left: $summary-col-spacing / 2;
+                padding-right: $summary-col-spacing / 2;
+
+                &:first-child {
+                    padding-left: $summary-col-spacing;
+                }
+
+                &:last-child {
+                    padding-right: $summary-col-spacing;
+                }
+            }
+        }
+    }
+
+    // Modifiers
     &--hub & {
-      &__values {
-        display: none;
-      }
-    }
-  }
+        &__actions {
+            padding: 0 0 $hub-row-spacing;
+        }
 
-  @include mq(s) {
-    &__item-title,
-    &__values,
-    &__actions {
-      padding-top: $summary-row-spacing;
-      vertical-align: top;
+        &__item-title {
+            @extend .u-fs-r--b;
 
-      &:not(:last-child) {
-        padding-right: $summary-col-spacing;
-      }
+            padding-top: $hub-row-spacing;
+        }
     }
 
-    &__actions {
-      text-align: right;
+    &:not(&--hub) & {
+        &__values {
+            @extend .u-fs-r--b;
+        }
     }
 
-    &__row--has-values & {
-      &__item-title,
-      &__values {
-        width: 50%;
-      }
+    // Breakpoints
+    @include mq(xxs, s, none, '<') {
+        &__item-title,
+        &__values,
+        &__actions {
+            display: block;
+        }
+
+        &--hub & {
+            &__values {
+                display: none;
+            }
+        }
     }
 
-    &--hub & {
-      &__item-title,
-      &__values,
-      &__actions {
-        padding-top: $hub-row-spacing;
-      }
+    @include mq(s) {
+        &__item-title,
+        &__values,
+        &__actions {
+            padding-top: $summary-row-spacing;
+            vertical-align: top;
+
+            &:not(:last-child) {
+                padding-right: $summary-col-spacing;
+            }
+        }
+
+        &__actions {
+            text-align: right;
+        }
+
+        &__row--has-values & {
+            &__item-title,
+            &__values {
+                width: 50%;
+            }
+        }
+
+        &--hub & {
+            &__item-title,
+            &__values,
+            &__actions {
+                padding-top: $hub-row-spacing;
+            }
+        }
     }
-  }
 }

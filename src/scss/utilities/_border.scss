@@ -1,12 +1,12 @@
 $border: (
-  bt: border-top,
-  br: border-right,
-  bb: border-bottom,
-  bl: border-left,
+    bt: border-top,
+    br: border-right,
+    bb: border-bottom,
+    bl: border-left,
 );
 
 @each $abbr, $dec in $border {
-  @include bp-suffix(u-#{$abbr}, $create-between-breakpoints: true) {
-    #{$dec}: 1px solid $color-borders !important;
-  }
+    @include bp-suffix(u-#{$abbr}, $create-between-breakpoints: true) {
+        #{$dec}: 1px solid $color-borders !important;
+    }
 }

@@ -1,40 +1,40 @@
 .footer {
-  a {
-    color: $color-grey-1;
-    text-decoration: underline;
+    a {
+        color: $color-grey-1;
+        text-decoration: underline;
 
-    &:hover {
-      color: $color-black;
-      text-decoration: underline solid $color-black 2px;
-    }
-  }
-
-  &__button-container {
-    padding: 1rem;
-    background-color: $color-header;
-    background-clip: border-box;
-  }
-
-  &__warning {
-    background-color: $color-grey-4;
-  }
-
-  &__ogl-img {
-    margin: 0 0.5rem 0.2rem 0;
-    max-width: 100%;
-    vertical-align: middle;
-  }
-
-  &__body {
-    padding: 2rem 0 4rem;
-    background-color: $color-grey-5;
-
-    .list__link {
-      margin-right: 0;
+        &:hover {
+            color: $color-black;
+            text-decoration: underline solid $color-black 2px;
+        }
     }
 
-    .poweredbylogo {
-      min-height: 1.5rem;
+    &__button-container {
+        background-clip: border-box;
+        background-color: $color-header;
+        padding: 1rem;
     }
-  }
+
+    &__warning {
+        background-color: $color-grey-4;
+    }
+
+    &__ogl-img {
+        margin: 0 0.5rem 0.2rem 0;
+        max-width: 100%;
+        vertical-align: middle;
+    }
+
+    &__body {
+        background-color: $color-grey-5;
+        padding: 2rem 0 4rem;
+
+        .list__link {
+            margin-right: 0;
+        }
+
+        .poweredbylogo {
+            min-height: 1.5rem;
+        }
+    }
 }

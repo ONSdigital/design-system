@@ -1,26 +1,27 @@
 .label {
-  display: block;
-  margin-bottom: 0.4rem;
-  color: inherit;
-  font-weight: $font-weight-bold;
+    color: inherit;
+    display: block;
+    font-weight: $font-weight-bold;
+    margin-bottom: 0.4rem;
 
-  &__description {
-    @extend .u-fs-s;
-    display: inline-block;
-    margin-top: 6px;
-    line-height: 1.4;
-  }
+    &__description {
+        @extend .u-fs-s;
 
-  &--with-description {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
+        display: inline-block;
+        line-height: 1.4;
+        margin-top: 6px;
+    }
 
-  &--placeholder {
-    position: absolute;
-    top: 6px;
-    left: 8px;
-    font-size: 1rem;
-    font-weight: $font-weight-regular;
-  }
+    &--with-description {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    &--placeholder {
+        font-size: 1rem;
+        font-weight: $font-weight-regular;
+        left: 8px;
+        position: absolute;
+        top: 6px;
+    }
 }

@@ -16,35 +16,35 @@ $char-space-width: 0.029rem;
 $nbsp-width: 0.256rem;
 
 @mixin input-width($class-name, $char-width: $char-max-width) {
-  @each $width in $input-widths {
-    .#{str-replace($class-name, '{x}', $width)} {
-      width: 100%;
-      max-width: input-width-calc($width, $char-width);
+    @each $width in $input-widths {
+        .#{str-replace($class-name, '{x}', $width)} {
+            max-width: input-width-calc($width, $char-width);
+            width: 100%;
 
-      .field__group & {
-        width: input-width-calc($width, $char-width);
-      }
+            .field__group & {
+                width: input-width-calc($width, $char-width);
+            }
 
-      @if $width <= 10 {
-        .input-type & {
-          width: input-width-calc($width, $char-width);
+            @if $width <= 10 {
+                .input-type & {
+                    width: input-width-calc($width, $char-width);
+                }
+            }
         }
-      }
     }
-  }
 }
 
 @function input-width-calc($chars: 1, $char-width: $char-max-width, $spaces: 0, $num-chars: 0) {
-  // Space between characters is 0.029rem wide
-  // Extra 2 pixels are to prevent clipping when the cursor is visible (2px is needed for iOS)
+    // Space between characters is 0.029rem wide
+    // Extra 2 pixels are to prevent clipping when the cursor is visible (2px is needed for iOS)
 
-  $padding-width: $input-padding-horizontal * 2;
-  $chars-width: $char-width * $chars;
-  $num-chars-width: $num-max-width * $num-chars;
-  $chars-space-width: $char-space-width * ($chars + $num-chars - 1);
-  $spaces-width: $spaces * $nbsp-width;
+    $padding-width: $input-padding-horizontal * 2;
+    $chars-width: $char-width * $chars;
+    $num-chars-width: $num-max-width * $num-chars;
+    $chars-space-width: $char-space-width * ($chars + $num-chars - 1);
+    $spaces-width: $spaces * $nbsp-width;
 
-  @return calc(
-    #{$padding-width + $chars-width + $num-chars-width + $chars-space-width + $spaces-width} + #{($input-border-width * 2) + 2px}
+    @return calc(
+        #{$padding-width + $chars-width + $num-chars-width + $chars-space-width + $spaces-width} + #{($input-border-width * 2) + 2px}
   );
 }

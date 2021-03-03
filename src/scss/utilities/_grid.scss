@@ -1,237 +1,238 @@
 .grid {
-  box-sizing: border-box;
-  margin-left: -$grid-gutters;
-  font-size: 0;
+    box-sizing: border-box;
+    font-size: 0;
+    margin-left: -$grid-gutters;
 }
 
 .grid--float {
-  letter-spacing: 0;
+    letter-spacing: 0;
 }
 
 .grid--center {
-  text-align: center;
-  .grid__col {
-    text-align: left;
-  }
+    text-align: center;
+    .grid__col {
+        text-align: left;
+    }
 }
 
 .grid--center-all {
-  text-align: center;
+    text-align: center;
 }
 
 .grid--reverse {
-  direction: rtl;
-  .grid__col {
-    direction: ltr;
-  }
+    direction: rtl;
+    .grid__col {
+        direction: ltr;
+    }
 }
 
 .grid--spaced {
-  .grid__col {
-    margin-bottom: $grid-gutters;
-  }
-  &.grid--tight {
     .grid__col {
-      margin-bottom: $grid-gutters/2;
+        margin-bottom: $grid-gutters;
     }
-  }
+    &.grid--tight {
+        .grid__col {
+            margin-bottom: $grid-gutters/2;
+        }
+    }
 }
 
 .grid--align-mid {
-  .grid__col {
-    vertical-align: middle;
-  }
+    .grid__col {
+        vertical-align: middle;
+    }
 }
 
 .grid--stagger-align {
-  .grid__col:nth-of-type(1n) {
-    text-align: right;
-  }
-  .grid__col:nth-of-type(2n) {
-    text-align: left;
-  }
+    .grid__col:nth-of-type(1n) {
+        text-align: right;
+    }
+    .grid__col:nth-of-type(2n) {
+        text-align: left;
+    }
 }
 
 .grid--tight {
-  margin-left: -$grid-gutters/2;
-  .grid__col {
-    padding-left: $grid-gutters/2;
-  }
+    margin-left: -$grid-gutters/2;
+    .grid__col {
+        padding-left: $grid-gutters/2;
+    }
 }
 
 .grid--loose {
-  margin-left: -$grid-gutters * 2;
+    margin-left: -$grid-gutters * 2;
 }
 
 .grid--gutterless {
-  margin-left: 0;
-  .grid__col {
-    padding-left: 0;
-  }
+    margin-left: 0;
+    .grid__col {
+        padding-left: 0;
+    }
 }
 
 .grid--pixelgutter {
-  margin-left: 1px;
-  .grid__col {
-    margin-bottom: 1px;
-    padding-left: 1px;
-  }
+    margin-left: 1px;
+    .grid__col {
+        margin-bottom: 1px;
+        padding-left: 1px;
+    }
 }
 
 .grid--flex {
-  display: flex;
-  flex-flow: row wrap;
+    display: flex;
+    flex-flow: row wrap;
 
-  &.grid--center {
-    justify-content: center;
-  }
+    &.grid--center {
+        justify-content: center;
+    }
 
-  &.grid--between {
-    justify-content: space-between;
-  }
+    &.grid--between {
+        justify-content: space-between;
+    }
 
-  &.grid--vertical-top {
-    align-items: start;
-  }
+    &.grid--vertical-top {
+        align-items: start;
+    }
 
-  &.grid--vertical-center {
-    align-items: center;
-  }
+    &.grid--vertical-center {
+        align-items: center;
+    }
 }
 
 @include bp-suffix(grid--no-wrap) {
-  flex-wrap: nowrap;
+    flex-wrap: nowrap;
 }
 
 @include bp-suffix(grid--column, $create-between-breakpoints: true) {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 @include bp-suffix(grid--bordered, false) {
-  margin-left: 0;
-  .grid__col {
-    flex: 1 1 auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-top: 1px solid $color-borders;
-    border-bottom: 1px solid $color-borders;
-    &:first-of-type {
-      padding-left: 0;
-      border-right: 1px solid $color-borders;
+    margin-left: 0;
+    .grid__col {
+        border-bottom: 1px solid $color-borders;
+        border-top: 1px solid $color-borders;
+        flex: 1 1 auto;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        &:first-of-type {
+            border-right: 1px solid $color-borders;
+            padding-left: 0;
+        }
     }
-  }
 }
 
 .grid__col {
-  display: inline-block;
-  box-sizing: border-box;
-  padding-left: $grid-gutters;
-  width: 100%;
-  // Fixes text overflow issues
-  min-width: 0;
-  vertical-align: top;
-  background-clip: content-box;
+    background-clip: content-box;
+    box-sizing: border-box;
+    display: inline-block;
+    // Fixes text overflow issues
+    min-width: 0;
+    padding-left: $grid-gutters;
+    vertical-align: top;
+    width: 100%;
 
-  .grid--float & {
-    display: block;
-    float: left;
-  }
+    .grid--float & {
+        display: block;
+        float: left;
+    }
 
-  &--loose {
-    padding-left: $grid-gutters * 2;
-  }
+    &--loose {
+        padding-left: $grid-gutters * 2;
+    }
 
-  .grid--flex & {
-    width: auto;
-  }
+    .grid--flex & {
+        width: auto;
+    }
 }
 
 .grid__col--flex {
-  display: flex;
+    display: flex;
 }
 
 @each $breakpoint-min, $size in $grid-bp {
-  @for $column from 1 through $grid-cols {
-    $width: percentage($column / $grid-cols);
-
-    @include mq($breakpoint-min) {
-      .col-#{$column}\@#{$breakpoint-min} {
-        width: $width;
-        max-width: $width;
-      }
-
-      .push-#{$column}\@#{$breakpoint-min} {
-        position: relative;
-        left: $width;
-      }
-
-      .pull-#{$column}\@#{$breakpoint-min} {
-        position: relative;
-        left: -$width;
-      }
-    }
-  }
-
-  @each $breakpoint-max, $size in $grid-bp {
     @for $column from 1 through $grid-cols {
-      $width: percentage($column / $grid-cols);
-      @include mq($breakpoint-min, $breakpoint-max) {
-        .col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
-          width: $width;
-          max-width: $width;
-        }
+        $width: percentage($column / $grid-cols);
 
-        .push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
-          position: relative;
-          left: $width;
-        }
+        @include mq($breakpoint-min) {
+            .col-#{$column}\@#{$breakpoint-min} {
+                max-width: $width;
+                width: $width;
+            }
 
-        .pull-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
-          position: relative;
-          left: -$width;
+            .push-#{$column}\@#{$breakpoint-min} {
+                left: $width;
+                position: relative;
+            }
+
+            .pull-#{$column}\@#{$breakpoint-min} {
+                left: -$width;
+                position: relative;
+            }
         }
-      }
     }
-  }
+
+    @each $breakpoint-max, $size in $grid-bp {
+        @for $column from 1 through $grid-cols {
+            $width: percentage($column / $grid-cols);
+
+            @include mq($breakpoint-min, $breakpoint-max) {
+                .col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+                    max-width: $width;
+                    width: $width;
+                }
+
+                .push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+                    left: $width;
+                    position: relative;
+                }
+
+                .pull-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+                    left: -$width;
+                    position: relative;
+                }
+            }
+        }
+    }
 }
 
 @include bp-suffix(col-auto) {
-  width: auto;
+    width: auto;
 
-  .grid--flex & {
-    flex-basis: auto;
-    max-width: 100%;
-  }
+    .grid--flex & {
+        flex-basis: auto;
+        max-width: 100%;
+    }
 }
 
 @include bp-suffix(u-flex-shrink) {
-  flex-shrink: 1;
+    flex-shrink: 1;
 }
 
 @include bp-suffix(u-flex-no-shrink) {
-  flex-shrink: 0;
+    flex-shrink: 0;
 }
 
 @include bp-suffix(u-flex-grow) {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 @include bp-suffix(u-flex-no-grow) {
-  flex-grow: 0;
+    flex-grow: 0;
 }
 
 @include bp-suffix(u-flex-no-basis) {
-  flex-basis: 0;
+    flex-basis: 0;
 }
 
 @include bp-suffix(u-flex-align-bottom) {
-  align-self: flex-end;
+    align-self: flex-end;
 }
 
 @include bp-suffix('nopull-', false) {
-  left: 0;
+    left: 0;
 }
 
 @include bp-suffix('nopush-', false) {
-  left: 0;
+    left: 0;
 }

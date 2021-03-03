@@ -1,31 +1,31 @@
 .u-dib {
-  display: inline-block;
+    display: inline-block;
 }
 
 .u-di {
-  display: inline;
+    display: inline;
 }
 
 .u-db {
-  display: block;
+    display: block;
 }
 
 // Utility class to override the height property to 'auto'
 .u-ha {
-  height: auto;
+    height: auto;
 }
 
 // Utility class to force non-wrapping of values
 .u-nowrap {
-  white-space: nowrap;
+    white-space: nowrap;
 }
 
 // Utility class to set direction right to left
 .u-rtl {
-  direction: rtl;
+    direction: rtl;
 }
 
 // Set an element's width to be auto at specified breakpoint
 @include bp-suffix(u-wa--) {
-  width: auto;
+    width: auto;
 }

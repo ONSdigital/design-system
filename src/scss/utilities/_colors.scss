@@ -1,17 +1,17 @@
 @each $label, $color in (blue: $color-dark-blue, green: $color-green) {
-  .u-#{$label} {
-    color: $color;
-  }
-  .u-bg-#{$label} {
-    background-color: $color;
-  }
+    .u-#{$label} {
+        color: $color;
+    }
+    .u-bg-#{$label} {
+        background-color: $color;
+    }
 
-  @for $tint from 1 through 10 {
-    .u-#{$label}-#{$tint*10} {
-      color: tint($color, $tint * 10);
+    @for $tint from 1 through 10 {
+        .u-#{$label}-#{$tint*10} {
+            color: tint($color, $tint * 10);
+        }
+        .u-bg-#{$label}-#{$tint*10} {
+            background-color: tint($color, $tint * 10);
+        }
     }
-    .u-bg-#{$label}-#{$tint*10} {
-      background-color: tint($color, $tint * 10);
-    }
-  }
 }

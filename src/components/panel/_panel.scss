@@ -1,184 +1,184 @@
 @mixin panel-type($name, $color, $color-bg) {
-  .panel {
-    &--#{$name} {
-      border-color: $color;
-      background: $color-bg;
-    }
+    .panel {
+        &--#{$name} {
+            background: $color-bg;
+            border-color: $color;
+        }
 
-    &--#{$name} & {
-      &__header {
-        background: $color;
-      }
+        &--#{$name} & {
+            &__header {
+                background: $color;
+            }
+        }
     }
-  }
 }
 
 .census-warning {
-  background: $color-branded-tertiary;
+    background: $color-branded-tertiary;
 }
 
 .panel {
-  position: relative;
-  border-radius: 0;
-
-  // Removes inherited bottom margin to make whitespace inside panel equal
-  > *:last-child {
-    margin-bottom: 0;
-  }
-
-  & .field {
-    margin-bottom: 0;
-  }
-
-  &:focus {
-    outline: 4px solid $color-focus !important;
-    outline-offset: 0;
-    box-shadow: none;
-  }
-
-  &__header {
-    margin: 0;
-    padding: 0.75rem 1rem;
     border-radius: 0;
-    color: $color-white;
-  }
-
-  &__title {
-    margin: 0;
-  }
-
-  &__body {
-    padding: 1rem;
+    position: relative;
 
     // Removes inherited bottom margin to make whitespace inside panel equal
-    > *:last-child,
-    strong > *:last-child {
-      margin-bottom: 0;
+    > *:last-child {
+        margin-bottom: 0;
     }
 
-    &.svg-icon-margin--xxl {
-      padding-left: 3.3rem !important;
+    & .field {
+        margin-bottom: 0;
     }
-    &.svg-icon-margin--xl {
-      padding-left: 2.8rem !important;
-    }
-    &.svg-icon-margin--l {
-      padding-left: 2.5rem !important;
-    }
-    &.svg-icon-margin--m {
-      padding-left: 2.2rem !important;
-    }
-    &.svg-icon-margin--s {
-      padding-left: 1.4rem !important;
-    }
-  }
 
-  &__error {
-    color: $color-errors;
-  }
-
-  &--warn {
-    margin-bottom: 1rem;
-    padding: 0;
-    border: 0 !important;
-
-    &--footer {
-      margin-bottom: 0;
-      padding: 1rem 0 !important;
-      background-color: $color-grey-4 !important;
+    &:focus {
+        box-shadow: none;
+        outline: 4px solid $color-focus !important;
+        outline-offset: 0;
     }
-  }
 
-  &--warn-branded {
-    border: 0 !important;
-    margin-bottom: 0;
-    color: $color-white;
-    padding: 1rem 0 !important;
-  }
-
-  &--no-title {
-    padding: 1rem;
-    border-left: 8px solid transparent;
-    .panel__body {
-      padding: 0;
-      background: none;
+    &__header {
+        border-radius: 0;
+        color: $color-white;
+        margin: 0;
+        padding: 0.75rem 1rem;
     }
-    &.panel--warn {
-      padding: 0;
+
+    &__title {
+        margin: 0;
     }
-  }
 
-  &--spacious {
-    padding: 1rem;
-
-    @include mq(m) {
-      padding: 2rem;
-    }
-  }
-
-  &--warn &,
-  &--warn-branded & {
     &__body {
-      padding: 0.222rem 0 0.222rem 2.8rem; // Alignment tweak
-      min-height: 2rem; // Height of icon
-      font-weight: $font-weight-bold;
-    }
-    &__icon {
-      min-width: 2rem;
-      min-height: 2rem;
-      border-radius: 50%;
-      background: $color-black;
-      color: $color-white;
-      font-size: 1.5rem;
-      font-weight: 900;
-      line-height: 2rem;
-      text-align: center;
-    }
-  }
+        padding: 1rem;
 
-  &--warn-branded & {
-    &__icon {
-      background: $color-white;
-      color: $color-branded-tertiary;
-    }
-  }
+        // Removes inherited bottom margin to make whitespace inside panel equal
+        > *:last-child,
+        strong > *:last-child {
+            margin-bottom: 0;
+        }
 
-  &--success & {
-    &__icon {
-      padding-left: 1rem;
-      fill: $color-success;
-      .svg-icon {
-        margin-top: -15% !important;
-      }
+        &.svg-icon-margin--xxl {
+            padding-left: 3.3rem !important;
+        }
+        &.svg-icon-margin--xl {
+            padding-left: 2.8rem !important;
+        }
+        &.svg-icon-margin--l {
+            padding-left: 2.5rem !important;
+        }
+        &.svg-icon-margin--m {
+            padding-left: 2.2rem !important;
+        }
+        &.svg-icon-margin--s {
+            padding-left: 1.4rem !important;
+        }
     }
-    &__body {
-      padding-left: 1.8rem;
-    }
-  }
 
-  &--bare & {
-    &__icon {
-      width: 1.3rem;
-      height: 1.3rem;
+    &__error {
+        color: $color-errors;
     }
-    &__body {
-      padding: 0.1rem 0 0 1.5rem;
-    }
-  }
 
-  &--bare,
-  &--success,
-  &--warn,
-  &--warn-branded {
-    .panel__icon {
-      position: absolute;
+    &--warn {
+        border: 0 !important;
+        margin-bottom: 1rem;
+        padding: 0;
+
+        &--footer {
+            background-color: $color-grey-4 !important;
+            margin-bottom: 0;
+            padding: 1rem 0 !important;
+        }
     }
-  }
-  &--success {
-    .panel__icon {
-      left: 0;
+
+    &--warn-branded {
+        border: 0 !important;
+        color: $color-white;
+        margin-bottom: 0;
+        padding: 1rem 0 !important;
     }
-  }
+
+    &--no-title {
+        border-left: 8px solid transparent;
+        padding: 1rem;
+        .panel__body {
+            background: none;
+            padding: 0;
+        }
+        &.panel--warn {
+            padding: 0;
+        }
+    }
+
+    &--spacious {
+        padding: 1rem;
+
+        @include mq(m) {
+            padding: 2rem;
+        }
+    }
+
+    &--warn &,
+    &--warn-branded & {
+        &__body {
+            font-weight: $font-weight-bold;
+            min-height: 2rem; // Height of icon
+            padding: 0.222rem 0 0.222rem 2.8rem; // Alignment tweak
+        }
+        &__icon {
+            background: $color-black;
+            border-radius: 50%;
+            color: $color-white;
+            font-size: 1.5rem;
+            font-weight: 900;
+            line-height: 2rem;
+            min-height: 2rem;
+            min-width: 2rem;
+            text-align: center;
+        }
+    }
+
+    &--warn-branded & {
+        &__icon {
+            background: $color-white;
+            color: $color-branded-tertiary;
+        }
+    }
+
+    &--success & {
+        &__icon {
+            fill: $color-success;
+            padding-left: 1rem;
+            .svg-icon {
+                margin-top: -15% !important;
+            }
+        }
+        &__body {
+            padding-left: 1.8rem;
+        }
+    }
+
+    &--bare & {
+        &__icon {
+            height: 1.3rem;
+            width: 1.3rem;
+        }
+        &__body {
+            padding: 0.1rem 0 0 1.5rem;
+        }
+    }
+
+    &--bare,
+    &--success,
+    &--warn,
+    &--warn-branded {
+        .panel__icon {
+            position: absolute;
+        }
+    }
+    &--success {
+        .panel__icon {
+            left: 0;
+        }
+    }
 }
 
 @include panel-type(error, $color-errors, $color-errors-tint);

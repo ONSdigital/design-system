@@ -1,42 +1,43 @@
 @mixin status-dot($status-color) {
-  background-color: $status-color;
-  border: 3px solid $status-color;
+    background-color: $status-color;
+    border: 3px solid $status-color;
 }
 
 @mixin status-size($status-size: 1rem, $status-mb: -0.15rem) {
-  width: $status-size;
-  height: $status-size;
-  margin-bottom: $status-mb;
+    height: $status-size;
+    margin-bottom: $status-mb;
+    width: $status-size;
 }
 
 .status {
-  &::before {
-    @include status-size;
-    content: '';
-    border-radius: 100%;
-    display: inline-block;
-    box-sizing: border-box;
-    margin-right: 0.391rem;
-  }
+    &::before {
+        @include status-size;
 
-  /* Small status indicators for information dense situations */
-  &.status--small::before {
-    @include status-size(0.555555rem, $status-mb: 0.055556rem);
-  }
+        border-radius: 100%;
+        box-sizing: border-box;
+        content: '';
+        display: inline-block;
+        margin-right: 0.391rem;
+    }
 
-  &.status--success:before {
-    @include status-dot($color-success-dot);
-  }
-  &.status--pending:before {
-    @include status-dot($color-pending-dot);
-  }
-  &.status--error:before {
-    @include status-dot($color-errors-dot);
-  }
-  &.status--dead:before {
-    @include status-dot($color-dead);
-  }
-  &.status--info:before {
-    @include status-dot($color-info-dot);
-  }
+    /* Small status indicators for information dense situations */
+    &.status--small::before {
+        @include status-size(0.555555rem, $status-mb: 0.055556rem);
+    }
+
+    &.status--success::before {
+        @include status-dot($color-success-dot);
+    }
+    &.status--pending::before {
+        @include status-dot($color-pending-dot);
+    }
+    &.status--error::before {
+        @include status-dot($color-errors-dot);
+    }
+    &.status--dead::before {
+        @include status-dot($color-dead);
+    }
+    &.status--info::before {
+        @include status-dot($color-info-dot);
+    }
 }

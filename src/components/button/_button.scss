@@ -1,262 +1,263 @@
 $button-border-height: 3px;
 
 .btn {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: $font-weight-bold;
-  line-height: 1.35;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  vertical-align: top;
-  cursor: pointer;
-
-  // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
-  &:after {
-    border: ems($button-border-height) solid transparent;
-    bottom: 0;
-    content: '';
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-  .svg-icon {
-    margin: 0 0 0.1rem 0.5rem;
-    width: 0.8rem;
-    height: 0.8rem;
-    fill: $color-text-inverse;
-    vertical-align: middle;
-  }
-
-  &:hover & {
-    &__inner {
-      background: darken($color-button, 5%);
-    }
-  }
-
-  &__inner {
-    display: inherit;
-    padding: 0.75em 1em;
-    border-bottom: ems($button-border-height) solid rgba(0, 0, 0, 0.6);
-    border-radius: $input-radius;
-    background: $color-button;
-    color: $color-text-inverse;
-    // Required for Google Tag Manager
-    pointer-events: none;
-  }
-
-  // When preceded by another button (e.g. in a group)
-  & + & {
-    margin-left: 0.5rem;
-  }
-
-  // When focussed
-  &:focus:not(:active):not(:hover) {
-    outline: 3px solid transparent;
-  }
-
-  &:focus:not(:active):not(:hover) &__inner {
-    background-color: $color-focus;
-    color: $color-focus-text;
-  }
-
-  &:not([class*='btn--secondary']):not([class*='btn--print']):focus:hover &__inner {
-    color: $color-text-inverse;
-  }
-
-  &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus,
-  &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus:hover {
-    outline: none;
-  }
-
-  // When clicked
-  &:not([class*='btn--ghost']):not([class*='btn--mobile']):active {
-    padding-top: ems(3px);
-  }
-
-  &:not([class*='btn--ghost']):not([class*='btn--mobile']):active &__inner {
-    border-bottom: 0;
-  }
-
-  // Modifiers
-  &--small,
-  &--mobile {
-    font-size: 0.9rem;
-  }
-
-  &--small &,
-  &--mobile & {
-    &__inner {
-      padding: 0.5em 0.7em;
-    }
-  }
-
-  &--inline & {
-    &__inner {
-      padding: 0.5rem 1rem;
-    }
-  }
-
-  &--secondary &,
-  &--print & {
-    &__inner {
-      background: $color-button-secondary;
-      color: $color-text;
-      font-weight: normal;
-      .svg-icon {
-        fill: $color-text;
-      }
-    }
-  }
-
-  &--print & {
-    &__inner {
-      .svg-icon {
-        width: 1rem;
-        height: 1rem;
-      }
-    }
-  }
-
-  // When hovered
-  &--secondary:hover &,
-  &--print:hover & {
-    &__inner {
-      background: darken($color-button-secondary, 5%);
-    }
-  }
-
-  // Link button when hovered
-  &--link:hover {
-    text-decoration: none;
-  }
-
-  // Link button when focussed
-  &--link:focus:not(:active):not(:hover) &__inner {
-    background: $color-focus;
-    color: $color-focus-text;
-  }
-
-  &--link:not(.btn--secondary) &,
-  &--link:not(.btn--secondary):active &,
-  &--link:not(.btn--secondary):hover:focus & {
-    &__inner {
-      .svg-icon {
-        fill: $color-white;
-      }
-    }
-  }
-
-  &--link:focus:not(.btn--secondary) &__inner {
-    .svg-icon {
-      fill: $color-black;
-    }
-  }
-
-  &--loader &__inner {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: $font-weight-bold;
+    line-height: 1.35;
+    margin: 0;
+    padding: 0;
     position: relative;
-    transition: color 0.3s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    text-rendering: optimizeLegibility;
+    vertical-align: top;
+
+    // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
+    &::after {
+        border: ems($button-border-height) solid transparent;
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
     .svg-icon {
-      position: absolute;
-      top: 24%;
-      left: 26%;
-      width: 1.5rem;
-      height: 1.5rem;
-      fill: $color-white;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
+        fill: $color-text-inverse;
+        height: 0.8rem;
+        margin: 0 0 0.1rem 0.5rem;
+        vertical-align: middle;
+        width: 0.8rem;
     }
-  }
 
-  &--loader.is-loading &__inner {
-    color: transparent;
-    .svg-icon {
-      opacity: 1;
+    &:hover & {
+        &__inner {
+            background: darken($color-button, 5%);
+        }
     }
-  }
 
-  &--loader.is-loading:focus &__inner {
-    fill: $color-black;
-  }
-
-  // Spooky Buttons
-  &--ghost &,
-  &--mobile & {
     &__inner {
-      border: 2px solid rgba(255, 255, 255, 0.6);
-      background: transparent;
-      color: $color-white;
-      .svg-icon {
-        fill: $color-white;
-      }
+        background: $color-button;
+        border-bottom: ems($button-border-height) solid rgba(0, 0, 0, 0.6);
+        border-radius: $input-radius;
+        color: $color-text-inverse;
+        display: inherit;
+        padding: 0.75em 1em;
+        // Required for Google Tag Manager
+        pointer-events: none;
     }
-  }
 
-  &--ghost:active &,
-  &--mobile:active & {
-    &__inner {
-      border-color: $color-white;
+    // When preceded by another button (e.g. in a group)
+    & + & {
+        margin-left: 0.5rem;
     }
-  }
 
-  &--ghost:active:focus {
-    outline: 3px solid transparent;
-  }
-
-  &--ghost:focus:hover,
-  &--mobile:focus:hover {
-    outline: none;
-  }
-
-  &--ghost:hover &,
-  &--mobile:hover & {
-    &__inner {
-      background: rgba(0, 0, 0, 0.1);
+    // When focussed
+    &:focus:not(:active):not(:hover) {
+        outline: 3px solid transparent;
     }
-  }
 
-  &--ghost:focus:not(:hover) &,
-  &--mobile:focus:not(:hover) & {
-    &__inner {
-      background-color: $color-focus;
-      color: $color-focus-text;
-      .svg-icon {
+    &:focus:not(:active):not(:hover) &__inner {
+        background-color: $color-focus;
+        color: $color-focus-text;
+    }
+
+    &:not([class*='btn--secondary']):not([class*='btn--print']):focus:hover &__inner {
+        color: $color-text-inverse;
+    }
+
+    &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus,
+    &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus:hover {
+        outline: none;
+    }
+
+    // When clicked
+    &:not([class*='btn--ghost']):not([class*='btn--mobile']):active {
+        padding-top: ems(3px);
+    }
+
+    &:not([class*='btn--ghost']):not([class*='btn--mobile']):active &__inner {
+        border-bottom: 0;
+    }
+
+    // Modifiers
+    &--small,
+    &--mobile {
+        font-size: 0.9rem;
+    }
+
+    &--small &,
+    &--mobile & {
+        &__inner {
+            padding: 0.5em 0.7em;
+        }
+    }
+
+    &--inline & {
+        &__inner {
+            padding: 0.5rem 1rem;
+        }
+    }
+
+    &--secondary &,
+    &--print & {
+        &__inner {
+            background: $color-button-secondary;
+            color: $color-text;
+            font-weight: normal;
+            .svg-icon {
+                fill: $color-text;
+            }
+        }
+    }
+
+    &--print & {
+        &__inner {
+            .svg-icon {
+                height: 1rem;
+                width: 1rem;
+            }
+        }
+    }
+
+    // When hovered
+    &--secondary:hover &,
+    &--print:hover & {
+        &__inner {
+            background: darken($color-button-secondary, 5%);
+        }
+    }
+
+    // Link button when hovered
+    &--link:hover {
+        text-decoration: none;
+    }
+
+    // Link button when focussed
+    &--link:focus:not(:active):not(:hover) &__inner {
+        background: $color-focus;
+        color: $color-focus-text;
+    }
+
+    &--link:not(.btn--secondary) &,
+    &--link:not(.btn--secondary):active &,
+    &--link:not(.btn--secondary):hover:focus & {
+        &__inner {
+            .svg-icon {
+                fill: $color-white;
+            }
+        }
+    }
+
+    &--link:focus:not(.btn--secondary) &__inner {
+        .svg-icon {
+            fill: $color-black;
+        }
+    }
+
+    &--loader &__inner {
+        position: relative;
+        transition: color 0.3s ease-in-out;
+        .svg-icon {
+            fill: $color-white;
+            height: 1.5rem;
+            left: 26%;
+            opacity: 0;
+            position: absolute;
+            top: 24%;
+            transition: opacity 0.3s ease-in-out;
+            width: 1.5rem;
+        }
+    }
+
+    &--loader.is-loading &__inner {
+        color: transparent;
+        .svg-icon {
+            opacity: 1;
+        }
+    }
+
+    &--loader.is-loading:focus &__inner {
         fill: $color-black;
-      }
     }
-  }
 
-  &--mobile[aria-expanded='true'] {
-    .svg-icon {
-      transform: rotate(270deg);
+    // Spooky Buttons
+    &--ghost &,
+    &--mobile & {
+        &__inner {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: $color-white;
+            .svg-icon {
+                fill: $color-white;
+            }
+        }
     }
-  }
 
-  &--mobile {
-    .svg-icon {
-      transform: rotate(90deg);
+    &--ghost:active &,
+    &--mobile:active & {
+        &__inner {
+            border-color: $color-white;
+        }
     }
-    @include mq(m) {
-      display: none;
-    }
-  }
 
-  // Disabled buttons
-  &--disabled {
-    &:hover {
-      cursor: not-allowed;
+    &--ghost:active:focus {
+        outline: 3px solid transparent;
     }
-    .btn__inner {
-      opacity: 0.4;
+
+    &--ghost:focus:hover,
+    &--mobile:focus:hover {
+        outline: none;
     }
-  }
+
+    &--ghost:hover &,
+    &--mobile:hover & {
+        &__inner {
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &--ghost:focus:not(:hover) &,
+    &--mobile:focus:not(:hover) & {
+        &__inner {
+            background-color: $color-focus;
+            color: $color-focus-text;
+            .svg-icon {
+                fill: $color-black;
+            }
+        }
+    }
+
+    &--mobile[aria-expanded='true'] {
+        .svg-icon {
+            transform: rotate(270deg);
+        }
+    }
+
+    &--mobile {
+        .svg-icon {
+            transform: rotate(90deg);
+        }
+
+        @include mq(m) {
+            display: none;
+        }
+    }
+
+    // Disabled buttons
+    &--disabled {
+        &:hover {
+            cursor: not-allowed;
+        }
+        .btn__inner {
+            opacity: 0.4;
+        }
+    }
 }

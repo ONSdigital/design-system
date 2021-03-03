@@ -1,29 +1,29 @@
 .uac {
-  &__input {
-    width: 15.1em;
-    font-family: $font-mono;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    &__input {
+        font-family: $font-mono;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        width: 15.1em;
 
-    @media all and (min-width: 375px) {
-      width: 15.1em;
-      font-size: 20px;
-    }
+        @media all and (min-width: 375px) {
+            font-size: 20px;
+            width: 15.1em;
+        }
 
-    @media all and (max-width: 374px) {
-      max-width: 12.6em;
-      letter-spacing: 0;
-    }
+        @media all and (max-width: 374px) {
+            letter-spacing: 0;
+            max-width: 12.6em;
+        }
 
-    @media all and (max-width: 299px) {
-      max-width: 100%;
-    }
+        @media all and (max-width: 299px) {
+            max-width: 100%;
+        }
 
-    @include mq('s') {
-      width: 14.9em !important;
-      max-width: 14.9em;
-      font-size: 24px;
+        @include mq('s') {
+            font-size: 24px;
+            max-width: 14.9em;
+            width: 14.9em !important;
+        }
     }
-  }
 }

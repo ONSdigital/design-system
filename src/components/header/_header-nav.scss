@@ -1,91 +1,86 @@
 .header-nav {
-  &__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  &__item {
-    display: block;
-    margin: 0;
-    padding: 0.3rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-
-    @include mq(m) {
-      display: inline-block;
-      position: relative;
-
-      margin: 0 0 0 1rem;
-      padding: 0 0 0.3rem;
-
-      border-top: 0;
-      border-bottom: 4px solid transparent;
-
-      text-align: center;
-
-      &:first-child {
-        margin-left: 0;
-      }
-
-      &--active,
-      &:hover {
-        border-color: $color-white;
-      }
-    }
-  }
-
-  &__item + &__item--secondary {
-    margin-top: 0.5rem;
-    border-top: 2px solid $color-white;
-  }
-
-  &__link {
-    display: block;
-    margin: 0 0.35rem;
-    padding: 0 0.65rem;
-
-    color: $color-white;
-    font-size: 0.9rem;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-      color: #c2ecff;
-      text-decoration: none;
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 
-    @include mq(m) {
-      display: inline-block;
-      margin: 0;
-      padding: 0;
+    &__item {
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+        display: block;
+        margin: 0;
+        padding: 0.3rem 0;
 
-      font-size: 1rem;
+        @include mq(m) {
+            border-bottom: 4px solid transparent;
+            border-top: 0;
+            display: inline-block;
+            margin: 0 0 0 1rem;
+            padding: 0 0 0.3rem;
+            position: relative;
+            text-align: center;
 
-      &:hover,
-      &:focus {
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &--active,
+            &:hover {
+                border-color: $color-white;
+            }
+        }
+    }
+
+    &__item + &__item--secondary {
+        border-top: 2px solid $color-white;
+        margin-top: 0.5rem;
+    }
+
+    &__link {
         color: $color-white;
-      }
-    }
-  }
+        display: block;
+        font-size: 0.9rem;
+        margin: 0 0.35rem;
+        padding: 0 0.65rem;
+        text-decoration: none;
 
-  &__item--active &__link {
-    font-weight: 700;
-  }
+        &:hover,
+        &:focus {
+            color: #c2ecff;
+            text-decoration: none;
+        }
+
+        @include mq(m) {
+            display: inline-block;
+            font-size: 1rem;
+            margin: 0;
+            padding: 0;
+
+            &:hover,
+            &:focus {
+                color: $color-white;
+            }
+        }
+    }
+
+    &__item--active &__link {
+        font-weight: 700;
+    }
 }
 
 .header-service-nav {
-  &__list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  &__item {
-    display: inline-block;
-    margin: 0 0 0 1rem;
-
-    &:first-child {
-      margin-left: 0;
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
-  }
+
+    &__item {
+        display: inline-block;
+        margin: 0 0 0 1rem;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
 }

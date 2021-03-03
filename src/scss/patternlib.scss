@@ -1,180 +1,177 @@
 @import 'vars/index';
 @import 'helpers/*.scss';
-
 @import '../views/partials/**/*.scss';
 @import '../styles/page-template/examples/block-areas/block-areas';
 @import '../patterns/question/examples/question-anatomy/pl-question-anatomy';
 
 .patternlib-page {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-
-  &--example {
-    display: block;
-    padding: 1rem 1.5rem;
-    height: auto;
-  }
-
-  &__header {
-    margin: 0;
-  }
-
-  &__body {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-  }
-
-  &__sub-nav,
-  &__primary,
-  &__main {
     display: flex;
     flex-direction: column;
-  }
+    height: 100vh;
 
-  &__sub-nav,
-  &__primary {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-  }
-
-  &__sub-nav {
-    flex: 0 0 auto;
-    padding: 1.5rem 1rem;
-    width: 300px;
-    border-right: 1px solid $color-borders;
-
-    .nav {
-      width: 100%;
-    }
-  }
-
-  &__main {
-    flex: 1 0 auto;
-  }
-
-  &__primary {
-    flex: 1 1 auto;
-  }
-
-  &__content {
-    padding: 1.5rem;
-    width: 100%;
-    p,
-    li,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      max-width: 50rem;
+    &--example {
+        display: block;
+        height: auto;
+        padding: 1rem 1.5rem;
     }
 
-    code:not(.patternlib-example__code) {
-      display: inline-block;
-      padding: 0.05rem 0.25rem;
-      background: $color-grey-5;
-      color: $color-red;
+    &__header {
+        margin: 0;
     }
 
-    table {
-      margin: 0;
-      width: 100%;
-      border-spacing: 0;
-      border-collapse: collapse;
+    &__body {
+        display: flex;
+        flex: 1;
+        overflow: hidden;
     }
 
-    th {
-      position: sticky;
-      top: 0;
-
-      border-bottom: 2px solid $color-grey-3;
-      background: $color-white;
-
-      text-align: left;
+    &__sub-nav,
+    &__primary,
+    &__main {
+        display: flex;
+        flex-direction: column;
     }
 
-    th,
-    td {
-      padding: 0.5rem 0.25rem;
-      line-height: 1.4;
+    &__sub-nav,
+    &__primary {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
     }
 
-    td {
-      border-bottom: 1px solid $color-grey-3;
-      background: transparent;
-    }
-  }
+    &__sub-nav {
+        border-right: 1px solid $color-borders;
+        flex: 0 0 auto;
+        padding: 1.5rem 1rem;
+        width: 300px;
 
-  &__content,
-  &__sub-nav {
-    & > {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        &:not(:first-child) {
-          margin-top: 2rem;
+        .nav {
+            width: 100%;
         }
-      }
-
-      h5,
-      h6 {
-        font-size: 1rem;
-      }
-
-      @for $i from 1 through 6 {
-        @for $c from 1 through 6 {
-          h#{$i} + h#{$c}:not(:first-child) {
-            margin-top: 0;
-          }
-        }
-      }
     }
-  }
 
-  &__content-header {
-    position: relative;
-    margin-bottom: 1rem;
-  }
+    &__main {
+        flex: 1 0 auto;
+    }
 
-  .panel + .patternlib-example {
-    margin-top: 2rem;
-  }
+    &__primary {
+        flex: 1 1 auto;
+    }
+
+    &__content {
+        padding: 1.5rem;
+        width: 100%;
+        p,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            max-width: 50rem;
+        }
+
+        code:not(.patternlib-example__code) {
+            background: $color-grey-5;
+            color: $color-red;
+            display: inline-block;
+            padding: 0.05rem 0.25rem;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        th {
+            background: $color-white;
+            border-bottom: 2px solid $color-grey-3;
+            position: sticky;
+            text-align: left;
+            top: 0;
+        }
+
+        th,
+        td {
+            line-height: 1.4;
+            padding: 0.5rem 0.25rem;
+        }
+
+        td {
+            background: transparent;
+            border-bottom: 1px solid $color-grey-3;
+        }
+    }
+
+    &__content,
+    &__sub-nav {
+        & > {
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                &:not(:first-child) {
+                    margin-top: 2rem;
+                }
+            }
+
+            h5,
+            h6 {
+                font-size: 1rem;
+            }
+
+            @for $i from 1 through 6 {
+                @for $c from 1 through 6 {
+                    h#{$i} + h#{$c}:not(:first-child) {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content-header {
+        margin-bottom: 1rem;
+        position: relative;
+    }
+
+    .panel + .patternlib-example {
+        margin-top: 2rem;
+    }
 }
 
 .patternlib-hero {
-  padding: 2rem 0 1rem;
-  width: 100%;
-  background: $color-grey-5;
+    background: $color-grey-5;
+    padding: 2rem 0 1rem;
+    width: 100%;
 
-  &__title {
-    max-width: 30rem;
-  }
+    &__title {
+        max-width: 30rem;
+    }
 }
 
 .pl-grid-col {
-  margin: 0 0 1rem;
-  padding: 1rem;
-  background: $color-grey-5;
-  font-size: 0.8rem;
+    background: $color-grey-5;
+    font-size: 0.8rem;
+    margin: 0 0 1rem;
+    padding: 1rem;
 }
 
 .pl-experimental-tag {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.3rem 0.5rem;
-  background: $color-amber;
-  color: $color-white;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
+    background: $color-amber;
+    color: $color-white;
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    padding: 0.3rem 0.5rem;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 0;
 }

@@ -1,29 +1,29 @@
 fieldset,
 legend {
-  margin: 0;
-  padding: 0;
-  border: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 
 fieldset {
-  width: 100%;
+    width: 100%;
 }
 
 input {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 ::-webkit-inner-spin-button {
-  display: none;
+    display: none;
 }
 
 input[type='text'],
 input[type='number'] {
-  appearance: none;
+    appearance: none;
 }
 
 select {
-  option[disabled][value=''] {
-    display: none;
-  }
+    option[disabled][value=''] {
+        display: none;
+    }
 }

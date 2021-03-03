@@ -1,8 +1,9 @@
 .distance {
-  @extend .u-fs-r;
-  border: 1px solid transparent; // high contrast mode
-  display: inline-block;
-  padding: 0.3rem 0.5rem;
-  background-color: $color-tag-bg;
-  text-decoration: none;
+    @extend .u-fs-r;
+
+    background-color: $color-tag-bg;
+    border: 1px solid transparent; // high contrast mode
+    display: inline-block;
+    padding: 0.3rem 0.5rem;
+    text-decoration: none;
 }

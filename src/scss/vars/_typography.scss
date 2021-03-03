@@ -1,5 +1,5 @@
-$font-sans: 'OpenSans', 'Helvetica Neue', Arial, sans-serif !default;
-$font-serif: Georgia, serif !default;
+$font-sans: 'OpenSans', 'Helvetica Neue', arial, sans-serif !default;
+$font-serif: georgia, serif !default;
 $font-mono: 'RobotoMono', monospace !default;
 
 $base-font-size: 1rem;
@@ -10,58 +10,58 @@ $font-weight-bold: 600;
 $base: 18px;
 
 $type-matrix: (
-  u-fs-xxxl: (
-    small: 32px,
-    large: 48px,
-    weight: $font-weight-bold,
-    line-height: 1.3
-  ),
-  u-fs-xxl: (
-    small: 28px,
-    large: 36px,
-    weight: $font-weight-bold,
-    line-height: 1.4
-  ),
-  u-fs-xl: (
-    small: 26px,
-    large: 30px,
-    weight: $font-weight-bold,
-    line-height: 1.4
-  ),
-  u-fs-l: (
-    small: 24px,
-    large: 26px,
-    weight: $font-weight-bold,
-    line-height: 1.4
-  ),
-  u-fs-m: (
-    small: 20px,
-    large: 22px,
-    weight: $font-weight-bold,
-    line-height: 1.4
-  ),
-  u-fs-r--b: (
-    small: $base,
-    large: $base,
-    weight: $font-weight-bold,
-    line-height: 1.4
-  ),
-  u-fs-r: (
-    small: $base,
-    large: $base,
-    weight: $font-weight-regular,
-    line-height: 1.4
-  ),
-  u-fs-s--b: (
-    small: 14px,
-    large: 14px,
-    weight: $font-weight-bold,
-    line-height: 1.4
-  ),
-  u-fs-s: (
-    small: 14px,
-    large: 14px,
-    weight: $font-weight-regular,
-    line-height: 1.4
-  )
+    u-fs-xxxl: (
+        small: 32px,
+        large: 48px,
+        weight: $font-weight-bold,
+        line-height: 1.3
+    ),
+    u-fs-xxl: (
+        small: 28px,
+        large: 36px,
+        weight: $font-weight-bold,
+        line-height: 1.4
+    ),
+    u-fs-xl: (
+        small: 26px,
+        large: 30px,
+        weight: $font-weight-bold,
+        line-height: 1.4
+    ),
+    u-fs-l: (
+        small: 24px,
+        large: 26px,
+        weight: $font-weight-bold,
+        line-height: 1.4
+    ),
+    u-fs-m: (
+        small: 20px,
+        large: 22px,
+        weight: $font-weight-bold,
+        line-height: 1.4
+    ),
+    u-fs-r--b: (
+        small: $base,
+        large: $base,
+        weight: $font-weight-bold,
+        line-height: 1.4
+    ),
+    u-fs-r: (
+        small: $base,
+        large: $base,
+        weight: $font-weight-regular,
+        line-height: 1.4
+    ),
+    u-fs-s--b: (
+        small: 14px,
+        large: 14px,
+        weight: $font-weight-bold,
+        line-height: 1.4
+    ),
+    u-fs-s: (
+        small: 14px,
+        large: 14px,
+        weight: $font-weight-regular,
+        line-height: 1.4
+    )
 );

@@ -1,93 +1,92 @@
 .tabs {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 // Tabs - list
 .tabs__list {
-  margin: 0 0 1rem 0;
-  padding: 0;
-  overflow: visible;
-  border-bottom: none;
+    border-bottom: none;
+    margin: 0 0 1rem;
+    overflow: visible;
+    padding: 0;
 
-  &--row {
-    margin: 0;
-    border-bottom: 1px solid $color-borders;
-  }
+    &--row {
+        border-bottom: 1px solid $color-borders;
+        margin: 0;
+    }
 }
 
 .tab__list-item {
-  display: list-item;
-  box-sizing: border-box;
-  margin: 0 0 0.3rem;
-  list-style: none;
+    box-sizing: border-box;
+    display: list-item;
+    list-style: none;
+    margin: 0 0 0.3rem;
 
-  &--row {
-    display: inline;
-  }
+    &--row {
+        display: inline;
+    }
 }
 
 .tab--row {
-  position: relative;
-  margin: 0 0.1rem 0 0;
-  padding: 0.5rem 1rem;
-  background: $color-button-secondary;
-  border: 1px solid $color-button-secondary;
-  border-radius: 3px 3px 0 0;
-  overflow: visible;
-  text-decoration: underline;
-  color: $color-text;
-
-  display: inline-block;
-  height: 2.5rem;
-
-  &:hover {
-    background-color: darken($color-button-secondary, 5%);
-    border-color: darken($color-button-secondary, 5%);
-    color: $color-text;
-    text-decoration: underline solid $color-text 2px;
-  }
-
-  &[aria-selected='true'] {
-    // Tab when selected
+    background: $color-button-secondary;
+    border: 1px solid $color-button-secondary;
     border-radius: 3px 3px 0 0;
-    background-color: $color-white;
-    border-color: $color-borders;
-    font-weight: 700;
-    text-decoration: none;
+    color: $color-text;
+    display: inline-block;
+    height: 2.5rem;
+    margin: 0 0.1rem 0 0;
+    overflow: visible;
+    padding: 0.5rem 1rem;
+    position: relative;
+    text-decoration: underline;
 
-    &:after {
-      // hides the lower border of the active tab.
-      position: absolute;
-      z-index: 3;
-      bottom: -2px;
-      right: 0;
-      left: 0;
-      height: 0.09rem;
-      background: $color-white;
-      box-shadow: none;
-      content: '';
+    &:hover {
+        background-color: darken($color-button-secondary, 5%);
+        border-color: darken($color-button-secondary, 5%);
+        color: $color-text;
+        text-decoration: underline solid $color-text 2px;
     }
-  }
 
-  &:focus {
-    outline: none;
-    background-color: $color-focus;
-    color: $color-focus-text;
-  }
+    &[aria-selected='true'] {
+        background-color: $color-white;
+        border-color: $color-borders;
+        // Tab when selected
+        border-radius: 3px 3px 0 0;
+        font-weight: 700;
+        text-decoration: none;
+
+        &::after {
+            background: $color-white;
+            bottom: -2px;
+            box-shadow: none;
+            content: '';
+            height: 0.09rem;
+            left: 0;
+            // hides the lower border of the active tab.
+            position: absolute;
+            right: 0;
+            z-index: 3;
+        }
+    }
+
+    &:focus {
+        background-color: $color-focus;
+        color: $color-focus-text;
+        outline: none;
+    }
 }
 
 // Tabs - Panels
 .tabs__panel {
-  z-index: 10;
-  position: relative;
-  margin-bottom: 1rem;
-  padding-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    position: relative;
+    z-index: 10;
 
-  &--hidden {
-    display: none;
-  }
+    &--hidden {
+        display: none;
+    }
 
-  &:focus {
-    outline: 4px solid $color-focus;
-  }
+    &:focus {
+        outline: 4px solid $color-focus;
+    }
 }

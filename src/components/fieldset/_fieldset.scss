@@ -1,9 +1,9 @@
 .fieldset {
-  &__legend {
-    @extend .label;
-  }
+    &__legend {
+        @extend .label;
+    }
 
-  &__description {
-    @extend .label__description;
-  }
+    &__description {
+        @extend .label__description;
+    }
 }

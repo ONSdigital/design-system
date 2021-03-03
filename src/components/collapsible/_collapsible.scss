@@ -1,138 +1,139 @@
 $collapsible-caret-width: 1.5rem;
 
 .collapsible {
-  &--initialised & {
-    &__heading {
-      display: inline-block;
-      position: relative;
-      padding: 0 0 0 $collapsible-caret-width;
-      outline: none;
-      color: $color-links;
-      cursor: pointer;
-      pointer-events: initial;
+    &--initialised & {
+        &__heading {
+            color: $color-links;
+            cursor: pointer;
+            display: inline-block;
+            outline: none;
+            padding: 0 0 0 $collapsible-caret-width;
+            pointer-events: initial;
+            position: relative;
 
-      &::-webkit-details-marker {
+            &::-webkit-details-marker {
+                display: none;
+            }
+
+            &:focus {
+                & .collapsible__title {
+                    @extend a:focus;
+                    // extend collapsible focus background behind caret
+                    margin-left: -$collapsible-caret-width;
+                    padding-left: $collapsible-caret-width;
+                }
+            }
+
+            &:hover {
+                color: $color-links-hover;
+                .collapsible__icon {
+                    fill: $color-links-hover;
+                }
+                & .collapsible__title {
+                    text-decoration: underline solid $color-links-hover 2px;
+                }
+            }
+            &:focus {
+                .collapsible__icon {
+                    fill: $color-black;
+                }
+            }
+        }
+
+        &__icon {
+            display: inline-block;
+            fill: $color-links;
+            height: $collapsible-caret-width;
+            left: -0.2rem;
+            position: absolute;
+            top: -0.25rem;
+            width: $collapsible-caret-width;
+        }
+
+        &__title {
+            font-size: 1rem;
+            font-weight: $font-weight-bold;
+            margin-bottom: 0;
+            text-decoration: underline;
+            text-underline-position: under;
+            transform: translateY(-1px);
+        }
+
+        &__content {
+            display: none;
+        }
+    }
+
+    &__icon {
         display: none;
-      }
+    }
 
-      &:focus {
-        & .collapsible__title {
-          @extend a:focus;
-          // extend collapsible focus background behind caret
-          margin-left: -$collapsible-caret-width;
-          padding-left: $collapsible-caret-width;
+    &--open & {
+        &__icon {
+            left: -0.1rem;
+            top: 0.1rem;
+            transform: rotate(90deg);
         }
-      }
 
-      &:hover {
-        color: $color-links-hover;
-        .collapsible__icon {
-          fill: $color-links-hover;
+        &__content {
+            border-left: 5px solid $color-grey-4;
+            display: block;
+            margin: 1rem 0 0;
+            padding: 0 0 0 1.3em;
         }
-        & .collapsible__title {
-          text-decoration: underline solid $color-links-hover 2px;
+    }
+
+    &--accordion {
+        margin: 0;
+        &.collapsible--open {
+            .svg-icon {
+                left: 0.4rem;
+                position: absolute;
+                top: 0.25rem;
+            }
         }
-      }
-      &:focus {
-        .collapsible__icon {
-          fill: $color-black;
+    }
+
+    &--accordion & {
+        &__heading {
+            border-top: 1px solid $color-borders;
+            margin: 0;
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+            width: 100%;
+
+            &:focus {
+                outline: none;
+            }
         }
-      }
+
+        &__title {
+            margin: 0 1rem 0 0;
+        }
+
+        &__icon {
+            top: 0.8rem;
+
+            @include mq(s) {
+                top: 1.15rem;
+            }
+        }
+
+        &__controls {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__btn {
+            align-self: flex-start;
+            width: auto;
+        }
+
+        &__content {
+            border-left: 0;
+            margin: 0;
+            padding: 0;
+        }
     }
-
-    &__icon {
-      display: inline-block;
-      position: absolute;
-      top: -0.25rem;
-      left: -0.2rem;
-      width: $collapsible-caret-width;
-      height: $collapsible-caret-width;
-      fill: $color-links;
-    }
-
-    &__title {
-      text-underline-position: under;
-      transform: translateY(-1px);
-      margin-bottom: 0;
-      font-size: 1rem;
-      font-weight: $font-weight-bold;
-      text-decoration: underline;
-    }
-
-    &__content {
-      display: none;
-    }
-  }
-
-  &__icon {
-    display: none;
-  }
-
-  &--open & {
-    &__icon {
-      top: 0.1rem;
-      left: -0.1rem;
-      transform: rotate(90deg);
-    }
-
-    &__content {
-      display: block;
-      margin: 1rem 0 0 0;
-      padding: 0 0 0 1.3em;
-      border-left: 5px solid $color-grey-4;
-    }
-  }
-
-  &--accordion {
-    margin: 0;
-    &.collapsible--open {
-      .svg-icon {
-        position: absolute;
-        top: 0.25rem;
-        left: 0.4rem;
-      }
-    }
-  }
-
-  &--accordion & {
-    &__heading {
-      margin: 0;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      width: 100%;
-      border-top: 1px solid $color-borders;
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    &__title {
-      margin: 0 1rem 0 0;
-    }
-
-    &__icon {
-      top: 0.8rem;
-      @include mq(s) {
-        top: 1.15rem;
-      }
-    }
-
-    &__controls {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    &__btn {
-      align-self: flex-start;
-      width: auto;
-    }
-
-    &__content {
-      margin: 0;
-      padding: 0;
-      border-left: 0;
-    }
-  }
 }

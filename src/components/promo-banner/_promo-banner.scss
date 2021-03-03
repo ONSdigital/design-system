@@ -1,72 +1,72 @@
 .promo-banner {
-  background-color: $color-branded;
-  background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
-  overflow: hidden;
-  padding-bottom: 5em;
-  padding-top: 3em;
-  position: relative;
-
-  &::after {
-    background-image: url(#{$static}/img/census-promo-banner.svg);
-    background-position: 50% 0;
-    background-repeat: no-repeat;
-    bottom: 0;
-    content: '';
-    height: 244px;
-    left: 50%;
-    max-width: none;
-    position: absolute;
-    transform: translate(-50%, 50%);
-    width: 100%;
-  }
-
-  &__content {
+    background-color: $color-branded;
+    background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
+    overflow: hidden;
+    padding-bottom: 5em;
+    padding-top: 3em;
     position: relative;
-    z-index: 1;
-    :last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__image {
-    text-align: center;
-
-    img {
-      height: auto;
-      width: 100%;
-    }
-  }
-
-  &--dark-theme {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    li,
-    p,
-    a {
-      color: $color-white;
-    }
-
-    a {
-      &:hover {
-        text-decoration: underline solid $color-white 2px;
-      }
-    }
-
-    h3 {
-      a:hover {
-        text-decoration: underline solid $color-white 3px;
-      }
-    }
-  }
-
-  &--has-image {
-    padding-bottom: 3em;
 
     &::after {
-      content: none;
+        background-image: url(#{$static}/img/census-promo-banner.svg);
+        background-position: 50% 0;
+        background-repeat: no-repeat;
+        bottom: 0;
+        content: '';
+        height: 244px;
+        left: 50%;
+        max-width: none;
+        position: absolute;
+        transform: translate(-50%, 50%);
+        width: 100%;
     }
-  }
+
+    &__content {
+        position: relative;
+        z-index: 1;
+        :last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__image {
+        text-align: center;
+
+        img {
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    &--dark-theme {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        li,
+        p,
+        a {
+            color: $color-white;
+        }
+
+        a {
+            &:hover {
+                text-decoration: underline solid $color-white 2px;
+            }
+        }
+
+        h3 {
+            a:hover {
+                text-decoration: underline solid $color-white 3px;
+            }
+        }
+    }
+
+    &--has-image {
+        padding-bottom: 3em;
+
+        &::after {
+            content: none;
+        }
+    }
 }

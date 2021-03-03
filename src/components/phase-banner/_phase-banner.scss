@@ -1,16 +1,14 @@
 .phase-banner {
-  padding: 0.5rem 0;
-  background: $color-grey-5;
+    background: $color-grey-5;
+    padding: 0.5rem 0;
 
-  &__badge {
-    margin: 0 0.5rem 0 0;
-    padding: 0.4rem;
-
-    background: $color-black;
-    color: $color-white;
-
-    font-size: 0.85rem;
-    line-height: 1em;
-    text-transform: uppercase;
-  }
+    &__badge {
+        background: $color-black;
+        color: $color-white;
+        font-size: 0.85rem;
+        line-height: 1em;
+        margin: 0 0.5rem 0 0;
+        padding: 0.4rem;
+        text-transform: uppercase;
+    }
 }

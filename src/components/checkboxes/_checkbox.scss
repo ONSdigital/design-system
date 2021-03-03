@@ -3,135 +3,129 @@ $checkbox-padding: 0.6rem;
 $checkbox-label-vertical-padding: 0.75rem;
 
 .checkbox {
-  z-index: 1;
-  display: inline-block;
-  position: relative;
-  width: 100%;
-
-  &__input {
-    z-index: 1;
-    box-sizing: border-box;
-    appearance: none;
-
-    position: absolute;
-    top: $checkbox-padding + 0.15rem;
-    left: $checkbox-padding;
-
-    width: $checkbox-input-width;
-    height: $checkbox-input-width;
-
-    border: 2px solid $color-input;
-    border-radius: 0.2rem;
-
-    background: url(#{$static}/img/icons--check.svg) no-repeat center center;
-    background-color: $color-white;
-    background-size: 0px;
-
-    &:focus,
-    &:checked {
-      outline: none;
-    }
-
-    &:checked {
-      background-size: 14px;
-    }
-  }
-
-  &__label {
-    display: block;
-    padding: $checkbox-padding 1rem $checkbox-padding ($checkbox-padding * 2 + $checkbox-input-width);
+    display: inline-block;
+    position: relative;
     width: 100%;
-    cursor: pointer;
+    z-index: 1;
 
-    &--with-description {
-      padding: 0 1rem $checkbox-padding 0;
-    }
-
-    .label__description {
-      margin-left: -1.75rem;
-    }
-
-    &:before {
-      content: '';
-      z-index: -1;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-
-      border: 1px solid $color-input;
-      border-radius: 3px;
-
-      background: $color-white;
-    }
-
-    * {
-      pointer-events: none;
-    }
-  }
-
-  &__description {
-    display: block;
-    margin-top: 0.25rem;
-  }
-
-  &__other {
-    display: block;
-    padding: 0 $checkbox-padding $checkbox-padding;
-  }
-
-  &__input:checked + &__label:before {
-    background: $color-grey-5;
-    box-shadow: 0 0 0 1px $color-input;
-  }
-
-  .panel--error &__other > .input--text:not(:focus) {
-    border: 1px solid $color-red;
-    outline: 1px solid $color-red;
-    outline-offset: -2px;
-  }
-
-  &__input:focus + &__label:before {
-    @extend .input:focus;
-  }
-
-  &__input:not(:checked) ~ &__other {
-    display: none;
-  }
-
-  &__input:not(:checked) ~ &__other--open {
-    display: block;
-  }
-
-  &--toggle & {
     &__input {
-      top: 0.1rem;
-      left: 0;
+        appearance: none;
+        background: url(#{$static}/img/icons--check.svg) no-repeat center center;
+        background-color: $color-white;
+        background-size: 0;
+        border: 2px solid $color-input;
+        border-radius: 0.2rem;
+        box-sizing: border-box;
+        height: $checkbox-input-width;
+        left: $checkbox-padding;
+        position: absolute;
+        top: $checkbox-padding + 0.15rem;
+        width: $checkbox-input-width;
+        z-index: 1;
 
-      &:focus {
-        box-shadow: 0 0 0 3px $color-focus;
-      }
+        &:focus,
+        &:checked {
+            outline: none;
+        }
+
+        &:checked {
+            background-size: 14px;
+        }
     }
 
     &__label {
-      padding: 0 0 0 ($checkbox-input-width + $checkbox-padding);
+        cursor: pointer;
+        display: block;
+        padding: $checkbox-padding 1rem $checkbox-padding ($checkbox-padding * 2 + $checkbox-input-width);
+        width: 100%;
 
-      &:before {
-        border: 0;
-        background: none;
-      }
+        &--with-description {
+            padding: 0 1rem $checkbox-padding 0;
+        }
+
+        .label__description {
+            margin-left: -1.75rem;
+        }
+
+        &::before {
+            background: $color-white;
+            border: 1px solid $color-input;
+            border-radius: 3px;
+            bottom: 0;
+            content: '';
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        * {
+            pointer-events: none;
+        }
     }
 
-    &__input:checked + .checkbox__label:before,
-    &__input:focus + .checkbox__label:before {
-      background: transparent;
-      box-shadow: none;
+    &__description {
+        display: block;
+        margin-top: 0.25rem;
     }
 
-    &__input:focus + .checkbox__label:before {
-      border: 0;
-      outline: none;
+    &__other {
+        display: block;
+        padding: 0 $checkbox-padding $checkbox-padding;
     }
-  }
+
+    &__input:checked + &__label::before {
+        background: $color-grey-5;
+        box-shadow: 0 0 0 1px $color-input;
+    }
+
+    .panel--error &__other > .input--text:not(:focus) {
+        border: 1px solid $color-red;
+        outline: 1px solid $color-red;
+        outline-offset: -2px;
+    }
+
+    &__input:focus + &__label::before {
+        @extend .input:focus;
+    }
+
+    &__input:not(:checked) ~ &__other {
+        display: none;
+    }
+
+    &__input:not(:checked) ~ &__other--open {
+        display: block;
+    }
+
+    &--toggle & {
+        &__input {
+            left: 0;
+            top: 0.1rem;
+
+            &:focus {
+                box-shadow: 0 0 0 3px $color-focus;
+            }
+        }
+
+        &__label {
+            padding: 0 0 0 ($checkbox-input-width + $checkbox-padding);
+
+            &::before {
+                background: none;
+                border: 0;
+            }
+        }
+
+        &__input:checked + .checkbox__label::before,
+        &__input:focus + .checkbox__label::before {
+            background: transparent;
+            box-shadow: none;
+        }
+
+        &__input:focus + .checkbox__label::before {
+            border: 0;
+            outline: none;
+        }
+    }
 }

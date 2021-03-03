@@ -1,24 +1,24 @@
 $sizes: (
-  no: 0,
-  xs: 0.5rem,
-  s: 1rem,
-  m: 1.5rem,
-  l: 2rem,
-  xl: 3rem
+    no: 0,
+    xs: 0.5rem,
+    s: 1rem,
+    m: 1.5rem,
+    l: 2rem,
+    xl: 3rem,
 );
 
 $margins: (
-  mt: margin-top,
-  mr: margin-right,
-  mb: margin-bottom,
-  ml: margin-left,
-  m: margin
+    mt: margin-top,
+    mr: margin-right,
+    mb: margin-bottom,
+    ml: margin-left,
+    m: margin,
 );
 
 @each $key, $value in $sizes {
-  @each $abbr, $dec in $margins {
-    @include bp-suffix(u-#{$abbr}-#{$key}, $create-between-breakpoints: true) {
-      #{$dec}: #{$value} !important;
+    @each $abbr, $dec in $margins {
+        @include bp-suffix(u-#{$abbr}-#{$key}, $create-between-breakpoints: true) {
+            #{$dec}: #{$value} !important;
+        }
     }
-  }
 }

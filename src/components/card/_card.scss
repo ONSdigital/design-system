@@ -1,13 +1,14 @@
 .card {
-  margin: 0 0 2rem;
-  width: 100%;
-  &__link:hover {
-    text-decoration-thickness: 3px;
-  }
-  @include mq(m) {
-    margin: 0;
-    .grid__col & {
-      padding-right: 1rem;
+    margin: 0 0 2rem;
+    width: 100%;
+    &__link:hover {
+        text-decoration-thickness: 3px;
     }
-  }
+
+    @include mq(m) {
+        margin: 0;
+        .grid__col & {
+            padding-right: 1rem;
+        }
+    }
 }

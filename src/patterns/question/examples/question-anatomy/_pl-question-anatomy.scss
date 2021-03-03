@@ -1,25 +1,25 @@
 .pl-question-anatomy {
-  max-width: $grid-max-width;
-  border-spacing: 0;
-  border-collapse: collapse;
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width: $grid-max-width;
 
-  &__row {
-    &:not(:last-child) {
-      border-bottom: 1px dashed $color-grey-4;
+    &__row {
+        &:not(:last-child) {
+            border-bottom: 1px dashed $color-grey-4;
+        }
     }
-  }
 
-  &__component {
-    padding: 1rem 1rem 1rem 0;
-    vertical-align: top;
-  }
-
-  &__description {
-    padding: 1rem 0 1rem 1rem;
-    text-align: left;
-
-    strong {
-      color: $color-errors;
+    &__component {
+        padding: 1rem 1rem 1rem 0;
+        vertical-align: top;
     }
-  }
+
+    &__description {
+        padding: 1rem 0 1rem 1rem;
+        text-align: left;
+
+        strong {
+            color: $color-errors;
+        }
+    }
 }
