@@ -64,9 +64,11 @@ $breadcrumb-chevron-height: 0.65rem;
         //not last child
         margin: 0;
 
+        /* stylelint-disable */
         // We have to override the icon settings so it renders correctly in ie11
         background-position: center center;
         vertical-align: middle;
+        /* stylelint-enable */
       }
     }
   }
