@@ -22,6 +22,9 @@ $collapsible-caret-width: 1.5rem;
                     margin-left: -$collapsible-caret-width;
                     padding-left: $collapsible-caret-width;
                 }
+                .collapsible__icon {
+                    fill: $color-black;
+                }
             }
 
             &:hover {
@@ -31,11 +34,6 @@ $collapsible-caret-width: 1.5rem;
                 }
                 .collapsible__title {
                     text-decoration: underline solid $color-links-hover 2px;
-                }
-            }
-            &:focus {
-                .collapsible__icon {
-                    fill: $color-black;
                 }
             }
         }
