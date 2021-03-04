@@ -1,57 +1,57 @@
 .content-pagination {
-    display: block;
-    margin: 1.5rem 0 2.5rem;
+  display: block;
+  margin: 1.5rem 0 2.5rem;
 
-    &__list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    margin: 0 0 1.5rem;
+  }
+
+  &__link {
+    display: inline-block;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+      .content-pagination__link-label {
+        text-decoration: underline solid $color-links-hover 2px;
+      }
     }
 
-    &__item {
-        margin: 0 0 1.5rem;
-    }
+    &:focus {
+      text-decoration: none;
 
-    &__link {
-        display: inline-block;
+      .content-pagination__link-label {
         text-decoration: none;
-
-        &:hover {
-            text-decoration: none;
-            .content-pagination__link-label {
-                text-decoration: underline solid $color-links-hover 2px;
-            }
-        }
-
-        &:focus {
-            text-decoration: none;
-
-            .content-pagination__link-label {
-                text-decoration: none;
-            }
-        }
+      }
     }
+  }
 
-    &__link-icon {
-        height: 0.9rem;
-        width: 1.2rem;
-    }
+  &__link-icon {
+    height: 0.9rem;
+    width: 1.2rem;
+  }
 
-    &__link-title {
-        display: block;
-    }
+  &__link-title {
+    display: block;
+  }
 
-    &__link-text {
-        font-size: 1.2rem;
-        font-weight: 700;
-        line-height: normal;
-        margin: 0 0 0 0.5rem;
-    }
+  &__link-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 0 0 0.5rem;
+  }
 
-    &__link-label {
-        display: inline-block;
-        font-size: 0.9rem;
-        margin: 0 0 0 2rem;
-        text-decoration: underline;
-    }
+  &__link-label {
+    display: inline-block;
+    font-size: 0.9rem;
+    margin: 0 0 0 2rem;
+    text-decoration: underline;
+  }
 }

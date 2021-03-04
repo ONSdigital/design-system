@@ -1,137 +1,137 @@
 // Block
 .header {
+  display: block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  position: relative;
+  & &__svg-logo {
     display: block;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin: 0;
-    position: relative;
-    & &__svg-logo {
-        display: block;
-        fill: $color-white;
+    fill: $color-white;
 
-        @include mq(m) {
-            margin: 0.84rem 0;
-        }
+    @include mq(m) {
+      margin: 0.84rem 0;
+    }
 
-        @include mq(xxs, 399px) {
-            max-width: 160px;
-        }
+    @include mq(xxs, 399px) {
+      max-width: 160px;
     }
-    // Elements
-    &__top {
-        background: $color-white;
-        width: 100%;
-    }
-    &__grid-top {
-        height: 54px;
-
-        @include mq(xs) {
-            height: 46px;
-        }
-    }
-    &__grid-top-nisra {
-        @include mq(xs) {
-            height: 76px;
-        }
-    }
-    &__logo {
-        &:focus {
-            background-color: $color-focus;
-            box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
-            color: $color-focus-text;
-            outline: 3px solid transparent;
-        }
-    }
+  }
+  // Elements
+  &__top {
+    background: $color-white;
+    width: 100%;
+  }
+  &__grid-top {
+    height: 54px;
 
     @include mq(xs) {
-        &__logo {
-            margin-bottom: 2px;
-        }
+      height: 46px;
     }
-    &__main {
-        background: $color-header;
-        padding: 0.56rem 0;
-        &--border {
-            border-bottom: 3px solid $color-header;
-            border-top: 3px solid $color-header;
-            padding: 0.934rem 0;
-        }
+  }
+  &__grid-top-nisra {
+    @include mq(xs) {
+      height: 76px;
     }
-    &__title {
-        @extend .u-fs-r--b;
-        @extend .u-fs-xl\@xxs;
+  }
+  &__logo {
+    &:focus {
+      background-color: $color-focus;
+      box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
+      color: $color-focus-text;
+      outline: 3px solid transparent;
+    }
+  }
 
+  @include mq(xs) {
+    &__logo {
+      margin-bottom: 2px;
+    }
+  }
+  &__main {
+    background: $color-header;
+    padding: 0.56rem 0;
+    &--border {
+      border-bottom: 3px solid $color-header;
+      border-top: 3px solid $color-header;
+      padding: 0.934rem 0;
+    }
+  }
+  &__title {
+    @extend .u-fs-r--b;
+    @extend .u-fs-xl\@xxs;
+
+    color: $color-white;
+    margin: 0;
+    &--with-description {
+      line-height: 1.7 !important;
+    }
+    &:not(&--with-description) {
+      line-height: 1.5 !important;
+
+      @include mq(m) {
+        line-height: 2.5 !important;
+      }
+    }
+
+    @include mq(xs, m) {
+      line-height: 1.75 !important;
+    }
+
+    @include mq(xxs, xs) {
+      line-height: 1.7 !important;
+    }
+    &-link {
+      display: block;
+      &:focus {
+        .header__svg-logo {
+          fill: $color-black !important;
+        }
+      }
+    }
+    &--nav-adj {
+      @include mq(399px) {
+        padding-top: 0.2rem;
+      }
+    }
+  }
+  &__desc {
+    @extend .u-fs-s;
+    @extend .u-fs-r\@s;
+
+    color: $color-white;
+    margin: 0;
+
+    @include mq(m) {
+      margin: 0 0 1rem;
+    }
+  }
+  // Modifier - Hero variant
+  &--hero {
+    .header {
+      &__title {
+        @extend .u-fs-m;
+        @extend .u-fs-xxl\@m;
+      }
+    }
+  }
+  &--internal & {
+    &__top {
+      background: $color-dark-blue;
+      a {
         color: $color-white;
-        margin: 0;
-        &--with-description {
-            line-height: 1.7 !important;
-        }
-        &:not(&--with-description) {
-            line-height: 1.5 !important;
-
-            @include mq(m) {
-                line-height: 2.5 !important;
-            }
-        }
-
-        @include mq(xs, m) {
-            line-height: 1.75 !important;
-        }
-
-        @include mq(xxs, xs) {
-            line-height: 1.7 !important;
-        }
-        &-link {
-            display: block;
-            &:focus {
-                .header__svg-logo {
-                    fill: $color-black !important;
-                }
-            }
-        }
-        &--nav-adj {
-            @include mq(399px) {
-                padding-top: 0.2rem;
-            }
-        }
+      }
     }
-    &__desc {
-        @extend .u-fs-s;
-        @extend .u-fs-r\@s;
-
-        color: $color-white;
-        margin: 0;
-
-        @include mq(m) {
-            margin: 0 0 1rem;
-        }
+    &__logo-link:focus {
+      background-color: transparent;
+      box-shadow: none;
+      outline: 3px solid $color-focus;
     }
-    // Modifier - Hero variant
-    &--hero {
-        .header {
-            &__title {
-                @extend .u-fs-m;
-                @extend .u-fs-xxl\@m;
-            }
-        }
+    &__grid-top {
+      min-height: 36px;
     }
-    &--internal & {
-        &__top {
-            background: $color-dark-blue;
-            a {
-                color: $color-white;
-            }
-        }
-        &__logo-link:focus {
-            background-color: transparent;
-            box-shadow: none;
-            outline: 3px solid $color-focus;
-        }
-        &__grid-top {
-            min-height: 36px;
-        }
-    }
-    &__bottom {
-        background: $color-header;
-    }
+  }
+  &__bottom {
+    background: $color-header;
+  }
 }

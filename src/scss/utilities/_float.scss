@@ -9,26 +9,26 @@
  */
 .u-cf::before,
 .u-cf::after {
-    content: ' '; /* 1 */
-    display: table; /* 2 */
+  content: ' '; /* 1 */
+  display: table; /* 2 */
 }
 
 .u-cf::after {
-    clear: both;
+  clear: both;
 }
 
 .u-fl {
-    float: left;
+  float: left;
 }
 
 .u-fr {
-    float: right;
+  float: right;
 }
 
 .u-f-no {
-    float: none;
+  float: none;
 }
 
 @include bp-suffix(u-fr) {
-    float: right;
+  float: right;
 }

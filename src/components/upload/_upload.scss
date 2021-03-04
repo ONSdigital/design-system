@@ -1,35 +1,35 @@
 .input--upload {
-    background: $color-white;
-    border: 1px solid $color-input;
-    border-radius: $input-radius;
+  background: $color-white;
+  border: 1px solid $color-input;
+  border-radius: $input-radius;
+  font-size: 1rem;
+  padding: 0;
+  width: 100%;
+  &::-webkit-file-upload-button {
+    background: $color-button-secondary;
+    border: 0;
+    border-bottom-right-radius: 0;
+    border-right: 1px solid $color-input;
+    border-top-right-radius: 0;
+    color: $color-text;
     font-size: 1rem;
-    padding: 0;
-    width: 100%;
+    outline: none;
+    padding: 0.5rem 1rem;
+    transition: border-color 200ms ease-in;
+  }
+  &:hover {
+    cursor: pointer;
     &::-webkit-file-upload-button {
-        background: $color-button-secondary;
-        border: 0;
-        border-bottom-right-radius: 0;
-        border-right: 1px solid $color-input;
-        border-top-right-radius: 0;
-        color: $color-text;
-        font-size: 1rem;
-        outline: none;
-        padding: 0.5rem 1rem;
-        transition: border-color 200ms ease-in;
+      border-right-color: $color-links-hover;
+      cursor: pointer;
     }
-    &:hover {
-        cursor: pointer;
-        &::-webkit-file-upload-button {
-            border-right-color: $color-links-hover;
-            cursor: pointer;
-        }
-    }
+  }
 
-    @include mq(m) {
-        width: 80%;
-    }
+  @include mq(m) {
+    width: 80%;
+  }
 
-    @include mq(l) {
-        width: 70%;
-    }
+  @include mq(l) {
+    width: 70%;
+  }
 }

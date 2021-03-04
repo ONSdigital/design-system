@@ -1,60 +1,60 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    word-wrap: break-word;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 html {
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-    height: 100%;
-    margin: 0;
-    position: relative;
+  height: 100%;
+  margin: 0;
+  position: relative;
 }
 
 img {
-    height: auto;
-    max-width: 100%;
-    vertical-align: middle;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 hr {
-    border: 0;
-    border-top: 1px solid #888;
-    margin: 2rem 0 0;
+  border: 0;
+  border-top: 1px solid #888;
+  margin: 2rem 0 0;
 }
 
 a {
-    color: $color-links;
-    text-underline-position: under;
-    &:not(.u-fs-r--b):hover {
-        .u-fs-l &,
-        h2:not(.u-fs-m) & {
-            text-decoration-thickness: 3px;
-        }
+  color: $color-links;
+  text-underline-position: under;
+  &:not(.u-fs-r--b):hover {
+    .u-fs-l &,
+    h2:not(.u-fs-m) & {
+      text-decoration-thickness: 3px;
+    }
 
-        @include mq(m) {
-            .u-fs-m &,
-            h2 &,
-            h3 & {
-                text-decoration-thickness: 3px;
-            }
-        }
+    @include mq(m) {
+      .u-fs-m &,
+      h2 &,
+      h3 & {
+        text-decoration-thickness: 3px;
+      }
     }
-    &:hover {
-        color: $color-links-hover;
-        text-decoration: underline solid $color-links-hover 2px;
-    }
-    &:focus:not(.btn--link):not(.btn--ghost):not(.js-clear-btn):not(.download__thumbnail--link):not(.tab--row):not(.skip__link) {
-        background-color: $color-focus;
-        box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
-        color: $color-focus-text;
-        outline: 3px solid transparent;
-        text-decoration: none;
-    }
+  }
+  &:hover {
+    color: $color-links-hover;
+    text-decoration: underline solid $color-links-hover 2px;
+  }
+  &:focus:not(.btn--link):not(.btn--ghost):not(.js-clear-btn):not(.download__thumbnail--link):not(.tab--row):not(.skip__link) {
+    background-color: $color-focus;
+    box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
+    color: $color-focus-text;
+    outline: 3px solid transparent;
+    text-decoration: none;
+  }
 }

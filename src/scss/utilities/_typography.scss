@@ -1,88 +1,88 @@
 @mixin font-size($props, $base) {
-    $small-size: map-get($props, small);
-    $large-size: map-get($props, large);
+  $small-size: map-get($props, small);
+  $large-size: map-get($props, large);
 
-    font-size: rems($small-size, $base);
-    font-weight: map-get($props, weight);
-    line-height: map-get($props, line-height);
+  font-size: rems($small-size, $base);
+  font-weight: map-get($props, weight);
+  line-height: map-get($props, line-height);
 
-    @if $small-size != $large-size {
-        @include mq(m) {
-            font-size: rems($large-size, $base);
-        }
+  @if $small-size != $large-size {
+    @include mq(m) {
+      font-size: rems($large-size, $base);
     }
+  }
 }
 
 @each $name, $props in $type-matrix {
-    .#{$name} {
-        @include font-size($props, $base);
-    }
+  .#{$name} {
+    @include font-size($props, $base);
+  }
 }
 
 @each $breakpoint, $size in $grid-bp {
-    @each $name, $props in $type-matrix {
-        @include mq($breakpoint) {
-            .#{$name}\@#{$breakpoint} {
-                @include font-size($props, $base);
-            }
-        }
+  @each $name, $props in $type-matrix {
+    @include mq($breakpoint) {
+      .#{$name}\@#{$breakpoint} {
+        @include font-size($props, $base);
+      }
     }
+  }
 }
 
 h1 {
-    @extend .u-fs-xl;
+  @extend .u-fs-xl;
 }
 
 h2 {
-    @extend .u-fs-l;
+  @extend .u-fs-l;
 }
 
 h3 {
-    @extend .u-fs-m;
+  @extend .u-fs-m;
 }
 
 h4 {
-    @extend .u-fs-r--b;
+  @extend .u-fs-r--b;
 }
 
 .u-fw-b {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .u-fw-n {
-    font-weight: $font-weight-regular;
+  font-weight: $font-weight-regular;
 }
 
 .u-fs-i {
-    font-style: italic;
+  font-style: italic;
 }
 
 .u-tt-u {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .u-td-no,
 .u-td-no:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .u-lighter {
-    color: $color-text-light;
+  color: $color-text-light;
 }
 
 .u-f-mono {
-    font-family: $font-mono;
-    letter-spacing: 0.1em;
+  font-family: $font-mono;
+  letter-spacing: 0.1em;
 }
 
 .u-ta-right {
-    text-align: right;
+  text-align: right;
 }
 
 .u-ta-left {
-    text-align: left;
+  text-align: left;
 }
 
 .u-ta-center {
-    text-align: center;
+  text-align: center;
 }

@@ -6,61 +6,61 @@ footer,
 .cookies-banner,
 .language-links,
 .breadcrumb {
-    display: none;
+  display: none;
 }
 
 a::after {
-    content: ' (' attr(href) ') ';
+  content: ' (' attr(href) ') ';
 }
 
 .header {
-    &__main,
-    &__bottom {
-        background: transparent;
-    }
+  &__main,
+  &__bottom {
+    background: transparent;
+  }
 
-    &__title {
-        color: $color-black;
-    }
+  &__title {
+    color: $color-black;
+  }
 
-    &-nav {
-        display: block;
-        &__item {
-            display: inline-block;
-        }
-        &__item--active {
-            border: 0;
-        }
-        &__link,
-        &__link:hover {
-            color: $color-black;
-        }
+  &-nav {
+    display: block;
+    &__item {
+      display: inline-block;
     }
+    &__item--active {
+      border: 0;
+    }
+    &__link,
+    &__link:hover {
+      color: $color-black;
+    }
+  }
 
-    & &__svg-logo {
-        fill: $color-black;
-    }
+  & &__svg-logo {
+    fill: $color-black;
+  }
 }
 
 .collapsible {
-    &--initialised & {
-        &__icon {
-            display: none;
-        }
-
-        &__title {
-            color: $color-black;
-            margin-bottom: 1rem;
-            margin-left: -1.5rem;
-            text-decoration: none;
-        }
-
-        &__content {
-            display: block;
-        }
+  &--initialised & {
+    &__icon {
+      display: none;
     }
+
+    &__title {
+      color: $color-black;
+      margin-bottom: 1rem;
+      margin-left: -1.5rem;
+      text-decoration: none;
+    }
+
+    &__content {
+      display: block;
+    }
+  }
 }
 
 .hero {
-    color-adjust: exact;
+  color-adjust: exact;
 }

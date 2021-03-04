@@ -1,109 +1,109 @@
 @import '~prismjs/themes/prism-tomorrow';
 
 .patternlib-example {
-    $c: &;
+  $c: &;
 
-    border: 1px solid $color-borders;
-    margin: 0 0 2rem;
+  border: 1px solid $color-borders;
+  margin: 0 0 2rem;
+  position: relative;
+  width: 100%;
+
+  &__frame {
+    background: $color-borders;
+  }
+
+  &__iframe {
+    display: block;
+    max-width: 100%;
+    min-height: 60px;
+    min-width: 320px;
     position: relative;
+    resize: both;
     width: 100%;
+  }
 
-    &__frame {
-        background: $color-borders;
-    }
+  &__radio {
+    display: none;
+  }
 
-    &__iframe {
+  &__tabs {
+    border-top: 1px solid $color-borders;
+  }
+
+  &__link,
+  &__tab {
+    color: $color-links;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+  }
+
+  &__link {
+    border-bottom: 1px solid $color-borders;
+    border-right: 1px solid $color-borders;
+    line-height: 1.3rem;
+  }
+
+  &__panel {
+    border-top: 1px solid $color-borders;
+    display: none;
+    padding: 1rem;
+  }
+
+  @for $i from 1 through 4 {
+    &__radio:nth-of-type(#{$i}):checked ~ {
+      #{$c}__tabs > #{$c}__tab:nth-of-type(#{$i}) {
+        background: $color-grey-5;
+      }
+
+      #{$c}__panels > #{$c}__panel:nth-of-type(#{$i}) {
         display: block;
-        max-width: 100%;
-        min-height: 60px;
-        min-width: 320px;
-        position: relative;
-        resize: both;
-        width: 100%;
+      }
     }
+  }
 
-    &__radio {
-        display: none;
-    }
+  &__code {
+    font-family: monospace !important;
+    white-space: pre;
+  }
 
-    &__tabs {
-        border-top: 1px solid $color-borders;
-    }
-
-    &__link,
-    &__tab {
-        color: $color-links;
-        cursor: pointer;
-        display: inline-block;
-        padding: 0.5rem 1rem;
-    }
-
-    &__link {
-        border-bottom: 1px solid $color-borders;
-        border-right: 1px solid $color-borders;
-        line-height: 1.3rem;
-    }
-
-    &__panel {
-        border-top: 1px solid $color-borders;
-        display: none;
-        padding: 1rem;
-    }
-
-    @for $i from 1 through 4 {
-        &__radio:nth-of-type(#{$i}):checked ~ {
-            #{$c}__tabs > #{$c}__tab:nth-of-type(#{$i}) {
-                background: $color-grey-5;
-            }
-
-            #{$c}__panels > #{$c}__panel:nth-of-type(#{$i}) {
-                display: block;
-            }
-        }
-    }
-
-    &__code {
-        font-family: monospace !important;
-        white-space: pre;
-    }
-
-    &__pre {
-        font-size: 0.8rem !important;
-        margin: 0;
-        white-space: normal;
-    }
+  &__pre {
+    font-size: 0.8rem !important;
+    margin: 0;
+    white-space: normal;
+  }
 }
 
 .macro-options {
-    background: $color-grey-5;
-    margin: 0 0 1rem;
-    padding: 0.5rem 1rem;
+  background: $color-grey-5;
+  margin: 0 0 1rem;
+  padding: 0.5rem 1rem;
 
-    &__summary {
-        color: $color-links;
-        cursor: pointer;
-        outline: none;
+  &__summary {
+    color: $color-links;
+    cursor: pointer;
+    outline: none;
+  }
+
+  &__content {
+    padding: 0.5rem 0;
+
+    th {
+      background: $color-grey-5;
     }
 
-    &__content {
-        padding: 0.5rem 0;
-
-        th {
-            background: $color-grey-5;
-        }
-
-        code {
-            background: $color-white !important;
-        }
-
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            &:not(:first-child) {
-                margin-top: 2rem;
-            }
-        }
+    code {
+      background: $color-white !important;
     }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      &:not(:first-child) {
+        margin-top: 2rem;
+      }
+    }
+  }
 }

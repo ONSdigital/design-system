@@ -1,46 +1,46 @@
 .u-hidden {
-    display: none !important;
-    visibility: hidden;
+  display: none !important;
+  visibility: hidden;
 }
 
 .u-visuallyhidden,
 .u-vh {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    user-select: none;
-    width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  user-select: none;
+  width: 1px;
 }
 
 .u-visuallyhidden.u-focusable:active,
 .u-vh.u-focusable:active,
 .u-visuallyhidden.u-focusable:focus,
 .u-vh.u-focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
 }
 
 .u-invisible {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .u-ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
 }
 
 .u-ir::before {
-    content: '';
-    display: block;
-    height: 150%;
-    width: 0;
+  content: '';
+  display: block;
+  height: 150%;
+  width: 0;
 }

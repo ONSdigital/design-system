@@ -5,17 +5,17 @@
 .panel +,
 .summary__group +,
 .collapsible:not(.collapsible--accordion) + {
-    .figure,
-    .field,
-    .field-group,
-    .fieldset,
-    .panel:not(.panel--bare),
-    .summary__group,
-    .collapsible:not(.collapsible--accordion) {
-        margin-top: 1.5rem;
-    }
+  .figure,
+  .field,
+  .field-group,
+  .fieldset,
+  .panel:not(.panel--bare),
+  .summary__group,
+  .collapsible:not(.collapsible--accordion) {
+    margin-top: 1.5rem;
+  }
 }
 
 .breadcrumb + .grid {
-    margin-top: -1rem;
+  margin-top: -1rem;
 }

@@ -3,27 +3,27 @@
 @include normalize();
 
 body {
-    background: #222;
-    color: #fff;
-    font-family: 'Courier New', Courier, monospace;
-    padding: 20px;
+  background: #222;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
 }
 
 .print-error-stack {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-    &__heading {
-        color: #c00;
+  &__heading {
+    color: #c00;
 
-        &--secondary {
-            font-size: 1.5rem;
-        }
+    &--secondary {
+      font-size: 1.5rem;
     }
+  }
 
-    &__entry {
-        color: #f66;
-        margin-bottom: 1em;
-    }
+  &__entry {
+    color: #f66;
+    margin-bottom: 1em;
+  }
 }

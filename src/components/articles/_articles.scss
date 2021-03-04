@@ -1,86 +1,86 @@
 .article {
+  @include mq(s) {
+    align-items: flex-start;
+    display: flex;
+  }
+
+  & + & {
+    border-top: 1px solid $color-grey-2;
+    margin: 1.5rem 0 0;
+    padding: 1.5em 0 0;
+  }
+
+  &__content {
+    max-width: 660px; // Equivalent to 8 Columns;
+  }
+
+  &__image {
+    flex-shrink: 0;
+    margin-bottom: 1rem;
+    max-width: 140px;
+
     @include mq(s) {
-        align-items: flex-start;
-        display: flex;
+      display: flex;
+      margin-bottom: 0;
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__image-link {
+    box-sizing: border-box;
+    display: inline-block;
+    outline-offset: 0;
+    vertical-align: top;
+
+    &:focus {
+      box-shadow: 0 0 0 2px $color-black !important;
+      outline: 4px solid $color-focus !important;
+      outline-offset: 2px;
+    }
+  }
+
+  &__meta {
+    color: $color-grey-1;
+    display: flex;
+    margin-bottom: 1rem;
+    padding-left: 0;
+
+    &-item {
+      display: block;
+      margin: 0 1rem 0 0;
+      padding-left: 0;
     }
 
-    & + & {
-        border-top: 1px solid $color-grey-2;
-        margin: 1.5rem 0 0;
-        padding: 1.5em 0 0;
+    &-link {
+      color: inherit;
+
+      &:hover {
+        color: $color-black;
+        text-decoration: underline solid $color-black 2px;
+      }
+    }
+  }
+
+  // Featured
+  &--featured {
+    background-color: $color-grey-5;
+    border-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    .article__image {
+      margin-bottom: 1.5rem;
+      margin-right: 0;
+      max-width: 379px;
+
+      @include mq(m) {
+        margin-bottom: 0;
+        margin-right: 1.5rem;
+      }
     }
 
-    &__content {
-        max-width: 660px; // Equivalent to 8 Columns;
+    .article__image img {
+      width: 100%;
     }
-
-    &__image {
-        flex-shrink: 0;
-        margin-bottom: 1rem;
-        max-width: 140px;
-
-        @include mq(s) {
-            display: flex;
-            margin-bottom: 0;
-            margin-right: 1.5rem;
-        }
-    }
-
-    &__image-link {
-        box-sizing: border-box;
-        display: inline-block;
-        outline-offset: 0;
-        vertical-align: top;
-
-        &:focus {
-            box-shadow: 0 0 0 2px $color-black !important;
-            outline: 4px solid $color-focus !important;
-            outline-offset: 2px;
-        }
-    }
-
-    &__meta {
-        color: $color-grey-1;
-        display: flex;
-        margin-bottom: 1rem;
-        padding-left: 0;
-
-        &-item {
-            display: block;
-            margin: 0 1rem 0 0;
-            padding-left: 0;
-        }
-
-        &-link {
-            color: inherit;
-
-            &:hover {
-                color: $color-black;
-                text-decoration: underline solid $color-black 2px;
-            }
-        }
-    }
-
-    // Featured
-    &--featured {
-        background-color: $color-grey-5;
-        border-top: 0;
-        padding-bottom: 0;
-        padding-top: 0;
-
-        .article__image {
-            margin-bottom: 1.5rem;
-            margin-right: 0;
-            max-width: 379px;
-
-            @include mq(m) {
-                margin-bottom: 0;
-                margin-right: 1.5rem;
-            }
-        }
-
-        .article__image img {
-            width: 100%;
-        }
-    }
+  }
 }

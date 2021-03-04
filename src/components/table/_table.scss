@@ -1,220 +1,220 @@
 .table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    margin-bottom: 1rem;
-    width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 1rem;
+  width: 100%;
 
-    &__caption {
-        font-weight: 700;
-        text-align: left;
+  &__caption {
+    font-weight: 700;
+    text-align: left;
+  }
+
+  &__header,
+  &__cell {
+    @include nth-element(1, 0);
+
+    border-bottom: 2px solid $color-grey-1;
+    overflow: hidden;
+    padding: 0.5rem 0 0.5rem 1rem;
+    text-align: left;
+    vertical-align: top;
+    &--numeric {
+      text-align: right;
     }
+  }
 
-    &__header,
-    &__cell {
-        @include nth-element(1, 0);
+  &__cell,
+  &__header--row {
+    border-bottom: 1px solid $color-borders;
+  }
 
+  &__row--highlight {
+    background: $color-light-green;
+  }
+
+  &:not(.table--responsive) .table__body .table__row:last-child {
+    .table__cell,
+    .table__header--row {
+      border: 0;
+    }
+  }
+
+  &__foot .table__cell {
+    border-bottom: 0;
+    border-top: 1px solid $color-borders;
+  }
+
+  &--dense {
+    .table__head,
+    .table__body,
+    .table__foot {
+      font-size: 81.25%;
+    }
+  }
+
+  &--row-hover {
+    .table__body .table__row:hover {
+      background: $color-grey-5;
+    }
+  }
+
+  &--responsive {
+    @include mq(xxs, s) {
+      .table__header {
+        display: none;
+      }
+
+      .table__body .table__row {
         border-bottom: 2px solid $color-grey-1;
-        overflow: hidden;
-        padding: 0.5rem 0 0.5rem 1rem;
-        text-align: left;
-        vertical-align: top;
-        &--numeric {
-            text-align: right;
+        display: block;
+        margin-bottom: 1rem;
+      }
+
+      .table__cell {
+        display: block;
+        padding-left: 0;
+        text-align: right;
+        &:last-child {
+          border: 0;
         }
-    }
-
-    &__cell,
-    &__header--row {
-        border-bottom: 1px solid $color-borders;
-    }
-
-    &__row--highlight {
-        background: $color-light-green;
-    }
-
-    &:not(.table--responsive) .table__body .table__row:last-child {
-        .table__cell,
-        .table__header--row {
-            border: 0;
+        &::before {
+          content: attr(data-th);
+          float: left;
+          font-weight: 700;
+          padding-right: 1rem;
         }
+      }
     }
-
-    &__foot .table__cell {
-        border-bottom: 0;
-        border-top: 1px solid $color-borders;
-    }
-
-    &--dense {
-        .table__head,
-        .table__body,
-        .table__foot {
-            font-size: 81.25%;
-        }
-    }
-
-    &--row-hover {
-        .table__body .table__row:hover {
-            background: $color-grey-5;
-        }
-    }
-
-    &--responsive {
-        @include mq(xxs, s) {
-            .table__header {
-                display: none;
-            }
-
-            .table__body .table__row {
-                border-bottom: 2px solid $color-grey-1;
-                display: block;
-                margin-bottom: 1rem;
-            }
-
-            .table__cell {
-                display: block;
-                padding-left: 0;
-                text-align: right;
-                &:last-child {
-                    border: 0;
-                }
-                &::before {
-                    content: attr(data-th);
-                    float: left;
-                    font-weight: 700;
-                    padding-right: 1rem;
-                }
-            }
-        }
-    }
+  }
 }
 
 .table-scrollable {
-    position: relative;
-    ::-webkit-scrollbar {
-        height: 7px;
+  position: relative;
+  ::-webkit-scrollbar {
+    height: 7px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $color-grey-2;
+    border-radius: 20px;
+  }
+  &--on {
+    .table__header,
+    .table__cell {
+      white-space: nowrap;
     }
-    ::-webkit-scrollbar-thumb {
-        background: $color-grey-2;
-        border-radius: 20px;
+  }
+  &__content {
+    overflow: visible;
+    overflow-x: scroll;
+    width: 100%;
+    &:focus {
+      outline: 3px solid $color-focus;
+      outline-offset: 3px;
     }
-    &--on {
-        .table__header,
-        .table__cell {
-            white-space: nowrap;
-        }
+    .table__header,
+    .table__cell {
+      @include mq(xxs, m) {
+        white-space: nowrap;
+      }
     }
-    &__content {
-        overflow: visible;
-        overflow-x: scroll;
-        width: 100%;
-        &:focus {
-            outline: 3px solid $color-focus;
-            outline-offset: 3px;
-        }
-        .table__header,
-        .table__cell {
-            @include mq(xxs, m) {
-                white-space: nowrap;
-            }
-        }
-        .table__right-shadow,
-        .table__left-shadow {
-            height: 100%;
-            position: absolute;
-            top: 0;
-            width: 5px;
-            z-index: 200;
+    .table__right-shadow,
+    .table__left-shadow {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      width: 5px;
+      z-index: 200;
 
-            &.with-transition {
-                transition: box-shadow 0.4s ease-out;
-            }
-        }
-        .table__right-shadow {
-            right: 0;
-            &.visible {
-                box-shadow: inset -1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
-            }
-        }
-        .table__left-shadow {
-            left: 0;
-            &.visible {
-                box-shadow: inset 1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
-            }
-        }
+      &.with-transition {
+        transition: box-shadow 0.4s ease-out;
+      }
     }
+    .table__right-shadow {
+      right: 0;
+      &.visible {
+        box-shadow: inset -1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
+      }
+    }
+    .table__left-shadow {
+      left: 0;
+      &.visible {
+        box-shadow: inset 1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
+      }
+    }
+  }
 }
 
 .table--sortable {
-    [aria-sort='descending'].table__header {
+  [aria-sort='descending'].table__header {
+    .svg-icon {
+      .topTriangle {
+        fill: $color-grey-3;
+      }
+      .bottomTriangle {
+        fill: $color-blue;
+      }
+    }
+    .table__sort-button:focus {
+      .svg-icon {
+        .topTriangle {
+          fill: $color-black;
+        }
+      }
+    }
+  }
+
+  [aria-sort='ascending'].table__header {
+    .svg-icon {
+      .topTriangle {
+        fill: $color-blue;
+      }
+      .bottomTriangle {
+        fill: $color-grey-3;
+      }
+    }
+    .table__sort-button:focus {
+      .svg-icon {
+        .bottomTriangle {
+          fill: $color-black;
+        }
+      }
+    }
+  }
+
+  .table__header {
+    position: relative;
+
+    .table__sort-button {
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      color: $color-links;
+      display: inline-block;
+      font-family: $font-sans;
+      font-weight: 700;
+      line-height: 1rem;
+      text-decoration: underline;
+      white-space: nowrap;
+
+      &:hover {
+        color: $color-links-hover;
+        cursor: pointer;
+        text-decoration: underline solid $color-links-hover 2px;
+      }
+
+      .svg-icon {
+        fill: $color-grey-3;
+        height: 0.8rem;
+        padding-bottom: 0.1rem;
+        width: 0.8rem;
+      }
+
+      &:focus {
+        @extend a:focus;
         .svg-icon {
-            .topTriangle {
-                fill: $color-grey-3;
-            }
-            .bottomTriangle {
-                fill: $color-blue;
-            }
+          fill: $color-black;
         }
-        .table__sort-button:focus {
-            .svg-icon {
-                .topTriangle {
-                    fill: $color-black;
-                }
-            }
-        }
+      }
     }
-
-    [aria-sort='ascending'].table__header {
-        .svg-icon {
-            .topTriangle {
-                fill: $color-blue;
-            }
-            .bottomTriangle {
-                fill: $color-grey-3;
-            }
-        }
-        .table__sort-button:focus {
-            .svg-icon {
-                .bottomTriangle {
-                    fill: $color-black;
-                }
-            }
-        }
-    }
-
-    .table__header {
-        position: relative;
-
-        .table__sort-button {
-            background-color: transparent;
-            border: 0;
-            box-shadow: none;
-            color: $color-links;
-            display: inline-block;
-            font-family: $font-sans;
-            font-weight: 700;
-            line-height: 1rem;
-            text-decoration: underline;
-            white-space: nowrap;
-
-            &:hover {
-                color: $color-links-hover;
-                cursor: pointer;
-                text-decoration: underline solid $color-links-hover 2px;
-            }
-
-            .svg-icon {
-                fill: $color-grey-3;
-                height: 0.8rem;
-                padding-bottom: 0.1rem;
-                width: 0.8rem;
-            }
-
-            &:focus {
-                @extend a:focus;
-                .svg-icon {
-                    fill: $color-black;
-                }
-            }
-        }
-    }
+  }
 }

@@ -50,7 +50,7 @@ rules:
     scss/at-mixin-pattern: null
 
     # Style Guide
-    indentation: 4
+    indentation: 2
     color-named: 'never'
     declaration-block-trailing-semicolon: always
     unit-case: lower

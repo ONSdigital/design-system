@@ -1,50 +1,50 @@
 .page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    overflow-x: hidden;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .page__content {
-    flex: 1 0 auto;
-    overflow-x: hidden;
-    // NOTE: padding-bottom: 1px fixes safari scroll issue
-    // Issue number #862
-    padding-bottom: 1px;
-    position: relative;
+  flex: 1 0 auto;
+  overflow-x: hidden;
+  // NOTE: padding-bottom: 1px fixes safari scroll issue
+  // Issue number #862
+  padding-bottom: 1px;
+  position: relative;
 }
 
 .page__main {
-    margin-bottom: 4.5rem;
-    margin-top: 2.5rem;
+  margin-bottom: 4.5rem;
+  margin-top: 2.5rem;
 
-    @include mq(xxs, m) {
-        margin-top: 1.5rem;
-    }
+  @include mq(xxs, m) {
+    margin-top: 1.5rem;
+  }
 }
 
 .page__body {
-    h2 {
-        @extend .u-fs-xl;
-    }
+  h2 {
+    @extend .u-fs-xl;
+  }
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+  }
+  .panel__body,
+  .collapsible {
+    h2,
     h3,
     h4,
     h5,
     h6 {
-        margin-top: 2rem;
+      margin-top: 0;
     }
-    .panel__body,
-    .collapsible {
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            margin-top: 0;
-        }
-    }
-    h2:not(:first-child) {
-        margin-top: 2.5rem;
-    }
+  }
+  h2:not(:first-child) {
+    margin-top: 2.5rem;
+  }
 }

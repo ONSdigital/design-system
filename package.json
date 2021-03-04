@@ -43,7 +43,7 @@
       "git add"
     ],
     "*.scss": [
-      "prettier --print-width 140 --single-quote --tab-width 4 --parser postcss --write",
+      "prettier --print-width 140 --single-quote --parser postcss --write",
       "yarn run stylelint-fix",
       "git add"
     ]

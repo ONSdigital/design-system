@@ -1,25 +1,25 @@
 // e.g u-pl-m
 $sizes: (
-    no: 0 !important,
-    xxs: 0.3rem,
-    xs: 0.5rem,
-    s: 1rem,
-    m: 2rem,
-    l: 3rem,
+  no: 0 !important,
+  xxs: 0.3rem,
+  xs: 0.5rem,
+  s: 1rem,
+  m: 2rem,
+  l: 3rem,
 );
 
 $padding: (
-    pt: padding-top,
-    pr: padding-right,
-    pb: padding-bottom,
-    pl: padding-left,
-    p: padding,
+  pt: padding-top,
+  pr: padding-right,
+  pb: padding-bottom,
+  pl: padding-left,
+  p: padding,
 );
 
 @each $key, $value in $sizes {
-    @each $abbr, $dec in $padding {
-        @include bp-suffix(u-#{$abbr}-#{$key}, $create-between-breakpoints: true) {
-            #{$dec}: #{$value};
-        }
+  @each $abbr, $dec in $padding {
+    @include bp-suffix(u-#{$abbr}-#{$key}, $create-between-breakpoints: true) {
+      #{$dec}: #{$value};
     }
+  }
 }

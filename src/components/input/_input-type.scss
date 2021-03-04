@@ -1,70 +1,70 @@
 .input-type {
+  display: block;
+
+  // Keep the entire component display block, but use inline-flex on inner to prevent the orange focus from going full width
+  &__inner {
+    display: inline-flex;
+    position: relative;
+  }
+
+  // Double ampersand is needed to solve specificity issues
+  & &__input {
+    flex: 1 1 auto;
+    position: relative;
+    z-index: 1;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &__type[title] {
+    background-color: $color-grey-5;
+    border: 1px solid $color-input;
     display: block;
+    flex: 0 0 auto;
+    font-size: 1rem;
+    font-weight: $font-weight-bold;
+    line-height: normal;
+    padding: $input-padding-vertical $input-padding-horizontal * 2;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+  }
 
-    // Keep the entire component display block, but use inline-flex on inner to prevent the orange focus from going full width
-    &__inner {
-        display: inline-flex;
-        position: relative;
-    }
+  &__input:focus + &__type[title]::after {
+    border-radius: $input-radius;
+    bottom: 0;
+    box-shadow: 0 0 0 3px $color-focus;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 
-    // Double ampersand is needed to solve specificity issues
-    & &__input {
-        flex: 1 1 auto;
-        position: relative;
-        z-index: 1;
-
-        &:focus {
-            box-shadow: none;
-        }
-    }
-
+  &:not(&--prefix) & {
     &__type[title] {
-        background-color: $color-grey-5;
-        border: 1px solid $color-input;
-        display: block;
-        flex: 0 0 auto;
-        font-size: 1rem;
-        font-weight: $font-weight-bold;
-        line-height: normal;
-        padding: $input-padding-vertical $input-padding-horizontal * 2;
-        text-align: center;
-        text-decoration: none;
-        white-space: nowrap;
+      border-left: 0;
+      border-radius: 0 $input-radius $input-radius 0;
     }
 
-    &__input:focus + &__type[title]::after {
-        border-radius: $input-radius;
-        bottom: 0;
-        box-shadow: 0 0 0 3px $color-focus;
-        content: '';
-        display: block;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
+    &__input {
+      border-radius: $input-radius 0 0 $input-radius;
+    }
+  }
+
+  &--prefix & {
+    &__type[title] {
+      border-radius: $input-radius 0 0 $input-radius;
+      border-right: 0;
+      order: 0;
     }
 
-    &:not(&--prefix) & {
-        &__type[title] {
-            border-left: 0;
-            border-radius: 0 $input-radius $input-radius 0;
-        }
-
-        &__input {
-            border-radius: $input-radius 0 0 $input-radius;
-        }
+    &__input {
+      border-radius: 0 $input-radius $input-radius 0;
+      order: 1;
     }
-
-    &--prefix & {
-        &__type[title] {
-            border-radius: $input-radius 0 0 $input-radius;
-            border-right: 0;
-            order: 0;
-        }
-
-        &__input {
-            border-radius: 0 $input-radius $input-radius 0;
-            order: 1;
-        }
-    }
+  }
 }

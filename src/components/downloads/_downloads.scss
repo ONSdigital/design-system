@@ -1,39 +1,39 @@
 .download {
-    display: flex;
+  display: flex;
 
-    & + & {
-        border-top: 1px solid $color-grey-2;
-        margin: 1.5rem 0 0;
-        padding: 1.5em 0 0;
+  & + & {
+    border-top: 1px solid $color-grey-2;
+    margin: 1.5rem 0 0;
+    padding: 1.5em 0 0;
+  }
+
+  &__image {
+    flex: 0 0 auto;
+    margin-right: 1.5rem;
+    width: 96px;
+  }
+
+  &__image-link {
+    border: 2px solid $color-grey-4;
+    box-sizing: content-box;
+    display: block;
+    width: 100%;
+
+    &:focus {
+      border-color: $color-document-border-focus;
+      box-shadow: none;
+      outline: 4px solid $color-focus !important;
+      outline-offset: 0;
     }
+  }
 
-    &__image {
-        flex: 0 0 auto;
-        margin-right: 1.5rem;
-        width: 96px;
-    }
+  &__meta {
+    color: $color-grey-1;
+    display: block;
+  }
 
-    &__image-link {
-        border: 2px solid $color-grey-4;
-        box-sizing: content-box;
-        display: block;
-        width: 100%;
-
-        &:focus {
-            border-color: $color-document-border-focus;
-            box-shadow: none;
-            outline: 4px solid $color-focus !important;
-            outline-offset: 0;
-        }
-    }
-
-    &__meta {
-        color: $color-grey-1;
-        display: block;
-    }
-
-    &__excerpt {
-        margin-bottom: 0;
-        max-width: 660px; // Equivalent to 8 Columns
-    }
+  &__excerpt {
+    margin-bottom: 0;
+    max-width: 660px; // Equivalent to 8 Columns
+  }
 }

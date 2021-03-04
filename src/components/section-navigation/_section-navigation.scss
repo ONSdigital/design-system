@@ -1,34 +1,34 @@
 .section-nav {
-    border-bottom: 1px solid $color-borders;
+  border-bottom: 1px solid $color-borders;
 
-    &__list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-    &__item {
-        border-bottom: 4px solid transparent;
-        display: inline-block;
-        font-size: 1rem;
-        margin: 0 1rem 0 0;
-        text-align: center;
-        &:hover,
-        &--active {
-            border-color: $color-dark-blue;
-            a {
-                color: $color-dark-blue;
-            }
-        }
-        &--active {
-            font-weight: 700;
-        }
+  &__item {
+    border-bottom: 4px solid transparent;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0 1rem 0 0;
+    text-align: center;
+    &:hover,
+    &--active {
+      border-color: $color-dark-blue;
+      a {
+        color: $color-dark-blue;
+      }
     }
+    &--active {
+      font-weight: 700;
+    }
+  }
 
-    &__link {
-        text-decoration: none;
-        &:hover {
-            text-decoration: none;
-        }
+  &__link {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
     }
+  }
 }

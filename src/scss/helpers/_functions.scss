@@ -1,42 +1,42 @@
 @function ems($pxval, $base: $base) {
-    $em-size: $pxval / $base;
+  $em-size: $pxval / $base;
 
-    @return #{$em-size}em;
+  @return #{$em-size}em;
 }
 
 @function rems($pxval, $base: $base) {
-    $rem-size: $pxval / $base;
+  $rem-size: $pxval / $base;
 
-    @return #{$rem-size}rem;
+  @return #{$rem-size}rem;
 }
 
 @function strip-unit($num) {
-    @return $num / ($num * 0 + 1);
+  @return $num / ($num * 0 + 1);
 }
 
 @function tint($color, $percentage) {
-    @return mix(white, $color, $percentage);
+  @return mix(white, $color, $percentage);
 }
 
 @function shade($color, $percentage) {
-    @return mix(black, $color, $percentage);
+  @return mix(black, $color, $percentage);
 }
 
 @function map-set($map, $key, $value) {
-    $new: (
-        $key: $value,
-    );
+  $new: (
+    $key: $value,
+  );
 
-    @return map-merge($map, $new);
+  @return map-merge($map, $new);
 }
 
 @function str-replace($string, $search, $replace: '') {
-    $string: to-string($string);
-    $index: str-index($string, $search);
+  $string: to-string($string);
+  $index: str-index($string, $search);
 
-    @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-    }
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
 
-    @return $string;
+  @return $string;
 }

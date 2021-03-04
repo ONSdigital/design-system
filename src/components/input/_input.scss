@@ -1,55 +1,55 @@
 .input {
-    border: $input-border-width solid $color-input;
-    border-radius: $input-radius;
-    color: inherit;
-    display: block;
-    font-family: inherit;
-    font-size: 1rem;
-    line-height: 1rem;
-    padding: $input-padding-vertical $input-padding-horizontal;
-    position: relative;
-    width: 100%;
-    z-index: 3;
+  border: $input-border-width solid $color-input;
+  border-radius: $input-radius;
+  color: inherit;
+  display: block;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1rem;
+  padding: $input-padding-vertical $input-padding-horizontal;
+  position: relative;
+  width: 100%;
+  z-index: 3;
 
-    &::-ms-clear {
-        display: none;
-    }
+  &::-ms-clear {
+    display: none;
+  }
 
-    @include mq(s) {
-        &--text,
-        &--select {
-            &:not(.input--block):not([class*='input--w-']) {
-                width: $input-width;
-            }
-        }
-    }
-
+  @include mq(s) {
     &--text,
-    &--textarea {
-        // Prevent inner shadow on iOS
-        appearance: none;
+    &--select {
+      &:not(.input--block):not([class*='input--w-']) {
+        width: $input-width;
+      }
     }
+  }
 
-    &:focus {
-        box-shadow: 0 0 0 3px $color-focus;
-        outline: 1px solid $color-input;
-        outline-offset: -2px;
-    }
+  &--text,
+  &--textarea {
+    // Prevent inner shadow on iOS
+    appearance: none;
+  }
 
-    &:disabled {
-        border-color: $color-grey-2;
-        cursor: not-allowed;
-    }
+  &:focus {
+    box-shadow: 0 0 0 3px $color-focus;
+    outline: 1px solid $color-input;
+    outline-offset: -2px;
+  }
 
-    &--error:not(:focus) {
-        border: 1px solid $color-red;
-        outline: 1px solid $color-red;
-        outline-offset: -2px;
-    }
+  &:disabled {
+    border-color: $color-grey-2;
+    cursor: not-allowed;
+  }
 
-    &--with-description {
-        margin-bottom: 0.55rem;
-    }
+  &--error:not(:focus) {
+    border: 1px solid $color-red;
+    outline: 1px solid $color-red;
+    outline-offset: -2px;
+  }
+
+  &--with-description {
+    margin-bottom: 0.55rem;
+  }
 }
 
 // Text input widths
@@ -59,64 +59,64 @@
 @include input-width('input-number--w-{x}', 0.54rem);
 
 .input--postcode {
-    max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
-    width: 100%;
+  max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
+  width: 100%;
 }
 
 .input__helper {
-    font-size: 0.8rem;
-    font-weight: $font-weight-bold;
-    margin-top: 0.2rem;
+  font-size: 0.8rem;
+  font-weight: $font-weight-bold;
+  margin-top: 0.2rem;
 }
 
 .input--select {
-    appearance: none;
-    background: $color-white url('#{$static}/img/icons--chevron-down.svg') no-repeat center right 10px;
-    background-size: 1rem;
-    line-height: 1.3rem;
-    padding: 0.39rem 2rem 0.39rem $input-padding-horizontal;
+  appearance: none;
+  background: $color-white url('#{$static}/img/icons--chevron-down.svg') no-repeat center right 10px;
+  background-size: 1rem;
+  line-height: 1.3rem;
+  padding: 0.39rem 2rem 0.39rem $input-padding-horizontal;
 
-    &::-ms-expand {
-        display: none;
-    }
+  &::-ms-expand {
+    display: none;
+  }
 }
 
 .input--textarea {
-    line-height: normal;
-    resize: vertical;
-    width: 100%;
+  line-height: normal;
+  resize: vertical;
+  width: 100%;
 }
 
 .input--block {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .input--placeholder {
-    background: transparent;
-    &::placeholder {
-        color: transparent;
-    }
-    &:valid:not(:placeholder-shown) {
-        background: $color-white;
-    }
-    &:focus {
-        background: $color-white;
-    }
+  background: transparent;
+  &::placeholder {
+    color: transparent;
+  }
+  &:valid:not(:placeholder-shown) {
+    background: $color-white;
+  }
+  &:focus {
+    background: $color-white;
+  }
 }
 
 .input--limit-reached {
-    border: $input-border-width solid $color-red;
+  border: $input-border-width solid $color-red;
 
-    &:focus {
-        outline: $input-border-width solid $color-red;
-    }
+  &:focus {
+    outline: $input-border-width solid $color-red;
+  }
 }
 
 .input__limit {
-    display: block;
+  display: block;
 
-    &--reached {
-        color: $color-red;
-    }
+  &--reached {
+    color: $color-red;
+  }
 }

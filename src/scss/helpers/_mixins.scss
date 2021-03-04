@@ -1,77 +1,77 @@
 @mixin rem($property, $values...) {
-    $max: length($values);
-    $px-values: '';
-    $rem-values: '';
+  $max: length($values);
+  $px-values: '';
+  $rem-values: '';
 
-    @for $i from 1 through $max {
-        $value: strip-unit(nth($values, $i));
-        $px-values: #{$px-values + $value * 16}px;
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $px-values: #{$px-values + $value * 16}px;
 
-        @if $i < $max {
-            $px-values: #{$px-values + ' '};
-        }
+    @if $i < $max {
+      $px-values: #{$px-values + ' '};
     }
+  }
 
-    @for $i from 1 through $max {
-        $value: strip-unit(nth($values, $i));
-        $rem-values: #{$rem-values + $value}rem;
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $rem-values: #{$rem-values + $value}rem;
 
-        @if $i < $max {
-            $rem-values: #{$rem-values + ' '};
-        }
+    @if $i < $max {
+      $rem-values: #{$rem-values + ' '};
     }
+  }
 
-    #{$property}: $px-values;
-    #{$property}: $rem-values;
+  #{$property}: $px-values;
+  #{$property}: $rem-values;
 }
 
 @mixin font-size($size-value: 1.6) {
-    @include rem(font-size, $size-value);
+  @include rem(font-size, $size-value);
 }
 
 // =============================================================================
 // String Replace
 // =============================================================================
 @function str-replace($string, $search, $replace: '') {
-    $index: str-index($string, $search);
+  $index: str-index($string, $search);
 
-    @if $index {
-        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-    }
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
 
-    @return $string;
+  @return $string;
 }
 // =============================================================================
 // Font Face
 // =============================================================================
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
-    $src: null;
-    $extmods: (
-        eot: '?',
-        svg: '#' + str-replace($name, ' ', '_'),
-    );
-    $formats: (
-        otf: 'opentype',
-        ttf: 'truetype',
-    );
+  $src: null;
+  $extmods: (
+    eot: '?',
+    svg: '#' + str-replace($name, ' ', '_'),
+  );
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype',
+  );
 
-    @each $ext in $exts {
-        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-        $src: append($src, url('#{$path}.#{$extmod}') format(quote($format)), comma);
-    }
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url('#{$path}.#{$extmod}') format(quote($format)), comma);
+  }
 
-    @font-face {
-        font-family: quote($name);
-        font-style: $style;
-        font-weight: $weight;
-        src: $src;
-    }
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
 }
 
 /* stylelint-disable */
 @mixin clearfix() {
-    // no-op
+  // no-op
 }
 /* stylelint-enable */
 
@@ -80,15 +80,15 @@
 // =============================================================================
 
 @mixin nth-element($num, $px) {
-    &:nth-child(#{$num}) {
-        padding-left: $px;
-    }
+  &:nth-child(#{$num}) {
+    padding-left: $px;
+  }
 }
 
 // =============================================================================
 // Sets antialiasing - used for light text on dark background
 // =============================================================================
 @mixin font-smoothing() {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }

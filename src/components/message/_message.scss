@@ -1,52 +1,52 @@
 .message {
-    border-radius: $grid-gutters / 2;
-    margin-bottom: 2rem;
+  border-radius: $grid-gutters / 2;
+  margin-bottom: 2rem;
 
-    &--sent {
-        background: $color-info-tint;
+  &--sent {
+    background: $color-info-tint;
 
-        @include mq(m) {
-            margin-left: 4rem;
-        }
+    @include mq(m) {
+      margin-left: 4rem;
     }
+  }
 
-    &--received {
-        background: $color-success-tint;
+  &--received {
+    background: $color-success-tint;
 
-        @include mq(m) {
-            margin-right: 4rem;
-        }
+    @include mq(m) {
+      margin-right: 4rem;
     }
+  }
 
-    &__head {
-        border-bottom: 1px solid $color-borders;
-        padding: $grid-gutters;
-        position: relative;
+  &__head {
+    border-bottom: 1px solid $color-borders;
+    padding: $grid-gutters;
+    position: relative;
+  }
+
+  &__metadata {
+    margin: 0;
+
+    @include mq(m) {
+      width: 65%;
     }
+  }
 
-    &__metadata {
-        margin: 0;
+  &__term,
+  &__value {
+    display: inline-block;
+    margin: 0;
+  }
 
-        @include mq(m) {
-            width: 65%;
-        }
+  &__unread-link {
+    @include mq(m) {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
     }
+  }
 
-    &__term,
-    &__value {
-        display: inline-block;
-        margin: 0;
-    }
-
-    &__unread-link {
-        @include mq(m) {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-        }
-    }
-
-    &__body {
-        padding: $grid-gutters;
-    }
+  &__body {
+    padding: $grid-gutters;
+  }
 }

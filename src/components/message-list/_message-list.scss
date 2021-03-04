@@ -1,26 +1,26 @@
 .message-list {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 .message-item {
-    list-style: none;
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
+  list-style: none;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
 
-    &:not(:last-child) {
-        border-bottom: 1px solid $color-borders;
+  &:not(:last-child) {
+    border-bottom: 1px solid $color-borders;
+  }
+
+  &__subject {
+    margin: 0;
+  }
+
+  &__metadata {
+    margin: 0 0 1rem;
+
+    &-term,
+    &-value {
+      margin: 0 0 0.3rem;
     }
-
-    &__subject {
-        margin: 0;
-    }
-
-    &__metadata {
-        margin: 0 0 1rem;
-
-        &-term,
-        &-value {
-            margin: 0 0 0.3rem;
-        }
-    }
+  }
 }

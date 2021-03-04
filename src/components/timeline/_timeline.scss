@@ -1,37 +1,37 @@
 .timeline {
-    padding-left: 1.5rem;
-    position: relative;
+  padding-left: 1.5rem;
+  position: relative;
 
-    &::before {
-        border-left: 4px solid $color-black;
-        content: '';
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 10px;
-    }
+  &::before {
+    border-left: 4px solid $color-black;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 10px;
+  }
 }
 
 .timeline__item {
-    margin-bottom: 1.5rem;
-    position: relative;
+  margin-bottom: 1.5rem;
+  position: relative;
 
-    &::before {
-        background-color: $color-black;
-        content: '';
-        height: 4px;
-        left: -1.5rem;
-        position: absolute;
-        top: 10px;
-        width: 12px;
-    }
+  &::before {
+    background-color: $color-black;
+    content: '';
+    height: 4px;
+    left: -1.5rem;
+    position: absolute;
+    top: 10px;
+    width: 12px;
+  }
 
-    :last-child {
-        margin-bottom: 0;
-    }
+  :last-child {
+    margin-bottom: 0;
+  }
 }
 
 .timeline__heading {
-    font-size: 1rem !important;
-    margin-bottom: 0.5rem;
+  font-size: 1rem !important;
+  margin-bottom: 0.5rem;
 }

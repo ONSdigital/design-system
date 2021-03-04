@@ -1,35 +1,35 @@
 .radio {
-    @extend .checkbox;
+  @extend .checkbox;
 
-    &__input {
-        @extend .checkbox__input;
+  &__input {
+    @extend .checkbox__input;
 
-        background: $color-grey-5;
-        border-radius: 50%;
-        box-shadow: inset 0 0 0 3px $color-white;
+    background: $color-grey-5;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 3px $color-white;
 
-        &:checked {
-            background: $color-input;
-        }
+    &:checked {
+      background: $color-input;
     }
+  }
 
-    &__label {
-        @extend .checkbox__label;
+  &__label {
+    @extend .checkbox__label;
 
-        &--with-description {
-            @extend .checkbox__label--with-description;
-        }
+    &--with-description {
+      @extend .checkbox__label--with-description;
     }
+  }
 
-    &__description {
-        @extend .checkbox__description;
-    }
+  &__description {
+    @extend .checkbox__description;
+  }
 
-    &__other {
-        @extend .checkbox__other;
-    }
+  &__other {
+    @extend .checkbox__other;
+  }
 
-    &__input:not(:checked) ~ &__other--open {
-        display: block;
-    }
+  &__input:not(:checked) ~ &__other--open {
+    display: block;
+  }
 }

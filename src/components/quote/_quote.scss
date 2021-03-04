@@ -1,32 +1,32 @@
 .quote {
-    background-size: 2rem;
-    margin: 0 0 1rem;
-    padding: 0 0 0 3em;
+  background-size: 2rem;
+  margin: 0 0 1rem;
+  padding: 0 0 0 3em;
+  position: relative;
+
+  &__text {
+    display: block;
+  }
+
+  &__ref {
+    @extend .u-fs-s;
+
+    color: $color-text-light;
+    display: block;
+    margin-top: 0.5rem;
     position: relative;
+  }
 
-    &__text {
-        display: block;
+  .svg-icon {
+    fill: $color-grey-2;
+    height: 1.85rem;
+    left: 0;
+    position: absolute;
+    top: -0.125rem;
+    width: 1.85rem;
+
+    @include mq(m) {
+      top: 0;
     }
-
-    &__ref {
-        @extend .u-fs-s;
-
-        color: $color-text-light;
-        display: block;
-        margin-top: 0.5rem;
-        position: relative;
-    }
-
-    .svg-icon {
-        fill: $color-grey-2;
-        height: 1.85rem;
-        left: 0;
-        position: absolute;
-        top: -0.125rem;
-        width: 1.85rem;
-
-        @include mq(m) {
-            top: 0;
-        }
-    }
+  }
 }

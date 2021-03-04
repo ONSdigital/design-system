@@ -1,172 +1,172 @@
 .adv-filter {
-    &__gallery {
-        border-top: 1px solid $color-grey-4;
-        margin-left: 0;
-        padding-left: 0;
+  &__gallery {
+    border-top: 1px solid $color-grey-4;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  &__item {
+    margin-top: 1.5rem;
+
+    &:first-of-type {
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__selection {
+    color: $color-grey-1;
+    margin-bottom: 0.5rem;
+  }
+
+  &__results-options {
+    margin-bottom: 1.5rem;
+  }
+
+  &__reset {
+    background-color: transparent;
+    border: 0 none;
+    color: $color-grey-1;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: normal;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-position: under;
+
+    &:hover {
+      color: $color-black;
+      text-decoration: underline solid $color-black 2px;
     }
 
-    &__item {
-        margin-top: 1.5rem;
+    &:focus {
+      background-color: $color-yellow;
+      box-shadow: 0 -2px $color-yellow, 0 4px $color-black;
+      color: $color-black;
+      outline: 3px solid transparent;
+      text-decoration: none;
+    }
+  }
 
-        &:first-of-type {
-            margin-top: 1.5rem;
-        }
+  &__results-sort {
+    align-items: center;
+    display: flex;
+    margin-top: 0.5rem;
+
+    .label {
+      font-weight: normal;
+      margin-bottom: 0;
+      margin-right: 0.5rem;
     }
 
-    &__selection {
-        color: $color-grey-1;
-        margin-bottom: 0.5rem;
+    .input--select {
+      width: auto !important;
+    }
+  }
+
+  &__panel {
+    display: none;
+  }
+
+  &__panel--is-visible {
+    background-color: $color-white;
+    bottom: 0;
+    display: block;
+    height: calc(100% - 76px); // Height of action buttons
+    left: 0;
+    overflow-y: scroll;
+    padding: 1rem;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+  }
+
+  &__actions {
+    background-color: $color-white;
+    bottom: 0;
+    box-shadow: 0 0 5px 0 rgba($color-black, 0.5), 0 -1px 0 0 rgba($color-grey-1, 0.5);
+    display: flex;
+    left: 0;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    z-index: 11;
+
+    .btn:first-of-type {
+      flex-grow: 1;
     }
 
+    .btn + .btn {
+      margin-left: 1rem;
+    }
+  }
+
+  @include mq(s) {
     &__results-options {
-        margin-bottom: 1.5rem;
-    }
-
-    &__reset {
-        background-color: transparent;
-        border: 0 none;
-        color: $color-grey-1;
-        cursor: pointer;
-        font-family: inherit;
-        font-weight: normal;
-        padding: 0;
-        text-decoration: underline;
-        text-underline-position: under;
-
-        &:hover {
-            color: $color-black;
-            text-decoration: underline solid $color-black 2px;
-        }
-
-        &:focus {
-            background-color: $color-yellow;
-            box-shadow: 0 -2px $color-yellow, 0 4px $color-black;
-            color: $color-black;
-            outline: 3px solid transparent;
-            text-decoration: none;
-        }
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
     }
 
     &__results-sort {
-        align-items: center;
-        display: flex;
-        margin-top: 0.5rem;
+      margin-top: 0; // Reset
+    }
+  }
 
-        .label {
-            font-weight: normal;
-            margin-bottom: 0;
-            margin-right: 0.5rem;
-        }
+  @include mq(m) {
+    &__actions {
+      display: none;
+    }
 
-        .input--select {
-            width: auto !important;
-        }
+    &__trigger {
+      display: none;
     }
 
     &__panel {
-        display: none;
+      display: block;
     }
 
-    &__panel--is-visible {
-        background-color: $color-white;
-        bottom: 0;
-        display: block;
-        height: calc(100% - 76px); // Height of action buttons
-        left: 0;
-        overflow-y: scroll;
-        padding: 1rem;
-        position: fixed;
-        right: 0;
-        top: 0;
-        z-index: 10;
+    .no-scroll {
+      overflow: auto;
     }
-
-    &__actions {
-        background-color: $color-white;
-        bottom: 0;
-        box-shadow: 0 0 5px 0 rgba($color-black, 0.5), 0 -1px 0 0 rgba($color-grey-1, 0.5);
-        display: flex;
-        left: 0;
-        padding: 1rem;
-        position: fixed;
-        width: 100%;
-        z-index: 11;
-
-        .btn:first-of-type {
-            flex-grow: 1;
-        }
-
-        .btn + .btn {
-            margin-left: 1rem;
-        }
-    }
-
-    @include mq(s) {
-        &__results-options {
-            align-items: center;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-
-        &__results-sort {
-            margin-top: 0; // Reset
-        }
-    }
-
-    @include mq(m) {
-        &__actions {
-            display: none;
-        }
-
-        &__trigger {
-            display: none;
-        }
-
-        &__panel {
-            display: block;
-        }
-
-        .no-scroll {
-            overflow: auto;
-        }
-    }
+  }
 }
 
 // No JavaScript
 body:not(.js-enabled) {
-    .adv-filter {
-        &__actions {
-            display: none;
-        }
-
-        &__panel {
-            display: block;
-        }
-
-        &__trigger {
-            display: none;
-        }
-
-        &__no-results {
-            display: none;
-        }
-
-        &__selection {
-            display: none;
-        }
+  .adv-filter {
+    &__actions {
+      display: none;
     }
+
+    &__panel {
+      display: block;
+    }
+
+    &__trigger {
+      display: none;
+    }
+
+    &__no-results {
+      display: none;
+    }
+
+    &__selection {
+      display: none;
+    }
+  }
 }
 
 .filter__item {
-    border-bottom: 1px solid $color-grey-4;
-    display: block; // Accessible way of removing bullets (don’t use list-style-type: none; https://github.com/jensimmons/cssremedy/issues/15#issuecomment-462174177)
-    margin-bottom: 0; // Reset default margin bottom on list items
-    padding-bottom: 1.5rem;
-    padding-top: 1.5rem;
+  border-bottom: 1px solid $color-grey-4;
+  display: block; // Accessible way of removing bullets (don’t use list-style-type: none; https://github.com/jensimmons/cssremedy/issues/15#issuecomment-462174177)
+  margin-bottom: 0; // Reset default margin bottom on list items
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 }
 
 // Prevent scrollbars on body
 .no-scroll {
-    overflow-y: hidden;
+  overflow-y: hidden;
 }
