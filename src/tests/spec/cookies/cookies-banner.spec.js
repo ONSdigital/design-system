@@ -134,12 +134,12 @@ function renderComponent() {
     '</div>' +
     '</div>' +
     '<form data-module="cookie-settings">' +
-    '<input type="radio" id="settings-on" name="cookies-settings" value="on">' +
-    '<input type="radio" id="settings-off" name="cookies-settings" value="off">' +
-    '<input type="radio" name="cookies-usage" value="on">' +
-    '<input type="radio" name="cookies-usage" value="off">' +
-    '<input type="radio" name="cookies-campaigns" value="on">' +
-    '<input type="radio" name="cookies-campaigns" value="off">' +
+    '<input type="radio" class="js-radio" id="settings-on" name="cookies-settings" value="on">' +
+    '<input type="radio" class="js-radio" id="settings-off" name="cookies-settings" value="off">' +
+    '<input type="radio" class="js-radio" name="cookies-usage" value="on">' +
+    '<input type="radio" class="js-radio" name="cookies-usage" value="off">' +
+    '<input type="radio" class="js-radio" name="cookies-campaigns" value="on">' +
+    '<input type="radio" class="js-radio" name="cookies-campaigns" value="off">' +
     '<button id="submit-button" type="submit">Submit</button>' +
     '</form>' +
     '<div class="cookies-confirmation-message u-d-no">' +
