@@ -74,6 +74,11 @@ describe('Component: Cookie banner', function() {
   });
 
   it('sets all radios to on from off', function() {
+    new CookiesBanner(this.banner);
+
+    const button = this.banner.querySelector('.js-accept-cookies');
+    button.click();
+
     const radios = this.form.querySelectorAll('input[value=on]');
     radios.forEach(radio => {
       expect(radio.checked).to.be.true();
