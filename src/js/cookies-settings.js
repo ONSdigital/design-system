@@ -56,8 +56,15 @@ export default class CookiesSettings {
         const value = input.value === 'on' ? true : false;
 
         options[name] = value;
+
+        if (name === 'usage' && value === true) {
+          if (typeof loadGTM != 'undefined') {
+            loadGTM();
+          }
+        }
       }
     }
+
     setConsentCookie(options);
 
     this.showConfirmationMessage();

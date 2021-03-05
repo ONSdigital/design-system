@@ -38,6 +38,10 @@ export default class CookiesBanner {
     approveAllCookieTypes();
     cookie('ons_cookie_message_displayed', 'true', { days: 365 });
     this.hidePrimaryCookiesBanner();
+
+    if (typeof loadGTM != 'undefined') {
+      loadGTM();
+    }
   }
 
   hidePrimaryCookiesBanner() {

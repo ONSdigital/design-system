@@ -89,7 +89,6 @@ export function setConsentCookie(options) {
           if (cookie(cookies)) {
             const cookieString = cookies + '=; expires=' + new Date() + '; domain=' + domain + '; path=/';
             document.cookie = cookieString;
-            console.log('remove cookie:', cookieString);
           }
         }
       }
@@ -150,7 +149,6 @@ export function setCookie(name, value, options) {
     if (document.location.protocol === 'https:') {
       cookieString = cookieString + '; Secure';
     }
-    console.log('set cookie:', cookieString);
     document.cookie = cookieString;
   }
 }
