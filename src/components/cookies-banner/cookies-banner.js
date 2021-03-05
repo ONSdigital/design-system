@@ -35,13 +35,27 @@ export default class CookiesBanner {
 
   setCookiesConsent(event) {
     event.preventDefault();
+
     approveAllCookieTypes();
     cookie('ons_cookie_message_displayed', 'true', { days: 365 });
+
     this.hidePrimaryCookiesBanner();
+
+    const isOnSettingsPage = document.querySelector('[data-module="cookie-settings"]');
+    if (isOnSettingsPage) {
+      this.updateRadios();
+    }
 
     if (typeof loadGTM != 'undefined') {
       loadGTM();
     }
+  }
+
+  updateRadios() {
+    const radios = [...document.querySelectorAll('.js-radio')];
+    radios.forEach(radio => {
+      radio.value == 'off' ? (radio.checked = false) : (radio.checked = true);
+    });
   }
 
   hidePrimaryCookiesBanner() {
