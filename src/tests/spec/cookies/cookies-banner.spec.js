@@ -79,7 +79,7 @@ describe('Component: Cookie banner', function() {
     const button = this.banner.querySelector('.js-accept-cookies');
     button.click();
 
-    const radios = this.form.querySelectorAll('input[value=on]');
+    const radios = [...this.form.querySelectorAll('input[value=on]')];
     radios.forEach(radio => {
       expect(radio.checked).to.be.true();
     });
