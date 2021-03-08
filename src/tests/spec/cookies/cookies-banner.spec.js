@@ -79,10 +79,10 @@ describe('Component: Cookie banner', function() {
     const button = this.banner.querySelector('.js-accept-cookies');
     button.click();
 
-    const radioButtons = document.querySelectorAll('input[value=on]');
-    for (let i = 0; i < radioButtons.length; i++) {
-      expect(radioButtons[i].checked).to.be.true();
-    }
+    const radios = [...this.form.querySelectorAll('input[value=on]')];
+    radios.forEach(radio => {
+      expect(radio.checked).to.be.true;
+    });
   });
 
   it('should hide the secondary message when pressing the hide button', function() {
