@@ -16,5 +16,6 @@
   "content_security_policy": "script-src 'self' https://cdn.ons.gov.uk; object-src 'self' https://cdn.ons.gov.uk;",
   "theme_color": "#003B61",
   "background_color": "#003B61",
-  "display": "standalone"
+  "display": "standalone",
+  "start_url": "../"
 }
