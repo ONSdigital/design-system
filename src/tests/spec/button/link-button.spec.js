@@ -38,19 +38,14 @@ describe('Function: Timer Button ', function() {
     });
   });
 
-  describe('Once the button is initialised', () => {
+  describe('When the button is clicked with the spacebar', () => {
     beforeEach(() => {
       new SubmitButton(buttonElement, params.submitType);
+      this.mockedEvent = eventMock({ keyCode: 32 });
     });
 
-    describe('and the button is clicked with the spacebar', () => {
-      beforeEach(() => {
-        this.mockedEvent = eventMock({ keyCode: 32 });
-      });
-
-      it('then preventDefault should have been called on the event', function() {
-        expect(this.mockedEvent.preventDefault).to.have.been.called();
-      });
+    it('then preventDefault should have been called on the event', function() {
+      expect(this.mockedEvent.preventDefault).to.have.been.called();
     });
   });
 });
