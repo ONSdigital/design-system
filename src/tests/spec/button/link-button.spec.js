@@ -45,6 +45,8 @@ describe('Function: Link Button ', function() {
       buttonElement.focus();
       const event = new KeyboardEvent('keydown', { keyCode: 32 });
       document.dispatchEvent(event);
+
+      setTimeout(done);
     });
 
     it('then the linkButton function should be called', function() {
