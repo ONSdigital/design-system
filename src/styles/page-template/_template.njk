@@ -16,8 +16,6 @@
     {% set metaicons = pageConfig.theme + "/" + currentLanguageISOCode + "/" %}
 {% endif %}
 
-
-
 {% set pageColNumber = pageConfig.pageColNumber | default("8") %}
 
 {% if pageConfig.cdn is defined and pageConfig.cdn or release_version is defined and release_version %}
@@ -53,7 +51,8 @@
         <title>{{ page_title }}</title>
         <link rel="stylesheet" href="{{ assetsURL }}/css/{{ pageConfig.theme | default('main') }}.css">
         <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css">
-       
+        <meta name="theme-color" content="#3b7a9e"/>
+
         {% if pageConfig.headMeta is defined and pageConfig.headMeta %}
             
             <!-- Open Graph -->
@@ -99,6 +98,7 @@
             <link rel="mask-icon" href="{{ assetsURL }}/favicons/{{ metaicons }}safari-pinned-tab.svg" color="#000000">
             <link rel="apple-touch-icon" type="image/png" href="{{ assetsURL }}/favicons/{{ metaicons }}apple-touch-icon.png" sizes="180x180">
             <link rel="manifest" href="{{ assetsURL }}/favicons/{{ metaicons }}manifest.json">
+            <link rel="manifest" href="{{ assetsURL }}/favicons/{{ metaicons }}maskable_icon.png" purpose: "any maskable">
         {% endblock %}
 
         {% block head %}{% endblock %}
