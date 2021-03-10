@@ -30,31 +30,6 @@
     margin-top: 0.5rem;
   }
 
-  &__reset {
-    padding: 0;
-    border: 0 none;
-    background-color: transparent;
-    color: $color-grey-1;
-    font-family: inherit;
-    font-weight: normal;
-    text-decoration: underline;
-    text-underline-position: under;
-    cursor: pointer;
-
-    &:hover {
-      color: $color-black;
-      text-decoration: underline solid $color-black 2px;
-    }
-
-    &:focus {
-      outline: 3px solid transparent;
-      background-color: $color-yellow;
-      box-shadow: 0 -2px $color-yellow, 0 4px $color-black;
-      color: $color-black;
-      text-decoration: none;
-    }
-  }
-
   &__results-sort {
     display: flex;
     align-items: center;
