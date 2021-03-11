@@ -43,7 +43,7 @@ describe('Function: Link Button ', function() {
       this.linkButtonSpy = chai.spy.on(this.submitButton, 'linkButton');
 
       buttonElement.focus();
-      const event = new KeyboardEvent('keydown', { keyCode: 32 });
+      const event = new KeyboardEvent('keypress', { keyCode: 32 });
       document.dispatchEvent(event);
 
       setTimeout(done);
