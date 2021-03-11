@@ -4,6 +4,7 @@ sortOrder: 5
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 Use the page template to create pages with the core components and markup required for an ONS service.
 
@@ -27,7 +28,7 @@ The example below shows the minimum requirements for an ONS page template.
 
 ## Customised page template
 
-Components can be added to the page template. The example below provides a [phase banner](/components/phase-banner), [language selector](/patterns/language-selection), [breadcrumbs](/components/breadcrumb), [save button](/components/button) and [footer links](/components/footer).
+Components can be added to the page template. The example below provides a [phase banner](/components/phase-banner), [change language](/patterns/change-language), [breadcrumbs](/components/breadcrumb), [save button](/components/button) and [footer links](/components/footer).
 
 {{
     patternlibExample({ "path": "styles/page-template/examples/custom/index.njk" })
@@ -244,10 +245,21 @@ To change the components that are included by default, set their equivalent bloc
     })
 }}
 
+## Research on this style
+{% call onsPanel() %}
+    If you have conducted any user research using this style, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/discussions/195",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
 ## Design System forum
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/195",
-        "linkText": "Design System forum"
+        "linkText": "Discuss ‘Page Template’ on GitHub"
     })
 }}
