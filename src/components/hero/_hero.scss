@@ -47,7 +47,7 @@
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background-color: $color-grey-5;
+    background-color: $color-white;
     img {
       display: block;
       height: 100%;
@@ -65,7 +65,7 @@
     background-image: linear-gradient(-45deg, $color-branded 0%, $color-branded 20%, $color-branded-tertiary 60%, #005489 90%);
   }
   .hero__circle {
-    background-color: $color-grey-5;
+    background-color: $color-white;
     z-index: 1;
     display: block;
     top: 27px;
