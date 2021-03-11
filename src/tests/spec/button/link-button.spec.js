@@ -52,8 +52,6 @@ describe('Function: Link Button ', function() {
       this.mockedEvent = eventMock({ keyCode: 32 });
       this.submitButton.linkButton(this.mockedEvent);
       setTimeout(done);
-
-      done();
     });
 
     it('then preventDefault should be called on the event', function() {
