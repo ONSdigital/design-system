@@ -1,0 +1,22 @@
+---
+"theme": census
+"fullWidth": true
+---
+{% from "components/call-to-action/_macro.njk" import onsCallToAction %}
+{{-
+    onsCallToAction({
+        "type": 'announcement',
+        "announcements": [
+            {
+                "url": '#0',
+                "title": 'Coronavirus (COVID-19)',
+                "text": 'National lockdown: stay at home'
+            },
+            {
+                "url": '#0',
+                "title": 'Brexit',
+                "text": 'Check what you need to do'
+            }
+        ]
+    })
+}}

@@ -1,7 +1,35 @@
 {% macro onsCallToAction(params) %}
-    {% from "components/button/_macro.njk" import onsButton %}
-    <div class="call-to-action">
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/icons/_macro.njk" import onsIcon %}  
+
+    <div class="call-to-action{% if params.type == 'announcement' %} call-to-action--announcement{% endif %}{{ ' ' + params.classes if params.classes else '' }}">
+
         <div class="container">
+
+            {% if params is defined and params and params.type == "announcement" %}
+
+                <ul class="call-to-action__list">
+
+                    {% for announcements in (params.announcements if params.announcements is iterable else params.announcements.items()) %}
+                    
+                    <li class="call-to-action__item">
+                        {{
+                            onsIcon({
+                                "icon": 'arrow-forward',
+                                "iconSize": 'l'
+                            })
+                        }}
+                        <div class="call-to-action__contents">
+                            <a href="{{ announcements.url }}">{{ announcements.title }}</a><span class="call-to-action__seperator" aria-hidden="true">|</span>{{ announcements.text }}
+                        </div>
+                    </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            {% else %}
+
             <div class="grid grid--flex grid--vertical-center grid--no-wrap@s">
                 <div class="grid__col col-auto u-flex-shrink@s">
                     <h2 class="call-to-action__heading u-fs-r--b u-di">{{ params.headingText }}</h2>
@@ -11,11 +39,16 @@
                     {{ onsButton({
                         "text": params.button.text,
                         "url": params.button.url,
-                        "classes": "btn--small",
-                        "innerClasses": "icon--chevron-right-white"
+                        "classes": 'btn--small',
+                        "innerClasses": 'icon--chevron-right-white'
                     })}}
                 </div>
             </div>
+
+            {% endif %}
+
         </div>
+
     </div>
+
 {% endmacro %}

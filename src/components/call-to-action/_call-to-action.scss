@@ -1,8 +1,57 @@
 .call-to-action {
+  background-color: $cta-bg;
   padding: 0.85rem 0;
-  background: $cta-bg;
 
   &__heading {
     padding-right: 0.2rem;
+  }
+}
+
+// Announcement
+.call-to-action--announcement {
+  background-color: $color-black;
+  color: $color-white;
+  padding: 2rem 0;
+
+  & .call-to-action__list {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  & .call-to-action__item {
+    align-items: flex-start;
+    display: flex;
+  }
+
+  & .call-to-action__seperator {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  & .call-to-action__item:last-child {
+    margin-bottom: 0;
+  }
+
+  & .svg-icon {
+    fill: $color-white;
+    flex-shrink: 0;
+    margin-left: -4px; // Adjustment flush left
+    margin-right: 0.5rem;
+    margin-top: 2px; // Alignment tweak
+  }
+
+  & a {
+    color: inherit;
+    font-weight: bold;
+    position: relative;
+
+    &:hover {
+      text-decoration-color: $color-white;
+      text-decoration-thickness: 2px;
+    }
+
+    &:focus {
+      box-shadow: 0 -2px #fd0, 0 4px #fd0 !important; // Override focus style because the black border is not visible on a black background
+    }
   }
 }
