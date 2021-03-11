@@ -89,8 +89,18 @@
     position: relative;
     padding-top: 218px;
     padding-bottom: 1rem;
+
     &--ondark {
       color: $color-white;
+
+      & a {
+        color: inherit;
+        text-decoration: underline solid $color-white 1px;
+      }
+
+      & a:hover {
+        text-decoration-thickness: 2px;
+      }
     }
   }
   @include mq(m) {
