@@ -54,7 +54,7 @@
         <meta name="theme-color" content="#3b7a9e"/>
 
         {% if pageConfig.headMeta is defined and pageConfig.headMeta %}
-            
+
             <!-- Open Graph -->
             <meta property="og:type" content="website">
             <meta property="og:url" content="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
@@ -80,7 +80,7 @@
 
             <!-- Canonical -->
             <link rel="canonical" href="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
-           
+
             {% if pageConfig.headMeta.hreflangs is defined and pageConfig.headMeta.hreflangs %}
                 {% for item in pageConfig.headMeta.hreflangs %}
                     <link rel="alternate" href="{{ item.url }}" hreflang="{{ item.lang }}">
