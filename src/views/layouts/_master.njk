@@ -36,6 +36,7 @@
 
 {% block head %}
     <link rel="stylesheet" href="/css/patternlib.css">
+    <meta name="description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
 {% endblock %}
 
 {% block body %}
