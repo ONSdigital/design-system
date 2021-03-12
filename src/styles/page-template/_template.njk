@@ -52,6 +52,7 @@
         <link rel="stylesheet" href="{{ assetsURL }}/css/{{ pageConfig.theme | default('main') }}.css">
         <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css">
         <meta name="theme-color" content="#3b7a9e"/>
+        <meta property="description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
 
         {% if pageConfig.headMeta is defined and pageConfig.headMeta %}
 
