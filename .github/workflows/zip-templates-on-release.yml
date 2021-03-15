@@ -16,7 +16,7 @@ jobs:
       - run: mkdir design-system
       - run: cd design-system
       - run: tar -xzf source.tar.gz -C design-system --strip-components=1
-      - run: design_system_release=$(- run: curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".name")
+      - run: design_system_release=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".name")
       - run: echo $design_system_release
       #- run: yarn
       #- run: RELEASE_VERSION=$design_system_release yarn cdn-bundle
