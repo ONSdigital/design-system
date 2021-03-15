@@ -45,16 +45,13 @@ layout: none
     }}
 {% endblock %}
 
-
 {% block main %}
     {% call onsPanel({
             "title": "There are 7 problems with your answer",
             "type": "error",
-            "classes": "question__errors",
-            "titleTag": "h1"
+            "classes": "question__errors"
         })
     %}
-
         {{
             onsList({
                 "element": "ol",
@@ -71,7 +68,7 @@ layout: none
                     },
                     {
                         "text": "Select an answer",
-                        "url": "#radios",
+                        "url": "#radios-error",
                         "classes": "js-inpagelink"
                     },
                     {
@@ -153,7 +150,7 @@ layout: none
                 "id": "radios",
                 "error": {
                     "text": "Select an answer",
-                    "id": "error"
+                    "id": "radios-error"
                 },
                 "radios": [
                     {

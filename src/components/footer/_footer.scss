@@ -5,7 +5,7 @@
 
     &:hover {
       color: $color-black;
-      text-decoration: none;
+      text-decoration: underline solid $color-black 2px;
     }
   }
 
@@ -21,6 +21,8 @@
 
   &__ogl-img {
     margin: 0 0.5rem 0.2rem 0;
+    max-width: 100%;
+    vertical-align: middle;
   }
 
   &__body {

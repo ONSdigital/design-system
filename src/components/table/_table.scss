@@ -58,7 +58,7 @@
   }
 
   &--responsive {
-    @include mq(xs, s) {
+    @include mq(xxs, s) {
       .table__header {
         display: none;
       }
@@ -112,7 +112,7 @@
     }
     .table__header,
     .table__cell {
-      @include mq(xs, m) {
+      @include mq(xxs, m) {
         white-space: nowrap;
       }
     }
@@ -197,6 +197,8 @@
 
       &:hover {
         color: $color-links-hover;
+        text-decoration: underline solid $color-links-hover 2px;
+        cursor: pointer;
       }
 
       .svg-icon {

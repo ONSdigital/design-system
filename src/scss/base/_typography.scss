@@ -2,6 +2,7 @@ html {
   font-size: $base;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -36,7 +37,7 @@ ul {
 }
 
 li {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 em {

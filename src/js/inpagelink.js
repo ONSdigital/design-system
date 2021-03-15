@@ -1,12 +1,14 @@
 export default function inPageLinks(links) {
-  links.forEach(link => {
-    const id = link.getAttribute('href').replace('#', '');
+  if (document.getElementById('patternlib-page__example') === null) {
+    links.forEach(link => {
+      const id = link.getAttribute('href').replace('#', '');
 
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      focusOnInput(id);
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        focusOnInput(id);
+      });
     });
-  });
+  }
 }
 
 function focusOnInput(id) {
@@ -20,10 +22,10 @@ function focusOnInput(id) {
   ].filter(input => {
     const type = input.getAttribute('type');
 
-    return type !== 'readonly' && type !== 'hidden' && type !== 'checkbox' && type !== 'radio';
+    return type !== 'readonly' && type !== 'hidden';
   })[0];
 
-  if (input) {
+  if (input && input.getAttribute('tabindex') !== '-1') {
     input.focus();
   }
 }

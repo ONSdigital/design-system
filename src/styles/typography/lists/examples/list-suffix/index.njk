@@ -1,0 +1,19 @@
+{% from "components/lists/_macro.njk" import onsList %}
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'birth certificate',
+                "suffix": 'A'
+            },
+            {
+                "text": 'national insurance number',
+                "suffix": 'B'
+            },
+            {
+                "text": 'passport',
+                "suffix": 'C'
+            }
+        ]
+    })
+}}

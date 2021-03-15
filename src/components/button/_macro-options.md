@@ -15,6 +15,7 @@
 | Icon         | object  | false    | Object that contains the settings for adding icons to buttons                                                                                                                                        |
 | newWindow    | boolean | false    | Opens the next page in a new tab. Used for links to external pages                                                                                                                                   |
 | buttonStyle  | string  | false    | Can be set to `print`, `exit` or `mobile`. This will style the button with the relevant classes and icons                                                                                            |
+| dsExample    | boolean | false    | Defaulted to true if set in Design System examples, will render a `<a>` tag instead of `<button>` to stop default submit behaviour of buttons in forms - _only for use in DS examples_               |
 
 ## Icon
 

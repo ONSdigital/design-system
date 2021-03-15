@@ -1,0 +1,45 @@
+{% macro onsRelatedContent(params) %}
+
+{% from "components/lists/_macro.njk" import onsList %}
+
+{% if params is defined and params and params.classes is defined and params.classes %}
+  {% set classes = ' ' + params.classes %}
+{% endif %}
+
+  <aside class="related-content{{ classes }}" aria-label="{{ params.ariaLabel }}">
+
+    <div class="related-content__body">
+
+      {% if params.rows is defined and params.rows %}
+
+        {% for row in params.rows %}
+          <div class="related-content__section">
+            {% if row.title %}
+              <h2 class="related-content__title u-fs-r--b u-mb-xs" id="{{ row.id }}">{{ row.title }}</h2>
+            {% endif %}
+            <nav class="related-content__navigation" aria-labelledby="{{ row.id }}">
+              {{
+                onsList({
+                  "classes": 'list--bare',
+                  "itemsList": row.itemsList
+                })
+              }}
+            </nav>
+          </div>
+        {% endfor %}
+
+      {% else %}
+
+        <h2 class="related-content__title u-fs-r--b u-mb-xs">{{ params.title }}</h2>
+
+        <div class="related-content__body">
+          {{ (params.body if params else "") | safe }}{{ caller() if caller }}
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  </aside>
+
+{% endmacro %}

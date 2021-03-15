@@ -82,6 +82,7 @@ For badged services where ONS is providing services to external organisations, w
 
 #### Transactional – Two rows - Powered by ONS with Crest and Copyright
 Copyright information for use within a service that uses postcode lookup functionality.
+For footers that have the `newTabWarning` set like here, the links that will open in a new tab also need the `target` param set to `_blank`.
 {{
     patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl-crest-copyright/index.njk'})
 }}
@@ -116,7 +117,7 @@ The warning link and header button should clear any `sessionStorage` and should 
     If you have conducted any user research using this component, please feed back your findings via the
     {{
         onsExternalLink({
-            "url": 'https://github.com/ONSdigital/design-system/issues/172',
+            "url": 'https://github.com/ONSdigital/design-system/discussions/172',
             "linkText": 'Design System forum'
         })
     }}
@@ -125,7 +126,7 @@ The warning link and header button should clear any `sessionStorage` and should 
 ## Design System forum
 {{
     onsExternalLink({
-        "url": 'https://github.com/ONSdigital/design-system/issues/172',
+        "url": 'https://github.com/ONSdigital/design-system/discussions/172',
         "linkText": 'Discuss ‘Footer’ on GitHub'
     })
 }}

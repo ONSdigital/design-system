@@ -11,6 +11,10 @@
     &:first-of-type {
       margin-top: 1.5rem;
     }
+
+    & .checkboxes__item {
+      min-width: auto;
+    }
   }
 
   &__selection {
@@ -34,10 +38,12 @@
     font-family: inherit;
     font-weight: normal;
     text-decoration: underline;
+    text-underline-position: under;
     cursor: pointer;
 
     &:hover {
       color: $color-black;
+      text-decoration: underline solid $color-black 2px;
     }
 
     &:focus {

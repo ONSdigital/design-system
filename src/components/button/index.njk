@@ -74,16 +74,17 @@ Use `btn--disabled` with the `disabled=true` element attribute for buttons that 
 }}
 
 ### Loader
-The loader button is used to help prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked. This can lead to them submitting the form on the page twice. Setting SubmitType to `loader` will disable the button when clicked and will add a loading animation. This can be used when the button executes a process that can take some time to complete.
+The loader button is used to help prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked. This can lead to them submitting the form on the page twice. Setting SubmitType to `loader` will disable the button when clicked and will add a loading animation. This can be used when the button executes a process that can take some time to complete. For cross browser compatibility and for the form to submit successfully, if providing a `name` or `id` parameter do not use `"submit"` as the parameter value.
 {{
     patternlibExample({"path": "components/button/examples/button-loader/index.njk"})
 }}
 
 ### Timer
-The timer button is aimed at stopping forms being submitted twice when users double click the submit button. Setting SubmitType to `timer` will disable the button for one second on click.
+The timer button is aimed at stopping forms being submitted twice when users double click the submit button. Setting SubmitType to `timer` will disable the button for one second on click. For cross browser compatibility and for the form to submit successfully, if providing a `name` or `id` parameter do not use `"submit"` as the parameter value.
 {{
     patternlibExample({"path": "components/button/examples/button-timer/index.njk"})
 }}
+
 
 ### Print
 The `buttonStyle` parameter can be set to `print` to render a print button. This will take care of adding iconography and classes for the `print-button.js` file to pick up. The button will not render until `print-button.js` has run, and will not be visible on printed pages.
@@ -96,7 +97,7 @@ The `buttonStyle` parameter can be set to `print` to render a print button. This
     If you have conducted any user research using this component, please feed back your findings via the
     {{
         onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/45",
+            "url": "https://github.com/ONSdigital/design-system/discussions/1389",
             "linkText": "Design System forum"
         })
     }}
@@ -105,7 +106,7 @@ The `buttonStyle` parameter can be set to `print` to render a print button. This
 ## Design System forum
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/45",
+        "url": "https://github.com/ONSdigital/design-system/discussions/1389",
         "linkText": "Discuss 'Button' on GitHub"
     })
 }}

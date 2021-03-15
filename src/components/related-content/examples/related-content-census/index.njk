@@ -1,0 +1,32 @@
+---
+"theme": census
+---
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+{% call onsRelatedContent({
+        "title": 'Free language helpline',
+        "ariaLabel": 'Contact details to support languages'
+    })
+%}
+
+    <p class="u-mb-xs">Telephone: 0800 587 2021</p>
+
+    {{
+        onsList({
+            "classes": 'list--bare u-mb-no',
+            "itemsList": [
+                {
+                    "text": 'Monday to Friday, 8am to 8pm'
+                },
+                {
+                    "text": 'Saturday, 8am to 1pm'
+                },
+                {
+                    "text": 'Census weekend 20 – 21 March, 8am to 8pm'
+                }
+            ]
+        })
+    }}
+
+{% endcall %}

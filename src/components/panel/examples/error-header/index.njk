@@ -2,25 +2,23 @@
 {% from "components/lists/_macro.njk" import onsList %}
 
 {% call onsPanel({
-        "title": "There are 2 problems with your answer",
-        "titleTag": "h1",
-        "type": "error",
-        "DSExample": true
+        "title": 'There are 2 problems with your answer',
+        "type": 'error',
+        "dsExample": isPatternLib
 }) %}
-
     {{
         onsList({
-            "element": "ol",
+            "element": 'ol',
             "itemsList": [
                 {
-                    "text": "Enter a number",
-                    "url": "#container-test-number",
-                    "classes": "js-inpagelink"
+                    "text": 'Enter a number',
+                    "url": '#container-test-number',
+                    "classes": 'js-inpagelink'
                 },
                 {
-                    "text": "Enter a number less than or equal to 100",
-                    "url": "#container-test-percent",
-                    "classes": "js-inpagelink"
+                    "text": 'Enter a number less than or equal to 100',
+                    "url": '#container-test-percent',
+                    "classes": 'js-inpagelink'
                 }
             ]
         })
