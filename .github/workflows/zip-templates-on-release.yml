@@ -14,6 +14,8 @@ jobs:
       - run: pwd
       - run: ls
       - run: sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
+      - run: yarn build
+      - run: ls
       #- run: cd ons-design-system-release
       #- run: mkdir design-system
       #- run: tar -xzf source.tar.gz -C design-system --strip-components=1
