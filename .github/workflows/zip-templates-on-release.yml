@@ -14,8 +14,8 @@ jobs:
       #- run: sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
       - run: curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tarball_url" | wget -i -
       - run: ls
-      #- run: tar -xzf source.tar.gz -C design-system --strip-components=1
-      #- run: cd design-system
+      - run: cd design-system
+      - run: tar -xzf source.tar.gz -C design-system --strip-components=1
       #- run: design_system_release=$(cat ../../ons-design-system-release/version)
       #- run: yarn
       #- run: RELEASE_VERSION=$design_system_release yarn cdn-bundle
