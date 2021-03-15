@@ -15,7 +15,7 @@ jobs:
       - run: curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tarball_url" | wget -i - -O source.tar.gz
       - run: mkdir design-system
       - run: design_system_release=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".name")
-      - run: echo "$design_system_release"
+      - run: echo $design_system_release
       #- run: tar -xzf source.tar.gz -C design-system --strip-components=1
       #- run: cd design-system
       #- run: design_system_release=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r .name)
