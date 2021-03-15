@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
+      #- run: sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
       - run: curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".assets[] | select(.name | contains(\"tar.gz\")) | .browser_download_url" | wget -i -
       - run: ls
       #- run: tar -xzf source.tar.gz -C design-system --strip-components=1
