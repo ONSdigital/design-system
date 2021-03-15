@@ -7,19 +7,18 @@ on:
     branches:
       - test-workflow
 jobs:
-  cdn-Build:
+  zip-templates:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       #- run: sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
       - run: curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tarball_url" | wget -i - -O source.tar.gz
       - run: mkdir design-system
-      - run: cd design-system
       - run: tar -xzf source.tar.gz -C design-system --strip-components=1
+      - run: cd design-system
       - run: design_system_release=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r .name)
-      - run: echo $design_system_release
-      #- run: yarn
-      #- run: RELEASE_VERSION=$design_system_release yarn cdn-bundle
-      #- run: mkdir ../../dist/$design_system_release
-      #- run: cp -R build/* ../../dist/$design_system_release
-      #- run: zip -r ../../templates/templates.zip templates/*
+      - run: yarn
+      - run: RELEASE_VERSION=$design_system_release yarn cdn-bundle
+      - run: mkdir ../../dist/$design_system_release
+      - run: cp -R build/* ../../dist/$design_system_release
+      - run: zip -r ../../templates/templates.zip templates/*
