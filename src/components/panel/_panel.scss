@@ -17,6 +17,10 @@
   background: $color-branded-tertiary;
 }
 
+.census-announcement {
+  background-color: $color-black;
+}
+
 .panel {
   position: relative;
   border-radius: 0;
@@ -89,11 +93,25 @@
     }
   }
 
-  &--warn-branded {
+  &--warn-branded,
+  &--announcement {
     border: 0 !important;
     margin-bottom: 0;
     color: $color-white;
     padding: 1rem 0 !important;
+    & a {
+      color: inherit;
+      text-decoration: underline solid $color-white 1px;
+    }
+    & a:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  &--announcement {
+    & a:focus {
+      box-shadow: 0 -2px #fd0, 0 4px #fd0 !important; // Override focus style because the black border is not visible on a black background
+    }
   }
 
   &--no-title {
@@ -117,7 +135,8 @@
   }
 
   &--warn &,
-  &--warn-branded & {
+  &--warn-branded &,
+  &--announcement & {
     &__body {
       padding: 0.222rem 0 0.222rem 2.8rem; // Alignment tweak
       min-height: 2rem; // Height of icon
@@ -136,10 +155,30 @@
     }
   }
 
+  &--announcement & {
+    &__body div > *:last-child {
+      margin-bottom: 0;
+    }
+
+    &__icon {
+      display: flex;
+      svg {
+        margin: auto;
+      }
+    }
+  }
+
   &--warn-branded & {
     &__icon {
-      background: $color-white;
+      background-color: $color-white;
       color: $color-branded-tertiary;
+    }
+  }
+
+  &--announcement & {
+    &__icon {
+      background-color: $color-white;
+      color: $color-black;
     }
   }
 
@@ -169,7 +208,8 @@
   &--bare,
   &--success,
   &--warn,
-  &--warn-branded {
+  &--warn-branded,
+  &--announcement {
     .panel__icon {
       position: absolute;
     }
@@ -187,3 +227,4 @@
 @include panel-type(branded, $color-branded, $color-branded-tint);
 @include panel-type(warn, $color-white, $color-white);
 @include panel-type(warn-branded, $color-branded-tertiary, $color-branded-tertiary);
+@include panel-type(announcement, $color-black, $color-black);

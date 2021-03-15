@@ -14,12 +14,20 @@
         {% set typeClass = ' panel--info' %}
     {% endif %}
 
+    {% if params is defined and params.type == "warn-branded" %}
+        {% set containerClass = 'census-warning' %}
+    {% endif %}
+
+    {% if params is defined and params.type == "announcement" %}
+        {% set containerClass = 'census-announcement' %}
+    {% endif %}
+
     {% if params is defined and params and params.spacious is defined and params.spacious %}
         {% set spaciousClass = ' panel--spacious' %}
     {% endif %}
 
-    {% if params is defined and params and params.type == "warn-branded" %}
-    <div class="census-warning">
+    {% if params is defined and params and params.type == "warn-branded" or params.type == "announcement" %}
+    <div class="{{containerClass}}">
         <div class="container">
     {% endif %}
 
@@ -28,6 +36,18 @@
             {% if params is defined and params and params.type == "warn" or params.type == "warn-branded" %}
                 <span class="panel__icon" aria-hidden="true">!</span>
                 <span class="u-vh">{{ params.assistiveTextPrefix | default("Warning: ") }}</span>
+            {% endif %}
+
+            {% if params is defined and params and params.type == "announcement" %}
+                {% from "components/icons/_macro.njk" import onsIcon %}
+                <span class="panel__icon" aria-hidden="true">
+                    {{
+                        onsIcon({
+                            "icon": 'arrow-forward'
+                        })
+                    }}
+                </span>
+                <span class="u-vh">{{ params.assistiveTextPrefix | default("Announcement: ") }}</span>
             {% endif %}
 
             {% if params is defined and params %}
@@ -72,7 +92,7 @@
 
         </div>
 
-    {% if params is defined and params and params.type == "warn-branded" %}
+    {% if params is defined and params and params.type == "warn-branded" or params.type == "announcement"  %}
         </div>
     </div>
     {% endif %}
