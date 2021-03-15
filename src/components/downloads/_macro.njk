@@ -1,27 +1,59 @@
 {% macro onsDownloads(params) %}
+
     {% for download in (params.downloads if params.downloads is iterable else params.downloads.items()) %}
+
     <div class="download{{ ' ' + params.classes if params.classes else '' }}">
 
         <div class="download__image" aria-hidden="true">
             <a class="download__image-link" href="{{ download.url }}" tabindex="-1">
                 {% if download.thumbnail is defined and download.thumbnail and download.thumbnail.smallSrc is defined and download.thumbnail.smallSrc and download.thumbnail.largeSrc is defined and download.thumbnail.largeSrc %}
-                    <img srcset="{{ download.thumbnail.smallSrc }} 1x, {{ download.thumbnail.largeSrc }} 2x" src="{{ download.thumbnail.smallSrc }}" alt="{{ download.thumbnail.alt }}" loading="lazy">
+                    <img srcset="{{ download.thumbnail.smallSrc }} 1x, {{ download.thumbnail.largeSrc }} 2x" src="{{ download.thumbnail.smallSrc }}" alt="" loading="lazy">
                 {% else %}
-                    <img srcset="{{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/small/placeholder-portrait.png 1x, {{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/large/placeholder-portrait.png 2x" src="{{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/small/placeholder-portrait.png" alt="Image placeholder" loading="lazy">
+                    <img srcset="{{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/small/placeholder-portrait.png 1x, {{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/large/placeholder-portrait.png 2x" src="{{ download.placeholderURL if download.placeholderURL is defined and download.placeholderURL }}/img/small/placeholder-portrait.png" alt="" loading="lazy">
                 {% endif %}
             </a>
         </div>
 
         <div class="download__content">
-            <h3 class="u-fs-m u-mb-xs">
-                <a href="{{ download.url }}">{{ download.title }}{% if download.meta is defined and download.meta %}<span class="u-vh">, {% if download.meta.fileType is defined and download.meta.fileType %}{{ download.meta.fileType }} document download, {% endif %}{% if download.meta.fileSize is defined and download.meta.fileSize %}{{ download.meta.fileSize }}, {% endif %}{% if download.meta.filePages is defined and download.meta.filePages %}{{ download.meta.filePages }}{% endif %}</span>{% endif %}</a>
+
+            <h3 class="u-fs-m u-mt-no u-mb-xs">
+                <a href="{{ download.url }}">{{ download.title }}<span class="u-vh">, 
+
+                {%- if download.meta is defined and download.meta %}
+
+                    {% set metaItems = [] %}
+
+                    {% if download.meta.fileType is defined and download.meta.fileType %}{% set metaItems = (metaItems.push(download.meta.fileType + ' document download'), metaItems) %}{% endif %}
+                    {% if download.meta.fileSize is defined and download.meta.fileSize %}{% set metaItems = (metaItems.push(download.meta.fileSize), metaItems) %}{% endif %}
+                    {% if download.meta.filePages is defined and download.meta.filePages %}{% set metaItems = (metaItems.push(download.meta.filePages), metaItems) %}{% endif %}
+
+                    {{ metaItems|join(', ') }}
+
+                {% endif -%}
+
+                </span></a>
             </h3>
 
             <span class="u-fs-s u-mb-xs download__meta" aria-hidden="true">
-                {%- if download.type is defined and download.type %}{{ download.type }}{% endif %}
-                {%- if download.meta is defined and download.meta %}, {% if download.meta.fileType is defined and download.meta.fileType %}{{ download.meta.fileType }}, {% endif %}{% if download.meta.fileSize is defined and download.meta.fileSize %}{{ download.meta.fileSize }}, {% endif %}{% if download.meta.filePages is defined and download.meta.filePages %}{{ download.meta.filePages }}{% endif %}{% endif %}
+
+                {%- if download.type is defined and download.type %}
+                    {{ download.type }}{%- if download.meta is defined and download.meta %},{% endif %}
+                {% endif %}
+
+                {%- if download.meta is defined and download.meta %}
+
+                    {% set metaItems = [] %}
+
+                    {% if download.meta.fileType is defined and download.meta.fileType %}{% set metaItems = (metaItems.push(download.meta.fileType), metaItems) %}{% endif %}
+                    {% if download.meta.fileSize is defined and download.meta.fileSize %}{% set metaItems = (metaItems.push(download.meta.fileSize), metaItems) %}{% endif %}
+                    {% if download.meta.filePages is defined and download.meta.filePages %}{% set metaItems = (metaItems.push(download.meta.filePages), metaItems) %}{% endif %}
+
+                    {{ metaItems|join(', ') }}
+
+                {% endif -%}
+
             </span>
-            
+
             {% if download.excerpt is defined and download.excerpt %}
                 <p class="download__excerpt">{{ download.excerpt | safe }}</p>
             {% endif %}

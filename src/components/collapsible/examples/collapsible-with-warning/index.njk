@@ -4,7 +4,7 @@
 {%
     call onsCollapsible({
         "id": "collapsible",
-        "title": "Information on deleting people",
+        "title": "Need to answer separately from your household?",
         "titleTag": "h2",
         "button": {
             "close": "Hide this",
@@ -16,7 +16,7 @@
     })
 %}
 
-    <p>Need to answer separately from your household?</p>
+    <p>If you need to answer separately from the people you live with, you can <a href="#0">request an individual access code</a> to start a separate census.</p>
     {% call onsPanel({
             type: "warn"
         })
@@ -24,5 +24,4 @@
         Someone in your household must still complete a census using a household access code
     {% endcall %}
 
-    
 {% endcall %}

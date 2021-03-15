@@ -4,6 +4,7 @@ sortOrder: 2
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 Use the ONS grid system to lay out the content on your service’s pages.
 
@@ -60,7 +61,8 @@ There are set breakpoints that can be accessed to adapt the layout for different
 {% md %}
 | Breakpoint | Variable to reference |
 |------------|---------------------- |
-| 300px      | xs                    |
+| 300px      | xxs                   |
+| 400px      | xs                    |
 | 500px      | s                     |
 | 740px      | m                     |
 | 980px      | l                     |
@@ -132,11 +134,21 @@ The example below shows the use of flexbox to create the layout for the [phase b
     })
 }}
 
+## Research on this style
+{% call onsPanel() %}
+    If you have conducted any user research using this style, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/discussions/72",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
 
 ## Design System forum
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/72",
+        "url": "https://github.com/ONSdigital/design-system/discussions/72",
         "linkText": "Discuss 'Grid' on GitHub"
     })
 }}

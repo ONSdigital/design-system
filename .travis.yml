@@ -6,6 +6,9 @@ jobs:
   include:
   - stage: test
     script: yarn test
+  - stage: test-visual
+    if: commit_message =~ /(test-visual)/
+    script: yarn test-visual
   - stage: npm-bundle
     script: yarn npm-bundle && npm version $TRAVIS_BRANCH --allow-same-version -m
       "chore - release version %s [skip ci]" --allow-empty
@@ -20,6 +23,8 @@ jobs:
         tags: true
 stages:
 - name: test
+  if: tag IS NOT present
+- name: test-visual
   if: tag IS NOT present
 - name: npm-bundle
   if: tag IS present

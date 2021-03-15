@@ -42,14 +42,13 @@ layout: none
         onsPanel({
             title: "There are 2 problems with this page",
             type: "error",
-            "DSExample": true
+            "dsExample": isPatternLib
         })
     %}
         {% from "components/lists/_macro.njk" import onsList %}
         {{
             onsList({
                 "element": "ol",
-                "classes": "list--bare",
                 "itemsList": [
                     {
                         "text": "Select what your feedback is about",
@@ -79,7 +78,7 @@ layout: none
                 "error": {
                     "id": "feedback-type",
                     "text": "Select what your feedback is about",
-                    "DSExample": true
+                    "dsExample": isPatternLib
                 },
                 "radios": [
                     {
@@ -173,7 +172,7 @@ layout: none
                 "error": {
                     "id": "feedback-content",
                     "text": "Enter your feedback",
-                    "DSExample": true
+                    "dsExample": isPatternLib
                 }
             })
         }}

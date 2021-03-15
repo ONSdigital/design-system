@@ -1,0 +1,17 @@
+.related-content {
+  @extend .u-mt-m;
+  border-top: 5px solid $color-branded;
+  padding-top: 1rem;
+
+  &__section {
+    & + & {
+      border-top: 1px solid $color-grey-2;
+      margin: 2rem 0 0;
+      padding: 2em 0 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

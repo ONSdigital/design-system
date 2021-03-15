@@ -42,9 +42,12 @@
 | ----------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | autosuggestData         | string            | true     | URL of the JSON file with the autosuggest data that needs to be searched                                                                           |
 | APIDomain               | string            | false    | Set an api domain when using an external API to suggest results                                                                                    |
+| APIDomainBearerToken    | string            | false    | Set a bearer token for api authorization on the AIMS address api. Defaults to basic auth                                                           |
+| allowMultiple           | boolean           | false    | Allows the component to accept multiple selections                                                                                                 |
 | instructions            | string            | true     | Instructions on how to use the autosuggest that will be read out by screenreaders                                                                  |
 | ariaYouHaveSelected     | string            | true     | Aria message to tell the user that they have selected an answer                                                                                    |
 | ariaMinChars            | string            | true     | Aria message to tell the user how many charecters they need to enter before autosuggest will start                                                 |
+| ariaResultsLabel        | string            | true     | Aria message to tell the user that suggestions are available                                                                                       |
 | ariaOneResult           | string            | true     | Aria message to tell the user there is only one suggestion left                                                                                    |
 | ariaNResults            | string            | true     | Aria message to tell the user how many suggestions are left                                                                                        |
 | ariaLimitedResults      | string            | true     | Aria message to tell the user if the results have been limited and what they are limited to                                                        |
@@ -70,7 +73,7 @@
 | ---------- | ------ | -------- | ------------------------------------------------ |
 | regionCode | string | false    | Sets the provided region code e.g. en-gb         |
 | adressType | string | false    | Sets the provided address type e.g. resedential  |
-| oneYearAgo | string | false    | If "true" will set a query parameter of epoch=72 |
+| oneYearAgo | string | false    | If "true" will set a query parameter of epoch=75 |
 
 ## CharCheckLimit
 

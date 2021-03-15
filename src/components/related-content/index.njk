@@ -1,0 +1,54 @@
+---
+title: Related content
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+Related content is used to provide additional information for the user.
+
+## Related links
+Can include single or multiple rows of related links.
+
+### Single row (default)
+{{
+    patternlibExample({"path": "components/related-content/examples/related-links-single-row/index.njk"})
+}}
+
+### Multiple rows (census)
+
+{{
+    patternlibExample({"path": "components/related-content/examples/related-links-multiple-rows/index.njk"})
+}}
+
+## Related content (census)
+Contact details to support languages.
+
+### Language helpline (default)
+{{
+    patternlibExample({"path": "components/related-content/examples/related-content/index.njk"})
+}}
+
+### Language helpline (census)
+{{
+    patternlibExample({"path": "components/related-content/examples/related-content-census/index.njk"})
+}}
+
+## Research on this component
+{% call onsPanel() %}
+    If you have conducted any user research using this component, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/discussions/1283",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/1283",
+        "linkText": "Discuss ‘Related content’ on GitHub"
+    })
+}}

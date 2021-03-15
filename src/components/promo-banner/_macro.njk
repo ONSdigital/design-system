@@ -1,23 +1,23 @@
 {% macro onsPromoBanner(params) %}
 
     <section class="promo-banner{{ ' ' + 'promo-banner--dark-theme' if params.darkTheme }}{{ ' ' + 'promo-banner--has-image' if params.image }}">
-    
+
         <div class="container">
-            
+
             <div class="grid grid--gutterless">
-            
+
             {% if params.image is defined %}
 
                 <div class="grid__col col-7@s">
-                    
+
                     <div class="promo-banner__content">
                         {{ params.content | safe }}{{ caller() if caller }}
                     </div>
-                    
+
                 </div>
-            
-                <div class="grid__col col-4@s push-1@s u-d-no@xs@s">
-                    
+
+                <div class="grid__col col-4@s push-1@s u-d-no@xxs@s">
+
                     <div class="promo-banner__image">
                         <img alt="{{ params.image.alt }}" src="{{ params.image.src }}">
                     </div>
@@ -26,20 +26,20 @@
 
             {% else %}
 
-                <div class="grid__col col-6@m">
-                    
+                <div class="grid__col col-7@m">
+
                     <div class="promo-banner__content">
                         {{ params.content | safe }}{{ caller() if caller }}
                     </div>
-                    
+
                 </div>
 
             {% endif %}
-            
+
             </div>
 
         </div>
-    
+
     </section>
 
 {% endmacro %}

@@ -2,13 +2,12 @@ $button-border-height: 3px;
 
 .btn {
   display: inline-block;
+  position: relative;
   margin: 0;
   padding: 0;
-
   border: 0;
   border-radius: 0;
   background: transparent;
-
   font-family: inherit;
   font-size: 1rem;
   font-weight: $font-weight-bold;
@@ -16,9 +15,19 @@ $button-border-height: 3px;
   text-align: center;
   text-decoration: none;
   text-rendering: optimizeLegibility;
-
   vertical-align: top;
   cursor: pointer;
+
+  // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: ems($button-border-height) solid transparent;
+  }
 
   .svg-icon {
     margin: 0 0 0.1rem 0.5rem;
@@ -37,13 +46,10 @@ $button-border-height: 3px;
   &__inner {
     display: inherit;
     padding: 0.75em 1em;
-
     border-bottom: ems($button-border-height) solid rgba(0, 0, 0, 0.6);
     border-radius: $input-radius;
-
     background: $color-button;
     color: $color-text-inverse;
-
     // Required for Google Tag Manager
     pointer-events: none;
   }
@@ -161,8 +167,10 @@ $button-border-height: 3px;
     transition: color 0.3s ease-in-out;
     .svg-icon {
       position: absolute;
-      top: 24%;
-      left: 26%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
       width: 1.5rem;
       height: 1.5rem;
       fill: $color-white;

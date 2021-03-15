@@ -42,7 +42,6 @@ export default () => {
       },
     }),
     autoprefixer(),
-    mqoptimize(),
     cssnano(minimizeOptions),
   ];
 };

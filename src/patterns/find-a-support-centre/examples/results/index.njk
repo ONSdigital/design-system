@@ -42,7 +42,8 @@ layout: none
                 "current": false
             }
         ]
-    }
+    },
+    "footer": {}
 } %}
 
 {% block main %}
@@ -52,7 +53,7 @@ layout: none
     <div class="u-pb-m u-pt-m">
 
         <h2 class="u-fs-l u-mb-xs">Sheffield Central Library</h2>
-        <span class="u-mb-s tag">0.7 miles away</span>
+        <span class="u-mb-s distance">0.7 miles away</span>
 
         <p>First Floor, Central Library <br> Surrey Street <br> Sheffield <br> S1 1XZ</p>
 
@@ -87,7 +88,24 @@ layout: none
 
         <h3 class="u-fs-r--b u-mb-xs">Opening times</h3>
 
-        <p>9am to 4pm - Monday to Friday <br> 9am to 5pm - Saturday to Sunday (Census weekend)</p>
+        {{
+            onsList({
+                "itemsList": [
+                    {
+                        "text": 'Monday to Friday, 9am to 4pm'
+                    },
+                    {
+                        "text": 'Saturday, 9am to 5pm'
+                    },
+                    {
+                        "text": 'Sunday, 9am to 5pm'
+                    },
+                    {
+                        "text": 'Census weekend (20 – 21 March), 9am to 5pm'
+                    }
+                ]
+            })
+        }}
         
         <h3 class="u-fs-r--b u-mb-xs">Centre facilities</h3>
 
@@ -120,7 +138,7 @@ layout: none
     <div class="u-pb-m u-pt-m u-bt">
 
         <h2 class="u-fs-l u-mb-xs">University of Sheffield</h2>
-        <span class="u-mb-s tag">1.7 miles away</span>
+        <span class="u-mb-s distance">1.7 miles away</span>
 
         <p>The University of Sheffield <br> Western Bank <br> Sheffield <br> S10 2TN</p>
 
@@ -155,7 +173,7 @@ layout: none
 
         <h3 class="u-fs-r--b u-mb-xs">Opening times</h3>
 
-        <p>8am to 6pm - Monday to Friday</p>
+        <p>Monday to Friday, 8am to 6pm</p>
         
         <h3 class="u-fs-r--b u-mb-xs">Centre facilities</h3>
 
@@ -178,6 +196,5 @@ layout: none
         {% endcall %}
 
     </div>
-
 
 {% endblock %}

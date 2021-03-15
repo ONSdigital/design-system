@@ -104,7 +104,7 @@
                                                         <a
                                                             href="{{ action.url }}"
                                                             class="summary__button"
-                                                            {% if action.ariaLabel is defined and action.ariaLabel %} aria-label="{{ action.ariaLabel | striptags() }}"{% endif %}
+                                                            {% if action.ariaLabel is defined and action.ariaLabel %} aria-label="{{ action.ariaLabel }}"{% endif %}
                                                             {% if action.attributes is defined and action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                                         >{{ action.text }}</a>
                                                     {% endfor %}
@@ -120,8 +120,8 @@
                     {% endif %}
 
                     {% if group.summaryLink is defined and group.summaryLink %}
-                        <div class="summary__add-link{% if group.placeholderText is not defined and group.rows is defined and group.rows | length > 1 %} u-bt{% endif %}">
-                            <a data-qa="{{ group.summaryLink.dataQa }}" href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
+                        <div class="{% if group.placeholderText is defined and group.placeholderText or group.rows is defined and group.rows %}u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows is defined and group.rows | length > 1 %} u-bt{% endif %}">
+                            <a {% if group.summaryLink.attributes is defined and group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %} href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
                         </div>
                     {% endif %}
                 {% endfor %}

@@ -24,28 +24,36 @@ const params = {
   },
   autocomplete: 'off',
   autosuggest: {
-    instructions:
-      'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
-    ariaYouHaveSelected: 'You have selected',
-    ariaFoundByAlternativeName: 'found by alternative name',
+    label: {
+      text: 'Enter address or postcode and select from results',
+    },
+    isEditable: true,
+    mandatory: true,
     APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+    APIDomainBearerToken: 'someToken',
+    instructions:
+      "Use up and down keys to navigate suggestions once you've typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+    ariaYouHaveSelected: 'You have selected',
     ariaMinChars: 'Enter 3 or more characters for suggestions.',
     ariaOneResult: 'There is one suggestion available.',
     ariaNResults: 'There are {n} suggestions available.',
-    ariaLimitedResults: 'Results have been limited to 10 suggestions. Enter more characters to improve your search.',
-    moreResults: 'Continue entering to improve suggestions',
-    resultsTitle: 'Suggestions',
-    noResults: 'No results found',
+    ariaLimitedResults: 'Results have been limited to 10 suggestions. Type more characters to improve your search',
+    ariaGroupedResults: 'There are {n} for {x}',
+    groupCount: '{n} addresses',
+    moreResults: 'Enter more of the address to improve results',
+    resultsTitle: 'Select an address',
+    noResults: 'No results found. Try entering a different part of the address',
+    tooManyResults: '{n} results found. Enter more of the address to improve results',
     typeMore: 'Enter more of the address to get results',
-    tooManyResults: '{n} results found. Enter more of the address to improve results.',
+    autocomplete: 'new-password',
     errorTitle: 'There is a problem with your answer',
-    errorMessage: 'Enter an address ',
-    errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
-    externalInitialiser: true,
-    isEditable: true,
-    mandatory: true,
+    errorMessageEnter: 'Enter an address',
+    errorMessageSelect: 'Select an address',
+    errorMessageAPI: 'Sorry, there was a problem loading addresses',
+    errorMessageAPILinkText: 'Enter address manually',
     options: {
       regionCode: 'gb-eng',
+      addressType: 'residential',
     },
   },
   line1: {
@@ -630,7 +638,7 @@ describe('Autosuggest.address component', function() {
         describe('when the submit is invalid', function() {
           beforeEach(function(done) {
             this.errorPanel =
-              '<div class="panel panel--error u-mb-m js-error-panel"><div class="panel__header"><div class="panel__title u-fs-r--b">There is a problem with your answer</div></div><div class="panel__body"><ol class="list list--bare"><li class="list__item"><span>1. </span><a class="list__link js-inpagelink js-error" href="#autosuggest-input-error">Enter an address</a></li></ol></div></div>';
+              '<div class="panel panel--error u-mb-m"><div class="panel__header"><div class="panel__title u-fs-r--b">There is a problem with your answer</div></div><div class="panel__body"><ol class="list list--bare"><li class="list__item"><span>1. </span><a class="list__link js-inpagelink js-error" href="#autosuggest-input-error">Enter an address</a></li></ol></div></div>';
             this.errorInput =
               '<div class="panel panel--error panel--simple" id="autosuggest-input-error"><div class="panel__body"><p class="panel__error"><strong>Enter an address</strong></p>';
             this.error = new AddressError(this.context);
@@ -732,15 +740,16 @@ describe('Autosuggest.address component', function() {
     });
   });
 
-  describe('When the component initialises with options - english, epoch, educational', function() {
+  describe('When the component initialises with options - english, epoch, workplace', function() {
     const paramsOptions = {
       id: 'address',
       autosuggest: {
         externalInitialiser: true,
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
         options: {
           regionCode: 'gb-eng',
           oneYearAgo: true,
-          addressType: 'educational',
+          addressType: 'workplace',
         },
       },
     };
@@ -773,7 +782,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&epoch=72',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&eboost=10&epoch=75',
         );
       });
     });
@@ -783,6 +792,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       autosuggest: {
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
         externalInitialiser: true,
         options: {
           regionCode: 'gb-nir',
@@ -819,7 +829,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&niboost=10',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=educational&eboost=0&sboost=0&wboost=0',
         );
       });
     });
@@ -829,6 +839,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       autosuggest: {
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
         externalInitialiser: true,
         options: {
           regionCode: 'gb-nir',
@@ -865,7 +876,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&eboost=0&sboost=0&wboost=0',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&nboost=10',
         );
       });
     });
@@ -877,7 +888,9 @@ describe('Autosuggest.address component', function() {
       });
 
       it('then the retrieve url should contain the correct parameters', function() {
-        expect(this.autosuggestAddress.fetch.url).to.equal('/addresses/eq/uprn/11000000?addresstype=nisra');
+        expect(this.autosuggestAddress.fetch.url).to.equal(
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/11000000?addresstype=paf',
+        );
       });
     });
   });
@@ -886,6 +899,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       autosuggest: {
+        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
         externalInitialiser: true,
         options: {
           regionCode: 'gb-wls',
@@ -922,7 +936,7 @@ describe('Autosuggest.address component', function() {
       it('then the fetch url should contain the correct parameters', function() {
         this.limit = 10;
         expect(this.autosuggestAddress.fetch.url).to.equal(
-          '/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&wboost=10&favourwelsh=true',
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10&classificationfilter=workplace&wboost=10&favourwelsh=true',
         );
       });
     });
@@ -934,7 +948,9 @@ describe('Autosuggest.address component', function() {
       });
 
       it('then the retrieve url should contain the correct parameters', function() {
-        expect(this.autosuggestAddress.fetch.url).to.equal('/addresses/eq/uprn/11000000?addresstype=welshpaf');
+        expect(this.autosuggestAddress.fetch.url).to.equal(
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/11000000?addresstype=paf',
+        );
       });
     });
   });

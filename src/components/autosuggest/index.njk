@@ -1,6 +1,5 @@
 ---
 title: Autosuggest
-experimental: true
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
@@ -54,6 +53,16 @@ The autosuggest component sends a `searchFields` parameter in it's query string 
 
 The autosuggest component will search the `cy` or the `en` data to find results depending on the `searchFields` parameter.
 
+#### Mutiple selections
+
+The autosuggest component allows for multiple suggestions and selections by passing in the parameter `allowMultiple: "true"`. 
+
+
+
+{{
+    patternlibExample({"path": "components/autosuggest/examples/autosuggest-country-multiple/index.njk"})
+}}
+
 
 ### Using the address API
 {{
@@ -71,7 +80,7 @@ The autosuggest component will search the `cy` or the `en` data to find results 
     If you have conducted any user research using this component, please feed back your findings via the
     {{
         onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/issues/894",
+            "url": "https://github.com/ONSdigital/design-system/discussions/894",
             "linkText": "Design System forum"
         })
     }}
@@ -80,7 +89,7 @@ The autosuggest component will search the `cy` or the `en` data to find results 
 ## Design System forum
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/issues/894",
+        "url": "https://github.com/ONSdigital/design-system/discussions/894",
         "linkText": "Discuss 'Autosuggest' on GitHub"
     })
 }}

@@ -21,6 +21,8 @@
   }
 
   &__content {
+    position: relative;
+    z-index: 1;
     :last-child {
       margin-bottom: 0;
     }
@@ -48,10 +50,14 @@
     }
 
     a {
-      &:focus,
       &:hover {
-        color: $color-white;
-        text-decoration: none;
+        text-decoration: underline solid $color-white 2px;
+      }
+    }
+
+    h3 {
+      a:hover {
+        text-decoration: underline solid $color-white 3px;
       }
     }
   }
