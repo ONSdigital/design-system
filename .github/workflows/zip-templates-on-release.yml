@@ -12,4 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: pwd
+      - run: ls
       - run: sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
+      #- run: cd ons-design-system-release
+      #- run: mkdir design-system
+      #- run: tar -xzf source.tar.gz -C design-system --strip-components=1
+      #- run: cd design-system
+      #- run: design_system_release=$(cat ../../ons-design-system-release/version)
+      #- run: yarn
+      #- run: RELEASE_VERSION=$design_system_release yarn cdn-bundle
+      #- run: mkdir ../../dist/$design_system_release
+      #- run: cp -R build/* ../../dist/$design_system_release
+      #- run: zip -r ../../templates/templates.zip templates/*
