@@ -1,0 +1,15 @@
+name: zip-templates-on-release
+on:
+  push:
+    branches:
+      - test-workflow
+  pull_request:
+    branches:
+      - test-workflow
+jobs:
+  cdn-Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: apt-get update && apt-get install -y --allow-unauthenticated zip
+      - run: pwd
