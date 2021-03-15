@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: pwd
-      - run: apt-get update && apt-get install -y --allow-unauthenticated zip
+      - run: sudo apt-get update && apt-get install -y --allow-unauthenticated zip
