@@ -13,9 +13,6 @@ jobs:
       - uses: actions/checkout@v2
       #- run: sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
       - run: curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".assets[] | select(.name) | .browser_download_url" | wget -i -
-      - run: mkdir ons-design-system-release
-      - run: cd ons-design-system-release
-      - run: mkdir design-system
       - run: ls
       #- run: tar -xzf source.tar.gz -C design-system --strip-components=1
       #- run: cd design-system
