@@ -1,7 +1,6 @@
 {% macro onsFooter(params) %}
 
     {% from "components/lists/_macro.njk" import onsList %}
-    {% from "components/icons/_macro.njk" import onsIcon %}
 
     {% if params.lang is defined and params.lang %}
         {% set lang = params.lang %}
@@ -18,40 +17,11 @@
     {% endif %}
 
     {% set poweredByLogo %}
-   
-        {% if params.poweredBy is defined and params.poweredBy and params.poweredBy.logo is defined and params.poweredBy.logo %}
-            {{
-                onsIcon({
-                    "icon": params.poweredBy.logo,
-                    "altText": poweredByAlt
-                })
-            }}
-        {% else %}
-            {% if params.lang == 'cy' %}
-                {{
-                    onsIcon({
-                        "icon": 'ons-logo-cy',
-                        "altText": poweredByAlt | default('Swyddfa Ystadegau Gwladol')
-                    })
-                }}
-            {% else %}
-                {{
-                    onsIcon({
-                        "icon": 'ons-logo-en',
-                        "altText": poweredByAlt | default('Office for National Statistics')
-                    })
-                }}
-            {% endif %}
-        {% endif %}
-   
+        <img src="{{ params.assetsURL if params.assetsURL }}/img/{% if params.poweredBy is defined and params.poweredBy and params.poweredBy.logo is defined and params.poweredBy.logo %}{{ params.poweredBy.logo }}{% else %}{{'ons-logo-black-' + lang }}{% endif %}.svg" alt="{{ poweredByAlt | default('Office for National Statistics') }}">
     {% endset %}
 
     {% set crestLogo %}
-        {{
-            onsIcon({
-                "icon": 'crest'
-            })
-        }}
+        <img src="{{ params.assetsURL if params.assetsURL }}/img/crest.svg" alt="Royal coat of arms of the United Kingdom">
     {% endset %}
 
     <footer class="footer">
@@ -181,11 +151,7 @@
 
                         <div class="grid__col">
                             <div class="footer__license">
-                                {{
-                                    onsIcon({
-                                        "icon": 'ogl'
-                                    })
-                                }}
+                                <img class="footer__ogl-img" src="{{ params.assetsURL }}/img/UKOpenGovernmentLicence-grey.svg" alt="Open Government Licence">
                                 {% if params.OGLLink.HTML is defined and params.OGLLink.HTML %}
                                     {{ params.OGLLink.HTML | safe }}
                                 {% else %}
