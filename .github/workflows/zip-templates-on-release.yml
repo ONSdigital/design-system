@@ -14,7 +14,7 @@ jobs:
       #- run: sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
       - run: curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tarball_url" | wget -i - -O source.tar.gz
       - run: mkdir design-system
-      - run: design_system_release=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq .name)
+      - run: design_system_release=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".name")
       - run: mkdir $design_system_release
       - run: ls
       #- run: tar -xzf source.tar.gz -C design-system --strip-components=1
