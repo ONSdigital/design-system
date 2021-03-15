@@ -14,14 +14,14 @@ jobs:
       #- run: sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
       - run: curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tarball_url" | wget -i - -O source.tar.gz
       - run: mkdir design-system
-      - run: design_system_release=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r .name)
+      - run: design_system_release=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq .name)
       - run: mkdir $design_system_release
       - run: ls
-      - run: tar -xzf source.tar.gz -C design-system --strip-components=1
-      - run: cd design-system
-      - run: design_system_release=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r .name)
-      - run: yarn
-      - run: RELEASE_VERSION=$design_system_release yarn cdn-bundle
-      - run: mkdir ../../dist/$design_system_release
-      - run: cp -R build/* ../../dist/$design_system_release
-      - run: zip -r ../../templates/templates.zip templates/*
+      #- run: tar -xzf source.tar.gz -C design-system --strip-components=1
+      #- run: cd design-system
+      #- run: design_system_release=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r .name)
+      #- run: yarn
+      #- run: RELEASE_VERSION=$design_system_release yarn cdn-bundle
+      #- run: mkdir ../../dist/$design_system_release
+      #- run: cp -R build/* ../../dist/$design_system_release
+      #- run: zip -r ../../templates/templates.zip templates/*
