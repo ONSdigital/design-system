@@ -25,18 +25,14 @@ Each release deployed to the `CDN` is always available. This allows services to 
 
 Favicons have been created for Safari, Chrome and Edge/Internet Explorer for desktop and mobile. Place the following references into the `head` of all pages within your service to make use of the available favicons. The `[VERSION]` should be replaced with the required release version.
 
-<pre class="patternlib-example__pre">
-    <code class="patternlib-example__code language-markup">
-        &lt;<span>meta</span> <span>name</span>=<span>"msapplication-config"</span> <span>content</span>=<span>"https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/browserconfig.json"</span>&gt;
-        &lt;<span>link</span> <span>rel</span>=<span>"icon"</span> <span>type</span>=<span>"image/x-icon"</span> <span>href</span>=<span>"/favicons/favicon.ico"</span>&gt;
-        &lt;<span>link</span> <span>rel</span>=<span>"icon"</span> <span>type</span>=<span>"image/png"</span> <span>href</span>=<span>"https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/favicon-32x32.png"</span> <span>sizes</span>=<span>"32x32"</span>&gt;
-        &lt;<span>link</span> <span>rel</span>=<span>"icon"</span> <span>type</span>=<span>"image/png"</span> <span>href</span>=<span>"https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/favicon-16x16.png"</span> <span>sizes</span>=<span>"16x16"</span>&gt;
-        &lt;<span>link</span> <span>rel</span>=<span>"mask-icon"</span> <span>color</span>=<span>"#5bbad5"</span> <span>href</span>=<span>"https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/safari-pinned-tab.svg"</span>&gt;
-        &lt;<span>link</span> <span>rel</span>=<span>"apple-touch-icon"</span> <span>type</span>=<span>"image/png"</span> <span>href</span>=<span>"https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/apple-touch-icon.png"</span> <span>sizes</span>=<span>"180x180"</span>&gt;
-        &lt;<span>link</span> <span>rel</span>=<span>"manifest"</span> <span>href</span>=<span>"https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/manifest.json"</span>&gt;
-    </code>
-</pre>
-
+{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
+{{ onsCodeHighlight({ "code": '<meta name="msapplication-config" content="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/browserconfig.json">
+<link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="mask-icon" color="#5bbad5" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/safari-pinned-tab.svg">
+<link rel="apple-touch-icon" type="image/png" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/manifest.json">'}) }}
 
 ## Using components
 
