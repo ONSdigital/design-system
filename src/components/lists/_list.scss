@@ -15,23 +15,23 @@
   }
 
   &--bare {
-    padding-left: 0;
     list-style: none;
+    padding-left: 0;
   }
 
   &--dashed {
     @extend .list--bare;
     .list__item {
-      position: relative;
       margin-left: 25px;
+      position: relative;
       &::before {
+        border-top: 1px solid $color-black;
         content: '';
-        position: absolute;
-        top: 14px;
         left: 0;
         margin-left: -25px;
+        position: absolute;
+        top: 14px;
         width: 15px;
-        border-top: 1px solid $color-black;
       }
     }
   }
@@ -60,8 +60,8 @@
   &--suffix &,
   &--icons & {
     &__item {
-      display: flex;
       align-items: flex-start;
+      display: flex;
     }
   }
 
@@ -97,8 +97,8 @@
   }
 
   &.list--icons {
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
   }
 }

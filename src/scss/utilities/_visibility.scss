@@ -5,27 +5,27 @@
 
 .u-visuallyhidden,
 .u-vh {
-  position: absolute;
-  margin: -1px;
-  padding: 0;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
   border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
   user-select: none;
+  width: 1px;
 }
 
 .u-visuallyhidden.u-focusable:active,
 .u-vh.u-focusable:active,
 .u-visuallyhidden.u-focusable:focus,
 .u-vh.u-focusable:focus {
-  position: static;
-  margin: 0;
-  width: auto;
-  height: auto;
-  overflow: visible;
   clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
 }
 
 .u-invisible {
@@ -33,14 +33,14 @@
 }
 
 .u-ir {
-  overflow: hidden;
-  border: 0;
   background-color: transparent;
+  border: 0;
+  overflow: hidden;
 }
 
 .u-ir::before {
   content: '';
   display: block;
-  width: 0;
   height: 150%;
+  width: 0;
 }

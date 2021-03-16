@@ -27,14 +27,14 @@ $pagination-item-width: 2.5rem;
 
   &__item,
   &__link {
-    min-width: $pagination-item-width;
     height: $pagination-item-width;
+    min-width: $pagination-item-width;
   }
 
   &__link {
+    border-radius: 3px;
     display: block;
     padding: $pagination-item-padding;
-    border-radius: 3px;
 
     &:hover,
     &:focus {

@@ -1,9 +1,9 @@
 .container {
   box-sizing: border-box;
   margin: 0 auto;
+  max-width: $grid-max-width;
   padding: 0 $grid-gutters;
   width: 100%;
-  max-width: $grid-max-width;
 
   @include mq(s) {
     padding: 0 $grid-gutters;
