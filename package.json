@@ -26,7 +26,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-checkout": "yarn tidy-clean && yarn check"
+      "post-checkout": "yarn tidy-clean && yarn install --check-files"
     }
   },
   "lint-staged": {
