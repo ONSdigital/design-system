@@ -1,10 +1,10 @@
 .patternlib-example {
   $c: &;
 
-  position: relative;
-  margin: 0 0 2rem;
-  width: 100%;
   border: 1px solid $color-borders;
+  margin: 0 0 2rem;
+  position: relative;
+  width: 100%;
 
   &__frame {
     background: $color-borders;
@@ -12,12 +12,12 @@
 
   &__iframe {
     display: block;
-    position: relative;
-    width: 100%;
-    min-width: 320px;
     max-width: 100%;
     min-height: 60px;
+    min-width: 320px;
+    position: relative;
     resize: both;
+    width: 100%;
   }
 
   &__radio {
@@ -30,22 +30,22 @@
 
   &__link,
   &__tab {
-    display: inline-block;
-    padding: 0.5rem 1rem;
     color: $color-links;
     cursor: pointer;
+    display: inline-block;
+    padding: 0.5rem 1rem;
   }
 
   &__link {
-    border-right: 1px solid $color-borders;
     border-bottom: 1px solid $color-borders;
+    border-right: 1px solid $color-borders;
     line-height: 1.3rem;
   }
 
   &__panel {
+    border-top: 1px solid $color-borders;
     display: none;
     padding: 1rem;
-    border-top: 1px solid $color-borders;
   }
 
   @for $i from 1 through 4 {
@@ -66,21 +66,21 @@
   }
 
   &__pre {
-    margin: 0;
     font-size: 0.8rem !important;
+    margin: 0;
     white-space: normal;
   }
 }
 
 .macro-options {
+  background: $color-grey-5;
   margin: 0 0 1rem;
   padding: 0.5rem 1rem;
-  background: $color-grey-5;
 
   &__summary {
-    outline: none;
     color: $color-links;
     cursor: pointer;
+    outline: none;
   }
 
   &__content {

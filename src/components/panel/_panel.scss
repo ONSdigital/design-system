@@ -1,8 +1,8 @@
 @mixin panel-type($name, $color, $color-bg) {
   .panel {
     &--#{$name} {
-      border-color: $color;
       background: $color-bg;
+      border-color: $color;
     }
 
     &--#{$name} & {
@@ -22,29 +22,29 @@
 }
 
 .panel {
-  position: relative;
   border-radius: 0;
+  position: relative;
 
   // Removes inherited bottom margin to make whitespace inside panel equal
   > *:last-child {
     margin-bottom: 0;
   }
 
-  & .field {
+  .field {
     margin-bottom: 0;
   }
 
   &:focus {
+    box-shadow: none;
     outline: 4px solid $color-focus !important;
     outline-offset: 0;
-    box-shadow: none;
   }
 
   &__header {
-    margin: 0;
-    padding: 0.75rem 1rem;
     border-radius: 0;
     color: $color-white;
+    margin: 0;
+    padding: 0.75rem 1rem;
   }
 
   &__title {
@@ -82,22 +82,22 @@
   }
 
   &--warn {
+    border: 0 !important;
     margin-bottom: 1rem;
     padding: 0;
-    border: 0 !important;
 
     &--footer {
+      background-color: $color-grey-4 !important;
       margin-bottom: 0;
       padding: 1rem 0 !important;
-      background-color: $color-grey-4 !important;
     }
   }
 
   &--warn-branded,
   &--announcement {
     border: 0 !important;
-    margin-bottom: 0;
     color: $color-white;
+    margin-bottom: 0;
     padding: 1rem 0 !important;
     & a {
       color: inherit;
@@ -115,11 +115,11 @@
   }
 
   &--no-title {
-    padding: 1rem;
     border-left: 8px solid transparent;
+    padding: 1rem;
     .panel__body {
-      padding: 0;
       background: none;
+      padding: 0;
     }
     &.panel--warn {
       padding: 0;
@@ -138,19 +138,19 @@
   &--warn-branded &,
   &--announcement & {
     &__body {
-      padding: 0.222rem 0 0.222rem 2.8rem; // Alignment tweak
-      min-height: 2rem; // Height of icon
       font-weight: $font-weight-bold;
+      min-height: 2rem; // Height of icon
+      padding: 0.222rem 0 0.222rem 2.8rem; // Alignment tweak
     }
     &__icon {
-      min-width: 2rem;
-      min-height: 2rem;
-      border-radius: 50%;
       background: $color-black;
+      border-radius: 50%;
       color: $color-white;
       font-size: 1.5rem;
       font-weight: 900;
       line-height: 2rem;
+      min-height: 2rem;
+      min-width: 2rem;
       text-align: center;
     }
   }
@@ -184,8 +184,9 @@
 
   &--success & {
     &__icon {
-      padding-left: 1rem;
       fill: $color-success;
+      left: 0;
+      padding-left: 1rem;
       .svg-icon {
         margin-top: -15% !important;
       }
@@ -197,8 +198,8 @@
 
   &--bare & {
     &__icon {
-      width: 1.3rem;
       height: 1.3rem;
+      width: 1.3rem;
     }
     &__body {
       padding: 0.1rem 0 0 1.5rem;
@@ -212,11 +213,6 @@
   &--announcement {
     .panel__icon {
       position: absolute;
-    }
-  }
-  &--success {
-    .panel__icon {
-      left: 0;
     }
   }
 }

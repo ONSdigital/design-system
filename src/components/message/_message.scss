@@ -4,6 +4,7 @@
 
   &--sent {
     background: $color-info-tint;
+
     @include mq(m) {
       margin-left: 4rem;
     }
@@ -11,19 +12,21 @@
 
   &--received {
     background: $color-success-tint;
+
     @include mq(m) {
       margin-right: 4rem;
     }
   }
 
   &__head {
-    padding: $grid-gutters;
     border-bottom: 1px solid $color-borders;
+    padding: $grid-gutters;
     position: relative;
   }
 
   &__metadata {
     margin: 0;
+
     @include mq(m) {
       width: 65%;
     }
@@ -38,8 +41,8 @@
   &__unread-link {
     @include mq(m) {
       position: absolute;
-      top: 1rem;
       right: 1rem;
+      top: 1rem;
     }
   }
 

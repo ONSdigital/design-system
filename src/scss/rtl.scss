@@ -11,8 +11,8 @@
     padding: 0 1.5rem 0 0;
 
     &__link {
-      margin-right: 0;
       margin-left: 1rem;
+      margin-right: 0;
     }
 
     &--bare {
@@ -23,8 +23,8 @@
       padding-right: 0;
 
       .list__item {
-        margin-right: 25px;
         margin-left: 0;
+        margin-right: 25px;
 
         &::before {
           left: auto;
@@ -38,7 +38,7 @@
 
   // Panel
   .panel {
-    border-left: none;
+    border-left: 0;
     border-right: 8px solid transparent;
 
     &--info {
@@ -89,8 +89,8 @@
   // Download
   .download {
     &__image {
-      margin-right: 0;
       margin-left: 1.5rem;
+      margin-right: 0;
     }
   }
 
