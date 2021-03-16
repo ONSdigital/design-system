@@ -19,7 +19,11 @@
                 <div class="grid__col col-4@s push-1@s u-d-no@xxs@s">
                     
                     <div class="promo-banner__image">
-                        <img alt="{{ params.image.alt }}" src="{{ params.image.src }}">
+                        {% if params.image.smallSrc is defined and params.image.smallSrc %}
+                            <img srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}">
+                        {% else %}
+                            <img src="{{ params.image.src }}" alt="{{ params.image.alt }}">
+                        {% endif %}
                     </div>
 
                 </div>
