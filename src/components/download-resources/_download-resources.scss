@@ -11,6 +11,10 @@
     &:first-of-type {
       margin-top: 1.5rem;
     }
+
+    & .checkboxes__item {
+      min-width: auto;
+    }
   }
 
   &__selection {
