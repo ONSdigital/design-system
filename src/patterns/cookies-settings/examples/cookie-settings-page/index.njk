@@ -7,16 +7,19 @@ layout: none
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/table/_macro.njk" import onsTable %}
-{% block scripts %}
+{% block head %}
     <!-- Google Tag Manager -->
     <script>
-        var a = /^(.*)?\s*'usage':true\s*[^;]+(.*)?$/;
-        if (document.cookie.match(a)) {
+        function loadGTM() {
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl+'&gtm_auth=5Sz7OiVp0XSVwsUFunGpog&amp;gtm_preview=env-12&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-TLWR59T');
+        }
+        var a = /^(.*)?\s*'usage':true\s*[^;]+(.*)?$/;
+        if (document.cookie.match(a)) {
+            loadGTM();
         }
     </script>
     <!-- End Google Tag Manager -->
