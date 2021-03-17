@@ -11,6 +11,8 @@ async function submitButton() {
         submitType = 'timer';
       } else if (button.classList.contains('js-loader')) {
         submitType = 'loader';
+      } else if (button.classList.contains('btn--link')) {
+        submitType = 'link';
       }
       new SubmitButton(button, submitType);
     });
