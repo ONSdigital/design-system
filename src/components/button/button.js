@@ -4,13 +4,15 @@ export default class SubmitButton {
   constructor(button, submitType) {
     this.submitButton = button;
     this.formEl = [...document.getElementsByTagName('form')][0];
-    this.patternLibForm = this.formEl.classList.contains(classPatternLibForm) ? true : false;
+    this.patternLibForm = this.formEl && this.formEl.classList.contains(classPatternLibForm) ? true : false;
     this.submitType = submitType;
 
     if (this.submitType == 'loader') {
       this.submitButton.addEventListener('click', this.loaderButton.bind(this));
     } else if (this.submitType == 'timer') {
       this.submitButton.addEventListener('click', this.timerButton.bind(this));
+    } else if (this.submitType == 'link') {
+      this.submitButton.addEventListener('keydown', this.linkButton.bind(this));
     }
   }
 
@@ -22,6 +24,7 @@ export default class SubmitButton {
 
   timerButton(event) {
     this.submitForm();
+
     if (this.submitButton.tagName === 'A') {
       i++;
       if (i > 1) {
@@ -34,6 +37,13 @@ export default class SubmitButton {
       this.submitButton.removeAttribute('disabled');
       i = 0;
     }, 1000);
+  }
+
+  linkButton(e) {
+    if (e.keyCode == 32) {
+      e.preventDefault();
+      this.submitButton.click();
+    }
   }
 
   submitForm() {
