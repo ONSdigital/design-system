@@ -32,11 +32,10 @@
                     {% endif %}
                 </div>
             {% endif %}
+            {% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
             <div class="patternlib-example__panels">
                 <div class="patternlib-example__panel">
-                    <pre class="patternlib-example__pre">
-                        <code class="patternlib-example__code language-markup">{{ params.html }}</code>
-                    </pre>
+                    {{ onsCodeHighlight({ "code": params.html }) }}
                 </div>
                 {%- if params.raw -%}
                 <div class="patternlib-example__panel">
@@ -46,23 +45,17 @@
                             <div class="macro-options__content">{{ params.options | safe }}</div>
                         </details>
                     {% endif %}
-                    <pre class="patternlib-example__pre">
-                        <code class="patternlib-example__code language-javascript">{{ params.raw }}</code>
-                    </pre>
+                    {{ onsCodeHighlight({ "code": params.raw, "language": "javascript" }) }}
                 </div>
                 {%- endif -%}
                 {%- if params.template -%}
                     <div class="patternlib-example__panel">
-                        <pre class="patternlib-example__pre">
-                            <code class="patternlib-example__code language-markup">{{ params.template }}</code>
-                        </pre>
+                        {{ onsCodeHighlight({ "code": params.template }) }}
                     </div>
                 {%- endif -%}
                 {%- if params.scss -%}
                     <div class="patternlib-example__panel">
-                        <pre class="patternlib-example__pre">
-                            <code class="patternlib-example__code language-css">{{ params.scss }}</code>
-                        </pre>
+                        {{ onsCodeHighlight({ "code": params.scss, "language": "css" }) }}
                     </div>
                 {%- endif -%}
             </div>

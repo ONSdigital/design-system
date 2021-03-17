@@ -1,7 +1,7 @@
 // Default
 .hero {
-  padding: 2rem 0;
   background-color: $color-branded;
+  padding: 2rem 0;
   &__content {
     height: 100%;
   }
@@ -9,6 +9,7 @@
 
 .hero__pre-title {
   margin-bottom: 0.5rem;
+
   @include mq(xxs, m) {
     max-width: 145px;
   }
@@ -21,18 +22,18 @@
 
 // Census theme
 .hero--census {
-  display: flex;
-  position: relative;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  padding: 0;
-  overflow: hidden;
   background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
+  display: flex;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
   .hero__container {
-    display: flex;
     align-items: flex-end;
-    position: relative;
+    display: flex;
     min-height: 400px;
+    position: relative;
   }
   .hero__circle-image,
   .hero__circle-gradient,
@@ -41,58 +42,59 @@
     position: absolute;
   }
   .hero__circle-image {
-    z-index: 2;
-    top: -98px;
-    right: -4px;
-    width: 300px;
-    height: 300px;
+    background-color: $color-white;
     border-radius: 50%;
-    background-color: $color-grey-5;
+    height: 300px;
+    right: -4px;
+    top: -98px;
+    width: 300px;
+    z-index: 2;
     img {
+      border-radius: 50%;
       display: block;
       height: 100%;
-      border-radius: 50%;
     }
   }
   .hero__circle-gradient {
-    z-index: 3;
-    display: block;
-    top: 0.7rem;
-    right: -91px; // Half width of circle
-    width: 182px;
-    height: 182px;
-    border-radius: 50%;
     background-image: linear-gradient(-45deg, $color-branded 0%, $color-branded 20%, $color-branded-tertiary 60%, #005489 90%);
-  }
-  .hero__circle {
-    background-color: $color-grey-5;
-    z-index: 1;
+    border-radius: 50%;
     display: block;
-    top: 27px;
+    height: 182px;
+    right: -91px; // Half width of circle
+    top: 0.7rem;
+    width: 182px;
+    z-index: 3;
+  }
+  .hero__circle-white {
+    background-color: $color-white;
+    border-radius: 50%;
+    display: block;
+    height: 990px;
     left: 50%;
     margin-left: -495px; // Half of circle
+    top: 27px;
     width: 990px;
-    height: 990px;
-    border-radius: 50%;
+    z-index: 1;
   }
   .hero__circle-lined {
-    z-index: 4;
-    top: 114px;
-    right: -24px;
-    width: 133px;
-    height: 133px;
     fill: $color-white;
+    height: 133px;
     opacity: 0.4;
+    right: -24px;
+    top: 114px;
+    width: 133px;
+    z-index: 4;
   }
   .hero__details {
-    z-index: 5;
-    position: relative;
-    padding-top: 218px;
     padding-bottom: 1rem;
+    padding-top: 218px;
+    position: relative;
+    z-index: 5;
     &--ondark {
       color: $color-white;
     }
   }
+
   @include mq(m) {
     .hero__title {
       font-size: 3rem;
@@ -101,27 +103,27 @@
       padding-top: 2rem;
     }
     .hero__circle-image {
-      top: -117px;
-      right: -8px;
-      width: 382px;
       height: 382px;
+      right: -8px;
+      top: -117px;
+      width: 382px;
     }
     .hero__circle-gradient {
-      top: 1rem;
-      right: -117px; // Half width of circle
-      width: 234px;
       height: 234px;
+      right: -117px; // Half width of circle
+      top: 1rem;
+      width: 234px;
     }
-    .hero__circle {
-      top: -288px;
+    .hero__circle-white {
       left: -331px;
       margin: auto; // Reset
+      top: -288px;
     }
     .hero__circle-lined {
-      top: 148px;
-      right: -24px;
-      width: 171px;
       height: 171px;
+      right: -24px;
+      top: 148px;
+      width: 171px;
     }
     .hero__container {
       align-items: center;
@@ -131,30 +133,31 @@
       }
     }
   }
+
   @include mq(l) {
     .hero__details {
       padding-right: 2.5rem;
     }
     .hero__circle-image {
-      top: -176px;
-      right: 0;
-      margin: auto;
-      width: 558px;
       height: 558px;
+      margin: auto;
+      right: 0;
+      top: -176px;
+      width: 558px;
     }
     .hero__circle-gradient {
+      height: 342px;
       right: -171px; // Half width of circle
       width: 342px;
-      height: 342px;
     }
     .hero__circle {
       top: -369px;
     }
     .hero__circle-lined {
-      top: 292px; // Reset
-      right: 0;
-      width: 243px;
       height: 243px;
+      right: 0;
+      top: 292px; // Reset
+      width: 243px;
     }
   }
 }
