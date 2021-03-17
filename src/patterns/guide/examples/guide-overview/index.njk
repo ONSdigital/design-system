@@ -1,0 +1,119 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+
+{% from "components/content-pagination/_macro.njk" import onsContentPagination %}
+{% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
+{% from "components/toc/_macro.njk" import onsTableOfContents %}
+
+{% set pageConfig = {
+    "title": "Census 2021",
+    "theme": "census",
+    "header": {
+        "logoHref": "#",
+        "titleLogo": "census-logo-en",
+        "titleLogoHref": "#",
+        "titleLogoAlt": "Census 2021"
+    },
+    "language": {
+        "allLanguagesUrl": "#",
+        "languages": [
+            {
+                "url": "#",
+                "ISOCode": "en",
+                "text": "English",
+                "buttonAriaLabel": "Language selector. Current language: English",
+                "chooseLanguage": "Choose language",
+                "allLanguages": "All languages",
+                "current": true
+            },
+            {
+                "url": "#",
+                "ISOCode": "cy",
+                "text": "Cymraeg",
+                "buttonAriaLabel": "Dewisydd iaith. Iaith gyfredol: Cymraeg",
+                "chooseLanguage": "Dewiswch iaith",
+                "allLanguages": "Pob iaith",
+                "current": false
+            }
+        ]
+    },
+    "footer": {}
+} %}
+{% block preMain %}
+    {{
+        onsBreadcrumb({
+            "ariaLabel": 'Breadcrumb',
+            "itemsList": [
+                {
+                    "url": '/',
+                    "text": 'Home'
+                },
+                {
+                    "url": '/#',
+                    "text": 'Guide example'
+                }
+            ]
+        })
+    }}
+{% endblock %}
+
+{% block main %}
+    <h1 class="u-mb-l">
+        <span class="u-fs-xxl u-db">About the census </span>
+        <span class="u-vh">: Overview</span>
+    </h1>
+    {{-
+        onsTableOfContents({
+            "ariaLabel": "Pages in this guide",
+            "title": "Contents",
+            "skipLink": {
+                "url": "#section-content",
+                "text": "Skip to guide content"
+            },
+            "itemsList": [
+                {
+                    "url": '#',
+                    "text": 'Overview',
+                    "current": true
+                },
+                {
+                    "url": '#',
+                    "text": 'Who should take part and why'
+                },
+                {
+                    "url": '#',
+                    "text": 'How your information is used'
+                },
+                {
+                    "url": '#',
+                    "text": 'The 2019 Census Rehearsal'
+                },
+                {
+                    "url": '#',
+                    "text": 'Online census'
+                }
+            ]
+        }) 
+    }}
+    <section id="section-content" class="page__body"><h2>What the census is</h2><p>The census is a survey that happens every 10 years and gives us a picture of all the people and households in England and Wales. The census is unique. There’s simply nothing else that gives so much detail about us and the society we live in.</p><p>All kinds of organisations, from local authorities to charities, use the information to help provide the services we all need, including transport, education and healthcare. Without the census, it would be much more difficult to do this.</p><p>By taking part, you’ll be helping make sure you and your community get the services needed now and in the future.</p><h2>Past, present and future</h2><p>The first census was in 1801 and the most recent in 2011. The Office for National Statistics (ONS) runs the census in England Wales and the next one will happen on Sunday 21 March 2021. To prepare for it, we held a census rehearsal in 2019 to check our processes, systems and services were running smoothly ahead of the real thing.</p><h2>Between censuses</h2><p>We also need your help between each census. At the ONS, we rely on ongoing surveys to provide detailed, up-to-date information about changes to society. To make sure that we represent everyone, we ask people to take part in these surveys. We carry out interviews in person, by phone or online.</p><p>These surveys do not stop while the census takes place. To find out more about the types of surveys we run throughout the year, visit <a href="http://www.ons.gov.uk/surveys">the ONS website</a>.</p><h2>The census in Scotland and Northern Ireland</h2><p>At the ONS, we’re responsible for planning and running the census for England and Wales.</p><p>Find out more about the censuses in Scotland and Northern Ireland from <a href="https://www.nrscotland.gov.uk/">National Records of Scotland</a> and <a href="https://www.nisra.gov.uk/">Northern Ireland Statistics and Research Agency</a>.</p>
+        <div class="u-mt-xl">
+            {{-
+            onsContentPagination({
+                "contentPaginationItems": [
+                    {
+                        "rel": 'next',
+                        "text": 'Next',
+                        "url": '#',
+                        "label": 'Who should take part and why'
+                    }
+                    ]
+                })
+            }}    
+        </div>
+    </section>
+
+{% endblock %}
