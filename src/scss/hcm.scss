@@ -36,8 +36,8 @@
 
   // Adds some style adjustments to the focused item to make it obvious something is selected
   .js-autosuggest .autosuggest-input__option--focused {
-    text-decoration: underline;
     padding-left: 1.5rem;
+    text-decoration: underline;
   }
 
   .radio__input:checked + .radio__label {
@@ -45,15 +45,15 @@
 
     // These off pixels are not nice, but due to the way the form controls have been built I have had no choice
     // I would strongly revisit doing the checkboxes and radios again and fix these non-whole pixel values
-    &:after {
+    &::after {
+      border: 6px solid currentColor;
+      border-radius: 50%;
       content: '';
+      height: 12.5px;
+      left: 16px;
       position: absolute;
       top: 18.5px;
-      left: 16px;
-      height: 12.5px;
       width: 12.5px;
-      border-radius: 50%;
-      border: 6px solid currentColor;
       z-index: 1;
     }
   }
@@ -65,7 +65,7 @@
   }
 
   // I would have approached the mark differently, but without changing the existing approach this fixes it
-  .timeline__item:before {
+  .timeline__item::before {
     border: 2px solid currentColor;
   }
 

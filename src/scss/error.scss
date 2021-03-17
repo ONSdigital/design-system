@@ -1,20 +1,21 @@
 @import 'normalize-scss';
+
 @include normalize();
 
 body {
-  padding: 20px;
   background: #222;
   color: #fff;
   font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
 }
 
 .print-error-stack {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 
   &__heading {
-    color: #cc0000;
+    color: #c00;
 
     &--secondary {
       font-size: 1.5rem;
@@ -22,7 +23,7 @@ body {
   }
 
   &__entry {
+    color: #f66;
     margin-bottom: 1em;
-    color: #ff6666;
   }
 }

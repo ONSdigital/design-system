@@ -2,10 +2,10 @@
   position: relative;
 
   &__other {
-    display: none;
-    clear: both;
-    padding: 0 0.5rem 0.5rem;
     background-color: $color-grey-5;
+    clear: both;
+    display: none;
+    padding: 0 0.5rem 0.5rem;
 
     input:checked ~ & {
       display: block;

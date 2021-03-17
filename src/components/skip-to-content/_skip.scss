@@ -1,19 +1,19 @@
 .skip__link {
   display: block;
-  top: 0;
-  height: 1px;
-  overflow: hidden;
   font-size: 1.1rem;
   font-weight: $font-weight-bold;
+  height: 1px;
+  overflow: hidden;
+  top: 0;
 
   &:focus {
-    padding: 1rem;
-    height: auto;
-    max-height: 20em;
-    outline: none;
     background-color: $color-focus;
     box-shadow: 0;
     color: $color-focus-text;
+    height: auto;
+    max-height: 20em;
+    outline: none;
+    padding: 1rem;
     text-decoration: underline solid $color-focus-text 2px;
   }
 }

@@ -1,8 +1,8 @@
 @mixin panel-type($name, $color, $color-bg) {
   .panel {
     &--#{$name} {
-      border-color: $color;
       background: $color-bg;
+      border-color: $color;
     }
 
     &--#{$name} & {
@@ -17,30 +17,34 @@
   background: $color-branded-tertiary;
 }
 
+.announcement {
+  background-color: $color-black;
+}
+
 .panel {
-  position: relative;
   border-radius: 0;
+  position: relative;
 
   // Removes inherited bottom margin to make whitespace inside panel equal
   > *:last-child {
     margin-bottom: 0;
   }
 
-  & .field {
+  .field {
     margin-bottom: 0;
   }
 
   &:focus {
+    box-shadow: none;
     outline: 4px solid $color-focus !important;
     outline-offset: 0;
-    box-shadow: none;
   }
 
   &__header {
-    margin: 0;
-    padding: 0.75rem 1rem;
     border-radius: 0;
     color: $color-white;
+    margin: 0;
+    padding: 0.75rem 1rem;
   }
 
   &__title {
@@ -78,30 +82,44 @@
   }
 
   &--warn {
+    border: 0 !important;
     margin-bottom: 1rem;
     padding: 0;
-    border: 0 !important;
 
     &--footer {
+      background-color: $color-grey-4 !important;
       margin-bottom: 0;
       padding: 1rem 0 !important;
-      background-color: $color-grey-4 !important;
     }
   }
 
-  &--warn-branded {
+  &--warn-branded,
+  &--announcement {
     border: 0 !important;
-    margin-bottom: 0;
     color: $color-white;
+    margin-bottom: 0;
     padding: 1rem 0 !important;
+    & a {
+      color: inherit;
+      text-decoration: underline solid $color-white 1px;
+    }
+    & a:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  &--announcement {
+    & a:focus {
+      box-shadow: 0 -2px #fd0, 0 4px #fd0 !important; // Override focus style because the black border is not visible on a black background
+    }
   }
 
   &--no-title {
-    padding: 1rem;
     border-left: 8px solid transparent;
+    padding: 1rem;
     .panel__body {
-      padding: 0;
       background: none;
+      padding: 0;
     }
     &.panel--warn {
       padding: 0;
@@ -117,36 +135,58 @@
   }
 
   &--warn &,
-  &--warn-branded & {
+  &--warn-branded &,
+  &--announcement & {
     &__body {
-      padding: 0.222rem 0 0.222rem 2.8rem; // Alignment tweak
-      min-height: 2rem; // Height of icon
       font-weight: $font-weight-bold;
+      min-height: 2rem; // Height of icon
+      padding: 0.222rem 0 0.222rem 2.8rem; // Alignment tweak
     }
     &__icon {
-      min-width: 2rem;
-      min-height: 2rem;
-      border-radius: 50%;
       background: $color-black;
+      border-radius: 50%;
       color: $color-white;
       font-size: 1.5rem;
       font-weight: 900;
       line-height: 2rem;
+      min-height: 2rem;
+      min-width: 2rem;
       text-align: center;
+    }
+  }
+
+  &--announcement & {
+    &__body div > *:last-child {
+      margin-bottom: 0;
+    }
+
+    &__icon {
+      display: flex;
+      svg {
+        margin: auto;
+      }
     }
   }
 
   &--warn-branded & {
     &__icon {
-      background: $color-white;
+      background-color: $color-white;
       color: $color-branded-tertiary;
+    }
+  }
+
+  &--announcement & {
+    &__icon {
+      background-color: $color-white;
+      color: $color-black;
     }
   }
 
   &--success & {
     &__icon {
-      padding-left: 1rem;
       fill: $color-success;
+      left: 0;
+      padding-left: 1rem;
       .svg-icon {
         margin-top: -15% !important;
       }
@@ -158,8 +198,8 @@
 
   &--bare & {
     &__icon {
-      width: 1.3rem;
       height: 1.3rem;
+      width: 1.3rem;
     }
     &__body {
       padding: 0.1rem 0 0 1.5rem;
@@ -169,14 +209,10 @@
   &--bare,
   &--success,
   &--warn,
-  &--warn-branded {
+  &--warn-branded,
+  &--announcement {
     .panel__icon {
       position: absolute;
-    }
-  }
-  &--success {
-    .panel__icon {
-      left: 0;
     }
   }
 }
@@ -187,3 +223,4 @@
 @include panel-type(branded, $color-branded, $color-branded-tint);
 @include panel-type(warn, $color-white, $color-white);
 @include panel-type(warn-branded, $color-branded-tertiary, $color-branded-tertiary);
+@include panel-type(announcement, $color-black, $color-black);
