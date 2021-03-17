@@ -18,13 +18,14 @@
     }
 
     @include mq(s) {
-      width: auto;
       min-width: 20rem;
+      width: auto;
     }
   }
 
   &--mutually-exclusive__item {
     @extend .checkboxes__item;
+
     margin-bottom: 0;
   }
 }

@@ -4,11 +4,11 @@ $hub-row-spacing: 1.3rem;
 
 .summary {
   &__items {
-    width: 100%;
-    border-spacing: 0;
     border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
 
-    & + .summary__group-title {
+    + .summary__group-title {
       margin-top: 1.5rem;
     }
   }
@@ -29,8 +29,8 @@ $hub-row-spacing: 1.3rem;
     }
 
     &--error {
-      border-left: 8px solid $color-errors;
       background: $color-errors-tint;
+      border-left: 8px solid $color-errors;
     }
   }
 
@@ -42,24 +42,24 @@ $hub-row-spacing: 1.3rem;
   &__item-title,
   &__values,
   &__actions {
-    padding: 0 0 $summary-row-spacing;
-    word-wrap: break-word;
-    vertical-align: top;
     hyphens: manual;
     overflow-wrap: break-word;
+    padding: 0 0 $summary-row-spacing;
+    vertical-align: top;
+    word-wrap: break-word;
   }
 
   &__item-title {
-    position: relative;
     padding-top: $summary-row-spacing;
+    position: relative;
     &--text {
       display: block;
-      padding-left: 2rem;
       overflow: hidden;
+      padding-left: 2rem;
     }
     &-icon {
-      position: absolute;
       left: 0;
+      position: absolute;
       text-align: center;
       &--check {
         fill: $color-green;
@@ -72,15 +72,12 @@ $hub-row-spacing: 1.3rem;
   }
 
   &__spacer {
-    display: inline-block;
-
-    margin: 0 0.25rem;
-    width: 1px;
-    height: 1rem;
-
     background: $color-black;
-
+    display: inline-block;
+    height: 1rem;
+    margin: 0 0.25rem;
     vertical-align: middle;
+    width: 1px;
   }
 
   // Item Modifiers
@@ -92,21 +89,20 @@ $hub-row-spacing: 1.3rem;
 
   &__item--error & {
     &__row-title {
-      padding: $summary-row-spacing $summary-col-spacing;
-
       color: $color-errors;
       font-weight: 700;
+      padding: $summary-row-spacing $summary-col-spacing;
     }
 
     &__item-title,
     &__values,
     &__actions {
-      padding-right: $summary-col-spacing;
       padding-left: $summary-col-spacing;
+      padding-right: $summary-col-spacing;
 
       @include mq('s') {
-        padding-right: $summary-col-spacing / 2;
         padding-left: $summary-col-spacing / 2;
+        padding-right: $summary-col-spacing / 2;
 
         &:first-child {
           padding-left: $summary-col-spacing;

@@ -69,9 +69,11 @@
   }
 }
 
+/* stylelint-disable */
 @mixin clearfix() {
   // no-op
 }
+/* stylelint-enable */
 
 // =============================================================================
 // Remove nth-Child Padding

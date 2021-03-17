@@ -1,15 +1,15 @@
 .cookies-banner {
+  background: $cookie-banner-bg;
   display: none;
   padding: 1rem 0;
-  background: $cookie-banner-bg;
 
   &__title {
     color: $cookie-banner-text;
   }
 
   &__desc {
-    margin-bottom: 1rem;
     color: $cookie-banner-text;
+    margin-bottom: 1rem;
     word-break: break-word;
   }
 

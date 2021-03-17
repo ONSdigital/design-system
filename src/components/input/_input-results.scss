@@ -2,8 +2,8 @@
   position: relative;
 
   &__combobox {
-    display: inline-block;
     border-radius: $input-radius;
+    display: inline-block;
 
     @include mq(xxs, s) {
       width: 100%;
@@ -11,15 +11,13 @@
   }
 
   &__results {
-    display: none;
-    margin: 0.5rem 0 0;
-    padding: 0;
-    width: 100%;
-
-    overflow: hidden;
-
     border: 1px solid $color-input;
     border-radius: $input-radius;
+    display: none;
+    margin: 0.5rem 0 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
   }
 
   &__group {
@@ -28,27 +26,26 @@
   }
 
   &__results-title {
-    padding: 0.25rem 0.5rem;
-    border-bottom: 1px solid $color-input;
     background: $color-grey-4;
+    border-bottom: 1px solid $color-input;
+    padding: 0.25rem 0.5rem;
   }
 
   &__listbox {
+    background: $color-white;
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
-    background: $color-white;
     &:focus {
       outline: none;
     }
   }
 
   &__option {
-    margin: 0;
-    padding: $input-padding-horizontal;
-    outline: none;
-
     cursor: pointer;
+    margin: 0;
+    outline: none;
+    padding: $input-padding-horizontal;
 
     &:not(:last-child) {
       border-bottom: 1px solid $color-input;
@@ -56,8 +53,8 @@
 
     &:not(&--no-results):not(&--more-results):hover,
     &--focused:not(&--no-results) {
-      border-color: $color-blue;
       background: $color-blue;
+      border-color: $color-blue;
       color: $color-white;
 
       .autosuggest-input__group {
@@ -76,16 +73,16 @@
 
     &--no-results,
     &--more-results {
-      padding: 0.25rem 0.5rem;
       background: $color-grey-4;
       cursor: not-allowed;
+      padding: 0.25rem 0.5rem;
     }
   }
 
   &__warning {
+    background: #f0f0f0;
     margin: 0;
     padding-left: 0.5rem;
-    background: #f0f0f0;
 
     &:not(:last-child) {
       border-bottom: 1px solid $color-input;
@@ -93,21 +90,21 @@
   }
 
   &__panel.panel--warn {
-    margin: 0;
-    border: 0;
     background: none;
+    border: 0;
+    margin: 0;
     .panel__icon {
-      top: 17px;
-      margin-top: 0;
-      min-width: 26px;
-      min-height: 24px;
       font-size: 21px;
       line-height: 25px;
+      margin-top: 0;
+      min-height: 24px;
+      min-width: 26px;
+      top: 17px;
     }
 
     .panel__body {
-      padding: 0.8rem 0.8rem 0.8rem 2rem;
       font-weight: bold;
+      padding: 0.8rem 0.8rem 0.8rem 2rem;
     }
   }
 

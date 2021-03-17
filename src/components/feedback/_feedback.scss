@@ -1,33 +1,33 @@
 .feedback {
-  position: relative;
+  border: 3px solid $color-branded;
   margin-bottom: 2rem;
   padding: 1rem;
-  border: 3px solid $color-branded;
+  position: relative;
   &__link {
     font-weight: $font-weight-bold;
   }
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: -30px;
-    left: 17px;
-    width: 0px;
-    height: 0px;
-    border-top: 15px solid $color-branded;
-    border-right: 15px solid transparent;
+  &::before {
     border-bottom: 15px solid transparent;
     border-left: 15px solid $color-branded;
-  }
-  &:after {
+    border-right: 15px solid transparent;
+    border-top: 15px solid $color-branded;
+    bottom: -30px;
     content: '';
+    height: 0;
+    left: 17px;
     position: absolute;
-    bottom: -23px;
-    left: 20px;
-    width: 0px;
-    height: 0px;
-    border-top: 12px solid #fff;
-    border-right: 12px solid transparent;
+    width: 0;
+  }
+  &::after {
     border-bottom: 12px solid transparent;
     border-left: 12px solid #fff;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #fff;
+    bottom: -23px;
+    content: '';
+    height: 0;
+    left: 20px;
+    position: absolute;
+    width: 0;
   }
 }

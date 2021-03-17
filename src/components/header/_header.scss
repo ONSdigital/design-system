@@ -1,27 +1,30 @@
 // Block
 .header {
   display: block;
-  position: relative;
-  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  position: relative;
   & &__svg-logo {
     display: block;
     fill: $color-white;
+
     @include mq(m) {
       margin: 0.84rem 0;
     }
+
     @include mq(xxs, 399px) {
       max-width: 160px;
     }
   }
   // Elements
   &__top {
-    width: 100%;
     background: $color-white;
+    width: 100%;
   }
   &__grid-top {
     height: 54px;
+
     @include mq(xs) {
       height: 46px;
     }
@@ -33,43 +36,48 @@
   }
   &__logo {
     &:focus {
-      outline: 3px solid transparent;
       background-color: $color-focus;
       box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
       color: $color-focus-text;
+      outline: 3px solid transparent;
     }
   }
+
   @include mq(xs) {
     &__logo {
       margin-bottom: 2px;
     }
   }
   &__main {
-    padding: 0.56rem 0;
     background: $color-header;
+    padding: 0.56rem 0;
     &--border {
-      padding: 0.934rem 0;
-      border-top: 3px solid $color-header;
       border-bottom: 3px solid $color-header;
+      border-top: 3px solid $color-header;
+      padding: 0.934rem 0;
     }
   }
   &__title {
     @extend .u-fs-r--b;
     @extend .u-fs-xl\@xxs;
-    margin: 0;
+
     color: $color-white;
+    margin: 0;
     &--with-description {
       line-height: 1.7 !important;
     }
     &:not(&--with-description) {
       line-height: 1.5 !important;
+
       @include mq(m) {
         line-height: 2.5 !important;
       }
     }
+
     @include mq(xs, m) {
       line-height: 1.75 !important;
     }
+
     @include mq(xxs, xs) {
       line-height: 1.7 !important;
     }
@@ -90,11 +98,13 @@
   &__desc {
     @extend .u-fs-s;
     @extend .u-fs-r\@s;
+
+    color: $color-white;
     margin: 0;
+
     @include mq(m) {
       margin: 0 0 1rem;
     }
-    color: $color-white;
   }
   // Modifier - Hero variant
   &--hero {
@@ -113,9 +123,9 @@
       }
     }
     &__logo-link:focus {
-      outline: 3px solid $color-focus;
       background-color: transparent;
       box-shadow: none;
+      outline: 3px solid $color-focus;
     }
     &__grid-top {
       min-height: 36px;

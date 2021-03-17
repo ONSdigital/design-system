@@ -1,8 +1,8 @@
 html {
   font-size: $base;
-  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
 body {
@@ -20,9 +20,9 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 1rem;
   line-height: 1.2;
-  & em {
+  margin: 0 0 1rem;
+  em {
     background-color: $color-highlight;
   }
 }
