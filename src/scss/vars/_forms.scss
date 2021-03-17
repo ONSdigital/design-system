@@ -18,8 +18,8 @@ $nbsp-width: 0.256rem;
 @mixin input-width($class-name, $char-width: $char-max-width) {
   @each $width in $input-widths {
     .#{str-replace($class-name, '{x}', $width)} {
-      width: 100%;
       max-width: input-width-calc($width, $char-width);
+      width: 100%;
 
       .field__group & {
         width: input-width-calc($width, $char-width);

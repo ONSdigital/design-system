@@ -1,26 +1,23 @@
 .header-nav {
   &__list {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
   }
 
   &__item {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
     display: block;
     margin: 0;
     padding: 0.3rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
 
     @include mq(m) {
+      border-bottom: 4px solid transparent;
+      border-top: 0;
       display: inline-block;
-      position: relative;
-
       margin: 0 0 0 1rem;
       padding: 0 0 0.3rem;
-
-      border-top: 0;
-      border-bottom: 4px solid transparent;
-
+      position: relative;
       text-align: center;
 
       &:first-child {
@@ -35,17 +32,16 @@
   }
 
   &__item + &__item--secondary {
-    margin-top: 0.5rem;
     border-top: 2px solid $color-white;
+    margin-top: 0.5rem;
   }
 
   &__link {
+    color: $color-white;
     display: block;
+    font-size: 0.9rem;
     margin: 0 0.35rem;
     padding: 0 0.65rem;
-
-    color: $color-white;
-    font-size: 0.9rem;
     text-decoration: none;
 
     &:hover,
@@ -56,10 +52,9 @@
 
     @include mq(m) {
       display: inline-block;
+      font-size: 1rem;
       margin: 0;
       padding: 0;
-
-      font-size: 1rem;
 
       &:hover,
       &:focus {
@@ -75,9 +70,9 @@
 
 .header-service-nav {
   &__list {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
   }
 
   &__item {

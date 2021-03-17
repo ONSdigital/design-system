@@ -1,8 +1,8 @@
 .table {
+  border-collapse: collapse;
+  border-spacing: 0;
   margin-bottom: 1rem;
   width: 100%;
-  border-spacing: 0;
-  border-collapse: collapse;
 
   &__caption {
     font-weight: 700;
@@ -12,9 +12,10 @@
   &__header,
   &__cell {
     @include nth-element(1, 0);
-    padding: 0.5rem 0 0.5rem 1rem;
-    overflow: hidden;
+
     border-bottom: 2px solid $color-grey-1;
+    overflow: hidden;
+    padding: 0.5rem 0 0.5rem 1rem;
     text-align: left;
     vertical-align: top;
     &--numeric {
@@ -39,8 +40,8 @@
   }
 
   &__foot .table__cell {
-    border-top: 1px solid $color-borders;
     border-bottom: 0;
+    border-top: 1px solid $color-borders;
   }
 
   &--dense {
@@ -64,9 +65,9 @@
       }
 
       .table__body .table__row {
+        border-bottom: 2px solid $color-grey-1;
         display: block;
         margin-bottom: 1rem;
-        border-bottom: 2px solid $color-grey-1;
       }
 
       .table__cell {
@@ -79,8 +80,8 @@
         &::before {
           content: attr(data-th);
           float: left;
-          padding-right: 1rem;
           font-weight: 700;
+          padding-right: 1rem;
         }
       }
     }
@@ -93,8 +94,8 @@
     height: 7px;
   }
   ::-webkit-scrollbar-thumb {
-    border-radius: 20px;
     background: $color-grey-2;
+    border-radius: 20px;
   }
   &--on {
     .table__header,
@@ -103,9 +104,9 @@
     }
   }
   &__content {
-    width: 100%;
     overflow: visible;
     overflow-x: scroll;
+    width: 100%;
     &:focus {
       outline: 3px solid $color-focus;
       outline-offset: 3px;
@@ -118,11 +119,11 @@
     }
     .table__right-shadow,
     .table__left-shadow {
-      z-index: 200;
+      height: 100%;
       position: absolute;
       top: 0;
       width: 5px;
-      height: 100%;
+      z-index: 200;
 
       &.with-transition {
         transition: box-shadow 0.4s ease-out;
@@ -184,11 +185,11 @@
     position: relative;
 
     .table__sort-button {
-      display: inline-block;
-      border: 0;
       background-color: transparent;
+      border: 0;
       box-shadow: none;
       color: $color-links;
+      display: inline-block;
       font-family: $font-sans;
       font-weight: 700;
       line-height: 1rem;
@@ -197,15 +198,15 @@
 
       &:hover {
         color: $color-links-hover;
-        text-decoration: underline solid $color-links-hover 2px;
         cursor: pointer;
+        text-decoration: underline solid $color-links-hover 2px;
       }
 
       .svg-icon {
+        fill: $color-grey-3;
+        height: 0.8rem;
         padding-bottom: 0.1rem;
         width: 0.8rem;
-        height: 0.8rem;
-        fill: $color-grey-3;
       }
 
       &:focus {
