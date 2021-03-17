@@ -3,29 +3,25 @@ $checkbox-padding: 0.6rem;
 $checkbox-label-vertical-padding: 0.75rem;
 
 .checkbox {
-  z-index: 1;
   display: inline-block;
   position: relative;
   width: 100%;
+  z-index: 1;
 
   &__input {
-    z-index: 1;
-    box-sizing: border-box;
     appearance: none;
-
-    position: absolute;
-    top: $checkbox-padding + 0.15rem;
-    left: $checkbox-padding;
-
-    width: $checkbox-input-width;
-    height: $checkbox-input-width;
-
-    border: 2px solid $color-input;
-    border-radius: 0.2rem;
-
     background: url(#{$static}/img/icons--check.svg) no-repeat center center;
     background-color: $color-white;
-    background-size: 0px;
+    background-size: 0;
+    border: 2px solid $color-input;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+    height: $checkbox-input-width;
+    left: $checkbox-padding;
+    position: absolute;
+    top: $checkbox-padding + 0.15rem;
+    width: $checkbox-input-width;
+    z-index: 1;
 
     &:focus,
     &:checked {
@@ -38,10 +34,10 @@ $checkbox-label-vertical-padding: 0.75rem;
   }
 
   &__label {
+    cursor: pointer;
     display: block;
     padding: $checkbox-padding 1rem $checkbox-padding ($checkbox-padding * 2 + $checkbox-input-width);
     width: 100%;
-    cursor: pointer;
 
     &--with-description {
       padding: 0 1rem $checkbox-padding 0;
@@ -51,19 +47,17 @@ $checkbox-label-vertical-padding: 0.75rem;
       margin-left: -1.75rem;
     }
 
-    &:before {
-      content: '';
-      z-index: -1;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-
+    &::before {
+      background: $color-white;
       border: 1px solid $color-input;
       border-radius: 3px;
-
-      background: $color-white;
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
     }
 
     * {
@@ -81,7 +75,7 @@ $checkbox-label-vertical-padding: 0.75rem;
     padding: 0 $checkbox-padding $checkbox-padding;
   }
 
-  &__input:checked + &__label:before {
+  &__input:checked + &__label::before {
     background: $color-grey-5;
     box-shadow: 0 0 0 1px $color-input;
   }
@@ -92,7 +86,7 @@ $checkbox-label-vertical-padding: 0.75rem;
     outline-offset: -2px;
   }
 
-  &__input:focus + &__label:before {
+  &__input:focus + &__label::before {
     @extend .input:focus;
   }
 
@@ -106,8 +100,8 @@ $checkbox-label-vertical-padding: 0.75rem;
 
   &--toggle & {
     &__input {
-      top: 0.1rem;
       left: 0;
+      top: 0.1rem;
 
       &:focus {
         box-shadow: 0 0 0 3px $color-focus;
@@ -117,19 +111,19 @@ $checkbox-label-vertical-padding: 0.75rem;
     &__label {
       padding: 0 0 0 ($checkbox-input-width + $checkbox-padding);
 
-      &:before {
-        border: 0;
+      &::before {
         background: none;
+        border: 0;
       }
     }
 
-    &__input:checked + .checkbox__label:before,
-    &__input:focus + .checkbox__label:before {
+    &__input:checked + .checkbox__label::before,
+    &__input:focus + .checkbox__label::before {
       background: transparent;
       box-shadow: none;
     }
 
-    &__input:focus + .checkbox__label:before {
+    &__input:focus + .checkbox__label::before {
       border: 0;
       outline: none;
     }

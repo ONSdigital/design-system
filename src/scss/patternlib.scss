@@ -1,6 +1,5 @@
 @import 'vars/index';
 @import 'helpers/*.scss';
-
 @import '../views/partials/**/*.scss';
 @import '../styles/page-template/examples/block-areas/block-areas';
 @import '../patterns/question/examples/question-anatomy/pl-question-anatomy';
@@ -12,8 +11,8 @@
 
   &--example {
     display: block;
-    padding: 1rem 1.5rem;
     height: auto;
+    padding: 1rem 1.5rem;
   }
 
   &__header {
@@ -41,10 +40,10 @@
   }
 
   &__sub-nav {
+    border-right: 1px solid $color-borders;
     flex: 0 0 auto;
     padding: 1.5rem 1rem;
     width: 300px;
-    border-right: 1px solid $color-borders;
 
     .nav {
       width: 100%;
@@ -74,44 +73,42 @@
     }
 
     code:not(.patternlib-example__code) {
-      display: inline-block;
-      padding: 0.05rem 0.25rem;
       background: $color-grey-5;
       color: $color-red;
+      display: inline-block;
+      padding: 0.05rem 0.25rem;
     }
 
     table {
+      border-collapse: collapse;
+      border-spacing: 0;
       margin: 0;
       width: 100%;
-      border-spacing: 0;
-      border-collapse: collapse;
     }
 
     th {
-      position: sticky;
-      top: 0;
-
-      border-bottom: 2px solid $color-grey-3;
       background: $color-white;
-
+      border-bottom: 2px solid $color-grey-3;
+      position: sticky;
       text-align: left;
+      top: 0;
     }
 
     th,
     td {
-      padding: 0.5rem 0.25rem;
       line-height: 1.4;
+      padding: 0.5rem 0.25rem;
     }
 
     td {
-      border-bottom: 1px solid $color-grey-3;
       background: transparent;
+      border-bottom: 1px solid $color-grey-3;
     }
   }
 
   &__content,
   &__sub-nav {
-    & > {
+    > {
       h1,
       h2,
       h3,
@@ -139,8 +136,8 @@
   }
 
   &__content-header {
-    position: relative;
     margin-bottom: 1rem;
+    position: relative;
   }
 
   .panel + .patternlib-example {
@@ -149,9 +146,9 @@
 }
 
 .patternlib-hero {
+  background: $color-grey-5;
   padding: 2rem 0 1rem;
   width: 100%;
-  background: $color-grey-5;
 
   &__title {
     max-width: 30rem;
@@ -159,22 +156,22 @@
 }
 
 .pl-grid-col {
-  margin: 0 0 1rem;
-  padding: 1rem;
   background: $color-grey-5;
   font-size: 0.8rem;
+  margin: 0 0 1rem;
+  padding: 1rem;
 }
 
 .pl-experimental-tag {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.3rem 0.5rem;
   background: $color-amber;
   color: $color-white;
+  display: inline-block;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1rem;
+  padding: 0.3rem 0.5rem;
+  position: absolute;
+  right: 0;
   text-transform: uppercase;
+  top: 0;
 }

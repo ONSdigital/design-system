@@ -10,9 +10,9 @@
   }
 
   &__button-container {
-    padding: 1rem;
-    background-color: $color-header;
     background-clip: border-box;
+    background-color: $color-header;
+    padding: 1rem;
   }
 
   &__warning {
@@ -26,8 +26,8 @@
   }
 
   &__body {
-    padding: 2rem 0 4rem;
     background-color: $color-grey-5;
+    padding: 2rem 0 4rem;
 
     .list__link {
       margin-right: 0;

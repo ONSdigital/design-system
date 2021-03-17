@@ -1,27 +1,30 @@
 // Block
 .header {
   display: block;
-  position: relative;
-  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  position: relative;
   & &__svg-logo {
     display: block;
     fill: $color-white;
+
     @include mq(m) {
       margin: 0.84rem 0;
     }
+
     @include mq(xxs, 399px) {
       max-width: 160px;
     }
   }
   // Elements
   &__top {
-    width: 100%;
     background: $color-white;
+    width: 100%;
   }
   &__grid-top {
     height: 54px;
+
     @include mq(xs) {
       height: 46px;
     }
@@ -35,6 +38,7 @@
     @include mq(xs) {
       height: 76px;
     }
+
     @include mq(xxs, xs) {
       .header__logo-link:focus {
         padding-top: 0.8rem !important;
@@ -45,34 +49,39 @@
     }
   }
   &__main {
-    padding: 0.56rem 0;
     background: $color-header;
+    padding: 0.56rem 0;
+
     @include mq(m) {
       height: 95px;
     }
     &--border {
-      padding: 0.934rem 0;
-      border-top: 3px solid $color-header;
       border-bottom: 3px solid $color-header;
+      border-top: 3px solid $color-header;
+      padding: 0.934rem 0;
     }
   }
   &__title {
     @extend .u-fs-r--b;
     @extend .u-fs-xl\@xxs;
-    margin: 0;
+
     color: $color-white;
+    margin: 0;
     &--with-description {
       line-height: 1.7 !important;
     }
     &:not(&--with-description) {
       line-height: 1.5 !important;
+
       @include mq(m) {
         line-height: 2.5 !important;
       }
     }
+
     @include mq(xs, m) {
       line-height: 1.75 !important;
     }
+
     @include mq(xxs, xs) {
       line-height: 1.7 !important;
     }
@@ -86,9 +95,11 @@
       //to allow for differences in size between welsh and english logos
       &-census-logo-en {
         height: 30px;
+
         @include mq(m) {
           margin-top: 1.35rem !important;
         }
+
         @include mq(xs) {
           margin-top: 0.2rem;
         }
@@ -103,11 +114,13 @@
   &__desc {
     @extend .u-fs-s;
     @extend .u-fs-r\@s;
+
+    color: $color-white;
     margin: 0;
+
     @include mq(m) {
       margin: 0 0 1rem;
     }
-    color: $color-white;
   }
   // Modifier - Hero variant
   &--hero {
@@ -129,9 +142,9 @@
       }
     }
     &__logo-link:focus {
-      outline: 3px solid $color-focus;
       background-color: transparent;
       box-shadow: none;
+      outline: 3px solid $color-focus;
     }
     &__grid-top {
       min-height: 36px;
@@ -139,8 +152,8 @@
   }
 
   &__top--svg-logo {
-    margin-top: 0.3rem;
     fill: $color-dark-blue;
+    margin-top: 0.3rem;
     &--acent {
       fill: $color-lime-green;
     }
