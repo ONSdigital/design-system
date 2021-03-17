@@ -48,7 +48,6 @@
     right: -4px;
     top: -98px;
     width: 300px;
-    z-index: 2;
     img {
       border-radius: 50%;
       display: block;
@@ -92,6 +91,15 @@
     z-index: 5;
     &--ondark {
       color: $color-white;
+
+      a {
+        color: inherit;
+        text-decoration: underline solid $color-white 1px;
+      }
+
+      a:hover {
+        text-decoration-thickness: 2px;
+      }
     }
   }
 
