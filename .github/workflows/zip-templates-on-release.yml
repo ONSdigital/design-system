@@ -1,24 +1,22 @@
 name: zip-templates-on-release
 on:
-  push:
-    branches:
-      - test-workflow
-  pull_request:
-    branches:
-      - test-workflow
+  release:
+    types: [published]
 jobs:
   zip-templates:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
-      - run: design_system_release=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tag_name")
+      - run: RELEASE_TAG=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tag_name")
       - run: curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tarball_url" | wget -i - -O source.tar.gz
       - run: mkdir design-system
       - run: tar -xzf source.tar.gz -C design-system --strip-components=1
       - run: cd design-system
-      - run: yarn
-      - run: RELEASE_VERSION=$design_system_release yarn cdn-bundle
-      - run: mkdir ../../dist/$design_system_release
-      - run: cp -R build/* ../../dist/$design_system_release
-      - run: zip -r ../../templates/templates.zip templates/*
+      #- run: yarn
+      - run: set
+
+      #- run: RELEASE_VERSION=$design_system_release yarn cdn-bundle
+      #- run: mkdir ../../dist/$design_system_release
+      #- run: zip -r ../../templates/templates.zip templates/*
+      #- run: cp -R build/* ../../dist/$design_system_release
