@@ -1,14 +1,15 @@
 .label {
-  display: block;
-  margin-bottom: 0.4rem;
   color: inherit;
+  display: block;
   font-weight: $font-weight-bold;
+  margin-bottom: 0.4rem;
 
   &__description {
     @extend .u-fs-s;
+
     display: inline-block;
-    margin-top: 6px;
     line-height: 1.4;
+    margin-top: 6px;
   }
 
   &--with-description {
@@ -17,10 +18,10 @@
   }
 
   &--placeholder {
-    position: absolute;
-    top: 6px;
-    left: 8px;
     font-size: 1rem;
     font-weight: $font-weight-regular;
+    left: 8px;
+    position: absolute;
+    top: 6px;
   }
 }

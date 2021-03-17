@@ -4,8 +4,8 @@
   }
 
   &__term {
-    float: left;
     clear: both;
+    float: left;
     font-weight: $font-weight-bold;
 
     &:not(:first-child) {

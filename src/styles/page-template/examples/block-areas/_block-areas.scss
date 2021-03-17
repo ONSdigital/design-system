@@ -1,16 +1,16 @@
 .pattern-lib-block {
-  position: relative;
-  margin: 0 0 1rem;
-  padding: 3rem 1rem 1rem;
-  overflow: hidden;
   border: 2px dashed $color-grey-1;
+  margin: 0 0 1rem;
+  overflow: hidden;
+  padding: 3rem 1rem 1rem;
+  position: relative;
 
   &__label {
-    position: absolute;
-    top: 0;
+    border-bottom: 2px dashed $color-grey-1;
+    border-right: 2px dashed $color-grey-1;
     left: 0;
     padding: 0.25rem 0.5rem;
-    border-right: 2px dashed $color-grey-1;
-    border-bottom: 2px dashed $color-grey-1;
+    position: absolute;
+    top: 0;
   }
 }

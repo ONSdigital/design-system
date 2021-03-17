@@ -1,17 +1,15 @@
 .input {
-  z-index: 3;
-  display: block;
-  position: relative;
-  padding: $input-padding-vertical $input-padding-horizontal;
-  width: 100%;
-
   border: $input-border-width solid $color-input;
   border-radius: $input-radius;
-
   color: inherit;
+  display: block;
   font-family: inherit;
   font-size: 1rem;
   line-height: 1rem;
+  padding: $input-padding-vertical $input-padding-horizontal;
+  position: relative;
+  width: 100%;
+  z-index: 3;
 
   &::-ms-clear {
     display: none;
@@ -29,13 +27,13 @@
   &--text,
   &--textarea {
     // Prevent inner shadow on iOS
-    -webkit-appearance: none;
+    appearance: none;
   }
 
   &:focus {
+    box-shadow: 0 0 0 3px $color-focus;
     outline: 1px solid $color-input;
     outline-offset: -2px;
-    box-shadow: 0 0 0 3px $color-focus;
   }
 
   &:disabled {
@@ -61,22 +59,22 @@
 @include input-width('input-number--w-{x}', 0.54rem);
 
 .input--postcode {
-  width: 100%;
   max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
+  width: 100%;
 }
 
 .input__helper {
-  margin-top: 0.2rem;
   font-size: 0.8rem;
   font-weight: $font-weight-bold;
+  margin-top: 0.2rem;
 }
 
 .input--select {
   appearance: none;
-  padding: 0.39rem 2rem 0.39rem $input-padding-horizontal;
   background: $color-white url('#{$static}/img/icons--chevron-down.svg') no-repeat center right 10px;
   background-size: 1rem;
   line-height: 1.3rem;
+  padding: 0.39rem 2rem 0.39rem $input-padding-horizontal;
 
   &::-ms-expand {
     display: none;
@@ -84,9 +82,9 @@
 }
 
 .input--textarea {
-  width: 100%;
   line-height: normal;
   resize: vertical;
+  width: 100%;
 }
 
 .input--block {

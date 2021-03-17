@@ -49,9 +49,9 @@ a::after {
     }
 
     &__title {
+      color: $color-black;
       margin-bottom: 1rem;
       margin-left: -1.5rem;
-      color: $color-black;
       text-decoration: none;
     }
 
@@ -62,5 +62,5 @@ a::after {
 }
 
 .hero {
-  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
 }
