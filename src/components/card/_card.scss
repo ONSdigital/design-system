@@ -4,6 +4,7 @@
   &__link:hover {
     text-decoration-thickness: 3px;
   }
+
   @include mq(m) {
     margin: 0;
     .grid__col & {

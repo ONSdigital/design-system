@@ -1,8 +1,8 @@
 .patternlib-subnav {
   &__list {
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
   }
 
   &__item {
@@ -22,9 +22,9 @@
   }
 
   &__sub-items {
+    font-weight: $font-weight-regular;
+    list-style: none;
     margin: 0;
     padding: 0 0 0 1rem;
-    list-style: none;
-    font-weight: $font-weight-regular;
   }
 }
