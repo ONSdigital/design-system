@@ -24,15 +24,11 @@ View the nunjucks output below which shows the components required to create the
 The first page of a guide serves as the "parent" to the other pages. In the table of contents it should be linked as "Overview". 
 For accessibility the title `h1` should contain an additional visually hidden `span` that provides the additional "Overview" text e.g.
 
-<pre class="patternlib-example__pre u-mb-s">
-    <code class="patternlib-example__code language-markup">
-        &lt;<span>h1</span> <span>class</span>=<span>"u-mb-l"</span>&gt;
-        &nbsp;&nbsp;&lt;<span>span</span> <span>class</span>=<span>"u-fs-xxl u-db"</span>&gt;<span>About the census</span>&lt;<span>/span</span>&gt;
-        &nbsp;&nbsp;&lt;<span>span</span> <span>class</span>=<span>"u-vh"</span>&gt;<span>: Overview</span>&lt;<span>/span</span>&gt;
-        &lt;<span>/h1</span>&gt;    
-    </code>
-</pre>
-
+{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
+{{ onsCodeHighlight({ "code": '<h1 class="u-mb-l">
+  <span class="u-fs-xxl u-db">About the census</span>
+  <span class="u-vh">: Overview</span>
+</h1>'}) }}
 
 {{
     patternlibExample({"path": "patterns/guide/examples/guide-overview/index.njk"})
@@ -40,15 +36,11 @@ For accessibility the title `h1` should contain an additional visually hidden `s
 
 Other pages in the guide (below the parent) should include the title of the parent page before the title of the current page e.g.
 
-<pre class="patternlib-example__pre u-mb-s">
-    <code class="patternlib-example__code language-markup">
-        &lt;<span>h1</span> <span>class</span>=<span>"u-mb-l"</span>&gt;
-        &nbsp;&nbsp;&lt;<span>span</span> <span>class</span>=<span>"u-fs-m u-db u-mb-xs u-lighter"</span>&gt;<span>About the census</span>&lt;<span>/span</span>&gt;
-        &nbsp;&nbsp;&lt;<span>span</span> <span>class</span>=<span>"u-vh"</span>&gt;<span>:</span>&lt;<span>/span</span>&gt;
-        &nbsp;&nbsp;&lt;<span>span</span> <span>class</span>=<span>"u-fs-xxl u-db"</span>&gt;<span>Why you should take part in the census</span>&lt;<span>/span</span>&gt;
-        &lt;<span>/h1</span>&gt;    
-    </code>
-</pre>
+{{ onsCodeHighlight({ "code": '<h1 class="u-mb-l">
+  <span class="u-fs-m u-db u-mb-xs u-lighter">About the census</span>
+  <span class="u-vh">:</span>
+  <span class="u-fs-xxl u-db">Why you should take part in the census</span>
+</h1>'}) }}
 
 {{
     patternlibExample({"path": "patterns/guide/examples/guide/index.njk"})
