@@ -73,6 +73,18 @@ describe('Component: Cookie banner', function() {
     expect(secondaryBanner.classList.contains('u-d-no')).to.equal(false);
   });
 
+  it('sets all radios to on from off', function() {
+    new CookiesBanner(this.banner);
+
+    const button = this.banner.querySelector('.js-accept-cookies');
+    button.click();
+
+    const radios = [...this.form.querySelectorAll('input[value=on]')];
+    radios.forEach(radio => {
+      expect(radio.checked).to.be.true;
+    });
+  });
+
   it('should hide the secondary message when pressing the hide button', function() {
     new CookiesBanner(this.banner);
     const hideCookiesMessageSpy = chai.spy(CookiesBanner.hideConfirmBanner);
@@ -120,15 +132,30 @@ function renderComponent() {
     '</div>' +
     '</div>' +
     '</div>' +
+    '</div>' +
+    '<form data-module="cookie-settings">' +
+    '<input type="radio" class="js-radio" id="settings-on" name="cookies-settings" value="on">' +
+    '<input type="radio" class="js-radio" id="settings-off" name="cookies-settings" value="off">' +
+    '<input type="radio" class="js-radio" name="cookies-usage" value="on">' +
+    '<input type="radio" class="js-radio" name="cookies-usage" value="off">' +
+    '<input type="radio" class="js-radio" name="cookies-campaigns" value="on">' +
+    '<input type="radio" class="js-radio" name="cookies-campaigns" value="off">' +
+    '<button id="submit-button" type="submit">Submit</button>' +
+    '</form>' +
+    '<div class="cookies-confirmation-message u-d-no">' +
+    '<a class="js-return-link" href="#">Return to previous page</a>' +
     '</div>';
+
   const wrapper = document.createElement('div');
 
   wrapper.innerHTML = formHTML;
   document.body.appendChild(wrapper);
   const banner = wrapper.querySelector('.cookies-banner');
+  const form = wrapper.querySelector('form');
 
   return {
     wrapper,
     banner,
+    form,
   };
 }

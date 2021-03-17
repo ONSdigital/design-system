@@ -2,9 +2,9 @@
   display: flex;
 
   & + & {
+    border-top: 1px solid $color-grey-2;
     margin: 1.5rem 0 0;
     padding: 1.5em 0 0;
-    border-top: 1px solid $color-grey-2;
   }
 
   &__image {
@@ -14,10 +14,10 @@
   }
 
   &__image-link {
-    display: block;
-    box-sizing: content-box;
-    width: 100%;
     border: 2px solid $color-grey-4;
+    box-sizing: content-box;
+    display: block;
+    width: 100%;
 
     &:focus {
       border-color: $color-document-border-focus;
@@ -28,8 +28,8 @@
   }
 
   &__meta {
-    display: block;
     color: $color-grey-1;
+    display: block;
   }
 
   &__excerpt {

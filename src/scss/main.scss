@@ -1,5 +1,7 @@
 @import 'normalize-scss';
+
 @include normalize();
+
 @import 'vars/index';
 @import 'helpers/*.scss';
 @import 'base/*.scss';
