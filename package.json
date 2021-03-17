@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "yarn tidy-clean && yarn webpack-dev-server --host 0.0.0.0 --watch --config webpack.dev.babel.js",
-    "build": "yarn tidy-clean && yarn webpack --config webpack.prod.babel.js",
+    "build": "yarn && yarn tidy-clean && yarn webpack --config webpack.prod.babel.js",
     "npm-bundle": "NODE_ENV=production yarn tidy-clean && yarn webpack --config webpack.npm.babel.js && babel-node ci/generate-npm-package.js",
     "cdn-bundle": "NODE_ENV=production yarn tidy-clean && yarn webpack --config webpack.cdn.babel.js && babel-node ci/prepare-templates-for-zip.js",
     "test:local": "KARMA_SINGLE_RUN=false karma start ./src/tests/config/karma.conf.js",
