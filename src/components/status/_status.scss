@@ -4,18 +4,19 @@
 }
 
 @mixin status-size($status-size: 1rem, $status-mb: -0.15rem) {
-  width: $status-size;
   height: $status-size;
   margin-bottom: $status-mb;
+  width: $status-size;
 }
 
 .status {
   &::before {
     @include status-size;
-    content: '';
+
     border-radius: 100%;
-    display: inline-block;
     box-sizing: border-box;
+    content: '';
+    display: inline-block;
     margin-right: 0.391rem;
   }
 
@@ -24,19 +25,19 @@
     @include status-size(0.555555rem, $status-mb: 0.055556rem);
   }
 
-  &.status--success:before {
+  &.status--success::before {
     @include status-dot($color-success-dot);
   }
-  &.status--pending:before {
+  &.status--pending::before {
     @include status-dot($color-pending-dot);
   }
-  &.status--error:before {
+  &.status--error::before {
     @include status-dot($color-errors-dot);
   }
-  &.status--dead:before {
+  &.status--dead::before {
     @include status-dot($color-dead);
   }
-  &.status--info:before {
+  &.status--info::before {
     @include status-dot($color-info-dot);
   }
 }

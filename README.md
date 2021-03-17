@@ -98,5 +98,5 @@ yarn build
 - [Nunjucks](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
 - [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Sass](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented)
-- [Sass Lint](https://marketplace.visualstudio.com/items?itemName=glen-84.sass-lint)
+- [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 - [vscode-remark-lint](https://marketplace.visualstudio.com/items?itemName=drewbourne.vscode-remark-lint)
