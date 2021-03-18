@@ -121,9 +121,3 @@ jobs:
             title: Concourse Build $BUILD_ID
             title_link: http://concourse.dev.eq.ons.digital/builds/$BUILD_ID
 
-  - put: ons-design-system-release
-    params:
-      name: ons-design-system-release/version
-      tag: ons-design-system-release/version
-      globs:
-        - templates/*.zip
