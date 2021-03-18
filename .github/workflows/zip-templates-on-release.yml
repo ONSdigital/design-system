@@ -1,11 +1,7 @@
 name: zip-templates-on-release
 on:
-  push:
-    branches:
-      - test-workflow
-  pull_request:
-    branches:
-      - test-workflow
+  release:
+    types: [published]
 jobs:
   zip-templates:
     runs-on: ubuntu-latest
@@ -31,5 +27,5 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: templates/templates.zip
-          tag: 31.4.7
+          tag: $(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tag_name")
           overwrite: true
