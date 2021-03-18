@@ -104,11 +104,17 @@ const jsCore = merge(core, {
       {
         test: /\.(njk|html)$/,
         exclude: /(node_modules)/,
-        loader: 'simple-nunjucks-loader',
-        query: {
-          root: `${__dirname}/src`,
-          config: `${__dirname}/nunjucks.config.js`,
-        },
+        use: [
+          {
+            loader: 'simple-nunjucks-loader',
+            options: {
+              filters: {
+                searchPaths: `${__dirname}/src`,
+                nunjucksConfig: `${__dirname}/nunjucks.config.js`,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(scss)$/,

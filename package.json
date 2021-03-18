@@ -134,7 +134,7 @@
     "replace-in-file": "^6.1.0",
     "rewiremock": "^3.13.0",
     "rimraf": "^2.6.3",
-    "sass-loader": "10.1.1",
+    "sass-loader": "7.1.0",
     "simple-nunjucks-loader": "2.0.3",
     "style-loader": "^0.23.1",
     "stylelint": "^13.11.0",
