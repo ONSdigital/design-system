@@ -110,7 +110,7 @@ const jsCore = merge(core, {
             options: {
               searchPaths: `${__dirname}/src`,
               filters: {
-                nunjucksConfig: `${__dirname}/nunjucks.config.js`,
+                nunjucksFilters: path.join(__dirname, '/nunjucks.filters.js'),
               },
             },
           },
