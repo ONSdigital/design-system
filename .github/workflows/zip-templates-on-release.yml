@@ -1,7 +1,11 @@
 name: zip-templates-on-release
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - test-workflow
+  pull_request:
+    branches:
+      - test-workflow
 jobs:
   zip-templates:
     runs-on: ubuntu-latest
