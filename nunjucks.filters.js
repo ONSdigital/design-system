@@ -1,6 +1,7 @@
-module.exports = function(input, done) {
-  setTimeout(function() {
-    done('[nunjucksFilters] ' + input);
-  }, 1000);
+const setAttribute = require('./lib/filters/set-attribute').default;
+const setAttributes = require('./lib/filters/set-attributes').default;
+
+module.exports = function(environment) {
+  environment.addFilter('setAttribute', setAttribute);
+  environment.addFilter('setAttributes', setAttributes);
 };
-module.exports.async = true;
