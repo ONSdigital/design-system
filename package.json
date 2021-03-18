@@ -119,7 +119,7 @@
     "normalize-scss": "^7.0.1",
     "nunjucks": "^3.1.4",
     "postcss": "^8.2.8",
-    "postcss-loader": "4.2.0",
+    "postcss-loader": "3.0.0",
     "postcss-mq-optimize": "^1.1.0",
     "postcss-url": "^10.1.1",
     "prepend-file": "^1.3.1",
