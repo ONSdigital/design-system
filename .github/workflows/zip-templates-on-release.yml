@@ -17,15 +17,16 @@ jobs:
       - run: mkdir design-system
       - run: tar -xzf source.tar.gz -C design-system --strip-components=1
       - run: cd design-system
-      - run: RELEASE_VERSION=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tag_name") yarn cdn-bundle
+      - run: echo "GITHUB_RELEASE_TAG=$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tag_name")" >> $GITHUB_ENV
+      - run: RELEASE_VERSION=$GITHUB_RELEASE_TAG yarn cdn-bundle
       - run: yarn install
-      - run: mkdir ../$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tag_name")
+      - run: mkdir ../$GITHUB_RELEASE_TAG
       - run: cd ../
       - run: zip -r templates/templates.zip templates/*
-      - run: cp -R build/* ../$(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tag_name")
+      - run: cp -R build/* ../$GITHUB_RELEASE_TAG
       - uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: templates/templates.zip
-          tag: $(curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tag_name")
+          tag: $GITHUB_RELEASE_TAG
           overwrite: true
