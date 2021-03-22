@@ -32,12 +32,8 @@
                 "legendIsPageTitle": params.legendIsPageTitle,
                 "legend": titleHtml,
                 "description": descHtml if params.description is defined and params.description else '',
-                "id": params.fieldset.id,
-                "classes": params.fieldset.classes,
                 "legendClasses": params.legendClasses,
-                "legendTitleClasses": params.legendTitleClasses,
-                "attributes": params.attributes,
-                "error": params.error
+                "legendTitleClasses": params.legendTitleClasses
             }) %}
 
                 {% if params.instruction is defined and params.instruction %}
