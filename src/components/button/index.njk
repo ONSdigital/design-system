@@ -39,7 +39,8 @@ A small secondary button should be used within the same context of a primary sma
 }}
 
 ### Call to action
-The call to action button should be used when a link is the primary call to action on a page.
+The call to action button should be used when a link is the primary call to action on a page. 
+Links styled as buttons are not accessible without certain attributes. We add `role=button` to the html which allows users that use voice commands to select the button.
 {{
     patternlibExample({"path": "components/button/examples/button-link/index.njk"})
 }}

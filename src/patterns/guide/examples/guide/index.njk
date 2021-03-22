@@ -1,0 +1,126 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+
+{% from "components/content-pagination/_macro.njk" import onsContentPagination %}
+{% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
+{% from "components/toc/_macro.njk" import onsTableOfContents %}
+
+{% set pageConfig = {
+    "title": "Census 2021",
+    "theme": "census",
+    "header": {
+        "logoHref": "#",
+        "titleLogo": "census-logo-en",
+        "titleLogoHref": "#",
+        "titleLogoAlt": "Census 2021"
+    },
+    "language": {
+        "allLanguagesUrl": "#",
+        "languages": [
+            {
+                "url": "#",
+                "ISOCode": "en",
+                "text": "English",
+                "buttonAriaLabel": "Language selector. Current language: English",
+                "chooseLanguage": "Choose language",
+                "allLanguages": "All languages",
+                "current": true
+            },
+            {
+                "url": "#",
+                "ISOCode": "cy",
+                "text": "Cymraeg",
+                "buttonAriaLabel": "Dewisydd iaith. Iaith gyfredol: Cymraeg",
+                "chooseLanguage": "Dewiswch iaith",
+                "allLanguages": "Pob iaith",
+                "current": false
+            }
+        ]
+    },
+    "footer": {}
+} %}
+{% block preMain %}
+    {{
+        onsBreadcrumb({
+            "ariaLabel": 'Breadcrumb',
+            "itemsList": [
+                {
+                    "url": '/',
+                    "text": 'Home'
+                },
+                {
+                    "url": '/#',
+                    "text": 'Guide example'
+                }
+            ]
+        })
+    }}
+{% endblock %}
+
+{% block main %}
+    <h1 class="u-mb-l">
+        <span class="u-fs-m u-db u-mb-xs u-lighter">About the census</span> 
+        <span class="u-vh">: </span>
+        <span class="u-fs-xxl u-db">Why you should take part in the census</span>
+    </h1>    
+    {{-
+        onsTableOfContents({
+            "ariaLabel": "Pages in this guide",
+            "title": "Contents",
+            "skipLink": {
+                "url": "#section-content",
+                "text": "Skip to guide content"
+            },
+            "itemsList": [
+                {
+                    "url": '#',
+                    "text": 'Overview'
+                },
+                {
+                    "url": '#',
+                    "text": 'Who should take part and why',
+                    "current": true
+                },
+                {
+                    "url": '#',
+                    "text": 'How your information is used'
+                },
+                {
+                    "url": '#',
+                    "text": 'The 2019 Census Rehearsal'
+                },
+                {
+                    "url": '#',
+                    "text": 'Online census'
+                }
+            ]
+        }) 
+    }}
+    <section id="section-content" class="page__body">
+<p>It’s important you take part in the census. The information it gives has the power to make a real impact on our everyday lives.</p><h2>The census is vital to all of us</h2><p>The census helps us understand what our society needs now and what it’s likely to need in the future. The information it collects helps plan and fund services in your area. This could include transport, education and healthcare.</p><p>Charities also use census information to help get the funding they need. Businesses use it to decide where to set up, which creates job opportunities.<br></p><h2>Its success could help you</h2><p>Census 2021 will help give the best picture of the needs of everyone living in England and Wales.</p><p>A total of 94% of people took part in the last census, helping each area receive its share of public funding. Without the census, it would be much more difficult to provide the services you and your community need.</p><h2>You must complete the census by law</h2><p>You must complete the census by law. If you do not, or if you supply false information, you could be fined up to £1,000. Some questions are clearly labelled as voluntary. It is not an offence if you do not answer these.</p>        <div class="u-mt-xl">
+            {{-
+            onsContentPagination({
+                "contentPaginationItems": [
+                    {
+                        "rel": 'next',
+                        "text": 'Next',
+                        "url": '#',
+                        "label": 'How your information is used'
+                    },
+                    {
+                        "rel": 'prev',
+                        "text": 'Previous',
+                        "url": '#',
+                        "label": 'About the census'
+                    }
+                    ]
+                })
+            }}    
+        </div>
+    </section>
+
+{% endblock %}

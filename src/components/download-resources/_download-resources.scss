@@ -26,31 +26,6 @@
     margin-bottom: 1.5rem;
   }
 
-  &__reset {
-    background-color: transparent;
-    border: 0 none;
-    color: $color-grey-1;
-    cursor: pointer;
-    font-family: inherit;
-    font-weight: normal;
-    padding: 0;
-    text-decoration: underline;
-    text-underline-position: under;
-
-    &:hover {
-      color: $color-black;
-      text-decoration: underline solid $color-black 2px;
-    }
-
-    &:focus {
-      background-color: $color-yellow;
-      box-shadow: 0 -2px $color-yellow, 0 4px $color-black;
-      color: $color-black;
-      outline: 3px solid transparent;
-      text-decoration: none;
-    }
-  }
-
   &__results-sort {
     align-items: center;
     display: flex;

@@ -4,8 +4,6 @@ resource_types:
   source:
     repository: cfcommunity/slack-notification-resource
     tag: latest
-    username: ((dockerhub_username))
-    password: ((dockerhub_password))
 
 resources:
 - name: ons-design-system-release
@@ -39,8 +37,6 @@ jobs:
         source:
           repository: node
           tag: 14.15.0
-          username: ((dockerhub_username))
-          password: ((dockerhub_password))
 
       inputs:
       - name: ons-design-system-release
