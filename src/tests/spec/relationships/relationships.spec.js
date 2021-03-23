@@ -3,7 +3,7 @@ import template from 'components/relationships/_test-template.njk';
 import Relationships from 'components/relationships/relationships';
 
 const params = {
-  legend: 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>',
+  dontWrap: true,
   title: 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>',
   // eslint-disable-next-line prettier/prettier
   playback: "Amanda Bloggs is Joe Bloggs' <em>…</em>",
@@ -228,7 +228,6 @@ function renderComponent(params) {
   const h1 = wrapper.querySelector('h1');
   const radios = [...context.querySelectorAll('input[type=radio]')];
   const playback = context.querySelector('.js-relationships-playback');
-
   return {
     wrapper,
     context,
