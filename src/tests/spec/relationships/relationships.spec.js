@@ -4,6 +4,7 @@ import Relationships from 'components/relationships/relationships';
 
 const params = {
   legend: 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>',
+  title: 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>',
   // eslint-disable-next-line prettier/prettier
   playback: "Amanda Bloggs is Joe Bloggs' <em>…</em>",
   name: 'relationship',
