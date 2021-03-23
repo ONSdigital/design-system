@@ -2,6 +2,7 @@
 .hero {
   background-color: $color-branded;
   padding: 2rem 0;
+
   &__content {
     height: 100%;
   }
@@ -48,6 +49,8 @@
     right: -4px;
     top: -98px;
     width: 300px;
+    z-index: 2;
+
     img {
       border-radius: 50%;
       display: block;
@@ -64,7 +67,7 @@
     width: 182px;
     z-index: 3;
   }
-  .hero__circle-white {
+  .hero__circle {
     background-color: $color-white;
     border-radius: 50%;
     display: block;
@@ -89,6 +92,7 @@
     padding-top: 218px;
     position: relative;
     z-index: 5;
+
     &--ondark {
       color: $color-white;
 
@@ -122,7 +126,7 @@
       top: 1rem;
       width: 234px;
     }
-    .hero__circle-white {
+    .hero__circle {
       left: -331px;
       margin: auto; // Reset
       top: -288px;
