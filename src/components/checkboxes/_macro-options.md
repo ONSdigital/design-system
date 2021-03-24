@@ -8,6 +8,7 @@
 | checkboxes        | `Array<Checkbox>`                                             | true     | An array of checkboxes to render                                                           |
 | mutuallyExclusive | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false    | Configuration object if this is a mutually exclusive checkbox list                         |
 | dontWrap          | boolean                                                       | false    | Prevents the checkboxes from being wrapped in a [fieldset component](/components/fieldset) |
+| legendIsPageTitle | boolean                                                       | false    | Creates a `h1` inside the legend                                                           |
 | open              | boolean                                                       | false    | Whether the 'other' input should be displayed                                              |
 
 ## Checkbox

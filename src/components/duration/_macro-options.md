@@ -4,6 +4,7 @@
 | field1            | DurationField                                                 | false                            | Config for the years field                                                      |
 | field2            | DurationField                                                 | false                            | Config for the months field                                                     |
 | dontWrap          | boolean                                                       | false                            | Prevents the input from being wrapped in a [field component](/components/field) |
+| legendIsPageTitle | boolean                                                       | false                            | Creates a `h1` inside the legend                                                |
 | mutuallyExclusive | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false                            | Configuration object if this is a mutually exclusive input                      |
 | legend            | string                                                        | Only if mutuallyExclusive is set | Text content for the legend                                                     |
 | legendClasses     | string                                                        | false                            | Classes for the legend                                                          |

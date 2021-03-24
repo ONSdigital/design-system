@@ -22,6 +22,17 @@ Generally speaking you should not need to {{
     })
 }} `onsFieldset`.
 
+### Legend as page/question title
+
+When a fieldset is on a page such as a question page, it's quite possible that the page heading (`h1`) is the same as what the legend needs to be. 
+A quick way to avoid visual repitition of the same text is to add the utility class `.u-vh` to visually hide the legend. This doesn't avoid repetition for screen reader users however.
+
+We recommend wrapping the `h1` inside the legend. There are two options for doing this:
+
+1. When using the [question macro](/patterns/question) include the parameter `"legendIsPageTitle": true` inside the `onsQuestion` configuration. Also include `"dontWrap": true` in the configuration of the input you are using.
+2. When just using an input component without the question component only include the parameter `"legendIsPageTitle": true` in the configuration of the input you are using.
+
+
 ### Configuration
 
 {% md %}
