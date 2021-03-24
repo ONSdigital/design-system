@@ -97,13 +97,55 @@ layout: none
     {% endcall %}
 
     {% call onsQuestion ({
-        "title": "How many employees do you pay on a monthly basis?",
-        "legendIsPageTitle": true
+        "title": "How many employees do you pay on a monthly basis?"
     }) %}
+        {{
+            onsInput({
+                "type": "number",
+                "id": "number",
+                "classes": "input--w-5",
+                "fieldClasses": "question__answer",
+                "attributes": {
+                    "min": 0,
+                    "required": true
+                },
+                "label": {
+                    "text": "Number of employees paid monthly"
+                },
+                "error": {
+                    "id": "number",
+                    "text": "Enter a number"
+                }
+            })
+        }}
+
+        {{
+            onsInput({
+                "type": "number",
+                "id": "number-input",
+                "classes": "input--w-2",
+                "fieldClasses": "question__answer",
+                "value": "101",
+                "attributes": {
+                    "required": true
+                },
+                "label": {
+                    "text": "Percentage of employees paid monthly"
+                },
+                "suffix": {
+                    "title": "percent",
+                    "text": "%"
+                },
+                "error": {
+                    "id": "suffixed",
+                    "text": "Enter a number less than or equal to 100"
+                }
+            })
+        }}
 
         {{
             onsRadios({
-                "dontWrap": true,
+                "legend": "How many employees do you employ?",
                 "name": "food",
                 "id": "radios",
                 "error": {
@@ -141,6 +183,125 @@ layout: none
                         }
                     }
                 ]
+            })
+        }}
+
+        {{
+            onsDateInput({
+                "legend": "Date of birth",
+                "description": "For example, 31 3 1980",
+                "id": "dates",
+                "day": {
+                    "label": {
+                        "text": "Day"
+                    },
+                    "name": "day",
+                    "attributes": {
+                        "autocomplete": "bday-day"
+                    }
+                },
+                "month": {
+                    "label": {
+                        "text": "Month"
+                    },
+                    "name": "month",
+                    "attributes": {
+                        "autocomplete": "bday-month"
+                    }
+                },
+                "year": {
+                    "label": {
+                        "text": "Year"
+                    },
+                    "name": "year",
+                    "attributes": {
+                        "autocomplete": "bday-year"
+                    }
+                },
+                "error": {
+                    "text": "Enter a date of birth",
+                    "id": "date"
+                }
+            })
+        }}
+        {{
+            onsCheckboxes({
+                "legend": "What are your favourite pizza toppings?",
+                "checkboxesLabel": "Select all that apply",
+                "name": "food",
+                "error": {
+                    "text": "Select at least one answer",
+                    "id": "check"
+                },
+                "checkboxes": [
+                    {
+                        "id": "bacon",
+                        "label": {
+                            "text": "Bacon"
+                        },
+                        "value": "bacon"
+                    },
+                    {
+                        "id": "olives",
+                        "label": {
+                            "text": "Olives"
+                        },
+                        "value": "olives"
+                    }
+                ],
+                "mutuallyExclusive": {
+                    "or": "Or",
+                    "deselectMessage": "Selecting this will uncheck all other checkboxes",
+                    "deselectGroupAdjective": "deselected",
+                    "deselectCheckboxAdjective": "deselected",
+                    "checkbox": {
+                        "id": "no-toppings",
+                        "label": {
+                            "text": "No toppings"
+                        },
+                        "value": "no-toppings"
+                    }
+                }
+            })
+        }}
+        {{
+            onsPassword({
+                "id": "password",
+                "label": {
+                    "text": "Password"
+                },
+                "error": {
+                    "text": "Enter password",
+                    "id": "pass"
+                },
+                "showPasswordText": "Show password"
+            })
+        }}
+        {{
+            onsInput({
+                "id": "email",
+                "type": "email",
+                "label": {
+                    "text": "Email address"
+                },
+                "error": {
+                    "text": "Enter an email address",
+                    "id": "email"
+                },
+                "mutuallyExclusive": {
+                    "or": "Or",
+                    "deselectMessage": "Selecting this will clear your email address",
+                    "deselectGroupAdjective": "cleared",
+                    "deselectCheckboxAdjective": "deselected",
+                    "checkbox": {
+                        "id": "email-checkbox",
+                        "name": "no-email",
+                        "value": "no-email",
+                        "label": {
+                            "text": "I don't want to receive a confirmation email"
+                        }
+                    }
+                }
             })
         }}
     {% endcall %}
