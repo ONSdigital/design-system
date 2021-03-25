@@ -54,7 +54,7 @@ export function approveAllCookieTypes() {
     campaigns: true,
   };
 
-  setCookie('ons_cookie_policy', JSON.stringify(approvedConsent), { days: 365 });
+  setCookie('ons_cookie_policy', JSON.stringify(approvedConsent).replace(/"/g, "'"), { days: 365 });
 }
 
 export function getConsentCookie() {
