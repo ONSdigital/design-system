@@ -17,6 +17,8 @@ export default class SubmitButton {
       } else {
         this.button.addEventListener('click', this.timerButton.bind(this));
       }
+    } else if (this.submitType == 'link') {
+      this.button.addEventListener('keydown', this.linkButton.bind(this));
     }
   }
 
@@ -42,5 +44,12 @@ export default class SubmitButton {
       1000,
       this.button,
     );
+  }
+
+  linkButton(e) {
+    if (e.keyCode == 32) {
+      e.preventDefault();
+      this.button.click();
+    }
   }
 }
