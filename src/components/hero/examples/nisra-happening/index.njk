@@ -1,0 +1,30 @@
+---
+"theme": census
+"fullWidth": true
+---
+{% from "components/hero/_macro.njk" import onsHero %}
+{{
+    onsHero({
+        censusTheme: true,
+        title: 'Census 2021 is here',
+        subtitle: 'Ready to start your Northern Ireland census online?',
+        text: 'You will need your 16&#8209;character access code',
+        button: {
+            url: '#0',
+            text: 'Start census'
+        },
+        collapsible: {
+            classes: 'u-mt-s',
+            id: 'collapsible',
+            title: 'Don’t have a code?',
+            titleTag: 'h2',
+            content: '<p>Find out <a href="#0">where to find your access code</a>, or <a href="#0">request a new code</a> to start a new census.</p>',
+            closeButtonText: 'Hide this',
+            closeButtonContextSuffix: 'content'
+        },
+        image: {
+            smallSrc: '/img/small/mother-and-daughter-in-ireland.jpg',
+            largeSrc: '/img/large/mother-and-daughter-in-ireland.jpg'
+        }
+    })
+}}
