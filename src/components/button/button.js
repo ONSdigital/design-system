@@ -1,54 +1,46 @@
 let i = 0;
-export const classPatternLibForm = 'js-patternlib-form';
 export default class SubmitButton {
   constructor(button, submitType) {
-    this.submitButton = button;
-    this.formEl = [...document.getElementsByTagName('form')][0];
-    this.patternLibForm = this.formEl && this.formEl.classList.contains(classPatternLibForm) ? true : false;
+    this.button = button;
+    this.form = [...document.getElementsByTagName('form')][0];
     this.submitType = submitType;
 
     if (this.submitType == 'loader') {
-      this.submitButton.addEventListener('click', this.loaderButton.bind(this));
+      if (this.form.length) {
+        this.form.addEventListener('submit', this.loaderButton.bind(this));
+      } else {
+        this.button.addEventListener('click', this.loaderButton.bind(this));
+      }
     } else if (this.submitType == 'timer') {
-      this.submitButton.addEventListener('click', this.timerButton.bind(this));
-    } else if (this.submitType == 'link') {
-      this.submitButton.addEventListener('keydown', this.linkButton.bind(this));
+      if (this.form.length) {
+        this.form.addEventListener('submit', this.timerButton.bind(this));
+      } else {
+        this.button.addEventListener('click', this.timerButton.bind(this));
+      }
     }
   }
 
   loaderButton() {
-    this.submitForm();
-    this.submitButton.classList.add('is-loading');
-    this.submitButton.setAttribute('disabled', true);
+    this.button.classList.add('is-loading');
+    this.button.setAttribute('disabled', true);
   }
 
   timerButton(event) {
-    this.submitForm();
-
-    if (this.submitButton.tagName === 'A') {
+    if (this.button.tagName === 'A') {
       i++;
       if (i > 1) {
         event.preventDefault();
       }
     } else {
-      this.submitButton.setAttribute('disabled', true);
+      this.button.setAttribute('disabled', true);
     }
-    setTimeout(() => {
-      this.submitButton.removeAttribute('disabled');
-      i = 0;
-    }, 1000);
-  }
-
-  linkButton(e) {
-    if (e.keyCode == 32) {
-      e.preventDefault();
-      this.submitButton.click();
-    }
-  }
-
-  submitForm() {
-    if (this.formEl && this.formEl.length && !this.patternLibForm) {
-      this.formEl.submit();
-    }
+    setTimeout(
+      button => {
+        button.removeAttribute('disabled');
+        i = 0;
+      },
+      1000,
+      this.button,
+    );
   }
 }
