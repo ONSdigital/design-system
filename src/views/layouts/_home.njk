@@ -1,6 +1,6 @@
 {% extends "./_master.njk" %}
 
-{% block master_body %}
+{% block page %}
     {% from "components/header/_macro.njk" import onsHeader %}
     {% from "components/footer/_macro.njk" import onsFooter %}
     {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
@@ -15,7 +15,7 @@
     {{
         onsHeader({
             "title": "Design system",
-            "fullWidth": true,
+            "wide": "true",
             "classes": "patternlib-page__header",
             "toggleButton": {
                 "text": "Menu",
@@ -35,20 +35,10 @@
     }}
     <div class="patternlib-page__body">
         <div class="patternlib-page__primary">
-            <main id="main-content" class="patternlib-page__main">
+            <main id="main-content">
                 {% block main %}
                 {% endblock %}
             </main>
-            {{
-                onsFooter({
-                    "OGLLink": {
-                        "pre": 'All content is available under the',
-                        "link": 'Open Government Licence v3.0',
-                        "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-                        "post": ', except where otherwise stated'
-                    }
-                })
-            }}
         </div>
     </div>
 {% endblock %}
