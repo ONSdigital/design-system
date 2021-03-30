@@ -5,8 +5,6 @@
 @import '../patterns/question/examples/question-anatomy/pl-question-anatomy';
 
 .patternlib-page {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
 
   &--example {
@@ -19,30 +17,8 @@
     margin: 0;
   }
 
-  &__body {
-    display: flex;
-    flex: 1;
-  }
-
-  &__sub-nav,
-  &__primary,
-  &__main {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__sub-nav,
-  &__primary {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-  }
-
   &__sub-nav {
-    border-right: 1px solid $color-borders;
-    flex: 0 0 auto;
-    padding: 1.5rem 1rem;
-    width: 300px;
+    margin: 2rem 0;
 
     .nav {
       width: 100%;
@@ -50,25 +26,19 @@
   }
 
   &__main {
-    flex: 1 0 auto;
-  }
-
-  &__primary {
-    flex: 1 1 auto;
+    margin-bottom: 4.5rem;
+    margin-top: 2rem;
   }
 
   &__content {
-    padding: 1.5rem;
     width: 100%;
     p,
     li,
-    h1,
-    h2,
     h3,
     h4,
     h5,
     h6 {
-      max-width: 50rem;
+      max-width: 33rem;
     }
 
     code:not(.patternlib-example__code) {
@@ -168,9 +138,7 @@
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1rem;
+  margin-right: 0.5rem;
   padding: 0.3rem 0.5rem;
-  position: absolute;
-  right: 0;
   text-transform: uppercase;
-  top: 0;
 }
