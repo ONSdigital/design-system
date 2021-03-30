@@ -1,0 +1,53 @@
+---
+title: Web form
+group: Ask users for...
+experimental: true
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+
+{{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
+
+## Web form
+A single-page form asking users to select their country, what they need help with and contact details.
+
+{{
+    patternlibExample({ "path": "patterns/webform/examples/form/index.njk" })
+}}
+
+## Web form errors
+
+{{
+    patternlibExample({ "path": "patterns/webform/examples/errors/index.njk" })
+}}
+
+## Web form success
+A page with success panel, confirming the contact form has been sent.
+
+{{
+    patternlibExample({ "path": "patterns/webform/examples/success/index.njk" })
+}}
+
+## Research on this pattern
+{% call onsPanel() %}
+    If you have conducted any user research using this pattern, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/discussions/1457",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/1457",
+        "linkText": "Discuss 'Web form' on GitHub"
+    })
+}}
