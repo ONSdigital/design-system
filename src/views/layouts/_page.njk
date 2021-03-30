@@ -1,6 +1,6 @@
 {% extends "./_master.njk" %}
 
-{% block master_body %}
+{% block page %}
     {% from "components/header/_macro.njk" import onsHeader %}
     {% from "components/footer/_macro.njk" import onsFooter %}
     {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
@@ -15,7 +15,7 @@
     {{
         onsHeader({
             "title": "Design system",
-            "fullWidth": true,
+            "wide": true,
             "classes": "patternlib-page__header",
             "toggleButton": {
                 "text": "Menu",
@@ -35,51 +35,48 @@
     }}
 
     <div class="patternlib-page__body">
-        {% if (page.hideSidebar !== true) and
-            (helpers.subNavigationHelper({ pageInfo: pageInfo }).length > 0)
-        %}
-            {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNavigation %}
-
-            <div class="patternlib-page__sub-nav">
-                {% for group in helpers.subNavigationHelper({
-                    pageInfo: pageInfo,
-                    anchorLinks: page.anchorLinks
-                }) %}
-                    {% if group.title is defined and group.title %}
-                        <h2 class="u-mb-xs">{{ group.title }}</h2>
-                    {% endif %}
-                    {{
-                        patternlibSubNavigation({
-                            "ariaLabel": "Sub menu",
-                            "ariraListLabel": "Child menu",
-                            "currentPath": pageInfo.url,
-                            "itemsList": group.items
-                        })
-                    }}
-                {% endfor %}
-            </div>
-        {% endif %}
-        <div class="patternlib-page__primary">
-            <main id="main-content" class="patternlib-page__main">
-                <div class="patternlib-page__content">
-                    <header class="patternlib-page__content-header">
-                        <h1>{{ pageInfo.title }}</h1>
-                        {% if pageInfo.experimental %}<span class="pl-experimental-tag">Experimental</span>{% endif %}
-                    </header>
-                    {% block main %}
-                    {% endblock %}
+        <div class="container container--wide">
+            <div class="grid">
+                {% if (page.hideSidebar !== true) and
+                    (helpers.subNavigationHelper({ pageInfo: pageInfo }).length > 0)
+                %}
+                    {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNavigation %}
+                    <div class="grid__col col-3@m">
+                        <div class="patternlib-page__sub-nav">
+                            {% for group in helpers.subNavigationHelper({
+                                pageInfo: pageInfo,
+                                anchorLinks: page.anchorLinks
+                            }) %}
+                                {% if group.title is defined and group.title %}
+                                    <h2 class="u-fs-r--b u-mb-xs">{{ group.title }}</h2>
+                                {% endif %}
+                                {{
+                                    patternlibSubNavigation({
+                                        "ariaLabel": "Sub menu",
+                                        "ariraListLabel": "Child menu",
+                                        "currentPath": pageInfo.url,
+                                        "itemsList": group.items
+                                    })
+                                }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="grid__col col-9@m">
+                    <div class="patternlib-page__primary">
+                        <main id="main-content" class="patternlib-page__main">
+                            <div class="patternlib-page__content">
+                                <header class="patternlib-page__content-header">
+                                    <h1 class="u-fs-xxl">{{ pageInfo.title }}</h1>
+                                    {% if pageInfo.experimental %}<span class="pl-experimental-tag">Experimental</span>{% endif %}
+                                </header>
+                                {% block main %}
+                                {% endblock %}
+                            </div>
+                        </main>
+                    </div>
                 </div>
-            </main>
-            {{
-                onsFooter({
-                    "OGLLink": {
-                        "pre": 'All content is available under the',
-                        "link": 'Open Government Licence v3.0',
-                        "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-                        "post": ', except where otherwise stated'
-                    }
-                })
-            }}
+            </div>
         </div>
     </div>
 {% endblock %}
