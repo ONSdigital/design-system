@@ -3,9 +3,11 @@
 
 {% set pageConfig = {"lang": page.lang } %}
 
-{% block master_body %}
+{% block page %}
     <main class="patternlib-page__example">
         {% block main %}
         {% endblock %}
     </main>
+{% endblock %}
+{% block footer %}
 {% endblock %}
