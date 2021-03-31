@@ -10,53 +10,61 @@ group: Help users to...
 
 ## When to use this pattern
 
-Follow this pattern whenever you need to help your users enter valid and required information in a form.
+Follow this pattern whenever you need to help your users enter valid and required information in a form. Validation should occur after the user submits the form.
 
-Validation should occur after the user submits the form.
+## When not to use this pattern
+
+Do not use this pattern to tell the user if there is a problem with the service, or if they don't have permission to do something. Instead, you should take them to a separate [error or status page](/patterns/error-status-pages) which tells them what the problem is, and what they should do next.
 
 ## How to use this pattern
 
-You must tell the user about missing or incorrect information when they submit a form by displaying:
-{{
-    onsList({
-        "itemsList": [
-            {
-                "text": 'A summary listing all the errors on the page'
-            },
-            {
-                "text": 'Contextual detail and highlight for each erroneous field'
-            }
-        ]
-    })
-}}
+If the user tries to submit missing or incorrect information you must:
+
+<!-- Not using onsList because it won't display <title> in code tags -->
+- show the page again, keeping the user’s information in the form fields as they entered it
+- add ‘Error: ’ before the page `<title>` for screen readers to read out first
+- show an [error summary](#error-summary) listing all the errors on the page, and move keyboard focus to it
+- show a contextual [error detail](#error-details) for each erroneous field
 
 ### Error summary
 
-An [error panel](/components/panel#error) must be displayed above the form when the page reloads, so it's the first element to be read.
-
-The error `panel__header` must display the number of errors on the page if there is more than one.
-
-The error `panel__body` must contain an anchored ordered list to each erroneous field or fieldset on the page, each describing the specific error and directing the user towards a resolution. To use an orderd list you must set `element` to "ol" when using the list macro.
-
-Each list item `url` key should contain a value that matches the id of the `panel` that wraps the input that has an error and preceded with a hash i.e. `#email-input`. Javascript will focus the corresponding input.
-
-Guidance on specific error messages can be found with each applicable [component](/components).
+An [error with header panel](/components/panel#error-with-header) component must be displayed at the top of the page's `<main>` container and above the `<h1>` heading when the page reloads, so it's the first element to be read.
 
 {{
     patternlibExample({"path": "patterns/error-validation/examples/error-summary/index.njk"})
 }}
 
+#### How it works
+
+The panel contains assistive technology attributes to ensure that, as soon as the page is loaded, the panel receives keyboard focus and the user is notified about this new information.
+
+The panel's header is used to let the user know there's an error with their answer: 'There is a problem with your answer'. If the page heading is not a question, use: 'There is a problem with this page'.
+
+If there is more than one error on the page, the header must display the number of errors, for example 'There are 2 problems with your answer'.
+
+The panel's body must contain an ordered list of links, setting `element` to "ol", if using the list macro.  Each list item must:
+
+- describe the specific error and direct the user towards a resolution
+- link to the applicable field or fieldset containing the validation error on the page
+- contain a `url` key value that matches the id of the `panel` wrapping the erroneous field or fieldset, preceded with a hash (e.g. `#email-input`), so Javascript can focus the corresponding input
+
+Guidance on specific error messages can be found with each form [component](/components).
+
 ### Error details
 
-You must use an [error panel](/components/error) to wrap each erroneous field or fieldset.
-
-The inline error panel text string must describe the error and direct the user towards a resolution.
-
-Guidance on specific error messages can be found with each applicable [component](/components).
+You must use an [error panel](/components/panel#error) to wrap each erroneous field or fieldset.
 
 {{
     patternlibExample({"path": "patterns/error-validation/examples/error-details/index.njk"})
 }}
+
+#### How it works
+
+The [error component](/components/error) is called within each applicable component by providing a `text` and `id` value within the `error` object.
+
+The error panel text string must be the same as its corresponding error summary link. 
+
+Guidance on specific error messages can be found with each applicable [component](/components).
 
 ## Example
 
