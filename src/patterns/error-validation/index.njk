@@ -25,12 +25,12 @@ If the user tries to submit the form when there is missing or incorrect informat
 <!-- Not using onsList because it won't display <title> in code tags -->
 - show the page again, keeping the user’s information in the form fields as they entered it
 - add “Error: ” before the page `<title>` for screen readers to read out first
-- show an error summary that lists all the errors on the page at the top of the page, and move keyboard focus to it
-- show the error details next to each field where there is missing or incorrect information
+- show an error summary at the top of the page that lists all the errors, and move keyboard focus to it
+- show the error details next to each field that has missing or incorrect information
 
 ### Error summary
 
-An [error panel with title](/components/panel#error-with-header) component must be displayed at the top of the page’s `<main>` container and above the `<h1>` heading when the page reloads. This ensures it is the first element on the page to be read.
+An [error panel with title](/components/panel#error-with-header) component lists all the errors on the page. It must be displayed at the top of the page’s `<main>` container and above the `<h1>` heading when the page reloads. This ensures it is the first element on the page to be read.
 
 {{
     patternlibExample({"path": "patterns/error-validation/examples/error-summary/index.njk"})
@@ -38,7 +38,7 @@ An [error panel with title](/components/panel#error-with-header) component must 
 
 The panel contains assistive technology attributes. As soon as the page is loaded, the keyboard focus is on the panel and the user is told about this new information.
 
-#### Panel title
+#### Error summary panel title
 
 The panel's title lets the user know there is an error with their answer. Use the following content:
 {{
@@ -56,14 +56,14 @@ The panel's title lets the user know there is an error with their answer. Use th
 
 If there is more than one error on the page, the title must display the number of errors, for example, “There are 2 problems with your answer”.
 
-#### Panel body
+#### Error summary panel body
 
 The panel’s body must contain an ordered list of links for each error. Set `element` to “ol” if using the `onsList` macro. Each list item must:
 {{
     onsList({
         "itemsList": [
             {
-                "text": "describe the specific error and help the the user fix it"
+                "text": "describe the specific error and help the user fix it"
             },
             {
                 "text": "link to the field or fieldset that contains the validation error on the page"
@@ -79,7 +79,7 @@ Guidance on specific error messages can be found on the page for each form compo
 
 ### Error details
 
-You must use an [error details panel](/components/panel#error) to wrap each field that is missing or has incorrect information.
+You must use an [error details panel](/components/panel#error) to wrap each field that has missing or incorrect information. This needs to describe the error and help the user fix it.
 
 {{
     patternlibExample({"path": "patterns/error-validation/examples/error-details/index.njk"})
@@ -87,13 +87,13 @@ You must use an [error details panel](/components/panel#error) to wrap each fiel
 
 The [error component](/components/error) is called within each component by providing a `text` and `id` value within the `error` object.
 
-The error details panel’s text string must be the same as its corresponding error summary panel’s link.
+The text string for the error details panel must be the same as its corresponding link in the error summary panel.
 
 Guidance on specific error messages can be found on the page for each form component.
 
 ## Example
 
-The prototype provides an example of form validation for missing and incorrect inputs. Attempt to submit the form as it is to see the error validation in action.
+The prototype provides an example of form validation for inputs that have missing or incorrect information. Attempt to submit the form as it is to see the error validation in action.
 
 {{
     onsPanel({
