@@ -59,13 +59,13 @@ layout: none
                     "classes": 'js-inpagelink'
                 },
                 {
-                    "text": 'What do you need help with?',
+                    "text": 'Select what you need help with',
                     "index": true,
                     "url": '#webform-help-error',
                     "classes": 'js-inpagelink'
                 },
                 {
-                    "text": 'Please provide more detail?',
+                    "text": 'Enter more detail about what you need help with',
                     "index": true,
                     "url": '#webform-detail-error',
                     "classes": 'js-inpagelink'
@@ -91,7 +91,7 @@ layout: none
     <h1 class="u-fs-xxl u-mt-l">Web form</h1>
 
     {{ onsRadios({
-        "legend": 'Your country',
+        "legend": 'What country do you live in?',
         "name": 'webform-country',
         "radios": [
             {
@@ -184,13 +184,13 @@ layout: none
             "text": 'Please provide more detail'
         },
         "charCheckLimit": {
-            "limit": 5000,
+            "limit": 2000,
             "charCountSingular": 'You have {x} character remaining',
             "charCountPlural": 'You have {x} characters remaining'
         },
         "error": {
             "id": 'webform-detail-error',
-            "text": 'Enter more detail on what you need help with',
+            "text": 'Enter more detail about what you need help with',
             "dsExample": isPatternLib
         }
     }) }}
@@ -223,7 +223,7 @@ layout: none
         },
         "error": {
             "id": "webform-email-error",
-            "text": "Enter your email address, like name@example.com",
+            "text": "Enter your email address",
             "dsExample": isPatternLib
         }
     }) }}
@@ -233,6 +233,6 @@ layout: none
         "text": 'Send message'
     }) }}
 
-    <p class="u-fs-s">Information about what we do with your personal data is available in our <a href="#0">privacy and data protection statement</a></p>
+    <p class="u-fs-s">Information about what we do with your personal data is available in our <a href="#0">privacy and data protection statement</a>.</p>
 
 {% endblock %}
