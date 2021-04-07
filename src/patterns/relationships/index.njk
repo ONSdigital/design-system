@@ -6,16 +6,16 @@ group: Ask users for...
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 
-Help users define relationships between household memebers.
+Help users define relationships between household members.
 
 {{
     patternlibExample({"path": "components/relationships/examples/relationships/index.njk"})
 }}
 
-## When to use this pattern 
+## When to use this pattern
 This pattern should be used when you need to collect the relationship between two people.
 
-## How to use this pattern 
+## How to use this pattern
 Call `onsRelationships` within `onsQuestion`, setting `readDescriptionFirst: true` so the description is read before the incomplete heading sentence by screen readers, to add context.
 
 The pattern is enhanced with javascript, to complete the sentence in the heading and `playback` when the user selects a radio option.
