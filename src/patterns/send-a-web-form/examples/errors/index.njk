@@ -1,0 +1,238 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/textarea/_macro.njk" import onsTextarea %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+{% set pageConfig = {
+    "title": 'Error: Web form - Census 2021',
+    "theme": 'census',
+    "absoluteUrl": pageInfo.url,
+    "headMeta": {
+        "description": 'Census 2021 is a UK wide population survey'
+    },
+    "header": {
+        "logoHref": '#0',
+        "titleLogo": 'census-logo-en',
+        "titleLogoHref": '#0',
+        "titleLogoAlt": 'Census 2021'
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Back',
+        "itemsList": [
+            {
+                "url": '#0',
+                "id": 'back',
+                "text": 'Back',
+                "attributes": {
+                    "data-attribute": 'Example attribute'
+                }
+            }
+        ]
+    },
+    "footer": {}
+} %}
+{% block main %}
+
+    {% call
+        onsPanel({
+            title: 'There are 5 problems with this page',
+            type: 'error',
+            "dsExample": isPatternLib
+        })
+    %}
+
+    {{
+        onsList({
+            "element": 'ol',
+            "itemsList": [
+                {
+                    "text": 'Select your country',
+                    "index": true,
+                    "url": '#webform-country-error',
+                    "classes": 'js-inpagelink'
+                },
+                {
+                    "text": 'Select what you need help with',
+                    "index": true,
+                    "url": '#webform-help-error',
+                    "classes": 'js-inpagelink'
+                },
+                {
+                    "text": 'Enter more detail about what you need help with',
+                    "index": true,
+                    "url": '#webform-detail-error',
+                    "classes": 'js-inpagelink'
+                },
+                {
+                    "text": 'Enter your name',
+                    "index": true,
+                    "url": '#webform-name-error',
+                    "classes": 'js-inpagelink'
+                },
+                {
+                    "text": 'Enter your email address',
+                    "index": true,
+                    "url": '#webform-email-error',
+                    "classes": 'js-inpagelink'
+                }
+            ]
+        })
+    }}
+    
+    {% endcall %}
+    
+    <h1 class="u-fs-xxl u-mt-l">Web form</h1>
+
+    {{ onsRadios({
+        "legend": 'What country do you live in?',
+        "name": 'webform-country',
+        "radios": [
+            {
+                "id": 'england',
+                "label": {
+                    "text": 'England'
+                },
+                "value": 'england'
+            },
+            {
+                "id": 'wales',
+                "label": {
+                    "text": 'Wales'
+                },
+                "value": 'wales'
+            },
+            {
+                "id": 'northern-ireland',
+                "label": {
+                    "text": 'Northern Ireland'
+                },
+                "value": 'northern-ireland'
+            }
+        ],
+        "error": {
+            "id": 'webform-country-error',
+            "text": 'Select your country',
+            "dsExample": isPatternLib
+        }
+    }) }}
+
+    {{ onsRadios({
+        "legend": 'What do you need help with?',
+        "name": 'webform-help',
+        "radios": [
+            {
+                "id": 'missing-information',
+                "label": {
+                    "text": 'I don’t have everything I need to complete my census'
+                },
+                "value": 'missing-information'
+            },
+            {
+                "id": 'technical-difficulties',
+                "label": {
+                    "text": 'I am having technical difficulties'
+                },
+                "value": 'technical-difficulties'
+            },
+            {
+                "id": 'need-help',
+                "label": {
+                    "text": 'I need help with my census form'
+                },
+                "value": 'need-help'
+            },
+            {
+                "id": 'complaint',
+                "label": {
+                    "text": 'I have a complaint'
+                },
+                "value": 'complaint'
+            },
+            {
+                "id": 'address-help',
+                "label": {
+                    "text": 'I need help with my address'
+                },
+                "value": 'address-help'
+            },
+            {
+                "id": 'something-else',
+                "label": {
+                    "text": 'Something else'
+                },
+                "value": 'something-else'
+            }
+        ],
+        "error": {
+            "id": 'webform-help-error',
+            "text": 'Select what you need help with',
+            "dsExample": isPatternLib
+        }
+    }) }}
+
+    {{ onsTextarea({
+        "name": 'webform-detail',
+        "id": 'webform-detail',
+        "label": {
+            "text": 'Please provide more detail'
+        },
+        "charCheckLimit": {
+            "limit": 2000,
+            "charCountSingular": 'You have {x} character remaining',
+            "charCountPlural": 'You have {x} characters remaining'
+        },
+        "error": {
+            "id": 'webform-detail-error',
+            "text": 'Enter more detail about what you need help with',
+            "dsExample": isPatternLib
+        }
+    }) }}
+
+    <h2 class="u-mt-m">Your contact details</h2>
+
+    {{ onsInput({
+        "classes": 'input--w-30',
+        "name": 'webform-name',
+        "id": 'webform-name',
+        "label": {
+            "text": 'Name'
+        },
+        "error": {
+            "id": "webform-name-error",
+            "text": "Enter your name",
+            "dsExample": isPatternLib
+        }
+    }) }}
+
+    {{ onsInput({
+        "classes": 'input--w-30',
+        "name": 'webform-email',
+        "id": 'webform-email',
+        "type": 'email',
+        "autocomplete": 'email',
+        "label": {
+            "text": 'Email address',
+            "description": 'We will only use this to send you a reply'
+        },
+        "error": {
+            "id": "webform-email-error",
+            "text": "Enter your email address",
+            "dsExample": isPatternLib
+        }
+    }) }}
+
+    {{ onsButton({
+        "classes": 'u-mb-m u-mt-l',
+        "text": 'Send message'
+    }) }}
+
+    <p class="u-fs-s">Information about what we do with your personal data is available in our <a href="#0">privacy and data protection statement</a>.</p>
+
+{% endblock %}
