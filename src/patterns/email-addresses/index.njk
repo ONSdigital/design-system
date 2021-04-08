@@ -15,7 +15,7 @@ How to ask a user for their email address.
 
 ## When to use this pattern
 
-Use the email address pattern whenever you need to collect an email address.
+Use the email address pattern whenever you need to collect an email address from the user.
 
 ## How to use this pattern
 
@@ -27,21 +27,71 @@ When using this pattern you should:
                 "text": 'tell users why you need their email address and what it will be used for'
             },
             {
-                "text": 'make sure the field can accept all possible characters used in email addresses'
+                "text": 'make sure the field can accept all users email addresses'
             },
             {
-                "text": 'help user enter an email address in the correct format'
+                "text": 'help users enter an email address in the correct format'
             }
         ]
     })
 }}
 
+### Tell users why you need their email address and what it will be used for
+
+You can use the input `label__description` to reassure users by explaining why you need their email address, and what it will be used for.
+
+### Make sure the field can accept all users email addresses
+
+Make sure the email address field can accommodate up to the maximum number of allowed characters.  An email address can be up to a maximum of 320 characters long and include a set of special characters as detailed in the{{
+    onsExternalLink({
+        "url": "https://tools.ietf.org/html/rfc3696#section-3",
+        "linkText": "RFC3696 specification from the Internet Engineering Task Force"
+    })
+}}
+
+### Help users enter an email address in the correct format
+
+You should help users enter a valid email address by:
+
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'checking they have entered it correctly and showing error messages if they haven’t'
+            },
+            {
+                "text": 'allowing them to paste the email address'
+            },
+            {
+                "text": 'asking them to confirm it’s correct using the <a href="/patterns/check-answers/">check answers pattern</a>'
+            }
+        ]
+    })
+}}
+
+#### Error messages
+
+Follow the [correct errors pattern](patterns/error-validation) and show the error details above the email address field if it is missing or incorrect.
+
+{{
+    patternlibExample({"path": "patterns/email-addresses/examples/email-error/index.njk"})
+}}
+
+##### Missing email address
+
+Use “Enter your email address”.
+
+##### Incorrect email address
+
+Use "Enter an email address in the correct format, such as name@example.com".
+
 ## Research on this pattern
+
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the
     {{
         onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/discussions/xx",
+            "url": "https://github.com/ONSdigital/design-system/discussions/1470",
             "linkText": "Design System forum"
         })
     }}
@@ -50,7 +100,7 @@ When using this pattern you should:
 ## Design System forum
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/discussions/xx",
+        "url": "https://github.com/ONSdigital/design-system/discussions/1470",
         "linkText": "Discuss 'Email addresses' on GitHub"
     })
 }}
