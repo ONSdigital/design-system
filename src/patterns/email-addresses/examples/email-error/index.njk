@@ -4,9 +4,18 @@
         "id": "email",
         "type": "email",
         "autocomplete": "email",
+        "value": "name.com",
         "label": {
             "text": "Email address",
             "description": "This will not be stored and only used once to send your confirmation"
+        },
+        "attributes": {
+            "required": true
+        },
+        "error": {
+            "id": "email-error",
+            "text": "Enter an email address in the correct format, such as name@example.com",
+            "dsExample": isPatternLib
         }
     })
 }}
