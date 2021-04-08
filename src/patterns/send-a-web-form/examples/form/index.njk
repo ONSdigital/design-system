@@ -1,0 +1,162 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/textarea/_macro.njk" import onsTextarea %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "title": 'Web form - Census 2021',
+    "theme": 'census',
+    "absoluteUrl": pageInfo.url,
+    "headMeta": {
+        "description": 'Census 2021 is a UK wide population survey'
+    },
+    "header": {
+        "logoHref": '#0',
+        "titleLogo": 'census-logo-en',
+        "titleLogoHref": '#0',
+        "titleLogoAlt": 'Census 2021'
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Back',
+        "itemsList": [
+            {
+                "url": '#0',
+                "id": 'back',
+                "text": 'Back',
+                "attributes": {
+                    "data-attribute": 'Example attribute'
+                }
+            }
+        ]
+    },
+    "footer": {}
+} %}
+{% block main %}
+    
+    <h1 class="u-fs-xxl u-mt-l">Web form</h1>
+
+    {{ onsRadios({
+        "legend": 'What country do you live in?',
+        "name": 'webform-country',
+        "radios": [
+            {
+                "id": 'england',
+                "label": {
+                    "text": 'England'
+                },
+                "value": 'england'
+            },
+            {
+                "id": 'wales',
+                "label": {
+                    "text": 'Wales'
+                },
+                "value": 'wales'
+            },
+            {
+                "id": 'northern-ireland',
+                "label": {
+                    "text": 'Northern Ireland'
+                },
+                "value": 'northern-ireland'
+            }
+        ]
+    }) }}
+
+    {{ onsRadios({
+        "legend": 'What do you need help with?',
+        "name": 'webform-help',
+        "radios": [
+            {
+                "id": 'missing-information',
+                "label": {
+                    "text": 'I don’t have everything I need to complete my census'
+                },
+                "value": 'missing-information'
+            },
+            {
+                "id": 'technical-difficulties',
+                "label": {
+                    "text": 'I am having technical difficulties'
+                },
+                "value": 'technical-difficulties'
+            },
+            {
+                "id": 'need-help',
+                "label": {
+                    "text": 'I need help with my census form'
+                },
+                "value": 'need-help'
+            },
+            {
+                "id": 'complaint',
+                "label": {
+                    "text": 'I have a complaint'
+                },
+                "value": 'complaint'
+            },
+            {
+                "id": 'address-help',
+                "label": {
+                    "text": 'I need help with my address'
+                },
+                "value": 'address-help'
+            },
+            {
+                "id": 'something-else',
+                "label": {
+                    "text": 'Something else'
+                },
+                "value": 'something-else'
+            }
+        ]
+    }) }}
+
+    {{ onsTextarea({
+        "id": 'webform-detail',
+        "name": 'webform-detail',
+        "label": {
+            "text": 'Please provide more detail'
+        },
+        "charCheckLimit": {
+            "limit": 2000,
+            "charCountSingular": 'You have {x} character remaining',
+            "charCountPlural": 'You have {x} characters remaining'
+        }
+    }) }}
+
+    <h2 class="u-mt-m">Your contact details</h2>
+
+    {{ onsInput({
+        "classes": 'input--w-30',
+        "id": 'webform-name',
+        "name": 'webform-name',
+        "label": {
+            "text": 'Name'
+        }
+    }) }}
+
+    {{ onsInput({
+        "classes": 'input--w-30',
+        "id": 'webform-email',
+        "name": 'webform-email',
+        "type": 'email',
+        "autocomplete": 'email',
+        "label": {
+            "text": 'Email address',
+            "description": 'We will only use this to send you a reply'
+        }
+    }) }}
+
+    {{ onsButton({
+        "classes": 'u-mb-m u-mt-l',
+        "text": 'Send message'
+    }) }}
+
+    <p class="u-fs-s">Information about what we do with your personal data is available in our <a href="#0">privacy and data protection statement</a>.</p>
+
+{% endblock %}
