@@ -34,11 +34,6 @@ layout: none
                 {
                     "url": '/patterns/error-validation',
                     "text": 'Correct errors'
-                },
-                {
-                    "url": '/patterns/error-validation/examples/errors-proto/',
-                    "text": 'Error Prototype',
-                    "current": true
                 }
             ]
         })
@@ -58,12 +53,12 @@ layout: none
                 "itemsList": [
                     {
                         "text": "Enter a number",
-                        "url": "#number",
+                        "url": "#number-error",
                         "classes": "js-inpagelink"
                     },
                     {
                         "text": "Enter a number less than or equal to 100",
-                        "url": "#suffixed",
+                        "url": "#suffixed-error",
                         "classes": "js-inpagelink"
                     },
                     {
@@ -73,22 +68,22 @@ layout: none
                     },
                     {
                         "text": "Enter a date of birth",
-                        "url": "#date",
+                        "url": "#dates-error",
                         "classes": "js-inpagelink"
                     },
                     {
                         "text": "Select at least one answer",
-                        "url": "#check",
+                        "url": "#checkboxes-error",
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Enter password",
-                        "url": "#pass",
+                        "text": "Enter a password",
+                        "url": "#password-error",
                         "classes": "js-inpagelink"
                     },
                     {
-                        "text": "Enter an email address",
-                        "url": "#email",
+                        "text": "Enter an email address in a valid format, for example, name@example.com",
+                        "url": "#email-error",
                         "classes": "js-inpagelink"
                     }
                 ]
@@ -113,7 +108,7 @@ layout: none
                     "text": "Number of employees paid monthly"
                 },
                 "error": {
-                    "id": "number",
+                    "id": "number-error",
                     "text": "Enter a number"
                 }
             })
@@ -137,7 +132,7 @@ layout: none
                     "text": "%"
                 },
                 "error": {
-                    "id": "suffixed",
+                    "id": "suffixed-error",
                     "text": "Enter a number less than or equal to 100"
                 }
             })
@@ -220,7 +215,7 @@ layout: none
                 },
                 "error": {
                     "text": "Enter a date of birth",
-                    "id": "date"
+                    "id": "dates-error"
                 }
             })
         }}
@@ -231,7 +226,7 @@ layout: none
                 "name": "food",
                 "error": {
                     "text": "Select at least one answer",
-                    "id": "check"
+                    "id": "checkboxes-error"
                 },
                 "checkboxes": [
                     {
@@ -272,7 +267,7 @@ layout: none
                 },
                 "error": {
                     "text": "Enter password",
-                    "id": "pass"
+                    "id": "password-error"
                 },
                 "showPasswordText": "Show password"
             })
@@ -281,12 +276,13 @@ layout: none
             onsInput({
                 "id": "email",
                 "type": "email",
+                "value": "name.com",
                 "label": {
                     "text": "Email address"
                 },
                 "error": {
-                    "text": "Enter an email address",
-                    "id": "email"
+                    "text": "Enter an email address in the correct format, such as name@example.com",
+                    "id": "email-error"
                 },
                 "mutuallyExclusive": {
                     "or": "Or",

@@ -1,0 +1,95 @@
+---
+title: Send a web form
+group: Help users to...
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+A user may need to contact ONS, for example, to get help with their survey or give feedback. This pattern allows a user to send a message and then the contact centre responds (through a “no reply” email).
+
+## When to use this pattern
+
+Follow this pattern when a user needs to get in touch with us but they do not need an instant response or to talk to someone in the contact centre directly. Use it when we can give a specific response time, such as “We will respond within 48 hours”.
+
+## When not to use this pattern
+
+Do not use this pattern if the user needs to speak to someone at the contact centre, for example, if the details about a business need to change. Do not use this pattern for urgent issues that need a fast response, like problems with the service.
+
+## How to use this pattern
+
+To help contact staff deal with web form enquiries, you should provide a set of categories based on the most common user needs from research.
+
+You should only ask the user to provide the contact details the service needs to handle the request.
+
+For Census 2021, a respondent could send a web form to the contact centre to receive the appropriate support to complete the Census.
+
+The census web form included the following, in this order:
+
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'What country do you live in? (radio selection)'
+            },
+            {
+                "text": 'What do you need help with? (radio selection)'
+            },
+            {
+                "text": 'Please provide more detail (textarea)'
+            },
+            {
+                "text": 'Name (input)'
+            },
+            {
+                "text": 'Email address (input)'
+            },
+            {
+                "text": 'Send message (button)'
+            },
+            {
+                "text": 'Description of what we do with personal data and a link to privacy statement'
+            }
+        ]
+    })
+}}
+
+## Web form
+A single-page form asking users to select their country, what they need help with and contact details.
+
+{{
+    patternlibExample({ "path": "patterns/send-a-web-form/examples/form/index.njk" })
+}}
+
+## Web form errors
+
+{{
+    patternlibExample({ "path": "patterns/send-a-web-form/examples/errors/index.njk" })
+}}
+
+## Web form success
+A page with success panel, confirming the contact form has been sent.
+
+{{
+    patternlibExample({ "path": "patterns/send-a-web-form/examples/success/index.njk" })
+}}
+
+## Research on this pattern
+{% call onsPanel() %}
+    If you have conducted any user research using this pattern, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/discussions/1457",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/1457",
+        "linkText": "Discuss 'Send a web form' on GitHub"
+    })
+}}
