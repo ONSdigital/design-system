@@ -32,11 +32,6 @@ layout: none
                 {
                     "url": '/patterns/error-validation',
                     "text": 'Correct errors'
-                },
-                {
-                    "url": '/patterns/error-validation/examples/errors-proto/',
-                    "text": 'Error Prototype',
-                    "current": true
                 }
             ]
         })
@@ -211,8 +206,9 @@ layout: none
             onsInput({
                 "id": "email",
                 "type": "email",
+                "value": "name.com",
                 "label": {
-                    "text": "Enter an email address"
+                    "text": "Email address"
                 },
                 "mutuallyExclusive": {
                     "or": "Or",
