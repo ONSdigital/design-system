@@ -45,7 +45,7 @@
             {% if params.label is defined and params.label and params.label.description is defined and params.label.description %}{% if params.label.id is defined and params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
         />
         {% if params.listeners %}
-            <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% endif %}>
+            <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce is defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
             {% for listener, value in (params.listeners.items() if params.listeners is mapping and params.listeners.items else params.listeners) %}
                 document.getElementById("{{ params.id }}").addEventListener('{{ listener }}', function(){ {{ value }} });
             {% endfor %}
