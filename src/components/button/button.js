@@ -6,13 +6,13 @@ export default class SubmitButton {
     this.submitType = submitType;
 
     if (this.submitType == 'loader') {
-      if (this.form.length) {
+      if (this.form && this.form.length) {
         this.form.addEventListener('submit', this.loaderButton.bind(this));
       } else {
         this.button.addEventListener('click', this.loaderButton.bind(this));
       }
     } else if (this.submitType == 'timer') {
-      if (this.form.length) {
+      if (this.form && this.form.length) {
         this.form.addEventListener('submit', this.timerButton.bind(this));
       } else {
         this.button.addEventListener('click', this.timerButton.bind(this));
@@ -22,27 +22,30 @@ export default class SubmitButton {
     }
   }
 
-  loaderButton() {
-    this.button.classList.add('is-loading');
-    this.button.setAttribute('disabled', true);
+  loaderButton(event) {
+    const loaderButtonEl = event.submitter ? event.submitter : this.button;
+
+    loaderButtonEl.classList.add('is-loading');
+    loaderButtonEl.setAttribute('disabled', true);
   }
 
   timerButton(event) {
-    if (this.button.tagName === 'A') {
+    const timerButtonEl = event.submitter ? event.submitter : this.button;
+    if (timerButtonEl.tagName === 'A') {
       i++;
       if (i > 1) {
         event.preventDefault();
       }
     } else {
-      this.button.setAttribute('disabled', true);
+      timerButtonEl.setAttribute('disabled', true);
     }
     setTimeout(
-      button => {
-        button.removeAttribute('disabled');
+      timerButtonEl => {
+        timerButtonEl.removeAttribute('disabled');
         i = 0;
       },
       1000,
-      this.button,
+      timerButtonEl,
     );
   }
 
