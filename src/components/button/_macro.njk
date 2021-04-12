@@ -65,7 +65,7 @@
         <span class="btn__context u-vh">{{ params.buttonContext }}</span>
       {% endif %}
       {% if params.listeners %}
-        <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% endif %}>
+        <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce is defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
         {% for listener, value in (params.listeners.items() if params.listeners is mapping and params.listeners.items else params.listeners) %}
           document.getElementById("{{ params.id }}").addEventListener('{{ listener }}', function(){ {{ value }} });
         {% endfor %}
