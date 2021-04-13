@@ -1,0 +1,42 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "title": 'Thank you for contacting us - Census 2021',
+    "theme": 'census',
+    "absoluteUrl": pageInfo.url,
+    "headMeta": {
+        "description": 'Census 2021 is a UK wide population survey'
+    },
+    "header": {
+        "logoHref": '#0',
+        "titleLogo": 'census-logo-en',
+        "titleLogoHref": '#0',
+        "titleLogoAlt": 'Census 2021'
+    },
+    "footer": {
+    }
+} %}
+{% block main %}
+    {{
+        onsPanel({
+            "classes": 'u-mb-m',
+            "type": 'success',
+            "id": 'webform-success',
+            "icon": 'check',
+            "iconSize": 'xl',
+            "body": '<h1>Thank you for contacting us</h1><p>Your message has been sent.</p>'
+        })
+    }}
+    <p>We will respond to you within 2 working days.</p>
+    {{
+        onsButton({
+            "text": "Done",
+            "classes": "u-mt-m"
+        })
+    }}
+{% endblock %}
