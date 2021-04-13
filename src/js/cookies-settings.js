@@ -8,6 +8,7 @@ export default class CookiesSettings {
     this.cookiesBanner = document.querySelector('.cookies-banner');
 
     this.component.addEventListener('submit', this.submitSettingsForm.bind(this));
+    this.returnLink.addEventListener('click', this.goBackToPrevPage.bind(this));
 
     this.setInitialFormValues();
   }
@@ -87,13 +88,16 @@ export default class CookiesSettings {
 
   setConfirmationMessageAttributes() {
     this.confirmationMessage.setAttribute('role', 'alert');
-    if (document.referrer) {
+    if (document.referrer != '') {
       this.confirmationMessage.setAttribute('autofocus', 'autofocus');
       this.confirmationMessage.setAttribute('tabindex', '-1');
       this.confirmationMessage.focus();
-      this.returnLink.href = document.referrer;
     } else {
       this.returnLink.style.display = 'none';
     }
+  }
+
+  goBackToPrevPage() {
+    window.history.back();
   }
 }
