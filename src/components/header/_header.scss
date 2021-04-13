@@ -60,6 +60,12 @@
       border-top: 3px solid $color-header;
       padding: 0.934rem 0;
     }
+    &--with-description {
+      height: auto;
+    }
+    &--with-nav {
+      margin-top: 0.5rem;
+    }
   }
   &__title {
     @extend .u-fs-r--b;
@@ -78,7 +84,7 @@
       }
     }
 
-    @include mq(xs, m) {
+    @include mq(xs, 739px) {
       line-height: 1.75 !important;
     }
 
