@@ -25,6 +25,11 @@
     vertical-align: middle;
   }
 
+  .header__top--svg-logo,
+  .header__top--svg-logo--acent {
+    fill: $color-black;
+  }
+
   &__body {
     background-color: $color-grey-5;
     padding: 2rem 0 4rem;
