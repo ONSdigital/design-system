@@ -140,7 +140,7 @@
   &--internal & {
     &__top {
       background: $color-dark-blue;
-      &--svg-logo {
+      .ons-svg-logo {
         fill: $color-white;
         &--acent {
           fill: $color-lime-green;
@@ -157,7 +157,7 @@
     }
   }
 
-  &__top--svg-logo {
+  .ons-svg-logo {
     fill: $color-dark-blue;
     margin-top: 0.3rem;
     &--acent {
@@ -166,13 +166,13 @@
   }
 
   &__logo-link:focus {
-    .header__top--svg-logo {
+    .ons-svg-logo {
       fill: $color-black !important;
       &--acent {
         fill: $color-black !important;
       }
     }
-    .header__top--nisra-svg-logo {
+    .ons-nisra-svg-logo {
       .st0 {
         fill: $color-black !important;
       }
@@ -184,7 +184,7 @@
       }
     }
   }
-  .header__top--nisra-svg-logo {
+  .ons-nisra-svg-logo {
     .st0 {
       fill: #3d7cc9;
     }
