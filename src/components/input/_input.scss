@@ -26,6 +26,7 @@
 
   &--text,
   &--textarea {
+    // Prevent inner shadow on iOS
     appearance: none;
   }
 
