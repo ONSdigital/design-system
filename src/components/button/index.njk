@@ -75,17 +75,16 @@ Use `btn--disabled` with the `disabled=true` element attribute for buttons that 
 }}
 
 ### Loader
-The loader button is used to help prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked. This can lead to them submitting the form on the page twice. Setting SubmitType to `loader` will disable the button when clicked and will add a loading animation. This can be used when the button executes a process that can take some time to complete. For cross browser compatibility and for the form to submit successfully, if providing a `name` or `id` parameter do not use `"submit"` as the parameter value.
+The loader button is used to help prevent user’s from clicking buttons multiple times when they are unsure if the action they have carried out has worked. This can lead to them submitting the form on the page twice. Setting SubmitType to `loader` will disable the button when clicked and will add a loading animation. This can be used when the button executes a process that can take some time to complete.
 {{
     patternlibExample({"path": "components/button/examples/button-loader/index.njk"})
 }}
 
 ### Timer
-The timer button is aimed at stopping forms being submitted twice when users double click the submit button. Setting SubmitType to `timer` will disable the button for one second on click. For cross browser compatibility and for the form to submit successfully, if providing a `name` or `id` parameter do not use `"submit"` as the parameter value.
+The timer button is aimed at stopping forms being submitted twice when users double click the submit button. Setting SubmitType to `timer` will disable the button for one second on click.
 {{
     patternlibExample({"path": "components/button/examples/button-timer/index.njk"})
 }}
-
 
 ### Print
 The `buttonStyle` parameter can be set to `print` to render a print button. This will take care of adding iconography and classes for the `print-button.js` file to pick up. The button will not render until `print-button.js` has run, and will not be visible on printed pages.
