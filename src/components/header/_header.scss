@@ -88,23 +88,24 @@
     @include mq(xxs, xs) {
       line-height: 1.7 !important;
     }
+
+    //to allow for differences in size between welsh and english logos
+    &-census-logo-en {
+      height: 30px;
+
+      @include mq(m) {
+        margin-top: 0.4rem !important;
+      }
+
+      @include mq(xs) {
+        margin-top: 0.2rem;
+      }
+    }
     &-link {
       display: block;
       &:focus {
         .header__svg-logo {
           fill: $color-black !important;
-        }
-      }
-      //to allow for differences in size between welsh and english logos
-      &-census-logo-en {
-        height: 30px;
-
-        @include mq(m) {
-          margin-top: 1.35rem !important;
-        }
-
-        @include mq(xs) {
-          margin-top: 0.2rem;
         }
       }
     }
@@ -182,6 +183,7 @@
     }
   }
   .ons-nisra-svg-logo {
+    margin-top: 5px;
     .st0 {
       fill: #3d7cc9;
     }
