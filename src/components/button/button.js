@@ -2,7 +2,7 @@ let i = 0;
 export default class SubmitButton {
   constructor(button, submitType) {
     this.button = button;
-    this.form = [...document.getElementsByTagName('form')][0];
+    this.form = this.button.closest('form');
     this.submitType = submitType;
 
     if (this.submitType == 'loader') {
