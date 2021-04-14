@@ -16,8 +16,6 @@
     {% set metaicons = pageConfig.theme + "/" + currentLanguageISOCode + "/" %}
 {% endif %}
 
-
-
 {% set pageColNumber = pageConfig.pageColNumber | default("8") %}
 
 {% if pageConfig.cdn is defined and pageConfig.cdn or release_version is defined and release_version %}
@@ -53,9 +51,13 @@
         <title>{{ page_title }}</title>
         <link rel="stylesheet" href="{{ assetsURL }}/css/{{ pageConfig.theme | default('main') }}.css">
         <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css">
-       
+        <meta name="theme-color" content="{% if pageConfig.theme == 'census' %}#902082{% else %}#3b7a9e{% endif %}"/>
+        {% if pageConfig.headMeta.description is defined and pageConfig.headMeta.description or pageConfig.description is defined and pageConfig.description %}
+            <meta name="description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
+        {% endif %}
+
         {% if pageConfig.headMeta is defined and pageConfig.headMeta %}
-            
+
             <!-- Open Graph -->
             <meta property="og:type" content="website">
             <meta property="og:url" content="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
@@ -81,7 +83,7 @@
 
             <!-- Canonical -->
             <link rel="canonical" href="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
-           
+
             {% if pageConfig.headMeta.hreflangs is defined and pageConfig.headMeta.hreflangs %}
                 {% for item in pageConfig.headMeta.hreflangs %}
                     <link rel="alternate" href="{{ item.url }}" hreflang="{{ item.lang }}">
