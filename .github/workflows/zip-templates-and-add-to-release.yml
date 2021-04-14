@@ -21,14 +21,10 @@ jobs:
           npm install -g yarn
           sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
           yarn install
-      - name: Download latest release
-        run: |
-          curl -s https://api.github.com/repos/ONSdigital/design-system/releases/latest | jq -r ".tarball_url" | wget -i - -O source.tar.gz
-          mkdir design-system
-          tar -xzf source.tar.gz -C design-system --strip-components=1
-          cd design-system
       - name: Build templates
-        run: RELEASE_VERSION=31.4.7 yarn cdn-bundle
+        run: |
+          cd src
+          RELEASE_VERSION=31.4.7 yarn cdn-bundle
       - name: Zip templates
         run: zip -r templates.zip templates/*
       - uses: svenstaro/upload-release-action@v2
