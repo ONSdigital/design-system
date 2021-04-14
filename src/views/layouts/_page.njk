@@ -1,17 +1,18 @@
 {% extends "./_master.njk" %}
 
-{% block page %}
-    {% from "components/header/_macro.njk" import onsHeader %}
-    {% from "components/footer/_macro.njk" import onsFooter %}
-    {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
+{% from "components/header/_macro.njk" import onsHeader %}
+{% from "components/footer/_macro.njk" import onsFooter %}
+{% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
 
+{% block skiplink %}
     {{
         onsSkipToContent({
             "url": "#main-content",
             "text": "Skip to main content"
         })
     }}
-
+{% endblock %}
+{% block header %}
     {{
         onsHeader({
             "title": "Design system",
@@ -33,9 +34,10 @@
             }
         })
     }}
-
+{% endblock %}
+{% block pageContent %}
     <div class="patternlib-page__body">
-        <div class="container container--wide">
+        <div class="page__container container container--wide">
             <div class="grid">
                 {% if (page.hideSidebar !== true) and
                     (helpers.subNavigationHelper({ pageInfo: pageInfo }).length > 0)
