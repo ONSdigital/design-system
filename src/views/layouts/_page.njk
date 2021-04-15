@@ -1,10 +1,7 @@
 {% extends "./_master.njk" %}
 
-{% from "components/header/_macro.njk" import onsHeader %}
-{% from "components/footer/_macro.njk" import onsFooter %}
-{% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
-
 {% block skiplink %}
+    {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
     {{
         onsSkipToContent({
             "url": "#main-content",
@@ -13,6 +10,7 @@
     }}
 {% endblock %}
 {% block header %}
+    {% from "components/header/_macro.njk" import onsHeader %}
     {{
         onsHeader({
             "title": "Design system",
@@ -38,38 +36,48 @@
 {% block pageContent %}
     <div class="patternlib-page__body">
         <div class="page__container container container--wide">
-            <div class="grid">
-                {% if (page.hideSidebar !== true) and
-                    (helpers.subNavigationHelper({ pageInfo: pageInfo }).length > 0)
-                %}
-                    {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNavigation %}
-                    <div class="grid__col col-3@m">
-                        <div class="patternlib-page__sub-nav">
-                            {% for group in helpers.subNavigationHelper({
-                                pageInfo: pageInfo,
-                                anchorLinks: page.anchorLinks
-                            }) %}
-                                {% if group.title is defined and group.title %}
-                                    <h2 class="u-fs-r--b u-mb-xs">{{ group.title }}</h2>
-                                {% endif %}
+            <div class="grid grid--reverse">
+                <div class="grid__col col-9@m">
+                    <div class="patternlib-page__content">
+                        {% block preMain %}
+                            {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+                            {% if pageInfo.topLevel %}
                                 {{
-                                    patternlibSubNavigation({
-                                        "ariaLabel": "Sub menu",
-                                        "ariraListLabel": "Child menu",
-                                        "currentPath": pageInfo.url,
-                                        "itemsList": group.items
+                                    onsBreadcrumb({
+                                        "ariaLabel": 'Breadcrumb',
+                                        "classes": "u-d-no@m",
+                                        "itemsList": [
+                                            {
+                                                "url": "/",
+                                                "text": 'Home'
+                                            }
+                                        ]
                                     })
                                 }}
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
-                <div class="grid__col col-9@m">
-                    <div class="patternlib-page__primary">
-                        <main id="main-content" class="patternlib-page__main">
+                            {% else %}
+                                {{
+                                    onsBreadcrumb({
+                                        "ariaLabel": 'Breadcrumb',
+                                        "classes": "u-mb-m u-d-no@m",
+                                        "itemsList": [
+                                            {
+                                                "url": pageInfo.parent.url + "/",
+                                                "text": pageInfo.parent.title
+                                            }
+                                        ]
+                                    })
+                                }}
+                            {% endif %}
+                        {% endblock %}
+                        <main id="main-content" class="patternlib-page__main u-mt-m@m u-mb-xl@m">
                             <div class="patternlib-page__content">
                                 <header class="patternlib-page__content-header">
-                                    <h1 class="u-fs-xxl">{{ pageInfo.title }}</h1>
+                                    <h1 class="u-fs-xxl">
+                                        {% if page.group %}
+                                            <span class="u-fs-m u-db u-mb-xs u-lighter">{{ page.group | replace("...", "") }}</span>
+                                        {% endif %}
+                                        {{ pageInfo.title }}
+                                    </h1>
                                     {% if pageInfo.experimental %}<span class="pl-experimental-tag">Experimental</span>{% endif %}
                                 </header>
                                 {% block main %}
@@ -78,6 +86,36 @@
                         </main>
                     </div>
                 </div>
+                {% if (page.hideSidebar !== true) and
+                    (helpers.subNavigationHelper({ pageInfo: pageInfo }).length > 0)
+                %}
+                {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNavigation %}
+                <div class="grid__col col-3@m">
+                    <div class="patternlib-page__sub-nav u-mt-l@m">
+                        {% if page.topLevel %}
+                            <h2 class="u-fs-r--b u-mt-m@xxs@m u-vh@m">Contents</h2>
+                        {% else %}
+                            <h2 class="u-fs-r--b u-d-no@m u-bt@xxs@m u-pt-m@xxs@m u-mt-m@xxs@m">More in ‘{{ pageInfo.parent.title }}’</h2>
+                        {% endif %}
+                        {% for group in helpers.subNavigationHelper({
+                            pageInfo: pageInfo,
+                            anchorLinks: page.anchorLinks
+                        }) %}
+                            {% if group.title is defined and group.title %}
+                                <h3 class="u-fs-r u-mb-s u-lighter">{{ group.title }}</h3>
+                            {% endif %}
+                            {{
+                                patternlibSubNavigation({
+                                    "ariaLabel": "Sub menu",
+                                    "ariraListLabel": "Child menu",
+                                    "currentPath": pageInfo.url,
+                                    "itemsList": group.items
+                                })
+                            }}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
