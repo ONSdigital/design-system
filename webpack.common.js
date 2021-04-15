@@ -108,7 +108,7 @@ const jsCore = merge(core, {
           {
             loader: 'simple-nunjucks-loader',
             options: {
-              searchPaths: `${__dirname}`,
+              searchPaths: `${__dirname}/src`,
               extensions: {
                 setAttribute: path.join(__dirname, 'nunjucks.setAttribute.js'),
                 setAttributes: path.join(__dirname, 'nunjucks.setAttributes.js'),
