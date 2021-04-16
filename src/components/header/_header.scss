@@ -83,10 +83,17 @@
     }
     &-link {
       display: block;
+      text-decoration: none;
       &:focus {
         .header__svg-logo {
           fill: $color-black !important;
         }
+        .header__title {
+          color: $color-text;
+        }
+      }
+      &:hover {
+        text-decoration: underline solid $color-text-inverse-link 2px;
       }
     }
     &--nav-adj {

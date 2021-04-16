@@ -14,8 +14,10 @@
     {{
         onsHeader({
             "title": "Design system",
-            "wide": true,
             "classes": "patternlib-page__header",
+            "wide": true,
+            "logoHref": "https://www.ons.gov.uk/",
+            "titleLogoHref": "/",
             "toggleButton": {
                 "text": "Menu",
                 "ariaLabel": "Toggle main navigation"
@@ -58,7 +60,7 @@
                                 {{
                                     onsBreadcrumb({
                                         "ariaLabel": 'Breadcrumb',
-                                        "classes": "u-mb-m u-d-no@m",
+                                        "classes": "u-mb-s u-d-no@m",
                                         "itemsList": [
                                             {
                                                 "url": pageInfo.parent.url + "/",
@@ -91,11 +93,11 @@
                 %}
                 {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNavigation %}
                 <div class="grid__col col-3@m">
-                    <div class="patternlib-page__sub-nav u-mt-l@m">
+                    <div class="patternlib-page__sub-nav u-mt-l@m u-mb-l">
                         {% if page.topLevel %}
-                            <h2 class="u-fs-r--b u-mt-m@xxs@m u-vh@m">Contents</h2>
+                            <h2 class="u-fs-r--b u-mt-m@xxs@m u-d-no@m">Contents</h2>
                         {% else %}
-                            <h2 class="u-fs-r--b u-d-no@m u-bt@xxs@m u-pt-m@xxs@m u-mt-m@xxs@m">More in ‘{{ pageInfo.parent.title }}’</h2>
+                            <h2 class="u-fs-r--b u-bt@xxs@m u-mt-m@xxs@m u-pt-m@xxs@m u-d-no@m">More in ‘{{ pageInfo.parent.title }}’</h2>
                         {% endif %}
                         {% for group in helpers.subNavigationHelper({
                             pageInfo: pageInfo,
