@@ -5,7 +5,7 @@
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   position: relative;
-  & &__svg-logo {
+  & &__title--svg-logo {
     display: block;
     fill: $color-white;
 
@@ -104,7 +104,7 @@
     &-link {
       display: block;
       &:focus {
-        .header__svg-logo {
+        .header__title--svg-logo {
           fill: $color-black !important;
         }
       }
