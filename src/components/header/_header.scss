@@ -28,24 +28,10 @@
     @include mq(xs) {
       height: 46px;
     }
-    .header__logo--small > {
-      .header__logo-link:focus {
-        padding-top: 0.5rem;
-      }
-    }
   }
   &__grid-top-nisra {
     @include mq(xs) {
       height: 76px;
-    }
-
-    @include mq(xxs, xs) {
-      .header__logo-link:focus {
-        padding-top: 0.85rem !important;
-      }
-    }
-    .header__logo-link:focus {
-      padding-top: 2rem;
     }
   }
   &__main {
@@ -139,6 +125,7 @@
     &__top {
       background: $color-header-internal;
       .ons-svg-logo {
+        display: block;
         fill: $color-white;
         &--acent {
           fill: $color-ons-icon-secondary;
@@ -155,11 +142,27 @@
     }
   }
 
+  .ons-svg-logo,
+  .ons-nisra-svg-logo {
+    display: block;
+  }
+
   .ons-svg-logo {
     fill: $color-ons-icon;
-    margin-top: 0.3rem;
     &--acent {
       fill: $color-ons-icon-secondary;
+    }
+  }
+
+  .ons-nisra-svg-logo {
+    .st0 {
+      fill: #3d7cc9;
+    }
+    .st1 {
+      fill: #cddb00;
+    }
+    .st2 {
+      fill: #00205c;
     }
   }
 
@@ -182,23 +185,13 @@
       }
     }
   }
-  .ons-nisra-svg-logo {
-    margin-top: 5px;
-    .st0 {
-      fill: #3d7cc9;
-    }
-    .st1 {
-      fill: #cddb00;
-    }
-    .st2 {
-      fill: #00205c;
-    }
-  }
+
   .header__logo--large {
     @include mq(xxs, 399px) {
       display: none;
     }
   }
+
   .header__logo--small {
     @include mq(400px) {
       display: none;
@@ -208,6 +201,10 @@
   &__logo-link,
   &__logo-link:hover {
     text-decoration: none;
+  }
+
+  &__logo-link {
+    display: block;
   }
 
   &__bottom {
