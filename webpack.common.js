@@ -12,7 +12,6 @@ import svgoConfig from './svgo-config';
 const OUT_DIR = 'build';
 
 const core = {
-  mode: 'production',
   context: `${__dirname}/src`,
 
   output: {
@@ -37,7 +36,6 @@ const core = {
   },
 
   optimization: {
-    noEmitOnErrors: true,
     moduleIds: 'named',
   },
 
@@ -337,7 +335,7 @@ export default function(mode) {
         rules: [
           {
             test: /\.(njk|html)$/,
-            loaders: [
+            rules: [
               {
                 loader: 'file-loader',
                 options: {
