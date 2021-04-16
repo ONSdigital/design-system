@@ -137,11 +137,11 @@
   }
   &--internal & {
     &__top {
-      background: $color-dark-blue;
+      background: $color-header-internal;
       .ons-svg-logo {
         fill: $color-white;
         &--acent {
-          fill: $color-lime-green;
+          fill: $color-ons-icon-secondary;
         }
       }
     }
@@ -156,10 +156,10 @@
   }
 
   .ons-svg-logo {
-    fill: $color-dark-blue;
+    fill: $color-ons-icon;
     margin-top: 0.3rem;
     &--acent {
-      fill: $color-lime-green;
+      fill: $color-ons-icon-secondary;
     }
   }
 

@@ -25,6 +25,10 @@ $color-light-red: #fbecec;
 $color-yellow: #fd0;
 $color-bright-yellow: #e4f972;
 
+// icons
+$color-ons-icon: $color-dark-blue !default;
+$color-ons-icon-secondary: $color-lime-green !default;
+
 // theme branding
 $color-branded: $color-grey-5 !default;
 $color-branded-tint: $color-grey-5 !default;
@@ -35,6 +39,7 @@ $color-branded-supporting-tint: $color-grey-5 !default;
 
 // assignment
 $color-header: $color-astral-blue !default;
+$color-header-internal: $color-dark-blue !default;
 $cta-bg: $color-grey-5 !default;
 $cookie-banner-bg: $color-grey-5 !default;
 $cookie-banner-text: $color-black !default;
