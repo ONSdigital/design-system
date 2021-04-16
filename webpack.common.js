@@ -12,6 +12,7 @@ import svgoConfig from './svgo-config';
 const OUT_DIR = 'build';
 
 const core = {
+  mode: 'production',
   context: `${__dirname}/src`,
 
   output: {
@@ -37,7 +38,7 @@ const core = {
 
   optimization: {
     noEmitOnErrors: true,
-    namedModules: true,
+    moduleIds: 'named',
   },
 
   plugins: [
@@ -105,7 +106,7 @@ const jsCore = merge(core, {
         test: /\.(njk|html)$/,
         exclude: /(node_modules)/,
         loader: 'nunjucks-loader',
-        query: {
+        options: {
           root: `${__dirname}/src`,
           config: `${__dirname}/nunjucks.config.js`,
         },
