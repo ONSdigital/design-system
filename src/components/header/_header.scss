@@ -41,7 +41,7 @@
 
     @include mq(xxs, xs) {
       .header__logo-link:focus {
-        padding-top: 0.8rem !important;
+        padding-top: 0.85rem !important;
       }
     }
     .header__logo-link:focus {
