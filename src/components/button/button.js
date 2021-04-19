@@ -2,7 +2,7 @@ let i = 0;
 export default class SubmitButton {
   constructor(button, submitType) {
     this.button = button;
-    this.form = [...document.getElementsByTagName('form')][0];
+    this.form = this.button.closest('form');
     this.submitType = submitType;
 
     if (this.submitType == 'loader') {
@@ -24,26 +24,20 @@ export default class SubmitButton {
 
   loaderButton(event) {
     const loaderButtonEl = event.submitter ? event.submitter : this.button;
-
-    i++;
-    if (i > 1) {
-      event.preventDefault();
-    }
-
     loaderButtonEl.classList.add('is-loading');
     loaderButtonEl.setAttribute('disabled', true);
   }
 
   timerButton(event) {
     const timerButtonEl = event.submitter ? event.submitter : this.button;
-
-    i++;
-    if (i > 1) {
-      event.preventDefault();
+    if (timerButtonEl.tagName === 'A') {
+      i++;
+      if (i > 1) {
+        event.preventDefault();
+      }
+    } else {
+      timerButtonEl.setAttribute('disabled', true);
     }
-
-    timerButtonEl.setAttribute('disabled', true);
-
     setTimeout(
       timerButtonEl => {
         timerButtonEl.removeAttribute('disabled');
