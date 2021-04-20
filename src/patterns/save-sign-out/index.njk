@@ -20,17 +20,52 @@ Follow this pattern when a user has started a survey after entering an [access c
 
 ## When not to use this pattern
 
-Do not use this pattern if the user has not been required to enter a unique code to access the service.
+Do not use this pattern if the user does not need to enter an access code to use the service.
 
 ## How to use this pattern
 
 Use the `signoutButton` object within [page template](/styles/page-template) configuration.  This will ensure the [ghost button](/components/button/#ghost) is placed in the header or footer when there is not enough space available on a small device.
 
-Selecting the button should exit the service, clear any session data from the browser, and save any information the user has submitted before they last selected the “Save and continue” button. The user should then be directed to the signed out page.
+The following should happen when a user selects the “Save and sign out” button:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": "user exits the service"
+            },
+            {
+                "text": "clear any session data from the browser"
+            },
+            {
+                "text": "save any information the user has submitted"
+            },
+            {
+                "text": "direct user to the signed out page"
+            }
+        ]
+    })
+}}
 
 ### Signed out page
 
-Confirms the user’s progress has been saved and warns them to keep their access code safe.  A call to action to access the service again must be displayed so the user can continue their journey.
+This page needs to do the following:
+
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": "confirm the user’s progress has been saved"
+            },
+            {
+                "text": "warn them to keep their access code safe"
+            },
+            {
+                "text": "have a call to action to access the service again so the user can continue their journey"
+            }
+        ]
+    })
+}}
+
 {{
     patternlibExample({ "path": "patterns/save-sign-out/examples/signed-out/index.njk" })
 }}
