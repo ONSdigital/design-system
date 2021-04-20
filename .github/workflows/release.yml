@@ -21,12 +21,13 @@ jobs:
       - name: Build templates
         run: |
           cd src
-          RELEASE_VERSION=${{ github.event.release.tag_name }} yarn cdn-bundle
+          RELEASE_VERSION=31.4.4 yarn cdn-bundle
       - name: Zip templates
         run: zip -r templates.zip templates/*
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: templates.zip
+          tag: 31.4.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
