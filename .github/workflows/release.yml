@@ -2,12 +2,6 @@ name: Release
 on:
   release:
     types: [published]
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
 jobs:
   add-templates-to-release:
     runs-on: ubuntu-latest
@@ -28,6 +22,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: templates.zip
-          tag: 31.4.4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
