@@ -55,7 +55,7 @@
     @extend .u-fs-xl\@xxs;
 
     color: $color-white;
-    margin: 0;
+    margin: 0.14rem 0;
     &--with-description {
       line-height: 1.7 !important;
     }
@@ -77,14 +77,13 @@
 
     //to allow for differences in size between welsh and english logos
     &-census-logo-en {
-      height: 30px;
-
       @include mq(m) {
         margin-top: 0.4rem !important;
       }
 
-      @include mq(xs) {
+      @include mq(xxs) {
         margin-top: 0.2rem;
+        padding: 0.35rem 0;
       }
     }
     &-link {
