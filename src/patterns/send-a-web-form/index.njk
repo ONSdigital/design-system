@@ -50,6 +50,34 @@ The following could be included on a web form:
     })
 }}
 
+For “What do you need help with”, the user needs to be offered a selection of radio options, for example:
+
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'I need to change my contact details'
+            },
+            {
+                "text": 'I need help with my survey'
+            },
+            {
+                "text": 'I want to make a complaint'
+            },
+            {
+                "text": 'I am having technical difficulties'
+            },
+            {
+                "text": 'I need to change my password'
+            },
+            {
+                "text": 'Something else'
+            }
+        ]
+    })
+}}
+
+
 ## Web form
 A single-page form asking users to select their country, what they need help with and contact details.
 
