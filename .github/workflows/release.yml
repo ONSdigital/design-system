@@ -1,4 +1,4 @@
-name: zip-templates-and-add-to-release
+name: Release
 on:
   release:
     types: [published]
@@ -11,8 +11,7 @@ jobs:
         with:
           node-version: '14'
       - name: Install dependencies
-        run: |
-          yarn install
+        run: yarn install
       - name: Build templates
         run: |
           cd src
