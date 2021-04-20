@@ -11,6 +11,11 @@
     display: block;
     height: auto;
     padding: 1rem 1.5rem;
+
+    .page,
+    .page__content {
+      overflow-x: visible;
+    }
   }
 
   &__header {
@@ -21,6 +26,10 @@
     .nav {
       width: 100%;
     }
+  }
+
+  &__body {
+    overflow: hidden;
   }
 
   &__content {
