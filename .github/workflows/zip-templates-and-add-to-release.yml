@@ -12,8 +12,6 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: |
-          npm install -g yarn
-          sudo apt-get update && sudo apt-get install -y --allow-unauthenticated zip
           yarn install
       - name: Build templates
         run: |
