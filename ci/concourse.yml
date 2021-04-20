@@ -50,8 +50,6 @@ jobs:
         args:
         - -exc
         - |
-          apt-get update && apt-get install -y --allow-unauthenticated zip
-
           cd ons-design-system-release
 
           mkdir design-system
@@ -66,7 +64,6 @@ jobs:
 
           mkdir ../../dist/$design_system_release
           cp -R build/* ../../dist/$design_system_release
-          zip -r ../../templates/templates.zip templates/*
 
     on_failure:
       put: slack-alert
@@ -121,9 +118,3 @@ jobs:
             title: Concourse Build $BUILD_ID
             title_link: http://concourse.dev.eq.ons.digital/builds/$BUILD_ID
 
-  - put: ons-design-system-release
-    params:
-      name: ons-design-system-release/version
-      tag: ons-design-system-release/version
-      globs:
-        - templates/*.zip
