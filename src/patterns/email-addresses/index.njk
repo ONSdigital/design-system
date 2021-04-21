@@ -15,7 +15,7 @@ How to ask a user for their email address.
 
 ## When to use this pattern
 
-Use the email address pattern whenever you need to collect an email address from the user.
+Follow this pattern when you need to collect an email address from the user.
 
 ## How to use this pattern
 
@@ -27,7 +27,7 @@ When using this pattern you should:
                 "text": 'tell users why you need their email address and what it will be used for'
             },
             {
-                "text": 'make sure the field can accept all users email addresses'
+                "text": 'make sure the field can accept all email addresses'
             },
             {
                 "text": 'help users enter an email address in the correct format'
@@ -38,11 +38,11 @@ When using this pattern you should:
 
 ### Tell users why you need their email address and what it will be used for
 
-You can use the input `label__description` to reassure users by explaining why you need their email address, and what it will be used for.
+Use the input `label__description` to reassure users. Explaining why you need their email address, and what it will be used for.
 
-### Make sure the field can accept all users email addresses
+### Make sure the field can accept all email addresses
 
-Make sure the email address field can accommodate up to the maximum number of allowed characters.  An email address can be up to a maximum of 320 characters long and include a set of special characters as detailed in the{{
+The email address field needs to accommodate the maximum number of characters allowed.  An email address can be up to 320 characters long and include a set of special characters as detailed in the{{
     onsExternalLink({
         "url": "https://tools.ietf.org/html/rfc3696#section-3",
         "linkText": "RFC3696 specification from the Internet Engineering Task Force"
@@ -51,19 +51,22 @@ Make sure the email address field can accommodate up to the maximum number of al
 
 ### Help users enter an email address in the correct format
 
-You should help users enter a valid email address by:
+To help users enter a valid email address, you should:
 
 {{
     onsList({
         "itemsList": [
             {
-                "text": 'checking they have entered it correctly and showing error messages if they haven’t'
+                "text": 'check they have entered the email address correctly'
             },
             {
-                "text": 'allowing them to paste the email address'
+                "text": 'show error validation messages if they have not entered a valid email address'
             },
             {
-                "text": 'asking them to confirm it’s correct using the <a href="/patterns/check-answers/">check answers pattern</a>'
+                "text": 'allow them to paste the email address'
+            },
+            {
+                "text": 'ask them to confirm it is correct using the <a href="/patterns/check-answers/">check answers pattern</a>'
             }
         ]
     })
@@ -77,13 +80,13 @@ Follow the [correct errors pattern](/patterns/error-validation) and show the err
     patternlibExample({"path": "patterns/email-addresses/examples/email-error/index.njk"})
 }}
 
-##### Missing email address
+##### If the email address is missing
 
-Use “Enter your email address”.
+Use “Enter your email address” to explain the error to the user.
 
-##### Incorrect email address
+##### If the email address is incorrect
 
-Use "Enter an email address in the correct format, such as name@example.com".
+Use “Enter an email address in a valid format, for example, name@example.com” to explain the error to the user and give them a clear example of a valid email address.
 
 ## Research on this pattern
 
