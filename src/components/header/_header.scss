@@ -78,8 +78,8 @@
     //to allow for differences in size between welsh and english logos
     &-census-logo-en {
       @include mq(xxs) {
-        margin-top: 0.2rem;
-        padding: 0.35rem 0;
+        margin: 0.2rem 0;
+        padding: 0.25rem 0;
       }
     }
     &-link {
