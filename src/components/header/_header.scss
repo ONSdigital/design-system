@@ -55,7 +55,6 @@
     @extend .u-fs-xl\@xxs;
 
     color: $color-white;
-    margin: 0.14rem 0;
     &--with-description {
       line-height: 1.7 !important;
     }
@@ -208,5 +207,6 @@
 
   &__bottom {
     background: $color-header;
+    margin-top: -0.03rem;
   }
 }
