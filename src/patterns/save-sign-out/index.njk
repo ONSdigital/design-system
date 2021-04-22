@@ -8,7 +8,7 @@ group: Help users to...
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/button/_macro.njk" import onsButton %}
 
-Users can save their progress and sign out of the service to return to later, by selecting ”Save and sign out” in the header or footer.
+Users can save their progress, sign out and return to the service later. “Save and sign out” will appear in the header or the footer (depending on device width).
 
 {{
     patternlibExample({ "path": "patterns/save-sign-out/examples/save-sign-out-button/index.njk" })
@@ -16,7 +16,7 @@ Users can save their progress and sign out of the service to return to later, by
 
 ## When to use this pattern
 
-Follow this pattern when a user has started a survey after entering an [access code](/patterns/uac).
+Use this pattern when a user has started a survey after entering an [access code](/patterns/uac).
 
 ## When not to use this pattern
 
@@ -24,7 +24,7 @@ Do not use this pattern if the user does not need to enter an access code to use
 
 ## How to use this pattern
 
-Use the `signoutButton` object within [page template](/styles/page-template) configuration.  This will ensure the [ghost button](/components/button/#ghost) is placed in the header or footer when there is not enough space available on a small device.
+Use the `signoutButton` object that is configured within the [page template](/styles/page-template).  This will ensure the [ghost button](/components/button/#ghost) is placed in the header, or footer when there is not enough space available on a small device.
 
 The following should happen when a user selects the “Save and sign out” button:
 {{
