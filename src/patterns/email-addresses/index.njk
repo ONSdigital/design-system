@@ -15,7 +15,7 @@ How to ask a user for their email address.
 
 ## When to use this pattern
 
-Follow this pattern when you need to collect an email address from the user.
+Use this pattern when you need to collect an email address from the user.
 
 ## How to use this pattern
 
@@ -24,7 +24,7 @@ When using this pattern you should:
     onsList({
         "itemsList": [
             {
-                "text": 'tell users why you need their email address and what it will be used for'
+                "text": 'tell users why you need the email address and what it will be used for'
             },
             {
                 "text": 'make sure the field can accept all email addresses'
@@ -36,11 +36,11 @@ When using this pattern you should:
     })
 }}
 
-### Tell users why you need their email address and what it will be used for
+### Explain why you need the email address
 
-Use the input `label__description` to reassure users. Explaining why you need their email address, and what it will be used for.
+Use the `label__description` with the [input component](/components/input) to reassure users why you need their email address, and what it will be used for.
 
-### Make sure the field can accept all email addresses
+### Allow all email addresses
 
 The email address field needs to accommodate the maximum number of characters allowed.  An email address can be up to 320 characters long and include a set of special characters as detailed in the{{
     onsExternalLink({
@@ -49,7 +49,7 @@ The email address field needs to accommodate the maximum number of characters al
     })
 }}
 
-### Help users enter an email address in the correct format
+### Validate email addresses
 
 To help users enter a valid email address, you should:
 
@@ -74,7 +74,7 @@ To help users enter a valid email address, you should:
 
 #### Error messages
 
-Follow the [correct errors pattern](/patterns/error-validation) and show the error details above the email address field if it is missing or incorrect.
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the email address field if it is missing or incorrect.
 
 {{
     patternlibExample({"path": "patterns/email-addresses/examples/email-error/index.njk"})
@@ -82,7 +82,7 @@ Follow the [correct errors pattern](/patterns/error-validation) and show the err
 
 ##### If the email address is missing
 
-Use “Enter your email address” to explain the error to the user.
+Use “Enter an email address” to explain the error to the user.
 
 ##### If the email address is incorrect
 
