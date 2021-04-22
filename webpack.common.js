@@ -335,7 +335,7 @@ export default function(mode) {
         rules: [
           {
             test: /\.(njk|html)$/,
-            rules: [
+            use: [
               {
                 loader: 'file-loader',
                 options: {
