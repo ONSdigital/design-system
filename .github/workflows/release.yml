@@ -1,0 +1,26 @@
+name: Release
+on:
+  release:
+    types: [published]
+jobs:
+  add-templates-to-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: yarn install
+      - name: Build templates
+        run: |
+          cd src
+          RELEASE_VERSION=${{ github.event.release.tag_name }} yarn cdn-bundle
+      - name: Zip templates
+        run: zip -r templates.zip templates/*
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: templates.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
