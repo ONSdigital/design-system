@@ -20,7 +20,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         {
           test: /\.js$/,
           loader: 'istanbul-instrumenter-loader',
-          query: {
+          options: {
             esModules: true,
           },
           include: [path.resolve('./src/components/'), path.resolve('./src/js/')],
