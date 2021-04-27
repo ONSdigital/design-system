@@ -1,2 +1,2 @@
 require('@babel/register');
-module.exports = require('./karma.conf.es5').default;
+module.exports = require('./karma.conf.es5.js').default;
