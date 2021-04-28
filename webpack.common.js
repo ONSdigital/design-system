@@ -56,6 +56,7 @@ const cssCore = merge(core, {
       {
         include: [path.join(process.cwd(), 'src/scss')],
         test: /\.scss$/,
+        dependency: { not: ['url'] },
         use: [
           {
             loader: 'file-loader',
@@ -80,6 +81,7 @@ const cssCore = merge(core, {
             },
           },
         ],
+        type: 'javascript/auto',
       },
     ],
   },
@@ -235,6 +237,7 @@ export default function(mode) {
         rules: [
           {
             test: /\.svg$/,
+            dependency: { not: ['url'] },
             use: [
               { loader: 'file-loader' },
               {
@@ -244,6 +247,7 @@ export default function(mode) {
                 },
               },
             ],
+            type: 'javascript/auto',
           },
         ],
       },
@@ -291,6 +295,7 @@ export default function(mode) {
         rules: [
           {
             test: /\.svg$/,
+            dependency: { not: ['url'] },
             use: [
               { loader: 'file-loader' },
               {
@@ -300,6 +305,7 @@ export default function(mode) {
                 },
               },
             ],
+            type: 'javascript/auto',
           },
         ],
       },
@@ -335,6 +341,7 @@ export default function(mode) {
         rules: [
           {
             test: /\.(njk|html)$/,
+            dependency: { not: ['url'] },
             use: [
               {
                 loader: 'file-loader',
@@ -354,6 +361,7 @@ export default function(mode) {
                 },
               },
             ],
+            type: 'javascript/auto',
           },
         ],
       },
