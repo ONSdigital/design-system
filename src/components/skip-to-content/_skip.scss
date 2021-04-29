@@ -1,19 +1,32 @@
 .skip__link {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
   display: block;
   font-size: 1.1rem;
   font-weight: $font-weight-bold;
   height: 1px;
+  margin: 0;
   overflow: hidden;
+  position: absolute;
   top: 0;
+  white-space: nowrap;
+  width: 1px;
 
   &:focus {
     background-color: $color-focus;
     box-shadow: 0;
+    clip: auto;
+    clip-path: none;
     color: $color-focus-text;
     height: auto;
+    margin: inherit;
     max-height: 20em;
     outline: none;
+    overflow: visible;
     padding: 1rem;
+    position: static;
     text-decoration: underline solid $color-focus-text 2px;
+    white-space: inherit;
+    width: auto;
   }
 }
