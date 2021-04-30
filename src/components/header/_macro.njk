@@ -89,9 +89,6 @@
                             <{{ title_tag }} class="header__title{% if params.desc is defined and params.desc %} header__title--with-description{% endif %}">{{ params.title }}</{{ title_tag }}>
                         {% endif %}
                         {% if params.titleLogoHref is defined and params.titleLogoHref %}</a>{% endif %}
-                        {% if params.desc is defined and params.desc %}
-                            <p class="header__desc">{{ params.desc }}</p>
-                        {% endif %}
                     </div>
                     {% if params.button is defined and params.button %}
                         <div class="grid__col col-auto u-flex-no-shrink u-d-no@xxs@m">
@@ -121,6 +118,9 @@
                         </div>
                     {% endif %}
                 </div>
+                {% if params.desc is defined and params.desc %}
+                    <p class="header__desc">{{ params.desc }}</p>
+                {% endif %}
             </div>
         </div>
         {% if params.navigation is defined and params.navigation %}
