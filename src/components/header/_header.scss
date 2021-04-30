@@ -83,6 +83,11 @@
     }
     &-link {
       display: block;
+      text-decoration: none;
+      &:hover {
+        color: $color-white;
+        text-decoration: underline;
+      }
       &:focus {
         .header__title--svg-logo {
           fill: $color-black !important;
