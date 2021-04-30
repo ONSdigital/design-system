@@ -55,23 +55,11 @@
     @extend .u-fs-xl\@xxs;
 
     color: $color-white;
-    &--with-description {
-      line-height: 1.7 !important;
-    }
+
     &:not(&--with-description) {
-      line-height: 1.5 !important;
-
       @include mq(m) {
-        line-height: 2.5 !important;
+        margin-top: 0.7rem;
       }
-    }
-
-    @include mq(xs, 739px) {
-      line-height: 1.75 !important;
-    }
-
-    @include mq(xxs, xs) {
-      line-height: 1.7 !important;
     }
 
     //to allow for differences in size between welsh and english logos
@@ -89,8 +77,11 @@
         text-decoration: underline;
       }
       &:focus {
+        .header__title {
+          color: $color-black;
+        }
         .header__title--svg-logo {
-          fill: $color-black !important;
+          fill: $color-black;
         }
       }
     }
