@@ -2,7 +2,7 @@
 layout: none
 ---
 {% extends "styles/page-template/_template.njk" %}
-{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/lists/_macro.njk" import onsList %}
 
 {% set pageConfig = {
     "title": "Service name",
@@ -17,13 +17,24 @@ layout: none
 } %}
 
 {% block main %}
-    <h1>Your session has timed out due to inactivity</h1>
 
-    {% call onsPanel({
-        "classes": "u-mb-m"
-    }) %}
-        <p>To protect your information we have timed you out.</p>
-    {% endcall %}
+    <h1>Sorry, you need to sign in again</h1>
 
-    <p>We have saved your progress and you will need to <a href="#">enter your unique code</a> to access the survey again.</p>
+    <p>This is because you’ve either:</p>
+
+    {{
+        onsList({
+            "itemsList": [
+                {
+                    "text": 'been inactive for 45 minutes and your session has timed out to protect your information'
+                },
+                {
+                    "text": 'followed a link to the middle of a survey'
+                }
+            ]
+        })
+    }}
+
+    <p>You need to <a href="#0">sign back in</a> to continue your survey.</p>
+
 {% endblock %}
