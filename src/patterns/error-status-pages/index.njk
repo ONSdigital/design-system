@@ -117,7 +117,7 @@ Use this type of error page if the user has tried to view a page that does not e
 It is unlikely you will need to change the content on this example of a “Page not found” error.
 
 {{
-    patternlibExample({ "path": "patterns/error-status-pages/examples/404-error/index.njk" })
+    patternlibExample({ "path": "patterns/error-status-pages/examples/page-not-found-error/index.njk" })
 }}
 
 ### Page not found, with reference code
@@ -125,7 +125,7 @@ It is unlikely you will need to change the content on this example of a “Page 
 Your “Page not found” error page may need to give the user a reference code. Use an [error panel](components/panel#error) to display any reference code your service’s customer support staff may need the user to quote during a call.
 
 {{
-    patternlibExample({ "path": "patterns/error-status-pages/examples/404-error-with-code/index.njk" })
+    patternlibExample({ "path": "patterns/error-status-pages/examples/page-not-found-error-with-code/index.njk" })
 }}
 
 ## Errors caused by service access issues
@@ -135,7 +135,7 @@ Your “Page not found” error page may need to give the user a reference code.
 Use this error message if you are denying the user’s access because they cannot be authenticated. For example, the service will not launch because their credentials are not valid for authentication.
 
 {{
-    patternlibExample({ "path": "patterns/error-status-pages/examples/401-403-error/index.njk" })
+    patternlibExample({ "path": "patterns/error-status-pages/examples/access-denied-error/index.njk" })
 }}
 
 ### Access to the service is denied after authentication
@@ -202,7 +202,7 @@ The page should:
 A user may not be signed in but still need to be timed out. For example, if they are carrying out a transaction or request and we need to collect information from them such as an address. Because they are not signed in, the heading and call to action will need to change to reflect what they are doing. For example, “Sorry, you need to start again” and “You need to start again to request a new access code”.
 
 {{
-    patternlibExample({ "path": "patterns/error-status-pages/examples/timeout-error/index.njk" })
+    patternlibExample({ "path": "patterns/error-status-pages/examples/timed-out-error/index.njk" })
 }}
 
 ## Server error
@@ -210,7 +210,7 @@ A user may not be signed in but still need to be timed out. For example, if they
 Use a server error page when there is any kind of unexpected problem with the service. All errors should be logged and fixed as soon as possible. Only display this page for a short period of time. If the errors cannot be fixed quickly, then disable the service and display a [maintenance notice](#maintenance-notice) page instead.
 
 {{
-    patternlibExample({ "path": "patterns/error-status-pages/examples/500-error/index.njk" })
+    patternlibExample({ "path": "patterns/error-status-pages/examples/server-error/index.njk" })
 }}
 
 ## Maintenance notice
@@ -218,7 +218,7 @@ Use a server error page when there is any kind of unexpected problem with the se
 Use a maintenance notice page when the service needs to be disabled to fix problems or deploy upgrades. This error page should include the date and time the service will be available if this is known. Update the date and time if it changes to keep the user informed.
 
 {{
-    patternlibExample({ "path": "patterns/error-status-pages/examples/503-error/index.njk" })
+    patternlibExample({ "path": "patterns/error-status-pages/examples/maintenance-notice/index.njk" })
 }}
 
 ## Browser incompatibility error
