@@ -1,0 +1,11 @@
+{% from "components/share-page/_macro.njk" import onsSharePage %}
+
+{{
+    onsSharePage({
+        "title": 'Share this post',
+        "pageTitle": 'A page to share',
+        "pageURL": 'https://example.com/a-page-to-share',
+        "facebook": true,
+        "twitter": true
+    })
+}}
