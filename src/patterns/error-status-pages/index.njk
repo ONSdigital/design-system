@@ -164,26 +164,35 @@ The page should have:
     patternlibExample({ "path": "patterns/error-status-pages/examples/503-error/index.njk" })
 }}
 
-## Timeout
+## Session timed out error
 
-Use a Timeout page when the user has been timed out of the service due to inactivity.  Explain why the timeout has occured and reassure the user that their progress has been saved. Provide a link to allow them to sign in again.
+Use a session timed out error if you need to store the user’s information in a browser session with an expiry time to protect their information. When the session expires, use the timed out error message.
 
-The page should have:
+This error could be needed because a user has been inactive, or because they have followed a link to the middle of a process where the required session data is missing.
+
+The page should:
 {{
     onsList({
         "itemsList": [
             {
-                "text": "‘Your session has timed out due to inactivity – [service name] – Office for National Statistics’ as the page <code>title</code>"
+                "text": "explain in the header what has happened, for example, “Sorry, you need to sign in again”"
             },
             {
-                "text": "information why the timeout occured and (if applicable) inform the user their progress has been saved"
+                "text": "give information about why the timeout occurred"
             },
             {
-                "text": "a link allowing the user to sign in again"
+                "text": "inform the user their progress has been saved if this is relevant"
+            },
+            {
+                "text": "have a link for the user to sign in again"
             }
         ]
     })
 }}
+
+### Session timed out error when user is not signed in
+
+A user may not be signed in but still need to be timed out. For example, if they are carrying out a transaction or request and we need to collect information from them such as an address. Because they are not signed in, the heading and call to action will need to change to reflect what they are doing. For example, “Sorry, you need to start again” and “You need to start again to request a new access code”.
 
 {{
     patternlibExample({ "path": "patterns/error-status-pages/examples/timeout-error/index.njk" })
