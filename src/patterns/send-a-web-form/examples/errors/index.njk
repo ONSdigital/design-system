@@ -11,28 +11,15 @@ layout: none
 {% from "components/lists/_macro.njk" import onsList %}
 
 {% set pageConfig = {
-    "title": 'Error: Web form - Census 2021',
-    "theme": 'census',
+    "title": 'Service name',
     "absoluteUrl": pageInfo.url,
-    "headMeta": {
-        "description": 'Census 2021 is a UK wide population survey'
-    },
-    "header": {
-        "logoHref": '#0',
-        "titleLogo": 'census-logo-en',
-        "titleLogoHref": '#0',
-        "titleLogoAlt": 'Census 2021'
-    },
     "breadcrumbs": {
         "ariaLabel": 'Back',
         "itemsList": [
             {
                 "url": '#0',
                 "id": 'back',
-                "text": 'Back',
-                "attributes": {
-                    "data-attribute": 'Example attribute'
-                }
+                "text": 'Back'
             }
         ]
     },
@@ -52,12 +39,6 @@ layout: none
         onsList({
             "element": 'ol',
             "itemsList": [
-                {
-                    "text": 'Select your country',
-                    "index": true,
-                    "url": '#webform-country-error',
-                    "classes": 'js-inpagelink'
-                },
                 {
                     "text": 'Select what you need help with',
                     "index": true,
@@ -91,48 +72,29 @@ layout: none
     <h1 class="u-fs-xxl u-mt-l">Web form</h1>
 
     {{ onsRadios({
-        "legend": 'What country do you live in?',
-        "name": 'webform-country',
-        "radios": [
-            {
-                "id": 'england',
-                "label": {
-                    "text": 'England'
-                },
-                "value": 'england'
-            },
-            {
-                "id": 'wales',
-                "label": {
-                    "text": 'Wales'
-                },
-                "value": 'wales'
-            },
-            {
-                "id": 'northern-ireland',
-                "label": {
-                    "text": 'Northern Ireland'
-                },
-                "value": 'northern-ireland'
-            }
-        ],
-        "error": {
-            "id": 'webform-country-error',
-            "text": 'Select your country',
-            "dsExample": isPatternLib
-        }
-    }) }}
-
-    {{ onsRadios({
         "legend": 'What do you need help with?',
         "name": 'webform-help',
         "radios": [
-            {
-                "id": 'missing-information',
+           {
+                "id": 'change-contact-details',
                 "label": {
-                    "text": 'I don’t have everything I need to complete my census'
+                    "text": 'I need to change my contact details'
                 },
-                "value": 'missing-information'
+                "value": 'change-contact-details'
+            },
+            {
+                "id": 'help-with-my-survey',
+                "label": {
+                    "text": 'I need help with my survey'
+                },
+                "value": 'help-with-my-survey'
+            },
+            {
+                "id": 'complaint',
+                "label": {
+                    "text": 'I want to make a complaint'
+                },
+                "value": 'complaint'
             },
             {
                 "id": 'technical-difficulties',
@@ -142,25 +104,11 @@ layout: none
                 "value": 'technical-difficulties'
             },
             {
-                "id": 'need-help',
+                "id": 'change-password',
                 "label": {
-                    "text": 'I need help with my census form'
+                    "text": 'I need to change my password'
                 },
-                "value": 'need-help'
-            },
-            {
-                "id": 'complaint',
-                "label": {
-                    "text": 'I have a complaint'
-                },
-                "value": 'complaint'
-            },
-            {
-                "id": 'address-help',
-                "label": {
-                    "text": 'I need help with my address'
-                },
-                "value": 'address-help'
+                "value": 'change-password'
             },
             {
                 "id": 'something-else',
@@ -205,8 +153,8 @@ layout: none
             "text": 'Name'
         },
         "error": {
-            "id": "webform-name-error",
-            "text": "Enter your name",
+            "id": 'webform-name-error',
+            "text": 'Enter your name',
             "dsExample": isPatternLib
         }
     }) }}
@@ -222,8 +170,8 @@ layout: none
             "description": 'We will only use this to send you a reply'
         },
         "error": {
-            "id": "webform-email-error",
-            "text": "Enter your email address",
+            "id": 'webform-email-error',
+            "text": 'Enter your email address',
             "dsExample": isPatternLib
         }
     }) }}

@@ -9,9 +9,13 @@ group: Help users to...
 
 A user may need to contact ONS, for example, to get help with their survey or give feedback. This pattern allows a user to send a message and then the contact centre responds (through a “no reply” email).
 
+{{
+    patternlibExample({ "path": "patterns/send-a-web-form/examples/form/index.njk" })
+}}
+
 ## When to use this pattern
 
-Follow this pattern when a user needs to get in touch with us but they do not need an instant response or to talk to someone in the contact centre directly. Use it when we can give a specific response time, such as “We will respond within 48 hours”.
+Use this pattern when a user needs to get in touch with us but they do not need an instant response or to talk to someone in the contact centre directly. Use it when we can give a specific response time, such as “We will respond within 48 hours”.
 
 ## When not to use this pattern
 
@@ -19,20 +23,15 @@ Do not use this pattern if the user needs to speak to someone at the contact cen
 
 ## How to use this pattern
 
-To help contact staff deal with web form enquiries, you should provide a set of categories based on the most common user needs from research.
+Give users a set of categories to choose from on the web form. These should be based on the most common user needs identified through user research. This helps contact centre staff deal with enquiries.
 
-You should only ask the user to provide the contact details the service needs to handle the request.
+Only ask the user for the contact details the service needs to handle the request.
 
-For Census 2021, a respondent could send a web form to the contact centre to receive the appropriate support to complete the Census.
-
-The census web form included the following, in this order:
+The following could be included on a web form:
 
 {{
     onsList({
         "itemsList": [
-            {
-                "text": 'What country do you live in? (radio selection)'
-            },
             {
                 "text": 'What do you need help with? (radio selection)'
             },
@@ -49,17 +48,37 @@ The census web form included the following, in this order:
                 "text": 'Send message (button)'
             },
             {
-                "text": 'Description of what we do with personal data and a link to privacy statement'
+                "text": 'Description of what we do with personal data and a link to the privacy statement'
             }
         ]
     })
 }}
 
-## Web form
-A single-page form asking users to select their country, what they need help with and contact details.
+For “What do you need help with”, the user needs to be offered a selection of radio options, for example:
 
 {{
-    patternlibExample({ "path": "patterns/send-a-web-form/examples/form/index.njk" })
+    onsList({
+        "itemsList": [
+            {
+                "text": 'I need to change my contact details'
+            },
+            {
+                "text": 'I need help with my survey'
+            },
+            {
+                "text": 'I want to make a complaint'
+            },
+            {
+                "text": 'I am having technical difficulties'
+            },
+            {
+                "text": 'I need to change my password'
+            },
+            {
+                "text": 'Something else'
+            }
+        ]
+    })
 }}
 
 ## Web form errors
