@@ -1,0 +1,21 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% set pageConfig = {
+    "title": "Service name",
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    }
+} %}
+{% block main %}
+    <h1>There is a problem with your browser</h1>
+    <p>Try updating your browser to a new version.</p>
+    <p>If the problem still occurs, try using a different browser or device.</p>
+    <p><a href="#">Contact us</a> if you need help.</p>
+{% endblock %}
