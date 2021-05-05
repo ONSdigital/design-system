@@ -7,6 +7,7 @@ anchorLinks: true
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/text-indent/_macro.njk" import onsTextIndent %}
 
 Error and status pages tell the user there is a problem with the page they are trying to view or with the whole service.
 
@@ -40,7 +41,7 @@ Use this pattern when one of the following occurs:
 
 The content for each type of error may vary depending on the circumstances. Follow these guidelines to ensure that your error message is clear and a solution is provided.
 
-All error and status pages should:
+All error and status pages <strong>should</strong>:
 
 {{
     onsList({
@@ -64,7 +65,7 @@ All error and status pages should:
     })
 }}
 
-All error pages should not:
+All error and status pages <strong>should not</strong>:
 
 {{
     onsList({
@@ -160,12 +161,22 @@ Use this error message when the user has been successfully authenticated into th
     })
 }}
 
-The content of this message will depend on the service. Usually the user just needs to enter an access code or log in again:
-Sorry, there is a problem
-To access this page you need to enter your access code.
+The content of this message will depend on the service. Usually the user just needs to enter an access code or sign in again:
+{{-
+    onsTextIndent({
+        text: '<h1 class="u-fs-l">Sorry, there is a problem</h1>
+        <p>To access this page you need to <a href="#0">re-enter your access code</a>.</p>'
+    })
+}}
+
 or
-Sorry, there is a problem
-To access this page you need to log in again.
+
+{{-
+    onsTextIndent({
+        text: '<h1 class="u-fs-l">Sorry, there is a problem</h1>
+        <p>To access this page you need to <a href="#0">sign in again</a>.</p>'
+    })
+}}
 
 ## Session timed out errors
 
@@ -219,21 +230,7 @@ Use a maintenance notice page when the service needs to be disabled to fix probl
 
 ### Browser incompatibility error
 
-Use this error page if you need to warn a user that their web browser is out of date.
-
-The page should have:
-{{
-    onsList({
-        "itemsList": [
-            {
-                "text": "‘An error has occurred – [service name] – Office for National Statistics’ as the page <code>title</code>"
-            },
-            {
-                "text": "a link to an alternative service that may help the user continue their task (if available)"
-            }
-        ]
-    })
-}}
+Use this error page if you need to tell a user that their web browser is not compatible. For example, it does not support the version of HTTP needed for the service.
 
 {{
     patternlibExample({ "path": "patterns/error-status-pages/examples/browser-incompatible-error/index.njk" })
