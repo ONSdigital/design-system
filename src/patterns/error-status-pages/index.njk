@@ -92,9 +92,7 @@ Some error messages will need to give the user a way to contact us for further h
 
 You can ask a content designer to help you write the content to ensure it is clear and helpful for the user.
 
-## Errors caused by an action the user takes
-
-### Page not found
+## Page not found errors
 
 Use this type of error page if the user has tried to view a page that does not exist. This could happen if someone:
 
@@ -128,9 +126,7 @@ Your “Page not found” error page may need to give the user a reference code.
     patternlibExample({ "path": "patterns/error-status-pages/examples/page-not-found-error-with-code/index.njk" })
 }}
 
-## Errors caused by service access issues
-
-### Access to the service is denied 
+## Access denied errors
 
 Use this error message if you are denying the user’s access because they cannot be authenticated. For example, the service will not launch because their credentials are not valid for authentication.
 
@@ -171,7 +167,7 @@ or
 Sorry, there is a problem
 To access this page you need to log in again.
 
-## Session timed out error
+## Session timed out errors
 
 Use a session timed out error if you need to store the user's information in a browser session with an expiry time to protect their information. When the session expires, use the error message.
 
@@ -205,15 +201,15 @@ A user may not be signed in but still need to be timed out. For example, if they
     patternlibExample({ "path": "patterns/error-status-pages/examples/timed-out-error/index.njk" })
 }}
 
-## Server error
+## Service unavailable errors
 
-Use a server error page when there is any kind of unexpected problem with the service. All errors should be logged and fixed as soon as possible. Only display this page for a short period of time. If the errors cannot be fixed quickly, then disable the service and display a [maintenance notice](#maintenance-notice) page instead.
+Use a service unavailable error page when there is any kind of unexpected problem with the service. All errors should be logged and fixed as soon as possible. Only display this page for a short period of time. If the errors cannot be fixed quickly, then disable the service and display a [maintenance notice](#maintenance-notice) page instead.
 
 {{
     patternlibExample({ "path": "patterns/error-status-pages/examples/server-error/index.njk" })
 }}
 
-## Maintenance notice
+### Maintenance notice
 
 Use a maintenance notice page when the service needs to be disabled to fix problems or deploy upgrades. This error page should include the date and time the service will be available if this is known. Update the date and time if it changes to keep the user informed.
 
@@ -221,7 +217,7 @@ Use a maintenance notice page when the service needs to be disabled to fix probl
     patternlibExample({ "path": "patterns/error-status-pages/examples/maintenance-notice/index.njk" })
 }}
 
-## Browser incompatibility error
+### Browser incompatibility error
 
 Use this error page if you need to warn a user that their web browser is out of date.
 
