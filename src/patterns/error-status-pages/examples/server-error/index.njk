@@ -1,0 +1,15 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% set pageConfig = {
+    "title": "Service name",
+    "footer": {
+    }
+} %}
+{% block main %}
+    <h1>Sorry, there is a problem with the service</h1>
+    <p>Try again later.</p>
+    <p>If you have started a survey, your answers have been saved.</p>
+    <p><a href="#0">Contact us</a> if you need to speak to someone about your survey.</p>
+{% endblock %}
