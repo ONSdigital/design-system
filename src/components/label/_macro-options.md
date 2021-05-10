@@ -6,4 +6,4 @@
 | id          | string | false    | The id for the label                                                                                       |
 | classes     | string | false    | classes to add to the label                                                                                |
 | attributes  | object | false    | HTML attributes to add to the label, e.g. data attributes                                                  |
-| inputType   | string | false    | If set to 'radio' or 'checkbox' will add the relevant css for checkboxes or radios, defualts to text input |
+| inputType   | string | false    | If set to 'radio' or 'checkbox' will add the relevant css for checkboxes or radios, defaults to text input |

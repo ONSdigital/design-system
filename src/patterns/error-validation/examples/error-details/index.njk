@@ -1,7 +1,7 @@
 {% from "components/input/_macro.njk" import onsInput %}
 {{
     onsInput({
-        "id": "number",
+        "id": "number-of-employees",
         "type": "number",
         "classes": "input--w-5",
         "attributes": {
@@ -12,6 +12,7 @@
             "text": "Number of employees paid monthly"
         },
         "error": {
+            "id": "number-of-employees-error",
             "text": "Enter a number",
             "dsExample": isPatternLib
         }
