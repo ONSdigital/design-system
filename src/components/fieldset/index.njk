@@ -29,9 +29,16 @@ A quick way to avoid visual repitition of the same text is to add the utility cl
 
 We recommend wrapping the `h1` inside the legend. There are two options for doing this:
 
-1. When using the [question macro](/patterns/question) include the parameter `"legendIsPageTitle": true` inside the `onsQuestion` configuration. Also include `"dontWrap": true` in the configuration of the input you are using.
-2. When just using an input component without the question component only include the parameter `"legendIsPageTitle": true` in the configuration of the input you are using.
+### With the question macro
 
+1. When using the [question macro](/patterns/question) include the parameter `"legendIsPageTitle": true` inside the `onsQuestion` configuration. 
+2. Include `"dontWrap": true` in the configuration of the input you are using. 
+3. Do not use the `legend` and `legendClasses` parameters on the input being used.
+
+### Without the question macro
+
+1. Only include the parameter `"legendIsPageTitle": true` in the configuration of the input you are using. 
+2. Do not use the `legendClasses` parameters.
 
 ### Configuration
 
@@ -42,6 +49,7 @@ We recommend wrapping the `h1` inside the legend. There are two options for doin
 | classes       | string                               | false    | Classes to apply to the fieldset                                     |
 | legend        | string                               | true     | Text for the legend                                                  |
 | legendClasses | string                               | false    | Classes to apply to the legend element                               |
+| legendIsPageTitle | boolean                          | false    | Creates a `h1` inside the legend                                     |
 | description   | string                               | false    | Description for the fieldset                                         |
 | attributes    | object                               | false    | HTML attributes (for example data attributes) to add to the fieldset |
 | error         | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                  |

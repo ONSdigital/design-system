@@ -11,7 +11,7 @@
 | legendClasses     | string                                                        | false    | Classes to apply to the legend                                                                               |
 | questionMode      | boolean                                                       | false    | Whether to change the visual layout of the input to a survey question                                        |
 | dontWrap          | boolean                                                       | false    | Prevents the date inputs from being wrapped in a [fieldset component](/components/fieldset)                  |
-| legendIsPageTitle | boolean                                                       | false    | Creates a `h1` inside the legend                                                                             |
+| legendIsPageTitle | boolean                                                       | false    | Creates a `h1` inside the legend [further information](/components/fieldset#legend-as-pagequestion-title)    |
 | error             | `Error` [_(ref)_](/components/error)                          | false    | Configuration for validation errors                                                                          |
 
 ## DateField
