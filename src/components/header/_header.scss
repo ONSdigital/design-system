@@ -60,7 +60,8 @@
       margin-top: 0.7rem;
     }
 
-    &--with-description {
+    &--with-description,
+    &--with-button {
       @include mq(m) {
         margin-top: 0.45rem;
       }
