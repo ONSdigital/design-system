@@ -1,6 +1,6 @@
 {% macro onsSectionNavigation(params) %}
-  <nav class="section-nav" id="{{ params.id }}" aria-label="{{ params.ariaLabel }}" role="menu">
-      <ul class="section-nav__list" aria-label="{{ params.ariaListLabel }}">
+  <nav class="section-nav" id="{{ params.id }}" aria-label="{{ params.ariaLabel | default("Section Navigation") }}" role="menu">
+      <ul class="section-nav__list" aria-label="{{ params.ariaListLabel | default("Section Links") }}">
         {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
           <li class="section-nav__item {{ item.classes }}{{ ' section-nav__item--active' if (item.url == params.currentPath) or (item.url in params.currentPath) or (params.tabQuery == item.title|lower) }}">
               <a class="section-nav__link" role="menuitem" href="{{ item.url }}" {% if (item.url == params.currentPath) or (item.url in params.currentPath) or (params.tabQuery == item.title|lower) %} aria-current="location" {% endif %}>{{ item.title }}</a>

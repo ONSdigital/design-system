@@ -8,7 +8,7 @@
             "text": params.skipLink.text
         })
     }}
-    <nav class="toc" aria-label="{{ params.ariaLabel }}">
+    <nav class="toc" aria-label="{{ params.ariaLabel | default("Table of Contents") }}">
       <h2 class="toc__title u-fs-r--b u-mb-s">{{ params.title }}</h2>
       {% if params.lists is defined and params.lists %}
         {% for list in params.lists %}
