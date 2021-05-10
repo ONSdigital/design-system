@@ -14,7 +14,7 @@ How to ask users for a phone number.
 }}
 
 ## When to use this pattern
-Only ask users for a phone number when there is an essential need for your service to use this information, for example, to send an access code.
+Only ask users for a phone number when your service has a genuine need for this information. For example, to send an access code by text message. 
 
 ## How to use this pattern
 You should always explain why you need the user's phone number, letting them know if you will contact them and when.
@@ -23,12 +23,12 @@ Use an [input component](/components/input) and set the input type to `tel` to b
 
 ### Explain why you need the phone number
 
-Use the `label__description` with the [input component](/components/input) to reassure users why you need a phone numbers and what it will be used for.
+Use the `label__description` with the [input component](/components/input) to reassure users why you need a phone number and what it will be used for.
 
-### Use the autocomplete attribute
-Use the `autocomplete` attribute when you are asking for a phone number to help the user fill out a form more quickly.
+### Use autocomplete 
+Use the `autocomplete` attribute when you are asking for a phone number as it helps the user fill out a form more quickly.
 
-To do this, set the autocomplete attribute on the input field to `tel`. See how to do this in the HTML and Nunjucks code tabs in the example above.
+To do this, set the autocomplete attribute on the input field to `tel`.
 
 You will need to use the autocomplete attribute to meet [WCAG 2.1 AA standards for accessibility](https://www.w3.org/TR/WCAG21/#identify-input-purpose).
 
@@ -37,13 +37,13 @@ You will need to use the autocomplete attribute to meet [WCAG 2.1 AA standards f
     patternlibExample({"path": "patterns/phone-numbers/examples/phone-number-error/index.njk"})
 }}
 
-When validating the user’s phone number, you should follow the [error pattern guidance](/patterns/error-validation), providing specific error messages for the specific errors found.
+Use the correct errors pattern and show the error details above the input phone number area.
 
 #### If nothing is entered and the answer is required
-Use: ‘Enter [the required phone number]’, e.g. ‘Enter your mobile number’.
+Use ‘“Enter [the required type of phone number]’”, for example, “‘Enter a UK mobile number’”.
 
-#### If an invalid phone number is entered
-Use: ‘Enter a UK mobile number in a valid format, for example, 07700 912345 or +44 7700 912345’.
+#### If a phone number is incorrect
+Use “‘Enter a UK mobile number in a valid format, for example, 07700 912345 or +44 7700 912345’”.
 
 ## Research on this pattern
 {% call onsPanel() %}
