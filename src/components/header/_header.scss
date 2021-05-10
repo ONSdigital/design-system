@@ -57,7 +57,7 @@
     color: $color-white;
 
     @include mq(m) {
-      margin-top: 0.7rem;
+      margin-top: 0.85rem;
     }
 
     &--with-description,
