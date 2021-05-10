@@ -56,9 +56,13 @@
 
     color: $color-white;
 
-    &:not(&--with-description) {
+    @include mq(m) {
+      margin-top: 0.7rem;
+    }
+
+    &--with-description {
       @include mq(m) {
-        margin-top: 0.7rem;
+        margin-top: 0.45rem;
       }
     }
 
