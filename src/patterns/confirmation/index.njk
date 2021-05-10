@@ -13,84 +13,44 @@ A confirmation page lets the user know they have completed a transaction or surv
     patternlibExample({"path": "patterns/confirmation/examples/confirmation-basic/index.njk"})
 }}
 
-{{
-    patternlibExample({"path": "patterns/confirmation/examples/confirmation-with-email-and-feedback/index.njk"})
-}}
-
 ## When to use this pattern
 
-Use this pattern when you need to collect an email address from the user.
+Use this pattern at the end of a survey or transaction when the user has completed their task.
 
 ## How to use this pattern
+
+A confirmation page...
 
 When using this pattern you should:
 {{
     onsList({
         "itemsList": [
             {
-                "text": 'tell users why you need an email address and what it will be used for'
-            },
-            {
-                "text": 'make sure the field can accept all email addresses'
-            },
-            {
-                "text": 'help users enter an email address in the correct format'
+                "text": 'abc'
             }
         ]
     })
 }}
 
-### Explain why you need the email address
-
-Use the `label__description` with the [input component](/components/input) to reassure users why you need an email address and what it will be used for.
-
-### Allow all email addresses
-
-The email address field needs to accommodate the maximum number of characters allowed.  An email address can be up to 320 characters long and include a set of special characters as detailed in the{{
-    onsExternalLink({
-        "url": "https://tools.ietf.org/html/rfc3696#section-3",
-        "linkText": "RFC 3696 specification from the Internet Engineering Task Force"
-    })
-}}
-
-### Validate email addresses
-
-To help users enter a valid email address, you should:
-
+When using this pattern you could also include:
 {{
     onsList({
         "itemsList": [
             {
-                "text": 'check they have entered the email address correctly'
+                "text": 'confirmation email form'
             },
             {
-                "text": 'show error validation messages if they have not entered a valid email address'
-            },
-            {
-                "text": 'allow them to paste the email address'
-            },
-            {
-                "text": 'ask them to confirm it is correct using the <a href="/patterns/check-answers/">check answers pattern</a>'
+                "text": 'feedback form'
             }
         ]
     })
 }}
 
-#### Error messages
-
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the email address field if it is missing or incorrect.
+## Confirmation page with optional confirmation email and feedback forms
 
 {{
-    patternlibExample({"path": "patterns/email-addresses/examples/email-error/index.njk"})
+    patternlibExample({"path": "patterns/confirmation/examples/confirmation-with-email-and-feedback/index.njk"})
 }}
-
-##### If the email address is missing
-
-Use “Enter an email address” to explain the error to the user.
-
-##### If the email address is incorrect
-
-Use “Enter an email address in a valid format, for example, name@example.com” to explain the error to the user and give them a clear example of a valid email address.
 
 ## Research on this pattern
 
