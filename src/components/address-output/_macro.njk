@@ -1,0 +1,18 @@
+{% macro onsAddressOutput(params) %}
+    <div class="address-output{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}">
+        <p class="address-output__lines">
+            {% if params.line1 is defined and params.line1 %}
+                {{params.line1}}<br>
+            {% endif %}
+            {% if params.line2 is defined and params.line2 %}
+                {{params.line2}}<br>
+            {% endif %}
+            {% if params.town is defined and params.town %}
+                {{params.town}}<br>
+            {% endif %}
+            {% if params.postcode is defined and params.postcode %}
+                {{params.postcode}}<br>
+            {% endif %}
+        </p>
+    </div>
+{% endmacro %}
