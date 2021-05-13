@@ -18,16 +18,17 @@ You should use the ONS header at the top of any ONS service.
 ## How to use this component
 
 ### Internal
+
+The internal service variant of the header. Use the modifier `header--internal` when implementing for an internal service. 
 {{
     patternlibExample({ "path": "components/header/examples/internal-basic/index.njk" })
 }}
-The internal service variant of the header. Use the modifier `header--internal` when implementing for an internal service. 
 
 ### External survey with sign out button and language toggle 
 
-The [ghost button](/components/button/#header-style) in the header moves to the [footer](/components/footer) when the page width is under the medium breakpoint (less than 740px).
-
 The external header with language selector and save button, should be used across public facing services.
+
+The [ghost button](/components/button/#header-style) in the header moves to the [footer](/components/footer) when the page width is under the medium breakpoint (less than 740px).
 {{
     patternlibExample({ "path": "components/header/examples/external-lang/index.njk" })
 }}
@@ -40,11 +41,11 @@ Allows for text to be added below the title by adding the `header--hero` modifie
 }}
 
 ### External with navigation
+
+For services that require a main navigation. For mobile users, a menu button is shown which allows the navigation menu to be open and closed using javascript.
 {{
     patternlibExample({ "path": "components/header/examples/external-navigation/index.njk" })
 }}
-
-For services that require a main navigation. For mobile users, a menu button is shown which allows the navigation menu to be open and closed using javascript.
 
 ### External with Welsh logo
 {{
