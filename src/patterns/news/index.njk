@@ -1,0 +1,57 @@
+---
+title: News
+group: Pages
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+{{
+    onsPanel({
+        "body": "This pattern requires documentation."
+    })
+}}
+
+## Landing page
+
+{{
+    patternlibExample({ "path": "patterns/news/examples/landing/index.njk" })
+}}
+
+## Tags
+
+{{
+    patternlibExample({ "path": "patterns/news/examples/tag/index.njk" })
+}}
+
+## Categories
+
+{{
+    patternlibExample({ "path": "patterns/news/examples/category/index.njk" })
+}}
+
+## Article
+
+{{
+    patternlibExample({ "path": "patterns/news/examples/article/index.njk" })
+}}
+
+## Research on this pattern
+{% call onsPanel() %}
+    If you have conducted any user research using this pattern, please feed back your findings via the
+    {{
+        onsExternalLink({
+            "url": "https://github.com/ONSdigital/design-system/discussions/1513",
+            "linkText": "Design System forum"
+        })
+    }}
+{% endcall %}
+
+## Design System forum
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/1513",
+        "linkText": "Discuss 'News' on GitHub"
+    })
+}}
