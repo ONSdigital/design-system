@@ -1,127 +1,142 @@
 {% macro onsHeader(params) %}
-  {% from "components/button/_macro.njk" import onsButton %}
+    {% from "components/button/_macro.njk" import onsButton %}
+    {% from "components/icons/_macro.njk" import onsIcon %}
 
-  {% set title_tag = "h1" if params.tilteAsH1 else "div" %}
-  {% set currentLanguageISOCode = "en" %}
+    {% set title_tag = "h1" if params.tilteAsH1 else "div" %}
+    {% set currentLanguageISOCode = "en" %}
 
-  {% if params.language is defined and params.language and params.language.languages is defined and params.language.languages %}
-    {% set currentLanguage = params.language.languages | selectattr("current") | first %}
-    {% set currentLanguageISOCode = currentLanguage.ISOCode %}
-  {% endif %}
+    {% if params.language is defined and params.language and params.language.languages is defined and params.language.languages %}
+        {% set currentLanguage = params.language.languages | selectattr("current") | first %}
+        {% set currentLanguageISOCode = currentLanguage.ISOCode %}
+    {% endif %}
 
-  <header class="header {{ params.classes if params.classes }}" role="banner">
-      {% if params.phase is defined and params.phase %}
-          {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
-          {{ onsPhaseBanner(params.phase) }}
-      {% endif %}
-      <div class="header__top">
-          <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
-              <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap {{ 'header__grid-top-' + params.customHeaderLogo if params.customHeaderLogo }}">
+    <header class="header {{ params.classes if params.classes }}" role="banner">
+        {% if params.phase is defined and params.phase %}
+            {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
+            {{ onsPhaseBanner(params.phase) }}
+        {% endif %}
+        <div class="header__top">
+            <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
+                <div class="header__grid-top grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap {{ 'header__grid-top-' + params.customHeaderLogo if params.customHeaderLogo }}">
 
-                  <div class="grid__col col-auto">
-                    {% if params.logoHref is defined and params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
-                      <picture>
-                        <source media="(max-width: 399px)" srcset="{{ params.assetsURL if params.assetsURL is defined and params.assetsURL }}/img/{{ params.mobileLogo | default('ons-logo-stacked-pos-' + currentLanguageISOCode) }}.svg">
-                        <img class="header__logo" src="{{ params.assetsURL if params.assetsURL is defined and params.assetsURL }}/img/{{ params.logo | default('ons-logo-pos-' + currentLanguageISOCode) }}.svg" alt="{{ params.logoAlt | default('Office for National Statistics logo') }}">
-                      </picture>
-                    {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
-                  </div>
+                    <div class="grid__col col-auto">
+                        <div class="header__logo--large">
+                            {% if params.logoHref is defined and params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
+                            {{
+                                onsIcon({
+                                    "icon": params.logo | default('ons-logo-' + currentLanguageISOCode),
+                                    "altText": params.logoAlt | default('Office for National Statistics logo')
+                                })
+                            }}
+                            {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
+                        </div>
+                        <div class="header__logo--small">
+                            {% if params.logoHref is defined and params.logoHref %}<a class="header__logo-link" href="{{ params.logoHref }}">{% endif %}
+                            {{
+                                onsIcon({
+                                    "icon": params.mobileLogo | default('ons-logo-stacked-' + currentLanguageISOCode),
+                                    "altText": params.logoAlt | default('Office for National Statistics logo')
+                                })
+                            }}
+                            {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
+                        </div>
+                    </div>
 
-                  {% if params.language is defined and params.language or params.serviceLinks is defined and params.serviceLinks %}
-                      <div class="header__links grid__col col-auto">
-                          {% if params.language is defined and params.language %}
-                              <div class="grid__col col-auto">
-                                  {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
-                                  {{ onsLanguageSelector(params.language) }}
-                              </div>
-                          {% endif %}
-                          {% if params.serviceLinks is defined and params.serviceLinks %}
-                              <div class="grid__col col-auto u-d-no@xxs@m">
-                                  <nav class="header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel }}">
-                                      <ul class="header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel }}">
-                                          {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}
-                                              <li class="header-service-nav__item">
-                                                  <a
-                                                    href="{{ item.url }}"
-                                                    class="header-service-nav__link"
-                                                    {% if item.id is defined and item.id %} id="{{ item.id }}"{% endif %}
-                                                >{{ item.text }}</a>
-                                              </li>
-                                          {% endfor %}
-                                      </ul>
-                                  </nav>
-                              </div>
-                          {% endif %}
-                      </div>
-                  {% endif %}
-              </div>
-          </div>
-      </div>
-      <div class="header__main">
-          <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
-              <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
-                  <div class="grid__col col-auto u-flex-shrink">
-                      {% if params.titleLogoHref is defined and params.titleLogoHref %}<a class="header__title-link" href="{{ params.titleLogoHref }}">{% endif %}
-                      {% if params.titleLogo is defined and params.titleLogo and params.titleLogoAlt is defined and params.titleLogoAlt %}
-                        {% from "components/icons/_macro.njk" import onsIcon %}
-                        {{
-                            onsIcon({
-                                "icon": params.titleLogo,
-                                "altText": params.titleLogoAlt
-                            })
-                        }}
-                      {% else %}
-                        <{{ title_tag }} class="header__title{% if params.desc is defined and params.desc %} header__title--with-description{% endif %}">{{ params.title }}</{{ title_tag }}>
-                      {% endif %}
-                      {% if params.titleLogoHref is defined and params.titleLogoHref %}</a>{% endif %}
-                      {% if params.desc is defined and params.desc %}
-                          <p class="header__desc">{{ params.desc }}</p>
-                      {% endif %}
-                  </div>
-                  {% if params.button is defined and params.button %}
-                      <div class="grid__col col-auto u-flex-no-shrink u-d-no@xxs@m">
-                          {{ onsButton({
-                              "text": params.button.text,
-                              "classes": "btn--ghost u-d-no@xxs@m",
-                              "name": params.button.name,
-                              "attributes": params.button.attributes,
-                              "url": params.button.url,
-                              "buttonStyle": params.button.buttonStyle
-                          }) }}
-                      </div>
-                  {% endif %}
-                  {% if params.toggleButton is defined and params.toggleButton %}
-                      <div class="grid__col col-auto u-flex-no-shrink u-d-no@m">
+                    {% if params.language is defined and params.language or params.serviceLinks is defined and params.serviceLinks %}
+                        <div class="header__links grid__col col-auto">
+                            {% if params.language is defined and params.language %}
+                                <div class="grid__col col-auto">
+                                    {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                                    {{ onsLanguageSelector(params.language) }}
+                                </div>
+                            {% endif %}
+                            {% if params.serviceLinks is defined and params.serviceLinks %}
+                                <div class="grid__col col-auto u-d-no@xxs@m">
+                                    <nav class="header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel }}">
+                                        <ul class="header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel }}">
+                                            {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}
+                                                <li class="header-service-nav__item">
+                                                    <a
+                                                        href="{{ item.url }}"
+                                                        class="header-service-nav__link"
+                                                        {% if item.id is defined and item.id %} id="{{ item.id }}"{% endif %}
+                                                    >{{ item.text }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </nav>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="header__main{% if params.desc is defined and params.desc %} header__main--with-description{% endif %}">
+            <div class="container{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
+                <div class="grid grid--gutterless grid--flex grid--between grid--vertical-center grid--no-wrap">
+                    <div class="grid__col col-auto u-flex-shrink{% if params.titleLogo == 'census-logo-en' %} header__title-census-logo-en{% endif %}">
+                        {% if params.titleLogoHref is defined and params.titleLogoHref %}<a class="header__title-link" href="{{ params.titleLogoHref }}">{% endif %}
+                        {% if params.titleLogo is defined and params.titleLogo and params.titleLogoAlt is defined and params.titleLogoAlt %}
+                            {% from "components/icons/_macro.njk" import onsIcon %}
+                            {{
+                                onsIcon({
+                                    "icon": params.titleLogo,
+                                    "altText": params.titleLogoAlt
+                                })
+                            }}
+                        {% else %}
+                            <{{ title_tag }} class="header__title{% if params.desc is defined and params.desc %} header__title--with-description{% endif %}{% if params.button is defined and params.button %} header__title--with-button{% endif %}">{{ params.title }}</{{ title_tag }}>
+                        {% endif %}
+                        {% if params.titleLogoHref is defined and params.titleLogoHref %}</a>{% endif %}
+                    </div>
+                    {% if params.button is defined and params.button %}
+                        <div class="grid__col col-auto u-flex-no-shrink u-d-no@xxs@m">
                             {{ onsButton({
-                                "text": params.toggleButton.text,
-                                "classes": "btn--mobile u-ml-s u-d-no js-toggle-main",
-                                "buttonStyle": "mobile",
-                                "attributes": {
-                                    "aria-label": params.toggleButton.ariaLabel,
-                                    "aria-controls": params.navigation.id,
-                                    "aria-haspopup": "true",
-                                    "aria-expanded": "false"
-                                }
+                                "text": params.button.text,
+                                "classes": "btn--ghost u-d-no@xxs@m",
+                                "name": params.button.name,
+                                "attributes": params.button.attributes,
+                                "url": params.button.url,
+                                "buttonStyle": params.button.buttonStyle
                             }) }}
-                      </div>
-                  {% endif %}
-              </div>
-          </div>
-      </div>
-      {% if params.navigation is defined and params.navigation %}
-          <div class="header__bottom">
-              <div class="container container--gutterless@xxs@m{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
-                  <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel }}" data-analytics="header-navigation">
-                      <ul class="header-nav__list">
-                          {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
-                              <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">
-                                  <a class="header-nav__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
-                              </li>
-                          {% endfor %}
-                      </ul>
-                  </nav>
-              </div>
-          </div>
-      {% endif %}
-  </header>
+                        </div>
+                    {% endif %}
+                    {% if params.toggleButton is defined and params.toggleButton %}
+                        <div class="grid__col col-auto u-flex-no-shrink u-d-no@m">
+                                {{ onsButton({
+                                    "text": params.toggleButton.text,
+                                    "classes": "btn--mobile u-ml-s u-d-no js-toggle-main",
+                                    "buttonStyle": "mobile",
+                                    "attributes": {
+                                        "aria-label": params.toggleButton.ariaLabel,
+                                        "aria-controls": params.navigation.id,
+                                        "aria-haspopup": "true",
+                                        "aria-expanded": "false"
+                                    }
+                                }) }}
+                        </div>
+                    {% endif %}
+                </div>
+                {% if params.desc is defined and params.desc %}
+                    <p class="header__desc">{{ params.desc }}</p>
+                {% endif %}
+            </div>
+        </div>
+        {% if params.navigation is defined and params.navigation %}
+            <div class="header__bottom">
+                <div class="container container--gutterless@xxs@m{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
+                    <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel }}" data-analytics="header-navigation">
+                        <ul class="header-nav__list">
+                            {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
+                                <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">
+                                    <a class="header-nav__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        {% endif %}
+    </header>
 {% endmacro %}
