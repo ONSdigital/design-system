@@ -1,7 +1,7 @@
 | Name           | Type   | Required | Description                                             |
 | -------------- | ------ | -------- | ------------------------------------------------------- |
 | id             | string | false    | ID to of the feedback component                         |
-| classes        | string | false    | Classes to ne applied to the feedback container         |
+| classes        | string | false    | Classes to be applied to the feedback container         |
 | heading        | string | true     | Text to show in the heading of the feedback component   |
 | headingLevel   | string | false    | Number used to determine heading level. Defaults to `2` |
 | headingClasses | string | false    | Classes to be applied to the heading                    |
