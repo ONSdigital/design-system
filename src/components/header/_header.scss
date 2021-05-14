@@ -19,7 +19,7 @@
   }
   // Elements
   &__top {
-    background: $color-white;
+    background: $color-header-top;
     width: 100%;
   }
   &__grid-top {
@@ -117,7 +117,7 @@
   }
   &--internal & {
     &__top {
-      background: $color-header-internal;
+      background: $color-header-top-internal;
       .ons-svg-logo {
         display: block;
         fill: $color-white;
