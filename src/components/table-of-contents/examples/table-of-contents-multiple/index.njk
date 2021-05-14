@@ -1,0 +1,50 @@
+{% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
+
+{{-
+    onsTableOfContents({
+        "title": 'Contents',
+        "ariaLabel": 'Links to page sections',
+        "skipLink": {
+            "url": '#0',
+            "text": 'Skip to guide content'
+        },
+        "lists": [
+            {
+                "listHeading": 'Household questions',
+                "listHeadingHidden": 'help topics',
+                "itemsList": [
+                    {
+                        "url": '#household1',
+                        "text": 'Household and who lives here'
+                    },
+                    {
+                        "url": '#household2',
+                        "text": 'Housing, sex and GI'
+                    }
+                ]
+            },
+            {
+                "listHeading": 'Individual questions',
+                "listHeadingHidden": 'help topics',
+                "itemsList": [
+                    {
+                        "url": '#individual1',
+                        "text": 'Name, date of birth and marital status'
+                    },
+                    {
+                        "url": '#individual2',
+                        "text": 'Language, religion and ethnicity'
+                    },
+                    {
+                        "url": '#individual3',
+                        "text": 'Address, health and sexual orientation'
+                    },
+                    {
+                        "url": '#individual4',
+                        "text": 'Education and employment'
+                    }
+                ]
+            }
+        ]
+    })
+}}

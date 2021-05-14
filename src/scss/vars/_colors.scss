@@ -14,6 +14,7 @@ $color-dark-blue: #033e58;
 $color-astral-blue: #3b7a9e;
 $color-green: #0f8243;
 $color-bright-green: scale-color($color-green, $lightness: 20%, $saturation: 20%);
+$color-lime-green: #a8bd33;
 $color-light-green: #edf4f0;
 $color-amber: #ff600a;
 $color-bright-amber: scale-color($color-amber, $lightness: 20%, $saturation: 20%);
@@ -23,6 +24,15 @@ $color-bright-red: scale-color($color-red, $lightness: 20%, $saturation: 20%);
 $color-light-red: #fbecec;
 $color-yellow: #fd0;
 $color-bright-yellow: #e4f972;
+
+// icons
+$color-ons-icon: $color-dark-blue !default;
+$color-ons-icon-secondary: $color-lime-green !default;
+
+// nisra
+$color-nisra-icon: #3d7cc9;
+$color-nisra-icon-secondary: #cddb00;
+$color-nisra-icon-tertiary: #00205c;
 
 // theme branding
 $color-branded: $color-grey-5 !default;
@@ -34,6 +44,7 @@ $color-branded-supporting-tint: $color-grey-5 !default;
 
 // assignment
 $color-header: $color-astral-blue !default;
+$color-header-internal: $color-dark-blue !default;
 $cta-bg: $color-grey-5 !default;
 $cookie-banner-bg: $color-grey-5 !default;
 $cookie-banner-text: $color-black !default;
