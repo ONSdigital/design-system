@@ -78,14 +78,11 @@
       display: block;
       text-decoration: none;
       &:focus {
-        .header__title {
-          color: $color-black;
-        }
         .header__title--svg-logo {
-          fill: $color-black;
+          fill: $color-focus-text;
         }
         .header__title {
-          color: $color-text;
+          color: $color-focus-text;
         }
       }
       &:hover {
