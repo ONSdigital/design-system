@@ -99,17 +99,17 @@
     color: $color-white;
     margin-bottom: 0;
     padding: 1rem 0 !important;
-    & a {
+    a {
       color: inherit;
       text-decoration: underline solid $color-white 1px;
     }
-    & a:hover {
+    a:hover {
       text-decoration-thickness: 2px;
     }
   }
 
   &--announcement {
-    & a:focus {
+    a:focus {
       box-shadow: 0 -2px #fd0, 0 4px #fd0 !important; // Override focus style because the black border is not visible on a black background
     }
   }
@@ -161,6 +161,8 @@
     }
 
     &__icon {
+      background-color: $color-white;
+      color: $color-black;
       display: flex;
       svg {
         margin: auto;
@@ -172,13 +174,6 @@
     &__icon {
       background-color: $color-white;
       color: $color-branded-tertiary;
-    }
-  }
-
-  &--announcement & {
-    &__icon {
-      background-color: $color-white;
-      color: $color-black;
     }
   }
 

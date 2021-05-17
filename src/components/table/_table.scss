@@ -151,7 +151,7 @@
         fill: $color-grey-3;
       }
       .bottomTriangle {
-        fill: $color-blue;
+        fill: $color-ocean-blue;
       }
     }
     .table__sort-button:focus {
@@ -166,7 +166,7 @@
   [aria-sort='ascending'].table__header {
     .svg-icon {
       .topTriangle {
-        fill: $color-blue;
+        fill: $color-ocean-blue;
       }
       .bottomTriangle {
         fill: $color-grey-3;

@@ -8,10 +8,9 @@ $color-grey-5: #f0f0f0;
 $color-white: #fff;
 
 // default palette
-$color-blue: #4263c2;
 $color-light-blue: #eff0f9;
-$color-dark-blue: #033e58;
-$color-astral-blue: #3b7a9e;
+$color-night-blue: #003c57;
+$color-ocean-blue: #206095;
 $color-green: #0f8243;
 $color-bright-green: scale-color($color-green, $lightness: 20%, $saturation: 20%);
 $color-lime-green: #a8bd33;
@@ -26,7 +25,7 @@ $color-yellow: #fd0;
 $color-bright-yellow: #e4f972;
 
 // icons
-$color-ons-icon: $color-dark-blue !default;
+$color-ons-icon: $color-night-blue !default;
 $color-ons-icon-secondary: $color-lime-green !default;
 
 // nisra
@@ -35,7 +34,7 @@ $color-nisra-icon-secondary: #cddb00;
 $color-nisra-icon-tertiary: #00205c;
 
 // theme branding
-$color-branded: $color-astral-blue !default;
+$color-branded: $color-ocean-blue !default;
 $color-branded-tint: rgba(59, 122, 158, 0.1) !default; // 10% of branded colour
 $color-branded-secondary: $color-dark-blue !default;
 $color-branded-tertiary: $color-grey-5 !default;
@@ -43,11 +42,9 @@ $color-branded-supporting: $color-grey-5 !default;
 $color-branded-supporting-tint: $color-grey-5 !default;
 
 // assignment
-$color-header: $color-branded !default;
-$color-header-top: $color-white !default;
-$color-header-top-internal: $color-branded-secondary !default;
-$color-cta-bg: $color-branded-tint !default;
-$color-hero-bg: $color-grey-5 !default;
+$color-header: $color-ocean-blue !default;
+$color-header-top-internal: $color-night-blue !default;
+$cta-bg: $color-grey-5 !default;
 $cookie-banner-bg: $color-grey-5 !default;
 $cookie-banner-text: $color-black !default;
 $color-text: $color-black !default;
@@ -55,8 +52,8 @@ $color-text-light: $color-grey-1 !default;
 $color-text-inverse: $color-white !default;
 $color-text-inverse-link: $color-white !default;
 $color-text-inverse-link-hover: $color-grey-4 !default;
-$color-links: $color-blue !default;
-$color-links-hover: $color-dark-blue !default;
+$color-links: $color-ocean-blue !default;
+$color-links-hover: $color-night-blue !default;
 $color-focus: $color-yellow !default;
 $color-focus-text: $color-black !default;
 $color-button: $color-green !default;
@@ -67,9 +64,9 @@ $color-highlight: $color-bright-yellow !default;
 $color-errors: $color-red !default;
 $color-errors-tint: $color-light-red !default;
 $color-errors-dot: $color-bright-red !default;
-$color-info: $color-dark-blue !default;
+$color-info: $color-night-blue !default;
 $color-info-tint: $color-light-blue !default;
-$color-info-dot: $color-blue !default;
+$color-info-dot: $color-ocean-blue !default;
 $color-success: $color-green !default;
 $color-success-tint: $color-light-green !default;
 $color-success-dot: $color-bright-green !default;

@@ -53,8 +53,8 @@
 
     &:not(&--no-results):not(&--more-results):hover,
     &--focused:not(&--no-results) {
-      background: $color-blue;
-      border-color: $color-blue;
+      background: $color-ocean-blue;
+      border-color: $color-ocean-blue;
       color: $color-white;
 
       .autosuggest-input__group {
