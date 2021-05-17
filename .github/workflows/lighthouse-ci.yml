@@ -15,6 +15,9 @@ jobs:
       - name: Build pages
         run: yarn build
       - name: run Lighthouse CI
+          with:
+            configPath: "./lighthouserc.js"
+            temporaryPublicStorage: true
         run: |
           npm install -g @lhci/cli@0.7.2
           lhci autorun || echo "LHCI failed!"
