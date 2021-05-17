@@ -17,4 +17,4 @@ jobs:
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.7.2
-          lhci autorun --collect.numberOfFiles=0 || echo "LHCI failed!"
+          lhci autorun --collect.numberOfFiles=10000 || echo "LHCI failed!"
