@@ -15,6 +15,7 @@ jobs:
       - name: Build pages
         run: yarn build
       - name: run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v2
         with:
           configPath: "./lighthouserc.js"
           temporaryPublicStorage: true
