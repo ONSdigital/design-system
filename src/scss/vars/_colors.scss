@@ -36,15 +36,16 @@ $color-nisra-icon-tertiary: #00205c;
 // theme branding
 $color-branded: $color-ocean-blue !default;
 $color-branded-tint: rgba(59, 122, 158, 0.1) !default; // 10% of branded colour
-$color-branded-secondary: $color-dark-blue !default;
+$color-branded-secondary: $color-night-blue !default;
 $color-branded-tertiary: $color-grey-5 !default;
 $color-branded-supporting: $color-grey-5 !default;
 $color-branded-supporting-tint: $color-grey-5 !default;
 
 // assignment
 $color-header: $color-ocean-blue !default;
+$color-header-top: $color-white !default;
 $color-header-top-internal: $color-night-blue !default;
-$cta-bg: $color-grey-5 !default;
+$color-cta-bg: $color-grey-5 !default;
 $cookie-banner-bg: $color-grey-5 !default;
 $cookie-banner-text: $color-black !default;
 $color-text: $color-black !default;
@@ -60,6 +61,7 @@ $color-button: $color-green !default;
 $color-button-secondary: $color-grey-4 !default;
 $color-input: $color-black !default;
 $color-borders: $color-grey-2 !default;
+$color-hero-bg: $color-grey-5 !default;
 $color-highlight: $color-bright-yellow !default;
 $color-errors: $color-red !default;
 $color-errors-tint: $color-light-red !default;
