@@ -1,4 +1,5 @@
 {% extends "styles/page-template/_template.njk" %}
+{% from "components/footer/_macro.njk" import onsFooter %}
 
 {% set bodyClasses = "patternlib-page" %}
 
@@ -39,6 +40,45 @@
 {% endblock %}
 
 {% block body %}
-    {% block master_body %}
-    {% endblock %}
+    <div class="page">
+        <div class="page__content">
+            {% block skiplink %}
+            {% endblock %}
+            {% block header %}
+            {% endblock %}
+            {% block pageContent %}
+            {% endblock %}
+        </div>
+        {% block footer %}
+            {{
+                onsFooter({
+                    "wide": true,
+                    "rows": [
+                        {
+                            "itemsList": [
+                                {
+                                    "text": 'GitHub repo',
+                                    "url": 'https://github.com/ONSdigital/design-system'
+                                },
+                                {
+                                    "text": 'ONS style guide',
+                                    "url": 'https://style.ons.gov.uk/'
+                                },
+                                {
+                                    "text": 'About ONS',
+                                    "url": 'https://www.ons.gov.uk/aboutus'
+                                }
+                            ]
+                        }
+                    ],
+                    "OGLLink": {
+                        "pre": 'All content is available under the',
+                        "link": 'Open Government Licence v3.0',
+                        "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+                        "post": ', except where otherwise stated'
+                    }
+                })
+            }}
+        {% endblock %}
+    </div>
 {% endblock %}
