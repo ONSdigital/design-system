@@ -1,54 +1,13 @@
-{% extends "./_master.njk" %}
+{% extends "./_page.njk" %}
 
-{% block master_body %}
-    {% from "components/header/_macro.njk" import onsHeader %}
-    {% from "components/footer/_macro.njk" import onsFooter %}
-    {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
 
-    {{
-        onsSkipToContent({
-            "url": "#main-content",
-            "text": "Skip to main content"
-        })
-    }}
-
-    {{
-        onsHeader({
-            "title": "Design system",
-            "fullWidth": true,
-            "classes": "patternlib-page__header",
-            "toggleButton": {
-                "text": "Menu",
-                "ariaLabel": "Toggle main navigation"
-            },
-            "navigation": {
-                "id": "main-nav",
-                "classes": "nav--inline nav--light nav--header nav--h-m js-main-nav",
-                "ariaLabel": "Main menu",
-                "ariraListLabel": "Navigation menu",
-                "currentPath": pageInfo.url,
-                "itemsList": helpers.navigationHelper({
-                    "pages": pageInfo.siteMap
-                })
-            }
-        })
-    }}
+{% block pageContent %}
     <div class="patternlib-page__body">
-        <div class="patternlib-page__primary">
-            <main id="main-content" class="patternlib-page__main">
+        <div class="patternlib-page__content">
+            <main id="main-content">
                 {% block main %}
                 {% endblock %}
             </main>
-            {{
-                onsFooter({
-                    "OGLLink": {
-                        "pre": 'All content is available under the',
-                        "link": 'Open Government Licence v3.0',
-                        "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
-                        "post": ', except where otherwise stated'
-                    }
-                })
-            }}
         </div>
     </div>
 {% endblock %}
