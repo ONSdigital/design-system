@@ -79,10 +79,10 @@
       text-decoration: none;
       &:focus {
         .header__title--svg-logo {
-          fill: $color-focus-text;
+          fill: $color-text-link-focus;
         }
         .header__title {
-          color: $color-focus-text;
+          color: $color-text-link-focus;
         }
       }
       &:hover {
