@@ -57,13 +57,8 @@ const cssCore = merge(core, {
         include: [path.join(process.cwd(), 'src/scss')],
         test: /\.scss$/,
         dependency: { not: ['url'] },
+        type: 'asset/resource',
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'css/[name].css',
-            },
-          },
           {
             loader: 'postcss-loader',
             options: {
@@ -238,8 +233,8 @@ export default function(mode) {
           {
             test: /\.svg$/,
             dependency: { not: ['url'] },
+            type: 'asset/resource',
             use: [
-              { loader: 'file-loader' },
               {
                 loader: 'svgo-loader',
                 options: {
@@ -296,8 +291,8 @@ export default function(mode) {
           {
             test: /\.svg$/,
             dependency: { not: ['url'] },
+            type: 'asset/resource',
             use: [
-              { loader: 'file-loader' },
               {
                 loader: 'svgo-loader',
                 options: {
@@ -342,13 +337,8 @@ export default function(mode) {
           {
             test: /\.(njk|html)$/,
             dependency: { not: ['url'] },
+            type: 'asset/resource',
             use: [
-              {
-                loader: 'file-loader',
-                options: {
-                  name: '[path][name].html',
-                },
-              },
               {
                 loader: path.resolve('./lib/nunjucks-html-loader.js'),
                 options: {

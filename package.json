@@ -10,7 +10,7 @@
     "url": "https://github.com/bameyrick"
   },
   "scripts": {
-    "start": "yarn tidy-clean && yarn webpack-dev-server --host 0.0.0.0 --watch --config webpack.dev.babel.js",
+    "start": "yarn tidy-clean && yarn webpack serve --host 0.0.0.0 --config webpack.dev.babel.js",
     "build": "yarn && yarn tidy-clean && yarn webpack --config webpack.prod.babel.js",
     "npm-bundle": "NODE_ENV=production yarn tidy-clean && yarn webpack --config webpack.npm.babel.js && babel-node ci/generate-npm-package.js",
     "cdn-bundle": "NODE_ENV=production yarn tidy-clean && yarn webpack --config webpack.cdn.babel.js && babel-node ci/prepare-templates-for-zip.js",
@@ -148,8 +148,8 @@
     "viewport-details": "^1.5.0",
     "webpack": "^5.33.2",
     "webpack-bundle-analyzer": "^3.0.3",
-    "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2",
     "webpack-fix-style-only-entries": "^0.6.1",
     "webpack-livereload-plugin": "^2.1.1",
     "webpack-merge": "^4.1.4",
