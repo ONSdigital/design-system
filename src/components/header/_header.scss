@@ -123,7 +123,7 @@
         display: block;
         fill: $color-white;
         &--acent {
-          fill: $color-ons-icon-secondary;
+          fill: $color-ons-logo-secondary;
         }
       }
     }
@@ -143,21 +143,21 @@
   }
 
   .ons-svg-logo {
-    fill: $color-ons-icon;
+    fill: $color-ons-logo-primary;
     &--acent {
-      fill: $color-ons-icon-secondary;
+      fill: $color-ons-logo-secondary;
     }
   }
 
   .ons-nisra-svg-logo {
     .st0 {
-      fill: $color-nisra-icon;
+      fill: $color-nisra-logo-primary;
     }
     .st1 {
-      fill: $color-nisra-icon-secondary;
+      fill: $color-nisra-logo-secondary;
     }
     .st2 {
-      fill: $color-nisra-icon-tertiary;
+      fill: $color-nisra-logo-tertiary;
     }
   }
 

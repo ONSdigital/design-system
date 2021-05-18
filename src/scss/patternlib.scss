@@ -74,7 +74,7 @@
 
     code:not(.patternlib-example__code) {
       background: $color-grey-5;
-      color: $color-red;
+      color: $color-ruby-red;
       display: inline-block;
       padding: 0.05rem 0.25rem;
     }
@@ -88,7 +88,7 @@
 
     th {
       background: $color-white;
-      border-bottom: 2px solid $color-grey-3;
+      border-bottom: 2px solid $color-grey-35;
       position: sticky;
       text-align: left;
       top: 0;
@@ -102,7 +102,7 @@
 
     td {
       background: transparent;
-      border-bottom: 1px solid $color-grey-3;
+      border-bottom: 1px solid $color-grey-35;
     }
   }
 
@@ -163,7 +163,7 @@
 }
 
 .pl-experimental-tag {
-  background: $color-amber;
+  background: $color-jaffa-orange;
   color: $color-white;
   display: inline-block;
   font-size: 0.7rem;

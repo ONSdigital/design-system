@@ -1,6 +1,6 @@
 .footer {
   a {
-    color: $color-grey-1;
+    color: $color-grey-100;
     text-decoration: underline;
 
     &:hover {
@@ -16,7 +16,7 @@
   }
 
   &__warning {
-    background-color: $color-grey-4;
+    background-color: $color-grey-15;
   }
 
   &__ogl-img {

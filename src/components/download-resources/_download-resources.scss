@@ -1,6 +1,6 @@
 .adv-filter {
   &__gallery {
-    border-top: 1px solid $color-grey-4;
+    border-top: 1px solid $color-grey-15;
     margin-left: 0;
     padding-left: 0;
   }
@@ -18,7 +18,7 @@
   }
 
   &__selection {
-    color: $color-grey-1;
+    color: $color-grey-100;
     margin-bottom: 0.5rem;
   }
 
@@ -63,7 +63,7 @@
   &__actions {
     background-color: $color-white;
     bottom: 0;
-    box-shadow: 0 0 5px 0 rgba($color-black, 0.5), 0 -1px 0 0 rgba($color-grey-1, 0.5);
+    box-shadow: 0 0 5px 0 rgba($color-black, 0.5), 0 -1px 0 0 rgba($color-grey-100, 0.5);
     display: flex;
     left: 0;
     padding: 1rem;
@@ -138,7 +138,7 @@ body:not(.js-enabled) {
 }
 
 .filter__item {
-  border-bottom: 1px solid $color-grey-4;
+  border-bottom: 1px solid $color-grey-15;
   display: block; // Accessible way of removing bullets (don’t use list-style-type: none; https://github.com/jensimmons/cssremedy/issues/15#issuecomment-462174177)
   margin-bottom: 0; // Reset default margin bottom on list items
   padding-bottom: 1.5rem;

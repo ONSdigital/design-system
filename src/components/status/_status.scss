@@ -26,18 +26,18 @@
   }
 
   &.status--success::before {
-    @include status-dot($color-success-dot);
+    @include status-dot($color-success);
   }
   &.status--pending::before {
     @include status-dot($color-pending-dot);
   }
   &.status--error::before {
-    @include status-dot($color-errors-dot);
+    @include status-dot($color-errors);
   }
   &.status--dead::before {
-    @include status-dot($color-dead);
+    @include status-dot($color-dead-dot);
   }
   &.status--info::before {
-    @include status-dot($color-info-dot);
+    @include status-dot($color-info);
   }
 }
