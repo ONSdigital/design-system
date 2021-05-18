@@ -16,8 +16,7 @@ async function replacePaths() {
   }
 }
 
-async function generateURLs() {
-  await replacePaths();
+function generateURLs() {
   const directories = [
     {
       name: 'components',
@@ -40,7 +39,6 @@ async function generateURLs() {
             }
             for (const file of files) {
               urls.push(file);
-              console.log(urls);
               resolve(urls);
             }
           });
@@ -50,4 +48,4 @@ async function generateURLs() {
   });
 }
 
-module.exports = { generateURLs };
+exports.generateURLs = generateURLs;
