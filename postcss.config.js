@@ -1,6 +1,5 @@
 import postcssUrl from 'postcss-url';
 import autoprefixer from 'autoprefixer';
-import mqoptimize from 'postcss-mq-optimize';
 import cssnano from 'cssnano';
 
 const BASE_HREF = '';
