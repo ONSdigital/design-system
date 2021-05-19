@@ -62,17 +62,21 @@ const cssCore = merge(core, {
           {
             loader: 'postcss-loader',
             options: {
-              indent: 'postcss',
-              plugins: postcssPlugins,
+              postcssOptions: {
+                plugins: postcssPlugins,
+                indent: 'postcss',
+              },
             },
           },
           {
             loader: 'sass-loader',
             options: {
               sourceMap: false,
-              precision: 8,
-              includePaths: [path.join(process.cwd(), 'src/scss')],
-              importer: globImporter(),
+              sassOptions: {
+                importer: globImporter(),
+                includePaths: [path.join(process.cwd(), 'src/scss')],
+                precision: 8,
+              },
             },
           },
         ],
@@ -114,17 +118,21 @@ const jsCore = merge(core, {
           {
             loader: 'postcss-loader',
             options: {
-              indent: 'postcss',
-              plugins: postcssPlugins,
+              postcssOptions: {
+                plugins: postcssPlugins,
+                indent: 'postcss',
+              },
             },
           },
           {
             loader: 'sass-loader',
             options: {
               sourceMap: false,
-              precision: 8,
-              includePaths: [path.join(process.cwd(), 'src/scss')],
-              importer: globImporter(),
+              sassOptions: {
+                importer: globImporter(),
+                includePaths: [path.join(process.cwd(), 'src/scss')],
+                precision: 8,
+              },
             },
           },
         ],
