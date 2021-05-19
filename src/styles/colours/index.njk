@@ -16,47 +16,63 @@ Our text and background colours are designed to meet accessibility needs. We aim
     })
 }} contrast as far as possible. Read more about [accessibility and colour](#colour-contrast) on this page.
 
-## Main colour palette
+## Primary brand palette
 {{
     onsColours({
         'itemsList': [
-            {
-                'bg': '#3b7a9e',
-                'var': '$color-ocean-blue'
-            },
             {
                 'bg': '#003c57',
                 'var': '$color-night-blue'
             },
             {
-                'bg': '#4263c2',
+                'bg': '#a8bd3a',
+                'var': '$color-spring-green'
+            },
+            {
+                'bg': '#206095',
                 'var': '$color-ocean-blue'
             },
             {
-                'bg': '#0f8243',
-                'var': '$color-green'
+                'bg': '#27a0cc',
+                'var': '$color-sky-blue'
             },
             {
-                'bg': '#ff600a',
-                'var': '$color-amber'
-            },
-            {
-                'bg': '#d0021b',
-                'var': '$color-red'
-            },
-            {
-                'bg': '#ffdd00',
-                'var': '$color-yellow'
-            },
-            {
-                'bg': '#e4f972',
-                'var': '$color-bright-yellow'
+                'bg': '#00a3a6',
+                'var': '$color-aqua-teal'
             }
         ]
     })
 }}
 
-## Census theme palette
+## Supporting palette
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#0f8243',
+                'var': '$color-leaf-green'
+            },
+            {
+                'bg': '#d0021b',
+                'var': '$color-ruby-red'
+            },
+            {
+                'bg': '#ff600a',
+                'var': '$color-jaffa-orange'
+            },
+            {
+                'bg': '#fbc900',
+                'var': '$color-sun-yellow'
+            },
+            {
+                'bg': '#f0f762',
+                'var': '$color-neon-yellow'
+            }
+        ]
+    })
+}}
+
+## Census 2021 theme palette
 {{
     onsColours({
         'itemsList': [
@@ -65,16 +81,16 @@ Our text and background colours are designed to meet accessibility needs. We aim
                 'var': '$color-branded'
             },
             {
+                'bg': '#df0667',
+                'var': '$color-branded-secondary'
+            },
+            {
                 'bg': '#3c388e',
                 'var': '$color-branded-tertiary'
             },
             {
                 'bg': '#00a3a6',
                 'var': '$color-branded-supporting'
-            },
-            {
-                'bg': '#df0667',
-                'var': '$color-branded-secondary'
             },
             {
                 'bg': '#902082',
@@ -94,23 +110,23 @@ Our text and background colours are designed to meet accessibility needs. We aim
                 'var': '$color-black'
             },
             {
-                'bg': '#595959',
-                'var': '$color-grey-1'
+                'bg': '#414042',
+                'var': '$color-grey-100'
             },
             {
-                'bg': '#888888',
-                'var': '$color-grey-2'
+                'bg': '#707071',
+                'var': '$color-grey-75'
             },
             {
-                'bg': '#acacac',
-                'var': '$color-grey-3'
-            },
-                        {
-                'bg': '#d0d0d0',
-                'var': '$color-grey-4'
+                'bg': '#bcbcbd',
+                'var': '$color-grey-35'
             },
             {
-                'bg': '#f0f0f0',
+                'bg': '#e2e2e3',
+                'var': '$color-grey-15'
+            },
+            {
+                'bg': '#f5f5f6',
                 'var': '$color-grey-5'
             },
             {
@@ -143,9 +159,9 @@ The colour palette `scss` variables shown above are assigned to a further variab
     onsColours({
         'itemsList': [
             {
-                'bg': '#595959',
+                'bg': '#707071',
                 'var': '$color-text-light',
-                'info': 'A secondary text colour to assist with hint text.'
+                'info': 'A secondary text colour for a title subheading.'
             }
         ]
     })
@@ -156,8 +172,8 @@ The colour palette `scss` variables shown above are assigned to a further variab
     onsColours({
         'itemsList': [
             {
-                'bg': '#4263c2',
-                'var': '$color-links',
+                'bg': '#206095',
+                'var': '$color-text-link',
                 'info': 'Blue is the colour for all link text elements in the body of the page. Text links should be underlined.'
             }
         ]
@@ -180,9 +196,12 @@ The colour palette `scss` variables shown above are assigned to a further variab
     onsColours({
         'itemsList': [
             {
+                'fore': '#ffffff',
                 'bg': '#0f8243',
+                'char': 'A',
                 'var': '$color-button',
-                'info': 'Primary action buttons use green as the background colour with white text.'
+                'info': 'Primary action buttons use green as the background colour with white text.',
+                'hideSwatchDetail': true
             }
         ]
     })
@@ -191,9 +210,12 @@ The colour palette `scss` variables shown above are assigned to a further variab
     onsColours({
         'itemsList': [
             {
-                'bg': '#d0d0d0',
+                'fore': '#222222',
+                'bg': '#e2e2e3',
+                'char': 'A',
                 'var': '$color-button-secondary',
-                'info': 'Secondary buttons use a light grey background colour and blue link text colour. This prevents interference with the primary action.'
+                'info': 'Secondary buttons use a light grey background colour and black text colour. This prevents interference with the primary action.',
+                'hideSwatchDetail': true
             }
         ]
     })
@@ -204,22 +226,12 @@ The colour palette `scss` variables shown above are assigned to a further variab
         'itemsList': [
             {
                 'fore': '#222222',
-                'bg': '#ffdd00',
+                'bg': '#fbc900',
                 'char': 'A',
                 'shadow': true,
-                'info': "Black and yellow is used to provide visual affordance that an element has focus. Any focussed text <code>color</code> is changed to black, and yellow is applied as a <code>background-color</code> with an additional <code>4px</code> black offset <code>box-shadow</code>. Changing both foreground and background colours ensures consistent [accessible colour contrast](#colour-contrast), regardless of the element\'s initial background colour."
-            }
-        ]
-    })
-}}
-### Borders
-{{
-    onsColours({
-        'itemsList': [
-            {
-                'bg': '#888888',
-                'var': '$color-grey-2',
-                'info': 'The grey is used for all borders that are applied on a white background.'
+                'var': '$color-focus',
+                'info': "Black and yellow is used to provide visual affordance that an element has focus. Any focussed text <code>color</code> is changed to black, and yellow is applied as a <code>background-color</code> with an additional <code>4px</code> black offset <code>box-shadow</code>. The change to both foreground and background colours makes sure there is a consistent [accessible colour contrast ratio](#colour-contrast), regardless of the element’s initial background colour.",
+                'hideSwatchDetail': true
             }
         ]
     })
@@ -229,16 +241,31 @@ The colour palette `scss` variables shown above are assigned to a further variab
     onsColours({
         'itemsList': [
             {
-                'bg': '#e4f972',
+                'fore': '#222222',
+                'bg': '#f0f762',
+                'char': 'A',
                 'var': '$color-highlight',
-                'info': 'Bright yellow is used to highlight text to emphasise keywords i.e. search results and user submitted content.'
+                'info': 'Bright yellow is used to highlight text to [help users to see important information](/patterns/see-important-information).',
+                'hideSwatchDetail': true
+            }
+        ]
+    })
+}}
+### Borders
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#707071',
+                'var': '$color-borders',
+                'info': 'The grey is used for all borders that are applied on a white background.'
             }
         ]
     })
 }}
 ### Status
 
-Each status has a primary colour and a tint for use in a status [panel](/components/panel), and a bright colour for use in a [status](/components/status) indicator dot.
+Each status has a primary border colour and a background tint for use in a status [panel](/components/panel), and a vibrant hue for use in a [status](/components/status) indicator dot.
 
 #### Information
 {{
@@ -249,12 +276,14 @@ Each status has a primary colour and a tint for use in a status [panel](/compone
                 'var': '$color-info'
             },
             {
-                'bg': '#eff0f9',
-                'var': '$color-info-tint'
+                'bg': '#e6ecee',
+                'var': '$color-info-tint',
+                'info': 'A 10% white tint of the primary colour'
             },
             {
-                'bg': '#5e7dd8',
-                'var': '$color-info-vibrant'
+                'bg': '#3076ac',
+                'var': '$color-info-vibrant',
+                'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour'
             }
         ]
     })
@@ -269,12 +298,14 @@ Each status has a primary colour and a tint for use in a status [panel](/compone
                 'var': '$color-success'
             },
             {
-                'bg': '#edf4f0',
-                'var': '$color-success-tint'
+                'bg': '#e7f3ec',
+                'var': '$color-success-tint',
+                'info': 'A 10% white tint of the primary colour'
             },
             {
-                'bg': '#12c864',
-                'var': '$color-success-vibrant'
+                'bg': '#10ca64',
+                'var': '$color-success-vibrant',
+                'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour'
             }
         ]
     })
@@ -285,7 +316,7 @@ Each status has a primary colour and a tint for use in a status [panel](/compone
     onsColours({
         'itemsList': [
             {
-                'bg': '#fe934c',
+                'bg': '#ff803b',
                 'var': '$color-pending-vibrant'
             }
         ]
@@ -301,12 +332,14 @@ Each status has a primary colour and a tint for use in a status [panel](/compone
                 'var': '$color-errors'
             },
             {
-                'bg': '#fbecec',
-                'var': '$color-errors-tint'
+                'bg': '#fae6e8',
+                'var': '$color-errors-tint',
+                'info': 'A 10% white tint of the primary colour'
             },
             {
-                'bg': '#fd112e',
-                'var': '$color-errors-vibrant'
+                'bg': '#fd112d',
+                'var': '$color-errors-vibrant',
+                'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour'
             }
         ]
     })
@@ -327,57 +360,68 @@ Contrast between foreground and background colours are tested to ensure {{
             {
                 'fore': '#222222',
                 'bg': '#ffffff',
+                'contrastRatio': '15.91',
                 'char': 'A',
                 'border': true
             },
             {
                 'fore': '#ffffff',
                 'bg': '#222222',
+                'contrastRatio': '15.91',
                 'char': 'A'
             },
             {
                 'fore': '#222222',
-                'bg': '#d0d0d0',
+                'bg': '#e2e2e3',
+                'contrastRatio': '12.29',
                 'char': 'A'
             },
             {
-                'fore': '#4263c2',
-                'bg': '#f0f0f0',
+                'fore': '#206095',
+                'bg': '#f5f5f6',
+                'contrastRatio': '6.08',
                 'char': 'A'
             },
             {
                 'fore': '#ffffff',
-                'bg': '#3b7a9e',
+                'bg': '#206095',
+                'contrastRatio': '6.63',
                 'char': 'A'
             },
             {
                 'fore': '#ffffff',
                 'bg': '#0f8243',
+                'contrastRatio': '4.89',
                 'char': 'A'
             },
             {
                 'fore': '#ffffff',
                 'bg': '#003c57',
+                'contrastRatio': '11.77',
                 'char': 'A'
             },
             {
                 'fore': '#ffffff',
                 'bg': '#d0021b',
+                'contrastRatio': '5.67',
                 'char': 'A'
             },
             {
                 'fore': '#ffffff',
                 'bg': '#ff600a',
+                'contrastRatio': '3.03',
                 'char': 'A'
             },
             {
                 'fore': '#222222',
-                'bg': '#e4f972',
+                'bg': '#fbc900',
+                'contrastRatio': '10.19',
                 'char': 'A'
             },
             {
                 'fore': '#222222',
-                'bg': '#ffdd00',
+                'bg': '#f0f762',
+                'contrastRatio': '13.78',
                 'char': 'A'
             }
         ]
