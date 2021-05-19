@@ -1,20 +1,20 @@
 {% macro patternlibSubNavigation(params) %}
-  <nav class="patternlib-subnav" aria-label="{{ params.ariaLabel | default("Sub Navigation") }}">
-      <ul class="patternlib-subnav__list" aria-label="{{ params.ariaListLabel | default("Sub Links") }}">
+    <nav class="patternlib-subnav" aria-label="{{ params.ariaLabel | default("Sub Navigation") }}">
+        <ul class="patternlib-subnav__list list list--bare" aria-label="{{ params.ariaListLabel | default("Sub Links") }}">
         {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
-              <li class="patternlib-subnav__item {{ ' patternlib-subnav__item--active js-patternlib-subnav__item--active' if (item.url == params.currentPath) }}">
-                  <a href="{{ item.url }}" class="patternlib-subnav__link">{{ item.title }}</a>
-                  {% if item.anchors is defined and item.anchors %}
-                      <ul class="patternlib-subnav__sub-items">
-                          {% for anchor in item.anchors %}
-                              <li class="patternlib-subnav__item">
-                                  <a href="{{ anchor.url }}" class="patternlib-subnav__link">{{ anchor.title }}</a>
-                              </li>
-                          {% endfor %}
-                      </ul>
-                  {% endif %}
-              </li>
+                <li class="patternlib-subnav__item{{ ' patternlib-subnav__item--active' if (item.url == params.currentPath) }} list__item">
+                    <a href="{{ item.url }}" class="patternlib-subnav__link list__link">{{ item.title }}</a>
+                    {% if item.anchors is defined and item.anchors %}
+                        <ul class="patternlib-subnav__sub-items list list--dashed u-mt-xs u-mb-no">
+                            {% for anchor in item.anchors %}
+                                <li class="patternlib-subnav__item list__item">
+                                    <a href="{{ anchor.url }}" class="patternlib-subnav__link list__link">{{ anchor.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
         {% endfor %}
-      </ul>
-  </nav>
+        </ul>
+    </nav>
 {% endmacro %}

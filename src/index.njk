@@ -10,17 +10,18 @@ sortOrder: 1
 
 {{
     onsHero({
-        title: 'Design and build digital services for the ONS',
-        text: 'Everything you need to make accessible, consistent digital products.',
-        button: {
-            url: '/get-started',
-            text: 'Get started'
+        "wide": true,
+        "title": 'Design and build digital services for the ONS',
+        "text": 'Everything you need to make accessible, consistent digital products.',
+        "button": {
+            "url": '/get-started',
+            "text": 'Get started'
         }
     })
 }}
-<div class="container">
-    <div class="grid grid--flex grid--loose grid--column@xxs@s u-mt-xl u-mb-m">
-        <div class="grid__col grid__col--flex grid__col--loose u-flex-grow u-flex-no-basis@s u-mb-s col-12@xxs@s">
+<div class="container container--wide">
+    <div class="grid grid--column@xxs@s u-mt-l u-mb-l@m">
+        <div class="grid__col col-4@m">
             {{-
                 onsCard({
                     "title": 'Styles',
@@ -29,7 +30,7 @@ sortOrder: 1
                 })
             -}}
         </div>
-        <div class="grid__col grid__col--flex grid__col--loose u-flex-grow u-flex-no-basis@s u-mb-s col-12@xxs@s">
+        <div class="grid__col col-4@m">
             {{-
                 onsCard({
                     "title": 'Components',
@@ -38,7 +39,7 @@ sortOrder: 1
                 })
             -}}
         </div>
-        <div class="grid__col grid__col--flex grid__col--loose u-flex-grow u-flex-no-basis@s u-mb-s col-12@xxs@s">
+        <div class="grid__col col-4@m">
             {{-
                 onsCard({
                     "title": 'Patterns',
@@ -48,15 +49,15 @@ sortOrder: 1
             -}}
         </div>
     </div>
-    <hr>
-    <div class="grid grid--gutterless u-mt-l">
-        <div class="grid__col col-8@m">
+    <hr class="u-mt-no">
+    <div class="grid grid--gutterless u-mt-l u-mb-l">
+        <div class="grid__col col-6@m">
             <h3 class="u-fs-l">Design community</h3>
             <p>The ONS Design System is available for everyone and brings together the latest research, design and development from across the organisation to ensure our users have an accessible and consistent experience with our services.</p>
             <p>If you would like to contribute to the design system you can {{
                 onsExternalLink({
                     "url": "https://github.com/ONSdigital/design-system",
-                    "linkText": "Propose a new pattern or component"
+                    "linkText": "propose a new pattern or component"
                 })
             }}
             </p>

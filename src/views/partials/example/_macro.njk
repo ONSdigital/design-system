@@ -1,7 +1,16 @@
 {% macro patternlibExample(params) %}
     {% set params = helpers.generateExampleParams(params, helpers.addDependency) %}
     <div class="patternlib-example js-example">
-        <a href="{{ params.link }}" target="_blank" class="patternlib-example__link u-fs-s">Open this example in a new window</a>
+        <div class="patternlib-example__header">
+            {% from "components/external-link/_macro.njk" import onsExternalLink %}
+            {{
+                onsExternalLink({
+                    "url": params.link,
+                    "classes": "patternlib-example__header-link external-link u-fs-s",
+                    "linkText": "Open this example in a new tab"
+                })
+            }}
+        </div>
         <div class="patternlib-example__frame">
             <iframe class="patternlib-example__iframe" frameborder="0" src="{{ params.link }}" style="background-color: {{ params.backgroundColor | default ('#fff') }}"></iframe>
         </div>
