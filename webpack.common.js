@@ -60,6 +60,12 @@ const cssCore = merge(core, {
         type: 'asset/resource',
         use: [
           {
+            loader: 'file-loader',
+            options: {
+              name: 'css/[name].css',
+            },
+          },
+          {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
@@ -242,6 +248,7 @@ export default function(mode) {
             dependency: { not: ['url'] },
             type: 'asset/resource',
             use: [
+              { loader: 'file-loader' },
               {
                 loader: 'svgo-loader',
                 options: {
@@ -300,6 +307,7 @@ export default function(mode) {
             dependency: { not: ['url'] },
             type: 'asset/resource',
             use: [
+              { loader: 'file-loader' },
               {
                 loader: 'svgo-loader',
                 options: {
@@ -346,6 +354,12 @@ export default function(mode) {
             dependency: { not: ['url'] },
             type: 'asset/resource',
             use: [
+              {
+                loader: 'file-loader',
+                options: {
+                  name: '[path][name].html',
+                },
+              },
               {
                 loader: path.resolve('./lib/nunjucks-html-loader.js'),
                 options: {
