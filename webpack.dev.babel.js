@@ -49,10 +49,10 @@ const serverSettings = {
 
 export default [
   merge(common.assets, serverSettings),
-  merge(common.patternLibAssets, serverSettings),
-  merge(common.templates, serverSettings),
-  merge(common.es2015plus, serverSettings),
-  merge(common.es5, serverSettings),
-  merge(common.es2015plusPatternLib, serverSettings),
-  merge(common.es5PatternLib, serverSettings),
+  common.patternLibAssets,
+  common.templates,
+  common.es2015plus,
+  common.es5,
+  common.es2015plusPatternLib,
+  common.es5PatternLib,
 ];
