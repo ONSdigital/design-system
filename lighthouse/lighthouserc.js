@@ -1,7 +1,6 @@
 module.exports = {
   ci: {
     collect: {
-      staticDistDir: './build',
       numberOfRuns: 1,
     },
     preset: 'lighthouse:no-pwa',
