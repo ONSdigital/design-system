@@ -84,7 +84,6 @@ const cssCore = merge(core, {
   plugins: [
     new RemoveEmptyScriptsPlugin({
       extensions: ['scss', 'njk', 'html'],
-      silent: true,
     }),
   ],
 });
@@ -359,7 +358,6 @@ export default function(mode) {
       plugins: [
         new RemoveEmptyScriptsPlugin({
           extensions: ['scss', 'njk', 'html'],
-          silent: true,
         }),
       ],
     }),
