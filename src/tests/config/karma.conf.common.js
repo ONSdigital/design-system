@@ -19,7 +19,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
         // instrument only testing sources with Istanbul
         {
           test: /\.js$/,
-          loader: 'istanbul-instrumenter-loader',
+          loader: 'coverage-istanbul-loader',
           options: {
             esModules: true,
           },
