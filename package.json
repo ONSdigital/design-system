@@ -150,8 +150,7 @@
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2",
-    "webpack-fix-style-only-entries": "^0.6.1",
-    "webpack-livereload-plugin": "^2.1.1",
+    "webpack-livereload-plugin": "^2.3.0",
     "webpack-merge": "^4.1.4",
     "whatwg-fetch": "^3.0.0"
   },
@@ -162,5 +161,8 @@
     "minimist": "^1.2.5",
     "**/@percy/agent": "^0.28.6",
     "postcss": "^7.0.0"
+  },
+  "dependencies": {
+    "webpack-remove-empty-scripts": "^0.7.1"
   }
 }

@@ -4,7 +4,7 @@ import glob from 'glob';
 import globImporter from 'node-sass-glob-importer';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
-import FixStyleOnlyEntriesPlugin from 'webpack-fix-style-only-entries';
+import RemoveEmptyScriptsPlugin from 'webpack-remove-empty-scripts';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import postcssPlugins from './postcss.config';
 import svgoConfig from './svgo-config';
@@ -82,7 +82,7 @@ const cssCore = merge(core, {
   },
 
   plugins: [
-    new FixStyleOnlyEntriesPlugin({
+    new RemoveEmptyScriptsPlugin({
       extensions: ['scss', 'njk', 'html'],
       silent: true,
     }),
@@ -357,7 +357,7 @@ export default function(mode) {
       },
 
       plugins: [
-        new FixStyleOnlyEntriesPlugin({
+        new RemoveEmptyScriptsPlugin({
           extensions: ['scss', 'njk', 'html'],
           silent: true,
         }),
