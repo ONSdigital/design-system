@@ -19,7 +19,7 @@
   }
   // Elements
   &__top {
-    background: $color-white;
+    background: $color-header-top;
     width: 100%;
   }
   &__grid-top {
@@ -77,17 +77,16 @@
     &-link {
       display: block;
       text-decoration: none;
-      &:hover {
-        color: $color-white;
-        text-decoration: underline;
-      }
       &:focus {
-        .header__title {
-          color: $color-black;
-        }
         .header__title--svg-logo {
-          fill: $color-black;
+          fill: $color-focus-text;
         }
+        .header__title {
+          color: $color-focus-text;
+        }
+      }
+      &:hover {
+        text-decoration: underline solid $color-text-inverse-link 2px;
       }
     }
     &--nav-adj {
@@ -118,7 +117,7 @@
   }
   &--internal & {
     &__top {
-      background: $color-header-internal;
+      background: $color-header-top-internal;
       .ons-svg-logo {
         display: block;
         fill: $color-white;

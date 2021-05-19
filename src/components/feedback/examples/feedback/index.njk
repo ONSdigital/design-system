@@ -1,13 +1,14 @@
----
-"theme": census
----
 {% from "components/feedback/_macro.njk" import onsFeedback %}
-{{
-    onsFeedback({
-        "id": "feedback",
-        "heading": "What do you think about this service?",
-        "content": "Your comments will help us make improvements",
-        "url": "#0",
-        "linkText": "Give Feedback"
-    })
-}}
+<div class="grid">
+    <div class="grid__col col-8@m">
+        {{
+            onsFeedback({
+                "id": "feedback",
+                "heading": "What do you think about this service?",
+                "content": "Your comments will help us make improvements",
+                "url": "#0",
+                "linkText": "Give Feedback"
+            })
+        }}
+    </div>
+</div>
