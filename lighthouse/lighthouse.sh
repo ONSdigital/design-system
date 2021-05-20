@@ -6,6 +6,7 @@ lhci healthcheck --fatal
 for url in $(jq '.urls[]' ./lighthouse/urls.json); do
     lhci collect "--url=$url" --additive --config=./lighthouse/lighthouserc.js
 done
+lhci assert
 lhci upload --target temporary-public-storage
 
 EXIT_CODE=$?
