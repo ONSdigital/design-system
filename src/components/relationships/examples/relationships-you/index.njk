@@ -13,13 +13,16 @@ layout: none
     {% call onsQuestion({
         "title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>",
         "description": "<p>Complete the sentence by selecting the appropriate relationship.</p>",
-        "readDescriptionFirst": true
+        "readDescriptionFirst": true,
+        "legendIsPageTitle": true,
+        "legendTitleClasses": "js-relationships-legend"
     }) %}
         {{ onsRelationships({
             "legend": "Joe Bloggs is your <em>…</em>",
             "legendClasses": "u-vh",
             "playback": "Joe Bloggs is your <em>…</em>",
             "name": "relationship",
+            "dontWrap": true,
             "radios": [
                 {
                     "id": "husband-wife",
