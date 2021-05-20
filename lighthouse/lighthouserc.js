@@ -2,6 +2,9 @@ module.exports = {
   ci: {
     collect: {
       numberOfRuns: 1,
+      settings: {
+        onlyCategories: ['accessibility'],
+      },
     },
     preset: 'lighthouse:no-pwa',
     assertions: {
