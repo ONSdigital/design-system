@@ -9,12 +9,12 @@ sortOrder: 1
 
 The ONS colour palette is available to services using the design system so pages and elements look consistent and coherent.
 
-Our text and background colours are designed to meet accessibility needs. We aim for {{
+Our text and background colours are designed to make sure they meet {{
     onsExternalLink({
-        "url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast",
-        "linkText": "WCAG AA compliance"
+        "url": "https://www.w3.org/TR/WCAG21/#contrast-minimum",
+        "linkText": "level AA of the Web Content Accessibility Guidelines (WCAG 2.1)"
     })
-}} contrast as far as possible. Read more about [accessibility and colour](#colour-contrast) on this page.
+}}. You can read more about [accessibility and colour](#colour-contrast) on this page.
 
 ## Primary brand palette
 {{
@@ -346,12 +346,28 @@ Each status has a primary border colour and a background tint for use in a statu
 }}
 
 ## Colour contrast
-Contrast between foreground and background colours are tested to ensure {{
+Contrast between foreground and background colours are tested to make sure they meet {{
     onsExternalLink({
-        "url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast",
-        "linkText": "WCAG AA compliance"
+        "url": "https://www.w3.org/TR/WCAG21/#contrast-minimum",
+        "linkText": "level AA of the Web Content Accessibility Guidelines (WCAG 2.1)"
     })
-}}. Where colour is used to draw attention to an item (e.g. [panel](/components/panel)) and insufficient contrast exists between a background colour and element colour, additional techniques may be required to provide support for users unable to perceive the colour.
+}}.
+
+To meet the WCAG 2.1 level AA guideline “1.4.3 Contrast (Minimum)”, all text and background colour combinations must have a minimum contrast ratio of:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'Normal text, 4.5:1'
+            },
+            {
+                "text": 'Large text (minimum 18.66px and bold, or 24px), 3:1'
+            }
+        ]
+    })
+}}
+
+Where colour is used to draw attention to an item (e.g. [panel](/components/panel)) and insufficient contrast exists between a background colour and element colour, additional techniques may be required to provide support for users unable to perceive the colour (for example, an icon or bold text).
 
 ### Accessible text and background colour combinations
 {{
@@ -407,9 +423,9 @@ Contrast between foreground and background colours are tested to ensure {{
                 'char': 'A'
             },
             {
-                'fore': '#ffffff',
+                'fore': '#222222',
                 'bg': '#ff600a',
-                'contrastRatio': '3.03',
+                'contrastRatio': '5.25',
                 'char': 'A'
             },
             {
@@ -447,7 +463,7 @@ Contrast between foreground and background colours are tested to ensure {{
     })
 }}
 
-Also, ensure you test colour contrast with people of all abilities.
+Also, make sure you test colour contrast with people that have all types colour vision deficiency.
 
 ## Research on this style
 {% call onsPanel() %}
