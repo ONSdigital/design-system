@@ -69,7 +69,7 @@ const cssCore = merge(core, {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: postcssPlugins,
+                plugins: [postcssPlugins],
                 indent: 'postcss',
               },
             },
@@ -125,7 +125,7 @@ const jsCore = merge(core, {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: postcssPlugins,
+                plugins: [postcssPlugins],
                 indent: 'postcss',
               },
             },
