@@ -2,7 +2,6 @@ const fs = require('fs');
 const util = require('util');
 const glob = util.promisify(require('glob'));
 const readdir = util.promisify(fs.readdir);
-const componentsDir = `./build/components`;
 
 async function getPages() {
   try {
@@ -17,12 +16,24 @@ async function getPages() {
 async function generateURLs() {
   let data = {};
   data.urls = [];
-  const folders = await readdir(componentsDir);
-
-  for (const folder of folders) {
-    const files = await glob(`${componentsDir}/${folder}/**/*.html`, { ignore: `${componentsDir}/${folder}/index.html` });
-    for (const file of files) {
-      data.urls.push(file.replace('./build/', 'http://localhost:9000/'));
+  const directories = [
+    {
+      path: './build/components',
+    },
+    {
+      path: './build/patterns',
+    },
+    {
+      path: './build/styles',
+    },
+  ];
+  for (const directory of directories) {
+    const folders = await readdir(directory.path);
+    for (const folder of folders) {
+      const files = await glob(`${directory.path}/${folder}/**/*.html`, { ignore: `${directory.path}/${folder}/index.html` });
+      for (const file of files) {
+        data.urls.push(file.replace('./build/', 'http://localhost:9000/'));
+      }
     }
   }
   return JSON.stringify(data);

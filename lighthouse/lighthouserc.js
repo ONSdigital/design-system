@@ -8,7 +8,7 @@ module.exports = {
     },
     assert: {
       assertions: {
-        'categories:accessibility': ['warn', { minScore: 0.9 }],
+        'categories:accessibility': ['warn', { minScore: 1 }],
       },
     },
     upload: {
