@@ -1,23 +1,63 @@
 {% macro onsQuestion(params) %}
+
+    {% set titleHtml %}
+        {%- if params.readDescriptionFirst is defined and params.readDescriptionFirst == true and params.description is defined and params.description %}
+            <div class="question__description u-vh">{{- params.description | safe -}}</div>
+        {% endif -%}
+        {{- params.title | safe -}}
+    {% endset %}
+
+    {% set descHtml %}
+        {% if params.readDescriptionFirst is defined and params.readDescriptionFirst == true %} 
+            <span aria-hidden="true" {% if params.legendIsPageTitle is not defined %}class="question__description"{% endif %}>{{ params.description | safe }}</span>
+        {% elif params.legendIsPageTitle is not defined %}
+            <span class="question__description">{{ params.description | safe }}</span>
+        {% else %}
+            {{ params.description | safe }}            
+        {% endif %}
+    {% endset %}
+
+    {% set instHtml %}
+        <div class="question__instruction u-mb-s">{{ params.instruction | safe }}</div>
+    {% endset %}
+
     <div
         {% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %}
         class="question{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
-        <h1 class="question__title">
-            {%- if params.readDescriptionFirst is defined and params.readDescriptionFirst == true and params.description is defined and params.description %}
-                <div class="question__description u-vh">{{- params.description | safe -}}</div>
-            {% endif -%}
-            {{- params.title | safe -}}
-        </h1>
-        {% if params.description is defined and params.description %}
-            <div class="question__description"{% if params.readDescriptionFirst is defined and params.readDescriptionFirst == true %} aria-hidden="true"{% endif %}>{{ params.description | safe }}</div>
+        {% if params.legendIsPageTitle %}
+            {% from "components/fieldset/_macro.njk" import onsFieldset %}
+            {% call onsFieldset({
+                "legendIsPageTitle": params.legendIsPageTitle,
+                "legend": titleHtml,
+                "description": descHtml if params.description is defined and params.description else '',
+                "legendClasses": params.legendClasses,
+                "legendTitleClasses": params.legendTitleClasses
+            }) %}
+
+                {% if params.instruction is defined and params.instruction %}
+                    {{- instHtml -}}
+                {% endif %}
+
+                {{ caller () }}
+            {% endcall %}
+
+        {% else %}
+            <h1 class="question__title">
+                {{- titleHtml | safe -}}
+            </h1>
+
+            {% if params.description is defined and params.description %}
+                {{- descHtml | safe -}}
+            {% endif %}
+
+            {% if params.instruction is defined and params.instruction %}
+                {{- instHtml | safe -}}
+            {% endif %}
+
+            {{ caller () }}
         {% endif %}
 
-        {% if params.instruction is defined and params.instruction %}
-            <div class="question__instruction u-mb-s">{{ params.instruction | safe }}</div>
-        {% endif %}
-
-        {{ caller () }}
     </div>
 {% endmacro %}

@@ -7,17 +7,10 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Census 2021",
-    "theme": "census",
+    "title": "Survey title",
     "absoluteUrl": pageInfo.url,
-    "headMeta": {
-        "description": "Census 2021 is a UK wide population survey"
-    },
     "header": {
-        "logoHref": "#0",
-        "titleLogo": "census-logo-en",
-        "titleLogoHref": "#0",
-        "titleLogoAlt": "Census 2021"
+        "logoHref": "#0"
     },
     "breadcrumbs": {
         "ariaLabel": 'Back',
@@ -46,7 +39,7 @@ layout: none
                 {
                     "id": "questions",
                     "label": {
-                        "text": "The census questions",
+                        "text": "The questions",
                         "description": "For example, questions not clear, answer options not relevant"
                     },
                     "value": "questions",
@@ -78,8 +71,8 @@ layout: none
                                 "text": "Visitors"
                             },
                             {
-                                "value": "houshold-accommodation",
-                                "text": "Houshold and accommodation"
+                                "value": "household-accommodation",
+                                "text": "Household and accommodation"
                             },
                             {
                                 "value": "personal-details",
