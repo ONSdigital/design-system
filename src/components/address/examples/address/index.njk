@@ -12,14 +12,14 @@ layout: none
 } %}
 {% block main %}
     {% call onsQuestion({
-        "title": "What is your address?"
+        "title": "What is your address?",
+        "legendIsPageTitle": true
     }) %}
     
     <form action="#">
         {{ onsAddressInput({
             "id": "address",
-            "legend": "What is your address?",
-            "legendClasses": "u-vh",
+            "dontWrap": true,
             "autosuggest":{
                 "label": {
                     "text": "Enter address or postcode and select from results",
