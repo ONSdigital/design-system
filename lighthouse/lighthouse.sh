@@ -7,9 +7,7 @@ for url in $(jq '.urls[]' ./lighthouse/urls.json); do
     lhci collect "--url=$url" --additive --config=./lighthouse/lighthouserc.js
 done
 lhci assert --config=./lighthouse/lighthouserc.js
-lhci upload --config=./lighthouse/lighthouserc.js
-
 EXIT_CODE=$?
-
+lhci upload --config=./lighthouse/lighthouserc.js
 kill $!
 exit $EXIT_CODE
