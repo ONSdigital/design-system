@@ -2,7 +2,10 @@
 {% from "components/relationships/_macro.njk" import onsRelationships %}
 
 {% call onsQuestion({
-    "title": params.title
+    "title": params.title,
+    "readDescriptionFirst": true,
+    "legendIsPageTitle": true,
+    "legendTitleClasses": "js-relationships-legend"
 }) %}
     {{ onsRelationships(params) }}
 {% endcall %}

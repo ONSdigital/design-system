@@ -2,12 +2,12 @@
 {% from "components/duration/_macro.njk" import onsDuration %}
 
 {% call onsQuestion({
-    "title": "How long did it take you complete this survey?"
+    "title": "How long did it take you complete this survey?",
+    "legendIsPageTitle": true
 }) %}
     {{ onsDuration({
         "id": "address-duration",
-        "legend": "How long did it take you complete this survey?",
-        "legendClasses": "u-vh",
+        "dontWrap": true,
         "field1": {
             "id": "address-duration-hours",
             "name": "address-duration-hours",
