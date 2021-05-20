@@ -6,9 +6,10 @@ module.exports = {
         onlyCategories: ['accessibility'],
       },
     },
-    preset: 'lighthouse:no-pwa',
-    assertions: {
-      'categories:accessibility': ['warn', { minScore: 0.9 }],
+    assert: {
+      assertions: {
+        'categories:accessibility': ['warn', { minScore: 0.9 }],
+      },
     },
     upload: {
       target: 'temporary-public-storage',
