@@ -7,6 +7,7 @@ group: Ask users for...
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
 
+
 How to ask users for a phone number.
 
 {{
@@ -21,9 +22,75 @@ You should always explain why you need the user's phone number, letting them kno
 
 Use an [input component](/components/input) and set the input type to `tel` to bring up the correct keypad on touch devices.
 
-### Explain why you need the phone number
+When using this pattern you should:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'tell users why you need a phone number and what it will be used for'
+            },
+            {
+                "text": 'make it clear what type of telephone number you need'
+            },
+            {
+                "text": 'make sure you allow the user to enter a phone number in a familiar format'
+            },
+            {
+                "text": 'help users enter a phone number in the correct format'
+            }
+        ]
+    })
+}}
 
-Use the `label__description` with the [input component](/components/input) to reassure users why you need a phone number and what it will be used for.
+### Explain why you need the phone number
+Use the optional label__description with the [input component](/components/input) for hint text to reassure users why you need a phone number and what it will be used for.
+
+## Make it clear what type of phone number you need
+Use the `label__description` for hint text to let users know what type of phone number you need, for example, a UK, international or mobile phone number.
+
+## Allow all phone number formats
+The phone number field must accommodate all phone number formats. The length of the field must allow for any spaces or common characters, for example, brackets, dashes or country codes.
+
+### Validate phone numbers
+
+To help users enter a valid email address, you should:
+
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'check they have entered the phone number correctly'
+            },
+            {
+                "text": 'show error validation messages if they have not entered a valid phone number'
+            },
+            {
+                "text": 'allow them to paste the phone number'
+            },
+            {
+                "text": 'ask them to confirm it is correct using the <a href="/patterns/check-answers/">check answers pattern</a>'
+            }
+        ]
+    })
+}}
+
+### Error messages
+Use the [correct errors pattern](https://ons-design-system.netlify.app/patterns/error-validation) and show the error details above the phone number field if it is missing or incorrect.
+{{
+    patternlibExample({"path": "patterns/phone-numbers/examples/phone-number-error/index.njk"})
+}}
+
+#### If the phone number is missing
+Use “Enter [the required type of phone number]”, for example, “Enter a UK mobile number”.
+
+#### If a phone number is incorrect
+Use “Enter a UK mobile number in a valid format, for example, 07700 912345 or +44 7700 912345”, to give them a clear example of a valid phone number.
+Make sure any examples of phone numbers in the error message are suitable for the type of number you are asking for. {{
+    onsExternalLink({
+        "url": "https://www.ofcom.org.uk/phones-telecoms-and-internet/information-for-industry/numbering/numbers-for-drama",
+        "linkText": "Ofcom maintains a list of numbers"
+    })
+}} reserved for use in media that you can use.
 
 ### Use autocomplete 
 Use the `autocomplete` attribute when you are asking for a phone number as it helps the user fill out a form more quickly.
@@ -31,19 +98,6 @@ Use the `autocomplete` attribute when you are asking for a phone number as it he
 To do this, set the autocomplete attribute on the input field to `tel`.
 
 You will need to use the autocomplete attribute to meet [WCAG 2.1 AA standards for accessibility](https://www.w3.org/TR/WCAG21/#identify-input-purpose).
-
-### Error messages
-{{
-    patternlibExample({"path": "patterns/phone-numbers/examples/phone-number-error/index.njk"})
-}}
-
-Use the [correct errors pattern](https://ons-design-system.netlify.app/patterns/error-validation) and show the error details above the input phone number area.
-
-#### If nothing is entered and the answer is required
-Use “Enter [the required type of phone number]”, for example, “Enter a UK mobile number”.
-
-#### If a phone number is incorrect
-Use “Enter a UK mobile number in a valid format, for example, 07700 912345 or +44 7700 912345”.
 
 ## Research on this pattern
 {% call onsPanel() %}
