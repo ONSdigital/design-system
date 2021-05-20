@@ -7,7 +7,6 @@ module.exports = {
       },
     },
     assert: {
-      preset: 'lighthouse:no-pwa',
       assertions: {
         'categories:accessibility': ['warn', { minScore: 1 }],
       },
