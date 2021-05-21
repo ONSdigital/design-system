@@ -43,17 +43,17 @@ When using this pattern you should:
 }}
 
 ### Explain why you need the phone number
-Use the optional label__description with the [input component](/components/input) for hint text to reassure users why you need a phone number and what it will be used for.
+Use the optional `label__description` with the [input component](/components/input) for hint text to reassure users why you need a phone number and what it will be used for.
 
-## Make it clear what type of phone number you need
+### Make it clear what type of phone number you need
 Use the `label__description` for hint text to let users know what type of phone number you need, for example, a UK, international or mobile phone number.
 
-## Allow all phone number formats
+### Allow all phone number formats
 The phone number field must accommodate all phone number formats. The length of the field must allow for any spaces or common characters, for example, brackets, dashes or country codes.
 
 ### Validate phone numbers
 
-To help users enter a valid email address, you should:
+To help users enter a valid phone number, you should:
 
 {{
     onsList({
@@ -85,6 +85,7 @@ Use “Enter [the required type of phone number]”, for example, “Enter a UK 
 
 #### If a phone number is incorrect
 Use “Enter a UK mobile number in a valid format, for example, 07700 912345 or +44 7700 912345”, to give them a clear example of a valid phone number.
+
 Make sure any examples of phone numbers in the error message are suitable for the type of number you are asking for. {{
     onsExternalLink({
         "url": "https://www.ofcom.org.uk/phones-telecoms-and-internet/information-for-industry/numbering/numbers-for-drama",
@@ -92,7 +93,7 @@ Make sure any examples of phone numbers in the error message are suitable for th
     })
 }} reserved for use in media that you can use.
 
-### Use autocomplete 
+## Use autocomplete 
 Use the `autocomplete` attribute when you are asking for a phone number as it helps the user fill out a form more quickly.
 
 To do this, set the autocomplete attribute on the input field to `tel`.
@@ -114,6 +115,6 @@ You will need to use the autocomplete attribute to meet [WCAG 2.1 AA standards f
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/1496",
-        "linkText": "Discuss 'Numeric values' on GitHub"
+        "linkText": "Discuss ‘Phone numbers’ on GitHub"
     })
 }}
