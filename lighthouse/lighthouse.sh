@@ -1,5 +1,5 @@
 #!/bin/bash
-node ./lighthouse/lighthouse-get-pages.js
+node ./lighthouse/lighthouse-get-urls.js
 npx http-server -p 9000 ./build &
 npm install -g @lhci/cli@0.7.x
 lhci healthcheck --fatal
