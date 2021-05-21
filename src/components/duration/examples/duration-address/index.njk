@@ -3,12 +3,12 @@
 
 {% call onsQuestion({
     "title": "How long have you lived at this address?",
-    "description": "<p>If you have lived at this address for less than a year then enter 0 into the year input.</p>"
+    "description": "<p>If you have lived at this address for less than a year then enter 0 into the year input.</p>",
+    "legendIsPageTitle": true
 }) %}
     {{ onsDuration({
         "id": "address-duration",
-        "legend": "How long have you lived at this address?",
-        "legendClasses": "u-vh",
+        "dontWrap": true,
         "field1": {
             "id": "address-duration-years",
             "name": "address-duration-years",

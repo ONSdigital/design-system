@@ -25,6 +25,11 @@
     vertical-align: middle;
   }
 
+  .ons-svg-logo,
+  .ons-svg-logo--accent {
+    fill: $color-black;
+  }
+
   &__body {
     background-color: $color-grey-5;
     padding: 2rem 0 4rem;

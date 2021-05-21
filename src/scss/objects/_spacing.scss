@@ -1,6 +1,7 @@
 .field +,
 .field-group +,
 .fieldset +,
+.input-items +,
 .figure +,
 .panel +,
 .summary__group +,
@@ -9,6 +10,7 @@
   .field,
   .field-group,
   .fieldset,
+  .input-items,
   .panel:not(.panel--bare),
   .summary__group,
   .collapsible:not(.collapsible--accordion) {
