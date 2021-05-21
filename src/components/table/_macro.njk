@@ -43,9 +43,9 @@
                                             "name": td.form.button.name if td.form.button.name
                                         })
                                     }}
-                                    {% if td.form.hidden is defined and td.form.hidden %}
-                                        {% for hiddenInput in td.form.hidden %}
-                                            <input type="hidden" {% if hiddenInput.name is defined and hiddenInput.name %} name="{{ hiddenInput.name }}"{% endif %} {% if hiddenInput.value is defined and hiddenInput.value %} value="{{ hiddenInput.value }}"{% endif %} />
+                                    {% if td.form.hiddenFormField is defined and td.form.hiddenFormField %}
+                                        {% for hiddenField in td.form.hiddenFormField %}
+                                            <input type="hidden" {% if hiddenField.name is defined and hiddenField.name %} name="{{ hiddenField.name }}"{% endif %} {% if hiddenField.value is defined and hiddenField.value %} value="{{ hiddenField.value }}"{% endif %} />
                                         {% endfor %}
                                     {% endif %}
                                 </form>
