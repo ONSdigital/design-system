@@ -38,7 +38,19 @@ async function copyAssets() {
           const nestedFiles = await fs.readdirSync(nestedBuiltPath).filter(path => !path.includes('patternlib'));
 
           asyncForEach(nestedFiles, async nestedFile => {
-            await copyFile(`${nestedBuiltPath}/${nestedFile}`, `${newFolderPath}/${nestedFile}`);
+            if (nestedFile.match(/(\.\w+)$/)) {
+              await copyFile(`${nestedBuiltPath}/${nestedFile}`, `${newFolderPath}/${nestedFile}`);
+            } else {
+              const newNestedFolderPath = `${newFolderPath}/${nestedFile}`;
+              const nestedNestedBuiltPath = `${nestedBuiltPath}/${nestedFile}`;
+              await createFolder(newNestedFolderPath);
+
+              const nestedNestedFiles = await fs.readdirSync(nestedNestedBuiltPath).filter(path => !path.includes('patternlib'));
+
+              asyncForEach(nestedNestedFiles, async nestedNestedFile => {
+                await copyFile(`${nestedNestedBuiltPath}/${nestedNestedFile}`, `${newNestedFolderPath}/${nestedNestedFile}`);
+              });
+            }
           });
         }
       });
