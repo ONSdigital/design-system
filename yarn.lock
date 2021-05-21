@@ -11417,10 +11417,9 @@ webpack-dev-server@^3.11.2:
     ws "^6.2.1"
     yargs "^13.3.2"
 
-webpack-livereload-plugin@^2.3.0:
+webpack-livereload-plugin@int3nse-git/webpack-livereload-plugin:
   version "2.3.0"
-  resolved "https://registry.yarnpkg.com/webpack-livereload-plugin/-/webpack-livereload-plugin-2.3.0.tgz#61994e0500a0c1e27355ff753a9642641bef5d6a"
-  integrity sha512-vVBLQLlNpElt2sfsBG+XLDeVbQFS4RrniVU8Hi1/hX5ycSfx6mtW8MEEITr2g0Cvo36kuPWShFFDuy+DS7KFMA==
+  resolved "https://codeload.github.com/int3nse-git/webpack-livereload-plugin/tar.gz/e85fa63b94b0e632efa861bfe02211cb41a53e56"
   dependencies:
     anymatch "^3.1.1"
     portfinder "^1.0.17"

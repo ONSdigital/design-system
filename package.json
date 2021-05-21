@@ -56,7 +56,6 @@
     "safari >= 12"
   ],
   "devDependencies": {
-    "coverage-istanbul-loader": "^3.0.5",
     "@babel/core": "^7.1.6",
     "@babel/node": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -80,6 +79,7 @@
     "codecov": "3.7.2",
     "copy-webpack-plugin": "^6.3.2",
     "core-js": "^2.6.0",
+    "coverage-istanbul-loader": "^3.0.5",
     "cssnano": "^4.1.11",
     "eslint": "^5.9.0",
     "eslint-cli": "^1.1.1",
@@ -149,7 +149,7 @@
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2",
-    "webpack-livereload-plugin": "^2.3.0",
+    "webpack-livereload-plugin": "int3nse-git/webpack-livereload-plugin",
     "webpack-merge": "^4.1.4",
     "webpack-remove-empty-scripts": "^0.7.1",
     "whatwg-fetch": "^3.0.0"
