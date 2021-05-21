@@ -1,4 +1,4 @@
-name: Build project and run Lighthouse CI
+name: Lighthouse CI accesibility checks
 on: [pull_request]
 jobs:
   lhci:
