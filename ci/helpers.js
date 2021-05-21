@@ -6,8 +6,8 @@ export async function copyDir(from, to) {
   return new Promise((resolve, reject) => {
     ncp(from, to, error => {
       if (error) {
-        throw new Error(error);
         reject(error);
+        throw new Error(error);
       } else {
         resolve();
       }
