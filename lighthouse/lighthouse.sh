@@ -9,5 +9,6 @@ done
 sem --wait
 lhci assert --config=./lighthouse/lighthouserc.js
 lhci upload --config=./lighthouse/lighthouserc.js
+EXIT_CODE=$?
 kill $!
 exit $EXIT_CODE
