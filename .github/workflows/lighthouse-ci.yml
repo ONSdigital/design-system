@@ -1,4 +1,4 @@
-name: Lighthouse CI accesibility checks
+name: Lighthouse CI accessibility checks
 on: [pull_request]
 jobs:
   lhci:
