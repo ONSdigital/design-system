@@ -38,11 +38,19 @@
 
 ## form
 
-| Name   | Type                                   | Required | Description                               |
-| ------ | -------------------------------------- | -------- | ----------------------------------------- |
-| method | string                                 | false    | Default is `post` if no value is provided |
-| action | string                                 | true     | The `action` for the form                 |
-| button | `Button` [_(ref)_](/components/button) | false    | Configuration object for the form button  |
+| Name            | Type                                   | Required | Description                                 |
+| --------------- | -------------------------------------- | -------- | ------------------------------------------- |
+| method          | string                                 | false    | Default is `post` if no value is provided   |
+| action          | string                                 | true     | The `action` for the form                   |
+| button          | `Button` [_(ref)_](/components/button) | false    | Configuration object for the form button    |
+| hiddenFormField | object                                 | false    | Configuration object for hidden form fields |
+
+## hiddenFormField
+
+| Name  | Type   | Required | Description        |
+| ----- | ------ | -------- | ------------------ |
+| name  | string | false    | Hidden field name  |
+| value | string | false    | Hidden field value |
 
 ## tfootCell
 
