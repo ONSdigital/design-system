@@ -93,7 +93,7 @@ $color-button-secondary: $color-grey-15 !default;
 $color-input: $color-black !default;
 
 // Panels and status
-$color-info: $color-night-blue !default;
+$color-info: $color-ocean-blue !default;
 $color-info-tint: tint($color-info, 90) !default;
 $color-info-vibrant: scale-color($color-info, $lightness: 20%, $saturation: 30%) !default;
 $color-success: $color-leaf-green !default;

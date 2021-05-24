@@ -7,14 +7,14 @@ sortOrder: 1
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 
-The ONS colour palette is available to services using the design system so pages and elements look consistent and coherent.
+Use the ONS colour palettes for all services so that pages and elements are consistent and familiar to users.
 
-Our text and background colours are designed to make sure they meet {{
+We have designed text and background colours that are accessible to {{
     onsExternalLink({
         "url": "https://www.w3.org/TR/WCAG21/#contrast-minimum",
-        "linkText": "level AA of the Web Content Accessibility Guidelines (WCAG 2.1)"
+        "linkText": "WCAG 2.1 AA level of compliance for contrast"
     })
-}}. You can read more about [accessibility and colour](#colour-contrast) on this page.
+}}. The [Colour contrast section](#colour-contrast) has more detail about accessibility and colour.
 
 ## Primary brand palette
 {{
@@ -212,7 +212,7 @@ The colour palette `scss` variables shown above are assigned to a further variab
             {
                 'bg': '#206095',
                 'var': '$color-text-link',
-                'info': 'Blue is the colour for all link text elements in the body of the page. Text links should be underlined.'
+                'info': 'Blue is the colour for all link text elements in the body of the page. Link text should also be underlined.'
             }
         ]
     })
@@ -238,7 +238,7 @@ The colour palette `scss` variables shown above are assigned to a further variab
                 'bg': '#0f8243',
                 'char': 'A',
                 'var': '$color-button',
-                'info': 'Primary action buttons use green as the background colour with white text.',
+                'info': 'Primary action buttons use a green background colour and white text.',
                 'hideSwatchDetail': true
             }
         ]
@@ -252,7 +252,7 @@ The colour palette `scss` variables shown above are assigned to a further variab
                 'bg': '#e2e2e3',
                 'char': 'A',
                 'var': '$color-button-secondary',
-                'info': 'Secondary buttons use a light grey background colour and black text colour. This prevents interference with the primary action.',
+                'info': 'Secondary buttons use a light grey background colour and black text. This prevents interference with the primary action.',
                 'hideSwatchDetail': true
             }
         ]
@@ -268,7 +268,7 @@ The colour palette `scss` variables shown above are assigned to a further variab
                 'char': 'A',
                 'shadow': true,
                 'var': '$color-focus',
-                'info': "Black and yellow is used to provide visual affordance that an element has focus. Any focussed text <code>color</code> is changed to black, and yellow is applied as a <code>background-color</code> with an additional <code>4px</code> black offset <code>box-shadow</code>. The change to both foreground and background colours makes sure there is a consistent [accessible colour contrast ratio](#colour-contrast), regardless of the element’s initial background colour.",
+                'info': 'Black text on a yellow background is used to show that an element has focus. Any focussed text <code>color</code> is changed to black, and yellow is applied as a <code>background-color</code> with an additional <code>4px</code> black offset <code>box-shadow</code>. The change to both foreground and background colours makes sure there is a consistent <a href="#colour-contrast">accessible colour contrast ratio</a>, regardless of the element’s initial background colour.',
                 'hideSwatchDetail': true
             }
         ]
@@ -283,7 +283,7 @@ The colour palette `scss` variables shown above are assigned to a further variab
                 'bg': '#f0f762',
                 'char': 'A',
                 'var': '$color-highlight',
-                'info': 'Bright yellow is used to highlight text to [help users to see important information](/patterns/see-important-information).',
+                'info': 'Bright yellow is used to highlight text to <a href="/patterns/see-important-information">help users to see important information</a>.',
                 'hideSwatchDetail': true
             }
         ]
@@ -303,25 +303,28 @@ The colour palette `scss` variables shown above are assigned to a further variab
 }}
 ### Status
 
-Each status has a primary border colour and a background tint for use in a status [panel](/components/panel), and a vibrant hue for use in a [status](/components/status) indicator dot.
+Different colours can be used to represent a status. Each status has a primary border colour and a background tint for use in a status [panel](/components/panel), and a vibrant hue for use in a [status indicator](/components/status) dot.
 
 #### Information
 {{
     onsColours({
         'itemsList': [
             {
-                'bg': '#003c57',
+                'bg': '#206095',
                 'var': '$color-info'
             },
             {
-                'bg': '#e6ecee',
+                'bg': '#e9eff4',
+                'fore': '#222222',
+                'char': 'A',
                 'var': '$color-info-tint',
-                'info': 'A 10% tint of the primary colour'
+                'info': 'A 10% tint of the primary colour.',
+                'hideSwatchDetail': true
             },
             {
-                'bg': '#3076ac',
+                'bg': '#1f84d8',
                 'var': '$color-info-vibrant',
-                'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour'
+                'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour.'
             }
         ]
     })
@@ -337,12 +340,40 @@ Each status has a primary border colour and a background tint for use in a statu
             },
             {
                 'bg': '#e7f3ec',
+                'fore': '#222222',
+                'char': 'A',
                 'var': '$color-success-tint',
-                'info': 'A 10% tint of the primary colour'
+                'info': 'A 10% tint of the primary colour',
+                'hideSwatchDetail': true
             },
             {
                 'bg': '#10ca64',
                 'var': '$color-success-vibrant',
+                'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour'
+            }
+        ]
+    })
+}}
+
+#### Errors
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#d0021b',
+                'var': '$color-errors'
+            },
+            {
+                'bg': '#fae6e8',
+                'fore': '#222222',
+                'char': 'A',
+                'var': '$color-errors-tint',
+                'info': 'A 10% tint of the primary colour',
+                'hideSwatchDetail': true
+            },
+            {
+                'bg': '#fd112d',
+                'var': '$color-errors-vibrant',
                 'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour'
             }
         ]
@@ -361,30 +392,8 @@ Each status has a primary border colour and a background tint for use in a statu
     })
 }}
 
-#### Errors
-{{
-    onsColours({
-        'itemsList': [
-            {
-                'bg': '#d0021b',
-                'var': '$color-errors'
-            },
-            {
-                'bg': '#fae6e8',
-                'var': '$color-errors-tint',
-                'info': 'A 10% tint of the primary colour'
-            },
-            {
-                'bg': '#fd112d',
-                'var': '$color-errors-vibrant',
-                'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour'
-            }
-        ]
-    })
-}}
-
 ## Colour contrast
-Contrast between foreground and background colours are tested to make sure they meet {{
+We have tested the contrast between foreground and background colours to make sure they meet {{
     onsExternalLink({
         "url": "https://www.w3.org/TR/WCAG21/#contrast-minimum",
         "linkText": "level AA of the Web Content Accessibility Guidelines (WCAG 2.1)"
@@ -404,8 +413,6 @@ To meet the WCAG 2.1 level AA guideline “1.4.3 Contrast (Minimum)”, all text
         ]
     })
 }}
-
-Where colour is used to draw attention to an item (e.g. [panel](/components/panel)) and insufficient contrast exists between a background colour and element colour, additional techniques may be required to provide support for users unable to perceive the colour (for example, an icon or bold text).
 
 ### Accessible text and background colour combinations
 {{
