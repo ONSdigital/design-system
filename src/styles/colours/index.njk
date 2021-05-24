@@ -138,6 +138,44 @@ Our text and background colours are designed to make sure they meet {{
     })
 }}
 
+## Tints
+Only tints of 70%, 40% or 10% of the primary, supporting and census palette colours can be used.
+
+To apply a tint, you can use the `tint()` function by passing in the colour, and the percentage of white you want to mix with it. For example:
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#4d7789',
+                'var': 'tint($color-night-blue, 30);',
+                'info': '70% tint of Night Blue'
+            }
+        ]
+    })
+}}
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#99b1bc',
+                'var': 'tint($color-night-blue, 60);',
+                'info': '40% tint of Night Blue'
+            }
+        ]
+    })
+}}
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#e6ecee',
+                'var': 'tint($color-night-blue, 90);',
+                'info': '10% tint of Night Blue'
+            }
+        ]
+    })
+}}
+
 ## Colour assignment and context
 
 The colour palette `scss` variables shown above are assigned to a further variable to provide context which can be applied to elements across the design system. This allows for separation of colours from context.
@@ -278,7 +316,7 @@ Each status has a primary border colour and a background tint for use in a statu
             {
                 'bg': '#e6ecee',
                 'var': '$color-info-tint',
-                'info': 'A 10% white tint of the primary colour'
+                'info': 'A 10% tint of the primary colour'
             },
             {
                 'bg': '#3076ac',
@@ -300,7 +338,7 @@ Each status has a primary border colour and a background tint for use in a statu
             {
                 'bg': '#e7f3ec',
                 'var': '$color-success-tint',
-                'info': 'A 10% white tint of the primary colour'
+                'info': 'A 10% tint of the primary colour'
             },
             {
                 'bg': '#10ca64',
@@ -334,7 +372,7 @@ Each status has a primary border colour and a background tint for use in a statu
             {
                 'bg': '#fae6e8',
                 'var': '$color-errors-tint',
-                'info': 'A 10% white tint of the primary colour'
+                'info': 'A 10% tint of the primary colour'
             },
             {
                 'bg': '#fd112d',
