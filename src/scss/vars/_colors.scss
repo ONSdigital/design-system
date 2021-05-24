@@ -24,7 +24,7 @@ $color-aqua-teal: #00a3a6;
 // Supporting palette
 $color-leaf-green: #0f8243;
 $color-ruby-red: #d0021b;
-$color-jaffa-orange: #ff600a;
+$color-jaffa-orange: #fa6401;
 $color-sun-yellow: #fbc900;
 $color-neon-yellow: #f0f762;
 
@@ -94,18 +94,18 @@ $color-input: $color-black !default;
 
 // Panels and status
 $color-info: $color-night-blue !default;
-$color-info-tint: tint($color-info, 90%) !default;
+$color-info-tint: tint($color-info, 90) !default;
 $color-info-vibrant: scale-color($color-info, $lightness: 20%, $saturation: 30%) !default;
 $color-success: $color-leaf-green !default;
-$color-success-tint: tint($color-success, 90%) !default;
+$color-success-tint: tint($color-success, 90) !default;
 $color-success-vibrant: scale-color($color-success, $lightness: 20%, $saturation: 30%) !default;
 $color-errors: $color-ruby-red !default;
-$color-errors-tint: tint($color-errors, 90%) !default;
+$color-errors-tint: tint($color-errors, 90) !default;
 $color-errors-vibrant: scale-color($color-errors, $lightness: 20%, $saturation: 30%) !default;
 $color-pending: $color-jaffa-orange !default;
-$color-pending-tint: tint($color-pending, 90%) !default;
+$color-pending-tint: tint($color-pending, 90) !default;
 $color-pending-vibrant: scale-color($color-pending, $lightness: 20%, $saturation: 30%) !default;
 $color-dead: $color-grey-75 !default;
 $color-instruction: $color-jaffa-orange !default;
-$color-instruction-tint: tint($color-instruction, 90%) !default;
-$color-tag-bg: tint($color-leaf-green, 90%) !default;
+$color-instruction-tint: tint($color-instruction, 90) !default;
+$color-tag-bg: tint($color-leaf-green, 90) !default;
