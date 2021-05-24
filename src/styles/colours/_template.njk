@@ -1,6 +1,6 @@
 <div class="grid grid--flex grid--gutterless">
     {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
-        <div class="patternlib-swatch grid grid--flex grid--gutterless .grid--vertical-center grid--no-wrap@s">
+        <div class="patternlib-swatch grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap@s">
             <div class="patternlib-swatch__color u-flex-no-shrink"
                 style="{% if item.bg2 is defined and item.bg2 %}background: linear-gradient(to bottom left, {{ item.bg }} 0%, {{ item.bg2 }} 100%);{% else %}background-color:{{ item.bg }};{% endif -%}{% if item.border is defined and item.border -%} border:1px solid #707071;{% endif -%}{% if item.shadow is defined and item.shadow %}border-radius:0; -webkit-box-shadow: 0 -2px {{ item.bg }}, 0 4px {{ item.fore }};
                 box-shadow: 0 -2px {{ item.bg }}, 0 4px {{ item.fore }};{% endif -%}">
