@@ -29,6 +29,11 @@ const core = {
       tests: path.resolve(__dirname, './src/tests'),
       stubs: path.resolve(__dirname, './src/tests/stubs'),
     },
+    fallback: {
+      stream: require.resolve('stream-browserify'),
+      http: require.resolve('stream-http'),
+      path: require.resolve('path-browserify'),
+    },
   },
 
   resolveLoader: {
