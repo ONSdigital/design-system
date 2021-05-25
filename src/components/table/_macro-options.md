@@ -5,7 +5,7 @@
 | caption     | string             | false    | The caption for the table component                                                             |
 | hideCaption | boolean            | false    | Visually hides the caption                                                                      |
 | scrollable  | boolean            | false    | Sets the component to render as a scrollable table                                              |
-| ariaLabel   | string             | false    | The aria label added to the table if it is scrollable. Defaults to `Scrollable Table`           |
+| ariaLabel   | string             | false    | The aria label added to the table if it is scrollable. Defaults to `Scrollable table`           |
 | sortable    | boolean            | false    | Sets the component to render as a sortable table                                                |
 | ths         | Array`<th>`        | true     | An array of `th` elements for table                                                             |
 | trs         | Array`<tr>`        | true     | An array of `tr` elements for table                                                             |

@@ -3,7 +3,7 @@
     {% from "components/icons/_macro.njk" import onsIcon %}
     {% if params.scrollable is defined and params.scrollable %}
     <div class="table-scrollable table-scrollable--on">
-        <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.ariaLabel | default("Scrollable Table") }} ">
+        <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.ariaLabel | default("Scrollable table") }} ">
     {% endif %}
             <table {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="table {{ params.table_class }}" {% if params.sortable is defined and params.sortable %}data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"{% endif %}>
                 {% if params.caption is defined and params.caption %}

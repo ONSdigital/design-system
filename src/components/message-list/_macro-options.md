@@ -2,8 +2,8 @@
 | ----------------- | ---------------- | -------- | -------------------------------------------------------------------------------------------- |
 | ariaLabel         | string           | false    | aria label for the message list. Defualts to `Message List`                                  |
 | unreadText        | string           | true     | text label for unread message i.e. New                                                       |
-| ariaLabelMetaData | string           | false    | aria label for the message metadata i.e. Message information. Defaults to `Message Metadata` |
-| ariaLabelMsg      | string           | false    | aria label for the message body i.e. Message preview. Defaults to `Message Text`             |
+| ariaLabelMetaData | string           | false    | aria label for the message metadata i.e. Message information. Defaults to `Message metadata` |
+| ariaLabelMsg      | string           | false    | aria label for the message body i.e. Message preview. Defaults to `Message text`             |
 | fromLabel         | string           | true     | Label for the visually hidden "from" label                                                   |
 | dateLabel         | string           | true     | Label for the visually hidden "date" label                                                   |
 | hiddenReadLabel   | string           | true     | Label for the visually hidden "Read the message" label                                       |

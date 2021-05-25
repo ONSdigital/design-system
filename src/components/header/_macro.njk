@@ -52,7 +52,7 @@
                             {% endif %}
                             {% if params.serviceLinks is defined and params.serviceLinks %}
                                 <div class="grid__col col-auto u-d-no@xxs@m">
-                                    <nav class="header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service Links Navigation") }}">
+                                    <nav class="header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
                                         <ul class="header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel | default("Service Links") }}">
                                             {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}
                                                 <li class="header-service-nav__item">
