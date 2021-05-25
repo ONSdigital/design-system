@@ -3,7 +3,11 @@
     @extend .label;
   }
 
-  &__description {
+  &__description:not(&__description--title) {
     @extend .label__description;
+  }
+
+  &__description--title {
+    font-weight: normal;
   }
 }
