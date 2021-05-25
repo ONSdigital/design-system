@@ -109,7 +109,7 @@
                                     "classes": "btn--mobile u-ml-s u-d-no js-toggle-main",
                                     "buttonStyle": "mobile",
                                     "attributes": {
-                                        "aria-label": params.toggleButton.ariaLabel,
+                                        "aria-label": params.toggleButton.ariaLabel | default("Toggle main navigation") ,
                                         "aria-controls": params.navigation.id,
                                         "aria-haspopup": "true",
                                         "aria-expanded": "false"
