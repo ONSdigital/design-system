@@ -15,9 +15,9 @@
                 {% if item.fore is defined and item.fore and item.hideSwatchDetail is not defined -%}
                     <span class="patternlib-swatch__detail">Foreground: <strong>{{ item.fore }}</strong></span>
                     <span class="patternlib-swatch__detail">Background: <strong>{{ item.bg }}</strong></span>
-                    {% if item.contrastRatio is defined and item.contrastRatio %}
+                    {% if item.contrastRatio is defined and item.contrastRatio -%}
                         <span class="patternlib-swatch__detail">Contrast ratio: <strong>{{ item.contrastRatio }}</strong></span>
-                    {% endif %}
+                    {% endif -%}
                 {% endif -%}
             </div>
             {% if item.info is defined and item.info -%}
