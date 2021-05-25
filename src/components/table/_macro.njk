@@ -38,9 +38,16 @@
                                             "text": td.form.button.text,
                                             "id": td.form.button.id if td.form.button.id,
                                             "classes": td.form.button.classes if td.form.button.classes,
-                                            "url": td.form.button.url if td.form.button.url
+                                            "url": td.form.button.url if td.form.button.url,
+                                            "value": td.form.button.value | safe if td.form.button.value,
+                                            "name": td.form.button.name if td.form.button.name
                                         })
                                     }}
+                                    {% if td.form.hiddenFormField is defined and td.form.hiddenFormField %}
+                                        {% for hiddenField in td.form.hiddenFormField %}
+                                            <input type="hidden" {% if hiddenField.name is defined and hiddenField.name %} name="{{ hiddenField.name }}"{% endif %} {% if hiddenField.value is defined and hiddenField.value %} value="{{ hiddenField.value }}"{% endif %} />
+                                        {% endfor %}
+                                    {% endif %}
                                 </form>
                             {% endif %}
                             {% if td.value is defined and td.value %}
