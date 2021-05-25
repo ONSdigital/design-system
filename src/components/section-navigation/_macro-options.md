@@ -1,9 +1,9 @@
-| Name          | Type          | Required | Description                                                                        |
-| ------------- | ------------- | -------- | ---------------------------------------------------------------------------------- |
-| currentPath   | string        | true     | Path to the default active page                                                    |
-| ariaLabel     | string        | false    | The aria-label added to the section navigation element. Defaults to `Section menu` |
-| ariaListLabel | string        | false    | The aria-label added to the section navigation list. Defaults to `Section Links`   |
-| itemsList     | `Array<Item>` | true     | An array of list items to render in the section navigation element                 |
+| Name          | Type          | Required | Description                                                                           |
+| ------------- | ------------- | -------- | ------------------------------------------------------------------------------------- |
+| currentPath   | string        | true     | Path to the default active page                                                       |
+| ariaLabel     | string        | false    | The aria-label added to the section navigation element. Defaults to `Section menu`    |
+| ariaListLabel | string        | false    | The aria-label added to the section navigation list. Defaults to `Section menu Links` |
+| itemsList     | `Array<Item>` | true     | An array of list items to render in the section navigation element                    |
 
 ## Item
 
