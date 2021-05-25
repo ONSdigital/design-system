@@ -31,10 +31,10 @@
 
 ## ToggleButton
 
-| Name      | Type   | Required | Description                           |
-| --------- | ------ | -------- | ------------------------------------- |
-| text      | string | true     | Text to be displayed on toggle button |
-| ariaLabel | string | true     | Aria label for toggle button          |
+| Name      | Type   | Required | Description                                                        |
+| --------- | ------ | -------- | ------------------------------------------------------------------ |
+| text      | string | true     | Text to be displayed on toggle button                              |
+| ariaLabel | string | false    | Aria label for toggle button. Defaults to `Toggle main navigation` |
 
 ## Item
 
