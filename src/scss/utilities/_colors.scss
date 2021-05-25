@@ -1,4 +1,4 @@
-@each $label, $color in (blue: $color-dark-blue, green: $color-green) {
+@each $label, $color in (blue: $color-night-blue, green: $color-leaf-green) {
   .u-#{$label} {
     color: $color;
   }

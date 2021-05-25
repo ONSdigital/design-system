@@ -66,7 +66,7 @@ $button-border-height: 3px;
 
   &:focus:not(:active):not(:hover) &__inner {
     background-color: $color-focus;
-    color: $color-focus-text;
+    color: $color-text-link-focus;
   }
 
   &:not([class*='btn--secondary']):not([class*='btn--print']):focus:hover &__inner {
@@ -143,7 +143,7 @@ $button-border-height: 3px;
   // Link button when focussed
   &--link:focus:not(:active):not(:hover) &__inner {
     background: $color-focus;
-    color: $color-focus-text;
+    color: $color-text-link-focus;
   }
 
   &--link:not(.btn--secondary) &,
@@ -230,7 +230,7 @@ $button-border-height: 3px;
   &--mobile:focus:not(:hover) & {
     &__inner {
       background-color: $color-focus;
-      color: $color-focus-text;
+      color: $color-text-link-focus;
       .svg-icon {
         fill: $color-black;
       }
