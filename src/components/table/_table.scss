@@ -13,7 +13,7 @@
   &__cell {
     @include nth-element(1, 0);
 
-    border-bottom: 2px solid $color-grey-1;
+    border-bottom: 2px solid $color-grey-100;
     overflow: hidden;
     padding: 0.5rem 0 0.5rem 1rem;
     text-align: left;
@@ -29,7 +29,7 @@
   }
 
   &__row--highlight {
-    background: $color-light-green;
+    background: $color-highlight;
   }
 
   &:not(.table--responsive) .table__body .table__row:last-child {
@@ -65,7 +65,7 @@
       }
 
       .table__body .table__row {
-        border-bottom: 2px solid $color-grey-1;
+        border-bottom: 2px solid $color-grey-100;
         display: block;
         margin-bottom: 1rem;
       }
@@ -94,7 +94,7 @@
     height: 7px;
   }
   ::-webkit-scrollbar-thumb {
-    background: $color-grey-2;
+    background: $color-grey-75;
     border-radius: 20px;
   }
   &--on {
@@ -148,10 +148,10 @@
   [aria-sort='descending'].table__header {
     .svg-icon {
       .topTriangle {
-        fill: $color-grey-3;
+        fill: $color-grey-35;
       }
       .bottomTriangle {
-        fill: $color-blue;
+        fill: $color-ocean-blue;
       }
     }
     .table__sort-button:focus {
@@ -166,10 +166,10 @@
   [aria-sort='ascending'].table__header {
     .svg-icon {
       .topTriangle {
-        fill: $color-blue;
+        fill: $color-ocean-blue;
       }
       .bottomTriangle {
-        fill: $color-grey-3;
+        fill: $color-grey-35;
       }
     }
     .table__sort-button:focus {
@@ -188,7 +188,7 @@
       background-color: transparent;
       border: 0;
       box-shadow: none;
-      color: $color-links;
+      color: $color-text-link;
       display: inline-block;
       font-family: $font-sans;
       font-weight: 700;
@@ -197,13 +197,13 @@
       white-space: nowrap;
 
       &:hover {
-        color: $color-links-hover;
+        color: $color-text-link-hover;
         cursor: pointer;
-        text-decoration: underline solid $color-links-hover 2px;
+        text-decoration: underline solid $color-text-link-hover 2px;
       }
 
       .svg-icon {
-        fill: $color-grey-3;
+        fill: $color-grey-35;
         height: 0.8rem;
         padding-bottom: 0.1rem;
         width: 0.8rem;
