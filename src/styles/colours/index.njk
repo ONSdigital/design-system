@@ -16,6 +16,8 @@ We have designed text and background colours that are accessible to {{
     })
 }}. The [Colour contrast section](#colour-contrast) has more detail about accessibility and colour.
 
+Each colour has a colour variable that can be [assigned to a element](/colour-assignment). The main colours can also be expanded by creating the three [allowed tint variations](#tints).
+
 ## Primary brand palette
 {{
     onsColours({
@@ -139,16 +141,16 @@ We have designed text and background colours that are accessible to {{
 }}
 
 ## Tints
-Only tints of 70%, 40% or 10% of the primary, supporting and census palette colours can be used.
+Only tints of 70%, 40% or 10% of the primary, supporting and census colour palettes can be used.
 
-To apply a tint, you can use the `tint()` function by passing in the colour, and the percentage of white you want to mix with it. For example:
+To apply a tint, you can use the `tint()` function by passing in the colour variable and the percentage of white you want to mix with it. For example:
 {{
     onsColours({
         'itemsList': [
             {
                 'bg': '#4d7789',
                 'var': 'tint($color-night-blue, 30);',
-                'info': '70% tint of Night Blue'
+                'info': '70% tint of Night blue'
             }
         ]
     })
@@ -159,7 +161,7 @@ To apply a tint, you can use the `tint()` function by passing in the colour, and
             {
                 'bg': '#99b1bc',
                 'var': 'tint($color-night-blue, 60);',
-                'info': '40% tint of Night Blue'
+                'info': '40% tint of Night blue'
             }
         ]
     })
@@ -170,15 +172,15 @@ To apply a tint, you can use the `tint()` function by passing in the colour, and
             {
                 'bg': '#e6ecee',
                 'var': 'tint($color-night-blue, 90);',
-                'info': '10% tint of Night Blue'
+                'info': '10% tint of Night blue'
             }
         ]
     })
 }}
 
-## Colour assignment and context
+## Colour assignment
 
-The colour palette `scss` variables shown above are assigned to a further variable to provide context which can be applied to elements across the design system. This allows for separation of colours from context.
+The colour variables are assigned to elements by using variables to provide context. For example, `$color-black` is assigned to `$color-text` to be used to style all heading elements.
 
 ### Text
 {{
@@ -489,8 +491,11 @@ To meet the WCAG 2.1 level AA guideline “1.4.3 Contrast (Minimum)”, all text
     })
 }}
 
-### Tools to help with colour contrast checking
+### How to check colour contrast
 
+Make sure you test colour contrast with a range of people with different colour vision deficiencies.
+
+We also recommend the following tools to check colour contrast:
 {{
     onsList({
         "itemsList": [
@@ -507,8 +512,6 @@ To meet the WCAG 2.1 level AA guideline “1.4.3 Contrast (Minimum)”, all text
         ]
     })
 }}
-
-Also, make sure you test colour contrast with people that have all types colour vision deficiency.
 
 ## Research on this style
 {% call onsPanel() %}
