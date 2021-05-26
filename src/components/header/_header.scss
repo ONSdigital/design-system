@@ -79,10 +79,10 @@
       text-decoration: none;
       &:focus {
         .header__title--svg-logo {
-          fill: $color-focus-text;
+          fill: $color-text-link-focus;
         }
         .header__title {
-          color: $color-focus-text;
+          color: $color-text-link-focus;
         }
       }
       &:hover {
@@ -121,8 +121,8 @@
       .ons-svg-logo {
         display: block;
         fill: $color-white;
-        &--acent {
-          fill: $color-ons-icon-secondary;
+        &--accent {
+          fill: $color-ons-logo-secondary;
         }
       }
     }
@@ -142,28 +142,28 @@
   }
 
   .ons-svg-logo {
-    fill: $color-ons-icon;
-    &--acent {
-      fill: $color-ons-icon-secondary;
+    fill: $color-ons-logo-primary;
+    &--accent {
+      fill: $color-ons-logo-secondary;
     }
   }
 
   .ons-nisra-svg-logo {
     .st0 {
-      fill: $color-nisra-icon;
+      fill: $color-nisra-logo-primary;
     }
     .st1 {
-      fill: $color-nisra-icon-secondary;
+      fill: $color-nisra-logo-secondary;
     }
     .st2 {
-      fill: $color-nisra-icon-tertiary;
+      fill: $color-nisra-logo-tertiary;
     }
   }
 
   &__logo-link:focus {
     .ons-svg-logo {
       fill: $color-black !important;
-      &--acent {
+      &--accent {
         fill: $color-black !important;
       }
     }

@@ -21,12 +21,12 @@
   }
 
   &__group {
-    color: $color-links;
+    color: $color-text-link;
     text-decoration: underline;
   }
 
   &__results-title {
-    background: $color-grey-4;
+    background: $color-grey-15;
     border-bottom: 1px solid $color-input;
     padding: 0.25rem 0.5rem;
   }
@@ -53,8 +53,8 @@
 
     &:not(&--no-results):not(&--more-results):hover,
     &--focused:not(&--no-results) {
-      background: $color-blue;
-      border-color: $color-blue;
+      background: $color-ocean-blue;
+      border-color: $color-ocean-blue;
       color: $color-white;
 
       .autosuggest-input__group {
@@ -64,16 +64,16 @@
 
     &:active:not(&--no-results):not(&--more-results) {
       background: $color-focus;
-      color: $color-focus-text;
+      color: $color-text-link-focus;
 
       .autosuggest-input__group {
-        color: $color-focus-text;
+        color: $color-text-link-focus;
       }
     }
 
     &--no-results,
     &--more-results {
-      background: $color-grey-4;
+      background: $color-grey-15;
       cursor: not-allowed;
       padding: 0.25rem 0.5rem;
     }

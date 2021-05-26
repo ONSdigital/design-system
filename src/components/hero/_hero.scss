@@ -1,6 +1,6 @@
 // Default
 .hero {
-  background-color: $color-hero-bg;
+  background-color: $color-banner-bg;
   padding: 2rem 0;
 
   &__content {
@@ -94,14 +94,15 @@
     z-index: 5;
 
     &--ondark {
-      color: $color-white;
+      color: $color-text-inverse;
 
       a {
         color: inherit;
-        text-decoration: underline solid $color-white 1px;
+        text-decoration: underline solid $color-text-inverse-link 1px;
       }
 
       a:hover {
+        color: $color-text-inverse-link-hover;
         text-decoration-thickness: 2px;
       }
     }

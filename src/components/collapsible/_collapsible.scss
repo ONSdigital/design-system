@@ -3,7 +3,7 @@ $collapsible-caret-width: 1.5rem;
 .collapsible {
   &--initialised & {
     &__heading {
-      color: $color-links;
+      color: $color-text-link;
       cursor: pointer;
       display: inline-block;
       outline: none;
@@ -28,19 +28,19 @@ $collapsible-caret-width: 1.5rem;
       }
 
       &:hover {
-        color: $color-links-hover;
+        color: $color-text-link-hover;
         .collapsible__icon {
-          fill: $color-links-hover;
+          fill: $color-text-link-hover;
         }
         .collapsible__title {
-          text-decoration: underline solid $color-links-hover 2px;
+          text-decoration: underline solid $color-text-link-hover 2px;
         }
       }
     }
 
     &__icon {
       display: inline-block;
-      fill: $color-links;
+      fill: $color-text-link;
       height: $collapsible-caret-width;
       left: -0.2rem;
       position: absolute;
@@ -74,7 +74,7 @@ $collapsible-caret-width: 1.5rem;
     }
 
     &__content {
-      border-left: 5px solid $color-grey-4;
+      border-left: 5px solid $color-grey-15;
       display: block;
       margin: 1rem 0 0;
       padding: 0 0 0 1.3em;
