@@ -51,7 +51,7 @@
         <title>{{ page_title }}</title>
         <link rel="stylesheet" href="{{ assetsURL }}/css/{{ pageConfig.theme | default('main') }}.css">
         <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css">
-        <meta name="theme-color" content="{% if pageConfig.theme == 'census' %}#902082{% else %}#3b7a9e{% endif %}"/>
+        <meta name="theme-color" content="{% if pageConfig.theme == 'census' %}#902082{% else %}#206095{% endif %}"/>
         {% if pageConfig.headMeta.description is defined and pageConfig.headMeta.description or pageConfig.description is defined and pageConfig.description %}
             <meta name="description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
         {% endif %}

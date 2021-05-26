@@ -3,9 +3,10 @@ import template from 'components/relationships/_test-template.njk';
 import Relationships from 'components/relationships/relationships';
 
 const params = {
-  legend: 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>',
+  dontWrap: true,
+  title: 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>',
   // eslint-disable-next-line prettier/prettier
-  playback: 'Amanda Bloggs is Joe Bloggs\' <em>…</em>',
+  playback: "Amanda Bloggs is Joe Bloggs' <em>…</em>",
   name: 'relationship',
   radios: [
     {
@@ -17,7 +18,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>husband or wife</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>husband or wife</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>husband or wife</em>",
       },
     },
     {
@@ -29,7 +30,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>legally registered civil partner</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>legally registered civil partner</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>legally registered civil partner</em>",
       },
     },
     {
@@ -41,7 +42,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>partner</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>partner</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>partner</em>",
       },
     },
     {
@@ -53,7 +54,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>son or daughter</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>son or daughter</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>son or daughter</em>",
       },
     },
     {
@@ -65,7 +66,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepchild</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepchild</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>stepchild</em>",
       },
     },
     {
@@ -77,7 +78,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>brother or sister</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>brother or sister</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>brother or sister</em>",
       },
     },
     {
@@ -89,7 +90,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepbrother or sister</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepbrother or sister</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>stepbrother or sister</em>",
       },
     },
     {
@@ -101,7 +102,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>mother or father</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>mother or father</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>mother or father</em>",
       },
     },
     {
@@ -113,7 +114,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepmother or stepfather</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>stepmother or stepfather</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>stepmother or stepfather</em>",
       },
     },
     {
@@ -125,7 +126,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>grandchild</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>grandchild</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>grandchild</em>",
       },
     },
     {
@@ -137,7 +138,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>grandparents</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>grandparents</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>grandparents</em>",
       },
     },
     {
@@ -149,7 +150,7 @@ const params = {
       attributes: {
         'data-title': 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>other relation</em>',
         // eslint-disable-next-line prettier/prettier
-        'data-playback': 'Amanda Bloggs is Joe Bloggs\' <em>other relation</em>',
+        'data-playback': "Amanda Bloggs is Joe Bloggs' <em>other relation</em>",
       },
     },
     {
@@ -208,10 +209,6 @@ describe('Component: Relationships', function() {
           expect(this.h1.innerHTML).to.equal(this.selectedRadio.getAttribute('data-title'));
         });
 
-        it('the legend should be changed to reflect the relationship', function() {
-          expect(this.legend.innerHTML).to.equal(this.selectedRadio.getAttribute('data-title'));
-        });
-
         it('the playback should be changed to reflect the relationship', function() {
           expect(this.playback.innerHTML).to.equal(this.selectedRadio.getAttribute('data-playback'));
         });
@@ -229,15 +226,12 @@ function renderComponent(params) {
 
   const context = document.querySelector('.js-relationships');
   const h1 = wrapper.querySelector('h1');
-  const legend = context.querySelector('.js-relationships-legend');
   const radios = [...context.querySelectorAll('input[type=radio]')];
   const playback = context.querySelector('.js-relationships-playback');
-
   return {
     wrapper,
     context,
     h1,
-    legend,
     radios,
     playback,
   };

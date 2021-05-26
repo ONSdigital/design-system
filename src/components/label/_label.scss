@@ -7,9 +7,8 @@
   &__description {
     @extend .u-fs-s;
 
-    display: inline-block;
+    display: block;
     line-height: 1.4;
-    margin-top: 6px;
   }
 
   &--with-description {

@@ -30,7 +30,7 @@
 
   &__link,
   &__tab {
-    color: $color-links;
+    color: $color-text-link;
     cursor: pointer;
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -78,7 +78,7 @@
   padding: 0.5rem 1rem;
 
   &__summary {
-    color: $color-links;
+    color: $color-text-link;
     cursor: pointer;
     outline: none;
   }
