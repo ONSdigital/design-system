@@ -15,9 +15,9 @@
     text-align: center;
     &:hover,
     &--active {
-      border-color: $color-dark-blue;
+      border-color: $color-night-blue;
       a {
-        color: $color-dark-blue;
+        color: $color-night-blue;
       }
     }
     &--active {

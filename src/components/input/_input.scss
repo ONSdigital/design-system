@@ -36,13 +36,13 @@
   }
 
   &:disabled {
-    border-color: $color-grey-2;
+    border-color: $color-grey-75;
     cursor: not-allowed;
   }
 
   &--error:not(:focus) {
-    border: 1px solid $color-red;
-    box-shadow: inset 0 0 0 1px $color-red;
+    border: 1px solid $color-ruby-red;
+    box-shadow: inset 0 0 0 1px $color-ruby-red;
   }
 
   &--with-description {
@@ -104,10 +104,10 @@
 }
 
 .input--limit-reached {
-  border: $input-border-width solid $color-red;
+  border: $input-border-width solid $color-ruby-red;
 
   &:focus {
-    outline: $input-border-width solid $color-red;
+    outline: $input-border-width solid $color-ruby-red;
   }
 }
 
@@ -115,6 +115,6 @@
   display: block;
 
   &--reached {
-    color: $color-red;
+    color: $color-ruby-red;
   }
 }
