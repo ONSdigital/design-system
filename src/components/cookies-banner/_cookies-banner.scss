@@ -1,14 +1,14 @@
 .cookies-banner {
-  background: $cookie-banner-bg;
+  background: $color-banner-bg;
   display: none;
   padding: 1rem 0;
 
   &__title {
-    color: $cookie-banner-text;
+    color: $color-text;
   }
 
   &__desc {
-    color: $cookie-banner-text;
+    color: $color-text;
     margin-bottom: 1rem;
     word-break: break-word;
   }

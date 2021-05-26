@@ -153,7 +153,7 @@
                 <g id="radio-control" stroke-width="1" fill-rule="evenodd" transform="translate(15.000000, 12.000000)">
                     <ellipse id="Oval-1" fill="#9B9B9B" cx="12" cy="12" rx="12" ry="12"></ellipse>
                     <ellipse id="Oval-1" fill="#FFFFFF" cx="12" cy="12" rx="9.71428571" ry="9.71428571"></ellipse>
-                    <ellipse id="center" fill="#033E58" cx="11.99875" cy="11.99875" rx="7.24874997" ry="7.24874997"></ellipse>
+                    <ellipse id="center" fill="#003c57" cx="11.99875" cy="11.99875" rx="7.24874997" ry="7.24874997"></ellipse>
                 </g>
             </g>
             <g id="Forms-/-Radio-button" transform="translate(497.000000, 743.000000)">

@@ -4,16 +4,19 @@
   }
 
   &__item--active {
-    border-left: 4px solid $color-branded;
+    border-left: 4px solid $color-text-link-active;
     font-weight: $font-weight-bold;
     margin-left: -18px;
     padding-left: 14px;
+    & > .patternlib-subnav__link {
+      color: $color-text-link-active;
+    }
   }
 
   &__link {
     text-decoration: none;
     &:hover {
-      text-decoration: underline solid $color-links-hover 2px;
+      text-decoration: underline solid $color-text-link-hover 2px;
     }
   }
 

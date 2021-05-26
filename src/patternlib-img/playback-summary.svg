@@ -35,7 +35,7 @@
                 </text>
                 <g id="IncludePanelSingle" transform="translate(46.000000, 95.000000)">
                     <rect id="Rectangle-Copy-2" fill="#EFF0F9" fill-rule="evenodd" x="0" y="0" width="574" height="100"></rect>
-                    <rect id="Rectangle-13-Copy" fill="#033E58" fill-rule="evenodd" x="0" y="0" width="9" height="100"></rect>
+                    <rect id="Rectangle-13-Copy" fill="#003c57" fill-rule="evenodd" x="0" y="0" width="9" height="100"></rect>
                     <text id="Include-something-im" font-family="Lato-Regular, Lato" font-size="18" font-weight="normal" line-spacing="25" fill="#000000">
                         <tspan x="27" y="66">You can review your answers below</tspan>
                     </text>

@@ -43,7 +43,7 @@ $pagination-item-width: 2.5rem;
   }
 
   &__item--current &__link {
-    background: $color-links-hover;
+    background: $color-text-link-hover;
     color: $color-white;
     text-decoration: none;
   }
