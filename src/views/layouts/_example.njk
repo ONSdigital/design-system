@@ -1,11 +1,13 @@
 {% extends "./_master.njk" %}
 {% set example = true %}
 
-{% set pageConfig = {"lang": page.lang } %}
+{% set pageConfig = {"lang": page.lang, "title": "Example" } %}
 
-{% block master_body %}
+{% block pageContent %}
     <main class="patternlib-page__example">
         {% block main %}
         {% endblock %}
     </main>
+{% endblock %}
+{% block footer %}
 {% endblock %}

@@ -30,7 +30,7 @@ hr {
 }
 
 a {
-  color: $color-links;
+  color: $color-text-link;
   text-underline-position: under;
   &:not(.u-fs-r--b):hover {
     .u-fs-l &,
@@ -47,13 +47,13 @@ a {
     }
   }
   &:hover {
-    color: $color-links-hover;
-    text-decoration: underline solid $color-links-hover 2px;
+    color: $color-text-link-hover;
+    text-decoration: underline solid $color-text-link-hover 2px;
   }
   &:focus:not(.btn--link):not(.btn--ghost):not(.js-clear-btn):not(.download__thumbnail--link):not(.tab--row):not(.skip__link) {
     background-color: $color-focus;
-    box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
-    color: $color-focus-text;
+    box-shadow: 0 -2px $color-focus, 0 4px $color-text-link-focus;
+    color: $color-text-link-focus;
     outline: 3px solid transparent;
     text-decoration: none;
   }

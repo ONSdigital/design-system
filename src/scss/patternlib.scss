@@ -5,76 +5,47 @@
 @import '../patterns/question/examples/question-anatomy/pl-question-anatomy';
 
 .patternlib-page {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
 
   &--example {
     display: block;
     height: auto;
     padding: 1rem 1.5rem;
+
+    .page,
+    .page__content {
+      overflow-x: visible;
+    }
   }
 
   &__header {
     margin: 0;
   }
 
-  &__body {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-  }
-
-  &__sub-nav,
-  &__primary,
-  &__main {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__sub-nav,
-  &__primary {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-  }
-
   &__sub-nav {
-    border-right: 1px solid $color-borders;
-    flex: 0 0 auto;
-    padding: 1.5rem 1rem;
-    width: 300px;
-
     .nav {
       width: 100%;
     }
   }
 
-  &__main {
-    flex: 1 0 auto;
-  }
-
-  &__primary {
-    flex: 1 1 auto;
+  &__body {
+    overflow: hidden;
   }
 
   &__content {
-    padding: 1.5rem;
     width: 100%;
     p,
     li,
-    h1,
-    h2,
     h3,
     h4,
     h5,
     h6 {
-      max-width: 50rem;
+      max-width: 40rem;
     }
 
     code:not(.patternlib-example__code) {
       background: $color-grey-5;
-      color: $color-red;
+      color: $color-ruby-red;
       display: inline-block;
       padding: 0.05rem 0.25rem;
     }
@@ -88,7 +59,7 @@
 
     th {
       background: $color-white;
-      border-bottom: 2px solid $color-grey-3;
+      border-bottom: 2px solid $color-grey-35;
       position: sticky;
       text-align: left;
       top: 0;
@@ -102,7 +73,7 @@
 
     td {
       background: transparent;
-      border-bottom: 1px solid $color-grey-3;
+      border-bottom: 1px solid $color-grey-35;
     }
   }
 
@@ -163,15 +134,13 @@
 }
 
 .pl-experimental-tag {
-  background: $color-amber;
-  color: $color-white;
+  background: $color-info;
+  color: $color-text-inverse;
   display: inline-block;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1rem;
+  margin-right: 0.5rem;
   padding: 0.3rem 0.5rem;
-  position: absolute;
-  right: 0;
   text-transform: uppercase;
-  top: 0;
 }

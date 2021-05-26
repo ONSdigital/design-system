@@ -5,7 +5,7 @@
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   position: relative;
-  & &__svg-logo {
+  & &__title--svg-logo {
     display: block;
     fill: $color-white;
 
@@ -19,7 +19,7 @@
   }
   // Elements
   &__top {
-    background: $color-white;
+    background: $color-header-top;
     width: 100%;
   }
   &__grid-top {
@@ -34,27 +34,20 @@
       height: 76px;
     }
   }
-  &__logo {
-    &:focus {
-      background-color: $color-focus;
-      box-shadow: 0 -2px $color-focus, 0 4px $color-focus-text;
-      color: $color-focus-text;
-      outline: 3px solid transparent;
-    }
-  }
-
-  @include mq(xs) {
-    &__logo {
-      margin-bottom: 2px;
-    }
-  }
   &__main {
     background: $color-header;
     padding: 0.56rem 0;
+
+    @include mq(m) {
+      height: 95px;
+    }
     &--border {
       border-bottom: 3px solid $color-header;
       border-top: 3px solid $color-header;
       padding: 0.934rem 0;
+    }
+    &--with-description {
+      height: auto;
     }
   }
   &__title {
@@ -62,31 +55,38 @@
     @extend .u-fs-xl\@xxs;
 
     color: $color-white;
-    margin: 0;
-    &--with-description {
-      line-height: 1.7 !important;
-    }
-    &:not(&--with-description) {
-      line-height: 1.5 !important;
 
+    @include mq(m) {
+      margin-top: 0.85rem;
+    }
+
+    &--with-description,
+    &--with-button {
       @include mq(m) {
-        line-height: 2.5 !important;
+        margin-top: 0.45rem;
       }
     }
 
-    @include mq(xs, m) {
-      line-height: 1.75 !important;
-    }
-
-    @include mq(xxs, xs) {
-      line-height: 1.7 !important;
+    //to allow for differences in size between welsh and english logos
+    &-census-logo-en {
+      @include mq(xxs) {
+        margin: 0.19rem 0 0.2rem;
+        padding: 0.25rem 0;
+      }
     }
     &-link {
       display: block;
+      text-decoration: none;
       &:focus {
-        .header__svg-logo {
-          fill: $color-black !important;
+        .header__title--svg-logo {
+          fill: $color-text-link-focus;
         }
+        .header__title {
+          color: $color-text-link-focus;
+        }
+      }
+      &:hover {
+        text-decoration: underline solid $color-text-inverse-link 2px;
       }
     }
     &--nav-adj {
@@ -117,9 +117,13 @@
   }
   &--internal & {
     &__top {
-      background: $color-dark-blue;
-      a {
-        color: $color-white;
+      background: $color-header-top-internal;
+      .ons-svg-logo {
+        display: block;
+        fill: $color-white;
+        &--accent {
+          fill: $color-ons-logo-secondary;
+        }
       }
     }
     &__logo-link:focus {
@@ -131,7 +135,78 @@
       min-height: 36px;
     }
   }
+
+  .ons-svg-logo,
+  .ons-nisra-svg-logo {
+    display: block;
+  }
+
+  .ons-svg-logo {
+    fill: $color-ons-logo-primary;
+    &--accent {
+      fill: $color-ons-logo-secondary;
+    }
+  }
+
+  .ons-nisra-svg-logo {
+    .st0 {
+      fill: $color-nisra-logo-primary;
+    }
+    .st1 {
+      fill: $color-nisra-logo-secondary;
+    }
+    .st2 {
+      fill: $color-nisra-logo-tertiary;
+    }
+  }
+
+  &__logo-link:focus {
+    .ons-svg-logo {
+      fill: $color-black !important;
+      &--accent {
+        fill: $color-black !important;
+      }
+    }
+    .ons-nisra-svg-logo {
+      .st0 {
+        fill: $color-black !important;
+      }
+      .st1 {
+        fill: $color-black !important;
+      }
+      .st2 {
+        fill: $color-black !important;
+      }
+    }
+  }
+
+  .header__logo--large {
+    @include mq(xxs, 399px) {
+      display: none;
+    }
+  }
+
+  .header__logo--small {
+    @include mq(400px) {
+      display: none;
+    }
+  }
+
+  &__logo-link,
+  &__logo-link:hover {
+    text-decoration: none;
+  }
+
+  &__logo-link {
+    display: block;
+  }
+
   &__bottom {
     background: $color-header;
+    margin-top: -0.03rem;
+  }
+
+  .btn--exit {
+    margin-top: 0.55rem;
   }
 }

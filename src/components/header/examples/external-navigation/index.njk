@@ -7,6 +7,8 @@
     onsHeader({
         "title": 'Design system',
         "logoHref": '#0',
+        "mobileLogo": 'ons-logo-stacked-en',
+        "titleLogoHref": '#0',
         "toggleButton": {
             "text": 'Menu',
             "ariaLabel": 'Toggle main navigation'
@@ -14,12 +16,16 @@
         "navigation": {
             "id": 'main-nav',
             "ariaLabel": 'Main menu',
-            "ariraListLabel": 'Navigation menu',
-            "currentPath": '/get-started',
+            "ariaListLabel": 'Navigation menu',
+            "currentPath": '#home',
             "itemsList": [
                 {
+                    "title": 'Home',
+                    "url": '#home'
+                },
+                {
                     "title": 'Get started',
-                    "url": '/get-started'
+                    "url": '#0'
                 },
                 {
                     "title": 'Components',
@@ -31,8 +37,7 @@
                 },
                 {
                     "title": 'Patterns',
-                    "url": '#0',
-                    "id": 'dave'
+                    "url": '#0'
                 }
             ]
         }
