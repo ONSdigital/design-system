@@ -80,7 +80,7 @@ $checkbox-label-vertical-padding: 0.75rem;
     box-shadow: 0 0 0 1px $color-input;
   }
 
-  .panel--error &__other > .input--text:not(:focus) {
+  .panel--error .radio__input:checked ~ &__other > .input--text:required:not(:focus) {
     border: 1px solid $color-ruby-red;
     outline: 1px solid $color-ruby-red;
     outline-offset: -2px;
