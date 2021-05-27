@@ -12,11 +12,10 @@
 
 ## DurationField
 
-| Name       | Type    | Required | Description                                                                                                                                     |
-| ---------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| id         | string  | true     | ID for the input                                                                                                                                |
-| name       | string  | true     | Name attribute for the input                                                                                                                    |
-| value      | string  | false    | Value for the input                                                                                                                             |
-| label      | string  | true     | Label for the input                                                                                                                             |
-| attributes | object  | false    | HTML attributes (for example data attributes) to add to the element                                                                             |
-| required   | boolean | false    | Adds the `required` attribute to the input to indicate that the user must specify a value for the input before the owning form can be submitted |
+| Name       | Type   | Required | Description                                                         |
+| ---------- | ------ | -------- | ------------------------------------------------------------------- |
+| id         | string | true     | ID for the input                                                    |
+| name       | string | true     | Name attribute for the input                                        |
+| value      | string | false    | Value for the input                                                 |
+| label      | string | true     | Label for the input                                                 |
+| attributes | object | false    | HTML attributes (for example data attributes) to add to the element |

@@ -16,10 +16,9 @@
 
 ## DateField
 
-| Name       | Type                                 | Required | Description                                                                                                                                     |
-| ---------- | ------------------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| label      | `Label` [_(ref)_](/components/label) | true     | Label config for the field                                                                                                                      |
-| name       | string                               | true     | Name of the field                                                                                                                               |
-| value      | number                               | false    | Preset value for the field                                                                                                                      |
-| attributes | object                               | false    | HTML attributes (for example data attributes) to add to the input                                                                               |
-| required   | boolean                              | false    | Adds the `required` attribute to the input to indicate that the user must specify a value for the input before the owning form can be submitted |
+| Name       | Type                                 | Required | Description                                                       |
+| ---------- | ------------------------------------ | -------- | ----------------------------------------------------------------- |
+| label      | `Label` [_(ref)_](/components/label) | true     | Label config for the field                                        |
+| name       | string                               | true     | Name of the field                                                 |
+| value      | number                               | false    | Preset value for the field                                        |
+| attributes | object                               | false    | HTML attributes (for example data attributes) to add to the input |
