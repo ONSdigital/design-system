@@ -27,7 +27,7 @@
 | postTextboxLinkText   | string                                                        | false                            | The text for the link to follow the textbox                                                                                                     |
 | postTextboxLinkUrl    | string                                                        | false                            | The url for the link to follow the textbox                                                                                                      |
 | listeners             | object                                                        | false                            | Creates a `script` element that adds an event listener to the element by `id`. Takes `key { event }` and `value { function }`                   |
-| required              | boolean                                                       | true                             | Adds the `required` attribute to the input to indicate that the user must specify a value for the input before the owning form can be submitted |
+| required              | boolean                                                       | false                            | Adds the `required` attribute to the input to indicate that the user must specify a value for the input before the owning form can be submitted |
 
 ## Prefix/Suffix
 
