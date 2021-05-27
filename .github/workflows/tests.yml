@@ -13,7 +13,7 @@ jobs:
       - name: Run unit tests
         run: yarn test
       - name: Run visual regression tests
-        if: commit_message =~ /(test-visual)/
+        if: "contains(github.event.head_commit.message, 'test-visual')"
         run: yarn test-visual
       - name: Design System tests notification
         if: always()
