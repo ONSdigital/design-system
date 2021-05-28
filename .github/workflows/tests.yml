@@ -28,6 +28,7 @@ jobs:
         if: always()
         uses: edge/simple-slack-notify@master
         with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
           channel: '#pat-lib-notifications'
           status: ${{ job.status }}
           success_text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) build completed successfully'
