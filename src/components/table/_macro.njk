@@ -3,16 +3,16 @@
     {% from "components/icons/_macro.njk" import onsIcon %}
     {% if params.scrollable is defined and params.scrollable %}
     <div class="table-scrollable table-scrollable--on">
-        <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.aria_label }} ">
+        <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.ariaLabel | default("Scrollable table") }} ">
     {% endif %}
-            <table {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="table {{ params.table_class }}" {% if params.sortable is defined and params.sortable %}data-aria-sort="{{ params.sort_by }}" data-aria-asc="{{ params.aria_asc }}" data-aria-desc="{{ params.aria_desc }}"{% endif %}>
+            <table {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="table {{ params.table_class }}" {% if params.sortable is defined and params.sortable %}data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"{% endif %}>
                 {% if params.caption is defined and params.caption %}
                 <caption class="table__caption{{ " u-vh" if params.hideCaption }}">{{ params.caption }}</caption>
                 {% endif %}
                 <thead class="table__head">
                     <tr class="table__row">
                         {% for th in params.ths %}
-                        <th scope="col" class="table__header {{ th.class }}"{% if th.aria_sort is defined and th.aria_sort %} aria-sort="{{- th.aria_sort -}}"{% endif %}>
+                        <th scope="col" class="table__header {{ th.class }}"{% if th.ariaSort is defined and th.ariaSort %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
                             <span {% if params.sortable is defined and params.sortable %}class="u-vh"{% endif %}>{{- th.value -}}</span>
                             {% if params.sortable is defined and params.sortable %}
                                 {{
@@ -30,7 +30,7 @@
                     {% for tr in params.trs %}
                     <tr class="table__row{{ " table__row--highlight" if tr.highlight }}" {% if tr.name is defined and tr.name %} name="{{ tr.name }}"{% endif %} {% if tr.id is defined and tr.id %} id="{{ tr.id }}"{% endif %}>
                         {% for td in tr.tds %}
-                        <td class="table__cell {{ td.class }}" {% if td.id is defined and td.id %} id="{{ td.id }}"{% endif %} {% if td.name is defined and td.name %} name="{{ td.name }}"{% endif %} {% if td.data is defined and td.data %} data-th="{{ td.data }}"{% endif %} {% if td.data_sort is defined and td.data_sort %} data-sort-value="{{ td.data_sort }}"{% endif %}>
+                        <td class="table__cell {{ td.class }}" {% if td.id is defined and td.id %} id="{{ td.id }}"{% endif %} {% if td.name is defined and td.name %} name="{{ td.name }}"{% endif %} {% if td.data is defined and td.data %} data-th="{{ td.data }}"{% endif %} {% if td.dataSort is defined and td.dataSort %} data-sort-value="{{ td.dataSort }}"{% endif %}>
                             {% if td.form is defined and td.form %}
                                 <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST')}}">
                                     {{
