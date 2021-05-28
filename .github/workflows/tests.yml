@@ -10,6 +10,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: Install dependencies
+        run: yarn install
       - name: Run unit tests
         run: |
           echo 'BROWSER_STACK_ACCESS_KEY=${{ secrets.BROWSER_STACK_ACCESS_KEY }}'
