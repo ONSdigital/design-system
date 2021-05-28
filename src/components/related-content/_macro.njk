@@ -6,7 +6,7 @@
   {% set classes = ' ' + params.classes %}
 {% endif %}
 
-  <aside class="related-content{{ classes }}" aria-label="{{ params.ariaLabel }}">
+  <aside class="related-content{{ classes }}" aria-label="{{ params.ariaLabel | default("Related content") }}">
 
     <div class="related-content__body">
 

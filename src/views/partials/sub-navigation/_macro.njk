@@ -1,6 +1,6 @@
 {% macro patternlibSubNavigation(params) %}
-    <nav class="patternlib-subnav" aria-label="{{ params.ariaLabel }}">
-        <ul class="patternlib-subnav__list list list--bare" aria-label="{{ params.ariaListLabel }}">
+    <nav class="patternlib-subnav" aria-label="{{ params.ariaLabel | default("Sections menu") }}">
+        <ul class="patternlib-subnav__list list list--bare" aria-label="{{ params.ariaListLabel | default("Sections menu links") }}">
         {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
                 <li class="patternlib-subnav__item{{ ' patternlib-subnav__item--active' if (item.url == params.currentPath) }} list__item">
                     <a href="{{ item.url }}" class="patternlib-subnav__link list__link">{{ item.title }}</a>
