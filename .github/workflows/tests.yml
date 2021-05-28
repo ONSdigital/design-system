@@ -7,7 +7,7 @@ env:
   RUNNING_ON_CI: true
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-  slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
 jobs:
   run-tests:
