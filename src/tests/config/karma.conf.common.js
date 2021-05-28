@@ -58,7 +58,7 @@ export default function karmaConfigGenerator(webpackConfig, browserstackLauncher
       webpack: webpackConfig,
 
       client: {
-        captureConsole: !process.env['RUNNING_ON_TRAVIS'],
+        captureConsole: !process.env['RUNNING_ON_CI'],
       },
 
       coverageIstanbulReporter: {
