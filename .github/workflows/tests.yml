@@ -1,5 +1,5 @@
 name: Run tests
-on: [pull_request]
+on: [push, pull_request]
 env:
   BROWSER_STACK_ACCESS_KEY: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
   BROWSER_STACK_USERNAME: ${{ secrets.BROWSER_STACK_USERNAME }}
