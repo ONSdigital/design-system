@@ -1,5 +1,7 @@
 .external-link {
-  white-space: nowrap;
+  &__icon {
+    white-space: nowrap;
+  }
   .svg-icon {
     fill: $color-grey-100;
     margin: 0 0 0 0.25rem;
