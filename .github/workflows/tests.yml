@@ -1,5 +1,12 @@
 name: Run tests
 on: [pull_request]
+env:
+  BROWSER_STACK_ACCESS_KEY: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
+  BROWSER_STACK_USERNAME: ${{ secrets.BROWSER_STACK_USERNAME }}
+  TEST_ON_BROWSERSTACK: true
+  RUNNING_ON_CI: true
+  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 jobs:
   run-tests:
     name: Unit and visual tests
@@ -13,18 +20,10 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Run unit tests
-        run: |
-          echo 'BROWSER_STACK_ACCESS_KEY=${{ secrets.BROWSER_STACK_ACCESS_KEY }}'
-          echo 'BROWSER_STACK_USERNAME=${{ secrets.BROWSER_STACK_USERNAME }}'
-          echo 'TEST_ON_BROWSERSTACK=true'
-          echo 'RUNNING_ON_CI=true'
-          echo 'CODECOV_TOKEN=${{ secrets.CODECOV_TOKEN }}'
-          yarn test
+        run: yarn test
       - name: Run visual regression tests
         if: "contains(github.event.head_commit.message, 'test-visual')"
-        run: |
-          echo 'PERCY_TOKEN=${{ secrets.PERCY_TOKEN }}'
-          yarn test-visual
+        run: yarn test-visual
       - name: Design System tests notification
         if: always()
         uses: edge/simple-slack-notify@master
