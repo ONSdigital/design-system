@@ -81,8 +81,8 @@ $checkbox-label-vertical-padding: 0.75rem;
   }
 
   .panel--error &__other > .input--text:not(:focus) {
-    border: 1px solid $color-red;
-    outline: 1px solid $color-red;
+    border: 1px solid $color-ruby-red;
+    outline: 1px solid $color-ruby-red;
     outline-offset: -2px;
   }
 
