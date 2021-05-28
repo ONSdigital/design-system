@@ -36,7 +36,7 @@
       class="btn{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.url is defined and params.url %} btn--link js-submit-btn{% endif %}{% if params.disabled is defined and params.disabled %} btn--disabled{% endif %}{% if params.buttonStyle == "print" %} btn--print u-d-no js-print-btn{% endif %}{% if params.buttonStyle == "exit" %} btn--exit{% endif %}{% if params.submitType == "loader" %} btn--loader js-loader js-submit-btn{% endif %}{% if params.submitType == "timer" %} js-timer js-submit-btn{% endif %}"
       {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}
       {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
-      {% if params.name is defined and params.name %}name="{{ params.name }}"{% endif %}
+      {% if params.name is defined and params.name and tag != "a" %}name="{{ params.name }}"{% elif params.name is defined and params.name and tag == "a" %}id="{{ params.name }}"{% endif %}
       {% if params.disabled is defined and params.disabled %} disabled{% endif %}
       {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}target="_blank" rel="noopener"{% endif %}
       {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}

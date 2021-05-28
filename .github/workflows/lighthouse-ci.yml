@@ -1,0 +1,22 @@
+name: Lighthouse CI accessibility checks
+on: [pull_request]
+jobs:
+  lhci:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.5.0
+      - name: Install dependencies
+        run: yarn install
+      - name: Build pages
+        run: yarn build
+      - name: Run Lighthouse CI
+        run: ./lighthouse/lighthouse.sh
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
