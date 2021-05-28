@@ -1,6 +1,7 @@
 {% macro onsList(params) %}
     {% set classes = params.classes | lower %}
-    
+    {% set listLength = params.itemsList | length %}
+
     {% if params.itemsList[0] is defined and params.itemsList[0].prefix %}
         {% set otherClasses = 'list--bare list--prefix' %}
     {% elif params.itemsList[0] is defined and params.itemsList[0].suffix %}
@@ -11,16 +12,18 @@
         {% set otherClasses = '' %}
     {% endif %}
 
-    {% if params.element is defined and params.element %}
+    {% if listLength < 2 %}
+        {% set listEl = 'p' %}
+    {% elif params.element is defined and params.element %}
         {% set listEl = params.element | lower %}
     {% else %}
         {% set listEl = 'ul' %}
     {% endif %}
 
-    <{{listEl}} {% if params.id is defined and params.id %}id="{{ params.id }} "{% endif %}class="list{% if params.classes is defined %} {{ params.classes -}}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}">
+    <{{listEl}} {% if params.id is defined and params.id %}id="{{ params.id }} "{% endif %}class="{% if listLength > 1 %}list{% endif %}{% if params.classes is defined %} {{ params.classes -}}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}">
         {%- for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
-            <li class="list__item {{ item.listclass }}"{% if item.current is defined and item.current %} aria-current="true"{% endif %}>
-               
+            {% if listLength > 1 %}<li class="list__item {{ item.listclass }}"{% if item.current is defined and item.current %} aria-current="true"{% endif %}>{% endif %}
+
                 {% set itemText = item.text %}
 
                 {# For Craft support we also support title and navigation title #}
@@ -29,7 +32,7 @@
                 {% elif item.title is defined and item.title %}
                     {% set itemText = item.title %}
                 {% endif %}
-               
+
                 {%- if item.index is defined and item.index or item.prefix is defined and item.prefix or item.prefixIcon is defined and item.prefixIcon -%}
                     <span class="list__prefix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
                     {%- if item.prefix is defined and item.prefix -%}
@@ -81,7 +84,7 @@
                         }}
                     {%- endif -%} </span>
                 {%- endif -%}
-            </li>
+            {% if listLength > 1 %}</li>{%- endif -%}
         {%- endfor -%}
     </{{listEl}}>
 {% endmacro %}
