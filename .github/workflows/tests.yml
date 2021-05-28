@@ -27,18 +27,19 @@ jobs:
         if: "contains(github.event.head_commit.message, 'test-visual')"
         run: yarn test-visual
       - name: Extract branch name
-        shell: bash
-        run: echo "::set-env name=BRANCH::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
-      - name: Design System tests notification
+        id: vars
+        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
+      - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master
         with:
           channel: '#pat-lib-notifications'
           status: ${{ job.status }}
-          success_text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) build completed successfully'
-          failure_text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) build failed'
-          cancelled_text: '${env.GITHUB_WORKFLOW} (${env.GITHUB_RUN_NUMBER}) build was cancelled'
+          success_text: 'The build completed successfully'
+          failure_text: 'The build failed'
+          cancelled_text: 'The build was cancelled'
           fields: |
-            [{ "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
-            { "title": "Branch", "value": "${env.BRANCH}", "short": true },
+            [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
+            { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
+            { "title": "Branch", "value": "${{ steps.vars.outputs.short_ref }}" },
             { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
