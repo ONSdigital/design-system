@@ -25,11 +25,13 @@ jobs:
       - name: Run visual regression tests
         if: "contains(github.event.head_commit.message, 'test-visual')"
         run: yarn test-visual
+      - name: Get current branch
+        uses: nelonoel/branch-name@v1
+        run: echo '::set-output name=BRANCH_NAME::${BRANCH_NAME}'
+        id: branch-name
       - name: Create Slack notification
         if: always()
-        uses: |
-          edge/simple-slack-notify@master
-          nelonoel/branch-name@v1
+        uses: edge/simple-slack-notify@master
         with:
           channel: '#pat-lib-notifications'
           status: ${{ job.status }}
@@ -39,5 +41,5 @@ jobs:
           fields: |
             [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
             { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
-            { "title": "Branch", "value": "${BRANCH_NAME}" },
+            { "title": "Branch", "value": "{{ steps.branch-name.outputs.BRANCH_NAME }}" },
             { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
