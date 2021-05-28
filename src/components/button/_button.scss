@@ -193,10 +193,6 @@ $button-border-height: 3px;
     }
   }
 
-  &--loader.is-loading:hover &__inner {
-    background: $color-button;
-  }
-
   // Spooky Buttons
   &--ghost &,
   &--mobile & {
