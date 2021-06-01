@@ -1,5 +1,7 @@
 name: Lighthouse CI accessibility checks
 on: [pull_request]
+env:
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 jobs:
   lhci:
     name: Lighthouse CI
