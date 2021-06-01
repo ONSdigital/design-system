@@ -7,15 +7,47 @@ group: Pages
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
 
+How to display, tag, categorise and provide a landing page preview for news articles.
+
 {{
-    onsPanel({
-        "body": "This pattern requires documentation."
-    })
+    patternlibExample({ "path": "patterns/news/examples/landing/index.njk" })
 }}
+
+## When to use this pattern
+
+Use this pattern to upload a news article to a public-facing website.
+
+## How to use this pattern
+
+Each article needs to have a:
+
+- heading
+- summary
+- body text
+- category
+- date
+
+Use the [articles component](/components/articles) to build consistent articles.
+
+The content needs to be clearly written and as short as possible. Use plain language and “frontload” – put the most important word or points first. This ensures that if the user is skimming the article, they read the most important thing and understand it. 
+
+There is useful [guidance on writing in plain English](https://style.ons.gov.uk/category/writing-for-the-web/plain-english). You could also ask a content designer to help you rewrite the content so it is clear and helpful for the user.
 
 ## Landing page
 
-News sorted by most recent posted date.
+This page sorts the already-published news so that the most recently posted article is at the top of the list.
+
+Each landing page preview needs to have a:
+
+- short, clearly written title that links to the news article
+- short summary, usually taken from the first paragraph of the article, which should be no more than four lines (around 150 characters)
+- [date that follows house style](https://style.ons.gov.uk/category/writing-for-the-web/plain-english), for example, 23 September 2020
+- category, which links to the page that lists all articles in that category
+- thumbnail image
+
+A list of categories appears on the right-hand side of the landing page, and you could also add contact details for the media team. Another optional feature is “Follow us” social media links to Instagram, Facebook, Twitter and LinkedIn.
+
+Add an image to your landing page. If you do not include an image, the system will use a placeholder. Placeholders do not look professional or support the written content to tell a story. The [articles component](/components/articles) has advice on image dimensions.
 
 {{
     patternlibExample({ "path": "patterns/news/examples/landing/index.njk" })
@@ -23,13 +55,30 @@ News sorted by most recent posted date.
 
 ## Article
 
+This is a text page that can include images and videos. It needs to have at least one of the categories: statement or press release.
+
+There is no limit on length. If you think an article seems too long, question the user need for such length with the content author.
+
+The title is important. It will stand out on the landing page and it links users to the article. It needs to:
+
+- be in plain English
+- use terms and phrases that reflect the language of users
+- be as short as possible
+- be frontloaded, with the most important information first
+
+Each article needs to have [Previous and Next skip links](/components/pagination#pager) at the end.
+
+You can add “[Share](/components/share-page)” social media links to Facebook, Twitter and LinkedIn.
+
 {{
     patternlibExample({ "path": "patterns/news/examples/article/index.njk" })
 }}
 
 ## Tag
 
-News filtered by chosen tag, for example Census 2021.
+Tags are not mandatory. Do not use the Tags block if there are no tags. A tag helps to identify an article, for example, “Census 2021”. Good tags help improve search performance. They need to be an important word or phrase that users will recognise. 
+
+You can use multiple tags for each article. Each tag is highlighted in yellow on the landing page summary. An “All posts [tag name]” landing page lists all the news posts that use that tag on the website. 
 
 {{
     patternlibExample({ "path": "patterns/news/examples/tag/index.njk" })
@@ -37,7 +86,9 @@ News filtered by chosen tag, for example Census 2021.
 
 ## Category
 
-News filtered by chosen category, for example Press releases.
+Allocate at least one category to each news article: either press release or statement. The categories then appear on the right-hand side of the landing page. A category that has no posts assigned to it will not be visible on the landing page. If a user selects a category, it takes them to a landing page for all the articles in that category.
+
+Only one category will be visible on the landing page preview, even if the article is assigned to more than one.
 
 {{
     patternlibExample({ "path": "patterns/news/examples/category/index.njk" })
