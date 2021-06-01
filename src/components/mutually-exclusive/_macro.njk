@@ -14,6 +14,7 @@
         "description": params.description,
         "attributes": params.attributes,
         "dontWrap": params.dontWrap,
+        "legendIsPageTitle": params.legendIsPageTitle,
         "error": params.error
     }) %}
         <div class="js-mutually-exclusive mutually-exclusive">
@@ -27,13 +28,12 @@
                         "value": params.checkbox.value,
                         "checked": params.checkbox.checked,
                         "classes": params.checkbox.classes,
+                        "attributes": params.checkbox.attributes,
+                        "deselectMessage": params.deselectMessage,
                         "inputClasses": "js-exclusive-checkbox",
                         "label": {
                             "text": '<span class="u-vh">' + params.or + ', </span> ' + params.checkbox.label.text,
                             "description": params.checkbox.label.description
-                        },
-                        "attributes": {
-                            "data-deselect-message": params.deselectMessage
                         }
                     })
                 }}

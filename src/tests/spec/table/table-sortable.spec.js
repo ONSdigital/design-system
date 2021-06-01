@@ -5,25 +5,25 @@ import TableSort from 'components/table/sortable-table';
 const params = {
   sortable: true,
   table_class: ' table--sortable',
-  sort_by: 'Sort by',
-  aria_asc: 'ascending',
-  aria_desc: 'descending',
+  sortBy: 'Sort by',
+  ariaAsc: 'ascending',
+  ariaDesc: 'descending',
   ths: [
     {
       value: 'Column 1',
-      aria_sort: 'none',
+      ariaSort: 'none',
     },
     {
       value: 'Column 2',
-      aria_sort: 'none',
+      ariaSort: 'none',
     },
     {
       value: 'Column 3',
-      aria_sort: 'none',
+      ariaSort: 'none',
     },
     {
       value: 'Column 4',
-      aria_sort: 'none',
+      ariaSort: 'none',
     },
   ],
   trs: [
@@ -31,19 +31,19 @@ const params = {
       tds: [
         {
           value: 'A',
-          data_sort: '1',
+          dataSort: '1',
         },
         {
           value: 'A',
-          data_sort: '4',
+          dataSort: '4',
         },
         {
           value: 'A',
-          data_sort: '0',
+          dataSort: '0',
         },
         {
           value: 'A',
-          data_sort: '2',
+          dataSort: '2',
         },
       ],
     },
@@ -51,19 +51,19 @@ const params = {
       tds: [
         {
           value: 'B',
-          data_sort: '2',
+          dataSort: '2',
         },
         {
           value: 'B',
-          data_sort: '4',
+          dataSort: '4',
         },
         {
           value: 'B',
-          data_sort: '0',
+          dataSort: '0',
         },
         {
           value: 'B',
-          data_sort: '2',
+          dataSort: '2',
         },
       ],
     },
@@ -71,19 +71,19 @@ const params = {
       tds: [
         {
           value: 'C',
-          data_sort: '3',
+          dataSort: '3',
         },
         {
           value: 'C',
-          data_sort: '4',
+          dataSort: '4',
         },
         {
           value: 'C',
-          data_sort: '0',
+          dataSort: '0',
         },
         {
           value: 'C',
-          data_sort: '2',
+          dataSort: '2',
         },
       ],
     },

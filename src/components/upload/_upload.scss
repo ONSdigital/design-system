@@ -20,7 +20,7 @@
   &:hover {
     cursor: pointer;
     &::-webkit-file-upload-button {
-      border-right-color: $color-links-hover;
+      border-right-color: $color-text-link-hover;
       cursor: pointer;
     }
   }
