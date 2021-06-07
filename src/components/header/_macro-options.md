@@ -25,16 +25,16 @@
 | currentPath  | string        | true     | Path to the default active page                                                                                                             |
 | classes      | string        | false    | Additional css classes for the navigation element                                                                                           |
 | id           | string        | true     | A unique ID for the navigation element                                                                                                      |
-| ariaLabel    | string        | true     | The aria-label added to the navigation element                                                                                              |
+| ariaLabel    | string        | false    | The aria-label added to the navigation element. Defaults to `Main menu` or `Service links navigation` if set with serviceLinks param        |
 | itemsList    | `Array<Item>` | true     | An array of list items to render in the navigation element                                                                                  |
 | siteBasePath | string        | false    | If the base path for your site is not `/` (i.e. in a prototype), you can use this to get the active functionality working on your Home link |
 
 ## ToggleButton
 
-| Name      | Type   | Required | Description                           |
-| --------- | ------ | -------- | ------------------------------------- |
-| text      | string | true     | Text to be displayed on toggle button |
-| ariaLabel | string | true     | Aria label for toggle button          |
+| Name      | Type   | Required | Description                                                        |
+| --------- | ------ | -------- | ------------------------------------------------------------------ |
+| text      | string | true     | Text to be displayed on toggle button                              |
+| ariaLabel | string | false    | Aria label for toggle button. Defaults to `Toggle main navigation` |
 
 ## Item
 
