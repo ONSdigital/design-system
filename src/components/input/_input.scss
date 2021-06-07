@@ -15,12 +15,24 @@
     display: none;
   }
 
-  @include mq(s) {
+  @include mq(501px) {
     &--text,
     &--select {
       &:not(.input--block):not([class*='input--w-']) {
         width: $input-width;
       }
+    }
+  }
+
+  &--search {
+    margin-bottom: 0.5rem;
+
+    @include mq(501px) {
+      margin-right: 0.5rem;
+    }
+
+    @include mq(501px) {
+      margin-bottom: 0;
     }
   }
 
