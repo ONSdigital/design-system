@@ -3,7 +3,7 @@
 
 {% call onsQuestion({
     "title": "How long have you lived at this address?",
-    "description": "<p>If you have lived at this address for less than a year then enter 0 into the year input.</p>",
+    "description": "<p>Enter “0” into the years field if you have lived at this address for less than a year</p>",
     "legendIsPageTitle": true
 }) %}
     {{
@@ -17,8 +17,7 @@
                 "attributes": {
                     "min": 0,
                     "max": 100
-                },
-                "value": "8"
+                }
             },
             "field2": {
                 "id": "address-duration-months",
@@ -27,7 +26,8 @@
                 "attributes": {
                     "min": 0,
                     "max": 11
-                }
+                },
+                "value": "8"
             },
             "error": {
                 "id": "address-duration-error",
