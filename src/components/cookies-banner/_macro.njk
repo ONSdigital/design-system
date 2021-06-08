@@ -30,13 +30,13 @@
                 <p class="cookies-banner__desc u-mb-no@s u-mr-s@s">{{ params.confirmationText | safe }}</p>
               </div>
               <div class="grid__col">
-                {{ 
+                {{
                     onsButton({
                         "type": 'button',
                         "text": params.confirmationButtonText | default('Hide'),
                         "buttonContext": params.confirmationButtonTextAria | default('the cookie message'),
                         "classes": 'btn--secondary btn--small js-hide-button'
-                    }) 
+                    })
                 }}
               </div>
             </div>
