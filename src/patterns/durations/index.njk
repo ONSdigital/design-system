@@ -19,7 +19,7 @@ Duration inputs can be created by using the duration component. For example:
     patternlibExample({"path": "components/duration/examples/duration-address/index.njk"})
 }}
 
-## How to validate durations
+## How to check durations
 
 To help users enter a valid duration, you should:
 {{
@@ -46,21 +46,14 @@ Use the [correct errors pattern](/patterns/error-validation) and show the error 
     patternlibExample({"path": "components/duration/examples/duration-address-error/index.njk"})
 }}
 
-#### If the duration fields are both empty
+#### If all fields are empty
 Use “Enter a duration”
 
-#### If the “Years” duration is empty
-Use “Enter the number of years”
+#### If one of the fields is empty
+Use, for example, “Enter the number of years”
 
-#### If the “Months” duration is empty
-Use “Enter the number of months”
-
-#### If the “Years” duration is incorrect
-Use “Enter a valid number for years”
-
-#### If the “Months” duration is incorrect
-Use “Enter a valid number for months”
-
+#### If what is entered in one of the fields is not valid
+Use, for example, “Enter a valid number of years”
 
 ## Research on this pattern
 {% call onsPanel() %}
