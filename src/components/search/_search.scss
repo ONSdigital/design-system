@@ -1,0 +1,7 @@
+.search-input--wide {
+  flex-flow: row nowrap;
+
+  @include mq(501px) {
+    flex-flow: row wrap;
+  }
+}
