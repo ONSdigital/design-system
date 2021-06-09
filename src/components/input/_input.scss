@@ -15,7 +15,7 @@
     display: none;
   }
 
-  @include mq(501px) {
+  @include mq(s) {
     &--text,
     &--select {
       &:not(.input--block):not([class*='input--w-']) {
