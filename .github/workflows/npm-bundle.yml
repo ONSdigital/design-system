@@ -1,5 +1,7 @@
 name: Publish Design System to npm
-on: [push, pull_request]
+on:
+  release:
+    types: [published]
 env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 jobs:
@@ -16,7 +18,7 @@ jobs:
       - name: Bundle DS for npm publish
         run: |
           yarn npm-bundle --allow-same-version -m "chore - release version %s [skip ci]" --allow-empty
-          npm publish --access public --dry-run
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: Create Slack notification
