@@ -1,6 +1,11 @@
 .search-input--custom-width {
+  flex-flow: row wrap;
   margin-left: -0.5rem;
   margin-top: -0.5rem;
+
+  @include mq(s) {
+    flex-flow: row nowrap !important;
+  }
 }
 
 .btn,
