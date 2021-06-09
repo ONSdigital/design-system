@@ -15,11 +15,35 @@ A user may need to contact ONS, for example, to get help with their survey or gi
 
 ## When to use this pattern
 
-Use this pattern when a user needs to get in touch with us but they do not need an instant response or to talk to someone in the contact centre directly. Use it when we can give a specific response time, such as “We will respond within 48 hours”.
+Use this pattern when:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'a user needs to get in touch with us but they do not need an instant response or to talk to someone in the contact centre directly'
+            },
+            {
+                "text": 'we can give a specific response time, such as “We will respond within 48 hours”'
+            }
+        ]
+    })
+}}
 
 ## When not to use this pattern
 
-Do not use this pattern if the user needs to speak to someone at the contact centre, for example, if the details about a business need to change. Do not use this pattern for urgent issues that need a fast response, like problems with the service.
+Do not use this pattern if the user needs to:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'speak to someone at the contact centre, for example, if the details about a business need to change'
+            },
+            {
+                "text": 'fix an urgent issue that needs a fast response, like problems with the service'
+            }
+        ]
+    })
+}}
 
 ## How to use this pattern
 
@@ -33,7 +57,7 @@ The following could be included on a web form:
     onsList({
         "itemsList": [
             {
-                "text": 'What do you need help with? (radio selection)'
+                "text": 'What do you need help with? (radio buttons)'
             },
             {
                 "text": 'Please provide more detail (textarea)'
@@ -54,34 +78,37 @@ The following could be included on a web form:
     })
 }}
 
-For “What do you need help with”, the user needs to be offered a selection of radio options, for example:
+## How to check a web form
 
+To help users fill in a web form, you should:
 {{
     onsList({
         "itemsList": [
             {
-                "text": 'I need to change my contact details'
+                "text": 'check they have selected a radio button'
             },
             {
-                "text": 'I need help with my survey'
+                "text": 'allow them to paste into the fields'
             },
             {
-                "text": 'I want to make a complaint'
+                "text": 'check they have entered something in all of the fields'
             },
             {
-                "text": 'I am having technical difficulties'
-            },
-            {
-                "text": 'I need to change my password'
-            },
-            {
-                "text": 'Something else'
+                "text": 'show an error message if they have not selected a required radio button or any of the fields are empty'
             }
         ]
     })
 }}
 
-## Web form errors
+### Error messages
+
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the access code field.
+
+#### If a radio button has not been selected
+Use “Select what you need help with”
+
+#### If any of the fields are empty
+Use, for example, “Enter your name”
 
 {{
     patternlibExample({ "path": "patterns/send-a-web-form/examples/errors/index.njk" })
