@@ -24,15 +24,6 @@
     }
   }
 
-  &--search {
-    margin-bottom: 0.5rem;
-
-    @include mq(501px) {
-      margin-bottom: 0;
-      margin-right: 0.5rem;
-    }
-  }
-
   &--text,
   &--textarea {
     // Prevent inner shadow on iOS

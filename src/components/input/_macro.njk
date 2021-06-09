@@ -86,18 +86,20 @@
                 </span>
             </span>
         {% elif params.searchButton is defined and params.searchButton %}
-            {% call onsSearch({
-                "accessiblePlaceholder": params.accessiblePlaceholder,
-                "searchButton": {
-                    "type": params.searchButton.type,
-                    "text": params.searchButton.text,
-                    "id": params.searchButton.id,
-                    "attribues": params.searchButton.attribues,
-                    "classes": params.searchButton.classes
-                }
-            }) %}
-                {{ input | safe }}
-            {% endcall %}
+            <span class="grid--flex search-input--custom-width">
+                {% call onsSearch({
+                    "accessiblePlaceholder": params.accessiblePlaceholder,
+                    "searchButton": {
+                        "type": params.searchButton.type,
+                        "text": params.searchButton.text,
+                        "id": params.searchButton.id,
+                        "attribues": params.searchButton.attribues,
+                        "classes": params.searchButton.classes
+                    }
+                }) %}
+                    {{ input | safe }}
+                {% endcall %}
+            </span>
         {% elif params.autosuggest is defined and params.autosuggest %}
             {% call onsAutosuggest({
                 "id": params.id,
