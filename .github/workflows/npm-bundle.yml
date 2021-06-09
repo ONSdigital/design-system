@@ -33,4 +33,5 @@ jobs:
           fields: |
             [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
             { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
+            { "title": "By", "value": "${{ github.actor }}"},
             { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
