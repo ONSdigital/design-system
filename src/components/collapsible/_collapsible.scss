@@ -11,7 +11,7 @@ $collapsible-caret-width: 1.5rem;
       pointer-events: initial;
       position: relative;
 
-      &::-webkit-details-marker {
+      &::marker {
         display: none;
       }
 

@@ -12,7 +12,7 @@
             }}
         </div>
         <div class="patternlib-example__frame">
-            <iframe class="patternlib-example__iframe" frameborder="0" scrolling="auto" src="{{ params.link }}" style="background-color: {{ params.backgroundColor | default ('#fff') }}"></iframe>
+            <iframe class="patternlib-example__iframe" frameborder="0" src="{{ params.link }}" style="background-color: {{ params.backgroundColor | default ('#fff') }}"></iframe>
         </div>
         <div class="patternlib-example__source">
             <input id="{{ params.name }}-html" type="radio" class="patternlib-example__radio js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "html" %} checked {% endif %}>
