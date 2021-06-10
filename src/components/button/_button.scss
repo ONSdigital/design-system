@@ -37,12 +37,6 @@ $button-border-height: 3px;
     width: 0.8rem;
   }
 
-  &:hover & {
-    &__inner {
-      background: darken($color-button, 5%);
-    }
-  }
-
   &__inner {
     background: $color-button;
     border-bottom: ems($button-border-height) solid rgba(0, 0, 0, 0.6);
@@ -66,11 +60,14 @@ $button-border-height: 3px;
 
   &:focus:not(:active):not(:hover) &__inner {
     background-color: $color-focus;
+  }
+
+  &:focus &__inner {
     color: $color-text-link-focus;
   }
 
-  &:not([class*='btn--secondary']):not([class*='btn--print']):focus:hover &__inner {
-    color: $color-text-inverse;
+  &:focus:hover &__inner {
+    background: darken($color-focus, 5%);
   }
 
   &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus,
@@ -128,6 +125,13 @@ $button-border-height: 3px;
   }
 
   // When hovered
+
+  &:hover & {
+    &__inner {
+      background: darken($color-button, 5%);
+    }
+  }
+
   &--secondary:hover &,
   &--print:hover & {
     &__inner {
@@ -148,7 +152,7 @@ $button-border-height: 3px;
 
   &--link:not(.btn--secondary) &,
   &--link:not(.btn--secondary):active &,
-  &--link:not(.btn--secondary):hover:focus & {
+  &--link:not(.btn--secondary):hover & {
     &__inner {
       .svg-icon {
         fill: $color-white;
@@ -156,9 +160,12 @@ $button-border-height: 3px;
     }
   }
 
-  &--link:focus:not(.btn--secondary) &__inner {
-    .svg-icon {
-      fill: $color-black;
+  &--link:focus:not(.btn--secondary) &,
+  &--link:focus:hover:not(.btn--secondary) & {
+    &__inner {
+      .svg-icon {
+        fill: $color-black;
+      }
     }
   }
 
@@ -184,10 +191,6 @@ $button-border-height: 3px;
     .svg-icon {
       opacity: 1;
     }
-  }
-
-  &--loader.is-loading:focus &__inner {
-    fill: $color-black;
   }
 
   // Spooky Buttons
@@ -226,8 +229,8 @@ $button-border-height: 3px;
     }
   }
 
-  &--ghost:focus:not(:hover) &,
-  &--mobile:focus:not(:hover) & {
+  &--ghost:focus &,
+  &--mobile:focus & {
     &__inner {
       background-color: $color-focus;
       color: $color-text-link-focus;
