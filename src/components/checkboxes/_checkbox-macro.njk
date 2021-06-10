@@ -1,6 +1,6 @@
 {% macro onsCheckbox(params) %}
     {% from "components/label/_macro.njk" import onsLabel %}
-    
+
     <span class="checkbox {{ params.classes }}">
         <input
             type="checkbox"
@@ -11,6 +11,7 @@
             {% if params.checked is defined and params.checked %} checked{% endif %}
             {% if params.other is defined and params.other and not params.other.open %} aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
             {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.deselectMessage is defined and params.deselectMessage %} data-deselect-message="{{ params.deselectMessage }}"{% endif %}
         >
 
         {{ onsLabel({
@@ -24,7 +25,7 @@
 
         {% if params.other is defined and params.other %}
             {% set otherType = params.other.otherType | default('input') %}
-            <span class="checkbox__other {{ 'checkbox__other--open' if params.other.open }}" id="{{ params.id }}-other-wrap">
+            <span class="checkbox__other{{ ' checkbox__other--open' if params.other.open }}" id="{{ params.id }}-other-wrap">
             {% if otherType == "input" %}
                 {% from "components/input/_macro.njk" import onsInput %}
                 {{
@@ -32,6 +33,7 @@
                         "id": params.other.id,
                         "name": params.other.name,
                         "type": params.other.type,
+                        "required": params.other.required,
                         "classes": "input--w-auto " + params.other.classes | default(''),
                         "attributes": params.other.attributes,
                         "label": {
