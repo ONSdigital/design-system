@@ -2,7 +2,7 @@
 
 {% macro onsButton(params) %}
 
-  {% if params.icon is defined and params.icon and params.icon !== false %}
+  {% if params.icon is defined and params.icon and params.icon != false %}
     {% set iconType = params.icon.iconType %}
     {% set iconPosition = params.icon.iconPosition %}
   {% elif params.icon is not defined %}
