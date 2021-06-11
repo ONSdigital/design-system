@@ -23,7 +23,7 @@
         {% if params.field1 is defined and params.field1 %}
             {{ onsInput({
                 "id": params.field1.id,
-                "classes": "input--w-2" + (" js-exclusive-group-item" if params.mutuallyExclusive else ""),
+                "classes": "input--w-2" + (" input--error" if params.error else "") + (" js-exclusive-group-item" if params.mutuallyExclusive else ""),
                 "type": "number",
                 "name": params.field1.name,
                 "value": params.field1.value,
@@ -40,7 +40,7 @@
         {% if params.field2 is defined and params.field2 %}
             {{ onsInput({
                 "id": params.field2.id,
-                "classes": "input--w-2" + (" js-exclusive-group-item" if params.mutuallyExclusive else ""),
+                "classes": "input--w-2" + (" input--error" if params.error else "") + (" js-exclusive-group-item" if params.mutuallyExclusive else ""),
                 "type": "number",
                 "name": params.field2.name,
                 "value": params.field2.value,

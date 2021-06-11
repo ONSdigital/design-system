@@ -11,6 +11,7 @@ layout: none
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 {% from "components/password/_macro.njk" import onsPassword %}
 {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+{% from "components/duration/_macro.njk" import onsDuration %}
 
 {% set pageConfig = {
     "title": "Errors Prototype"
@@ -155,6 +156,7 @@ layout: none
                 }
             })
         }}
+
         {{
             onsCheckboxes({
                 "legend": "What are your favourite pizza toppings?",
@@ -191,6 +193,7 @@ layout: none
                 }
             })
         }}
+
         {{
             onsPassword({
                 "id": "password",
@@ -200,6 +203,7 @@ layout: none
                 "showPasswordText": "Show password"
             })
         }}
+
         {{
             onsInput({
                 "id": "email",
@@ -220,6 +224,32 @@ layout: none
                         "label": {
                             "text": "I don't want to receive a confirmation email"
                         }
+                    }
+                }
+            })
+        }}
+
+        {{
+            onsDuration({
+                "label": "Duration",
+                "id": "address-duration",
+                "dontWrap": true,
+                "field1": {
+                    "id": "address-duration-hours",
+                    "name": "address-duration-hours",
+                    "label": "Hours",
+                    "attributes": {
+                        "min": 0,
+                        "max": 100
+                    }
+                },
+                "field2": {
+                    "id": "address-duration-minutes",
+                    "name": "address-duration-minutes",
+                    "label": "Minutes",
+                    "attributes": {
+                        "min": 0,
+                        "max": 59
                     }
                 }
             })
