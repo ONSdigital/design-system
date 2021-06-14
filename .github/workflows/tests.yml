@@ -1,0 +1,40 @@
+name: Run unit and visual tests
+on: [push, pull_request]
+env:
+  BROWSER_STACK_ACCESS_KEY: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
+  BROWSER_STACK_USERNAME: ${{ secrets.BROWSER_STACK_USERNAME }}
+  TEST_ON_BROWSERSTACK: true
+  RUNNING_ON_CI: true
+  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+jobs:
+  run-tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: yarn install
+      - name: Run unit tests
+        run: yarn test
+      - name: Run visual regression tests
+        if: "contains(github.event.head_commit.message, 'test-visual')"
+        run: yarn test-visual
+      - name: Create Slack notification
+        if: always()
+        uses: edge/simple-slack-notify@master
+        with:
+          channel: '#pat-lib-notifications'
+          status: ${{ job.status }}
+          success_text: 'The build completed successfully'
+          failure_text: 'The build failed'
+          cancelled_text: 'The build was cancelled'
+          fields: |
+            [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
+            { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
+            { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
