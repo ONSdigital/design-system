@@ -1,0 +1,23 @@
+{% from "components/input/_macro.njk" import onsInput %}
+{{
+    onsInput({
+        "id": "percentage",
+        "type": "number",
+        "classes": "input-number--w-3",
+        "autocomplete": "off",
+        "value": "101",
+        "label": {
+            "text": "People with internet access"
+        },
+        "required": true,
+        "suffix": {
+            "title": "per cent",
+            "text": "%"
+        },
+        "error": {
+            "id": "percentage-error",
+            "text": "Enter a valid percentage",
+            "dsExample": isPatternLib
+        }
+    })
+}}
