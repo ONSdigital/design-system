@@ -1,6 +1,5 @@
 import postcssUrl from 'postcss-url';
 import autoprefixer from 'autoprefixer';
-import mqoptimize from 'postcss-mq-optimize';
 import cssnano from 'cssnano';
 
 const BASE_HREF = '';
@@ -22,7 +21,6 @@ export default () => {
       url: ({ url }) => {
         // Only convert root relative URLs, which CSS-Loader won't process into require().
         if (!url.startsWith('/') || url.startsWith('//')) {
-          console.log('URL', url.replace(/\/\/+/g, '/'));
           return url.replace(/\/\/+/g, '/');
         }
         if (DEPLOY_URL.match(/:\/\//)) {
