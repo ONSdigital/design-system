@@ -1,39 +1,37 @@
-name: Lighthouse CI accessibility checks
-on: [pull_request]
+name: Publish Design System to npm
+on:
+  release:
+    types: [published]
 env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 jobs:
-  lhci:
-    name: Lighthouse CI
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Install Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.5.0
+          node-version: 14.15.0
+          registry-url: https://registry.npmjs.org/
       - name: Install dependencies
         run: yarn install
-      - name: Build pages
-        run: yarn build
-      - name: Run Lighthouse CI
-        run: ./lighthouse/lighthouse.sh
+      - name: Bundle DS for npm publish
+        run: |
+          yarn npm-bundle --allow-same-version -m "chore - release version %s [skip ci]" --allow-empty
+          npm publish --access public
         env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master
         with:
           channel: '#pat-lib-notifications'
           status: ${{ job.status }}
-          success_text: 'Lighthouse tests completed successfully'
-          failure_text: 'Lighthouse tests failed'
-          cancelled_text: 'Lighthouse tests was cancelled'
+          success_text: 'Successfully published release to npm'
+          failure_text: 'Failed to publish release to npm'
+          cancelled_text: 'Publish release to npm was cancelled'
           fields: |
             [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
             { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
-            { "title": "By", "value": "${{ github.actor }}", "short": true },
-            { "title": "Branch", "value": "${{ github.head_ref }}", "short": true },
+            { "title": "By", "value": "${{ github.actor }}"},
             { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
