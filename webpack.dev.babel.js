@@ -31,7 +31,7 @@ const serverSettings = {
     port,
     after: function() {
       setTimeout(() => {
-        console.log(chalk.blue.bold('======================================='));
+        console.log('\n' + chalk.blue.bold('======================================='));
         console.log(chalk.bold.cyan('Server started'));
         console.log(`${chalk.bold.cyan('Local:')} ${chalk.bold.green(`http://localhost:${port}`)}`);
         console.log(`${chalk.bold.cyan('Remote:')} ${chalk.bold.green(`http://${getIP()}:${port}`)}`);
