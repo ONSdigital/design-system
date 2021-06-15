@@ -1,40 +1,47 @@
 {% from "components/date-input/_macro.njk" import onsDateInput %}
-{{
-    onsDateInput({
-        "id": "date-mutually-exclusive",
-        "legend": "When did you leave your last paid job?",
-        "description": "For example, 31 3 2018",
-        "day": {
-            "label": {
-                "text": "Day"
-            },
-            "name": "day-exclusive"
-        },
-        "month": {
-            "label": {
-                "text": "Month"
-            },
-            "name": "month-exclusive"
-        },
-        "year": {
-            "label": {
-                "text": "Year"
-            },
-            "name": "year-exclusive"
-        },
-        "mutuallyExclusive": {
-            "or": "Or",
-            "deselectMessage": "Selecting this will clear the date if one has been inputted",
-            "deselectGroupAdjective": "cleared",
-            "deselectCheckboxAdjective": "deselected",
-            "checkbox": {
-                "id": "date-exclusive-checkbox",
-                "name": "no-paid-job",
-                "value": "no-paid-job",
+{% from "components/question/_macro.njk" import onsQuestion %}
+
+{% call onsQuestion({
+    "title": "When did you leave your last paid job?",
+    "description": "<p>For example, 31 3 2018</p>",
+    "legendIsPageTitle": true
+}) %}
+    {{
+        onsDateInput({
+            "id": "date-mutually-exclusive",
+            "dontWrap": true,
+            "day": {
                 "label": {
-                    "text": "I have never had a paid job"
+                    "text": "Day"
+                },
+                "name": "day-exclusive"
+            },
+            "month": {
+                "label": {
+                    "text": "Month"
+                },
+                "name": "month-exclusive"
+            },
+            "year": {
+                "label": {
+                    "text": "Year"
+                },
+                "name": "year-exclusive"
+            },
+            "mutuallyExclusive": {
+                "or": "Or",
+                "deselectMessage": "Selecting this will clear the date if one has been inputted",
+                "deselectGroupAdjective": "cleared",
+                "deselectCheckboxAdjective": "deselected",
+                "checkbox": {
+                    "id": "date-exclusive-checkbox",
+                    "name": "no-paid-job",
+                    "value": "no-paid-job",
+                    "label": {
+                        "text": "I have never had a paid job"
+                    }
                 }
             }
-        }
-    })
-}}
+        })
+    }}
+{% endcall %}

@@ -4,6 +4,7 @@ title: Mutually Exclusive
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
 
 ## When to use this component
 
@@ -52,6 +53,48 @@ Inputs, radios, checkboxes, date inputs, and textareas all call this macro autom
 {{
     patternlibExample({"path": "components/mutually-exclusive/examples/duration/index.njk"})
 }}
+
+## How to check mutually exclusive answers
+To help users select an answer, you should:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'check they have selected at least one checkbox'
+            },
+            {
+                "text": 'show an error message if they have not selected any of the checkboxes on a checkbox-only page'
+            },
+            {
+                "text": 'show an error message if they have not selected any of the checkboxes or entered anything in an input field if that is the alternative'
+            },
+            {
+                "text": 'show an error message if what has been entered in an input field is not valid'
+            }
+        ]
+    })
+}}
+
+### Error messages
+
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the fieldset.
+
+{{
+    patternlibExample({"path": "components/mutually-exclusive/examples/date-input-error/index.njk"})
+}}
+
+Error validation for this component varies according to the mutually exclusive question type used.
+
+#### For mutually exclusive pages that are checkboxes only
+If no option has been selected
+Use “Select at least one answer”.
+
+#### For mutually exclusive pages where the alternative to a checkbox is for the user to input text
+If no checkbox is selected and the input field is empty
+Use “Select at least one answer” along with an alternative instruction to enter something into the field.
+For example, “Select at least one answer or enter your date of birth”.
+
+For error validation content guidance for pages with input fields, use one of the following: [dates pattern](patterns/dates),  [textarea component](components/textarea), [email addresses pattern](/patterns/email-addresses), [numeric values pattern](/patterns/numeric-values), [durations pattern](/patterns/durations).
 
 ## Research on this component
 
