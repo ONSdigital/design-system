@@ -12,7 +12,7 @@ assignees: ''
 
 - If you are suggesting a change to something that already exists in the ONS Design System, please propose it by commenting on the GitHub discussion (https://github.com/ONSdigital/design-system/discussions) for that component, pattern or style. You can get to the discussion using the direct link at the bottom of each page in the Design System.
 
-- If you are proposing something new, check the Design System backlog (https://trello.com/b/dsgMhRlq/ons-design-system) first, to make sure something similar hasn't already been proposed. Please add any examples of evidence of your own, if it has already been proposed.
+- If you are proposing something new, check the Design System backlog (https://trello.com/b/dsgMhRlq/ons-design-system) first, to make sure something similar hasn't already been proposed. Please add any examples of evidence of your own, if it has already been proposed. To request access to the backlog, email jo.van.der.plank@ons.gov.uk
 
 -->
 
@@ -27,6 +27,7 @@ assignees: ''
 > - What evidence do you have that your ONS service needs it?
 > - What evidence do you have that it meets the needs of the users of that service?
 > - Have you checked if it’s already in the ONS Design System?
+> - Have you considered creating a new variant of an existing feature instead of something new?
 
 ## Supporting material
 
