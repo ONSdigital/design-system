@@ -1,36 +1,39 @@
-name: Lighthouse CI accessibility checks
-on: [pull_request]
+name: Run unit and visual tests
+on: [push, pull_request]
 env:
+  BROWSER_STACK_ACCESS_KEY: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
+  BROWSER_STACK_USERNAME: ${{ secrets.BROWSER_STACK_USERNAME }}
+  TEST_ON_BROWSERSTACK: true
+  RUNNING_ON_CI: true
+  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 jobs:
-  lhci:
-    name: Lighthouse CI
+  run-tests:
+    name: Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/checkout@v2
       - name: Install Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: 14.5.0
+          node-version: '14'
       - name: Install dependencies
         run: yarn install
-      - name: Build pages
-        run: yarn build
-      - name: Run Lighthouse CI
-        run: ./lighthouse/lighthouse.sh
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - name: Run unit tests
+        run: yarn test
+      - name: Run visual regression tests
+        if: "contains(github.event.head_commit.message, 'test-visual')"
+        run: yarn test-visual
       - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master
         with:
           channel: '#pat-lib-notifications'
           status: ${{ job.status }}
-          success_text: 'Lighthouse tests completed successfully'
-          failure_text: 'Lighthouse tests failed'
-          cancelled_text: 'Lighthouse tests was cancelled'
+          success_text: 'The build completed successfully'
+          failure_text: 'The build failed'
+          cancelled_text: 'The build was cancelled'
           fields: |
             [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
             { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
