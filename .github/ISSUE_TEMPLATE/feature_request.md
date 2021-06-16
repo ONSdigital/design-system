@@ -18,15 +18,15 @@ assignees: ''
 
 ## What
 
-> Give a brief description of the new thing you’re proposing. This could be, for example, a new component, pattern, style or additional documentation for the Design System.
+> Give a brief description of the new feature you want to propose for the ONS design system. This could be a new component, pattern or style, or new documentation for the Design System.
 
 ## Why
 
-> Explain why you think this should be added to the ONS Design System.
+> Explain why you think this feature or content should be added to the ONS Design System.
 >
-> - What evidence do you have that services across ONS need it?
-> - What evidence do you have that it meets the needs of the users of those services?
-> - Have you checked that it doesn't already exist in the ONS Design System?
+> - What evidence do you have that your ONS service needs it?
+> - What evidence do you have that it meets the needs of the users of that service?
+> - Have you checked if it’s already in the ONS Design System?
 
 ## Supporting material
 
@@ -34,4 +34,4 @@ assignees: ''
 
 ## Contacts
 
-> The Design System team will need to meet up with you to discuss your proposal, so please add the details of everyone who should be involved in that discussion. We recommend involving at least your product owner, user researcher and designer.
+> The Design System working group has a weekly meeting. We will invite you to one of these meetings to give a show and tell about your proposal and answer any questions. Please tell us who to invite to that meeting. We recommend involving at least your product manager, user researcher and designer.
