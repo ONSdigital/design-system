@@ -28,9 +28,9 @@ assignees: ''
 > - What evidence do you have that it meets the needs of the users of those services?
 > - Have you checked that it doesn't already exist in the ONS Design System?
 
-## Anything else
+## Supporting material
 
-> Include links to any examples, research or code to support your proposal.
+> Include links to any examples, research, prototypes or code that support your proposal.
 
 ## Contacts
 
