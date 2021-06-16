@@ -80,10 +80,17 @@ The base font size for paragraphs is 18px.
 }}
 
 ## Text indent
-Use when providing an address or contact information
+Use when providing contact information.
 
 {{
     patternlibExample({"path": "styles/typography/text-indent/examples/text-indent/index.njk", "componentFolderPath": "components/text-indent"})
+}}
+
+## Addresses
+Use when providing an address.
+
+{{
+    patternlibExample({"path": "styles/typography/address-output/examples/address-output/index.njk", "componentFolderPath": "components/address-output"})
 }}
 
 ## Links
@@ -94,7 +101,7 @@ Links are blue and underlined by default. If your link is at the end of a senten
 }}
 
 ### External Links
-Links that link out to exernal websites using the `onsExternalLink` macro will have `target="_blank"` to open websites in a new tab and will also have`rel="noopener"` added to them.
+Links that link out to external websites using the `onsExternalLink` macro will have `target="_blank"` to open websites in a new tab and will also have`rel="noopener"` added to them.
 This will guard against a security vulnerability which can be exploited by malicious websites. It will also have the external link icon added as
 shown in [the icons section](#link-with-external-link-icon).
 
@@ -119,7 +126,7 @@ Each list item should be a complete sentence, therefore start with an uppercase 
 
 You do not need to introduce a numbered list with a lead-in line.
 
-To use a numbered/orderd list when using the list macro you need to not be using a bare list and set the `element` parameter to "ol".
+To use a numbered list when using the list macro you need to not be using a bare list and set the `element` parameter to "ol".
 
 If there is only one item in the list when using the list macro it will render the item in `<p>` tags and not a list with no list styling added.
 {{
