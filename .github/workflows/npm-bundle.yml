@@ -8,19 +8,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Use Node.js 14.15.0
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
       - uses: actions/setup-node@v1
         with:
           node-version: 14.15.0
           registry-url: https://registry.npmjs.org/
-      - name: Install dependencies
-        run: yarn install
-      - name: Bundle DS for npm publish
-        run: |
-          yarn npm-bundle --allow-same-version -m "chore - release version %s [skip ci]" --allow-empty
-          npm publish --access public
+      - run: yarn install
+      - run: git config --global user.name "${{ github.actor }}"
+      - run: git config --global user.email "github-action-${{ github.actor }}@users.noreply.github.com"
+      - run: npm version ${{ github.event.release.tag_name }}
+      - run: yarn npm-bundle
+      - run: npm publish --tag ${{ github.event.release.target_commitish }} --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: git commit -am "chore - release version %s [skip ci]"
+      - run: git push
+        env:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master
