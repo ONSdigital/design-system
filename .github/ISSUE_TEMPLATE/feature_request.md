@@ -8,17 +8,17 @@ assignees: ''
 
 <!--
 
-(!) Before you fill in this proposal template
+*** Before you fill in this proposal template ***
 
-- If you are suggesting a change to something that already exists in the ONS Design System, please propose it by commenting on the GitHub discussion (https://github.com/ONSdigital/design-system/discussions) for that component, pattern or style. You can get to the discussion using the direct link at the bottom of each page in the Design System.
+- If you are suggesting a change to a component, pattern or style that is already in the ONS Design System, please comment on its GitHub discussion (https://github.com/ONSdigital/design-system/discussions). You can get to the discussion using the direct link at the bottom of each page in the Design System.
 
-- If you are proposing something new, check the Design System backlog (https://trello.com/b/dsgMhRlq/ons-design-system) first, to make sure something similar hasn't already been proposed. Please add any examples of evidence of your own, if it has already been proposed. To request access to the backlog, email jo.van.der.plank@ons.gov.uk
+- If you are proposing something new, check the Design System backlog (https://trello.com/b/dsgMhRlq/ons-design-system). There may already be a proposal for something similar. You can add examples of your own evidence to an existing proposal. To request access to the backlog, email jo.van.der.plank@ons.gov.uk
 
 -->
 
 ## What
 
-> Give a brief description of the new feature you want to propose for the ONS design system. This could be a new component, pattern or style, or new documentation for the Design System.
+> Give a brief description of the new feature you want to propose for the Design System. This could be a component, pattern or style, or new documentation for an existing feature.
 
 ## Why
 
