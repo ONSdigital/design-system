@@ -8,11 +8,11 @@ layout: none
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 
 {% set pageConfig = {
-  "title": "Survey title"
+  "title": "Study title"
 } %}
 
 {% block main %}
-    <h1 class="u-mt-l">Start survey</h1>
+    <h1 class="u-mt-l">Start study</h1>
 
     {{ onsUACInput({
         "id": "uac",
@@ -21,28 +21,28 @@ layout: none
         "postTextboxLinkUrl": "#",
         "label": {
             "text": "Enter your 16-character access code",
-            "description": "Keep this code safe. You will need to enter it every time you access your survey"
+            "description": "Keep this code safe. You will need to enter it every time you access your study"
         },
         "securityMessage": "Your personal information is protected by law and will be kept confidential"
     }) }}
 
     {{ onsButton({
-        "text": "Access survey",
+        "text": "Access study",
         "classes": "u-mb-xl"
     }) }}
 
     <h2>If you don’t have an access code</h2>
     <p>
-        You can <a href="#0">request a new access code</a> to start a new survey if you have lost or not received an access code. This can be sent to you by text or post.
+        You can <a href="#0">request a new access code</a> to start a new study if you have lost or not received an access code. This can be sent to you by text or post.
     </p>
 
     {% set content %}
-        <p>If you need to answer separately from the people you live with, you can <a href='#'>request an individual access code</a> to start a separate survey.</p>
+        <p>If you need to answer separately from the people you live with, you can <a href='#'>request an individual access code</a> to start a separate study.</p>
         {% call onsPanel({
                 type: "warn"
             })
         %}
-            Someone in your household must still complete a survey using a household access code
+            Someone in your household must still complete a study using a household access code
         {% endcall %}
     {% endset %}
 
