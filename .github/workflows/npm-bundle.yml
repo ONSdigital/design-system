@@ -16,7 +16,7 @@ jobs:
       - name: Bundle DS for npm publish
         run: |
           yarn npm-bundle
-          npm publish --tag v33.1.0 --access public --dry-run
+          npm publish --tag 33.1.0 --access public --dry-run
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: Create Slack notification
