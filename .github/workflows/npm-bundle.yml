@@ -15,8 +15,8 @@ jobs:
         run: yarn install
       - name: Bundle DS for npm publish
         run: |
-          yarn npm-bundle -m "chore - release version %s [skip ci]" --allow-empty
-          npm publish --tag ${{ github.event.release.tag_name }} --allow-same-version --access public --dry-run
+          yarn npm-bundle && npm version --git-tag-version --allow-same-version -m "chore - release version %s [skip ci]" --allow-empty
+          npm publish --access public --dry-run
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: Create Slack notification
