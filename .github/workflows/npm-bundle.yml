@@ -6,18 +6,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
       - uses: actions/setup-node@v1
         with:
           node-version: 14.15.0
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
-        run: yarn install
-      - name: Bundle DS for npm publish
-        run: |
-          yarn npm-bundle
-          npm version ${{ github.event.release.target_commitish }} 
-          npm publish --access public --dry-run
+      - run: yarn install
+      - run: git config --global user.name "GitHub CD bot"
+      - run: git config --global user.email "test@test.com"
+      - run: npm version ${{ github.event.release.tag_name }}
+      - run: yarn npm-bundle
+      - run: npm publish --tag ${{ github.event.release.target_commitish }} --access public --dry-run
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: Create Slack notification
