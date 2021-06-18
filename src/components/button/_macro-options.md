@@ -15,7 +15,7 @@
 | Icon          | object or boolean | false    | Object that contains the settings for adding icons to buttons. Optionally provide `False` as the value to not show an icon for the button.                                                           |
 | newWindow     | boolean           | false    | Opens the next page in a new tab. Used for links to external pages                                                                                                                                   |
 | buttonStyle   | string            | false    | Can be set to `print`, `exit` or `mobile`. This will style the button with the relevant classes and icons                                                                                            |
-| buttonContext | string            | false    | Can be used to add context to a button’s `text` label, for screen readers. For example, the “Hide this” button in the collapsible component, requires context to let a screen reader user to know what the button hides |
+| buttonContext | string            | false    | Can be used to add context to a button’s `text` label for screen readers. For example, the “Hide this” button in the collapsible component requires context to help let a screen reader user know what the button hides. |
 | dsExample     | boolean           | false    | Defaulted to true if set in Design System examples, will render a `<a>` tag instead of `<button>` to stop default submit behaviour of buttons in forms - _only for use in DS examples_               |
 
 ## Icon
