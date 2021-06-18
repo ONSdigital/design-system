@@ -22,6 +22,16 @@ Duration inputs can be created by using the duration component. For example:
     patternlibExample({"path": "components/duration/examples/duration-time/index.njk"})
 }}
 
+###Errors
+
+Errors work slightly differently for durations from regualar input fields.
+The error object needs to be passed in as a param to the durations component just as in input fields
+but also because there is two independent fields the error param for that specific field needs to be set to true.
+
+{{
+    patternlibExample({"path": "components/duration/examples/duration-error/index.njk"})
+}}
+
 ## Research on this pattern
 {% call onsPanel() %}
     If you have conducted any user research using this pattern, please feed back your findings via the
