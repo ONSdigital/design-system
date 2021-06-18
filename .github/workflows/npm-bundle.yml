@@ -22,8 +22,6 @@ jobs:
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        env:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master
