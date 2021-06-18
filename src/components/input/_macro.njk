@@ -35,7 +35,6 @@
             {% if params.minLength is defined and params.minLength %}minlength="{{ params.minLength }}"{% endif %}
             {% if params.maxLength is defined and params.maxLength %}maxlength="{{ params.maxLength }}"{% endif %}
             {% if pattern is defined and pattern %}pattern="{{ pattern }}"{% endif %}
-            {% if params.accessiblePlaceholder is defined and params.accessiblePlaceholder %}placeholder="{{ params.label.text }}"{% endif %}
             {% if inputmode is defined and inputmode %}inputmode="{{ inputmode }}"{% endif %}
             {% if params.autocomplete is defined and params.autocomplete %}autocomplete="{{ params.autocomplete }}"{% endif %}
             {% if params.accessiblePlaceholder is defined and params.accessiblePlaceholder %}placeholder="{{ params.label.text }}"{% endif %}
