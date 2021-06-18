@@ -1,7 +1,5 @@
 name: Publish Design System to npm
-on:
-  release:
-    types: [published]
+on: push
 env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 jobs:
@@ -19,11 +17,9 @@ jobs:
       - run: yarn install
       - run: npm version ${{ github.event.release.tag_name }}
       - run: yarn npm-bundle
-      - run: npm publish --access public
+      - run: npm publish --access public --dry-run
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        env:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master
