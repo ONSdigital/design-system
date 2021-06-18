@@ -1,0 +1,44 @@
+name: Publish Design System to npm
+on:
+  release:
+    types: [published]
+env:
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Node.js 14.15.0
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.15.0
+          registry-url: https://registry.npmjs.org/
+      - run: yarn install
+      - run: git config --global user.name "${{ github.actor }}"
+      - run: git config --global user.email "github-action-${{ github.actor }}@users.noreply.github.com"
+      - run: npm version ${{ github.event.release.tag_name }}
+      - run: yarn npm-bundle
+      - run: npm publish --tag ${{ github.event.release.target_commitish }} --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: git commit -am "chore - release version %s [skip ci]"
+      - run: git push
+        env:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Slack notification
+        if: always()
+        uses: edge/simple-slack-notify@master
+        with:
+          channel: '#pat-lib-notifications'
+          status: ${{ job.status }}
+          success_text: 'Successfully published release to npm'
+          failure_text: 'Failed to publish release to npm'
+          cancelled_text: 'Publish release to npm was cancelled'
+          fields: |
+            [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
+            { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
+            { "title": "By", "value": "${{ github.actor }}"},
+            { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
