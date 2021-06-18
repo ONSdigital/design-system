@@ -1,6 +1,10 @@
 import replace from 'replace-in-file';
 import fs from 'fs';
+import util from 'util';
 import glob from 'glob';
+
+const globUtil = util.promisify(glob);
+const readdir = util.promisify(fs.readdir);
 
 export const port = process.env.TEST_PORT_NUMBER || 8000;
 export const testURL = `http://localhost:${port}`;
@@ -19,42 +23,27 @@ export async function replacePaths() {
   }
 }
 
-export function generateURLs() {
+export async function generateURLs() {
+  let urls = [];
   const directories = [
     {
-      name: 'components',
-      path: 'build/components',
+      path: './build/components',
     },
     {
-      name: 'patterns',
-      path: 'build/patterns',
+      path: './build/patterns',
     },
     {
-      name: 'styles',
-      path: 'build/styles',
+      path: './build/styles',
     },
   ];
-
-  let urls = [];
-  return new Promise((resolve, reject) => {
-    for (const directory of directories) {
-      fs.readdir(directory.path, async (err, folders) => {
-        if (err) {
-          console.log('Unable to scan directory: ' + err);
-          reject(err);
-        }
-        for (const folder of folders) {
-          glob(`${directory.path}/${folder}/**/*.html`, { ignore: `${directory.path}/${folder}/index.html` }, function(er, files) {
-            if (er) {
-              console.log('Problem getting files paths: ' + er);
-            }
-            for (const file of files) {
-              urls.push({ url: `${testURL}/${file}`, name: file });
-              resolve(urls);
-            }
-          });
-        }
-      });
+  for (const directory of directories) {
+    const folders = await readdir(directory.path);
+    for (const folder of folders) {
+      const files = await globUtil(`${directory.path}/${folder}/**/*.html`, { ignore: `${directory.path}/${folder}/index.html` });
+      for (const file of files) {
+        urls.push({ url: `${testURL}/${file}`, name: file });
+      }
     }
-  });
+  }
+  return urls;
 }
