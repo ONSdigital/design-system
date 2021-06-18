@@ -44,13 +44,13 @@ To help users enter valid feedback, you should:
     onsList({
         "itemsList": [
             {
-                "text": 'allow them to paste into the feedback field'
+                "text": 'check they have selected a radio button'
+            },
+            {
+                "text": 'allow them to paste into the field'
             },
             {
                 "text": 'check they have entered something in the field'
-            },
-            {
-                "text": 'check they have selected any required radio button options'
             },
             {
                 "text": 'show an error message if they have not entered anything or not selected a required radio button or drop-down option'
@@ -64,16 +64,16 @@ To help users enter valid feedback, you should:
 Use the [correct errors pattern](/patterns/error-validation) and show the error details above the required field or radios.
 
 #### If the feedback topic has not been selected
-Use “Select what your feedback is about”
+Use “Select what your feedback is about”.
 
 #### If the feedback field is empty
-Use “Enter your feedback”
+Use “Enter your feedback”.
 
 #### If a drop-down option is used for one of the topics but an option has not been selected
-Use “Select an option”
+Use “Select an option”.
 
 {{
-    patternlibExample({ "path": "patterns/feedback/examples/feedback-form-validation/index.njk" })
+    patternlibExample({ "path": "patterns/feedback/examples/feedback-form-errors/index.njk" })
 }}
 
 ## Feedback success

@@ -44,7 +44,7 @@ layout: none
                 "element": "ol",
                 "itemsList": [
                     {
-                        "text": "Select what your feedback is about",
+                        "text": "Select an option",
                         "index": true,
                         "url": "#feedback-type",
                         "classes": "js-inpagelink"
@@ -70,7 +70,7 @@ layout: none
                 "name": "feedback-type",
                 "error": {
                     "id": "feedback-type",
-                    "text": "Select what your feedback is about",
+                    "text": "Select an option",
                     "dsExample": isPatternLib
                 },
                 "radios": [
@@ -81,6 +81,9 @@ layout: none
                             "description": "For example, questions not clear, answer options not relevant"
                         },
                         "value": "questions",
+                        "attributes": {
+                            "checked": true
+                        },
                         "other": {
                             "otherType": "select",
                             "id": "other-select",

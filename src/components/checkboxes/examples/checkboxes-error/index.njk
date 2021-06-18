@@ -2,47 +2,62 @@
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 
 {% call onsQuestion({
-    "title": "What devices do you own?",
+    "title": "Do you have any dietary requirements?",
     "legendIsPageTitle": true
 }) %}
     {{
         onsCheckboxes({
             "checkboxesLabel": "Select all that apply",
             "dontWrap": true,
-            "name": "devices",
+            "name": "dietary",
             "checkboxes": [
                 {
-                    "id": "mobile-phone",
+                    "id": "gluten-free",
                     "label": {
-                        "text": "Mobile phone"
+                        "text": "Gluten free"
                     },
-                    "value": "mobile-phone"
+                    "value": "gluten-free"
                 },
                 {
-                    "id": "tablet",
+                    "id": "lactose-intolerant",
                     "label": {
-                        "text": "Tablet"
+                        "text": "Lactose intolerant"
                     },
-                    "value": "tablet"
+                    "value": "lactose-intolerant"
                 },
                 {
-                    "id": "laptop",
+                    "id": "vegan",
                     "label": {
-                        "text": "Laptop"
+                        "text": "Vegan"
                     },
-                    "value": "laptop"
+                    "value": "vegan"
                 },
                 {
-                    "id": "desktop",
+                    "id": "vegetarian",
                     "label": {
-                        "text": "Desktop computer"
+                        "text": "Vegetarian"
                     },
-                    "value": "desktop"
+                    "value": "vegetarian"
+                },
+                {
+                    "id": "other-checkbox",
+                    "label": {
+                        "text": "Other"
+                    },
+                    "checked": true,
+                    "value": "other",
+                    "other": {
+                        "id": "other-textbox",
+                        "name": "other-answer",
+                        "label": {
+                            "text": "Enter dietary requirements"
+                        }
+                    }
                 }
             ],
             "error": {
-                "id": "devices-error",
-                "text": "Select at least one answer",
+                "id": "dietary-error",
+                "text": "Enter your dietary requirements",
                 "dsExample": isPatternLib
             }
         })
