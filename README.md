@@ -1,7 +1,7 @@
 # ONS Design System
 
 [![GitHub release](https://img.shields.io/github/release/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/releases)
-[![Travis tests](https://img.shields.io/travis/ONSdigital/design-system.svg)](https://travis-ci.org/ONSdigital/design-system)
+[![Tests](https://github.com/ONSdigital/design-system/actions/workflows/tests.yml/badge.svg)](https://github.com/ONSdigital/design-system/actions/workflows/tests.yml)
 [![codecov](https://codecov.io/gh/ONSdigital/design-system/branch/master/graph/badge.svg)](https://codecov.io/gh/ONSdigital/design-system)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8f9a091991d4d5a85d0b0b85e26dde6)](https://www.codacy.com/app/bameyrick/design-system)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/ONSdigital/design-system.svg)](https://github.com/ONSdigital/design-system/pulls)
