@@ -1,23 +1,38 @@
 {% from "components/radios/_macro.njk" import onsRadios %}
-{{
-    onsRadios({
-        "legend": "Select your favourite topping",
-        "name": "food",
-        "radios": [
-            {
-                "id": "bacon",
-                "label": {
-                    "text": "Bacon"
+{% from "components/question/_macro.njk" import onsQuestion %}
+
+{% call onsQuestion({
+    "title": "What type of accommodation do you live in?",
+    "classes": "u-mt-no",
+    "legendIsPageTitle": true
+}) %}
+    {{
+        onsRadios({
+            "name": "property-type",
+            "dontWrap": true,
+            "radios": [
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "House or bungalow"
+                    },
+                    "value": "house"
                 },
-                "value": "bacon"
-            },
-            {
-                "id": "olives",
-                "label": {
-                    "text": "Olives"
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Flat, maisonette or apartment"
+                    },
+                    "value": "flat"
                 },
-                "value": "olives"
-            }
-        ]
-    })
-}}
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Caravan or other mobile or temporary structure"
+                    },
+                    "value": "mobile"
+                }
+            ]
+        })
+    }}
+{% endcall %}

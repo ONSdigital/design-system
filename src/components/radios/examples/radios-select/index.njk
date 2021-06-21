@@ -1,62 +1,69 @@
+{% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/radios/_macro.njk" import onsRadios %}
-{{
-    onsRadios({
-        "legend": "Select your favourite toppings",
-        "name": "food-other",
-        "radios": [
-            {
-                "id": "bacon-other",
-                "label": {
-                    "text": "Bacon"
-                },
-                "value": "bacon"
-            },
-            {
-                "id": "olives-other",
-                "label": {
-                    "text": "Olives"
-                },
-                "value": "olives"
-            },
-            {
-                "id": "pepperoni-other",
-                "label": {
-                    "text": "Pepperoni"
-                },
-                "value": "pepperoni",
-                "other": {
-                    "otherType": "select",
-                    "id": "pepperoni-heat-level",
-                    "name": "pepperoni-heat-level",
+
+{% call onsQuestion({
+    "title": "How would you like us to contact you?",
+    "legendIsPageTitle": true
+}) %}
+    {{
+        onsRadios({
+            "dontWrap": true,
+            "name": "contact",
+            "radios": [
+                {
+                    "id": "post",
                     "label": {
-                        "text": "Please specify heat level"
+                        "text": "By post"
                     },
-                    "options": [
-                        {
-                            "value": "",
-                            "text": "Select heat level",
-                            "disabled": true,
-                            "selected": true
+                    "value": "post"
+                },
+                {
+                    "id": "email",
+                    "label": {
+                        "text": "By email"
+                    },
+                    "value": "email"
+                },
+                {
+                    "id": "phone",
+                    "label": {
+                        "text": "By phone"
+                    },
+                    "value": "phone",
+                    "other": {
+                        "otherType": "select",
+                        "id": "phone-time",
+                        "name": "phone-time",
+                        "label": {
+                            "text": "Choose preferred time of day"
                         },
-                        {
-                            "value": "mild",
-                            "text": "Mild"
-                        },
-                        {
-                            "value": "medium",
-                            "text": "Medium"
-                        },
-                        {
-                            "value": "hot",
-                            "text": "Hot"
-                        },
-                        {
-                            "value": "extra hot",
-                            "text": "Extra Hot"
-                        }
-                    ]
+                        "options": [
+                            {
+                                "value": "",
+                                "text": "Select an option",
+                                "disabled": true,
+                                "selected": true
+                            },
+                            {
+                                "value": "anytime",
+                                "text": "Anytime of day"
+                            },
+                            {
+                                "value": "morning",
+                                "text": "Morning"
+                            },
+                            {
+                                "value": "afternoon",
+                                "text": "Afternoon"
+                            },
+                            {
+                                "value": "evening",
+                                "text": "Evening"
+                            }
+                        ]
+                    }
                 }
-            }
-        ]
-    })
-}}
+            ]
+        })
+    }}
+{% endcall %}
