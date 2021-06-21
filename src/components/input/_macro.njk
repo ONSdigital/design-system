@@ -14,6 +14,8 @@
         {% set inputmode = "numeric" %}
     {% elif params.type is defined and params.type %}
         {% set type = params.type %}
+    {% elif params.searchButton is defined and params.searchButton %}
+        {% set type = "search" %}
     {% else %}
         {% set type = "text" %}
     {% endif %}
