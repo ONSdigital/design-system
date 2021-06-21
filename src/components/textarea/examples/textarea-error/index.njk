@@ -1,0 +1,17 @@
+{% from "components/textarea/_macro.njk" import onsTextarea %}
+
+{{
+    onsTextarea({
+        "id": "textarea",
+        "name": "feedback",
+        "label": {
+            "text": "Please provide some feedback",
+            "description": "For example describe any difficulties you experienced in the use of this service"
+        },
+            "error": {
+                "id": "feedback-error",
+                "text": "Enter your feedback",
+                "dsExample": isPatternLib
+            }
+    })
+}}
