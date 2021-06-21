@@ -1,14 +1,27 @@
 {% macro onsUpload(params) %}
     {% from "components/input/_macro.njk" import onsInput %}
+    {% from "components/field/_macro.njk" import onsField %}
 
-    {{ onsInput({
-        "id": params.id,
-        "type": "file",
-        "label": params.label,
-        "classes": "input--upload",
-        "accept": params.accept,
-        "name": params.name,
-        "attributes": params.attributes,
-        "listeners": params.listeners
-    }) }}
+    {% set field %}
+        {{ onsInput({
+            "id": params.id,
+            "type": "file",
+            "label": params.label,
+            "classes": "input--upload",
+            "accept": params.accept,
+            "name": params.name,
+            "attributes": params.attributes,
+            "listeners": params.listeners
+        }) }}
+    {% endset %}
+
+    {% call onsField({
+        "id": params.fieldId,
+        "classes": params.fieldClasses,
+        "dontWrap": params.dontWrap,
+        "legendIsPageTitle": params.legendIsPageTitle,
+        "error": params.error
+    }) %}
+        {{ field | safe }}
+    {% endcall %}
 {% endmacro %}
