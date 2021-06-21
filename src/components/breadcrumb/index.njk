@@ -6,9 +6,7 @@ title: Breadcrumbs
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application. 
-Always place breadcrumbs before a page’s `<main>` content element.  This makes sure the [Skip to content](/components/skip-to-content) link allows the user to skip all navigation, including the breadcrumbs.
-Where possible this should be set in the [page template](/styles/page-template/) in `pageConfig`. This will ensure it will have the correct placing on the page.
+A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application.
 
 {{
     patternlibExample({"path": "components/breadcrumb/examples/breadcrumb/index.njk"})
@@ -22,7 +20,11 @@ Don’t use the breadcrumbs component on websites with a flat structure, or to s
 
 If you’re using other navigational elements on the page, such as a sidebar, consider whether your users need the additional support of breadcrumbs.
 
-## How it works
+## How to use this component
+Always place breadcrumbs before a page’s `<main>` content element.  This makes sure the [Skip to content](/components/skip-to-content) link allows the user to skip all navigation, including the breadcrumbs.
+Where possible this should be set in the [page template](/styles/page-template/) in `pageConfig` to make sure it's placed correctly.
+
+### How it works
 {{
     onsList({
         "itemsList": [
@@ -60,20 +62,11 @@ Based upon {{
     })
 }}
 
-{% call onsPanel() %}
-    If you have conducted any user research using this component, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/discussions/43",
-            "linkText": "Design System forum"
-        })
-    }}
-{% endcall %}
-
-## Design System forum
+## Help improve this component
+Let us know how we could improve this component or share your user research findings.
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/43",
-        "linkText": "Discuss 'Breadcrumbs' on GitHub"
+        "linkText": "Discuss the ‘Breadcrumbs’ component on GitHub"
     })
 }}
