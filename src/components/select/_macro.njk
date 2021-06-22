@@ -21,7 +21,7 @@
         <select
             id="{{ params.id }}"
             name="{{ params.name }}"
-            class="input input--select {{ params.classes }}"
+            class="input input--select{% if params.classes %} {{ params.classes }}{% endif %}{% if params.select.error %} input--error{% endif %}"
             {% if params.value is defined and params.value %}value="{{ params.value}}" {% endif %}
             {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
