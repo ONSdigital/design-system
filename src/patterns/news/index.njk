@@ -15,23 +15,11 @@ How to display, tag, categorise and provide a landing page preview for news arti
 
 ## When to use this pattern
 
-Use this pattern to upload a news article to a public-facing website.
+Use this pattern to publish a news article to a public-facing website.
 
 ## How to use this pattern
 
-Each article needs to have a:
-
-- heading
-- summary
-- body text
-- category
-- date
-
 Use the [articles component](/components/articles) to build consistent articles.
-
-The content needs to be clearly written and as short as possible. Use plain language and “frontload” – put the most important word or points first. This ensures that if the user is skimming the article, they read the most important thing and understand it. 
-
-Our house style guide has [advice on writing in plain English](https://style.ons.gov.uk/category/writing-for-the-web/plain-english). You could also ask a content designer to help you rewrite the content so it is clear and helpful for the user.
 
 ### Landing page
 
@@ -39,7 +27,7 @@ This page sorts the already-published news so that the most recently posted arti
 
 Each landing page preview needs to have a:
 
-- short, clearly written title that links to the news article
+- short, clearly written title that links to the [news article](https://ons-design-system.netlify.app/components/articles)
 - short summary, usually taken from the first paragraph of the article, which should be no more than four lines (around 150 characters)
 - [date that follows house style](https://style.ons.gov.uk/category/writing-for-the-web/plain-english), for example, 23 September 2020
 - category, which links to the page that lists all articles in that category
@@ -49,11 +37,17 @@ You can add [related content](https://ons-design-system.netlify.app/components/r
 
 Add an image to your landing page. If you do not include an image, the system will use a placeholder. Placeholders do not look professional or support the written content to tell a story. The [articles component](/components/articles) has advice on image dimensions.
 
+### Categories
+
+Allocate at least one category to each news article: either press release or statement. The categories then appear on the right-hand side of the landing page. A category that has no posts assigned to it will not be visible on the landing page. If a user selects a category, it takes them to a landing page for all the articles in that category.
+
+Only one category will be visible on the landing page preview, even if the article is assigned to more than one.
+
 {{
-    patternlibExample({ "path": "patterns/news/examples/landing/index.njk" })
+    patternlibExample({ "path": "patterns/news/examples/category/index.njk" })
 }}
 
-### Article
+### News article
 
 This is a text page that can include images and videos. It needs to have at least one of the categories: statement or press release.
 
@@ -74,7 +68,7 @@ You can add “[Share](/components/share-page)” social media links to Facebook
     patternlibExample({ "path": "patterns/news/examples/article/index.njk" })
 }}
 
-### Tag
+### Tags
 
 Tags are not mandatory. Do not use the Tags block if there are no tags. A tag helps to identify an article, for example, “Census 2021”. Good tags help improve search performance. They need to be an important word or phrase that users will recognise. 
 
@@ -82,16 +76,6 @@ You can use more than one tag for each article. Each tag is highlighted in yello
 
 {{
     patternlibExample({ "path": "patterns/news/examples/tag/index.njk" })
-}}
-
-### Category
-
-Allocate at least one category to each news article: either press release or statement. The categories then appear on the right-hand side of the landing page. A category that has no posts assigned to it will not be visible on the landing page. If a user selects a category, it takes them to a landing page for all the articles in that category.
-
-Only one category will be visible on the landing page preview, even if the article is assigned to more than one.
-
-{{
-    patternlibExample({ "path": "patterns/news/examples/category/index.njk" })
 }}
 
 ## Research on this pattern
