@@ -23,10 +23,8 @@ Checkboxes are grouped within a [fieldset](/components/fieldset) which starts wi
 
 ## Variants
 
-### Other
-This variant lets the user provide an answer other to the options in the list, or to provide supplemental information required to describe the nature of their answer.
-
-The checkbox label must be directly followed by the `checkbox__description` to let the user know they will need to provide an answer if they select this option.
+### Checkbox with input
+This variant lets the user provide an answer other to the options in the list, or to provide additional information required to describe their answer.
 
 Use this variation by wrapping the text field in a div with class `checkbox__other`, added directly after the checkbox label. CSS hides this field until the checkbox is `:checked`.
 
@@ -34,15 +32,15 @@ Use this variation by wrapping the text field in a div with class `checkbox__oth
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-other/index.njk"})
 }}
 
-### Other - visible input
-This variant of the 'Other' checkbox input type shows the input instead of waiting for the checkbox to be `:checked`. This variant does not require the `checkbox__description` to be present.
+### Checkbox with visible input
+This variant of “checkbox with input” shows the input instead of waiting for the checkbox to be `:checked`.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-open/index.njk"})
 }}
 
-### Other - select
-This variant of the 'Other' checkboxes input type uses a select instead of an input.
+### Checkbox with drop-down
+This variant uses a [select component](/components/select) instead of an input.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-select/index.njk"})
@@ -74,13 +72,20 @@ Use the [correct errors pattern](/patterns/error-validation) and show the error 
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-error/index.njk"})
 }}
 
-#### If no options have been selected
-Use “Select at least one answer”
+#### If no checkbox options have been selected
+Use “Select [whatever it is]”.
 
-#### If one of the required fields is empty
+For example, “Select your dietary requirements”.
+
+#### If “checkbox with input” is selected but the input field is empty
 Use “Enter your [whatever it is]”.
 
 For example, “Enter your sexual orientation”.
+
+#### If “checkbox with drop-down” is selected but a drop-down option has not been selected
+Use “Select [whatever topic the drop-down is asking for]”.
+
+For example, “Select the time of day you would like us to contact you”.
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

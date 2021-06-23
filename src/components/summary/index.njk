@@ -100,8 +100,8 @@ If there are no rows returned the summary will render placholder text
     patternlibExample({"path": "components/summary/examples/hub/index.njk"})
 }}
 
-## How to check a summary
-To help users validate their summary, you should:
+## How to check a summary of figures
+To help users validate a summary of their previous numerical answers, you should:
 {{
     onsList({
         "itemsList": [
@@ -117,13 +117,13 @@ To help users validate their summary, you should:
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the summary.
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the group of rows in summary.
 
 {{
     patternlibExample({"path": "components/summary/examples/summary-grouped-validation/index.njk"})
 }}
 
-#### If there are any errors on the summary
+#### If there are any errors in the summary
 Use “Change one or more of the figures so they sum to [the required amount]”.
 
 For example, “Change one or more of the figures so they sum to 100%”.

@@ -36,7 +36,7 @@ You will need to use the autocomplete attribute for each applicable {{
 
 ## Variants
 
-### With description
+### Input with description
 An optional `label__description` can be used to display a hint to help the user enter their information.
 {{
     patternlibExample({"path": "components/input/examples/text-description/index.njk"})
@@ -71,8 +71,8 @@ Used for client side validation of an input that requires a character limit. The
     patternlibExample({"path": "components/input/examples/text-character-limit/index.njk"})
 }}
 
-## How to check an input
-To help users enter valid input, you should:
+## How to check an input field
+To help users enter something valid into an input field, you should:
 {{
     onsList({
         "itemsList": [
@@ -93,7 +93,7 @@ To help users enter valid input, you should:
 }}
 
 ### Error messages
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the checkbox options.
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the input field.
 
 {{
     patternlibExample({"path": "patterns/email-addresses/examples/email-error/index.njk"})
@@ -104,12 +104,18 @@ Use “Enter [whatever the input is]”.
 
 For example, “Enter an email address”.
 
-#### If the input field is not valid
-Use “Enter [whatever the input is] in a valid format, for example, [give example]”.
+#### If what is entered in the input field is not in a valid format
+Use “Enter [whatever the input is] in a valid format, for example, [whatever the example is]”.
 
 For example, “Enter an email address in a valid format, for example, name@example.com”.
 
-Each [pattern](/patterns) that uses the input component has specific guidance on error validation.
+Only use an example if it is appropriate. For security reasons, it may not be appropriate to give an example of an access code.
+
+{% call onsPanel({
+    "classes": "u-mb-s"
+}) %}
+    Each pattern that uses the input component has guidance on writing error messages: <a href="/patterns/access-codes">access codes</a>, <a href="/patterns/addresses">addresses</a>, <a href="/patterns/dates">dates</a>, <a href="/patterns/durations">durations</a>, <a href="/patterns/email-addresses">email addresses</a>, <a href="/patterns/numeric-values">numeric values</a>, <a href="/patterns/phone-numbers">phone numbers</a>.
+{% endcall %}
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

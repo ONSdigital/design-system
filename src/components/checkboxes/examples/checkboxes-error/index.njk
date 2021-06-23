@@ -1,65 +1,59 @@
-{% from "components/question/_macro.njk" import onsQuestion %}
+
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 
-{% call onsQuestion({
-    "title": "Do you have any dietary requirements?",
-    "legendIsPageTitle": true
-}) %}
-    {{
-        onsCheckboxes({
-            "checkboxesLabel": "Select all that apply",
-            "dontWrap": true,
-            "name": "dietary",
-            "checkboxes": [
-                {
-                    "id": "gluten-free",
-                    "label": {
-                        "text": "Gluten free"
-                    },
-                    "value": "gluten-free"
+{{
+    onsCheckboxes({
+        "checkboxesLabel": "Select all that apply",
+        "name": "dietary",
+        "checkboxes": [
+            {
+                "id": "gluten-free",
+                "label": {
+                    "text": "Gluten free"
                 },
-                {
-                    "id": "lactose-intolerant",
-                    "label": {
-                        "text": "Lactose intolerant"
-                    },
-                    "value": "lactose-intolerant"
+                "value": "gluten-free"
+            },
+            {
+                "id": "lactose-intolerant",
+                "label": {
+                    "text": "Lactose intolerant"
                 },
-                {
-                    "id": "vegan",
-                    "label": {
-                        "text": "Vegan"
-                    },
-                    "value": "vegan"
+                "value": "lactose-intolerant"
+            },
+            {
+                "id": "vegan",
+                "label": {
+                    "text": "Vegan"
                 },
-                {
-                    "id": "vegetarian",
-                    "label": {
-                        "text": "Vegetarian"
-                    },
-                    "value": "vegetarian"
+                "value": "vegan"
+            },
+            {
+                "id": "vegetarian",
+                "label": {
+                    "text": "Vegetarian"
                 },
-                {
-                    "id": "other-checkbox",
+                "value": "vegetarian"
+            },
+            {
+                "id": "other-checkbox",
+                "label": {
+                    "text": "Other"
+                },
+                "checked": true,
+                "value": "other",
+                "other": {
+                    "id": "other-textbox",
+                    "name": "other-answer",
                     "label": {
-                        "text": "Other"
-                    },
-                    "checked": true,
-                    "value": "other",
-                    "other": {
-                        "id": "other-textbox",
-                        "name": "other-answer",
-                        "label": {
-                            "text": "Enter dietary requirements"
-                        }
+                        "text": "Enter dietary requirements"
                     }
                 }
-            ],
-            "error": {
-                "id": "dietary-error",
-                "text": "Enter your dietary requirements",
-                "dsExample": isPatternLib
             }
-        })
-    }}
-{% endcall %}
+        ],
+        "error": {
+            "id": "dietary-error",
+            "text": "Enter your dietary requirements",
+            "dsExample": isPatternLib
+        }
+    })
+}}

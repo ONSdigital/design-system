@@ -30,10 +30,8 @@ This variant allows you to add more context to the options in the list. The desc
     patternlibExample({"path": "components/radios/examples/radios-descriptions/index.njk"})
 }}
 
-### Other
-This variant lets the user provide an answer other to the options in the list, or to provide supplemental information required to describe the nature of their answer.
-
-The radio label must be directly followed by the `radio__description` to let the user know they will need to provide an answer if they select this option.
+### Radio with input
+This variant lets the user provide an answer other to the options in the list, or to provide additional information required to describe their answer.
 
 Use this variation by wrapping the text field in a div with class `radio__other`, added directly after the radio label. CSS hides this field until the radio is `:checked`.
 
@@ -42,21 +40,21 @@ Use this variation by wrapping the text field in a div with class `radio__other`
 }}
 
 
-### Other - visible input
-This variant of the 'Other' radio input type shows the input instead of waiting for the radio to be `:checked`. This variant does not require the `radio__description` to be present.
+### Radio with visible input
+This variant of “radio with input” shows the input instead of waiting for the radio to be `:checked`.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-other-open/index.njk"})
 }}
 
-### Other - select
-This variant of the 'Other' radio input type uses a select instead of an input.
+### Radio with drop-down
+This variant uses a [select component](/components/select) instead of an input.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-select/index.njk"})
 }}
 
-### Radios with an 'or' label
+### Radios with an “or” label
 {{
     patternlibExample({"path": "components/radios/examples/radios-with-or/index.njk"})
 }}
@@ -71,8 +69,8 @@ The submit button should use the `hidden` attribute and also the `u-d-no` utilit
     patternlibExample({"path": "components/radios/examples/radios-clear/index.njk"})
 }}
 
-## How to validate checkboxes
-You should check that users have selected one of the radio options and show an error message if they have not.
+## How to check radios
+To help users make a selection on the page and provide extra detail if it is required, you should:
 {{
     onsList({
         "itemsList": [
@@ -98,12 +96,22 @@ Use the [correct errors pattern](/patterns/error-validation) and show the error 
 }}
 
 #### If a radio option has not been selected
+Use “Select [whatever it is]”.
+
+For example, “Select your religion”.
+
+#### If it is a question with yes or no answers and a radio option has not been selected
 Use “Select an answer”
 
-#### If one of the required fields is empty
-Use “Enter your [whatever it is]”.
+#### If “radio with input” is selected but the input field is empty
+Use “Enter [whatever it is]”.
 
 For example, “Enter your gender identity”.
+
+#### If “radio with drop-down” is selected but a drop-down option has not been selected
+Use “Select [whatever topic the drop-down is asking for]”.
+
+For example, “Select your preferred time of day for us to contact you”
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

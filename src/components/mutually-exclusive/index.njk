@@ -85,15 +85,19 @@ Use the [correct errors pattern](/patterns/error-validation) and show the error 
 
 Error validation for this component varies according to the mutually exclusive answer type used.
 
-#### If no option is selected for a checkbox-only answer
-Use “Select at least one answer”.
+#### Use “Select [whatever it is]”.
+For example, “Select what type of central heating you have”.
 
 #### If all fields are empty and the mutually exclusive checkbox is not selected
-Use “Enter [whatever the field requires] or select an answer”.
+Use “Enter [whatever the field asks for] or select the other option”.
 
-For example, “Enter your date of birth or select an answer”.
+For example, “Enter your feedback or select the other option”.
 
-For error validation content guidance for pages with input fields, use one of the following: [dates pattern](/patterns/dates), [textarea component](/components/textarea), [email addresses pattern](/patterns/email-addresses), [numeric values pattern](/patterns/numeric-values), [durations pattern](/patterns/durations).
+{% call onsPanel({
+    "classes": "u-mb-s"
+}) %}
+    Each pattern and component that uses the mutually exclusive component has guidance on writing error messages: <a href="/patterns/access-codes">access codes pattern</a>, <a href="/patterns/addresses">addresses pattern</a>, <a href="/patterns/dates">dates pattern</a>, <a href="/patterns/durations">durations pattern</a>, <a href="/patterns/email-addresses">email addresses pattern</a>, <a href="/patterns/numeric-values">numeric values pattern</a>, <a href="/patterns/phone-numbers">phone numbers pattern</a>, <a href="/components/textarea">textarea component</a>.
+{% endcall %}
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.
