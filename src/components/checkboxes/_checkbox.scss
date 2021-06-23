@@ -1,6 +1,5 @@
-$checkbox-input-width: 22.5px;
-$checkbox-padding: 10.8px;
-$checkbox-label-vertical-padding: 13.5px;
+$checkbox-input-width: 22px;
+$checkbox-padding: 11px;
 
 .checkbox {
   display: inline-block;
@@ -19,7 +18,7 @@ $checkbox-label-vertical-padding: 13.5px;
     height: $checkbox-input-width;
     left: $checkbox-padding;
     position: absolute;
-    top: $checkbox-padding + 2.7px;
+    top: $checkbox-padding + 2px;
     width: $checkbox-input-width;
     z-index: 1;
 
@@ -36,11 +35,11 @@ $checkbox-label-vertical-padding: 13.5px;
   &__label {
     cursor: pointer;
     display: block;
-    padding: $checkbox-padding 18px $checkbox-padding ($checkbox-padding * 2 + $checkbox-input-width);
+    padding: $checkbox-padding 1rem $checkbox-padding ($checkbox-padding * 2 + $checkbox-input-width);
     width: 100%;
 
     &--with-description {
-      padding: 0 18px $checkbox-padding 0;
+      padding: 0 1rem $checkbox-padding 0;
     }
 
     .label__description {
