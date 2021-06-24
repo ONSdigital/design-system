@@ -3,7 +3,6 @@ title: News
 group: Pages
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
 
@@ -27,14 +26,14 @@ This index sorts the already-published news so that the most recently posted art
 
 Each article listed on the news index needs to have a:
 
-- short, clearly written title that links to the [news article](https://ons-design-system.netlify.app/components/articles)
+- short, clearly written title that links to the [news article](/patterns/news/#news-article)
 - short summary, usually taken from the first paragraph of the article, which should be no more than four lines (around 150 characters)
-- [publication date that follows house style](https://style.ons.gov.uk/category/writing-for-the-web/plain-english), for example, 23 September 2020
+- [publication date that follows house style](https://style.ons.gov.uk/house-style/dates), for example, 23 September 2020
 - thumbnail image
 
 A list of categories appears on the right-hand side of the news index, and you could also add contact details for the media team. Another optional feature is “[Follow us](https://ons-design-system.netlify.app/styles/typography/#list-with-social-icons)” social media links to Instagram, Facebook, Twitter and LinkedIn.
 
-If you do not include an image with each article, the news index will use a placeholder. Placeholders do not look professional or support the written content to tell a story. The articles component has advice on image dimensions.
+If you do not include an image with each article, the news index will use a placeholder. Placeholders do not look professional or support the written content to tell a story. The [articles component](/components/articles) has advice on image dimensions.
 
 ### News article
 
@@ -77,21 +76,12 @@ You can use more than one tag for each article. Each tag is highlighted in yello
     patternlibExample({ "path": "patterns/news/examples/tag/index.njk" })
 }}
 
-## Research on this pattern
-{% call onsPanel() %}
-    If you have conducted any user research using this pattern, please feed back your findings via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/discussions/1513",
-            "linkText": "Design System forum"
-        })
-    }}
-{% endcall %}
 
-## Design System forum
+## Help improve this pattern
+Let us know how we could improve this pattern or share your user research findings.
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/1513",
-        "linkText": "Discuss 'News' on GitHub"
+        "linkText": "Discuss the ‘News’ pattern on GitHub"
     })
 }}
