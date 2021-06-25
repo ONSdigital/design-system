@@ -14,6 +14,42 @@ The input component lets users enter alphanumeric characters for answers that ar
 ## When to use this component
 Use the input component when you need to let users enter alphanumeric information that is no longer than one line, such as their telephone number or email address.
 
+There is specific guidance on how to ask for:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "url": '/patterns/access-codes',
+                "text": 'access codes'
+            },
+            {
+                "url": '/patterns/addresses',
+                "text": 'addresses'
+            },
+            {
+                "url": '/patterns/dates',
+                "text": 'dates'
+            },
+            {
+                "url": '/patterns/durations',
+                "text": 'durations'
+            },
+            {
+                "url": '/patterns/email-addresses',
+                "text": 'email addresses'
+            },
+            {
+                "url": '/patterns/numeric-values',
+                "text": 'numeric values'
+            },
+            {
+                "url": '/patterns/phone-numbers',
+                "text": 'phone numbers'
+            }
+        ]
+    })
+}}
+
 ## When not to use this component
 Do not use this component if you need to let users enter information that will span more than one line.  In this case, you should use the [textarea](/components/textarea) component.
 
@@ -58,11 +94,23 @@ Setting the type to `email` will bring up the correct keypad on touch devices.
     patternlibExample({"path": "components/input/examples/email/index.njk"})
 }}
 
+There is specific guidance on how to ask users for [email addresses](/patterns/email-addresses).
+
 ### Telephone
 Setting the type to `tel` will bring up the correct keypad on touch devices.
 {{
     patternlibExample({"path": "components/input/examples/telephone/index.njk"})
 }}
+
+There is specific guidance on how to ask users for [phone numbers](/patterns/phone-numbers).
+
+### Number
+Setting the type to `number` will bring up the correct keypad on touch devices.
+{{
+    patternlibExample({"path": "components/input/examples/prefixed/index.njk"})
+}}
+
+There is specific guidance on how to ask users for [numeric values](/patterns/numeric-values) including entering numbers with units, such as currencies and measurements.
 
 ### Character limit checker
 Used for client side validation of an input that requires a character limit. The character limit counter is displayed when the `charCheckLimit` object is defined with params `limit`, `charCountOverLimitSingular`, `charCountOverLimitPlural` parameters.
@@ -94,28 +142,26 @@ To help users enter something valid into an input field, you should:
 
 ### Error messages
 Use the [correct errors pattern](/patterns/error-validation) and show the error details above the input field.
-
 {{
     patternlibExample({"path": "patterns/email-addresses/examples/email-error/index.njk"})
 }}
 
 #### If the input field is empty
-Use “Enter [whatever the input is]”.
-
+Use “Enter [whatever the input is]”.\
 For example, “Enter an email address”.
 
 #### If what is entered in the input field is not in a valid format
-Use “Enter [whatever the input is] in a valid format, for example, [whatever the example is]”.
-
+Use “Enter [whatever the input is] in a valid format, for example, [whatever the example is]”.\
 For example, “Enter an email address in a valid format, for example, name@example.com”.
 
-Only use an example if it is appropriate. For security reasons, it may not be appropriate to give an example of an access code.
+{{
+    onsPanel({
+        "type": "warn",
+        "body": "<p>Only use an example if it is appropriate. For security reasons, it may not be appropriate to give an example of an access code.</p>"
+    })
+}}
 
-{% call onsPanel({
-    "classes": "u-mb-s"
-}) %}
-    Each pattern that uses the input component has guidance on writing error messages: <a href="/patterns/access-codes">access codes</a>, <a href="/patterns/addresses">addresses</a>, <a href="/patterns/dates">dates</a>, <a href="/patterns/durations">durations</a>, <a href="/patterns/email-addresses">email addresses</a>, <a href="/patterns/numeric-values">numeric values</a>, <a href="/patterns/phone-numbers">phone numbers</a>.
-{% endcall %}
+There is specific guidance on how to ask users for [access codes](/patterns/access-codes).
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.
