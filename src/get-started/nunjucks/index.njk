@@ -1,0 +1,53 @@
+---
+title: Using Nunjucks
+sortOrder: 2
+group: Installing the Design System
+---
+
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
+
+The Design system uses {{
+    onsExternalLink({
+        "url": "https://mozilla.github.io/nunjucks/getting-started.html",
+        "linkText": "Nunjucks"
+    })
+}} as it's templating language. All components and templates are also compatible with applications that use {{
+    onsExternalLink({
+        "url": "https://jinja.palletsprojects.com/en/3.0.x/",
+        "linkText": "Jinja"
+    })
+}}.
+
+## Set up
+
+We recommend installing the Design System via the {{
+    onsExternalLink({
+        "url": "https://www.npmjs.com/package/@ons/design-system",
+        "linkText": "npm package"
+    })
+}} we publish on each release. 
+
+In your Nunjucks configuration you'll need to add `node_modules/@ons/design-system/components` and `node_modules/@ons/design-system/page-templates` to your search paths.
+
+You can get all components and templates from a zip file that's created with each {{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/releases",
+        "linkText": "design system release"
+    })
+}}. You would need to create a script that gets the zip and unpacks the contents. The script could run manually for development (and the folders added to a `.gitignore` file) but in production be performed within a build process as part of a ci task. 
+
+If you're using jinja then you'll need to have your script copy the `components` and `page-templates` folders from the unzipped download into your `templates` folder, as this is where jinja looks for templates by default, and multiple search paths cannot be specified. 
+
+The zipped templates have already got the CDN release version and paths set based on the version of the templates you've downloaded.
+
+## Using components
+
+The [components](/components) section contains all of the available components that have been tested for accessibility and usability and are ready for production. Each component has been developed using mobile first principles and will render appropriately across all compatible viewports.
+
+Each component contains examples and any context specific variants. You can copy the `Nunjucks` code directly from the example and view the options available for configuration. See the example below:
+
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{{
+    patternlibExample({"path": "components/panel/examples/information/index.njk"})
+}}

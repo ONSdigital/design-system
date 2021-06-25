@@ -1,0 +1,97 @@
+---
+title: Using the CSS, JS and assets
+sortOrder: 3
+anchorLinks: true
+group: Installing the Design System
+---
+
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
+## CSS
+### Import Sass files from the npm package
+
+If your project has it's own bundling tool you can import Sass rules from your `@ons/design-system` npm package.
+
+#### Import all Sass rules
+
+You can get all the Sass rules by adding the following to your main Sass file:
+
+{{ onsCodeHighlight({ "code": "@import 'node_modules/@ons/design-system/scss/main';" }) }}
+
+#### Import specific Sass rules
+
+You may not require any or many of the css for components and for performance reasons you may only want specific parts of the Design System Sass files.
+
+As a minimum you should import the following Sass files:
+
+{{ onsCodeHighlight({ "code": "@import 'node_modules/@ons/design-system/scss/vars/index';
+@import 'node_modules/@ons/design-system/scss/helpers/index';
+@import 'node_modules/@ons/design-system/scss/utilities/index';
+@import 'node_modules/@ons/design-system/scss/base/index';
+@import 'node_modules/@ons/design-system/scss/objects/index';" }) }}
+<br>
+Importing the above files ensures components and patterns have access to any required global classes and utilities.
+
+To import the styles for a single component, such as the button component, you can then add this underneath:
+
+{{ onsCodeHighlight({ "code": "@import 'node_modules/@ons/design-system/components/button/button';" }) }}
+<br>
+Some components use other components e.g accordions. You will need to import the Sass files for each component used.
+
+### Use compiled CSS from the npm package
+
+You can either import or copy the `main.css` file to include the compiled stylesheet of all components and styles. This file can be found under `node_modules/@ons/design-system/css/main.css`
+
+## Javascript
+To include the required javascript in your service the best way is to reference the published javascript file from the CDN. The Design System uses {{
+    onsExternalLink({
+        "url": "https://webpack.js.org/guides/code-splitting/",
+        "linkText": "code splitting"
+    })
+}} to optimise performance by dynamically importing modules only when they are required. The section below provides details on how to reference files from the CDN.
+
+## CDN
+All of the global styles and individual component code is compiled and made available via a `CDN`.
+
+Each release of the Design System is tagged with a version e.g. ![](https://img.shields.io/github/release/onsdigital/design-system.svg?style=flat-square) which forms part of the `url` of the compiled files for a specific release.
+
+The following files are deployed to the `CDN` which can be referenced in a service or project:
+
+- `main.css` - Responsive CSS file of all components.
+- `main.js` - Bundled JavaScript modules.
+
+To reference the files in your service you would use the following `url` structures (the `[VERSION]` should be replaced with the required release version e.g. ![](https://img.shields.io/github/release/onsdigital/design-system.svg?style=flat-square)):
+
+- `https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/css/main.css`
+- `https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/scripts/main.js`
+
+Each release deployed to the `CDN` is always available. This allows services to plan upgrades to new versions.
+
+## Assets
+
+All assets are available via the CDN. If you choose to use the main css file via the CDN all required fonts and images will be served from there.
+
+### Fonts 
+
+If you import all or parts of the css from the npm package you will need to import fonts into your service. You can copy the font files from `node_modules/@ons/design-system/fonts`
+into a `/fonts` folder in your project. You could also set up routing on your service to point the `/fonts` folder are served from `node_modules/@ons/design-system/fonts`.
+
+### Images
+
+All of the main images used across the Design System have been implemented as inline svgs, so you may not require any of the images within the npm package or CDN. 
+We do supply placeholder images for some components and if you require these, you can make them available by referencing directly from the CDN or following the same process as
+for including fonts and using a folder named `img`.
+
+### Favicons
+
+Favicons have been created for Safari, Chrome and Edge/Internet Explorer for desktop and mobile. Place the following references into the `head` of all pages within your service to make use of the available favicons. The `[VERSION]` should be replaced with the required release version.
+
+{{ onsCodeHighlight({ "code": '<meta name="msapplication-config" content="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/browserconfig.json">
+<link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="mask-icon" color="#5bbad5" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/safari-pinned-tab.svg">
+<link rel="apple-touch-icon" type="image/png" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/manifest.json">'}) }}
+
+Alternatively, you can copy the favicons from `node_modules/@ons/design-system/favicons` (if using the npm package) and referencing them from your project folder.
