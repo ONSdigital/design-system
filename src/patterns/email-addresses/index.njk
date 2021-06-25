@@ -77,19 +77,17 @@ To help users enter a valid email address, you should:
 
 #### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the email address field if it is missing or incorrect.
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the email address field.
 
 {{
     patternlibExample({"path": "patterns/email-addresses/examples/email-error/index.njk"})
 }}
 
-##### If the email address is missing
+##### If the email address field is empty
+Use “Enter an email address”.
 
-Use “Enter an email address” to explain the error to the user.
-
-##### If the email address is incorrect
-
-Use “Enter an email address in a valid format, for example, name@example.com” to explain the error to the user and give them a clear example of a valid email address.
+##### If the email address entered is not in a valid format
+Use “Enter an email address in a valid format, for example, name@example.com”.
 
 ## Help improve this pattern
 Let us know how we could improve this pattern or share your user research findings.
