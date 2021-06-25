@@ -24,14 +24,14 @@ Radios are grouped within a [fieldset](/components/fieldset) which starts with a
 ## Variants
 
 ### Descriptions
-This variant allows you to add more context to the options in the list. The description is populated by providing a `description` parameter within the radio's `label` parameter.
+This variant allows you to add more context to the radios in the list. The description is populated by providing a `description` parameter within the radio’s `label` parameter.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-descriptions/index.njk"})
 }}
 
 ### Radio with input
-This variant lets the user provide an answer other to the options in the list, or to provide additional information required to describe their answer.
+This variant lets the user provide an answer other to the radios in the list, or to provide additional information required to describe their answer.
 
 Use this variation by wrapping the text field in a div with class `radio__other`, added directly after the radio label. CSS hides this field until the radio is `:checked`.
 
@@ -62,7 +62,7 @@ This variant uses a [select component](/components/select) instead of an input.
 
 ### Radios with the option to clear
 
-This variant displays a 'Clear selection' button which allows the user to deselect/clear the fieldset so all radios are not `:checked`. The button is displayed after a radio is selected. The `aria-live` attribute is used for announcing changes in assistive technologies.
+This variant displays a ”Clear selection” button which allows the user to deselect/clear the fieldset so all radios are not `:checked`. The button is displayed after a radio is selected. The `aria-live` attribute is used for announcing changes in assistive technologies.
 
 If this variant is implemented on a question page that contains a primary submit button, a hidden duplicate submit button should be added to the top of the form to ensure the default enter key behaviour actions this button, and not the clear button.
 The submit button should use the `hidden` attribute and also the `u-d-no` utility class to set the button to `display:none`. This hides the button both visually and from screen readers.
@@ -76,13 +76,13 @@ To help users make a selection on the page and provide extra detail if it is req
     onsList({
         "itemsList": [
             {
-                "text": 'check they have selected a radio option'
+                "text": 'check they have selected a radio'
             },
             {
-                "text": 'check they have entered something or selected a drop-down option if more detail is required for one of the radio options'
+                "text": 'check they have entered something or selected a drop-down option if more detail is required for one of the radios'
             },
             {
-                "text": 'show an error message if they have not selected a radio option or given any more detail when required'
+                "text": 'show an error message if they have not selected a radio or given any more detail when required'
             }
         ]
     })
@@ -90,29 +90,26 @@ To help users make a selection on the page and provide extra detail if it is req
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the radio options.
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the radios.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-error/index.njk"})
 }}
 
-#### If a radio option has not been selected
-Use “Select [whatever it is]”.
-
+#### If a radio has not been selected
+Use “Select [whatever it is]”.\
 For example, “Select your religion”.
 
-#### If it is a question with yes or no answers and a radio option has not been selected
-Use “Select an answer”
+#### If it is a question with yes or no answers and a radio has not been selected
+Use “Select an answer”.
 
 #### If “radio with input” is selected but the input field is empty
-Use “Enter [whatever it is]”.
-
+Use “Enter [whatever it is]”.\
 For example, “Enter your gender identity”.
 
 #### If “radio with drop-down” is selected but a drop-down option has not been selected
-Use “Select [whatever topic the drop-down is asking for]”.
-
-For example, “Select your preferred time of day for us to contact you”
+Use “Select [whatever topic the drop-down is asking for]”.\
+For example, “Select your preferred time of day for us to contact you”.
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.
