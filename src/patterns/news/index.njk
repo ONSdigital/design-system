@@ -8,17 +8,13 @@ group: Pages
 
 How to display, tag and categorise news articles.
 
-{{
-    patternlibExample({ "path": "patterns/news/examples/landing/index.njk" })
-}}
-
 ## When to use this pattern
 
 Use this pattern to publish a news article to a public-facing website.
 
 ## How to use this pattern
 
-Use the [articles component](/components/articles) to build consistent articles.
+Use the [articles component](/components/articles) to build consistent summaries of articles.
 
 ### News index
 
@@ -31,9 +27,13 @@ Each article listed on the news index needs to have a:
 - [publication date that follows house style](https://style.ons.gov.uk/house-style/dates), for example, 23 September 2020
 - thumbnail image
 
-A list of categories appears on the right-hand side of the news index, and you could also add contact details for the media team. Another optional feature is “[Follow us](https://ons-design-system.netlify.app/styles/typography/#list-with-social-icons)” social media links to Instagram, Facebook, Twitter and LinkedIn.
+A list of [categories](/patterns/news/#categories) appear on the news index, and you could also add contact details for the media team. Another optional feature is “[Follow us](https://ons-design-system.netlify.app/styles/typography/#list-with-social-icons)” social media links to Instagram, Facebook, Twitter and LinkedIn.
 
 If you do not include an image with each article, the news index will use a placeholder. Placeholders do not look professional or support the written content to tell a story. The [articles component](/components/articles) has advice on image dimensions.
+
+{{
+    patternlibExample({ "path": "patterns/news/examples/landing/index.njk" })
+}}
 
 ### News article
 
@@ -48,7 +48,7 @@ The title is important. It will stand out on the news index and it links users t
 - be as short as possible
 - be frontloaded, with the most important information first
 
-Each article needs to have [Previous and Next skip links](/components/pagination#pager) at the end.
+Each article needs to have [Previous and Next pagination links](/components/pagination#pager) at the end.
 
 You can add “[Share](/components/share-page)” social media links to Facebook, Twitter and LinkedIn.
 
@@ -58,7 +58,7 @@ You can add “[Share](/components/share-page)” social media links to Facebook
 
 ### Categories
 
-Allocate at least one category to each news article: either press release or statement. The categories then appear on the right-hand side of the news index. A category that has no posts assigned to it will not be visible on the news index. If a user selects a category, it takes them to a news index for all the articles in that category.
+Allocate at least one category to each news article: either press release or statement. The categories then appear on the news index. A category that has no posts assigned to it will not be visible on the news index. If a user selects a category, it takes them to a news index for all the articles in that category.
 
 Only one category will be visible on the news index, even if the article is assigned to more than one.
 
