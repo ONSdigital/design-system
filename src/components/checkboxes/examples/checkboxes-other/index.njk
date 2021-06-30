@@ -1,39 +1,59 @@
+{% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
-{{
-    onsCheckboxes({
-        "legend": "What are your favourite pizza toppings?",
-        "checkboxesLabel": "Select all that apply",
-        "name": "food-other",
-        "checkboxes": [
-            {
-                "id": "bacon-other",
-                "label": {
-                    "text": "Bacon"
-                },
-                "value": "bacon"
-            },
-            {
-                "id": "olives-other",
-                "label": {
-                    "text": "Olives"
-                },
-                "value": "olives"
-            },
-            {
-                "id": "other-checkbox",
-                "label": {
-                    "text": "Other",
-                    "description": "An answer is required"
-                },
-                "value": "other",
-                "other": {
-                    "id": "other-textbox",
-                    "name": "other-answer",
+
+{% call onsQuestion({
+    "title": "Do you have any dietary requirements?",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsCheckboxes({
+            "checkboxesLabel": "Select all that apply",
+            "dontWrap": true,
+            "name": "dietary",
+            "checkboxes": [
+                {
+                    "id": "gluten-free",
                     "label": {
-                        "text": "Please specify other"
+                        "text": "Gluten free"
+                    },
+                    "value": "gluten-free"
+                },
+                {
+                    "id": "lactose-intolerant",
+                    "label": {
+                        "text": "Lactose intolerant"
+                    },
+                    "value": "lactose-intolerant"
+                },
+                {
+                    "id": "vegan",
+                    "label": {
+                        "text": "Vegan"
+                    },
+                    "value": "vegan"
+                },
+                {
+                    "id": "vegetarian",
+                    "label": {
+                        "text": "Vegetarian"
+                    },
+                    "value": "vegetarian"
+                },
+                {
+                    "id": "other-checkbox",
+                    "label": {
+                        "text": "Other"
+                    },
+                    "value": "other",
+                    "other": {
+                        "id": "other-textbox",
+                        "name": "other-answer",
+                        "label": {
+                            "text": "Enter dietary requirements"
+                        }
                     }
                 }
-            }
-        ]
-    })
-}}
+            ]
+        })
+    }}
+{% endcall %}

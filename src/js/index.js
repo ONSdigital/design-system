@@ -9,7 +9,7 @@ import 'components/collapsible/collapsible.dom';
 import 'components/table/scrollable-table.dom';
 import 'components/table/sortable-table.dom';
 import 'components/header/header-nav.dom';
-import 'components/uac/uac.dom';
+import 'components/access-code/uac.dom';
 import 'components/relationships/relationships.dom';
 import 'components/checkboxes/checkboxes.dom';
 import 'components/radios/radios.dom';

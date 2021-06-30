@@ -1,33 +1,38 @@
 {% from "components/input/_macro.njk" import onsInput %}
+{% from "components/question/_macro.njk" import onsQuestion %}
 
-{{
-    onsInput({
-        "id": "currency",
-        "type": "number",
-        "classes": "input--w-5",
-        "attributes": {
-            "min": 0
-        },
-        "label": {
-            "text": "What is your annual income before tax?"
-        },
-        "prefix": {
-            "title": "Pounds (GBP)",
-            "text": "£"
-        },
-        "mutuallyExclusive": {
-            "or": "Or",
-            "deselectMessage": "Selecting this will clear your inputted annual income",
-            "deselectGroupAdjective": "cleared",
-            "deselectCheckboxAdjective": "deselected",
-            "checkbox": {
-                "id": "currency-checkbox",
-                "name": "no-currency",
-                "value": "no-currency",
-                "label": {
-                    "text": "I prefer not to say"
+{% call onsQuestion({
+    "title": "What was your annual income before tax in 2018/19?"
+}) %}
+    {{
+        onsInput({
+            "id": "currency",
+            "type": "number",
+            "classes": "input--w-5",
+            "attributes": {
+                "min": 0
+            },
+            "label": {
+                "text": "Gross annual income"
+            },
+            "prefix": {
+                "title": "British pounds (GBP)",
+                "text": "£"
+            },
+            "mutuallyExclusive": {
+                "or": "Or",
+                "deselectMessage": "Selecting this will clear your inputted annual income",
+                "deselectGroupAdjective": "cleared",
+                "deselectCheckboxAdjective": "deselected",
+                "checkbox": {
+                    "id": "currency-checkbox",
+                    "name": "no-currency",
+                    "value": "no-currency",
+                    "label": {
+                        "text": "I prefer not to say"
+                    }
                 }
             }
-        }
-    })
-}}
+        })
+    }}
+{% endcall %}

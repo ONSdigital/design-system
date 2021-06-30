@@ -1,49 +1,57 @@
 {% from "components/radios/_macro.njk" import onsRadios %}
-{{
-    onsRadios({
-        "legend": "What is your ethnic group or background?",
-        "name": "ethnicity",
-        "radios": [
-            {
-                "id": "white",
-                "label": {
-                    "text": "White",
-                    "description": "Includes British, Northern Irish, Irish, Gypsy, Irish Traveller, Roma or any other White background"
+{% from "components/question/_macro.njk" import onsQuestion %}
+
+{% call onsQuestion({
+    "title": "What is your ethnic group or background?",
+    "classes": "u-mt-no",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsRadios({
+            "dontWrap": true,
+            "name": "ethnicity",
+            "radios": [
+                {
+                    "id": "white",
+                    "label": {
+                        "text": "White",
+                        "description": "Includes British, Northern Irish, Irish, Gypsy, Irish Traveller, Roma or any other White background"
+                    },
+                    "name": "white"
                 },
-                "name": "white"
-            },
-            {
-                "id": "mixed",
-                "label": {
-                    "text": "Mixed or Multiple ethnic groups",
-                    "description": "Includes White and Black Caribbean, White and Black African, White and Asian or any other Mixed or Multiple background"
+                {
+                    "id": "mixed",
+                    "label": {
+                        "text": "Mixed or Multiple ethnic groups",
+                        "description": "Includes White and Black Caribbean, White and Black African, White and Asian or any other Mixed or Multiple background"
+                    },
+                    "name": "mixed"
                 },
-                "name": "mixed"
-            },
-            {
-                "id": "asian",
-                "label": {
-                    "text": "Asian or Asian British",
-                    "description": "Includes Indian, Pakistani, Bangladeshi, Chinese or any other Asian background"
+                {
+                    "id": "asian",
+                    "label": {
+                        "text": "Asian or Asian British",
+                        "description": "Includes Indian, Pakistani, Bangladeshi, Chinese or any other Asian background"
+                    },
+                    "name": "asian"
                 },
-                "name": "asian"
-            },
-            {
-                "id": "black",
-                "label": {
-                    "text": "Black, Caribbean, African or Black British",
-                    "description": "Includes Black British, Caribbean, African or any other Black background"
+                {
+                    "id": "black",
+                    "label": {
+                        "text": "Black, Black British, Caribbean or African",
+                        "description": "Includes Black British, Caribbean, African or any other Black background"
+                    },
+                    "name": "black"
                 },
-                "name": "black"
-            },
-            {
-                "id": "other",
-                "label": {
-                    "text": "Other ethnic group",
-                    "description": "Includes Arab or any other ethnic group"
-                },
-                "name": "other"
-            }
-        ]
-    })
-}}
+                {
+                    "id": "other",
+                    "label": {
+                        "text": "Other ethnic group",
+                        "description": "Includes Arab or any other ethnic group"
+                    },
+                    "name": "other"
+                }
+            ]
+        })
+    }}
+{% endcall %}
