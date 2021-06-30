@@ -69,7 +69,7 @@ const params = {
     label: 'Postcode',
   },
   searchButton: 'Search for an address',
-  manualButton: 'Manually enter address',
+  manualLink: 'Manually enter address',
 };
 
 let lang = 'en';

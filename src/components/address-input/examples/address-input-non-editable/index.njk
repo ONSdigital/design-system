@@ -12,8 +12,7 @@ layout: none
 } %}
 {% block main %}
     {% call onsQuestion({
-        "title": "What is your address?",
-        "legendIsQuestionTitle": true
+        "title": "What is your address?"
     }) %}
     
     <form action="#">
@@ -25,8 +24,9 @@ layout: none
                     "text": "Enter address or postcode and select from results",
                     "id": "address-label"
                 },
-                "isEditable": true,
+                "isEditable": false,
                 "mandatory": true,
+                "externalInitialiser": true,
                 "APIDomain": "https://whitelodge-eq-ai-api.census-gcp.onsdigital.uk",
                 'APIDomainBearerToken': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.5W2EgODHpsts672J4psiGH31H-vJBz1r56_Tr9_8pPU",
                 "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
@@ -48,26 +48,15 @@ layout: none
                 "errorMessageEnter": "Enter an address",
                 "errorMessageSelect": "Select an address",
                 "errorMessageAPI": "Sorry, there was a problem loading addresses",
-                "errorMessageAPILinkText": "Enter address manually",
+                "errorMessageAPILinkText": "Do something else",
+                "errorMessageAPILink": "#",
                 "options": {
                     "regionCode": "gb-eng",
                     "addressType": "residential"
-                }
-            },
-            "line1": {
-                "label": "Address line 1"
-            },
-            "line2": {
-                "label": "Address line 2"
-            },
-            "town": {
-                "label": "Town or city"
-            },
-            "postcode": {
-                "label": "Postcode"
-            },
-            "searchButton": "Search for an address",
-            "manualButton": "Manually enter address"
+                },
+                "manualLink": "#",
+                "manualLinkText": "Can't find your address?"
+            }
         }) }}
         {{
             onsButton({
