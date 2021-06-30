@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/uac/_test-template.njk';
-import UAC from 'components/uac/uac';
+import template from 'components/access-code/_test-template.njk';
+import UAC from 'components/access-code/uac';
 
 const params = {
   id: 'uac',
