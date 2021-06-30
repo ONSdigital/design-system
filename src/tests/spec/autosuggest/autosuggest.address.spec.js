@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/address-input/_test-template.njk';
+import template from 'components/address-finder/_test-template.njk';
 import '../../../scss/main.scss';
 import AutosuggestAddress from '../../../components/input/autosuggest/autosuggest.address';
 import AddressError from '../../../components/input/autosuggest/autosuggest.address.error';

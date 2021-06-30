@@ -8,11 +8,11 @@ group: Ask users for...
 
 ## When to use this pattern
 
-This pattern should be used when you need to collect an address from a user.
+This pattern should be used when you need to collect an address from a user using the [address finder component](/components/address-finder). 
 
 ## How to use this pattern
 
-There are two main ways to use this pattern. Addresses can either be editable or non-editable. Look at the nunjucks output in both examples below to see how they are configured using the `onsAddressInput` macro.
+There are two main ways to use this pattern. Addresses can either be editable or non-editable. Look at the nunjucks output in both examples below to see how they are configured using the `onsAddressFinder` macro.
 
 ### Editable addresses
 
@@ -20,17 +20,17 @@ Include the parameter `isEditable: true` (there are other required parameters th
 
 When an address has been selected the "mode" of the component will change to show each line of the address as the values of individual inputs (manual inputs). This allows the user to check and amend the address. 
 
-The manual address input wraps itself within a [fieldset](/components/fieldset) and legend. If used within an `onsQuestion` macro you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro. 
+The manual address input wraps itself within a [fieldset](/components/fieldset) and legend. If used within an `onsQuestion` macro you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressFinder` macro. 
 
 {{
-    patternlibExample({"path": "components/address-input/examples/address-input/index.njk"})
+    patternlibExample({"path": "patterns/addresses/examples/address-finder/index.njk"})
 }}
 
 ### Non-editable addresses
 
 Include the parameter `isEditable: false`. When an address has been selected the input will be populated with that address.
 {{
-    patternlibExample({"path": "components/address-input/examples/address-input-non-editable/index.njk"})
+    patternlibExample({"path": "patterns/addresses/examples/address-finder-non-editable/index.njk"})
 }}
 
 ### Additional information

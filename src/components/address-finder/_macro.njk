@@ -1,7 +1,7 @@
 {% from "components/fieldset/_macro.njk" import onsFieldset %}
 {% from "components/input/_macro.njk" import onsInput %}
 
-{% macro onsAddressInput(params) %}
+{% macro onsAddressFinder(params) %}
    {% set fields %}
         <div id="address" class="field address-input {% if params.autosuggest is defined and params.autosuggest %}js-address-autosuggest {% endif %}address-input--search">
             {% if params.autosuggest is defined and params.autosuggest and params.autosuggest.isEditable == true or params.autosuggest is not defined %}    
