@@ -1,0 +1,73 @@
+---
+title: Propose a new feature
+sortOrder: 1
+---
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+
+## When to propose a new feature
+Before you start, we need you to check that your new feature meets certain requirements.
+
+First, check if the feature is already:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'in the ONS Design system'
+            },
+            {
+                "text": 'being developed – you can check this on the <a class="external-link" target="_blank" rel="noopener" href="https://github.com/ONSdigital/design-system/projects/1">community backlog on GitHub</a>'
+            }
+        ]
+    })
+}}
+If not, consider if a variant of an existing feature rather than a new one would be appropriate.
+
+If you decide to go ahead, you need to provide evidence that the new feature:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'meets user needs'
+            },
+            {
+                "text": 'will help improve your site or service significantly'
+            }
+        ]
+    })
+}}
+Your evidence could be from user research, usability and accessibility testing, or research into best practice. You should provide prototypes and mocked-up examples to support your proposal.
+
+## How to propose a new feature
+
+### What you need to do
+
+#### Raise an issue
+First, {{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/new?assignees=&labels=New+feature+proposal&template=feature_request.md&title=Proposal%3A+%5BFEATURE+NAME%5D",
+        "linkText": "create a new issue in GitHub"
+    })
+}}. Just replace the content in the template with details about your proposal.
+
+#### Deliver show and tell
+We will then invite you to demonstrate your proposal at a Design System Working Group meeting, and present your evidence to support it. Let us know who else to invite to the meeting in your GitHub issue. We recommend involving at least your product manager, user researcher and designer.
+
+### What the Design System Working Group will do
+
+#### Decide if the proposal will go ahead
+The group will discuss the feature and your evidence. It will decide if the feature is needed in the design system. The working group may suggest a variant of an existing feature or reject the proposal if the evidence is not strong enough.
+
+#### Add it to the backlog
+If the group approves the new feature, it will add the proposal to the ONS Design System {{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/projects/1",
+        "linkText": "community backlog on GitHub"
+    })
+}}
+
+### Decide who will develop it
+You may not be in a position to create the new feature yourself. If you want or need someone else to develop it, the working group meeting is the place to discuss this. The group can help find a suitable developer for it.
+
+## Get help with your proposal
