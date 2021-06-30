@@ -12,53 +12,21 @@ This pattern should be used when you need to collect an address from a user usin
 
 ## How to use this pattern
 
-There are two main ways to use this pattern. Addresses can either be editable or non-editable. Look at the nunjucks output in both examples below to see how they are configured using the `onsAddressFinder` macro.
+There are two main ways to use this pattern. Addresses can either be [editable](/components/address-finder#editable-addresses) or [non-editable](/components/address-finder#non-editable-addresses). Look at the nunjucks output in both examples below to see how they are configured using the `onsAddressFinder` macro.
 
-### Editable addresses
-
-Include the parameter `isEditable: true` (there are other required parameters that can be viewed on the nunjucks output of the example). 
-
-When an address has been selected the "mode" of the component will change to show each line of the address as the values of individual inputs (manual inputs). This allows the user to check and amend the address. 
-
-The manual address input wraps itself within a [fieldset](/components/fieldset) and legend. If used within an `onsQuestion` macro you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressFinder` macro. 
+The pattern examples below will use client side validation against a set of [validation rules](/components/address-finder#validation).
+### Editable address pattern example
+The manual address inputs are wrapped within a [fieldset](/components/fieldset) and legend. If used within an `onsQuestion` macro you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressFinder` macro. 
 
 {{
     patternlibExample({"path": "patterns/addresses/examples/address-finder/index.njk"})
 }}
 
-### Non-editable addresses
+### Non-editable address pattern example
 
-Include the parameter `isEditable: false`. When an address has been selected the input will be populated with that address.
 {{
     patternlibExample({"path": "patterns/addresses/examples/address-finder-non-editable/index.njk"})
 }}
-
-### Additional information
-
-#### Validation
-
-The address autosuggest provides client side validation when the parameter `mandatory: true` is used. The rules for validation are as follows:
-
-- The input field is empty
-- The input has a value but an address has not been selected
-- An address has been selected and then amended (non-editable only)
-
-You will need to include parameters for the error messages displayed which can be viewed on the nunjucks output of the examples above.
-
-When using the editable address type, after an address has been selected and the manual inputs have been populated, any validation requirements on those inputs would need server side validation in place.
-
-#### UPRN
-
-The UPRN (unique ID) for the selected address is added to a hidden input field which will be posted with the rest of the form data upon submission. 
-
-If using the editable address, if the address is amended, the UPRN will be removed and not submitted.
-
-#### If the API is down
-
-When the page loads and the component initialises a status check is performed.
-If the service is down when using the editable address variation, the manual inputs will be displayed to allow the user to still enter an address. This "mode" also the non JS version of the component.
-
-If the API goes down during the use of the component a configurable message and link is displayed. 
 
 ## Help improve this pattern
 Let us know how we could improve this pattern or share your user research findings.

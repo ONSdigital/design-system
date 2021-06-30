@@ -1,7 +1,6 @@
 {% macro onsInput(params) %}
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/char-check-limit/_macro.njk" import onsCharLimit %}
-    {% from "components/input/_autosuggest-macro.njk" import onsAutosuggest%}
     {% from "components/search/_macro.njk" import onsSearch %}
     {% from "components/field/_macro.njk" import onsField %}
     {% from "components/label/_macro.njk" import onsLabel %}
@@ -25,7 +24,7 @@
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="input input--text input-type__input{% if params.error is defined and params.error %} input--error{% endif %}{% if params.autosuggest is defined and params.autosuggest %} js-autosuggest-input{% endif %}{% if params.searchButton is defined and params.searchButton %} u-mr-xs@s u-mb-xs@xxs@s{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="input input--text input-type__input{% if params.error is defined and params.error %} input--error{% endif %}{% if params.searchButton is defined and params.searchButton %} u-mr-xs@s u-mb-xs@xxs@s{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix is defined and params.prefix or params.suffix is defined and params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined and params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
@@ -94,42 +93,6 @@
                     "text": params.searchButton.text,
                     "id": params.searchButton.id
                 }
-            }) %}
-                {{ input | safe }}
-            {% endcall %}
-        {% elif params.autosuggest is defined and params.autosuggest %}
-            {% call onsAutosuggest({
-                "id": params.id,
-                "labelId": params.label.id,
-                "classes": params.autosuggest.classes,
-                "APIDomain": params.autosuggest.APIDomain,
-                "APIDomainBearerToken": params.autosuggest.APIDomainBearerToken,
-                "allowMultiple": params.autosuggest.allowMultiple,
-                "mandatory": params.autosuggest.mandatory,
-                "isEditable": params.autosuggest.isEditable,
-                "instructions": params.autosuggest.instructions,
-                "ariaYouHaveSelected": params.autosuggest.ariaYouHaveSelected,
-                "ariaMinChars": params.autosuggest.ariaMinChars,
-                "ariaResultsLabel": params.autosuggest.ariaResultsLabel,
-                "ariaOneResult": params.autosuggest.ariaOneResult,
-                "ariaNResults": params.autosuggest.ariaNResults,
-                "ariaLimitedResults": params.autosuggest.ariaLimitedResults,
-                "ariaGroupedResults": params.autosuggest.ariaGroupedResults,
-                "groupCount": params.autosuggest.groupCount,
-                "moreResults": params.autosuggest.moreResults,
-                "resultsTitle": params.autosuggest.resultsTitle,
-                "autosuggestData": params.autosuggest.autosuggestData,
-                "noResults": params.autosuggest.noResults,
-                "tooManyResults": params.autosuggest.tooManyResults,
-                "typeMore": params.autosuggest.typeMore,
-                "resultsTitle": params.autosuggest.resultsTitle,
-                "externalInitialiser": params.autosuggest.externalInitialiser,
-                "errorTitle": params.autosuggest.errorTitle,
-                "errorMessageEnter": params.autosuggest.errorMessageEnter,
-                "errorMessageSelect": params.autosuggest.errorMessageSelect,
-                "errorMessageAPI": params.autosuggest.errorMessageAPI,
-                "errorMessageAPILinkText": params.autosuggest.errorMessageAPILinkText,
-                "options": params.autosuggest.options
             }) %}
                 {{ input | safe }}
             {% endcall %}

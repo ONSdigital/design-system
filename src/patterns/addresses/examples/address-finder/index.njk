@@ -20,39 +20,37 @@ layout: none
         {{ onsAddressFinder({
             "id": "address",
             "dontWrap": true,
-            "autosuggest":{
-                "label": {
-                    "text": "Ente   r address or postcode and select from results",
-                    "id": "address-label"
-                },
-                "isEditable": true,
-                "mandatory": true,
-                "APIDomain": "https://whitelodge-eq-ai-api.census-gcp.onsdigital.uk",
-                'APIDomainBearerToken': "token",
-                "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
-                "ariaYouHaveSelected": "You have selected",
-                "ariaMinChars": "Enter 3 or more characters for suggestions.",
-                "ariaResultsLabel": "Address suggestions",
-                "ariaOneResult": "There is one suggestion available.",
-                "ariaNResults": "There are {n} suggestions available.",
-                "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
-                "ariaGroupedResults": "There are {n} for {x}",
-                "groupCount": "{n} addresses",
-                "moreResults": "Enter more of the address to improve results",
-                "resultsTitle": "Select an address",
-                "noResults": "No results found. Try entering a different part of the address",
-                "tooManyResults": "{n} results found. Enter more of the address to improve results",
-                "typeMore": "Enter more of the address to get results",
-                "autocomplete": "new-password",
-                "errorTitle": "There is a problem with your answer",
-                "errorMessageEnter": "Enter an address",
-                "errorMessageSelect": "Select an address",
-                "errorMessageAPI": "Sorry, there was a problem loading addresses",
-                "errorMessageAPILinkText": "Enter address manually",
-                "options": {
-                    "regionCode": "gb-eng",
-                    "addressType": "residential"
-                }
+            "label": {
+                "text": "Enter address or postcode and select from results",
+                "id": "address-label"
+            },
+            "isEditable": true,
+            "mandatory": true,
+            "APIDomain": "https://whitelodge-eq-ai-api.census-gcp.onsdigital.uk",
+            'APIDomainBearerToken': "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.5W2EgODHpsts672J4psiGH31H-vJBz1r56_Tr9_8pPU",
+            "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+            "ariaYouHaveSelected": "You have selected",
+            "ariaMinChars": "Enter 3 or more characters for suggestions.",
+            "ariaResultsLabel": "Address suggestions",
+            "ariaOneResult": "There is one suggestion available.",
+            "ariaNResults": "There are {n} suggestions available.",
+            "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
+            "ariaGroupedResults": "There are {n} for {x}",
+            "groupCount": "{n} addresses",
+            "moreResults": "Enter more of the address to improve results",
+            "resultsTitle": "Select an address",
+            "noResults": "No results found. Try entering a different part of the address",
+            "tooManyResults": "{n} results found. Enter more of the address to improve results",
+            "typeMore": "Enter more of the address to get results",
+            "autocomplete": "new-password",
+            "errorTitle": "There is a problem with your answer",
+            "errorMessageEnter": "Enter an address",
+            "errorMessageSelect": "Select an address",
+            "errorMessageAPI": "Sorry, there was a problem loading addresses",
+            "errorMessageAPILinkText": "Enter address manually",
+            "options": {
+                "regionCode": "gb-eng",
+                "addressType": "residential"
             },
             "line1": {
                 "label": "Address line 1"
@@ -67,7 +65,7 @@ layout: none
                 "label": "Postcode"
             },
             "searchButton": "Search for an address",
-            "manualButton": "Manually enter address"
+            "manualLinkText": "Manually enter address"
         }) }}
         {{
             onsButton({

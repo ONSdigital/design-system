@@ -1,9 +1,9 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 import template from 'components/address-finder/_test-template.njk';
 import '../../../scss/main.scss';
-import AutosuggestAddress from '../../../components/input/autosuggest/autosuggest.address';
-import AddressError from '../../../components/input/autosuggest/autosuggest.address.error';
-import AddressSetter from '../../../components/input/autosuggest/autosuggest.address.setter';
+import AutosuggestAddress from '../../../components/address-finder/autosuggest.address';
+import AddressError from '../../../components/address-finder/autosuggest.address.error';
+import AddressSetter from '../../../components/address-finder/autosuggest.address.setter';
 import eventMock from 'stubs/event.stub.spec';
 import fetchStub from 'stubs/window.fetch.stub.spec';
 
@@ -23,38 +23,36 @@ const params = {
     classes: 'js-autosuggest-label',
   },
   autocomplete: 'off',
-  autosuggest: {
-    label: {
-      text: 'Enter address or postcode and select from results',
-    },
-    isEditable: true,
-    mandatory: true,
-    APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
-    APIDomainBearerToken: 'someToken',
-    instructions:
-      "Use up and down keys to navigate suggestions once you've typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
-    ariaYouHaveSelected: 'You have selected',
-    ariaMinChars: 'Enter 3 or more characters for suggestions.',
-    ariaOneResult: 'There is one suggestion available.',
-    ariaNResults: 'There are {n} suggestions available.',
-    ariaLimitedResults: 'Results have been limited to 10 suggestions. Type more characters to improve your search',
-    ariaGroupedResults: 'There are {n} for {x}',
-    groupCount: '{n} addresses',
-    moreResults: 'Enter more of the address to improve results',
-    resultsTitle: 'Select an address',
-    noResults: 'No results found. Try entering a different part of the address',
-    tooManyResults: '{n} results found. Enter more of the address to improve results',
-    typeMore: 'Enter more of the address to get results',
-    autocomplete: 'new-password',
-    errorTitle: 'There is a problem with your answer',
-    errorMessageEnter: 'Enter an address',
-    errorMessageSelect: 'Select an address',
-    errorMessageAPI: 'Sorry, there was a problem loading addresses',
-    errorMessageAPILinkText: 'Enter address manually',
-    options: {
-      regionCode: 'gb-eng',
-      addressType: 'residential',
-    },
+  label: {
+    text: 'Enter address or postcode and select from results',
+  },
+  isEditable: true,
+  mandatory: true,
+  APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+  APIDomainBearerToken: 'someToken',
+  instructions:
+    "Use up and down keys to navigate suggestions once you've typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+  ariaYouHaveSelected: 'You have selected',
+  ariaMinChars: 'Enter 3 or more characters for suggestions.',
+  ariaOneResult: 'There is one suggestion available.',
+  ariaNResults: 'There are {n} suggestions available.',
+  ariaLimitedResults: 'Results have been limited to 10 suggestions. Type more characters to improve your search',
+  ariaGroupedResults: 'There are {n} for {x}',
+  groupCount: '{n} addresses',
+  moreResults: 'Enter more of the address to improve results',
+  resultsTitle: 'Select an address',
+  noResults: 'No results found. Try entering a different part of the address',
+  tooManyResults: '{n} results found. Enter more of the address to improve results',
+  typeMore: 'Enter more of the address to get results',
+  autocomplete: 'new-password',
+  errorTitle: 'There is a problem with your answer',
+  errorMessageEnter: 'Enter an address',
+  errorMessageSelect: 'Select an address',
+  errorMessageAPI: 'Sorry, there was a problem loading addresses',
+  errorMessageAPILinkText: 'Enter address manually',
+  options: {
+    regionCode: 'gb-eng',
+    addressType: 'residential',
   },
   line1: {
     label: 'Address line 1',

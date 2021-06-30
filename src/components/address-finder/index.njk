@@ -8,32 +8,70 @@ title: Address finder
 
 The address finder component uses the ONS Address Index API to search and retrieve UK addresses. 
 
+## How to use
+
+The address finder extends the code base used for the [autosuggest component](/components/autosuggest). 
+
+There are two main ways to use this component. Addresses can either be editable or non-editable. Look at the nunjucks output in both examples below to see how they are configured.
+
+### Editable addresses
+
+Include the parameter `isEditable: true` (note: there are other required parameters that can be viewed on the nunjucks output of the example). 
+
+When an address has been selected the "mode" of the component will change to show each line of the address as the values of individual inputs (manual inputs). This allows the user to check and amend the address. 
+
+{{
+    patternlibExample({"path": "components/address-finder/examples/address-finder-editable/index.njk"})
+}}
+
+### Non-editable addresses
+
+Include the parameter `isEditable: false`. When an address has been selected the input will be populated with that address.
+
 {{
     patternlibExample({"path": "components/address-finder/examples/address-finder/index.njk"})
 }}
-
-## How to use
-
-The address finder extends the code base used for the [autosuggest component](/components/autosuggest).
 
 ### Using the API
 
 The ONS Address Index API which uses a JSON Web Token (JWT) to allow the transfer of data to take place. You will need to speak to the ONS AIMS team for requirements and set up trusted domains.
 
-You will need to set the values for the parameters `APIDomain` and `APIDomainBearerToken` to allow queries to be passed to the API. 
-
-### How it works
+You will need to set the values for the parameters `APIDomain` and `APIDomainBearerToken` to allow queries to be passed to the API. Also include the parameter `"externalInitialiser": true` to bypass the default autosuggest methods.
 
 A query is sent to the relevant API endpoint after 3 characters have been entered into the input. There are various scenarios that are catered for such as groupings (of postcode results), large returns of data etc.
 
-There are many parameters that need to be set with the address finder component. Look at the Nunjucks output on the example above to see how it should be configured.
+### Validation
+
+The address autosuggest provides client side validation when the parameter `mandatory: true` is used. Validation will fail if any of the following are true:
+
+- The input field is empty
+- The input has a value but an address has not been selected
+- An address has been selected and then amended (non-editable only)
+
+You will need to include parameters for the error messages displayed which can be viewed on the nunjucks output of the examples above.
+
+When using the editable address type, after an address has been selected and the manual inputs have been populated, any validation requirements on those inputs would need server side validation in place.
 
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% call onsPanel({})
 %}
-    The functionality available and parameter requirements for this component can be best understood when used within a page/form. Examples of these are available on the <a href="/patterns/addresses">address pattern page</a>.
+    You can see the validation in working examples on the <a href="/patterns/addresses">address pattern page</a>.
 {% endcall %}
 
+### Additional information
+
+#### UPRN
+
+The UPRN (unique ID) for the selected address is added to a hidden input field which will be posted with the rest of the form data upon submission. 
+
+If using the editable address, if the address is amended, the UPRN will be removed and not submitted.
+
+#### If the API is down
+
+When the page loads and the component initialises a status check is performed.
+If the service is down when using the editable address variation, the manual inputs will be displayed to allow the user to still enter an address. This "mode" is also the non JS version of the component.
+
+If the API goes down during the use of the component a configurable message and link is displayed. 
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

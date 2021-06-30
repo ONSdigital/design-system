@@ -1,5 +1,5 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/input/_test-template.njk';
+import template from 'components/autosuggest/_test-template.njk';
 import '../../../scss/main.scss';
 import AutosuggestUI, {
   classAutosuggestOption,
@@ -7,7 +7,7 @@ import AutosuggestUI, {
   classAutosuggestOptionNoResults,
   classAutosuggestOptionMoreResults,
   classAutosuggestHasResults,
-} from '../../../components/input/autosuggest/autosuggest.ui';
+} from '../../../components/autosuggest/autosuggest.ui';
 import eventMock from 'stubs/event.stub.spec';
 import fetchMock from 'stubs/window.fetch.stub.spec';
 

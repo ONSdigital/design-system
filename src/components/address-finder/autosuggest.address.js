@@ -1,9 +1,9 @@
-import AutosuggestUI from './autosuggest.ui';
+import AutosuggestUI from '../autosuggest/autosuggest.ui';
 import AddressSetter from './autosuggest.address.setter';
 import AddressError from './autosuggest.address.error';
-import { sanitiseAutosuggestText } from './autosuggest.helpers';
+import { sanitiseAutosuggestText } from '../autosuggest/autosuggest.helpers';
 
-import abortableFetch from './abortable-fetch';
+import abortableFetch from '../autosuggest/abortable-fetch';
 
 export const classInputContainer = 'autosuggest-input';
 export const classNotEditable = 'js-address-not-editable';
@@ -403,7 +403,11 @@ export default class AutosuggestAddress {
       this.addressSetter.checkManualInputsValues(false);
     }
     if (this.isMandatory && !this.search.classList.contains('u-d-no')) {
-      if (!this.addressSelected || (!this.isEditable && this.checkValueHasBeenUpdated(this.selectedAddressValue))) {
+      if (
+        !this.addressSelected ||
+        this.input.value === '' ||
+        (!this.isEditable && this.checkValueHasBeenUpdated(this.selectedAddressValue))
+      ) {
         event.preventDefault();
         this.handleError = new AddressError(this.context);
         this.handleError.showErrorPanel();
@@ -419,14 +423,7 @@ export default class AutosuggestAddress {
   }
 
   setAuthorization(token) {
-    if (token) {
-      this.authorization = `Bearer ${token}`;
-    } else {
-      this.user = 'equser';
-      this.password = '$4c@ec1zLBu';
-      this.credentials = btoa(`${this.user}:${this.password}`);
-      this.authorization = `Basic ${this.credentials}`;
-    }
+    this.authorization = `Bearer ${token}`;
     return new Headers({
       Authorization: this.authorization,
     });
