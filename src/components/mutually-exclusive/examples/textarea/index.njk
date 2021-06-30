@@ -1,31 +1,38 @@
 {% from "components/textarea/_macro.njk" import onsTextarea %}
+{% from "components/question/_macro.njk" import onsQuestion %}
 
-{{
-    onsTextarea({
-        "id": "feedback",
-        "name": "feedback",
-        "classes": "input--w-30",
-        "label": {
-            "text": "Why did you leave your last job?"
-        },
-        "charCheckLimit": {
-            "limit": 200,
-            "charCountSingular": "You have {x} character remaining",
-            "charCountPlural": "You have {x} characters remaining"
-        },
-        "mutuallyExclusive": {
-            "or": "Or",
-            "deselectMessage": "Selecting this will clear your feedback",
-            "deselectGroupAdjective": "cleared",
-            "deselectCheckboxAdjective": "deselected",
-            "checkbox": {
-                "id": "feedback-checkbox",
-                "name": "no-feedback",
-                "value": "no-feedback",
-                "label": {
-                    "text": "I don't want to provide feedback"
+{% call onsQuestion({
+    "title": "What do you think of this service?",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsTextarea({
+            "id": "feedback",
+            "name": "feedback",
+            "dontWrap": true,
+            "classes": "input--w-30",
+            "label": {
+                "text": "Enter your feedback"
+            },
+            "charCheckLimit": {
+                "limit": 200,
+                "charCountSingular": "You have {x} character remaining",
+                "charCountPlural": "You have {x} characters remaining"
+            },
+            "mutuallyExclusive": {
+                "or": "Or",
+                "deselectMessage": "Selecting this will clear your feedback",
+                "deselectGroupAdjective": "cleared",
+                "deselectCheckboxAdjective": "deselected",
+                "checkbox": {
+                    "id": "feedback-checkbox",
+                    "name": "no-feedback",
+                    "value": "no-feedback",
+                    "label": {
+                        "text": "I don’t want to provide feedback"
+                    }
                 }
             }
-        }
-    })
-}}
+        })
+    }}
+{% endcall %}

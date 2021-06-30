@@ -1,24 +1,45 @@
+{% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
-{{
-    onsCheckboxes({
-        "legend": "What are your favourite pizza toppings?",
-        "checkboxesLabel": "Select all that apply",
-        "name": "food",
-        "checkboxes": [
-            {
-                "id": "bacon",
-                "label": {
-                    "text": "Bacon"
+
+{% call onsQuestion({
+    "title": "What devices do you own?",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsCheckboxes({
+            "checkboxesLabel": "Select all that apply",
+            "dontWrap": true,
+            "name": "devices",
+            "checkboxes": [
+                {
+                    "id": "mobile-phone",
+                    "label": {
+                        "text": "Mobile phone"
+                    },
+                    "value": "mobile-phone"
                 },
-                "value": "bacon"
-            },
-            {
-                "id": "olives",
-                "label": {
-                    "text": "Olives"
+                {
+                    "id": "tablet",
+                    "label": {
+                        "text": "Tablet"
+                    },
+                    "value": "tablet"
                 },
-                "value": "olives"
-            }
-        ]
-    })
-}}
+                {
+                    "id": "laptop",
+                    "label": {
+                        "text": "Laptop"
+                    },
+                    "value": "laptop"
+                },
+                {
+                    "id": "desktop",
+                    "label": {
+                        "text": "Desktop computer"
+                    },
+                    "value": "desktop"
+                }
+            ]
+        })
+    }}
+{% endcall %}
