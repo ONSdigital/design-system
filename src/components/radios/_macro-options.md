@@ -1,18 +1,18 @@
-| Name              | Type                                 | Required | Description                                                                                                                    |
-| ----------------- | ------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| id                | string                               | false    | Id to apply to the fieldset                                                                                                    |
-| classes           | string                               | false    | Classes to apply to the fieldset                                                                                               |
-| legend            | string                               | true     | The legend to apply to the fieldset                                                                                            |
-| legendClasses     | string                               | false    | Classes to apply to the legend                                                                                                 |
-| name              | string                               | true     | The name to apply to the radios                                                                                                |
-| radios            | `Array<Radio>`                       | true     | An array of radios to render                                                                                                   |
-| dontWrap          | boolean                              | false    | Prevents the radios from being wrapped in a [fieldset component](/components/fieldset)                                         |
-| legendIsPageTitle | boolean                              | false    | Creates a `h1` inside the legend [further information](/components/fieldset#legend-as-pagequestion-title)                      |
-| value             | string                               | false    | Can be used to set the checked radio. This can also be achieved by setting the `checked` parameter on the `Radio` item to true |
-| error             | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                                                                            |
-| or                | string                               | false    | Text for the or label                                                                                                          |
-| clearRadios       | `Object<ClearRadios>`                | false    | An object containing values for the clear selection button                                                                     |
-| open              | boolean                              | false    | Whether the 'other' input should be displayed                                                                                  |
+| Name                  | Type                                 | Required | Description                                                                                                                    |
+| --------------------- | ------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| id                    | string                               | false    | Id to apply to the fieldset                                                                                                    |
+| classes               | string                               | false    | Classes to apply to the fieldset                                                                                               |
+| legend                | string                               | true     | The legend to apply to the fieldset                                                                                            |
+| legendClasses         | string                               | false    | Classes to apply to the legend                                                                                                 |
+| name                  | string                               | true     | The name to apply to the radios                                                                                                |
+| radios                | `Array<Radio>`                       | true     | An array of radios to render                                                                                                   |
+| dontWrap              | boolean                              | false    | Prevents the radios from being wrapped in a [fieldset component](/components/fieldset)                                         |
+| legendIsQuestionTitle | boolean                              | false    | Creates a `h1` inside the legend [further information](/components/fieldset#legend-as-pagequestion-title)                      |
+| value                 | string                               | false    | Can be used to set the checked radio. This can also be achieved by setting the `checked` parameter on the `Radio` item to true |
+| error                 | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                                                                            |
+| or                    | string                               | false    | Text for the or label                                                                                                          |
+| clearRadios           | `Object<ClearRadios>`                | false    | An object containing values for the clear selection button                                                                     |
+| open                  | boolean                              | false    | Whether the 'other' input should be displayed                                                                                  |
 
 ## Radio
 

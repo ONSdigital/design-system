@@ -1,15 +1,15 @@
-| Name              | Type                                                          | Required | Description                                                                                                 |
-| ----------------- | ------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| id                | string                                                        | false    | Id to apply to the fieldset                                                                                 |
-| classes           | string                                                        | false    | Classes to apply to the fieldset                                                                            |
-| legend            | string                                                        | false    | The legend to apply to the fieldset                                                                         |
-| legendClasses     | string                                                        | false    | Classes to apply to the legend                                                                              |
-| name              | string                                                        | true     | The name to apply to the checkboxes                                                                         |
-| checkboxes        | `Array<Checkbox>`                                             | true     | An array of checkboxes to render                                                                            |
-| mutuallyExclusive | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false    | Configuration object if this is a mutually exclusive checkbox list                                          |
-| dontWrap          | boolean                                                       | false    | Prevents the checkboxes from being wrapped in a [fieldset component](/components/fieldset)                  |
-| legendIsPageTitle | boolean                                                       | false    | Creates a `h1` inside the legend ([further information](/components/fieldset#legend-as-pagequestion-title)) |
-| open              | boolean                                                       | false    | Whether the 'other' input should be displayed                                                               |
+| Name                  | Type                                                          | Required | Description                                                                                                 |
+| --------------------- | ------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| id                    | string                                                        | false    | Id to apply to the fieldset                                                                                 |
+| classes               | string                                                        | false    | Classes to apply to the fieldset                                                                            |
+| legend                | string                                                        | false    | The legend to apply to the fieldset                                                                         |
+| legendClasses         | string                                                        | false    | Classes to apply to the legend                                                                              |
+| name                  | string                                                        | true     | The name to apply to the checkboxes                                                                         |
+| checkboxes            | `Array<Checkbox>`                                             | true     | An array of checkboxes to render                                                                            |
+| mutuallyExclusive     | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false    | Configuration object if this is a mutually exclusive checkbox list                                          |
+| dontWrap              | boolean                                                       | false    | Prevents the checkboxes from being wrapped in a [fieldset component](/components/fieldset)                  |
+| legendIsQuestionTitle | boolean                                                       | false    | Creates a `h1` inside the legend ([further information](/components/fieldset#legend-as-pagequestion-title)) |
+| open                  | boolean                                                       | false    | Whether the 'other' input should be displayed                                                               |
 
 ## Checkbox
 

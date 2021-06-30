@@ -9,8 +9,8 @@
 
     {% set descHtml %}
         {% if params.readDescriptionFirst is defined and params.readDescriptionFirst == true %} 
-            <span aria-hidden="true" {% if params.legendIsPageTitle is not defined %}class="question__description"{% endif %}>{{ params.description | safe }}</span>
-        {% elif params.legendIsPageTitle is not defined %}
+            <span aria-hidden="true" {% if params.legendIsQuestionTitle is not defined %}class="question__description"{% endif %}>{{ params.description | safe }}</span>
+        {% elif params.legendIsQuestionTitle is not defined %}
             <span class="question__description">{{ params.description | safe }}</span>
         {% else %}
             {{ params.description | safe }}            
@@ -26,10 +26,10 @@
         class="question{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
-        {% if params.legendIsPageTitle %}
+        {% if params.legendIsQuestionTitle %}
             {% from "components/fieldset/_macro.njk" import onsFieldset %}
             {% call onsFieldset({
-                "legendIsPageTitle": params.legendIsPageTitle,
+                "legendIsQuestionTitle": params.legendIsQuestionTitle,
                 "legend": titleHtml,
                 "description": descHtml if params.description is defined and params.description else '',
                 "legendClasses": params.legendClasses,

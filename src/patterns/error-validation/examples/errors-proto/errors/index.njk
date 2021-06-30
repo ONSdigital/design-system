@@ -43,7 +43,7 @@ layout: none
 
 {% block main %}
     {% call onsPanel({
-            "title": "There are 8 problems with your answer",
+            "title": "There are 9 problems with your answer",
             "type": "error",
             "classes": "question__errors"
         })
@@ -90,6 +90,11 @@ layout: none
                     {
                         "text": "Enter a number that is less than 60",
                         "url": "#duration-error",
+                        "classes": "js-inpagelink"
+                    },
+                    {
+                        "text": "Please specify heat level if pepperoni selected",
+                        "url": "#select-other-error",
                         "classes": "js-inpagelink"
                     }
                 ]
@@ -328,6 +333,73 @@ layout: none
                     "value": "60",
                     "error": true
                 }
+            })
+        }}
+
+        {{
+            onsRadios({
+                "legend": "Select your favourite toppings",
+                "name": "food-other",
+                "error": {
+                    "text": "Please specify heat level if pepperoni selected",
+                    "id": "select-other-error"
+                },
+                "radios": [
+                    {
+                        "id": "bacon-other",
+                        "label": {
+                            "text": "Bacon"
+                        },
+                        "value": "bacon"
+                    },
+                    {
+                        "id": "olives-other",
+                        "label": {
+                            "text": "Olives"
+                        },
+                        "value": "olives"
+                    },
+                    {
+                        "id": "pepperoni-other",
+                        "label": {
+                            "text": "Pepperoni"
+                        },
+                        "checked": true,
+                        "value": "pepperoni",
+                        "other": {
+                            "otherType": "select",
+                            "id": "pepperoni-heat-level",
+                            "name": "pepperoni-heat-level",
+                            "label": {
+                                "text": "Please specify heat level"
+                            },
+                            "options": [
+                                {
+                                    "value": "",
+                                    "text": "Select heat level",
+                                    "disabled": true,
+                                    "selected": true
+                                },
+                                {
+                                    "value": "mild",
+                                    "text": "Mild"
+                                },
+                                {
+                                    "value": "medium",
+                                    "text": "Medium"
+                                },
+                                {
+                                    "value": "hot",
+                                    "text": "Hot"
+                                },
+                                {
+                                    "value": "extra hot",
+                                    "text": "Extra Hot"
+                                }
+                            ]
+                        }
+                    }
+                ]
             })
         }}
     {% endcall %}

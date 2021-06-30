@@ -248,6 +248,69 @@ layout: none
                 }
             })
         }}
+
+        {{
+            onsRadios({
+                "legend": "Select your favourite toppings",
+                "name": "food-other",
+                "radios": [
+                    {
+                        "id": "bacon-other",
+                        "label": {
+                            "text": "Bacon"
+                        },
+                        "value": "bacon"
+                    },
+                    {
+                        "id": "olives-other",
+                        "label": {
+                            "text": "Olives"
+                        },
+                        "value": "olives"
+                    },
+                    {
+                        "id": "pepperoni-other",
+                        "label": {
+                            "text": "Pepperoni"
+                        },
+                        "checked": true,
+                        "value": "pepperoni",
+                        "other": {
+                            "otherType": "select",
+                            "id": "pepperoni-heat-level",
+                            "name": "pepperoni-heat-level",
+                            "label": {
+                                "text": "Please specify heat level"
+                            },
+                            "options": [
+                                {
+                                    "value": "",
+                                    "text": "Select heat level",
+                                    "disabled": true,
+                                    "selected": true
+                                },
+                                {
+                                    "value": "mild",
+                                    "text": "Mild"
+                                },
+                                {
+                                    "value": "medium",
+                                    "text": "Medium"
+                                },
+                                {
+                                    "value": "hot",
+                                    "text": "Hot"
+                                },
+                                {
+                                    "value": "extra hot",
+                                    "text": "Extra Hot"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            })
+        }}
     {% endcall%}
 
     {{
