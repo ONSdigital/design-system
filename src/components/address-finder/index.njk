@@ -6,23 +6,34 @@ title: Address finder
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 
-The address finder component uses the ONS Address Index API to search UK addresses. 
+The address finder component uses the ONS Address Index API to search and retrieve UK addresses. 
 
-### How to use
+{{
+    patternlibExample({"path": "components/address-finder/examples/address-finder/index.njk"})
+}}
+
+## How to use
 
 The address finder extends the code base used for the [autosuggest component](/components/autosuggest).
+
+### Using the API
 
 The ONS Address Index API which uses a JSON Web Token (JWT) to allow the transfer of data to take place. You will need to speak to the ONS AIMS team for requirements and set up trusted domains.
 
 You will need to set the values for the parameters `APIDomain` and `APIDomainBearerToken` to allow queries to be passed to the API. 
 
-There are many other parameters that need to be set. Look at the Nunjucks output on the example below to see how it should be configured.
+### How it works
 
-The functionality available for this component can be best understood when used within a page/form. Examples of these are available on the [address pattern page](/patterns/addresses).
+A query is sent to the relevant API endpoint after 3 characters have been entered into the input. There are various scenarios that are catered for such as groupings (of postcode results), large returns of data etc.
 
-{{
-    patternlibExample({"path": "components/address-finder/examples/address-finder/index.njk"})
-}}
+There are many parameters that need to be set with the address finder component. Look at the Nunjucks output on the example above to see how it should be configured.
+
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% call onsPanel({})
+%}
+    The functionality available and parameter requirements for this component can be best understood when used within a page/form. Examples of these are available on the <a href="/patterns/addresses">address pattern page</a>.
+{% endcall %}
+
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.
