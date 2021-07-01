@@ -1,3 +1,3 @@
-<svg id="check" viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg">
-    <path fill="currentColor" d="M8.5 13.9l-2 2.1L0 9.3l2.1-2.2 4.4 4.5L17.9 0 20 2.2 8.5 13.9z"/>
+<svg id="check" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M13.85 2.58l-.77-.77a.54.54 0 00-.76 0l-7.7 7.71-2.93-2.94a.55.55 0 00-.77 0l-.76.76a.55.55 0 000 .77l4.07 4.08a.54.54 0 00.76 0H5l8.85-8.86a.54.54 0 000-.75z"/>
 </svg>
