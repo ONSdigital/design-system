@@ -771,7 +771,7 @@ describe('Autosuggest.address component', function() {
       });
 
       it('then the input should match the selected address', function() {
-        expect(this.autosuggest.input.value).to.equal(this.selectedResult.displayText);
+        expect(this.autosuggestAddress.input.value).to.equal(this.selectedResult.displayText);
       });
     });
   });
