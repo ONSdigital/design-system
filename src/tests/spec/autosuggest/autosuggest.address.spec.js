@@ -762,8 +762,10 @@ describe('Autosuggest.address component', function() {
             overwriteRoutes: true,
           },
         );
-        this.autosuggestAddress.onAddressSelect(this.selectedResult);
-        setTimeout(done);
+        setTimeout(() => {
+          this.autosuggestAddress.onAddressSelect(this.selectedResult);
+          done();
+        });
       });
 
       it('then the retrieveAddress function will be called', function() {
