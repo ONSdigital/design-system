@@ -18,10 +18,6 @@ chai.use(chaiAsPromised);
 
 const params = {
   id: 'address',
-  label: {
-    text: 'Enter an address',
-    classes: 'js-autosuggest-label',
-  },
   autocomplete: 'off',
   label: {
     text: 'Enter address or postcode and select from results',
@@ -44,7 +40,6 @@ const params = {
   noResults: 'No results found. Try entering a different part of the address',
   tooManyResults: '{n} results found. Enter more of the address to improve results',
   typeMore: 'Enter more of the address to get results',
-  autocomplete: 'new-password',
   errorTitle: 'There is a problem with your answer',
   errorMessageEnter: 'Enter an address',
   errorMessageSelect: 'Select an address',
