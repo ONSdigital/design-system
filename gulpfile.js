@@ -4,6 +4,7 @@ import gulp from 'gulp';
 import gulpIf from 'gulp-if';
 import gulpPostCss from 'gulp-postcss';
 import gulpSass from 'gulp-sass';
+import gulpSourcemaps from 'gulp-sourcemaps';
 import gulpSvg from 'gulp-svgo';
 import gulpTerser from 'gulp-terser';
 import sass from 'node-sass';
@@ -92,12 +93,14 @@ gulp.task('clean', () => {
 function createBuildScriptTask({ entryPoint, outputFile, presets }) {
   const taskName = `buildScript:${outputFile}`;
   gulp.task(taskName, () => {
-    return browserify(entryPoint)
-      .transform('babelify', { ...babelOptions, presets })
+    return browserify(entryPoint, { debug: isDevelopment })
+      .transform('babelify', { ...babelOptions, sourceMaps: isDevelopment, presets })
       .bundle()
       .pipe(source(outputFile))
       .pipe(buffer())
+      .pipe(gulpIf(isDevelopment, gulpSourcemaps.init({ loadMaps: true })))
       .pipe(gulpIf(isProduction, gulpTerser(terserOptions)))
+      .pipe(gulpIf(isDevelopment, gulpSourcemaps.write('./')))
       .pipe(gulp.dest('./build/scripts'))
       .pipe(browserSync.stream());
   });
@@ -109,8 +112,10 @@ gulp.task('buildScript', gulp.series(...scripts.map(createBuildScriptTask)));
 gulp.task('buildStyles', () => {
   return gulp
     .src('./src/scss/*.scss')
+    .pipe(gulpIf(isDevelopment, gulpSourcemaps.init()))
     .pipe(sassCompiler(sassOptions).on('error', sassCompiler.logError))
     .pipe(gulpIf(isProduction, gulpPostCss(postCssPlugins())))
+    .pipe(gulpIf(isDevelopment, gulpSourcemaps.write('./')))
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
 });
