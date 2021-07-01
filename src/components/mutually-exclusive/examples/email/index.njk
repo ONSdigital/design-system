@@ -1,25 +1,32 @@
 {% from "components/input/_macro.njk" import onsInput %}
+{% from "components/question/_macro.njk" import onsQuestion %}
 
-{{
-    onsInput({
-        "id": "email",
-        "type": "email",
-        "label": {
-            "text": "Enter an email"
-        },
-        "mutuallyExclusive": {
-            "or": "Or",
-            "deselectMessage": "Selecting this will clear your email",
-            "deselectGroupAdjective": "cleared",
-            "deselectCheckboxAdjective": "deselected",
-            "checkbox": {
-                "id": "email-checkbox",
-                "name": "no-email",
-                "value": "no-email",
-                "label": {
-                    "text": "I don't want to receive a confirmation email"
+{% call onsQuestion({
+    "title": "Get a confirmation email",
+    "description": "<p>Enter your email address if you would like to be sent confirmation that you have completed your survey</p>"
+}) %}
+    {{
+        onsInput({
+            "id": "email",
+            "type": "email",
+            "label": {
+                "text": "Email address",
+                "description": "This will not be stored and only used once to send your confirmation"
+            },
+            "mutuallyExclusive": {
+                "or": "Or",
+                "deselectMessage": "Selecting this will clear your email",
+                "deselectGroupAdjective": "cleared",
+                "deselectCheckboxAdjective": "deselected",
+                "checkbox": {
+                    "id": "email-checkbox",
+                    "name": "no-email",
+                    "value": "no-email",
+                    "label": {
+                        "text": "I don’t want to receive a confirmation email"
+                    }
                 }
             }
-        }
-    })
-}}
+        })
+    }}
+{% endcall %}

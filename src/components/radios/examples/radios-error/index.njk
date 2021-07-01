@@ -1,0 +1,38 @@
+{% from "components/radios/_macro.njk" import onsRadios %}
+
+{{
+    onsRadios({
+        "name": "gender-identity",
+        "radios": [
+            {
+                "id": "yes",
+                "label": {
+                    "text": "Yes"
+                },
+                "value": "yes"
+            },
+            {
+                "id": "no",
+                "label": {
+                    "text": "No"
+                },
+                "value": "no",
+                "checked": true,
+                "other": {
+                    "open": true,
+                    "otherType": "input",
+                    "id": "no-textbox",
+                    "name": "no-answer",
+                    "label": {
+                        "text": "Enter your gender identity"
+                    }
+                }
+            }
+        ],
+        "error": {
+            "id": "dietary-error",
+            "text": "Enter your gender identity",
+            "dsExample": isPatternLib
+        }
+    })
+}}
