@@ -709,9 +709,7 @@ describe('Autosuggest.address component', function() {
   describe('When the component initialises a non-editable address lookup', function() {
     const paramsAlt = {
       id: 'address',
-      autosuggest: {
-        externalInitialiser: true,
-      },
+      externalInitialiser: true,
     };
 
     beforeEach(function(done) {
@@ -736,14 +734,12 @@ describe('Autosuggest.address component', function() {
   describe('When the component initialises with options - english, epoch, workplace', function() {
     const paramsOptions = {
       id: 'address',
-      autosuggest: {
-        externalInitialiser: true,
-        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
-        options: {
-          regionCode: 'gb-eng',
-          oneYearAgo: true,
-          addressType: 'workplace',
-        },
+      externalInitialiser: true,
+      APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      options: {
+        regionCode: 'gb-eng',
+        oneYearAgo: true,
+        addressType: 'workplace',
       },
     };
 
@@ -784,13 +780,11 @@ describe('Autosuggest.address component', function() {
   describe('When the component initialises with options - ni, educational', function() {
     const paramsOptions = {
       id: 'address',
-      autosuggest: {
-        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
-        externalInitialiser: true,
-        options: {
-          regionCode: 'gb-nir',
-          addressType: 'educational',
-        },
+      APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      externalInitialiser: true,
+      options: {
+        regionCode: 'gb-nir',
+        addressType: 'educational',
       },
     };
 
@@ -831,13 +825,11 @@ describe('Autosuggest.address component', function() {
   describe('When the component initialises with options - ni, workplace', function() {
     const paramsOptions = {
       id: 'address',
-      autosuggest: {
-        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
-        externalInitialiser: true,
-        options: {
-          regionCode: 'gb-nir',
-          addressType: 'workplace',
-        },
+      APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      externalInitialiser: true,
+      options: {
+        regionCode: 'gb-nir',
+        addressType: 'workplace',
       },
     };
 
@@ -891,13 +883,11 @@ describe('Autosuggest.address component', function() {
   describe('When the component initialises with options - wales, workplace', function() {
     const paramsOptions = {
       id: 'address',
-      autosuggest: {
-        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
-        externalInitialiser: true,
-        options: {
-          regionCode: 'gb-wls',
-          addressType: 'workplace',
-        },
+      APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      externalInitialiser: true,
+      options: {
+        regionCode: 'gb-wls',
+        addressType: 'workplace',
       },
     };
 

@@ -830,7 +830,7 @@ describe('Autosuggest.ui component', function() {
           });
 
           it('then the message should be set to type the minimum amount of characters', function() {
-            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.autosuggest.ariaMinChars);
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.ariaMinChars);
           });
         });
 
@@ -843,7 +843,7 @@ describe('Autosuggest.ui component', function() {
           });
 
           it('then the no results message should be set', function() {
-            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(`${params.autosuggest.noResults}: "${this.autosuggest.query}"`);
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(`${params.noResults}: "${this.autosuggest.query}"`);
           });
         });
 
@@ -855,7 +855,7 @@ describe('Autosuggest.ui component', function() {
           });
 
           it('then the one result message should be set', function() {
-            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.autosuggest.ariaOneResult);
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.ariaOneResult);
           });
         });
 
@@ -867,9 +867,7 @@ describe('Autosuggest.ui component', function() {
           });
 
           it('then the multiple results message should be set', function() {
-            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(
-              params.autosuggest.ariaNResults.replace('{n}', this.autosuggest.numberOfResults),
-            );
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.ariaNResults.replace('{n}', this.autosuggest.numberOfResults));
           });
         });
 
@@ -884,9 +882,7 @@ describe('Autosuggest.ui component', function() {
 
           it('then the multiple results message should be set', function() {
             expect(this.autosuggest.ariaStatus.innerHTML).to.equal(
-              `${params.autosuggest.ariaNResults.replace('{n}', this.autosuggest.numberOfResults)} ${
-                params.autosuggest.ariaLimitedResults
-              }`,
+              `${params.ariaNResults.replace('{n}', this.autosuggest.numberOfResults)} ${params.ariaLimitedResults}`,
             );
           });
         });
@@ -942,7 +938,7 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('then setAriaStatus should be called', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggest.ariaYouHaveSelected}: Yes.`);
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.ariaYouHaveSelected}: Yes.`);
         });
       });
     });
@@ -977,7 +973,7 @@ describe('Autosuggest.ui component', function() {
 
           it('then the listbox innerHTML should show the no results message', function() {
             expect(this.autosuggest.listbox.innerHTML).to.equal(
-              `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.autosuggest.noResults}</li>`,
+              `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.noResults}</li>`,
             );
           });
 
@@ -1096,7 +1092,7 @@ describe('Autosuggest.ui component', function() {
           it('then the more results item should be added', function() {
             const option1 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
             const option2 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--1" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
-            const option3 = `<li class="${classAutosuggestOption} ${classAutosuggestOptionMoreResults}" aria-hidden="true">${params.autosuggest.moreResults}</li>`;
+            const option3 = `<li class="${classAutosuggestOption} ${classAutosuggestOptionMoreResults}" aria-hidden="true">${params.moreResults}</li>`;
             const html = option1 + option2 + option3;
 
             expect(this.autosuggest.listbox.innerHTML).to.equal(html);
@@ -1118,7 +1114,7 @@ describe('Autosuggest.ui component', function() {
 
         it('then the listbox innerHTML should show the type more message', function() {
           expect(this.autosuggest.listbox.innerHTML).to.equal(
-            `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.autosuggest.typeMore}</li>`,
+            `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.typeMore}</li>`,
           );
           expect(this.handleNoResultsSpy).to.have.been.called();
         });
@@ -1133,7 +1129,7 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('then the listbox innerHTML should show the API error message', function() {
-          expect(this.autosuggest.listbox.textContent).to.equal('!' + params.autosuggest.errorMessageAPI);
+          expect(this.autosuggest.listbox.textContent).to.equal('!' + params.errorMessageAPI);
           expect(this.createWarningSpy).to.have.been.called();
           expect(this.handleNoResultsSpy).to.have.been.called();
         });
@@ -1164,7 +1160,7 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('then the listbox innerHTML should show the API error message', function() {
-          expect(this.autosuggest.listbox.textContent).to.equal('!' + params.autosuggest.errorMessageAPI);
+          expect(this.autosuggest.listbox.textContent).to.equal('!' + params.errorMessageAPI);
           expect(this.createWarningSpy).to.have.been.called();
           expect(this.handleNoResultsSpy).to.have.been.called();
         });
