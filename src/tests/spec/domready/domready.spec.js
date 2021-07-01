@@ -1,5 +1,3 @@
-import domReady from 'js/domready';
-
 describe('DomReady function', function() {
   beforeEach(function() {
     this.spy = chai.spy(() => {});

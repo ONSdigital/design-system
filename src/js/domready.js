@@ -1,4 +1,4 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
+import { awaitPolyfills } from './polyfills/await-polyfills';
 
 const eventReady = 'DOMContentLoaded';
 

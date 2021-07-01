@@ -1,5 +1,6 @@
 import { iframeResizer } from 'iframe-resizer';
-import domReady from 'js/domready';
+
+import domReady from '../domready';
 
 function resize() {
   iframeResizer(

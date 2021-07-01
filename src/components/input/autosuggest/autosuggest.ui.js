@@ -1,6 +1,6 @@
-import queryJson from './code.list.searcher';
+import fetch from '../../../js/abortable-fetch';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
-import fetch from 'js/abortable-fetch';
+import queryJson from './code.list.searcher';
 
 export const baseClass = 'js-autosuggest';
 
