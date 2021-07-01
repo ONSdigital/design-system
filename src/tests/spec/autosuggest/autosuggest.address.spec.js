@@ -710,6 +710,7 @@ describe('Autosuggest.address component', function() {
     const paramsAlt = {
       id: 'address',
       externalInitialiser: true,
+      isEditable: false,
     };
 
     beforeEach(function(done) {
@@ -728,6 +729,50 @@ describe('Autosuggest.address component', function() {
       if (this.wrapper) {
         this.wrapper.remove();
       }
+    });
+
+    describe('when a query is sent and address selected ', function() {
+      beforeEach(function(done) {
+        this.retrieveAddressSpy = chai.spy.on(this.autosuggestAddress, 'retrieveAddress');
+        this.address = {
+          response: {
+            address: {
+              uprn: '100081151291',
+              formattedAddress: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
+              addressLine1: 'University Of Hertfordshire',
+              addressLine2: 'Meridian House 32-36',
+              addressLine3: 'The Common',
+              townName: 'Hatfield',
+              postcode: 'AL10 0NZ',
+              foundAddressType: 'PAF',
+            },
+          },
+        };
+        this.selectedResult = {
+          lang: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
+          sanitisedText: 'university of hertfordshir meridian house 32-36 the common, hatfield, al10 0nz',
+          uprn: '100081151291',
+          displayText: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
+        };
+
+        fetchMock.get(
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/100081151291?addresstype=paf',
+          JSON.stringify(this.address),
+          {
+            overwriteRoutes: true,
+          },
+        );
+        this.autosuggestAddress.onAddressSelect(this.selectedResult);
+        setTimeout(done);
+      });
+
+      it('then the retrieveAddress function will be called', function() {
+        expect(this.retrieveAddressSpy).to.have.been.called();
+      });
+
+      it('then the input should match the selected address', function() {
+        expect(this.autosuggest.input.value).to.equal(this.selectedResult.displayText);
+      });
     });
   });
 
