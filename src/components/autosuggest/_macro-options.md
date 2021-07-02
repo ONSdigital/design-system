@@ -6,7 +6,7 @@
 | allowMultiple           | boolean           | false    | Allows the component to accept multiple selections                                                                                                 |
 | instructions            | string            | true     | Instructions on how to use the autosuggest that will be read out by screenreaders                                                                  |
 | ariaYouHaveSelected     | string            | true     | Aria message to tell the user that they have selected an answer                                                                                    |
-| ariaMinChars            | string            | true     | Aria message to tell the user how many charecters they need to enter before autosuggest will start                                                 |
+| ariaMinChars            | string            | true     | Aria message to tell the user how many character they need to enter before autosuggest will start                                                  |
 | ariaResultsLabel        | string            | true     | Aria message to tell the user that suggestions are available                                                                                       |
 | ariaOneResult           | string            | true     | Aria message to tell the user there is only one suggestion left                                                                                    |
 | ariaNResults            | string            | true     | Aria message to tell the user how many suggestions are left                                                                                        |
