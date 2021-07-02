@@ -128,9 +128,8 @@ describe('Autosuggest.address component', function() {
 
       describe('When the manual link is clicked', function() {
         beforeEach(function(done) {
-          this.autosuggestAddress.input.value = 'address line 1';
-          this.wrapper.querySelector('#address-line1').value = 'address line 1';
           this.toggleModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'toggleMode');
+          this.manualLink = this.wrapper.querySelector('.js-address-manual-btn');
           this.manualLink.click();
           setTimeout(done);
         });
