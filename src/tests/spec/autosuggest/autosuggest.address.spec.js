@@ -117,6 +117,7 @@ describe('Autosuggest.address component', function() {
         });
 
         it('then the manual fields should be visible', function() {
+          console.log(this.wrapper);
           this.manualFields = this.wrapper.querySelector('.js-address-input__manual');
           expect(this.manualFields.classList.contains('u-db-no-js_enabled')).to.be.false;
         });
