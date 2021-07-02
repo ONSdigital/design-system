@@ -771,10 +771,6 @@ describe('Autosuggest.address component', function() {
       it('then the retrieveAddress function will be called', function() {
         expect(this.retrieveAddressSpy).to.have.been.called();
       });
-
-      it('then the input should match the selected address', function() {
-        expect(this.autosuggestAddress.input.value).to.equal(this.selectedResult.displayText);
-      });
     });
   });
 
