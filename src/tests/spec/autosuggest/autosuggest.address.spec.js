@@ -125,6 +125,29 @@ describe('Autosuggest.address component', function() {
           expect(this.autosuggestAddress.input.value).to.equal('');
         });
       });
+
+      describe('When the manual link is clicked', function() {
+        beforeEach(function(done) {
+          this.autosuggestAddress.input.value = 'address line 1';
+          this.wrapper.querySelector('#address-line1').value = 'address line 1';
+          this.toggleModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'toggleMode');
+          this.manualLink.click();
+          setTimeout(done);
+        });
+
+        it('then the manual fields should be visible', function() {
+          this.manualFields = this.wrapper.querySelector('.js-address-input__manual');
+          expect(this.manualFields.classList.contains('u-db-no-js_enabled')).to.be.false;
+        });
+
+        it('then the autosuggest input should be cleared', function() {
+          expect(this.autosuggestAddress.input.value).to.equal('');
+        });
+
+        it('then the toggleMode function should be called', function() {
+          expect(this.toggleModeSpy).to.have.been.called();
+        });
+      });
     });
 
     describe('When the API status is checked', function() {
@@ -1002,6 +1025,8 @@ function renderComponent(params) {
   const container = context.querySelector('.autosuggest-input');
   const search = context.querySelector('.js-address-input__search');
   const APIDomain = container.getAttribute('data-api-domain');
+  const manualLink = context.querySelector('.js-address-manual-btn');
+
   return {
     wrapper,
     context,
@@ -1013,5 +1038,6 @@ function renderComponent(params) {
     container,
     search,
     APIDomain,
+    manualLink,
   };
 }
