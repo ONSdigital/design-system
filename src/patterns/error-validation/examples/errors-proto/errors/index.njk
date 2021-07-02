@@ -13,6 +13,7 @@ layout: none
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 {% from "components/password/_macro.njk" import onsPassword %}
 {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+{% from "components/duration/_macro.njk" import onsDuration %}
 
 {% set pageConfig = {
     "title": "Errors Prototype"
@@ -42,7 +43,7 @@ layout: none
 
 {% block main %}
     {% call onsPanel({
-            "title": "There are 8 problems with your answer",
+            "title": "There are 9 problems with your answer",
             "type": "error",
             "classes": "question__errors"
         })
@@ -87,6 +88,11 @@ layout: none
                         "classes": "js-inpagelink"
                     },
                     {
+                        "text": "Enter a number that is less than 60",
+                        "url": "#duration-error",
+                        "classes": "js-inpagelink"
+                    },
+                    {
                         "text": "Please specify heat level if pepperoni selected",
                         "url": "#select-other-error",
                         "classes": "js-inpagelink"
@@ -106,9 +112,6 @@ layout: none
                 "classes": "input--w-5",
                 "fieldClasses": "question__answer",
                 "required": true,
-                "attributes": {
-                    "min": 0
-                },
                 "label": {
                     "text": "Number of employees paid monthly"
                 },
@@ -223,6 +226,7 @@ layout: none
                 }
             })
         }}
+
         {{
             onsCheckboxes({
                 "legend": "What are your favourite pizza toppings?",
@@ -263,6 +267,7 @@ layout: none
                 }
             })
         }}
+
         {{
             onsPassword({
                 "id": "password",
@@ -276,6 +281,7 @@ layout: none
                 "showPasswordText": "Show password"
             })
         }}
+
         {{
             onsInput({
                 "id": "email",
@@ -301,6 +307,31 @@ layout: none
                             "text": "I don't want to receive a confirmation email"
                         }
                     }
+                }
+            })
+        }}
+
+        {{
+            onsDuration({
+                "label": "Duration",
+                "id": "address-duration",
+                "dontWrap": true,
+                "error": {
+                    "text": "Enter a number that is less than 60",
+                    "id": "duration-error"
+                },
+                "field1": {
+                    "id": "address-duration-hours",
+                    "name": "address-duration-hours",
+                    "label": "Hours",
+                    "value": "2"
+                },
+                "field2": {
+                    "id": "address-duration-minutes",
+                    "name": "address-duration-minutes",
+                    "label": "Minutes",
+                    "value": "60",
+                    "error": true
                 }
             })
         }}

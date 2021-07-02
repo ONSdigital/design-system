@@ -46,8 +46,15 @@ Use the [correct errors pattern](/patterns/error-validation) and show the error 
     patternlibExample({"path": "components/duration/examples/duration-address-error/index.njk"})
 }}
 
+If only one of the duration fields is causing a validation error, you can add error styling to just that single field by setting the additional `error` parameter.
+
+{{
+    patternlibExample({"path": "components/duration/examples/duration-error/index.njk"})
+}}
+
 #### If all fields are empty
-Use “Enter a duration”.
+Use “Enter [whatever the duration is]”.
+For example, “Enter how long you have lived at this address”.
 
 #### If one of the fields is empty
 Use “Enter the number of [whatever the duration is]”.\
