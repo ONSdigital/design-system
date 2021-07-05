@@ -68,7 +68,7 @@ const params = {
 
 let lang = 'en';
 
-describe('Autosuggest.address component', function() {
+describe.only('Autosuggest.address component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
@@ -827,7 +827,7 @@ describe('Autosuggest.address component', function() {
           this.autosuggestAddress.input.removeAttribute('disabled');
           expect(this.autosuggestAddress.input.value).to.equal(this.selectedResult.displayText);
           done();
-        }, 3000);
+        }, 2000);
       });
     });
   });
