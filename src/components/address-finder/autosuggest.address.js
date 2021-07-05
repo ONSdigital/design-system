@@ -292,7 +292,7 @@ export default class AutosuggestAddress {
               }
             } else {
               this.selectedAddressValue = selectedResult.displayText;
-              this.autosuggest.input.value = this.selectedAddressValue;
+              this.autosuggest.input.value = selectedResult.displayText;
               this.uprn.value = selectedResult.uprn;
               this.addressSelected = true;
             }

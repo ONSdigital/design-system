@@ -118,7 +118,6 @@ describe('Autosuggest.address component', function() {
         });
 
         it('then the manual fields should be visible', function() {
-          console.log(this.wrapper);
           this.manualFields = this.wrapper.querySelector('.js-address-input__manual');
           expect(this.manualFields.classList.contains('u-db-no-js_enabled')).to.be.false;
         });
@@ -733,8 +732,35 @@ describe('Autosuggest.address component', function() {
   describe('When the component initialises a non-editable address lookup', function() {
     const paramsAlt = {
       id: 'address',
-      externalInitialiser: true,
+      autocomplete: 'off',
+      label: {
+        text: 'Enter address or postcode and select from results',
+      },
       isEditable: false,
+      mandatory: true,
+      dontWrap: true,
+      APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      APIDomainBearerToken: 'someToken',
+      instructions:
+        "Use up and down keys to navigate suggestions once you've typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+      ariaYouHaveSelected: 'You have selected',
+      ariaMinChars: 'Enter 3 or more characters for suggestions.',
+      ariaOneResult: 'There is one suggestion available.',
+      ariaNResults: 'There are {n} suggestions available.',
+      ariaLimitedResults: 'Results have been limited to 10 suggestions. Type more characters to improve your search',
+      ariaGroupedResults: 'There are {n} for {x}',
+      groupCount: '{n} addresses',
+      moreResults: 'Enter more of the address to improve results',
+      resultsTitle: 'Select an address',
+      noResults: 'No results found. Try entering a different part of the address',
+      tooManyResults: '{n} results found. Enter more of the address to improve results',
+      typeMore: 'Enter more of the address to get results',
+      errorTitle: 'There is a problem with your answer',
+      errorMessageEnter: 'Enter an address',
+      errorMessageSelect: 'Select an address',
+      errorMessageAPI: 'Sorry, there was a problem loading addresses',
+      errorMessageAPILinkText: 'Enter address manually',
+      manualLinkText: 'Manually enter address',
     };
 
     beforeEach(function(done) {
@@ -794,6 +820,13 @@ describe('Autosuggest.address component', function() {
 
       it('then the retrieveAddress function will be called', function() {
         expect(this.retrieveAddressSpy).to.have.been.called();
+      });
+
+      it('then the input should contain the selected address', function(done) {
+        setTimeout(() => {
+          expect(this.autosuggestAddress.input.value).to.equal(this.selectedResult.displayText);
+          done();
+        }, 300);
       });
     });
   });
