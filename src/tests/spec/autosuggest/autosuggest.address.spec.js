@@ -826,8 +826,16 @@ describe('Autosuggest.address component', function() {
       it('then the input should contain the selected address', function() {
         setTimeout(() => {
           expect(this.autosuggestAddress.selectedAddressValue).to.equal(this.selectedResult.displayText);
+          expect(this.autosuggestAddress.addressSelected).to.equal(true);
           done();
         });
+      });
+
+      it('then the urpn field should be empty', function() {
+        beforeEach(function(done) {
+          setTimeout(done);
+        });
+        expect(document.querySelector('#address-uprn').value).to.equal(this.selectedResult.uprn);
       });
     });
   });
