@@ -3,6 +3,10 @@ export default class ReplyInput {
     this.context = context;
     this.input = this.context.querySelector('.input');
     this.button = this.context.querySelector('.btn');
+
+    this.input.addEventListener('change', enableDisableButton(this.input, this.button));
+    this.input.addEventListener('oninput', enableDisableButton(this.input, this.button));
+    this.input.addEventListener('onpropertychange', enableDisableButton(this.input, this.button));
   }
 
   enableDisableButton(input, button) {
@@ -14,8 +18,4 @@ export default class ReplyInput {
       button.classList.add('btn--disabled');
     }
   }
-
-  // this.input.addEventListener('change', enableDisableButton(this.input, this.button));
-  // this.input.addEventListener('oninput', enableDisableButton(this.input, this.button));
-  // this.input.addEventListener('onpropertychange', enableDisableButton(this.input, this.button));
 }
