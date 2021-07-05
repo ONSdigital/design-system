@@ -824,6 +824,7 @@ describe('Autosuggest.address component', function() {
 
       it('then the input should contain the selected address', function(done) {
         setTimeout(() => {
+          this.autosuggestAddress.input.removeAttribute('disabled');
           expect(this.autosuggestAddress.input.value).to.equal(this.selectedResult.displayText);
           done();
         }, 1000);
