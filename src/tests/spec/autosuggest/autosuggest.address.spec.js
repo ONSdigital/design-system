@@ -827,7 +827,7 @@ describe('Autosuggest.address component', function() {
           this.autosuggestAddress.input.removeAttribute('disabled');
           expect(this.wrapper.querySelector('.js-autosuggest-input').value).to.equal(this.selectedResult.displayText);
           done();
-        });
+        }, 1500);
       });
     });
   });
