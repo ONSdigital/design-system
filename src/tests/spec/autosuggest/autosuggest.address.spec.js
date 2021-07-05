@@ -813,6 +813,7 @@ describe('Autosuggest.address component', function() {
           },
         );
         setTimeout(() => {
+          this.autosuggestAddress.input.removeAttribute('disabled');
           this.autosuggestAddress.onAddressSelect(this.selectedResult);
           done();
         });
@@ -822,12 +823,11 @@ describe('Autosuggest.address component', function() {
         expect(this.retrieveAddressSpy).to.have.been.called();
       });
 
-      it('then the input should contain the selected address', function(done) {
+      it('then the input should contain the selected address', function() {
         setTimeout(() => {
-          this.autosuggestAddress.input.removeAttribute('disabled');
-          expect(this.wrapper.querySelector('.js-autosuggest-input').value).to.equal(this.selectedResult.displayText);
+          expect(this.autosuggestAddress.selectedAddressValue).to.equal(this.selectedResult.displayText);
           done();
-        }, 1500);
+        });
       });
     });
   });
