@@ -826,7 +826,7 @@ describe('Autosuggest.address component', function() {
         setTimeout(() => {
           expect(this.autosuggestAddress.input.value).to.equal(this.selectedResult.displayText);
           done();
-        }, 300);
+        }, 1000);
       });
     });
   });
