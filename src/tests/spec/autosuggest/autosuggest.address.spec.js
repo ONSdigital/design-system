@@ -24,6 +24,7 @@ const params = {
   },
   isEditable: true,
   mandatory: true,
+  dontWrap: true,
   APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
   APIDomainBearerToken: 'someToken',
   instructions:
@@ -62,7 +63,7 @@ const params = {
     label: 'Postcode',
   },
   searchButton: 'Search for an address',
-  manualLink: 'Manually enter address',
+  manualLinkText: 'Manually enter address',
 };
 
 let lang = 'en';
@@ -129,9 +130,9 @@ describe('Autosuggest.address component', function() {
 
       describe('When the manual link is clicked', function() {
         beforeEach(function(done) {
-          this.toggleModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'toggleMode');
-          this.manualLink = this.wrapper.querySelector('.js-address-manual-btn');
-          this.manualLink.click();
+          this.setManualModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'setManualMode');
+          this.manualLinkText = this.wrapper.querySelector('.js-address-manual-btn');
+          this.manualLinkText.click();
           setTimeout(done);
         });
 
@@ -144,8 +145,8 @@ describe('Autosuggest.address component', function() {
           expect(this.autosuggestAddress.input.value).to.equal('');
         });
 
-        it('then the toggleMode function should be called', function() {
-          expect(this.toggleModeSpy).to.have.been.called();
+        it('then the setManualMode function should be called', function() {
+          expect(this.setManualModeSpy).to.have.been.called();
         });
       });
     });
@@ -1025,7 +1026,7 @@ function renderComponent(params) {
   const container = context.querySelector('.autosuggest-input');
   const search = context.querySelector('.js-address-input__search');
   const APIDomain = container.getAttribute('data-api-domain');
-  const manualLink = context.querySelector('.js-address-manual-btn');
+  const manualLinkText = context.querySelector('.js-address-manual-btn');
 
   return {
     wrapper,
@@ -1038,6 +1039,6 @@ function renderComponent(params) {
     container,
     search,
     APIDomain,
-    manualLink,
+    manualLinkText,
   };
 }
