@@ -4,7 +4,7 @@ async function initialise() {
   const replyInputs = [...document.querySelectorAll('.js-reply')];
 
   if (replyInputs.length) {
-    const ReplyInput = (await import('reply-input')).default;
+    const ReplyInput = (await import('./reply-input')).default;
 
     replyInputs.forEach(input => new ReplyInput(input));
   }
