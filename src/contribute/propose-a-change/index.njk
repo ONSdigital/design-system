@@ -5,3 +5,64 @@ sortOrder: 2
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+
+Follow these steps if you need to make a change to a feature in the design system.
+
+## 1. Check if someone is already working on it
+Check the {{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/projects/1",
+        "linkText": "community backlog on GitHub"
+    })
+}} to see if someone has already proposed changes to this feature.
+
+If you decide to go ahead, you need to provide evidence that the change to this component or pattern will:
+{{
+    onsList({
+        "itemsList": [
+          {
+            "text": 'improve the user experience'
+          },
+          {
+              "text": 'meet the user needs'
+          },
+          {
+              "text": 'fix a problem or bug'
+          }
+        ]
+    })
+}}
+Your evidence could be from user research, usability and accessibility testing, or research into best practice. You should provide prototypes and mocked-up examples to support your proposal.
+
+## 2. Raise an issue
+First, {{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/issues/new?assignees=&labels=New+feature+proposal&template=feature_request.md&title=Proposal%3A+%5BFEATURE+NAME%5D",
+        "linkText": "create a new issue in GitHub"
+    })
+}}. Just replace the content in the template with details about your proposed change.
+
+## 3. Present your proposal
+We will then invite you to demonstrate your change proposal at a Design System Working Group meeting, and present your evidence to support it. When you complete the issue template, you need to let us know who else to invite to the meeting. 
+
+## 4. Get approval for the proposal
+The group will discuss the change and your evidence. It will decide if the change is needed. The working group may suggest an alternative or reject the proposal if the evidence is not strong enough.
+
+## 5. Add it to the backlog
+If the group approves the change, it will add the proposal to the ONS Design System {{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/projects/1",
+        "linkText": "community backlog on GitHub"
+    })
+}}.
+
+## 6. Decide who will develop it
+You may not be in a position to create the change yourself. If you want or need someone else to develop it, the working group meeting is the place to discuss this. The group can help find a suitable developer.
+
+## Get help with your proposal
+If you need further help with your proposal, or have any questions, you can {{
+    onsExternalLink({
+        "url": "mailto:jo.van.der.plank@ons.gov.uk;benjamin.armstrong@ons.gov.uk?subject=Help with a Design System proposal",
+        "linkText": "contact the Design System Working Group"
+    })
+}}.
