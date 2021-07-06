@@ -3,16 +3,15 @@
 
     {% set content = caller() %}
 
-    <span class="grid--flex">
-        {{ content | safe }}
-        {{ 
-            onsButton({
-                "type": params.searchButton.type,
-                "text": params.searchButton.text,
-                "id": params.searchButton.id,
-                "classes": 'btn--small u-flex-align-bottom u-mb-no'
-            }) 
-        }}
-    </span>
+    {{ content | safe }}
+    {{
+        onsButton({
+            "type": params.searchButton.type,
+            "text": params.searchButton.text,
+            "id": params.searchButton.id,
+            "classes": 'btn--small search__btn' + (" " + params.searchButton.classes if params.searchButton.classes else ""),
+            "attribues": params.searchButton.attribues
+        })
+    }}
 
 {% endmacro %}
