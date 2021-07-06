@@ -33,8 +33,8 @@ describe('Component: Reply', () => {
     document.body.appendChild(wrapper);
 
     replyWrapper = wrapper.querySelector('.js-reply');
-    replyInput = document.getElementById(params.id);
-    replyButton = document.getElementById('replyButton');
+    replyInput = document.getElementById(params.textarea.id);
+    replyButton = document.getElementById(params.button.id);
 
     new ReplyInput(replyWrapper);
   });
