@@ -55,7 +55,7 @@
 
         {% if pageConfig.headMeta is defined and pageConfig.headMeta %}
 
-            {% if pageConfig.headMeta.description is defined and pageConfig.headMeta.description or pageConfig.description is defined and pageConfig.description %}
+            {% if pageConfig.headMeta is defined and pageConfig.headMeta and pageConfig.headMeta.description is defined and pageConfig.headMeta.description or pageConfig.description is defined and pageConfig.description %}
                 <meta name="description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
             {% endif %}
 
