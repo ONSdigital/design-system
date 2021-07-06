@@ -5,15 +5,16 @@ title: Autosuggest
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-Autosuggests are used to suggest options to users as they type. The user can choose to select a suggestion from the results presented or enter their own value. 
-
-You can search topics such as countries, languages, nationalities and job types or you can create your own.
+Autosuggest is used to suggest options to users as they enter something into an input field. A user can select one of the suggestions or enter their own answer.
 
 {{
     patternlibExample({"path": "components/autosuggest/examples/autosuggest-country/index.njk"})
 }}
 
-### How to use
+## When to use this component
+Use the autosuggest component when there is a list of standard responses that a user could give. Autosuggest helps them enter their answer more easily. This could be in areas like countries, languages or nationalities, or you can create your own list for the user to pick from.
+
+## How to use
 
 The list needs to be made available as a `.json` file. To query the list we use a JavaScript library called {{
         onsExternalLink({
@@ -23,7 +24,7 @@ The list needs to be made available as a `.json` file. To query the list we use 
     }}. You will need to provide the url where the json file is stored using the `autosuggestData` parameter.
 
 
-#### List formatting
+### List formatting
 
 The code example below shows how your json should be formatted. The `key` should be the language code that that matches the `lang` attribute on the `<html>` element of the page.
 
@@ -45,7 +46,7 @@ The code example below shows how your json should be formatted. The `key` should
 ]'
 }) }}
 
-#### Multiple selections
+### Multiple selections
 
 You can configure the component to allow multiple suggestions/selections by passing in the parameter `allowMultiple: "true"`. 
 
