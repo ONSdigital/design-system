@@ -32,7 +32,7 @@ describe('Component: Reply', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    replyWrapper = document.querySelector('.js-reply');
+    replyWrapper = wrapper.querySelector('.js-reply');
     replyInput = document.getElementById(params.id);
     replyButton = document.getElementById('replyButton');
 
@@ -47,7 +47,8 @@ describe('Component: Reply', () => {
 
   describe('Given that the reply component has initialised correctly', () => {
     it('the submit button shoudld be disabled', () => {
-      expect(replyButton.disabled.to.equal(true));
+      expect(replyButton.hasAttribute('disabled')).to.be.true;
+      expect(replyButton.classList.contains('btn--disabled')).to.equal(true);
     });
   });
 
@@ -60,7 +61,8 @@ describe('Component: Reply', () => {
       });
 
       it('the submit button should become enabled', () => {
-        expect(replyButton.disabled.to.equal(false));
+        expect(replyButton.hasAttribute('disabled')).to.be.false;
+        expect(replyButton.classList.contains('btn--disabled')).to.equal(false);
       });
     });
 
@@ -72,7 +74,8 @@ describe('Component: Reply', () => {
       });
 
       it('the button should become disabled', () => {
-        expect(replyButton.disabled.to.equal(true));
+        expect(replyButton.hasAttribute('disabled')).to.be.true;
+        expect(replyButton.classList.contains('btn--disabled')).to.equal(true);
       });
     });
   });
