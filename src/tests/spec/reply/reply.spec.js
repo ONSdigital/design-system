@@ -80,7 +80,7 @@ describe('Component: Reply', () => {
     });
   });
 
-  function populateReplyInput(replyInput, value) {
+  function populateReplyInput(replyInput, value = 'abcd') {
     replyInput.value = value;
     const event = new CustomEvent('input');
     event.inputType = 'unitTest';
