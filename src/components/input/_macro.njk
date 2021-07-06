@@ -14,18 +14,20 @@
         {% set inputmode = "numeric" %}
     {% elif params.type is defined and params.type %}
         {% set type = params.type %}
+    {% elif params.searchButton is defined and params.searchButton %}
+        {% set type = "search" %}
     {% else %}
         {% set type = "text" %}
     {% endif %}
 
     {% set exclusiveClass = " js-exclusive-group-item" if params.mutuallyExclusive else "" %}
-    {% set inputPlaceholder = ' input--placeholder ' if params.accessiblePlaceholder else "" %}
+    {% set inputPlaceholder = ' input--placeholder' if params.accessiblePlaceholder else "" %}
 
     {% set input %}
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="input input--text input-type__input{% if params.error is defined and params.error %} input--error{% endif %}{% if params.autosuggest is defined and params.autosuggest %} js-autosuggest-input{% endif %}{% if params.searchButton is defined and params.searchButton %} u-mr-xs@s u-mb-xs@xxs@s{% endif %} {{ params.classes }}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="input input--text input-type__input{% if params.error is defined and params.error %} input--error{% endif %}{% if params.autosuggest is defined and params.autosuggest %} js-autosuggest-input{% endif %}{% if params.searchButton is defined and params.searchButton %} search__input{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix is defined and params.prefix or params.suffix is defined and params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined and params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
@@ -35,7 +37,6 @@
             {% if params.minLength is defined and params.minLength %}minlength="{{ params.minLength }}"{% endif %}
             {% if params.maxLength is defined and params.maxLength %}maxlength="{{ params.maxLength }}"{% endif %}
             {% if pattern is defined and pattern %}pattern="{{ pattern }}"{% endif %}
-            {% if params.accessiblePlaceholder is defined and params.accessiblePlaceholder %}placeholder="{{ params.label.text }}"{% endif %}
             {% if inputmode is defined and inputmode %}inputmode="{{ inputmode }}"{% endif %}
             {% if params.autocomplete is defined and params.autocomplete %}autocomplete="{{ params.autocomplete }}"{% endif %}
             {% if params.accessiblePlaceholder is defined and params.accessiblePlaceholder %}placeholder="{{ params.label.text }}"{% endif %}
@@ -87,16 +88,20 @@
                 </span>
             </span>
         {% elif params.searchButton is defined and params.searchButton %}
-            {% call onsSearch({
-                "accessiblePlaceholder": params.accessiblePlaceholder,
-                "searchButton": {
-                    "type": params.searchButton.type,
-                    "text": params.searchButton.text,
-                    "id": params.searchButton.id
-                }
-            }) %}
-                {{ input | safe }}
-            {% endcall %}
+            <span class="grid--flex search">
+                {% call onsSearch({
+                    "accessiblePlaceholder": params.accessiblePlaceholder,
+                    "searchButton": {
+                        "type": params.searchButton.type,
+                        "text": params.searchButton.text,
+                        "id": params.searchButton.id,
+                        "attribues": params.searchButton.attribues,
+                        "classes": params.searchButton.classes
+                    }
+                }) %}
+                    {{ input | safe }}
+                {% endcall %}
+            </span>
         {% elif params.autosuggest is defined and params.autosuggest %}
             {% call onsAutosuggest({
                 "id": params.id,

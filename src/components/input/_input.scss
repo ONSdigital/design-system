@@ -103,12 +103,8 @@
   }
 }
 
-.input--limit-reached {
+.input--limit-reached:not(:focus) {
   border: $input-border-width solid $color-ruby-red;
-
-  &:focus {
-    outline: $input-border-width solid $color-ruby-red;
-  }
 }
 
 .input__limit {
