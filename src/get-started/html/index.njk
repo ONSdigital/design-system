@@ -1,14 +1,14 @@
 ---
 title: Compiled HTML
 sortOrder: 4
-group: Installing the Design System
+group: Installing the ONS Design System
 ---
 
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
 
-This approach is not recommended as upgrading to new versions will require careful, manual amendments to your code. 
+This approach is not recommended in production. We recommend you use [Nunjucks](/get-started/nunjucks) instead. By using Nunjucks, you can easily keep up to date with the latest versions of the design system. If you use compiled HTML for your service, upgrading to new versions will require careful, manual amendments to your code.
 
-Each component example has an `HTML` tab that shows the rendered HTML output for the component. You can copy and paste the code into templates in your project.
+If you have to use compiled HTML, each component example has an HTML tab that shows the rendered HTML output. You can copy and paste the code into templates in your project.
 
-You would need to [reference the CSS and JS files from the CDN](/css-js-assets#cdn) to bring in the styles and interactivity for the components being used. 
+You need to [reference the CSS and JS files from the CDN](/css-js-assets#cdn) to bring in the styles and interactivity for the components being used. 
