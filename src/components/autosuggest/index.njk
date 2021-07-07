@@ -12,8 +12,7 @@ Autosuggest is used to suggest options to users as they enter something into an 
 }}
 
 ## When to use this component
-Use the autosuggest component when there is a list of standard responses that a user could give. Autosuggest helps them enter their answer more easily. This could be in areas like countries, languages or nationalities, or you can create your own list for the user to pick from.
-
+Use the autosuggest component to help users select from a list of standard responses, for example, countries, languages or nationalities. You could also create your own list for the user to pick from.
 ## How to use
 
 The list needs to be made available as a `.json` file. To query the list we use a JavaScript library called {{
@@ -21,12 +20,12 @@ The list needs to be made available as a `.json` file. To query the list we use 
             "url": "https://fusejs.io",
             "linkText": "Fuse.js"
         })
-    }}. You will need to provide the url where the json file is stored using the `autosuggestData` parameter.
+    }}. You will need to provide the URL where the json file is stored using the `autosuggestData` parameter.
 
 
 ### List formatting
 
-The code example below shows how your json should be formatted. The `key` should be the language code that that matches the `lang` attribute on the `<html>` element of the page.
+This code example shows how your json should be formatted. The `key` should be the language code that matches the `lang` attribute on the `<html>` element of the page.
 
 {% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
 {{ onsCodeHighlight({
@@ -46,9 +45,9 @@ The code example below shows how your json should be formatted. The `key` should
 ]'
 }) }}
 
-### Multiple selections
+### Multiple suggestions
 
-You can configure the component to allow multiple suggestions/selections by passing in the parameter `allowMultiple: "true"`. 
+You can configure the component to allow multiple suggestions by passing in the parameter `allowMultiple: "true"`. 
 
 
 {{
