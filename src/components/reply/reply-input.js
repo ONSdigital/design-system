@@ -10,7 +10,6 @@ export default class ReplyInput {
   }
 
   enableDisableButton() {
-    console.log(this.input.value);
     if (this.input.value.trim() != '') {
       this.button.disabled = false;
       this.button.classList.remove('btn--disabled');
