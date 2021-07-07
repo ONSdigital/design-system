@@ -1,13 +1,13 @@
 ---
 title: Install with npm
 sortOrder: 1
-group: Installing the Design System
+group: Installing the ONS Design System
 ---
 
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
 
-The Design System is available as an {{
+The ONS Design System is available as an {{
     onsExternalLink({
         "url": "https://www.npmjs.com/package/@ons/design-system",
         "linkText": "npm package"
@@ -15,16 +15,16 @@ The Design System is available as an {{
 }}. Every release is published to npm and provides a quick way to install everything you need. 
 Inside the package are the following:
 
-- **components** - Each component contains a macro file that can be used in a nunjucks compatible application
-- **sass files** - All sass rules are available to import. You can import everything or specific parts like a single component or the sass that controls layout
-- **css files** - Compiled css of all components and layout styles
-- **js files** - Bundled javascript modules
-- **fonts, images, favicons** - Static assets used in components and templates
-- **base page template** - A nunjucks template that contains the core markup and components needed to create an ONS service. Learn more about using the [page template](/styles/page-template)
+- **components** – each component contains a macro file that can be used in a Nunjucks-compatible application
+- **Sass files** – all Sass rules are available to import, either everything or specific parts like a single component or the Sass that controls layout
+- **Cascading Style Sheets (CSS) files** – Compiled CSS of all components and layout styles
+- **JS files** – bundled JavaScript modules
+- **fonts, images, favicons** – static assets used in components and templates
+- **base [page template](styles/page-template** – a Nunjucks template that contains the core markup and components needed to create an ONS service.
 
-## Install the Design System npm package
+## Install the ONS Design System npm package
 
-To do this you'll need {{
+To do this you will need {{
     onsExternalLink({
         "url": "https://nodejs.org/en/",
         "linkText": "node.js"
@@ -42,4 +42,4 @@ Then run:
 <br>
 This will install the latest version of `@ons/design-system` in your `node_modules` folder.
 
-Your next step will probably be to get some [styles, scripts and other assets](/get-started/css-js-assets) working in your project.
+The next step is to get some [styles, scripts and other assets](/get-started/css-js-assets) working in your project.
