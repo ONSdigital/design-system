@@ -17,7 +17,7 @@ const params = {
     classes: 'btn-group__btn',
   },
   closeLinkText: 'Close conversation',
-  closeLinkUrl: '#',
+  closeLinkUrl: '#0',
 };
 
 describe('Component: Reply', () => {
