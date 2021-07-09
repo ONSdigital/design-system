@@ -42,7 +42,7 @@ const params = {
   tooManyResults: '{n} results found. Enter more of the address to improve results.',
   errorTitle: 'There is a problem with your answer',
   errorMessage: 'Enter an address ',
-  errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
+  errorMessageAPI: 'Sorry, there is a problem. We are working to fix it. Please try again later or',
 };
 
 describe('Autosuggest.ui component', function() {
@@ -1332,7 +1332,7 @@ describe('Autosuggest.ui component', function() {
       tooManyResults: '{n} results found. Enter more of the address to improve results.',
       errorTitle: 'There is a problem with your answer',
       errorMessage: 'Enter an address ',
-      errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
+      errorMessageAPI: 'Sorry, there is a problem. We are working to fix it. Please try again later or',
     };
 
     beforeEach(function(done) {
