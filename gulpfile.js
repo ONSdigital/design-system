@@ -32,7 +32,7 @@ const terserOptions = {
 const sassCompiler = gulpSass(sass);
 const sassOptions = {
   importer: nodeSassGlobImporter(),
-  includePaths: ['./node_modules/normalize-scss/sass', './mode_modules/prismjs/themes'],
+  includePaths: ['./node_modules/normalize-scss/sass', './node_modules/prismjs/themes'],
 };
 
 const scripts = [
