@@ -1,0 +1,71 @@
+---
+title: Name of component
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+{# Add a short summary here explaining what this pattern is and what it does e.g. “Accordions let users show or hide sections of related content on the same page.” #}
+
+{# Add an example of the default pattern variant here using:
+	{{
+		patternlibExample({"path": "components/input/examples/text/index.njk"})
+	}}
+#}
+
+## When to use this pattern
+Use this pattern...
+{# Add guidance here on the common problems using this pattern can solve #}
+
+## When not to use this pattern {# (optional section) #}
+Do not this pattern...
+{# Add warnings here about likely misuse of this pattern or guidance on better alternatives for the problem. (e.g. use radios not checkboxes) #}
+
+## How to use this pattern
+{# Add guidance here with h3 headings for technical implementation, rules, make-up, variations, content or house style to use #}
+
+### Variations {# (optional section) #}
+{# Add guidance here with h3 headings and examples for each variant of the pattern #}
+
+## How to check {# name of pattern #} {# (optional section) #}
+To help users enter a valid [name of pattern], you should:
+{{
+	onsList({
+		"itemsList": [
+			{
+				"text": ''
+			}
+		]
+	})
+}}
+{# Add guidance here on how to implement error validation if applicable #}
+
+### Error messages {# (optional section) #}
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the {# name of pattern #} field.
+
+{# Add an example of the pattern with an error message here using: 
+  {{
+    patternlibExample({"path": "patterns/email-addresses/examples/email-error/index.njk"})
+  }}
+#}
+
+{# Add h4 headings here for specific error message scenarios, for example,
+
+  #### If the input field is empty
+  Use, “Enter [whatever the input is]”.\
+  For example, “Enter an email address”.
+
+#}
+
+## Research on this pattern {# (optional section) #}
+{# Add user research or accessibility testing findings here #}
+
+## Help us improve this pattern
+Let us know how we could improve this pattern or share your user research findings.
+{{
+	onsExternalLink({
+		"url": "https://github.com/ONSdigital/design-system/discussions/xxx",
+		"linkText": "Discuss the ‘{# name of pattern #}’ pattern on GitHub"
+	})
+}}
