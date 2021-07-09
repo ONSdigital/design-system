@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "gulp start",
-    "watch": "yarn tidy-clean && NODE_ENV=production gulp watch",
+    "watch": "gulp watch",
     "build": "yarn && yarn tidy-clean && NODE_ENV=production gulp build",
     "npm-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/generate-npm-package.js",
     "cdn-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/prepare-templates-for-zip.js",
