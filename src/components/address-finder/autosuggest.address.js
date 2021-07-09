@@ -399,10 +399,13 @@ export default class AutosuggestAddress {
   }
 
   handleSubmit(event) {
+    let isManualMode = false;
+
     if (this.isEditable) {
+      isManualMode = this.addressSetter.manualMode;
       this.addressSetter.checkManualInputsValues(false);
     }
-    if (this.isMandatory && !this.search.classList.contains('u-d-no')) {
+    if (this.isMandatory && !isManualMode) {
       if (
         !this.addressSelected ||
         this.input.value === '' ||
