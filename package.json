@@ -10,11 +10,9 @@
     "url": "https://github.com/bameyrick"
   },
   "scripts": {
-    "new:start": "gulp start",
-    "new:watch": "NODE_ENV=production gulp watch",
-    "new:build": "NODE_ENV=production gulp build",
-    "start": "yarn tidy-clean && yarn webpack-dev-server --host 0.0.0.0 --watch --config webpack.dev.babel.js",
-    "build": "yarn && yarn tidy-clean && yarn webpack --config webpack.prod.babel.js",
+    "start": "gulp start",
+    "watch": "yarn tidy-clean && NODE_ENV=production gulp watch",
+    "build": "yarn && yarn tidy-clean && NODE_ENV=production gulp build",
     "npm-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/generate-npm-package.js",
     "cdn-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/prepare-templates-for-zip.js",
     "test:local": "TEST_MODE=esm KARMA_SINGLE_RUN=false karma start ./karma.conf.babel-register.js",
