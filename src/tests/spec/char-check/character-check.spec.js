@@ -1,6 +1,6 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/search/_test-template.njk';
-import CharCheck from 'components/char-check-limit/character-check';
+import CharCheck from '../../../components/char-check-limit/character-check';
+import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
+import renderTemplate from '../../helpers/render-template';
 
 const params = {
   id: 'search-field',
@@ -28,7 +28,7 @@ describe('Component: Input with character check', () => {
   before(() => awaitPolyfills);
 
   beforeEach(() => {
-    const html = template.render({ params });
+    const html = renderTemplate('components/search/_test-template.njk', { params });
 
     wrapper = document.createElement('div');
     wrapper.innerHTML = html;

@@ -1,55 +1,27 @@
-import browserSync from 'browser-sync';
-import browserify from 'browserify';
-import gulp from 'gulp';
-import gulpIf from 'gulp-if';
-import gulpPostCss from 'gulp-postcss';
-import gulpSass from 'gulp-sass';
-import gulpSourcemaps from 'gulp-sourcemaps';
-import gulpSvg from 'gulp-svgo';
-import gulpTerser from 'gulp-terser';
-import sass from 'node-sass';
-import nodeSassGlobImporter from 'node-sass-glob-importer';
-import buffer from 'vinyl-buffer';
-import source from 'vinyl-source-stream';
+const browserSync = require('browser-sync');
+const browserify = require('browserify');
+const gulp = require('gulp');
+const gulpIf = require('gulp-if');
+const gulpPostCss = require('gulp-postcss');
+const gulpSass = require('gulp-sass');
+const gulpSourcemaps = require('gulp-sourcemaps');
+const gulpSvg = require('gulp-svgo');
+const gulpTerser = require('gulp-terser');
+const sass = require('node-sass');
+const nodeSassGlobImporter = require('node-sass-glob-importer');
+const buffer = require('vinyl-buffer');
+const source = require('vinyl-source-stream');
 
-import nunjucksRendererPipe from './lib/rendering/nunjucks-renderer-pipe.js';
-import postCssPlugins from './postcss.config.js';
-import svgConfig from './svgo-config.js';
+require('@babel/register');
+
+const babelEsmConfig = require('./babel.conf.esm');
+const babelNomoduleConfig = require('./babel.conf.nomodule');
+const nunjucksRendererPipe = require('./lib/rendering/nunjucks-renderer-pipe.js').default;
+const postCssPlugins = require('./postcss.config').default;
+const svgConfig = require('./svgo-config.js').default;
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
-
-const babelOptions = {
-  babelrc: false,
-  plugins: [
-    '@babel/plugin-syntax-dynamic-import',
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-transform-runtime',
-    'rewiremock/babel',
-  ],
-};
-
-const babelFallbackPresets = [
-  [
-    '@babel/preset-env',
-    {
-      targets: {
-        browsers: ['ie 11'],
-      },
-    },
-  ],
-];
-
-const babelModernPresets = [
-  [
-    '@babel/preset-env',
-    {
-      targets: {
-        browsers: ['last 2 Chrome versions', 'Safari >= 12', 'iOS >= 10.3', 'last 2 Firefox versions', 'last 2 Edge versions'],
-      },
-    },
-  ],
-];
 
 const terserOptions = {
   compress: {
@@ -67,22 +39,22 @@ const scripts = [
   {
     entryPoint: ['./src/js/public-path-override.js', './src/js/polyfills/index.js', './src/js/main.js'],
     outputFile: 'main.js',
-    presets: babelFallbackPresets,
+    config: babelNomoduleConfig,
   },
   {
     entryPoint: ['./src/js/public-path-override.js', './src/js/polyfills/index.js', './src/js/main.js'],
     outputFile: 'main.es5.js',
-    presets: babelModernPresets,
+    config: babelEsmConfig,
   },
   {
     entryPoint: './src/js/patternlib/index.js',
     outputFile: 'patternlib.js',
-    presets: babelFallbackPresets,
+    config: babelNomoduleConfig,
   },
   {
     entryPoint: './src/js/patternlib/index.js',
     outputFile: 'patternlib.es5.js',
-    presets: babelModernPresets,
+    config: babelEsmConfig,
   },
 ];
 
@@ -90,11 +62,11 @@ gulp.task('clean', () => {
   return Promise.resolve();
 });
 
-function createBuildScriptTask({ entryPoint, outputFile, presets }) {
+function createBuildScriptTask({ entryPoint, outputFile, config }) {
   const taskName = `buildScript:${outputFile}`;
   gulp.task(taskName, () => {
     return browserify(entryPoint, { debug: isDevelopment })
-      .transform('babelify', { ...babelOptions, sourceMaps: isDevelopment, presets })
+      .transform('babelify', { ...config, sourceMaps: isDevelopment })
       .bundle()
       .pipe(source(outputFile))
       .pipe(buffer())

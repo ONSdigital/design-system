@@ -1,6 +1,6 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import fetchMock from 'stubs/window.fetch.stub.spec';
-import fetch from 'js/abortable-fetch';
+import fetch from '../../../js/abortable-fetch';
+import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
+import fetchMock from '../../stubs/window.fetch.stub.spec';
 
 describe('Function: Abortable Fetch', function() {
   before(() => awaitPolyfills);

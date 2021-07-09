@@ -1,6 +1,6 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import CookiesSettings from 'js/cookies-settings';
-import { cookie, setDefaultConsentCookie, setConsentCookie, setCookie } from 'js/cookies-functions';
+import { cookie, setConsentCookie, setCookie, setDefaultConsentCookie } from '../../../js/cookies-functions';
+import CookiesSettings from '../../../js/cookies-settings';
+import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 
 describe('Component: Cookie settings', function() {
   before(() => awaitPolyfills);

@@ -1,6 +1,6 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/textarea/_test-template.njk';
-import CharLimit from 'components/char-check-limit/character-limit';
+import CharLimit from '../../../components/char-check-limit/character-limit';
+import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
+import renderTemplate from '../../helpers/render-template';
 
 const params = {
   id: 'textarea-char-limit',
@@ -23,7 +23,7 @@ describe('Component: Textarea with character limit', () => {
   before(() => awaitPolyfills);
 
   beforeEach(() => {
-    const html = template.render({ params });
+    const html = renderTemplate('components/textarea/_test-template.njk', { params });
 
     wrapper = document.createElement('div');
     wrapper.innerHTML = html;

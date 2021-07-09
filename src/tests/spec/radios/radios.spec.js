@@ -1,8 +1,8 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/radios/_test-template.njk';
-import Radios from 'components/checkboxes/checkboxes';
-import ClearRadios from 'components/radios/clear-radios';
-import CheckRadios from 'components/radios/check-radios';
+import Radios from '../../../components/checkboxes/checkboxes';
+import CheckRadios from '../../../components/radios/check-radios';
+import ClearRadios from '../../../components/radios/clear-radios';
+import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
+import renderTemplate from '../../helpers/render-template';
 
 const params = {
   name: 'contact-preference',
@@ -197,6 +197,7 @@ describe('Component: Radios', function() {
       });
     });
 
+    // This test can sometimes fail if the browser window isn't focused when the test runs.
     describe('and there is a visible input which is focused', function() {
       beforeEach(function() {
         this.input = this.openOther.querySelector('.input');
@@ -228,7 +229,7 @@ describe('Component: Radios', function() {
 });
 
 function renderComponent(params) {
-  const html = template.render({ params });
+  const html = renderTemplate('components/radios/_test-template.njk', { params });
 
   const wrapper = document.createElement('div');
   wrapper.innerHTML = html;

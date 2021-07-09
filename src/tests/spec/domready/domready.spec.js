@@ -1,3 +1,5 @@
+import domready from '../../../js/domready';
+
 describe('DomReady function', function() {
   beforeEach(function() {
     this.spy = chai.spy(() => {});
@@ -5,7 +7,7 @@ describe('DomReady function', function() {
 
   describe('When the dom is ready', function() {
     beforeEach(function() {
-      domReady(this.spy, true);
+      domready(this.spy, true);
     });
 
     it('callbacks should be run', function() {

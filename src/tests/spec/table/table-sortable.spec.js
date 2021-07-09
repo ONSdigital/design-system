@@ -1,6 +1,6 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/table/_test-template.njk';
-import TableSort from 'components/table/sortable-table';
+import TableSort from '../../../components/table/sortable-table';
+import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
+import renderTemplate from '../../helpers/render-template';
 
 const params = {
   sortable: true,
@@ -221,7 +221,7 @@ describe('Component: Sortable table', function() {
 });
 
 function renderComponent(params) {
-  const html = template.render({ params });
+  const html = renderTemplate('components/table/_test-template.njk', { params });
 
   const wrapper = document.createElement('div');
   wrapper.innerHTML = html;

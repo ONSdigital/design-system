@@ -1,6 +1,6 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/collapsible/_test-template.njk';
-import Collapsible from 'components/collapsible/collapsible';
+import Collapsible from '../../../components/collapsible/collapsible';
+import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
+import renderTemplate from '../../helpers/render-template';
 
 const params = {
   id: 'collapsible',
@@ -239,7 +239,7 @@ describe('Component: collapsible', function() {
 });
 
 function renderComponent(params) {
-  const html = template.render({ params });
+  const html = renderTemplate('components/collapsible/_test-template.njk', { params });
 
   const wrapper = document.createElement('div');
   wrapper.innerHTML = html;

@@ -1,8 +1,8 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/accordion/_test-template.njk';
-import Collapsible from 'components/collapsible/collapsible';
-import CollapsibleGroup from 'components/collapsible/collapsible.group';
-import eventMock from 'stubs/event.stub.spec';
+import Collapsible from '../../../components/collapsible/collapsible';
+import CollapsibleGroup from '../../../components/collapsible/collapsible.group';
+import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
+import renderTemplate from '../../helpers/render-template';
+import eventMock from '../../stubs/event.stub.spec';
 
 const params = {
   id: 'accordion',
@@ -151,7 +151,7 @@ describe('Component: Accordion', function() {
 });
 
 function renderComponent(params) {
-  const html = template.render({ params });
+  const html = renderTemplate('components/accordion/_test-template.njk', { params });
 
   const wrapper = document.createElement('div');
   wrapper.innerHTML = html;

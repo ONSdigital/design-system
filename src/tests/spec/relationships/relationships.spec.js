@@ -1,6 +1,6 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/relationships/_test-template.njk';
-import Relationships from 'components/relationships/relationships';
+import Relationships from '../../../components/relationships/relationships';
+import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
+import renderTemplate from '../../helpers/render-template';
 
 const params = {
   dontWrap: true,
@@ -218,7 +218,7 @@ describe('Component: Relationships', function() {
 });
 
 function renderComponent(params) {
-  const html = template.render({ params });
+  const html = renderTemplate('components/relationships/_test-template.njk', { params });
 
   const wrapper = document.createElement('div');
   wrapper.innerHTML = html;

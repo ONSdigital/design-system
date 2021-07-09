@@ -1,16 +1,15 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/address-input/_test-template.njk';
-import '../../../scss/main.scss';
-import AutosuggestAddress from '../../../components/input/autosuggest/autosuggest.address';
-import AddressError from '../../../components/input/autosuggest/autosuggest.address.error';
-import AddressSetter from '../../../components/input/autosuggest/autosuggest.address.setter';
-import eventMock from 'stubs/event.stub.spec';
-import fetchStub from 'stubs/window.fetch.stub.spec';
-
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import chaiSpies from 'chai-spies';
 import fetchMock from 'fetch-mock';
+
+import AutosuggestAddress from '../../../components/input/autosuggest/autosuggest.address';
+import AddressError from '../../../components/input/autosuggest/autosuggest.address.error';
+import AddressSetter from '../../../components/input/autosuggest/autosuggest.address.setter';
+import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
+import renderTemplate from '../../helpers/render-template';
+import eventMock from '../../stubs/event.stub.spec';
+import fetchStub from '../../stubs/window.fetch.stub.spec';
 
 chai.should();
 chai.use(chaiSpies);
@@ -75,15 +74,12 @@ const params = {
 let lang = 'en';
 
 describe('Autosuggest.address component', function() {
-  before(function(done) {
-    awaitPolyfills.then(() => {
-      this.rewiremock = require('rewiremock/webpack').default;
-      done();
-    });
+  before(async () => {
+    await awaitPolyfills;
   });
 
   describe('When the component initialises', function() {
-    beforeEach(function(done) {
+    beforeEach(function() {
       const component = renderComponent(params);
 
       Object.keys(component).forEach(key => {
@@ -92,7 +88,6 @@ describe('Autosuggest.address component', function() {
 
       const context = this.context;
       this.autosuggestAddress = new AutosuggestAddress(context);
-      done();
     });
 
     afterEach(function() {
@@ -165,9 +160,9 @@ describe('Autosuggest.address component', function() {
       });
 
       describe('and a query is sent', function() {
-        beforeEach(function(done) {
-          this.autosuggestAddress.suggestAddresses('195 colle', [], false);
-          setTimeout(done);
+        beforeEach(async function() {
+          this.autosuggestAddress.search.classList.remove('u-d-no');
+          await this.autosuggestAddress.suggestAddresses('195 colle', [], false);
         });
 
         it('then the findAddress function should be called', function() {
@@ -593,6 +588,7 @@ describe('Autosuggest.address component', function() {
             this.setAriaStatusSpy = chai.spy.on(this.autosuggestAddress.autosuggest, 'setAriaStatus');
 
             this.mockedEvent = eventMock({ key: 'Enter' });
+            this.autosuggestAddress.search.classList.remove('u-d-no');
             this.autosuggestAddress.handleSubmit(this.mockedEvent);
             setTimeout(done);
           });
@@ -957,7 +953,7 @@ describe('Autosuggest.address component', function() {
 });
 
 function renderComponent(params) {
-  const html = template.render({ params });
+  const html = renderTemplate('components/address-input/_test-template.njk', { params });
   const wrapper = document.createElement('form');
   wrapper.classList.add('question');
 

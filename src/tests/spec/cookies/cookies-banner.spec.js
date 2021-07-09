@@ -1,6 +1,6 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import CookiesBanner from 'components/cookies-banner/cookies-banner';
-import { cookie, setCookie, approveAllCookieTypes } from 'js/cookies-functions';
+import CookiesBanner from '../../../components/cookies-banner/cookies-banner';
+import { approveAllCookieTypes, cookie, setCookie } from '../../../js/cookies-functions';
+import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 
 describe('Component: Cookie banner', function() {
   before(() => awaitPolyfills);
