@@ -63,7 +63,7 @@ gulp.task('clean', () => {
 });
 
 function createBuildScriptTask({ entryPoint, outputFile, config }) {
-  const taskName = `buildScript:${outputFile}`;
+  const taskName = `build-script:${outputFile}`;
   gulp.task(taskName, () => {
     return browserify(entryPoint, { debug: isDevelopment })
       .transform('babelify', { ...config, sourceMaps: isDevelopment })
@@ -79,9 +79,9 @@ function createBuildScriptTask({ entryPoint, outputFile, config }) {
   return taskName;
 }
 
-gulp.task('buildScript', gulp.series(...scripts.map(createBuildScriptTask)));
+gulp.task('build-script', gulp.series(...scripts.map(createBuildScriptTask)));
 
-gulp.task('buildStyles', () => {
+gulp.task('build-styles', () => {
   return gulp
     .src('./src/scss/*.scss')
     .pipe(gulpIf(isDevelopment, gulpSourcemaps.init()))
@@ -92,7 +92,7 @@ gulp.task('buildStyles', () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task('buildSvg', () => {
+gulp.task('build-svg', () => {
   return gulp
     .src('./src/svg/**/*.svg')
     .pipe(gulpSvg(svgConfig))
@@ -100,7 +100,7 @@ gulp.task('buildSvg', () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task('buildPages', () => {
+gulp.task('build-pages', () => {
   return gulp
     .src('./src/**/[^_]*.njk')
     .pipe(nunjucksRendererPipe)
@@ -117,16 +117,18 @@ gulp.task('watch-and-build', async () => {
   });
 
   gulp.watch('./src/**/*.njk').on('change', browserSync.reload);
-  gulp.watch('./src/**/*.scss', gulp.series('buildStyles'));
-  gulp.watch('./src/**/*.js', gulp.series('buildScript'));
-  gulp.watch('./src/svg/**/*.svg', gulp.series('buildSvg'));
+  gulp.watch('./src/**/*.scss', gulp.series('build-styles'));
+  gulp.watch('./src/**/*.js', gulp.series('build-script'));
+  gulp.watch('./src/svg/**/*.svg', gulp.series('build-svg'));
 });
 
-gulp.task('startDevServer', async () => {
+gulp.task('start-dev-server', async () => {
   await import('./lib/dev-server.js');
 });
 
-gulp.task('start', gulp.series('buildScript', 'buildStyles', 'buildSvg', 'watch-and-build', 'startDevServer'));
-gulp.task('watch', gulp.series('watch-and-build', 'startDevServer'));
-gulp.task('build', gulp.series('copy-static-files', 'buildScript', 'buildStyles', 'buildSvg', 'buildPages'));
-gulp.task('build-package', gulp.series('copy-static-files', 'buildScript', 'buildStyles', 'buildSvg'));
+gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-svg'));
+
+gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
+gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
+gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-pages'));
+gulp.task('build-package', gulp.series('copy-static-files', 'build-assets'));
