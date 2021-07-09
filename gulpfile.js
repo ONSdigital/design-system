@@ -101,10 +101,8 @@ gulp.task('buildSvg', () => {
 });
 
 gulp.task('buildPages', () => {
-  const sources = ['./src/components/**/[^_]*.njk', './src/pages/**/[^_]*.njk'];
-
   return gulp
-    .src(sources)
+    .src('./src/**/[^_]*.njk')
     .pipe(nunjucksRendererPipe)
     .pipe(gulp.dest('./build'));
 });
