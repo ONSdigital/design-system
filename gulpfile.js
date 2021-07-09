@@ -129,3 +129,4 @@ gulp.task('startDevServer', async () => {
 gulp.task('start', gulp.series('buildScript', 'buildStyles', 'buildSvg', 'watch-and-build', 'startDevServer'));
 gulp.task('watch', gulp.series('watch-and-build', 'startDevServer'));
 gulp.task('build', gulp.series('copy-static-files', 'buildScript', 'buildStyles', 'buildSvg', 'buildPages'));
+gulp.task('build-package', gulp.series('copy-static-files', 'buildScript', 'buildStyles', 'buildSvg'));
