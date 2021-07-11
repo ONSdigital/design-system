@@ -37,8 +37,7 @@ export default function(config) {
 
     preprocessors: {
       'src/scss/main.scss': ['scss'],
-      'src/js/polyfills/index.js': ['browserify'],
-      'src/tests/spec/**/*.spec.js': ['browserify'],
+      'src/**/*.js': ['browserify'],
     },
 
     scssPreprocessor: {
