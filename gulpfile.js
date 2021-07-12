@@ -37,24 +37,24 @@ const sassOptions = {
 
 const scripts = [
   {
-    entryPoint: ['./src/js/public-path-override.js', './src/js/polyfills/index.js', './src/js/main.js'],
+    entryPoint: ['./src/js/public-path-override.js', './src/js/main.js'],
     outputFile: 'main.js',
-    config: babelNomoduleConfig,
+    config: babelEsmConfig,
   },
   {
     entryPoint: ['./src/js/public-path-override.js', './src/js/polyfills/index.js', './src/js/main.js'],
     outputFile: 'main.es5.js',
-    config: babelEsmConfig,
-  },
-  {
-    entryPoint: './src/js/patternlib/index.js',
-    outputFile: 'patternlib.js',
     config: babelNomoduleConfig,
   },
   {
     entryPoint: './src/js/patternlib/index.js',
-    outputFile: 'patternlib.es5.js',
+    outputFile: 'patternlib.js',
     config: babelEsmConfig,
+  },
+  {
+    entryPoint: './src/js/patternlib/index.js',
+    outputFile: 'patternlib.es5.js',
+    config: babelNomoduleConfig,
   },
 ];
 
