@@ -9,7 +9,7 @@ experimental: true
 
 ## Messages - message list
 {{
-    patternlibExample({"path": "patterns/message/examples/message-list/index.njk"})
+    patternlibExample({"path": "patterns/send-and-reply-to-messages/examples/message-list/index.njk"})
 }}
 
 ## When to use this pattern
@@ -19,7 +19,7 @@ Use this pattern as a way to display an index list of conversations/threads betw
 ## Messages - conversation thread
 
 {{
-    patternlibExample({"path": "patterns/message/examples/conversation/index.njk"})
+    patternlibExample({"path": "patterns/send-and-reply-to-messages/examples/conversation/index.njk"})
 }}
 ## When to use this pattern
 
@@ -37,8 +37,8 @@ This pattern consists of the following elements/components:
 - Submit button to send a message
 - Optional close button to end the conversation
 {% endmd %}
-All components should be wrapped in a `section` with `role=region` and an `aria-label`. The value of the aria-label should be prefixed with `conversation:` e.g.
-`aria-label="Conversation: BRES 2017 clarification required for Bolts &amp; Ratchets Ltd"`.
+All components should be wrapped in a `section` with `role=region` and an `aria-label` which should be prefixed with `conversation:` e.g.
+`aria-label="Conversation: BRES 2017 clarification required for Bolts &amp; Ratchets Ltd"`
 
 The heading that displays the subject should contain a visually hidden span e.g. `<span class="u-vh">Subject: </span>`. This helps to provide context to screen reader users about the page.
 
@@ -54,6 +54,6 @@ Let us know how we could improve this pattern or share your user research findin
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/676",
-        "linkText": "Discuss the ‘Messages’ pattern on GitHub"
+        "linkText": "Discuss the ‘Send and reply to messages’ pattern on GitHub"
     })
 }}

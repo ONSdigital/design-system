@@ -1,7 +1,6 @@
 {% from "components/message/_macro.njk" import onsMessage %}
 {% from "components/metadata/_macro.njk" import onsMetadata %}
-{% from "components/textarea/_macro.njk" import onsTextarea %}
-{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/reply/_macro.njk" import onsReply %}
 
 <div class="grid">
     <div class="grid__col col-8@m">
@@ -100,29 +99,23 @@
             {% endcall %}
 
             {{
-                onsTextarea({
-                    "id": "reply",
-                    "name": "reply",
-                    "label": {
-                        "text": "Reply"
-                    }
+                onsReply({
+                    "textarea": {
+                        "id": "reply",
+                        "name": "reply",
+                        "label": {
+                            "text": "Reply"
+                        }
+                    },
+                    "button": {
+                        "type": 'button',
+                        "text": 'Send message',
+                        "classes": 'btn-group__btn'
+                    },
+                    "closeLinkText": 'Close conversation',
+                    "closeLinkUrl": '#0'
                 })
             }}
-            <div class="grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap@s u-mt-m u-mb-m">
-                <div class="grid__col">
-                    {{
-                        onsButton({
-                            "type": 'button',
-                            "text": 'Send message',
-                            "classes": 'btn-group__btn'
-                        })
-                    }}
-                    </div>
-                    <div class="grid__col u-ml-m">
-                        <a href="#">Close conversation</a>
-                    </div>
-                </div>
-            </div>
         </section>
     </div>
 </div>
