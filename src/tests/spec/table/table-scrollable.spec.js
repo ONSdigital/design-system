@@ -1,5 +1,4 @@
 import TableScroll from '../../../components/table/scrollable-table';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -90,8 +89,6 @@ const params = {
 };
 
 describe('Component: Scrollable table', function() {
-  before(() => awaitPolyfills);
-
   beforeEach(function() {
     const component = renderComponent(params);
 

@@ -1,5 +1,4 @@
 import Password from '../../../components/password/password';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -12,8 +11,6 @@ const params = {
 
 describe('Component: Password', () => {
   let wrapper, component, checkboxWrap, checkbox, input;
-
-  before(() => awaitPolyfills);
 
   beforeEach(() => {
     const html = renderTemplate('components/password/_test-template.njk', { params });

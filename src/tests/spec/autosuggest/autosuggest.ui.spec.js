@@ -10,7 +10,6 @@ import AutosuggestUI, {
   classAutosuggestOptionMoreResults,
   classAutosuggestOptionNoResults,
 } from '../../../components/input/autosuggest/autosuggest.ui';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 import eventMock from '../../stubs/event.stub.spec';
 import fetchMock from '../../stubs/window.fetch.stub.spec';
@@ -50,10 +49,6 @@ const params = {
 };
 
 describe('Autosuggest.ui component', function() {
-  before(async () => {
-    await awaitPolyfills;
-  });
-
   describe('Before the component initialises', function() {
     beforeEach(function() {
       const component = renderComponent(params);

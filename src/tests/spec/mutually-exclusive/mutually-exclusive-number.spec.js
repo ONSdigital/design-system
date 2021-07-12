@@ -1,5 +1,4 @@
 import MutuallyExclusive from '../../../components/mutually-exclusive/mutually-exclusive';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -34,10 +33,6 @@ const params = {
 
 describe('Component: Mutually Exclusive Number Input', () => {
   let wrapper, component, input, checkbox, ariaAlert;
-
-  before(() => {
-    return awaitPolyfills;
-  });
 
   beforeEach(() => {
     const html = renderTemplate('components/input/_test-template.njk', { params });

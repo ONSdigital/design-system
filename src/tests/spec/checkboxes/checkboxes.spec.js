@@ -1,5 +1,4 @@
 import Checkboxes from '../../../components/checkboxes/checkboxes';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -40,8 +39,6 @@ const params = {
 };
 
 describe('Component: Checkboxes', function() {
-  before(() => awaitPolyfills);
-
   beforeEach(function() {
     const component = renderComponent(params);
 

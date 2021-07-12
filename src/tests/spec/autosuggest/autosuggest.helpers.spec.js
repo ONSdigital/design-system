@@ -1,9 +1,6 @@
 import { sanitiseAutosuggestText } from '../../../components/input/autosuggest/autosuggest.helpers';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 
 describe('Autosuggest helpers', () => {
-  before(() => awaitPolyfills);
-
   describe('When a string with uppercase characters is supplied', () => {
     it('then the string should be converted to lowercase', () => {
       const result = sanitiseAutosuggestText('This string should Be PUT into All LOWERCASE');

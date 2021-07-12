@@ -1,5 +1,4 @@
 import SubmitButton from '../../../components/button/button';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 describe('Function: Loader Button ', function() {
@@ -10,8 +9,6 @@ describe('Function: Loader Button ', function() {
     text: 'Submit',
     submitType: 'loader',
   };
-
-  before(() => awaitPolyfills);
 
   beforeEach(() => {
     const html = renderTemplate('components/button/_test-template.njk', { params });
@@ -69,8 +66,6 @@ describe('Function: Timer Button ', function() {
     text: 'Submit',
     submitType: 'timer',
   };
-
-  before(() => awaitPolyfills);
 
   beforeEach(() => {
     const html = renderTemplate('components/button/_test-template.njk', { params });

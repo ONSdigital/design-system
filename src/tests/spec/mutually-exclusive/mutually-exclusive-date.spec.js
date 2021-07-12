@@ -1,5 +1,4 @@
 import MutuallyExclusive from '../../../components/mutually-exclusive/mutually-exclusive';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -42,8 +41,6 @@ const params = {
 
 describe('Component: Mutually Exclusive Date Input', () => {
   let wrapper, component, dayInput, monthInput, yearInput, checkbox, ariaAlert;
-
-  before(() => awaitPolyfills);
 
   beforeEach(() => {
     const html = renderTemplate('components/date-input/_test-template.njk', { params });

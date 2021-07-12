@@ -2,7 +2,6 @@ import '../../../components/tabs/tabs';
 
 import proxyquireify from 'proxyquireify';
 
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 import eventMock from '../../stubs/event.stub.spec';
 import matchMediaDesktopMock from '../../stubs/matchMediaDesktop.stub.spec';
@@ -33,10 +32,6 @@ describe('Component: Tabs', () => {
   const desktopMock = matchMediaDesktopMock();
 
   let tabs;
-
-  before(async () => {
-    await awaitPolyfills;
-  });
 
   describe('when the viewport is large,', () => {
     if (window.innerWidth > 631) {

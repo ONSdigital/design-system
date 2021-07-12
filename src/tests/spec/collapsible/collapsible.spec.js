@@ -1,5 +1,4 @@
 import Collapsible from '../../../components/collapsible/collapsible';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -14,8 +13,6 @@ const params = {
 };
 
 describe('Component: collapsible', function() {
-  before(() => awaitPolyfills);
-
   describe('If the component has a button', function() {
     describe('before the component initialises', function() {
       beforeEach(function() {

@@ -3,7 +3,6 @@ import chaiAsPromised from 'chai-as-promised';
 import chaiSpies from 'chai-spies';
 
 import SubmitButton from '../../../components/button/button';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 import eventMock from '../../stubs/event.stub.spec';
 
@@ -20,8 +19,6 @@ describe('Function: Link Button ', function() {
     submitType: 'link',
     url: '#',
   };
-
-  before(() => awaitPolyfills);
 
   beforeEach(() => {
     const html = renderTemplate('components/button/_test-template.njk', { params });

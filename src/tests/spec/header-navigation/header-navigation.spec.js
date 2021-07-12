@@ -1,6 +1,5 @@
 import proxyquireify from 'proxyquireify';
 
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 import GetViewportDetailsMock from '../../stubs/getViewportDetails.stub.spec';
 
@@ -46,10 +45,6 @@ const params = {
 
 describe('Component: Navigation', function() {
   const ViewportDetailsMock = new GetViewportDetailsMock();
-
-  before(async () => {
-    await awaitPolyfills;
-  });
 
   describe('When the viewport is small,', function() {
     beforeEach(function() {

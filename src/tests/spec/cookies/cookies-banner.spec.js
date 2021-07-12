@@ -1,10 +1,7 @@
 import CookiesBanner from '../../../components/cookies-banner/cookies-banner';
 import { approveAllCookieTypes, cookie, setCookie } from '../../../js/cookies-functions';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 
 describe('Component: Cookie banner', function() {
-  before(() => awaitPolyfills);
-
   beforeEach(function() {
     const component = renderComponent();
     Object.keys(component).forEach(key => {

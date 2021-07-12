@@ -1,5 +1,4 @@
 import UAC from '../../../components/uac/uac';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -14,10 +13,6 @@ const params = {
 
 describe('Component: UAC Input', () => {
   let wrapper, input, instance;
-
-  before(() => {
-    return awaitPolyfills;
-  });
 
   beforeEach(() => {
     const html = renderTemplate('components/uac/_test-template.njk', { params });

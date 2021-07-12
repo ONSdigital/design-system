@@ -1,6 +1,5 @@
 import CharacterLimit from '../../../components/char-check-limit/character-limit';
 import MutuallyExclusive from '../../../components/mutually-exclusive/mutually-exclusive';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 import { populateTextarea } from '../textarea/character-limit.spec';
 
@@ -35,10 +34,6 @@ const params = {
 
 describe('Component: Mutually Exclusive Textarea', () => {
   let wrapper, mutuallyExclusiveComponent, textarea, textareaRemaining, checkbox, ariaAlert;
-
-  before(() => {
-    return awaitPolyfills;
-  });
 
   beforeEach(() => {
     const html = renderTemplate('components/textarea/_test-template.njk', { params });

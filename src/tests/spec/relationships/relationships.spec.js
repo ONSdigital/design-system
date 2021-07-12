@@ -1,5 +1,4 @@
 import Relationships from '../../../components/relationships/relationships';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -169,8 +168,6 @@ const params = {
 };
 
 describe('Component: Relationships', function() {
-  before(() => awaitPolyfills);
-
   beforeEach(function() {
     const component = renderComponent(params);
 

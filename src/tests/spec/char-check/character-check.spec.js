@@ -1,5 +1,4 @@
 import CharCheck from '../../../components/char-check-limit/character-check';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -24,8 +23,6 @@ const params = {
 
 describe('Component: Input with character check', () => {
   let wrapper, searchWrapper, searchInput, limit_readout;
-
-  before(() => awaitPolyfills);
 
   beforeEach(() => {
     const html = renderTemplate('components/search/_test-template.njk', { params });

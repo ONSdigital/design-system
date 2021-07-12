@@ -6,7 +6,6 @@ import fetchMock from 'fetch-mock';
 import AutosuggestAddress from '../../../components/input/autosuggest/autosuggest.address';
 import AddressError from '../../../components/input/autosuggest/autosuggest.address.error';
 import AddressSetter from '../../../components/input/autosuggest/autosuggest.address.setter';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 import eventMock from '../../stubs/event.stub.spec';
 import fetchStub from '../../stubs/window.fetch.stub.spec';
@@ -74,10 +73,6 @@ const params = {
 let lang = 'en';
 
 describe('Autosuggest.address component', function() {
-  before(async () => {
-    await awaitPolyfills;
-  });
-
   describe('When the component initialises', function() {
     beforeEach(function() {
       const component = renderComponent(params);

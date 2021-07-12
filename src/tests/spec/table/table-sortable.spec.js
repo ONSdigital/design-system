@@ -1,5 +1,4 @@
 import TableSort from '../../../components/table/sortable-table';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -94,8 +93,6 @@ let originalValues = [],
   sortedValues = [];
 
 describe('Component: Sortable table', function() {
-  before(() => awaitPolyfills);
-
   describe('When the component initialises', function() {
     before(function() {
       const component = renderComponent(params);

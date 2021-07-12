@@ -12,6 +12,8 @@ assert(['esm', 'nomodule'].includes(process.env.TEST_MODE), 'Invalid value for e
 
 const babelConfig = process.env.TEST_MODE === 'esm' ? babelEsmConfig : babelNomoduleConfig;
 
+babelConfig.plugins.push('istanbul');
+
 const launchersConfig = process.env.TEST_ON_BROWSERSTACK
   ? process.env.TEST_MODE === 'esm'
     ? browserstackEsmLaunchersConfig
@@ -29,7 +31,8 @@ export default function(config) {
     files: [
       { pattern: 'src/components/**/*.njk', included: false },
       'src/scss/main.scss',
-      'src/js/polyfills/index.js',
+      'src/js/public-path-override.js',
+      { pattern: 'src/js/polyfills.js', included: process.env.TEST_MODE === 'nomodule' },
       'src/tests/spec/**/*.spec.js',
     ],
 
@@ -51,7 +54,7 @@ export default function(config) {
     browserify: {
       debug: true,
       plugin: [proxyquireify.plugin],
-      transform: [['babelify', babelConfig], ['browserify-istanbul']],
+      transform: [['babelify', babelConfig]],
     },
 
     reporters: ['dots', 'progress', 'mocha', 'coverage-istanbul', 'BrowserStack'],

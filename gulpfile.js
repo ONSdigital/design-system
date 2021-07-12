@@ -42,7 +42,7 @@ const scripts = [
     config: babelEsmConfig,
   },
   {
-    entryPoint: ['./src/js/public-path-override.js', './src/js/polyfills/index.js', './src/js/main.js'],
+    entryPoint: ['./src/js/public-path-override.js', './src/js/polyfills.js', './src/js/main.js'],
     outputFile: 'main.es5.js',
     config: babelNomoduleConfig,
   },

@@ -1,6 +1,5 @@
 import Collapsible from '../../../components/collapsible/collapsible';
 import CollapsibleGroup from '../../../components/collapsible/collapsible.group';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 import eventMock from '../../stubs/event.stub.spec';
 
@@ -42,8 +41,6 @@ const params = {
 };
 
 describe('Component: Accordion', function() {
-  before(() => awaitPolyfills);
-
   beforeEach(function() {
     const component = renderComponent(params);
 

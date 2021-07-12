@@ -1,7 +1,6 @@
 import Radios from '../../../components/checkboxes/checkboxes';
 import CheckRadios from '../../../components/radios/check-radios';
 import ClearRadios from '../../../components/radios/clear-radios';
-import { awaitPolyfills } from '../../../js/polyfills/await-polyfills';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -60,8 +59,6 @@ const params = {
 };
 
 describe('Component: Radios', function() {
-  before(() => awaitPolyfills);
-
   beforeEach(function() {
     const component = renderComponent(params);
 
