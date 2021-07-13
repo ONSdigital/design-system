@@ -8,7 +8,17 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Autosuggest address example"
+    "title": "Autosuggest address example",
+    "breadcrumbs": {
+        "ariaLabel": 'Back',
+        "itemsList": [
+            {
+                "url": '/patterns/addresses/examples/address-finder-non-editable',
+                "id": 'back',
+                "text": 'Back'
+            }
+        ]
+    }
 } %}
 {% block main %}
     {% call onsQuestion({
