@@ -1,7 +1,9 @@
 export default class Relationships {
   constructor(context) {
     this.context = context;
-    this.legend = document.querySelector('.js-relationships-legend');
+    this.legend = document.getElementById('question-title')
+      ? document.getElementById('question-title')
+      : document.getElementById('fieldset-legend-title');
     this.radios = [...context.querySelectorAll('input[type=radio]')];
     this.playback = context.querySelector('.js-relationships-playback');
 
