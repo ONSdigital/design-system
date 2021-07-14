@@ -1,0 +1,72 @@
+---
+title: Name of pattern
+exclude: true {# Remove this line to publish #}
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+{# Add a short summary here to explain what this pattern is and what it does, for example, “Accordions let users show or hide sections of related content on the same page." #}
+
+{# Add an example of the default pattern variant here using:
+	{{
+		patternlibExample({"path": "patterns/download-resources/examples/download-resources/index.njk"})
+	}}
+#}
+
+## When to use this pattern
+Use this pattern...
+{# Add guidance here on when this pattern should be used and the common problems it can solve #}
+
+## When not to use this pattern {# (optional section) #}
+Do not this pattern...
+{# Add warnings here about how the pattern could be misused, and guidance on what to use instead, for example, use radios not checkboxes #}
+
+## How to use this pattern
+{# Add guidance here with h3 headings for technical implementation, rules, make-up, variations, content or house style to use #}
+
+### Variations {# (optional section) #}
+{# Add guidance here with h3 headings and examples for each variant of the pattern #}
+
+## How to check {# name of pattern #} {# (optional section) #}
+To help users enter a valid [name of pattern], you should:
+{{
+	onsList({
+		"itemsList": [
+			{
+				"text": ''
+			}
+		]
+	})
+}}
+{# Add guidance here on how to apply error validation if it is needed #}
+
+### Error messages {# (optional section) #}
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the {# name of pattern #} field.
+
+{# Add an example of the pattern with an error message here using:
+  {{
+    patternlibExample({"path": "patterns/email-addresses/examples/email-error/index.njk"})
+  }}
+#}
+
+{# Add h4 headings here for specific error message scenarios, for example,
+
+  #### If the input field is empty
+  Use, “Enter [whatever the input is]”.\
+  For example, “Enter an email address”.
+
+#}
+
+## Research on this pattern {# (optional section) #}
+{# Add user research or accessibility testing findings here #}
+
+## Help us improve this pattern
+Let us know how we could improve this pattern or share your user research findings.
+{{
+	onsExternalLink({
+		"url": "https://github.com/ONSdigital/design-system/discussions/xxx",
+		"linkText": "Discuss the ‘{# name of pattern #}’ pattern on GitHub"
+	})
+}}
