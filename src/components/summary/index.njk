@@ -5,6 +5,7 @@ title: Summary
 {% from "components/table/_macro.njk" import onsTable %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/lists/_macro.njk" import onsList %}
 
 A summary presents a clear summarised output of values to the user.
 {{
@@ -22,7 +23,7 @@ The summary can contain multiple question and answer types, and will adapt it's 
 The component contains a `summaries` key  which can contain multiple summary `groups`. This allows for multipe summaries to be displayed. Each group in `groups` can have an optional `groupTitle` which provides a heading for the `rows` and renders a `h2`.
 This provides flexibility to allow for simple and complex summaries to be created within one instance of the `onsSummary` macro.
 
-### Accessibility
+## Accessibility
 The summary component is made accessible by using the following `aria` attributes which are attached on `domready` via JavaScript:
 {{
     onsTable({
@@ -55,14 +56,14 @@ The summary component is made accessible by using the following `aria` attribute
     })
 }}
 
-### Variants
-#### Summary without action
+## Variants
+### Summary without action
 A summary of an answer the user cannot directly change, due to it being automatically calculated.
 {{
     patternlibExample({"path": "components/summary/examples/summary-no-action/index.njk"})
 }}
 
-#### Grouped
+### Grouped
 A summary of the answers to multiple questions in a section that are grouped.
 In this sceanrio we can create another heading level for `groups` using the `summaryTitle` key which renders a `h2` and renders the `groupTitle` as a `h3`.
 
@@ -70,39 +71,61 @@ In this sceanrio we can create another heading level for `groups` using the `sum
     patternlibExample({"path": "components/summary/examples/summary-grouped/index.njk"})
 }}
 
-#### Multiple
+### Multiple
 A summary of multiple answers to a single question.
 
 {{
     patternlibExample({"path": "components/summary/examples/summary-multiple/index.njk"})
 }}
 
-#### Validation across multiple pages
-{{
-    patternlibExample({"path": "components/summary/examples/summary-grouped-validation/index.njk"})
-}}
-
-#### Total
+### Total
 {{
     patternlibExample({"path": "components/summary/examples/summary-grouped-total/index.njk"})
 }}
 
-#### Household
+### Household
 {{
     patternlibExample({"path": "components/summary/examples/summary-household/index.njk"})
 }}
 
-#### Household no rows
+### Household no rows
 
 If there are no rows returned the summary will render placholder text
 {{
     patternlibExample({"path": "components/summary/examples/summary-household-no-rows/index.njk"})
 }}
 
-#### Hub
+### Hub
 {{
     patternlibExample({"path": "components/summary/examples/hub/index.njk"})
 }}
+
+## How to check a summary of figures
+To help users validate a summary of their previous numerical answers, you should:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'check that their answers entered on previous pages are accurate'
+            },
+            {
+                "text": 'show an error message if they are not accurate, for example, figures given for percentages do not sum to 100%'
+            }
+        ]
+    })
+}}
+
+### Error messages
+
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the group of rows in summary.
+
+{{
+    patternlibExample({"path": "components/summary/examples/summary-grouped-validation/index.njk"})
+}}
+
+#### If there are any errors in the summary
+Use “Change one or more of the figures so they sum to [the required amount]”.\
+For example, “Change one or more of the figures so they sum to £600”.
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

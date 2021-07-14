@@ -1,0 +1,59 @@
+{% from "components/select/_macro.njk" import onsSelect %}
+
+{{
+    onsSelect({
+        "id": "select",
+        "name": "select",
+        "label": {
+            "text": "Question topic"
+        },
+        "label": {
+            "text": "Question topic"
+        },
+        "options": [
+            {
+                "value": "",
+                "text": "Select an option",
+                "disabled": true,
+                "selected": true
+            },
+            {
+                "value": "general",
+                "text": "General"
+            },
+            {
+                "value": "people-who-live-here",
+                "text": "People who live here"
+            },
+            {
+                "value": "visitors",
+                "text": "Visitors"
+            },
+            {
+                "value": "household-accommodation",
+                "text": "Household and accommodation"
+            },
+            {
+                "value": "personal-details",
+                "text": "Personal details"
+            },
+            {
+                "value": "health",
+                "text": "Health"
+            },
+            {
+                "value": "qualifications",
+                "text": "Qualifications"
+            },
+            {
+                "value": "employment",
+                "text": "Employment"
+            }
+        ],
+        "error": {
+            "id": "select-error",
+            "text": "Select a question topic",
+            "dsExample": isPatternLib
+        }
+    })
+}}

@@ -1,4 +1,4 @@
-import UAC from '../../../components/uac/uac';
+import UAC from '../../../components/access-code/uac';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -15,7 +15,7 @@ describe('Component: UAC Input', () => {
   let wrapper, input, instance;
 
   beforeEach(() => {
-    const html = renderTemplate('components/uac/_test-template.njk', { params });
+    const html = renderTemplate('components/access-code/_test-template.njk', { params });
 
     wrapper = document.createElement('div');
     wrapper.innerHTML = html;

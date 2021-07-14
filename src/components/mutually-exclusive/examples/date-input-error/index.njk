@@ -1,0 +1,44 @@
+{% from "components/date-input/_macro.njk" import onsDateInput %}
+
+{{
+    onsDateInput({
+        "id": "date-mutually-exclusive",
+        "day": {
+            "label": {
+                "text": "Day"
+            },
+            "name": "day-exclusive"
+        },
+        "month": {
+            "label": {
+                "text": "Month"
+            },
+            "name": "month-exclusive"
+        },
+        "year": {
+            "label": {
+                "text": "Year"
+            },
+            "name": "year-exclusive"
+        },
+        "mutuallyExclusive": {
+            "or": "Or",
+            "deselectMessage": "Selecting this will clear the date if one has been inputted",
+            "deselectGroupAdjective": "cleared",
+            "deselectCheckboxAdjective": "deselected",
+            "checkbox": {
+                "id": "date-exclusive-checkbox",
+                "name": "no-paid-job",
+                "value": "no-paid-job",
+                "label": {
+                    "text": "I have never had a paid job"
+                }
+            }
+        },
+        "error": {
+            "id": 'date-mutually-exclusive-error',
+            "text": 'Enter the date or select an answer',
+            "dsExample": isPatternLib
+        }
+    })
+}}

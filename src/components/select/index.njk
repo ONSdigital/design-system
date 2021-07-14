@@ -9,13 +9,13 @@ These should *never* be used for short lists of items that could be better serve
 
 *Use with caution*
 
-GDS advise against using dropdown select boxes as they have poor accessibility and can be cumbersome to use on a mobile device.
+GDS advise against using drop-down select boxes as they have poor accessibility and can be cumbersome to use on a mobile device.
 
 They hide the choices and can confuse users as they may not understand what they’re being asked before they see the answers by interacting with the element.
 
 Where large lists are involved, some users may be unaware that they can scroll through the entire list to find the appropriate answer.
 
-Because the expanded list cannot be styled, this may cause usability issues where the dropdown itself may be difficult to read for users with visual impairments.
+Because the expanded list cannot be styled, this may cause usability issues where the drop-down itself may be difficult to read for users with visual impairments.
 
 {{
     patternlibExample({"path": "components/select/examples/select/index.njk"})
@@ -28,6 +28,21 @@ Because the expanded list cannot be styled, this may cause usability issues wher
 {{
     patternlibExample({"path": "components/select/examples/select-wide/index.njk"})
 }}
+
+## How to check drop-down selection
+You should check that users have selected one of the drop-down options and show an error message if they have not.
+
+### Error messages
+
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the drop-down.
+
+{{
+    patternlibExample({"path": "components/select/examples/select-error/index.njk"})
+}}
+
+#### If a drop-down option has not been selected
+Use “Select [whatever topic the drop-down is asking for]”.\
+For example, “Select a question topic”.
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

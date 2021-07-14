@@ -24,7 +24,7 @@
                             type="radio"
                             id="{{ radio.id }}"
                             class="radio__input js-radio{{ " " + radio.classes if radio.classes else "" }}"
-                            value="{{ radio.value }}" 
+                            value="{{ radio.value }}"
                             name="{{ params.name }}"
                             {% if (radio.checked is defined and radio.checked) or (params.value is defined and params.value == radio.value) %} checked {% endif %}
                             {% if radio.other is defined and radio.other and not radio.other.open %} aria-controls="{{ radio.id }}-other-wrap" aria-haspopup="true"{% endif %}
@@ -49,7 +49,7 @@
                                         "id": radio.other.id,
                                         "name": radio.other.name,
                                         "type": radio.other.type,
-                                        "required": params.other.required,
+                                        "required": radio.other.required,
                                         "classes": "input--w-auto " + radio.other.classes | default(''),
                                         "attributes": radio.other.attributes,
                                         "label": {
@@ -75,7 +75,10 @@
                                             "classes": 'u-fs-s--b'
                                         },
                                         "dontWrap": true,
-                                        "value": radio.other.value
+                                        "value": radio.other.value,
+                                        "select": {
+                                            "error": params.error
+                                        }
                                     })
                                 }}
                             {% endif %}

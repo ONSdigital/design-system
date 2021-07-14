@@ -1,6 +1,6 @@
 import { iframeResizer } from 'iframe-resizer';
 
-import domReady from '../domready';
+import domready from '../domready';
 
 function resize() {
   iframeResizer(
@@ -13,7 +13,7 @@ function resize() {
   );
 }
 
-domReady(() => {
+domready(() => {
   setTimeout(function() {
     resize();
   }, 1000);
