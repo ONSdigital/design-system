@@ -14,7 +14,7 @@
             >
                 <legend class="fieldset__legend{% if params.legendClasses is defined and params.legendClasses %} {{ params.legendClasses }}{% endif %}">
                     {% if params.legendIsQuestionTitle %}
-                        <h1 id="question-title" class="fieldset__legend-title {% if params.legendTitleClasses is defined and params.legendTitleClasses %}{{ params.legendTitleClasses }}{% endif %}">
+                        <h1 id="fieldset-legend-title" class="fieldset__legend-title {% if params.legendTitleClasses is defined and params.legendTitleClasses %}{{ params.legendTitleClasses }}{% endif %}">
                             {{- params.legend | safe -}}
                         </h1>
                     {% else %}
