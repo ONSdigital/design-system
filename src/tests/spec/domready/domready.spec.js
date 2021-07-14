@@ -7,7 +7,7 @@ describe('DomReady function', function() {
 
   describe('When the dom is ready', function() {
     beforeEach(function() {
-      domready(this.spy, true);
+      domready(this.spy);
     });
 
     it('callbacks should be run', function() {

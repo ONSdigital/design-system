@@ -1,17 +1,16 @@
 let callbacks = [];
-let isReady = false;
 
 const onReady = () => {
-  isReady = true;
   callbacks.forEach(fn => fn.call());
+  callbacks = [];
   window.onsDOMReady = true;
 };
 
-export default function ready(fn, ready = isReady) {
-  if (ready) {
-    fn.call();
-  } else {
+export default function ready(fn) {
+  if (document.readyState === 'loading') {
     callbacks.push(fn);
+  } else {
+    fn.call();
   }
 }
 
