@@ -23,6 +23,9 @@ const launchersConfig = process.env.TEST_ON_BROWSERSTACK
 export default function(config) {
   config.set({
     client: {
+      mocha: {
+        timeout: 10000, // 10 seconds for slow IE11 execution.
+      },
       captureConsole: !process.env['RUNNING_ON_CI'],
     },
 
