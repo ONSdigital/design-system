@@ -405,7 +405,7 @@ export default class AutosuggestUI {
       this.setAriaStatus(message);
       this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
     } else if (status > 400 || status === '') {
-      message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>' : '');
+      message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>.' : '');
 
       this.input.setAttribute('disabled', true);
       this.input.value = '';
