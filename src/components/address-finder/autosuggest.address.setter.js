@@ -9,7 +9,7 @@ export const classInputUPRN = 'js-hidden-uprn';
 export const classSearch = 'js-address-input__search';
 export const classManual = 'js-address-input__manual';
 export const classSearchButton = 'js-address-search-btn';
-export const classManualButton = 'js-address-manual-btn';
+export const classmanualLink = 'js-address-manual-btn';
 export const classErrorPanel = 'panel--error';
 export const classJsErrorPanel = 'js-autosuggest-error-panel';
 
@@ -26,7 +26,7 @@ export default class AddressSetter {
     this.search = context.querySelector(`.${classSearch}`);
     this.manual = context.querySelector(`.${classManual}`);
     this.searchButton = context.querySelector(`.${classSearchButton}`);
-    this.manualButton = context.querySelector(`.${classManualButton}`);
+    this.manualLink = context.querySelector(`.${classmanualLink}`);
     this.errorPanel = document.querySelector(`.${classErrorPanel}`);
 
     // State
@@ -38,8 +38,8 @@ export default class AddressSetter {
       this.searchButton.addEventListener('click', this.toggleMode.bind(this));
     }
 
-    if (this.manualButton) {
-      this.manualButton.addEventListener('click', this.toggleMode.bind(this));
+    if (this.manualLink) {
+      this.manualLink.addEventListener('click', this.toggleMode.bind(this));
     }
 
     // Set mode

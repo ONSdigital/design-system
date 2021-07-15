@@ -1,6 +1,6 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
 
-import { sanitiseAutosuggestText } from 'components/input/autosuggest/autosuggest.helpers';
+import { sanitiseAutosuggestText } from 'components/autosuggest/autosuggest.helpers';
 
 describe('Autosuggest helpers', () => {
   before(() => awaitPolyfills);

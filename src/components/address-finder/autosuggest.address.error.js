@@ -1,4 +1,4 @@
-import inPageLinks from '../../../js/inpagelink';
+import inPageLinks from '../../js/inpagelink';
 
 const classAutosuggest = 'js-address-autosuggest';
 const classErrorPanel = 'js-autosuggest-error-panel';
