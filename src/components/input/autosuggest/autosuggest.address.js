@@ -1,9 +1,8 @@
-import AutosuggestUI from './autosuggest.ui';
-import AddressSetter from './autosuggest.address.setter';
-import AddressError from './autosuggest.address.error';
-import { sanitiseAutosuggestText } from './autosuggest.helpers';
-
 import abortableFetch from './abortable-fetch';
+import AddressError from './autosuggest.address.error';
+import AddressSetter from './autosuggest.address.setter';
+import { sanitiseAutosuggestText } from './autosuggest.helpers';
+import AutosuggestUI from './autosuggest.ui';
 
 export const classInputContainer = 'autosuggest-input';
 export const classNotEditable = 'js-address-not-editable';

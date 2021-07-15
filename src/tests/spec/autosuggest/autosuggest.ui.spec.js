@@ -1,19 +1,20 @@
-import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/input/_test-template.njk';
-import '../../../scss/main.scss';
-import AutosuggestUI, {
-  classAutosuggestOption,
-  classAutosuggestOptionFocused,
-  classAutosuggestOptionNoResults,
-  classAutosuggestOptionMoreResults,
-  classAutosuggestHasResults,
-} from '../../../components/input/autosuggest/autosuggest.ui';
-import eventMock from 'stubs/event.stub.spec';
-import fetchMock from 'stubs/window.fetch.stub.spec';
-
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import chaiSpies from 'chai-spies';
+import proxyquireify from 'proxyquireify';
+
+import AutosuggestUI, {
+  classAutosuggestHasResults,
+  classAutosuggestOption,
+  classAutosuggestOptionFocused,
+  classAutosuggestOptionMoreResults,
+  classAutosuggestOptionNoResults,
+} from '../../../components/input/autosuggest/autosuggest.ui';
+import renderTemplate from '../../helpers/render-template';
+import eventMock from '../../stubs/event.stub.spec';
+import fetchMock from '../../stubs/window.fetch.stub.spec';
+
+const proxyquire = proxyquireify(require);
 
 chai.should();
 chai.use(chaiSpies);
@@ -48,13 +49,6 @@ const params = {
 };
 
 describe('Autosuggest.ui component', function() {
-  before(function(done) {
-    awaitPolyfills.then(() => {
-      this.rewiremock = require('rewiremock/webpack').default;
-      done();
-    });
-  });
-
   describe('Before the component initialises', function() {
     beforeEach(function() {
       const component = renderComponent(params);
@@ -1197,15 +1191,13 @@ describe('Autosuggest.ui component', function() {
 
       window.fetch = fetchMock(true);
 
-      this.fetchSpy = chai.spy(require('js/abortable-fetch').default);
+      this.fetchSpy = chai.spy(require('../../../js/abortable-fetch').default);
 
-      this.rewiremock('./src/js/abortable-fetch')
-        .es6()
-        .withDefault(this.fetchSpy);
-
-      this.rewiremock.enable();
-
-      const mockedautosuggestUI = require('components/input/autosuggest/autosuggest.ui').default;
+      const mockedautosuggestUI = proxyquire('../../../components/input/autosuggest/autosuggest.ui', {
+        '../../../js/abortable-fetch': {
+          default: this.fetchSpy,
+        },
+      }).default;
 
       // Render
       const component = renderComponent(params);
@@ -1224,7 +1216,6 @@ describe('Autosuggest.ui component', function() {
 
     afterEach(function() {
       window.fetch = this.originalFetch;
-      this.rewiremock.disable();
 
       if (this.wrapper) {
         this.wrapper.remove();
@@ -1412,7 +1403,7 @@ describe('Autosuggest.ui component', function() {
 });
 
 function renderComponent(params) {
-  const html = template.render({ params });
+  const html = renderTemplate('components/input/_test-template.njk', { params });
 
   const wrapper = document.createElement('div');
 
