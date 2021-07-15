@@ -112,7 +112,7 @@ export default class AutosuggestUI {
     this.input.setAttribute('aria-haspopup', true);
     this.input.setAttribute('aria-owns', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-expanded', false);
-    this.input.setAttribute('autocomplete', this.input.getAttribute('autocomplete') || 'zz');
+    this.input.setAttribute('autocomplete', this.input.getAttribute('autocomplete') || 'off');
     this.input.setAttribute('role', 'combobox');
 
     this.context.classList.add('autosuggest-input--initialised');
@@ -405,7 +405,7 @@ export default class AutosuggestUI {
       this.setAriaStatus(message);
       this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
     } else if (status > 400 || status === '') {
-      message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>' : '');
+      message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>.' : '');
 
       this.input.setAttribute('disabled', true);
       this.input.value = '';

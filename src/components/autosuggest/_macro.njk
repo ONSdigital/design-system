@@ -1,5 +1,5 @@
+{% from "components/input/_macro.njk" import onsInput %}
 {% macro onsAutosuggest(params) %}
-    {% set content = caller() %}
     <div
         id="{{ params.id }}-container"
         class="{% if not params.externalInitialiser %}js-autosuggest{% endif %} {% if not params.isEditable %}js-address-not-editable{% endif %} {% if params.mandatory is defined and params.mandatory == true %}js-address-mandatory{% endif %} autosuggest-input {{ params.classes }}"
@@ -31,7 +31,16 @@
             {% if params.options.addressType is defined and params.options.addressType %}data-options-address-type="{{ params.options.addressType }}"{% endif %}
         {% endif %}
     >
-        {{ content | safe }}
+        {{ onsInput({
+            "id": params.id,
+            "classes": params.classes + " js-autosuggest-input",
+            "label": {
+                "text": params.label.text,
+                "description": params.label.description,
+                "id": params.label.id,
+                "classes": params.label.classes
+            }
+         }) }}
         <div class="autosuggest-input__results js-autosuggest-results">
             <header class="autosuggest-input__results-title u-fs-s">{{ params.resultsTitle }}</header>
             <ul class="autosuggest-input__listbox js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" aria-labelledby="{{ params.labelId }}" tabindex="-1"></ul>

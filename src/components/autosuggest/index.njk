@@ -5,74 +5,53 @@ title: Autosuggest
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
-Autosuggests are used to suggest options for answers by searching code lists such as, addresses, countries, languages, nationalities, etc.
-
-## How to use
-
-Autosuggest functionality can be created using the [input](/components/input) component and adding the necessary parameters.
-
-To use this component it is advised that autocomplete is switched off by setting the `autocomplete` parameter to `off`.
-
-### Using a JSON file
+Autosuggest is used to suggest options to users as they enter something into an input field. A user can select one of the suggestions or enter their own answer.
 
 {{
     patternlibExample({"path": "components/autosuggest/examples/autosuggest-country/index.njk"})
 }}
 
-This example is powered by a JavaScript library called {{
+## When to use this component
+Use the autosuggest component to help users select from a list of standard responses, for example, countries, languages or nationalities. You could also create your own list for the user to pick from.
+## How to use
+
+The list needs to be made available as a `.json` file. To query the list we use a JavaScript library called {{
         onsExternalLink({
             "url": "https://fusejs.io",
             "linkText": "Fuse.js"
         })
-    }}.
+    }}. You will need to provide the URL where the json file is stored using the `autosuggestData` parameter.
 
 
-#### Response object
+### List formatting
 
-The autosuggests expect the response from the library to return the results as JSON objects in an array.
+This code example shows how your json should be formatted. The `key` should be the language code that matches the `lang` attribute on the `<html>` element of the page.
 
-#### AutosuggestResultItem
+{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
+{{ onsCodeHighlight({
+"code": '[
+  {
+    "en": "England"
+  },
+  {
+    "en": "Wales"
+  },
+  {
+    "en": "Scotland"
+  },
+  {
+    "en": "Northern Ireland"
+  },
+]'
+}) }}
 
-The AutosuggestResultItem should consist of at least a key corresponding to the searched language (e.g. `en`) with its corresponding value.
+### Multiple suggestions
 
-#### Example response
-
-```
-{
-    "results": [
-        {
-            "en": "United Kingdom",
-            "cy": "Deyrnas Unedig"
-        }
-    ],
-    "totalResults": 1
-}
-```
-
-The autosuggest component sends a `searchFields` parameter in it's query string that matches the `lang` attribute on the `<html>` element of the page.
-
-The autosuggest component will search the `cy` or the `en` data to find results depending on the `searchFields` parameter.
-
-#### Multiple selections
-
-The autosuggest component allows for multiple suggestions and selections by passing in the parameter `allowMultiple: "true"`. 
-
+You can configure the component to allow multiple suggestions by passing in the parameter `allowMultiple: "true"`. 
 
 
 {{
     patternlibExample({"path": "components/autosuggest/examples/autosuggest-country-multiple/index.njk"})
-}}
-
-
-### Using the address API
-{{
-    onsPanel({
-        "body": "This component requires documentation."
-    })
-}}
-
-{{
-    patternlibExample({"path": "components/autosuggest/examples/autosuggest-address/index.njk"})
 }}
 
 ## Help improve this component

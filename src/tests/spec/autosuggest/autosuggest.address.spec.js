@@ -1,9 +1,9 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/address-input/_test-template.njk';
+import template from 'components/address-finder/_test-template.njk';
 import '../../../scss/main.scss';
-import AutosuggestAddress from '../../../components/input/autosuggest/autosuggest.address';
-import AddressError from '../../../components/input/autosuggest/autosuggest.address.error';
-import AddressSetter from '../../../components/input/autosuggest/autosuggest.address.setter';
+import AutosuggestAddress from '../../../components/address-finder/autosuggest.address';
+import AddressError from '../../../components/address-finder/autosuggest.address.error';
+import AddressSetter from '../../../components/address-finder/autosuggest.address.setter';
 import eventMock from 'stubs/event.stub.spec';
 import fetchStub from 'stubs/window.fetch.stub.spec';
 
@@ -18,43 +18,37 @@ chai.use(chaiAsPromised);
 
 const params = {
   id: 'address',
-  label: {
-    text: 'Enter an address',
-    classes: 'js-autosuggest-label',
-  },
   autocomplete: 'off',
-  autosuggest: {
-    label: {
-      text: 'Enter address or postcode and select from results',
-    },
-    isEditable: true,
-    mandatory: true,
-    APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
-    APIDomainBearerToken: 'someToken',
-    instructions:
-      "Use up and down keys to navigate suggestions once you've typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
-    ariaYouHaveSelected: 'You have selected',
-    ariaMinChars: 'Enter 3 or more characters for suggestions.',
-    ariaOneResult: 'There is one suggestion available.',
-    ariaNResults: 'There are {n} suggestions available.',
-    ariaLimitedResults: 'Results have been limited to 10 suggestions. Type more characters to improve your search',
-    ariaGroupedResults: 'There are {n} for {x}',
-    groupCount: '{n} addresses',
-    moreResults: 'Enter more of the address to improve results',
-    resultsTitle: 'Select an address',
-    noResults: 'No results found. Try entering a different part of the address',
-    tooManyResults: '{n} results found. Enter more of the address to improve results',
-    typeMore: 'Enter more of the address to get results',
-    autocomplete: 'new-password',
-    errorTitle: 'There is a problem with your answer',
-    errorMessageEnter: 'Enter an address',
-    errorMessageSelect: 'Select an address',
-    errorMessageAPI: 'Sorry, there was a problem loading addresses',
-    errorMessageAPILinkText: 'Enter address manually',
-    options: {
-      regionCode: 'gb-eng',
-      addressType: 'residential',
-    },
+  label: {
+    text: 'Enter address or postcode and select from results',
+  },
+  isEditable: true,
+  mandatory: true,
+  dontWrap: true,
+  APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+  APIDomainBearerToken: 'someToken',
+  instructions:
+    "Use up and down keys to navigate suggestions once you've typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+  ariaYouHaveSelected: 'You have selected',
+  ariaMinChars: 'Enter 3 or more characters for suggestions.',
+  ariaOneResult: 'There is one suggestion available.',
+  ariaNResults: 'There are {n} suggestions available.',
+  ariaLimitedResults: 'Results have been limited to 10 suggestions. Type more characters to improve your search',
+  ariaGroupedResults: 'There are {n} for {x}',
+  groupCount: '{n} addresses',
+  moreResults: 'Enter more of the address to improve results',
+  resultsTitle: 'Select an address',
+  noResults: 'No results found. Try entering a different part of the address',
+  tooManyResults: '{n} results found. Enter more of the address to improve results',
+  typeMore: 'Enter more of the address to get results',
+  errorTitle: 'There is a problem with your answer',
+  errorMessageEnter: 'Enter an address',
+  errorMessageSelect: 'Select an address',
+  errorMessageAPI: 'Sorry, there was a problem loading addresses',
+  errorMessageAPILinkText: 'Enter address manually',
+  options: {
+    regionCode: 'gb-eng',
+    addressType: 'residential',
   },
   line1: {
     label: 'Address line 1',
@@ -69,7 +63,7 @@ const params = {
     label: 'Postcode',
   },
   searchButton: 'Search for an address',
-  manualButton: 'Manually enter address',
+  manualLinkText: 'Manually enter address',
 };
 
 let lang = 'en';
@@ -130,6 +124,28 @@ describe('Autosuggest.address component', function() {
 
         it('then the autosuggest input should be cleared', function() {
           expect(this.autosuggestAddress.input.value).to.equal('');
+        });
+      });
+
+      describe('When the manual link is clicked', function() {
+        beforeEach(function(done) {
+          this.setManualModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'setManualMode');
+          this.manualLinkText = this.wrapper.querySelector('.js-address-manual-btn');
+          this.manualLinkText.click();
+          setTimeout(done);
+        });
+
+        it('then the manual fields should be visible', function() {
+          this.manualFields = this.wrapper.querySelector('.js-address-input__manual');
+          expect(this.manualFields.classList.contains('u-db-no-js_enabled')).to.be.false;
+        });
+
+        it('then the autosuggest input should be cleared', function() {
+          expect(this.autosuggestAddress.input.value).to.equal('');
+        });
+
+        it('then the setManualMode function should be called', function() {
+          expect(this.setManualModeSpy).to.have.been.called();
         });
       });
     });
@@ -716,9 +732,35 @@ describe('Autosuggest.address component', function() {
   describe('When the component initialises a non-editable address lookup', function() {
     const paramsAlt = {
       id: 'address',
-      autosuggest: {
-        externalInitialiser: true,
+      autocomplete: 'off',
+      label: {
+        text: 'Enter address or postcode and select from results',
       },
+      isEditable: false,
+      mandatory: true,
+      dontWrap: true,
+      APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      APIDomainBearerToken: 'someToken',
+      instructions:
+        "Use up and down keys to navigate suggestions once you've typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+      ariaYouHaveSelected: 'You have selected',
+      ariaMinChars: 'Enter 3 or more characters for suggestions.',
+      ariaOneResult: 'There is one suggestion available.',
+      ariaNResults: 'There are {n} suggestions available.',
+      ariaLimitedResults: 'Results have been limited to 10 suggestions. Type more characters to improve your search',
+      ariaGroupedResults: 'There are {n} for {x}',
+      groupCount: '{n} addresses',
+      moreResults: 'Enter more of the address to improve results',
+      resultsTitle: 'Select an address',
+      noResults: 'No results found. Try entering a different part of the address',
+      tooManyResults: '{n} results found. Enter more of the address to improve results',
+      typeMore: 'Enter more of the address to get results',
+      errorTitle: 'There is a problem with your answer',
+      errorMessageEnter: 'Enter an address',
+      errorMessageSelect: 'Select an address',
+      errorMessageAPI: 'Sorry, there was a problem loading addresses',
+      errorMessageAPILinkText: 'Enter address manually',
+      manualLinkText: 'Manually enter address',
     };
 
     beforeEach(function(done) {
@@ -738,19 +780,60 @@ describe('Autosuggest.address component', function() {
         this.wrapper.remove();
       }
     });
+
+    describe('when a query is sent and address selected ', function() {
+      beforeEach(function(done) {
+        this.retrieveAddressSpy = chai.spy.on(this.autosuggestAddress, 'retrieveAddress');
+        this.address = {
+          response: {
+            address: {
+              uprn: '100081151291',
+              formattedAddress: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
+              addressLine1: 'University Of Hertfordshire',
+              addressLine2: 'Meridian House 32-36',
+              addressLine3: 'The Common',
+              townName: 'Hatfield',
+              postcode: 'AL10 0NZ',
+              foundAddressType: 'PAF',
+            },
+          },
+        };
+        this.selectedResult = {
+          lang: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
+          sanitisedText: 'university of hertfordshir meridian house 32-36 the common, hatfield, al10 0nz',
+          uprn: '100081151291',
+          displayText: 'University Of Hertfordshire, Meridian House 32-36, The Common, Hatfield, AL10 0NZ',
+        };
+
+        fetchMock.get(
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq/uprn/100081151291?addresstype=paf',
+          JSON.stringify(this.address),
+          {
+            overwriteRoutes: true,
+          },
+        );
+        setTimeout(() => {
+          this.autosuggestAddress.input.removeAttribute('disabled');
+          this.autosuggestAddress.onAddressSelect(this.selectedResult);
+          done();
+        });
+      });
+
+      it('then the retrieveAddress function will be called', function() {
+        expect(this.retrieveAddressSpy).to.have.been.called();
+      });
+    });
   });
 
   describe('When the component initialises with options - english, epoch, workplace', function() {
     const paramsOptions = {
       id: 'address',
-      autosuggest: {
-        externalInitialiser: true,
-        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
-        options: {
-          regionCode: 'gb-eng',
-          oneYearAgo: true,
-          addressType: 'workplace',
-        },
+      externalInitialiser: true,
+      APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      options: {
+        regionCode: 'gb-eng',
+        oneYearAgo: true,
+        addressType: 'workplace',
       },
     };
 
@@ -791,13 +874,11 @@ describe('Autosuggest.address component', function() {
   describe('When the component initialises with options - ni, educational', function() {
     const paramsOptions = {
       id: 'address',
-      autosuggest: {
-        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
-        externalInitialiser: true,
-        options: {
-          regionCode: 'gb-nir',
-          addressType: 'educational',
-        },
+      APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      externalInitialiser: true,
+      options: {
+        regionCode: 'gb-nir',
+        addressType: 'educational',
       },
     };
 
@@ -838,13 +919,11 @@ describe('Autosuggest.address component', function() {
   describe('When the component initialises with options - ni, workplace', function() {
     const paramsOptions = {
       id: 'address',
-      autosuggest: {
-        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
-        externalInitialiser: true,
-        options: {
-          regionCode: 'gb-nir',
-          addressType: 'workplace',
-        },
+      APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      externalInitialiser: true,
+      options: {
+        regionCode: 'gb-nir',
+        addressType: 'workplace',
       },
     };
 
@@ -898,13 +977,11 @@ describe('Autosuggest.address component', function() {
   describe('When the component initialises with options - wales, workplace', function() {
     const paramsOptions = {
       id: 'address',
-      autosuggest: {
-        APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
-        externalInitialiser: true,
-        options: {
-          regionCode: 'gb-wls',
-          addressType: 'workplace',
-        },
+      APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      externalInitialiser: true,
+      options: {
+        regionCode: 'gb-wls',
+        addressType: 'workplace',
       },
     };
 
@@ -976,6 +1053,8 @@ function renderComponent(params) {
   const container = context.querySelector('.autosuggest-input');
   const search = context.querySelector('.js-address-input__search');
   const APIDomain = container.getAttribute('data-api-domain');
+  const manualLinkText = context.querySelector('.js-address-manual-btn');
+
   return {
     wrapper,
     context,
@@ -987,5 +1066,6 @@ function renderComponent(params) {
     container,
     search,
     APIDomain,
+    manualLinkText,
   };
 }
