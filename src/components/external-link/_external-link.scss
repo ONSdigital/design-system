@@ -1,11 +1,13 @@
 .external-link {
   &__icon {
+    visibility: hidden;
     white-space: nowrap;
   }
   .svg-icon {
     fill: $color-grey-100;
     margin: 0 0 0 0.25rem;
     padding-bottom: 0.1rem;
+    visibility: visible;
   }
   &:focus {
     .svg-icon {
