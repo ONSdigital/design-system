@@ -2,8 +2,7 @@ import AutosuggestUI from '../autosuggest/autosuggest.ui';
 import AddressSetter from './autosuggest.address.setter';
 import AddressError from './autosuggest.address.error';
 import { sanitiseAutosuggestText } from '../autosuggest/autosuggest.helpers';
-
-import abortableFetch from '../autosuggest/abortable-fetch';
+import abortableFetch from 'js/abortable-fetch';
 
 export const classInputContainer = 'autosuggest-input';
 export const classNotEditable = 'js-address-not-editable';
