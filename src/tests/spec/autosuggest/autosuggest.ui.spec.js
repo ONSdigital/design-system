@@ -1227,9 +1227,6 @@ describe('Autosuggest.ui component', function() {
 
     describe('and fetch is not defined', function() {
       beforeEach(function() {
-        this.autosuggest.fetch = this.fetchSpy()
-          .then(() => {})
-          .catch(() => {});
         this.autosuggest.fetch.status = 'undefined';
         this.abortSpy = chai.spy.on(this.autosuggest.fetch, 'abort');
         this.autosuggest.abortFetch();
@@ -1242,9 +1239,6 @@ describe('Autosuggest.ui component', function() {
 
     describe('and fetch is defined but the status is equal to DONE', function() {
       beforeEach(function() {
-        this.autosuggest.fetch = this.fetchSpy()
-          .then(() => {})
-          .catch(() => {});
         this.autosuggest.fetch.status = 'DONE';
         this.abortSpy = chai.spy.on(this.autosuggest.fetch, 'abort');
         this.autosuggest.abortFetch();
@@ -1257,9 +1251,6 @@ describe('Autosuggest.ui component', function() {
 
     describe('and fetch is defined but the status is equal not to DONE', function() {
       beforeEach(function() {
-        this.autosuggest.fetch = this.fetchSpy()
-          .then(() => {})
-          .catch(() => {});
         this.abortSpy = chai.spy.on(this.autosuggest.fetch, 'abort');
         this.autosuggest.abortFetch();
       });

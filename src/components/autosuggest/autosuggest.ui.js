@@ -1,6 +1,6 @@
 import queryJson from './code.list.searcher';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
-import fetch from 'js/abortable-fetch';
+import abortableFetch from 'js/abortable-fetch';
 
 export const baseClass = 'js-autosuggest';
 
@@ -121,8 +121,10 @@ export default class AutosuggestUI {
   }
 
   fetchData() {
+    this.fetch = abortableFetch(this.autosuggestData);
     return new Promise((resolve, reject) => {
-      fetch(this.autosuggestData)
+      this.fetch
+        .send()
         .then(async response => {
           this.data = await response.json();
           resolve(this.data);
