@@ -98,7 +98,7 @@ All of the main images used across the design system have been implemented as in
 
 ### Favicons
 
-There are favicons (or shortcut icons) for Safari, Chrome and Edge/Internet Explorer for desktop and mobile. Place the following references into the <code><head></code> of all pages within your service to make use of the available favicons. The `[VERSION]` should be replaced with the required release version.
+There are favicons (or shortcut icons) for Safari, Chrome and Edge/Internet Explorer for desktop and mobile. Place the following references into the `head` of all pages within your service to make use of the available favicons. The `[VERSION]` should be replaced with the required release version.
 
 {{ onsCodeHighlight({ "code": '<meta name="msapplication-config" content="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/browserconfig.json">
 <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
@@ -107,5 +107,5 @@ There are favicons (or shortcut icons) for Safari, Chrome and Edge/Internet Expl
 <link rel="mask-icon" color="#5bbad5" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/safari-pinned-tab.svg">
 <link rel="apple-touch-icon" type="image/png" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="manifest" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/manifest.json">'}) }}
-
+<br>
 Alternatively, you can copy the favicons from `node_modules/@ons/design-system/favicons` (if using the npm package) and referencing them from your project folder.
