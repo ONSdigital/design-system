@@ -12,6 +12,7 @@ assert(['esm', 'nomodule'].includes(process.env.TEST_MODE), 'Invalid value for e
 
 const babelConfig = process.env.TEST_MODE === 'esm' ? babelEsmConfig : babelNomoduleConfig;
 
+babelConfig.sourceMapsAbsolute = true;
 babelConfig.plugins.push('istanbul');
 
 const launchersConfig = process.env.TEST_ON_BROWSERSTACK
