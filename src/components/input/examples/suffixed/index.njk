@@ -1,33 +1,33 @@
 {% from "components/input/_macro.njk" import onsInput %}
 {{
     onsInput({
-        "id": "suffixed-percent",
+        "id": "suffixed-per-cent",
         "type": "number",
-        "classes": "input--w-3",
+        "classes": "input-number--w-3",
         "autocomplete": "off",
         "required": true,
         "label": {
-            "text": "Percentage of people with internet access"
+            "text": "People with internet access"
         },
         "suffix": {
-            "title": "Percent",
+            "title": "per cent",
             "text": "%"
         }
     })
 }}
 {{
     onsInput({
-        "id": "suffixed-centimeters",
+        "id": "suffixed-centimetres",
         "type": "number",
-        "classes": "input--w-4",
+        "classes": "input-number--w-4",
         "autocomplete": "off",
         "required": true,
         "label": {
-            "text": "Length in centimeters",
+            "text": "Length",
             "description": "For example enter 1250 for 12.5m"
         },
         "suffix": {
-            "title": "centimeters",
+            "title": "centimetres",
             "text": "cm"
         }
     })

@@ -1,0 +1,89 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+{% from "components/access-code/_macro.njk" import onsUACInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+
+{% set pageConfig = {
+  "title": "Study title"
+} %}
+
+{% block main %}
+    {% call
+        onsPanel({
+            title: "There is a problem with this page",
+            type: "error",
+            "dsExample": isPatternLib
+        })
+    %}
+
+        {% from "components/lists/_macro.njk" import onsList %}
+        {{
+            onsList({
+                "element": "ol",
+                "itemsList": [
+                    {
+                        "text": "Enter an access code",
+                        "url": "#uac",
+                        "classes": "js-inpagelink"
+                    }
+                ]
+            })
+        }}
+    {% endcall %}
+
+    <h1 class="u-mt-l">Start study</h1>
+
+    {{ onsUACInput({
+        "id": "uac",
+        "name": "uac",
+        "postTextboxLinkText": "Where to find your access code",
+        "postTextboxLinkUrl": "#",
+        "label": {
+            "text": "Enter your 16-character access code",
+            "description": "Keep this code safe. You will need to enter it every time you access your census"
+        },
+        "securityMessage": "Your personal information is protected by law and will be kept confidential",
+        "error": {
+            "id": "uac",
+            "text": "Enter an access code",
+            "dsExample": isPatternLib
+        }
+    }) }}
+
+    {{ onsButton({
+        "text": "Access study",
+        "classes": "u-mb-xl"
+    }) }}
+
+    <h2>If you don’t have an access code</h2>
+    <p>
+        You can <a href="#0">request a new access code</a> to start a new study if you have lost or not received an access code. This can be sent to you by text or post.
+    </p>
+
+    {% set content %}
+        <p>If you need to answer separately from the people you live with, you can <a href='#'>request an individual access code</a> to start a separate study.</p>
+        {% call onsPanel({
+                type: "warn"
+            })
+        %}
+            Someone in your household must still complete a study using a household access code
+        {% endcall %}
+    {% endset %}
+
+    {% call onsCollapsible({
+            id: "collapsible",
+            title: "Need to answer separately from your household?",
+            titleTag: "h2",
+            button: {
+                "close": "Hide this",
+                "contextSuffix": "content"
+            }
+        })
+    %}
+        {{ content | safe }}
+    {% endcall %}
+{% endblock %}

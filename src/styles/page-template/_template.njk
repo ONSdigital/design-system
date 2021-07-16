@@ -14,6 +14,8 @@
 {# Meta icons #}
 {% if pageConfig is defined and pageConfig and pageConfig.theme is defined and pageConfig.theme %}
     {% set metaicons = pageConfig.theme + "/" + currentLanguageISOCode + "/" %}
+{% else %}
+    {% set metaicons = "" %}
 {% endif %}
 
 {% set pageColNumber = pageConfig.pageColNumber | default("8") %}

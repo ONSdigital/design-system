@@ -1,0 +1,30 @@
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/duration/_macro.njk" import onsDuration %}
+
+{% call onsQuestion({
+    "title": "How long have you lived at this address?",
+    "description": "<p>Enter “0” into the years field if you have lived at this address for less than a year</p>",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsDuration({
+            "id": "address-duration",
+            "dontWrap": true,
+            "field1": {
+                "id": "address-duration-years",
+                "name": "address-duration-years",
+                "label": "Years"
+            },
+            "field2": {
+                "id": "address-duration-months",
+                "name": "address-duration-months",
+                "label": "Months"
+            },
+            "error": {
+                "id": "address-duration-error",
+                "text": "Enter how long you have lived at this address",
+                "dsExample": isPatternLib
+            }
+        })
+    }}
+{% endcall %}

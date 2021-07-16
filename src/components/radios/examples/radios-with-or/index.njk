@@ -1,31 +1,59 @@
+{% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/radios/_macro.njk" import onsRadios %}
-{{
-    onsRadios({
-        "legend": "Select your favourite topping",
-        "name": "food",
-        "or": "Or",
-        "radios": [
-            {
-                "id": "bacon",
-                "label": {
-                    "text": "Bacon"
+
+{% call onsQuestion({
+    "title": "How satisfied are you with this service?",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsRadios({
+            "dontWrap": true,
+            "name": "satisfaction",
+            "or": "Or",
+            "radios": [
+                {
+                    "id": "very-satisfied",
+                    "label": {
+                        "text": "Very satisfied"
+                    },
+                    "value": "very-satisfied"
                 },
-                "value": "bacon"
-            },
-            {
-                "id": "olives",
-                "label": {
-                    "text": "Olives"
+                {
+                    "id": "somewhat-satisfied",
+                    "label": {
+                        "text": "Somewhat satisfied"
+                    },
+                    "value": "somewhat-satisfied"
                 },
-                "value": "olives"
-            },
-            {
-                "id": "ham",
-                "label": {
-                    "text": "Ham"
+                {
+                    "id": "neither",
+                    "label": {
+                        "text": "Neither satisfied or dissatisfied"
+                    },
+                    "value": "neither"
                 },
-                "value": "ham"
-            }
-        ]
-    })
-}}
+                {
+                    "id": "somewhat-dissatisfied",
+                    "label": {
+                        "text": "Somewhat dissatisfied"
+                    },
+                    "value": "somewhat-dissatisfied"
+                },
+                {
+                    "id": "very-dissatisfied",
+                    "label": {
+                        "text": "Very dissatisfied"
+                    },
+                    "value": "very-dissatisfied"
+                },
+                {
+                    "id": "no",
+                    "label": {
+                        "text": "I don’t want to give feedback"
+                    },
+                    "value": "no"
+                }
+            ]
+        })
+    }}
+{% endcall %}

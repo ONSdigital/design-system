@@ -1,0 +1,78 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/address-finder/_macro.njk" import onsAddressFinder %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "title": "Autosuggest address example"
+} %}
+{% block main %}
+    {% call onsQuestion({
+        "title": "What is your address?",
+        "legendIsQuestionTitle": true
+    }) %}
+    
+    <form action="#">
+        {{ onsAddressFinder({
+            "id": "address",
+            "dontWrap": true,
+            "label": {
+                "text": "Enter address or postcode and select from results",
+                "id": "address-label"
+            },
+            "isEditable": true,
+            "mandatory": true,
+            "APIDomain": "https://whitelodge-eq-ai-api.census-gcp.onsdigital.uk",
+            'APIDomainBearerToken': "some_token",
+            "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+            "ariaYouHaveSelected": "You have selected",
+            "ariaMinChars": "Enter 3 or more characters for suggestions.",
+            "ariaResultsLabel": "Address suggestions",
+            "ariaOneResult": "There is one suggestion available.",
+            "ariaNResults": "There are {n} suggestions available.",
+            "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
+            "ariaGroupedResults": "There are {n} for {x}",
+            "groupCount": "{n} addresses",
+            "moreResults": "Enter more of the address to improve results",
+            "resultsTitle": "Select an address",
+            "noResults": "No results found. Try entering a different part of the address",
+            "tooManyResults": "{n} results found. Enter more of the address to improve results",
+            "typeMore": "Enter more of the address to get results",
+            "autocomplete": "new-password",
+            "errorTitle": "There is a problem with your answer",
+            "errorMessageEnter": "Enter an address",
+            "errorMessageSelect": "Select an address",
+            "errorMessageAPI": "Sorry, there was a problem loading addresses.",
+            "errorMessageAPILinkText": "Enter address manually",
+            "options": {
+                "regionCode": "gb-eng",
+                "addressType": "residential"
+            },
+            "line1": {
+                "label": "Address line 1"
+            },
+            "line2": {
+                "label": "Address line 2"
+            },
+            "town": {
+                "label": "Town or city"
+            },
+            "postcode": {
+                "label": "Postcode"
+            },
+            "searchButton": "Search for an address",
+            "manualLinkText": "Manually enter address"
+        }) }}
+        {{
+            onsButton({
+                "text": 'Save and continue',
+                "classes": "u-mt-xl"
+            })
+        }}
+    </form>
+    {% endcall %}
+{% endblock %}

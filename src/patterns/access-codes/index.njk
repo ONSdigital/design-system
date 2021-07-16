@@ -1,0 +1,67 @@
+---
+title: Access codes
+group: Ask users for...
+---
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+{{
+    onsPanel({
+        "body": 'This pattern requires documentation.',
+        "classes": 'u-mb-m'
+    })
+}}
+
+{{
+    patternlibExample({"path": 'components/access-code/examples/access-code/index.njk'})
+}}
+
+## How to check access codes
+
+To help users enter a valid access code, you should:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'allow them to paste the code'
+            },
+            {
+                "text": 'check they have entered something in the code field'
+            },
+            {
+                "text": 'check that what they have entered is valid'
+            },
+            {
+                "text": 'show an error message if they have not entered anything or what they have entered is not valid'
+            }
+        ]
+    })
+}}
+
+### Error messages
+
+Use the [correct errors pattern](/patterns/error-validation) and show the error details above the access code field.
+
+#### If the access code is missing
+Use “Enter an access code”.
+
+#### If the access code is too long or too short
+Use “Enter a 16-character access code”.
+
+#### If the access code is the correct length but is not a real code
+Use “Access code not recognised. Enter the code again.”
+
+{{
+    patternlibExample({"path": 'components/access-code/examples/access-code-error/index.njk'})
+}}
+
+## Help improve this pattern
+Let us know how we could improve this pattern or share your user research findings.
+{{
+    onsExternalLink({
+        "url": 'https://github.com/ONSdigital/design-system/discussions/1360',
+        "linkText": 'Discuss the ‘Access codes’ pattern on GitHub'
+    })
+}}

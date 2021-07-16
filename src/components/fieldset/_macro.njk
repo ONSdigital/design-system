@@ -13,15 +13,15 @@
                 {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             >
                 <legend class="fieldset__legend{% if params.legendClasses is defined and params.legendClasses %} {{ params.legendClasses }}{% endif %}">
-                    {% if params.legendIsPageTitle %}
-                        <h1 class="fieldset__legend-title {% if params.legendTitleClasses is defined and params.legendTitleClasses %}{{ params.legendTitleClasses }}{% endif %}">
+                    {% if params.legendIsQuestionTitle %}
+                        <h1 id="fieldset-legend-title" class="fieldset__legend-title {% if params.legendTitleClasses is defined and params.legendTitleClasses %}{{ params.legendTitleClasses }}{% endif %}">
                             {{- params.legend | safe -}}
                         </h1>
                     {% else %}
                         {{- params.legend | safe -}}
                     {% endif %}
                     {% if params.description is defined and params.description %}
-                        <span class="fieldset__description {% if params.legendIsPageTitle %}fieldset__description--title{% endif %}">{{ params.description | safe }}</span>
+                        <span class="fieldset__description {% if params.legendIsQuestionTitle %}fieldset__description--title{% endif %}">{{ params.description | safe }}</span>
                     {% endif %}
                 </legend>
                 {{ caller() }}

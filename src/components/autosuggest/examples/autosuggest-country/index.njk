@@ -1,9 +1,9 @@
-{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
 
 <div class="grid grid--gutterless">
     <div class="grid__col col-8@m">
 
-        {{ onsInput({
+        {{ onsAutosuggest({
             "id": "country-of-birth",
             "label": {
                 "text": "Current name of country",
@@ -11,20 +11,18 @@
                 "id": "country-of-birth-label"
             },
             "autocomplete": "off",
-            "autosuggest":{
-                "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
-                "ariaYouHaveSelected": "You have selected",
-                "ariaMinChars": "Enter 3 or more characters for suggestions.",
-                "ariaResultsLabel": "Country suggestions",
-                "ariaOneResult": "There is one suggestion available.",
-                "ariaNResults": "There are {n} suggestions available.",
-                "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
-                "moreResults": "Continue entering to improve suggestions",
-                "resultsTitle": "Suggestions",
-                "autosuggestData": "https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/4dede1d6e757cf0bb836228600676c62ceb4f86c/country-of-birth.json",
-                "noResults": "No suggestions found. You can enter your own answer",
-                "typeMore": "Continue entering to get suggestions"
-            }
+            "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+            "ariaYouHaveSelected": "You have selected",
+            "ariaMinChars": "Enter 3 or more characters for suggestions.",
+            "ariaResultsLabel": "Country suggestions",
+            "ariaOneResult": "There is one suggestion available.",
+            "ariaNResults": "There are {n} suggestions available.",
+            "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
+            "moreResults": "Continue entering to improve suggestions",
+            "resultsTitle": "Suggestions",
+            "autosuggestData": "https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/4dede1d6e757cf0bb836228600676c62ceb4f86c/country-of-birth.json",
+            "noResults": "No suggestions found. You can enter your own answer",
+            "typeMore": "Continue entering to get suggestions"
         }) }}
 
     </div>

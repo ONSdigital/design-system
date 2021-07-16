@@ -4,7 +4,6 @@
     {% from "components/input/_macro.njk" import onsInput %}
     {% from "components/error/_macro.njk" import onsError %}
 
-
     {% set exclusiveClass = " js-exclusive-group-item" if params.mutuallyExclusive else "" %}
 
     {%- set numberOfFields = 0 -%}
@@ -88,7 +87,7 @@
             "description": params.description,
             "classes": params.classes,
             "dontWrap": params.dontWrap,
-            "legendIsPageTitle": params.legendIsPageTitle,
+            "legendIsQuestionTitle": params.legendIsQuestionTitle,
             "checkbox": params.mutuallyExclusive.checkbox,
             "or": params.mutuallyExclusive.or,
             "deselectMessage": params.mutuallyExclusive.deselectMessage,
@@ -114,7 +113,7 @@
             "description": params.description,
             "classes": params.classes,
             "dontWrap": params.dontWrap,
-            "legendIsPageTitle": params.legendIsPageTitle,
+            "legendIsQuestionTitle": params.legendIsQuestionTitle,
             "error": params.error
         }) %}
             {{ fields | safe }}
