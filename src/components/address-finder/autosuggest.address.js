@@ -1,14 +1,15 @@
-import abortableFetch from './abortable-fetch';
+import abortableFetch from '../../js/abortable-fetch';
+import { sanitiseAutosuggestText } from '../autosuggest/autosuggest.helpers';
+import AutosuggestUI from '../autosuggest/autosuggest.ui';
 import AddressError from './autosuggest.address.error';
 import AddressSetter from './autosuggest.address.setter';
-import { sanitiseAutosuggestText } from './autosuggest.helpers';
-import AutosuggestUI from './autosuggest.ui';
 
 export const classInputContainer = 'autosuggest-input';
 export const classNotEditable = 'js-address-not-editable';
 export const classMandatory = 'js-address-mandatory';
 export const classSearch = 'js-address-input__search';
 export const classInput = 'js-autosuggest-input';
+export const classInputUPRN = 'js-hidden-uprn';
 
 export default class AutosuggestAddress {
   constructor(context) {
@@ -23,6 +24,7 @@ export default class AutosuggestAddress {
     this.errorMessage = this.container.getAttribute('data-error-message');
     this.groupCount = this.container.getAttribute('data-group-count');
     this.authorizationToken = this.container.getAttribute('data-authorization-token');
+    this.uprn = context.querySelector(`.${classInputUPRN}`);
 
     // State
     this.fetch = null;
@@ -32,6 +34,7 @@ export default class AutosuggestAddress {
     this.isMandatory = context.querySelector(`.${classMandatory}`) ? true : false;
     this.addressSelected = false;
     this.groupQuery = '';
+    this.selectedAddressValue = '';
 
     // Bind event listeners
     if (this.form) {
@@ -287,7 +290,10 @@ export default class AutosuggestAddress {
                 this.addressSelected = true;
               }
             } else {
+              this.selectedAddressValue = selectedResult.displayText;
               this.autosuggest.input.value = selectedResult.displayText;
+              this.uprn.value = selectedResult.uprn;
+              this.addressSelected = true;
             }
           })
           .catch(error => {
@@ -392,27 +398,34 @@ export default class AutosuggestAddress {
   }
 
   handleSubmit(event) {
-    this.addressSetter.checkManualInputsValues(false);
-    if (
-      (!this.addressSelected && this.input.value !== '' && !this.search.classList.contains('u-d-no')) ||
-      (this.isMandatory === true && !this.search.classList.contains('u-d-no'))
-    ) {
-      event.preventDefault();
-      this.handleError = new AddressError(this.context);
-      this.handleError.showErrorPanel();
-      this.autosuggest.setAriaStatus(this.errorMessage);
+    let isManualMode = false;
+
+    if (this.isEditable) {
+      isManualMode = this.addressSetter.manualMode;
+      this.addressSetter.checkManualInputsValues(false);
+    }
+    if (this.isMandatory && !isManualMode) {
+      if (
+        !this.addressSelected ||
+        this.input.value === '' ||
+        (!this.isEditable && this.checkValueHasBeenUpdated(this.selectedAddressValue))
+      ) {
+        event.preventDefault();
+        this.handleError = new AddressError(this.context);
+        this.handleError.showErrorPanel();
+        this.autosuggest.setAriaStatus(this.errorMessage);
+      }
+    }
+  }
+
+  checkValueHasBeenUpdated(value) {
+    if (value !== this.input.value) {
+      return true;
     }
   }
 
   setAuthorization(token) {
-    if (token) {
-      this.authorization = `Bearer ${token}`;
-    } else {
-      this.user = 'equser';
-      this.password = '$4c@ec1zLBu';
-      this.credentials = btoa(`${this.user}:${this.password}`);
-      this.authorization = `Basic ${this.credentials}`;
-    }
+    this.authorization = `Bearer ${token}`;
     return new Headers({
       Authorization: this.authorization,
     });

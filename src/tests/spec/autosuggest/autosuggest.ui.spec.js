@@ -9,7 +9,7 @@ import AutosuggestUI, {
   classAutosuggestOptionFocused,
   classAutosuggestOptionMoreResults,
   classAutosuggestOptionNoResults,
-} from '../../../components/input/autosuggest/autosuggest.ui';
+} from '../../../components/autosuggest/autosuggest.ui';
 import renderTemplate from '../../helpers/render-template';
 import eventMock from '../../stubs/event.stub.spec';
 import fetchMock from '../../stubs/window.fetch.stub.spec';
@@ -27,25 +27,23 @@ const params = {
     classes: 'js-autosuggest-label',
   },
   autocomplete: 'off',
-  autosuggest: {
-    instructions:
-      'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
-    ariaYouHaveSelected: 'You have selected',
-    ariaMinChars: 'Enter 3 or more characters for suggestions.',
-    ariaOneResult: 'There is one suggestion available.',
-    ariaNResults: 'There are {n} suggestions available.',
-    ariaLimitedResults: 'Results have been limited to 10 suggestions. Enter more characters to improve your search.',
-    moreResults: 'Continue entering to improve suggestions',
-    resultsTitle: 'Suggestions',
-    noResults: 'No results found',
-    autosuggestData:
-      'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/4dede1d6e757cf0bb836228600676c62ceb4f86c/country-of-birth.json',
-    typeMore: 'Enter more of the address to get results',
-    tooManyResults: '{n} results found. Enter more of the address to improve results.',
-    errorTitle: 'There is a problem with your answer',
-    errorMessage: 'Enter an address ',
-    errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
-  },
+  instructions:
+    'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
+  ariaYouHaveSelected: 'You have selected',
+  ariaMinChars: 'Enter 3 or more characters for suggestions.',
+  ariaOneResult: 'There is one suggestion available.',
+  ariaNResults: 'There are {n} suggestions available.',
+  ariaLimitedResults: 'Results have been limited to 10 suggestions. Enter more characters to improve your search.',
+  moreResults: 'Continue entering to improve suggestions',
+  resultsTitle: 'Suggestions',
+  noResults: 'No results found',
+  autosuggestData:
+    'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/4dede1d6e757cf0bb836228600676c62ceb4f86c/country-of-birth.json',
+  typeMore: 'Enter more of the address to get results',
+  tooManyResults: '{n} results found. Enter more of the address to improve results.',
+  errorTitle: 'There is a problem with your answer',
+  errorMessage: 'Enter an address ',
+  errorMessageAPI: 'Sorry, there is a problem. We are working to fix it. Please try again later or',
 };
 
 describe('Autosuggest.ui component', function() {
@@ -826,7 +824,7 @@ describe('Autosuggest.ui component', function() {
           });
 
           it('then the message should be set to type the minimum amount of characters', function() {
-            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.autosuggest.ariaMinChars);
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.ariaMinChars);
           });
         });
 
@@ -839,7 +837,7 @@ describe('Autosuggest.ui component', function() {
           });
 
           it('then the no results message should be set', function() {
-            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(`${params.autosuggest.noResults}: "${this.autosuggest.query}"`);
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(`${params.noResults}: "${this.autosuggest.query}"`);
           });
         });
 
@@ -851,7 +849,7 @@ describe('Autosuggest.ui component', function() {
           });
 
           it('then the one result message should be set', function() {
-            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.autosuggest.ariaOneResult);
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.ariaOneResult);
           });
         });
 
@@ -863,9 +861,7 @@ describe('Autosuggest.ui component', function() {
           });
 
           it('then the multiple results message should be set', function() {
-            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(
-              params.autosuggest.ariaNResults.replace('{n}', this.autosuggest.numberOfResults),
-            );
+            expect(this.autosuggest.ariaStatus.innerHTML).to.equal(params.ariaNResults.replace('{n}', this.autosuggest.numberOfResults));
           });
         });
 
@@ -880,9 +876,7 @@ describe('Autosuggest.ui component', function() {
 
           it('then the multiple results message should be set', function() {
             expect(this.autosuggest.ariaStatus.innerHTML).to.equal(
-              `${params.autosuggest.ariaNResults.replace('{n}', this.autosuggest.numberOfResults)} ${
-                params.autosuggest.ariaLimitedResults
-              }`,
+              `${params.ariaNResults.replace('{n}', this.autosuggest.numberOfResults)} ${params.ariaLimitedResults}`,
             );
           });
         });
@@ -938,7 +932,7 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('then setAriaStatus should be called', function() {
-          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.autosuggest.ariaYouHaveSelected}: Yes.`);
+          expect(this.setAriaStatusSpy).to.have.been.called.with.exactly(`${params.ariaYouHaveSelected}: Yes.`);
         });
       });
     });
@@ -973,7 +967,7 @@ describe('Autosuggest.ui component', function() {
 
           it('then the listbox innerHTML should show the no results message', function() {
             expect(this.autosuggest.listbox.innerHTML).to.equal(
-              `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.autosuggest.noResults}</li>`,
+              `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.noResults}</li>`,
             );
           });
 
@@ -1092,7 +1086,7 @@ describe('Autosuggest.ui component', function() {
           it('then the more results item should be added', function() {
             const option1 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--0" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
             const option2 = `<li class="${classAutosuggestOption}" id="${this.autosuggest.listboxId}__option--1" role="option" aria-label="Yes"><strong>Yes</strong></li>`;
-            const option3 = `<li class="${classAutosuggestOption} ${classAutosuggestOptionMoreResults}" aria-hidden="true">${params.autosuggest.moreResults}</li>`;
+            const option3 = `<li class="${classAutosuggestOption} ${classAutosuggestOptionMoreResults}" aria-hidden="true">${params.moreResults}</li>`;
             const html = option1 + option2 + option3;
 
             expect(this.autosuggest.listbox.innerHTML).to.equal(html);
@@ -1114,7 +1108,7 @@ describe('Autosuggest.ui component', function() {
 
         it('then the listbox innerHTML should show the type more message', function() {
           expect(this.autosuggest.listbox.innerHTML).to.equal(
-            `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.autosuggest.typeMore}</li>`,
+            `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.typeMore}</li>`,
           );
           expect(this.handleNoResultsSpy).to.have.been.called();
         });
@@ -1129,7 +1123,7 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('then the listbox innerHTML should show the API error message', function() {
-          expect(this.autosuggest.listbox.textContent).to.equal('!' + params.autosuggest.errorMessageAPI);
+          expect(this.autosuggest.listbox.textContent).to.equal('!' + params.errorMessageAPI);
           expect(this.createWarningSpy).to.have.been.called();
           expect(this.handleNoResultsSpy).to.have.been.called();
         });
@@ -1160,7 +1154,7 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('then the listbox innerHTML should show the API error message', function() {
-          expect(this.autosuggest.listbox.textContent).to.equal('!' + params.autosuggest.errorMessageAPI);
+          expect(this.autosuggest.listbox.textContent).to.equal('!' + params.errorMessageAPI);
           expect(this.createWarningSpy).to.have.been.called();
           expect(this.handleNoResultsSpy).to.have.been.called();
         });
@@ -1193,7 +1187,7 @@ describe('Autosuggest.ui component', function() {
 
       this.fetchSpy = chai.spy(require('../../../js/abortable-fetch').default);
 
-      const mockedautosuggestUI = proxyquire('../../../components/input/autosuggest/autosuggest.ui', {
+      const mockedautosuggestUI = proxyquire('../../../components/autosuggest/autosuggest.ui', {
         '../../../js/abortable-fetch': {
           default: this.fetchSpy,
         },
@@ -1224,9 +1218,6 @@ describe('Autosuggest.ui component', function() {
 
     describe('and fetch is not defined', function() {
       beforeEach(function() {
-        this.autosuggest.fetch = this.fetchSpy()
-          .then(() => {})
-          .catch(() => {});
         this.autosuggest.fetch.status = 'undefined';
         this.abortSpy = chai.spy.on(this.autosuggest.fetch, 'abort');
         this.autosuggest.abortFetch();
@@ -1239,9 +1230,6 @@ describe('Autosuggest.ui component', function() {
 
     describe('and fetch is defined but the status is equal to DONE', function() {
       beforeEach(function() {
-        this.autosuggest.fetch = this.fetchSpy()
-          .then(() => {})
-          .catch(() => {});
         this.autosuggest.fetch.status = 'DONE';
         this.abortSpy = chai.spy.on(this.autosuggest.fetch, 'abort');
         this.autosuggest.abortFetch();
@@ -1254,9 +1242,6 @@ describe('Autosuggest.ui component', function() {
 
     describe('and fetch is defined but the status is equal not to DONE', function() {
       beforeEach(function() {
-        this.autosuggest.fetch = this.fetchSpy()
-          .then(() => {})
-          .catch(() => {});
         this.abortSpy = chai.spy.on(this.autosuggest.fetch, 'abort');
         this.autosuggest.abortFetch();
       });
@@ -1312,26 +1297,24 @@ describe('Autosuggest.ui component', function() {
         classes: 'js-autosuggest-label',
       },
       autocomplete: 'off',
-      autosuggest: {
-        allowMultiple: 'true',
-        instructions:
-          'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
-        ariaYouHaveSelected: 'You have selected',
-        ariaMinChars: 'Enter 3 or more characters for suggestions.',
-        ariaOneResult: 'There is one suggestion available.',
-        ariaNResults: 'There are {n} suggestions available.',
-        ariaLimitedResults: 'Results have been limited to 10 suggestions. Enter more characters to improve your search.',
-        moreResults: 'Continue entering to improve suggestions',
-        resultsTitle: 'Suggestions',
-        noResults: 'No results found',
-        autosuggestData:
-          'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/4dede1d6e757cf0bb836228600676c62ceb4f86c/country-of-birth.json',
-        typeMore: 'Enter more of the address to get results',
-        tooManyResults: '{n} results found. Enter more of the address to improve results.',
-        errorTitle: 'There is a problem with your answer',
-        errorMessage: 'Enter an address ',
-        errorMessageAPI: 'Sorry, there was a problem loading addresses. We are working to fix the problem. Please try again later.',
-      },
+      allowMultiple: 'true',
+      instructions:
+        'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
+      ariaYouHaveSelected: 'You have selected',
+      ariaMinChars: 'Enter 3 or more characters for suggestions.',
+      ariaOneResult: 'There is one suggestion available.',
+      ariaNResults: 'There are {n} suggestions available.',
+      ariaLimitedResults: 'Results have been limited to 10 suggestions. Enter more characters to improve your search.',
+      moreResults: 'Continue entering to improve suggestions',
+      resultsTitle: 'Suggestions',
+      noResults: 'No results found',
+      autosuggestData:
+        'https://gist.githubusercontent.com/rmccar/c123023fa6bd1b137d7f960c3ffa1fed/raw/4dede1d6e757cf0bb836228600676c62ceb4f86c/country-of-birth.json',
+      typeMore: 'Enter more of the address to get results',
+      tooManyResults: '{n} results found. Enter more of the address to improve results.',
+      errorTitle: 'There is a problem with your answer',
+      errorMessage: 'Enter an address ',
+      errorMessageAPI: 'Sorry, there is a problem. We are working to fix it. Please try again later or',
     };
 
     beforeEach(function(done) {
@@ -1403,7 +1386,7 @@ describe('Autosuggest.ui component', function() {
 });
 
 function renderComponent(params) {
-  const html = renderTemplate('components/input/_test-template.njk', { params });
+  const html = renderTemplate('components/autosuggest/_test-template.njk', { params });
 
   const wrapper = document.createElement('div');
 

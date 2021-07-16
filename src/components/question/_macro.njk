@@ -13,7 +13,7 @@
         {% elif params.legendIsQuestionTitle is not defined %}
             <span class="question__description">{{ params.description | safe }}</span>
         {% else %}
-            {{ params.description | safe }}            
+            {{ params.description | safe }}
         {% endif %}
     {% endset %}
 
@@ -44,7 +44,7 @@
             {% endcall %}
 
         {% else %}
-            <h1 class="question__title">
+            <h1 id="question-title" class="question__title">
                 {{- titleHtml | safe -}}
             </h1>
 

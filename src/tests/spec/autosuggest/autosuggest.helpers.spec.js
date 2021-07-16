@@ -1,4 +1,4 @@
-import { sanitiseAutosuggestText } from '../../../components/input/autosuggest/autosuggest.helpers';
+import { sanitiseAutosuggestText } from '../../../components/autosuggest/autosuggest.helpers';
 
 describe('Autosuggest helpers', () => {
   describe('When a string with uppercase characters is supplied', () => {

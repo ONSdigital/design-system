@@ -1,4 +1,4 @@
-import fetch from '../../../js/abortable-fetch';
+import abortableFetch from '../../js/abortable-fetch';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
 import queryJson from './code.list.searcher';
 
@@ -112,7 +112,7 @@ export default class AutosuggestUI {
     this.input.setAttribute('aria-haspopup', true);
     this.input.setAttribute('aria-owns', this.listbox.getAttribute('id'));
     this.input.setAttribute('aria-expanded', false);
-    this.input.setAttribute('autocomplete', this.input.getAttribute('autocomplete') || 'zz');
+    this.input.setAttribute('autocomplete', this.input.getAttribute('autocomplete') || 'off');
     this.input.setAttribute('role', 'combobox');
 
     this.context.classList.add('autosuggest-input--initialised');
@@ -121,8 +121,10 @@ export default class AutosuggestUI {
   }
 
   fetchData() {
+    this.fetch = abortableFetch(this.autosuggestData);
     return new Promise((resolve, reject) => {
-      fetch(this.autosuggestData)
+      this.fetch
+        .send()
         .then(async response => {
           this.data = await response.json();
           resolve(this.data);
@@ -198,7 +200,7 @@ export default class AutosuggestUI {
   }
 
   handleFocus() {
-    if (this.allowMultiple === 'true' && this.allSelections.length && this.input.value.slice(-1) !== ' ') {
+    if (this.allowMultiple === 'true' && this.allSelections.length && this.input.value.slice(-1) !== ' ' && this.input.value !== '') {
       this.input.value = `${this.input.value}, `;
     }
   }
@@ -405,7 +407,7 @@ export default class AutosuggestUI {
       this.setAriaStatus(message);
       this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
     } else if (status > 400 || status === '') {
-      message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>' : '');
+      message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>.' : '');
 
       this.input.setAttribute('disabled', true);
       this.input.value = '';
