@@ -150,12 +150,12 @@ describe('Autosuggest.address component', function() {
       });
     });
 
-    describe('When the API status is checked', function() {
+    describe('When the API status is checked with a successful response', function() {
       beforeEach(function(done) {
         setTimeout(() => {
           const response = {
             status: {
-              code: 403,
+              code: 200,
             },
           };
           fetchMock.get('https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10', JSON.stringify(response), {
@@ -684,7 +684,22 @@ describe('Autosuggest.address component', function() {
       });
     });
 
-    describe('When a fetch is made', function() {
+    describe('When a fetch is made successfully', function() {
+      beforeEach(function() {
+        this.result = {
+          results: [{ en: 'yes', alternatives: [], sanitisedAlternatives: [] }],
+          totalResults: 1,
+        };
+
+        window.fetch = fetchStub(false, 403, this.result);
+      });
+
+      it('then the result should not be returned', function() {
+        this.autosuggestAddress.suggestAddresses('yes', [], false).should.not.eventually.eql(this.result);
+      });
+    });
+
+    describe('When a fetch is  unsuccessful', function() {
       beforeEach(function() {
         this.result = {
           results: [{ en: 'yes', alternatives: [], sanitisedAlternatives: [] }],
@@ -694,7 +709,7 @@ describe('Autosuggest.address component', function() {
         window.fetch = fetchStub(true, null, this.result);
       });
 
-      it('and the fetch successfully returns', function() {
+      it('then the result should be returned', function() {
         this.autosuggestAddress.suggestAddresses('yes', [], false).should.eventually.eql(this.result);
       });
     });
