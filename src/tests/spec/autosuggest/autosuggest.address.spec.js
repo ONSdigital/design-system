@@ -150,12 +150,12 @@ describe('Autosuggest.address component', function() {
       });
     });
 
-    describe('When the API status is checked', function() {
+    describe('When the API status is checked with a successful response', function() {
       beforeEach(function(done) {
         setTimeout(() => {
           const response = {
             status: {
-              code: 403,
+              code: 200,
             },
           };
           fetchMock.get('https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=CF142&limit=10', JSON.stringify(response), {
