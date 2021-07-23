@@ -10,6 +10,13 @@
     }}
 {% endblock %}
 {% block header %}
+    {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
+    {{
+        onsPhaseBanner({
+            "wide": true,
+            "html": 'Help us to improve the ONS Design System. <a href="#feedback">Take part in a short study</a>',
+        })
+    }}
     {% from "components/header/_macro.njk" import onsHeader %}
     {{
         onsHeader({
