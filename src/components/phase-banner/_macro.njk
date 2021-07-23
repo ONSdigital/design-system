@@ -2,9 +2,11 @@
     <div class="phase-banner">
         <div class="container {{ ' container--wide' if params.wide }}">
             <div class="grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap">
+                {% if params.badge is defined and params.badge %}
                 <div class="grid__col col-auto u-flex-no-grow">
                     <h3 class="phase-banner__badge">{{ params.badge | default("Beta") }}</h3>
                 </div>
+                {% endif %}
                 <div class="grid__col col-auto u-flex-shrink">
                     <p class="phase-banner__desc u-fs-s u-mb-no">{{ params.html | safe }}</p>
                 </div>
