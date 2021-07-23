@@ -1,9 +1,9 @@
 {% macro onsPhaseBanner(params) %}
     <div class="phase-banner">
         <div class="container{{ ' container--wide' if params.wide }}">
-            <div class="grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap">
+            <div class="grid grid--flex grid--gutterless grid--vertical-top grid--no-wrap">
                 {% if not params.hideBadge %}
-                <div class="grid__col col-auto u-flex-no-grow">
+                <div class="grid__col col-auto u-flex-no-grow u-flex-no-shrink">
                     <h3 class="phase-banner__badge">{{ params.badge | default("Beta") }}</h3>
                 </div>
                 {% endif %}
