@@ -78,13 +78,20 @@
                     </div>
                 </div>
             {% endif %}
+            
+            {% if params.uprn is defined and params.uprn and params.uprn.value is defined and params.uprn.value %}
+                {% set uprnValue = params.uprn.value %}
+            {% else %}
+                {% set uprnValue = '' %}
+            {% endif %}
+
             {{
                 onsInput({
                     "id": params.id + "-uprn",
                     "classes": "js-hidden-uprn u-d-no",
                     "type": "hidden",
                     "name": params.id + "-uprn",
-                    "value": params.uprn.value
+                    "value": uprnValue
                 })
             }}
 
@@ -98,6 +105,11 @@
                             "id": params.label.id,
                             "classes": "js-autosuggest-label"
                         },
+                        "value": params.value,
+                        "attributes": params.attributes,
+                        "error": params.error,
+                        "name": params.name,
+                        "mutuallyExclusive": params.mutuallyExclusive,
                         "externalInitialiser": true,
                         "APIDomain": params.APIDomain,
                         "APIDomainBearerToken": params.APIDomainBearerToken,

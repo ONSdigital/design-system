@@ -31,6 +31,16 @@
             {% if params.options.addressType is defined and params.options.addressType %}data-options-address-type="{{ params.options.addressType }}"{% endif %}
         {% endif %}
     >
+
+        {% set autosuggestResults %}
+            <div class="autosuggest-input__results js-autosuggest-results">
+                <header class="autosuggest-input__results-title u-fs-s">{{ params.resultsTitle }}</header>
+                <ul class="autosuggest-input__listbox js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" aria-labelledby="{{ params.labelId }}" tabindex="-1"></ul>
+            </div>
+            <div class="autosuggest-input__instructions u-vh js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
+            <div class="autosuggest-input__status u-vh js-autosuggest-aria-status" aria-live="assertive" role="status" tabindex="-1"></div> 
+        {% endset %}
+
         {{ onsInput({
             "id": params.id,
             "classes": params.classes + " js-autosuggest-input",
@@ -39,13 +49,19 @@
                 "description": params.label.description,
                 "id": params.label.id,
                 "classes": params.label.classes
-            }
+            },
+            "legend": params.legend,
+            "legendClasses": params.legendClasses,
+            "value": params.value,
+            "attributes": params.attributes,
+            "error": params.error,
+            "mutuallyExclusive": params.mutuallyExclusive,
+            "name": params.name,
+            "autosuggestResults": autosuggestResults
          }) }}
-        <div class="autosuggest-input__results js-autosuggest-results">
-            <header class="autosuggest-input__results-title u-fs-s">{{ params.resultsTitle }}</header>
-            <ul class="autosuggest-input__listbox js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" aria-labelledby="{{ params.labelId }}" tabindex="-1"></ul>
-        </div>
-        <div class="autosuggest-input__instructions u-vh js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
-        <div class="autosuggest-input__status u-vh js-autosuggest-aria-status" aria-live="assertive" role="status" tabindex="-1"></div> 
+
+         {% if params.mutuallyExclusive is not defined %}
+            {{ autosuggestResults | safe }}
+         {% endif %}
     </div>
 {% endmacro %}
