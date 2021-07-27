@@ -165,7 +165,7 @@ describe('Autosuggest.address component', function() {
 
     describe('and the user inputs', function() {
       beforeEach(function() {
-        this.autosuggest.fetch.status = 'undefined';
+        this.autosuggestAddress.fetch.status = 'undefined';
         this.findAddressSpy = chai.spy.on(this.autosuggestAddress, 'findAddress');
         this.abortSpy = chai.spy.on(this.autosuggestAddress.fetch, 'abort');
         this.testPostcodeSpy = chai.spy.on(this.autosuggestAddress, 'testFullPostcodeQuery');
