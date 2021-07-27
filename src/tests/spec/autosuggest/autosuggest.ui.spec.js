@@ -1242,6 +1242,7 @@ describe('Autosuggest.ui component', function() {
 
     describe('and fetch is defined but the status is equal not to DONE', function() {
       beforeEach(function() {
+        this.autosuggest.fetch.status = 'LOADING';
         this.abortSpy = chai.spy.on(this.autosuggest.fetch, 'abort');
         this.autosuggest.abortFetch();
       });
