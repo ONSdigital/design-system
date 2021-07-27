@@ -173,8 +173,14 @@ describe('Autosuggest.address component', function() {
 
       describe('and a query is sent', function() {
         beforeEach(function(done) {
-          this.autosuggestAddress.suggestAddresses('195 colle', [], false);
-          setTimeout(done);
+          setTimeout(() => {
+            this.autosuggestAddress.suggestAddresses('195 colle', [], false);
+            done();
+          });
+        });
+
+        it('then any current fetches should be aborted', function() {
+          expect(this.abortSpy).to.have.been.called();
         });
 
         it('then the findAddress function should be called', function() {
@@ -186,10 +192,6 @@ describe('Autosuggest.address component', function() {
           expect(this.autosuggestAddress.fetch.url).to.equal(
             'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10',
           );
-        });
-
-        it('then any current fetches should be aborted', function() {
-          expect(this.abortSpy).to.have.been.called();
         });
       });
 
@@ -595,24 +597,6 @@ describe('Autosuggest.address component', function() {
       });
 
       describe('when the form is submitted', function() {
-        describe('when the input is empty', function() {
-          beforeEach(function(done) {
-            this.setAriaStatusSpy = chai.spy.on(this.autosuggestAddress.autosuggest, 'setAriaStatus');
-
-            this.mockedEvent = eventMock({ key: 'Enter' });
-            this.autosuggestAddress.handleSubmit(this.mockedEvent);
-            setTimeout(done);
-          });
-
-          it('then preventDefault should be called on the event', function() {
-            expect(this.mockedEvent.preventDefault).to.have.been.called();
-          });
-
-          it('then setAriaStatus should be called', function() {
-            expect(this.setAriaStatusSpy).to.have.been.called();
-          });
-        });
-
         describe('when the selected address is manually changed', function() {
           beforeEach(function(done) {
             this.addressSetter = new AddressSetter(this.context);
@@ -827,6 +811,27 @@ describe('Autosuggest.address component', function() {
 
       it('then the retrieveAddress function will be called', function() {
         expect(this.retrieveAddressSpy).to.have.been.called();
+      });
+    });
+
+    describe('when the form is submitted', function() {
+      describe('when the input is empty', function() {
+        beforeEach(function(done) {
+          this.setAriaStatusSpy = chai.spy.on(this.autosuggestAddress.autosuggest, 'setAriaStatus');
+          this.mockedEvent = eventMock({ key: 'Enter' });
+          setTimeout(() => {
+            this.autosuggestAddress.handleSubmit(this.mockedEvent);
+            done();
+          });
+        });
+
+        it('then preventDefault should be called on the event', function() {
+          expect(this.mockedEvent.preventDefault).to.have.been.called();
+        });
+
+        it('then setAriaStatus should be called', function() {
+          expect(this.setAriaStatusSpy).to.have.been.called();
+        });
       });
     });
   });
