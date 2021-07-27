@@ -165,34 +165,30 @@ describe('Autosuggest.address component', function() {
 
     describe('and the user inputs', function() {
       beforeEach(function() {
+        this.autosuggest.fetch.status = 'undefined';
         this.findAddressSpy = chai.spy.on(this.autosuggestAddress, 'findAddress');
         this.abortSpy = chai.spy.on(this.autosuggestAddress.fetch, 'abort');
         this.testPostcodeSpy = chai.spy.on(this.autosuggestAddress, 'testFullPostcodeQuery');
         this.generateURLParamsSpy = chai.spy.on(this.autosuggestAddress, 'generateURLParams');
+        setTimeout(() => {
+          this.autosuggestAddress.suggestAddresses('195 colle', [], false);
+          done();
+        });
       });
 
-      describe('and a query is sent', function() {
-        beforeEach(function(done) {
-          setTimeout(() => {
-            this.autosuggestAddress.suggestAddresses('195 colle', [], false);
-            done();
-          });
-        });
+      it('then any current fetches should be aborted', function() {
+        expect(this.abortSpy).to.have.been.called();
+      });
 
-        it('then any current fetches should be aborted', function() {
-          expect(this.abortSpy).to.have.been.called();
-        });
+      it('then the findAddress function should be called', function() {
+        expect(this.findAddressSpy).to.have.been.called();
+      });
 
-        it('then the findAddress function should be called', function() {
-          expect(this.findAddressSpy).to.have.been.called();
-        });
-
-        it('then the fetch url should contain the correct limit parameter', function() {
-          this.limit = 10;
-          expect(this.autosuggestAddress.fetch.url).to.equal(
-            'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10',
-          );
-        });
+      it('then the fetch url should contain the correct limit parameter', function() {
+        this.limit = 10;
+        expect(this.autosuggestAddress.fetch.url).to.equal(
+          'https://whitelodge-ai-api.census-gcp.onsdigital.uk/addresses/eq?input=195 colle&limit=10',
+        );
       });
 
       describe('when the value is a full postcode', function() {
