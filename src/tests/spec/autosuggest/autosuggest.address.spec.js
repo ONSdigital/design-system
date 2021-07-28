@@ -1,9 +1,9 @@
 import { awaitPolyfills } from 'js/polyfills/await-polyfills';
-import template from 'components/address-finder/_test-template.njk';
+import template from 'components/address-input/_test-template.njk';
 import '../../../scss/main.scss';
-import AutosuggestAddress from '../../../components/address-finder/autosuggest.address';
-import AddressError from '../../../components/address-finder/autosuggest.address.error';
-import AddressSetter from '../../../components/address-finder/autosuggest.address.setter';
+import AutosuggestAddress from '../../../components/address-input/autosuggest.address';
+import AddressError from '../../../components/address-input/autosuggest.address.error';
+import AddressSetter from '../../../components/address-input/autosuggest.address.setter';
 import eventMock from 'stubs/event.stub.spec';
 import fetchStub from 'stubs/window.fetch.stub.spec';
 

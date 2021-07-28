@@ -2,11 +2,11 @@
 {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
 {% from "components/input/_macro.njk" import onsInput %}
 
-{% macro onsAddressFinder(params) %}
+{% macro onsAddressInput(params) %}
    {% set fields %}
-        <div id="address" class="field address-input address-input--search js-address-autosuggest">
-            {% if params.isEditable == true %}    
-                <div class="js-address-input__manual u-db-no-js_enabled">
+        <div id="address" class="field address-input {% if not params.manualEntry %}address-input--search js-address-autosuggest{% endif %}">
+            {% if params.isEditable == true or params.manualEntry %}    
+                {% if not params.manualEntry %}<div class="js-address-input__manual u-db-no-js_enabled">{% endif %}
                     {% if params.organisation is defined and params.organisation %}
                         {{
                             onsInput({
@@ -72,11 +72,12 @@
                             })
                         }}
                     {% endif %}
-
-                    <div class="u-mt-s">
-                        <a href="#" class="js-address-search-btn u-db-no-js_disabled">{{ params.searchButton }}</a>
+                {% if not params.manualEntry %}
+                        <div class="u-mt-s">
+                            <a href="#" class="js-address-search-btn u-db-no-js_disabled">{{ params.searchButton }}</a>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
             {% endif %}
             
             {% if params.uprn is defined and params.uprn and params.uprn.value is defined and params.uprn.value %}
@@ -94,57 +95,58 @@
                     "value": uprnValue
                 })
             }}
-
-            <div class="js-address-input__search{% if params.isEditable == true %} u-db-no-js_disabled{% endif %}">
-                {{
-                    onsAutosuggest({
-                        "id": params.id + "-autosuggest",
-                        "classes": "address-input__autosuggest input--w-50 u-mb-no",
-                        "label": {
-                            "text": params.label.text,
-                            "id": params.label.id,
-                            "classes": "js-autosuggest-label"
-                        },
-                        "value": params.value,
-                        "attributes": params.attributes,
-                        "error": params.error,
-                        "name": params.name,
-                        "mutuallyExclusive": params.mutuallyExclusive,
-                        "externalInitialiser": true,
-                        "APIDomain": params.APIDomain,
-                        "APIDomainBearerToken": params.APIDomainBearerToken,
-                        "allowMultiple": params.allowMultiple,
-                        "mandatory": params.mandatory,
-                        "instructions": params.instructions,
-                        "autocomplete": params.autocomplete,
-                        "isEditable": params.isEditable,
-                        "ariaYouHaveSelected": params.ariaYouHaveSelected,
-                        "ariaMinChars": params.ariaMinChars,
-                        "ariaResultsLabel": params.ariaResultsLabel,
-                        "ariaOneResult": params.ariaOneResult,
-                        "ariaNResults": params.ariaNResults,
-                        "ariaLimitedResults": params.ariaLimitedResults,
-                        "ariaGroupedResults": params.ariaGroupedResults,
-                        "groupCount": params.groupCount,
-                        "moreResults": params.moreResults,
-                        "tooManyResults": params.tooManyResults,
-                        "resultsTitle": params.resultsTitle,
-                        "noResults": params.noResults,
-                        "typeMore": params.typeMore,
-                        "errorTitle": params.errorTitle,
-                        "errorMessageEnter": params.errorMessageEnter,
-                        "errorMessageSelect": params.errorMessageSelect,
-                        "errorMessageAPI": params.errorMessageAPI,
-                        "errorMessageAPILinkText": params.errorMessageAPILinkText,
-                        "options": params.options,
-                        "manualLink": params.manualLink,
-                        "manualLinkText": params.manualLinkText
-                    })
-                }}
-                {% if params.manualLinkText %}
-                    <a href="{{ params.manualLink | default('#0') }}" class="js-address-manual-btn u-mt-s u-dib">{{ params.manualLinkText }}</a>
-                {% endif %}
-            </div>
+            {% if not params.manualEntry %}
+                <div class="js-address-input__search{% if params.isEditable == true %} u-db-no-js_disabled{% endif %}">
+                    {{
+                        onsAutosuggest({
+                            "id": params.id + "-autosuggest",
+                            "classes": "address-input__autosuggest input--w-50 u-mb-no",
+                            "label": {
+                                "text": params.label.text,
+                                "id": params.label.id,
+                                "classes": "js-autosuggest-label"
+                            },
+                            "value": params.value,
+                            "attributes": params.attributes,
+                            "error": params.error,
+                            "name": params.name,
+                            "mutuallyExclusive": params.mutuallyExclusive,
+                            "externalInitialiser": true,
+                            "APIDomain": params.APIDomain,
+                            "APIDomainBearerToken": params.APIDomainBearerToken,
+                            "allowMultiple": params.allowMultiple,
+                            "mandatory": params.mandatory,
+                            "instructions": params.instructions,
+                            "autocomplete": params.autocomplete,
+                            "isEditable": params.isEditable,
+                            "ariaYouHaveSelected": params.ariaYouHaveSelected,
+                            "ariaMinChars": params.ariaMinChars,
+                            "ariaResultsLabel": params.ariaResultsLabel,
+                            "ariaOneResult": params.ariaOneResult,
+                            "ariaNResults": params.ariaNResults,
+                            "ariaLimitedResults": params.ariaLimitedResults,
+                            "ariaGroupedResults": params.ariaGroupedResults,
+                            "groupCount": params.groupCount,
+                            "moreResults": params.moreResults,
+                            "tooManyResults": params.tooManyResults,
+                            "resultsTitle": params.resultsTitle,
+                            "noResults": params.noResults,
+                            "typeMore": params.typeMore,
+                            "errorTitle": params.errorTitle,
+                            "errorMessageEnter": params.errorMessageEnter,
+                            "errorMessageSelect": params.errorMessageSelect,
+                            "errorMessageAPI": params.errorMessageAPI,
+                            "errorMessageAPILinkText": params.errorMessageAPILinkText,
+                            "options": params.options,
+                            "manualLink": params.manualLink,
+                            "manualLinkText": params.manualLinkText
+                        })
+                    }}
+                    {% if params.manualLinkText %}
+                        <a href="{{ params.manualLink | default('#0') }}" class="js-address-manual-btn u-mt-s u-dib">{{ params.manualLinkText }}</a>
+                    {% endif %}
+                </div>
+            {% endif %}
         </div>
     {% endset %}
 
