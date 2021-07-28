@@ -68,7 +68,7 @@ const params = {
 
 let lang = 'en';
 
-describe('Autosuggest.address component', function() {
+describe.only('Autosuggest.address component', function() {
   before(function(done) {
     awaitPolyfills.then(() => {
       this.rewiremock = require('rewiremock/webpack').default;
@@ -844,6 +844,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       externalInitialiser: true,
+      isEditable: false,
       APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
       options: {
         regionCode: 'gb-eng',
@@ -890,6 +891,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      isEditable: false,
       externalInitialiser: true,
       options: {
         regionCode: 'gb-nir',
@@ -935,6 +937,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      isEditable: false,
       externalInitialiser: true,
       options: {
         regionCode: 'gb-nir',
@@ -993,6 +996,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      isEditable: false,
       externalInitialiser: true,
       options: {
         regionCode: 'gb-wls',
