@@ -2,7 +2,7 @@
 {% macro onsAutosuggest(params) %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}js-autosuggest {% endif %}{% if params.isEditable == false %}js-address-not-editable{% endif %}{% if params.mandatory is defined and params.mandatory == true %} js-address-mandatory{% endif %} autosuggest-input {{ params.classes }}"
+        class="{% if not params.externalInitialiser %}js-autosuggest {% endif %}{% if params.isEditable === false %}js-address-not-editable{% endif %}{% if params.mandatory is defined and params.mandatory == true %} js-address-mandatory{% endif %} autosuggest-input {{ params.classes }}"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
         data-aria-min-chars="{{ params.ariaMinChars }}"
