@@ -1,15 +1,25 @@
-| Name                | Type    | Required | Description                                                                                          |
-| ------------------- | ------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| autosuggestData     | string  | true     | URL of the JSON file with the autosuggest data that needs to be searched                             |
-| allowMultiple       | boolean | false    | Allows the component to accept multiple selections                                                   |
-| instructions        | string  | true     | Instructions on how to use the autosuggest that will be read out by screenreaders                    |
-| ariaYouHaveSelected | string  | true     | Aria message to tell the user that they have selected an answer                                      |
-| ariaMinChars        | string  | true     | Aria message to tell the user how many charecters they need to enter before autosuggest will start   |
-| ariaResultsLabel    | string  | true     | Aria message to tell the user that suggestions are available                                         |
-| ariaOneResult       | string  | true     | Aria message to tell the user there is only one suggestion left                                      |
-| ariaNResults        | string  | true     | Aria message to tell the user how many suggestions are left                                          |
-| moreResults         | string  | true     | Aria message to tell the user to continue to type to refine suggestions                              |
-| noResults           | string  | true     | message to tell the user there are no results                                                        |
-| tooManyResults      | string  | true     | message to tell the user there are too many results to display and the user should refine the search |
-| typeMore            | string  | true     | message to encourage the user to enter more characters to get suggestions                            |
-| resultsTitle        | string  | true     | Title of results to be displayed on screen at the top of the results                                 |
+| Name                | Type                                                          | Required                         | Description                                                                                          |
+| ------------------- | ------------------------------------------------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| autosuggestData     | string                                                        | true                             | URL of the JSON file with the autosuggest data that needs to be searched                             |
+| allowMultiple       | boolean                                                       | false                            | Allows the component to accept multiple selections                                                   |
+| instructions        | string                                                        | true                             | Instructions on how to use the autosuggest that will be read out by screenreaders                    |
+| ariaYouHaveSelected | string                                                        | true                             | Aria message to tell the user that they have selected an answer                                      |
+| ariaMinChars        | string                                                        | true                             | Aria message to tell the user how many charecters they need to enter before autosuggest will start   |
+| ariaResultsLabel    | string                                                        | true                             | Aria message to tell the user that suggestions are available                                         |
+| ariaOneResult       | string                                                        | true                             | Aria message to tell the user there is only one suggestion left                                      |
+| ariaNResults        | string                                                        | true                             | Aria message to tell the user how many suggestions are left                                          |
+| moreResults         | string                                                        | true                             | Aria message to tell the user to continue to type to refine suggestions                              |
+| noResults           | string                                                        | true                             | message to tell the user there are no results                                                        |
+| tooManyResults      | string                                                        | true                             | message to tell the user there are too many results to display and the user should refine the search |
+| typeMore            | string                                                        | true                             | message to encourage the user to enter more characters to get suggestions                            |
+| resultsTitle        | string                                                        | true                             | Title of results to be displayed on screen at the top of the results                                 |
+| dontWrap            | boolean                                                       | false                            | Prevents the input from being wrapped in a [field component](/components/field)                      |
+| mutuallyExclusive   | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false                            | Configuration object if this is a mutually exclusive input                                           |
+| label               | `Label` [_(ref)_](/components/label)                          | false                            | Settings for the input label. `for` will automatically be set to match the input id                  |
+| classes             | string                                                        | false                            | Classes to add to the input.                                                                         |
+| legend              | string                                                        | Only if mutuallyExclusive is set | Text content for the legend                                                                          |
+| legendClasses       | string                                                        | false                            | Classes for the legend                                                                               |
+| error               | `Error` [_(ref)_](/components/error)                          | false                            | Configuration for validation errors                                                                  |
+| name                | string                                                        | false                            | The name of the input                                                                                |
+| value               | string &#124; number                                          | false                            | The value to set the input to                                                                        |
+| attributes          | object                                                        | false                            | HTML attributes (for example data attributes) to add to the input                                    |
