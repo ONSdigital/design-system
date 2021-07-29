@@ -1306,7 +1306,7 @@ describe('Autosuggest.ui component', function() {
         classes: 'js-autosuggest-label',
       },
       autocomplete: 'off',
-      allowMultiple: 'true',
+      allowMultiple: true,
       instructions:
         'Use up and down keys to navigate suggestions once youve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.',
       ariaYouHaveSelected: 'You have selected',
