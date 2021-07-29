@@ -30,6 +30,8 @@ export default function(config) {
       captureConsole: !process.env['RUNNING_ON_CI'],
     },
 
+    browserDisconnectTimeout: 10000,
+
     frameworks: ['browserify', 'mocha', 'chai-spies', 'chai'],
 
     files: [
