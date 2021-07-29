@@ -11,6 +11,7 @@
 | button               | `Button` [_(ref)_](/components/button) | false    | Settings for save and sign out using the button component                                            |
 | newTabWarning        | string                                 | false    | Text for warning of links opening in new tabs                                                        |
 | crest                | boolean                                | false    | If set to true will add the UK coat of arms to the footer                                            |
+| wide                 | boolean                                | false    | If set to true will set a wider page style by adding css to the container                            |
 
 ## OGLLink
 
