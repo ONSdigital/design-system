@@ -15,7 +15,7 @@
         data-type-more="{{ params.typeMore }}"
         {% if params.APIDomain is defined and params.APIDomain %}data-api-domain="{{ params.APIDomain }}"{% endif %}
         {% if params.APIDomainBearerToken is defined and params.APIDomainBearerToken %}data-authorization-token="{{ params.APIDomainBearerToken }}"{% endif %}
-        {% if params.allowMultiple is defined and params.allowMultiple %}data-allow-multiple="{{ params.allowMultiple }}"{% endif %}
+        {% if params.allowMultiple is defined and params.allowMultiple == true %}data-allow-multiple="true"{% endif %}
         {% if params.autosuggestData is defined and params.autosuggestData %}data-autosuggest-data="{{ params.autosuggestData }}"{% endif %}
         {% if params.errorTitle is defined and params.errorTitle %}data-error-title="{{ params.errorTitle }}"{% endif %}
         {% if params.errorMessageEnter is defined and params.errorMessageEnter %}data-error-enter="{{ params.errorMessageEnter }}"{% endif %}
@@ -50,6 +50,7 @@
                 "id": params.label.id,
                 "classes": params.label.classes
             },
+            "autocomplete": params.autocomplete,
             "legend": params.legend,
             "legendClasses": params.legendClasses,
             "value": params.value,
