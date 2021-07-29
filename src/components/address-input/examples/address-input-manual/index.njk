@@ -1,0 +1,23 @@
+{% from "components/address-input/_macro.njk" import onsAddressInput %}
+
+{{ onsAddressInput({
+    "id": "address",
+    "dontWrap": true,
+    "manualEntry": true,
+    "label": {
+        "text": "Enter address or postcode and select from results",
+        "id": "address-label"
+    },
+    "line1": {
+        "label": "Address line 1"
+    },
+    "line2": {
+        "label": "Address line 2"
+    },
+    "town": {
+        "label": "Town or city"
+    },
+    "postcode": {
+        "label": "Postcode"
+    }
+}) }}

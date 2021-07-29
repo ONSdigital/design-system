@@ -1,28 +1,24 @@
 ---
-title: Address finder
+title: Address input
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 
-The address finder component uses the ONS Address Index API to search for and return addresses. 
+The address input component allows users to search for and return addresses using the ONS Address Index API or to manually enter an address. 
 
 ## When to use this component
 
-Use the address finder when you need users to find and confirm a UK address. This could be their own or any other address that is required for the question.
+Use the address input when you need users to find or enter and confirm an address. This could be their own or any other address that is required for the question.
 
 There is specific guidance on how to ask for [addresses](/patterns/addresses).
 
-## When not to use this component
+## How to use this component with the ONS Address Index API
 
-Do not use this component if non-UK addresses are required for the question.
+The address input extends the code base used for the [autosuggest component](/components/autosuggest). 
 
-## How to use this component
-
-The address finder extends the code base used for the [autosuggest component](/components/autosuggest). 
-
-There are two main ways to use this component. Addresses can either be editable or non-editable.
+There are two main ways to use this component with the ONS Address Index API. Addresses can either be editable or non-editable.
 
 ### Editable addresses
 
@@ -33,7 +29,7 @@ When an address has been selected, the “mode” of the component will change t
 If the address is amended, the UPRN (unique ID) will be removed and not submitted.
 
 {{
-    patternlibExample({"path": "components/address-finder/examples/address-finder-editable/index.njk"})
+    patternlibExample({"path": "components/address-input/examples/address-input-editable/index.njk"})
 }}
 
 ### Non-editable addresses
@@ -44,7 +40,7 @@ The UPRN for the selected address is added to a hidden input field that will be 
 
 
 {{
-    patternlibExample({"path": "components/address-finder/examples/address-finder/index.njk"})
+    patternlibExample({"path": "components/address-input/examples/address-input/index.njk"})
 }}
 
 ### Using the API
@@ -72,11 +68,19 @@ There is a status check when the page loads and initialises the component. If th
 
 If the API goes down during use of the component, the input is disabled and a warning needs to be shown under the address input field. The warning is configurable and should contain a message and a link, for example "Sorry, there is a problem. We are working to fix it. Please try again later or <a href="#0">contact us for more help</a>."
 
+## How to use this component for manual address entry
+
+Include the parameter `manualEntry: true`. Note that there are other required parameters that can be viewed on the Nunjucks output of the example. 
+
+{{
+    patternlibExample({"path": "components/address-input/examples/address-input-manual/index.njk"})
+}}
+
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/894",
-        "linkText": "Discuss the ‘Address finder’ component on GitHub"
+        "linkText": "Discuss the ‘address input’ component on GitHub"
     })
 }}

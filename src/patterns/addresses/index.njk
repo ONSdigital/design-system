@@ -8,24 +8,34 @@ group: Ask users for...
 
 ## When to use this pattern
 
-This pattern should be used when you need to collect an address from a user using the [address finder component](/components/address-finder) inside a form. 
+This pattern should be used when you need to collect an address from a user using the [address input component](/components/address-input) inside a form. 
 
-## How to use this pattern
+## How to use this pattern to search for addresses
 
-There are two main ways to use this pattern. Addresses can either be [editable](/components/address-finder#editable-addresses) or [non-editable](/components/address-finder#non-editable-addresses). Look at the nunjucks output in both examples below to see how they are configured using the `onsAddressFinder` macro.
+There are three ways to use this pattern. Addresses can either be [editable](/components/address-input#editable-addresses), [non-editable](/components/address-input#non-editable-addresses) or [manual](/components/address-input#how-to-use-this-component-for-manual-address-entry). Look at the nunjucks output in the examples below to see how they are configured using the `onsAddressInput` macro.
 
-The pattern examples below will use client side validation against a set of [validation rules](/components/address-finder#validation).
 ### Editable address pattern example
-The manual address inputs are wrapped within a [fieldset](/components/fieldset) and legend. If used within an `onsQuestion` macro you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressFinder` macro. 
+The manual address inputs are wrapped within a [fieldset](/components/fieldset) and legend. If used within an `onsQuestion` macro you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro. 
+
+The pattern example below will use client side validation against a set of [validation rules](/components/address-input#validation).
 
 {{
-    patternlibExample({"path": "patterns/addresses/examples/address-finder/index.njk"})
+    patternlibExample({"path": "patterns/addresses/examples/address-input/index.njk"})
 }}
 
 ### Non-editable address pattern example
 
+The pattern example below will use client side validation against a set of [validation rules](/components/address-input#validation).
+
 {{
-    patternlibExample({"path": "patterns/addresses/examples/address-finder-non-editable/index.njk"})
+    patternlibExample({"path": "patterns/addresses/examples/address-input-non-editable/index.njk"})
+}}
+
+### Manual address pattern example
+The manual address inputs are wrapped within a [fieldset](/components/fieldset) and legend. If used within an `onsQuestion` macro you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro. 
+
+{{
+    patternlibExample({"path": "patterns/addresses/examples/address-input-manual/index.njk"})
 }}
 
 ## Help improve this pattern
