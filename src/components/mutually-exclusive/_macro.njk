@@ -19,6 +19,9 @@
     }) %}
         <div class="js-mutually-exclusive mutually-exclusive">
             {{ content | safe }}
+            {% if params.autosuggestResults is defined and params.autosuggestResults %}
+                {{ params.autosuggestResults | safe }}
+            {% endif %}
             <p class="checkboxes--mutually-exclusive__item u-mt-s">
                 <span class="checkboxes__label u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
                 {{

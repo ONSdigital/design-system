@@ -4,7 +4,7 @@ layout: none
 {% extends "styles/page-template/_template.njk" %}
 
 {% from "components/question/_macro.njk" import onsQuestion %}
-{% from "components/address-finder/_macro.njk" import onsAddressFinder %}
+{% from "components/address-input/_macro.njk" import onsAddressInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
@@ -13,7 +13,7 @@ layout: none
         "ariaLabel": 'Back',
         "itemsList": [
             {
-                "url": '/patterns/addresses/examples/address-finder-non-editable',
+                "url": '/patterns/addresses/examples/address-input-non-editable',
                 "id": 'back',
                 "text": 'Back'
             }
