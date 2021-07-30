@@ -8,11 +8,19 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Interviewer led question"
+    "title": "Interviewer led question",
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumb',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Previous'
+            }
+        ]
+    }
 } %}
 
 {% block main %}
-    <a href="#">Previous</a>
     {% call onsQuestion({
         "title": "How many visitors do you have staying at <em class=\"highlight\">3 Severn Road</em> on Sunday 21 March 2021 ?",
         "description": "<p>A visitor is anyone aged <em>16 years or over</em> who usually lives at another address</p>",
