@@ -4,9 +4,9 @@ import proxyquireify from 'proxyquireify';
 
 import babelEsmConfig from './babel.conf.esm';
 import babelNomoduleConfig from './babel.conf.nomodule';
-import browserstackEsmLaunchersConfig from './karma.conf.launchers-browserstack-esm.js';
-import browserstackNomoduleLaunchersConfig from './karma.conf.launchers-browserstack-nomodule.js';
 import localLaunchersConfig from './karma.conf.launchers-local.js';
+import saucelabsEsmLaunchersConfig from './karma.conf.launchers-saucelabs-esm.js';
+import saucelabsNomoduleLaunchersConfig from './karma.conf.launchers-saucelabs-nomodule.js';
 
 assert(['esm', 'nomodule'].includes(process.env.TEST_MODE), 'Invalid value for environment variable `TEST_MODE`.');
 
@@ -15,10 +15,10 @@ const babelConfig = process.env.TEST_MODE === 'esm' ? babelEsmConfig : babelNomo
 babelConfig.sourceMapsAbsolute = true;
 babelConfig.plugins.push('istanbul');
 
-const launchersConfig = process.env.TEST_ON_BROWSERSTACK
+const launchersConfig = process.env.TEST_ON_SAUCELABS
   ? process.env.TEST_MODE === 'esm'
-    ? browserstackEsmLaunchersConfig
-    : browserstackNomoduleLaunchersConfig
+    ? saucelabsEsmLaunchersConfig
+    : saucelabsNomoduleLaunchersConfig
   : localLaunchersConfig;
 
 export default function(config) {
@@ -30,7 +30,8 @@ export default function(config) {
       captureConsole: !process.env['RUNNING_ON_CI'],
     },
 
-    browserDisconnectTimeout: 10000,
+    browserNoActivityTimeout: 60000,
+    browserDisconnectTimeout: 60000,
 
     frameworks: ['browserify', 'mocha', 'chai-spies', 'chai'],
 
@@ -63,7 +64,7 @@ export default function(config) {
       transform: [['babelify', babelConfig]],
     },
 
-    reporters: ['dots', 'progress', 'mocha', 'coverage-istanbul', 'BrowserStack'],
+    reporters: ['dots', 'progress', 'mocha', 'coverage-istanbul', 'saucelabs'],
 
     mochaReporter: {
       output: 'full',
@@ -86,13 +87,12 @@ export default function(config) {
     browsers: launchersConfig.browsers,
     customLaunchers: launchersConfig.customLaunchers,
 
-    browserStack: {
-      startTunnel: 'true',
+    sauceLabs: {
       name: 'Karma unit tests',
       project: 'ONS - design-system',
-      forcelocal: true,
-      username: process.env.BROWSER_STACK_USERNAME,
-      accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
+      username: process.env.SAUCE_USERNAME,
+      accessKey: process.env.SAUCE_ACCESS_KEY,
+      region: 'eu',
     },
 
     port: 9876,

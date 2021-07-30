@@ -67,16 +67,16 @@ Running this will run the test suite twice, once against the ES6 bundle and agai
 yarn test
 ```
 
-### Run tests in BrowserStack
+### Run tests in SauceLabs
 
-All unit tests are automatically cross browser tested in [BrowserStack](https://www.browserstack.com) by [TravisCI](https://travis-ci.org/ONSdigital/design-system) when a pull request is created or if a change is pushed to an existing pull request.
+All unit tests are automatically cross browser tested in [SauceLabs](https://saucelabs.com) by [TravisCI](https://travis-ci.org/ONSdigital/design-system) when a pull request is created or if a change is pushed to an existing pull request.
 
-You can also run cross browser testing in BrowserStack manually against your local branch by running this command:
+You can also run cross browser testing in SauceLabs manually against your local branch by running this command:
 
-_Note_: You will need to set your `BROWSER_STACK_USERNAME` and `BROWSER_STACK_ACCESS_KEY` environment variables to allow authentication with BrowserStack. Username and access keys can be found under _Automate_ on the [BrowserStack settings page](https://www.browserstack.com/accounts/settings).
+_Note_: You will need to set your `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables to allow authentication with SauceLabs.
 
 ```bash
-yarn test:browserstack
+yarn test:saucelabs
 ```
 
 ## Run visual regression tests
