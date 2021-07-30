@@ -10,5 +10,5 @@
 | Name    | Type   | Required | Description                                               |
 | ------- | ------ | -------- | --------------------------------------------------------- |
 | classes | string | false    | Additional css classes for the section navigation element |
-| path    | string | true     | The path to the linked page                               |
+| url     | string | true     | The URL to the linked page                                |
 | title   | string | true     | The text for the link                                     |
