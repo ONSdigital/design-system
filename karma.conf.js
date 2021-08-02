@@ -4,8 +4,8 @@ import proxyquireify from 'proxyquireify';
 
 import babelEsmConfig from './babel.conf.esm';
 import babelNomoduleConfig from './babel.conf.nomodule';
-import browserstackEsmLaunchersConfig from './karma.conf.launchers-browserstack-esm.js';
-import browserstackNomoduleLaunchersConfig from './karma.conf.launchers-browserstack-nomodule.js';
+import lambdatestEsmLaunchersConfig from './karma.conf.launchers-lambdatest-esm.js';
+import lambdatestNomoduleLaunchersConfig from './karma.conf.launchers-lambdatest-nomodule.js';
 import localLaunchersConfig from './karma.conf.launchers-local.js';
 
 assert(['esm', 'nomodule'].includes(process.env.TEST_MODE), 'Invalid value for environment variable `TEST_MODE`.');
@@ -15,10 +15,10 @@ const babelConfig = process.env.TEST_MODE === 'esm' ? babelEsmConfig : babelNomo
 babelConfig.sourceMapsAbsolute = true;
 babelConfig.plugins.push('istanbul');
 
-const launchersConfig = process.env.TEST_ON_BROWSERSTACK
+const launchersConfig = process.env.TEST_ON_LAMBDATEST
   ? process.env.TEST_MODE === 'esm'
-    ? browserstackEsmLaunchersConfig
-    : browserstackNomoduleLaunchersConfig
+    ? lambdatestEsmLaunchersConfig
+    : lambdatestNomoduleLaunchersConfig
   : localLaunchersConfig;
 
 export default function(config) {
@@ -30,7 +30,11 @@ export default function(config) {
       captureConsole: !process.env['RUNNING_ON_CI'],
     },
 
-    browserDisconnectTimeout: 10000,
+    captureTimeout: 60000,
+    retryLimit: 1,
+    browserDisconnectTimeout: 90000,
+    browserDisconnectTolerance: 1,
+    browserNoActivityTimeout: 90000,
 
     frameworks: ['browserify', 'mocha', 'chai-spies', 'chai'],
 
@@ -63,7 +67,7 @@ export default function(config) {
       transform: [['babelify', babelConfig]],
     },
 
-    reporters: ['dots', 'progress', 'mocha', 'coverage-istanbul', 'BrowserStack'],
+    reporters: ['dots', 'progress', 'mocha', 'coverage-istanbul'],
 
     mochaReporter: {
       output: 'full',
@@ -85,15 +89,6 @@ export default function(config) {
 
     browsers: launchersConfig.browsers,
     customLaunchers: launchersConfig.customLaunchers,
-
-    browserStack: {
-      startTunnel: 'true',
-      name: 'Karma unit tests',
-      project: 'ONS - design-system',
-      forcelocal: true,
-      username: process.env.BROWSER_STACK_USERNAME,
-      accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
-    },
 
     port: 9876,
     colors: true,

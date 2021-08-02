@@ -1,9 +1,9 @@
 name: Run unit and visual tests
 on: [push, pull_request]
 env:
-  BROWSER_STACK_ACCESS_KEY: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
-  BROWSER_STACK_USERNAME: ${{ secrets.BROWSER_STACK_USERNAME }}
-  TEST_ON_BROWSERSTACK: true
+  LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
+  LT_USERNAME: ${{ secrets.LT_USERNAME }}
+  TEST_ON_LAMBDATEST: true
   RUNNING_ON_CI: true
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
