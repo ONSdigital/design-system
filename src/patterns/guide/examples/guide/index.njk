@@ -4,7 +4,7 @@ layout: none
 {% extends "styles/page-template/_template.njk" %}
 
 {% from "components/content-pagination/_macro.njk" import onsContentPagination %}
-{% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+{% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/related-content/_macro.njk" import onsRelatedContent %}
 {% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
@@ -45,8 +45,8 @@ layout: none
 } %}
 {% block preMain %}
     {{
-        onsBreadcrumb({
-            "ariaLabel": 'Breadcrumb',
+        onsBreadcrumbs({
+            "ariaLabel": 'Breadcrumbs',
             "itemsList": [
                 {
                     "url": '/',
