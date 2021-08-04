@@ -46,7 +46,7 @@ export default {
       ...base,
       platformName: 'MacOS Catalina',
       browserName: 'Chrome',
-      browserVersion: '91.0',
+      browserVersion: 'latest',
     },
     lt_mac_safari: {
       ...base,
@@ -62,13 +62,13 @@ export default {
       ...base,
       platformName: 'Windows 10',
       browserName: 'MicrosoftEdge',
-      browserVersion: '92.0',
+      browserVersion: 'latest',
     },
     lt_windows_10_chrome: {
       ...base,
       platformName: 'Windows 10',
       browserName: 'Chrome',
-      browserVersion: '92.0',
+      browserVersion: 'latest',
     },
   },
 };
