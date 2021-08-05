@@ -93,6 +93,7 @@ export default function(config) {
       forcelocal: true,
       username: process.env.BROWSER_STACK_USERNAME,
       accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
+      timeout: 1800,
     },
 
     port: 9876,
