@@ -102,6 +102,5 @@ export default function(config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     singleRun: process.env.KARMA_SINGLE_RUN !== 'false',
-    concurrency: Infinity,
   });
 }
