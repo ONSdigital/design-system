@@ -113,7 +113,11 @@ Setting the type to `number` will bring up the correct keypad on touch devices.
 There is specific guidance on how to ask users for [numeric values](/patterns/numeric-values) including entering numbers with units, such as currencies and measurements.
 
 ### Character limit checker
-Used for client side validation of an input that requires a character limit. The character limit counter is displayed when the `charCheckLimit` object is defined with params `limit`, `charCountOverLimitSingular`, `charCountOverLimitPlural` parameters.
+Used for client side validation of an input that requires a character limit. 
+
+This variant should be used sparingly, because users don’t expect a limit on inputs, and often don’t look up from the keyboard as they type. This means they may not notice the counter.
+
+The character limit counter is displayed when the `charCheckLimit` object is defined with params `limit`, `charCountOverLimitSingular`, `charCountOverLimitPlural` parameters.
 
 {{
     patternlibExample({"path": "components/input/examples/text-character-limit/index.njk"})
@@ -162,6 +166,21 @@ For example, “Enter an email address in a valid format, for example, name@exam
 }}
 
 There is specific guidance on how to ask users for [access codes](/patterns/access-codes).
+
+## Research on this component
+The [character limit checker](#character-limit-checker) input variant was most recently tested between February to September 2020, as part of the Census 2021 research. The following findings were reported:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'users who look down at the keyboard whilst typing may not notice the limit counter'
+            },
+            {
+                "text": 'they expect to be stopped from entering too many characters'
+            }
+        ]
+    })
+}}
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

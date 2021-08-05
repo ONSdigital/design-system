@@ -14,7 +14,7 @@ import '../components/relationships/relationships.dom';
 import '../components/checkboxes/checkboxes.dom';
 import '../components/radios/radios.dom';
 import '../components/autosuggest/autosuggest.dom';
-import '../components/address-finder/autosuggest.address.dom';
+import '../components/address-input/autosuggest.address.dom';
 import '../components/input/character-check.dom';
 import '../components/cookies-banner/cookies-banner.dom';
 import '../components/button/button.dom';

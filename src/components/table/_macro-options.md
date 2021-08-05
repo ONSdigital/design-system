@@ -23,10 +23,10 @@
 
 ## tr
 
-| Name        | Type        | Required | Description                                        |
-| ----------- | ----------- | -------- | -------------------------------------------------- |
-| tds         | Array`<td>` | true     | An array of `td` elements for each `tr`            |
-| trHighlight | boolean     | false    | Adds a class to the table row to highlight the row |
+| Name      | Type        | Required | Description                                        |
+| --------- | ----------- | -------- | -------------------------------------------------- |
+| tds       | Array`<td>` | true     | An array of `td` elements for each `tr`            |
+| highlight | boolean     | false    | Adds a class to the table row to highlight the row |
 
 ## td
 

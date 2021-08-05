@@ -3,9 +3,9 @@ import chaiAsPromised from 'chai-as-promised';
 import chaiSpies from 'chai-spies';
 import fetchMock from 'fetch-mock';
 
-import AutosuggestAddress from '../../../components/address-finder/autosuggest.address';
-import AddressError from '../../../components/address-finder/autosuggest.address.error';
-import AddressSetter from '../../../components/address-finder/autosuggest.address.setter';
+import AutosuggestAddress from '../../../components/address-input/autosuggest.address';
+import AddressError from '../../../components/address-input/autosuggest.address.error';
+import AddressSetter from '../../../components/address-input/autosuggest.address.setter';
 import renderTemplate from '../../helpers/render-template';
 import eventMock from '../../stubs/event.stub.spec';
 import fetchStub from '../../stubs/window.fetch.stub.spec';
@@ -836,6 +836,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       externalInitialiser: true,
+      isEditable: false,
       APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
       options: {
         regionCode: 'gb-eng',
@@ -882,6 +883,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      isEditable: false,
       externalInitialiser: true,
       options: {
         regionCode: 'gb-nir',
@@ -927,6 +929,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      isEditable: false,
       externalInitialiser: true,
       options: {
         regionCode: 'gb-nir',
@@ -985,6 +988,7 @@ describe('Autosuggest.address component', function() {
     const paramsOptions = {
       id: 'address',
       APIDomain: 'https://whitelodge-ai-api.census-gcp.onsdigital.uk',
+      isEditable: false,
       externalInitialiser: true,
       options: {
         regionCode: 'gb-wls',
@@ -1041,7 +1045,7 @@ describe('Autosuggest.address component', function() {
 });
 
 function renderComponent(params) {
-  const html = renderTemplate('components/address-finder/_test-template.njk', { params });
+  const html = renderTemplate('components/address-input/_test-template.njk', { params });
   const wrapper = document.createElement('form');
   wrapper.classList.add('question');
 

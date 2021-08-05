@@ -8,11 +8,19 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Anatomy of a question"
+    "title": "Anatomy of a question",
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumb',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Previous'
+            }
+        ]
+    }
 } %}
 
 {% block main %}
-    <a href="#">Previous</a>
     {% call onsQuestion({
         "title": "How many visitors are staying overnight at <em>3 Severn Road</em> on 13 May 2019?"
     }) %}
