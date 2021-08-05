@@ -94,6 +94,7 @@ export default function(config) {
       username: process.env.BROWSER_STACK_USERNAME,
       accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
       timeout: 1800,
+      console: true,
     },
 
     port: 9876,
