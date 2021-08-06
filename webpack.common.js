@@ -315,6 +315,12 @@ export default function(mode) {
                   dot: true,
                 },
               },
+              {
+                from: '../search-index.json',
+                globOptions: {
+                  dot: true,
+                },
+              },
             ],
           },
           {

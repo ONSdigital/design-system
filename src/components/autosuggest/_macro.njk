@@ -2,7 +2,7 @@
 {% macro onsAutosuggest(params) %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}js-autosuggest {% endif %}{% if params.isEditable == false %}js-address-not-editable{% endif %}{% if params.mandatory is defined and params.mandatory == true %} js-address-mandatory{% endif %} autosuggest-input {{ params.classes }}"
+        class="{% if not params.externalInitialiser %}js-autosuggest {% endif %}{% if params.isEditable == false %}js-address-not-editable{% endif %}{% if params.mandatory is defined and params.mandatory == true %} js-address-mandatory{% endif %} {% if params.containerClasses is defined and params.containerClasses %} {{ params.containerClasses }}{% endif %} autosuggest-input"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
         data-aria-min-chars="{{ params.ariaMinChars }}"
@@ -40,7 +40,6 @@
             <div class="autosuggest-input__instructions u-vh js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
             <div class="autosuggest-input__status u-vh js-autosuggest-aria-status" aria-live="assertive" role="status" tabindex="-1"></div> 
         {% endset %}
-
         {{ onsInput({
             "id": params.id,
             "classes": "js-autosuggest-input " + (params.classes if params.classes else ''),
@@ -57,6 +56,8 @@
             "attributes": params.attributes,
             "error": params.error,
             "mutuallyExclusive": params.mutuallyExclusive,
+            "accessiblePlaceholder": params.accessiblePlaceholder,
+            "accessiblePlaceholderIcon": params.accessiblePlaceholderIcon,
             "name": params.name,
             "autosuggestResults": autosuggestResults
          }) }}
