@@ -17,6 +17,7 @@
 | titleLogoAlt     | string                                            | false (if `titleLogo` not specified) | Alt tag for the title logo                                                               |
 | titleLogoHref    | string                                            | false                                | Will wrap the title logo in a link to the specified URL                                  |
 | customHeaderLogo | string                                            | false                                | Set to 'nisra' if using the nisra logo. Makes the masthead taller to accomodate the logo |
+| wide             | boolean                                           | false                                | If set to true will set a wider page style by adding css to the container                |
 
 ## Navigation
 

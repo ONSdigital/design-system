@@ -5,10 +5,11 @@ group: Ask users for...
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
 
 ## When to use this pattern
 
-This pattern should be used when you need to collect an address from a user using the [address input component](/components/address-input) inside a form. 
+This pattern should be used when you need to collect an address from a user using the [address input component](/components/address-input) inside a form.
 
 ## How to use this pattern to search for addresses
 
@@ -36,6 +37,36 @@ The manual address inputs are wrapped within a [fieldset](/components/fieldset) 
 
 {{
     patternlibExample({"path": "patterns/addresses/examples/address-input-manual/index.njk"})
+}}
+
+## Research on this pattern
+The addresses pattern was most recently tested in October 2020 as part of the Census 2021 research. The following findings were reported:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'when searching for home addresses using the address finder, most users enter the postcode first as they expect it to return their address more quickly than search by other parts of the address'
+            },
+            {
+                "text": 'four characters of the postcode are usually entered before users interact with the results list'
+            },
+            {
+                "text": 'people expect the results to be presented in ascending order of flat or building number'
+            },
+            {
+                "text": 'users are more likely to search by entering an organisation or street name when looking for a work or school address, or when looking for someone elses address'
+            },
+            {
+                "text": 'users don’t expect the building name or county to be part of their home address, and don’t manually add them after selecting the address'
+            },
+            {
+                "text": 'providing an address using the address finder is quicker for most users, than entering an address manually'
+            },
+            {
+                "text": 'users struggle to find a school address using the address finder because they don’t expect to be able to search by the name of the school. For school address input, the address finder label should be “Enter name, address or postcode and select from results” to help with this'
+            }
+        ]
+    })
 }}
 
 ## Help improve this pattern

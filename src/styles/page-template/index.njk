@@ -5,6 +5,7 @@ sortOrder: 5
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
 
 Use the page template to create pages with the core components and markup required for an ONS service.
 
@@ -50,16 +51,6 @@ The example below shows a themed census version of the ONS page template which s
     patternlibExample({ "path": "styles/page-template/examples/rtl/index.njk" })
 }}
 
-
-<pre>
-    <code class="patternlib-example__code javascript">
-{# Need double raws to due to nunjucks-html-loader running nunjucks renderer twice #}
-{% raw %}{% raw %}
-{% extends "page-templates/_template.njk" %}
-{% endraw %}{% endraw %}
-    </code>
-</pre>
-
 ### Changing template content
 
 The Nunjucks template allows 2 ways to change the content: {{
@@ -80,13 +71,7 @@ The main difference between a variable and a block is that blocks can contain ma
 
 Variables can be set with:
 
-<pre>
-    <code class="patternlib-example__code javascript">
-{% raw %}{% raw %}
-{% set variableName = "value" %}
-{% endraw %}{% endraw %}
-    </code>
-</pre>
+{{ onsCodeHighlight({ "code": "{% raw %}{% set variableName = value %}{% endraw %}" }) }}
 
 {% md %}
 | Variable Name   | Type                                | Required | Description                                                                                                                           |
@@ -109,49 +94,74 @@ Variables can be set with:
 ##### PageConfig
 
 {% md %}
-| Variable Name | Type                                                | Required                          | Description                                                                                  |
-| ------------- | --------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------- |
-| cdn           | string                                              | false                             | What CDN version to use                                                                      |
-| assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc. e.g. `http://localhost:3030`                   |
-| theme         | string                                              | false                             | The name of the css file e.g. "census" if using a theme. Defaults to "main".                 |
-| title         | string                                              | true                              | The contents for the `<title>` element                                                       |
-| cspNonce      | string                                              | false                             | The Content Security Policy (CSP) nonce value                                                |
-| headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                             | Configuration for `<meta>` information in the document `<head>`                              |
-| breadcrumbs   | `Breadcrumbs` [_(ref)_](/components/breadcrumb)     | false                             | Configuration for the breadcrumbs or back link                                               |
-| bodyClasses   | string                                              | false                             | Classes to add to the `<body>` element                                                       |
-| header        | `PageHeader` [_(ref)_](#pageheader)                 | true                              | Configuration for the page header                                                            |
-| language      | `Language` [_(ref)_](/components/language-selector) | false                             | Language configuration for the page                                                          |
-| signoutButton | `Button` [_(ref)_](/components/button)              | false                             | Configuration for the save and sign out button. If not specified, the button will not render |
-| toggleButton  | `HeaderToggleButton` [_(ref)_](/components/header)  | true (if `navigation` supplied)   | Configuration for the mobile navigation toggle button                                        |
-| navigation    | `HeaderNavigation` [_(ref)_](/components/header)    | true (if `toggleButton` supplied) | Configuration for header navigation links                                                    |
-| phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                             | Settings for the Phase banner                                                                |
-| serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                             | An array to render the service links list                                                    |
-| footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                              | Configuration for the page footer                                                            |
-| pageColNumber | string                                              | false                             | sets the number of grid columns for the page (defaults to 8)                                 |
+| Variable Name | Type                                                | Required                          | Description                                                                                                                                   |
+| ------------- | --------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| cdn           | `CDN` [_(ref)_](#cdn)                               | false                             | What CDN version to use                                                                                                                       |
+| assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc. e.g. `http://localhost:3030`                                                                    |
+| theme         | string                                              | false                             | The name of the css file e.g. "census" if using a theme. Defaults to "main".                                                                  |
+| title         | string                                              | true                              | The contents for the `<title>` element                                                                                                        |
+| cspNonce      | string                                              | false                             | The Content Security Policy (CSP) nonce value                                                                                                 |
+| headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                             | Configuration for `<meta>` information in the document `<head>`                                                                               |
+| breadcrumbs   | `Breadcrumbs` [_(ref)_](/components/breadcrumb)     | false                             | Configuration for the breadcrumbs or back link                                                                                                |
+| bodyClasses   | string                                              | false                             | Classes to add to the `<body>` element                                                                                                        |
+| header        | `PageHeader` [_(ref)_](#pageheader)                 | true                              | Configuration for the page header                                                                                                             |
+| language      | `Language` [_(ref)_](/patterns/change-language)     | false                             | Language configuration for the page                                                                                                           |
+| signoutButton | `Button` [_(ref)_](/components/button)              | false                             | Configuration for the save and sign out button. If not specified, the button will not render                                                  |
+| toggleButton  | `HeaderToggleButton` [_(ref)_](/components/header)  | true (if `navigation` supplied)   | Configuration for the mobile navigation toggle button                                                                                         |
+| navigation    | `HeaderNavigation` [_(ref)_](/components/header)    | true (if `toggleButton` supplied) | Configuration for header navigation links                                                                                                     |
+| phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                             | Settings for the Phase banner                                                                                                                 |
+| serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                             | An array to render the service links list                                                                                                     |
+| footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                              | Configuration for the page footer                                                                                                             |
+| pageColNumber | string                                              | false                             | sets the number of grid columns for the page (defaults to 8)                                                                                  |
+| description   | string                                              | true                              | Defualt description of the current page for search engines if headMeta.description is not provided.                                           |
+| absoluteUrl   | string                                              | true                              | Default URL for the preferred page for search engines to avoid duplicate content penalties. Used if if headMeta.canonicalUrl is not provided. |
+| wide          | boolean                                             | false                             | If sets to true passes sets the `wide` param on both the header and footer which will add css which will make the page use a wider style.     |
+{% endmd %}
+
+##### CDN
+
+{% md %}
+| Variable Name | Type   | Required | Description           |
+| ------------- | ------ | -------- | --------------------- |
+| url           | string | false    | URL for the CDN       |
+| version       | string | false    | DS version on the CDN |
 {% endmd %}
 
 ###### PageHeader
 
 {% md %}
-| Variable Name | Type   | Required                             | Description                                                                            |
-| ------------- | ------ | ------------------------------------ | -------------------------------------------------------------------------------------- |
-| title         | string | false                                | Title for the page header. If not specified this will default to `page.title`          |
-| logo          | string | false                                | URL for the page header logo                                                           |
-| logoAlt       | string | false                                | Alt tag for the page header logo                                                       |
-| logoHref      | string | false                                | URL for the page header logo. If not specified the image will not be wrapped in a link |
-| titleLogo     | string | false                                | URL for image to use instead of a title string                                         |
-| titleLogoAlt  | string | false (if `titleLogo` not specified) | Alt tag for the title logo                                                             |
-| titleLogoHref | string | false                                | Will wrap the title logo in a link to the specified URL                                |
+| Variable Name    | Type   | Required                             | Description                                                                            |
+| ---------------- | ------ | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| title            | string | false                                | Title for the page header. If not specified this will default to `page.title`          |
+| classes          | string | false                                | CSS classes to be added to the header                                                  |
+| logo             | string | false                                | URL for the page header logo                                                           |
+| logoAlt          | string | false                                | Alt tag for the page header logo                                                       |
+| logoHref         | string | false                                | URL for the page header logo. If not specified the image will not be wrapped in a link |
+| titleLogo        | string | false                                | URL for image to use instead of a title string                                         |
+| mobileLogo       | string | false                                | URL for image to use for small screens instead of a title string                       |
+| titleLogoAlt     | string | false (if `titleLogo` not specified) | Alt tag for the title logo                                                             |
+| titleLogoHref    | string | false                                | Will wrap the title logo in a link to the specified URL                                |
+| customHeaderLogo | string | false                                | Allows the overriding of the masthead logo, set to 'nisra' to show Nisra logo          |
 {% endmd %}
 
 ###### HeadMeta
 
 {% md %}
-| Variable Name | Type   | Required                             | Description                                                                                                      |
-| ------------- | ------ | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| description   | string | true                                 | Description of the current page for search engines.                                                              |
-| canonicalUrl  | string | false                                | URL for the preferred page for search engines to avoid duplicate content penalties. Defaults to current page url |
-| twitterSite   | string | false                                | @username for the website used in the card, for example `@census2021`                                            |
+| Variable Name | Type                              | Required                             | Description                                                                                                      |
+| ------------- | --------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| description   | string                            | false                                | Description of the current page for search engines.                                                              |
+| canonicalUrl  | string                            | false                                | URL for the preferred page for search engines to avoid duplicate content penalties. Defaults to current page url |
+| twitterSite   | string                            | false                                | @username for the website used in the card, for example `@census2021`                                            |
+| hrefLangs     | `HrefLangs` [_(ref)_](#hreflangs) | false                                | Metadata for the language links to improve SEO                                            |
+{% endmd %}
+
+##### HrefLangs
+
+{% md %}
+| Variable Name | Type   | Required | Description           |
+| ------------- | ------ | -------- | --------------------- |
+| url           | string | false    | URL for the CDN       |
+| lang          | string | false    | DS version on the CDN |
 {% endmd %}
 
 ###### PageFooter
@@ -166,38 +176,26 @@ Variables can be set with:
 | rows                 | `Array<FooterRow>` [_(ref)_](/components/footer)         | false    | An array of `FooterRow` objects                                                                      |
 | poweredBy            | boolean &#124; `PoweredBy` [_(ref)_](/components/footer) | false    | Whether to show the ONS logo, and optionally settings for the logo                                   |
 | lang                 | string                                                   | false    | The current page language. Will change out the ONS logo if `poweredBy` is provided. Defaults to `en` |
-| button               | `Button` [_(ref)_](/components/button)                   | false    | Settings for save and sign out using the button component                                            |
 | newTabWarning        | string                                                   | false    | Text for warning of links opening in new tabs                                                        |
 | crest                | boolean                                                  | false    | If set to true will add the UK coat of arms to the footer                                            |
+| legal                | `Array<LegalRow>`                                        | false    | An array of LegalRow objects                                                                         |
 {% endmd %}
 
 #### Blocks
 
 Blocks can be set with:
 
-<pre>
-    <code class="patternlib-example__code javascript">
-{% raw %}{% raw %}
-{% block blockName %}
-  HTML Here
-{% endblock %}
-{% endraw %}{% endraw %}
-    </code>
-</pre>
+{{ onsCodeHighlight({ "code": "{% raw %}{% block blockName %}
+    HTML Here
+{% endblock %}{% endraw %}" }) }}
 
 To change the components that are included by default, set their equivalent blocks, for example:
 
-<pre>
-    <code class="patternlib-example__code javascript">
-{% raw %}{% raw %}
-{% block header %}
-  {{ onsHeader({
-   ...
-  }) }}
-{% endblock %}
-{% endraw %}{% endraw %}
-    </code>
-</pre>
+{{ onsCodeHighlight({ "code": "{% raw %}{% block header %}
+    {{ onsHeader({
+        ...
+    }) }}
+{% endblock %}{% endraw %}" }) }}
 
 {% md %}
 | Block Name | Description                                                                         |
