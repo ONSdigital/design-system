@@ -4,6 +4,7 @@ group: Ask users for...
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
 
 Help users define relationships between household members.
 
@@ -15,15 +16,39 @@ Help users define relationships between household members.
 This pattern should be used when you need to collect the relationship between two people.
 
 ## How to use this pattern
-Call `onsRelationships` within `onsQuestion`, setting `readDescriptionFirst: true` so the description is read before the incomplete heading sentence by screen readers, to add context.
+Call `onsRelationships` within `onsQuestion`, setting `readDescriptionFirst: true` so the description is read before the incomplete sentence in the heading. This helps to add context to the heading for users of screen readers.
 
-The pattern is enhanced with javascript, to complete the sentence in the heading and `playback` when the user selects a radio option.
+The pattern is enhanced with javascript to complete the sentence in the heading and the `playback`, when the user selects a radio option.
 
 ## Other examples
 
 ### First person
 {{
     patternlibExample({"path": "components/relationships/examples/relationships-you/index.njk"})
+}}
+
+## Research on this pattern
+The relationships pattern was most recently tested between April to September 2020 as part of the Census 2021 research. The following findings were reported:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'users find the playback of the relationship after the radio options a useful way to check their selection is correct'
+            },
+            {
+                "text": 'people with large families find the pattern too repetitive, so they expect the system to infer relationships based on previous answers. For example, inferring the relationship between siblings after parents have been defined'
+            },
+            {
+                "text": 'users typically find it harder to answer third-person relationships than questions about their own relationship with someone'
+            },
+            {
+                "text": 'some users expect to manually enter the type of relationship after selecting the “other relation” option'
+            },
+            {
+                "text": 'when answering for a household that has people with identical names, users expect to be asked for a ”preferred” name, which would help them select the relationships'
+            }
+        ]
+    })
 }}
 
 ## Help improve this pattern
