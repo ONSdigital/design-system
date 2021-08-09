@@ -20,7 +20,7 @@ async function copyComponent(componentName, componentsPath, newComponentsPath) {
 
     const items = await fs
       .readdirSync(componentPath)
-      .filter(path => path.includes('_') && !path.includes('.md') && !path.includes('_test-'));
+      .filter(path => !path.includes('.md') && !path.includes('_test-') && !path.includes('index'));
 
     if (items.length) {
       await createFolder(newComponentPath);
