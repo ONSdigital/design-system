@@ -2,7 +2,6 @@
 title: Textarea
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
 
@@ -13,23 +12,19 @@ A textarea lets users enter multiple lines of text, such as when answering an op
 }}
 
 ## When to use this component
-
 Use the textarea component when you need the user to enter text that's longer than one line, for example, to answer an open-ended question.
 
 A good use of this component is to ask the user for feedback about your service by means of the [phase banner](/components/phase-banner).
 
 ## When not to use this component
-
 Open-ended questions can be difficult for users to answer, so consider breaking down the question into simpler questions that can be answered using a single line [input](/components/input) or by selecting an answer using, for example, [radios](/components/radios).
 
 ## How to use this component
-
 All textarea components must have a visible [label](/components/label), with or without a description.
 
 Textareas should be appropriately sized to help the user understand what they should enter by making them the right size for the content they are intended for.
 
 ### Use appropriately sized textareas
-
 Where possible, you should make the textareas proportional to the amount of text you expect users to enter.
 
 By default, the textarea component will fill the width of its container and has a default height of 8 lines of text.
@@ -39,7 +34,6 @@ A [width constraint](/components/input#width-constrained) class can be used to m
 ## Variants
 
 ### Character limit
-
 The character limit counter is displayed when the `charCheckLimit` object is defined with params `limit`, `charCountSingular`, `charCountPlural` parameters.
 
 {{
@@ -62,7 +56,7 @@ To help users enter something in a required textarea, you should:
 }}
 
 ### Error messages
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the textarea.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the textarea.
 {{
     patternlibExample({"path": "components/textarea/examples/textarea-error/index.njk"})
 }}
@@ -70,6 +64,30 @@ Use the [correct errors pattern](/patterns/error-validation) and show the error 
 #### If the textarea is empty
 Use “Enter [whatever type of text is being asked for]”.\
 For example, “Enter your feedback” or “Enter a job title”.
+
+## Research on this component
+The textarea component was most recently tested between February to September 2020, as part of the Census 2021 research. The following findings were reported:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'along with size of the textarea, the character limit helps set expectations about the length of answer expected'
+            },
+            {
+                "text": 'the counter is often not noticed until the user starts to enter text'
+            },
+            {
+                "text": 'users that look down at the keyboard whilst they type, may not notice the counter'
+            },
+            {
+                "text": 'limiting the characters that can be entered is preferred, in order to prevent users entering far more text than is required'
+            },
+            {
+                "text": 'the change in colour when the character limit is reached, helps users notice the counter whilst they are entering text'
+            }
+        ]
+    })
+}}
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

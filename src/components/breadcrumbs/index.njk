@@ -4,12 +4,11 @@ title: Breadcrumbs
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 
 A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place within a website or web application.
 
 {{
-    patternlibExample({"path": "components/breadcrumb/examples/breadcrumb/index.njk"})
+    patternlibExample({"path": "components/breadcrumbs/examples/breadcrumbs/index.njk"})
 }}
 
 ## When to use this component
@@ -32,13 +31,13 @@ Where possible this should be set in the [page template](/styles/page-template/)
                 "text": 'The set of links is structured using an <strong>ordered</strong> list to provide semantic structure'
             },
             {
-                "text": 'A <code>nav</code> element labeled <code>Breadcrumb</code> identifies the structure as a breadcrumb trail and makes it a navigation landmark so that it is easy to locate'
+                "text": 'A <code>nav</code> element labeled <code>Breadcrumbs</code> identifies the structure as a breadcrumb trail and makes it a navigation landmark so that it is easy to locate'
             },
             {
                 "text": 'To prevent screen reader announcing the visual separators between links, they are added via CSS'
             },
             {
-                "text": 'The separators are part of the visual presentation that signifies the breadcrumb trail. This is already semantically represented by the <code>nav</code> element with its <code>aria-label</code> of Breadcrumb. Therefore using a display technique that is not used by screen readers prevents redundant and potentially distracting verbosity'
+                "text": 'The separators are part of the visual presentation that signifies the breadcrumb trail. This is already semantically represented by the <code>nav</code> element with its <code>aria-label</code> of Breadcrumbs. Therefore using a display technique that is not used by screen readers prevents redundant and potentially distracting verbosity'
             }
         ]
     })
@@ -51,7 +50,7 @@ Where possible this should be set in the [page template](/styles/page-template/)
 When the component only has a single breadcrumb it will display like this.
 
 {{
-    patternlibExample({"path": "components/breadcrumb/examples/breadcrumb-single/index.njk"})
+    patternlibExample({"path": "components/breadcrumbs/examples/breadcrumbs-single/index.njk"})
 }}
 
 ## Research on this component

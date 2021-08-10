@@ -3,7 +3,6 @@ title: Upload
 ---
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/lists/_macro.njk" import onsList %}
 
 A file upload input allows a user to select a file from their computer's file system.
@@ -39,7 +38,7 @@ To help users upload a file, you should:
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the checkbox options.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the checkbox options.
 
 {{
     patternlibExample({"path": "components/upload/examples/upload-error/index.njk"})
