@@ -20,8 +20,8 @@ export default {
       base: 'BrowserStack',
       device: 'iPhone 11 Pro',
       os: 'ios',
-      os_version: '12',
-      real_mobile: true,
+      os_version: '13',
+      real_mobile: false,
     },
 
     /**
