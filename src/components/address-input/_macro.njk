@@ -5,7 +5,7 @@
 {% macro onsAddressInput(params) %}
    {% set fields %}
         <div id="address" class="field address-input {% if not params.manualEntry %}address-input--search js-address-autosuggest{% endif %}">
-            {% if params.isEditable == true or params.manualEntry %}    
+            {% if params.isEditable == true or params.manualEntry %}
                 {% if not params.manualEntry %}<div class="js-address-input__manual u-db-no-js_enabled">{% endif %}
                     {% if params.organisation is defined and params.organisation %}
                         {{
@@ -67,7 +67,7 @@
                                 "label": {
                                     "text": params.postcode.label
                                 },
-                                "classes": "input--w-5 js-address-postcode",
+                                "classes": "input--w-7 js-address-postcode",
                                 "name": params.id + "-postcode"
                             })
                         }}
@@ -79,7 +79,7 @@
                     </div>
                 {% endif %}
             {% endif %}
-            
+
             {% if params.uprn is defined and params.uprn and params.uprn.value is defined and params.uprn.value %}
                 {% set uprnValue = params.uprn.value %}
             {% else %}
