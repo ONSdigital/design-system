@@ -122,4 +122,13 @@
       display: block;
     }
   }
+
+  &--header {
+    width: 20rem;
+    .autosuggest-input__results {
+      left: 0;
+      position: absolute;
+      z-index: 1;
+    }
+  }
 }

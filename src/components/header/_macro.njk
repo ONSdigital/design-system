@@ -1,6 +1,7 @@
 {% macro onsHeader(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/icons/_macro.njk" import onsIcon %}
+    {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
 
     {% set title_tag = "h1" if params.tilteAsH1 else "div" %}
     {% set currentLanguageISOCode = "en" %}
@@ -99,6 +100,35 @@
                                 "attributes": params.button.attributes,
                                 "url": params.button.url,
                                 "buttonStyle": params.button.buttonStyle
+                            }) }}
+                        </div>
+                    {% endif %}
+                    {% if params.autosuggest is defined and params.autosuggest %}
+                        <div class="grid__col col-auto u-flex-no-shrink u-d-no@xxs@m">
+                            {{ onsAutosuggest({
+                                "id": "autosuggest-header-search",
+                                "containerClasses": "autosuggest-input--header",
+                                "classes": "input--ghost u-mt-xs",
+                                "label": {
+                                    "text": params.autosuggest.label,
+                                    "id": "autosuggest-header-search-label",
+                                    "classes": "label--white"
+                                },
+                                "accessiblePlaceholder": true,
+                                "accessiblePlaceholderIcon": "search",
+                                "autocomplete": "off",
+                                "instructions": params.autosuggest.instructions,
+                                "ariaYouHaveSelected":params.autosuggest.ariaYouHaveSelected,
+                                "ariaMinChars": params.autosuggest.ariaMinChars,
+                                "ariaResultsLabel": params.autosuggest.ariaResultsLabel,
+                                "ariaOneResult": params.autosuggest.ariaOneResult,
+                                "ariaNResults": params.autosuggest.ariaNResults,
+                                "ariaLimitedResults": params.autosuggest.ariaLimitedResults,
+                                "moreResults": params.autosuggest.moreResults,
+                                "resultsTitle": params.autosuggest.resultsTitle,
+                                "autosuggestData": params.autosuggest.autosuggestData,
+                                "noResults": params.autosuggest.noResults,
+                                "typeMore": params.autosuggest.typeMore
                             }) }}
                         </div>
                     {% endif %}

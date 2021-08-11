@@ -480,6 +480,9 @@ export default class AutosuggestUI {
       if (this.allowMultiple === 'true') {
         let value = this.storeExistingSelections(result[this.lang]);
         result.displayText = value;
+      } else if (result.url) {
+        result.displayText = result[this.lang];
+        window.location = result.url;
       } else {
         result.displayText = result[this.lang];
       }

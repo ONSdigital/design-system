@@ -21,6 +21,14 @@
     font-weight: $font-weight-regular;
     left: 8px;
     position: absolute;
-    top: 6px;
+    top: -3px;
+  }
+
+  &--white {
+    color: $color-white;
+  }
+
+  .svg-icon {
+    vertical-align: middle;
   }
 }
