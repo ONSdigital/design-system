@@ -113,11 +113,11 @@ Setting the type to `number` will bring up the correct keypad on touch devices.
 There is specific guidance on how to ask users for [numeric values](/patterns/numeric-values) including entering numbers with units, such as currencies and measurements.
 
 ### Character limit checker
-Used for client side validation of an input that requires a character limit.
+Use this for client-side validation of an input that needs a character limit.
 
-This variant should be used sparingly, because users don’t expect a limit on inputs, and often don’t look up from the keyboard as they type. This means they may not notice the counter.
+Use this variant as little as possible. Users do not expect a limit on inputs, and often do not look up from a keyboard as they type. This means they may not notice the counter.
 
-The character counter is displayed when the `charCheckLimit` object is defined with params `limit`, `charCountOverLimitSingular`, `charCountOverLimitPlural` parameters.
+The character counter is displayed when the `charCheckLimit` object is defined with the `limit`, `charCountOverLimitSingular` and `charCountOverLimitPlural` parameters.
 
 {{
     patternlibExample({"path": "components/input/examples/text-character-limit/index.njk"})
