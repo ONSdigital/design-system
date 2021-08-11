@@ -2,7 +2,7 @@
 
 export default {
   browsers: [
-    'bs_iphone_11_pro',
+    // 'bs_iphone_11_pro',
     'bs_google_pixel_4',
     'bs_mac_chrome',
     // 'bs_mac_firefox',
@@ -16,13 +16,13 @@ export default {
     /**
      * iOS
      */
-    bs_iphone_11_pro: {
-      base: 'BrowserStack',
-      device: 'iPhone 11 Pro',
-      os: 'ios',
-      os_version: '13',
-      real_mobile: false,
-    },
+    // bs_iphone_11_pro: {
+    //   base: 'BrowserStack',
+    //   device: 'iPhone 11 Pro',
+    //   os: 'ios',
+    //   os_version: '13',
+    //   real_mobile: false,
+    // },
 
     /**
      * Android
