@@ -44,3 +44,4 @@
 | classes | string | false    | Additional css classes for the navigation element |
 | path    | string | true     | The path to the linked page                       |
 | title   | string | true     | The text for the link                             |
+| id      | string | false    | The id for the link                               |
