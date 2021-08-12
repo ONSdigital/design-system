@@ -1,5 +1,5 @@
-const inputClassLimitReached = 'input--limit-reached';
-const remainingClassLimitReached = 'input__limit--reached';
+const inputClassLimitReached = 'ons-input--limit-reached';
+const remainingClassLimitReached = 'ons-input__limit--reached';
 const attrCharCheckRef = 'data-char-check-ref';
 const attrCharCheckCountdown = 'data-char-check-countdown';
 const attrCharCheckVal = 'data-char-check-num';
@@ -62,7 +62,7 @@ export default class CharCheck {
   }
 
   setButtonState(remaining) {
-    this.button.classList[remaining === 0 ? 'remove' : 'add']('btn--disabled');
+    this.button.classList[remaining === 0 ? 'remove' : 'add']('ons-btn--disabled');
     this.button.disabled = remaining === 0 ? null : 'true';
   }
 

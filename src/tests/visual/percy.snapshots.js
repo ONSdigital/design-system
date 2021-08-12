@@ -33,7 +33,7 @@ PercyScript.run(async (page, percySnapshot) => {
   // Accordions
   await page.goto(`${testURL}/build/components/accordion/examples/accordion/index.html`);
   page.waitForSelector('.collapsible--initialised');
-  let buttonAll = '.js-collapsible-all';
+  let buttonAll = '.ons-js-collapsible-all';
   await page.evaluate(buttonAll => document.querySelector(buttonAll).click(), buttonAll);
   await percySnapshot('Accordion - all open', { widths: [1300] });
 

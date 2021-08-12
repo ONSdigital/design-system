@@ -2,7 +2,7 @@
 {% macro onsAutosuggest(params) %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}js-autosuggest {% endif %}{% if params.isEditable == false %}js-address-not-editable{% endif %}{% if params.mandatory is defined and params.mandatory == true %} js-address-mandatory{% endif %} autosuggest-input {{ params.classes }}"
+        class="{% if not params.externalInitialiser %}ons-js-autosuggest {% endif %}{% if params.isEditable == false %}ons-js-address-not-editable{% endif %}{% if params.mandatory is defined and params.mandatory == true %} ons-js-address-mandatory{% endif %} ons-autosuggest-input {{ params.classes }}"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
         data-aria-min-chars="{{ params.ariaMinChars }}"
@@ -33,17 +33,17 @@
     >
 
         {% set autosuggestResults %}
-            <div class="autosuggest-input__results js-autosuggest-results">
-                <header class="autosuggest-input__results-title u-fs-s">{{ params.resultsTitle }}</header>
-                <ul class="autosuggest-input__listbox js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" aria-labelledby="{{ params.labelId }}" tabindex="-1"></ul>
+            <div class="ons-autosuggest-input__results ons-js-autosuggest-results">
+                <header class="ons-autosuggest-input__results-title ons-u-fs-s">{{ params.resultsTitle }}</header>
+                <ul class="ons-autosuggest-input__listbox ons-js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" aria-labelledby="{{ params.labelId }}" tabindex="-1"></ul>
             </div>
-            <div class="autosuggest-input__instructions u-vh js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
-            <div class="autosuggest-input__status u-vh js-autosuggest-aria-status" aria-live="assertive" role="status" tabindex="-1"></div> 
+            <div class="ons-autosuggest-input__instructions ons-u-vh ons-js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
+            <div class="ons-autosuggest-input__status ons-u-vh ons-js-autosuggest-aria-status" aria-live="assertive" role="status" tabindex="-1"></div> 
         {% endset %}
 
         {{ onsInput({
             "id": params.id,
-            "classes": "js-autosuggest-input " + (params.classes if params.classes else ''),
+            "classes": "ons-js-autosuggest-input " + (params.classes if params.classes else ''),
             "label": {
                 "text": params.label.text,
                 "description": params.label.description,

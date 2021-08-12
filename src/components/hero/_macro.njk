@@ -11,7 +11,7 @@
 
 {# If hero contains a collapsible, style it differently #}
 {% if params.collapsible is defined and params.collapsible %}
-    {% set containerClasses = " hero__container--has-collapsible" %}
+    {% set containerClasses = " ons-hero__container--has-collapsible" %}
 {% endif %}
 
 {# if hero is census-specific or using wide container, change column usage #}
@@ -23,32 +23,32 @@
 
 {# if hero style is a dark theme, change theme #}
 {% if params.censusThemeDark is defined and params.censusThemeDark %}
-    {% set detailsClasses = " hero__details--ondark" %}
+    {% set detailsClasses = " ons-hero__details--ondark" %}
 {% endif %}
 
-<section class="hero grid--gutterless{% if params.censusTheme is defined and params.censusTheme %} hero--census{% endif %}">
+<section class="ons-hero ons-grid--gutterless{% if params.censusTheme is defined and params.censusTheme %} ons-hero--census{% endif %}">
 
-    <div class="hero__container container{{ ' container--wide' if params.wide }}{{ containerClasses }}">
+    <div class="ons-hero__container ons-container{{ ' ons-container--wide' if params.wide }}{{ containerClasses }}">
 
-        <div class="hero__details{{ detailsClasses }} grid__col col-{{ detailsColumns }}@m">
+        <div class="ons-hero__details{{ detailsClasses }} ons-grid__col ons-col-{{ detailsColumns }}@m">
 
             <header>
                 {% if params.preTitleImage is defined and params.preTitleImage %}
                     {% set preTitleImageWithModifier = params.preTitleImage.name|replace(r/(\.[^\.]+)$/, "--" + skinName + "$1") %}
-                    <img class="hero__pre-title" src="{{ params.placeholderURL }}/img/{{ preTitleImageWithModifier }}" alt="{{ params.preTitleImage.alt }}">
+                    <img class="ons-hero__pre-title" src="{{ params.placeholderURL }}/img/{{ preTitleImageWithModifier }}" alt="{{ params.preTitleImage.alt }}">
                 {% endif %}
                 {% if params.censusTheme is defined and params.censusTheme %}
-                    <h1 class="u-fs-xxxl">{{ params.title }}</h1>
+                    <h1 class="ons-u-fs-xxxl">{{ params.title }}</h1>
                 {% else %}
-                    <h1 class="hero__title">{{ params.title }}</h1>
+                    <h1 class="ons-hero__title">{{ params.title }}</h1>
                 {% endif %}
                 {% if params.subtitle is defined and params.subtitle %}
-                    <h2 class="u-fs-r--b">{{ params.subtitle }}</h2>
+                    <h2 class="ons-u-fs-r--b">{{ params.subtitle }}</h2>
                 {% endif %}
             </header>
 
             {% if params.text is defined and params.text %}
-                <p class="hero__text">{{ params.text | safe }}</p>
+                <p class="ons-hero__text">{{ params.text | safe }}</p>
             {% endif %}
 
             {% if params.button is defined and params.button %}
@@ -81,14 +81,14 @@
             {% endif %}
 
             {% if params.suffixText is defined and params.suffixText %}
-                <p class="hero__suffixText u-fs-s u-mt-m u-mb-no">{{ params.suffixText | safe }}</p>
+                <p class="ons-hero__suffixText ons-u-fs-s ons-u-mt-m ons-u-mb-no">{{ params.suffixText | safe }}</p>
             {% endif %}
 
         </div>
         {% if params.censusTheme is defined and params.censusTheme %}
 
             {% if params.image is defined and params.image %}
-            <div class="hero__circle-image">
+            <div class="ons-hero__circle-image">
                 <img height="558" width="558" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="">
             </div>
             {% endif %}
@@ -99,10 +99,10 @@
                 })
             }}
 
-            <div class="hero__circle-gradient"></div>
+            <div class="ons-hero__circle-gradient"></div>
 
             {% if params.censusThemeDark is not defined or params.censusThemeDark === false %}
-                <div class="hero__circle"></div>
+                <div class="ons-hero__circle"></div>
             {% endif %}
 
         {% endif %}

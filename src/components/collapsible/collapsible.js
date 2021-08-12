@@ -4,14 +4,14 @@ export default class Collapsible {
 
     // State
     this.group = collapsibleElement.getAttribute('data-group');
-    this.isAccordion = collapsibleElement.classList.contains('collapsible--accordion');
+    this.isAccordion = collapsibleElement.classList.contains('ons-collapsible--accordion');
 
     // Elements
     this.collapsible = collapsibleElement;
-    this.collapsibleHeader = this.collapsible.querySelector('.js-collapsible-heading');
-    this.content = this.collapsible.querySelector('.js-collapsible-content');
-    this.button = this.collapsible.querySelector('.js-collapsible-button');
-    this.buttonInner = this.collapsible.querySelector('.js-collapsible-button-inner');
+    this.collapsibleHeader = this.collapsible.querySelector('.ons-js-collapsible-heading');
+    this.content = this.collapsible.querySelector('.ons-js-collapsible-content');
+    this.button = this.collapsible.querySelector('.ons-js-collapsible-button');
+    this.buttonInner = this.collapsible.querySelector('.ons-js-collapsible-button-inner');
 
     // Initialise
     const collapsibleId = collapsibleElement.getAttribute('id');
@@ -19,7 +19,7 @@ export default class Collapsible {
     if (this.button) {
       this.button.addEventListener('click', this.toggle.bind(this));
       this.button.setAttribute('aria-controls', collapsibleId);
-      this.button.classList.remove('u-d-no');
+      this.button.classList.remove('ons-u-d-no');
       this.buttonOpen = this.buttonInner.innerHTML.trim();
       this.closeButton = this.collapsible.getAttribute('data-btn-close') || this.buttonOpen;
     }
@@ -40,7 +40,7 @@ export default class Collapsible {
     this.collapsibleHeader.addEventListener('click', this.toggle.bind(this));
     this.collapsibleHeader.addEventListener('keydown', this.keyboardInteraction.bind(this));
 
-    this.collapsible.classList.add('collapsible--initialised');
+    this.collapsible.classList.add('ons-collapsible--initialised');
   }
 
   toggle(event) {
@@ -62,7 +62,7 @@ export default class Collapsible {
 
       this.isOpen = open;
       this.collapsible[`${openAttribute}Attribute`]('open', '');
-      this.collapsible.classList[cls]('collapsible--open');
+      this.collapsible.classList[cls]('ons-collapsible--open');
       this.collapsibleHeader.setAttribute('aria-expanded', open);
       this.content.setAttribute('aria-hidden', !open);
 

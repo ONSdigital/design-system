@@ -3,7 +3,7 @@
 {% macro onsError(params) %}
     {% set content %}
         <p
-            class="panel__error"
+            class="ons-panel__error"
             {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
             <strong>{{ params.text }}</strong>
@@ -14,7 +14,7 @@
     {% call onsPanel({
         "type": "error",
         "id": params.id,
-        "classes": "u-mb-s",
+        "classes": "ons-u-mb-s",
         "dsExample": params.dsExample
     }) %}
        {{ content | safe }}

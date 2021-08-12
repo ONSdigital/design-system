@@ -10,7 +10,7 @@ export default class NavToggle {
   constructor(toggle, nav) {
     this.toggle = toggle;
     this.nav = nav;
-    this.toggle.classList.remove('u-d-no');
+    this.toggle.classList.remove('ons-u-d-no');
 
     this.setAria();
     onViewportChange(this.setAria.bind(this));

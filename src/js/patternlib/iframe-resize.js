@@ -9,7 +9,7 @@ function resize() {
       heightCalculationMethod: 'max',
       scrolling: 'omit',
     },
-    '.patternlib-example__iframe',
+    '.ons-patternlib-example__iframe',
   );
 }
 

@@ -29,7 +29,7 @@ describe('Component: Cookie banner', function() {
     new CookiesBanner(this.banner);
     const approveAllCookieTypesSpy = chai.spy(approveAllCookieTypes);
 
-    const button = this.banner.querySelector('.js-accept-cookies');
+    const button = this.banner.querySelector('.ons-js-accept-cookies');
     button.click();
 
     expect(approveAllCookieTypesSpy).to.have.been.called;
@@ -41,7 +41,7 @@ describe('Component: Cookie banner', function() {
     new CookiesBanner(this.banner);
     const setConsentCookieSpy = chai.spy(CookiesBanner.setCookiesConsent);
 
-    const button = this.banner.querySelector('.js-accept-cookies');
+    const button = this.banner.querySelector('.ons-js-accept-cookies');
     button.click();
 
     expect(cookie('ons_cookie_message_displayed')).to.equal('true');
@@ -52,10 +52,10 @@ describe('Component: Cookie banner', function() {
     new CookiesBanner(this.banner);
     const hideCookiesMessageSpy = chai.spy(CookiesBanner.hidePrimaryCookiesBanner);
 
-    const button = this.banner.querySelector('.js-accept-cookies');
+    const button = this.banner.querySelector('.ons-js-accept-cookies');
     button.click();
 
-    const primaryBanner = this.banner.querySelector('.cookies-banner__primary');
+    const primaryBanner = this.banner.querySelector('.ons-cookies-banner__primary');
     expect(primaryBanner.style.display).to.equal('none');
     expect(hideCookiesMessageSpy).to.have.been.called;
   });
@@ -67,13 +67,13 @@ describe('Component: Cookie banner', function() {
     button.click();
 
     const secondaryBanner = this.banner.querySelector('.cookies-banner__confirmation');
-    expect(secondaryBanner.classList.contains('u-d-no')).to.equal(false);
+    expect(secondaryBanner.classList.contains('ons-u-d-no')).to.equal(false);
   });
 
   it('sets all radios to on from off', function() {
     new CookiesBanner(this.banner);
 
-    const button = this.banner.querySelector('.js-accept-cookies');
+    const button = this.banner.querySelector('.ons-js-accept-cookies');
     button.click();
 
     const radios = [...this.form.querySelectorAll('input[value=on]')];
@@ -86,7 +86,7 @@ describe('Component: Cookie banner', function() {
     new CookiesBanner(this.banner);
     const hideCookiesMessageSpy = chai.spy(CookiesBanner.hideConfirmBanner);
 
-    const button = this.banner.querySelector('.js-hide-button');
+    const button = this.banner.querySelector('.ons-js-hide-button');
     button.click();
 
     expect(this.banner.style.display).to.equal('none');
@@ -102,52 +102,52 @@ describe('Component: Cookie banner', function() {
 
 function renderComponent() {
   const formHTML =
-    '<div class="cookies-banner">' +
-    '<div class="container cookies-banner__primary">' +
-    '<div class="grid">' +
-    '<div class="grid__col col-8@m">' +
-    '<h2 class="cookies-banner__title u-mb-xs">Tell us whether you accept cookies</h2>' +
-    '<p class="cookies-banner__desc">We use cookies to collect information about how you use census.gov.uk. We use this information to make the website work as well as possible and improve our services.</p>' +
-    '<button type="button" class="btn btn--small js-accept-cookies u-mb-xs@xxs@s cookies-banner__btn">' +
-    '<span class="btn__inner">Accept all cookies</span>' +
+    '<div class="ons-cookies-banner">' +
+    '<div class="ons-container ons-cookies-banner__primary">' +
+    '<div class="ons-grid">' +
+    '<div class="ons-grid__col ons-col-8@m">' +
+    '<h2 class="ons-cookies-banner__title ons-u-mb-xs">Tell us whether you accept cookies</h2>' +
+    '<p class="ons-cookies-banner__desc">We use cookies to collect information about how you use census.gov.uk. We use this information to make the website work as well as possible and improve our services.</p>' +
+    '<button type="button" class="ons-btn ons-btn--small ons-js-accept-cookies ons-u-mb-xs@xxs@s ons-cookies-banner__btn">' +
+    '<span class="ons-btn__inner">Accept all cookies</span>' +
     '</button>' +
-    '<a href="#" role="button" class="btn btn--secondary btn--small u-ml-no@xxs@s cookies-banner__btn btn--link">' +
-    '<span class="btn__inner">Cookie settings</span>' +
+    '<a href="#" role="button" class="ons-btn ons-btn--secondary ons-btn--small ons-u-ml-no@xxs@s ons-cookies-banner__btn ons-btn--link">' +
+    '<span class="ons-btn__inner">Cookie settings</span>' +
     '</a>' +
     '</div>' +
     '</div>' +
     '</div>' +
-    '<div class="container cookies-banner__confirmation u-d-no">' +
-    '<div class="grid grid--flex grid--between grid--gutterless grid--no-wrap@s grid--vertical-center">' +
-    '<div class="grid__col grid__col--flex col-auto u-flex-shrink@s">' +
-    '<p class="cookies-banner__desc u-mb-no@s u-mr-s@s">You’ve accepted all cookies. You can <a href="#">change your cookie settings</a> at any time.</p>' +
+    '<div class="ons-container ons-cookies-banner__confirmation ons-u-d-no">' +
+    '<div class="ons-grid ons-grid--flex ons-grid--between ons-grid--gutterless ons-grid--no-wrap@s ons-grid--vertical-center">' +
+    '<div class="ons-grid__col ons-grid__col--flex ons-col-auto ons-u-flex-shrink@s">' +
+    '<p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s">You’ve accepted all cookies. You can <a href="#">change your cookie settings</a> at any time.</p>' +
     '</div>' +
-    '<div class="grid__col">' +
-    '<button type="button" class="btn btn--secondary btn--small js-hide-button">' +
-    '<span class="btn__inner">Hide</span>' +
+    '<div class="ons-grid__col">' +
+    '<button type="button" class="ons-btn ons-btn--secondary ons-btn--small ons-js-hide-button">' +
+    '<span class="ons-btn__inner">Hide</span>' +
     '</button>' +
     '</div>' +
     '</div>' +
     '</div>' +
     '</div>' +
     '<form data-module="cookie-settings">' +
-    '<input type="radio" class="js-radio" id="settings-on" name="cookies-settings" value="on">' +
-    '<input type="radio" class="js-radio" id="settings-off" name="cookies-settings" value="off">' +
-    '<input type="radio" class="js-radio" name="cookies-usage" value="on">' +
-    '<input type="radio" class="js-radio" name="cookies-usage" value="off">' +
-    '<input type="radio" class="js-radio" name="cookies-campaigns" value="on">' +
-    '<input type="radio" class="js-radio" name="cookies-campaigns" value="off">' +
+    '<input type="radio" class="ons-js-radio" id="settings-on" name="cookies-settings" value="on">' +
+    '<input type="radio" class="ons-js-radio" id="settings-off" name="cookies-settings" value="off">' +
+    '<input type="radio" class="ons-js-radio" name="cookies-usage" value="on">' +
+    '<input type="radio" class="ons-js-radio" name="cookies-usage" value="off">' +
+    '<input type="radio" class="ons-js-radio" name="cookies-campaigns" value="on">' +
+    '<input type="radio" class="ons-js-radio" name="cookies-campaigns" value="off">' +
     '<button id="submit-button" type="submit">Submit</button>' +
     '</form>' +
-    '<div class="cookies-confirmation-message u-d-no">' +
-    '<a class="js-return-link" href="#">Return to previous page</a>' +
+    '<div class="ons-cookies-confirmation-messageons-u-d-no">' +
+    '<a class="ons-js-return-link" href="#">Return to previous page</a>' +
     '</div>';
 
   const wrapper = document.createElement('div');
 
   wrapper.innerHTML = formHTML;
   document.body.appendChild(wrapper);
-  const banner = wrapper.querySelector('.cookies-banner');
+  const banner = wrapper.querySelector('.ons-cookies-banner');
   const form = wrapper.querySelector('form');
 
   return {

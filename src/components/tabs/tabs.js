@@ -5,11 +5,11 @@
 
 import matchMedia from '../../js/utils/matchMedia';
 
-const classTab = 'tab';
-const classTabTitle = 'tabs__title';
-const classTabList = 'tabs__list';
-const classTabListItems = 'tab__list-item';
-const classTabsPanel = 'tabs__panel';
+const classTab = 'ons-tab';
+const classTabTitle = 'ons-tabs__title';
+const classTabList = 'ons-tabs__list';
+const classTabListItems = 'ons-tab__list-item';
+const classTabsPanel = 'ons-tabs__panel';
 
 const matchMediaUtil = matchMedia;
 
@@ -25,12 +25,12 @@ export default class Tabs {
     this.tabListItems = [...component.getElementsByClassName(classTabListItems)];
     this.tabPanels = [...component.getElementsByClassName(classTabsPanel)];
 
-    this.jsHiddenClass = 'tabs__panel--hidden';
-    this.jsTabListAsRowClass = 'tabs__list--row';
-    this.jsTabItemAsRowClass = 'tab__list-item--row';
-    this.jsTabAsListClass = 'tab--row';
+    this.jsHiddenClass = 'ons-tabs__panel--hidden';
+    this.jsTabListAsRowClass = 'ons-tabs__list--row';
+    this.jsTabItemAsRowClass = 'ons-tab__list-item--row';
+    this.jsTabAsListClass = 'ons-tab--row';
 
-    this.tabsTitle.classList.add('u-vh');
+    this.tabsTitle.classList.add('ons-u-vh');
 
     if (matchMediaUtil.hasMatchMedia()) {
       this.setupViewportChecks();
@@ -234,13 +234,13 @@ export default class Tabs {
 
   unhighlightTab(tab) {
     tab.setAttribute('aria-selected', 'false');
-    tab.classList.remove('tab--selected');
+    tab.classList.remove('ons-tab--selected');
     tab.setAttribute('tabindex', '-1');
   }
 
   highlightTab(tab) {
     tab.setAttribute('aria-selected', 'true');
-    tab.classList.add('tab--selected');
+    tab.classList.add('ons-tab--selected');
     tab.setAttribute('tabindex', '0');
   }
 
@@ -249,7 +249,7 @@ export default class Tabs {
   }
 
   getCurrentTab() {
-    return this.component.querySelector('.tab--selected');
+    return this.component.querySelector('.ons-tab--selected');
   }
 
   getHref(tab) {

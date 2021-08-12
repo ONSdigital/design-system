@@ -1,13 +1,13 @@
-.radios {
+.ons-radios {
   &__items {
-    @extend .checkboxes__items;
+    @extend .ons-checkboxes__items;
   }
 
   &__item {
-    @extend .checkboxes__item;
+    @extend .ons-checkboxes__item;
   }
 
   &__label {
-    @extend .checkboxes__label;
+    @extend .ons-checkboxes__label;
   }
 }

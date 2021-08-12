@@ -95,19 +95,19 @@ describe('Component: Tabs', () => {
           });
 
           it('Then should be assigned the class tab--selected', function() {
-            expect(this.tab[0].classList.contains('tab--selected')).to.be.true;
+            expect(this.tab[0].classList.contains('ons-tab--selected')).to.be.true;
           });
 
           it('Then should show the corresponding panel', function() {
             const tabId = this.tab[0].getAttribute('href').slice(1);
             const panel = document.getElementById(tabId);
-            const classHidden = 'tabs__panel--hidden';
+            const classHidden = 'ons-tabs__panel--hidden';
             expect(panel.classList.contains(classHidden)).to.be.false;
           });
 
           it('Then should hide all other panels', function() {
-            const classHidden = 'tabs__panel--hidden';
-            const panels = document.getElementsByClassName('tabs__panel');
+            const classHidden = 'ons-tabs__panel--hidden';
+            const panels = document.getElementsByClassName('ons-tabs__panel');
             expect(panels[1].classList.contains(classHidden)).to.be.true;
             expect(panels[2].classList.contains(classHidden)).to.be.true;
           });
@@ -127,19 +127,19 @@ describe('Component: Tabs', () => {
           });
 
           it('Then the tab should be assigned the class tab--selected', function() {
-            expect(this.tab[1].classList.contains('tab--selected')).to.be.true;
+            expect(this.tab[1].classList.contains('ons-tab--selected')).to.be.true;
           });
 
           it('Then the the corresponding panel should be shown', function() {
             const tabId = this.tab[1].getAttribute('href').slice(1);
             const panel = document.getElementById(tabId);
-            const classHidden = 'tabs__panel--hidden';
+            const classHidden = 'ons-tabs__panel--hidden';
             expect(panel.classList.contains(classHidden)).to.be.false;
           });
 
           it('Then all other panels should be hidden', function() {
-            const classHidden = 'tabs__panel--hidden';
-            const panels = document.getElementsByClassName('tabs__panel');
+            const classHidden = 'ons-tabs__panel--hidden';
+            const panels = document.getElementsByClassName('ons-tabs__panel');
             expect(panels[0].classList.contains(classHidden)).to.be.true;
             expect(panels[2].classList.contains(classHidden)).to.be.true;
           });
@@ -223,11 +223,11 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const tabsComponent = wrapper.querySelector('.tabs');
-  const tabList = tabsComponent.querySelector('.tabs__list');
-  const tab = [...tabsComponent.getElementsByClassName('tab')];
-  const tabListItems = [...tabsComponent.getElementsByClassName('tab__list-item')];
-  const tabPanels = [...tabsComponent.getElementsByClassName('tabs__panel')];
+  const tabsComponent = wrapper.querySelector('.ons-tabs');
+  const tabList = tabsComponent.querySelector('.ons-tabs__list');
+  const tab = [...tabsComponent.getElementsByClassName('ons-tab')];
+  const tabListItems = [...tabsComponent.getElementsByClassName('ons-tab__list-item')];
+  const tabPanels = [...tabsComponent.getElementsByClassName('ons-tabs__panel')];
 
   return {
     wrapper,

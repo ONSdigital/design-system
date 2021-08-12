@@ -4,14 +4,14 @@
     {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
 
     {% set fields %}
-        <p class="checkboxes__label">{{ params.checkboxesLabel }}</p>
-        <div class="checkboxes__items">
+        <p class="ons-checkboxes__label">{{ params.checkboxesLabel }}</p>
+        <div class="ons-checkboxes__items">
             {% for checkbox in params.checkboxes %}
                 {% set labelHTML = checkbox.label.text %}
                 {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
-                    {% set exclusiveClass = ' js-exclusive-group-item' %}
+                    {% set exclusiveClass = ' ons-js-exclusive-group-item' %}
                 {% endif %}
-                <p class="checkboxes__item">
+                <p class="ons-checkboxes__item">
                     {% set config = {
                         "id": checkbox.id,
                         "name": checkbox.name,

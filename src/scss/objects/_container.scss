@@ -1,4 +1,4 @@
-.container {
+.ons-container {
   box-sizing: border-box;
   margin: 0 auto;
   max-width: $grid-max-width;
@@ -18,16 +18,16 @@
   }
 }
 
-.grid--align-bottom {
-  .grid__col {
+.ons-grid--align-bottom {
+  .ons-grid__col {
     vertical-align: bottom;
   }
 }
 
-.grid__col {
+.ons-grid__col {
   font-size: 1rem;
 }
 
-@include bp-suffix('container--gutterless', $create-between-breakpoints: true) {
+@include bp-suffix('ons-container--gutterless', $create-between-breakpoints: true) {
   padding: 0;
 }

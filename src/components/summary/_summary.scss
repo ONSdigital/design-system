@@ -2,13 +2,13 @@ $summary-row-spacing: 1rem;
 $summary-col-spacing: 1rem;
 $hub-row-spacing: 1.3rem;
 
-.summary {
+.ons-summary {
   &__items {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
 
-    + .summary__group-title {
+    + .ons-summary__group-title {
       margin-top: 1.5rem;
     }
   }
@@ -22,7 +22,7 @@ $hub-row-spacing: 1.3rem;
     }
 
     &--total {
-      @extend .u-fs-m;
+      @extend .ons-u-fs-m;
 
       border-width: 2px;
       font-weight: 700;
@@ -83,7 +83,7 @@ $hub-row-spacing: 1.3rem;
   // Item Modifiers
   &__item--total & {
     &__values {
-      @extend .u-fs-m;
+      @extend .ons-u-fs-m;
     }
   }
 
@@ -122,7 +122,7 @@ $hub-row-spacing: 1.3rem;
     }
 
     &__item-title {
-      @extend .u-fs-r--b;
+      @extend .ons-u-fs-r--b;
 
       padding-top: $hub-row-spacing;
     }
@@ -130,7 +130,7 @@ $hub-row-spacing: 1.3rem;
 
   &:not(&--hub) & {
     &__values {
-      @extend .u-fs-r--b;
+      @extend .ons-u-fs-r--b;
     }
   }
 

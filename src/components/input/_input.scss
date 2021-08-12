@@ -1,4 +1,4 @@
-.input {
+.ons-input {
   border: $input-border-width solid $color-input;
   border-radius: $input-radius;
   color: inherit;
@@ -18,7 +18,7 @@
   @include mq(s) {
     &--text,
     &--select {
-      &:not(.input--block):not([class*='input--w-']) {
+      &:not(.ons-input--block):not([class*='input--w-']) {
         width: $input-width;
       }
     }
@@ -56,18 +56,18 @@
 // Number input widths
 @include input-width('input-number--w-{x}', 0.54rem);
 
-.input--postcode {
+.ons-input--postcode {
   max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
   width: 100%;
 }
 
-.input__helper {
+.ons-input__helper {
   font-size: 0.8rem;
   font-weight: $font-weight-bold;
   margin-top: 0.2rem;
 }
 
-.input--select {
+.ons-input--select {
   appearance: none;
   background: $color-white url('#{$static}/img/icons--chevron-down.svg') no-repeat center right 10px;
   background-size: 1rem;
@@ -79,18 +79,18 @@
   }
 }
 
-.input--textarea {
+.ons-input--textarea {
   line-height: normal;
   resize: vertical;
   width: 100%;
 }
 
-.input--block {
+.ons-input--block {
   display: block;
   width: 100%;
 }
 
-.input--placeholder {
+.ons-input--placeholder {
   background: transparent;
   &::placeholder {
     color: transparent;
@@ -103,11 +103,11 @@
   }
 }
 
-.input--limit-reached:not(:focus) {
+.ons-input--limit-reached:not(:focus) {
   border: $input-border-width solid $color-ruby-red;
 }
 
-.input__limit {
+.ons-input__limit {
   display: block;
 
   &--reached {

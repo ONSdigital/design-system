@@ -1,6 +1,6 @@
 $button-border-height: 3px;
 
-.btn {
+.ons-btn {
   background: transparent;
   border: 0;
   border-radius: 0;
@@ -29,7 +29,7 @@ $button-border-height: 3px;
     top: 0;
   }
 
-  .svg-icon {
+  .ons-svg-icon {
     fill: $color-text-inverse;
     height: 0.8rem;
     margin: 0 0 0.1rem 0.5rem;
@@ -70,17 +70,17 @@ $button-border-height: 3px;
     background: darken($color-focus, 5%);
   }
 
-  &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus,
-  &:not([class*='btn--ghost']):not([class*='btn--mobile']):focus:hover {
+  &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):focus,
+  &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):focus:hover {
     outline: none;
   }
 
   // When clicked
-  &:not([class*='btn--ghost']):not([class*='btn--mobile']):active {
+  &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):active {
     padding-top: ems(3px);
   }
 
-  &:not([class*='btn--ghost']):not([class*='btn--mobile']):active &__inner {
+  &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):active &__inner {
     border-bottom: 0;
   }
 
@@ -109,7 +109,7 @@ $button-border-height: 3px;
       background: $color-button-secondary;
       color: $color-text;
       font-weight: normal;
-      .svg-icon {
+      .ons-svg-icon {
         fill: $color-text;
       }
     }
@@ -117,7 +117,7 @@ $button-border-height: 3px;
 
   &--print & {
     &__inner {
-      .svg-icon {
+      .ons-svg-icon {
         height: 1rem;
         width: 1rem;
       }
@@ -150,20 +150,20 @@ $button-border-height: 3px;
     color: $color-text-link-focus;
   }
 
-  &--link:not(.btn--secondary) &,
-  &--link:not(.btn--secondary):active &,
-  &--link:not(.btn--secondary):hover & {
+  &--link:not(.ons-btn--secondary) &,
+  &--link:not(.ons-btn--secondary):active &,
+  &--link:not(.ons-btn--secondary):hover & {
     &__inner {
-      .svg-icon {
+      .ons-svg-icon {
         fill: $color-white;
       }
     }
   }
 
-  &--link:focus:not(.btn--secondary) &,
-  &--link:focus:hover:not(.btn--secondary) & {
+  &--link:focus:not(.ons-btn--secondary) &,
+  &--link:focus:hover:not(.ons-btn--secondary) & {
     &__inner {
-      .svg-icon {
+      .ons-svg-icon {
         fill: $color-black;
       }
     }
@@ -172,7 +172,7 @@ $button-border-height: 3px;
   &--loader &__inner {
     position: relative;
     transition: color 0.3s ease-in-out;
-    .svg-icon {
+    .ons-svg-icon {
       fill: $color-white;
       height: 1.5rem;
       left: 50%;
@@ -186,9 +186,9 @@ $button-border-height: 3px;
     }
   }
 
-  &--loader.is-loading &__inner {
+  &--loader.ons-is-loading &__inner {
     color: transparent;
-    .svg-icon {
+    .ons-svg-icon {
       opacity: 1;
     }
   }
@@ -200,7 +200,7 @@ $button-border-height: 3px;
       background: transparent;
       border: 2px solid rgba(255, 255, 255, 0.6);
       color: $color-white;
-      .svg-icon {
+      .ons-svg-icon {
         fill: $color-white;
       }
     }
@@ -234,20 +234,20 @@ $button-border-height: 3px;
     &__inner {
       background-color: $color-focus;
       color: $color-text-link-focus;
-      .svg-icon {
+      .ons-svg-icon {
         fill: $color-black;
       }
     }
   }
 
   &--mobile[aria-expanded='true'] {
-    .svg-icon {
+    .ons-svg-icon {
       transform: rotate(270deg);
     }
   }
 
   &--mobile {
-    .svg-icon {
+    .ons-svg-icon {
       transform: rotate(90deg);
     }
 
@@ -261,7 +261,7 @@ $button-border-height: 3px;
     &:hover {
       cursor: not-allowed;
     }
-    .btn__inner {
+    .ons-btn__inner {
       opacity: 0.4;
     }
   }

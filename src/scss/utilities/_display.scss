@@ -1,19 +1,19 @@
-@include bp-suffix('u-d-no', $create-between-breakpoints: true) {
+@include bp-suffix('ons-u-d-no', $create-between-breakpoints: true) {
   display: none !important;
 }
 
-@include bp-suffix('u-d-b', $create-between-breakpoints: true) {
+@include bp-suffix('ons-u-d-b', $create-between-breakpoints: true) {
   display: block !important;
 }
 
-.u-db-no-js_enabled {
-  body.js-enabled & {
+.ons-u-db-no-js_enabled {
+  body.ons-js-enabled & {
     display: none !important;
   }
 }
 
-.u-db-no-js_disabled {
-  body:not(.js-enabled) & {
+.ons-u-db-no-js_disabled {
+  body:not(.ons-js-enabled) & {
     display: none !important;
   }
 }

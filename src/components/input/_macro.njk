@@ -19,14 +19,14 @@
         {% set type = "text" %}
     {% endif %}
 
-    {% set exclusiveClass = " js-exclusive-group-item" if params.mutuallyExclusive else "" %}
-    {% set inputPlaceholder = ' input--placeholder' if params.accessiblePlaceholder else "" %}
+    {% set exclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
+    {% set inputPlaceholder = ' ons-input--placeholder' if params.accessiblePlaceholder else "" %}
 
     {% set input %}
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="input input--text input-type__input{% if params.error is defined and params.error %} input--error{% endif %}{% if params.searchButton is defined and params.searchButton %} search__input{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="ons-input ons-input--text ons-input-type__input{% if params.error is defined and params.error %} ons-input--error{% endif %}{% if params.searchButton is defined and params.searchButton %} ons-search__input{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix is defined and params.prefix or params.suffix is defined and params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined and params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
@@ -53,7 +53,7 @@
             </script>
         {% endif %}
         {% if params.postTextboxLinkText is defined and params.postTextboxLinkText %}
-            <a class="u-fs-s" href="{{ params.postTextboxLinkUrl }}">{{ params.postTextboxLinkText }}</a>
+            <a class="ons-u-fs-s" href="{{ params.postTextboxLinkUrl }}">{{ params.postTextboxLinkText }}</a>
         {% endif %}
     {% endset %}
     {% set field %}
@@ -74,12 +74,12 @@
                 {% set prefixClass = " input-type--prefix" %}
             {% endif %}
 
-            <span class="input-type{{ prefixClass }}">
-                <span class="input-type__inner">
+            <span class="ons-input-type{{ prefixClass }}">
+                <span class="ons-input-type__inner">
                     {{ input | safe }}
                     {% set abbr = params.prefix or params.suffix %}
                     <abbr
-                        class="input-type__type js-input-abbr"
+                        class="ons-input-type__type ons-js-input-abbr"
                         aria-hidden="true"
                         title="{{ abbr.title }}"
                         {% if abbr.id is defined and abbr.id %} id="{{ abbr.id }}"{% endif %}
@@ -87,7 +87,7 @@
                 </span>
             </span>
         {% elif params.searchButton is defined and params.searchButton %}
-            <span class="grid--flex search">
+            <span class="ons-grid--flex ons-search">
                 {% call onsSearch({
                     "accessiblePlaceholder": params.accessiblePlaceholder,
                     "searchButton": {

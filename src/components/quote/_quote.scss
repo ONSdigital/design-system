@@ -1,4 +1,4 @@
-.quote {
+.ons-quote {
   background-size: 2rem;
   margin: 0 0 1rem;
   padding: 0 0 0 3em;
@@ -9,7 +9,7 @@
   }
 
   &__ref {
-    @extend .u-fs-s;
+    @extend .ons-u-fs-s;
 
     color: $color-text-light;
     display: block;
@@ -17,7 +17,7 @@
     position: relative;
   }
 
-  .svg-icon {
+  .ons-svg-icon {
     fill: $color-grey-75;
     height: 1.85rem;
     left: 0;
