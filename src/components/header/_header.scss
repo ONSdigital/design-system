@@ -134,6 +134,12 @@
     &__grid-top {
       min-height: 36px;
     }
+    &-service-nav__link {
+      color: $color-white;
+      &:hover {
+        text-decoration: underline solid $color-white 3px;
+      }
+    }
   }
 
   .ons-svg-logo,
