@@ -51,10 +51,10 @@
 }
 
 // Text input widths
-@include input-width('input--w-{x}');
+@include input-width('ons-input--w-{x}');
 
 // Number input widths
-@include input-width('input-number--w-{x}', 0.54rem);
+@include input-width('ons-input-number--w-{x}', 0.54rem);
 
 .ons-input--postcode {
   max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
