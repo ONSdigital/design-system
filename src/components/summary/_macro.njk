@@ -52,7 +52,7 @@
                                             >
                                                 {% if rowItem.icon is defined and rowItem.icon %}
                                                     {% from "components/icons/_macro.njk" import onsIcon %}
-                                                    <span class= "summary__item-title-icon {% if rowItem.icon == 'check' %} summary__item-title-icon--check{% endif %}">
+                                                    <span class="ons-summary__item-title-icon {% if rowItem.icon == 'check' %} ons-summary__item-title-icon--check{% endif %}">
                                                         {{
                                                             onsIcon({
                                                                 "icon": rowItem.icon
