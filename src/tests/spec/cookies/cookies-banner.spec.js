@@ -63,10 +63,10 @@ describe('Component: Cookie banner', function() {
   it('should show the secondary message when pressing the accept button', function() {
     new CookiesBanner(this.banner);
 
-    const button = this.banner.querySelector('.js-accept-cookies');
+    const button = this.banner.querySelector('.ons-js-accept-cookies');
     button.click();
 
-    const secondaryBanner = this.banner.querySelector('.cookies-banner__confirmation');
+    const secondaryBanner = this.banner.querySelector('.ons-cookies-banner__confirmation');
     expect(secondaryBanner.classList.contains('ons-u-d-no')).to.equal(false);
   });
 

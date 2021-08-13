@@ -157,7 +157,7 @@ function renderComponent(params) {
   const toggleButton = wrapper.querySelector('.ons-js-collapsible-all');
 
   const items = [...wrapper.querySelectorAll('.ons-js-collapsible')].map(collapsible => {
-    const collapsibleHeader = collapsible.querySelector('.js-collapsible-heading');
+    const collapsibleHeader = collapsible.querySelector('.ons-js-collapsible-heading');
     const content = collapsible.querySelector('.ons-js-collapsible-content');
     const button = collapsible.querySelector('.ons-js-collapsible-button');
 

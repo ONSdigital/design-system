@@ -4,7 +4,7 @@ import onViewportChange from '../../js/utils/viewport-change';
 
 const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
-const hideClass = 'u-d-no@xxs@m';
+const hideClass = 'ons-u-d-no@xxs@m';
 
 export default class NavToggle {
   constructor(toggle, nav) {
