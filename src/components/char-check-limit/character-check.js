@@ -68,7 +68,7 @@ export default class CharCheck {
 
   setShowMessage(remaining) {
     this.checkElement.classList[(remaining < this.checkVal && remaining > 0 && this.countdown) || remaining < 0 ? 'remove' : 'add'](
-      'u-d-no',
+      'ons-u-d-no',
     );
   }
 
