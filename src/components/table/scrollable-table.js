@@ -38,7 +38,7 @@ export default class TableScroll {
     const rightShadowEl = document.createElement('div');
     const leftShadowEl = document.createElement('div');
 
-    rightShadowEl.className = 'ons-table__right-shadow visible';
+    rightShadowEl.className = 'ons-table__right-shadow ons-visible';
     leftShadowEl.className = 'ons-table__left-shadow';
     this.tableScroll[0].appendChild(rightShadowEl);
     this.tableScroll[0].insertBefore(leftShadowEl, this.tableScroll[0].firstChild);
