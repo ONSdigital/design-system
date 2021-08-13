@@ -3,7 +3,7 @@ import renderTemplate from '../../helpers/render-template';
 
 const params = {
   sortable: true,
-  table_class: ' table--sortable',
+  table_class: ' ons-table--sortable',
   sortBy: 'Sort by',
   ariaAsc: 'ascending',
   ariaDesc: 'descending',
