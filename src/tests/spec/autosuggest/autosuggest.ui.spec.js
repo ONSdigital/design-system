@@ -967,7 +967,7 @@ describe('Autosuggest.ui component', function() {
 
           it('then the listbox innerHTML should show the no results message', function() {
             expect(this.autosuggest.listbox.innerHTML).to.equal(
-              `<li class="ons-${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.noResults}</li>`,
+              `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${params.noResults}</li>`,
             );
           });
 
