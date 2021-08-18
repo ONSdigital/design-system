@@ -57,7 +57,8 @@
       border-color: $color-ocean-blue;
       color: $color-white;
 
-      .autosuggest-input__group {
+      .autosuggest-input__group,
+      .autosuggest-input__category {
         color: $color-white;
       }
     }
@@ -66,7 +67,8 @@
       background: $color-focus;
       color: $color-text-link-focus;
 
-      .autosuggest-input__group {
+      .autosuggest-input__group,
+      .autosuggest-input__category {
         color: $color-text-link-focus;
       }
     }
