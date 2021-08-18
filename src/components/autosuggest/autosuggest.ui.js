@@ -352,8 +352,10 @@ export default class AutosuggestUI {
           listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
           listElement.setAttribute('role', 'option');
           listElement.setAttribute('aria-label', ariaLabel);
+          if (result.category) {
+            innerHTML = innerHTML + `<span class="autosuggest-input__category u-lighter u-fs-s u-db">${result.category}</span>`;
+          }
           listElement.innerHTML = innerHTML;
-
           listElement.addEventListener('click', () => {
             this.selectResult(index);
           });

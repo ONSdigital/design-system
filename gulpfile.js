@@ -137,6 +137,6 @@ gulp.task('start-dev-server', async () => {
 gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-svg', 'build-search-index'));
 
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
-gulp.task('watch', gulp.series('watch-and-build', 'build-search-index', 'start-dev-server'));
-gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-pages', 'build-search-index'));
+gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
+gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-pages'));
 gulp.task('build-package', gulp.series('copy-static-files', 'build-assets'));
