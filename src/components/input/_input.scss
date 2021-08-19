@@ -118,3 +118,21 @@
 .input--ghost {
   border: 2px solid rgba(255, 255, 255, 0.6);
 }
+
+.input--header-search {
+  @include mq(xxs, m) {
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    margin-top: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100% !important;
+
+    &:focus,
+    &:active {
+      border-top: 1px solid $color-branded;
+      box-shadow: inset 0 0 0 3px $color-focus;
+    }
+  }
+}

@@ -103,35 +103,6 @@
                             }) }}
                         </div>
                     {% endif %}
-                    {% if params.autosuggest is defined and params.autosuggest %}
-                        <div class="grid__col col-auto u-flex-no-shrink u-d-no@xxs@m">
-                            {{ onsAutosuggest({
-                                "id": "autosuggest-header-search",
-                                "containerClasses": "autosuggest-input--header",
-                                "classes": "input--ghost u-mt-xs",
-                                "label": {
-                                    "text": params.autosuggest.label,
-                                    "id": "autosuggest-header-search-label",
-                                    "classes": "label--white"
-                                },
-                                "accessiblePlaceholder": true,
-                                "accessiblePlaceholderIcon": "search",
-                                "autocomplete": "off",
-                                "instructions": params.autosuggest.instructions,
-                                "ariaYouHaveSelected":params.autosuggest.ariaYouHaveSelected,
-                                "ariaMinChars": params.autosuggest.ariaMinChars,
-                                "ariaResultsLabel": params.autosuggest.ariaResultsLabel,
-                                "ariaOneResult": params.autosuggest.ariaOneResult,
-                                "ariaNResults": params.autosuggest.ariaNResults,
-                                "ariaLimitedResults": params.autosuggest.ariaLimitedResults,
-                                "moreResults": params.autosuggest.moreResults,
-                                "resultsTitle": params.autosuggest.resultsTitle,
-                                "autosuggestData": params.autosuggest.autosuggestData,
-                                "noResults": params.autosuggest.noResults,
-                                "typeMore": params.autosuggest.typeMore
-                            }) }}
-                        </div>
-                    {% endif %}
                     {% if params.toggleButton is defined and params.toggleButton %}
                         <div class="grid__col col-auto u-flex-no-shrink u-d-no@m">
                                 {{ onsButton({
@@ -157,6 +128,33 @@
             <div class="header__bottom">
                 <div class="container container--gutterless@xxs@m{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
                     <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
+                        {% if params.autosuggest is defined and params.autosuggest %}
+                            {{ onsAutosuggest({
+                                "id": "autosuggest-header-search",
+                                "containerClasses": "autosuggest-input--header",
+                                "classes": "input--ghost input--header-search",
+                                "label": {
+                                    "text": params.autosuggest.label,
+                                    "id": "autosuggest-header-search-label",
+                                    "classes": "label--white label--header-search"
+                                },
+                                "accessiblePlaceholder": true,
+                                "accessiblePlaceholderIcon": "search",
+                                "autocomplete": "off",
+                                "instructions": params.autosuggest.instructions,
+                                "ariaYouHaveSelected":params.autosuggest.ariaYouHaveSelected,
+                                "ariaMinChars": params.autosuggest.ariaMinChars,
+                                "ariaResultsLabel": params.autosuggest.ariaResultsLabel,
+                                "ariaOneResult": params.autosuggest.ariaOneResult,
+                                "ariaNResults": params.autosuggest.ariaNResults,
+                                "ariaLimitedResults": params.autosuggest.ariaLimitedResults,
+                                "moreResults": params.autosuggest.moreResults,
+                                "resultsTitle": params.autosuggest.resultsTitle,
+                                "autosuggestData": params.autosuggest.autosuggestData,
+                                "noResults": params.autosuggest.noResults,
+                                "typeMore": params.autosuggest.typeMore
+                            }) }}
+                        {% endif %}
                         <ul class="header-nav__list">
                             {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
                                 <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">

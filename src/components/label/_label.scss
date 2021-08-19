@@ -22,6 +22,12 @@
     left: 8px;
     position: absolute;
     top: -3px;
+
+    &.label--header-search {
+      @include mq(xxs, m) {
+        left: 1rem;
+      }
+    }
   }
 
   &--white {

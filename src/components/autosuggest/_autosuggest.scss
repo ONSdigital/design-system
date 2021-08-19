@@ -126,7 +126,16 @@
   }
 
   &--header {
-    width: 20rem;
+    @include mq(xxs, m) {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    @include mq(m) {
+      bottom: 60px;
+      position: absolute;
+      right: 0;
+      width: 20rem;
+    }
     .autosuggest-input__results {
       left: 0;
       position: absolute;
