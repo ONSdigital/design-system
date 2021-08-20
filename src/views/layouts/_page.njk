@@ -50,6 +50,7 @@
                 <div class="grid__col col-9@m">
                     <div class="patternlib-page__content">
                         {% block preMain %}
+                        [{{pageInfo.parent.title}}]
                             {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
                             {% if pageInfo.parent.title === 'Home' %}
                                 {{
