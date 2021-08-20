@@ -74,9 +74,7 @@ The main difference between a variable and a block is that blocks can contain ma
 
 Variables can be set with:
 
-+++
 {{ onsCodeHighlight({ "code": "{% raw %}{% set variableName = value %}{% endraw %}" }) }}
-+++
 
 | Variable Name   | Type                                | Required | Description                                                                                                                           |
 | --------------- | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -174,21 +172,17 @@ Variables can be set with:
 
 Blocks can be set with:
 
-+++
 {{ onsCodeHighlight({ "code": "{% raw %}{% block blockName %}
     HTML Here
 {% endblock %}{% endraw %}" }) }}
-+++
 
 To change the components that are included by default, set their equivalent blocks, for example:
 
-+++
 {{ onsCodeHighlight({ "code": "{% raw %}{% block header %}
     {{ onsHeader({
         ...
     }) }}
 {% endblock %}{% endraw %}" }) }}
-+++
 
 | Block Name | Description                                                                         |
 | ---------- | ----------------------------------------------------------------------------------- |
