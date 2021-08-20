@@ -18,8 +18,8 @@
                 {% if params.or is defined and params.or and loop.revindex0 == 0 %}
                     <span class="radios__label u-mt-s u-fs-r--b" aria-hidden="true">{{ params.or }} </span>
                 {% endif %}
-                <p class="radios__item">
-                    <span class="radio">
+                <p class="radios__item{{ " " + params.containerClasses if params.containerClasses else "" }}">
+                    <span class="radio{{ " " + params.blockClasses if params.blockClasses else "" }}">
                         <input
                             type="radio"
                             id="{{ radio.id }}"

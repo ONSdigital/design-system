@@ -1,0 +1,40 @@
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+
+{% call onsQuestion({
+    "title": "What type of accommodation do you live in?",
+    "classes": "u-mt-no",
+    "legendIsQuestionTitle": true
+}) %}
+{{
+        onsRadios({
+            "name": "property-type",
+            "dontWrap": true,
+            "containerClasses": "u-mb-s",
+            "blockClasses": "radio--no-border",
+            "radios": [
+                {
+                    "id": "house",
+                    "label": {
+                        "text": "House or bungalow"
+                    },
+                    "value": "house"
+                },
+                {
+                    "id": "flat",
+                    "label": {
+                        "text": "Flat, maisonette or apartment"
+                    },
+                    "value": "flat"
+                },
+                {
+                    "id": "mobile",
+                    "label": {
+                        "text": "Caravan or other mobile or temporary structure"
+                    },
+                    "value": "mobile"
+                }
+            ]
+        })
+    }}
+{% endcall %}

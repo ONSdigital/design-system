@@ -4,6 +4,8 @@
 | classes               | string                               | false    | Classes to apply to the fieldset                                                                                               |
 | legend                | string                               | true     | The legend to apply to the fieldset                                                                                            |
 | legendClasses         | string                               | false    | Classes to apply to the legend                                                                                                 |
+| containerClasses      | string                               | false    | Classes to apply to the radio items container                                                                                  |
+| blockClasses          | string                               | false    | Classes to apply to the radio block                                                                                            |
 | name                  | string                               | true     | The name to apply to the radios                                                                                                |
 | radios                | `Array<Radio>`                       | true     | An array of radios to render                                                                                                   |
 | dontWrap              | boolean                              | false    | Prevents the radios from being wrapped in a [fieldset component](/components/fieldset)                                         |

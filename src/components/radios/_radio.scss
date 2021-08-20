@@ -13,6 +13,23 @@
     }
   }
 
+  &.radio--no-border {
+    & > .radio__input {
+      left: 0.05rem;
+      top: 0.15rem;
+    }
+
+    & > .radio__label {
+      padding: 0 0 0 1.85rem;
+
+      &::before {
+        background: none;
+        border: none;
+        box-shadow: none;
+      }
+    }
+  }
+
   &__label {
     @extend .checkbox__label;
 
