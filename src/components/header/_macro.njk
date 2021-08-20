@@ -128,7 +128,7 @@
             <div class="header__bottom">
                 <div class="container container--gutterless@xxs@m{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
                     <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
-                        {% if params.autosuggest is defined and params.autosuggest %}
+                        {% if params.autosuggest is defined and params.autosuggest and isPatternLib is defined and isPatternLib %}
                             {{ onsAutosuggest({
                                 "id": "autosuggest-header-search",
                                 "containerClasses": "autosuggest-input--header",
