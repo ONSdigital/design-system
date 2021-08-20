@@ -4,8 +4,9 @@ sortOrder: 3
 group: Installing the ONS Design System
 ---
 
++++
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
++++
 
 ## Using Nunjucks
 The ONS Design System uses {{
@@ -47,7 +48,9 @@ The zipped templates have already got the content delivery network (CDN) release
 
 Each component contains examples and any context-specific variants. You can copy the Nunjucks code directly from the examples.
 
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {{
     patternlibExample({"path": "components/panel/examples/information/index.njk"})
 }}
++++

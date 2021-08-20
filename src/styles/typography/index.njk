@@ -3,10 +3,13 @@ title: Typography
 sortOrder: 2
 anchorLinks: true
 ---
+
++++
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
 
 ## Font
 Text is the primary way that users digest information and accomplish tasks, so it’s important to use good typographic principles to establish a clear visual hierarchy and to maximize legibility.
@@ -26,7 +29,6 @@ Font stack: <span style='font-family: OpenSans;'>"Open Sans"</span>, <span style
 ### Type scale
 Using the type scale classes on text elements, the type is sized appropriately for the following breakpoints:
 
-{% markdown %}
 | Viewport < 740                                                 | Viewport >= 740                                                |
 |----------------------------------------------------------------|----------------------------------------------------------------|
 | <p class="u-fs-xxxl">u-fs-xxxl</p>Open Sans Bold - 1.7rem/32px | <p class="u-fs-xxxl">u-fs-xxxl</p>Open Sans Bold - 2.6rem/48px |
@@ -38,7 +40,6 @@ Using the type scale classes on text elements, the type is sized appropriately f
 | <p class="u-fs-r">u-fs-r</p>Open Sans Regular - 1rem/18px      | <p class="u-fs-r">u-fs-r</p>Open Sans Regular - 1rem/18px      |
 | <p class="u-fs-s--b">u-fs-s--b</p>Open Sans Bold - 0.7rem/14px | <p class="u-fs-s--b">u-fs-s--b</p>Open Sans Bold - 0.7rem/14px |
 | <p class="u-fs-s">u-fs-s</p>Open Sans Regular - 0.7rem/14px    | <p class="u-fs-s">u-fs-s</p>Open Sans Regular - 0.7rem/14px    |
-{% endmarkdown %}
 
 ### Font weights
 {{
@@ -199,7 +200,7 @@ __How to use:__ Use the `onsExternalLink` macro using the `url` and `linkText` p
 __How to use:__ Use the panel component setting `type` to "bare" and icon to the name of the icon you want to use.
 
 ### Contribute to icons
-{% call onsPanel() %}
++{% call onsPanel() %}
     If you have any requests for icons or research findings please feed back via the
     {{
         onsExternalLink({
@@ -207,7 +208,7 @@ __How to use:__ Use the panel component setting `type` to "bare" and icon to the
             "linkText": "GitHub discussions"
         })
     }}
-{% endcall %}
+{% endcall %}+
 
 ## Help improve this style
 Let us know how we could improve this style or share your user research findings.

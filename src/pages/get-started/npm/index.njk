@@ -4,8 +4,10 @@ sortOrder: 1
 group: Installing the ONS Design System
 ---
 
++++
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
++++
 
 The ONS Design System is available as an {{
     onsExternalLink({
@@ -38,7 +40,9 @@ To do this you will need {{
 
 Then run:
 
++++
 {{ onsCodeHighlight({ "code": 'npm install @ons/design-system' }) }}
++++
 <br>
 
 This will install the latest version of `@ons/design-system` in your `node_modules` folder.

@@ -102,7 +102,7 @@ gulp.task('build-svg', () => {
 
 gulp.task('build-pages', () => {
   return gulp
-    .src('./src/**/[^_]*.njk')
+    .src(['./src/**/*.njk', '!**/_*/**'])
     .pipe(nunjucksRendererPipe)
     .pipe(gulp.dest('./build'));
 });

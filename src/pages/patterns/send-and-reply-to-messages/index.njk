@@ -3,9 +3,12 @@ title: Send and reply to messages
 group: Help users to...
 experimental: true
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
++++
 
 ## Messages - message list
 {{
@@ -28,7 +31,7 @@ Use this pattern as a way to display conversations/threads between internal and 
 ## How to use this pattern
 
 This pattern consists of the following elements/components:
-{% markdown %}
+
 - Heading that displays the subject of the message thread
 - Metadata that provides information about the service or survey
 - A message thread
@@ -36,7 +39,6 @@ This pattern consists of the following elements/components:
 - Form field (textarea) to create a message
 - Submit button to send a message
 - Optional close button to end the conversation
-{% endmarkdown %}
 
 The heading that displays the subject should contain a visually hidden span e.g. `<span class="u-vh">Subject: </span>`. This helps to provide context to screen reader users about the page.
 
