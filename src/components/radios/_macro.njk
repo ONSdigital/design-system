@@ -18,8 +18,8 @@
                 {% if params.or is defined and params.or and loop.revindex0 == 0 %}
                     <span class="radios__label u-mt-s u-fs-r--b" aria-hidden="true">{{ params.or }} </span>
                 {% endif %}
-                <p class="radios__item{{ " " + params.containerClasses if params.containerClasses else "" }}">
-                    <span class="radio{{ " " + params.blockClasses if params.blockClasses else "" }}">
+                <p class="radios__item{{ " u-mb-s" if params.borderless else "" }}">
+                    <span class="radio{{ " radio--no-border" if params.borderless else "" }}">
                         <input
                             type="radio"
                             id="{{ radio.id }}"
