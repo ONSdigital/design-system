@@ -42,20 +42,31 @@
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
         >
         <span class="btn__inner{% if params.innerClasses is defined and params.innerClasses %} {{ params.innerClasses }}{% endif %}">
-            {%- if iconPosition == "before" %}
+            {%- if iconPosition == "before" or iconPosition == "after" %}
+                {%- if iconPosition == "before" %}
+                    {{
+                        onsIcon({
+                            "icon": iconType
+                        })
+                    }}
+                {% endif -%}
+                {{- params.html | safe if params.html is defined and params.html else params.text -}}
+                {%- if iconPosition == "after" %}
                 {{
                     onsIcon({
                         "icon": iconType
                     })
                 }}
-            {% endif -%}
-            {{- params.html | safe if params.html is defined and params.html else params.text -}}
-            {%- if iconPosition == "after" %}
-              {{
-                onsIcon({
-                    "icon": iconType
-                })
-              }}
+                {% endif -%}
+            {% elif iconPosition == "only" -%}
+                {{
+                    onsIcon({
+                        "icon": iconType
+                    })
+                }}
+                <span class="u-vh">{{- params.html | safe if params.html is defined and params.html else params.text -}}</span>
+            {% else -%}
+                {{- params.html | safe if params.html is defined and params.html else params.text -}}
             {% endif -%}
         </span>
         {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}

@@ -209,4 +209,16 @@
   .btn--exit {
     margin-top: 0.55rem;
   }
+
+  &-search {
+    padding: 1rem;
+
+    @include mq(m) {
+      bottom: 65px;
+      padding: 0;
+      position: absolute;
+      right: 1rem;
+      width: 20rem;
+    }
+  }
 }

@@ -26,13 +26,21 @@ export default class NavToggle {
   }
 
   openNav() {
+    const input = [...this.nav.getElementsByTagName('INPUT')][0];
+
     this.toggle.setAttribute(attrExpanded, 'true');
+    this.toggle.classList.add('active');
     this.nav.setAttribute(attrHidden, 'false');
     this.nav.classList.remove(hideClass);
+
+    if (input) {
+      input.focus();
+    }
   }
 
   closeNav() {
     this.toggle.setAttribute(attrExpanded, 'false');
+    this.toggle.classList.remove('active');
     this.nav.setAttribute(attrHidden, 'true');
     this.nav.classList.add(hideClass);
   }

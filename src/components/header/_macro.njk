@@ -103,11 +103,28 @@
                             }) }}
                         </div>
                     {% endif %}
-                    {% if params.toggleButton is defined and params.toggleButton %}
+                    {% if params.toggleButton is defined and params.toggleButton or params.autosuggest is defined and params.autosuggest %}
                         <div class="grid__col col-auto u-flex-no-shrink u-d-no@m">
+                            {% if params.autosuggest is defined and params.autosuggest and isPatternLib is defined and isPatternLib %}
+                                {{ onsButton({
+                                    "text": "Search",
+                                    "classes": "btn--search btn--ghost btn--small u-ml-s u-d-no js-toggle-search",
+                                    "icon": {
+                                        "iconType": "search",
+                                        "iconPosition": "only"
+                                    },
+                                    "attributes": {
+                                        "aria-label": params.searchToggle.ariaLabel | default("Toggle search") ,
+                                        "aria-controls": params.navigation.id,
+                                        "aria-haspopup": "true",
+                                        "aria-expanded": "false"
+                                    }
+                                }) }}
+                            {% endif %}
+                            {% if params.toggleButton is defined and params.toggleButton %}
                                 {{ onsButton({
                                     "text": params.toggleButton.text,
-                                    "classes": "btn--mobile u-ml-s u-d-no js-toggle-main",
+                                    "classes": "btn--mobile btn--ghost u-ml-s u-d-no js-toggle-main",
                                     "buttonStyle": "mobile",
                                     "attributes": {
                                         "aria-label": params.toggleButton.ariaLabel | default("Toggle main navigation") ,
@@ -116,6 +133,7 @@
                                         "aria-expanded": "false"
                                     }
                                 }) }}
+                            {% endif %}
                         </div>
                     {% endif %}
                 </div>
@@ -127,19 +145,18 @@
         {% if params.navigation is defined and params.navigation %}
             <div class="header__bottom">
                 <div class="container container--gutterless@xxs@m{{ ' container--full-width' if params.fullWidth }}{{ ' container--wide' if params.wide }}">
-                    <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
-                        {% if params.autosuggest is defined and params.autosuggest and isPatternLib is defined and isPatternLib %}
+                    {% if params.autosuggest is defined and params.autosuggest and isPatternLib is defined and isPatternLib %}
+                        <div class="header-search js-header-search">
                             {{ onsAutosuggest({
                                 "id": "autosuggest-header-search",
                                 "containerClasses": "autosuggest-input--header",
-                                "classes": "input--ghost input--header-search",
+                                "classes": "input--ghost input-search input-search--icon",
                                 "label": {
                                     "text": params.autosuggest.label,
                                     "id": "autosuggest-header-search-label",
-                                    "classes": "label--white label--header-search"
+                                    "classes": "label--white u-pl-m"
                                 },
                                 "accessiblePlaceholder": true,
-                                "accessiblePlaceholderIcon": "search",
                                 "autocomplete": "off",
                                 "instructions": params.autosuggest.instructions,
                                 "ariaYouHaveSelected":params.autosuggest.ariaYouHaveSelected,
@@ -154,7 +171,9 @@
                                 "noResults": params.autosuggest.noResults,
                                 "typeMore": params.autosuggest.typeMore
                             }) }}
-                        {% endif %}
+                        </div>
+                    {% endif %}
+                    <nav class="header-nav js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
                         <ul class="header-nav__list">
                             {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
                                 <li class="header-nav__item {{ item.classes }}{{ ' header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">

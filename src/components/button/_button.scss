@@ -37,6 +37,15 @@ $button-border-height: 3px;
     width: 0.8rem;
   }
 
+  &--search {
+    .svg-icon {
+      height: 22px;
+      margin: 0;
+      vertical-align: top;
+      width: 22px;
+    }
+  }
+
   &__inner {
     background: $color-button;
     border-bottom: ems($button-border-height) solid rgba(0, 0, 0, 0.6);
@@ -223,7 +232,9 @@ $button-border-height: 3px;
   }
 
   &--ghost:hover &,
-  &--mobile:hover & {
+  &--mobile:hover &,
+  &--ghost.active &,
+  &--mobile.active & {
     &__inner {
       background: rgba(0, 0, 0, 0.1);
     }
