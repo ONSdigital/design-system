@@ -106,25 +106,27 @@
                     {% if params.toggleButton is defined and params.toggleButton or params.autosuggest is defined and params.autosuggest %}
                         <div class="grid__col col-auto u-flex-no-shrink u-d-no@m">
                             {% if params.autosuggest is defined and params.autosuggest and isPatternLib is defined and isPatternLib %}
-                                {{ onsButton({
-                                    "text": "Search",
-                                    "classes": "btn--search btn--ghost btn--small u-ml-s u-d-no js-toggle-search",
-                                    "icon": {
-                                        "iconType": "search",
-                                        "iconPosition": "only"
-                                    },
-                                    "attributes": {
-                                        "aria-label": params.searchToggle.ariaLabel | default("Toggle search") ,
-                                        "aria-controls": params.navigation.id,
-                                        "aria-haspopup": "true",
-                                        "aria-expanded": "false"
-                                    }
-                                }) }}
+                                <span class="u-d-no@xxs@xs">
+                                    {{ onsButton({
+                                        "text": "Search",
+                                        "classes": "btn--search btn--ghost btn--small u-ml-xs u-d-no js-toggle-search",
+                                        "icon": {
+                                            "iconType": "search",
+                                            "iconPosition": "only"
+                                        },
+                                        "attributes": {
+                                            "aria-label": params.searchToggle.ariaLabel | default("Toggle search") ,
+                                            "aria-controls": params.navigation.id,
+                                            "aria-haspopup": "true",
+                                            "aria-expanded": "false"
+                                        }
+                                    }) }}
+                                </span>
                             {% endif %}
                             {% if params.toggleButton is defined and params.toggleButton %}
                                 {{ onsButton({
                                     "text": params.toggleButton.text,
-                                    "classes": "btn--mobile btn--ghost u-ml-s u-d-no js-toggle-main",
+                                    "classes": "btn--mobile btn--ghost u-ml-xs u-d-no js-toggle-main",
                                     "buttonStyle": "mobile",
                                     "attributes": {
                                         "aria-label": params.toggleButton.ariaLabel | default("Toggle main navigation") ,

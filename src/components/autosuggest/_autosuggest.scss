@@ -127,6 +127,7 @@
 
   &--header {
     .autosuggest-input__results {
+      box-shadow: 0 0 5px 0 rgba($color-black, 0.5);
       left: 0;
       position: absolute;
       z-index: 1;
