@@ -65,7 +65,7 @@ describe('Component: Navigation', function() {
       beforeEach(function() {
         const HeaderNav = require('../../../components/header/header-nav').default;
 
-        this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList);
+        this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList, 'u-d-no@xxs@m');
         this.nav.registerEvents = chai.spy(this.nav.registerEvents);
         this.nav.registerEvents();
       });
