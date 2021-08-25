@@ -4,7 +4,7 @@ export default {
   browsers: [
     'bs_iphone_11_pro',
     'bs_google_pixel_4',
-    'bs_mac_chrome',
+    // 'bs_mac_chrome',
     // 'bs_mac_firefox',
     'bs_mac_safari',
     'bs_windows_10_IE_edge',
@@ -38,13 +38,13 @@ export default {
     /**
      * OS X
      */
-    bs_mac_chrome: {
-      base: 'BrowserStack',
-      browser: 'chrome',
-      browser_version: 'latest',
-      os: 'OS X',
-      os_version: 'Catalina',
-    },
+    // bs_mac_chrome: {
+    //   base: 'BrowserStack',
+    //   browser: 'chrome',
+    //   browser_version: 'latest',
+    //   os: 'OS X',
+    //   os_version: 'Catalina',
+    // },
     // bs_mac_firefox: {
     //   base: 'BrowserStack',
     //   browser: 'firefox',
