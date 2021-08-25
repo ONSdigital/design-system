@@ -13,6 +13,16 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     steps:
+      - name: 'BrowserStack Env Setup'
+        uses: browserstack/github-actions/setup-env@master
+        with:
+          username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+      - name: 'BrowserStack Local Tunnel Setup'
+        uses: browserstack/github-actions/setup-local@master
+        with:
+          local-testing: start
+          local-identifier: random
       - uses: actions/checkout@v2
       - name: Install Node
         uses: actions/setup-node@v2
@@ -25,6 +35,10 @@ jobs:
       - name: Run visual regression tests
         if: "contains(github.event.head_commit.message, 'test-visual')"
         run: yarn test-visual
+      - name: 'BrowserStackLocal Stop'
+        uses: browserstack/github-actions/setup-local@master
+        with:
+          local-testing: stop
       - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master
