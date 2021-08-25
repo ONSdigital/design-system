@@ -14,8 +14,8 @@
     {{
         onsPhaseBanner({
             "wide": true,
-            "html": 'Help us to improve the ONS Design System. <a href="https://ows.io/tj/dhrye372">Take part in a short study</a>',
-            "badge": 'Testing'
+            "html": 'Help us improve this service. <a href="https://ows.io/tj/dhrye372">Take part in a short online exercise</a>',
+            "badge": 'User testing'
         })
     }}
     {% from "components/header/_macro.njk" import onsHeader %}
@@ -50,11 +50,11 @@
                 <div class="grid__col col-9@m">
                     <div class="patternlib-page__content">
                         {% block preMain %}
-                            {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+                            {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                             {% if pageInfo.parent.title === 'Home' %}
                                 {{
-                                    onsBreadcrumb({
-                                        "ariaLabel": 'Breadcrumb',
+                                    onsBreadcrumbs({
+                                        "ariaLabel": 'Breadcrumbs',
                                         "classes": "u-d-no@m",
                                         "itemsList": [
                                             {
@@ -66,8 +66,8 @@
                                 }}
                             {% else %}
                                 {{
-                                    onsBreadcrumb({
-                                        "ariaLabel": 'Breadcrumb',
+                                    onsBreadcrumbs({
+                                        "ariaLabel": 'Breadcrumbs',
                                         "classes": "u-mb-s u-d-no@m",
                                         "itemsList": [
                                             {

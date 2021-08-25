@@ -5,7 +5,6 @@ group: Ask users for...
 
 +++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
 +++
@@ -64,7 +63,7 @@ To help users enter valid feedback, you should:
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the relevant fields.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the relevant fields.
 
 Guidance on writing error messages can be found in the [radios component](/components/radios) or [textarea component](/components/textarea).
 
@@ -80,24 +79,24 @@ A page with success panel, confirming the feedback has been sent.
 }}
 
 ## Research on this pattern
-The feedback pattern was most recently tested in September 2020. The following findings were reported:
+The feedback pattern was last user tested in September 2020. The following findings were reported:
 {{
     onsList({
         "itemsList": [
             {
-                "text": 'users prefer to give feedback at the end of a questionnaire, rather than be interrupted during it'
+                "text": 'users prefer to give feedback at the end of a questionnaire or survey, rather than be interrupted during it'
             },
             {
-                "text": 'users don’t expect to use the feedback form to report technical issues they are having with the service'
+                "text": 'users do not expect to use the feedback form to report technical issues they are having with the service'
             },
             {
                 "text": 'if the feedback call to action is placed alongside a call to action for another optional process, such as getting a confirmation email, it should also be displayed at the end of that process'
             },
             {
-                "text": 'users don’t expect any reply to the feedback they give, but they want to know how it will be used'
+                "text": 'users do not expect a reply to the feedback they give, but they want to know how it will be used'
             },
             {
-                "text": 'the content of the feedback success message must not appear too “automated” and give the impression the users feedback won’t be looked at'
+                "text": 'the content of the feedback success message must not appear too “automated” as this gives the impression that the user’s feedback will not be looked at'
             }
         ]
     })

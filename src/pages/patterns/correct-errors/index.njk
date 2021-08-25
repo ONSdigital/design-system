@@ -36,7 +36,7 @@ If the user tries to submit the form when there is missing or incorrect informat
 An [error panel with title](/components/panel#error-with-header) component lists all the errors on the page. It must be displayed at the top of the page’s `<main>` container and above the `<h1>` heading when the page reloads. This ensures it is the first element on the page to be read.
 
 {{
-    patternlibExample({ "path": "pages/patterns/error-validation/examples/error-summary/index.njk"})
+    patternlibExample({ "path": "pages/patterns/correct-errors/examples/error-summary/index.njk" })
 }}
 
 The panel contains assistive technology attributes. As soon as the page is loaded, the keyboard focus is on the panel and the user is told about this new information.
@@ -85,7 +85,7 @@ Guidance on specific error messages can be found on the page for each form compo
 You must use an [error details panel](/components/panel#error) to wrap each field that has missing or incorrect information. This needs to describe the error and help the user fix it.
 
 {{
-    patternlibExample({ "path": "pages/patterns/error-validation/examples/error-details/index.njk"})
+    patternlibExample({ "path": "pages/patterns/correct-errors/examples/error-details/index.njk" })
 }}
 
 The [error component](/components/error) is called within each component by providing a `text` and `id` value within the `error` object.
@@ -110,7 +110,7 @@ The prototype provides an example of form validation for inputs that have missin
             "type": 'button',
             "text": 'Launch prototype',
             "classes": 'u-mt-m',
-            "url": '/patterns/error-validation/examples/errors-proto/'
+            "url": '/patterns/correct-errors/examples/errors-proto/'
         })
     }}
 </div>

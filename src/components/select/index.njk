@@ -4,7 +4,6 @@ title: Select
 
 +++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
@@ -37,7 +36,7 @@ You should check that users have selected one of the drop-down options and show 
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the drop-down.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the drop-down.
 
 {{
     patternlibExample({"path": "components/select/examples/select-error/index.njk"})
