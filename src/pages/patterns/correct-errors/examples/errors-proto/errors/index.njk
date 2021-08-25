@@ -12,7 +12,7 @@ layout: none
 {% from "components/date-input/_macro.njk" import onsDateInput %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 {% from "components/password/_macro.njk" import onsPassword %}
-{% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+{% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
 {% from "components/duration/_macro.njk" import onsDuration %}
 
 {% set pageConfig = {
@@ -21,8 +21,8 @@ layout: none
 
 {% block preMain %}
     {{
-        onsBreadcrumb({
-            "ariaLabel": 'Breadcrumb',
+        onsBreadcrumbs({
+            "ariaLabel": 'Breadcrumbs',
             "itemsList": [
                 {
                     "url": '/',
@@ -33,7 +33,7 @@ layout: none
                     "text": 'Patterns'
                 },
                 {
-                    "url": '/patterns/error-validation',
+                    "url": '/patterns/correct-errors',
                     "text": 'Correct errors'
                 }
             ]

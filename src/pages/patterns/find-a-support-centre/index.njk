@@ -3,9 +3,12 @@ title: Find a support centre
 group: Help users to...
 experimental: true
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
 
 There are two parts to helping users find a support centre.
 
@@ -26,7 +29,7 @@ There are two parts to helping users find a support centre.
 }}
 
 ## How to check postcodes
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the postcode field.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the postcode field.
 
 {{
     patternlibExample({ "path": "pages/patterns/find-a-support-centre/examples/postcode-error/index.njk" })

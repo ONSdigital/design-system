@@ -10,7 +10,7 @@ layout: none
 {% set pageConfig = {
     "title": "Anatomy of a question",
     "breadcrumbs": {
-        "ariaLabel": 'Breadcrumb',
+        "ariaLabel": 'Breadcrumbs',
         "itemsList": [
             {
                 "url": '#0',
@@ -22,14 +22,16 @@ layout: none
 
 {% block main %}
     {% call onsQuestion({
-        "title": "How many visitors are staying overnight at <em>3 Severn Road</em> on 13 May 2019?"
+        "title": "How many visitors are staying overnight at <em>3 Severn Road</em> on 13 May 2019?",
+        "description": "<p>Enter “0” if there are no visitors staying overnight</p>"
     }) %}
         {{ onsInput({
             "id": "number-of-visitors",
             "name": "number-of-visitors",
             "type": "number",
+            "classes": "input-number--w-2",
             "label": {
-                "text": "Number of visitors (enter 0 if no visitors)"
+                "text": "Number of visitors"
             }
         }) }}
 

@@ -2,10 +2,13 @@
 title: Input
 synonyms: Text field, Text input
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/lists/_macro.njk" import onsList %}
++++
 
 The input component lets users enter alphanumeric characters for answers that are no longer than one line, using the appropriate keyboard on touch devices.
 {{
@@ -80,14 +83,21 @@ An optional `label__description` can be used to display a hint to help the user 
 }}
 
 ### Width constrained
-Where possible, you should make the inputs the right width for the size of content they are intended for to help users understand what they should enter.  For example, UK postcodes never consist of more than 8 characters.
+Change the width of inputs to suit the type of content. This helps users understand what they need to enter.
 
 Inputs can have their widths constrained (but not limited) to the number of expected characters using the `input--w-<number>` or `input-number--w-<number>` classes.
-`input--w-<number>` is based on the character width of a 'W' and is to be used on fields that will contain any text. `input-number--w-<number>` is based on the character width of '4' and is to be used on fields that only contain numbers.
-Available widths for both classes are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 30, 40, 50.
+
+The class `input--w-<number>` is based on the width of the widest character “W”, and is to be used on fields that will contain any characters. The class `input-number--w-<number>` is based on the width of the widest number “4”, and is to be used on fields that will only contain numbers.
+
+The `<number>` values available for both classes are: `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `15`, `20`, `30`, `40`, `50`.
+
+For inputs that will contain both letters and numbers, you will need to use the class `input--w-<number>` with an appropriate value. For example, UK postcodes always consist of up to 7 letters and numbers and one optional space separating the outward and inward codes. So using the class `input--w-7` will create a width appropriate for the longest potential postcode “WW4W 4WW”.
+
 {{
     patternlibExample({"path": "components/input/examples/text-width-constrained/index.njk"})
 }}
+
+There is specific guidance on how to ask users for [addresses](/patterns/addresses).
 
 ### Email
 Setting the type to `email` will bring up the correct keypad on touch devices.
@@ -114,11 +124,11 @@ Setting the type to `number` will bring up the correct keypad on touch devices.
 There is specific guidance on how to ask users for [numeric values](/patterns/numeric-values) including entering numbers with units, such as currencies and measurements.
 
 ### Character limit checker
-Used for client side validation of an input that requires a character limit. 
+Use this for client-side validation of an input that needs a character limit.
 
-This variant should be used sparingly, because users don’t expect a limit on inputs, and often don’t look up from the keyboard as they type. This means they may not notice the counter.
+Use this variant as little as possible. Users do not expect a limit on inputs, and often do not look up from a keyboard as they type. This means they may not notice the counter.
 
-The character limit counter is displayed when the `charCheckLimit` object is defined with params `limit`, `charCountOverLimitSingular`, `charCountOverLimitPlural` parameters.
+The character counter is displayed when the `charCheckLimit` object is defined with the `limit`, `charCountOverLimitSingular` and `charCountOverLimitPlural` parameters.
 
 {{
     patternlibExample({"path": "components/input/examples/text-character-limit/index.njk"})
@@ -146,7 +156,7 @@ To help users enter something valid into an input field, you should:
 }}
 
 ### Error messages
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the input field.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the input field.
 {{
     patternlibExample({"path": "pages/patterns/email-addresses/examples/email-error/index.njk"})
 }}
@@ -169,12 +179,12 @@ For example, “Enter an email address in a valid format, for example, name@exam
 There is specific guidance on how to ask users for [access codes](/patterns/access-codes).
 
 ## Research on this component
-The [character limit checker](#character-limit-checker) input variant was most recently tested between February to September 2020, as part of the Census 2021 research. The following findings were reported:
+The [character limit checker](#character-limit-checker) input variant was last user tested between February and September 2020 during research for Census 2021. The following findings were reported:
 {{
     onsList({
         "itemsList": [
             {
-                "text": 'users who look down at the keyboard whilst typing may not notice the limit counter'
+                "text": 'users who look down at a keyboard while typing may not notice the character counter'
             },
             {
                 "text": 'they expect to be stopped from entering too many characters'

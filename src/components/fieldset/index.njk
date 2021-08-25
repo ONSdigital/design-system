@@ -1,8 +1,10 @@
 ---
 title: Fieldset
 ---
-{% from "components/panel/_macro.njk" import onsPanel %}
+
++++
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
 
 ## When to use this component
 
@@ -42,7 +44,6 @@ We recommend wrapping the `h1` inside the legend. There are two options for doin
 
 ### Configuration
 
-{% markdown %}
 | Name          | Type                                 | Required | Description                                                          |
 | ------------- | ------------------------------------ | -------- | -------------------------------------------------------------------- |
 | id            | string                               | true     | The id of the fieldset                                               |
@@ -53,7 +54,6 @@ We recommend wrapping the `h1` inside the legend. There are two options for doin
 | description   | string                               | false    | Description for the fieldset                                         |
 | attributes    | object                               | false    | HTML attributes (for example data attributes) to add to the fieldset |
 | error         | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                  |
-{% endmarkdown %}
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

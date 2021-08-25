@@ -2,9 +2,12 @@
 title: Checkboxes
 synonyms: Check, Tick, Tick box
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
++++
 
 Checkboxes let the user select one or more options from a list.
 
@@ -66,7 +69,7 @@ To help users make a selection on the page and provide extra detail if it is req
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the checkbox options.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the checkbox options.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-error/index.njk"})
