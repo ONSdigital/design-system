@@ -43,6 +43,10 @@ $button-border-height: 3px;
       margin: 0;
       vertical-align: top;
       width: 21px;
+
+      @include mq(s, m) {
+        margin-left: -2px;
+      }
     }
   }
 
