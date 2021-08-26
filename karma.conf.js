@@ -97,7 +97,7 @@ export default function(config) {
       accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
       timeout: 1800,
       console: true,
-      localIdentifier: 'ONS',
+      localIdentifier: 'random',
     },
 
     port: 9876,
