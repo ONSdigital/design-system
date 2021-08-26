@@ -1,37 +1,51 @@
 {% from "components/radios/_macro.njk" import onsRadios %}
-{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/fieldset/_macro.njk" import onsFieldset %}
 
-{% call onsQuestion({
-    "title": "What type of accommodation do you live in?",
-    "classes": "u-mt-no",
-    "legendIsQuestionTitle": true
+{% call onsFieldset({
+    "legend": "Select download format",
+    "legendClasses": "u-mb-s"
 }) %}
 {{
         onsRadios({
-            "name": "property-type",
+            "name": "download-format",
             "dontWrap": true,
             "borderless": true,
             "radios": [
                 {
-                    "id": "house",
+                    "id": "xls",
                     "label": {
-                        "text": "House or bungalow"
+                        "text": "XLS format (78.9 KB)",
+                        "description": "Includes supporting information"
                     },
-                    "value": "house"
+                    "value": "xls"
                 },
                 {
-                    "id": "flat",
+                    "id": "csv",
                     "label": {
-                        "text": "Flat, maisonette or apartment"
+                        "text": "CSV format (554.7 KB)"
                     },
-                    "value": "flat"
+                    "value": "csv"
                 },
                 {
-                    "id": "mobile",
+                    "id": "csvw",
                     "label": {
-                        "text": "Caravan or other mobile or temporary structure"
+                        "text": "CSVW format (1.9 KB)"
                     },
-                    "value": "mobile"
+                    "value": "csvw"
+                },
+                {
+                    "id": "json",
+                    "label": {
+                        "text": "JSON file (10.9 KB)"
+                    },
+                    "value": "json"
+                },
+                {
+                    "id": "supporting",
+                    "label": {
+                        "text": "Support information (2.6 KB)"
+                    },
+                    "value": "supporting"
                 }
             ]
         })

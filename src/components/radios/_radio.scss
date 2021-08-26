@@ -17,6 +17,10 @@
     & > .radio__input {
       left: 0.05rem;
       top: 0.15rem;
+
+      &:focus {
+        box-shadow: 0 0 0 3px $color-focus, inset 0 0 0 3px $color-white;
+      }
     }
 
     & > .radio__label {
