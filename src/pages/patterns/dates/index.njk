@@ -2,10 +2,13 @@
 title: Dates
 group: Ask users for...
 ---
+
++++
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
++++
 
 Help users enter a known date.
 
@@ -65,7 +68,7 @@ To help users enter a valid date, you should:
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the date fields.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the date fields.
 
 {{
     patternlibExample({"path": "components/date-input/examples/date-input-error/index.njk"})

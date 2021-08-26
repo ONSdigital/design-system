@@ -158,9 +158,9 @@
                     {% block pageContent %}
                         <div class="ons-page__container ons-container {{ containerClasses }}">
                             {% if pageConfig.breadcrumbs is defined and pageConfig.breadcrumbs %}
-                                {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
+                                {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                                 {{
-                                    onsBreadcrumb({
+                                    onsBreadcrumbs({
                                         "id": pageConfig.breadcrumbs.id,
                                         "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
                                         "itemsList": pageConfig.breadcrumbs.itemsList

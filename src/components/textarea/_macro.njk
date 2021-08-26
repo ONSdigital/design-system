@@ -17,18 +17,18 @@
 
         <textarea
             id="{{ params.id }}"
-            class="ons-input ons-input--textarea {% if params.error is defined and params.error %} ons-input--error {% endif %}{% if params.charCheckLimit.limit is defined and params.charCheckLimit.limit %} ons-js-char-limit-input{% endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
+            class="ons-input ons-input--textarea {% if params.error is defined and params.error %} ons-input--error {% endif %}{% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %} ons-js-char-limit-input{% endif %}{{ textareaExlusiveClass }} {{ params.classes }}"
             name="{{ params.name }}"
             rows="{{ params.rows | default(8) }}"
-            {% if params.charCheckLimit.limit is defined and params.charCheckLimit.limit %}
-            maxlength="{{ params.charCheckLimit.limit }}"
-            data-char-limit-ref="{{ params.id }}-lim-remaining"
-            aria-describedby="{{ params.id }}-lim-remaining"
+            {% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %}
+                maxlength="{{ params.charCheckLimit.limit }}"
+                data-char-limit-ref="{{ params.id }}-lim-remaining"
+                aria-describedby="{{ params.id }}-lim-remaining"
             {% endif %}
             {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >{{ params.value }}</textarea>
 
-        {% if params.charCheckLimit.limit is defined and params.charCheckLimit.limit %}
+        {% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %}
             {% call onsCharLimit({
                 "id": params.id ~ "-lim",
                 "limit": params.charCheckLimit.limit,

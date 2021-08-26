@@ -14,8 +14,8 @@
     {{
         onsPhaseBanner({
             "wide": true,
-            "html": 'Help us to improve the ONS Design System. <a href="https://ows.io/tj/dhrye372">Take part in a short study</a>',
-            "badge": 'Testing'
+            "html": 'Help us improve this service. <a href="https://ows.io/tj/dhrye372">Take part in a short online exercise</a>',
+            "badge": 'User testing'
         })
     }}
     {% from "components/header/_macro.njk" import onsHeader %}
@@ -50,11 +50,11 @@
                 <div class="ons-grid__col ons-col-9@m">
                     <div class="ons-patternlib-page__content">
                         {% block preMain %}
-                            {% from "components/breadcrumb/_macro.njk" import onsBreadcrumb %}
-                            {% if pageInfo.parent[0].title === 'Home' %}
+                            {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+                            {% if pageInfo.parent.title === 'Home' %}
                                 {{
-                                    onsBreadcrumb({
-                                        "ariaLabel": 'Breadcrumb',
+                                    onsBreadcrumbs({
+                                        "ariaLabel": 'Breadcrumbs',
                                         "classes": "ons-u-d-no@m",
                                         "itemsList": [
                                             {
@@ -66,8 +66,8 @@
                                 }}
                             {% else %}
                                 {{
-                                    onsBreadcrumb({
-                                        "ariaLabel": 'Breadcrumb',
+                                    onsBreadcrumbs({
+                                        "ariaLabel": 'Breadcrumbs',
                                         "classes": "ons-u-mb-s ons-u-d-no@m",
                                         "itemsList": [
                                             {
@@ -102,7 +102,7 @@
                 {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNavigation %}
                 <div class="ons-grid__col ons-col-3@m">
                     <div class="ons-patternlib-page__sub-nav ons-u-mt-l@m ons-u-mb-l">
-                        {% if pageInfo.parent[0].title === 'Home' %}
+                        {% if pageInfo.parent.title === 'Home' %}
                             <h2 class="ons-u-fs-r--b ons-u-mt-m@xxs@m ons-u-d-no@m">Contents</h2>
                         {% else %}
                             <h2 class="ons-u-fs-r--b ons-u-bt@xxs@m ons-u-mt-m@xxs@m ons-u-pt-m@xxs@m ons-u-d-no@m">More in ‘{{ pageInfo.parent.title }}’</h2>

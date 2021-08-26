@@ -1,9 +1,11 @@
 ---
 title: Search
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
 
 The search component provides an input and button for searching a service.
 {{
@@ -22,8 +24,6 @@ Provide `accessiblePlaceholder: true` and a `label` to create an accessible plac
 ### Use appropriately sized inputs
 
 A [width constraint](/components/input#width-constrained) class can be used to make the width of input smaller. If the search context is known, for instance a sequence of characters of a known size, the width constraint can help users.
-
-###
 
 ### Character check
 
