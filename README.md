@@ -85,7 +85,7 @@ To run visual regression (VR) tests on pull requests using our VR testing tool [
 
 ## Build
 
-Generate a build into `./build`. Will also create [Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) reports for both the ES6 and ES5 bundle and open them in your default browser.
+Generate a build into `./build`.
 
 ```bash
 yarn build
