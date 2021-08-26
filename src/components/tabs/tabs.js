@@ -140,7 +140,7 @@ export default class Tabs {
   }
 
   getTab(hash) {
-    return this.component.querySelector('.tab[href="' + hash + '"]');
+    return this.component.querySelector('.ons-tab[href="' + hash + '"]');
   }
 
   // Set aria tags

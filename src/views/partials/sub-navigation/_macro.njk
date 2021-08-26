@@ -8,7 +8,7 @@
                     {% if item.anchors is defined and item.anchors %}
                         <ul class="ons-patternlib-subnav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-no">
                             {% for anchor in item.anchors %}
-                                <li class="ons-patternlib-subnav__item list__item">
+                                <li class="ons-patternlib-subnav__item ons-list__item">
                                     <a href="{{ anchor.url }}" class="ons-patternlib-subnav__link ons-list__link">{{ anchor.title }}</a>
                                 </li>
                             {% endfor %}

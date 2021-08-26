@@ -317,8 +317,8 @@ Math.easeInOutQuad = function(t, b, c, d) {
           if (!filterEl && !sortEl) return;
           if (filterEl && (filterEl.tagName.toLowerCase() == 'input' || filterEl.tagName.toLowerCase() == 'select')) return;
           if (sortEl && (sortEl.tagName.toLowerCase() == 'input' || sortEl.tagName.toLowerCase() == 'select')) return;
-          if (sortEl && Util.hasClass(sortEl, 'js-filter__custom-control')) return;
-          if (filterEl && Util.hasClass(filterEl, 'js-filter__custom-control')) return;
+          if (sortEl && Util.hasClass(sortEl, 'ons-js-filter__custom-control')) return;
+          if (filterEl && Util.hasClass(filterEl, 'ons-js-filter__custom-control')) return;
 
           // This will be executed only for a list of buttons -> no inputs
           event.preventDefault();
@@ -546,11 +546,11 @@ Math.easeInOutQuad = function(t, b, c, d) {
     );
 
     for (let i = 0; i < filter.items.length; i++) {
-      // Removeons-u-hidden class from items now visible and scale to zero
-      if (Util.hasClass(filter.items[i], 'u-hidden') && filter.filterList[i]) {
+      // Remove ons-u-hidden class from items now visible and scale to zero
+      if (Util.hasClass(filter.items[i], 'ons-u-hidden') && filter.filterList[i]) {
         filter.items[i].setAttribute('data-scale', 'on');
         filter.items[i].setAttribute('style', filter.accelerateStyle + 'transform: scale(0.5); opacity: 0;');
-        Util.removeClass(filter.items[i], 'u-hidden');
+        Util.removeClass(filter.items[i], 'ons-u-hidden');
       }
     }
 
@@ -584,7 +584,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     for (let i = 0; i < filter.sortingList.length; i++) {
       let item = filter.items[filter.sortingList[i][1]];
 
-      if (Util.hasClass(item, 'u-hidden') || !filter.filterList[filter.sortingList[i][1]]) {
+      if (Util.hasClass(item, 'ons-u-hidden') || !filter.filterList[filter.sortingList[i][1]]) {
         // Item is hidden or was previously hidden -> final position equal to first one
         filter.itemsFinalPosition[filter.sortingList[i][1]] = filter.itemsIterPosition[filter.sortingList[i][1]];
         if (item.getAttribute('data-scale') == 'on') j = j + 1;
@@ -644,7 +644,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     // Animation was off or animation is over -> reset attributes
     for (let i = 0; i < filter.items.length; i++) {
       filter.items[i].removeAttribute('style');
-      Util.toggleClass(filter.items[i], 'u-hidden', !filter.filterList[i]);
+      Util.toggleClass(filter.items[i], 'ons-u-hidden', !filter.filterList[i]);
       filter.items[i].removeAttribute('data-scale');
     }
 
@@ -687,7 +687,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
     // Get offset first visible element
     for (let i = 0; i < filter.items.length; i++) {
-      if (!Util.hasClass(filter.items[i], 'u-hidden')) {
+      if (!Util.hasClass(filter.items[i], 'ons-u-hidden')) {
         (itemStyle = window.getComputedStyle(filter.items[i])),
           (itemWidth = parseFloat(itemStyle.getPropertyValue('width'))),
           (itemHeight = parseFloat(itemStyle.getPropertyValue('height'))),
@@ -735,10 +735,10 @@ Math.easeInOutQuad = function(t, b, c, d) {
     }
     if (bool) {
       // Reset visibility before animation is triggered
-      if (!show) Util.addClass(filter.fallbackMessage, 'u-hidden');
+      if (!show) Util.addClass(filter.fallbackMessage, 'ons-u-hidden');
       return;
     }
-    Util.toggleClass(filter.fallbackMessage, 'u-hidden', !show);
+    Util.toggleClass(filter.fallbackMessage, 'ons-u-hidden', !show);
   }
 
   function getMultipleSelectValues(multipleSelect) {
@@ -1017,7 +1017,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     // Detect click on filters trigger
     filtersTrigger.addEventListener('click', function(event) {
       event.preventDefault();
-      toggleFilters(!Util.hasClass(filtersPanel, 'adv-filter__panel--is-visible'));
+      toggleFilters(!Util.hasClass(filtersPanel, 'ons-adv-filter__panel--is-visible'));
     });
 
     // Detect click on update
@@ -1061,8 +1061,8 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
     // Toggle filters visibility on small devices
     function toggleFilters(bool) {
-      Util.toggleClass(filtersPanel, 'adv-filter__panel--is-visible', bool);
-      Util.toggleClass(body, 'no-scroll', bool);
+      Util.toggleClass(filtersPanel, 'ons-adv-filter__panel--is-visible', bool);
+      Util.toggleClass(body, 'ons-no-scroll', bool);
       filtersTrigger.setAttribute('aria-expanded', bool);
     }
   }
