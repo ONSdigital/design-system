@@ -51,7 +51,7 @@
                     <div class="patternlib-page__content">
                         {% block preMain %}
                             {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
-                            {% if pageInfo.parent[0].title === 'Home' %}
+                            {% if pageInfo.parent.title === 'Home' %}
                                 {{
                                     onsBreadcrumbs({
                                         "ariaLabel": 'Breadcrumbs',
@@ -83,8 +83,8 @@
                             <div class="patternlib-page__content">
                                 <header class="patternlib-page__content-header">
                                     <h1 class="u-fs-xxl">
-                                        {% if page.group %}
-                                            <span class="u-fs-m u-db u-mb-xs u-lighter">{{ page.group | replace("...", "") }}</span>
+                                        {% if pageInfo.group %}
+                                            <span class="u-fs-m u-db u-mb-xs u-lighter">{{ pageInfo.group | replace("...", "") }}</span>
                                         {% endif %}
                                         {{ pageInfo.title }}
                                     </h1>
@@ -96,20 +96,20 @@
                         </main>
                     </div>
                 </div>
-                {% if (page.hideSidebar != true) and
+                {% if (pageInfo.hideSidebar != true) and
                     (helpers.subNavigationHelper({ pageInfo: pageInfo }).length > 0)
                 %}
                 {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNavigation %}
                 <div class="grid__col col-3@m">
                     <div class="patternlib-page__sub-nav u-mt-l@m u-mb-l">
-                        {% if pageInfo.parent[0].title === 'Home' %}
+                        {% if pageInfo.parent.title === 'Home' %}
                             <h2 class="u-fs-r--b u-mt-m@xxs@m u-d-no@m">Contents</h2>
                         {% else %}
                             <h2 class="u-fs-r--b u-bt@xxs@m u-mt-m@xxs@m u-pt-m@xxs@m u-d-no@m">More in ‘{{ pageInfo.parent.title }}’</h2>
                         {% endif %}
                         {% for group in helpers.subNavigationHelper({
                             pageInfo: pageInfo,
-                            anchorLinks: page.anchorLinks
+                            anchorLinks: pageInfo.anchorLinks
                         }) %}
                             {% if group.title is defined and group.title %}
                                 <h3 class="u-fs-r--b u-mb-s">{{ group.title }}</h3>

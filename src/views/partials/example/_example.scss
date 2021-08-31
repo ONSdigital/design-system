@@ -69,6 +69,10 @@
     font-size: 0.8rem !important;
     margin: 0;
     white-space: normal;
+
+    + p {
+      margin-top: 1rem;
+    }
   }
 }
 

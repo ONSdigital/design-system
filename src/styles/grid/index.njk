@@ -2,8 +2,11 @@
 title: Grid
 sortOrder: 3
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
 
 Use the ONS grid system to lay out the content on your service’s pages.
 
@@ -30,12 +33,10 @@ Use different column widths to make up the 12 available columns:
 Gutters are fixed for each breakpoint. 24px for screen widths `600px` and greater and 16px for below `600px`. There are options for removing gutters by using modifier classes on the grid which is useful when nesting grids.
 
 The baseline grid is based on multiples of **8px**.
-{% md %}
+
 | Viewport | <300px | 301 - 600 | 600 - 1000+ |
 |----------|--------|-----------|-------------|
 | Gutter   | 16px   | 16px      | 24px        |
-
-{% endmd %}
 
 #### 600 - 1000+ Grid
 Laptop (including tablet in horizontal orientation) and larger resolution devices.
@@ -57,7 +58,7 @@ Laptop (including tablet in horizontal orientation) and larger resolution device
 ### Breakpoints
 
 There are set breakpoints that can be accessed to adapt the layout for different screen widths.
-{% md %}
+
 | Breakpoint | Variable to reference |
 |------------|---------------------- |
 | 300px      | xxs                   |
@@ -67,7 +68,6 @@ There are set breakpoints that can be accessed to adapt the layout for different
 | 980px      | l                     |
 | 1300px     | xl                    |
 | 1600px     | xxl                   |
-{% endmd %}
 
 
 ## Using the grid system
