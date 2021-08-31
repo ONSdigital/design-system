@@ -2,15 +2,18 @@
 title: Name of component
 exclude: true {# Remove this line to publish #}
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
++++
 
 {# Add a short summary here to explain what this component is and what it does, for example, “Accordions let users show or hide sections of related content on the same page." #}
 
 {# Add an example of the default component variant here using:
     {{
-        patternlibExample({"path": "components/input/examples/text/index.njk"})
+        patternlibExample({ "path": "components/input/examples/text/index.njk" })
     }}
 #}
 
@@ -46,7 +49,7 @@ Use the [correct errors pattern](/patterns/correct-errors) and show the error de
 
 {# Add an example of the component with an error message here using:
     {{
-        patternlibExample({"path": "patterns/email-addresses/examples/email-error/index.njk"})
+        patternlibExample({ "path": "pages/patterns/email-addresses/examples/email-error/index.njk" })
     }}
 #}
 

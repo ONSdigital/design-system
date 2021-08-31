@@ -1,0 +1,68 @@
+---
+title: Check answers
+group: Help users to...
+---
+
++++
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
+
+Allow users to check the information they have previously entered and confirm it's correct before submitting it.
+
+## When to use this pattern
+Use this pattern when you need to let users check and confirm the information they have given before they complete, for example, a survey questionnaire.
+
+## How to use this pattern
+There are currently 3 methods within an EQ survey for playing back respondent data.
+
+{{
+    onsList({
+        "element": 'ol',
+        "itemsList": [
+            {
+                "href": '#1-the-playback-of-answers-within-a-summary',
+                "text": 'The playback of answers within a summary.'
+            },
+            {
+                "href": '#2-the-playback-of-a-single-answer',
+                "text": 'The playback of a singular answer.'
+            },
+            {
+                "href": '#3-the-playback-of-multiple-answers-or-a-list-of-options',
+                "text": 'The playback of multiple answers or a list of options.'
+            }
+        ]
+    })
+}}
+
+Each method allows the respondent to check what they have have previously entered and confirm that the data is correct.
+
+### 1. The playback of answers within a summary
+A [summary](/components/summary) lets the user review the answer(s) they have given to a single question or multiple questions, allowing them to edit their answers before completing the survey.
+
+<figure>
+    <img src="/patternlib-img/playback-summary.svg" alt="The playback of answer(s) within a summary">
+    <figcaption>Figure 1. An example where the respondent has completed a section or survey and their answers are played back within a summary.</figcaption>
+</figure>
+
+### 2. The playback of a single answer
+<figure>
+    <img src="/patternlib-img/playback-singular-answer.svg" alt="The playback of a singular answer">
+    <figcaption>Figure 2. An example where the respondent is required to confirm a single answer in order to progress.</figcaption>
+</figure>
+
+### 3. The playback of multiple answers or a list of options
+<figure>
+   <img src="/patternlib-img/playback-multiple-answers.svg" alt="The playback of multiple answers or a list of options">
+    <figcaption>Figure 3. An example where the respondent is required to confirm multiple answers or a list of options previously entered.</figcaption>
+</figure>
+
+## Help improve this pattern
+Let us know how we could improve this pattern or share your user research findings.
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/1392",
+        "linkText": "Discuss the ‘Check answers’ pattern on GitHub"
+    })
+}}

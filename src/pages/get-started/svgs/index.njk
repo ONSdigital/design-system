@@ -1,0 +1,30 @@
+---
+title: Exporting SVGs
+sortOrder: 4
+group: Guides
+---
+
++++
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
+
+When exporting SVG images for the web you should ensure that styles are exported as *inline* rather than as CSS. This is to ensure that styles are not accidentally overridden as the generated class names are not unique, and allows {{
+    onsExternalLink({
+        "url": "https://github.com/svg/svgo",
+        "linkText": "SVGO"
+    })
+}} to optimise the file without breaking it.
+
+## How to export from Adobe Illustrator
+
+1. File > Export > Export as
+
+<img class="u-mb-m" src="/patternlib-img/illustrator-export-1.png" alt="Screenshot of File > Export > Export as" style="max-width: 600px" />
+
+2. Select SVG from the drop-down (you might want to check "Use artboards" depending on your asset) and click "Export"
+
+<img class="u-mb-m" src="/patternlib-img/illustrator-export-2.png" alt="Screenshot of selecting SVG from drop-down" style="max-width: 600px" />
+
+3. Set "Styling" to "Inline Style"
+
+<img class="u-mb-m" src="/patternlib-img/illustrator-export-3.png" alt="Screenshot of selecting inline style" style="max-width: 400px" />

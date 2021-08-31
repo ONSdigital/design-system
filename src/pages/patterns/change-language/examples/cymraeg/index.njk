@@ -1,0 +1,57 @@
+---
+layout: none
+---
+
++++
+{% extends "styles/page-template/_template.njk" %}
+
+{% set pageConfig = {
+    "title": "Enw'r gwasanaeth",
+    "language": {
+        "languages": [
+            {
+                "url": "#",
+                "ISOCode": "en",
+                "text": "English",
+                "buttonAriaLabel": "Language selector. Current language: English",
+                "chooseLanguage": "Choose language",
+                "current": false
+            },
+            {
+                "url": "#",
+                "ISOCode": "cy",
+                "text": "Cymraeg",
+                "buttonAriaLabel": "Dewisydd iaith. Iaith gyfredol: Cymraeg",
+                "chooseLanguage": "Dewiswch iaith",
+                "current": true
+            }
+        ]
+    },
+    "footer": {
+        "rows": [
+            {
+                "itemsList": [
+                    {
+                        "text": "Cysyllwch a ni",
+                        "url": "#"
+                    },
+                    {
+                        "text": "Cwcis ac preifatrwydd",
+                        "url": "#"
+                    }
+                ]
+            }
+        ],
+        "OGLLink": {
+            "pre": "Mae'r holl gynnwys ar gael o dan y",
+            "link": "Drwydded Llywodraeth Leol v3.0",
+            "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+            "post": ", oni bai y nodir fel arall"
+        }
+    }
+} %}
+
+{% block main %}
+{% endblock %}
+
++++

@@ -1,0 +1,65 @@
+---
+layout: none
+---
+
++++
+{% extends "styles/page-template/_template.njk" %}
+
+{% set pageConfig = {
+    "title": "Service name",
+    "language": {
+        "languages": [
+            {
+                "url": "#",
+                "ISOCode": "en",
+                "text": "English",
+                "buttonAriaLabel": "Language selector. Current language: English",
+                "chooseLanguage": "Choose language",
+                "current": true
+            },
+            {
+                "url": "#",
+                "ISOCode": "ga",
+                "text": "Gaeilge",
+                "buttonAriaLabel": "Roghnóir teanga. Teanga reatha: Gaeilge",
+                "chooseLanguage": "Roghnaigh teanga",
+                "current": false
+            },
+            {
+                "url": "#",
+                "ISOCode": "sco",
+                "text": "Ulstèr-Scotch",
+                "buttonAriaLabel": "Leid selectgor. Current leid: Ulstèr-Scotch",
+                "chooseLanguage": "Wale leid",
+                "current": false
+            }
+        ]
+    },
+    "footer": {
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        },
+        "rows": [
+            {
+                "itemsList": [
+                    {
+                        "text": 'Contact us',
+                        "url": '#'
+                    },
+                    {
+                        "text": 'Cookies and privacy',
+                        "url": '#'
+                    }
+                ]
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+{% endblock %}
+
++++
