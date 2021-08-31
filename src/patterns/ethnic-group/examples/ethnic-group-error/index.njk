@@ -26,7 +26,7 @@ layout: none
             {
                 "url": '/',
                 "id": "previous",
-                "text": 'previous'
+                "text": 'Previous'
             }
         ]
     },
@@ -35,7 +35,7 @@ layout: none
 } %}
 {% block main %}
     {% call onsPanel({
-            title: "There is a problem with this page",
+            title: "There is a problem with your answer",
             type: "error",
             "classes": "u-mb-m",
             "dsExample": isPatternLib
@@ -65,7 +65,7 @@ layout: none
                 "name": "ethnicity",
                 "error": {
                     "id": "feedback-type",
-                    "text": "Select what question topic your feedback is about",
+                    "text": "Select an ethnic group",
                     "dsExample": isPatternLib
                 },
                 "radios": [
@@ -127,7 +127,7 @@ layout: none
             }
         })
     %}
-        <p>Your answer will provide a better understanding of your community and help to support equality and fairness. For example, councils and government use information on ethnic group to make sure they</p>
+        <p>Your answer will provide a better understanding of your community and help to support equality and fairness. For example, councils and government use information on ethnic group to make sure they:</p>
         {{
             onsList({
                 "itemsList": [
@@ -145,7 +145,7 @@ layout: none
     {{
         onsButton({
             "text": "Save and continue",
-            "classes": "u-mt-m"
+            "classes": "u-mt-xl"
         })
     }}
 {% endblock %}

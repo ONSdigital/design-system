@@ -9,16 +9,10 @@ group: Ask users for...
 How to ask users for their ethnic group or background.
 
 ## When to use this pattern
-Use this pattern when you need to ask your users to choose or describe their ethnic group or background.
+Use this pattern when you need to ask your users to choose and or describe their ethnic group or background.
 
 ## How to use this pattern
-Use the [radios component](/components/radios). Ensure that you use a standard list of ethnic groups and backgrounds. The business area needs to supply this.
-
-Add hint text for each radio option. This will help users understand what each ethnic group or background includes. The business area should also provide this hint text.
-
-Always offer users an “Other ethnic group” option. How they identify may not fit into any of the radio options offered. The “Other” option must route to a page where users can describe their ethnic group or background. Use the [input](/components/input) and [autosuggest](/components/autosuggest) components for this.
-
-The following example uses the Census 2021 ethnic group options. Another service or site may be different. The groups, and what each one includes, may get changed or updated. Make sure you use the latest, correct options and language.
+There are three parts to asking users for their ethnic group or background. Include the hint text for each radio option. It helps users understand what each ethnic group or background includes.
 
 {{
     patternlibExample({ "path": "patterns/ethnic-group/examples/ethnic-group/index.njk" })
@@ -43,7 +37,7 @@ To help users select or enter a valid ethnic group, you should:
                 "text": 'check they have entered something in the field if they select “Other ethnic group”'
             },
             {
-                "text": 'show an error message if they have not selected a required radio button or entered something in when it is require for “Other ethnic group”'
+                "text": 'show an error message if they have not selected a required radio button or entered something in when it is required for “Other ethnic group”'
             }
         ]
     })
@@ -63,7 +57,7 @@ Guidance on writing error messages can be found in the [radios component](/compo
 Let us know how we could improve this pattern or share your user research findings.
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/discussions/1388",
+        "url": "#",
         "linkText": "Discuss the ‘Ethnic group’ pattern on GitHub"
     })
 }}
