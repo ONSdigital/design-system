@@ -2,9 +2,12 @@
 title: Page template
 sortOrder: 5
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
++++
 
 Use the page template to create pages with the core components and markup required for an ONS service.
 
@@ -72,27 +75,22 @@ Variables can be set with:
 
 {{ onsCodeHighlight({ "code": "{% raw %}{% set variableName = value %}{% endraw %}" }) }}
 
-{% md %}
 | Variable Name   | Type                                | Required | Description                                                                                                                           |
 | --------------- | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | form            | `FormConfig` [_(ref)_](#formconfig) | false    | A object with configuration to wrap the current page in a form. If `form` variable is not set, the page will not be wrapped in a form |
 | pageConfig      | `PageConfig` [_(ref)_](#pageconfig) | true     | A object with configuration for the current page                                                                                      |
 | release_version | string                              | false    | What CDN version to use. This can also be configured from the `page` configuration object                                             |
-{% endmd %}
 
 ##### FormConfig
 
-{% md %}
 | Variable Name | Type   | Required | Description                                                                |
 | ------------- | ------ | -------- | -------------------------------------------------------------------------- |
 | classes       | string | false    | Classes to apply to the wrapping form                                      |
 | attributes    | object | false    | HTML attributes (for example data attributes) to add to the button form    |
 | method        | string | false    | The method the form should you, if not specified it will default to `POST` |
-{% endmd %}
 
 ##### PageConfig
 
-{% md %}
 | Variable Name | Type                                                | Required                          | Description                                                                                                                                   |
 | ------------- | --------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | cdn           | `CDN` [_(ref)_](#cdn)                               | false                             | What CDN version to use                                                                                                                       |
@@ -115,20 +113,16 @@ Variables can be set with:
 | description   | string                                              | true                              | Defualt description of the current page for search engines if headMeta.description is not provided.                                           |
 | absoluteUrl   | string                                              | true                              | Default URL for the preferred page for search engines to avoid duplicate content penalties. Used if if headMeta.canonicalUrl is not provided. |
 | wide          | boolean                                             | false                             | If sets to true passes sets the `wide` param on both the header and footer which will add css which will make the page use a wider style.     |
-{% endmd %}
 
 ##### CDN
 
-{% md %}
 | Variable Name | Type   | Required | Description           |
 | ------------- | ------ | -------- | --------------------- |
 | url           | string | false    | URL for the CDN       |
 | version       | string | false    | DS version on the CDN |
-{% endmd %}
 
 ###### PageHeader
 
-{% md %}
 | Variable Name    | Type   | Required                             | Description                                                                            |
 | ---------------- | ------ | ------------------------------------ | -------------------------------------------------------------------------------------- |
 | title            | string | false                                | Title for the page header. If not specified this will default to `page.title`          |
@@ -141,31 +135,25 @@ Variables can be set with:
 | titleLogoAlt     | string | false (if `titleLogo` not specified) | Alt tag for the title logo                                                             |
 | titleLogoHref    | string | false                                | Will wrap the title logo in a link to the specified URL                                |
 | customHeaderLogo | string | false                                | Allows the overriding of the masthead logo, set to 'nisra' to show Nisra logo          |
-{% endmd %}
 
 ###### HeadMeta
 
-{% md %}
 | Variable Name | Type                              | Required                             | Description                                                                                                      |
 | ------------- | --------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | description   | string                            | false                                | Description of the current page for search engines.                                                              |
 | canonicalUrl  | string                            | false                                | URL for the preferred page for search engines to avoid duplicate content penalties. Defaults to current page url |
 | twitterSite   | string                            | false                                | @username for the website used in the card, for example `@census2021`                                            |
 | hrefLangs     | `HrefLangs` [_(ref)_](#hreflangs) | false                                | Metadata for the language links to improve SEO                                            |
-{% endmd %}
 
 ##### HrefLangs
 
-{% md %}
 | Variable Name | Type   | Required | Description           |
 | ------------- | ------ | -------- | --------------------- |
 | url           | string | false    | URL for the CDN       |
 | lang          | string | false    | DS version on the CDN |
-{% endmd %}
 
 ###### PageFooter
 
-{% md %}
 | Variable Name        | Type                                                     | Required | Description                                                                                          |
 | -------------------- | -------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | OGLLink              | `OGLLink` [_(ref)_](/components/footer)                  | false    | An object containing settings for the OGL link                                                       |
@@ -178,25 +166,27 @@ Variables can be set with:
 | newTabWarning        | string                                                   | false    | Text for warning of links opening in new tabs                                                        |
 | crest                | boolean                                                  | false    | If set to true will add the UK coat of arms to the footer                                            |
 | legal                | `Array<LegalRow>`                                        | false    | An array of LegalRow objects                                                                         |
-{% endmd %}
 
 #### Blocks
 
 Blocks can be set with:
 
++++
 {{ onsCodeHighlight({ "code": "{% raw %}{% block blockName %}
     HTML Here
 {% endblock %}{% endraw %}" }) }}
++++
 
 To change the components that are included by default, set their equivalent blocks, for example:
 
++++
 {{ onsCodeHighlight({ "code": "{% raw %}{% block header %}
     {{ onsHeader({
         ...
     }) }}
 {% endblock %}{% endraw %}" }) }}
++++
 
-{% md %}
 | Block Name | Description                                                                         |
 | ---------- | ----------------------------------------------------------------------------------- |
 | headIcons  | Override the default icons used for ONS branded pages                               |
@@ -211,7 +201,6 @@ To change the components that are included by default, set their equivalent bloc
 | main       | Main content and markup                                                             |
 | footer     | Override the default [footer](/components/footer) component                         |
 | bodyEnd    | Add content just after just before the closing `</body>` element                    |
-{% endmd %}
 
 ##### Exploded view of the page template block areas
 

@@ -1,5 +1,5 @@
 {% macro onsCodeHighlight(params) %}
-    <pre class="patternlib-example__pre">
-        <code class="patternlib-example__code language-{{ params.language if params.language and params.language is defined else 'markup' }}">{{ params.code }}</code>
-    </pre>
+    <pre class="patternlib-example__pre">{#
+        #}<code class="patternlib-example__code language-{{ params.language if params.language and params.language is defined else 'markup' }}">{{ params.code }}</code>{#
+    #}</pre>
 {% endmacro %}
