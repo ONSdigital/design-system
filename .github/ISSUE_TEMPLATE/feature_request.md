@@ -1,9 +1,10 @@
 ---
 name: New feature proposal
 about: Propose a new component, pattern, style or documentation to add to the ONS Design System
-title: 'Proposal: [FEATURE NAME]'
+title: '[FEATURE NAME]'
 labels: 'New feature proposal'
 assignees: ''
+project: 'ONS Design System community backlog'
 ---
 
 <!--
