@@ -4,7 +4,7 @@
     {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
 
     {% set fields %}
-        <p class="checkboxes__label">{{ params.checkboxesLabel }}</p>
+        <p class="checkboxes__label{{ " " + params.checkboxesLabelClasses if params.checkboxesLabelClasses }}">{{ params.checkboxesLabel }}</p>
         <div class="checkboxes__items">
             {% for checkbox in params.checkboxes %}
                 {% set labelHTML = checkbox.label.text %}
@@ -17,7 +17,7 @@
                         "name": checkbox.name,
                         "value": checkbox.value,
                         "checked": checkbox.checked,
-                        "classes": checkbox.classes,
+                        "classes": checkbox.classes | default('') + ( "checkbox--no-border" if params.borderless ),
                         "inputClasses": exclusiveClass,
                         "label": {
                             "for": checkbox.id,

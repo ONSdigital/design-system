@@ -32,6 +32,42 @@ $checkbox-padding: 11px;
     }
   }
 
+  &--no-border {
+    & > .checkbox__label {
+      padding: 0 0 0 1.85rem;
+
+      &::before {
+        background: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      & > .checkbox__label--with-description {
+        padding-bottom: 0;
+      }
+    }
+
+    & > .checkbox__input {
+      left: 0.05rem;
+      top: 0.15rem;
+
+      &:checked,
+      &:focus {
+        background-color: initial;
+
+        & + .checkbox__label::before {
+          background: none;
+          border: none;
+          box-shadow: none;
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 3px $color-focus;
+      }
+    }
+  }
+
   &__label {
     cursor: pointer;
     display: block;
