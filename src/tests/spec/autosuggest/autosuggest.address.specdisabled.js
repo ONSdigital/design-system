@@ -42,7 +42,7 @@ const params = {
   errorTitle: 'There is a problem with your answer',
   errorMessageEnter: 'Enter an address',
   errorMessageSelect: 'Select an address',
-  errorMessageAPI: 'Sorry, there was a problem loading addresses',
+  errorMessageAPI: 'Sorry, there is a problem loading addresses',
   errorMessageAPILinkText: 'Enter address manually',
   options: {
     regionCode: 'gb-eng',
@@ -744,7 +744,7 @@ describe('Autosuggest.address component', function() {
       errorTitle: 'There is a problem with your answer',
       errorMessageEnter: 'Enter an address',
       errorMessageSelect: 'Select an address',
-      errorMessageAPI: 'Sorry, there was a problem loading addresses',
+      errorMessageAPI: 'Sorry, there is a problem loading addresses',
       errorMessageAPILinkText: 'Enter address manually',
       manualLinkText: 'Manually enter address',
     };

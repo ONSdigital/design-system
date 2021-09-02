@@ -15,7 +15,8 @@
                                     "text": params.organisation.label
                                 },
                                 "classes": "input--w-20@m js-address-organisation",
-                                "name": params.id + "-organisation"
+                                "name": params.id + "-organisation",
+                                "error": params.organisation.error
                             })
                         }}
                     {% endif %}
@@ -42,7 +43,8 @@
                                     "text": params.line2.label
                                 },
                                 "classes": "input--w-20@m js-address-line2",
-                                "name": params.id + "-line2"
+                                "name": params.id + "-line2",
+                                "error": params.line2.error
                             })
                         }}
                     {% endif %}
@@ -55,7 +57,8 @@
                                     "text": params.town.label
                                 },
                                 "classes": "js-address-town",
-                                "name": params.id + "-town"
+                                "name": params.id + "-town",
+                                "error": params.town.error
                             })
                         }}
                     {% endif %}
@@ -68,7 +71,8 @@
                                     "text": params.postcode.label
                                 },
                                 "classes": "input--w-7 js-address-postcode",
-                                "name": params.id + "-postcode"
+                                "name": params.id + "-postcode",
+                                "error": params.postcode.error
                             })
                         }}
                     {% endif %}

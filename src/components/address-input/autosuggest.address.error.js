@@ -29,31 +29,24 @@ export default class AddressError {
       const errorElementTitle = document.createElement('div');
       const errorBodyElement = document.createElement('div');
 
-      const errorListElement = document.createElement('ol');
-      const errorListItemElement = document.createElement('li');
+      const errorListElement = document.createElement('p');
       const errorLinkElement = document.createElement('a');
-      const errorLinkElementPre = document.createElement('span');
 
       errorElement.className = 'panel panel--error u-mb-m js-autosuggest-error-panel';
       errorElementHeader.className = 'panel__header';
       errorElementTitle.className = 'panel__title u-fs-r--b';
       errorBodyElement.className = 'panel__body';
-      errorListElement.className = 'list list--bare';
-      errorListItemElement.className = 'list__item';
       errorLinkElement.className = 'list__link js-inpagelink js-error';
       errorLinkElement.href = '#autosuggest-input-error';
 
       errorElementTitle.innerHTML = this.errorTitle;
-      errorLinkElementPre.innerHTML = '1. ';
 
       errorElement.appendChild(errorElementHeader);
       errorElementHeader.appendChild(errorElementTitle);
       errorElement.appendChild(errorBodyElement);
       errorBodyElement.appendChild(errorListElement);
-      errorListElement.appendChild(errorListItemElement);
-      errorListItemElement.appendChild(errorLinkElement);
+      errorListElement.appendChild(errorLinkElement);
 
-      errorListItemElement.insertBefore(errorLinkElementPre, errorListItemElement.firstChild);
       page.insertBefore(errorElement, page.firstChild);
 
       // fire the inpagelink function
@@ -66,7 +59,7 @@ export default class AddressError {
       const inputErrorPanelP = document.createElement('p');
       const inputErrorPanelStrong = document.createElement('strong');
 
-      inputErrorPanel.className = 'panel panel--error panel--simple';
+      inputErrorPanel.className = 'panel panel--error panel--no-title';
       inputErrorPanel.id = 'autosuggest-input-error';
       inputErrorPanelBody.className = 'panel__body';
       inputErrorPanelP.className = 'panel__error';
