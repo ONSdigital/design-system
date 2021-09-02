@@ -11,7 +11,7 @@
                 {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
                     {% set exclusiveClass = ' js-exclusive-group-item' %}
                 {% endif %}
-                <p class="checkboxes__item">
+                <p class="checkboxes__item{{ " checkboxes__item--no-border" if params.borderless }}">
                     {% set config = {
                         "id": checkbox.id,
                         "name": checkbox.name,
