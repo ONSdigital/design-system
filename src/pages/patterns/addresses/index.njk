@@ -22,13 +22,13 @@ There are three ways to collect an address from a user using the [address input 
     onsList({
         "itemsList": [
             {
-                "text": 'selected from an address index using the <a href="#non-editable-address-pattern">non-editable variant</a> and then confirmed'
+                "text": 'selected from an address index using the <a href="#non-editable-addresses">non-editable variant</a> and then confirmed'
             },
             {
-                "text": 'selected from an address index and edited using the <a href="#editable-address-pattern">editable variant</a>'
+                "text": 'selected from an address index and edited using the <a href="#editable-addresses">editable variant</a>'
             },
             {
-                "text": '<a href="#manual-address-pattern">entered manually</a>'
+                "text": '<a href="#manual-addresses">entered manually</a>'
             }
         ]
     })
@@ -40,16 +40,15 @@ The non-editable and editable variants appear the same for the user until they s
 
 Use the non-editable variant of the address input component if you want the user to select their address from the ONS Address Index API.
 
-The user can enter part of their address to search the address index and select from the results. They will be able to edit the selected address, but the [component’s client-side validation](/components/address-input#) will prevent them from continuing.
-
-After successfully choosing an address you need to ask the user to [confirm it is correct](#address-confirmation) using the [check answers pattern](/patterns/check-answers).
+The user can enter part of their address to search the address index and select from the results. They will be able to edit the selected address, but the [component’s client-side validation](/components/address-input#validation) will prevent them from continuing.
 
 {{
     patternlibExample({"path": "pages/patterns/addresses/examples/address-input-non-editable/index.njk"})
 }}
 
 #### Address confirmation
-Use the [check answers pattern](/patterns/check-answers) to ask the user to confirm the selected address is correct.
+After successfully choosing an address, you need to ask the user to confirm it is correct using the [check answers pattern](/patterns/check-answers).
+
 {{
     patternlibExample({"path": "pages/patterns/addresses/examples/address-input-non-editable/confirm-address/index.njk"})
 }}
@@ -58,7 +57,7 @@ Use the [check answers pattern](/patterns/check-answers) to ask the user to conf
 
 Use the editable variant of the address input component if you want the user to select their address from the ONS Address Index API and be able to edit it afterwards. 
 
-The user can enter part of their address to search the address index and select from the results. Once an address is selected, it is displayed in multiple fields wrapped within a [fieldset](/components/fieldset) with a legend. If you are using the component within the `onsQuestion` macro you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro.
+The user can enter part of their address to search the address index and select from the results. Once an address is selected, it is displayed in multiple fields wrapped within a [fieldset](/components/fieldset) with a legend. If you are using the component within the `onsQuestion` macro, you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro.
 
 You will need to [check the address](#how-to-check-addresses) using server-side validation.
 
@@ -70,7 +69,7 @@ You will need to [check the address](#how-to-check-addresses) using server-side 
 
 Use the manual variant of the address input component if you want the user to enter their address manually. 
 
-The manual address inputs are wrapped within a [fieldset](/components/fieldset) and legend. If you are using the component within the `onsQuestion` macro you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro.
+The manual address inputs are wrapped within a [fieldset](/components/fieldset) and legend. If you are using the component within the `onsQuestion` macro, you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro.
 
 You will need to [check the address](#how-to-check-addresses) using server-side validation.
 
@@ -103,7 +102,7 @@ Use the {{
         "url": "https://ideal-postcodes.co.uk/guides/uk-postcode-format",
         "linkText": "Ideal Postcodes website"
     })
-}} to understand the rules for a valid UK postcode.
+}} to check the format for a valid UK postcode.
 
 ### Error messages
 Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the input field.
@@ -117,7 +116,7 @@ Use “Enter [whatever part of the address is missing]”.\
 For example, “Enter the first line of the address”.
 
 #### If the postcode entered is not valid
-Use “Enter a valid UK postcode”
+Use “Enter a valid UK postcode”.
 
 ## Research on this pattern
 The addresses pattern was last user tested in October 2020 during research for Census 2021. The following findings were reported:
