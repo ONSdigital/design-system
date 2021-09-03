@@ -9,11 +9,13 @@ title: Address input
 {% from "components/panel/_macro.njk" import onsPanel %}
 +++
 
-Allows users to use an address finder to [search for addresses using the ONS Address Index API](#how-to-use-this-component-with-the-ons-address-index-api) or to use a set of fields to [enter an address manually](#how-to-use-this-component-for-manual-address-entry).
+Allows users to find an address using an address finder or enter one manually.
 
 ## When to use this component
 
-Use the address input component when you need users to find an address or enter one manually.
+Use this component to help users either:
+- [search for an address](#how-to-use-this-component-with-the-ons-address-index-api) using the ONS Address Index API
+- [enter an address manually](#how-to-use-this-component-for-manual-address-entry) using a set of fields
 
 There is specific guidance on [how to ask users for addresses](/patterns/addresses).
 
@@ -26,10 +28,10 @@ There are two main ways to use this component with the ONS Address Index API. Ad
     onsList({
         "itemsList": [
             {
-                "text": '<a href="#non-editable-addresses">non-editable</a>'
+                "text": '<a href="#non-editable-address-finder">non-editable</a>'
             },
             {
-                "text": '<a href="#editable-addresses">editable</a>'
+                "text": '<a href="#editable-address-finder">editable</a>'
             }
         ]
     })
@@ -113,7 +115,7 @@ Use “Enter an address” for the parameter: `errorMessageEnter`
 
 {{
     onsPanel({
-        "body": 'If you are using the editable address finder or manual address entry variants, you will need to <a href="/patterns/addresses#how-to-check-addresses">check the address</a> using server-side validation. The <a href="/patterns/addresses">address pattern</a> explains what to check for and how.'
+        "body": 'If you are using the editable address finder or manual address entry variants, you will need to <a href="/patterns/addresses#how-to-check-addresses">check the address</a> using server-side validation.'
     })
 }}
 
@@ -121,24 +123,24 @@ Use “Enter an address” for the parameter: `errorMessageEnter`
 Use the following error messages to improve the address finder results and deal with any loading issues:
 
 #### If no results are found
-Use “No results found. Try entering a different part of the address” for the parameter: `noResults`
+Use “No results found. Try entering a different part of the address” for the parameter: `noResults`.
 
 #### If the postcode returns too many results
-Use “[number of addresses] results found. Enter more of the address to improve results” for the parameter: `tooManyResults`
+Use “[number of addresses] results found. Enter more of the address to improve results” for the parameter: `tooManyResults`.
 
 #### If more of the address or postcode are needed to get results
-Use “Enter more of the address to get results” for the parameter: `typeMore`
+Use “Enter more of the address to get results” for the parameter: `typeMore`.
 
 #### If there is an error with the API during use of the editable address finder
-Use “Sorry, there is a problem loading addresses. <a href="0#">Enter address manually</a>” for the parameters: `errorMessageAPI` and `errorMessageAPILinkText`
+Use “Sorry, there is a problem loading addresses. <a href="0#">Enter address manually</a>” for the parameters: `errorMessageAPI` and `errorMessageAPILinkText`.
 
 #### If the API is down before use of the editable address finder
 There is a status check when the page loads and initialises the component. If the API is down, a set of fields will allow the user to enter an address manually. This also happens if JavaScript is turned off.
 
-#### If API is down before or during use of the non-editable address finder
+#### If the API is down before or during use of the non-editable address finder
 The input will be disabled and an error message shown.
 
-Use “Sorry, there is a problem. We are working to fix it. Please try again later or <a href="0#">contact us for more help</a>.” for the parameters: `errorMessageAPI` and `errorMessageAPILinkText`
+Use “Sorry, there is a problem. We are working to fix it. Please try again later or <a href="0#">contact us for more help</a>.” for the parameters: `errorMessageAPI` and `errorMessageAPILinkText`.
 
 ## How to use this component for manual address entry
 
