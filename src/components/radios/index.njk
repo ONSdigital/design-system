@@ -72,6 +72,15 @@ The submit button should use the `hidden` attribute and also the `u-d-no` utilit
     patternlibExample({"path": "components/radios/examples/radios-clear/index.njk"})
 }}
 
+### Radios without a border
+
+This variant removes the border around the radio input and [label](/components/label). Do not use it for question pages with radios. It is better to have a border. It makes the radios more visible for users and gives them a larger target area to select (the label and the boundary).
+
+Only remove the radio border for pages that are not following the practice of “one thing per page”, where the radios are not the primary call to action. For example, the radios could be one part of a multipurpose page, like the checkboxes used for the filters on the [download resources pattern](/patterns/download-resources/).
+{{
+    patternlibExample({"path": "components/radios/examples/radios-borderless/index.njk"})
+}}
+
 ## How to check radios
 To help users make a selection on the page and provide extra detail if it is required, you should:
 {{
