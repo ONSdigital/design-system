@@ -6,7 +6,16 @@ export default function queryJson(query, data, searchFields) {
     threshold: 0.2,
     location: 1,
     distance: 1000,
-    keys: [searchFields, 'tags'],
+    keys: [
+      {
+        name: searchFields,
+        weight: 0.2,
+      },
+      {
+        name: 'tags',
+        weight: 0.1,
+      },
+    ],
   };
 
   const fuse = new Fuse(data, options);
