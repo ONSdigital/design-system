@@ -5,6 +5,15 @@
 
   &__item {
     @extend .checkboxes__item;
+
+    &--no-border {
+      @extend .checkboxes__item--no-border;
+
+      margin-bottom: 1rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__label {
