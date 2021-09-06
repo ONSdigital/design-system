@@ -9,7 +9,7 @@ export default function queryJson(query, data, searchFields) {
     keys: [
       {
         name: searchFields,
-        weight: 0.2,
+        weight: 0.9,
       },
       {
         name: 'tags',
