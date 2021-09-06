@@ -1,5 +1,5 @@
 ---
-title: Basic page template
+title: Using the base page template
 sortOrder: 2
 group: Getting started
 ---
@@ -10,7 +10,7 @@ group: Getting started
 {% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
 +++
 
-Use the page template to create pages with the core components and markup required for an ONS service.
+Use the base page template to create pages with the core components and markup required for an ONS service.
 
 The examples below provide templates that consist of commonly used [components](/components) and [patterns](/patterns).
 
@@ -22,9 +22,9 @@ All template examples contain the following:
 
 Click on the HTML tab on each example to view the rendered HTML.
 
-## Default page template
+## Default base page template
 
-The example below shows the minimum requirements for an ONS page template.
+The example below shows the minimum requirements for an ONS base page template.
 
 {{
     patternlibExample({ "path": "styles/page-template/examples/basic/index.njk" })
@@ -32,7 +32,7 @@ The example below shows the minimum requirements for an ONS page template.
 
 ## Customised page template
 
-Components can be added to the page template. The example below provides a [phase banner](/components/phase-banner), [change language](/patterns/change-language), [breadcrumbs](/components/breadcrumbs), [save button](/components/button) and [footer links](/components/footer).
+Components can be added to the base page template. The example below provides a [phase banner](/components/phase-banner), [change language](/patterns/change-language), [breadcrumbs](/components/breadcrumbs), [save button](/components/button) and [footer links](/components/footer).
 
 {{
     patternlibExample({ "path": "styles/page-template/examples/custom/index.njk" })
@@ -40,7 +40,7 @@ Components can be added to the page template. The example below provides a [phas
 
 ## Census page template
 
-The example below shows a themed census version of the ONS page template.
+The example below shows a themed census version of the ONS base page template.
 
 {{
     patternlibExample({ "path": "styles/page-template/examples/census/index.njk" })
@@ -48,7 +48,7 @@ The example below shows a themed census version of the ONS page template.
 
 ## Census page template (right-to-left)
 
-The example below shows a themed census version of the ONS page template which sets the direction property from right-to-left.
+The example below shows a themed census version of the ONS base page template which sets the direction property from right-to-left.
 
 {{
     patternlibExample({ "path": "styles/page-template/examples/rtl/index.njk" })
@@ -203,7 +203,7 @@ To change the components that are included by default, set their equivalent bloc
 | footer     | Override the default [footer](/components/footer) component                         |
 | bodyEnd    | Add content just after just before the closing `</body>` element                    |
 
-##### Exploded view of the page template block areas
+##### Exploded view of the base page template block areas
 
 {{
     patternlibExample({
@@ -217,6 +217,6 @@ Let us know how we could improve this style or share your user research findings
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/195",
-        "linkText": "Discuss ‘Page Template’ on GitHub"
+        "linkText": "Discuss ‘Base page template’ on GitHub"
     })
 }}
