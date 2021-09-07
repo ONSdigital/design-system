@@ -1,6 +1,7 @@
 {% macro onsHeader(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/icons/_macro.njk" import onsIcon %}
+    {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
 
     {% set title_tag = "h1" if params.tilteAsH1 else "div" %}
     {% set currentLanguageISOCode = "en" %}
@@ -102,11 +103,30 @@
                             }) }}
                         </div>
                     {% endif %}
-                    {% if params.toggleButton is defined and params.toggleButton %}
+                    {% if params.toggleButton is defined and params.toggleButton or params.autosuggest is defined and params.autosuggest %}
                         <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@m">
+                            {% if params.autosuggest is defined and params.autosuggest and isPatternLib is defined and isPatternLib %}
+                                <span class="ons-grid ons-u-d-no@xxs@xs">
+                                    {{ onsButton({
+                                        "text": "Search",
+                                        "classes": "ons-btn--search ons-btn--ghost ons-btn--small ons-u-ml-xs ons-u-d-no ons-js-toggle-search",
+                                        "icon": {
+                                            "iconType": "search",
+                                            "iconPosition": "only"
+                                        },
+                                        "attributes": {
+                                            "aria-label": params.searchToggle.ariaLabel | default("Toggle search") ,
+                                            "aria-controls": params.navigation.id,
+                                            "aria-haspopup": "true",
+                                            "aria-expanded": "false"
+                                        }
+                                    }) }}
+                                </span>
+                            {% endif %}
+                            {% if params.toggleButton is defined and params.toggleButton %}
                                 {{ onsButton({
                                     "text": params.toggleButton.text,
-                                    "classes": "ons-btn--mobile ons-u-ml-s ons-u-d-no ons-js-toggle-main",
+                                    "classes": "btn--mobile btn--ghost u-ml-xs u-d-no js-toggle-main",
                                     "buttonStyle": "mobile",
                                     "attributes": {
                                         "aria-label": params.toggleButton.ariaLabel | default("Toggle main navigation") ,
@@ -115,6 +135,7 @@
                                         "aria-expanded": "false"
                                     }
                                 }) }}
+                            {% endif %}
                         </div>
                     {% endif %}
                 </div>
@@ -126,6 +147,34 @@
         {% if params.navigation is defined and params.navigation %}
             <div class="ons-header__bottom">
                 <div class="ons-container ons-container--gutterless@xxs@m{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                    {% if params.autosuggest is defined and params.autosuggest and isPatternLib is defined and isPatternLib %}
+                        <div class="ons-header-search ons-js-header-search">
+                            {{ onsAutosuggest({
+                                "id": "ons-autosuggest-header-search",
+                                "containerClasses": "ons-autosuggest-input--header",
+                                "classes": "ons-input--ghost ons-input-search ons-input-search--icon",
+                                "label": {
+                                    "text": params.autosuggest.label,
+                                    "id": "ons-autosuggest-header-search-label",
+                                    "classes": "ons-label--white ons-u-pl-m"
+                                },
+                                "accessiblePlaceholder": true,
+                                "autocomplete": "off",
+                                "instructions": params.autosuggest.instructions,
+                                "ariaYouHaveSelected":params.autosuggest.ariaYouHaveSelected,
+                                "ariaMinChars": params.autosuggest.ariaMinChars,
+                                "ariaResultsLabel": params.autosuggest.ariaResultsLabel,
+                                "ariaOneResult": params.autosuggest.ariaOneResult,
+                                "ariaNResults": params.autosuggest.ariaNResults,
+                                "ariaLimitedResults": params.autosuggest.ariaLimitedResults,
+                                "moreResults": params.autosuggest.moreResults,
+                                "resultsTitle": params.autosuggest.resultsTitle,
+                                "autosuggestData": params.autosuggest.autosuggestData,
+                                "noResults": params.autosuggest.noResults,
+                                "typeMore": params.autosuggest.typeMore
+                            }) }}
+                        </div>
+                    {% endif %}
                     <nav class="ons-header-nav ons-js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
                         <ul class="ons-header-nav__list">
                             {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}

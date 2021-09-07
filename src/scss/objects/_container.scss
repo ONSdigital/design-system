@@ -3,6 +3,7 @@
   margin: 0 auto;
   max-width: $grid-max-width;
   padding: 0 $grid-gutters;
+  position: relative;
   width: 100%;
 
   @include mq(s) {

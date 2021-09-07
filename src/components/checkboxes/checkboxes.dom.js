@@ -12,7 +12,7 @@ domready(async () => {
   const openOther = document.querySelector('.ons-checkbox__other--open');
   if (openOther) {
     const parent = openOther.parentNode;
-    const checkboxInput = parent.querySelector('.ons-checkbox__input');
+    const checkboxInput = parent.querySelector('.checkbox__input');
     const CheckCheckbox = (await import('../radios/check-radios')).default;
 
     new CheckCheckbox(checkboxInput, openOther);

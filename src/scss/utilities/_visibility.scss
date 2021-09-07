@@ -3,8 +3,7 @@
   visibility: hidden;
 }
 
-.ons-u-visuallyhidden,
-.ons-u-vh {
+@include bp-suffix('ons-u-vh', $create-between-breakpoints: true) {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
