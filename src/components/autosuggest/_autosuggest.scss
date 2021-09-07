@@ -53,11 +53,12 @@
 
     &:not(&--no-results):not(&--more-results):hover,
     &--focused:not(&--no-results) {
-      background: $color-ocean-blue;
-      border-color: $color-ocean-blue;
+      background: $color-text-link-hover;
+      border-color: $color-text-link-hover;
       color: $color-white;
 
-      .autosuggest-input__group {
+      .autosuggest-input__group,
+      .autosuggest-input__category {
         color: $color-white;
       }
     }
@@ -66,7 +67,8 @@
       background: $color-focus;
       color: $color-text-link-focus;
 
-      .autosuggest-input__group {
+      .autosuggest-input__group,
+      .autosuggest-input__category {
         color: $color-text-link-focus;
       }
     }
@@ -120,6 +122,16 @@
   &--has-results & {
     &__results {
       display: block;
+    }
+  }
+
+  &--header {
+    .autosuggest-input__results {
+      border: none;
+      box-shadow: 0 0 5px 0 rgba($color-black, 0.6);
+      left: 0;
+      position: absolute;
+      z-index: 1;
     }
   }
 }

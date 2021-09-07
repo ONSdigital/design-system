@@ -65,7 +65,7 @@ describe('Component: Navigation', function() {
       beforeEach(function() {
         const HeaderNav = require('../../../components/header/header-nav').default;
 
-        this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList);
+        this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList, this.hideClass);
         this.nav.registerEvents = chai.spy(this.nav.registerEvents);
         this.nav.registerEvents();
       });
@@ -84,7 +84,7 @@ describe('Component: Navigation', function() {
             },
           }).default;
 
-          this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList);
+          this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList, this.hideClass);
           this.nav.registerEvents();
         });
 
@@ -124,7 +124,7 @@ describe('Component: Navigation', function() {
 
         describe('When the main nav is closed,', function() {
           beforeEach(function() {
-            this.nav.closeNav(this.toggleMainBtn, this.mainNavList);
+            this.nav.closeNav(this.toggleMainBtn, this.mainNavList, this.hideclass);
           });
 
           it('Should be assigned the "aria-hidden" value of false', function() {
@@ -158,7 +158,7 @@ describe('Component: Navigation', function() {
             },
           }).default;
 
-          this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList);
+          this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList, this.hideClass);
           this.nav.registerEvents();
         });
 
@@ -207,10 +207,12 @@ function renderComponent(params) {
 
   const toggleMainBtn = wrapper.querySelector('.js-toggle-main');
   const mainNavList = wrapper.querySelector('.js-header-nav');
+  const hideClass = 'u-d-no@xxs@m';
 
   return {
     wrapper,
     toggleMainBtn,
     mainNavList,
+    hideClass,
   };
 }
