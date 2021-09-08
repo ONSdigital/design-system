@@ -66,12 +66,12 @@ describe('Component: Navigation', function() {
         const HeaderNav = require('../../../components/header/header-nav').default;
 
         this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList, this.hideClass);
-        this.registerEventsSpy = chai.spy(this.nav.registerEvents);
+        this.nav.registerEvents = chai.spy(this.nav.registerEvents);
         this.nav.registerEvents();
       });
 
       it('registerEvents should be called', function() {
-        expect(this.registerEventsSpy).to.have.been.called();
+        expect(this.nav.registerEvents).to.have.been.called();
       });
 
       describe('When viewport has a width more than 740,', function() {
