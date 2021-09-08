@@ -1,4 +1,4 @@
-.page {
+.ons-page {
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.page__content {
+.ons-page__content {
   flex: 1 0 auto;
   // NOTE: padding-bottom: 1px fixes safari scroll issue
   // Issue number #862
@@ -14,7 +14,7 @@
   position: relative;
 }
 
-.page__main {
+.ons-page__main {
   margin-bottom: 4.5rem;
   margin-top: 2.5rem;
 
@@ -23,9 +23,9 @@
   }
 }
 
-.page__body {
+.ons-page__body {
   h2 {
-    @extend .u-fs-xl;
+    @extend .ons-u-fs-xl;
   }
   h3,
   h4,
@@ -33,8 +33,8 @@
   h6 {
     margin-top: 2rem;
   }
-  .panel__body,
-  .collapsible {
+  .ons-panel__body,
+  .ons-collapsible {
     h2,
     h3,
     h4,

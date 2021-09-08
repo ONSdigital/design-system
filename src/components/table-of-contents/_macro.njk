@@ -1,24 +1,24 @@
 {% macro onsTableOfContents(params) %}
   {% from "components/lists/_macro.njk" import onsList %}
   {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
-  <aside class="toc-container" role="complementary">
+  <aside class="ons-toc-container" role="complementary">
     {{
         onsSkipToContent({
             "url": params.skipLink.url,
             "text": params.skipLink.text
         })
     }}
-    <nav class="toc" aria-label="{{ params.ariaLabel | default("Table of contents") }}">
-      <h2 class="toc__title u-fs-r--b u-mb-s">{{ params.title }}</h2>
+    <nav class="ons-toc" aria-label="{{ params.ariaLabel | default("Table of contents") }}">
+      <h2 class="ons-toc__title ons-u-fs-r--b ons-u-mb-s">{{ params.title }}</h2>
       {% if params.lists is defined and params.lists %}
         {% for list in params.lists %}
           {% if list.listHeading is defined and list.listHeading %}
-            <h3 class="u-fs-r u-mb-xs">{{ list.listHeading }}<span class="u-vh"> {{ list.listHeadingHidden }}</span>:</h3>
+            <h3 class="ons-u-fs-r ons-u-mb-xs">{{ list.listHeading }}<span class="ons-u-vh"> {{ list.listHeadingHidden }}</span>:</h3>
           {% endif %}
           {{
               onsList({
                   "element": 'ol',
-                  "classes": 'list--dashed u-mb-m',
+                  "classes": 'ons-list--dashed ons-u-mb-m',
                   "itemsList": list.itemsList
               })
           }}
@@ -27,7 +27,7 @@
         {{
             onsList({
                 "element": 'ol',
-                "classes": 'list--dashed u-mb-m',
+                "classes": 'ons-list--dashed ons-u-mb-m',
                 "itemsList": params.itemsList
             })
         }}

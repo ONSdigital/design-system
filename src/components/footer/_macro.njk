@@ -54,15 +54,15 @@
         }}
     {% endset %}
 
-    <footer class="footer">
+    <footer class="ons-footer">
 
         {% if params.footerWarning is defined and params.footerWarning %}
             {% from "components/panel/_macro.njk" import onsPanel %}
-            <div class="footer__warning">
-                <div class="container">
+            <div class="ons-footer__warning">
+                <div class="ons-container">
                     {% call onsPanel({
                             "type": "warn",
-                            "classes": "panel--warn--footer"
+                            "classes": "ons-panel--warn--footer"
                         })
                     %}
                         {{ params.footerWarning | safe }}
@@ -73,12 +73,12 @@
 
         {% if params.button is defined and params.button %}
             {% from "components/button/_macro.njk" import onsButton %}
-            <div class="footer__button-container u-d-no@m">
+            <div class="ons-footer__button-container ons-u-d-no@m">
                 {{
                     onsButton({
                         "id": params.button.id,
                         "type": params.button.type,
-                        "classes": "btn--ghost" + (" " + params.button.classes if params.button.classes else ""),
+                        "classes": "ons-btn--ghost" + (" " + params.button.classes if params.button.classes else ""),
                         "text": params.button.text,
                         "html": params.button.html,
                         "name": params.button.name,
@@ -91,11 +91,11 @@
             </div>
         {% endif %}
 
-        <div class="footer__body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
-            <div class="container{{ ' container--wide' if params.wide }}">
-                <div class="grid">
+        <div class="ons-footer__body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
+            <div class="ons-container{{ ' ons-container--wide' if params.wide }}">
+                <div class="ons-grid">
                     {% if params.poweredBy is defined and params.poweredBy and params.OGLLink is defined and params.OGLLink %}
-                        <div class="grid__col u-mb-m">
+                        <div class="ons-grid__col ons-u-mb-m">
                             {{ poweredByLogo | safe }}
                         </div>
                     {% endif %}
@@ -103,7 +103,7 @@
                     {% if params.language is defined and params.language %}
                         {% set currentLanguage = params.language.languages | selectattr("current") | first %}
                         {% set languageNumber = params.language.languages | length %}
-                        <div class="grid__col {% if languageNumber and languageNumber != 2 %} u-d-no@m{% elif languageNumber %} u-d-no{% endif %}">
+                        <div class="ons-grid__col {% if languageNumber and languageNumber != 2 %} ons-u-d-no@m{% elif languageNumber %} ons-u-d-no{% endif %}">
                             {% set languageItems = params.language.languages | rejectattr("current") | list %}
                             {% if currentLanguage.allLanguages is defined and currentLanguage.allLanguages and params.language.allLanguagesUrl is defined and params.language.allLanguagesUrl %}
                                 {% set languageItems = (languageItems.push({
@@ -114,31 +114,31 @@
                             {% endif %}
                             {{
                                 onsList({
-                                    "classes": 'list--bare list--inline@m u-mb-no',
+                                    "classes": 'ons-list--bare ons-list--inline@m ons-u-mb-no',
                                     "itemsList": languageItems
                                 })
                             }}
                         </div>
-                        <div class="grid__col {% if languageNumber and languageNumber != 2 %} u-d-no@m{% elif languageNumber %} u-d-no{% endif %} u-mb-m">
-                            <hr class="footer__hr">
+                        <div class="ons-grid__col {% if languageNumber and languageNumber != 2 %} ons-u-d-no@m{% elif languageNumber %} ons-u-d-no{% endif %} ons-u-mb-m">
+                            <hr class="ons-footer__hr">
                         </div>
                     {% endif %}
 
                     {% if params.newTabWarning is defined and params.newTabWarning %}
-                        <div class="grid__col">
-                            <p class="u-fs-s u-mb-m">{{ params.newTabWarning | safe }}</p>
+                        <div class="ons-grid__col">
+                            <p class="ons-u-fs-s ons-u-mb-m">{{ params.newTabWarning | safe }}</p>
                         </div>
                     {% endif %}
 
                     {% if params.cols is defined and params.cols %}
                         {% for col in params.cols %}
-                            <div class="grid__col col-4@m{{ ' u-mt-m@xxs@m' if loop.index > 1 }}">
+                            <div class="ons-grid__col ons-col-4@m{{ ' ons-u-mt-m@xxs@m' if loop.index > 1 }}">
                                 {% if col.title %}
-                                    <h2 class="footer__heading u-fs-r--b">{{ col.title }}</h2>
+                                    <h2 class="ons-footer__heading ons-u-fs-r--b">{{ col.title }}</h2>
                                 {% endif %}
                                 {{
                                     onsList({
-                                        "classes": 'list--bare u-mb-no',
+                                        "classes": 'ons-list--bare ons-u-mb-no',
                                         "itemsList": col.itemsList
                                     })
                                 }}
@@ -147,26 +147,26 @@
                     {% endif %}
 
                     {% if params.cols is defined and params.cols and params.rows is defined and params.rows %}
-                        <div class="grid__col u-mb-m">
-                            <hr class="footer__hr">
+                        <div class="ons-grid__col ons-u-mb-m">
+                            <hr class="ons-footer__hr">
                         </div>
                     {% endif %}
 
                     {% if params.rows is defined and params.rows %}
                         {% for row in params.rows %}
                             <!-- Rows -->
-                            <div class="grid__col">
+                            <div class="ons-grid__col">
                                 {{
                                     onsList({
-                                        "classes": "list--bare list--inline",
+                                        "classes": "ons-list--bare ons-list--inline",
                                         "itemsList": row.itemsList
                                     })
                                 }}
                             </div>
                             {% if loop.length > 1 %}
                                 {% if not loop.last %}
-                                    <div class="grid__col u-mb-m">
-                                        <hr class="footer__hr">
+                                    <div class="ons-grid__col ons-u-mb-m">
+                                        <hr class="ons-footer__hr">
                                     </div>
                                 {% endif %}
                             {% endif %}
@@ -175,12 +175,12 @@
 
                     {% if params.OGLLink is defined and params.OGLLink %}
                         <!-- OGL -->
-                        <div class="grid__col u-mb-m">
-                            <hr class="footer__hr">
+                        <div class="ons-grid__col ons-u-mb-m">
+                            <hr class="ons-footer__hr">
                         </div>
 
-                        <div class="grid__col">
-                            <div class="footer__license">
+                        <div class="ons-grid__col">
+                            <div class="ons-footer__license">
                                 {{
                                     onsIcon({
                                         "icon": 'ogl'
@@ -202,32 +202,32 @@
                     {% endif %}
 
                     {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined or params.OGLLink is not defined and params.legal is not defined and (params.rows is defined and params.rows or params.cols is defined and params.cols) %}
-                        <div class="grid__col u-mb-m">
-                            <hr class="footer__hr">
+                        <div class="ons-grid__col ons-u-mb-m">
+                            <hr class="ons-footer__hr">
                         </div>
                     {% endif %}
 
                     {% if params.OGLLink is not defined and params.legal is not defined %}
-                        <div class="grid__col">
+                        <div class="ons-grid__col">
                             {{ poweredByLogo | safe }}
                         </div>
                     {% endif %}
                 </div>
 
                 {% if params.legal is defined and params.legal or params.rows is defined and params.rows and params.OGLLink is not defined or params.cols is defined and params.cols and params.OGLLink is not defined %}
-                    <div class="grid grid--flex grid--vertical-top grid--between">
+                    <div class="ons-grid ons-grid--flex ons-grid--vertical-top ons-grid--between">
                         {% if params.legal is defined and params.legal %}
                             <!-- Legal -->
                             {% for legal in params.legal %}
-                                <div class="grid__col">
+                                <div class="ons-grid__col">
                                     {{
                                         onsList({
-                                            "classes": 'list--bare list--inline u-mb-m',
+                                            "classes": 'ons-list--bare ons-list--inline ons-u-mb-m',
                                             "itemsList": legal.itemsList
                                         })
                                     }}
                                     {% if params.crest is defined and params.crest %}
-                                        <div class="poweredbylogo u-mb-m">{{ poweredByLogo | safe }}</div>
+                                        <div class="ons-poweredbylogo ons-u-mb-m">{{ poweredByLogo | safe }}</div>
                                     {% endif %}
                                 </div>
                             {% endfor %}
@@ -235,13 +235,13 @@
 
                         {% if params.crest is defined and params.crest %}
                             <!-- Crest -->
-                            <div class="grid__col">
+                            <div class="ons-grid__col">
                                 {{ crestLogo | safe }}
                             </div>
                         {% elif params.legal is defined and params.legal %}
                             <!-- Powered by -->
-                            <div class="grid__col">
-                                <div class="poweredbylogo">{{ poweredByLogo | safe }}</div>
+                            <div class="ons-grid__col">
+                                <div class="ons-poweredbylogo">{{ poweredByLogo | safe }}</div>
                             </div>
                         {% endif %}
 
@@ -250,9 +250,9 @@
 
                 {% if params.copyrightDeclaration is defined and params.copyrightDeclaration %}
                     <!-- Copyright -->
-                    <div class="grid"> 
-                        <div class="grid__col u-mt-s">
-                            <p class="u-fs-s u-mb-no">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }}</p>
+                    <div class="ons-grid"> 
+                        <div class="ons-grid__col ons-u-mt-s">
+                            <p class="ons-u-fs-s ons-u-mb-no">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }}</p>
                         </div>
                     </div>
                 {% endif %}

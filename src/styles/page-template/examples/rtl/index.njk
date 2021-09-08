@@ -15,7 +15,7 @@ layout: none
 {% set pageConfig = {
     "theme": 'census',
     "pageColNumber": "12",
-    "bodyClasses": "rtl",
+    "bodyClasses": "ons-rtl",
     "header": {
         "logoHref": pageInfo.rootPath,
         "titleLogo": 'census-logo-en',
@@ -121,10 +121,10 @@ layout: none
 
 {% block main %}
 
-    <h1 class="u-mb-l">
-        <span class="u-fs-m u-db u-mb-xs u-lighter">اللغة العربية (Arabic)</span>
-        <span class="u-vh">: </span>
-        <span class="u-fs-xxl u-db">نظرة عامة</span>
+    <h1 class="ons-u-mb-l">
+        <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">اللغة العربية (Arabic)</span>
+        <span class="ons-u-vh">: </span>
+        <span class="ons-u-fs-xxl ons-u-db">نظرة عامة</span>
     </h1>
 
     {{ onsTableOfContents({
@@ -151,7 +151,7 @@ layout: none
         ]
     }) }}
 
-    <div id="section-content" class="page__body">
+    <div id="section-content" class="ons-page__body">
 
         <h2>ما هو التعداد السكاني؟</h2>
 
@@ -186,7 +186,7 @@ layout: none
             ]
         }) }}
 
-        <div class="u-mt-xl">
+        <div class="ons-u-mt-xl">
             {{ onsContentPagination({
                 "contentPaginationItems": [
                     {

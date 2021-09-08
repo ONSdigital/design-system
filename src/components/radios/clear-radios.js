@@ -4,7 +4,7 @@ export default class ClearRadios {
     this.inputs = inputs;
     this.button = button;
     this.otherInput = otherInput;
-    this.ariaElement = document.querySelector('.js-clear-radio-alert');
+    this.ariaElement = document.querySelector('.ons-js-clear-radio-alert');
     this.clearAlert = this.ariaElement.getAttribute('data-clear');
     this.clearedAlert = this.ariaElement.getAttribute('data-cleared');
 
@@ -14,7 +14,7 @@ export default class ClearRadios {
 
     if (this.otherInput) {
       const parent = this.otherInput.parentNode;
-      this.otherField = parent.querySelector('.input');
+      this.otherField = parent.querySelector('.ons-input');
       this.otherField.addEventListener('focus', this.setClearAttributes.bind(this));
     }
 
@@ -30,7 +30,7 @@ export default class ClearRadios {
   }
 
   setClearAttributes() {
-    this.button.classList.remove('u-db-no-js_enabled');
+    this.button.classList.remove('ons-u-db-no-js_enabled');
     if (clearAlertAnnounced === false) {
       this.ariaElement.innerHTML = this.clearAlert;
       clearAlertAnnounced = true;
@@ -48,7 +48,7 @@ export default class ClearRadios {
       this.otherField.value = '';
     }
 
-    this.button.classList.add('u-db-no-js_enabled');
+    this.button.classList.add('ons-u-db-no-js_enabled');
     this.ariaElement.innerHTML = this.clearedAlert;
     clearAlertAnnounced = false;
   }

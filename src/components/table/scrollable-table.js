@@ -1,5 +1,5 @@
-export const classTableScrollableContent = 'table-scrollable__content';
-export const classTable = 'table';
+export const classTableScrollableContent = 'ons-table-scrollable__content';
+export const classTable = 'ons-table';
 
 export default class TableScroll {
   constructor(table) {
@@ -38,35 +38,35 @@ export default class TableScroll {
     const rightShadowEl = document.createElement('div');
     const leftShadowEl = document.createElement('div');
 
-    rightShadowEl.className = 'table__right-shadow visible';
-    leftShadowEl.className = 'table__left-shadow';
+    rightShadowEl.className = 'ons-table__right-shadow ons-visible';
+    leftShadowEl.className = 'ons-table__left-shadow';
     this.tableScroll[0].appendChild(rightShadowEl);
     this.tableScroll[0].insertBefore(leftShadowEl, this.tableScroll[0].firstChild);
   }
 
   removeShadows() {
-    const rightShadow = this.tableScroll[0].querySelector('.table__right-shadow');
-    const leftShadow = this.tableScroll[0].querySelector('.table__left-shadow');
+    const rightShadow = this.tableScroll[0].querySelector('.ons-table__right-shadow');
+    const leftShadow = this.tableScroll[0].querySelector('.ons-table__left-shadow');
     this.tableScroll[0].removeChild(rightShadow);
     this.tableScroll[0].removeChild(leftShadow);
   }
 
   toggleShadows() {
-    const rightShadow = this.tableScroll[0].querySelector('.table__right-shadow');
-    const leftShadow = this.tableScroll[0].querySelector('.table__left-shadow');
+    const rightShadow = this.tableScroll[0].querySelector('.ons-table__right-shadow');
+    const leftShadow = this.tableScroll[0].querySelector('.ons-table__left-shadow');
     const tableScrollPos = this.getOffset(this.tableScroll[0]).left;
     const tablePos = this.getOffset(this.tableEl[0]).left;
 
     this.tableWidth = this.tableEl[0].offsetWidth;
     this.tableContainerWidth = this.tableScroll[0].offsetWidth;
-    tablePos === tableScrollPos ? leftShadow.classList.remove('visible') : leftShadow.classList.add('visible');
+    tablePos === tableScrollPos ? leftShadow.classList.remove('ons-visible') : leftShadow.classList.add('ons-visible');
 
     -tableScrollPos === this.tableContainerWidth - this.tableWidth - tablePos
-      ? rightShadow.classList.remove('visible')
-      : rightShadow.classList.add('visible');
+      ? rightShadow.classList.remove('ons-visible')
+      : rightShadow.classList.add('ons-visible');
 
     setTimeout(function() {
-      return leftShadow.classList.add('with-transition'), rightShadow.classList.add('with-transition');
+      return leftShadow.classList.add('ons-with-transition'), rightShadow.classList.add('ons-with-transition');
     }, 200);
   }
 

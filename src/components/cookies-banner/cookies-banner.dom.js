@@ -1,7 +1,7 @@
 import domready from '../../js/domready';
 
 async function cookiesBanner() {
-  const cookiesBanner = [...document.querySelectorAll('.cookies-banner')];
+  const cookiesBanner = [...document.querySelectorAll('.ons-cookies-banner')];
 
   if (cookiesBanner.length) {
     const CookiesBanner = (await import('./cookies-banner')).default;

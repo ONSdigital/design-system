@@ -1,11 +1,11 @@
 {% macro onsCheckbox(params) %}
     {% from "components/label/_macro.njk" import onsLabel %}
 
-    <span class="checkbox {{ params.classes }}">
+    <span class="ons-checkbox {{ params.classes }}">
         <input
             type="checkbox"
             id="{{ params.id }}"
-            class="checkbox__input js-checkbox {{ params.inputClasses }}"
+            class="ons-checkbox__input ons-js-checkbox {{ params.inputClasses }}"
             value="{{ params.value }}"
             {% if params.name is defined and params.name %} name="{{ params.name }}"{% endif %}
             {% if params.checked is defined and params.checked %} checked{% endif %}
@@ -19,13 +19,13 @@
             "for": params.id,
             "inputType": "checkbox",
             "text": params.label.text,
-            "classes": "checkbox__label " + params.label.classes | default(''),
+            "classes": "ons-checkbox__label " + params.label.classes | default(''),
             "description": params.label.description
         }) }}
 
         {% if params.other is defined and params.other %}
             {% set otherType = params.other.otherType | default('input') %}
-            <span class="checkbox__other{{ ' checkbox__other--open' if params.other.open }}" id="{{ params.id }}-other-wrap">
+            <span class="ons-checkbox__other{{ ' ons-checkbox__other--open' if params.other.open }}" id="{{ params.id }}-other-wrap">
             {% if otherType == "input" %}
                 {% from "components/input/_macro.njk" import onsInput %}
                 {{
@@ -34,12 +34,12 @@
                         "name": params.other.name,
                         "type": params.other.type,
                         "required": params.other.required,
-                        "classes": "input--w-auto " + params.other.classes | default(''),
+                        "classes": "ons-input--w-auto " + params.other.classes | default(''),
                         "attributes": params.other.attributes,
                         "label": {
                             "id": params.other.id + "-label",
                             "text": params.other.label.text,
-                            "classes": 'u-fs-s--b'
+                            "classes": 'ons-u-fs-s--b'
                         },
                         "dontWrap": true,
                         "value": params.other.value
@@ -56,7 +56,7 @@
                         "label": {
                             "id": params.other.id + "-label",
                             "text": params.other.label.text,
-                            "classes": 'u-fs-s--b'
+                            "classes": 'ons-u-fs-s--b'
                         },
                         "dontWrap": true,
                         "value": params.other.value

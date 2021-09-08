@@ -2,7 +2,7 @@
     {% from "components/lists/_macro.njk" import onsList %}
 
     {% set titleTag = params.titleTag | default("h2") %}
-    <{{ titleTag }} class="u-fs-r--b u-mb-xs">{{ params.title }}</{{ titleTag }}>
+    <{{ titleTag }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</{{ titleTag }}>
 
     {% set list = [] %}
     {% if params.facebook is defined and params.facebook and params.facebook === true %}
@@ -37,7 +37,7 @@
 
     {{
         onsList({
-            "classes": 'list--inline',
+            "classes": 'ons-list--inline',
             "itemsList": list
         })
     }}

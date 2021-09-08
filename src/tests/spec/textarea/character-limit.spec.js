@@ -4,7 +4,7 @@ import renderTemplate from '../../helpers/render-template';
 const params = {
   id: 'textarea-char-limit',
   name: 'feedback-limited',
-  classes: 'input--w-30',
+  classes: 'ons-input--w-30',
   label: {
     text: 'Please provide some feedback',
     description: 'For example describe any difficulties you experienced in the use of this service',
@@ -40,7 +40,7 @@ describe('Component: Textarea with character limit', () => {
 
   describe('Given that the char limit helper has initialised correctly', () => {
     it('the char limit readout should be visible', () => {
-      expect(limit_readout.classList.contains('u-d-no')).to.equal(false);
+      expect(limit_readout.classList.contains('ons-u-d-no')).to.equal(false);
     });
   });
 
@@ -74,8 +74,8 @@ describe('Component: Textarea with character limit', () => {
       });
 
       it('then the textarea and readout should be given limit reached classes', () => {
-        expect(textarea.classList.contains('input--limit-reached')).to.equal(true);
-        expect(limit_readout.classList.contains('input__limit--reached')).to.equal(true);
+        expect(textarea.classList.contains('ons-input--limit-reached')).to.equal(true);
+        expect(limit_readout.classList.contains('ons-input__limit--reached')).to.equal(true);
       });
     });
   });
@@ -101,8 +101,8 @@ describe('Component: Textarea with character limit', () => {
       });
 
       it('then the textarea and readout should be given limit reached classes', () => {
-        expect(textarea.classList.contains('input--limit-reached')).to.equal(false);
-        expect(limit_readout.classList.contains('input__limit--reached')).to.equal(false);
+        expect(textarea.classList.contains('ons-input--limit-reached')).to.equal(false);
+        expect(limit_readout.classList.contains('ons-input__limit--reached')).to.equal(false);
       });
     });
   });

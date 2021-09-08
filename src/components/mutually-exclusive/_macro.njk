@@ -17,13 +17,13 @@
         "legendIsQuestionTitle": params.legendIsQuestionTitle,
         "error": params.error
     }) %}
-        <div class="js-mutually-exclusive mutually-exclusive">
+        <div class="ons-js-mutually-exclusive ons-mutually-exclusive">
             {{ content | safe }}
             {% if params.autosuggestResults is defined and params.autosuggestResults %}
                 {{ params.autosuggestResults | safe }}
             {% endif %}
-            <p class="checkboxes--mutually-exclusive__item u-mt-s">
-                <span class="checkboxes__label u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
+            <p class="ons-checkboxes--mutually-exclusive__item ons-u-mt-s">
+                <span class="ons-checkboxes__label ons-u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
                 {{
                     onsCheckbox({
                         "id": params.checkbox.id,
@@ -33,15 +33,15 @@
                         "classes": params.checkbox.classes,
                         "attributes": params.checkbox.attributes,
                         "deselectMessage": params.deselectMessage,
-                        "inputClasses": "js-exclusive-checkbox",
+                        "inputClasses": "ons-js-exclusive-checkbox",
                         "label": {
-                            "text": '<span class="u-vh">' + params.or + ', </span> ' + params.checkbox.label.text,
+                            "text": '<span class="ons-u-vh">' + params.or + ', </span> ' + params.checkbox.label.text,
                             "description": params.checkbox.label.description
                         }
                     })
                 }}
             </p>
-            <span class="js-exclusive-alert u-vh" role="alert" aria-live="polite" data-group-adjective="{{ params.deselectGroupAdjective }}" data-checkbox-adjective="{{ params.deselectCheckboxAdjective }}"></span>
+            <span class="ons-js-exclusive-alert ons-u-vh" role="alert" aria-live="polite" data-group-adjective="{{ params.deselectGroupAdjective }}" data-checkbox-adjective="{{ params.deselectCheckboxAdjective }}"></span>
         </div>
     {% endcall %}
 {% endmacro %}
