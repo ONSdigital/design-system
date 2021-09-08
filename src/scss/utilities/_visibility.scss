@@ -3,8 +3,7 @@
   visibility: hidden;
 }
 
-.u-visuallyhidden,
-.u-vh {
+@include bp-suffix('u-vh', $create-between-breakpoints: true) {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -16,9 +15,7 @@
   width: 1px;
 }
 
-.u-visuallyhidden.u-focusable:active,
 .u-vh.u-focusable:active,
-.u-visuallyhidden.u-focusable:focus,
 .u-vh.u-focusable:focus {
   clip: auto;
   height: auto;

@@ -20,6 +20,10 @@
     @include mq(s) {
       min-width: 20rem;
       width: auto;
+
+      &--no-border {
+        min-width: 0;
+      }
     }
   }
 

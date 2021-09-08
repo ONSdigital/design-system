@@ -211,6 +211,9 @@ export default class AutosuggestUI {
 
     this.blurTimeout = setTimeout(() => {
       this.blurring = false;
+      if (!this.settingResult) {
+        this.clearListbox();
+      }
     }, 300);
 
     if (this.allowMultiple === 'true' && this.input.value.slice(-2) === ', ') {
@@ -352,8 +355,10 @@ export default class AutosuggestUI {
           listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
           listElement.setAttribute('role', 'option');
           listElement.setAttribute('aria-label', ariaLabel);
+          if (result.category) {
+            innerHTML = innerHTML + `<span class="autosuggest-input__category u-lighter u-fs-s u-db">${result.category}</span>`;
+          }
           listElement.innerHTML = innerHTML;
-
           listElement.addEventListener('click', () => {
             this.selectResult(index);
           });
@@ -480,6 +485,9 @@ export default class AutosuggestUI {
       if (this.allowMultiple === 'true') {
         let value = this.storeExistingSelections(result[this.lang]);
         result.displayText = value;
+      } else if (result.url) {
+        result.displayText = result[this.lang];
+        window.location = result.url;
       } else {
         result.displayText = result[this.lang];
       }
