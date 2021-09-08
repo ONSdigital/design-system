@@ -59,7 +59,7 @@
                     {% endif %}
                     {% set titleTag = params.titleTag | default(defaultTitleTag) %}
                     <div class="ons-panel__header">
-                        <{{ titleTag }} id="error-summary-title" {% if params is defined and params and params.type is defined and params.type %}data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__titleons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
+                        <{{ titleTag }} id="error-summary-title" {% if params is defined and params and params.type is defined and params.type %}data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
                     </div>
                 {% else %}
                     {% if params.type is not defined or params.type == "branded" %}
