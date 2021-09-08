@@ -1,24 +1,24 @@
 {% macro onsPromoBanner(params) %}
 
-    <section class="promo-banner{{ ' ' + 'promo-banner--dark-theme' if params.darkTheme }}{{ ' ' + 'promo-banner--has-image' if params.image }}">
+    <section class="ons-promo-banner{{ ' ' + 'ons-promo-banner--dark-theme' if params.darkTheme }}{{ ' ' + 'ons-promo-banner--has-image' if params.image }}">
 
-        <div class="container">
+        <div class="ons-container">
 
-            <div class="grid grid--gutterless">
+            <div class="ons-grid ons-grid--gutterless">
 
             {% if params.image is defined %}
 
-                <div class="grid__col col-7@s">
+                <div class="ons-grid__col ons-col-7@s">
 
-                    <div class="promo-banner__content">
+                    <div class="ons-promo-banner__content">
                         {{ params.content | safe }}{{ caller() if caller }}
                     </div>
 
                 </div>
 
-                <div class="grid__col col-4@s push-1@s u-d-no@xxs@s">
+                <div class="ons-grid__col ons-col-4@s ons-push-1@s ons-u-d-no@xxs@s">
 
-                    <div class="promo-banner__image">
+                    <div class="ons-promo-banner__image">
                         {% if params.image.smallSrc is defined and params.image.smallSrc %}
                             <img srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}">
                         {% else %}
@@ -30,9 +30,9 @@
 
             {% else %}
 
-                <div class="grid__col col-7@m">
+                <div class="ons-grid__col ons-col-7@m">
 
-                    <div class="promo-banner__content">
+                    <div class="ons-promo-banner__content">
                         {{ params.content | safe }}{{ caller() if caller }}
                     </div>
 

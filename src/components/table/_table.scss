@@ -1,4 +1,4 @@
-.table {
+.ons-table {
   border-collapse: collapse;
   border-spacing: 0;
   margin-bottom: 1rem;
@@ -32,45 +32,45 @@
     background: $color-highlight;
   }
 
-  &:not(.table--responsive) .table__body .table__row:last-child {
-    .table__cell,
-    .table__header--row {
+  &:not(.ons-table--responsive) .ons-table__body .ons-table__row:last-child {
+    .ons-table__cell,
+    .ons-table__header--row {
       border: 0;
     }
   }
 
-  &__foot .table__cell {
+  &__foot .ons-table__cell {
     border-bottom: 0;
     border-top: 1px solid $color-borders;
   }
 
   &--dense {
-    .table__head,
-    .table__body,
-    .table__foot {
+    .ons-table__head,
+    .ons-table__body,
+    .ons-table__foot {
       font-size: 81.25%;
     }
   }
 
   &--row-hover {
-    .table__body .table__row:hover {
+    .ons-table__body .ons-table__row:hover {
       background: $color-grey-5;
     }
   }
 
   &--responsive {
     @include mq(xxs, s) {
-      .table__header {
+      .ons-table__header {
         display: none;
       }
 
-      .table__body .table__row {
+      .ons-table__body .ons-table__row {
         border-bottom: 2px solid $color-grey-100;
         display: block;
         margin-bottom: 1rem;
       }
 
-      .table__cell {
+      .ons-table__cell {
         display: block;
         padding-left: 0;
         text-align: right;
@@ -88,7 +88,7 @@
   }
 }
 
-.table-scrollable {
+.ons-table-scrollable {
   position: relative;
   ::-webkit-scrollbar {
     height: 7px;
@@ -98,8 +98,8 @@
     border-radius: 20px;
   }
   &--on {
-    .table__header,
-    .table__cell {
+    .ons-table__header,
+    .ons-table__cell {
       white-space: nowrap;
     }
   }
@@ -111,80 +111,80 @@
       outline: 3px solid $color-focus;
       outline-offset: 3px;
     }
-    .table__header,
-    .table__cell {
+    .ons-table__header,
+    .ons-table__cell {
       @include mq(xxs, m) {
         white-space: nowrap;
       }
     }
-    .table__right-shadow,
-    .table__left-shadow {
+    .ons-table__right-shadow,
+    .ons-table__left-shadow {
       height: 100%;
       position: absolute;
       top: 0;
       width: 5px;
       z-index: 200;
 
-      &.with-transition {
+      &.ons-with-transition {
         transition: box-shadow 0.4s ease-out;
       }
     }
-    .table__right-shadow {
+    .ons-table__right-shadow {
       right: 0;
-      &.visible {
+      &.ons-visible {
         box-shadow: inset -1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
       }
     }
-    .table__left-shadow {
+    .ons-table__left-shadow {
       left: 0;
-      &.visible {
+      &.ons-visible {
         box-shadow: inset 1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
       }
     }
   }
 }
 
-.table--sortable {
-  [aria-sort='descending'].table__header {
-    .svg-icon {
-      .topTriangle {
+.ons-table--sortable {
+  [aria-sort='descending'].ons-table__header {
+    .ons-svg-icon {
+      .ons-topTriangle {
         fill: $color-grey-35;
       }
-      .bottomTriangle {
+      .ons-bottomTriangle {
         fill: $color-ocean-blue;
       }
     }
-    .table__sort-button:focus {
-      .svg-icon {
-        .topTriangle {
+    .ons-table__sort-button:focus {
+      .ons-svg-icon {
+        .ons-topTriangle {
           fill: $color-black;
         }
       }
     }
   }
 
-  [aria-sort='ascending'].table__header {
-    .svg-icon {
-      .topTriangle {
+  [aria-sort='ascending'].ons-table__header {
+    .ons-svg-icon {
+      .ons-topTriangle {
         fill: $color-ocean-blue;
       }
-      .bottomTriangle {
+      .ons-bottomTriangle {
         fill: $color-grey-35;
       }
     }
-    .table__sort-button:focus {
-      .svg-icon {
-        .bottomTriangle {
+    .ons-table__sort-button:focus {
+      .ons-svg-icon {
+        .ons-bottomTriangle {
           fill: $color-black;
         }
       }
     }
   }
 
-  .table__header {
+  .ons-table__header {
     position: relative;
 
-    .table__sort-button {
+    .ons-table__sort-button {
       background-color: transparent;
       border: 0;
       box-shadow: none;
@@ -202,7 +202,7 @@
         text-decoration: underline solid $color-text-link-hover 2px;
       }
 
-      .svg-icon {
+      .ons-svg-icon {
         fill: $color-grey-35;
         height: 0.8rem;
         padding-bottom: 0.1rem;
@@ -211,7 +211,7 @@
 
       &:focus {
         @extend a:focus;
-        .svg-icon {
+        .ons-svg-icon {
           fill: $color-black;
         }
       }

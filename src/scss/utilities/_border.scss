@@ -6,7 +6,7 @@ $border: (
 );
 
 @each $abbr, $dec in $border {
-  @include bp-suffix(u-#{$abbr}, $create-between-breakpoints: true) {
+  @include bp-suffix(ons-u-#{$abbr}, $create-between-breakpoints: true) {
     #{$dec}: 1px solid $color-borders !important;
   }
 }

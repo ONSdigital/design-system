@@ -243,7 +243,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     this.options = Util.extend(Filter.defaults, opts); // Used to store custom filter/sort functions
     this.element = this.options.element;
     this.elementId = this.element.getAttribute('id');
-    this.items = this.element.querySelectorAll('.js-filter__item');
+    this.items = this.element.querySelectorAll('.ons-js-filter__item');
     this.controllers = document.querySelectorAll('[aria-controls="' + this.elementId + '"]'); // Controllers wrappers
     this.fallbackMessage = document.querySelector('[data-fallback-gallery-id="' + this.elementId + '"]');
     this.filterString = []; // Combination of different filter values
@@ -317,8 +317,8 @@ Math.easeInOutQuad = function(t, b, c, d) {
           if (!filterEl && !sortEl) return;
           if (filterEl && (filterEl.tagName.toLowerCase() == 'input' || filterEl.tagName.toLowerCase() == 'select')) return;
           if (sortEl && (sortEl.tagName.toLowerCase() == 'input' || sortEl.tagName.toLowerCase() == 'select')) return;
-          if (sortEl && Util.hasClass(sortEl, 'js-filter__custom-control')) return;
-          if (filterEl && Util.hasClass(filterEl, 'js-filter__custom-control')) return;
+          if (sortEl && Util.hasClass(sortEl, 'ons-js-filter__custom-control')) return;
+          if (filterEl && Util.hasClass(filterEl, 'ons-js-filter__custom-control')) return;
 
           // This will be executed only for a list of buttons -> no inputs
           event.preventDefault();
@@ -353,7 +353,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     for (let i = 0; i < filter.controllers.length; i++) {
       // Check if there’s a selected option
       // Buttons list
-      let selectedButton = filter.controllers[i].getElementsByClassName('js-filter-selected');
+      let selectedButton = filter.controllers[i].getElementsByClassName('ons-js-filter-selected');
       if (selectedButton.length > 0) {
         let sort = selectedButton[0].getAttribute('data-sort');
         sort
@@ -417,7 +417,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
         filter.filterString[index] = filter.controllers[index].value;
       }
     } else if (type == 'button') {
-      let selectedButtons = filter.controllers[index].querySelectorAll('.js-filter-selected');
+      let selectedButtons = filter.controllers[index].querySelectorAll('.ons-js-filter-selected');
       filter.filterString[index] = '';
       for (let i = 0; i < selectedButtons.length; i++) {
         filter.filterString[index] = filter.filterString[index] + selectedButtons[i].getAttribute('data-filter') + ':';
@@ -432,16 +432,16 @@ Math.easeInOutQuad = function(t, b, c, d) {
     let multi = filter.controllers[index].getAttribute('data-filter-checkbox'),
       customClass = filter.controllers[index].getAttribute('data-selected-class');
 
-    customClass = customClass ? 'js-filter-selected ' + customClass : 'js-filter-selected';
+    customClass = customClass ? 'ons-js-filter-selected ' + customClass : 'ons-js-filter-selected';
     if (multi == 'true') {
       // Multiple options can be on
       target1
-        ? Util.toggleClass(target1, customClass, !Util.hasClass(target1, 'js-filter-selected'))
-        : Util.toggleClass(target2, customClass, !Util.hasClass(target2, 'js-filter-selected'));
+        ? Util.toggleClass(target1, customClass, !Util.hasClass(target1, 'ons-js-filter-selected'))
+        : Util.toggleClass(target2, customClass, !Util.hasClass(target2, 'ons-js-filter-selected'));
     } else {
       // Only one element at the time
       // Remove the class from all siblings
-      let selectedOption = filter.controllers[index].querySelector('.js-filter-selected');
+      let selectedOption = filter.controllers[index].querySelector('.ons-js-filter-selected');
       if (selectedOption) Util.removeClass(selectedOption, customClass);
       target1 ? Util.addClass(target1, customClass) : Util.addClass(target2, customClass);
     }
@@ -546,11 +546,11 @@ Math.easeInOutQuad = function(t, b, c, d) {
     );
 
     for (let i = 0; i < filter.items.length; i++) {
-      // Remove u-hidden class from items now visible and scale to zero
-      if (Util.hasClass(filter.items[i], 'u-hidden') && filter.filterList[i]) {
+      // Remove ons-u-hidden class from items now visible and scale to zero
+      if (Util.hasClass(filter.items[i], 'ons-u-hidden') && filter.filterList[i]) {
         filter.items[i].setAttribute('data-scale', 'on');
         filter.items[i].setAttribute('style', filter.accelerateStyle + 'transform: scale(0.5); opacity: 0;');
-        Util.removeClass(filter.items[i], 'u-hidden');
+        Util.removeClass(filter.items[i], 'ons-u-hidden');
       }
     }
 
@@ -584,7 +584,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     for (let i = 0; i < filter.sortingList.length; i++) {
       let item = filter.items[filter.sortingList[i][1]];
 
-      if (Util.hasClass(item, 'u-hidden') || !filter.filterList[filter.sortingList[i][1]]) {
+      if (Util.hasClass(item, 'ons-u-hidden') || !filter.filterList[filter.sortingList[i][1]]) {
         // Item is hidden or was previously hidden -> final position equal to first one
         filter.itemsFinalPosition[filter.sortingList[i][1]] = filter.itemsIterPosition[filter.sortingList[i][1]];
         if (item.getAttribute('data-scale') == 'on') j = j + 1;
@@ -644,7 +644,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     // Animation was off or animation is over -> reset attributes
     for (let i = 0; i < filter.items.length; i++) {
       filter.items[i].removeAttribute('style');
-      Util.toggleClass(filter.items[i], 'u-hidden', !filter.filterList[i]);
+      Util.toggleClass(filter.items[i], 'ons-u-hidden', !filter.filterList[i]);
       filter.items[i].removeAttribute('data-scale');
     }
 
@@ -654,7 +654,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
     }
 
     filter.items = [];
-    filter.items = filter.element.querySelectorAll('.js-filter__item');
+    filter.items = filter.element.querySelectorAll('.ons-js-filter__item');
     resetFilterSortArray(filter, false, true);
     filter.element.removeAttribute('style');
     filter.animating = false;
@@ -687,7 +687,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
     // Get offset first visible element
     for (let i = 0; i < filter.items.length; i++) {
-      if (!Util.hasClass(filter.items[i], 'u-hidden')) {
+      if (!Util.hasClass(filter.items[i], 'ons-u-hidden')) {
         (itemStyle = window.getComputedStyle(filter.items[i])),
           (itemWidth = parseFloat(itemStyle.getPropertyValue('width'))),
           (itemHeight = parseFloat(itemStyle.getPropertyValue('height'))),
@@ -735,10 +735,10 @@ Math.easeInOutQuad = function(t, b, c, d) {
     }
     if (bool) {
       // Reset visibility before animation is triggered
-      if (!show) Util.addClass(filter.fallbackMessage, 'u-hidden');
+      if (!show) Util.addClass(filter.fallbackMessage, 'ons-u-hidden');
       return;
     }
-    Util.toggleClass(filter.fallbackMessage, 'u-hidden', !show);
+    Util.toggleClass(filter.fallbackMessage, 'ons-u-hidden', !show);
   }
 
   function getMultipleSelectValues(multipleSelect) {
@@ -762,7 +762,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
   window.Filter = Filter;
 
   // Init Filter object
-  let filterGallery = document.getElementsByClassName('js-filter'),
+  let filterGallery = document.getElementsByClassName('ons-js-filter'),
     reducedMotion = Util.osHasReducedMotion();
   if (filterGallery.length > 0) {
     for (let i = 0; i < filterGallery.length; i++) {
@@ -783,10 +783,10 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
   let AdvFilter = function(element) {
     this.element = element;
-    this.form = this.element.getElementsByClassName('js-adv-filter__form');
-    this.resultsList = this.element.getElementsByClassName('js-adv-filter__gallery')[0];
-    this.resultsCount = this.element.getElementsByClassName('js-adv-filter__results-count');
-    this.showCount = this.element.getElementsByClassName('js-adv-filter__show-results');
+    this.form = this.element.getElementsByClassName('ons-js-adv-filter__form');
+    this.resultsList = this.element.getElementsByClassName('ons-js-adv-filter__gallery')[0];
+    this.resultsCount = this.element.getElementsByClassName('ons-js-adv-filter__results-count');
+    this.showCount = this.element.getElementsByClassName('ons-js-adv-filter__show-results');
 
     initAdvFilter(this);
   };
@@ -803,11 +803,11 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
       // Update section labels on form change
       filter.form[0].addEventListener('change', function(event) {
-        let section = event.target.closest('.js-adv-filter__item');
+        let section = event.target.closest('.ons-js-adv-filter__item');
         if (section) resetSelection(filter, section);
-        else if (Util.is(event.target, '.js-adv-filter__form')) {
+        else if (Util.is(event.target, '.ons-js-adv-filter__form')) {
           // Reset the entire form lables
-          let sections = filter.form[0].getElementsByClassName('js-adv-filter__item');
+          let sections = filter.form[0].getElementsByClassName('ons-js-adv-filter__item');
           for (let i = 0; i < sections.length; i++) resetSelection(filter, sections[i]);
         }
       });
@@ -824,13 +824,13 @@ Math.easeInOutQuad = function(t, b, c, d) {
   function resetFilters(filter) {
     // Check if there are custom form elemets - reset appearance
     // Custom select
-    let customSelect = filter.element.getElementsByClassName('js-select');
+    let customSelect = filter.element.getElementsByClassName('ons-js-select');
     if (customSelect.length > 0) {
       for (let i = 0; i < customSelect.length; i++) customSelect[i].dispatchEvent(new CustomEvent('select-updated'));
     }
 
     // Custom slider
-    let customSlider = filter.element.getElementsByClassName('js-slider');
+    let customSlider = filter.element.getElementsByClassName('ons-js-slider');
     if (customSlider.length > 0) {
       for (let i = 0; i < customSlider.length; i++) customSlider[i].dispatchEvent(new CustomEvent('slider-updated'));
     }
@@ -838,7 +838,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
   function resetSelection(filter, section) {
     // Change label value based on input types
-    let labelSelection = section.getElementsByClassName('js-adv-filter__selection');
+    let labelSelection = section.getElementsByClassName('ons-js-adv-filter__selection');
     if (labelSelection.length == 0) return;
 
     // Select
@@ -957,7 +957,7 @@ Math.easeInOutQuad = function(t, b, c, d) {
   }
 
   // Initialize the AdvFilter objects
-  let advFilter = document.getElementsByClassName('js-adv-filter');
+  let advFilter = document.getElementsByClassName('ons-js-adv-filter');
   if (advFilter.length > 0) {
     for (let i = 0; i < advFilter.length; i++) {
       (function(i) {
@@ -1005,19 +1005,19 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
 // TOGGLE FILTERS
 (function() {
-  let filters = document.getElementsByClassName('js-adv-filter');
+  let filters = document.getElementsByClassName('ons-js-adv-filter');
 
   if (filters.length > 0) {
-    let filtersTrigger = filters[0].getElementsByClassName('js-adv-filter__trigger')[0];
-    let filtersClose = filters[0].getElementsByClassName('js-adv-filter__close')[0];
-    let filtersShow = filters[0].getElementsByClassName('js-adv-filter__show')[0];
-    let filtersPanel = filters[0].getElementsByClassName('js-adv-filter__panel')[0];
+    let filtersTrigger = filters[0].getElementsByClassName('ons-js-adv-filter__trigger')[0];
+    let filtersClose = filters[0].getElementsByClassName('ons-js-adv-filter__close')[0];
+    let filtersShow = filters[0].getElementsByClassName('ons-js-adv-filter__show')[0];
+    let filtersPanel = filters[0].getElementsByClassName('ons-js-adv-filter__panel')[0];
     let body = document.getElementsByTagName('body')[0];
 
     // Detect click on filters trigger
     filtersTrigger.addEventListener('click', function(event) {
       event.preventDefault();
-      toggleFilters(!Util.hasClass(filtersPanel, 'adv-filter__panel--is-visible'));
+      toggleFilters(!Util.hasClass(filtersPanel, 'ons-adv-filter__panel--is-visible'));
     });
 
     // Detect click on update
@@ -1061,8 +1061,8 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
     // Toggle filters visibility on small devices
     function toggleFilters(bool) {
-      Util.toggleClass(filtersPanel, 'adv-filter__panel--is-visible', bool);
-      Util.toggleClass(body, 'no-scroll', bool);
+      Util.toggleClass(filtersPanel, 'ons-adv-filter__panel--is-visible', bool);
+      Util.toggleClass(body, 'ons-no-scroll', bool);
       filtersTrigger.setAttribute('aria-expanded', bool);
     }
   }

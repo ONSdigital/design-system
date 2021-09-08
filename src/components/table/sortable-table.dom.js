@@ -1,6 +1,6 @@
 import domready from '../../js/domready';
 
-export const classTableSortable = 'table--sortable';
+export const classTableSortable = 'ons-table--sortable';
 
 async function tableSorter() {
   const tables = [...document.querySelectorAll(`.${classTableSortable}`)];

@@ -1,7 +1,7 @@
 $checkbox-input-width: 22px;
 $checkbox-padding: 11px;
 
-.checkbox {
+.ons-checkbox {
   display: inline-block;
   position: relative;
   width: 100%;
@@ -33,7 +33,7 @@ $checkbox-padding: 11px;
   }
 
   &--no-border {
-    & > .checkbox__label {
+    & > .ons-checkbox__label {
       padding: 0 0 0 1.85rem;
 
       &::before {
@@ -42,12 +42,12 @@ $checkbox-padding: 11px;
         box-shadow: none;
       }
 
-      & > .checkbox__label--with-description {
+      & > .ons-checkbox__label--with-description {
         padding: 0;
       }
     }
 
-    & > .checkbox__input {
+    & > .ons-checkbox__input {
       left: 0.05rem;
       top: 0.15rem;
 
@@ -55,7 +55,7 @@ $checkbox-padding: 11px;
       &:focus {
         background-color: initial;
 
-        & + .checkbox__label::before {
+        & + .ons-checkbox__label::before {
           background: none;
           border: none;
           box-shadow: none;
@@ -78,7 +78,7 @@ $checkbox-padding: 11px;
       padding: 0 1rem $checkbox-padding 0;
     }
 
-    .label__description {
+    .ons-label__description {
       margin-left: -1.75rem;
     }
 
@@ -115,14 +115,14 @@ $checkbox-padding: 11px;
     box-shadow: 0 0 0 1px $color-input;
   }
 
-  .panel--error .radio__input:checked ~ &__other > .input--text:required:not(:focus) {
+  .ons-panel--error .ons-radio__input:checked ~ &__other > .ons-input--text:required:not(:focus) {
     border: 1px solid $color-ruby-red;
     outline: 1px solid $color-ruby-red;
     outline-offset: -2px;
   }
 
   &__input:focus + &__label::before {
-    @extend .input:focus;
+    @extend .ons-input:focus;
   }
 
   &__input:not(:checked) ~ &__other {
@@ -152,13 +152,13 @@ $checkbox-padding: 11px;
       }
     }
 
-    &__input:checked + .checkbox__label::before,
-    &__input:focus + .checkbox__label::before {
+    &__input:checked + .ons-checkbox__label::before,
+    &__input:focus + .ons-checkbox__label::before {
       background: transparent;
       box-shadow: none;
     }
 
-    &__input:focus + .checkbox__label::before {
+    &__input:focus + .ons-checkbox__label::before {
       border: 0;
       outline: none;
     }

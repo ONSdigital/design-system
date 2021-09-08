@@ -11,7 +11,7 @@ const params = {
     ariaLabel: 'Toggle main navigation',
   },
   navigation: {
-    classes: 'js-header-nav u-d-no',
+    classes: 'ons-js-header-nav ons-u-d-no',
     id: 'main-nav',
     ariaLabel: 'Main menu',
     ariraListLabel: 'Navigation menu',
@@ -32,12 +32,12 @@ const params = {
       {
         title: 'My account',
         path: '#',
-        classes: 'nav__item--secondary u-d-no@m',
+        classes: 'ons-nav__item--secondary ons-u-d-no@m',
       },
       {
         title: 'Sign out',
         path: '#',
-        classes: 'u-d-no@m',
+        classes: 'ons-u-d-no@m',
       },
     ],
   },
@@ -118,7 +118,7 @@ describe('Component: Navigation', function() {
           });
 
           it('Should not have the hidden class', function() {
-            expect(this.mainNavList.classList.contains('u-d-no@xxs@m')).to.be.false;
+            expect(this.mainNavList.classList.contains('ons-u-d-no@xxs@m')).to.be.false;
           });
         });
 
@@ -132,7 +132,7 @@ describe('Component: Navigation', function() {
           });
 
           it('Should not have the hidden class', function() {
-            expect(this.mainNavList.classList.contains('u-d-no@xxs@m')).to.be.true;
+            expect(this.mainNavList.classList.contains('ons-u-d-no@xxs@m')).to.be.true;
           });
         });
 
@@ -205,9 +205,9 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const toggleMainBtn = wrapper.querySelector('.js-toggle-main');
-  const mainNavList = wrapper.querySelector('.js-header-nav');
-  const hideClass = 'u-d-no@xxs@m';
+  const toggleMainBtn = wrapper.querySelector('.ons-js-toggle-main');
+  const mainNavList = wrapper.querySelector('.ons-js-header-nav');
+  const hideClass = 'ons-u-d-no@xxs@m';
 
   return {
     wrapper,

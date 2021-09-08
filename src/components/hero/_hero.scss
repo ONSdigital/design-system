@@ -1,5 +1,5 @@
 // Default
-.hero {
+.ons-hero {
   background-color: $color-banner-bg;
   padding: 2rem 0;
 
@@ -8,7 +8,7 @@
   }
 }
 
-.hero__pre-title {
+.ons-hero__pre-title {
   margin-bottom: 0.5rem;
 
   @include mq(xxs, m) {
@@ -16,13 +16,13 @@
   }
 }
 
-.hero__title {
+.ons-hero__title {
   font-size: 2.3rem;
   line-height: 1.2;
 }
 
 // Census theme
-.hero--census {
+.ons-hero--census {
   background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
   display: flex;
   margin-bottom: 2px;
@@ -30,19 +30,19 @@
   overflow: hidden;
   padding: 0;
   position: relative;
-  .hero__container {
+  .ons-hero__container {
     align-items: flex-end;
     display: flex;
     min-height: 400px;
     position: relative;
   }
-  .hero__circle-image,
-  .hero__circle-gradient,
-  .hero__circle-lined,
-  .hero__circle {
+  .ons-hero__circle-image,
+  .ons-hero__circle-gradient,
+  .ons-hero__circle-lined,
+  .ons-hero__circle {
     position: absolute;
   }
-  .hero__circle-image {
+  .ons-hero__circle-image {
     background-color: $color-white;
     border-radius: 50%;
     height: 300px;
@@ -57,7 +57,7 @@
       height: 100%;
     }
   }
-  .hero__circle-gradient {
+  .ons-hero__circle-gradient {
     background-image: linear-gradient(-45deg, $color-branded 0%, $color-branded 20%, $color-branded-tertiary 60%, #005489 90%);
     border-radius: 50%;
     display: block;
@@ -67,7 +67,7 @@
     width: 182px;
     z-index: 3;
   }
-  .hero__circle {
+  .ons-hero__circle {
     background-color: $color-white;
     border-radius: 50%;
     display: block;
@@ -78,7 +78,7 @@
     width: 990px;
     z-index: 1;
   }
-  .hero__circle-lined {
+  .ons-hero__circle-lined {
     fill: $color-white;
     height: 133px;
     opacity: 0.4;
@@ -87,7 +87,7 @@
     width: 133px;
     z-index: 4;
   }
-  .hero__details {
+  .ons-hero__details {
     padding-bottom: 1rem;
     padding-top: 218px;
     position: relative;
@@ -109,36 +109,36 @@
   }
 
   @include mq(m) {
-    .hero__title {
+    .ons-hero__title {
       font-size: 3rem;
     }
-    .hero__details {
+    .ons-hero__details {
       padding-top: 2rem;
     }
-    .hero__circle-image {
+    .ons-hero__circle-image {
       height: 382px;
       right: -8px;
       top: -117px;
       width: 382px;
     }
-    .hero__circle-gradient {
+    .ons-hero__circle-gradient {
       height: 234px;
       right: -117px; // Half width of circle
       top: 1rem;
       width: 234px;
     }
-    .hero__circle {
+    .ons-hero__circle {
       left: -331px;
       margin: auto; // Reset
       top: -288px;
     }
-    .hero__circle-lined {
+    .ons-hero__circle-lined {
       height: 171px;
       right: -24px;
       top: 148px;
       width: 171px;
     }
-    .hero__container {
+    .ons-hero__container {
       align-items: center;
 
       &--has-collapsible {
@@ -148,25 +148,25 @@
   }
 
   @include mq(l) {
-    .hero__details {
+    .ons-hero__details {
       padding-right: 2.5rem;
     }
-    .hero__circle-image {
+    .ons-hero__circle-image {
       height: 558px;
       margin: auto;
       right: 0;
       top: -176px;
       width: 558px;
     }
-    .hero__circle-gradient {
+    .ons-hero__circle-gradient {
       height: 342px;
       right: -171px; // Half width of circle
       width: 342px;
     }
-    .hero__circle {
+    .ons-hero__circle {
       top: -369px;
     }
-    .hero__circle-lined {
+    .ons-hero__circle-lined {
       height: 243px;
       right: 0;
       top: 292px; // Reset
