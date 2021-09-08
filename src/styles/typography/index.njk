@@ -165,51 +165,6 @@ Inline lists should be used to display a horizontal row of links, for example, a
     patternlibExample({"path": "styles/typography/lists/examples/list-inline/index.njk", "componentFolderPath": "components/lists"})
 }}
 
-## Icons
-Icons are used to provide affordance to improve user experience. Icons shouldn't be used as decoration and implemented only if there is a user need. We only use icons with text if we have evidence to suggest that it helps the user complete their task.
-
-__Our current icon set can be used in the following scenarios:__
-
-### List with progress check icons prefix
-{{
-    patternlibExample({"path": "styles/typography/icons/examples/icons-list-prefix/index.njk", "componentFolderPath": "components/lists" })
-}}
-
-### List with progress check icons suffix
-{{
-    patternlibExample({"path": "styles/typography/icons/examples/icons-list-suffix/index.njk", "componentFolderPath": "components/lists" })
-}}
-
-### List with social icons
-{{
-    patternlibExample({"path": "styles/typography/icons/examples/icons-social-list/index.njk", "componentFolderPath": "components/lists" })
-}}
-__How to use:__ Set `icon` to the name of the icon you want to use on each list item.
-
-### Link with external link icon
-{{
-    patternlibExample({"path": "components/external-link/examples/external-link/index.njk"})
-}}
-
-__How to use:__ Use the `onsExternalLink` macro using the `url` and `linkText` params.
-
-### Text with secure icon
-{{
-    patternlibExample({"path": "components/panel/examples/bare/index.njk"})
-}}
-__How to use:__ Use the panel component setting `type` to "bare" and icon to the name of the icon you want to use.
-
-### Contribute to icons
-+{% call onsPanel() %}
-    If you have any requests for icons or research findings please feed back via the
-    {{
-        onsExternalLink({
-            "url": "https://github.com/ONSdigital/design-system/discussions/95",
-            "linkText": "GitHub discussions"
-        })
-    }}
-{% endcall %}+
-
 ## Help improve this style
 Let us know how we could improve this style or share your user research findings.
 {{

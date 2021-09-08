@@ -16,37 +16,46 @@ sortOrder: 1
         "title": 'Design and build digital services for the ONS',
         "text": 'Everything you need to make accessible and consistent digital products.',
         "button": {
-            "url": '/guidance/npm',
+            "url": '/guidance/install-with-npm',
             "text": 'Get started'
         }
     })
 }}
 <div class="container container--wide">
     <div class="grid grid--column@xxs@s u-mt-l u-mb-l@m">
-        <div class="grid__col col-4@m">
+        <div class="grid__col col-3@m">
             {{-
                 onsCard({
-                    "title": 'Styles',
-                    "url": '/styles',
-                    "text": 'Guides for applying layout, typography and colour.'
+                    "title": 'Foundations',
+                    "url": '/foundations',
+                    "text": 'Creating a page structure and layout.'
                 })
             -}}
         </div>
-        <div class="grid__col col-4@m">
+        <div class="grid__col col-3@m">
             {{-
                 onsCard({
                     "title": 'Components',
                     "url": '/components',
-                    "text": 'Reusable and accessible code to build the components of a page.'
+                    "text": 'The individual components for building digital products.'
                 })
             -}}
         </div>
-        <div class="grid__col col-4@m">
+        <div class="grid__col col-3@m">
             {{-
                 onsCard({
                     "title": 'Patterns',
                     "url": '/patterns',
-                    "text": 'Patterns on common tasks and how components should work together.'
+                    "text": 'Combining components to help users carry out common tasks.'
+                })
+            -}}
+        </div>
+        <div class="grid__col col-3@m">
+            {{-
+                onsCard({
+                    "title": 'Styles',
+                    "url": '/styles',
+                    "text": 'Using colour, typography and icons to create a consistent ONS style.'
                 })
             -}}
         </div>
