@@ -139,7 +139,7 @@ function renderComponent() {
     '<input type="radio" class="ons-js-radio" name="cookies-campaigns" value="off">' +
     '<button id="submit-button" type="submit">Submit</button>' +
     '</form>' +
-    '<div class="ons-cookies-confirmation-messageons-u-d-no">' +
+    '<div class="ons-cookies-confirmation-message ons-u-d-no">' +
     '<a class="ons-js-return-link" href="#">Return to previous page</a>' +
     '</div>';
 
