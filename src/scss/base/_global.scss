@@ -50,7 +50,7 @@ a {
     color: $color-text-link-hover;
     text-decoration: underline solid $color-text-link-hover 2px;
   }
-  &:focus:not(.ons-btn--link):not(.ons-btn--ghost):not(.ons-js-clear-btn):not(.ons-download__thumbnail--link):not(.ons-tab--row):not(.skip__link) {
+  &:focus:not(.ons-btn--link):not(.ons-btn--ghost):not(.ons-js-clear-btn):not(.ons-download__thumbnail--link):not(.ons-tab--row):not(.ons-skip-link) {
     background-color: $color-focus;
     box-shadow: 0 -2px $color-focus, 0 4px $color-text-link-focus;
     color: $color-text-link-focus;
