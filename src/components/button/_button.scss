@@ -139,7 +139,6 @@ $button-border-height: 3px;
   }
 
   // When hovered
-
   &:hover & {
     &__inner {
       background: darken($color-button, 5%);
