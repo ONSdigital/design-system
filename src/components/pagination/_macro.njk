@@ -25,7 +25,7 @@
   {% endif %}
 
 
-  <nav class="ons-pagination {{ params.classes }}{% if params.hideRangeIndicator is defined and params.hideRangeIndicator %} pagination--no-indicator{% endif %}" arial-label="Pagination ({{ position }})">
+  <nav class="ons-pagination {{ params.classes }}{% if params.hideRangeIndicator is defined and params.hideRangeIndicator %} ons-pagination--no-indicator{% endif %}" arial-label="Pagination ({{ position }})">
       <div class="ons-pagination__position">{{ position }}</div>
       <ul class="ons-pagination__items">
           {% if currentPageIndex != 1 %}
@@ -45,7 +45,7 @@
           {% endif %}
           {% for page in params.pages %}
               {% if loop.index >= middlePagesStart and loop.index <= middlePagesEnd %}
-                  <li class="ons-pagination__item{% if page.current is defined and page.current == true %} pagination__item--current{% endif %}">
+                  <li class="ons-pagination__item{% if page.current is defined and page.current == true %} ons-pagination__item--current{% endif %}">
                       <a href="{{ page.url }}" class="ons-pagination__link"
                           {%- if page.current -%}
                               aria-current="true" aria-label="Current page ({{ position }})"
