@@ -1,10 +1,9 @@
-.u-hidden {
+.ons-u-hidden {
   display: none !important;
   visibility: hidden;
 }
 
-.u-visuallyhidden,
-.u-vh {
+@include bp-suffix('ons-u-vh', $create-between-breakpoints: true) {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -16,10 +15,10 @@
   width: 1px;
 }
 
-.u-visuallyhidden.u-focusable:active,
-.u-vh.u-focusable:active,
-.u-visuallyhidden.u-focusable:focus,
-.u-vh.u-focusable:focus {
+.ons-u-visuallyhidden.ons-u-focusable:active,
+.ons-u-vh.ons-u-focusable:active,
+.ons-u-visuallyhidden.ons-u-focusable:focus,
+.ons-u-vh.ons-u-focusable:focus {
   clip: auto;
   height: auto;
   margin: 0;
@@ -28,17 +27,17 @@
   width: auto;
 }
 
-.u-invisible {
+.ons-u-invisible {
   visibility: hidden;
 }
 
-.u-ir {
+.ons-u-ir {
   background-color: transparent;
   border: 0;
   overflow: hidden;
 }
 
-.u-ir::before {
+.ons-u-ir::before {
   content: '';
   display: block;
   height: 150%;

@@ -1,4 +1,4 @@
-.checkboxes {
+.ons-checkboxes {
   &__label {
     display: block;
     margin: 0 0 0.5rem;
@@ -20,11 +20,15 @@
     @include mq(s) {
       min-width: 20rem;
       width: auto;
+
+      &--no-border {
+        min-width: 0;
+      }
     }
   }
 
   &--mutually-exclusive__item {
-    @extend .checkboxes__item;
+    @extend .ons-checkboxes__item;
 
     margin-bottom: 0;
   }

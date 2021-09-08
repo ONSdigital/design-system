@@ -13,35 +13,36 @@
         "legendIsQuestionTitle": params.legendIsQuestionTitle,
         "error": params.error
     }) %}
-        <div class="radios__items">
-            {% for radio in params.radios %}
-                {% if params.or is defined and params.or and loop.revindex0 == 0 %}
-                    <span class="radios__label u-mt-s u-fs-r--b" aria-hidden="true">{{ params.or }} </span>
-                {% endif %}
-                <p class="radios__item">
-                    <span class="radio">
-                        <input
+    <div class="ons-radios__items">
+        {% for radio in params.radios %}
+            {% if params.or is defined and params.or and loop.revindex0 == 0 %}
+                <span class="ons-radios__label ons-u-mt-s ons-u-fs-r--b" aria-hidden="true">{{ params.or }}
+                </span>
+            {% endif %}
+            <p class="ons-radios__item{{ " ons-radios__item--no-border" if params.borderless }}">
+                <span class="ons-radio{{ " ons-radio--no-border" if params.borderless }}">
+                    <input
                             type="radio"
                             id="{{ radio.id }}"
-                            class="radio__input js-radio{{ " " + radio.classes if radio.classes else "" }}"
+                            class="ons-radio__input ons-js-radio{{ " " + radio.classes if radio.classes else "" }}"
                             value="{{ radio.value }}"
                             name="{{ params.name }}"
                             {% if (radio.checked is defined and radio.checked) or (params.value is defined and params.value == radio.value) %} checked {% endif %}
                             {% if radio.other is defined and radio.other and not radio.other.open %} aria-controls="{{ radio.id }}-other-wrap" aria-haspopup="true"{% endif %}
                             {% if radio.attributes is defined and radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                         >
-                        {{ onsLabel({
+                    {{ onsLabel({
                             "id": radio.id + "-label",
                             "for": radio.id,
                             "inputType": "radio",
                             "text": radio.label.text,
-                            "classes": "radio__label " + radio.label.classes | default(''),
+                            "classes": "ons-radio__label " + radio.label.classes | default(''),
                             "description": radio.label.description
                         }) }}
 
-                        {% if radio.other is defined and radio.other %}
-                            {% set otherType = radio.other.otherType | default('input') %}
-                            <span class="radio__other{{ " " + 'radio__other--open' if radio.other.open else "" }}" id="{{ radio.id }}-other-wrap">
+                    {% if radio.other is defined and radio.other %}
+                        {% set otherType = radio.other.otherType | default('input') %}
+                        <span class="ons-radio__other{{ " " + 'ons-radio__other--open' if radio.other.open else "" }}" id="{{ radio.id }}-other-wrap">
                             {% if otherType == "input" %}
                                 {% from "components/input/_macro.njk" import onsInput %}
                                 {{
@@ -50,12 +51,12 @@
                                         "name": radio.other.name,
                                         "type": radio.other.type,
                                         "required": radio.other.required,
-                                        "classes": "input--w-auto " + radio.other.classes | default(''),
+                                        "classes": "ons-input--w-auto " + radio.other.classes | default(''),
                                         "attributes": radio.other.attributes,
                                         "label": {
                                             "id": radio.other.id + "-label",
                                             "text": radio.other.label.text,
-                                            "classes": 'u-fs-s--b'
+                                            "classes": 'ons-u-fs-s--b'
                                         },
                                         "dontWrap": true,
                                         "value": radio.other.value
@@ -72,7 +73,7 @@
                                         "label": {
                                             "id": radio.other.id + "-label",
                                             "text": radio.other.label.text,
-                                            "classes": 'u-fs-s--b'
+                                            "classes": 'ons-u-fs-s--b'
                                         },
                                         "dontWrap": true,
                                         "value": radio.other.value,
@@ -82,24 +83,24 @@
                                     })
                                 }}
                             {% endif %}
-                            </span>
-                        {% endif %}
-                    </span>
-                </p>
-                {% if not loop.last %}
-                    <br>
-                {% endif %}
-            {% endfor %}
-        </div>
-        {% if params.clearRadios is defined and params.clearRadios %}
-            {{ onsButton({
+                        </span>
+                    {% endif %}
+                </span>
+            </p>
+            {% if not loop.last %}
+                <br>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% if params.clearRadios is defined and params.clearRadios %}
+        {{ onsButton({
                 "text": params.clearRadios.text,
                 "name": params.clearRadios.name,
                 "type": "submit",
-                "classes": "btn--secondary btn--small js-clear-btn u-mt-s u-db-no-js_enabled"
+                "classes": "ons-btn--secondary ons-btn--small ons-js-clear-btn ons-u-mt-s ons-u-db-no-js_enabled"
             }) }}
-            <span class="js-clear-radio-alert u-vh" role="alert" aria-live="polite" data-clear="{{ params.clearRadios.ariaClearText }}" data-cleared="{{ params.clearRadios.ariaClearedText }}"></span>
-        {% endif %}
+        <span class="ons-js-clear-radio-alert ons-u-vh" role="alert" aria-live="polite" data-clear="{{ params.clearRadios.ariaClearText }}" data-cleared="{{ params.clearRadios.ariaClearedText }}"></span>
+    {% endif %}
     {% endcall %}
 
 {% endmacro %}

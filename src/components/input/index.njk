@@ -1,5 +1,6 @@
 ---
 title: Input
+synonyms: Text field, Text input
 ---
 
 +++
@@ -76,7 +77,7 @@ You will need to use the autocomplete attribute for each applicable {{
 ## Variants
 
 ### Input with description
-An optional `label__description` can be used to display a hint to help the user enter their information.
+An optional `description` parameter can be provided inside the [label](/components/label) object to display a hint to help the user enter their information. 
 {{
     patternlibExample({"path": "components/input/examples/text-description/index.njk"})
 }}
@@ -84,13 +85,13 @@ An optional `label__description` can be used to display a hint to help the user 
 ### Width constrained
 Change the width of inputs to suit the type of content. This helps users understand what they need to enter.
 
-Inputs can have their widths constrained (but not limited) to the number of expected characters using the `input--w-<number>` or `input-number--w-<number>` classes.
+Inputs can have their widths constrained (but not limited) to the number of expected characters using the `ons-input--w-<number>` or `ons-input-number--w-<number>` classes.
 
-The class `input--w-<number>` is based on the width of the widest character “W”, and is to be used on fields that will contain any characters. The class `input-number--w-<number>` is based on the width of the widest number “4”, and is to be used on fields that will only contain numbers.
+The class `ons-input--w-<number>` is based on the width of the widest character “W”, and is to be used on fields that will contain any characters. The class `ons-input-number--w-<number>` is based on the width of the widest number “4”, and is to be used on fields that will only contain numbers.
 
 The `<number>` values available for both classes are: `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `15`, `20`, `30`, `40`, `50`.
 
-For inputs that will contain both letters and numbers, you will need to use the class `input--w-<number>` with an appropriate value. For example, UK postcodes always consist of up to 7 letters and numbers and one optional space separating the outward and inward codes. So using the class `input--w-7` will create a width appropriate for the longest potential postcode “WW4W 4WW”.
+For inputs that will contain both letters and numbers, you will need to use the class `ons-input--w-<number>` with an appropriate value. For example, UK postcodes always consist of up to 7 letters and numbers and one optional space separating the outward and inward codes. So using the class `input--w-7` will create a width appropriate for the longest potential postcode “WW4W 4WW”.
 
 {{
     patternlibExample({"path": "components/input/examples/text-width-constrained/index.njk"})

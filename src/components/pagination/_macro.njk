@@ -25,28 +25,28 @@
   {% endif %}
 
 
-  <nav class="pagination {{ params.classes }}{% if params.hideRangeIndicator is defined and params.hideRangeIndicator %} pagination--no-indicator{% endif %}" arial-label="Pagination ({{ position }})">
-      <div class="pagination__position">{{ position }}</div>
-      <ul class="pagination__items">
+  <nav class="ons-pagination {{ params.classes }}{% if params.hideRangeIndicator is defined and params.hideRangeIndicator %} ons-pagination--no-indicator{% endif %}" arial-label="Pagination ({{ position }})">
+      <div class="ons-pagination__position">{{ position }}</div>
+      <ul class="ons-pagination__items">
           {% if currentPageIndex != 1 %}
               {% set prevPageIndex = currentPageIndex - 2 %}
-              <li class="pagination__item pagination__item--previous">
-                  <a href="{{ params.pages[prevPageIndex].url }}" class="pagination__link" rel="prev" aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})">{{ params.previous }}</a>
+              <li class="ons-pagination__item ons-pagination__item--previous">
+                  <a href="{{ params.pages[prevPageIndex].url }}" class="ons-pagination__link" rel="prev" aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})">{{ params.previous }}</a>
               </li>
           {% endif %}
           {% if currentPageIndex > 3 %}
               {% set first = params.pages | first %}
-              <li class="pagination__item">
-                  <a href="{{ first.url }}" class="pagination__link" aria-label="Go to the first page (Page 1)">1</a>
+              <li class="ons-pagination__item">
+                  <a href="{{ first.url }}" class="ons-pagination__link" aria-label="Go to the first page (Page 1)">1</a>
               </li>
           {% endif %}
           {% if currentPageIndex > 4 %}
-              <li class="pagination__item pageination__item--gap">&hellip;</li>
+              <li class="ons-pagination__item ons-pageination__item--gap">&hellip;</li>
           {% endif %}
           {% for page in params.pages %}
               {% if loop.index >= middlePagesStart and loop.index <= middlePagesEnd %}
-                  <li class="pagination__item{% if page.current is defined and page.current == true %} pagination__item--current{% endif %}">
-                      <a href="{{ page.url }}" class="pagination__link"
+                  <li class="ons-pagination__item{% if page.current is defined and page.current == true %} ons-pagination__item--current{% endif %}">
+                      <a href="{{ page.url }}" class="ons-pagination__link"
                           {%- if page.current -%}
                               aria-current="true" aria-label="Current page ({{ position }})"
                           {%- else -%}
@@ -63,17 +63,17 @@
               {% endif %}
           {% endfor %}
           {% if currentPageIndex < totalPages - 3 %}
-              <li class="pagination__item pageination__item--gap">&hellip;</li>
+              <li class="ons-pagination__item ons-pageination__item--gap">&hellip;</li>
           {% endif %}
           {% if currentPageIndex < totalPages - 2 %}
               {% set lastPage = params.pages | last %}
-              <li class="pagination__item">
-                  <a href="{{ lastPage.url }}" class="pagination__link" aria-label="Go to the last page (Page {{ totalPages }})">{{ totalPages }}</a>
+              <li class="ons-pagination__item">
+                  <a href="{{ lastPage.url }}" class="ons-pagination__link" aria-label="Go to the last page (Page {{ totalPages }})">{{ totalPages }}</a>
               </li>
           {% endif %}
           {% if totalPages > 1 and totalPages != currentPageIndex %}
-              <li class="pagination__item pagination__item--next">
-                  <a href="{{ params.pages[currentPageIndex].url }}" class="pagination__link" rel="next" aria-label="Go to the next page (Page {{ currentPageIndex + 1 }})">{{ params.next }}</a>
+              <li class="ons-pagination__item ons-pagination__item--next">
+                  <a href="{{ params.pages[currentPageIndex].url }}" class="ons-pagination__link" rel="next" aria-label="Go to the next page (Page {{ currentPageIndex + 1 }})">{{ params.next }}</a>
               </li>
           {% endif %}
       </ul>

@@ -17,6 +17,7 @@ require('@babel/register');
 const babelEsmConfig = require('./babel.conf.esm');
 const babelNomoduleConfig = require('./babel.conf.nomodule');
 const nunjucksRendererPipe = require('./lib/rendering/nunjucks-renderer-pipe.js').default;
+const searchIndexPipe = require('./lib/rendering/search-index-pipe.js').default;
 const postCssPlugins = require('./postcss.config').default;
 const svgConfig = require('./svgo-config.js').default;
 
@@ -107,6 +108,13 @@ gulp.task('build-pages', () => {
     .pipe(gulp.dest('./build'));
 });
 
+gulp.task('build-search-index', () => {
+  return gulp
+    .src('./src/search-index.json')
+    .pipe(searchIndexPipe)
+    .pipe(gulp.dest('./build'));
+});
+
 gulp.task('copy-static-files', () => {
   return gulp.src('./src/static/**/*').pipe(gulp.dest('./build'));
 });
@@ -126,7 +134,7 @@ gulp.task('start-dev-server', async () => {
   await import('./lib/dev-server.js');
 });
 
-gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-svg'));
+gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-svg', 'build-search-index'));
 
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));

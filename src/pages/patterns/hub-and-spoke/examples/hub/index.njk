@@ -16,7 +16,7 @@ layout: none
 } %}
 
 {% block main %}
-    <h1 class="u-mt-m">Choose another section to complete</h1>
+    <h1 class="ons-u-mt-m">Choose another section to complete</h1>
 
     {% call onsPanel() %}
         <p><strong>You must complete all sections in order to submit this survey</strong></p>
@@ -24,7 +24,7 @@ layout: none
 
     {{ onsSummary({
         "hub": true,
-        "classes": "u-mt-m",
+        "classes": "ons-u-mt-m",
         "summaries": [
             {
                 "groups": [
@@ -195,7 +195,7 @@ layout: none
     {{
         onsButton({
             "text": 'Continue',
-            "classes": 'u-mb-m u-mt-l'
+            "classes": 'ons-u-mb-m ons-u-mt-l'
         })
     }}
 {% endblock %}

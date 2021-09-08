@@ -1,12 +1,12 @@
 {% macro onsMetadata(params) %}
-  <dl class="metadata metadata__list grid grid--gutterless u-cf u-mb-l"{% if params.id is defined and params.id %} id="{{ params.id }}" {% endif %}{% if params.metadataLabel is defined and params.metadataLabel %} title="{{ params.metadataLabel }}" aria-label="{{ params.metadataLabel }}"{% endif %}>
+  <dl class="ons-metadata metadata__list ons-grid ons-grid--gutterless ons-u-cf ons-u-mb-l"{% if params.id is defined and params.id %} id="{{ params.id }}" {% endif %}{% if params.metadataLabel is defined and params.metadataLabel %} title="{{ params.metadataLabel }}" aria-label="{{ params.metadataLabel }}"{% endif %}>
     {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
       {% if item.term | length %}
-          <dt class="metadata__term grid__col col-{{ params.termCol }}@m">{{ item.term }}</dt>
+          <dt class="ons-metadata__term ons-grid__col ons-col-{{ params.termCol }}@m">{{ item.term }}</dt>
       {% endif %}
         {% for description in item.descriptions %}
           {% if description.description | length %}
-            <dd {% if description.id is defined and description.id %}id="{{ description.id }}" {% endif %}class="metadata__value grid__col col-{{ params.descriptionCol }}@m">{{ description.description }}</dd>
+            <dd {% if description.id is defined and description.id %}id="{{ description.id }}" {% endif %}class="ons-metadata__value ons-grid__col ons-col-{{ params.descriptionCol }}@m">{{ description.description }}</dd>
           {% endif %}
         {% endfor %}
     {% endfor %}

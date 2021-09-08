@@ -4,13 +4,13 @@ import onViewportChange from '../../js/utils/viewport-change';
 
 const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
-const hideClass = 'u-d-no@xxs@m';
 
 export default class NavToggle {
-  constructor(toggle, nav) {
+  constructor(toggle, nav, hideClass) {
     this.toggle = toggle;
     this.nav = nav;
-    this.toggle.classList.remove('u-d-no');
+    this.hideClass = hideClass;
+    this.toggle.classList.remove('ons-u-d-no');
 
     this.setAria();
     onViewportChange(this.setAria.bind(this));
@@ -26,15 +26,23 @@ export default class NavToggle {
   }
 
   openNav() {
+    const input = [...this.nav.getElementsByTagName('INPUT')][0];
+
     this.toggle.setAttribute(attrExpanded, 'true');
+    this.toggle.classList.add('active');
     this.nav.setAttribute(attrHidden, 'false');
-    this.nav.classList.remove(hideClass);
+    this.nav.classList.remove(this.hideClass);
+
+    if (input) {
+      input.focus();
+    }
   }
 
   closeNav() {
     this.toggle.setAttribute(attrExpanded, 'false');
+    this.toggle.classList.remove('active');
     this.nav.setAttribute(attrHidden, 'true');
-    this.nav.classList.add(hideClass);
+    this.nav.classList.add(this.hideClass);
   }
 
   setAria() {
@@ -48,7 +56,7 @@ export default class NavToggle {
     } else if (hasAria) {
       this.toggle.removeAttribute(attrExpanded);
       this.nav.removeAttribute(attrHidden);
-      this.nav.classList.remove(hideClass);
+      this.nav.classList.remove(this.hideClass);
     }
   }
 }

@@ -1,10 +1,10 @@
 import inPageLinks from '../../js/inpagelink';
 
-const classAutosuggest = 'js-address-autosuggest';
-const classErrorPanel = 'js-autosuggest-error-panel';
-const classInputContainer = 'autosuggest-input';
-const classInput = 'js-autosuggest-input';
-const classSearch = 'js-address-input__search';
+const classAutosuggest = 'ons-js-address-autosuggest';
+const classErrorPanel = 'ons-js-autosuggest-error-panel';
+const classInputContainer = 'ons-autosuggest-input';
+const classInput = 'ons-js-autosuggest-input';
+const classSearch = 'ons-js-address-input__search';
 
 export default class AddressError {
   constructor(context) {
@@ -23,7 +23,7 @@ export default class AddressError {
   showErrorPanel() {
     if (!this.errorPanel) {
       //error panel
-      const page = document.querySelector('.question');
+      const page = document.querySelector('.ons-question');
       const errorElement = document.createElement('div');
       const errorElementHeader = document.createElement('div');
       const errorElementTitle = document.createElement('div');
@@ -32,11 +32,11 @@ export default class AddressError {
       const errorListElement = document.createElement('p');
       const errorLinkElement = document.createElement('a');
 
-      errorElement.className = 'panel panel--error u-mb-m js-autosuggest-error-panel';
-      errorElementHeader.className = 'panel__header';
-      errorElementTitle.className = 'panel__title u-fs-r--b';
-      errorBodyElement.className = 'panel__body';
-      errorLinkElement.className = 'list__link js-inpagelink js-error';
+      errorElement.className = 'ons-panel ons-panel--error ons-u-mb-m ons-js-autosuggest-error-panel';
+      errorElementHeader.className = 'ons-panel__header';
+      errorElementTitle.className = 'ons-panel__title ons-u-fs-r--b';
+      errorBodyElement.className = 'ons-panel__body';
+      errorLinkElement.className = 'ons-list__link ons-js-inpagelink ons-js-error';
       errorLinkElement.href = '#autosuggest-input-error';
 
       errorElementTitle.innerHTML = this.errorTitle;
@@ -50,7 +50,7 @@ export default class AddressError {
       page.insertBefore(errorElement, page.firstChild);
 
       // fire the inpagelink function
-      const links = [...document.getElementsByClassName('js-inpagelink')];
+      const links = [...document.getElementsByClassName('ons-js-inpagelink')];
       inPageLinks(links);
 
       //input error
@@ -59,31 +59,32 @@ export default class AddressError {
       const inputErrorPanelP = document.createElement('p');
       const inputErrorPanelStrong = document.createElement('strong');
 
-      inputErrorPanel.className = 'panel panel--error panel--no-title';
+      inputErrorPanel.className = 'ons-panel ons-panel--error ons-panel--no-title';
       inputErrorPanel.id = 'autosuggest-input-error';
-      inputErrorPanelBody.className = 'panel__body';
-      inputErrorPanelP.className = 'panel__error';
-      inputErrorPanelStrong.className = 'panel__error-message';
+      inputErrorPanelBody.className = 'ons-panel__body';
+      inputErrorPanelP.className = 'ons-panel__error';
+      inputErrorPanelStrong.className = 'ons-panel__error-message';
       inputErrorPanel.appendChild(inputErrorPanelBody);
       inputErrorPanelBody.appendChild(inputErrorPanelP);
       inputErrorPanelP.appendChild(inputErrorPanelStrong);
       inputErrorPanelBody.appendChild(this.search);
 
-      this.input.classList.add('input--error');
+      this.input.classList.add('ons-input--error');
       this.context.appendChild(inputErrorPanel);
 
       this.input.focus();
     }
 
-    document.querySelector('.js-error').innerHTML = this.input.value === '' ? this.errorMessageEnter : this.errorMessageSelect;
-    document.querySelector('.panel__error-message').innerHTML = this.input.value === '' ? this.errorMessageEnter : this.errorMessageSelect;
+    document.querySelector('.ons-js-error').innerHTML = this.input.value === '' ? this.errorMessageEnter : this.errorMessageSelect;
+    document.querySelector('.ons-panel__error-message').innerHTML =
+      this.input.value === '' ? this.errorMessageEnter : this.errorMessageSelect;
   }
 
   removeErrorPanel() {
     this.errorPanel.remove();
 
     this.autosuggest.appendChild(this.search);
-    this.input.classList.remove('input--error');
+    this.input.classList.remove('ons-input--error');
 
     const errorInput = document.getElementById('autosuggest-input-error');
     errorInput.remove();

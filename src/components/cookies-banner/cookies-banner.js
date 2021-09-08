@@ -3,10 +3,10 @@ import { approveAllCookieTypes, cookie, setConsentCookie, setDefaultConsentCooki
 export default class CookiesBanner {
   constructor(component) {
     this.component = component;
-    this.primaryBanner = this.component.querySelector('.cookies-banner__primary');
-    this.confirmBanner = this.component.querySelector('.cookies-banner__confirmation');
-    this.button = this.component.querySelector('.js-accept-cookies');
-    this.hideButton = this.component.querySelector('.js-hide-button');
+    this.primaryBanner = this.component.querySelector('.ons-cookies-banner__primary');
+    this.confirmBanner = this.component.querySelector('.ons-cookies-banner__confirmation');
+    this.button = this.component.querySelector('.ons-js-accept-cookies');
+    this.hideButton = this.component.querySelector('.ons-js-hide-button');
 
     this.setupCookiesEvents();
   }
@@ -52,7 +52,7 @@ export default class CookiesBanner {
   }
 
   updateRadios() {
-    const radios = [...document.querySelectorAll('.js-radio')];
+    const radios = [...document.querySelectorAll('.ons-js-radio')];
     radios.forEach(radio => {
       radio.value == 'off' ? (radio.checked = false) : (radio.checked = true);
     });
@@ -61,7 +61,7 @@ export default class CookiesBanner {
   hidePrimaryCookiesBanner() {
     if (this.component) {
       this.primaryBanner.style.display = 'none';
-      this.confirmBanner.classList.remove('u-d-no');
+      this.confirmBanner.classList.remove('ons-u-d-no');
       this.confirmBanner.setAttribute('aria-live', 'polite');
       this.confirmBanner.setAttribute('role', 'status');
     }

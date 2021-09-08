@@ -22,7 +22,7 @@
     {{
         onsHeader({
             "title": "Design system",
-            "classes": "patternlib-page__header",
+            "classes": "ons-patternlib-page__header",
             "wide": true,
             "logoHref": "https://www.ons.gov.uk/",
             "titleLogoHref": "/",
@@ -30,32 +30,48 @@
                 "text": "Menu",
                 "ariaLabel": "Toggle main navigation"
             },
+            "search": true,
             "navigation": {
                 "id": "main-nav",
-                "classes": "nav--inline nav--light nav--header nav--h-m js-main-nav",
+                "classes": "ons-nav--inline ons-nav--light ons-nav--header ons-nav--h-m ons-js-main-nav",
                 "ariaLabel": "Main menu",
                 "ariaListLabel": "Navigation menu",
                 "currentPath": pageInfo.url,
                 "itemsList": helpers.navigationHelper({
                     "pages": pageInfo.siteMap
                 })
+            },
+            "autosuggest": {
+                "label": "Search the design system",
+                "instructions": "Use up and down keys to navigate results once you\'ve typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
+                "ariaYouHaveSelected": "You have selected",
+                "ariaMinChars": "Enter 3 or more characters for results.",
+                "ariaResultsLabel": "Search results",
+                "ariaOneResult": "There is one result available.",
+                "ariaNResults": "There are {n} results available.",
+                "ariaLimitedResults": "Results have been limited to 10 results. Type more characters to improve your search",
+                "moreResults": "Continue entering to improve results",
+                "resultsTitle": "Search results",
+                "autosuggestData": "/search-index.json",
+                "noResults": "No results found",
+                "typeMore": "Continue entering to get results"
             }
         })
     }}
 {% endblock %}
 {% block pageContent %}
-    <div class="patternlib-page__body">
-        <div class="page__container container container--wide">
-            <div class="grid grid--reverse">
-                <div class="grid__col col-9@m">
-                    <div class="patternlib-page__content">
+    <div class="ons-patternlib-page__body">
+        <div class="ons-page__container ons-container ons-container--wide">
+            <div class="ons-grid ons-grid--reverse">
+                <div class="ons-grid__col ons-col-9@m">
+                    <div class="ons-patternlib-page__content">
                         {% block preMain %}
                             {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                             {% if pageInfo.parent.title === 'Home' %}
                                 {{
                                     onsBreadcrumbs({
                                         "ariaLabel": 'Breadcrumbs',
-                                        "classes": "u-d-no@m",
+                                        "classes": "ons-u-d-no@m",
                                         "itemsList": [
                                             {
                                                 "url": "/",
@@ -68,7 +84,7 @@
                                 {{
                                     onsBreadcrumbs({
                                         "ariaLabel": 'Breadcrumbs',
-                                        "classes": "u-mb-s u-d-no@m",
+                                        "classes": "ons-u-mb-s ons-u-d-no@m",
                                         "itemsList": [
                                             {
                                                 "url": pageInfo.parent.url + "/",
@@ -79,16 +95,16 @@
                                 }}
                             {% endif %}
                         {% endblock %}
-                        <main id="main-content" class="patternlib-page__main u-mt-m@m u-mb-xl@m">
-                            <div class="patternlib-page__content">
-                                <header class="patternlib-page__content-header">
-                                    <h1 class="u-fs-xxl">
+                        <main id="main-content" class="ons-patternlib-page__main ons-u-mt-m@m ons-u-mb-xl@m">
+                            <div class="ons-patternlib-page__content">
+                                <header class="ons-patternlib-page__content-header">
+                                    <h1 class="ons-u-fs-xxl">
                                         {% if pageInfo.group %}
-                                            <span class="u-fs-m u-db u-mb-xs u-lighter">{{ pageInfo.group | replace("...", "") }}</span>
+                                            <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">{{ pageInfo.group | replace("...", "") }}</span>
                                         {% endif %}
                                         {{ pageInfo.title }}
                                     </h1>
-                                    {% if pageInfo.experimental %}<span class="pl-experimental-tag">Experimental</span>{% endif %}
+                                    {% if pageInfo.experimental %}<span class="ons-pl-experimental-tag">Experimental</span>{% endif %}
                                 </header>
                                 {% block main %}
                                 {% endblock %}
@@ -100,19 +116,19 @@
                     (helpers.subNavigationHelper({ pageInfo: pageInfo }).length > 0)
                 %}
                 {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNavigation %}
-                <div class="grid__col col-3@m">
-                    <div class="patternlib-page__sub-nav u-mt-l@m u-mb-l">
+                <div class="ons-grid__col ons-col-3@m">
+                    <div class="ons-patternlib-page__sub-nav ons-u-mt-l@m ons-u-mb-l">
                         {% if pageInfo.parent.title === 'Home' %}
-                            <h2 class="u-fs-r--b u-mt-m@xxs@m u-d-no@m">Contents</h2>
+                            <h2 class="ons-u-fs-r--b ons-u-mt-m@xxs@m ons-u-d-no@m">Contents</h2>
                         {% else %}
-                            <h2 class="u-fs-r--b u-bt@xxs@m u-mt-m@xxs@m u-pt-m@xxs@m u-d-no@m">More in ‘{{ pageInfo.parent.title }}’</h2>
+                            <h2 class="ons-u-fs-r--b ons-u-bt@xxs@m ons-u-mt-m@xxs@m ons-u-pt-m@xxs@m ons-u-d-no@m">More in ‘{{ pageInfo.parent.title }}’</h2>
                         {% endif %}
                         {% for group in helpers.subNavigationHelper({
                             pageInfo: pageInfo,
                             anchorLinks: pageInfo.anchorLinks
                         }) %}
                             {% if group.title is defined and group.title %}
-                                <h3 class="u-fs-r--b u-mb-s">{{ group.title }}</h3>
+                                <h3 class="ons-u-fs-r--b ons-u-mb-s">{{ group.title }}</h3>
                             {% endif %}
                             {{
                                 patternlibSubNavigation({
