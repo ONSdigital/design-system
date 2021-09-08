@@ -211,9 +211,9 @@ export default class AutosuggestUI {
 
     this.blurTimeout = setTimeout(() => {
       this.blurring = false;
-      // if (!this.settingResult) {
-      //   this.clearListbox();
-      // }
+      if (!this.settingResult) {
+        this.clearListbox();
+      }
     }, 300);
 
     if (this.allowMultiple === 'true' && this.input.value.slice(-2) === ', ') {
