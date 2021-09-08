@@ -9,16 +9,19 @@
         {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}
             {% set iconType = "external-link" %}
             {% set iconPosition = "after" %}
-        {% elif params.buttonStyle == "print" %}
+        {% elif params.buttonStyle is defined and params.buttonStyle == "download" %}
+            {% set iconType = "download" %}
+            {% set iconPosition = "after" %}
+        {% elif params.buttonStyle is defined and params.buttonStyle == "print" %}
             {% set iconType = "print" %}
             {% set iconPosition = "after" %}
-        {% elif params.buttonStyle == "exit" %}
+        {% elif params.buttonStyle is defined and params.buttonStyle == "exit" %}
             {% set iconType = "exit" %}
             {% set iconPosition = "after" %}
-        {% elif params.submitType == "loader" %}
+        {% elif params.submitType is defined and params.submitType == "loader" %}
             {% set iconType = "loader" %}
             {% set iconPosition = "after" %}
-        {% elif params.url is defined and params.url or params.buttonStyle == "mobile" %}
+        {% elif params.url is defined and params.url or params.buttonStyle is defined and params.buttonStyle == "mobile" %}
             {% set iconType = "chevron" %}
             {% set iconPosition = "after" %}
         {% endif %}

@@ -21,7 +21,7 @@ Align the primary action button to the left edge of your form.
 
 There are 2 ways to use the button component. You can use HTML or, if you are using [Nunjucks](https://mozilla.github.io/nunjucks/), you can use the Nunjucks macro.
 
-## Variations
+## Variants
 ### Small
 In certain circumstances there may be the need for multiple primary actions to exist on a page. The small primary button should be used in this scenario only when each action has the same context, for example, a list containing business surveys that a user needs to complete.
 {{
@@ -92,6 +92,12 @@ The timer button is aimed at stopping forms being submitted twice when users dou
 The `buttonStyle` parameter can be set to `print` to render a print button. This will take care of adding iconography and classes for the `print-button.js` file to pick up. The button will not render until `print-button.js` has run, and will not be visible on printed pages.
 {{
     patternlibExample({"path": "components/button/examples/button-print/index.njk"})
+}}
+
+### Download
+The `buttonStyle` parameter can be set to `download` to render a download button. This will take care of adding iconography and classes for the `print-button.js` file to pick up. The button will not render until `print-button.js` has run, and will not be visible on printed pages.
+{{
+    patternlibExample({"path": "components/button/examples/button-download/index.njk"})
 }}
 
 ## Help improve this component
