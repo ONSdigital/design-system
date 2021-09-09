@@ -9,7 +9,7 @@ PercyScript.run(async (page, percySnapshot) => {
   server.listen(port);
   console.log(`Server started at ${testURL}`);
 
-  // Get all snapshots of components, patterns and styles
+  // Get all snapshots of components, patterns and foundations
   const urls = await generateURLs();
   for (const url of urls) {
     await page.goto(url.url);
