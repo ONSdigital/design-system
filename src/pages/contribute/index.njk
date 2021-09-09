@@ -2,8 +2,25 @@
 title: Contribute
 sortOrder: 6
 ---
+
++++
+{% from "components/lists/_macro.njk" import onsList %}
++++
+
 A community of designers, developers and researchers from across the ONS develop and support the ONS Design System.
 
-You are welcome to make a contribution to the design system. You can [propose a new feature](/contribute/propose-a-new-feature) or [suggest a change to an existing feature](/contribute/propose-a-change) or its documentation.
+You are welcome to make a contribution to the design system. You can:
+{{
+    onsList({
+        "itemsList": [
+          {
+            "text": '<a href="/contribute/propose-a-new-feature">propose a new feature</a>'
+          },
+          {
+              "text": '<a href="/contribute/propose-a-change">propose a change</a> to an existing feature or its documentation'
+          }
+        ]
+    })
+}}
 
-The community will consider each proposal and decide if your evidence is strong enough for it to go ahead.
+The [Design System working group](/contribute/design-system-working-group) will consider each proposal and decide if your evidence is strong enough for it to be put on the [community backlog](/contribute/community-backlog).
