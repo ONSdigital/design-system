@@ -1,8 +1,8 @@
 {% macro onsFeedback(params) %}
     {% set headingLevel = params.headingLevel | default("2") %}
-    <div id="params.id" class="feedback{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}">
-        <h{{ headingLevel }}{% if params.headingClasses is defined and params.headingClasses %} class="{{ params.headingClasses }}"{% endif %}>{{ params.heading }}</h{{ headingLevel }}>
+    <div id="params.id" class="ons-feedback{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}">
+        <h{{ headingLevel }}{% if params.headingClasses is defined and params.headingClasses %} class="ons-{{ params.headingClasses }}"{% endif %}>{{ params.heading }}</h{{ headingLevel }}>
         <p>{{ params.content }}</p>
-        <a href="{{ params.url }}" class="feedback__link">{{- params.linkText -}}</a>
+        <a href="{{ params.url }}" class="ons-feedback__link">{{- params.linkText -}}</a>
     </div>
 {% endmacro %}

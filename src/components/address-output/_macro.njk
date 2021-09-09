@@ -1,6 +1,6 @@
 {% macro onsAddressOutput(params) %}
-    <div class="address-output{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}">
-        <p class="address-output__lines">
+    <div class="ons-address-output{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}">
+        <p class="ons-address-output__lines">
             {% if params.unit is defined and params.unit %}
                 {{ params.unit }}<br>
             {% endif %}

@@ -7,28 +7,28 @@
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-.u-cf::before,
-.u-cf::after {
+.ons-u-cf::before,
+.ons-u-cf::after {
   content: ' '; /* 1 */
   display: table; /* 2 */
 }
 
-.u-cf::after {
+.ons-u-cf::after {
   clear: both;
 }
 
-.u-fl {
+.ons-u-fl {
   float: left;
 }
 
-.u-fr {
+.ons-u-fr {
   float: right;
 }
 
-.u-f-no {
+.ons-u-f-no {
   float: none;
 }
 
-@include bp-suffix(u-fr) {
+@include bp-suffix(ons-u-fr) {
   float: right;
 }

@@ -110,11 +110,11 @@
 
     </head>
     <body{% if pageConfig.bodyClasses is defined and pageConfig.bodyClasses %} class="{{ pageConfig.bodyClasses }}"{% endif %}>
-        <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce is defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+        <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce is defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         {% block bodyStart %}{% endblock %}
         {% block body %}
-            <div class="page">
-                <div class="page__content">
+            <div class="ons-page">
+                <div class="ons-page__content">
                     {% block skipLink %}
                         {{
                             onsSkipToContent({
@@ -156,7 +156,7 @@
                         }}
                     {% endblock %}
                     {% block pageContent %}
-                        <div class="page__container container {{ containerClasses }}">
+                        <div class="ons-page__container ons-container {{ containerClasses }}">
                             {% if pageConfig.breadcrumbs is defined and pageConfig.breadcrumbs %}
                                 {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                                 {{
@@ -168,9 +168,9 @@
                                 }}
                             {% endif %}
                             {% block preMain %}{% endblock %}
-                            <div class="grid">
-                                <div class="grid__col col-{{ pageColNumber }}@m">
-                                    <main id="main-content" class="page__main {{ pageClasses }}">
+                            <div class="ons-grid">
+                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m">
+                                    <main id="main-content" class="ons-page__main {{ pageClasses }}">
                                         {% block main %}{% endblock %}
                                     </main>
                                 </div>
@@ -189,7 +189,7 @@
                             onsFooter({
                                 "assetsURL": assetsURL,
                                 "wide": pageConfig.wide,
-                                "classes": "page__footer",
+                                "classes": "ons-page__footer",
                                 "language": pageConfig.language,
                                 "lang": currentLanguageISOCode,
                                 "rows": pageConfig.footer.rows,

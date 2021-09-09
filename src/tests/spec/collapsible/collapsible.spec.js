@@ -30,7 +30,7 @@ describe('Component: collapsible', function() {
       });
 
       it('then the collapsible element should not have a collapsible--initialised class', function() {
-        expect(this.collapsible.classList.contains('collapsible--initialised')).to.be.false;
+        expect(this.collapsible.classList.contains('ons-collapsible--initialised')).to.be.false;
       });
 
       it('then the collapsibleHeader element should not have a role attribute', function() {
@@ -57,8 +57,8 @@ describe('Component: collapsible', function() {
         expect(this.content.hasAttribute('aria-hidden')).to.be.false;
       });
 
-      it('then the button element should have a u-d-no class', function() {
-        expect(this.button.classList.contains('u-d-no')).to.be.true;
+      it('then the button element should have a ons-u-d-no class', function() {
+        expect(this.button.classList.contains('ons-u-d-no')).to.be.true;
       });
     });
 
@@ -84,7 +84,7 @@ describe('Component: collapsible', function() {
       });
 
       it('then the collapsible--initialised class should be added to the collapsible element', function() {
-        expect(this.collapsible.classList.contains('collapsible--initialised')).to.be.true;
+        expect(this.collapsible.classList.contains('ons-collapsible--initialised')).to.be.true;
       });
 
       it('then an aria-expanded attribute should be added to the collapsibleHeader element', function() {
@@ -117,8 +117,8 @@ describe('Component: collapsible', function() {
         expect(this.content.getAttribute('aria-hidden')).to.equal('true');
       });
 
-      it('then the u-d-no class should be removed from the button element', function() {
-        expect(this.button.classList.contains('u-d-no')).to.be.false;
+      it('then the ons-u-d-no class should be removed from the button element', function() {
+        expect(this.button.classList.contains('ons-u-d-no')).to.be.false;
       });
 
       describe('and the component is closed', function() {
@@ -242,10 +242,10 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const collapsible = wrapper.querySelector('.js-collapsible');
-  const collapsibleHeader = collapsible.querySelector('.js-collapsible-heading');
-  const content = collapsible.querySelector('.js-collapsible-content');
-  const button = collapsible.querySelector('.js-collapsible-button');
+  const collapsible = wrapper.querySelector('.ons-js-collapsible');
+  const collapsibleHeader = collapsible.querySelector('.ons-js-collapsible-heading');
+  const content = collapsible.querySelector('.ons-js-collapsible-content');
+  const button = collapsible.querySelector('.ons-js-collapsible-button');
 
   return {
     wrapper,
@@ -262,7 +262,7 @@ function onCloseTests() {
   });
 
   it('then a collapsible--open class should be removed from collapsible', function() {
-    expect(this.collapsible.classList.contains('collapsible--open')).to.be.false;
+    expect(this.collapsible.classList.contains('ons-collapsible--open')).to.be.false;
   });
 
   it('then the aria-expanded attribute on the collapsibleHeader element should be set to false', function() {
@@ -288,7 +288,7 @@ function onOpenTests() {
   });
 
   it('then a collapsible--open class should be added to the collapsible', function() {
-    expect(this.collapsible.classList.contains('collapsible--open')).to.be.true;
+    expect(this.collapsible.classList.contains('ons-collapsible--open')).to.be.true;
   });
 
   it('then the aria-expanded attribute on the collapsibleHeader element should be set to true', function() {

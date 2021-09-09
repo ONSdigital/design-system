@@ -5,9 +5,9 @@ import { cookie, setConsentCookie, setCookie, setDefaultConsentCookie } from './
 export default class CookiesSettings {
   constructor(component) {
     this.component = component;
-    this.returnLink = document.querySelector('.js-return-link');
-    this.confirmationMessage = document.querySelector('.cookies-confirmation-message');
-    this.cookiesBanner = document.querySelector('.cookies-banner');
+    this.returnLink = document.querySelector('.ons-js-return-link');
+    this.confirmationMessage = document.querySelector('.ons-cookies-confirmation-message');
+    this.cookiesBanner = document.querySelector('.ons-cookies-banner');
 
     this.component.addEventListener('submit', this.submitSettingsForm.bind(this));
     this.returnLink.addEventListener('click', this.goBackToPrevPage.bind(this));
@@ -77,7 +77,7 @@ export default class CookiesSettings {
   }
 
   showConfirmationMessage() {
-    this.confirmationMessage.classList.remove('u-d-no');
+    this.confirmationMessage.classList.remove('ons-u-d-no');
     document.body.scrollTop = document.documentElement.scrollTop = 0;
     this.setConfirmationMessageAttributes();
   }

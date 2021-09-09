@@ -1,9 +1,9 @@
-.tabs {
+.ons-tabs {
   margin-bottom: 1rem;
 }
 
 // Tabs - list
-.tabs__list {
+.ons-tabs__list {
   border-bottom: 0;
   margin: 0 0 1rem;
   overflow: visible;
@@ -15,7 +15,7 @@
   }
 }
 
-.tab__list-item {
+.ons-tab__list-item {
   box-sizing: border-box;
   display: list-item;
   list-style: none;
@@ -26,7 +26,7 @@
   }
 }
 
-.tab--row {
+.ons-tab--row {
   background: $color-button-secondary;
   border: 1px solid $color-button-secondary;
   border-radius: 3px 3px 0 0;
@@ -76,7 +76,7 @@
 }
 
 // Tabs - Panels
-.tabs__panel {
+.ons-tabs__panel {
   margin-bottom: 1rem;
   padding-top: 1rem;
   position: relative;

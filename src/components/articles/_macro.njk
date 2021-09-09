@@ -2,18 +2,18 @@
 
 
     {% for article in (params.articles if params.articles is iterable else params.articles.items()) %}
-    <article class="article{% if article.featured %} article--featured {% endif %}{{ ' ' + params.classes if params.classes else '' }}">
+    <article class="ons-article{% if article.featured %} ons-article--featured {% endif %}{{ ' ' + params.classes if params.classes else '' }}">
 
 
         {% if article.featured is defined and article.featured %}
-        <div class="container">
-            <div class="grid u-pt-l u-pb-l">
-                <div class="grid__col col-5@m">
+        <div class="ons-container">
+            <div class="ons-grid ons-u-pt-l ons-u-pb-l">
+                <div class="ons-grid__col ons-col-5@m">
                 {% endif %}
 
-                    <div class="article__image" aria-hidden="true">
+                    <div class="ons-article__image" aria-hidden="true">
 
-                        <a class="article__image-link" href="{{ article.url }}" tabindex="-1">
+                        <a class="ons-article__image-link" href="{{ article.url }}" tabindex="-1">
 
                             {% if article.featured is defined and article.featured %}
 
@@ -39,22 +39,22 @@
 
                 {% if article.featured is defined and article.featured %}
                 </div>
-                <div class="grid__col col-7@m">
+                <div class="ons-grid__col ons-col-7@m">
                 {% endif %}
 
-                    <div class="article__content">
+                    <div class="ons-article__content">
 
-                        <h2 class="article__heading">
+                        <h2 class="ons-article__heading">
                             <a href="{{ article.url }}">{{ article.title }}</a>
                         </h2>
 
-                        <ul class="u-fs-s article__meta">
-                            {%- if article.date is defined and article.date %}<li class="article__meta-item"><span class="u-hidden">Posted on </span> <time datetime="{{ article.date.iso }}">{{ article.date.short }}</time></li>{% endif %}
+                        <ul class="ons-u-fs-s ons-article__meta">
+                            {%- if article.date is defined and article.date %}<li class="ons-article__meta-item"><span class="ons-u-hidden">Posted on </span> <time datetime="{{ article.date.iso }}">{{ article.date.short }}</time></li>{% endif %}
                             {%- if article.category is defined and article.category %}
-                                <li class="article__meta-item">
-                                    <span class="u-hidden">in </span> 
+                                <li class="ons-article__meta-item">
+                                    <span class="ons-u-hidden">in </span> 
                                     {%- if article.category.url is defined and article.category.url %}
-                                        <a class="article__meta-link" href="{{ article.category.url }}">{{ article.category.title }}</a>
+                                        <a class="ons-article__meta-link" href="{{ article.category.url }}">{{ article.category.title }}</a>
                                     {% else %}
                                         {{ article.category.title }}
                                     {% endif %}
@@ -63,7 +63,7 @@
                         </ul>
 
                         {% if article.excerpt is defined and article.excerpt %}
-                        <p class="u-mb-no">{{ article.excerpt | safe }}</p>
+                        <p class="ons-u-mb-no">{{ article.excerpt | safe }}</p>
                         {% endif %}
 
                     </div>

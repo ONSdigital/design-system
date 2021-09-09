@@ -27,9 +27,9 @@ describe('Function: Loader Button ', function() {
 
   describe('Before the button is initialised', () => {
     it('Button should have relevant classes', () => {
-      expect(buttonElement.classList.contains('btn--loader')).to.be.true;
-      expect(buttonElement.classList.contains('js-loader')).to.be.true;
-      expect(buttonElement.classList.contains('js-submit-btn')).to.be.true;
+      expect(buttonElement.classList.contains('ons-btn--loader')).to.be.true;
+      expect(buttonElement.classList.contains('ons-js-loader')).to.be.true;
+      expect(buttonElement.classList.contains('ons-js-submit-btn')).to.be.true;
     });
   });
 
@@ -48,7 +48,7 @@ describe('Function: Loader Button ', function() {
       });
 
       it('Button should have loading style applied', () => {
-        expect(buttonElement.classList.contains('is-loading')).to.be.true;
+        expect(buttonElement.classList.contains('ons-is-loading')).to.be.true;
       });
 
       it('Button should be disabled', () => {
@@ -85,9 +85,9 @@ describe('Function: Timer Button ', function() {
 
   describe('Before the button is initialised', () => {
     it('Button should have relevant classes', () => {
-      expect(buttonElement.classList.contains('btn--loader')).to.be.false;
-      expect(buttonElement.classList.contains('js-timer')).to.be.true;
-      expect(buttonElement.classList.contains('js-submit-btn')).to.be.true;
+      expect(buttonElement.classList.contains('ons-btn--loader')).to.be.false;
+      expect(buttonElement.classList.contains('ons-js-timer')).to.be.true;
+      expect(buttonElement.classList.contains('ons-js-submit-btn')).to.be.true;
     });
   });
 
@@ -106,7 +106,7 @@ describe('Function: Timer Button ', function() {
       });
 
       it('Button should not have loading style applied', () => {
-        expect(buttonElement.classList.contains('is-loading')).to.be.false;
+        expect(buttonElement.classList.contains('ons-is-loading')).to.be.false;
       });
 
       it('Button should be disabled', () => {

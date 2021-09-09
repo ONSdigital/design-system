@@ -1,5 +1,5 @@
 // Block
-.header {
+.ons-header {
   display: block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -51,8 +51,8 @@
     }
   }
   &__title {
-    @extend .u-fs-r--b;
-    @extend .u-fs-xl\@xxs;
+    @extend .ons-u-fs-r--b;
+    @extend .ons-u-fs-xl\@xxs;
 
     color: $color-white;
 
@@ -78,10 +78,10 @@
       display: block;
       text-decoration: none;
       &:focus {
-        .header__title--svg-logo {
+        .ons-header__title--svg-logo {
           fill: $color-text-link-focus;
         }
-        .header__title {
+        .ons-header__title {
           color: $color-text-link-focus;
         }
       }
@@ -96,8 +96,8 @@
     }
   }
   &__desc {
-    @extend .u-fs-s;
-    @extend .u-fs-r\@s;
+    @extend .ons-u-fs-s;
+    @extend .ons-u-fs-r\@s;
 
     color: $color-white;
     margin: 0;
@@ -108,10 +108,10 @@
   }
   // Modifier - Hero variant
   &--hero {
-    .header {
+    .ons-header {
       &__title {
-        @extend .u-fs-m;
-        @extend .u-fs-xxl\@m;
+        @extend .ons-u-fs-m;
+        @extend .ons-u-fs-xxl\@m;
       }
     }
   }
@@ -155,13 +155,13 @@
   }
 
   .ons-nisra-svg-logo {
-    .st0 {
+    .ons-st0 {
       fill: $color-nisra-logo-primary;
     }
-    .st1 {
+    .ons-st1 {
       fill: $color-nisra-logo-secondary;
     }
-    .st2 {
+    .ons-st2 {
       fill: $color-nisra-logo-tertiary;
     }
   }
@@ -174,25 +174,25 @@
       }
     }
     .ons-nisra-svg-logo {
-      .st0 {
+      .ons-st0 {
         fill: $color-black !important;
       }
-      .st1 {
+      .ons-st1 {
         fill: $color-black !important;
       }
-      .st2 {
+      .ons-st2 {
         fill: $color-black !important;
       }
     }
   }
 
-  .header__logo--large {
+  .ons-header__logo--large {
     @include mq(xxs, 399px) {
       display: none;
     }
   }
 
-  .header__logo--small {
+  .ons-header__logo--small {
     @include mq(400px) {
       display: none;
     }
@@ -212,7 +212,7 @@
     margin-top: -0.03rem;
   }
 
-  .btn--exit {
+  .ons-btn--exit {
     margin-top: 0.55rem;
   }
 

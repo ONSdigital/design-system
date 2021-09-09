@@ -1,14 +1,14 @@
 {%- macro onsImage(params) -%}
-    <figure class="figure">
+    <figure class="ons-figure">
         
         {% if params.image is defined and params.image %}
-            <img class="figure__image" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="{{ params.alt }}">
+            <img class="ons-figure__image" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="{{ params.alt }}">
         {% else %}
-            <img class="figure__image" src="{{ params.url }}" alt="{{ params.alt }}">
+            <img class="ons-figure__image" src="{{ params.url }}" alt="{{ params.alt }}">
         {% endif %}
 
         {% if params.caption is defined and params.caption %}
-            <figcaption class="figure__caption">
+            <figcaption class="ons-figure__caption">
                 {{ params.caption }}
             </figcaption>
         {% endif %}

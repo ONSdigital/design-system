@@ -4,9 +4,9 @@
 
 {% macro onsAddressInput(params) %}
    {% set fields %}
-        <div id="address" class="field address-input {% if not params.manualEntry %}address-input--search js-address-autosuggest{% endif %}">
+        <div id="address" class="ons-field ons-address-input {% if not params.manualEntry %}ons-address-input--search ons-js-address-autosuggest{% endif %}">
             {% if params.isEditable == true or params.manualEntry %}
-                {% if not params.manualEntry %}<div class="js-address-input__manual u-db-no-js_enabled">{% endif %}
+                {% if not params.manualEntry %}<div class="ons-js-address-input__manual ons-u-db-no-js_enabled">{% endif %}
                     {% if params.organisation is defined and params.organisation %}
                         {{
                             onsInput({
@@ -14,7 +14,7 @@
                                 "label": {
                                     "text": params.organisation.label
                                 },
-                                "classes": "input--w-20@m js-address-organisation",
+                                "classes": "ons-input--w-20@m ons-js-address-organisation",
                                 "name": params.id + "-organisation"
                             })
                         }}
@@ -27,7 +27,7 @@
                                 "label": {
                                     "text": params.line1.label
                                 },
-                                "classes": "input--w-20@m js-address-line1",
+                                "classes": "ons-input--w-20@m ons-js-address-line1",
                                 "name": params.id + "-line1",
                                 "error": params.line1.error
                             })
@@ -41,7 +41,7 @@
                                 "label": {
                                     "text": params.line2.label
                                 },
-                                "classes": "input--w-20@m js-address-line2",
+                                "classes": "ons-input--w-20@m ons-js-address-line2",
                                 "name": params.id + "-line2"
                             })
                         }}
@@ -54,7 +54,7 @@
                                 "label": {
                                     "text": params.town.label
                                 },
-                                "classes": "js-address-town",
+                                "classes": "ons-js-address-town",
                                 "name": params.id + "-town"
                             })
                         }}
@@ -67,14 +67,14 @@
                                 "label": {
                                     "text": params.postcode.label
                                 },
-                                "classes": "input--w-7 js-address-postcode",
+                                "classes": "ons-input--w-7 ons-js-address-postcode",
                                 "name": params.id + "-postcode"
                             })
                         }}
                     {% endif %}
                 {% if not params.manualEntry %}
-                        <div class="u-mt-s">
-                            <a href="#" class="js-address-search-btn u-db-no-js_disabled">{{ params.searchButton }}</a>
+                        <div class="ons-u-mt-s">
+                            <a href="#" class="ons-js-address-search-btn ons-u-db-no-js_disabled">{{ params.searchButton }}</a>
                         </div>
                     </div>
                 {% endif %}
@@ -89,22 +89,22 @@
             {{
                 onsInput({
                     "id": params.id + "-uprn",
-                    "classes": "js-hidden-uprn u-d-no",
+                    "classes": "ons-js-hidden-uprn ons-u-d-no",
                     "type": "hidden",
                     "name": params.id + "-uprn",
                     "value": uprnValue
                 })
             }}
             {% if not params.manualEntry %}
-                <div class="js-address-input__search{% if params.isEditable == true %} u-db-no-js_disabled{% endif %}">
+                <div class="ons-js-address-input__search{% if params.isEditable == true %} ons-u-db-no-js_disabled{% endif %}">
                     {{
                         onsAutosuggest({
                             "id": params.id + "-autosuggest",
-                            "classes": "address-input__autosuggest input--w-50 u-mb-no",
+                            "classes": "ons-address-input__autosuggest ons-input--w-50 ons-u-mb-no",
                             "label": {
                                 "text": params.label.text,
                                 "id": params.label.id,
-                                "classes": "js-autosuggest-label"
+                                "classes": "ons-js-autosuggest-label"
                             },
                             "value": params.value,
                             "attributes": params.attributes,
@@ -143,7 +143,7 @@
                         })
                     }}
                     {% if params.manualLinkText %}
-                        <a href="{{ params.manualLink | default('#0') }}" class="js-address-manual-btn u-mt-s u-dib">{{ params.manualLinkText }}</a>
+                        <a href="{{ params.manualLink | default('#0') }}" class="ons-js-address-manual-btn ons-u-mt-s ons-u-dib">{{ params.manualLinkText }}</a>
                     {% endif %}
                 </div>
             {% endif %}

@@ -1,4 +1,4 @@
-.list {
+.ons-list {
   margin: 0 0 1rem;
   padding: 0 0 0 1.5rem;
 
@@ -9,7 +9,7 @@
   }
 
   &--spacious {
-    .list__item {
+    .ons-list__item {
       margin: 0 0 1.5rem;
     }
   }
@@ -20,8 +20,8 @@
   }
 
   &--dashed {
-    @extend .list--bare;
-    .list__item {
+    @extend .ons-list--bare;
+    .ons-list__item {
       margin-left: 25px;
       position: relative;
       &::before {
@@ -73,30 +73,30 @@
 
   &--icons {
     margin-bottom: 0;
-    .list__item {
+    .ons-list__item {
       margin-bottom: 0.5rem;
     }
   }
 
   &--languages {
     margin-bottom: 0;
-    .list__link {
+    .ons-list__link {
       margin-right: 0;
     }
   }
 }
 
-@include bp-suffix('list--inline') {
-  &:not(.list--icons) {
+@include bp-suffix('ons-list--inline') {
+  &:not(.ons-list--icons) {
     margin: 0 1rem 0 0;
-    .list__item {
+    .ons-list__item {
       display: inline-block;
       margin: 0 1rem 0 0;
       vertical-align: top;
     }
   }
 
-  &.list--icons {
+  &.ons-list--icons {
     align-items: center;
     display: flex;
     flex-wrap: wrap;

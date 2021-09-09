@@ -6,7 +6,7 @@
 
     {% call onsField({
         "id": params.fieldId,
-        "classes": "js-password" + (" " + params.fieldClasses if params.fieldClasses else ""),
+        "classes": "ons-js-password" + (" " + params.fieldClasses if params.fieldClasses else ""),
         "error": params.error
     }) %}
         {{
@@ -20,8 +20,8 @@
         {{
             onsCheckbox({
                 "id": params.id + "-toggle",
-                "classes": "js-password-toggle-wrap checkbox--toggle u-d-no",
-                "inputClasses": "js-password-toggle",
+                "classes": "ons-js-password-toggle-wrap ons-checkbox--toggle ons-u-d-no",
+                "inputClasses": "ons-js-password-toggle",
                 "name": "show-password",
                 "label": {
                     "text": params.showPasswordText
@@ -33,7 +33,7 @@
                 "id": params.id,
                 "name": params.name,
                 "type": "password",
-                "classes": "u-mt-xs js-password-input" + (" input--error" if params.error else ""),
+                "classes": "ons-u-mt-xs ons-js-password-input" + (" ons-input--error" if params.error else ""),
                 "dontWrap": true
             })
         }}

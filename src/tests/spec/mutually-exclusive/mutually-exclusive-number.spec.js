@@ -4,7 +4,7 @@ import renderTemplate from '../../helpers/render-template';
 const params = {
   id: 'currency',
   type: 'number',
-  classes: 'input--w-5',
+  classes: 'ons-input--w-5',
   attributes: {
     min: 0,
   },
@@ -41,10 +41,10 @@ describe('Component: Mutually Exclusive Number Input', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    component = document.querySelector('.js-mutually-exclusive');
+    component = document.querySelector('.ons-js-mutually-exclusive');
     input = document.getElementById(params.id);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
   });
