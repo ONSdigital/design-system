@@ -95,7 +95,7 @@ The `buttonStyle` parameter can be set to `print` to render a print button. This
 }}
 
 ### Download
-The `buttonStyle` parameter can be set to `download` to render a download button. This will take care of adding iconography and classes for the `print-button.js` file to pick up. The button will not render until `print-button.js` has run, and will not be visible on printed pages.
+The `buttonStyle` parameter can be set to `download` to render a download button. This will take care of adding iconography and the `download` attribute which will force the browser to save the file at the specified `url`.
 {{
     patternlibExample({"path": "components/button/examples/button-download/index.njk"})
 }}
