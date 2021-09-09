@@ -1,0 +1,526 @@
+---
+title: Colours
+sortOrder: 3
+synonyms: colors, palette, contrast, tints
+---
+
++++
+{% from "foundations/colours/_macro.njk" import onsColours %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
+
+Use the ONS colour palettes for all services so that pages and elements are consistent and familiar to users.
+
+We have designed text and background colours that are accessible to {{
+    onsExternalLink({
+        "url": "https://www.w3.org/TR/WCAG21/#contrast-minimum",
+        "linkText": "WCAG 2.1 AA level of compliance for contrast"
+    })
+}}. The [Colour contrast section](#colour-contrast) has more detail about accessibility and colour.
+
+Each colour has a colour variable that can be [assigned to a element](/colour-assignment). The main colours can also be expanded by creating the three [allowed tint variations](#tints).
+
+## Primary brand palette
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#003c57',
+                'var': '$color-night-blue'
+            },
+            {
+                'bg': '#a8bd3a',
+                'var': '$color-spring-green'
+            },
+            {
+                'bg': '#206095',
+                'var': '$color-ocean-blue'
+            },
+            {
+                'bg': '#27a0cc',
+                'var': '$color-sky-blue'
+            },
+            {
+                'bg': '#00a3a6',
+                'var': '$color-aqua-teal'
+            }
+        ]
+    })
+}}
+
+## Supporting palette
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#0f8243',
+                'var': '$color-leaf-green'
+            },
+            {
+                'bg': '#d0021b',
+                'var': '$color-ruby-red'
+            },
+            {
+                'bg': '#ff600a',
+                'var': '$color-jaffa-orange'
+            },
+            {
+                'bg': '#fbc900',
+                'var': '$color-sun-yellow'
+            },
+            {
+                'bg': '#f0f762',
+                'var': '$color-neon-yellow'
+            }
+        ]
+    })
+}}
+
+## Census 2021 theme palette
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#902082',
+                'var': '$color-branded'
+            },
+            {
+                'bg': '#df0667',
+                'var': '$color-branded-secondary'
+            },
+            {
+                'bg': '#3c388e',
+                'var': '$color-branded-tertiary'
+            },
+            {
+                'bg': '#00a3a6',
+                'var': '$color-branded-supporting'
+            },
+            {
+                'bg': '#902082',
+                'bg2': '#3c388e',
+                'var': '$color-census-gradient'
+            }
+        ]
+    })
+}}
+
+## Greyscale
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#222222',
+                'var': '$color-black'
+            },
+            {
+                'bg': '#414042',
+                'var': '$color-grey-100'
+            },
+            {
+                'bg': '#707071',
+                'var': '$color-grey-75'
+            },
+            {
+                'bg': '#bcbcbd',
+                'var': '$color-grey-35'
+            },
+            {
+                'bg': '#e2e2e3',
+                'var': '$color-grey-15'
+            },
+            {
+                'bg': '#f5f5f6',
+                'var': '$color-grey-5'
+            },
+            {
+                'bg': '#ffffff',
+                'var': '$color-white',
+                'border': true
+            }
+        ]
+    })
+}}
+
+## Tints
+Only tints of 70%, 40% or 10% of the primary, supporting and census colour palettes can be used.
+
+To apply a tint, you can use the `tint()` function by passing in the colour variable and the percentage of white you want to mix with it. For example:
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#4d7789',
+                'var': 'tint($color-night-blue, 30);',
+                'info': '70% tint of Night blue'
+            }
+        ]
+    })
+}}
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#99b1bc',
+                'var': 'tint($color-night-blue, 60);',
+                'info': '40% tint of Night blue'
+            }
+        ]
+    })
+}}
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#e6ecee',
+                'var': 'tint($color-night-blue, 90);',
+                'info': '10% tint of Night blue'
+            }
+        ]
+    })
+}}
+
+## Colour assignment
+
+The colour variables are assigned to elements by using variables to provide context. For example, `$color-black` is assigned to `$color-text` to be used to style all heading elements.
+
+### Text
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#222222',
+                'var': '$color-text',
+                'info': 'Black is the primary colour for headings and body content.'
+            }
+        ]
+    })
+}}
+
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#707071',
+                'var': '$color-text-light',
+                'info': 'A secondary text colour for a title subheading.'
+            }
+        ]
+    })
+}}
+
+### Links
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#206095',
+                'var': '$color-text-link',
+                'info': 'Blue is the colour for all link text elements in the body of the page. Link text should also be underlined.'
+            }
+        ]
+    })
+}}
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#003c57',
+                'var': '$color-text-link-hover',
+                'info': 'Hover state colour for link text.'
+            }
+        ]
+    })
+}}
+
+### Buttons
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'fore': '#ffffff',
+                'bg': '#0f8243',
+                'char': 'A',
+                'var': '$color-button',
+                'info': 'Primary action buttons use a green background colour and white text.',
+                'hideSwatchDetail': true
+            }
+        ]
+    })
+}}
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'fore': '#222222',
+                'bg': '#e2e2e3',
+                'char': 'A',
+                'var': '$color-button-secondary',
+                'info': 'Secondary buttons use a light grey background colour and black text. This prevents interference with the primary action.',
+                'hideSwatchDetail': true
+            }
+        ]
+    })
+}}
+### Focus
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'fore': '#222222',
+                'bg': '#fbc900',
+                'char': 'A',
+                'shadow': true,
+                'var': '$color-focus',
+                'info': 'Black text on a yellow background is used to show that an element has focus. Any focussed text <code>color</code> is changed to black, and yellow is applied as a <code>background-color</code> with an additional <code>4px</code> black offset <code>box-shadow</code>. The change to both foreground and background colours makes sure there is a consistent <a href="#colour-contrast">accessible colour contrast ratio</a>, regardless of the element’s initial background colour.',
+                'hideSwatchDetail': true
+            }
+        ]
+    })
+}}
+### Highlight
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'fore': '#222222',
+                'bg': '#f0f762',
+                'char': 'A',
+                'var': '$color-highlight',
+                'info': 'Bright yellow is used to highlight text to <a href="/patterns/see-important-information">help users to see important information</a>.',
+                'hideSwatchDetail': true
+            }
+        ]
+    })
+}}
+### Borders
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#707071',
+                'var': '$color-borders',
+                'info': 'The grey is used for all borders that are applied on a white background.'
+            }
+        ]
+    })
+}}
+### Status
+
+Different colours can be used to represent a status. Each status has a primary border colour and a background tint for use in a status [panel](/components/panel), and a vibrant hue for use in a [status indicator](/components/status) dot.
+
+#### Information
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#206095',
+                'var': '$color-info'
+            },
+            {
+                'bg': '#e9eff4',
+                'fore': '#222222',
+                'char': 'A',
+                'var': '$color-info-tint',
+                'info': 'A 10% tint of the primary colour.',
+                'hideSwatchDetail': true
+            },
+            {
+                'bg': '#1f84d8',
+                'var': '$color-info-vibrant',
+                'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour.'
+            }
+        ]
+    })
+}}
+
+#### Success
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#0f8243',
+                'var': '$color-success'
+            },
+            {
+                'bg': '#e7f3ec',
+                'fore': '#222222',
+                'char': 'A',
+                'var': '$color-success-tint',
+                'info': 'A 10% tint of the primary colour',
+                'hideSwatchDetail': true
+            },
+            {
+                'bg': '#10ca64',
+                'var': '$color-success-vibrant',
+                'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour'
+            }
+        ]
+    })
+}}
+
+#### Errors
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#d0021b',
+                'var': '$color-errors'
+            },
+            {
+                'bg': '#fae6e8',
+                'fore': '#222222',
+                'char': 'A',
+                'var': '$color-errors-tint',
+                'info': 'A 10% tint of the primary colour',
+                'hideSwatchDetail': true
+            },
+            {
+                'bg': '#fd112d',
+                'var': '$color-errors-vibrant',
+                'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour'
+            }
+        ]
+    })
+}}
+
+#### Pending
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'bg': '#ff803b',
+                'var': '$color-pending-vibrant'
+            }
+        ]
+    })
+}}
+
+## Colour contrast
+We have tested the contrast between foreground and background colours to make sure they meet {{
+    onsExternalLink({
+        "url": "https://www.w3.org/TR/WCAG21/#contrast-minimum",
+        "linkText": "level AA of the Web Content Accessibility Guidelines (WCAG 2.1)"
+    })
+}}.
+
+To meet the WCAG 2.1 level AA guideline “1.4.3 Contrast (Minimum)”, all text and background colour combinations must have a minimum contrast ratio of:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'Normal text, 4.5:1'
+            },
+            {
+                "text": 'Large text (minimum 18.66px and bold, or 24px), 3:1'
+            }
+        ]
+    })
+}}
+
+### Accessible text and background colour combinations
+{{
+    onsColours({
+        'itemsList': [
+            {
+                'fore': '#222222',
+                'bg': '#ffffff',
+                'contrastRatio': '15.91',
+                'char': 'A',
+                'border': true
+            },
+            {
+                'fore': '#ffffff',
+                'bg': '#222222',
+                'contrastRatio': '15.91',
+                'char': 'A'
+            },
+            {
+                'fore': '#222222',
+                'bg': '#e2e2e3',
+                'contrastRatio': '12.29',
+                'char': 'A'
+            },
+            {
+                'fore': '#206095',
+                'bg': '#f5f5f6',
+                'contrastRatio': '6.08',
+                'char': 'A'
+            },
+            {
+                'fore': '#ffffff',
+                'bg': '#206095',
+                'contrastRatio': '6.63',
+                'char': 'A'
+            },
+            {
+                'fore': '#ffffff',
+                'bg': '#0f8243',
+                'contrastRatio': '4.89',
+                'char': 'A'
+            },
+            {
+                'fore': '#ffffff',
+                'bg': '#003c57',
+                'contrastRatio': '11.77',
+                'char': 'A'
+            },
+            {
+                'fore': '#ffffff',
+                'bg': '#d0021b',
+                'contrastRatio': '5.67',
+                'char': 'A'
+            },
+            {
+                'fore': '#222222',
+                'bg': '#ff600a',
+                'contrastRatio': '5.25',
+                'char': 'A'
+            },
+            {
+                'fore': '#222222',
+                'bg': '#fbc900',
+                'contrastRatio': '10.19',
+                'char': 'A'
+            },
+            {
+                'fore': '#222222',
+                'bg': '#f0f762',
+                'contrastRatio': '13.78',
+                'char': 'A'
+            }
+        ]
+    })
+}}
+
+### How to check colour contrast
+
+Make sure you test colour contrast with a range of people with different colour vision deficiencies.
+
+We also recommend the following tools to check colour contrast:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "url": "http://webaim.org/resources/contrastchecker/",
+                "external": true,
+                "text": "Web Aim\'s colour contrast checker"
+            },
+            {
+                "url": "http://colororacle.org/",
+                "external": true,
+                "text": "Color Oracle (free colour blindness simulator)"
+            }
+        ]
+    })
+}}
+
+## Help improve this style
+Let us know how we could improve this style or share your user research findings.
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/1394",
+        "linkText": "Discuss the ‘Colours’ style on Github"
+    })
+}}

@@ -1,0 +1,81 @@
+---
+title: Addresses
+group: Ask users for...
+---
+
++++
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
++++
+
+## When to use this pattern
+
+This pattern should be used when you need to collect an address from a user using the [address input component](/components/address-input) inside a form.
+
+## How to use this pattern to search for addresses
+
+There are three ways to use this pattern. Addresses can either be [editable](/components/address-input#editable-addresses), [non-editable](/components/address-input#non-editable-addresses) or [manual](/components/address-input#how-to-use-this-component-for-manual-address-entry). Look at the nunjucks output in the examples below to see how they are configured using the `onsAddressInput` macro.
+
+### Editable address pattern example
+The manual address inputs are wrapped within a [fieldset](/components/fieldset) and legend. If used within an `onsQuestion` macro you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro. 
+
+The pattern example below will use client side validation against a set of [validation rules](/components/address-input#validation).
+
+{{
+    patternlibExample({ "path": "patterns/addresses/examples/address-input/index.njk" })
+}}
+
+### Non-editable address pattern example
+
+The pattern example below will use client side validation against a set of [validation rules](/components/address-input#validation).
+
+{{
+    patternlibExample({"path": "patterns/addresses/examples/address-input-non-editable/index.njk"})
+}}
+
+### Manual address pattern example
+The manual address inputs are wrapped within a [fieldset](/components/fieldset) and legend. If used within an `onsQuestion` macro you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro. 
+
+{{
+    patternlibExample({ "path": "patterns/addresses/examples/address-input-manual/index.njk" })
+}}
+
+## Research on this pattern
+The addresses pattern was last user tested in October 2020 during research for Census 2021. The following findings were reported:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'when searching for home addresses using the address finder, most users enter the postcode first as they expect it to return the address more quickly than other parts of the address'
+            },
+            {
+                "text": 'four characters of the postcode are usually entered before users interact with the results list'
+            },
+            {
+                "text": 'people expect the results to be presented in ascending order of flat or building number'
+            },
+            {
+                "text": 'users are more likely to search by entering an organisation or street name when looking for a work or school address, or when looking for someone else’s address'
+            },
+            {
+                "text": 'users do not expect the building name or county to be part of their home address, and do not manually add them after selecting the address'
+            },
+            {
+                "text": 'for most users, getting an address using the address finder is quicker than entering an address manually'
+            },
+            {
+                "text": 'users struggle to find a school address using the address finder because they do not expect to be able to search using the school’s name – add “name” to the the input label when it’s relevant so users know they can use this to search: “Enter name, address or postcode and select from results”'
+            }
+        ]
+    })
+}}
+
+## Help improve this pattern
+Let us know how we could improve this pattern or share your user research findings.
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/1387",
+        "linkText": "Discuss the ‘Addresses’ pattern on GitHub"
+    })
+}}
