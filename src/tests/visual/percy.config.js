@@ -33,7 +33,7 @@ export async function generateURLs() {
       path: './build/patterns',
     },
     {
-      path: './build/styles',
+      path: './build/foundations',
     },
   ];
   for (const directory of directories) {

@@ -1,0 +1,174 @@
+---
+layout: none
+---
+{% extends "foundations/page-template/_template.njk" %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/textarea/_macro.njk" import onsTextarea %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/articles/_macro.njk" import onsArticles %}
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
+{% from "components/share-page/_macro.njk" import onsSharePage %}
+{% from "components/content-pagination/_macro.njk" import onsContentPagination %}
+
+{% set pageConfig = {
+    "title": 'Service name',
+    "absoluteUrl": pageInfo.url,
+    "pageColNumber": '12',
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Home'
+            },
+            {
+                "url": '#0',
+                "text": 'News'
+            }
+        ]
+    },
+    "footer": {}
+} %}
+
+{% block main %}
+
+<h1 class="ons-u-fs-xxl">
+    <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">Press releases</span>
+    <span class="ons-u-vh">: </span>
+    <span class="ons-u-fs-xxl ons-u-db">There is still time to complete Census 2021</span>
+</h1>
+
+<div class="ons-grid ons-grid--column@xs@s">
+
+    <div class="ons-grid__col ons-col-7@m">
+
+        <div class="ons-page__body ons-u-mt-m">
+
+            <p>Census Day was Sunday 21 March, but it is vital those who have not yet completed, do so as soon as possible.</p>
+
+            <p>Sunday March 21 marked the day that millions of people across England and Wales completed key questions about themselves and their households to ensure local services in every community are informed by the best information possible.</p>
+
+            <p>However, for those who have not yet submitted their online or paper questionnaires or have maybe misplaced their invitation letter, there is lots of help available.</p>
+
+            <p>“The information you provide needs to be about who usually lives in your household on Census Day, which was Sunday March 21, however if you’ve haven’t completed it yet, please do so – there’s still time to,” the Office for National Statistics’ deputy national statistician Iain Bell said.</p>
+
+            <p>“Every household should have received their letter inviting them to take part and we’ve had a great response so far. If you haven’t, or you have misplaced your letter, you can head online to <a href="#0">www.census.gov.uk</a> and request a new unique access code.</p>
+
+            <p>“There is plenty of help available, including face-to-face assistance at local Census Support Centres.</p>
+
+            <p>“Field officers will soon start calling at households who have not completed their census. They will follow social distancing and COVID-safe guidelines, supporting people to take part.</p>
+
+            <p>“They will be equipped with PPE and will never need to enter anyone’s home. They’ll be operating much like a postal or food delivery visit.”</p>
+
+            <p>The results from the census will shed light on the needs of different groups and communities, and the inequalities people are experiencing, ensuring the big decisions facing the country following the pandemic and EU exit are based on the best information possible, through the anonymised answers provided.</p>
+
+            <p>The ONS will never share personal details and no-one, including government bodies, will be able to identify you in census statistics. Personal census records will be kept secure for 100 years, and only then can future generations view it.</p>
+
+            <p>If people do not complete their census, they may have to pay a fine of up to £1,000.</p>
+
+            <p>For more information, including how to find a local census support centre, please visit <a href="#0">www.census.gov.uk</a>.</p>
+
+            <div class="ons-u-mt-l ons-u-mt-xl@m">
+                {{
+                    onsContentPagination({
+                        "ariaLabel": 'Article pagination',
+                        "contentPaginationItems": [
+                            {
+                                "rel": 'prev',
+                                "text": 'Previous',
+                                "url": '#0',
+                                "label": 'Census 2021 Reveals Community Heroes Across England and Wales'
+                            },
+                            {
+                                "rel": 'next',
+                                "text": 'Next',
+                                "url": '#0',
+                                "label": 'Don’t be eggs-cluded - fill in your census this Easter'
+                            }
+                        ]
+                    })
+                }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="ons-grid__col ons-col-4@m ons-push-1@m">
+
+        {% call onsRelatedContent({
+            "ariaLabel": 'Related content',
+            "rows": [
+                {
+                    "id": 'published-date',
+                    "title": 'Published on',
+                    "itemsList": [
+                        {
+                            "text": '<time datetime="2021-03-23">23 March 2021</time>'
+                        }
+                    ]
+                },
+                {
+                    "id": 'posted-in',
+                    "title": 'Posted in',
+                    "classes": 'ons-list--bare ons-u-mb-no',
+                    "itemsList": [
+                        {
+                            "text": 'Press releases',
+                            "url": '#0'
+                        }
+                    ]
+                },
+                {
+                    "id": 'tags',
+                    "title": 'Tags',
+                    "itemsList": [
+                        {
+                            "text": 'Census 2021',
+                            "url": '#0'
+                        },
+                        {
+                            "text": 'Questionnaire',
+                            "url": '#0'
+                        },
+                        {
+                            "text": 'Survey',
+                            "url": '#0'
+                        }
+                    ]
+                },
+                {
+                    "id": 'share-this-post',
+                    "title": 'Share this post',
+                    "classes": 'ons-list--social',
+                    "itemsList": [
+                        {
+                            "url": '#0',
+                            "text": 'Facebook',
+                            "prefixIcon": 'facebook',
+                            "iconSize": 'xxl',
+                            "rel": 'noreferrer external'
+                        },
+                        {
+                            "url": '#0',
+                            "text": 'Twitter',
+                            "prefixIcon": 'twitter',
+                            "iconSize": 'xxl',
+                            "rel": 'noreferrer external'
+                        }
+                    ]
+                }
+            ]
+        }) %}
+
+        {% endcall %}
+
+    </div>
+
+</div>
+
+{% endblock %}
