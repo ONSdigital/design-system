@@ -77,7 +77,7 @@
                         }}
                     {% endif %}
                 {% if not params.manualEntry %}
-                        <div class="u-mt-s">
+                        <div class="ons-u-mt-s">
                             <a href="#0" class="ons-js-address-search-btn ons-u-db-no-js_disabled">{{ params.searchButton }}</a>
                         </div>
                     </div>
@@ -155,7 +155,7 @@
     {% endset %}
 
     {% if params.dontWrap is defined and params.dontWrap %}
-        {{ fields | safe }} 
+        {{ fields | safe }}
     {% else %}
         {% call onsFieldset({
             "id": params.id,
