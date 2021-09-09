@@ -22,7 +22,7 @@ layout: none
 
 {% block main %}
     {% call onsQuestion({
-        "title": "How many visitors do you have staying overnight at <em class=\"highlight\">3 Severn Road</em> on Sunday 21 March 2021 ?",
+        "title": "How many visitors do you have staying overnight at <em class=\"ons-highlight\">3 Severn Road</em> on Sunday 21 March 2021 ?",
         "description": "<p>A visitor is anyone aged <em>16 years or over</em> who usually lives at another address. Enter “0” if there are no visitors staying overnight.</p>",
         "instruction": "<p>Tell respondent to turn to <em>Showcard 2</em> or show them the Electronic Showcard below</p>"
     }) %}
@@ -41,7 +41,7 @@ layout: none
             "id": "number-of-visitors",
             "name": "number-of-visitors",
             "type": "number",
-            "classes": "input-number--w-2",
+            "classes": "ons-input-number--w-2",
             "label": {
                 "text": "Number of visitors"
             }
@@ -51,6 +51,6 @@ layout: none
 
     {{ onsButton({
         "text": "Save and continue",
-        "classes": "u-mt-xl"
+        "classes": "ons-u-mt-xl"
     }) }}
 {% endblock %}

@@ -49,12 +49,12 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    component = document.querySelector('.js-mutually-exclusive');
+    component = document.querySelector('.ons-js-mutually-exclusive');
 
     yearsInput = document.getElementById(params.field1.id);
     monthsInput = document.getElementById(params.field2.id);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
   });

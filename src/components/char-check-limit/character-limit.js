@@ -1,7 +1,7 @@
 import { trackEvent } from '../../js/analytics';
 
-const inputClassLimitReached = 'input--limit-reached';
-const remainingClassLimitReached = 'input__limit--reached';
+const inputClassLimitReached = 'ons-input--limit-reached';
+const remainingClassLimitReached = 'ons-input__limit--reached';
 const attrCharLimitRef = 'data-char-limit-ref';
 
 export default class CharLimit {
@@ -13,7 +13,7 @@ export default class CharLimit {
     this.pluralMessage = this.limitElement.getAttribute('data-charcount-plural');
 
     this.updateLimitReadout(null, true);
-    this.limitElement.classList.remove('u-d-no');
+    this.limitElement.classList.remove('ons-u-d-no');
 
     input.addEventListener('input', this.updateLimitReadout.bind(this));
   }

@@ -9,7 +9,7 @@
   width: $status-size;
 }
 
-.status {
+.ons-status {
   &::before {
     @include status-size;
 
@@ -21,23 +21,23 @@
   }
 
   /* Small status indicators for information dense situations */
-  &.status--small::before {
+  &.ons-status--small::before {
     @include status-size(0.555555rem, $status-mb: 0.055556rem);
   }
 
-  &.status--success::before {
+  &.ons-status--success::before {
     @include status-dot($color-success-vibrant);
   }
-  &.status--pending::before {
+  &.ons-status--pending::before {
     @include status-dot($color-pending-vibrant);
   }
-  &.status--error::before {
+  &.ons-status--error::before {
     @include status-dot($color-errors-vibrant);
   }
-  &.status--dead::before {
+  &.ons-status--dead::before {
     @include status-dot($color-dead);
   }
-  &.status--info::before {
+  &.ons-status--info::before {
     @include status-dot($color-info-vibrant);
   }
 }

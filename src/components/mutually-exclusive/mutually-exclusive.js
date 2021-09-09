@@ -1,10 +1,10 @@
-const exclusiveGroupItemClass = 'js-exclusive-group-item';
-const checkboxClass = 'js-exclusive-checkbox';
-const voiceOverAlertClass = 'js-exclusive-alert';
+const exclusiveGroupItemClass = 'ons-js-exclusive-group-item';
+const checkboxClass = 'ons-js-exclusive-checkbox';
+const voiceOverAlertClass = 'ons-js-exclusive-alert';
 const groupAttrAdjective = 'data-group-adjective';
 const checkboxAttrAdjective = 'data-checkbox-adjective';
-const inputAbbrClass = 'js-input-abbr';
-const inputLegendClass = 'js-input-legend';
+const inputAbbrClass = 'ons-js-input-abbr';
+const inputLegendClass = 'ons-js-input-legend';
 
 export default class MutuallyExclusive {
   constructor(context) {
@@ -136,7 +136,7 @@ export default class MutuallyExclusive {
 
     if (!this.deselectMessageElement && groupElementSelected) {
       const deselectMessageElement = document.createElement('span');
-      deselectMessageElement.classList.add('u-vh');
+      deselectMessageElement.classList.add('ons-u-vh');
       deselectMessageElement.innerHTML = `. ${this.deselectMessage}`;
 
       this.deselectMessageElement = deselectMessageElement;

@@ -1,7 +1,7 @@
 import domready from '../../js/domready';
 
 async function initialiseAutosuggests() {
-  const autosuggests = [...document.querySelectorAll('.js-autosuggest')];
+  const autosuggests = [...document.querySelectorAll('.ons-js-autosuggest')];
 
   if (autosuggests.length) {
     const Autosuggest = (await import('./autosuggest')).default;

@@ -24,7 +24,7 @@ const params = {
   id: 'country-of-birth',
   label: {
     text: 'Enter the current name of the country',
-    classes: 'js-autosuggest-label',
+    classes: 'ons-js-autosuggest-label',
   },
   autocomplete: 'off',
   instructions:
@@ -586,7 +586,7 @@ describe('Autosuggest.ui component', function() {
     describe('and clearListbox is run', function() {
       beforeEach(function() {
         this.autosuggest.listbox.innerHTML = '<p>Yes</p>';
-        this.autosuggest.context.classList.add('autosuggest-input--has-results');
+        this.autosuggest.context.classList.add('ons-autosuggest-input--has-results');
         this.autosuggest.input.setAttribute('aria-activedescendant', 'yes');
         this.autosuggest.input.setAttribute('aria-expanded', 'true');
 
@@ -600,7 +600,7 @@ describe('Autosuggest.ui component', function() {
 
       it('then the autosuggest--has-results should be removed', function() {
         this.autosuggest.clearListbox();
-        expect(this.autosuggest.context.classList.contains('autosuggest-input--has-results')).to.be.false;
+        expect(this.autosuggest.context.classList.contains('ons-autosuggest-input--has-results')).to.be.false;
       });
 
       it('then the input aria-activedescendant attributes should be removed', function() {
@@ -1137,7 +1137,7 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('the label class should be added', function() {
-          expect(this.label.classList.contains('u-lighter')).to.be.true;
+          expect(this.label.classList.contains('ons-u-lighter')).to.be.true;
         });
 
         it('then the aria status should be set', function() {
@@ -1168,7 +1168,7 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('the label class should be added', function() {
-          expect(this.label.classList.contains('u-lighter')).to.be.true;
+          expect(this.label.classList.contains('ons-u-lighter')).to.be.true;
         });
 
         it('then the aria status should be set', function() {
@@ -1295,7 +1295,7 @@ describe('Autosuggest.ui component', function() {
       id: 'country-of-birth',
       label: {
         text: 'Enter the current name of the country',
-        classes: 'js-autosuggest-label',
+        classes: 'ons-js-autosuggest-label',
       },
       autocomplete: 'off',
       allowMultiple: true,
@@ -1394,13 +1394,13 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const context = wrapper.querySelector('.js-autosuggest');
-  const input = context.querySelector('.js-autosuggest-input');
-  const label = wrapper.querySelector('.js-autosuggest-label');
-  const resultsContainer = context.querySelector('.js-autosuggest-results');
-  const listbox = context.querySelector('.js-autosuggest-listbox');
-  const instructions = context.querySelector('.js-autosuggest-instructions');
-  const status = context.querySelector('.js-autosuggest-aria-status');
+  const context = wrapper.querySelector('.ons-js-autosuggest');
+  const input = context.querySelector('.ons-js-autosuggest-input');
+  const label = wrapper.querySelector('.ons-js-autosuggest-label');
+  const resultsContainer = context.querySelector('.ons-js-autosuggest-results');
+  const listbox = context.querySelector('.ons-js-autosuggest-listbox');
+  const instructions = context.querySelector('.ons-js-autosuggest-instructions');
+  const status = context.querySelector('.ons-js-autosuggest-aria-status');
   return {
     wrapper,
     context,

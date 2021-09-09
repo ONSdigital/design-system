@@ -1,6 +1,6 @@
 import domready from '../../js/domready';
 
-export const classTableScrollable = 'table-scrollable';
+export const classTableScrollable = 'ons-table-scrollable';
 
 async function tableScroller() {
   const tables = [...document.querySelectorAll(`.${classTableScrollable}`)];

@@ -129,11 +129,11 @@ describe('Component: Radios', function() {
       });
 
       it('then the clear button should be visible', function() {
-        expect(this.button.classList.contains('u-db-no-js_enabled')).to.equal(false);
+        expect(this.button.classList.contains('ons-u-db-no-js_enabled')).to.equal(false);
       });
 
       it('then the aria live message should announce that the answer can be cleared', function(done) {
-        const ariaElement = document.querySelector('.js-clear-radio-alert');
+        const ariaElement = document.querySelector('.ons-js-clear-radio-alert');
         setTimeout(() => {
           expect(ariaElement.innerHTML).to.equal(`${params.clearRadios.ariaClearText}`);
           done();
@@ -170,11 +170,11 @@ describe('Component: Radios', function() {
       });
 
       it('then the clear button should not be visible', function() {
-        expect(this.button.classList.contains('u-db-no-js_enabled')).to.equal(true);
+        expect(this.button.classList.contains('ons-u-db-no-js_enabled')).to.equal(true);
       });
 
       it('then the aria live message should announce that the answer has been cleared', function(done) {
-        const ariaElement = document.querySelector('.js-clear-radio-alert');
+        const ariaElement = document.querySelector('.ons-js-clear-radio-alert');
         setTimeout(() => {
           expect(ariaElement.innerHTML).to.equal(`${params.clearRadios.ariaClearedText}`);
           done();
@@ -189,7 +189,7 @@ describe('Component: Radios', function() {
 
       it('then all other input fields should be empty', function() {
         const parent = this.otherInput.parentNode;
-        this.otherField = parent.querySelector('.input');
+        this.otherField = parent.querySelector('.ons-input');
         expect(this.otherField.value).to.equal('');
       });
     });
@@ -197,7 +197,7 @@ describe('Component: Radios', function() {
     // This test can sometimes fail if the browser window isn't focused when the test runs.
     describe('and there is a visible input which is focused', function() {
       beforeEach(function() {
-        this.input = this.openOther.querySelector('.input');
+        this.input = this.openOther.querySelector('.ons-input');
         this.input.focus();
       });
 
@@ -211,7 +211,7 @@ describe('Component: Radios', function() {
 
     describe('and there is a visible input and the radio is checked', function() {
       beforeEach(function() {
-        this.input = this.openOther.querySelector('.input');
+        this.input = this.openOther.querySelector('.ons-input');
         this.radioInput.click();
       });
 
@@ -232,12 +232,12 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const radios = [...wrapper.querySelectorAll('.js-radio')];
-  const button = document.querySelector('.js-clear-btn');
-  const otherInput = document.querySelector('.radio__other');
-  const openOther = document.querySelector('.radio__other--open');
+  const radios = [...wrapper.querySelectorAll('.ons-js-radio')];
+  const button = document.querySelector('.ons-js-clear-btn');
+  const otherInput = document.querySelector('.ons-radio__other');
+  const openOther = document.querySelector('.ons-radio__other--open');
   const parent = openOther.parentNode;
-  const radioInput = parent.querySelector('.radio__input');
+  const radioInput = parent.querySelector('.ons-radio__input');
   return {
     wrapper,
     radios,

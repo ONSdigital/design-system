@@ -43,25 +43,25 @@ layout: none
                     "text": 'Select what you need help with',
                     "index": true,
                     "url": '#webform-help-error',
-                    "classes": 'js-inpagelink'
+                    "classes": 'ons-js-inpagelink'
                 },
                 {
                     "text": 'Enter more detail about what you need help with',
                     "index": true,
                     "url": '#webform-detail-error',
-                    "classes": 'js-inpagelink'
+                    "classes": 'ons-js-inpagelink'
                 },
                 {
                     "text": 'Enter your name',
                     "index": true,
                     "url": '#webform-name-error',
-                    "classes": 'js-inpagelink'
+                    "classes": 'ons-js-inpagelink'
                 },
                 {
                     "text": 'Enter your email address',
                     "index": true,
                     "url": '#webform-email-error',
-                    "classes": 'js-inpagelink'
+                    "classes": 'ons-js-inpagelink'
                 }
             ]
         })
@@ -69,7 +69,7 @@ layout: none
     
     {% endcall %}
     
-    <h1 class="u-fs-xxl u-mt-l">Web form</h1>
+    <h1 class="ons-u-fs-xxl ons-u-mt-l">Web form</h1>
 
     {{ onsRadios({
         "legend": 'What do you need help with?',
@@ -143,10 +143,10 @@ layout: none
         }
     }) }}
 
-    <h2 class="u-mt-m">Your contact details</h2>
+    <h2 class="ons-u-mt-m">Your contact details</h2>
 
     {{ onsInput({
-        "classes": 'input--w-30',
+        "classes": 'ons-input--w-30',
         "name": 'webform-name',
         "id": 'webform-name',
         "label": {
@@ -160,7 +160,7 @@ layout: none
     }) }}
 
     {{ onsInput({
-        "classes": 'input--w-30',
+        "classes": 'ons-input--w-30',
         "name": 'webform-email',
         "id": 'webform-email',
         "type": 'email',
@@ -177,10 +177,10 @@ layout: none
     }) }}
 
     {{ onsButton({
-        "classes": 'u-mb-m u-mt-l',
+        "classes": 'ons-u-mb-m ons-u-mt-l',
         "text": 'Send message'
     }) }}
 
-    <p class="u-fs-s">Information about what we do with your personal data is available in our <a href="#0">privacy and data protection statement</a>.</p>
+    <p class="ons-u-fs-s">Information about what we do with your personal data is available in our <a href="#0">privacy and data protection statement</a>.</p>
 
 {% endblock %}

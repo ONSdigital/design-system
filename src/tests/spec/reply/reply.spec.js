@@ -13,7 +13,7 @@ const params = {
     id: 'replyButton',
     type: 'button',
     text: 'Send message',
-    classes: 'btn-group__btn',
+    classes: 'ons-btn-group__btn',
   },
   closeLinkText: 'Close conversation',
   closeLinkUrl: '#0',
@@ -29,7 +29,7 @@ describe('Component: Reply', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    replyWrapper = wrapper.querySelector('.js-reply');
+    replyWrapper = wrapper.querySelector('.ons-js-reply');
     replyInput = document.getElementById(params.textarea.id);
     replyButton = document.getElementById(params.button.id);
 
@@ -45,7 +45,7 @@ describe('Component: Reply', () => {
   describe('Given that the reply component has initialised correctly', () => {
     it('the submit button shoudld be disabled', () => {
       expect(replyButton.hasAttribute('disabled')).to.be.true;
-      expect(replyButton.classList.contains('btn--disabled')).to.equal(true);
+      expect(replyButton.classList.contains('ons-btn--disabled')).to.equal(true);
     });
   });
 
@@ -59,7 +59,7 @@ describe('Component: Reply', () => {
 
       it('the submit button should become enabled', () => {
         expect(replyButton.hasAttribute('disabled')).to.be.false;
-        expect(replyButton.classList.contains('btn--disabled')).to.equal(false);
+        expect(replyButton.classList.contains('ons-btn--disabled')).to.equal(false);
       });
     });
 
@@ -72,7 +72,7 @@ describe('Component: Reply', () => {
 
       it('the button should become disabled', () => {
         expect(replyButton.hasAttribute('disabled')).to.be.true;
-        expect(replyButton.classList.contains('btn--disabled')).to.equal(true);
+        expect(replyButton.classList.contains('ons-btn--disabled')).to.equal(true);
       });
     });
   });

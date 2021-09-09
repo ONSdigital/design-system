@@ -1,13 +1,13 @@
 {% macro onsCharLimit(params) %}
     {% if params.type == "check" %}
         {% set content = caller() %}
-        <span class="js-char-check-input">
+        <span class="ons-js-char-check-input">
             {{ content | safe }}
         </span>
     {% endif %}
     <span
         id="{{ params.id }}-remaining"
-        class="input__limit u-fs-s--b u-d-no u-mt-xs"
+        class="ons-input__limit ons-u-fs-s--b ons-u-d-no ons-u-mt-xs"
         data-charcount-singular="{{ params.charCountSingular }}"
         data-charcount-plural="{{ params.charCountPlural }}"
         data-charcount-limit-singular="{{ params.charCountOverLimitSingular }}"

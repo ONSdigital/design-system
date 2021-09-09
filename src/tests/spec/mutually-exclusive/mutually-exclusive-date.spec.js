@@ -49,13 +49,13 @@ describe('Component: Mutually Exclusive Date Input', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    component = document.querySelector('.js-mutually-exclusive');
+    component = document.querySelector('.ons-js-mutually-exclusive');
 
     dayInput = document.getElementById(`${params.id}-day`);
     monthInput = document.getElementById(`${params.id}-month`);
     yearInput = document.getElementById(`${params.id}-year`);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
   });

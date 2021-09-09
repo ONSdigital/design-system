@@ -1,8 +1,8 @@
-.radio {
-  @extend .checkbox;
+.ons-radio {
+  @extend .ons-checkbox;
 
   &__input {
-    @extend .checkbox__input;
+    @extend .ons-checkbox__input;
 
     background: $color-grey-5;
     border-radius: 50%;
@@ -13,13 +13,13 @@
     }
   }
 
-  &.radio--no-border {
-    @extend .checkbox--no-border;
-    & > .radio__input {
-      @extend .radio__input;
+  &.ons-radio--no-border {
+    @extend .ons-checkbox--no-border;
+    & > .ons-radio__input {
+      @extend .ons-radio__input;
       &:focus,
       &:checked {
-        & + .radio__label::before {
+        & + .ons-radio__label::before {
           background: none;
           border: none;
           box-shadow: none;
@@ -33,19 +33,19 @@
   }
 
   &__label {
-    @extend .checkbox__label;
+    @extend .ons-checkbox__label;
 
     &--with-description {
-      @extend .checkbox__label--with-description;
+      @extend .ons-checkbox__label--with-description;
     }
   }
 
   &__description {
-    @extend .checkbox__description;
+    @extend .ons-checkbox__description;
   }
 
   &__other {
-    @extend .checkbox__other;
+    @extend .ons-checkbox__other;
   }
 
   &__input:not(:checked) ~ &__other--open {

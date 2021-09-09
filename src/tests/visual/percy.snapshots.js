@@ -20,20 +20,20 @@ PercyScript.run(async (page, percySnapshot) => {
 
   // Checkboxes
   await page.goto(`${testURL}/build/components/checkboxes/examples/checkboxes/index.html`);
-  let checkbox = 'input[id="bacon"]';
+  let checkbox = 'input[id="mobile-phone"]';
   await page.evaluate(checkbox => document.querySelector(checkbox).click(), checkbox);
   await percySnapshot('Checkbox - checked', { widths: [1300] });
 
   // Radios
   await page.goto(`${testURL}/build/components/radios/examples/radios/index.html`);
-  let radio = 'input[id="bacon"]';
+  let radio = 'input[id="house"]';
   await page.evaluate(radio => document.querySelector(radio).click(), radio);
   await percySnapshot('Radio - selected', { widths: [1300] });
 
   // Accordions
   await page.goto(`${testURL}/build/components/accordion/examples/accordion/index.html`);
-  page.waitForSelector('.collapsible--initialised');
-  let buttonAll = '.js-collapsible-all';
+  page.waitForSelector('.ons-collapsible--initialised');
+  let buttonAll = '.ons-js-collapsible-all';
   await page.evaluate(buttonAll => document.querySelector(buttonAll).click(), buttonAll);
   await percySnapshot('Accordion - all open', { widths: [1300] });
 

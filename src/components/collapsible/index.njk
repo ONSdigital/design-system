@@ -57,7 +57,7 @@ Use the collapsible component instead of [tabs](/components/tabs) or [accordions
 ## How to use this component
 The collapsible component uses JavaScript so when it's turned off, the section of content is expanded and displayed as a standard heading and paragraph.
 
-Use an appropriate heading tag (h2, h3 etc) for the `collapsible__title` to provide the correct scemantic hierarchy to the document with the rest of the page.
+Use an appropriate heading tag (h2, h3 etc) for the `ons-collapsible__title` to provide the correct scemantic hierarchy to the document with the rest of the page.
 
 ### Use a clear label
 The collapsible component hides content so make sure your heading is clear so the user doesn't need to work hard to understand if they need to click on it.
@@ -81,13 +81,13 @@ The collapsible component is made accessible by using the following `aria` attri
             {
                 "tds": [
                     {
-                        "value": "<code>.collapsible</code>"
+                        "value": "<code>.ons-collapsible</code>"
                     },
                     {
                         "value": '<code>aria-expanded="true/false"</code>'
                     },
                     {
-                        "value": "Indicates the state of the associated <code>.collapsible__heading</code>"
+                        "value": "Indicates the state of the associated <code>.ons-collapsible__heading</code>"
                     }
                 ]
             },
@@ -100,7 +100,7 @@ The collapsible component is made accessible by using the following `aria` attri
                         "value": '<code>aria-selected="true/false"</code>'
                     },
                     {
-                        "value": "Indicates the selected state of the focussed <code>.collapsible</code> element"
+                        "value": "Indicates the selected state of the focussed <code>.ons-collapsible</code> element"
                     }
                 ]
             },
@@ -126,14 +126,14 @@ The collapsible component is made accessible by using the following `aria` attri
                         "value": '<code>aria-controls="{ID}-content"</code>'
                     },
                     {
-                        "value": "Indicates the <code>id</code> of the display controller element for the associated <code>.collapsible__content</code> block."
+                        "value": "Indicates the <code>id</code> of the display controller element for the associated <code>.ons-collapsible__content</code> block."
                     }
                 ]
             },
             {
                 "tds": [
                     {
-                        "value": "<code>.collapsible__content</code>"
+                        "value": "<code>.ons-collapsible__content</code>"
                     },
                     {
                         "value": '<code>aria-hidden="true/false"</code>'

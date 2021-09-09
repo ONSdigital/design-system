@@ -1,4 +1,4 @@
-.autosuggest-input {
+.ons-autosuggest-input {
   position: relative;
 
   &__combobox {
@@ -57,8 +57,8 @@
       border-color: $color-text-link-hover;
       color: $color-white;
 
-      .autosuggest-input__group,
-      .autosuggest-input__category {
+      .ons-autosuggest-input__group,
+      .ons-autosuggest-input__category {
         color: $color-white;
       }
     }
@@ -67,8 +67,8 @@
       background: $color-focus;
       color: $color-text-link-focus;
 
-      .autosuggest-input__group,
-      .autosuggest-input__category {
+      .ons-autosuggest-input__group,
+      .ons-autosuggest-input__category {
         color: $color-text-link-focus;
       }
     }
@@ -91,11 +91,11 @@
     }
   }
 
-  &__panel.panel--warn {
+  &__panel.ons-panel--warn {
     background: none;
     border: 0;
     margin: 0;
-    .panel__icon {
+    .ons-panel__icon {
       font-size: 21px;
       line-height: 25px;
       margin-top: 0;
@@ -104,7 +104,7 @@
       top: 17px;
     }
 
-    .panel__body {
+    .ons-panel__body {
       font-weight: bold;
       padding: 0.8rem 0.8rem 0.8rem 2rem;
     }
@@ -126,7 +126,7 @@
   }
 
   &--header {
-    .autosuggest-input__results {
+    .ons-autosuggest-input__results {
       border: none;
       box-shadow: 0 0 5px 0 rgba($color-black, 0.6);
       left: 0;
