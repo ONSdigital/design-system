@@ -1,4 +1,4 @@
-.input {
+.ons-input {
   border: $input-border-width solid $color-input;
   border-radius: $input-radius;
   color: inherit;
@@ -18,7 +18,7 @@
   @include mq(s) {
     &--text,
     &--select {
-      &:not(.input--block):not([class*='input--w-']) {
+      &:not(.ons-input--block):not([class*='input--w-']) {
         width: $input-width;
       }
     }
@@ -51,23 +51,23 @@
 }
 
 // Text input widths
-@include input-width('input--w-{x}');
+@include input-width('ons-input--w-{x}');
 
 // Number input widths
-@include input-width('input-number--w-{x}', 0.54rem);
+@include input-width('ons-input-number--w-{x}', 0.54rem);
 
-.input--postcode {
+.ons-input--postcode {
   max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
   width: 100%;
 }
 
-.input__helper {
+.ons-input__helper {
   font-size: 0.8rem;
   font-weight: $font-weight-bold;
   margin-top: 0.2rem;
 }
 
-.input--select {
+.ons-input--select {
   appearance: none;
   background: $color-white url('#{$static}/img/icons--chevron-down.svg') no-repeat center right 10px;
   background-size: 1rem;
@@ -79,38 +79,68 @@
   }
 }
 
-.input--textarea {
+.ons-input--textarea {
   line-height: normal;
   resize: vertical;
   width: 100%;
 }
 
-.input--block {
+.ons-input--block {
   display: block;
   width: 100%;
 }
 
-.input--placeholder {
+.ons-input--placeholder {
   background: transparent;
   &::placeholder {
     color: transparent;
   }
   &:valid:not(:placeholder-shown) {
-    background: $color-white;
+    background-color: $color-white;
   }
   &:focus {
-    background: $color-white;
+    background-color: $color-white;
   }
 }
 
-.input--limit-reached:not(:focus) {
+.ons-input--limit-reached:not(:focus) {
   border: $input-border-width solid $color-ruby-red;
 }
 
-.input__limit {
+.ons-input__limit {
   display: block;
 
   &--reached {
     color: $color-ruby-red;
+  }
+}
+
+.ons-input--ghost {
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  &:focus {
+    border: 2px solid $color-input;
+  }
+}
+
+.ons-input-search {
+  @extend .ons-input--block;
+
+  &--icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23ffffff'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
+    background-position: 9px 7px;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    padding-left: 2.4rem;
+
+    &:focus,
+    &:active,
+    &:valid:not(:placeholder-shown) {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
+    }
+    &:focus,
+    &:active {
+      background-position: 9px 7px;
+      box-shadow: 0 0 0 3px $color-focus;
+    }
   }
 }

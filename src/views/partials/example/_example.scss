@@ -1,4 +1,4 @@
-.patternlib-example {
+.ons-patternlib-example {
   $c: &;
 
   border: 1px solid $color-borders;
@@ -69,10 +69,14 @@
     font-size: 0.8rem !important;
     margin: 0;
     white-space: normal;
+
+    + p {
+      margin-top: 1rem;
+    }
   }
 }
 
-.macro-options {
+.ons-macro-options {
   background: $color-grey-5;
   margin: 0 0 1rem;
   padding: 0.5rem 1rem;

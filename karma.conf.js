@@ -31,6 +31,8 @@ export default function(config) {
     },
 
     browserDisconnectTimeout: 10000,
+    browserNoActivityTimeout: 20000,
+    concurrency: 1,
 
     frameworks: ['browserify', 'mocha', 'chai-spies', 'chai'],
 
@@ -95,6 +97,7 @@ export default function(config) {
       accessKey: process.env.BROWSER_STACK_ACCESS_KEY,
       timeout: 1800,
       console: true,
+      localIdentifier: 'random',
     },
 
     port: 9876,

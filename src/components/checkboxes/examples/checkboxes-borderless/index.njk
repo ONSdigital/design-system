@@ -1,0 +1,39 @@
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+{% from "components/fieldset/_macro.njk" import onsFieldset %}
+
+{% call onsFieldset({
+    "legend": "Select type"
+}) %}
+    {{
+        onsCheckboxes({
+            "checkboxesLabel": "All types",
+            "checkboxesLabelClasses": "ons-u-fs-s ons-u-mb-xs",
+            "dontWrap": true,
+            "name": "types",
+            "borderless": true,
+            "checkboxes": [
+                {
+                    "id": "booklet",
+                    "label": {
+                        "text": "Booklet"
+                    },
+                    "value": "booklet"
+                },
+                {
+                    "id": "logo",
+                    "label": {
+                        "text": "Logo"
+                    },
+                    "value": "logo"
+                },
+                {
+                    "id": "poster",
+                    "label": {
+                        "text": "Poster"
+                    },
+                    "value": "poster"
+                }
+            ]
+        })
+    }}
+{% endcall %}

@@ -2,10 +2,13 @@
 title: Numeric values
 group: Ask users for...
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
 
 How to ask for numeric values such as quantities, financial figures, percentages or units of measurement.
 {{
@@ -35,9 +38,9 @@ This pattern should be used when you need to ask the user for numeric values suc
 
 ## How to use this pattern
 Use the [input component](/components/input) macro and set the `type` parameter to “number” to add the correct pattern to trigger a numeric keypad on touch devices.
-{% call onsPanel({
++{% call onsPanel({
     "type": 'warn',
-    "classes": 'u-mb-s'
+    "classes": 'ons-u-mb-s'
 }) %}
     Server-side validation on <code>number</code> type input is {{
         onsExternalLink({
@@ -45,10 +48,10 @@ Use the [input component](/components/input) macro and set the `type` parameter 
             "linkText": "not currently supported by all browsers"
         })
     }}
-{% endcall %}
+{% endcall %}+
 If you are manually using the component’s html, make sure you set the attributes <code>type="text"</code>, <code>inputmode="numeric"</code> and <code>pattern="[0-9]*"</code>.
 
-### Use appropriately-size number inputs
+### Use appropriately sized number inputs
 You can use the [input width override utility class](/components/input#width-constrained) to set the width of the input when the maximum size of the answer is known.  The class won’t limit the number of digits the user can enter, but will help the user understand what they should enter.
 
 ### Numbers
@@ -91,7 +94,7 @@ To help users enter valid input, you should:
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the number field.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the number field.
 
 {{
     patternlibExample({"path": "pages/patterns/numeric-values/examples/percentage-error/index.njk"})

@@ -5,8 +5,11 @@ anchorLinks: true
 group: Installing the ONS Design System
 ---
 
++++
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
++++
+
 ## CSS
 ### How to import Sass files from the npm package
 
@@ -34,14 +37,12 @@ As a minimum, you should import the following Sass files:
 @import 'node_modules/@ons/design-system/scss/utilities/index';
 @import 'node_modules/@ons/design-system/scss/base/index';
 @import 'node_modules/@ons/design-system/scss/objects/index';" }) }}
-<br>
 
 Importing these files ensures components and patterns have access to any required global classes and utilities.
 
 To import the styles for a single component, for example, the button component, you need to add this after the base Sass files:
 
 {{ onsCodeHighlight({ "code": "@import 'node_modules/@ons/design-system/components/button/button';" }) }}
-<br>
 
 Some components use other components, for example, the accordion component uses the collapsible component. You need to import the Sass files for each component used.
 
@@ -124,5 +125,5 @@ There are favicons (or shortcut icons) for Safari, Chrome and Edge/Internet Expl
 <link rel="mask-icon" color="#5bbad5" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/safari-pinned-tab.svg">
 <link rel="apple-touch-icon" type="image/png" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="manifest" href="https://cdn.ons.gov.uk/sdc/design-system/[VERSION]/favicons/manifest.json">'}) }}
-<br>
+
 Alternatively, you can copy the favicons from `node_modules/@ons/design-system/favicons` (if using the npm package) and referencing them from your project folder.

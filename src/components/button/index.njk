@@ -1,9 +1,11 @@
 ---
 title: Button
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
++++
 
 {{
     patternlibExample({"path": "components/button/examples/button/index.njk"})
@@ -69,7 +71,7 @@ Setting the `buttonStyle` param to `exit` adds the appropriate icon for a 'sign 
 }}
 
 ### Disabled
-Use `btn--disabled` with the `disabled=true` element attribute for buttons that have no event/action but need to be displayed.
+Use `.ons-btn--disabled` with the `disabled=true` element attribute for buttons that have no event/action but need to be displayed.
 {{
     patternlibExample({"path": "components/button/examples/button-disabled/index.njk"})
 }}

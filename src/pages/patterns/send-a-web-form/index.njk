@@ -2,10 +2,12 @@
 title: Send a web form
 group: Help users to...
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
++++
 
 A user may need to contact ONS, for example, to get help with their survey or give feedback. This pattern allows a user to send a message and then the contact centre responds (through a “no reply” email).
 
@@ -102,7 +104,7 @@ To help users fill in a web form, you should:
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the relevant field or radios.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the relevant field or radios.
 
 Guidance on writing error messages can be found in the [radios component](/components/radios), [textarea component](/components/textarea) or [input component](/components/input).
 

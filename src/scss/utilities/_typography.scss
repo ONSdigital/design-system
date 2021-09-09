@@ -30,59 +30,59 @@
 }
 
 h1 {
-  @extend .u-fs-xl;
+  @extend .ons-u-fs-xl;
 }
 
 h2 {
-  @extend .u-fs-l;
+  @extend .ons-u-fs-l;
 }
 
 h3 {
-  @extend .u-fs-m;
+  @extend .ons-u-fs-m;
 }
 
 h4 {
-  @extend .u-fs-r--b;
+  @extend .ons-u-fs-r--b;
 }
 
-.u-fw-b {
+.ons-u-fw-b {
   font-weight: 700;
 }
 
-.u-fw-n {
+.ons-u-fw-n {
   font-weight: $font-weight-regular;
 }
 
-.u-fs-i {
+.ons-u-fs-i {
   font-style: italic;
 }
 
-.u-tt-u {
+.ons-u-tt-u {
   text-transform: uppercase;
 }
 
-.u-td-no,
-.u-td-no:hover {
+.ons-u-td-no,
+.ons-u-td-no:hover {
   text-decoration: none;
 }
 
-.u-lighter {
+.ons-u-lighter {
   color: $color-text-light;
 }
 
-.u-f-mono {
+.ons-u-f-mono {
   font-family: $font-mono;
   letter-spacing: 0.1em;
 }
 
-.u-ta-right {
+.ons-u-ta-right {
   text-align: right;
 }
 
-.u-ta-left {
+.ons-u-ta-left {
   text-align: left;
 }
 
-.u-ta-center {
+.ons-u-ta-center {
   text-align: center;
 }

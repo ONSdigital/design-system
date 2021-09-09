@@ -1,15 +1,18 @@
 ---
 title: Skip to content
 ---
+
++++
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
++++
 
 The skip to content component lets assistive technology and keyboard-only users skip to the main content on a page, to bypass and avoid repeating focus on persistent page elements such as top-level navigation.
 
 {{
     onsPanel({
-        "classes" : "u-mb-m",
+        "classes" : "ons-u-mb-m",
         "body": "To view this component, click into the example below and press the <kbd>tab</kbd> key."
     })
 }}

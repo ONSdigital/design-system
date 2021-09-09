@@ -1,14 +1,14 @@
-.question {
+.ons-question {
   margin: 1rem 0 0;
 
   &__title {
     margin: 0 0 1rem;
     em,
-    .highlight {
+    .ons-highlight {
       background-color: $color-highlight;
     }
     mark,
-    .instruction {
+    .ons-instruction {
       background-color: $color-instruction;
       color: $color-text-inverse;
       margin-right: 0.5rem;

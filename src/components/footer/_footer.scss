@@ -1,4 +1,4 @@
-.footer {
+.ons-footer {
   a {
     color: $color-text-banner-link;
     text-decoration: underline;
@@ -34,11 +34,11 @@
     background-color: $color-banner-bg;
     padding: 2rem 0 4rem;
 
-    .list__link {
+    .ons-list__link {
       margin-right: 0;
     }
 
-    .poweredbylogo {
+    .ons-poweredbylogo {
       min-height: 1.5rem;
     }
   }

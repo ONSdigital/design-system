@@ -4,7 +4,7 @@
     {% from "components/input/_macro.njk" import onsInput %}
     {% from "components/error/_macro.njk" import onsError %}
 
-    {% set exclusiveClass = " js-exclusive-group-item" if params.mutuallyExclusive else "" %}
+    {% set exclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
 
     {%- set numberOfFields = 0 -%}
 
@@ -22,7 +22,7 @@
 
     {% set fields %}
         {% if params.label is defined and params.label %}
-            <p class="u-fs-r--b u-mb-xs">{{ params.label }}</p>
+            <p class="ons-u-fs-r--b ons-u-mb-xs">{{ params.label }}</p>
         {% endif %}
 
         {% if params.day is defined and params.day %}
@@ -30,7 +30,7 @@
                 "id": params.id + "-day",
                 "type": "number",
                 "name": params.day.name,
-                "classes": "input--w-2" + (" input--error" if params.error else "") + exclusiveClass | default(""),
+                "classes": "ons-input-number--w-2" + (" ons-input--error" if params.error else "") + exclusiveClass | default(""),
                 "min": 1,
                 "max": 31,
                 "maxLength": 2,
@@ -45,7 +45,7 @@
                 "id": params.id + "-month",
                 "type": "number",
                 "name": params.month.name,
-                "classes": "input--w-2" + (" input--error" if params.error else "") + exclusiveClass | default(""),
+                "classes": "ons-input-number--w-2" + (" ons-input--error" if params.error else "") + exclusiveClass | default(""),
                 "min": 1,
                 "max": 12,
                 "maxLength": 2,
@@ -60,7 +60,7 @@
                 "id": params.id + "-year",
                 "type": "number",
                 "name": params.year.name,
-                "classes": "input--w-4" + (" input--error" if params.error else "") + exclusiveClass | default(""),
+                "classes": "ons-input-number--w-4" + (" ons-input--error" if params.error else "") + exclusiveClass | default(""),
                 "min": 1000,
                 "max": 3000,
                 "maxLength": 4,
@@ -73,7 +73,7 @@
 
     {% if numberOfFields > 1 %}
         {% set fields %}
-            <div class="field-group">
+            <div class="ons-field-group">
                 {{ fields | safe }}
             </div>
         {% endset %}

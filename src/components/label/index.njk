@@ -1,10 +1,13 @@
 ---
 title: Label
+synonyms: Hint, description
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
++++
 
 ## When to use this component
 Labels are paired with [inputs](/components/input), [textareas](/components/textarea), [radios](/components/radios), [checkboxes](/components/checkboxes), and [selects](/components/select) to describe a form input.
@@ -48,7 +51,7 @@ Do not:
 
 ## Variants
 ### With description
-Use the optional `label__description` to show hint text to help the majority of users, like how to enter their information, where to find it, or how it will be used.
+Use the optional `description` parameter to show hint text to help the majority of users, like how to enter their information, where to find it, or how it will be used.
 {{
     patternlibExample({"path": "components/label/examples/label-description/index.njk"})
 }}

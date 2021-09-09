@@ -1,8 +1,10 @@
 ---
 title: Fieldset
 ---
-{% from "components/panel/_macro.njk" import onsPanel %}
+
++++
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
 
 ## When to use this component
 
@@ -25,7 +27,7 @@ Generally speaking you should not need to {{
 ### Legend as page/question title
 
 When a fieldset is on a page such as a question page, it's quite possible that the page heading (`h1`) is the same as what the legend needs to be. 
-A quick way to avoid visual repitition of the same text is to add the utility class `.u-vh` to visually hide the legend. This doesn't avoid repetition for screen reader users however.
+A quick way to avoid visual repitition of the same text is to add the utility class `.ons-u-vh` to visually hide the legend. This doesn't avoid repetition for screen reader users however.
 
 We recommend wrapping the `h1` inside the legend. There are two options for doing this:
 
@@ -42,7 +44,6 @@ We recommend wrapping the `h1` inside the legend. There are two options for doin
 
 ### Configuration
 
-{% markdown %}
 | Name          | Type                                 | Required | Description                                                          |
 | ------------- | ------------------------------------ | -------- | -------------------------------------------------------------------- |
 | id            | string                               | true     | The id of the fieldset                                               |
@@ -53,7 +54,6 @@ We recommend wrapping the `h1` inside the legend. There are two options for doin
 | description   | string                               | false    | Description for the fieldset                                         |
 | attributes    | object                               | false    | HTML attributes (for example data attributes) to add to the fieldset |
 | error         | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                  |
-{% endmarkdown %}
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

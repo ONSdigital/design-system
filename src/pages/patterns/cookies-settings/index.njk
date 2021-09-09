@@ -2,14 +2,17 @@
 title: Control cookies
 group: Help users to...
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
 
 {{
     onsPanel({
         "body": "You will need to delete the 'ons_cookie_message_displayed' cookie if you cannot see the banner",
-        "classes": "u-mb-m"
+        "classes": "ons-u-mb-m"
     })
 }}
 There are two parts to implementing cookies control within a service; cookies banner and cookies preferences page.

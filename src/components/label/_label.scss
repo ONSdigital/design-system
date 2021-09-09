@@ -1,11 +1,11 @@
-.label {
+.ons-label {
   color: inherit;
   display: block;
   font-weight: $font-weight-bold;
   margin-bottom: 0.4rem;
 
   &__description {
-    @extend .u-fs-s;
+    @extend .ons-u-fs-s;
 
     display: block;
     line-height: 1.4;
@@ -21,6 +21,10 @@
     font-weight: $font-weight-regular;
     left: 8px;
     position: absolute;
-    top: 6px;
+    top: -3px;
+  }
+
+  &--white {
+    color: $color-white;
   }
 }

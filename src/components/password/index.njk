@@ -1,9 +1,11 @@
 ---
 title: Password
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
++++
 
 The password component lets the user enter a hidden password which they can show if they need to check what they’ve entered.
 {{
@@ -14,7 +16,7 @@ The password component lets the user enter a hidden password which they can show
 Use the password component when you need users to create or enter secret information they are likely to want hidden while they enter it.
 
 ## How to use this component
-The `<input>` and `<label>` is separated by a [checkbox component](/components/checkbox) with classes `js-password-toggle-wrap` and `checkbox--toggle` on the wrapping `<div>` and `js-password-toggle` on the `<input>`.
+The `<input>` and `<label>` is separated by a [checkbox component](/components/checkbox) with classes `ons-js-password-toggle-wrap` and `ons-checkbox--toggle` on the wrapping `<div>` and `ons-js-password-toggle` on the `<input>`.
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

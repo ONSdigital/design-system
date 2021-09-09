@@ -1,10 +1,12 @@
 ---
 "title": Tabs
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
 
 Tabs let the user navigate between sections of content, showing one section at a time.
 {{
@@ -53,17 +55,15 @@ The typical tab display will show on viewports that are equal to or greater than
 
 For viewports `>= 640px` the following `aria` attributes will be attached to the `DOM` via javascript on load:
 
-{% markdown %}
 | Element                     | ARIA attribute                        | Description                                                                                                           |
 |-----------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| `ul.tab__list`              | `role="tablist"`                      | Convey to screenreaders that the element serves as a container for a set of tabs.                                     |
-| `li.tab__list-item`         | `role="presentation"`                 | Convey to screenreaders that this element does not have any functional, interactive, or structural relevance implied. |
-| `a.tab`                     | `role="tab"`                          | Indicates the element serves as a tab control.                                                                        |
+| `ul.ons-tab__list`          | `role="tablist"`                      | Convey to screenreaders that the element serves as a container for a set of tabs.                                     |
+| `li.ons-tab__list-item`     | `role="presentation"`                 | Convey to screenreaders that this element does not have any functional, interactive, or structural relevance implied. |
+| `a.ons-tab`                 | `role="tab"`                          | Indicates the element serves as a tab control.                                                                        |
 |                             | `aria-controls="NAME"`                | Refers to the tab panel element associated with the tab.                                                              |
 |                             | `aria-selected="true/false"`          | Indicates if the current tab is selected.                                                                             |
-| `.tab__panel`               | `aria-labelledby="TITLE_ID"`          | Indicates the associated tab with the current content.                                                                |
+| `.ons-tab__panel`           | `aria-labelledby="TITLE_ID"`          | Indicates the associated tab with the current content.                                                                |
 |                             | `role="tabpanel"`                     | Indicates that the element is a content panel with associated tab.                                                    |
-{% endmarkdown %}
 
 For viewports `< 640px` tabs are displayed as a list and function as a table of contents (TOC). All panels are displayed in the order they are structured. Clicking a TOC link will jump the user to the associated panel.
 

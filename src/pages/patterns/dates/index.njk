@@ -2,10 +2,13 @@
 title: Dates
 group: Ask users for...
 ---
+
++++
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/lists/_macro.njk" import onsList %}
++++
 
 Help users enter a known date.
 
@@ -28,14 +31,14 @@ A `fieldset__description` is used to provide an example of the required format f
 
 {{
     onsPanel({
-        "classes": "u-mb-s",
+        "classes": "ons-u-mb-s",
         "type": "warn",
         "body": "<p>Never automatically tab the user between the fields. This can be unexpected and confusing, and may hinder normal keyboard control.</p>"
     })
 }}
 The date fields have a `maxlength` limit set to the maximum number of digits required for day and month (2), and year (4), to prevent users entering too many digits in a single field. This is to help those users who expect auto-tabbing between the fields by preventing them from entering the full date into the first field.
 
-Each field uses the `input--w-<number>` class to set the known number of digits required for each field.
+Each field uses the `ons-input--w-<number>` class to set the known number of digits required for each field.
 
 ### Using autocomplete when asking for date of birth
 Use the `autocomplete` attribute when you are asking for a date of birth to help the user fill out a form more quickly.
@@ -65,7 +68,7 @@ To help users enter a valid date, you should:
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the date fields.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the date fields.
 
 {{
     patternlibExample({"path": "components/date-input/examples/date-input-error/index.njk"})

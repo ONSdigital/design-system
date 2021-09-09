@@ -1,0 +1,322 @@
+---
+layout: none
+---
+{% extends "styles/page-template/_template.njk" %}
+
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/date-input/_macro.njk" import onsDateInput %}
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+{% from "components/password/_macro.njk" import onsPassword %}
+{% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+{% from "components/duration/_macro.njk" import onsDuration %}
+
+{% set pageConfig = {
+    "title": "Errors Prototype"
+} %}
+
+{% block preMain %}
+    {{
+        onsBreadcrumbs({
+            "ariaLabel": 'Breadcrumbs',
+            "itemsList": [
+                {
+                    "url": '/',
+                    "text": 'Home'
+                },
+                {
+                    "url": '/patterns',
+                    "text": 'Patterns'
+                },
+                {
+                    "url": '/patterns/correct-errors',
+                    "text": 'Correct errors'
+                }
+            ]
+        })
+    }}
+{% endblock %}
+
+{% set form = {
+    "method": "GET",
+    "attributes": {
+        "action": pageInfo.url  + "/errors",
+        "novalidate": ""
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": "How many employees do you pay on a monthly basis?"
+    }) %}
+        {{
+            onsInput({
+                "id": "number",
+                "type": "number",
+                "fieldClasses": "ons-question__answer",
+                "classes": "ons-input--w-5",
+                "required": true,
+                "attributes": {
+                    "min": 0
+                },
+                "label": {
+                    "text": "Number of employees paid monthly"
+                }
+            })
+        }}
+
+        {{
+            onsInput({
+                "id": "suffixed",
+                "type": "number",
+                "fieldClasses": "ons-question__answer",
+                "classes": "ons-input--w-2",
+                "value": "101",
+                "required": true,
+                "label": {
+                    "text": "Percentage of employees paid monthly"
+                },
+                "suffix": {
+                    "title": "per cent",
+                    "text": "%"
+                }
+            })
+        }}
+
+        {{
+            onsRadios({
+                "legend": "How many employees do you employ?",
+                "name": "food",
+                "radios": [
+                    {
+                        "id": "a",
+                        "label": {
+                            "text": "1 - 10 employees"
+                        },
+                        "value": "a"
+                    },
+                    {
+                        "id": "b",
+                        "label": {
+                            "text": "6 - 10 employees"
+                        },
+                        "value": "b"
+                    },
+                    {
+                        "id": "c",
+                        "label": {
+                            "text": "More than 10 employees"
+                        },
+                        "value": "other",
+                        "other": {
+                            "open": true,
+                            "id": "other-textbox",
+                            "name": "other-answer",
+                            "label": {
+                                "text": "Please specify other"
+                            }
+                        }
+                    }
+                ]
+            })
+        }}
+
+        {{
+            onsDateInput({
+                "legend": "Date of birth",
+                "description": "For example, 31 3 1980",
+                "day": {
+                    "label": {
+                        "text": "Day"
+                    },
+                    "name": "day",
+                    "attributes": {
+                        "autocomplete": "bday-day"
+                    }
+                },
+                "month": {
+                    "label": {
+                        "text": "Month"
+                    },
+                    "name": "month",
+                    "attributes": {
+                        "autocomplete": "bday-month"
+                    }
+                },
+                "year": {
+                    "label": {
+                        "text": "Year"
+                    },
+                    "name": "year",
+                    "attributes": {
+                        "autocomplete": "bday-year"
+                    }
+                }
+            })
+        }}
+
+        {{
+            onsCheckboxes({
+                "legend": "What are your favourite pizza toppings?",
+                "checkboxesLabel": "Select all that apply",
+                "name": "food",
+                "checkboxes": [
+                    {
+                        "id": "bacon",
+                        "label": {
+                            "text": "Bacon"
+                        },
+                        "value": "bacon"
+                    },
+                    {
+                        "id": "olives",
+                        "label": {
+                            "text": "Olives"
+                        },
+                        "value": "olives"
+                    }
+                ],
+                "mutuallyExclusive": {
+                    "or": "Or",
+                    "deselectMessage": "Selecting this will uncheck all other checkboxes",
+                    "deselectGroupAdjective": "deselected",
+                    "deselectCheckboxAdjective": "deselected",
+                    "checkbox": {
+                        "id": "no-toppings",
+                        "label": {
+                            "text": "No toppings"
+                        },
+                        "value": "no-toppings"
+                    }
+                }
+            })
+        }}
+
+        {{
+            onsPassword({
+                "id": "password",
+                "label": {
+                    "text": "Password"
+                },
+                "showPasswordText": "Show password"
+            })
+        }}
+
+        {{
+            onsInput({
+                "id": "email",
+                "type": "email",
+                "value": "name.com",
+                "label": {
+                    "text": "Email address"
+                },
+                "mutuallyExclusive": {
+                    "or": "Or",
+                    "deselectMessage": "Selecting this will clear your email address",
+                    "deselectGroupAdjective": "cleared",
+                    "deselectCheckboxAdjective": "deselected",
+                    "checkbox": {
+                        "id": "email-checkbox",
+                        "name": "no-email",
+                        "value": "no-email",
+                        "label": {
+                            "text": "I don't want to receive a confirmation email"
+                        }
+                    }
+                }
+            })
+        }}
+
+        {{
+            onsDuration({
+                "label": "Duration",
+                "id": "address-duration",
+                "dontWrap": true,
+                "field1": {
+                    "id": "address-duration-hours",
+                    "name": "address-duration-hours",
+                    "label": "Hours",
+                     "value": "2"
+                },
+                "field2": {
+                    "id": "address-duration-minutes",
+                    "name": "address-duration-minutes",
+                    "label": "Minutes",
+                    "value": "60"
+                }
+            })
+        }}
+
+        {{
+            onsRadios({
+                "legend": "Select your favourite toppings",
+                "name": "food-other",
+                "radios": [
+                    {
+                        "id": "bacon-other",
+                        "label": {
+                            "text": "Bacon"
+                        },
+                        "value": "bacon"
+                    },
+                    {
+                        "id": "olives-other",
+                        "label": {
+                            "text": "Olives"
+                        },
+                        "value": "olives"
+                    },
+                    {
+                        "id": "pepperoni-other",
+                        "label": {
+                            "text": "Pepperoni"
+                        },
+                        "checked": true,
+                        "value": "pepperoni",
+                        "other": {
+                            "otherType": "select",
+                            "id": "pepperoni-heat-level",
+                            "name": "pepperoni-heat-level",
+                            "label": {
+                                "text": "Please specify heat level"
+                            },
+                            "options": [
+                                {
+                                    "value": "",
+                                    "text": "Select heat level",
+                                    "disabled": true,
+                                    "selected": true
+                                },
+                                {
+                                    "value": "mild",
+                                    "text": "Mild"
+                                },
+                                {
+                                    "value": "medium",
+                                    "text": "Medium"
+                                },
+                                {
+                                    "value": "hot",
+                                    "text": "Hot"
+                                },
+                                {
+                                    "value": "extra hot",
+                                    "text": "Extra Hot"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            })
+        }}
+    {% endcall%}
+
+    {{
+        onsButton({
+            "text": "Save and continue",
+            "classes": "ons-u-mt-xl"
+        })
+    }}
+{% endblock %}

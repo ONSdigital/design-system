@@ -48,25 +48,25 @@ layout: none
 } %}
 
 {% block main %}
-    <h1 class="u-mb-l u-fs-xxl">Languages</h1>
+    <h1 class="ons-u-mb-l ons-u-fs-xxl">Languages</h1>
     
     {{onsPanel({
-        "classes": 'u-mb-m',
+        "classes": 'ons-u-mb-m',
         "body": '<p>Os oes angen y wefan hon arnoch yn Gymraeg, ewch i <a href="#0">cyfrifiad.gov.uk</a></p>'
     })}}
 
-    <div class="language-filter js-language-filter">
+    <div class="ons-language-filter ons-js-language-filter">
 
-        <div class="grid grid--flex grid--vertical-top grid--between">
+        <div class="ons-grid ons-grid--flex ons-grid--vertical-top ons-grid--between">
 
-            <div class="grid__col col-7@m">
+            <div class="ons-grid__col ons-col-7@m">
                 <p>Translation support is available for the following languages.</p>
                 <p>If you can’t find your language, or need more help, please call our free language helpline on <b>0800 587 2021</b>.</p>
             </div>
 
-            <div class="grid__col col-5@md u-mb-m u-db-no-js_disabled">
+            <div class="ons-grid__col ons-col-5@md ons-u-mb-m ons-u-db-no-js_disabled">
                 {{ onsSelect({
-                    "classes": 'js-language-filter__select',
+                    "classes": 'ons-js-language-filter__select',
                     "id": 'language-fiter-select',
                     "name": 'language-fiter-select',
                     "label": {
@@ -87,14 +87,14 @@ layout: none
 
         </div>
 
-        <div class="js-language-filter__content" id="language-native">
+        <div class="ons-js-language-filter__content" id="language-native">
 
-            <div class="grid">
+            <div class="ons-grid">
 
-                <div class="grid__col col-4@m">
+                <div class="ons-grid__col ons-col-4@m">
 
                     {{ onsList({
-                        "classes": 'list--bare list--languages',
+                        "classes": 'ons-list--bare ons-list--languages',
                         "itemsList": [
                             {
                                 "url": '#0',
@@ -193,10 +193,10 @@ layout: none
 
                 </div>
 
-                <div class="grid__col col-4@m">
+                <div class="ons-grid__col ons-col-4@m">
 
                     {{ onsList({
-                        "classes": 'list--bare list--languages',
+                        "classes": 'ons-list--bare ons-list--languages',
                         "itemsList": [
                             {
                                 "url": '#0',
@@ -287,10 +287,10 @@ layout: none
 
                 </div>
 
-                <div class="grid__col col-4@m">
+                <div class="ons-grid__col ons-col-4@m">
 
                     {{ onsList({
-                        "classes": 'list--bare list--languages u-rtl',
+                        "classes": 'ons-list--bare ons-list--languages ons-u-rtl',
                         "itemsList": [
                             {
                                 "url": '#0',
@@ -321,14 +321,14 @@ layout: none
 
         </div>
 
-        <div class="js-language-filter__content u-hidden u-db-no-js_disabled" id="language-english">
+        <div class="ons-js-language-filter__content ons-u-hidden ons-u-db-no-js_disabled" id="language-english">
 
-            <div class="grid">
+            <div class="ons-grid">
 
-                <div class="grid__col col-4@m">
+                <div class="ons-grid__col ons-col-4@m">
 
                     {{ onsList({
-                        "classes": 'list--bare list--languages',
+                        "classes": 'ons-list--bare ons-list--languages',
                         "itemsList": [
                             {
                                 "url": '#0',

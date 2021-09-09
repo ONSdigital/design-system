@@ -1,10 +1,12 @@
 ---
 title: Radios
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
++++
 
 Radios let the user select a single option from a list.
 
@@ -33,7 +35,7 @@ This variant allows you to add more context to the radios in the list. The descr
 ### Radio with input
 This variant lets the user provide an answer other to the radios in the list, or to provide additional information required to describe their answer.
 
-Use this variation by wrapping the text field in a div with class `radio__other`, added directly after the radio label. CSS hides this field until the radio is `:checked`.
+Use this variation by wrapping the text field in a div with class `ons-radio__other`, added directly after the radio label. CSS hides this field until the radio is `:checked`.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-other/index.njk"})
@@ -70,6 +72,15 @@ The submit button should use the `hidden` attribute and also the `u-d-no` utilit
     patternlibExample({"path": "components/radios/examples/radios-clear/index.njk"})
 }}
 
+### Radios without a border
+
+This variant removes the border around the radio input and [label](/components/label). Do not use it for question pages with radios. It is better to have a border. It makes the radios more visible for users and gives them a larger target area to select (the label and the boundary).
+
+Only remove the radio border for pages that are not following the practice of “one thing per page”, where the radios are not the primary call to action. For example, the radios could be one part of a multipurpose page, like the checkboxes used for the filters on the [download resources pattern](/patterns/download-resources/).
+{{
+    patternlibExample({"path": "components/radios/examples/radios-borderless/index.njk"})
+}}
+
 ## How to check radios
 To help users make a selection on the page and provide extra detail if it is required, you should:
 {{
@@ -90,7 +101,7 @@ To help users make a selection on the page and provide extra detail if it is req
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the radios.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the radios.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-error/index.njk"})

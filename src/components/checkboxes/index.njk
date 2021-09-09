@@ -1,9 +1,13 @@
 ---
 title: Checkboxes
+synonyms: Check, Tick, Tick box
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
++++
 
 Checkboxes let the user select one or more options from a list.
 
@@ -25,7 +29,7 @@ Checkboxes are grouped within a [fieldset](/components/fieldset) which starts wi
 ### Checkbox with input
 This variant lets the user provide an answer other to the options in the list, or to provide additional information required to describe their answer.
 
-Use this variation by wrapping the text field in a div with class `checkbox__other`, added directly after the checkbox label. CSS hides this field until the checkbox is `:checked`.
+Use this variation by wrapping the text field in a div with class `ons-checkbox__other`, added directly after the checkbox label. CSS hides this field until the checkbox is `:checked`.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-other/index.njk"})
@@ -43,6 +47,16 @@ This variant uses a [select component](/components/select) instead of an input.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-select/index.njk"})
+}}
+
+### Checkbox without a border
+
+This variant removes the border around the checkbox input and [label](/components/label). Do not use it for question pages with checkboxes. It is better to have a border. It makes the checkboxes more visible for users and gives them a larger target area to select (the label and the boundary).
+
+Only remove the checkbox border for pages that are not following the practice of “one thing per page”, where the checkboxes are not the primary call to action. For example, the checkboxes could be one part of a multipurpose page, like the checkboxes used for the filters on the [download resources pattern](/patterns/download-resources/).
+
+{{
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-borderless/index.njk"})
 }}
 
 ## How to validate checkboxes
@@ -65,7 +79,7 @@ To help users make a selection on the page and provide extra detail if it is req
 
 ### Error messages
 
-Use the [correct errors pattern](/patterns/error-validation) and show the error details above the checkbox options.
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the checkbox options.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-error/index.njk"})

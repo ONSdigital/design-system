@@ -1,9 +1,12 @@
 ---
 title: Metadata
+synonyms: Description list, terms
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
++++
 
 The metadata component is a way to organise and explain a block of key-value pairs of related information.
 {{
@@ -16,7 +19,7 @@ Use the metadata component when you need to display a group of properties and th
 ## How to use this component
 A description list `<dl>` is used to divide the metadata information into terms `<dt>` and descriptions `<dd>`.
 
-Use [the grid](/styles/grid) to build the layout of two columns of metadata, setting the number of columns (`col-<n>@m`) to ensure the terms display on a single line where possible.
+Use [the grid](/styles/grid) to build the layout of two columns of metadata, setting the number of columns (`ons-col-<n>@m`) to ensure the terms display on a single line where possible.
 
 Use the `metadataLabel` to succinctly describe the description list.
 

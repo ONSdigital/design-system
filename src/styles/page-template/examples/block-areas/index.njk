@@ -5,23 +5,23 @@ layout: example
 {% from "components/header/_macro.njk" import onsHeader %}
 {% from "components/footer/_macro.njk" import onsFooter %}
 
-<div class="pattern-lib-block">
-    <div class="pattern-lib-block__label">block: headIcons</div>
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: headIcons</div>
 </div>
 
-<div class="pattern-lib-block">
-    <div class="pattern-lib-block__label">block: head</div>
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: head</div>
 </div>
 
-<div class="pattern-lib-block">
-    <div class="pattern-lib-block__label">block: bodyStart</div>
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: bodyStart</div>
 </div>
 
-<div class="pattern-lib-block">
-    <div class="pattern-lib-block__label">block: body</div>
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: body</div>
 
-    <div class="pattern-lib-block">
-        <div class="pattern-lib-block__label">block: skipLink</div>
+    <div class="ons-pattern-lib-block">
+        <div class="ons-pattern-lib-block__label">block: skipLink</div>
         {{
             onsSkipToContent({
                 "text": "Skip to content"
@@ -29,12 +29,12 @@ layout: example
         }}
     </div>
 
-    <div class="pattern-lib-block">
-        <div class="pattern-lib-block__label">block: preHeader</div>
+    <div class="ons-pattern-lib-block">
+        <div class="ons-pattern-lib-block__label">block: preHeader</div>
     </div>
 
-    <div class="pattern-lib-block">
-        <div class="pattern-lib-block__label">block: header</div>
+    <div class="ons-pattern-lib-block">
+        <div class="ons-pattern-lib-block__label">block: header</div>
         {{
             onsHeader({
                 "title": "Design system",
@@ -47,23 +47,23 @@ layout: example
                     "id": "main-nav",
                     "ariaLabel": "Main menu",
                     "ariraListLabel": "Navigation menu",
-                    "currentPath": "/get-started",
+                    "currentPath": "#get-started",
                     "itemsList": [
                         {
                             "title": "Get started",
-                            "path": "/get-started"
+                            "url": "#get-started"
                         },
                         {
                             "title": "Components",
-                            "path": "#"
+                            "url": "#0"
                         },
                         {
                             "title": "Styles",
-                            "path": "#"
+                            "url": "#0"
                         },
                         {
                             "title": "Patterns",
-                            "path": "#"
+                            "url": "#0"
                         }
                     ]
                 }
@@ -71,21 +71,21 @@ layout: example
         }}
     </div>
 
-    <div class="pattern-lib-block">
-        <div class="pattern-lib-block__label">block: pageContent</div>
+    <div class="ons-pattern-lib-block">
+        <div class="ons-pattern-lib-block__label">block: pageContent</div>
 
-        <div class="pattern-lib-block">
-            <div class="pattern-lib-block__label">block: preMain</div>
+        <div class="ons-pattern-lib-block">
+            <div class="ons-pattern-lib-block__label">block: preMain</div>
         </div>
 
-        <div class="pattern-lib-block">
-            <div class="pattern-lib-block__label">block: main</div>
+        <div class="ons-pattern-lib-block">
+            <div class="ons-pattern-lib-block__label">block: main</div>
             <h1>Page content</h1>
         </div>
     </div>
 
-    <div class="pattern-lib-block">
-        <div class="pattern-lib-block__label">block: footer</div>
+    <div class="ons-pattern-lib-block">
+        <div class="ons-pattern-lib-block__label">block: footer</div>
         {{
             onsFooter({
                 "rows": [
@@ -113,10 +113,10 @@ layout: example
     </div>
 </div>
 
-<div class="pattern-lib-block">
-    <div class="pattern-lib-block__label">block: bodyEnd</div>
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: bodyEnd</div>
 </div>
 
-<div class="pattern-lib-block">
-    <div class="pattern-lib-block__label">block: scripts</div>
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: scripts</div>
 </div>

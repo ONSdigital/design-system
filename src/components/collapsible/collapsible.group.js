@@ -3,7 +3,7 @@ export default class CollapsibleGroup {
     this.openCollapsibles = 0;
 
     this.button = button;
-    this.buttonInner = button.querySelector('.js-collapsible-all-inner');
+    this.buttonInner = button.querySelector('.ons-js-collapsible-all-inner');
     this.group = button.getAttribute('data-group');
     this.collapsibles = collapsibles.filter(collapsible => collapsible.group === this.group);
 
@@ -18,7 +18,7 @@ export default class CollapsibleGroup {
 
     this.button.addEventListener('click', this.handleButtonClick.bind(this));
 
-    this.button.classList.remove('u-d-no');
+    this.button.classList.remove('ons-u-d-no');
   }
 
   handleButtonClick(event) {

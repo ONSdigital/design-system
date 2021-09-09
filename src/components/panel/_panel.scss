@@ -1,5 +1,5 @@
 @mixin panel-type($name, $color, $color-bg) {
-  .panel {
+  .ons-panel {
     &--#{$name} {
       background: $color-bg;
       border-color: $color;
@@ -13,15 +13,15 @@
   }
 }
 
-.census-warning {
+.ons-census-warning {
   background: $color-branded-tertiary;
 }
 
-.announcement {
+.ons-announcement {
   background-color: $color-black;
 }
 
-.panel {
+.ons-panel {
   border-radius: 0;
   position: relative;
 
@@ -30,7 +30,7 @@
     margin-bottom: 0;
   }
 
-  .field {
+  .ons-field {
     margin-bottom: 0;
   }
 
@@ -60,19 +60,19 @@
       margin-bottom: 0;
     }
 
-    &.svg-icon-margin--xxl {
+    &.ons-svg-icon-margin--xxl {
       padding-left: 3.3rem !important;
     }
-    &.svg-icon-margin--xl {
+    &.ons-svg-icon-margin--xl {
       padding-left: 2.8rem !important;
     }
-    &.svg-icon-margin--l {
+    &.ons-svg-icon-margin--l {
       padding-left: 2.5rem !important;
     }
-    &.svg-icon-margin--m {
+    &.ons-svg-icon-margin--m {
       padding-left: 2.2rem !important;
     }
-    &.svg-icon-margin--s {
+    &.ons-svg-icon-margin--s {
       padding-left: 1.4rem !important;
     }
   }
@@ -117,11 +117,11 @@
   &--no-title {
     border-left: 8px solid transparent;
     padding: 1rem;
-    .panel__body {
+    .ons-panel__body {
       background: none;
       padding: 0;
     }
-    &.panel--warn {
+    &.ons-panel--warn {
       padding: 0;
     }
   }
@@ -182,7 +182,7 @@
       fill: $color-success;
       left: 0;
       padding-left: 1rem;
-      .svg-icon {
+      .ons-svg-icon {
         margin-top: -15% !important;
       }
     }
@@ -206,7 +206,7 @@
   &--warn,
   &--warn-branded,
   &--announcement {
-    .panel__icon {
+    .ons-panel__icon {
       position: absolute;
     }
   }

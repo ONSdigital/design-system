@@ -1,10 +1,13 @@
 ---
 title: Grid
 sortOrder: 3
+synonyms: Layout, flex, responsive, column, breakpoints
 ---
+
++++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
++++
 
 Use the ONS grid system to lay out the content on your service’s pages.
 
@@ -31,26 +34,23 @@ Use different column widths to make up the 12 available columns:
 Gutters are fixed for each breakpoint. 24px for screen widths `600px` and greater and 16px for below `600px`. There are options for removing gutters by using modifier classes on the grid which is useful when nesting grids.
 
 The baseline grid is based on multiples of **8px**.
-{% markdown %}
 | Viewport | <300px | 301 - 600 | 600 - 1000+ |
 |----------|--------|-----------|-------------|
 | Gutter   | 16px   | 16px      | 24px        |
 
-{% endmarkdown %}
-
 #### 600 - 1000+ Grid
 Laptop (including tablet in horizontal orientation) and larger resolution devices.
 
-<div class="grid">
-    <div class="grid_col col-7@m">
+<div class="ons-grid">
+    <div class="ons-grid_col col-7@m">
         <img src="/patternlib-img/eq-grid-responsive-large.svg" alt="Grid illustration for larger screen sizes">
     </div>
 </div>
 
 #### 301 - 600 and 300 Grid
 12 columns with 16px fixed margins for 301-600 and 300px viewports
-<div class="grid">
-    <div class="grid_col col-7@m">
+<div class="ons-grid">
+    <div class="ons-grid_col col-7@m">
         <img src="/patternlib-img/eq-grid-responsive-mobile-tablet.svg" alt="Grid illustration for tablet and mobile sizes">
     </div>
 </div>
@@ -58,7 +58,6 @@ Laptop (including tablet in horizontal orientation) and larger resolution device
 ### Breakpoints
 
 There are set breakpoints that can be accessed to adapt the layout for different screen widths.
-{% markdown %}
 | Breakpoint | Variable to reference |
 |------------|---------------------- |
 | 300px      | xxs                   |
@@ -68,58 +67,57 @@ There are set breakpoints that can be accessed to adapt the layout for different
 | 980px      | l                     |
 | 1300px     | xl                    |
 | 1600px     | xxl                   |
-{% endmarkdown %}
 
 
 ## Using the grid system
 
-Grid columns need to be wrapped using the `.grid` class.
+Grid columns need to be wrapped using the `.ons-grid` class.
 
-Each column within `.grid` requires the class `.grid__col` and another class to specify the number of columns at the required breakpoint, for example `.col-6@m`. This will provide a single column, 6 columns wide at `740px` and greater. If the screen width is below `740px` the column will fill 100% of the content.
+Each column within `.ons-grid` requires the class `.ons-grid__col` and another class to specify the number of columns at the required breakpoint, for example `.ons-col-6@m`. This will provide a single column, 6 columns wide at `740px` and greater. If the screen width is below `740px` the column will fill 100% of the content.
 
-A column width can also be set between two breakpoints using the class structure `.col-6@m@xl`. This will provide a 6 column wide column between `740px` and `1300px`. Outside of these widths the column will fill 100% of the content.
+A column width can also be set between two breakpoints using the class structure `.ons-col-6@m@xl`. This will provide a 6 column wide column between `740px` and `1300px`. Outside of these widths the column will fill 100% of the content.
 
 **There are additional modifiers that can add further control to the grid:**
 
 ### Reversible
-`.grid--reverse` - A reversed grid allows you change the source order of the markup and still keep a left-to-right layout.
+`.ons-grid--reverse` - A reversed grid allows you change the source order of the markup and still keep a left-to-right layout.
 
 ### Align Mid
-`.grid--align-mid` - Uses `vertical-align` to middle align the columns vertically.
+`.ons-grid--align-mid` - Uses `vertical-align` to middle align the columns vertically.
 
 ### Flexbox
-`.grid--flex` `.grid__col--flex` - Provides a more efficient way to lay out, align and distribute space among items in a container. This is beneficial when we need to provide a layout to elements of an unknown/dynamic size. There are more flexbox modifiers which can provide the conditions required at specific breakpoints: `.grid--center`, `.grid--between`, `.grid--vertical-center`, `.u-flex-shrink@m`, `.u-flex-no-shrink@m`, `.u-flex-grow@m`, `u-flex-no-grow@m`, `u-flex-no-basis@m`.
+`.ons-grid--flex` `.ons-grid__col--flex` - Provides a more efficient way to lay out, align and distribute space among items in a container. This is beneficial when we need to provide a layout to elements of an unknown/dynamic size. There are more flexbox modifiers which can provide the conditions required at specific breakpoints: `.ons-grid--center`, `.ons-grid--between`, `.ons-grid--vertical-center`, `.ons-u-flex-shrink@m`, `.ons-u-flex-no-shrink@m`, `.ons-u-flex-grow@m`, `.ons-u-flex-no-grow@m`, `.ons-u-flex-no-basis@m`.
 
 ### Gutterless
-`.grid--gutterless` - Removes all gutters from columns.
+`.ons-grid--gutterless` - Removes all gutters from columns.
 
 ### Tight
-`.grid--tight` - Uses 1/2 sized gutters.
+`.ons-grid--tight` - Uses 1/2 sized gutters.
 
 ### Loose
-`.grid--loose` - Uses double-sized gutters.
+`.ons-grid--loose` - Uses double-sized gutters.
 
 ### Spaced
-`.grid--spaced` - Adds gutter-sized margins beneath each column. Can be combined with other modifiers that affect margins.
+`.ons-grid--spaced` - Adds gutter-sized margins beneath each column. Can be combined with other modifiers that affect margins.
 
 ### Pixel Gutters
-`.grid--pixelgutter` - Sets the gutters to 1px
+`.ons-grid--pixelgutter` - Sets the gutters to 1px
 
 ### Push &amp; Pull
-`.push-1@m` `pull-1@m` - Moves the `.grid__col` the specified number of columns (at the specified breakpoint/s) either left or right.
+`.ons-push-1@m` `.ons-pull-1@m` - Moves the `.ons-grid__col` the specified number of columns (at the specified breakpoint/s) either left or right.
 
 ## Creating layouts
 
-Layouts can be created by specifying the number of columns required. Grid based layouts should be wrapped with the class `.container`. This will centre the layout and provide a maximum width of `1032px`. There is an additional modifier class `container--wide` which will increase the maximum width to 1280px. If your service requires a full width layout a modifier is available by using `.container--full-width`.
+Layouts can be created by specifying the number of columns required. Grid based layouts should be wrapped with the class `.ons-container`. This will centre the layout and provide a maximum width of `1032px`. There is an additional modifier class `ons-container--wide` which will increase the maximum width to 1280px. If your service requires a full width layout a modifier is available by using `.ons-container--full-width`.
 
-A typical page layout for body content on an ONS service will use 8 columns for the main content at `740px` and greater (`.col-8@m`) as shown below:
+A typical page layout for body content on an ONS service will use 8 columns for the main content at `740px` and greater (`.ons-col-8@m`) as shown below:
 
 {{
     patternlibExample({"path": "styles/grid/examples/grid-8/index.njk"})
 }}
 
 
-If a sidebar is required, the main content should use 7 columns (`col-7@m`'). The sidebar should be 4 columns (`.col-4@m`) and pushed right 1 column (`push-1@m`) to provide a column gap between the main content and the sidebar. The example below shows the layout.
+If a sidebar is required, the main content should use 7 columns (`ons-col-7@m`). The sidebar should be 4 columns (`.ons-col-4@m`) and pushed right 1 column (`ons-push-1@m`) to provide a column gap between the main content and the sidebar. The example below shows the layout.
 
 {{
     patternlibExample({"path": "styles/grid/examples/grid-7-4/index.njk"})

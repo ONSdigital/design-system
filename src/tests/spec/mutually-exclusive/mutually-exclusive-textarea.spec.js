@@ -6,7 +6,7 @@ import { populateTextarea } from '../textarea/character-limit.spec';
 const params = {
   id: 'feedback',
   name: 'feedback',
-  classes: 'input--w-30',
+  classes: 'ons-input--w-30',
   label: {
     text: 'Please provide some feedback',
     description: 'For example describe any difficulties you experienced in the use of this service',
@@ -42,11 +42,11 @@ describe('Component: Mutually Exclusive Textarea', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    mutuallyExclusiveComponent = document.querySelector('.js-mutually-exclusive');
+    mutuallyExclusiveComponent = document.querySelector('.ons-js-mutually-exclusive');
     textarea = document.getElementById(params.id);
     textareaRemaining = document.getElementById(`${params.id}-lim-remaining`);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new CharacterLimit(textarea);
     new MutuallyExclusive(mutuallyExclusiveComponent);
