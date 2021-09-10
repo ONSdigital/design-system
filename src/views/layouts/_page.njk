@@ -10,14 +10,6 @@
     }}
 {% endblock %}
 {% block header %}
-    {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
-    {{
-        onsPhaseBanner({
-            "wide": true,
-            "html": 'Help us improve this service. <a href="https://ows.io/tj/dhrye372">Take part in a short online exercise</a>',
-            "badge": 'User testing'
-        })
-    }}
     {% from "components/header/_macro.njk" import onsHeader %}
     {{
         onsHeader({
