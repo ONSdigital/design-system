@@ -8,7 +8,7 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Autosuggest address example"
+    "title": "Manual address input example"
 } %}
 {% block main %}
     {% call onsQuestion({
@@ -16,7 +16,7 @@ layout: none
         "legendIsQuestionTitle": true
     }) %}
     
-    <form action="#">
+    <form action="#0">
         {{ onsAddressInput({
             "id": "address",
             "dontWrap": true,

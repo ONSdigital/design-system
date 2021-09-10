@@ -43,7 +43,7 @@ The panel contains assistive technology attributes. As soon as the page is loade
 
 #### Error summary panel title
 
-The panel's title lets the user know there is an error with their answer. Use the following content:
+The panel’s title lets the user know there is an error on the page. Use the following content:
 {{
     onsList({
         "itemsList": [
@@ -61,7 +61,7 @@ If there is more than one error on the page, the title must display the number o
 
 #### Error summary panel body
 
-The panel’s body must contain an ordered list of links for each error. Set `element` to “ol” if using the `onsList` macro. Each list item must:
+The panel’s body must contain a list of links for each error. Using the `onsList` macro, set `"element": "ol"`. If there is only one error, the macro will wrap the link in a `<p>` instead of the ordered list markup. Each error link must:
 {{
     onsList({
         "itemsList": [
@@ -78,7 +78,7 @@ The panel’s body must contain an ordered list of links for each error. Set `el
     })
 }}
 
-Guidance on specific error messages can be found on the page for each form component.
+Guidance on specific error messages can be found on the page for each [component](/components) or [pattern](/patterns).
 
 ### Error details
 
