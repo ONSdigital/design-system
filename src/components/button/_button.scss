@@ -132,13 +132,13 @@ $button-border-height: 3px;
     &__inner {
       .ons-svg-icon {
         height: 1rem;
+        margin: 0 0.5rem 0.1rem 0;
         width: 1rem;
       }
     }
   }
 
   // When hovered
-
   &:hover & {
     &__inner {
       background: darken($color-button, 5%);

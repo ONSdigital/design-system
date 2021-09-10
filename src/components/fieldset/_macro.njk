@@ -21,7 +21,7 @@
                         {{- params.legend | safe -}}
                     {% endif %}
                     {% if params.description is defined and params.description %}
-                        <span class="ons-fieldset__description {% if params.legendIsQuestionTitle %}fieldset__description--title{% endif %}">{{ params.description | safe }}</span>
+                        <span class="ons-fieldset__description {% if params.legendIsQuestionTitle %}ons-fieldset__description--title{% endif %}">{{ params.description | safe }}</span>
                     {% endif %}
                 </legend>
                 {{ caller() }}
