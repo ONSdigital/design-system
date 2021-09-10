@@ -50,18 +50,35 @@ Some components use other components, for example, the accordion component uses 
 
 You can either import or copy the `main.css` file to include the compiled stylesheet of all components and styles. This file can be found under `node_modules/@ons/design-system/css/main.css`.
 
-## Javascript
-The best way to include the required JS in your service is to reference the published JS file from the [content delivery network (CDN)](#cdn). The design system uses {{
-    onsExternalLink({
-        "url": "https://webpack.js.org/guides/code-splitting/",
-        "linkText": "code splitting"
-    })
-}} to optimise performance by dynamically importing modules only when they are required. The section below provides details on how to reference files from the CDN.
+## JavaScript
+To import the JavaScript (JS) for components, you can either:
 
-You can use the `main.js` from the design system npm package. You can copy the script files from `node_modules/@ons/design-system/scripts`
+- add the JS file to your HTML
+- import JS using a bundler
+
+### Add the JS file to your HTML
+You can use the `main.js` from the design system npm package. You can copy the file from `node_modules/@ons/design-system/scripts`
 into a `/scripts` folder in your project. You could also set up routing on your service to point to the `/scripts` located in `node_modules/@ons/design-system`.
 
-If you are using a bundler tool like webpack, you need to `import` all files from the npm package `scripts` folder.
+Then import the JS file before the closing `body` tag of your HTML page or page template.
+
+{{ onsCodeHighlight({ "code": "<body>
+...
+  <script src='<YOUR-APP>/<YOUR-JS-FILE>.js'></script>
+</body>" }) }}
+<br>
+
+You can also reference the published JS file from the [content delivery network (CDN)](#cdn). 
+
+### Import JS using a bundler
+
+If your service uses a bundler like [Webpack](https://webpack.js.org/) you can select and initialise all component JS using `import` or `require()`. 
+
+Import the `node_modules/design-system/js/main.js` to import the JS for all components. 
+
+#### Import JS for a specific component
+
+You can import the JS for a specific component. For example, `node_modules/design-system/components/button/button.dom.js` imports the JS for the button component. Each component that uses JS will have a `<COMPONENT>.dom.js` file available to import. This file will handle the initialising of a component.
 
 ## CDN
 All the global styles and individual component code is compiled and made available via a CDN. Each release deployed to the CDN is always available. This allows services to plan upgrades to new versions.
@@ -71,7 +88,7 @@ Each release of the design system is tagged with a version, for example, ![](htt
 The following files are deployed to the CDN which can be referenced in a service or project:
 
 - `main.css` - responsive CSS file of all components
-- `main.js` - bundled JavaScript modules
+- `main.js` - bundled JS modules
 
 If you are using the design system [base page template](/guidance/base-page-template/) (recommended) you will not need to reference any assets from the CDN. The release version is automatically applied in the base template to any references.
 
