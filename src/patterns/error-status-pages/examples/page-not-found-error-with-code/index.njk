@@ -1,0 +1,25 @@
+---
+layout: none
+---
+{% extends "foundations/page-template/_template.njk" %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+{% set pageConfig = {
+    "title": "Service name",
+    "footer": {
+    }
+} %}
+
+{% block main %}
+    <h1>Page not found</h1>
+    <p>If you entered a web address, check it is correct.</p>
+    <p>If you pasted the web address, check you copied the whole address.</p>
+    <p>If the web address is correct or you selected a link or button, <a href="#0">contact us</a> for more help.</p>
+
+    {% call onsPanel() %}
+        <p>You will need the following reference code when you contact us:
+            <br>
+            <strong class="ons-u-f-mono ons-u-fs-l ons-u-mt-s ons-u-d-b">Q018 45T0 PR09 SOFG</strong>
+        </p>
+    {% endcall %}
+{% endblock %}

@@ -24,7 +24,7 @@ async function getURLs() {
       path: './build/patterns',
     },
     {
-      path: './build/styles',
+      path: './build/foundations',
     },
   ];
   for (const directory of directories) {
