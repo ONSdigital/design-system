@@ -1,8 +1,8 @@
 @import 'vars/index';
 @import 'helpers/*.scss';
 @import '../views/partials/**/*.scss';
-@import '../styles/page-template/examples/block-areas/block-areas';
-@import '../pages/patterns/question/examples/question-anatomy/pl-question-anatomy';
+@import '../foundations/page-template/examples/block-areas/block-areas';
+@import '../patterns/question/examples/question-anatomy/pl-question-anatomy';
 @import 'prism-tomorrow';
 
 .ons-patternlib-page {
@@ -47,7 +47,6 @@
     code:not(.ons-patternlib-example__code) {
       background: $color-grey-5;
       color: $color-ruby-red;
-      display: inline-block;
       padding: 0.05rem 0.25rem;
     }
 

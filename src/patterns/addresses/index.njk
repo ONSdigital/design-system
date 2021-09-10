@@ -1,0 +1,159 @@
+---
+title: Addresses
+group: Ask users for...
+---
+
++++
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
++++
+
+How to ask users for an address.
+
+## When to use this pattern
+
+Use this pattern when you need to collect an address from a user.
+
+## How to use this pattern
+
+There are three ways to collect an address from a user using the [address input component](/components/address-input). Addresses can be:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'selected from an address index using the <a href="#non-editable-addresses">non-editable variant</a> and then confirmed'
+            },
+            {
+                "text": 'selected from an address index and edited using the <a href="#editable-addresses">editable variant</a>'
+            },
+            {
+                "text": '<a href="#manual-addresses">entered manually</a>'
+            }
+        ]
+    })
+}}
+
+The non-editable and editable variants appear the same for the user until they select an address.
+
+### Non-editable addresses
+
+Use the non-editable variant of the address input component if you want the user to select their address from the ONS Address Index API.
+
+The user can enter part of their address to search the address index and select from the results. They will be able to edit the selected address, but the [component’s client-side validation](/components/address-input#validation) will prevent them from continuing.
+
+{{
+    patternlibExample({"path": "pages/patterns/addresses/examples/address-input-non-editable/index.njk"})
+}}
+
+#### Address confirmation
+After successfully choosing an address, you need to ask the user to confirm it is correct using the [check answers pattern](/patterns/check-answers).
+
+{{
+    patternlibExample({"path": "patterns/addresses/examples/address-input-non-editable/confirm-address/index.njk"})
+}}
+
+### Editable addresses
+
+Use the editable variant of the address input component if you want the user to select their address from the ONS Address Index API and be able to edit it afterwards. 
+
+The user can enter part of their address to search the address index and select from the results. Once an address is selected, it is displayed in multiple fields wrapped within a [fieldset](/components/fieldset) with a legend. If you are using the component within the `onsQuestion` macro, you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro.
+
+You will need to [check the address](#how-to-check-addresses) using server-side validation.
+
+{{
+    patternlibExample({ "path": "patterns/addresses/examples/address-input/index.njk" })
+}}
+
+### Manual addresses
+
+Use the manual variant of the address input component if you want the user to enter their address manually.
+
+The manual address inputs are wrapped within a [fieldset](/components/fieldset) and legend. If you are using the component within the `onsQuestion` macro, you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro.
+
+You will need to [check the address](#how-to-check-addresses) using server-side validation.
+
+{{
+    patternlibExample({ "path": "patterns/addresses/examples/address-input-manual/index.njk" })
+}}
+
+## How to check addresses
+To help users enter a valid address manually, you should:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'allow them to paste any part of an address'
+            },
+            {
+                "text": 'check they enter something in the fields your service requires'
+            },
+            {
+                "text": 'check any postcodes they enter are valid'
+            },
+            {
+                "text": 'show an error message if they have not entered anything into the required fields or if the postcode they have entered is not valid'
+            }
+        ]
+    })
+}}
+
+You can {{
+    onsExternalLink({
+        "url": "https://ideal-postcodes.co.uk/guides/uk-postcode-format",
+        "linkText": "check the format for a UK postcode on the Ideal Postcodes website"
+    })
+}}
+
+### Error messages
+Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the input field.
+
+{{
+    patternlibExample({ "path": "pages/patterns/addresses/examples/address-input-manual-error/index.njk" })
+}}
+
+#### If one of the required fields is empty
+Use “Enter [whatever part of the address is missing]”.\
+For example, “Enter the first line of your address”.
+
+#### If the postcode entered is not valid
+Use “Enter a valid UK postcode”.
+
+## Research on this pattern
+The addresses pattern was last user tested in October 2020 during research for Census 2021. The following findings were reported:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'when searching for home addresses using the address finder, most users enter the postcode first as they expect it to return the address more quickly than other parts of the address'
+            },
+            {
+                "text": 'four characters of the postcode are usually entered before users interact with the results list'
+            },
+            {
+                "text": 'people expect the results to be presented in ascending order of flat or building number'
+            },
+            {
+                "text": 'users are more likely to search by entering an organisation or street name when looking for a work or school address, or when looking for someone else’s address'
+            },
+            {
+                "text": 'users do not expect the building name or county to be part of their home address, and do not manually add them after selecting the address'
+            },
+            {
+                "text": 'for most users, getting an address using the address finder is quicker than entering an address manually'
+            },
+            {
+                "text": 'users struggle to find a school address using the address finder because they do not expect to be able to search using the school’s name – add “name” to the the input label when it’s relevant so users know they can use this to search: “Enter name, address or postcode and select from results”'
+            }
+        ]
+    })
+}}
+
+## Help improve this pattern
+Let us know how we could improve this pattern or share your user research findings.
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/1387",
+        "linkText": "Discuss the ‘Addresses’ pattern on GitHub"
+    })
+}}

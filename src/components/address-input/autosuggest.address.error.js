@@ -29,35 +29,28 @@ export default class AddressError {
       const errorElementTitle = document.createElement('div');
       const errorBodyElement = document.createElement('div');
 
-      const errorListElement = document.createElement('ol');
-      const errorListItemElement = document.createElement('li');
+      const errorListElement = document.createElement('p');
       const errorLinkElement = document.createElement('a');
-      const errorLinkElementPre = document.createElement('span');
 
       errorElement.className = 'ons-panel ons-panel--error ons-u-mb-m ons-js-autosuggest-error-panel';
       errorElementHeader.className = 'ons-panel__header';
       errorElementTitle.className = 'ons-panel__title ons-u-fs-r--b';
       errorBodyElement.className = 'ons-panel__body';
-      errorListElement.className = 'ons-list ons-list--bare';
-      errorListItemElement.className = 'ons-list__item';
       errorLinkElement.className = 'ons-list__link ons-js-inpagelink ons-js-error';
       errorLinkElement.href = '#autosuggest-input-error';
 
       errorElementTitle.innerHTML = this.errorTitle;
-      errorLinkElementPre.innerHTML = '1. ';
 
       errorElement.appendChild(errorElementHeader);
       errorElementHeader.appendChild(errorElementTitle);
       errorElement.appendChild(errorBodyElement);
       errorBodyElement.appendChild(errorListElement);
-      errorListElement.appendChild(errorListItemElement);
-      errorListItemElement.appendChild(errorLinkElement);
+      errorListElement.appendChild(errorLinkElement);
 
-      errorListItemElement.insertBefore(errorLinkElementPre, errorListItemElement.firstChild);
       page.insertBefore(errorElement, page.firstChild);
 
       // fire the inpagelink function
-      const links = [...document.getElementsByClassName('js-inpagelink')];
+      const links = [...document.getElementsByClassName('ons-js-inpagelink')];
       inPageLinks(links);
 
       //input error
@@ -66,8 +59,8 @@ export default class AddressError {
       const inputErrorPanelP = document.createElement('p');
       const inputErrorPanelStrong = document.createElement('strong');
 
-      inputErrorPanel.className = 'ons-panel ons-panel--error ons-panel--simple';
-      inputErrorPanel.id = 'ons-autosuggest-input-error';
+      inputErrorPanel.className = 'ons-panel ons-panel--error ons-panel--no-title';
+      inputErrorPanel.id = 'autosuggest-input-error';
       inputErrorPanelBody.className = 'ons-panel__body';
       inputErrorPanelP.className = 'ons-panel__error';
       inputErrorPanelStrong.className = 'ons-panel__error-message';

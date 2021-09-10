@@ -14,8 +14,9 @@
                                 "label": {
                                     "text": params.organisation.label
                                 },
-                                "classes": "ons-input--w-20@m ons-js-address-organisation",
-                                "name": params.id + "-organisation"
+                                "classes": "input--w-20@m ons-js-address-organisation",
+                                "name": params.id + "-organisation",
+                                "error": params.organisation.error
                             })
                         }}
                     {% endif %}
@@ -41,8 +42,9 @@
                                 "label": {
                                     "text": params.line2.label
                                 },
-                                "classes": "ons-input--w-20@m ons-js-address-line2",
-                                "name": params.id + "-line2"
+                                "classes": "input--w-20@m ons-js-address-line2",
+                                "name": params.id + "-line2",
+                                "error": params.line2.error
                             })
                         }}
                     {% endif %}
@@ -55,7 +57,8 @@
                                     "text": params.town.label
                                 },
                                 "classes": "ons-js-address-town",
-                                "name": params.id + "-town"
+                                "name": params.id + "-town",
+                                "error": params.town.error
                             })
                         }}
                     {% endif %}
@@ -68,13 +71,14 @@
                                     "text": params.postcode.label
                                 },
                                 "classes": "ons-input--w-7 ons-js-address-postcode",
-                                "name": params.id + "-postcode"
+                                "name": params.id + "-postcode",
+                                "error": params.postcode.error
                             })
                         }}
                     {% endif %}
                 {% if not params.manualEntry %}
                         <div class="ons-u-mt-s">
-                            <a href="#" class="ons-js-address-search-btn ons-u-db-no-js_disabled">{{ params.searchButton }}</a>
+                            <a href="#0" class="ons-js-address-search-btn ons-u-db-no-js_disabled">{{ params.searchButton }}</a>
                         </div>
                     </div>
                 {% endif %}
@@ -151,7 +155,7 @@
     {% endset %}
 
     {% if params.dontWrap is defined and params.dontWrap %}
-        {{ fields | safe }} 
+        {{ fields | safe }}
     {% else %}
         {% call onsFieldset({
             "id": params.id,
