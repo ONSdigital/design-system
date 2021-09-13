@@ -1,6 +1,8 @@
 import MutuallyExclusive from '../../../components/mutually-exclusive/mutually-exclusive';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   id: 'date-mutually-exclusive',
   legend: 'When did you leave your last paid job?',

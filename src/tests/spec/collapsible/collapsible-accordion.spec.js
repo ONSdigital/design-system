@@ -1,7 +1,13 @@
+import chaiSpies from 'chai-spies';
+
 import Collapsible from '../../../components/collapsible/collapsible';
 import CollapsibleGroup from '../../../components/collapsible/collapsible.group';
 import renderTemplate from '../../helpers/render-template';
 import eventMock from '../../stubs/event.stub.spec';
+
+const expect = chai.expect;
+
+chai.use(chaiSpies);
 
 const params = {
   id: 'accordion',

@@ -1,6 +1,8 @@
 import Password from '../../../components/password/password';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   id: 'password',
   label: {

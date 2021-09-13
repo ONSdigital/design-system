@@ -1,6 +1,8 @@
 import TableSort from '../../../components/table/sortable-table';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   sortable: true,
   table_class: ' table--sortable',

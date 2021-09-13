@@ -1,6 +1,8 @@
 import TableScroll from '../../../components/table/scrollable-table';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   scrollable: true,
   ths: [

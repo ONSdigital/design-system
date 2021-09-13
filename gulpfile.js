@@ -1,5 +1,6 @@
 const browserSync = require('browser-sync');
 const browserify = require('browserify');
+const glob = require('glob');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
 const gulpPostCss = require('gulp-postcss');
@@ -11,6 +12,7 @@ const sass = require('node-sass');
 const nodeSassGlobImporter = require('node-sass-glob-importer');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
+const proxyquireify = require('proxyquireify');
 
 require('@babel/register');
 
@@ -58,14 +60,34 @@ const scripts = [
   },
 ];
 
+const tests = [
+  {
+    entryPoint: './src/tests/spec/**/*.spec.js',
+    outputFile: 'tests.js',
+    config: babelEsmConfig,
+  },
+  {
+    entryPoint: './src/tests/spec/**/*.spec.js',
+    outputFile: 'tests.es5.js',
+    config: babelNomoduleConfig,
+  },
+];
+
 gulp.task('clean', () => {
   return Promise.resolve();
 });
 
 function createBuildScriptTask({ entryPoint, outputFile, config }) {
   const taskName = `build-script:${outputFile}`;
+
+  if (!entryPoint.push) {
+    entryPoint = [entryPoint];
+  }
+  entryPoint = entryPoint.flatMap(entry => glob.sync(entry));
+
   gulp.task(taskName, () => {
     return browserify(entryPoint, { debug: isDevelopment })
+      .plugin(proxyquireify.plugin)
       .transform('babelify', { ...config, sourceMaps: isDevelopment })
       .bundle()
       .pipe(source(outputFile))
@@ -80,6 +102,7 @@ function createBuildScriptTask({ entryPoint, outputFile, config }) {
 }
 
 gulp.task('build-script', gulp.series(...scripts.map(createBuildScriptTask)));
+gulp.task('build-test-script', gulp.series(...tests.map(createBuildScriptTask)));
 
 gulp.task('build-styles', () => {
   return gulp
@@ -127,6 +150,7 @@ gulp.task('start-dev-server', async () => {
 });
 
 gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-svg'));
+gulp.task('build-test-assets', gulp.series('build-test-script', 'build-styles', 'build-svg'));
 
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));

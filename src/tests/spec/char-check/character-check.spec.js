@@ -1,6 +1,8 @@
 import CharCheck from '../../../components/char-check-limit/character-check';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   id: 'search-field',
   type: 'number',

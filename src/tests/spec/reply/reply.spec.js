@@ -1,6 +1,8 @@
 import ReplyInput from '../../../components/reply/reply-input';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   textarea: {
     id: 'reply',

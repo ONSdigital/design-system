@@ -1,4 +1,10 @@
+import chaiSpies from 'chai-spies';
+
 import domready from '../../../js/domready';
+
+const expect = chai.expect;
+
+chai.use(chaiSpies);
 
 describe('DomReady function', function() {
   beforeEach(function() {

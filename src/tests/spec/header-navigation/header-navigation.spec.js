@@ -1,9 +1,13 @@
+import chaiSpies from 'chai-spies';
 import proxyquireify from 'proxyquireify';
 
 import renderTemplate from '../../helpers/render-template';
 import GetViewportDetailsMock from '../../stubs/getViewportDetails.stub.spec';
 
+const expect = chai.expect;
 const proxyquire = proxyquireify(require);
+
+chai.use(chaiSpies);
 
 const params = {
   toggleButton: {

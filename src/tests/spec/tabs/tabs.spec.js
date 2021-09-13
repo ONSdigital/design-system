@@ -1,5 +1,6 @@
 import '../../../components/tabs/tabs';
 
+import chaiSpies from 'chai-spies';
 import proxyquireify from 'proxyquireify';
 
 import renderTemplate from '../../helpers/render-template';
@@ -7,7 +8,10 @@ import eventMock from '../../stubs/event.stub.spec';
 import matchMediaDesktopMock from '../../stubs/matchMediaDesktop.stub.spec';
 import matchMediaMobileMock from '../../stubs/matchMediaMobile.stub.spec';
 
+const expect = chai.expect;
 const proxyquire = proxyquireify(require);
+
+chai.use(chaiSpies);
 
 const params = {
   title: 'Tabs',

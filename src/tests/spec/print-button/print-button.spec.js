@@ -1,5 +1,9 @@
+import chaiSpies from 'chai-spies';
+
 import printButton from '../../../js/print-button';
 import renderTemplate from '../../helpers/render-template';
+
+const expect = chai.expect;
 
 const params = {
   id: 'button',
@@ -7,6 +11,8 @@ const params = {
   text: 'Print this page',
   buttonStyle: 'print',
 };
+
+chai.use(chaiSpies);
 
 describe('Function: Print Button ', function() {
   let wrapper, buttonElement;

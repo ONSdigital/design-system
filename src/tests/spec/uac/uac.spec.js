@@ -1,6 +1,8 @@
 import UAC from '../../../components/access-code/uac';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   id: 'uac',
   name: 'uac',

@@ -6,6 +6,8 @@ import SubmitButton from '../../../components/button/button';
 import renderTemplate from '../../helpers/render-template';
 import eventMock from '../../stubs/event.stub.spec';
 
+const expect = chai.expect;
+
 chai.should();
 chai.use(chaiSpies);
 chai.use(chaiAsPromised);

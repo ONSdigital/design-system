@@ -1,5 +1,11 @@
+import chaiSpies from 'chai-spies';
+
 import { cookie, setConsentCookie, setCookie, setDefaultConsentCookie } from '../../../js/cookies-functions';
 import CookiesSettings from '../../../js/cookies-settings';
+
+const expect = chai.expect;
+
+chai.use(chaiSpies);
 
 describe('Component: Cookie settings', function() {
   beforeEach(function() {

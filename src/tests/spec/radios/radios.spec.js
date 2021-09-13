@@ -3,6 +3,8 @@ import CheckRadios from '../../../components/radios/check-radios';
 import ClearRadios from '../../../components/radios/clear-radios';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   name: 'contact-preference',
   clearRadios: {

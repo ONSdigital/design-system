@@ -1,3 +1,5 @@
+import chaiSpies from 'chai-spies';
+
 import {
   approveAllCookieTypes,
   checkConsentCookie,
@@ -10,6 +12,10 @@ import {
   setCookie,
   setDefaultConsentCookie,
 } from '../../../js/cookies-functions';
+
+const expect = chai.expect;
+
+chai.use(chaiSpies);
 
 describe('Component: Cookie functions', function() {
   it('returns the cookie value if not provided with a value to set', function() {

@@ -1,6 +1,8 @@
 import SubmitButton from '../../../components/button/button';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 describe('Function: Loader Button ', function() {
   let wrapper, buttonElement;
 

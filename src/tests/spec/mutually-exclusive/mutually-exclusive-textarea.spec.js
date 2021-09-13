@@ -3,6 +3,8 @@ import MutuallyExclusive from '../../../components/mutually-exclusive/mutually-e
 import renderTemplate from '../../helpers/render-template';
 import { populateTextarea } from '../textarea/character-limit.spec';
 
+const expect = chai.expect;
+
 const params = {
   id: 'feedback',
   name: 'feedback',

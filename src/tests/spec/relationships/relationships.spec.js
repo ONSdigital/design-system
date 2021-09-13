@@ -1,6 +1,8 @@
 import Relationships from '../../../components/relationships/relationships';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   dontWrap: true,
   title: 'Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>',

@@ -1,6 +1,8 @@
 import Collapsible from '../../../components/collapsible/collapsible';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   id: 'collapsible',
   title: 'What is a photovoltaic system?',

@@ -1,6 +1,8 @@
 import Checkboxes from '../../../components/checkboxes/checkboxes';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   legend: 'What are your favourite pizza toppings?',
   checkboxesLabel: 'Select all that apply',

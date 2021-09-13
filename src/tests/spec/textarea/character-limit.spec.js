@@ -1,6 +1,8 @@
 import CharLimit from '../../../components/char-check-limit/character-limit';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   id: 'textarea-char-limit',
   name: 'feedback-limited',

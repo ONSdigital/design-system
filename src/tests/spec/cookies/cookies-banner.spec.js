@@ -1,5 +1,11 @@
+import chaiSpies from 'chai-spies';
+
 import CookiesBanner from '../../../components/cookies-banner/cookies-banner';
 import { approveAllCookieTypes, cookie, setCookie } from '../../../js/cookies-functions';
+
+const expect = chai.expect;
+
+chai.use(chaiSpies);
 
 describe('Component: Cookie banner', function() {
   beforeEach(function() {

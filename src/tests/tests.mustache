@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Test'em</title>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mocha/2.3.4/mocha.css">
+        <link rel="stylesheet" href="/build/css/main.css">
+    </head>
+    <body>
+        <div id="mocha"></div>
+
+        <script src="/browser-source-map-support.js"></script>
+        <script>sourceMapSupport.install();</script>
+        <script src="/testem.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/mocha/2.3.4/mocha.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/chai/3.4.1/chai.js"></script>
+        <script>mocha.setup('bdd')</script>
+        {{#serve_files}}
+            <script src="/{{src}}"></script>
+        {{/serve_files}}
+        <script>
+            Testem.hookIntoTestFramework();
+            mocha.run();
+        </script>
+    </body>
+</html>

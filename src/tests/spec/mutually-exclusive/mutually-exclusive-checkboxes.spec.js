@@ -1,6 +1,8 @@
 import MutuallyExclusive from '../../../components/mutually-exclusive/mutually-exclusive';
 import renderTemplate from '../../helpers/render-template';
 
+const expect = chai.expect;
+
 const params = {
   legend: 'What type of central heating do you have?',
   checkboxesLabel: 'Select all that apply',
