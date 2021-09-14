@@ -26,24 +26,24 @@
                 <input id="{{ params.name }}-template" type="radio" class="ons-patternlib-example__radio ons-js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "template" %} checked {% endif %}>
             {% endif %}
             {% if params.scss is defined and params.scss %}
-                <input id="{{ params.name }}-scss" type="radio" class="ons-patternlib-example__radio ons-js-example-radio" name="{{ params.name }}-example"{% if params.openTab == "scss" %} checked {% endif %}>
+                <input id="{{ params.name }}-scss" type="radio" class="ons-patternlib-example__radio ons-js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "scss" %} checked {% endif %}>
             {% endif %}
             {% if params.noTabs is not defined %}
                 <div class="ons-patternlib-example__tabs">
                     {% if params.noHTMLTab is not defined %}
-                        <label class="ons-patternlib-example__tab ons-u-fs-r--b ons-js-example-tab" for="{{ params.name }}-html">HTML</label>
+                        <label class="ons-patternlib-example__tab ons-u-fs-r ons-js-example-tab" for="{{ params.name }}-html">HTML</label>
                     {% endif %}
                     {% if params.raw is defined and params.raw and not params.noRawTab %}
-                        <label class="ons-patternlib-example__tab ons-u-fs-r--b ons-js-example-tab" for="{{ params.name }}-nunjucks">Nunjucks</label>
+                        <label class="ons-patternlib-example__tab ons-u-fs-r ons-js-example-tab" for="{{ params.name }}-nunjucks">Nunjucks</label>
                     {% endif %}
                     {% if params.options is defined and params.options %}
-                        <label class="ons-patternlib-example__tab ons-u-fs-r--b ons-js-example-tab" for="{{ params.name }}-options">Nunjucks macro options</label>
+                        <label class="ons-patternlib-example__tab ons-u-fs-r ons-js-example-tab" for="{{ params.name }}-options">Nunjucks macro options</label>
                     {% endif %}
                     {% if params.template is defined and params.template and not params.noTemplateTab %}
-                        <label class="ons-patternlib-example__tab ons-u-fs-r--b ons-js-example-tab" for="{{ params.name }}-template">Nunjucks Template</label>
+                        <label class="ons-patternlib-example__tab ons-u-fs-r ons-js-example-tab" for="{{ params.name }}-template">Nunjucks Template</label>
                     {% endif %}
                     {% if params.scss is defined and params.scss and not params.noScssTab %}
-                        <label class="ons-patternlib-example__tab ons-u-fs-r--b ons-js-example-tab" for="{{ params.name }}-scss">SCSS</label>
+                        <label class="ons-patternlib-example__tab ons-u-fs-r ons-js-example-tab" for="{{ params.name }}-scss">SCSS</label>
                     {% endif %}
                 </div>
             {% endif %}
@@ -56,11 +56,11 @@
                     <div class="ons-patternlib-example__panel">
                         {{ onsCodeHighlight({ "code": params.raw, "language": "javascript" }) }}
                     </div>
-                {%- endif -%}
-                {%- if params.options is defined and params.options -%}
-                    <div class="ons-patternlib-example__panel">
-                        <div class="ons-options__content">{{ params.options | safe }}</div>
-                    </div>
+                    {%- if params.options is defined and params.options -%}
+                        <div class="ons-patternlib-example__panel">
+                            <div class="ons-options__content">{{ params.options | safe }}</div>
+                        </div>
+                    {%- endif -%}
                 {%- endif -%}
                 {%- if params.template is defined and params.template -%}
                     <div class="ons-patternlib-example__panel">
