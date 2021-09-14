@@ -18,11 +18,11 @@ jobs:
         with:
           username:  ${{ secrets.BROWSER_STACK_USERNAME }}
           access-key: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
-      - name: 'BrowserStack Local Tunnel Setup'
-        uses: browserstack/github-actions/setup-local@master
-        with:
-          local-testing: start
-          local-identifier: random
+      # - name: 'BrowserStack Local Tunnel Setup'
+      #   uses: browserstack/github-actions/setup-local@master
+      #   with:
+      #     local-testing: start
+      #     local-identifier: random
       - uses: actions/checkout@v2
       - name: Install Node
         uses: actions/setup-node@v2
