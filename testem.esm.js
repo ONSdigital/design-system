@@ -2,14 +2,6 @@ module.exports = {
   framework: 'mocha+chai',
   parallel: 4,
 
-  on_start: {
-    command: "kill -9 $(ps -A | grep BrowserStackLocal | grep -v grep | cut -d ' ' -f2); ./scripts/browserstack-local.js &",
-    wait_for_text: 'Tunnel Started',
-    wait_for_text_timeout: 300000,
-  },
-
-  on_exit: './scripts/browserstack-local.js `cat browserstack-local.pid`; rm browserstack-local.pid',
-
   serve_files: ['build/scripts/main.js', 'build/scripts/tests.js'],
   routes: {
     '/browser-source-map-support.js': 'node_modules/source-map-support/browser-source-map-support.js',
