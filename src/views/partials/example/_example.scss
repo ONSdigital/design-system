@@ -10,6 +10,15 @@
     background: $color-borders;
   }
 
+  &__header {
+    border-bottom: 1px solid $color-borders;
+    padding: 0.5rem 1rem 0.7rem;
+    width: 100%;
+    &-link {
+      color: $color-text;
+    }
+  }
+
   &__iframe {
     display: block;
     max-width: 100%;
@@ -24,19 +33,23 @@
     display: none;
   }
 
+  &__tabs,
+  &__header {
+    background: $color-button-secondary;
+  }
+
   &__tabs {
-    background: $color-grey-5;
     border-top: 1px solid $color-borders;
   }
 
   &__link,
   &__tab {
-    background: $color-grey-5;
+    background: $color-button-secondary;
     color: $color-text;
     cursor: pointer;
     display: inline-block;
     margin-right: 0;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     position: relative;
     text-decoration: underline;
     text-underline-position: under;
@@ -44,12 +57,6 @@
       background-color: darken($color-button-secondary, 5%);
       text-decoration-thickness: 2px;
     }
-  }
-
-  &__header {
-    border-bottom: 1px solid $color-borders;
-    padding: 0.5rem 1rem;
-    width: 100%;
   }
 
   &__panel {
@@ -68,7 +75,7 @@
         text-decoration: none;
         &::after {
           background: #fff;
-          bottom: -2px;
+          bottom: -1px;
           box-shadow: none;
           content: '';
           height: 0.09rem;
