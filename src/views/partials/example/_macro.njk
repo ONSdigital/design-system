@@ -58,7 +58,9 @@
                     </div>
                     {%- if params.options is defined and params.options -%}
                         <div class="ons-patternlib-example__panel">
-                            <div class="ons-options__content">{{ params.options | safe }}</div>
+                            <div class="ons-macro-options">
+                                <div class="ons-macro-options__content">{{ params.options | safe }}</div>
+                            </div>
                         </div>
                     {%- endif -%}
                 {%- endif -%}

@@ -106,25 +106,11 @@
 }
 
 .ons-macro-options {
-  background: $color-grey-5;
-  margin: 0 0 1rem;
-  padding: 0.5rem 1rem;
-
-  &__summary {
-    color: $color-text-link;
-    cursor: pointer;
-    outline: none;
-  }
-
   &__content {
     padding: 0.5rem 0;
 
     th {
       background: $color-grey-5;
-    }
-
-    code {
-      background: $color-white !important;
     }
 
     h2,
