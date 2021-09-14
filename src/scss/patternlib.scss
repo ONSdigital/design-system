@@ -58,22 +58,28 @@
     }
 
     th {
-      background: $color-white;
-      border-bottom: 2px solid $color-grey-35;
-      position: sticky;
+      border-bottom: 2px solid $color-grey-100;
+      padding: 0.5rem 0 0.5rem 1rem;
       text-align: left;
-      top: 0;
+      vertical-align: top;
     }
 
     th,
     td {
-      line-height: 1.4;
-      padding: 0.5rem 0.25rem;
+      line-height: 1.6;
+      padding: 0.5rem 0 0.5rem 1rem;
+      &:first-child {
+        padding-left: 0;
+      }
     }
 
     td {
       background: transparent;
-      border-bottom: 1px solid $color-grey-35;
+      border-bottom: 1px solid $color-borders;
+    }
+
+    tr:last-child td {
+      border: 0;
     }
   }
 
