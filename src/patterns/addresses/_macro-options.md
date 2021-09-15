@@ -17,7 +17,7 @@
 | ariaNResults            | string                 | true     | Aria message to tell the user how many suggestions are left                                                                                        |
 | ariaLimitedResults      | string                 | true     | Aria message to tell the user if the results have been limited and what they are limited to                                                        |
 | ariaGroupedResults      | string                 | true     | Aria message to tell the user about a grouped result e.g There are {n} for {x}                                                                     |
-| groupCount              | string                 | true     | Aria message to tell the user the number of addresses in a group e.g. {n} addresses                                                                |
+| groupCount              | string                 | true     | Aria message to tell the user the number of addresses in a group, for example, {n} addresses                                                       |
 | moreResults             | string                 | true     | Aria message to tell the user to continue to type to refine suggestions                                                                            |
 | noResults               | string                 | true     | message to tell the user there are no results                                                                                                      |
 | tooManyResults          | string                 | true     | message to tell the user there are too many results to display and the user should refine the search                                               |
@@ -41,11 +41,11 @@
 
 ## Options
 
-| Name       | Type   | Required | Description                                      |
-| ---------- | ------ | -------- | ------------------------------------------------ |
-| regionCode | string | false    | Sets the provided region code e.g. en-gb         |
-| adressType | string | false    | Sets the provided address type e.g. resedential  |
-| oneYearAgo | string | false    | If "true" will set a query parameter of epoch=75 |
+| Name       | Type   | Required | Description                                              |
+| ---------- | ------ | -------- | -------------------------------------------------------- |
+| regionCode | string | false    | Sets the provided region code, for example, en-gb        |
+| adressType | string | false    | Sets the provided address type, for example, resedential |
+| oneYearAgo | string | false    | If "true" will set a query parameter of epoch=75         |
 
 ## AddressField
 

@@ -14,9 +14,9 @@
 
 ## SelectOption
 
-| Name     | Type                 | Required | Description                                                                                                                       |
-| -------- | -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| text     | string               | true     | The text for the option                                                                                                           |
-| value    | string &#124; number | false    | The value for the option. If not specified the value will be equal to `text`                                                      |
-| selected | boolean              | false    | Whether the option is selected. Only one option should have this set                                                              |
-| disabled | boolean              | false    | Whether the option should be disabled. Useful for creating a default option that should not be reselectable, e.g. "Please select" |
+| Name     | Type                 | Required | Description                                                                                                                                |
+| -------- | -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| text     | string               | true     | The text for the option                                                                                                                    |
+| value    | string &#124; number | false    | The value for the option. If not specified the value will be equal to `text`                                                               |
+| selected | boolean              | false    | Whether the option is selected. Only one option should have this set                                                                       |
+| disabled | boolean              | false    | Whether the option should be disabled. Useful for creating a default option that should not be reselectable,, for example, "Please select" |
