@@ -35,8 +35,9 @@
             <path d="M17 4H3C1.3 4 0 5.2 0 6.8v5.5h4V16h12v-3.7h4V6.8C20 5.2 18.7 4 17 4zm-3 10H6V9h8v5zm3-6a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm-1-8H4v3h12V0z"/>
         </svg>
     {% elif params.icon == "download" %}
-        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false">
-            <path d="M9.58 4.8a.6.6 0 00-.45-.19H7.26v-4A.63.63 0 006.63 0H5.37a.63.63 0 00-.62.63v4H2.86a.61.61 0 00-.63.6.59.59 0 00.17.43l3.15 3.17a.61.61 0 00.85 0l3.18-3.14a.62.62 0 000-.89zM11.54 10H.46a.47.47 0 00-.46.46v1.08a.47.47 0 00.46.46h11.08a.47.47 0 00.46-.46v-1.08a.47.47 0 00-.46-.46z"/>
+        <svg class="{% if params.iconSize %}ons-svg-icon ons-svg-icon--{{ params.iconSize }}{% else %}ons-svg-icon{% endif %}" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <path d="M5.6 9a.48.48 0 0 0 .7 0l3-3.2a.48.48 0 0 0 0-.7C9.3 5 9.2 5 9 5H7.5V.5A.47.47 0 0 0 7 0H5a.47.47 0 0 0-.5.5V5H3a.47.47 0 0 0-.5.5.37.37 0 0 0 .1.3Z" fill="currentColor"/>
+            <path d="M11.5 9H11a.47.47 0 0 0-.5.5v1h-9v-1A.47.47 0 0 0 1 9H.5a.47.47 0 0 0-.5.5v2a.47.47 0 0 0 .5.5h11a.47.47 0 0 0 .5-.5v-2a.47.47 0 0 0-.5-.5Z" fill="currentColor"/>
         </svg>
     {% elif params.icon == "person" %}
         <svg class="{% if params.iconSize %}ons-svg-icon ons-svg-icon--{{ params.iconSize }}{% else %}ons-svg-icon{% endif %}" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" focusable="false">
@@ -44,7 +45,7 @@
             <circle cx="6" cy="3" r="3"/>
         </svg>
     {% elif params.icon == "facebook" %}
-        <svg class="ons-{% if params.iconSize %}svg-icon ons-svg-icon--{{ params.iconSize }}{% else %}ons-svg-icon{% endif %}" id="icon-facebook" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+        <svg class="ons-{% if params.iconSize %}ons-svg-icon ons-svg-icon--{{ params.iconSize }}{% else %}ons-svg-icon{% endif %}" id="icon-facebook" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
             <path d="M32,16.0986285 C32.0009185,7.5342974 25.337417,0.468462963 16.8372092,0.0203294753 C8.33700136,-0.427804013 0.97607758,5.89865855 0.0874346352,14.4161886 C-0.801208309,22.9337186 5.09355054,30.6602611 13.5009524,31.9979281 L13.5009524,20.7518951 L9.44,20.7518951 L9.44,16.0986285 L13.5009524,16.0986285 L13.5009524,12.549267 C13.5009524,8.5169471 15.8857143,6.28613892 19.5428571,6.28613892 C20.742535,6.30277426 21.9393895,6.40782423 23.1238095,6.60044523 L23.1238095,10.5637711 L21.1047619,10.5637711 C19.1161905,10.5637711 18.4990476,11.8056643 18.4990476,13.0782216 L18.4990476,16.0986285 L22.9409524,16.0986285 L22.2247619,20.7518951 L18.4990476,20.7518951 L18.4990476,31.9979281 C26.2735701,30.760956 31.9991507,24.0182672 32,16.0986285 L32,16.0986285 Z"/>
         </svg>
     {% elif params.icon == "twitter" %}
@@ -450,7 +451,7 @@
             <path d="M4.2,12c0-0.6,0.4-1,1-1h11.2l-4.9-4.9c-0.4-0.4-0.4-1,0-1.4c0.4-0.4,1-0.4,1.4,0l6.6,6.6c0.4,0.4,0.4,1,0,1.4l-6.6,6.6c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l4.9-4.9H5.2C4.7,13,4.2,12.6,4.2,12z" fill="currentColor"></path>
         </svg>
     {% elif params.icon == "search" %}
-        <svg class="{% if params.iconSize %}svg-icon svg-icon--{{ params.iconSize }}{% else %}svg-icon{% endif %}" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="{% if params.iconSize %}ons-svg-icon ons-svg-icon--{{ params.iconSize }}{% else %}ons-svg-icon{% endif %}" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="currentColor"/>
         </svg>
     {% endif %}

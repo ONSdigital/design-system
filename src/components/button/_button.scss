@@ -129,7 +129,8 @@ $button-border-height: 3px;
     }
   }
 
-  &--print & {
+  &--print &,
+  &--download & {
     &__inner {
       .ons-svg-icon {
         height: 1rem;
