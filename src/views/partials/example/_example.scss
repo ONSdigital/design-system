@@ -57,6 +57,10 @@
       background-color: darken($color-button-secondary, 5%);
       text-decoration-thickness: 2px;
     }
+
+    @include mq(xxs, l) {
+      width: 100%;
+    }
   }
 
   &__panel {
@@ -84,10 +88,31 @@
           right: 0;
           z-index: 3;
         }
+
+        @include mq(xxs, l) {
+          border-bottom: 1px solid $color-borders;
+          border-left: 0;
+          border-right: 0;
+          border-top: 1px solid $color-borders;
+          &::after {
+            background: none;
+            content: none;
+          }
+        }
       }
 
       #{$c}__tabs > #{$c}__tab:nth-of-type(1) {
         border-left: 0;
+
+        @include mq(xxs, l) {
+          border-top: 0;
+        }
+      }
+
+      #{$c}__tabs > #{$c}__tab:last-of-type {
+        @include mq(xxs, l) {
+          border-bottom: 0;
+        }
       }
 
       #{$c}__panels > #{$c}__panel:nth-of-type(#{$i}) {
@@ -115,11 +140,6 @@
 .ons-macro-options {
   &__content {
     padding: 0.5rem 0;
-
-    th {
-      background: $color-grey-5;
-    }
-
     h2,
     h3,
     h4,
