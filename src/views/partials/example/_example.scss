@@ -14,9 +14,6 @@
     border-bottom: 1px solid $color-borders;
     padding: 0.5rem 1rem 0.7rem;
     width: 100%;
-    &-link {
-      color: $color-text;
-    }
   }
 
   &__iframe {
@@ -33,19 +30,13 @@
     display: none;
   }
 
-  &__tabs,
-  &__header {
-    background: $color-button-secondary;
-  }
-
   &__tabs {
     border-top: 1px solid $color-borders;
   }
 
   &__link,
   &__tab {
-    background: $color-button-secondary;
-    color: $color-text;
+    color: $color-text-link;
     cursor: pointer;
     display: inline-block;
     margin-right: 0;
@@ -54,7 +45,7 @@
     text-decoration: underline;
     text-underline-position: under;
     &:hover {
-      background-color: darken($color-button-secondary, 5%);
+      background-color: darken($color-white, 5%);
       text-decoration-thickness: 2px;
     }
 
@@ -75,7 +66,7 @@
         background: $color-white;
         border-left: 1px solid $color-borders;
         border-right: 1px solid $color-borders;
-        font-weight: 700;
+        color: $color-text;
         text-decoration: none;
         &::after {
           background: #fff;
@@ -90,10 +81,9 @@
         }
 
         @include mq(xxs, l) {
-          border-bottom: 1px solid $color-borders;
+          background-color: $color-button-secondary;
           border-left: 0;
           border-right: 0;
-          border-top: 1px solid $color-borders;
           &::after {
             background: none;
             content: none;
