@@ -61,7 +61,7 @@ $button-border-height: 3px;
     pointer-events: none;
   }
 
-  // When preceded by another button (e.g. in a group)
+  // When preceded by another button (for example, in a group)
   & + & {
     margin-left: 0.5rem;
   }

@@ -10,7 +10,7 @@ title: Guide
 
 The guide is a collection of related pages with features that help the user understand and navigate a topic or subject.
 
-Each of the related pages within a guide contain a [table of contents](/components/table-of-contents) that shows all pages in the guide. 
+Each of the related pages within a guide contain a [table of contents](/components/table-of-contents) that shows all pages in the guide.
 
 There is an additional navigation component added to a guide. The [pager](/components/pagination#pager) is displayed at the bottom of each page allowing the user to move on to the next (or previous) page.
 
@@ -22,8 +22,8 @@ Use this pattern when you want to present a collection of related pages on a top
 
 View the nunjucks output below which shows the components required to create the guide pattern.
 
-The first page of a guide serves as the "parent" to the other pages. In the table of contents it should be linked as "Overview". 
-For accessibility the title `h1` should contain an additional visually hidden `span` that provides the additional "Overview" text, for example,
+The first page of a guide serves as the "parent" to the other pages. In the table of contents it should be linked as "Overview".
+For accessibility the title `h1` should contain an additional visually hidden `span` that provides the additional "Overview" text, for example:
 
 +++
 {% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
@@ -37,7 +37,7 @@ For accessibility the title `h1` should contain an additional visually hidden `s
     patternlibExample({ "path": "patterns/guide/examples/guide-overview/index.njk"})
 }}
 
-Other pages in the guide (below the parent) should include the title of the parent page before the title of the current page, for example,
+Other pages in the guide (below the parent) should include the title of the parent page before the title of the current page, for example:
 
 {{ onsCodeHighlight({ "code": '<h1 class="ons-u-mb-l">
   <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">About the census</span>

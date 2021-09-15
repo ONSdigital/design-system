@@ -9,14 +9,14 @@
 | mandatory               | boolean                | false    | Set the autosuggest input to be mandatory and use client side validation for empty form submission                                                 |
 | APIDomain               | string                 | false    | Set an api domain when using an external API to suggest results                                                                                    |
 | APIDomainBearerToken    | string                 | false    | Set a bearer token for api authorization on the AIMS address api.                                                                                  |
-| instructions            | string                 | true     | Instructions on how to use the autosuggest that will be read out by screenreaders                                                                  |
+| instructions            | string                 | true     | Instructions on how to use the autosuggest that will be read out by screen readers                                                                 |
 | ariaYouHaveSelected     | string                 | true     | Aria message to tell the user that they have selected an answer                                                                                    |
-| ariaMinChars            | string                 | true     | Aria message to tell the user how many charecters they need to enter before autosuggest will start                                                 |
+| ariaMinChars            | string                 | true     | Aria message to tell the user how many characters they need to enter before autosuggest will start                                                 |
 | ariaResultsLabel        | string                 | true     | Aria message to tell the user that suggestions are available                                                                                       |
 | ariaOneResult           | string                 | true     | Aria message to tell the user there is only one suggestion left                                                                                    |
 | ariaNResults            | string                 | true     | Aria message to tell the user how many suggestions are left                                                                                        |
 | ariaLimitedResults      | string                 | true     | Aria message to tell the user if the results have been limited and what they are limited to                                                        |
-| ariaGroupedResults      | string                 | true     | Aria message to tell the user about a grouped result e.g There are {n} for {x}                                                                     |
+| ariaGroupedResults      | string                 | true     | Aria message to tell the user about a grouped result, for example, There are {n} for {x}                                                           |
 | groupCount              | string                 | true     | Aria message to tell the user the number of addresses in a group, for example, {n} addresses                                                       |
 | moreResults             | string                 | true     | Aria message to tell the user to continue to type to refine suggestions                                                                            |
 | noResults               | string                 | true     | message to tell the user there are no results                                                                                                      |
@@ -41,11 +41,11 @@
 
 ## Options
 
-| Name       | Type   | Required | Description                                              |
-| ---------- | ------ | -------- | -------------------------------------------------------- |
-| regionCode | string | false    | Sets the provided region code, for example, en-gb        |
-| adressType | string | false    | Sets the provided address type, for example, resedential |
-| oneYearAgo | string | false    | If "true" will set a query parameter of epoch=75         |
+| Name        | Type   | Required | Description                                              |
+| ----------- | ------ | -------- | -------------------------------------------------------- |
+| regionCode  | string | false    | Sets the provided region code, for example, en-gb        |
+| addressType | string | false    | Sets the provided address type, for example, residential |
+| oneYearAgo  | string | false    | If "true" will set a query parameter of epoch=75         |
 
 ## AddressField
 
