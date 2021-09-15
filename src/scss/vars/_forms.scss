@@ -21,12 +21,12 @@ $nbsp-width: 0.256rem;
       max-width: input-width-calc($width, $char-width);
       width: 100%;
 
-      .field__group & {
+      .ons-field__group & {
         width: input-width-calc($width, $char-width);
       }
 
       @if $width <= 10 {
-        .input-type & {
+        .ons-input-type & {
           width: input-width-calc($width, $char-width);
         }
       }

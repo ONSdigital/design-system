@@ -36,7 +36,7 @@
         {% else %}
             type="{{ params.type if params.type is defined and params.type else ('button' if params.buttonStyle == "print" else 'submit') }}"
         {% endif %}
-        class="btn{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.url is defined and params.url %} btn--link js-submit-btn{% endif %}{% if params.disabled is defined and params.disabled %} btn--disabled{% endif %}{% if params.buttonStyle == "download" %} btn--download{% endif %}{% if params.buttonStyle == "print" %} btn--print u-d-no js-print-btn{% endif %}{% if params.buttonStyle == "exit" %} btn--exit{% endif %}{% if params.submitType == "loader" %} btn--loader js-loader js-submit-btn{% endif %}{% if params.submitType == "timer" %} js-timer js-submit-btn{% endif %}"
+        class="ons-btn{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.url is defined and params.url %} ons-btn--link ons-js-submit-btn{% endif %}{% if params.disabled is defined and params.disabled %} ons-btn--disabled{% endif %}{% if params.buttonStyle == "download" %} ons-btn--download{% endif %}{% if params.buttonStyle == "print" %} ons-btn--print ons-u-d-no ons-js-print-btn{% endif %}{% if params.buttonStyle == "exit" %} ons-btn--exit{% endif %}{% if params.submitType == "loader" %} ons-btn--loader ons-js-loader ons-js-submit-btn{% endif %}{% if params.submitType == "timer" %} ons-js-timer ons-js-submit-btn{% endif %}"
         {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}
         {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
         {% if params.name is defined and params.name and tag != "a" %}name="{{ params.name }}"{% elif params.name is defined and params.name and tag == "a" %}id="{{ params.name }}"{% endif %}
@@ -45,7 +45,7 @@
         {% if params.buttonStyle == "download" %} download{% endif %}
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
         >
-        <span class="btn__inner{% if params.innerClasses is defined and params.innerClasses %} {{ params.innerClasses }}{% endif %}">
+        <span class="ons-btn__inner{% if params.innerClasses is defined and params.innerClasses %} {{ params.innerClasses }}{% endif %}">
             {%- if iconPosition == "before" or iconPosition == "after" %}
                 {%- if iconPosition == "before" %}
                     {{
@@ -68,16 +68,16 @@
                         "icon": iconType
                     })
                 }}
-                <span class="u-vh@xxs@s">{{- params.html | safe if params.html is defined and params.html else params.text -}}</span>
+                <span class="ons-u-vh@xxs@s">{{- params.html | safe if params.html is defined and params.html else params.text -}}</span>
             {% else -%}
                 {{- params.html | safe if params.html is defined and params.html else params.text -}}
             {% endif -%}
         </span>
         {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}
-            <span class="btn__new-window-description u-vh">{{ params.newWindowDescription | default("opens in a new window") }}</span>
+            <span class="ons-btn__new-window-description ons-u-vh">{{ params.newWindowDescription | default("opens in a new window") }}</span>
         {% endif %}
         {% if params.buttonContext is defined and params.buttonContext %}
-            <span class="btn__context u-vh">{{ params.buttonContext }}</span>
+            <span class="ons-btn__context ons-u-vh">{{ params.buttonContext }}</span>
         {% endif %}
         {% if params.listeners %}
             <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>

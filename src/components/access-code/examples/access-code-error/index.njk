@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "styles/page-template/_template.njk" %}
+{% extends "foundations/page-template/_template.njk" %}
 {% from "components/access-code/_macro.njk" import onsUACInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
@@ -28,14 +28,14 @@ layout: none
                     {
                         "text": "Enter an access code",
                         "url": "#uac",
-                        "classes": "js-inpagelink"
+                        "classes": "ons-js-inpagelink"
                     }
                 ]
             })
         }}
     {% endcall %}
 
-    <h1 class="u-mt-l">Start study</h1>
+    <h1 class="ons-u-mt-l">Start study</h1>
 
     {{ onsUACInput({
         "id": "uac",
@@ -56,7 +56,7 @@ layout: none
 
     {{ onsButton({
         "text": "Access study",
-        "classes": "u-mb-xl"
+        "classes": "ons-u-mb-xl"
     }) }}
 
     <h2>If you don’t have an access code</h2>

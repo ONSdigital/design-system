@@ -1,6 +1,6 @@
-const classToggleWrap = 'js-password-toggle-wrap';
-const classToggle = 'js-password-toggle';
-const classInput = 'js-password-input';
+const classToggleWrap = 'ons-js-password-toggle-wrap';
+const classToggle = 'ons-js-password-toggle';
+const classInput = 'ons-js-password-input';
 
 export default class Password {
   constructor(context) {
@@ -9,7 +9,7 @@ export default class Password {
     this.input = context.querySelector(`.${classInput}`);
 
     this.toggle.addEventListener('change', this.handleToggleChange.bind(this));
-    this.toggleWrap.classList.remove('u-d-no');
+    this.toggleWrap.classList.remove('ons-u-d-no');
   }
 
   handleToggleChange() {

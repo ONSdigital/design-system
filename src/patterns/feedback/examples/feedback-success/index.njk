@@ -1,0 +1,34 @@
+---
+layout: none
+---
+{% extends "foundations/page-template/_template.njk" %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "title": "Survey title",
+    "absoluteUrl": pageInfo.url,
+    "header": {
+        "logoHref": "#0"
+    },
+    "footer": {
+    }
+} %}
+{% block main %}
+    {{
+        onsPanel({
+            "type": "success",
+            "id": "feedback-success",
+            "icon": "check",
+            "iconSize": "xl",
+            "body": "<h1>Thank you for your feedback</h1>
+            Your comments will help us make improvements to our surveys. We are not able to reply to comments, but we appreciate your feedback."
+        })
+    }}
+    {{
+        onsButton({
+            "text": "Done",
+             "classes": "ons-u-mt-m"
+        })
+    }}
+{% endblock %}

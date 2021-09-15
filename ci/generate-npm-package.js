@@ -7,7 +7,7 @@ const cwd = process.cwd();
 const sourcePath = `${cwd}/src`;
 const componentsPath = `${sourcePath}/components`;
 const newComponentsPath = `${cwd}/components`;
-const templatesPath = `${sourcePath}/styles/page-template`;
+const templatesPath = `${sourcePath}/foundations/page-template`;
 const newTemplatesPath = `${cwd}/page-templates`;
 const assetFolders = ['css', 'favicons', 'fonts', 'img', 'scripts'];
 const builtAssetsFolders = assetFolders.map(folder => `${cwd}/build/${folder}`);

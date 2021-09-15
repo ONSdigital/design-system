@@ -1,0 +1,22 @@
+{% from "components/input/_macro.njk" import onsInput %}
+{{
+    onsInput({
+        "id": "tel",
+        "classes": "ons-input--w-15",
+        "type": "tel",
+        "autocomplete": "telephone",
+        "value": "not a number",
+        "label": {
+            "text": "UK mobile number",
+            "description": "This will not be stored and only used once to send the access code"
+        },
+        "attributes": {
+            "required": true
+        },
+        "error": {
+            "id": "email-error",
+            "text": "Enter a UK mobile number in a valid format, for example, 07700 912345 or +44 7700 912345",
+            "dsExample": isPatternLib
+        }
+    })
+}}

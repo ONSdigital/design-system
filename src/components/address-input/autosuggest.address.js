@@ -4,12 +4,12 @@ import AutosuggestUI from '../autosuggest/autosuggest.ui';
 import AddressError from './autosuggest.address.error';
 import AddressSetter from './autosuggest.address.setter';
 
-export const classInputContainer = 'autosuggest-input';
-export const classNotEditable = 'js-address-not-editable';
-export const classMandatory = 'js-address-mandatory';
-export const classSearch = 'js-address-input__search';
-export const classInput = 'js-autosuggest-input';
-export const classInputUPRN = 'js-hidden-uprn';
+export const classInputContainer = 'ons-autosuggest-input';
+export const classNotEditable = 'ons-js-address-not-editable';
+export const classMandatory = 'ons-js-address-mandatory';
+export const classSearch = 'ons-js-address-input__search';
+export const classInput = 'ons-js-autosuggest-input';
+export const classInputUPRN = 'ons-js-hidden-uprn';
 
 export default class AutosuggestAddress {
   constructor(context) {
@@ -210,7 +210,7 @@ export default class AutosuggestAddress {
           (townName === postTown ? postTown : townName + ', ' + postTown) +
           ', ' +
           postcode +
-          ' (<span class="autosuggest-input__group">' +
+          ' (<span class="ons-autosuggest-input__group">' +
           this.groupCount.replace(`{n}`, addressCount) +
           '</span>)',
         postcode,
@@ -393,8 +393,8 @@ export default class AutosuggestAddress {
 
   handleAPIError() {
     this.addressSetter.setManualMode(true, false);
-    const searchBtn = document.querySelector('.js-address-search-btn');
-    searchBtn.classList.add('u-d-no');
+    const searchBtn = document.querySelector('.ons-js-address-search-btn');
+    searchBtn.classList.add('ons-u-d-no');
   }
 
   handleSubmit(event) {

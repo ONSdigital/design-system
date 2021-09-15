@@ -3,7 +3,7 @@
 {% macro onsRelationships(params) %}
     <div
         {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}
-        class="relationships js-relationships{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
+        class="ons-relationships ons-js-relationships{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
     >
         {{ onsRadios({
             "name": params.name,
@@ -11,6 +11,6 @@
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
             "radios": params.radios
         }) }}
-        <p class="relationships__playback js-relationships-playback u-d-no" aria-live="polite">{{ params.playback | safe }}</p>
+        <p class="ons-relationships__playback ons-js-relationships-playback ons-u-d-no" aria-live="polite">{{ params.playback | safe }}</p>
     </div>
 {% endmacro %}

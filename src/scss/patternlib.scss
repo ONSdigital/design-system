@@ -1,11 +1,11 @@
 @import 'vars/index';
 @import 'helpers/*.scss';
 @import '../views/partials/**/*.scss';
-@import '../styles/page-template/examples/block-areas/block-areas';
-@import '../pages/patterns/question/examples/question-anatomy/pl-question-anatomy';
+@import '../foundations/page-template/examples/block-areas/block-areas';
+@import '../patterns/question/examples/question-anatomy/pl-question-anatomy';
 @import 'prism-tomorrow';
 
-.patternlib-page {
+.ons-patternlib-page {
   height: 100vh;
 
   &--example {
@@ -13,8 +13,8 @@
     height: auto;
     padding: 1rem 1.5rem;
 
-    .page,
-    .page__content {
+    .ons-page,
+    .ons-page__content {
       overflow-x: visible;
     }
   }
@@ -24,7 +24,7 @@
   }
 
   &__sub-nav {
-    .nav {
+    .ons-nav {
       width: 100%;
     }
   }
@@ -44,10 +44,9 @@
       max-width: 40rem;
     }
 
-    code:not(.patternlib-example__code) {
+    code:not(.ons-patternlib-example__code) {
       background: $color-grey-5;
       color: $color-ruby-red;
-      display: inline-block;
       padding: 0.05rem 0.25rem;
     }
 
@@ -112,16 +111,16 @@
     position: relative;
   }
 
-  .panel + .patternlib-example {
+  .ons-panel + .ons-patternlib-example {
     margin-top: 2rem;
   }
 }
 
-.patternlib-example__iframe {
+.ons-patternlib-example__iframe {
   padding-right: 1px;
 }
 
-.patternlib-hero {
+.ons-patternlib-hero {
   background: $color-grey-5;
   padding: 2rem 0 1rem;
   width: 100%;
@@ -131,14 +130,14 @@
   }
 }
 
-.pl-grid-col {
+.ons-pl-grid-col {
   background: $color-grey-5;
   font-size: 0.8rem;
   margin: 0 0 1rem;
   padding: 1rem;
 }
 
-.pl-experimental-tag {
+.ons-pl-experimental-tag {
   background: $color-info;
   color: $color-text-inverse;
   display: inline-block;

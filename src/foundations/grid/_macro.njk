@@ -1,0 +1,19 @@
+{% macro patternLibExampleGrid(params) %}
+  {% if params.container -%}
+    <div class="ons-container">
+  {% endif -%}
+
+  <div class="ons-grid">
+      {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
+          {% for i in range(0, item.repeat | default(1)  ) -%}
+              <div class="ons-grid__col ons-col-{{ item.col }}@m {{ item.classes }}">
+                  <div class="ons-pl-grid-col">{{ item.col }} col</div>
+              </div>
+          {%- endfor %}
+      {%- endfor %}
+  </div>
+
+  {% if params.container is defined and params.container -%}
+    </div>
+  {% endif -%}
+{% endmacro %}

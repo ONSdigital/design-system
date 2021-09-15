@@ -42,7 +42,7 @@ const params = {
   errorTitle: 'There is a problem with your answer',
   errorMessageEnter: 'Enter an address',
   errorMessageSelect: 'Select an address',
-  errorMessageAPI: 'Sorry, there was a problem loading addresses',
+  errorMessageAPI: 'Sorry, there is a problem loading addresses',
   errorMessageAPILinkText: 'Enter address manually',
   options: {
     regionCode: 'gb-eng',
@@ -109,8 +109,8 @@ describe('Autosuggest.address component', function() {
         });
 
         it('then the manual fields should be visible', function() {
-          this.manualFields = this.wrapper.querySelector('.js-address-input__manual');
-          expect(this.manualFields.classList.contains('u-db-no-js_enabled')).to.be.false;
+          this.manualFields = this.wrapper.querySelector('.ons-js-address-input__manual');
+          expect(this.manualFields.classList.contains('ons-u-db-no-js_enabled')).to.be.false;
         });
 
         it('then the autosuggest input should be cleared', function() {
@@ -121,14 +121,14 @@ describe('Autosuggest.address component', function() {
       describe('When the manual link is clicked', function() {
         beforeEach(function(done) {
           this.setManualModeSpy = chai.spy.on(this.autosuggestAddress.addressSetter, 'setManualMode');
-          this.manualLinkText = this.wrapper.querySelector('.js-address-manual-btn');
+          this.manualLinkText = this.wrapper.querySelector('.ons-js-address-manual-btn');
           this.manualLinkText.click();
           setTimeout(done);
         });
 
         it('then the manual fields should be visible', function() {
-          this.manualFields = this.wrapper.querySelector('.js-address-input__manual');
-          expect(this.manualFields.classList.contains('u-db-no-js_enabled')).to.be.false;
+          this.manualFields = this.wrapper.querySelector('.ons-js-address-input__manual');
+          expect(this.manualFields.classList.contains('ons-u-db-no-js_enabled')).to.be.false;
         });
 
         it('then the autosuggest input should be cleared', function() {
@@ -335,7 +335,7 @@ describe('Autosuggest.address component', function() {
             this.items = [
               {
                 addressCount: 41,
-                [lang]: 'Penlline Road, Whitchurch, Cardiff, CF14 2AA (<span class="autosuggest-input__group">41 addresses</span>)',
+                [lang]: 'Penlline Road, Whitchurch, Cardiff, CF14 2AA (<span class="ons-autosuggest-input__group">41 addresses</span>)',
                 firstUprn: 10002526869,
                 postTown: 'Cardiff',
                 postcode: 'CF14 2AA',
@@ -625,9 +625,9 @@ describe('Autosuggest.address component', function() {
         describe('when the submit is invalid', function() {
           beforeEach(function(done) {
             this.errorPanel =
-              '<div class="panel panel--error u-mb-m"><div class="panel__header"><div class="panel__title u-fs-r--b">There is a problem with your answer</div></div><div class="panel__body"><ol class="list list--bare"><li class="list__item"><span>1. </span><a class="list__link js-inpagelink js-error" href="#autosuggest-input-error">Enter an address</a></li></ol></div></div>';
+              '<div class="ons-panel ons-panel--error ons-u-mb-m"><div class="ons-panel__header"><div class="ons-panel__title ons-u-fs-r--b">There is a problem with your answer</div></div><div class="ons-panel__body"><ol class="ons-list ons-list--bare"><li class="ons-list__item"><span>1. </span><a class="ons-list__link ons-js-inpagelink js-error" href="#autosuggest-input-error">Enter an address</a></li></ol></div></div>';
             this.errorInput =
-              '<div class="panel panel--error panel--simple" id="autosuggest-input-error"><div class="panel__body"><p class="panel__error"><strong>Enter an address</strong></p>';
+              '<div class="ons-panel ons-panel--error ons-panel--simple" id="autosuggest-input-error"><div class="ons-panel__body"><p class="ons-panel__error"><strong>Enter an address</strong></p>';
             this.error = new AddressError(this.context);
             this.error.showErrorPanel();
             setTimeout(done);
@@ -744,7 +744,7 @@ describe('Autosuggest.address component', function() {
       errorTitle: 'There is a problem with your answer',
       errorMessageEnter: 'Enter an address',
       errorMessageSelect: 'Select an address',
-      errorMessageAPI: 'Sorry, there was a problem loading addresses',
+      errorMessageAPI: 'Sorry, there is a problem loading addresses',
       errorMessageAPILinkText: 'Enter address manually',
       manualLinkText: 'Manually enter address',
     };
@@ -1047,7 +1047,7 @@ describe('Autosuggest.address component', function() {
 function renderComponent(params) {
   const html = renderTemplate('components/address-input/_test-template.njk', { params });
   const wrapper = document.createElement('form');
-  wrapper.classList.add('question');
+  wrapper.classList.add('ons-question');
 
   document.documentElement.setAttribute('lang', lang);
 
@@ -1055,16 +1055,16 @@ function renderComponent(params) {
 
   document.body.appendChild(wrapper);
 
-  const context = wrapper.querySelector('.field');
-  const input = context.querySelector('.js-autosuggest-input');
-  const resultsContainer = context.querySelector('.js-autosuggest-results');
-  const listbox = context.querySelector('.js-autosuggest-listbox');
-  const status = context.querySelector('.js-autosuggest-aria-status');
+  const context = wrapper.querySelector('.ons-field');
+  const input = context.querySelector('.ons-js-autosuggest-input');
+  const resultsContainer = context.querySelector('.ons-js-autosuggest-results');
+  const listbox = context.querySelector('.ons-js-autosuggest-listbox');
+  const status = context.querySelector('.ons-js-autosuggest-aria-status');
   const form = context.closest('form');
-  const container = context.querySelector('.autosuggest-input');
-  const search = context.querySelector('.js-address-input__search');
+  const container = context.querySelector('.ons-autosuggest-input');
+  const search = context.querySelector('.ons-js-address-input__search');
   const APIDomain = container.getAttribute('data-api-domain');
-  const manualLinkText = context.querySelector('.js-address-manual-btn');
+  const manualLinkText = context.querySelector('.ons-js-address-manual-btn');
 
   return {
     wrapper,

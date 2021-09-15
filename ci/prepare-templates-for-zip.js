@@ -7,7 +7,7 @@ const sourcePath = `${cwd}/src`;
 const destPath = `${cwd}/templates`;
 const componentsPath = `${sourcePath}/components`;
 const newComponentsPath = `${destPath}/components`;
-const templatesPath = `${sourcePath}/styles/page-template`;
+const templatesPath = `${sourcePath}/foundations/page-template`;
 const newTemplatesPath = `${destPath}/layout`;
 const copiedPageTemplatePath = `${newTemplatesPath}/_template.njk`;
 

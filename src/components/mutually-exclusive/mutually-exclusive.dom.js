@@ -1,6 +1,6 @@
 import domready from '../../js/domready';
 
-const exclusiveWrapperClass = 'js-mutually-exclusive';
+const exclusiveWrapperClass = 'ons-js-mutually-exclusive';
 
 async function mutuallyExclusiveInputs() {
   const exclusiveWrapperElements = [...document.getElementsByClassName(exclusiveWrapperClass)];

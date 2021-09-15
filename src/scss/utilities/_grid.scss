@@ -1,115 +1,115 @@
-.grid {
+.ons-grid {
   box-sizing: border-box;
   font-size: 0;
   margin-left: -$grid-gutters;
 }
 
-.grid--float {
+.ons-grid--float {
   letter-spacing: 0;
 }
 
-.grid--center {
+.ons-grid--center {
   text-align: center;
-  .grid__col {
+  .ons-grid__col {
     text-align: left;
   }
 }
 
-.grid--center-all {
+.ons-grid--center-all {
   text-align: center;
 }
 
-.grid--reverse {
+.ons-grid--reverse {
   direction: rtl;
-  .grid__col {
+  .ons-grid__col {
     direction: ltr;
   }
 }
 
-.grid--spaced {
-  .grid__col {
+.ons-grid--spaced {
+  .ons-grid__col {
     margin-bottom: $grid-gutters;
   }
-  &.grid--tight {
-    .grid__col {
+  &.ons-grid--tight {
+    .ons-grid__col {
       margin-bottom: $grid-gutters/2;
     }
   }
 }
 
-.grid--align-mid {
-  .grid__col {
+.ons-grid--align-mid {
+  .ons-grid__col {
     vertical-align: middle;
   }
 }
 
-.grid--stagger-align {
-  .grid__col:nth-of-type(1n) {
+.ons-grid--stagger-align {
+  .ons-grid__col:nth-of-type(1n) {
     text-align: right;
   }
-  .grid__col:nth-of-type(2n) {
+  .ons-grid__col:nth-of-type(2n) {
     text-align: left;
   }
 }
 
-.grid--tight {
+.ons-grid--tight {
   margin-left: -$grid-gutters/2;
-  .grid__col {
+  .ons-grid__col {
     padding-left: $grid-gutters/2;
   }
 }
 
-.grid--loose {
+.ons-grid--loose {
   margin-left: -$grid-gutters * 2;
 }
 
-.grid--gutterless {
+.ons-grid--gutterless {
   margin-left: 0;
-  .grid__col {
+  .ons-grid__col {
     padding-left: 0;
   }
 }
 
-.grid--pixelgutter {
+.ons-grid--pixelgutter {
   margin-left: 1px;
-  .grid__col {
+  .ons-grid__col {
     margin-bottom: 1px;
     padding-left: 1px;
   }
 }
 
-.grid--flex {
+.ons-grid--flex {
   display: flex;
   flex-flow: row wrap;
 
-  &.grid--center {
+  &.ons-grid--center {
     justify-content: center;
   }
 
-  &.grid--between {
+  &.ons-grid--between {
     justify-content: space-between;
   }
 
-  &.grid--vertical-top {
+  &.ons-grid--vertical-top {
     align-items: start;
   }
 
-  &.grid--vertical-center {
+  &.ons-grid--vertical-center {
     align-items: center;
   }
 }
 
-@include bp-suffix(grid--no-wrap) {
+@include bp-suffix(ons-grid--no-wrap) {
   flex-wrap: nowrap;
 }
 
-@include bp-suffix(grid--column, $create-between-breakpoints: true) {
+@include bp-suffix(ons-grid--column, $create-between-breakpoints: true) {
   flex-direction: column;
 }
 
-@include bp-suffix(grid--bordered, false) {
+@include bp-suffix(ons-grid--bordered, false) {
   margin-left: 0;
-  .grid__col {
+  .ons-grid__col {
     border-bottom: 1px solid $color-borders;
     border-top: 1px solid $color-borders;
     flex: 1 1 auto;
@@ -122,7 +122,7 @@
   }
 }
 
-.grid__col {
+.ons-grid__col {
   background-clip: content-box;
   box-sizing: border-box;
   display: inline-block;
@@ -132,7 +132,7 @@
   vertical-align: top;
   width: 100%;
 
-  .grid--float & {
+  .ons-grid--float & {
     display: block;
     float: left;
   }
@@ -141,12 +141,12 @@
     padding-left: $grid-gutters * 2;
   }
 
-  .grid--flex & {
+  .ons-grid--flex & {
     width: auto;
   }
 }
 
-.grid__col--flex {
+.ons-grid__col--flex {
   display: flex;
 }
 
@@ -155,17 +155,17 @@
     $width: percentage($column / $grid-cols);
 
     @include mq($breakpoint-min) {
-      .col-#{$column}\@#{$breakpoint-min} {
+      .ons-col-#{$column}\@#{$breakpoint-min} {
         max-width: $width;
         width: $width;
       }
 
-      .push-#{$column}\@#{$breakpoint-min} {
+      .ons-push-#{$column}\@#{$breakpoint-min} {
         left: $width;
         position: relative;
       }
 
-      .pull-#{$column}\@#{$breakpoint-min} {
+      .ons-pull-#{$column}\@#{$breakpoint-min} {
         left: -$width;
         position: relative;
       }
@@ -177,17 +177,17 @@
       $width: percentage($column / $grid-cols);
 
       @include mq($breakpoint-min, $breakpoint-max) {
-        .col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+        .ons-col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
           max-width: $width;
           width: $width;
         }
 
-        .push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+        .ons-push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
           left: $width;
           position: relative;
         }
 
-        .pull-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+        .ons-pull-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
           left: -$width;
           position: relative;
         }
@@ -196,43 +196,43 @@
   }
 }
 
-@include bp-suffix(col-auto) {
+@include bp-suffix(ons-col-auto) {
   width: auto;
 
-  .grid--flex & {
+  .ons-grid--flex & {
     flex-basis: auto;
     max-width: 100%;
   }
 }
 
-@include bp-suffix(u-flex-shrink) {
+@include bp-suffix(ons-u-flex-shrink) {
   flex-shrink: 1;
 }
 
-@include bp-suffix(u-flex-no-shrink) {
+@include bp-suffix(ons-u-flex-no-shrink) {
   flex-shrink: 0;
 }
 
-@include bp-suffix(u-flex-grow) {
+@include bp-suffix(ons-u-flex-grow) {
   flex-grow: 1;
 }
 
-@include bp-suffix(u-flex-no-grow) {
+@include bp-suffix(ons-u-flex-no-grow) {
   flex-grow: 0;
 }
 
-@include bp-suffix(u-flex-no-basis) {
+@include bp-suffix(ons-u-flex-no-basis) {
   flex-basis: 0;
 }
 
-@include bp-suffix(u-flex-align-bottom) {
+@include bp-suffix(ons-u-flex-align-bottom) {
   align-self: flex-end;
 }
 
-@include bp-suffix('nopull-', false) {
+@include bp-suffix('ons-nopull-', false) {
   left: 0;
 }
 
-@include bp-suffix('nopush-', false) {
+@include bp-suffix('ons-nopush-', false) {
   left: 0;
 }

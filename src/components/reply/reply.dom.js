@@ -1,7 +1,7 @@
 import domready from '../../js/domready';
 
 async function initialise() {
-  const replyInputs = [...document.querySelectorAll('.js-reply')];
+  const replyInputs = [...document.querySelectorAll('.ons-js-reply')];
 
   if (replyInputs.length) {
     const ReplyInput = (await import('./reply-input')).default;

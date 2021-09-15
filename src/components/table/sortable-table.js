@@ -1,5 +1,5 @@
 export const jsSortableHeadings = '[aria-sort]';
-export const classTableBody = 'table__body';
+export const classTableBody = 'ons-table__body';
 export let status;
 
 export default class TableSort {
@@ -32,7 +32,7 @@ export default class TableSort {
     button.setAttribute('aria-label', this.table.getAttribute('data-aria-sort') + ' ' + text);
     button.setAttribute('type', 'button');
     button.setAttribute('data-index', i);
-    button.setAttribute('class', 'table__sort-button');
+    button.setAttribute('class', 'ons-table__sort-button');
     button.textContent = text;
     button.addEventListener('click', this.sortButtonClicked.bind(this));
     let sortSprite = document.getElementById('sort-sprite-' + text.toLowerCase());
@@ -141,7 +141,7 @@ export default class TableSort {
     status.setAttribute('aria-live', 'polite');
     status.setAttribute('role', 'status');
     status.setAttribute('aria-atomic', 'true');
-    status.setAttribute('class', 'sortable-table-status u-vh');
+    status.setAttribute('class', 'ons-sortable-table-status ons-u-vh');
 
     this.table.parentElement.insertBefore(status, this.table.nextSibling);
   }

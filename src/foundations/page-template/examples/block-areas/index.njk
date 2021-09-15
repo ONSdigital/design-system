@@ -1,0 +1,126 @@
+---
+layout: example
+---
+{% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
+{% from "components/header/_macro.njk" import onsHeader %}
+{% from "components/footer/_macro.njk" import onsFooter %}
+
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: headIcons</div>
+</div>
+
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: head</div>
+</div>
+
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: bodyStart</div>
+</div>
+
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: body</div>
+
+    <div class="ons-pattern-lib-block">
+        <div class="ons-pattern-lib-block__label">block: skipLink</div>
+        {{
+            onsSkipToContent({
+                "text": "Skip to content"
+            })
+        }}
+    </div>
+
+    <div class="ons-pattern-lib-block">
+        <div class="ons-pattern-lib-block__label">block: preHeader</div>
+    </div>
+
+    <div class="ons-pattern-lib-block">
+        <div class="ons-pattern-lib-block__label">block: header</div>
+        {{
+            onsHeader({
+                "title": "Design system",
+                "logoHref": "#0",
+                "toggleButton": {
+                    "text": "Menu",
+                    "ariaLabel": "Toggle main navigation"
+                },
+                "navigation": {
+                    "id": "main-nav",
+                    "ariaLabel": "Main menu",
+                    "ariraListLabel": "Navigation menu",
+                    "currentPath": "#home",
+                    "itemsList": [
+                        {
+                            "title": "Home",
+                            "url": "#home"
+                        },
+                        {
+                            "title": "Guidance",
+                            "url": "#0"
+                        },
+                        {
+                            "title": "Components",
+                            "url": "#0"
+                        },
+                        {
+                            "title": "Foundations",
+                            "url": "#0"
+                        },
+                        {
+                            "title": "Patterns",
+                            "url": "#0"
+                        }
+                    ]
+                }
+            })
+        }}
+    </div>
+
+    <div class="ons-pattern-lib-block">
+        <div class="ons-pattern-lib-block__label">block: pageContent</div>
+
+        <div class="ons-pattern-lib-block">
+            <div class="ons-pattern-lib-block__label">block: preMain</div>
+        </div>
+
+        <div class="ons-pattern-lib-block">
+            <div class="ons-pattern-lib-block__label">block: main</div>
+            <h1>Page content</h1>
+        </div>
+    </div>
+
+    <div class="ons-pattern-lib-block">
+        <div class="ons-pattern-lib-block__label">block: footer</div>
+        {{
+            onsFooter({
+                "rows": [
+                    {
+                        "itemsList": [
+                            {
+                                "text": 'Contact us',
+                                "url": '#'
+                            },
+                            {
+                                "text": 'Cookies and privacy',
+                                "url": '#'
+                            }
+                        ]
+                    }
+                ],
+                "OGLLink": {
+                    "pre": 'All content is available under the',
+                    "link": 'Open Government Licence v3.0',
+                    "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+                    "post": ', except where otherwise stated'
+                }
+            })
+        }}
+    </div>
+</div>
+
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: bodyEnd</div>
+</div>
+
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: scripts</div>
+</div>
