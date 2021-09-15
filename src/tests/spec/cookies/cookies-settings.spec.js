@@ -108,7 +108,7 @@ function renderComponent() {
     '<button id="submit-button" type="submit">Submit</button>' +
     '</form>' +
     '<div class="ons-cookies-confirmation-message ons-u-d-no">' +
-    '<a class="ons-js-return-link" href="#">Return to previous page</a>' +
+    '<a class="ons-js-return-link" href="#0">Return to previous page</a>' +
     '</div>';
 
   const wrapper = document.createElement('div');
