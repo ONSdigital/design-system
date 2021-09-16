@@ -1,6 +1,7 @@
 module.exports = {
   framework: 'mocha+chai',
   parallel: 4,
+  port: 1337,
 
   serve_files: ['build/scripts/main.js', 'build/scripts/tests.js'],
   routes: {
