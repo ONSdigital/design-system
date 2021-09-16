@@ -22,6 +22,7 @@ jobs:
         uses: browserstack/github-actions/setup-local@master
         with:
           local-testing: start
+          local-logging-level: all-logs
           local-identifier: random
       - uses: actions/checkout@v2
       - name: Install Node
