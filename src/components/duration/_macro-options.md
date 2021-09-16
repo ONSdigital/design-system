@@ -18,5 +18,5 @@
 | name       | string  | true     | Name attribute for the input                                          |
 | value      | string  | false    | Value for the input                                                   |
 | label      | string  | true     | Label for the input                                                   |
-| attributes | object  | false    | HTML attributes (for example data attributes) to add to the element   |
+| attributes | object  | false    | HTML attributes (for example, data attributes) to add to the element  |
 | error      | boolean | false    | If set to `true` will style this specific field as if it has an error |

@@ -116,7 +116,7 @@ Use “Enter an address” for the parameter: `errorMessageEnter`
 
 {{
     onsPanel({
-        "body": 'If you are using the editable address finder or manual address entry variants, you will need to <a href="/patterns/addresses#how-to-check-addresses">check the address</a> using server-side validation.'
+        "body": 'If you are using the editable address finder or manual address entry variants, you will need to <a href="patterns/addresses#how-to-check-addresses">check the address</a> using server-side validation.'
     })
 }}
 
@@ -133,7 +133,7 @@ Use “[number of addresses] results found. Enter more of the address to improve
 Use “Enter more of the address to get results” for the parameter: `typeMore`.
 
 #### If there is an error with the API during use of the editable address finder
-Use “Sorry, there is a problem loading addresses. <a href="0#">Enter address manually</a>” for the parameters: `errorMessageAPI` and `errorMessageAPILinkText`.
+Use “Sorry, there is a problem loading addresses. <a href="#0">Enter address manually</a>” for the parameters: `errorMessageAPI` and `errorMessageAPILinkText`.
 
 #### If the API is down before use of the editable address finder
 There is a status check when the page loads and initialises the component. If the API is down, a set of fields will allow the user to enter an address manually. This also happens if JavaScript is turned off.
@@ -141,7 +141,7 @@ There is a status check when the page loads and initialises the component. If th
 #### If the API is down before or during use of the non-editable address finder
 The input will be disabled and an error message shown.
 
-Use “Sorry, there is a problem. We are working to fix it. Please try again later or <a href="0#">contact us for more help</a>.” for the parameters: `errorMessageAPI` and `errorMessageAPILinkText`.
+Use “Sorry, there is a problem. We are working to fix it. Please try again later or <a href="#0">contact us for more help</a>.” for the parameters: `errorMessageAPI` and `errorMessageAPILinkText`.
 
 ## How to use this component for manual address entry
 

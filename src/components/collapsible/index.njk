@@ -20,14 +20,14 @@ The collapsible component is used to simplify a page by allowing the user to rev
 Use the collapsible component to make a page easier to read by condensing information that is only needed by some users.
 
 The collapsible can be used to condense a single block of content into a single selectable heading, allowing the user to reveal it if and when they need it.
-It also includes a hide buttton to close the collapsible when needed. We recommend adding `aria-hidden="true"` to the button in order so that screen reading software will not pick this up.
+It also includes a hide button to close the collapsible when needed. We recommend adding `aria-hidden="true"` to the button in order so that screen reading software will not pick this up.
 
 Good uses of the collapsible component are:
 {{
     onsList({
         "itemsList": [
             {
-                "text": 'to reveal additional help at the point where a user may need it e.g. to help answer a question'
+                "text": 'to reveal additional help at the point where a user may need it, for example, to help answer a question'
             },
             {
                 "text": 'to show the definition of a term that may not be well understood'
@@ -37,7 +37,7 @@ Good uses of the collapsible component are:
 }}
 
 ## When not to use this component
-Don't use the collapsible component to hide information that the majority of your users will need to progress with their task.
+Don’t use the collapsible component to hide information that the majority of your users will need to progress with their task.
 
 ### Alternative components
 [Accordions](/components/accordion), [tabs](/components/tabs) and collapsible all hide sections of content which a user can show or hide.
@@ -57,10 +57,10 @@ Use the collapsible component instead of [tabs](/components/tabs) or [accordions
 ## How to use this component
 The collapsible component uses JavaScript so when it's turned off, the section of content is expanded and displayed as a standard heading and paragraph.
 
-Use an appropriate heading tag (h2, h3 etc) for the `ons-collapsible__title` to provide the correct scemantic hierarchy to the document with the rest of the page.
+Use an appropriate heading tag (h2, h3 etc) for the `ons-collapsible__title` to provide the correct semantic hierarchy to the document with the rest of the page.
 
 ### Use a clear label
-The collapsible component hides content so make sure your heading is clear so the user doesn't need to work hard to understand if they need to click on it.
+The collapsible component hides content so make sure your heading is clear so the user doesn’t need to work hard to understand if they need to click on it.
 
 ### Accessibility
 The collapsible component is made accessible by using the following `aria` attributes which are attached on `domready` via Javascript:

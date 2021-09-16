@@ -21,9 +21,9 @@ Display a summary on a page after the user completes a section or full questionn
 ## How to use this component
 The summary should provide users with a direct link back to the question(s) they have answered, allowing them to change their answer, then return to the summary to complete or continue their questionnaire.
 
-The summary can contain multiple question and answer types, and will adapt it's layout depending on the length of the strings.
+The summary can contain multiple question and answer types, and will adapt its layout depending on the length of the strings.
 
-The component contains a `summaries` key  which can contain multiple summary `groups`. This allows for multipe summaries to be displayed. Each group in `groups` can have an optional `groupTitle` which provides a heading for the `rows` and renders a `h2`.
+The component contains a `summaries` key  which can contain multiple summary `groups`. This allows for multiple summaries to be displayed. Each group in `groups` can have an optional `groupTitle` which provides a heading for the `rows` and renders a `h2`.
 This provides flexibility to allow for simple and complex summaries to be created within one instance of the `onsSummary` macro.
 
 ## Accessibility
@@ -68,7 +68,7 @@ A summary of an answer the user cannot directly change, due to it being automati
 
 ### Grouped
 A summary of the answers to multiple questions in a section that are grouped.
-In this sceanrio we can create another heading level for `groups` using the `summaryTitle` key which renders a `h2` and renders the `groupTitle` as a `h3`.
+In this scenario we can create another heading level for `groups` using the `summaryTitle` key which renders a `h2` and renders the `groupTitle` as a `h3`.
 
 {{
     patternlibExample({"path": "components/summary/examples/summary-grouped/index.njk"})
@@ -93,7 +93,7 @@ A summary of multiple answers to a single question.
 
 ### Household no rows
 
-If there are no rows returned the summary will render placholder text
+If there are no rows returned the summary will render placeholder text
 {{
     patternlibExample({"path": "components/summary/examples/summary-household-no-rows/index.njk"})
 }}
