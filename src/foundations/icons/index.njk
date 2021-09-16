@@ -6,12 +6,74 @@ sortOrder: 5
 +++
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
-Icons are used to provide affordance to improve user experience. Icons shouldn’t be used as decoration and implemented only if there is a user need. We only use icons with text if we have evidence to suggest that it helps the user complete their task.
+Icons can help convey an action when paired with text, for example, a printer icon on a “Print answers” button.
 
-__Our current icon set can be used in the following scenarios:__
+When icons are used in the same way everywhere, they can make your product easier to use. Recognisable icons can make scanning a page quicker as well as making a target area larger to select. They can also help users who have learning disabilities, such as dyslexia.
+
+## When to use icons
+
+### Use recognisable icons
+Only use icons that are universally understood and have been proved by user research, to help users understand something more quickly. A large familiar icon can be quicker to understand when scanning a page than reading a text label on it’s own.
+
++++
+{% call onsPanel({
+        "type": 'warn'
+    })
+%}
+    Always test icons with users to make sure their meanings are commonly understood
+{% endcall %}
++++
+
+Do not use icons that are not understood to mean the same thing by users of your product. An unconventional icon will make your product harder to use, so carefully consider whether you need to use one at all.
+
+### Use a label
+Always use an icon with a text label. Using icons on their own can require the user to think more, especially if the icon is not familiar to them.
+
+### Use icons before text to show function
+Use an icon *before* the text to help the user understand the function of the element when scanning the page, without needing to fully read the text.
+
+For example, the printer icon on the [print button](#print) quickly shows the user at a glance that they can print what’s on the page.
+
+{{
+    patternlibExample({"path": "components/button/examples/button-print/index.njk", "componentFolderPath": "components/button" })
+}}
+
+### Use navigation icons to show direction
+Use directional icons before or after the text to help the user understand the direction of navigation.
+
+Use *forward* directional icons *after* the text. For example, the chevron icon on the [call to action button](/components/button#call-to-action) shows the button will move the user forwards to the next page.
+
+{{
+    patternlibExample({"path": "components/button/examples/button-link/index.njk", "componentFolderPath": "components/button" })
+}}
+
+Use *backward* directional icons *before* the text. For example, the chevron icon on the [back link](/components/back-link) shows the link will move the user backwards to the previous page.
+
+{{
+    patternlibExample({"path": "components/back-link/examples/back-link/index.njk", "componentFolderPath": "components/breadcrumbs" })
+}}
+
+## How to use icons
+
+### Icon position
+
+To set an icon’s position, use the parameter `iconPosition` with either `before` or `after` value.
+
+### Icon size
+
+To set an icon’s size, use the parameter `iconSize` with either `before` or `after` value.
+
+### Icon type
+
+To set the type of icon you want to use, use the parameter `iconType` with either of the following values:
+
+#### `chevron`
+
+## The ONS Design System icon set
 
 ### List with progress check icons prefix
 {{
