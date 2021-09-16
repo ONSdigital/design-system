@@ -7,7 +7,7 @@
 
     {% if params.type == "number" %}
         {# Type must be "text" or Firefox and Safari will set a blank value to the server if non numeric characters are entered -
-        they don't block non numeric characters: https://bugzilla.mozilla.org/show_bug.cgi?id=1398528 #}
+        they don’t block non numeric characters: https://bugzilla.mozilla.org/show_bug.cgi?id=1398528 #}
         {% set type = "text" %}
         {% set pattern = "[0-9]*" %}
         {% set inputmode = "numeric" %}

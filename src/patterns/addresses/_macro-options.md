@@ -1,6 +1,6 @@
 | Name                    | Type                   | Required | Description                                                                                                                                        |
 | ----------------------- | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id                      | string                 | true     | ID for the fieldset. This is used to automatically generate IDs and names for each field if one isn't specified                                    |
+| id                      | string                 | true     | ID for the fieldset. This is used to automatically generate IDs and names for each field if one isn’t specified                                    |
 | classes                 | string                 | false    | Classes to add to the fieldset                                                                                                                     |
 | legend                  | string                 | true     | Legend text for the address input                                                                                                                  |
 | legendClasses           | string                 | false    | Classes to apply to the legend                                                                                                                     |

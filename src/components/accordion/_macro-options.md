@@ -21,7 +21,7 @@
 
 | Name       | Type   | Required | Description                                                         |
 | ---------- | ------ | -------- | ------------------------------------------------------------------- |
-| open       | string | true     | Text to show when all of the items aren't open                      |
+| open       | string | true     | Text to show when all of the items aren’t open                      |
 | close      | string | true     | Text to show when all of the items are open                         |
 | attributes | object | false    | HTML attributes (for example, data attributes) to add to the button |
 
