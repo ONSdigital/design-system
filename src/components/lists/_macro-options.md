@@ -13,7 +13,7 @@
 | url | string | false | Will wrap the text in a link |
 | rel | string | false | allows setting of rel attribute for list item links |
 | target | string | false | If `url` is provided this will set the target for that link |
-| screen readerMessage | string | false | Sets a message to be read out by screen readers when `target` is set to `_blank` and link opens in a new tab. Defaults to `this link will open in a new tab` if not set |
+| screenreaderMessage | string | false | Sets a message to be read out by screen readers when `target` is set to `_blank` and link opens in a new tab. Defaults to `this link will open in a new tab` if not set |
 | index | boolean | false | Will prefix the list item with index number if set to `true` |
 | external | boolean | false | Will style the item like an external link |
 | prefix | string | true | Will prefix the list item with whatever prefix is set to |
