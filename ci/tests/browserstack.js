@@ -5,8 +5,8 @@ let BrowserStack = require('browserstack');
 let name = null;
 
 let client = BrowserStack.createClient({
-  username: process.env.BROWSERSTACK_USERNAME,
-  password: process.env.BROWSERSTACK_ACCESS_KEY,
+  username: process.env.BROWSER_STACK_USERNAME,
+  password: process.env.BROWSER_STACK_ACCESS_KEY,
 });
 
 'SIGINT SIGTERM SIGHUP'.split(' ').forEach(function(evt) {
