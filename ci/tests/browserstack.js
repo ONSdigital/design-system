@@ -32,6 +32,7 @@ let settings = {
   device: process.argv[6],
   url: process.argv[7],
   'browserstack.local': true,
+  'browserstack.tunnel': true,
   name: name,
   build: 'testem-browserstack',
 };
