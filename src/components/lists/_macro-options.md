@@ -11,7 +11,7 @@
 | text | string | true | The text for the list item |
 | title | string | false | The text for the list item - _only used for craft_ |
 | url | string | false | Will wrap the text in a link |
-| type | string | false | Used for variations. Available `type` values: `inPageLink` for use with error lists when a `url` is also provided |
+| variant | string | false | Used for variations. Available `variant` values: `inPageLink` for use with error lists when a `url` is also provided |
 | rel | string | false | allows setting of rel attribute for list item links |
 | target | string | false | If `url` is provided this will set the target for that link |
 | screenReaderMessage | string | false | Sets a message to be read out by screen readers when `target` is set to `_blank` and link opens in a new tab. Defaults to `this link will open in a new tab` if not set |
