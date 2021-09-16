@@ -117,7 +117,8 @@ $button-border-height: 3px;
   }
 
   &--secondary &,
-  &--print & {
+  &--print &,
+  &--download & {
     &__inner {
       background: $color-button-secondary;
       color: $color-text;
@@ -128,7 +129,8 @@ $button-border-height: 3px;
     }
   }
 
-  &--print & {
+  &--print &,
+  &--download & {
     &__inner {
       .ons-svg-icon {
         height: 1rem;
@@ -146,7 +148,8 @@ $button-border-height: 3px;
   }
 
   &--secondary:hover &,
-  &--print:hover & {
+  &--print:hover &,
+  &--download:hover & {
     &__inner {
       background: darken($color-button-secondary, 5%);
     }
@@ -163,9 +166,9 @@ $button-border-height: 3px;
     color: $color-text-link-focus;
   }
 
-  &--link:not(.ons-btn--secondary) &,
-  &--link:not(.ons-btn--secondary):active &,
-  &--link:not(.ons-btn--secondary):hover & {
+  &--link:not(.btn--secondary):not(.btn--download) &,
+  &--link:not(.btn--secondary):not(.btn--download):active &,
+  &--link:not(.btn--secondary):not(.btn--download):hover & {
     &__inner {
       .ons-svg-icon {
         fill: $color-white;
@@ -173,8 +176,8 @@ $button-border-height: 3px;
     }
   }
 
-  &--link:focus:not(.ons-btn--secondary) &,
-  &--link:focus:hover:not(.ons-btn--secondary) & {
+  &--link:focus:not(.btn--secondary):not(.btn--download) &,
+  &--link:focus:hover:not(.btn--secondary):not(.btn--download) & {
     &__inner {
       .ons-svg-icon {
         fill: $color-black;
