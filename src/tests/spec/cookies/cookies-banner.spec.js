@@ -111,7 +111,7 @@ function renderComponent() {
     '<button type="button" class="ons-btn ons-btn--small ons-js-accept-cookies ons-u-mb-xs@xxs@s ons-cookies-banner__btn">' +
     '<span class="ons-btn__inner">Accept all cookies</span>' +
     '</button>' +
-    '<a href="#" role="button" class="ons-btn ons-btn--secondary ons-btn--small ons-u-ml-no@xxs@s ons-cookies-banner__btn ons-btn--link">' +
+    '<a href="#0" role="button" class="ons-btn ons-btn--secondary ons-btn--small ons-u-ml-no@xxs@s ons-cookies-banner__btn ons-btn--link">' +
     '<span class="ons-btn__inner">Cookie settings</span>' +
     '</a>' +
     '</div>' +
@@ -120,7 +120,7 @@ function renderComponent() {
     '<div class="ons-container ons-cookies-banner__confirmation ons-u-d-no">' +
     '<div class="ons-grid ons-grid--flex ons-grid--between ons-grid--gutterless ons-grid--no-wrap@s ons-grid--vertical-center">' +
     '<div class="ons-grid__col ons-grid__col--flex ons-col-auto ons-u-flex-shrink@s">' +
-    '<p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s">You’ve accepted all cookies. You can <a href="#">change your cookie settings</a> at any time.</p>' +
+    '<p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s">You’ve accepted all cookies. You can <a href="#0">change your cookie settings</a> at any time.</p>' +
     '</div>' +
     '<div class="ons-grid__col">' +
     '<button type="button" class="ons-btn ons-btn--secondary ons-btn--small ons-js-hide-button">' +
@@ -140,7 +140,7 @@ function renderComponent() {
     '<button id="submit-button" type="submit">Submit</button>' +
     '</form>' +
     '<div class="ons-cookies-confirmation-message ons-u-d-no">' +
-    '<a class="ons-js-return-link" href="#">Return to previous page</a>' +
+    '<a class="ons-js-return-link" href="#0">Return to previous page</a>' +
     '</div>';
 
   const wrapper = document.createElement('div');

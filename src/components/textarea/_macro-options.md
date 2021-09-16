@@ -4,7 +4,7 @@
 | classes           | string                                                        | false                         | Classes to add to the textarea                                                         |
 | name              | string                                                        | false                         | The name of the textarea                                                               |
 | value             | string                                                        | false                         | The value of the textarea                                                              |
-| attributes        | object                                                        | false                         | HTML attributes (for example data attributes) to add to the textarea                   |
+| attributes        | object                                                        | false                         | HTML attributes (for example, data attributes) to add to the textarea                  |
 | label             | `Label` [_(ref)_](/components/label)                          | false                         | Settings for the input label. `for` will automatically be set to match the textarea id |
 | rows              | number                                                        | false                         | The size of the text area in number of rows, defaults to 8                             |
 | mutuallyExclusive | `MutuallyExclusive` [_(ref)_](/components/mutually-exclusive) | false                         | Configuration object if this is a mutually exclusive list                              |

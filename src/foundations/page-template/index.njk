@@ -86,7 +86,7 @@ Variables can be set with:
 | Variable Name | Type   | Required | Description                                                                |
 | ------------- | ------ | -------- | -------------------------------------------------------------------------- |
 | classes       | string | false    | Classes to apply to the wrapping form                                      |
-| attributes    | object | false    | HTML attributes (for example data attributes) to add to the button form    |
+| attributes    | object | false    | HTML attributes (for example, data attributes) to add to the button form    |
 | method        | string | false    | The method the form should you, if not specified it will default to `POST` |
 
 ##### PageConfig
@@ -94,8 +94,8 @@ Variables can be set with:
 | Variable Name | Type                                                | Required                          | Description                                                                                                                                   |
 | ------------- | --------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | cdn           | `CDN` [_(ref)_](#cdn)                               | false                             | What CDN version to use                                                                                                                       |
-| assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc. e.g. `http://localhost:3030`                                                                    |
-| theme         | string                                              | false                             | The name of the css file e.g. "census" if using a theme. Defaults to "main".                                                                  |
+| assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc., for example, `http://localhost:3030`                                                                    |
+| theme         | string                                              | false                             | The name of the css file, for example, "census" if using a theme. Defaults to "main".                                                                  |
 | title         | string                                              | true                              | The contents for the `<title>` element                                                                                                        |
 | cspNonce      | string                                              | false                             | The Content Security Policy (CSP) nonce value                                                                                                 |
 | headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                             | Configuration for `<meta>` information in the document `<head>`                                                                               |
@@ -110,7 +110,7 @@ Variables can be set with:
 | serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                             | An array to render the service links list                                                                                                     |
 | footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                              | Configuration for the page footer                                                                                                             |
 | pageColNumber | string                                              | false                             | sets the number of grid columns for the page (defaults to 8)                                                                                  |
-| description   | string                                              | true                              | Defualt description of the current page for search engines if headMeta.description is not provided.                                           |
+| description   | string                                              | true                              | Default description of the current page for search engines if headMeta.description is not provided.                                           |
 | absoluteUrl   | string                                              | true                              | Default URL for the preferred page for search engines to avoid duplicate content penalties. Used if if headMeta.canonicalUrl is not provided. |
 | wide          | boolean                                             | false                             | If sets to true passes sets the `wide` param on both the header and footer which will add css which will make the page use a wider style.     |
 
@@ -134,7 +134,7 @@ Variables can be set with:
 | mobileLogo       | string | false                                | URL for image to use for small screens instead of a title string                       |
 | titleLogoAlt     | string | false (if `titleLogo` not specified) | Alt tag for the title logo                                                             |
 | titleLogoHref    | string | false                                | Will wrap the title logo in a link to the specified URL                                |
-| customHeaderLogo | string | false                                | Allows the overriding of the masthead logo, set to 'nisra' to show Nisra logo          |
+| customHeaderLogo | string | false                                | Allows the overriding of the masthead logo, set to 'nisra' to show NISRA logo          |
 
 ###### HeadMeta
 
@@ -190,10 +190,10 @@ To change the components that are included by default, set their equivalent bloc
 | Block Name | Description                                                                         |
 | ---------- | ----------------------------------------------------------------------------------- |
 | headIcons  | Override the default icons used for ONS branded pages                               |
-| head       | An area to add additional markup to the `<head>` element, e.g. extra CSS references |
+| head       | An area to add additional markup to the `<head>` element, for example, extra CSS references |
 | body       | Override the entire contents of the `<body>` element                                |
 | bodyStart  | An area to add additional markup after the opening <body> element                   |
-| skipLink   | Override the default [skip link](/components/skip-link)                             |
+| skipLink   | Override the default [skip link](/components/skip-to-content)                       |
 | preHeader  | An area to add content and markup before the header                                 |
 | header     | Override the default [header](/components/header) component                         |
 | page       | Override the default content and layout of the page                                 |
