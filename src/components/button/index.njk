@@ -21,7 +21,7 @@ Align the primary action button to the left edge of your form.
 
 There are 2 ways to use the button component. You can use HTML or, if you are using [Nunjucks](https://mozilla.github.io/nunjucks/), you can use the Nunjucks macro.
 
-## Variations
+## Variants
 ### Small
 In certain circumstances there may be the need for multiple primary actions to exist on a page. The small primary button should be used in this scenario only when each action has the same context, for example, a list containing business surveys that a user needs to complete.
 {{
@@ -41,20 +41,20 @@ A small secondary button should be used within the same context of a primary sma
 }}
 
 ### Call to action
-The call to action button should be used when a link is the primary call to action on a page. 
+The call to action button should be used when a link is the primary call to action on a page.
 Links styled as buttons are not accessible without certain attributes. We add `role=button` to the html which allows users that use voice commands to select the button.
 {{
     patternlibExample({"path": "components/button/examples/button-link/index.njk"})
 }}
 
 #### Call to action opening in a new window
-If a call to action button needs to open in a new window, e.g. for a web chat service, the `newWindow` parameter should be set to `true`. This will then provide a description to screen reader users to inform them the button will open a new window before they click it, as it would disable the back button in the browser.
+If a call to action button needs to open in a new window, for example, for a web chat service, the `newWindow` parameter should be set to `true`. This will then provide a description to screen reader users to inform them the button will open a new window before they click it, as it would disable the back button in the browser.
 {{
     patternlibExample({"path": "components/button/examples/button-link-new-window/index.njk"})
 }}
 
 ### Group
-Groups are used to group two or more buttons together and easily align them alongside eachother. This will allow for a page to have two actions available to the user such as Continue and Cancel.
+Groups are used to group two or more buttons together and easily align them alongside each other. This will allow for a page to have two actions available to the user such as Continue and Cancel.
 {{
     patternlibExample({"path": "components/button/examples/button-group/index.njk"})
 }}
@@ -92,6 +92,12 @@ The timer button is aimed at stopping forms being submitted twice when users dou
 The `buttonStyle` parameter can be set to `print` to render a print button. This will take care of adding iconography and classes for the `print-button.js` file to pick up. The button will not render until `print-button.js` has run, and will not be visible on printed pages.
 {{
     patternlibExample({"path": "components/button/examples/button-print/index.njk"})
+}}
+
+### Download
+The `buttonStyle` parameter can be set to `download` to render a download button. This will take care of adding iconography and the `download` attribute which will force the browser to save the file at the specified `url`.
+{{
+    patternlibExample({"path": "components/button/examples/button-download/index.njk"})
 }}
 
 ## Help improve this component

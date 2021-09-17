@@ -48,7 +48,7 @@ Some components use other components, for example, the accordion component uses 
 
 ### How to use compiled CSS from the npm package
 
-You can either import or copy the `main.css` file to include the compiled stylesheet of all components and styles. This file can be found under `node_modules/@ons/design-system/css/main.css`.
+You can either import or copy the `main.css` file to include the compiled style sheet of all components and styles. This file can be found under `node_modules/@ons/design-system/css/main.css`.
 
 ## JavaScript
 To import the JavaScript (JS) for components, you can either:
@@ -68,13 +68,13 @@ Then import the JS file before the closing `body` tag of your HTML page or page 
 </body>" }) }}
 <br>
 
-You can also reference the published JS file from the [content delivery network (CDN)](#cdn). 
+You can also reference the published JS file from the [content delivery network (CDN)](#cdn).
 
 ### Import JS using a bundler
 
-If your service uses a bundler like [Webpack](https://webpack.js.org/) you can select and initialise all component JS using `import` or `require()`. 
+If your service uses a bundler like [Webpack](https://webpack.js.org/) you can select and initialise all component JS using `import` or `require()`.
 
-Import the `node_modules/design-system/js/main.js` to import the JS for all components. 
+Import the `node_modules/design-system/js/main.js` to import the JS for all components.
 
 #### Import JS for a specific component
 
@@ -90,7 +90,7 @@ The following files are deployed to the CDN which can be referenced in a service
 - `main.css` - responsive CSS file of all components
 - `main.js` - bundled JS modules
 
-If you are using the design system [base page template](/guidance/base-page-template/) (recommended) you will not need to reference any assets from the CDN. The release version is automatically applied in the base template to any references.
+If you are using the design system [base page template](/foundations/page-template/) (recommended) you will not need to reference any assets from the CDN. The release version is automatically applied in the base template to any references.
 
 If you do need to reference the files in your service, use the following URL structures (the `[VERSION]` should be replaced with the required release version, for example  ![](https://img.shields.io/github/release/onsdigital/design-system.svg?style=flat-square)). Do not include the `v`, just include the number:
 
@@ -105,7 +105,7 @@ Note that some local development environments require you to override the global
 
 All assets are available through the CDN. If you choose to use the main CSS file via the CDN, all required fonts and images will be served from there.
 
-### Fonts 
+### Fonts
 
 If you import all or parts of the CSS from the npm package you will need to import fonts into your service. You can copy the font files from `node_modules/@ons/design-system/fonts`
 into a `/fonts` folder in your project. You could also set up routing on your service to point to the `/fonts` folder that is served from `node_modules/@ons/design-system/fonts`.

@@ -13,7 +13,7 @@ const params = {
     {
       title: 'Total retail turnover',
       content:
-        '<h3 class="ons-u-fs-r">Include:</h3><ul class="ons-list"><li class="ons-list__item">VAT</li><li class="ons-list__item">internet sales</li><li class="ons-list__item">retail sales from outlets in Great Britain to <a href="#">customers abroad</a></li></ul><h3 class="ons-u-fs-r">Exclude:</h3><ul class="ons-list"><li class="ons-list__item">revenue from mobile phone network commission and top-up</li><li class="ons-list__item">sales from catering facilities used by customers</li><li class="ons-list__item">lottery sales and commission from lottery sales</li><li class="ons-list__item">sales of car accessories and motor vehicles</li><li class="ons-list__item">NHS receipts</li><li class="ons-list__item">automotive fuel</li></ul>',
+        '<h3 class="ons-u-fs-r">Include:</h3><ul class="ons-list"><li class="ons-list__item">VAT</li><li class="ons-list__item">internet sales</li><li class="ons-list__item">retail sales from outlets in Great Britain to <a href="#0">customers abroad</a></li></ul><h3 class="ons-u-fs-r">Exclude:</h3><ul class="ons-list"><li class="ons-list__item">revenue from mobile phone network commission and top-up</li><li class="ons-list__item">sales from catering facilities used by customers</li><li class="ons-list__item">lottery sales and commission from lottery sales</li><li class="ons-list__item">sales of car accessories and motor vehicles</li><li class="ons-list__item">NHS receipts</li><li class="ons-list__item">automotive fuel</li></ul>',
       button: {
         open: 'Show',
         close: 'Hide',

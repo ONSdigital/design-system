@@ -1,6 +1,6 @@
 | Name                    | Type                                                          | Required                         | Description                                                                                                                                        |
 | ----------------------- | ------------------------------------------------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id                      | string                                                        | true                             | ID for the fieldset. This is used to automatically generate IDs and names for each field if one isn't specified                                    |
+| id                      | string                                                        | true                             | ID for the fieldset. This is used to automatically generate IDs and names for each field if one isn’t specified                                    |
 | classes                 | string                                                        | false                            | Classes to add to the fieldset                                                                                                                     |
 | label                   | `Label` [_(ref)_](/components/label)                          | false                            | Settings for the input label. `for` will automatically be set to match the input id                                                                |
 | legend                  | string                                                        | true                             | Legend text for the address input                                                                                                                  |
@@ -11,15 +11,15 @@
 | mandatory               | boolean                                                       | false                            | Set the autosuggest input to be mandatory and use client side validation for empty form submission                                                 |
 | APIDomain               | string                                                        | false                            | Set an api domain when using an external API to suggest results                                                                                    |
 | APIDomainBearerToken    | string                                                        | false                            | Set a bearer token for api authorization on the AIMS address api.                                                                                  |
-| instructions            | string                                                        | true                             | Instructions on how to use the autosuggest that will be read out by screenreaders                                                                  |
+| instructions            | string                                                        | true                             | Instructions on how to use the autosuggest that will be read out by screen readers                                                                 |
 | ariaYouHaveSelected     | string                                                        | true                             | Aria message to tell the user that they have selected an answer                                                                                    |
-| ariaMinChars            | string                                                        | true                             | Aria message to tell the user how many charecters they need to enter before autosuggest will start                                                 |
+| ariaMinChars            | string                                                        | true                             | Aria message to tell the user how many characters they need to enter before autosuggest will start                                                 |
 | ariaResultsLabel        | string                                                        | true                             | Aria message to tell the user that suggestions are available                                                                                       |
 | ariaOneResult           | string                                                        | true                             | Aria message to tell the user there is only one suggestion left                                                                                    |
 | ariaNResults            | string                                                        | true                             | Aria message to tell the user how many suggestions are left                                                                                        |
 | ariaLimitedResults      | string                                                        | true                             | Aria message to tell the user if the results have been limited and what they are limited to                                                        |
-| ariaGroupedResults      | string                                                        | true                             | Aria message to tell the user about a grouped result e.g There are {n} for {x}                                                                     |
-| groupCount              | string                                                        | true                             | Aria message to tell the user the number of addresses in a group e.g. {n} addresses                                                                |
+| ariaGroupedResults      | string                                                        | true                             | Aria message to tell the user about a grouped result, for example, There are {n} for {x}                                                           |
+| groupCount              | string                                                        | true                             | Aria message to tell the user the number of addresses in a group, for example, {n} addresses                                                       |
 | moreResults             | string                                                        | true                             | Aria message to tell the user to continue to type to refine suggestions                                                                            |
 | noResults               | string                                                        | true                             | message to tell the user there are no results                                                                                                      |
 | tooManyResults          | string                                                        | true                             | message to tell the user there are too many results to display and the user should refine the search                                               |
@@ -46,15 +46,15 @@
 | error                   | `Error` [_(ref)_](/components/error)                          | false                            | Configuration for validation errors                                                                                                                |
 | name                    | string                                                        | false                            | The name of the input                                                                                                                              |
 | value                   | string &#124; number                                          | false                            | The value to set the input to                                                                                                                      |
-| attributes              | object                                                        | false                            | HTML attributes (for example data attributes) to add to the input                                                                                  |
+| attributes              | object                                                        | false                            | HTML attributes (for example, data attributes) to add to the input                                                                                 |
 
 ## Options
 
-| Name       | Type   | Required | Description                                      |
-| ---------- | ------ | -------- | ------------------------------------------------ |
-| regionCode | string | false    | Sets the provided region code e.g. en-gb         |
-| adressType | string | false    | Sets the provided address type e.g. resedential  |
-| oneYearAgo | string | false    | If "true" will set a query parameter of epoch=75 |
+| Name        | Type   | Required | Description                                              |
+| ----------- | ------ | -------- | -------------------------------------------------------- |
+| regionCode  | string | false    | Sets the provided region code, for example, en-gb        |
+| addressType | string | false    | Sets the provided address type, for example, residential |
+| oneYearAgo  | string | false    | If "true" will set a query parameter of `epoch=75`       |
 
 ## AddressField
 

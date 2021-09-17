@@ -1,10 +1,9 @@
 {% from "components/button/_macro.njk" import onsButton %}
-
 {{
     onsButton({
-        "type": 'button',
-        "text": 'Print this page',
-        "buttonStyle": 'print',
+        "buttonStyle": 'download',
+        "text": 'Save answers as PDF',
+        "url": '#0',
         "classes": 'ons-btn--small'
     })
 }}

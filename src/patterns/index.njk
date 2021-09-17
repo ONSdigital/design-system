@@ -3,12 +3,30 @@ title: Patterns
 sortOrder: 5
 ---
 
++++
+{% from "components/lists/_macro.njk" import onsList %}
++++
+
 Patterns are a way to combine different components to help a user carry out a task. The task could be entering information, such as an address or phone number, or helping users download a file or correct an error.
 
 Each pattern has guidance on:
-- when to use it
-- how to use it
-- how to check it for errors
-- user research done on it
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'when to use it'
+            },
+            {
+                "text": 'how to use it'
+            },
+            {
+                "text": 'how to check it for errors'
+            },
+            {
+                "text": 'user research done on it'
+            }
+        ]
+    })
+}}
 
 You are welcome to [contribute a new pattern or a change to an existing pattern](/contribute).

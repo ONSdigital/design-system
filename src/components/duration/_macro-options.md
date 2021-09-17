@@ -17,5 +17,5 @@
 | name       | string  | true     | Name attribute for the input                                          |
 | value      | string  | false    | Value for the input                                                   |
 | suffix     | string  | true     | Suffix for the input. Used for the `title` and `abbr` attributes      |
-| attributes | object  | false    | HTML attributes (for example data attributes) to add to the element   |
+| attributes | object  | false    | HTML attributes (for example, data attributes) to add to the element  |
 | error      | boolean | false    | If set to `true` will style this specific field as if it has an error |
