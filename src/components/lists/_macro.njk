@@ -1,5 +1,5 @@
 {% macro onsList(params) %}
-    {% set classes = params.classes | lower %}
+    {% set variants = params.variants if params.variants else '' %}
     {% set listLength = params.itemsList | length %}
 
     {% if params.itemsList[0] is defined and params.itemsList[0].prefix %}
@@ -72,7 +72,7 @@
                     <span class="ons-list__suffix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
                     {%- if item.suffix is defined and item.suffix -%}
                         {{- item.suffix -}}
-                    {%- elif (item.index is defined and item.index and listEl != 'ol') or (item.index is defined and item.index and listEl == 'ol' and 'ons-list--bare' in classes) -%}
+                    {%- elif (item.index is defined and item.index and listEl != 'ol') or (item.index is defined and item.index and listEl == 'ol' and 'bare' in variants) -%}
                         {{- loop.index -}}
                     {% elif item.suffixIcon is defined and item.suffixIcon %}
                         {% from "components/icons/_macro.njk" import onsIcon %}
