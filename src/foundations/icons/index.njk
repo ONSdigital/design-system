@@ -10,9 +10,9 @@ sortOrder: 5
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
-Icons can help convey an action when paired with text, for example, a printer icon on a “Print answers” button.
+An icon can help convey a function when put next to text. For example, a printer icon on a button labelled “Print this page”.
 
-When icons are used in the same way everywhere, they can make your product easier to use. Recognisable icons can make scanning a page quicker as well as making a target area larger to select. They can also help users who have learning disabilities, such as dyslexia.
+When icons are used in the same way everywhere, they can make your product easier to use. Recognisable icons can make scanning a page quicker, as well as making target areas larger to select. They can also help users who have learning disabilities, such as dyslexia.
 
 ## When to use icons
 
@@ -24,11 +24,11 @@ Only use icons that are universally understood and have been proved by user rese
         "type": 'warn'
     })
 %}
-    Always test icons with users to make sure their meanings are commonly understood
+    Always test an icon with users to make sure it means the same to everyone
 {% endcall %}
 +++
 
-Do not use icons that are not understood to mean the same thing by users of your product. An unconventional icon will make your product harder to use, so carefully consider whether you need to use one at all.
+An icon that means different things to different users will make your product harder to use, so carefully consider whether you need to use one at all.
 
 ### Use a label
 Always use an icon with a text label. Using icons on their own can require the user to think more, especially if the icon is not familiar to them.
@@ -43,60 +43,113 @@ For example, the printer icon on the [print button](#print) quickly shows the us
 }}
 
 ### Use navigation icons to show direction
-Use directional icons before or after the text to help the user understand the direction of navigation.
+Directional icons should be put before or after the text to help the user understand the direction of navigation.
 
-Use *forward* directional icons *after* the text. For example, the chevron icon on the [call to action button](/components/button#call-to-action) shows the button will move the user forwards to the next page.
+Use *forward* navigation icons *after* the text. For example, the chevron icon on the [call to action button](/components/button#call-to-action) shows the button will move the user forwards to the next page.
 
 {{
     patternlibExample({"path": "components/button/examples/button-link/index.njk", "componentFolderPath": "components/button" })
 }}
 
-Use *backward* directional icons *before* the text. For example, the chevron icon on the [back link](/components/back-link) shows the link will move the user backwards to the previous page.
+Use *backward* navigation icons *before* the text. For example, the chevron icon on the [back link](/components/back-link) shows the link will move the user backwards to the previous page.
 
 {{
     patternlibExample({"path": "components/back-link/examples/back-link/index.njk", "componentFolderPath": "components/breadcrumbs" })
 }}
 
 ## How to use icons
+You can use an icon with the following:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": '<a href="/components/button">button</a>'
+            },
+            {
+                "text": '<a href="/components/panel">panel</a>'
+            },
+            {
+                "text": '<a href="/foundations/typography#lists">list</a>'
+            },
+            {
+                "text": '<a href="/components/summary">summary</a>'
+            }
+        ]
+    })
+}}
 
 ### Icon position
 
-To set an icon’s position, use the parameter `iconPosition` with either `before` or `after` value.
+When using an icon in a button or list, you can set an icon’s position before or after the text. Use the parameter `iconPosition` and give it a value of either “before” or ”after”.
 
 ### Icon size
 
-To set an icon’s size, use the parameter `iconSize` with either `before` or `after` value.
+When using an icon in the panel component, you can set it’s size to match the size of the text set by the [typography type scale](/foundations/typography/#type-scale). Use the parameter `iconSize` and give it a value of either: “s”, “m”, “l”, “xl”, “xxl” or “xxxl”.
+{{
+    patternlibExample({"path": "foundations/icons/examples/icons-size/index.njk", "componentFolderPath": "components/panel" })
+}}
 
 ### Icon type
 
-To set the type of icon you want to use, use the parameter `iconType` with either of the following values:
+To set the type of icon, use the parameter `iconType` with either of the following values:
 
-#### `chevron`
-
-## The ONS Design System icon set
-
-### List with progress check icons prefix
+#### Check
+`"iconType": 'check'`. Use to inform user a process has been successfully completed.
 {{
     patternlibExample({"path": "foundations/icons/examples/icons-list-prefix/index.njk", "componentFolderPath": "components/lists" })
 }}
 
-### List with progress check icons suffix
+#### Chevron
+`"iconType": 'chevron'`. Use to inform user they will move forward to the next page.
 {{
-    patternlibExample({"path": "foundations/icons/examples/icons-list-suffix/index.njk", "componentFolderPath": "components/lists" })
+    patternlibExample({"path": "components/button/examples/button-link/index.njk", "componentFolderPath": "components/button" })
 }}
 
-### List with social icons
+#### Download
+`"iconType": 'download'`. Use to inform the user a file will download to their device.
+{{
+    patternlibExample({"path": "components/button/examples/button-download/index.njk", "componentFolderPath": "components/button" })
+}}
+
+#### Exit
+`"iconType": 'exit'`. Use to inform the user they will leave the part of the service they are in.
+{{
+    patternlibExample({"path": "components/button/examples/button-ghost/index.njk", "componentFolderPath": "components/button" })
+}}
+
+#### Opens in a new tab
+`"iconType": 'external-link'`. Use to inform the user that a new tab will open.
+{{
+    patternlibExample({"path": "components/button/examples/button-link-new-window/index.njk", "componentFolderPath": "components/button" })
+}}
+
+#### Lock
+`"iconType": 'lock'`. Use to reassure the user their information is secure.
+{{
+    patternlibExample({"path": "components/panel/examples/bare/index.njk", "componentFolderPath": "components/panel" })
+}}
+
+#### Person
+`"iconType": 'person'`. Use to indicate a person’s details.
+{{
+    patternlibExample({"path": "components/summary/examples/summary-household/index.njk", "componentFolderPath": "components/summary" })
+}}
+
+#### Print
+`"iconType": 'print'`. Use to inform the user something will be sent to their printer.
+{{
+    patternlibExample({"path": "components/button/examples/button-print/index.njk", "componentFolderPath": "components/button" })
+}}
+
+#### Search
+`"iconType": 'search'`. Use to inform the user they can search for something.
+
+#### Social media
+`"iconType": 'twitter'`, `"iconType": 'facebook'`, `"iconType": 'instagram'` or `"iconType": 'linkedin'`. Use for links to social media channels.
+
 {{
     patternlibExample({"path": "foundations/icons/examples/icons-social-list/index.njk", "componentFolderPath": "components/lists" })
 }}
-__How to use:__ Set `icon` to the name of the icon you want to use on each list item.
-
-### Link with external link icon
-{{
-    patternlibExample({"path": "components/external-link/examples/external-link/index.njk"})
-}}
-
-__How to use:__ Use the `onsExternalLink` macro using the `url` and `linkText` params.
 
 ### Text with secure icon
 {{
@@ -104,11 +157,11 @@ __How to use:__ Use the `onsExternalLink` macro using the `url` and `linkText` p
 }}
 __How to use:__ Use the panel component setting `type` to "bare" and icon to the name of the icon you want to use.
 
-## Help improve this style
+## Help improve this foundation
 Let us know how we could improve this style or share your user research findings.
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/95",
-        "linkText": "Discuss the ‘Icons’ style on Github"
+        "linkText": "Discuss the ‘Icons’ foundation on Github"
     })
 }}
