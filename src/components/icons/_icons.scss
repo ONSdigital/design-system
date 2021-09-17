@@ -4,32 +4,57 @@
   width: 1rem;
 
   &--xxxl {
-    height: 2.8rem;
-    width: 2.8rem;
+    height: 1.7rem;
+    width: 1.7rem;
+
+    @include mq(m) {
+      height: 2.6rem;
+      width: 2.6rem;
+    }
   }
 
   &--xxl {
-    height: 2rem;
-    width: 2rem;
+    height: 1.5rem;
+    width: 1.5rem;
+
+    @include mq(m) {
+      height: 2rem;
+      width: 2rem;
+    }
   }
 
   &--xl {
-    height: 1.6rem;
-    width: 1.6rem;
+    height: 1.4rem;
+    width: 1.4rem;
+
+    @include mq(m) {
+      height: 1.6rem;
+      width: 1.6rem;
+    }
   }
 
   &--l {
-    height: 1.4rem;
-    width: 1.4rem;
+    height: 1.3rem;
+    width: 1.3rem;
+
+    @include mq(m) {
+      height: 1.4rem;
+      width: 1.4rem;
+    }
   }
 
   &--m {
-    height: 1.2rem;
-    width: 1.2rem;
+    height: 1.1rem;
+    width: 1.1rem;
+
+    @include mq(m) {
+      height: 1.2rem;
+      width: 1.2rem;
+    }
   }
 
   &--s {
-    height: 0.8rem;
-    width: 0.8rem;
+    height: 0.7rem;
+    width: 0.7rem;
   }
 }
