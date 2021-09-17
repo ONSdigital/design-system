@@ -12,12 +12,16 @@ sortOrder: 5
 
 An icon can help convey a function when put next to text. For example, a printer icon on a button labelled “Print this page”.
 
-When icons are used in the same way everywhere, they can make your product easier to use. Recognisable icons can make scanning a page quicker, as well as making target areas larger to select. They can also help users who have learning disabilities, such as dyslexia.
-
 ## When to use icons
 
+Use icons in the same way throughout your product to make it easier to use.
+
+Recognisable icons can make scanning a page quicker, as well as making target areas larger and easier to select. They can also help users who have learning difficulties, such as dyslexia.
+
+## How to use icons
+
 ### Use recognisable icons
-Only use icons that are universally understood and have been proved by user research, to help users understand something more quickly. A large familiar icon can be quicker to understand when scanning a page than reading a text label on it’s own.
+Only use icons that are universally understood and have user research evidence to back this up. Recognisable icons help users understand something more quickly. A large familiar icon can be quicker to understand when scanning a page than reading a text label on it’s own.
 
 +++
 {% call onsPanel({
@@ -28,30 +32,32 @@ Only use icons that are universally understood and have been proved by user rese
 {% endcall %}
 +++
 
-An icon that means different things to different users will make your product harder to use, so carefully consider whether you need to use one at all.
+An icon that means different things to different people will make your product harder to use. Always consider if you need to use one at all.
 
 ### Use a label
-Always use an icon with a text label. Using icons on their own can require the user to think more, especially if the icon is not familiar to them.
+Always use an icon with a text label. Using icons on their own means the user has to think more, especially if the icon is not familiar to them.
 
 ### Use icons before text to show function
 Use an icon *before* the text to help the user understand the function of the element when scanning the page, without needing to fully read the text.
 
-For example, the printer icon on the [print button](#print) quickly shows the user at a glance that they can print what’s on the page.
+For example, the printer icon comes first on the [print button](#print) so that a user who does not need the text can quickly see that it’s a print button.
 
 {{
     patternlibExample({"path": "components/button/examples/button-print/index.njk", "componentFolderPath": "components/button" })
 }}
 
 ### Use navigation icons to show direction
-Directional icons should be put before or after the text to help the user understand the direction of navigation.
+Directional icons should be put before or after the text label to help the user understand the direction they will go if they select it.
 
-Use *forward* navigation icons *after* the text. For example, the chevron icon on the [call to action button](/components/button#call-to-action) shows the button will move the user forwards to the next page.
+Use forward navigation icons after the text and backward navigation icons before the text.
+
+For example, the chevron icon on the [call to action button](/components/button#call-to-action) shows the button will move the user forward to the next page.
 
 {{
     patternlibExample({"path": "components/button/examples/button-link/index.njk", "componentFolderPath": "components/button" })
 }}
 
-Use *backward* navigation icons *before* the text. For example, the chevron icon on the [back link](/components/back-link) shows the link will move the user backwards to the previous page.
+The chevron icon on the [back link](/components/back-link) shows the link will move the user back to the previous page.
 
 {{
     patternlibExample({"path": "components/back-link/examples/back-link/index.njk", "componentFolderPath": "components/breadcrumbs" })
@@ -80,7 +86,7 @@ You can use an icon with the following:
 
 ### Icon position
 
-When using an icon in a button or list, you can set an icon’s position before or after the text. Use the parameter `iconPosition` and give it a value of either “before” or ”after”.
+You can set an icon’s position before or after the text on a button or a list Use the parameter `iconPosition` and give it a value of either “before” or ”after”.
 
 ### Icon size
 
@@ -94,71 +100,65 @@ When using an icon in the panel component, you can change it’s size from the d
 To set the type of icon, use the parameter `iconType` with either of the following values:
 
 #### Check
-`"iconType": 'check'`. Use to inform user a process has been successfully completed.
+Use `"iconType": 'check'` to inform user a process has been successfully completed.
 {{
     patternlibExample({"path": "foundations/icons/examples/icons-list-prefix/index.njk", "componentFolderPath": "components/lists" })
 }}
 
 #### Chevron
-`"iconType": 'chevron'`. Use to inform user they will move forward to the next page.
+Use `"iconType": 'chevron'` to inform user they will move forward to the next page.
 {{
     patternlibExample({"path": "components/button/examples/button-link/index.njk", "componentFolderPath": "components/button" })
 }}
 
 #### Download
-`"iconType": 'download'`. Use to inform the user a file will download to their device.
+Use `"iconType": 'download'` to inform the user a file will download to their device.
 {{
     patternlibExample({"path": "components/button/examples/button-download/index.njk", "componentFolderPath": "components/button" })
 }}
 
 #### Exit
-`"iconType": 'exit'`. Use to inform the user they will leave the part of the service they are in.
+Use `"iconType": 'exit'` to inform the user they will leave the part of the service they are in.
 {{
     patternlibExample({"path": "components/button/examples/button-ghost/index.njk", "componentFolderPath": "components/button" })
 }}
 
 #### Opens in a new tab
-`"iconType": 'external-link'`. Use to inform the user that a new tab will open.
+Use `"iconType": 'external-link'` to inform the user that a new tab will open.
 {{
     patternlibExample({"path": "components/button/examples/button-link-new-window/index.njk", "componentFolderPath": "components/button" })
 }}
 
 #### Lock
-`"iconType": 'lock'`. Use to reassure the user their information is secure.
+Use `"iconType": 'lock'` to reassure the user their information is secure.
 {{
     patternlibExample({"path": "components/panel/examples/bare/index.njk", "componentFolderPath": "components/panel" })
 }}
 
 #### Person
-`"iconType": 'person'`. Use to indicate a person’s details.
+Use `"iconType": 'person'` to indicate a person’s details.
 {{
     patternlibExample({"path": "components/summary/examples/summary-household/index.njk", "componentFolderPath": "components/summary" })
 }}
 
 #### Print
-`"iconType": 'print'`. Use to inform the user something will be sent to their printer.
+Use `"iconType": 'print'` to inform the user something will be sent to their printer.
 {{
     patternlibExample({"path": "components/button/examples/button-print/index.njk", "componentFolderPath": "components/button" })
 }}
 
 #### Search
-`"iconType": 'search'`. Use to inform the user they can search for something.
+Use `"iconType": 'search'` to inform the user they can search for something.
 
 #### Social media
-`"iconType": 'twitter'`, `"iconType": 'facebook'`, `"iconType": 'instagram'` or `"iconType": 'linkedin'`. Use for links to social media channels.
+Use `"iconType": 'twitter'`, `"iconType": 'facebook'`, `"iconType": 'instagram'` or `"iconType": 'linkedin'` for links to social media channels.
 
 {{
     patternlibExample({"path": "foundations/icons/examples/icons-social-list/index.njk", "componentFolderPath": "components/lists" })
 }}
 
-### Text with secure icon
-{{
-    patternlibExample({"path": "components/panel/examples/bare/index.njk"})
-}}
-__How to use:__ Use the panel component setting `type` to "bare" and icon to the name of the icon you want to use.
-
 ## Help improve this foundation
-Let us know how we could improve this style or share your user research findings.
+Let us know how we could improve this foundation or share your user research findings.
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/95",
