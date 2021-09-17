@@ -19,7 +19,7 @@ Write button text in sentence case, describing the action it performs. For examp
 
 Align the primary action button to the left edge of your form.
 
-There are 2 ways to use the button component. You can use HTML or, if you are using [Nunjucks](https://mozilla.github.io/nunjucks/), you can use the Nunjucks macro.
+There are 2 ways to use the button component. You can use HTML or, if you are using [Nunjucks](/pages/guidance/nunjucks), you can use the Nunjucks macro.
 
 ## Variations
 ### Small
@@ -53,12 +53,6 @@ If a call to action button needs to open in a new window, e.g. for a web chat se
     patternlibExample({"path": "components/button/examples/button-link-new-window/index.njk"})
 }}
 
-### Group
-Groups are used to group two or more buttons together and easily align them alongside eachother. This will allow for a page to have two actions available to the user such as Continue and Cancel.
-{{
-    patternlibExample({"path": "components/button/examples/button-group/index.njk"})
-}}
-
 ### Ghost
 The ghosted button style is for use in the [header](/components/header/#external-with-language-and-save-button) or [footer](/components/footer). This can be used to allow a user to save and sign out of the current context.
 
@@ -71,7 +65,7 @@ Setting the `buttonStyle` param to `exit` adds the appropriate icon for a 'sign 
 }}
 
 ### Disabled
-Use `.ons-btn--disabled` with the `disabled=true` element attribute for buttons that have no event/action but need to be displayed.
+Use `'variant': 'disabled'` with the `disabled=true` attribute parameter for buttons that have no event/action but need to be displayed.
 {{
     patternlibExample({"path": "components/button/examples/button-disabled/index.njk"})
 }}
@@ -93,6 +87,14 @@ The `buttonStyle` parameter can be set to `print` to render a print button. This
 {{
     patternlibExample({"path": "components/button/examples/button-print/index.njk"})
 }}
+
+
+### Grouping buttons
+Placing buttons directly next to eachother in your template will display them horizontaly side by side. This will allow for a page to have two actions available to the user such as Continue and Cancel.
+{{
+    patternlibExample({"path": "components/button/examples/button-group/index.njk"})
+}}
+
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

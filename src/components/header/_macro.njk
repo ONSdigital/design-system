@@ -95,7 +95,8 @@
                         <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@xxs@m">
                             {{ onsButton({
                                 "text": params.button.text,
-                                "classes": "ons-btn--ghost ons-u-d-no@xxs@m",
+                                "classes": "ons-u-d-no@xxs@m",
+                                "variants": "ghost",
                                 "name": params.button.name,
                                 "attributes": params.button.attributes,
                                 "url": params.button.url,
@@ -109,7 +110,8 @@
                                 <span class="ons-grid ons-u-d-no@xxs@xs">
                                     {{ onsButton({
                                         "text": "Search",
-                                        "classes": "ons-btn--search ons-btn--ghost ons-btn--small ons-u-ml-xs ons-u-d-no ons-js-toggle-search",
+                                        "classes": "ons-btn--search ons-u-ml-xs ons-u-d-no ons-js-toggle-search",
+                                        "variants": ["ghost", "small"],
                                         "icon": {
                                             "iconType": "search",
                                             "iconPosition": "only"
@@ -126,8 +128,9 @@
                             {% if params.toggleButton is defined and params.toggleButton %}
                                 {{ onsButton({
                                     "text": params.toggleButton.text,
-                                    "classes": "ons-btn--mobile ons-btn--ghost ons-u-ml-xs ons-u-d-no ons-js-toggle-main",
+                                    "classes": "ons-u-ml-xs ons-u-d-no ons-js-toggle-main",
                                     "buttonStyle": "mobile",
+                                    "variants": ["mobile", "ghost"],
                                     "attributes": {
                                         "aria-label": params.toggleButton.ariaLabel | default("Toggle main navigation") ,
                                         "aria-controls": params.navigation.id,

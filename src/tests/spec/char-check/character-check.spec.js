@@ -4,7 +4,7 @@ import renderTemplate from '../../helpers/render-template';
 const params = {
   id: 'search-field',
   type: 'number',
-  classes: 'ons-input--w-6',
+  width: '6',
   label: {
     text: 'Filter results',
   },
