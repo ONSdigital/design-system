@@ -43,19 +43,19 @@ Use the non-editable variant of the address input component if you want the user
 The user can enter part of their address to search the address index and select from the results. They will be able to edit the selected address, but the [component’s client-side validation](/components/address-input#validation) will prevent them from continuing.
 
 {{
-    patternlibExample({"path": "patterns/addresses/examples/address-input-non-editable/index.njk"})
+    patternlibExample({ "path": "patterns/addresses/examples/address-input-non-editable/index.njk" })
 }}
 
 #### Address confirmation
 After successfully choosing an address, you need to ask the user to confirm it is correct using the [check answers pattern](/patterns/check-answers).
 
 {{
-    patternlibExample({"path": "patterns/addresses/examples/address-input-non-editable/confirm-address/index.njk"})
+    patternlibExample({ "path": "patterns/addresses/examples/address-input-non-editable/confirm-address/index.njk" })
 }}
 
 ### Editable addresses
 
-Use the editable variant of the address input component if you want the user to select their address from the ONS Address Index API and be able to edit it afterwards. 
+Use the editable variant of the address input component if you want the user to select their address from the ONS Address Index API and be able to edit it afterwards.
 
 The user can enter part of their address to search the address index and select from the results. Once an address is selected, it is displayed in multiple fields wrapped within a [fieldset](/components/fieldset) with a legend. If you are using the component within the `onsQuestion` macro, you can pass `legendIsQuestionTitle: true` along with `dontWrap: true` to the `onsAddressInput` macro.
 
@@ -109,7 +109,7 @@ You can {{
 Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the input field.
 
 {{
-    patternlibExample({ "path": "pages/patterns/addresses/examples/address-input-manual-error/index.njk" })
+    patternlibExample({ "path": "patterns/addresses/examples/address-input-manual-error/index.njk" })
 }}
 
 #### If one of the required fields is empty

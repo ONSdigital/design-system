@@ -16,9 +16,9 @@
 
 ## DateField
 
-| Name       | Type                                 | Required | Description                                                       |
-| ---------- | ------------------------------------ | -------- | ----------------------------------------------------------------- |
-| label      | `Label` [_(ref)_](/components/label) | true     | Label config for the field                                        |
-| name       | string                               | true     | Name of the field                                                 |
-| value      | number                               | false    | Preset value for the field                                        |
-| attributes | object                               | false    | HTML attributes (for example data attributes) to add to the input |
+| Name       | Type                                 | Required | Description                                                        |
+| ---------- | ------------------------------------ | -------- | ------------------------------------------------------------------ |
+| label      | `Label` [_(ref)_](/components/label) | true     | Label config for the field                                         |
+| name       | string                               | true     | Name of the field                                                  |
+| value      | number                               | false    | Preset value for the field                                         |
+| attributes | object                               | false    | HTML attributes (for example, data attributes) to add to the input |

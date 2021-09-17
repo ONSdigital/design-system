@@ -5,9 +5,9 @@ layout: none
 {% set pageConfig = {
     "theme": 'census',
     "header": {
-        "logoHref": pageInfo.rootPath,
+        "logoHref": pageInfo.url,
         "titleLogo": 'census-logo-en',
-        "titleLogoHref": pageInfo.rootPath + '/home',
+        "titleLogoHref": pageInfo.url + '#0',
         "titleLogoAlt": 'Census 2021'
     },
     "title": 'Census2021',
@@ -26,7 +26,7 @@ layout: none
                 "current": true
             },
             {
-                "url": '#',
+                "url": '#0',
                 "ISOCode": 'cy',
                 "text": 'Cymraeg',
                 "buttonAriaLabel": 'Dewisydd iaith. Iaith gyfredol: Cymraeg',
