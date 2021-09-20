@@ -50,7 +50,6 @@
                     {%- endif -%} </span>
                 {%- endif -%}
                 {%- if item.url is defined and item.url and item.current != true -%}
-
                     {%- if item.external is defined and item.external -%}
                         {% from "components/external-link/_macro.njk" import onsExternalLink %}
                         {{
