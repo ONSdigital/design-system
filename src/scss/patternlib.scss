@@ -11,7 +11,7 @@
   &--example {
     display: block;
     height: auto;
-    padding: 1rem 1.5rem;
+    padding: 1.5rem;
 
     .ons-page,
     .ons-page__content {
@@ -58,22 +58,84 @@
     }
 
     th {
-      background: $color-white;
-      border-bottom: 2px solid $color-grey-35;
-      position: sticky;
+      border-bottom: 2px solid $color-grey-100;
+      padding: 0.5rem 0 0.5rem 1rem;
       text-align: left;
-      top: 0;
+      vertical-align: top;
     }
 
     th,
     td {
-      line-height: 1.4;
-      padding: 0.5rem 0.25rem;
+      line-height: 1.6;
+      padding: 0.5rem 0 0.5rem 1rem;
+      &:first-child {
+        padding-left: 0;
+      }
     }
 
     td {
       background: transparent;
-      border-bottom: 1px solid $color-grey-35;
+      border-bottom: 1px solid $color-borders;
+    }
+
+    tr:last-child td {
+      border: 0;
+    }
+  }
+
+  .ons-table-scrollable {
+    position: relative;
+    ::-webkit-scrollbar {
+      height: 7px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: $color-grey-75;
+      border-radius: 20px;
+    }
+    &--on {
+      th,
+      td {
+        white-space: nowrap;
+      }
+    }
+    &__content {
+      overflow: visible;
+      overflow-x: scroll;
+      width: 100%;
+      &:focus {
+        outline: 3px solid $color-focus;
+        outline-offset: 3px;
+      }
+      th,
+      td {
+        @include mq(xxs, m) {
+          white-space: nowrap;
+        }
+      }
+      .ons-table__right-shadow,
+      .ons-table__left-shadow {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 5px;
+        z-index: 200;
+
+        &.ons-with-transition {
+          transition: box-shadow 0.4s ease-out;
+        }
+      }
+      .ons-table__right-shadow {
+        right: 0;
+        &.ons-visible {
+          box-shadow: inset -1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
+        }
+      }
+      .ons-table__left-shadow {
+        left: 0;
+        &.ons-visible {
+          box-shadow: inset 1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
+        }
+      }
     }
   }
 
