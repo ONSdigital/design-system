@@ -26,7 +26,32 @@ Radios are grouped within a [fieldset](/components/fieldset) which starts with a
 ## Variants
 
 ### Descriptions
-This variant allows you to add more context to the radios in the list. The description is populated by providing a `description` parameter within the radio’s `label` parameter.
+This variant allows you to add more context to the radio answers. The description is added by providing a `description` parameter within the radio’s `label` parameter.
+
+Answer descriptions are a good way to provide examples to help a user answer a question without disrupting their journey through the survey.
+
+Answer descriptions should:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'be short – try to have no more than 100 characters'
+            },
+            {
+                "text": 'be clearly written'
+            },
+            {
+                "text": 'be relevant to that answer only, not any of the other answers'
+            },
+            {
+                "text": 'start with a capital letter'
+            },
+            {
+                "text": 'not have a full stop on the end'
+            }
+        ]
+    })
+}}
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-descriptions/index.njk"})
