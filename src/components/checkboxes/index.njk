@@ -26,6 +26,38 @@ Checkboxes are grouped within a [fieldset](/components/fieldset) which starts wi
 
 ## Variants
 
+### Descriptions
+This variant allows you to add more context to the checkbox answers. The description is added by providing a `description` parameter within the checkbox’s `label` parameter.
+
+Answer descriptions are a good way to provide examples to help a user answer a question without disrupting their journey through the survey.
+
+Answer descriptions should:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'be short – try to have no more than 100 characters'
+            },
+            {
+                "text": 'be clearly written'
+            },
+            {
+                "text": 'be relevant to that answer only, not any of the other answers'
+            },
+            {
+                "text": 'start with a capital letter'
+            },
+            {
+                "text": 'not have a full stop on the end'
+            }
+        ]
+    })
+}}
+
+{{
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-descriptions/index.njk"})
+}}
+
 ### Checkbox with input
 This variant lets the user provide an answer other to the options in the list, or to provide additional information required to describe their answer.
 

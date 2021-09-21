@@ -1,0 +1,71 @@
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+
+{% call onsQuestion({
+    "title": "What type of central heating does your accommodation have?",
+    "classes": "ons-u-mt-no",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsCheckboxes({
+            "dontWrap": true,
+            "name": "central-heating",
+            "checkboxes": [
+                {
+                    "id": "none",
+                    "label": {
+                        "text": "No central heating"
+                    },
+                    "name": "none"
+                },
+                {
+                    "id": "mains-gas",
+                    "label": {
+                        "text": "Gas",
+                        "description": "Including tank or bottled gas"
+                    },
+                    "name": "mains-gas"
+                },
+                {
+                    "id": "electric",
+                    "label": {
+                        "text": "Electric",
+                        "description": "Including storage headers"
+                    },
+                    "name": "electric"
+                },
+                {
+                    "id": "oil",
+                    "label": {
+                        "text": "Oil"
+                    },
+                    "name": "oil"
+                },
+                {
+                    "id": "wood",
+                    "label": {
+                        "text": "Wood",
+                        "description": "For example, logs, waste wood or pellets"
+                    },
+                    "name": "wood"
+                },
+                {
+                    "id": "solid-fuel",
+                    "label": {
+                        "text": "Solid fuel",
+                        "description": "For example, coal"
+                    },
+                    "name": "solid-fuel"
+                },
+                {
+                    "id": "renewable",
+                    "label": {
+                        "text": "Renewable energy",
+                        "description": "For example, solar thermal or heat pumps"
+                    },
+                    "name": "renewable"
+                }
+            ]
+        })
+    }}
+{% endcall %}
