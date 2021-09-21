@@ -18,6 +18,9 @@
         {% elif params.buttonStyle is defined and params.buttonStyle == "exit" %}
             {% set iconType = "exit" %}
             {% set iconPosition = "after" %}
+        {% elif params.buttonStyle is defined and params.buttonStyle == "search" %}
+            {% set iconType = "search" %}
+            {% set iconPosition = "after" %}
         {% elif params.submitType is defined and params.submitType == "loader" %}
             {% set iconType = "loader" %}
             {% set iconPosition = "after" %}
@@ -36,7 +39,7 @@
         {% else %}
             type="{{ params.type if params.type is defined and params.type else ('button' if params.buttonStyle == "print" else 'submit') }}"
         {% endif %}
-        class="ons-btn{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.url is defined and params.url %} ons-btn--link ons-js-submit-btn{% endif %}{% if params.disabled is defined and params.disabled %} ons-btn--disabled{% endif %}{% if params.buttonStyle == "download" %} ons-btn--download{% endif %}{% if params.buttonStyle == "print" %} ons-btn--print ons-u-d-no ons-js-print-btn{% endif %}{% if params.buttonStyle == "exit" %} ons-btn--exit{% endif %}{% if params.submitType == "loader" %} ons-btn--loader ons-js-loader ons-js-submit-btn{% endif %}{% if params.submitType == "timer" %} ons-js-timer ons-js-submit-btn{% endif %}"
+        class="ons-btn{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.url is defined and params.url %} ons-btn--link ons-js-submit-btn{% endif %}{% if params.disabled is defined and params.disabled %} ons-btn--disabled{% endif %}{% if params.buttonStyle == "download" %} ons-btn--download{% endif %}{% if params.buttonStyle == "search" %} ons-btn--search{% endif %}{% if params.buttonStyle == "print" %} ons-btn--print ons-u-d-no ons-js-print-btn{% endif %}{% if params.buttonStyle == "exit" %} ons-btn--exit{% endif %}{% if params.submitType == "loader" %} ons-btn--loader ons-js-loader ons-js-submit-btn{% endif %}{% if params.submitType == "timer" %} ons-js-timer ons-js-submit-btn{% endif %}"
         {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}
         {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
         {% if params.name is defined and params.name and tag != "a" %}name="{{ params.name }}"{% elif params.name is defined and params.name and tag == "a" %}id="{{ params.name }}"{% endif %}
