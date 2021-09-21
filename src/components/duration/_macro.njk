@@ -16,11 +16,8 @@
     {% endif %}
 
     {% set fields %}
-        {% if params.label is defined and params.label %}
-            <span class="ons-u-fs-r--b ons-u-mb-xs ons-u-d-b{{ ' ons-u-mt-m' if numberOfFields < 2 }}">{{ params.label }}</span>
-        {% endif %}
-
         {% if params.field1 is defined and params.field1 %}
+            
             {{ onsInput({
                 "id": params.field1.id,
                 "classes": "ons-input-number--w-2" + (" ons-input--error" if (params.error is defined and params.error and params.field1.error is defined and params.field1.error) or (numberOfFields > 1 and params.error is defined and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else ""),
@@ -28,8 +25,12 @@
                 "name": params.field1.name,
                 "value": params.field1.value,
                 "suffix": {
-                    "title": params.field1.label,
-                    "text": params.field1.label
+                    "title": params.field1.suffix,
+                    "text": params.field1.suffix
+                },
+                "label": {
+                    "text": params.legendOrLabel if numberOfFields < 2,
+                    "description": params.description if numberOfFields < 2
                 },
                 "attributes": params.field1.attributes,
                 "fieldId": params.id if numberOfFields < 2,
@@ -45,8 +46,12 @@
                 "name": params.field2.name,
                 "value": params.field2.value,
                 "suffix": {
-                    "title": params.field2.label,
-                    "text": params.field2.label
+                    "title": params.field2.suffix,
+                    "text": params.field2.suffix
+                },
+                "label": {
+                    "text": params.legendOrLabel if numberOfFields < 2,
+                    "description": params.description if numberOfFields < 2
                 },
                 "attributes": params.field2.attributes,
                 "fieldId": params.id if numberOfFields < 2,
@@ -60,6 +65,7 @@
             "id": params.id,
             "legend": params.legend,
             "legendClasses": params.legendClasses,
+            "description": params.description,
             "error": params.error,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
             "dontWrap": params.dontWrap
@@ -73,8 +79,9 @@
     {% elif numberOfFields > 1 %}
         {% call onsFieldset({
             "id": params.id,
-            "legend": params.legend,
-            "legendClasses": params.legendClasses,
+            "legend": params.legendOrLabel,
+            "description": params.description,
+            "legendClasses": 'ons-u-mb-xs ' + (params.legendClasses if params.legendClasses),
             "error": params.error,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
             "dontWrap": params.dontWrap

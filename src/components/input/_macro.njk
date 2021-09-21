@@ -57,7 +57,7 @@
         {% endif %}
     {% endset %}
     {% set field %}
-        {% if params.label is defined and params.label %}
+        {% if params.label is defined and params.label and params.label.text is defined and params.label.text %}
             {{ onsLabel({
                 "for": params.id,
                 "id": params.label.id,
