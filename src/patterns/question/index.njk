@@ -6,6 +6,7 @@ group: Pages
 +++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
 +++
 
 Question pages are the most frequently used parts of a survey or questionnaire. They ask for a response from the user but they do not have to be mandatory; this will depend on the survey and what data is essential. 
@@ -14,7 +15,7 @@ Question pages are the most frequently used parts of a survey or questionnaire. 
 Use this pattern when you need a user to give you some information.
 
 ## When not to use this pattern
-Do not use this pattern for any pages that are not asking for information. For example, use start pages and interstitial pages to give the user information they need to complete the questions. 
+Do not use this pattern for any pages that are not asking for information. For example, use start pages and interstitial pages to give the user information they need to complete the questions.
 
 ## How to use this pattern
 
@@ -23,7 +24,22 @@ Do not use this pattern for any pages that are not asking for information. For e
     "noTabs": true
 }) }}
 
-Use the 5 basic content principles to make sure the content on your question pages is clearly written and accessible. Keep your content short so users do not have too much to read and can continue their journey without interruption. Each part of the page should follow the specific content guidance.
+Use the [basic content principles](/guidance/basic-content-principles) to make sure the content on your question pages is clearly written and accessible. Keep your content short so users do not have too much to read and can continue their journey without interruption. Each part of the page should follow the specific content guidance.
+
+## Question headings
+Most question headings are questions that end with a question mark. If they are a statement, do not include a full stop at the end. For example:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'How has your turnover changed in the 12 months?'
+            },
+            {
+                "text": 'Please describe any changes to your turnover in more detail'
+            }
+        ]
+    })
+}}
 
 ## Accessibility
 
