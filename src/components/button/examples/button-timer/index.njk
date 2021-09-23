@@ -1,12 +1,9 @@
 {% from "components/button/_macro.njk" import onsButton %}
 <form onsubmit="return false;">
-    <div class="ons-btn-group">
-        {{
-            onsButton({
-                "text": 'Submit',
-                "classes": 'ons-btn-group__btn',
-                "submitType": "timer"
-            })
-        }}
-    </div>
+    {{
+        onsButton({
+            "text": 'Submit',
+            "submitType": "timer"
+        })
+    }}
 </form>

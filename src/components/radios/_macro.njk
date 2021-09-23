@@ -51,7 +51,8 @@
                                         "name": radio.other.name,
                                         "type": radio.other.type,
                                         "required": radio.other.required,
-                                        "classes": "ons-input--w-auto " + radio.other.classes | default(''),
+                                        "classes": radio.other.classes | default(''),
+                                        "width": "auto",
                                         "attributes": radio.other.attributes,
                                         "label": {
                                             "id": radio.other.id + "-label",
@@ -97,7 +98,8 @@
                 "text": params.clearRadios.text,
                 "name": params.clearRadios.name,
                 "type": "submit",
-                "classes": "ons-btn--secondary ons-btn--small ons-js-clear-btn ons-u-mt-s ons-u-db-no-js_enabled"
+                "classes": "ons-js-clear-btn ons-u-mt-s ons-u-db-no-js_enabled",
+                "variants": ["secondary", "small"]
             }) }}
         <span class="ons-js-clear-radio-alert ons-u-vh" role="alert" aria-live="polite" data-clear="{{ params.clearRadios.ariaClearText }}" data-cleared="{{ params.clearRadios.ariaClearedText }}"></span>
     {% endif %}

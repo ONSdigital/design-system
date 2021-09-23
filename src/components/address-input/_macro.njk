@@ -14,7 +14,8 @@
                                 "label": {
                                     "text": params.organisation.label
                                 },
-                                "classes": "input--w-20@m ons-js-address-organisation",
+                                "classes": "ons-js-address-organisation",
+                                "width": "20@m",
                                 "name": params.id + "-organisation",
                                 "error": params.organisation.error
                             })
@@ -28,7 +29,8 @@
                                 "label": {
                                     "text": params.line1.label
                                 },
-                                "classes": "ons-input--w-20@m ons-js-address-line1",
+                                "classes": "ons-js-address-line1",
+                                "width": "20@m",
                                 "name": params.id + "-line1",
                                 "error": params.line1.error
                             })
@@ -42,7 +44,8 @@
                                 "label": {
                                     "text": params.line2.label
                                 },
-                                "classes": "input--w-20@m ons-js-address-line2",
+                                "classes": "ons-js-address-line2",
+                                "width": "20@m",
                                 "name": params.id + "-line2",
                                 "error": params.line2.error
                             })
@@ -70,7 +73,8 @@
                                 "label": {
                                     "text": params.postcode.label
                                 },
-                                "classes": "ons-input--w-7 ons-js-address-postcode",
+                                "classes": "ons-js-address-postcode",
+                                "width": "7",
                                 "name": params.id + "-postcode",
                                 "error": params.postcode.error
                             })
@@ -104,7 +108,8 @@
                     {{
                         onsAutosuggest({
                             "id": params.id + "-autosuggest",
-                            "classes": "ons-address-input__autosuggest ons-input--w-50 ons-u-mb-no",
+                            "classes": "ons-address-input__autosuggest ons-u-mb-no",
+                            "width": "50",
                             "label": {
                                 "text": params.label.text,
                                 "id": params.label.id,
