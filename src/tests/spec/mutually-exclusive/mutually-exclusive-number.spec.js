@@ -4,7 +4,7 @@ import renderTemplate from '../../helpers/render-template';
 const params = {
   id: 'currency',
   type: 'number',
-  classes: 'ons-input--w-5',
+  width: '5',
   attributes: {
     min: 0,
   },

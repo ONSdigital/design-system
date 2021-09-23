@@ -78,7 +78,8 @@
                     onsButton({
                         "id": params.button.id,
                         "type": params.button.type,
-                        "classes": "ons-btn--ghost" + (" " + params.button.classes if params.button.classes else ""),
+                        "classes": params.button.classes if params.button.classes else "",
+                        "variants": "ghost",
                         "text": params.button.text,
                         "html": params.button.html,
                         "name": params.button.name,
@@ -114,7 +115,8 @@
                             {% endif %}
                             {{
                                 onsList({
-                                    "classes": 'ons-list--bare ons-list--inline@m ons-u-mb-no',
+                                    "classes": 'ons-u-mb-no',
+                                    "variants": ['bare', 'inline@m'],
                                     "itemsList": languageItems
                                 })
                             }}
@@ -138,7 +140,8 @@
                                 {% endif %}
                                 {{
                                     onsList({
-                                        "classes": 'ons-list--bare ons-u-mb-no',
+                                        "classes": 'ons-u-mb-no',
+                                        "variants": 'bare',
                                         "itemsList": col.itemsList
                                     })
                                 }}
@@ -158,7 +161,7 @@
                             <div class="ons-grid__col">
                                 {{
                                     onsList({
-                                        "classes": "ons-list--bare ons-list--inline",
+                                        "variants": ["bare", "inline"],
                                         "itemsList": row.itemsList
                                     })
                                 }}
@@ -222,7 +225,8 @@
                                 <div class="ons-grid__col">
                                     {{
                                         onsList({
-                                            "classes": 'ons-list--bare ons-list--inline ons-u-mb-m',
+                                            "classes": 'ons-u-mb-m',
+                                            "variants": ['bare', 'inline'],
                                             "itemsList": legal.itemsList
                                         })
                                     }}
