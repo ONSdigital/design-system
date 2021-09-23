@@ -82,7 +82,7 @@ Write them as statements rather than questions, for example:
 Only use one question description on a page.
 
 ### Question guidance (optional)
-Question guidance panels are for extra information that a user needs to know to answer a question. Use it to explain what they should include or not include in their answer.
+Question guidance panels are for extra information that a user needs to know to answer a question. Use them to explain what they should include or not include in their answer.
 
 Format using bold for the Include and Exclude labels. If there is a single exclude or include, format this as a single line without the bold:
 {{
@@ -99,7 +99,7 @@ Use a question justification to explain why a question is being asked if there i
 
 A question justification is collapsible and positioned at the bottom of the page so it does not disrupt the flow of the page for users.
 
-Like the question definition, phrase them as statements rather than questions, for example:
+Like the question definition, write them as statements rather than questions, for example:
 {{-
     onsTextIndent({
         text: '<p><strong>Why we ask this question</strong><br>
@@ -144,11 +144,11 @@ Answers should be wrapped in a fieldset when:
 
 When wrapping the radios in a fieldset for the [relationships pattern](/patterns/relationships), you should add `"readDescriptionFirst" :true` so screen readers announce the description before the question heading.
 
-### Legend as page or question title
+### Legend as question heading
 
-When the question page contains a fieldset, it is quite possible that the page heading (`h1`) is the same as what the legend needs to be.
+When the question page contains a fieldset, it is quite possible that the question heading (`<h1>`) is the same as what the legend needs to be.
 
-To avoid the visual repetition of text you should wrap the `h1` inside the legend. Add the parameter `"legendIsQuestionTitle": true` inside the `onsQuestion` configuration. You also need to include `"dontWrap": true` in the configuration of the component you are using for the answer.
+To avoid the visual repetition of text you should wrap the `<h1>` inside the `<legend>`. Add the parameter `"legendIsQuestionTitle": true` inside the `onsQuestion` configuration. You also need to include `"dontWrap": true` in the configuration of the component you are using for the answer.
 
 +++
 {% from "components/panel/_macro.njk" import onsPanel %}
@@ -174,7 +174,7 @@ To avoid the visual repetition of text you should wrap the `h1` inside the legen
     "path": "components/question/examples/question-no-fieldset/index.njk"
 }) }}
 
-### Question with a interviewer instruction
+### Question with an interviewer instruction
 
 {{ patternlibExample({
     "path": "components/question/examples/question-ccs/index.njk"
