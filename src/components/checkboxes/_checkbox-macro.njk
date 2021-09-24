@@ -34,7 +34,8 @@
                         "name": params.other.name,
                         "type": params.other.type,
                         "required": params.other.required,
-                        "classes": "ons-input--w-auto " + params.other.classes | default(''),
+                        "classes": params.other.classes | default(''),
+                        "width": "auto",
                         "attributes": params.other.attributes,
                         "label": {
                             "id": params.other.id + "-label",

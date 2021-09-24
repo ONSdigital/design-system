@@ -3,12 +3,12 @@ import renderTemplate from '../../helpers/render-template';
 
 const params = {
   id: 'address-duration',
-  legend: 'How long have you lived at this address?',
+  legendOrLabel: 'How long have you lived at this address?',
   description: 'If you have lived at this address for less than a year then enter 0 into the year input.',
   field1: {
     id: 'address-duration-years',
     name: 'address-duration-years',
-    label: 'Years',
+    suffix: 'Years',
     attributes: {
       min: 0,
       max: 100,
@@ -17,7 +17,7 @@ const params = {
   field2: {
     id: 'address-duration-months',
     name: 'address-duration-months',
-    label: 'Months',
+    suffix: 'Months',
     attributes: {
       min: 0,
       max: 11,
@@ -84,7 +84,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
             // prettier-ignore
-            `${params.field1.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.field2.label} ${params.mutuallyExclusive.deselectGroupAdjective}.`,
+            `${params.field1.suffix} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.field2.suffix} ${params.mutuallyExclusive.deselectGroupAdjective}.`,
           );
           done();
         }, 300);

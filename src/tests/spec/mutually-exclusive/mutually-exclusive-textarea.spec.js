@@ -6,7 +6,7 @@ import { populateTextarea } from '../textarea/character-limit.spec';
 const params = {
   id: 'feedback',
   name: 'feedback',
-  classes: 'ons-input--w-30',
+  width: '30',
   label: {
     text: 'Please provide some feedback',
     description: 'For example describe any difficulties you experienced in the use of this service',
