@@ -140,16 +140,6 @@ $button-border-height: 3px;
     }
   }
 
-  &--search & {
-    &__inner {
-      .ons-svg-icon {
-        height: 1.1rem;
-        margin: -0.1rem 0 0;
-        width: 1.1rem;
-      }
-    }
-  }
-
   // When hovered
   &:hover & {
     &__inner {
