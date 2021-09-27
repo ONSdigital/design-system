@@ -1,5 +1,7 @@
-.ons-toc-container {
-  border-bottom: 1px solid $color-grey-15;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
+.ons-toc {
+  &-container {
+    border-bottom: 1px solid $color-grey-15;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
 }
