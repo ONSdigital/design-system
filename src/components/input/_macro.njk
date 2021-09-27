@@ -26,7 +26,7 @@
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="ons-input ons-input--text ons-input-type__input{% if params.error is defined and params.error %} ons-input--error{% endif %}{% if params.searchButton is defined and params.searchButton %} ons-search__input{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.width is defined and params.width %} ons-input{% if params.type is defined and (params.type === 'number' or params.type === 'tel') %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            class="ons-input ons-input--text ons-input-type__input{% if params.error is defined and params.error %} ons-input--error{% endif %}{% if params.searchButton is defined and params.searchButton %} ons-search__input{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.width is defined and params.width %} ons-input{% if params.type is defined and (params.type == 'number' or params.type == 'tel') %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
             {% if params.prefix is defined and params.prefix or params.suffix is defined and params.suffix %}title="{{ params.prefix.title if params.prefix }}{{ params.suffix.title if params.suffix }}"{% endif %}
             {% if params.name is defined and params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
