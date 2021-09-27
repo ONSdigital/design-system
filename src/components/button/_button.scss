@@ -31,10 +31,10 @@ $button-border-height: 3px;
 
   .ons-svg-icon {
     fill: $color-text-inverse;
-    height: 0.8rem;
-    margin: 0 0 0.1rem 0.5rem;
+    height: 18px;
+    margin-top: -$button-border-height;
     vertical-align: middle;
-    width: 0.8rem;
+    width: 18px;
   }
 
   &--search {
@@ -90,14 +90,14 @@ $button-border-height: 3px;
 
   // When clicked
   &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):active {
-    padding-top: ems(3px);
+    padding-top: ems($button-border-height);
   }
 
   &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):active &__inner {
     border-bottom: 0;
   }
 
-  // Modifiers
+  // Small buttons
   &--small,
   &--mobile {
     font-size: 0.9rem;
@@ -110,32 +110,23 @@ $button-border-height: 3px;
     }
   }
 
+  // Inline button
   &--inline & {
     &__inner {
       padding: 0.5rem 1rem;
     }
   }
 
+  // Secondary button style
   &--secondary &,
-  &--print &,
-  &--download & {
+  &--download &,
+  &--print & {
     &__inner {
       background: $color-button-secondary;
       color: $color-text;
       font-weight: normal;
       .ons-svg-icon {
         fill: $color-text;
-      }
-    }
-  }
-
-  &--print &,
-  &--download & {
-    &__inner {
-      .ons-svg-icon {
-        height: 1rem;
-        margin: 0 0.5rem 0.1rem 0;
-        width: 1rem;
       }
     }
   }

@@ -24,6 +24,14 @@
         {% elif params.url is defined and params.url or params.buttonStyle is defined and params.buttonStyle == "mobile" %}
             {% set iconType = "chevron" %}
             {% set iconPosition = "after" %}
+        {# Customisable button icon #}
+        {% elif params.iconType is defined and params.iconType %}
+            {% set iconType = params.iconType %}
+            {% if params.iconPosition is defined and params.iconPosition %}
+                {% set iconPosition = params.iconPosition %}
+            {% else %}
+                {% set iconPosition = "before" %}
+            {% endif %}
         {% endif %}
     {% endif %}
 
@@ -50,7 +58,8 @@
                 {%- if iconPosition == "before" %}
                     {{
                         onsIcon({
-                            "icon": iconType
+                            "icon": iconType,
+                            "classes": 'ons-u-mr-xs'
                         })
                     }}
                 {% endif -%}
@@ -58,7 +67,8 @@
                 {%- if iconPosition == "after" %}
                 {{
                     onsIcon({
-                        "icon": iconType
+                        "icon": iconType,
+                        "classes": 'ons-u-ml-xs'
                     })
                 }}
                 {% endif -%}
