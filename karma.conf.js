@@ -39,7 +39,6 @@ export default function(config) {
     files: [
       { pattern: 'src/components/**/*.njk', included: false },
       'src/scss/main.scss',
-      'src/js/public-path-override.js',
       { pattern: 'src/js/polyfills.js', included: process.env.TEST_MODE === 'nomodule' },
       'src/tests/spec/**/*.spec.js',
     ],
