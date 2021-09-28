@@ -75,7 +75,8 @@
             {% elif iconPosition == "only" -%}
                 {{
                     onsIcon({
-                        "icon": iconType
+                        "icon": iconType,
+                        "classes": 'ons-u-mr-xs@s@m'
                     })
                 }}
                 <span class="ons-u-vh@xxs@s">{{- params.html | safe if params.html is defined and params.html else params.text -}}</span>

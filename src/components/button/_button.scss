@@ -32,7 +32,7 @@ $button-border-height: 3px;
   .ons-svg-icon {
     fill: $color-text-inverse;
     height: 18px;
-    margin-top: -$button-border-height;
+    margin-top: -ems($button-border-height);
     vertical-align: middle;
     width: 18px;
   }
@@ -56,7 +56,7 @@ $button-border-height: 3px;
     border-radius: $input-radius;
     color: $color-text-inverse;
     display: inherit;
-    padding: 0.75em 1em;
+    padding: 0.723em 1em 0.777em;
     // Required for Google Tag Manager
     pointer-events: none;
   }
@@ -103,7 +103,17 @@ $button-border-height: 3px;
     font-size: 0.9rem;
   }
 
-  &--small &,
+  &--small & {
+    &__inner {
+      padding: 0.6em 0.7em 0.4em;
+      .ons-svg-icon {
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
+
+  &--small.ons-btn--ghost &,
   &--mobile & {
     &__inner {
       padding: 0.5em 0.7em;
@@ -118,9 +128,7 @@ $button-border-height: 3px;
   }
 
   // Secondary button style
-  &--secondary &,
-  &--download &,
-  &--print & {
+  &--secondary & {
     &__inner {
       background: $color-button-secondary;
       color: $color-text;
@@ -138,9 +146,7 @@ $button-border-height: 3px;
     }
   }
 
-  &--secondary:hover &,
-  &--print:hover &,
-  &--download:hover & {
+  &--secondary:hover & {
     &__inner {
       background: darken($color-button-secondary, 5%);
     }
