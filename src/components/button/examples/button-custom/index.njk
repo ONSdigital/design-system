@@ -1,128 +1,21 @@
 {% from "components/button/_macro.njk" import onsButton %}
 
-<div class="ons-grid">
-    <div class="ons-grid-col ons-grid__col ons-u-mb-m">
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Search',
-                "iconType": 'search'
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Search',
-                "iconType": 'chevron',
-                "iconPosition": 'after'
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Finish',
-                "iconType": 'check'
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Delete',
-                "iconType": 'lock'
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Delete',
-                "iconType": 'exit'
-            })
-        }}
-    </div>
-    <div class="ons-grid-col ons-grid__col ons-u-mb-m">
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Search',
-                "iconType": 'search',
-                "variants": 'secondary'
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Search',
-                "iconType": 'chevron',
-                "iconPosition": 'after',
-                "variants": 'secondary'
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Finish',
-                "iconType": 'check',
-                "variants": 'secondary'
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Delete',
-                "iconType": 'lock',
-                "variants": 'secondary'
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Delete',
-                "iconType": 'exit',
-                "variants": 'secondary'
-            })
-        }}
-    </div>
-    <div class="ons-grid-col ons-grid__col ons-u-mb-m">
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Search',
-                "iconType": 'search',
-                "variants": ['secondary', 'small']
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Search',
-                "iconType": 'chevron',
-                "iconPosition": 'after',
-                "variants": ['secondary', 'small']
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Finish',
-                "iconType": 'check',
-                "variants": ['secondary', 'small']
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Delete',
-                "iconType": 'lock',
-                "variants": ['secondary', 'small']
-            })
-        }}
-        {{
-            onsButton({
-                "type": 'button',
-                "text": 'Delete',
-                "iconType": 'exit',
-                "variants": ['secondary', 'small']
-            })
-        }}
-    </div>
+<div class="ons-u-mb-m">
+    {{
+        onsButton({
+            "type": 'button',
+            "text": 'Done',
+            "iconType": 'check'
+        })
+    }}
+</div>
+<div>
+    {{
+        onsButton({
+            "type": 'button',
+            "text": 'Search',
+            "iconType": 'search',
+            "variants": ['secondary', 'small']
+        })
+    }}
 </div>
