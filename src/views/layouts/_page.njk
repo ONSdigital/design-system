@@ -59,7 +59,7 @@
                     <div class="ons-patternlib-page__content">
                         {% block preMain %}
                             {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
-                            {% if pageInfo.parent.title === 'Home' %}
+                            {% if pageInfo.parent.title == 'Home' %}
                                 {{
                                     onsBreadcrumbs({
                                         "ariaLabel": 'Breadcrumbs',
@@ -110,7 +110,7 @@
                 {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNavigation %}
                 <div class="ons-grid__col ons-col-3@m">
                     <div class="ons-patternlib-page__sub-nav ons-u-mt-l@m ons-u-mb-l">
-                        {% if pageInfo.parent.title === 'Home' %}
+                        {% if pageInfo.parent.title == 'Home' %}
                             <h2 class="ons-u-fs-r--b ons-u-mt-m@xxs@m ons-u-d-no@m">Contents</h2>
                         {% else %}
                             <h2 class="ons-u-fs-r--b ons-u-bt@xxs@m ons-u-mt-m@xxs@m ons-u-pt-m@xxs@m ons-u-d-no@m">More in ‘{{ pageInfo.parent.title }}’</h2>
