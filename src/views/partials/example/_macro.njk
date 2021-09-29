@@ -30,21 +30,21 @@
             {% endif %}
             {% if params.noTabs is not defined %}
                 <div class="ons-patternlib-example__tabs">
-                    {% if params.noHTMLTab is not defined %}
+                    {%- if params.noHTMLTab is not defined -%}
                         <label class="ons-patternlib-example__tab ons-u-fs-r ons-js-example-tab" for="{{ params.name }}-html">HTML</label>
-                    {% endif %}
-                    {% if params.raw is defined and params.raw and not params.noRawTab %}
+                    {%- endif -%}
+                    {%- if params.raw is defined and params.raw and not params.noRawTab -%}
                         <label class="ons-patternlib-example__tab ons-u-fs-r ons-js-example-tab" for="{{ params.name }}-nunjucks">Nunjucks</label>
-                    {% endif %}
-                    {% if params.options is defined and params.options %}
+                    {%- endif -%}
+                    {%- if params.options is defined and params.options -%}
                         <label class="ons-patternlib-example__tab ons-u-fs-r ons-js-example-tab" for="{{ params.name }}-options">Nunjucks macro options</label>
-                    {% endif %}
-                    {% if params.template is defined and params.template and not params.noTemplateTab %}
+                    {%- endif -%}
+                    {%- if params.template is defined and params.template and not params.noTemplateTab -%}
                         <label class="ons-patternlib-example__tab ons-u-fs-r ons-js-example-tab" for="{{ params.name }}-template">Nunjucks Template</label>
-                    {% endif %}
-                    {% if params.scss is defined and params.scss and not params.noScssTab %}
+                    {%- endif -%}
+                    {%- if params.scss is defined and params.scss and not params.noScssTab -%}
                         <label class="ons-patternlib-example__tab ons-u-fs-r ons-js-example-tab" for="{{ params.name }}-scss">SCSS</label>
-                    {% endif %}
+                    {%- endif -%}
                 </div>
             {% endif %}
             {% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
