@@ -31,6 +31,7 @@ hr {
 
 a {
   color: $color-text-link;
+  text-decoration-thickness: 1px;
   text-underline-position: under;
   &:not(.ons-u-fs-r--b):hover {
     .ons-u-fs-l &,

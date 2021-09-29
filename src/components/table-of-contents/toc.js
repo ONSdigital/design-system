@@ -6,7 +6,7 @@ export default class Toc {
     this.observerOptions = {
       root: null,
       rootMargin: '0px 0px -70% 0px',
-      threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+      threshold: [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
     };
 
     this.observe = new IntersectionObserver(this.setCurrent, this.observerOptions);
@@ -22,9 +22,10 @@ export default class Toc {
   setCurrent(event) {
     event.map(element => {
       const position = element.boundingClientRect;
+      console.log(position.top);
       document
         .querySelector(`.ons-toc li a[href="#${element.target.id}"]`)
-        .classList[element.isIntersecting === true && position.top < 70 && position.top > -100 ? 'add' : 'remove']('ons-u-fw-b');
+        .classList[element.isIntersecting === true && position.top < 70 && position.top > -100 ? 'add' : 'remove']('ons-toc__link-active');
     });
   }
 }

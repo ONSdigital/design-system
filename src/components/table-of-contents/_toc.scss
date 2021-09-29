@@ -4,4 +4,9 @@
     margin-bottom: 2rem;
     padding-bottom: 1rem;
   }
+
+  &__link-active {
+    color: $color-text-link-hover;
+    text-decoration: underline solid $color-text-link-hover 2px;
+  }
 }
