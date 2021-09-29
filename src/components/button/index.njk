@@ -54,9 +54,9 @@ If a call to action button needs to open in a new window, for example, for a web
 }}
 
 ### Ghost
-The ghosted button style is for use in the [header](/components/header/#external-with-language-and-save-button) or [footer](/components/footer). This can be used to allow a user to save and sign out of the current context.
+The ghosted button style is for use in the [header](/components/header/#external-with-language-and-save-button) or [footer](/components/footer). This can be used to allow a user to exit or [save and sign out](/patterns/save-and-sign-out) of a service.
 
-Setting the `buttonStyle` param to `exit` adds the appropriate icon for a 'sign out' or 'exit' button.
+Setting the `iconType` parameter to `exit` adds the appropriate icon for a 'sign out' or 'exit' button.
 {{
     patternlibExample({
         "path": "components/button/examples/button-ghost/index.njk",
@@ -103,7 +103,7 @@ Placing buttons directly next to each other in your template will display them h
 ### Custom icon buttons
 You can add an icon to a button using the parameters `iconType` and `iconPosition`.
 
-There is specific guidance on [how to use the set of icons](/foundations/icons).
+There is specific guidance on [how to use the available set of icons](/foundations/icons).
 {{
     patternlibExample({"path": "components/button/examples/button-custom/index.njk"})
 }}
