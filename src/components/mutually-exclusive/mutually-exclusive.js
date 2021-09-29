@@ -100,7 +100,7 @@ export default class MutuallyExclusive {
       label = this.context.querySelector(`.${inputLegendClass}`);
     }
 
-    // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
+    // This filter is used to strip out any text that is in 'ons-u-vh' elements for accessibility
     let labelText;
 
     if (label.classList.contains(inputAbbrClass)) {
