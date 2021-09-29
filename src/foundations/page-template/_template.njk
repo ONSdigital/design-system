@@ -218,7 +218,6 @@
 
         <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce is defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
             (function() {
-                {% if assetsURL is defined and assetsURL -%}window.ONS_assets_base_URL = "{{ assetsURL }}/";{%- endif %}
                 var s = '{{ scripts | safe }}'.split(','),
                 c = document.createElement('script');
 
