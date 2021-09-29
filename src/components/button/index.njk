@@ -96,25 +96,27 @@ Setting `"submitType": 'loader'` will disable the button when selected and show 
 }}
 
 ### Timer
-The timer button is aimed at stopping forms being submitted twice when users double click the submit button. Setting SubmitType to `timer` will disable the button for one second on click.
+The timer button can be used to prevent forms being submitted twice when users double-click the submit button. Setting `"submitType": 'loader'` will disable the button for one second after it’s selected.
 {{
     patternlibExample({"path": "components/button/examples/button-timer/index.njk"})
 }}
 
 ### Print
-The `buttonStyle` parameter can be set to `print` to render a print button. This will take care of adding iconography and classes for the `print-button.js` file to pick up. The button will not render until `print-button.js` has run, and will not be visible on printed pages.
+Setting `"buttonStyle": 'print'` will show a button with a print icon and add classes used in the `print-button.js` file.
+
+The button will not show until the JavaScript has run, and will not be shown on a printed page.
 {{
     patternlibExample({"path": "components/button/examples/button-print/index.njk"})
 }}
 
 ### Download
-The `buttonStyle` parameter can be set to `download` to render a download button. This will take care of adding iconography and the `download` attribute which will force the browser to save the file at the specified `url`.
+Setting `"buttonStyle": 'download'` will show a button with a download icon and add the `download` attribute to make the browser save the file at the specified `url`.
 {{
     patternlibExample({"path": "components/button/examples/button-download/index.njk"})
 }}
 
 ### Grouping buttons
-Placing buttons directly next to each other in your template will display them horizontally side by side. This will allow for a page to have two actions available to the user such as Continue and Cancel.
+Placing buttons directly one after the other in your template will display them side by side. This lets you show a positive primary action next to a negative secondary action, for example, “Continue” and “Cancel”.
 {{
     patternlibExample({"path": "components/button/examples/button-group/index.njk"})
 }}
