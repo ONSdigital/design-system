@@ -36,6 +36,8 @@
 
   &__link,
   &__tab {
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
     color: $color-text-link;
     cursor: pointer;
     display: inline-block;
