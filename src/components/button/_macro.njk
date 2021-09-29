@@ -11,7 +11,7 @@
             {# Default icon position before label #}
             {% set iconPosition = "before" %}
         {% endif %}
-    {% elif params.iconType is not defined %}
+    {% elif params.iconType is not defined and params.noIcon is not defined %}
         {# Opens in new tab #}
         {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}
             {% set iconType = "external-link" %}
@@ -75,8 +75,7 @@
             {% elif iconPosition == "only" -%}
                 {{
                     onsIcon({
-                        "iconType": iconType,
-                        "classes": 'ons-u-mr-xs@s@m'
+                        "iconType": iconType
                     })
                 }}
                 <span class="ons-u-vh@xxs@s">{{- params.html | safe if params.html is defined and params.html else params.text -}}</span>

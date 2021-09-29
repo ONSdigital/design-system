@@ -38,14 +38,9 @@ $button-border-height: 3px;
   }
 
   &--search {
-    .svg-icon {
-      height: 21px;
-      margin: 0;
-      vertical-align: top;
-      width: 21px;
-
+    .ons-svg-icon {
       @include mq(s, m) {
-        margin-left: -2px;
+        margin-right: 0.5rem;
       }
     }
   }
@@ -186,8 +181,7 @@ $button-border-height: 3px;
     position: relative;
     transition: color 0.3s ease-in-out;
     .ons-svg-icon {
-      fill: $color-white;
-      height: 1.5rem;
+      height: 27px;
       left: 50%;
       margin: 0;
       opacity: 0;
@@ -195,13 +189,21 @@ $button-border-height: 3px;
       top: 50%;
       transform: translate(-50%, -50%);
       transition: opacity 0.3s ease-in-out;
-      width: 1.5rem;
+      width: 27px;
+    }
+  }
+
+  &--loader.ons-btn--small {
+    .ons-svg-icon {
+      height: 24px;
+      width: 24px;
     }
   }
 
   &--loader.ons-is-loading &__inner {
     color: transparent;
     .ons-svg-icon {
+      margin-left: 0 !important;
       opacity: 1;
     }
   }
