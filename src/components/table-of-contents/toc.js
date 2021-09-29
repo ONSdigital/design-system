@@ -22,7 +22,6 @@ export default class Toc {
   setCurrent(event) {
     event.map(element => {
       const position = element.boundingClientRect;
-      console.log(position.top);
       document
         .querySelector(`.ons-toc li a[href="#${element.target.id}"]`)
         .classList[element.isIntersecting === true && position.top < 70 && position.top > -100 ? 'add' : 'remove']('ons-toc__link-active');

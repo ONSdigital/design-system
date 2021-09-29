@@ -8,23 +8,41 @@ title: Table of contents
 {% from "components/panel/_macro.njk" import onsPanel %}
 +++
 
-{{
-    onsPanel({
-        "body": 'This component requires documentation.'
-    })
-}}
+The table of contents allow users to navigate between related pages or sections of a page.
 
-# Table of contents - simple
+
 {{
     patternlibExample({"path": "components/table-of-contents/examples/table-of-contents-single/index.njk"})
 }}
 
-# Table of contents - multiple sections
+## When to use this component
+Use a table of contents at the top of the page to allow users to navigate around a small group of related pages.
+
+If you're using a table of contents, you should also use the [pager component](/components/pagination/#pager) at the bottom of the page. The 2 components make up the [guide pattern](/patterns/guide/).
+
+## Variants
+### Table of contents - multiple sections
 {{
     patternlibExample({"path": "components/table-of-contents/examples/table-of-contents-multiple/index.njk"})
 }}
 
-# Table of contents - Sticky with active section 
+### Table of contents - In page navigation
+
+This variant should be used for linking to sections within the page. As the user scrolls, the table of contents will 'stick' to the top of the viewport. The link that is relative to the current section will show an active state. This allows the user to quickly change sections and orientate themselves.
+
+### How to use this variant
+- You must wrap the grid layout with a `<div>` using the class `.ons-js-toc-container`
+- The grid column that wraps the table of contents must use the additional class `ons-grid__col--sticky@m`
+- Each block of content must be wrapped in a `<section>` that contains a unique ID, for example `<section id="section1">`
+- Each link in the table of contents must contain a `url` value that links to the id of the appropriate section. This uses a URI fragment, for example `#section1`
+- Each `section` should contain a `<h2>` with a heading that matches it's corresponding table of contents link.
+
+{{
+    onsPanel({
+        "body": 'Position the iframe of the example below at the top of the viewport or open in a new tab to ensure the behaviour can be viewed successfully.'
+    })
+}}
+
 {{
     patternlibExample({
         "path": "components/table-of-contents/examples/table-of-contents-sticky/index.njk",
