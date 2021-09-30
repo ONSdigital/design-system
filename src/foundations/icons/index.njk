@@ -8,9 +8,51 @@ sortOrder: 5
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "foundations/icons/_macro.njk" import onsIconSwatch %}
 +++
 
 An icon can help convey a function when put next to text. For example, a printer icon on a button labelled “Print this page”.
+
+{{
+    onsIconSwatch({
+        "containerId": 'a-to-z',
+        "itemsList": [
+            {
+                "iconType": 'arrow-next'
+            },
+            {
+                "iconType": 'arrow-previous'
+            },
+            {
+                "iconType": 'check'
+            },
+            {
+                "iconType": 'chevron'
+            },
+            {
+                "iconType": 'download'
+            },
+            {
+                "iconType": 'exit'
+            },
+            {
+                "iconType": 'external-link'
+            },
+            {
+                "iconType": 'lock'
+            },
+            {
+                "iconType": 'person'
+            },
+            {
+                "iconType": 'print'
+            },
+            {
+                "iconType": 'search'
+            }
+        ]
+    })
+}}
 
 ## When to use icons
 
@@ -65,8 +107,8 @@ The chevron icon on the [back link](/components/back-link) shows the link will m
     patternlibExample({"path": "components/back-link/examples/back-link/index.njk", "componentFolderPath": "components/breadcrumbs" })
 }}
 
-## How to use icons
-You can use an icon with the following:
+## How it works
+You can use an icon with a:
 {{
     onsList({
         "itemsList": [
@@ -86,77 +128,18 @@ You can use an icon with the following:
     })
 }}
 
-### Icon position
+### Icon type
+To set the type of icon, use the parameter `iconType` with the [name of the icon](#a-to-z).
 
-You can set an icon’s position before or after the text on a button or a list Use the parameter `iconPosition` and give it a value of either “before” or ”after”.
+### Icon position
+You can set an icon’s position to before or after the text on a button or list. Use the parameter `iconPosition` and give it a value of either “before” or ”after”.
 
 ### Icon size
+You can change the size of an icon in the panel component – from the default size of regular text – to match the size of the text class in the [typography type scale](/foundations/typography/#type-scale). 
 
-When using an icon in the panel component, you can change it’s size from the default (sized to regular text) to match the size of the text set by the [typography type scale](/foundations/typography/#type-scale). Use the parameter `iconSize` and give it a value of either: “s”, “m”, “l”, “xl”, “xxl” or “xxxl”.
+Use the parameter `iconSize` and give it a value of either: “s”, “m”, “l”, “xl”, “xxl” or “xxxl”.
 {{
     patternlibExample({"path": "foundations/icons/examples/icons-size/index.njk", "componentFolderPath": "components/panel" })
-}}
-
-### Icon type
-
-To set the type of icon, use the parameter `iconType` with either of the following values:
-
-#### Check
-Use `"iconType": 'check'` to inform user a process has been successfully completed.
-{{
-    patternlibExample({"path": "foundations/icons/examples/icons-list-prefix/index.njk", "componentFolderPath": "components/lists" })
-}}
-
-#### Chevron
-Use `"iconType": 'chevron'` to inform user they will move forward to the next page.
-{{
-    patternlibExample({"path": "components/button/examples/button-link/index.njk", "componentFolderPath": "components/button" })
-}}
-
-#### Download
-Use `"iconType": 'download'` to inform the user a file will download to their device.
-{{
-    patternlibExample({"path": "components/button/examples/button-download/index.njk", "componentFolderPath": "components/button" })
-}}
-
-#### Exit
-Use `"iconType": 'exit'` to inform the user they will leave the part of the service they are in.
-{{
-    patternlibExample({"path": "components/button/examples/button-ghost/index.njk", "componentFolderPath": "components/button" })
-}}
-
-#### Opens in a new tab
-Use `"iconType": 'external-link'` to inform the user that a new tab will open.
-{{
-    patternlibExample({"path": "components/button/examples/button-link-new-window/index.njk", "componentFolderPath": "components/button" })
-}}
-
-#### Lock
-Use `"iconType": 'lock'` to reassure the user their information is secure.
-{{
-    patternlibExample({"path": "components/panel/examples/bare/index.njk", "componentFolderPath": "components/panel" })
-}}
-
-#### Person
-Use `"iconType": 'person'` to indicate a person’s details.
-{{
-    patternlibExample({"path": "components/summary/examples/summary-household/index.njk", "componentFolderPath": "components/summary" })
-}}
-
-#### Print
-Use `"iconType": 'print'` to inform the user something will be sent to their printer.
-{{
-    patternlibExample({"path": "components/button/examples/button-print/index.njk", "componentFolderPath": "components/button" })
-}}
-
-#### Search
-Use `"iconType": 'search'` to inform the user they can search for something.
-
-#### Social media
-Use `"iconType": 'twitter'`, `"iconType": 'facebook'`, `"iconType": 'instagram'` or `"iconType": 'linkedin'` for links to social media channels.
-
-{{
-    patternlibExample({"path": "foundations/icons/examples/icons-social-list/index.njk", "componentFolderPath": "components/lists" })
 }}
 
 ## Help improve this foundation

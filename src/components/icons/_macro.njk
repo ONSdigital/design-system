@@ -9,6 +9,14 @@
         <svg class="{{ iconClasses }}" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
             <path d="M4.2,12c0-0.6,0.4-1,1-1h11.2l-4.9-4.9c-0.4-0.4-0.4-1,0-1.4c0.4-0.4,1-0.4,1.4,0l6.6,6.6c0.4,0.4,0.4,1,0,1.4l-6.6,6.6c-0.4,0.4-1,0.4-1.4,0c-0.4-0.4-0.4-1,0-1.4l4.9-4.9H5.2C4.7,13,4.2,12.6,4.2,12z" fill="currentColor"></path>
         </svg>
+    {% elif params.iconType == "arrow-next" %}
+        <svg class="{% if params.iconSize %}ons-svg-icon ons-svg-icon--{{ params.iconSize }}{% else %}ons-svg-icon{% endif %} {{ iconClasses }}" viewBox="0 0 17 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor">
+            <path d="M10,0.2L9.1,1.1C9,1.2,9,1.5,9.1,1.6l4,4H0.6C0.4,5.6,0.2,5.8,0.2,6v1.2c0,0.2,0.2,0.4,0.4,0.4h12.5l-3.9,3.7c-0.2,0.2-0.2,0.4,0,0.6l0.8,0.9c0.2,0.2,0.4,0.2,0.6,0l6.2-5.8c0.2-0.2,0.2-0.4,0-0.6l-6.1-6.1C10.4,0.1,10.2,0.1,10,0.2z"></path>
+        </svg>
+    {% elif params.iconType == "arrow-previous" %}
+        <svg class="{% if params.iconSize %}ons-svg-icon ons-svg-icon--{{ params.iconSize }}{% else %}ons-svg-icon{% endif %} {{ iconClasses }}" viewBox="0 0 17 13" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor">
+            <path d="M6.4,0.2L0.3,6.4c-0.2,0.2-0.2,0.4,0,0.6l6.2,5.8c0.2,0.2,0.4,0.1,0.6,0l0.8-0.9c0.2-0.2,0.1-0.4,0-0.6L3.9,7.6h12.5c0.2,0,0.4-0.2,0.4-0.4V6c0-0.2-0.2-0.4-0.4-0.4H3.8l4-4C8,1.5,8,1.2,7.9,1.1L7,0.2C6.9,0.1,6.6,0.1,6.4,0.2z"></path>
+        </svg>
     {% elif params.iconType == "check" %}
         <svg class="{% if params.iconSize %}ons-svg-icon ons-svg-icon--{{ params.iconSize }}{% else %}ons-svg-icon{% endif %} {{ iconClasses }}" viewBox="0 0 13 10" xmlns="http://www.w3.org/2000/svg" focusable="false" fill="currentColor">
             <path d="M14.35,3.9l-.71-.71a.5.5,0,0,0-.71,0h0L5.79,10.34,3.07,7.61a.51.51,0,0,0-.71,0l-.71.71a.51.51,0,0,0,0,.71l3.78,3.78a.5.5,0,0,0,.71,0h0L14.35,4.6A.5.5,0,0,0,14.35,3.9Z" transform="translate(-1.51 -3.04)"/>
