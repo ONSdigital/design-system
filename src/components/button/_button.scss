@@ -17,6 +17,7 @@ $button-border-height: 3px;
   text-decoration: none;
   text-rendering: optimizeLegibility;
   vertical-align: top;
+  white-space: nowrap;
 
   // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
   &::after {
