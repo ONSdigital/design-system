@@ -33,18 +33,18 @@
                     {% set itemText = item.title %}
                 {% endif %}
 
-                {%- if item.index is defined and item.index or item.prefix is defined and item.prefix or (item.iconPosition is defined and item.iconPosition == 'before') -%}
+                {%- if item.index is defined and item.index or item.prefix is defined and item.prefix or (params.iconPosition is defined and params.iconPosition == 'before') -%}
                     <span class="ons-list__prefix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
                     {%- if item.prefix is defined and item.prefix -%}
                         {{- item.prefix -}}.
                     {%- elif (item.index is defined and item.index and listEl != 'ol') or (item.index is defined and item.index and listEl == 'ol' and 'bare' in variants) -%}
                         {{- loop.index -}}.
-                    {% elif item.iconPosition is defined and item.iconPosition == 'before' %}
+                    {% elif params.iconPosition is defined and params.iconPosition == 'before' %}
                         {% from "components/icons/_macro.njk" import onsIcon %}
                         {{
                             onsIcon({
                                 "iconType": item.iconType,
-                                "iconSize": item.iconSize
+                                "iconSize": params.iconSize
                             })
                         }}
                     {%- endif -%}
@@ -68,18 +68,18 @@
                 {%- else -%}
                     {{- itemText | safe -}}
                 {%- endif -%}
-                {%- if item.suffix is defined and item.suffix or (item.iconPosition is defined and item.iconPosition == 'after') -%}
+                {%- if item.suffix is defined and item.suffix or (params.iconPosition is defined and params.iconPosition == 'after') -%}
                     <span class="ons-list__suffix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
                     {%- if item.suffix is defined and item.suffix -%}
                         {{- item.suffix -}}
                     {%- elif (item.index is defined and item.index and listEl != 'ol') or (item.index is defined and item.index and listEl == 'ol' and 'bare' in variants) -%}
                         {{- loop.index -}}
-                    {% elif item.iconPosition is defined and item.iconPosition == 'after' %}
+                    {% elif params.iconPosition is defined and params.iconPosition == 'after' %}
                         {% from "components/icons/_macro.njk" import onsIcon %}
                         {{
                             onsIcon({
                                 "iconType": item.iconType,
-                                "iconSize": item.iconSize
+                                "iconSize": params.iconSize
                             })
                         }}
                     {%- endif -%} </span>
