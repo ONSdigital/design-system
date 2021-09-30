@@ -87,7 +87,7 @@
         {% endset %}
     {% endif %}
 
-    {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
+    {% if params.mutuallyExclusive is defined and params.mutuallyExclusive and numberOfFields > 1 %}
         {% call onsMutuallyExclusive({
             "id": params.id,
             "legend": params.legendOrLabel,
