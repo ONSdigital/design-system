@@ -20,8 +20,7 @@
 | index | boolean | false | Will prefix the list item with index number if set to `true` |
 | external | boolean | false | Will style the item like an external link |
 | prefix | string | true | Will prefix the list item with whatever prefix is set to |
-| prefixIcon | string | true | If set to an icon name will prefix the item with that icon |
-| prefixIconSize | string | true | Icon size can be set to `m`, `l`, `xl`, `xxl` |
 | suffix | string | true | Will suffix the list item with whatever suffix is set to |
-| suffixIcon | string | true | If set to an icon name will suffix the item with that icon |
-| suffixIconSize | string | true | Icon size can be set to `m`, `l`, `xl`, `xxl` |
+| iconType | string | true | Adds an icon to the list item when [available icon name set](/foundations/icons#a-to-z) |
+| iconSize | string | true | Icon size can be set to `m`, `l`, `xl`, `xxl` |
+| iconPosition | string | true | Sets position of icon to `before` or `after` the list item |
