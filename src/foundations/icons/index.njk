@@ -11,7 +11,7 @@ sortOrder: 5
 {% from "foundations/icons/_macro.njk" import onsIconSwatch %}
 +++
 
-An icon can help convey a function when put next to text. For example, a printer icon on a button labelled “Print this page”.
+An icon can help explain a function when it is put next to text. For example, a printer icon on a button labelled “Print this page”.
 
 {{
     onsIconSwatch({
@@ -55,10 +55,29 @@ An icon can help convey a function when put next to text. For example, a printer
 }}
 
 ## When to use icons
-
 Use icons in the same way throughout your product to make it easier to use.
 
 Recognisable icons can make scanning a page quicker, as well as making target areas larger and easier to select. They can also help users who have learning difficulties, such as dyslexia.
+
+You can use an icon with a:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": '<a href="/components/button">button</a>'
+            },
+            {
+                "text": '<a href="/components/panel">panel</a>'
+            },
+            {
+                "text": '<a href="/foundations/typography#lists-with-icons">list</a>'
+            },
+            {
+                "text": '<a href="/components/summary">summary</a>'
+            }
+        ]
+    })
+}}
 
 ## How to use icons
 
@@ -81,8 +100,8 @@ Always use an icon with a text label. Using icons on their own means the user ha
 
 There are only a few icons that are universally understood and can be used on their own as an exception – when there is not enough space for a label. For example, a magnifying glass icon on a search field.
 
-### Use icons before text to show function
-Use an icon *before* the text to help the user understand the function of the element when scanning the page, without needing to fully read the text.
+### Put an icon before text to show a function
+Place an icon *before* the text to help the user understand the function of the element without having to read the text.
 
 For example, the printer icon comes first on the [print button](#print) so that a user who does not need the text can quickly see that it’s a print button.
 
@@ -107,27 +126,6 @@ The chevron icon on the [back link](/components/back-link) shows the link will m
     patternlibExample({"path": "components/back-link/examples/back-link/index.njk", "componentFolderPath": "components/breadcrumbs" })
 }}
 
-## How it works
-You can use an icon with a:
-{{
-    onsList({
-        "itemsList": [
-            {
-                "text": '<a href="/components/button">button</a>'
-            },
-            {
-                "text": '<a href="/components/panel">panel</a>'
-            },
-            {
-                "text": '<a href="/foundations/typography#lists">list</a>'
-            },
-            {
-                "text": '<a href="/components/summary">summary</a>'
-            }
-        ]
-    })
-}}
-
 ### Icon type
 To set the type of icon, use the parameter `iconType` with the [name of the icon](#a-to-z).
 
@@ -135,7 +133,7 @@ To set the type of icon, use the parameter `iconType` with the [name of the icon
 You can set an icon’s position to before or after the text on a button or list. Use the parameter `iconPosition` and give it a value of either “before” or ”after”.
 
 ### Icon size
-You can change the size of an icon in the panel component – from the default size of regular text – to match the size of the text class in the [typography type scale](/foundations/typography/#type-scale). 
+You can change the size of an icon in the panel component – from the default size of regular text – to match the size of the text as detailed in the [typography type scale](/foundations/typography/#type-scale). 
 
 Use the parameter `iconSize` and give it a value of either: “s”, “m”, “l”, “xl”, “xxl” or “xxxl”.
 {{
