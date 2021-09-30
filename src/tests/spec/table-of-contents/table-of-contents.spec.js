@@ -30,11 +30,14 @@ const params = {
 
 describe('Component: Table of contents', function() {
   beforeEach(function() {
-    const component = renderComponent(params);
-
-    Object.keys(component).forEach(key => {
-      this[key] = component[key];
-    });
+    if ('IntersectionObserver' in window) {
+      const component = renderComponent(params);
+      Object.keys(component).forEach(key => {
+        this[key] = component[key];
+      });
+    } else {
+      return;
+    }
   });
 
   afterEach(function() {
@@ -43,18 +46,22 @@ describe('Component: Table of contents', function() {
     }
   });
 
-  describe.only('When the component initialises', function() {
+  describe('When the component initialises', function() {
     beforeEach(function() {
-      this.toc = new Toc(this.component);
-      this.setCurrentSpy = chai.spy.on(this.toc, 'setCurrent');
-      const mockIntersectionObserver = {
-        observe: () => null,
-      };
-      window.IntersectionObserver = mockIntersectionObserver;
+      if ('IntersectionObserver' in window) {
+        this.toc = new Toc(this.component);
+        this.setCurrentSpy = chai.spy.on(this.toc, 'setCurrent');
+        const mockIntersectionObserver = {
+          observe: () => null,
+        };
+        window.IntersectionObserver = mockIntersectionObserver;
+      }
     });
 
     it('should call the setCurrent function', function() {
-      expect(this.setCurrentSpy).to.have.been.called;
+      if ('IntersectionObserver' in window) {
+        expect(this.setCurrentSpy).to.have.been.called;
+      }
     });
   });
 });
