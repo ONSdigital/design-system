@@ -92,7 +92,7 @@
                                 <header class="ons-patternlib-page__content-header">
                                     <h1 class="ons-u-fs-xxl">
                                         {% if pageInfo.group %}
-                                            <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">{{ pageInfo.group | replace("...", "") }}</span>
+                                            <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">{{ pageInfo.group.title | replace("...", "") }}</span>
                                         {% endif %}
                                         {{ pageInfo.title }}
                                     </h1>
