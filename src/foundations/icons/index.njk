@@ -11,7 +11,7 @@ sortOrder: 5
 {% from "foundations/icons/_macro.njk" import onsIconSwatch %}
 +++
 
-An icon can help explain a function when it is put next to text. For example, a printer icon on a button labelled “Print this page”.
+An icon can help explain the function of an element, or the direction of a call to action, when it is placed next to the text. For example, a printer icon on a button labelled “Print this page”.
 
 {{
     onsIconSwatch({
@@ -100,7 +100,7 @@ Always use an icon with a text label. Using icons on their own means the user ha
 
 There are only a few icons that are universally understood and can be used on their own as an exception – when there is not enough space for a label. For example, a magnifying glass icon on a search field.
 
-### Put an icon before text to show a function
+### Place icons before text to show function
 Place an icon *before* the text to help the user understand the function of the element without having to read the text.
 
 For example, the printer icon comes first on the [print button](#print) so that a user who does not need the text can quickly see that it’s a print button.
@@ -110,7 +110,7 @@ For example, the printer icon comes first on the [print button](#print) so that 
 }}
 
 ### Use navigation icons to show direction
-Directional icons should be put before or after the text label to help the user understand the direction they will go if they select it.
+A directional icon should be placed before or after a button label or link to help the user understand the direction they will go if they select it.
 
 Use forward navigation icons after the text and backward navigation icons before the text.
 
@@ -133,7 +133,7 @@ To set the type of icon, use the parameter `iconType` with the [name of the icon
 You can set an icon’s position to before or after the text on a button or list. Use the parameter `iconPosition` and give it a value of either “before” or ”after”.
 
 ### Icon size
-You can change the size of an icon in the panel component – from the default size of regular text – to match the size of the text as detailed in the [typography type scale](/foundations/typography/#type-scale). 
+You can change the size of an icon on a list or panel – from the default size of regular text – to match the size of the text as detailed in the [typography type scale](/foundations/typography/#type-scale). 
 
 Use the parameter `iconSize` and give it a value of either: “s”, “m”, “l”, “xl”, “xxl” or “xxxl”.
 {{

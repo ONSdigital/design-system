@@ -1,10 +1,13 @@
-| Name      | Type              | Required | Description                                                                                                                                 |
-| --------- | ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| element   | string            | false    | The wrapping element for the list. If nothing is defined it will default to `<ul>`                                                          |
-| id        | string            | false    | The id for the wrapping element                                                                                                             |
-| classes   | string            | false    | Classes to be added to the wrapping element                                                                                                 |
-| itemsList | `Array<ListItem>` | true     | An array of items to show in the list                                                                                                       |
-| variants  | array or string   | false    | An array of values or single value (string) to adjust the 'list' display using available variants - bare, dashed, inline, social, languages |
+| Name         | Type              | Required | Description                                                                                                                                 |
+| ------------ | ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| element      | string            | false    | The wrapping element for the list. If nothing is defined it will default to `<ul>`                                                          |
+| id           | string            | false    | The id for the wrapping element                                                                                                             |
+| classes      | string            | false    | Classes to be added to the wrapping element                                                                                                 |
+| itemsList    | `Array<ListItem>` | true     | An array of items to show in the list                                                                                                       |
+| variants     | array or string   | false    | An array of values or single value (string) to adjust the 'list' display using available variants - bare, dashed, inline, social, languages |
+| iconPosition | string            | true     | Sets position of icon to `before` or `after` all the list items                                                                             |
+| iconSize     | string            | true     | Icon size can be set to `m`, `l`, `xl`, `xxl`                                                                                               |
+| iconType     | string            | true     | Adds an icon to all the list items when set to the name of one of the [available icons](/foundations/icons#a-to-z)                          |
 
 ## ListItem
 | Name | Type | Required | Description |
@@ -21,6 +24,4 @@
 | external | boolean | false | Will style the item like an external link |
 | prefix | string | true | Will prefix the list item with whatever prefix is set to |
 | suffix | string | true | Will suffix the list item with whatever suffix is set to |
-| iconType | string | true | Adds an icon to the list item when [available icon name set](/foundations/icons#a-to-z) |
-| iconSize | string | true | Icon size can be set to `m`, `l`, `xl`, `xxl` |
-| iconPosition | string | true | Sets position of icon to `before` or `after` the list item |
+| iconType | string | true | Adds an icon to the list item when set to the name of one of the [available icons](/foundations/icons#a-to-z) |
