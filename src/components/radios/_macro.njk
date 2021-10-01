@@ -52,7 +52,7 @@
                                         "type": radio.other.type,
                                         "required": radio.other.required,
                                         "classes": radio.other.classes | default(''),
-                                        "width": "auto",
+                                        "width": radio.other.width | default('auto'),
                                         "attributes": radio.other.attributes,
                                         "label": {
                                             "id": radio.other.id + "-label",
