@@ -22,9 +22,14 @@ export default class Toc {
   setCurrent(event) {
     event.map(element => {
       const position = element.boundingClientRect;
-      document
-        .querySelector(`.ons-toc li a[href="#${element.target.id}"]`)
-        .classList[element.isIntersecting === true && position.top < 70 && position.top > -100 ? 'add' : 'remove']('ons-toc__link-active');
+      const link = document.querySelector(`.ons-toc li a[href="#${element.target.id}"]`);
+      if (link) {
+        link.classList[element.isIntersecting === true && position.top < 70 && position.top > -100 ? 'add' : 'remove'](
+          'ons-toc__link-active',
+        );
+      } else {
+        console.warn(`element ".ons-toc li a[href="#${element.target.id}"]" is missing`);
+      }
     });
   }
 }
