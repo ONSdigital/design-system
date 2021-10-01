@@ -1,17 +1,5 @@
 .ons-patternlib-icon-swatch {
-  width: 50%;
-
-  @include mq('s') {
-    width: 33.333%;
-  }
-
-  @include mq('l') {
-    width: 20%;
-  }
-
   &__svg {
-    margin: auto;
-    width: 50%;
     .ons-svg-icon {
       display: block;
       margin: auto;

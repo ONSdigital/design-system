@@ -2,9 +2,9 @@
 
 {% from "components/icons/_macro.njk" import onsIcon %}
 
-<div id="{{ params.containerId }}" class="ons-grid ons-grid--gutterless ons-grid--flex ons-u-bt ons-u-br ons-u-bl ons-u-bb ons-u-pt-s ons-u-pb-s">
+<div id="{{ params.containerId }}" style="background:#f5f5f6" class="ons-grid ons-grid--gutterless">
     {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
-        <div class="ons-patternlib-icon-swatch ons-u-flex-no-grow ons-u-mb-l ons-u-mt-l">
+        <div class="ons-patternlib-icon-swatch ons-grid__col ons-col-6@xxs ons-col-3@s ons-u-mb-l ons-u-mt-l">
             <div class="ons-patternlib-icon-swatch__svg ons-u-mb-s">
                 {{
                     onsIcon({
