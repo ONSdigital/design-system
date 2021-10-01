@@ -35,7 +35,7 @@
                         "type": params.other.type,
                         "required": params.other.required,
                         "classes": params.other.classes | default(''),
-                        "width": "auto",
+                        "width": params.other.width | default('auto'),
                         "attributes": params.other.attributes,
                         "label": {
                             "id": params.other.id + "-label",
