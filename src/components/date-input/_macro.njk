@@ -94,7 +94,7 @@
             "legendClasses": params.legendClasses,
             "description": params.description,
             "classes": params.classes,
-            "dontWrap": params.dontWrap,
+            "dontWrap": params.dontWrap if numberOfFields > 1 else true,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
             "checkbox": params.mutuallyExclusive.checkbox,
             "or": params.mutuallyExclusive.or,
