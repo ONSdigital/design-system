@@ -83,7 +83,7 @@
             "id": params.id,
             "legend": params.legendOrLabel,
             "description": params.description,
-            "legendClasses": 'ons-u-mb-xs ' + (params.legendClasses if params.legendClasses),
+            "legendClasses": 'ons-u-mb-xs ' + (params.legendClasses if params.legendClasses else ''),
             "error": params.error,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
             "dontWrap": params.dontWrap
