@@ -6,8 +6,9 @@
         {% set otherClasses = 'ons-list--bare ons-list--prefix' %}
     {% elif params.itemsList[0] is defined and params.itemsList[0].suffix %}
         {% set otherClasses = 'ons-list--bare ons-list--suffix' %}
-    {% elif params.itemsList[0] is defined and (params.itemsList[0].iconType) %}
+    {% elif params.itemsList[0] is defined and params.iconPosition is defined and params.iconPosition %}
         {% set otherClasses = 'ons-list--bare ons-list--icons' %}
+        {% set iconType = params.iconType if params.iconType else '' %}
     {% else %}
         {% set otherClasses = '' %}
     {% endif %}
@@ -26,6 +27,10 @@
 
                 {% set itemText = item.text %}
 
+                {% if params.itemsList[0] is defined and item.iconType is defined and item.iconType %}
+                    {% set iconType = item.iconType if item.iconType else '' %}
+                {% endif %}
+
                 {# For Craft support we also support title and navigation title #}
                 {% if item.navigationTitle is defined and item.navigationTitle %}
                     {% set itemText = item.navigationTitle %}
@@ -43,7 +48,7 @@
                         {% from "components/icons/_macro.njk" import onsIcon %}
                         {{
                             onsIcon({
-                                "iconType": item.iconType,
+                                "iconType": iconType,
                                 "iconSize": params.iconSize
                             })
                         }}
@@ -78,7 +83,7 @@
                         {% from "components/icons/_macro.njk" import onsIcon %}
                         {{
                             onsIcon({
-                                "iconType": item.iconType,
+                                "iconType": iconType,
                                 "iconSize": params.iconSize
                             })
                         }}
