@@ -20,7 +20,8 @@
             
             {{ onsInput({
                 "id": params.field1.id,
-                "classes": "ons-input-number--w-2" + (" ons-input--error" if (params.error is defined and params.error and params.field1.error is defined and params.field1.error) or (numberOfFields > 1 and params.error is defined and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else ""),
+                "classes": (" ons-input--error" if (params.error is defined and params.error and params.field1.error is defined and params.field1.error) or (numberOfFields > 1 and params.error is defined and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else ""),
+                "width": "2",
                 "type": "number",
                 "name": params.field1.name,
                 "value": params.field1.value,
@@ -41,7 +42,8 @@
         {% if params.field2 is defined and params.field2 %}
             {{ onsInput({
                 "id": params.field2.id,
-                "classes": "ons-input-number--w-2" + (" ons-input--error" if (params.error is defined and params.error and params.field2.error is defined and params.field2.error) or (numberOfFields > 1 and params.error is defined and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else ""),
+                "classes": (" ons-input--error" if (params.error is defined and params.error and params.field2.error is defined and params.field2.error) or (numberOfFields > 1 and params.error is defined and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else ""),
+                "width": "2",
                 "type": "number",
                 "name": params.field2.name,
                 "value": params.field2.value,
@@ -81,7 +83,7 @@
             "id": params.id,
             "legend": params.legendOrLabel,
             "description": params.description,
-            "legendClasses": 'ons-u-mb-xs ' + (params.legendClasses if params.legendClasses),
+            "legendClasses": 'ons-u-mb-xs ' + (params.legendClasses if params.legendClasses else ''),
             "error": params.error,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
             "dontWrap": params.dontWrap

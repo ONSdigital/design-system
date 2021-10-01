@@ -5,7 +5,7 @@
     <{{ titleTag }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</{{ titleTag }}>
 
     {% set list = [] %}
-    {% if params.facebook is defined and params.facebook and params.facebook === true %}
+    {% if params.facebook is defined and params.facebook and params.facebook == true %}
         {% set facebook =
             {
                 "url": 'https://www.facebook.com/sharer/sharer.php?u=' ~ params.pageURL,
@@ -19,7 +19,7 @@
 
         {% set list = (list.push(facebook), list) %}
     {% endif %}
-    {% if params.twitter is defined and params.twitter and params.twitter === true %}
+    {% if params.twitter is defined and params.twitter and params.twitter == true %}
         {% set twitter =
             {
                 "url": 'https://twitter.com/intent/tweet?original_referer&text=' ~ params.pageTitle ~ '&url=' ~ params.pageURL,
@@ -37,7 +37,7 @@
 
     {{
         onsList({
-            "classes": 'ons-list--inline',
+            "variants": 'inline',
             "itemsList": list
         })
     }}

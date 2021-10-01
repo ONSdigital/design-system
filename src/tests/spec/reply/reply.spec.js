@@ -13,7 +13,6 @@ const params = {
     id: 'replyButton',
     type: 'button',
     text: 'Send message',
-    classes: 'ons-btn-group__btn',
   },
   closeLinkText: 'Close conversation',
   closeLinkUrl: '#0',

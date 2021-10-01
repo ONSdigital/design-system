@@ -29,8 +29,9 @@
                         onsButton({
                             "type": "button",
                             "text": params.button.open,
-                            "classes": "ons-collapsible__btn ons-btn--secondary ons-btn--small ons-js-collapsible-button ons-u-d-no ons-u-d-no@xxs@s",
+                            "classes": "ons-collapsible__btn ons-js-collapsible-button ons-u-d-no ons-u-d-no@xxs@s",
                             "innerClasses": "ons-js-collapsible-button-inner",
+                            "variants": ["secondary", "small"],
                             "attributes": params.button.attributes
                         })
                     }}
@@ -50,8 +51,9 @@
                             "type": "button",
                             "text": params.button.close,
                             "buttonContext": (params.button.context | default(params.title)) + " " + params.button.contextSuffix,
-                            "classes": "ons-btn--small ons-js-collapsible-button ons-u-d-no " + (params.button.classes | default("ons-btn--secondary")),
+                            "classes": "ons-js-collapsible-button ons-u-d-no " + (params.button.classes | default("ons-btn--secondary")),
                             "innerClasses": "ons-js-collapsible-button-inner",
+                            "variants": "small",
                             "attributes": params.button.attributes
                         })
                     }}

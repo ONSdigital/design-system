@@ -11,13 +11,16 @@
                 {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
                     {% set exclusiveClass = ' ons-js-exclusive-group-item' %}
                 {% endif %}
+                {% if params.borderless is defined and params.borderless %}
+                    {% set borderless = "ons-checkbox--no-border" %}
+                {% endif %}
                 <p class="ons-checkboxes__item{{ " ons-checkboxes__item--no-border" if params.borderless }}">
                     {% set config = {
                         "id": checkbox.id,
                         "name": checkbox.name,
                         "value": checkbox.value,
                         "checked": checkbox.checked,
-                        "classes": checkbox.classes | default('') + ( "ons-checkbox--no-border" if params.borderless ),
+                        "classes": checkbox.classes | default('') + borderless | default(''),
                         "inputClasses": exclusiveClass,
                         "label": {
                             "for": checkbox.id,

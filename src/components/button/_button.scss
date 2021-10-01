@@ -17,6 +17,7 @@ $button-border-height: 3px;
   text-decoration: none;
   text-rendering: optimizeLegibility;
   vertical-align: top;
+  white-space: nowrap;
 
   // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
   &::after {
@@ -38,7 +39,7 @@ $button-border-height: 3px;
   }
 
   &--search {
-    .svg-icon {
+    .ons-svg-icon {
       height: 21px;
       margin: 0;
       vertical-align: top;
