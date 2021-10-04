@@ -32,7 +32,7 @@ $button-border-height: 3px;
 
   .ons-svg-icon {
     height: 18px;
-    margin-top: -ems($button-border-height);
+    margin-top: -$button-border-height;
     vertical-align: middle;
     width: 18px;
   }
