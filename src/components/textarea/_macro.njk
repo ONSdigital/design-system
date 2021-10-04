@@ -8,12 +8,14 @@
     {% set field %}
         {% set textareaExlusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
 
-        {{ onsLabel({
-            "for": params.id,
-            "text": params.label.text,
-            "description": params.label.description,
-            "classes": params.label.classes
-        }) }}
+        {% if params.label is defined and params.label %}
+            {{ onsLabel({
+                "for": params.id,
+                "text": params.label.text,
+                "description": params.label.description,
+                "classes": params.label.classes
+            }) }}
+        {% endif %}
 
         <textarea
             id="{{ params.id }}"
