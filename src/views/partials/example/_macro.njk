@@ -12,7 +12,7 @@
             }}
         </div>
         <div class="ons-patternlib-example__frame">
-            <iframe class="ons-patternlib-example__iframe" frameborder="0" src="{{ params.link }}" style="background-color: {{ params.backgroundColor | default ('#fff') }}"></iframe>
+            <iframe class="ons-patternlib-example__iframe{% if not params.height is defined and not params.height %} ons-patternlib-example__iframe--resize{% endif %}" {% if params.height is defined and params.height %}height="{{ params.height }}"{% endif %} frameborder="0" src="{{ params.link }}" style="background-color: {{ params.backgroundColor | default ('#fff') }}"></iframe>
         </div>
         <div class="ons-patternlib-example__source">
             <input id="{{ params.name }}-html" type="radio" class="ons-patternlib-example__radio ons-js-example-radio" name="{{ params.name }}-example" {% if params.openTab == "html" %} checked {% endif %}>
