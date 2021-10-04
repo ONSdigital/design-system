@@ -31,22 +31,16 @@ $button-border-height: 3px;
   }
 
   .ons-svg-icon {
-    fill: $color-text-inverse;
-    height: 0.8rem;
-    margin: 0 0 0.1rem 0.5rem;
+    height: 18px;
+    margin-top: -$button-border-height;
     vertical-align: middle;
-    width: 0.8rem;
+    width: 18px;
   }
 
   &--search {
     .ons-svg-icon {
-      height: 21px;
-      margin: 0;
-      vertical-align: top;
-      width: 21px;
-
       @include mq(s, m) {
-        margin-left: -2px;
+        margin-right: 0.5rem;
       }
     }
   }
@@ -57,7 +51,7 @@ $button-border-height: 3px;
     border-radius: $input-radius;
     color: $color-text-inverse;
     display: inherit;
-    padding: 0.75em 1em;
+    padding: 0.723em 1em 0.777em;
     // Required for Google Tag Manager
     pointer-events: none;
   }
@@ -91,52 +85,51 @@ $button-border-height: 3px;
 
   // When clicked
   &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):active {
-    padding-top: ems(3px);
+    padding-top: ems($button-border-height);
   }
 
   &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):active &__inner {
     border-bottom: 0;
   }
 
-  // Modifiers
+  // Small buttons
   &--small,
   &--mobile {
     font-size: 0.9rem;
   }
 
-  &--small &,
+  &--small & {
+    &__inner {
+      padding: 0.6em 0.7em 0.4em;
+      .ons-svg-icon {
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
+
+  &--small.ons-btn--ghost &,
   &--mobile & {
     &__inner {
       padding: 0.5em 0.7em;
     }
   }
 
+  // Inline button
   &--inline & {
     &__inner {
       padding: 0.5rem 1rem;
     }
   }
 
-  &--secondary &,
-  &--print &,
-  &--download & {
+  // Secondary button style
+  &--secondary & {
     &__inner {
       background: $color-button-secondary;
       color: $color-text;
       font-weight: normal;
       .ons-svg-icon {
         fill: $color-text;
-      }
-    }
-  }
-
-  &--print &,
-  &--download & {
-    &__inner {
-      .ons-svg-icon {
-        height: 1rem;
-        margin: 0 0.5rem 0.1rem 0;
-        width: 1rem;
       }
     }
   }
@@ -148,9 +141,7 @@ $button-border-height: 3px;
     }
   }
 
-  &--secondary:hover &,
-  &--print:hover &,
-  &--download:hover & {
+  &--secondary:hover & {
     &__inner {
       background: darken($color-button-secondary, 5%);
     }
@@ -190,8 +181,7 @@ $button-border-height: 3px;
     position: relative;
     transition: color 0.3s ease-in-out;
     .ons-svg-icon {
-      fill: $color-white;
-      height: 1.5rem;
+      height: 27px;
       left: 50%;
       margin: 0;
       opacity: 0;
@@ -199,13 +189,21 @@ $button-border-height: 3px;
       top: 50%;
       transform: translate(-50%, -50%);
       transition: opacity 0.3s ease-in-out;
-      width: 1.5rem;
+      width: 27px;
+    }
+  }
+
+  &--loader.ons-btn--small {
+    .ons-svg-icon {
+      height: 24px;
+      width: 24px;
     }
   }
 
   &--loader.ons-is-loading &__inner {
     color: transparent;
     .ons-svg-icon {
+      margin-left: 0 !important;
       opacity: 1;
     }
   }
