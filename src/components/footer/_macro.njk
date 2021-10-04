@@ -22,7 +22,7 @@
         {% if params.poweredBy is defined and params.poweredBy and params.poweredBy.logo is defined and params.poweredBy.logo %}
             {{
                 onsIcon({
-                    "iconType": params.poweredBy.logo,
+                    "icon": params.poweredBy.logo,
                     "altText": poweredByAlt
                 })
             }}
@@ -30,14 +30,14 @@
             {% if params.lang == 'cy' %}
                 {{
                     onsIcon({
-                        "iconType": 'ons-logo-cy',
+                        "icon": 'ons-logo-cy',
                         "altText": poweredByAlt | default('Swyddfa Ystadegau Gwladol')
                     })
                 }}
             {% else %}
                 {{
                     onsIcon({
-                        "iconType": 'ons-logo-en',
+                        "icon": 'ons-logo-en',
                         "altText": poweredByAlt | default('Office for National Statistics')
                     })
                 }}
@@ -49,7 +49,7 @@
     {% set crestLogo %}
         {{
             onsIcon({
-                "iconType": 'crest'
+                "icon": 'crest'
             })
         }}
     {% endset %}
@@ -186,7 +186,7 @@
                             <div class="ons-footer__license">
                                 {{
                                     onsIcon({
-                                        "iconType": 'ogl'
+                                        "icon": 'ogl'
                                     })
                                 }}
                                 {% if params.OGLLink.HTML is defined and params.OGLLink.HTML %}

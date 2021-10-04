@@ -61,8 +61,8 @@ $hub-row-spacing: 1.3rem;
       left: 0;
       position: absolute;
       text-align: center;
-      &--check .ons-svg-icon {
-        fill: $color-leaf-green !important;
+      &--check {
+        fill: $color-leaf-green;
       }
     }
   }

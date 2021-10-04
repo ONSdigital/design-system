@@ -57,7 +57,7 @@
     color: $color-white;
 
     @include mq(m) {
-      margin-top: 0.8rem;
+      margin-top: 0.85rem;
     }
 
     &--with-description,
@@ -210,6 +210,10 @@
   &__bottom {
     background: $color-header;
     margin-top: -0.03rem;
+  }
+
+  .ons-btn--exit {
+    margin-top: 0.55rem;
   }
 
   &-search {
