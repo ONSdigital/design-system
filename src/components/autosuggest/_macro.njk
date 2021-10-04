@@ -16,6 +16,7 @@
         data-type-more="{{ params.typeMore }}"
         {% if params.APIDomain is defined and params.APIDomain %}data-api-domain="{{ params.APIDomain }}"{% endif %}
         {% if params.APIDomainBearerToken is defined and params.APIDomainBearerToken %}data-authorization-token="{{ params.APIDomainBearerToken }}"{% endif %}
+        {% if params.APIManualQueryParams is defined and params.APIManualQueryParams %}data-query-params=""{% endif %}
         {% if params.allowMultiple is defined and params.allowMultiple == true %}data-allow-multiple="true"{% endif %}
         {% if params.autosuggestData is defined and params.autosuggestData %}data-autosuggest-data="{{ params.autosuggestData }}"{% endif %}
         {% if params.errorTitle is defined and params.errorTitle %}data-error-title="{{ params.errorTitle }}"{% endif %}
