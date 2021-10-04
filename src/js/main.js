@@ -5,6 +5,7 @@ import '../components/mutually-exclusive/mutually-exclusive.dom';
 import '../components/textarea/textarea.dom';
 import '../components/password/password.dom';
 import '../components/tabs/tabs.dom';
+import '../components/table-of-contents/toc.dom';
 import '../components/collapsible/collapsible.dom';
 import '../components/table/scrollable-table.dom';
 import '../components/table/sortable-table.dom';
