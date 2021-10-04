@@ -8,20 +8,47 @@ title: Table of contents
 {% from "components/panel/_macro.njk" import onsPanel %}
 +++
 
-{{
-    onsPanel({
-        "body": 'This component requires documentation.'
-    })
-}}
+The table of contents lets users navigate between pages of a guide or jump to sections on a page.
 
-# Table of contents - simple
+
 {{
     patternlibExample({"path": "components/table-of-contents/examples/table-of-contents-single/index.njk"})
 }}
 
-# Table of contents - multiple sections
+## When to use this component
+Use this component at the top of a long page of content broken up by subheadings, or at the top of each page of a [guide](/patterns/guide).
+
+Do not use the [in-page variant](#table-of-contents---in-page-navigation) of this component if the height the table of contents will be greater than the height of the browser‘s viewport. The list will not scroll independently of the page content because research shows some users find this confusing. 
+## Variants
+### Table of contents - grouped
 {{
     patternlibExample({"path": "components/table-of-contents/examples/table-of-contents-multiple/index.njk"})
+}}
+
+### Table of contents - in-page navigation
+
+Use this variant to help users quickly jump to sections of a long page of content.
+
+As the user scrolls down the page, the table of contents will remain accessible at the top of the viewport and will highlight the subheading of the section in view.
+### How to use this variant
+To use this variant on a page, you need to:
+- place the table of contents in the first of two columns of a [grid layout](/foundations/grid) and add the class `.ons-grid__col--sticky@m` to the `div`
+- add the class `.ons-js-toc-container` to the `<div>` which wraps both columns
+- wrap each section of content in the second column in a `<section>` tag with a unique `id`. For example: `<section id="section1">`
+- set a URI fragment as the `url` value of each link in the table of contents list, matching the `id` of the section it links to. For example `#section1`
+- start each section of content with an `<h2>` heading matching each link in the table of contents list
+
+{{
+    onsPanel({
+        "body": 'You will need to open the following example in a new tab to see it highlight the section in view'
+    })
+}}
+
+{{
+    patternlibExample({
+        "path": "components/table-of-contents/examples/table-of-contents-sticky/index.njk",
+        "height": "800px"
+    })
 }}
 
 ## Help improve this component
