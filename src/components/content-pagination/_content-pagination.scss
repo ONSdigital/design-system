@@ -32,15 +32,20 @@
     }
   }
 
+  &__link-icon {
+    height: 0.9rem;
+    width: 1.2rem;
+  }
+
   &__link-title {
     display: block;
   }
 
   &__link-text {
-    @extend .ons-u-fs-m;
-
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: normal;
     margin: 0 0 0 0.5rem;
-    vertical-align: middle;
   }
 
   &__link-label {

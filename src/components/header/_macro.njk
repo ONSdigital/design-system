@@ -25,7 +25,7 @@
                             {% if params.logoHref is defined and params.logoHref %}<a class="ons-header__logo-link" href="{{ params.logoHref }}">{% endif %}
                             {{
                                 onsIcon({
-                                    "iconType": params.logo | default('ons-logo-' + currentLanguageISOCode),
+                                    "icon": params.logo | default('ons-logo-' + currentLanguageISOCode),
                                     "altText": params.logoAlt | default('Office for National Statistics logo')
                                 })
                             }}
@@ -35,7 +35,7 @@
                             {% if params.logoHref is defined and params.logoHref %}<a class="ons-header__logo-link" href="{{ params.logoHref }}">{% endif %}
                             {{
                                 onsIcon({
-                                    "iconType": params.mobileLogo | default('ons-logo-stacked-' + currentLanguageISOCode),
+                                    "icon": params.mobileLogo | default('ons-logo-stacked-' + currentLanguageISOCode),
                                     "altText": params.logoAlt | default('Office for National Statistics logo')
                                 })
                             }}
@@ -82,7 +82,7 @@
                             {% from "components/icons/_macro.njk" import onsIcon %}
                             {{
                                 onsIcon({
-                                    "iconType": params.titleLogo,
+                                    "icon": params.titleLogo,
                                     "altText": params.titleLogoAlt
                                 })
                             }}
@@ -95,13 +95,12 @@
                         <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@xxs@m">
                             {{ onsButton({
                                 "text": params.button.text,
-                                "classes": "ons-u-d-no@xxs@m ons-u-mt-xs@m",
+                                "classes": "ons-u-d-no@xxs@m",
                                 "variants": "ghost",
                                 "name": params.button.name,
                                 "attributes": params.button.attributes,
                                 "url": params.button.url,
-                                "iconType": params.button.iconType,
-                                "iconPosition": params.button.iconPosition
+                                "buttonStyle": params.button.buttonStyle
                             }) }}
                         </div>
                     {% endif %}
@@ -113,8 +112,10 @@
                                         "text": "Search",
                                         "classes": "ons-btn--search ons-u-ml-xs ons-u-d-no ons-js-toggle-search",
                                         "variants": ["ghost", "small"],
-                                        "iconType": "search",
-                                        "iconPosition": "only",
+                                        "icon": {
+                                            "iconType": "search",
+                                            "iconPosition": "only"
+                                        },
                                         "attributes": {
                                             "aria-label": params.searchToggle.ariaLabel | default("Toggle search") ,
                                             "aria-controls": params.navigation.id,
