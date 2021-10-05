@@ -10,8 +10,7 @@
             {
                 "url": 'https://www.facebook.com/sharer/sharer.php?u=' ~ params.pageURL,
                 "text": 'Facebook',
-                "iconType": 'facebook',
-                "iconPosition": 'before',
+                "prefixIcon": 'facebook',
                 "iconSize": params.iconSize | default("xxl"),
                 "rel": 'noreferrer external',
                 "target": '_blank'
@@ -25,8 +24,7 @@
             {
                 "url": 'https://twitter.com/intent/tweet?original_referer&text=' ~ params.pageTitle ~ '&url=' ~ params.pageURL,
                 "text": 'Twitter',
-                "iconType": 'twitter',
-                "iconPosition": 'before',
+                "prefixIcon": 'twitter',
                 "iconSize": params.iconSize | default("xxl"),
                 "rel": 'noreferrer external',
                 "target": '_blank'

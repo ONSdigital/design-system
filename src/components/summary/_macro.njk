@@ -50,18 +50,18 @@
                                                 class="ons-summary__item-title"
                                                 {% if rowItem.rowTitleAttributes is defined and rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
-                                                {% if rowItem.iconType is defined and rowItem.iconType %}
+                                                {% if rowItem.icon is defined and rowItem.icon %}
                                                     {% from "components/icons/_macro.njk" import onsIcon %}
-                                                    <span class="ons-summary__item-title-icon {% if rowItem.iconType == 'check' %} ons-summary__item-title-icon--check{% endif %}">
+                                                    <span class="ons-summary__item-title-icon {% if rowItem.icon == 'check' %} ons-summary__item-title-icon--check{% endif %}">
                                                         {{
                                                             onsIcon({
-                                                                "iconType": rowItem.iconType
+                                                                "icon": rowItem.icon
                                                             })
                                                         }}
                                                     </span>
                                                 {% endif %}
 
-                                                <div class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType else "" }}">{{ rowItem.rowTitle | default(row.rowTitle) | safe }} {{ hasIcons }}</div>
+                                                <div class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.icon else "" }}">{{ rowItem.rowTitle | default(row.rowTitle) | safe }} {{ hasIcons }}</div>
 
                                                 {# Render section status for mobile if is hub #}
                                                 {% if params.hub is defined and params.hub and rowItem.valueList is defined and rowItem.valueList %}

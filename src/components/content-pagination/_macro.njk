@@ -5,23 +5,13 @@
         <li class="ons-content-pagination__item">
           <a href="{{ contentPaginationItem.url }}" class="ons-content-pagination__link" rel="{{ contentPaginationItem.rel }}">
             <span class="ons-content-pagination__link-title">
+              <svg class="ons-content-pagination__link-icon" xmlns="http://www.w3.org/2000/svg" height="13" width="17" viewBox="0 0 17 13">
                 {% if contentPaginationItem.rel == 'prev' %}
-                  {% from "components/icons/_macro.njk" import onsIcon %}
-                  {{
-                      onsIcon({
-                          "iconType": 'arrow-previous',
-                          "iconSize": 'm'
-                      })
-                  }}
+                  <path d="M6.4,0.2L0.3,6.4c-0.2,0.2-0.2,0.4,0,0.6l6.2,5.8c0.2,0.2,0.4,0.1,0.6,0l0.8-0.9c0.2-0.2,0.1-0.4,0-0.6L3.9,7.6h12.5c0.2,0,0.4-0.2,0.4-0.4V6c0-0.2-0.2-0.4-0.4-0.4H3.8l4-4C8,1.5,8,1.2,7.9,1.1L7,0.2C6.9,0.1,6.6,0.1,6.4,0.2z" fill="currentColor"></path>
                 {% else %}
-                  {% from "components/icons/_macro.njk" import onsIcon %}
-                  {{
-                      onsIcon({
-                          "iconType": 'arrow-next',
-                          "iconSize": 'm'
-                      })
-                  }}
+                  <path d="M10,0.2L9.1,1.1C9,1.2,9,1.5,9.1,1.6l4,4H0.6C0.4,5.6,0.2,5.8,0.2,6v1.2c0,0.2,0.2,0.4,0.4,0.4h12.5l-3.9,3.7c-0.2,0.2-0.2,0.4,0,0.6l0.8,0.9c0.2,0.2,0.4,0.2,0.6,0l6.2-5.8c0.2-0.2,0.2-0.4,0-0.6l-6.1-6.1C10.4,0.1,10.2,0.1,10,0.2z" fill="currentColor"></path>
                 {% endif %}
+              </svg>
               <span class="ons-content-pagination__link-text">
                 {{ contentPaginationItem.text }}
               </span>
