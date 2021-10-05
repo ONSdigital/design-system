@@ -34,6 +34,10 @@
 
   &__link-title {
     display: block;
+
+    .ons-svg-icon {
+      transform: rotate(180deg);
+    }
   }
 
   &__link-text {
