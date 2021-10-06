@@ -31,19 +31,19 @@
 
 ## FooterCol
 
-| Name      | Type                                                              | Required | Description                    |
-| --------- | ----------------------------------------------------------------- | -------- | ------------------------------ |
-| itemsList | `Array<ListItem>` [_(ref)_](/foundations/style/typography/#lists) | true     | A list of links for the column |
-| title     | string                                                            | false    | The title of the column        |
+| Name      | Type                                                        | Required | Description                    |
+| --------- | ----------------------------------------------------------- | -------- | ------------------------------ |
+| itemsList | `Array<ListItem>` [_(ref)_](/foundations/typography/#lists) | true     | A list of links for the column |
+| title     | string                                                      | false    | The title of the column        |
 
 ## FooterRow
 
-| Name      | Type                                                              | Required | Description                 |
-| --------- | ----------------------------------------------------------------- | -------- | --------------------------- |
-| itemsList | `Array<ListItem>` [_(ref)_](/foundations/style/typography/#lists) | true     | A list of links for the row |
+| Name      | Type                                                        | Required | Description                 |
+| --------- | ----------------------------------------------------------- | -------- | --------------------------- |
+| itemsList | `Array<ListItem>` [_(ref)_](/foundations/typography/#lists) | true     | A list of links for the row |
 
 ## LegalRow
 
-| Name      | Type                                                              | Required | Description                 |
-| --------- | ----------------------------------------------------------------- | -------- | --------------------------- |
-| itemsList | `Array<ListItem>` [_(ref)_](/foundations/style/typography/#lists) | true     | A list of links for the row |
+| Name      | Type                                                        | Required | Description                 |
+| --------- | ----------------------------------------------------------- | -------- | --------------------------- |
+| itemsList | `Array<ListItem>` [_(ref)_](/foundations/typography/#lists) | true     | A list of links for the row |
