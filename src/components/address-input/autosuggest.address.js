@@ -121,7 +121,7 @@ export default class AutosuggestAddress {
 
       if (this.manualQueryParams) {
         const manualQueryParams = this.container.getAttribute('data-query-params');
-        fullQueryURL = this.lookupURL + manualQueryParams;
+        fullQueryURL = this.lookupURL + text + manualQueryParams;
       } else {
         const fullPostcodeQuery = this.testFullPostcodeQuery(text);
         let limit = fullPostcodeQuery ? 100 : 10;
