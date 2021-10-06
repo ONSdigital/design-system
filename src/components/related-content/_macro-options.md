@@ -8,8 +8,8 @@
 
 ## Row
 
-| Name      | Type                                                        | Required | Description                 |
-| --------- | ----------------------------------------------------------- | -------- | --------------------------- |
-| id        | string                                                      | true     | id of the itemsList         |
-| title     | string                                                      | true     | The title of the row        |
-| itemsList | `Array<ListItem>` [_(ref)_](/foundations/typography/#lists) | true     | A list of links for the row |
+| Name      | Type                                                              | Required | Description                 |
+| --------- | ----------------------------------------------------------------- | -------- | --------------------------- |
+| id        | string                                                            | true     | id of the itemsList         |
+| title     | string                                                            | true     | The title of the row        |
+| itemsList | `Array<ListItem>` [_(ref)_](/foundations/style/typography/#lists) | true     | A list of links for the row |
