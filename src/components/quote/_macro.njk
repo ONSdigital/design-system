@@ -3,7 +3,7 @@
         {% from "components/icons/_macro.njk" import onsIcon %}
         {{
             onsIcon({
-                "icon": 'quote'
+                "iconType": 'quote'
             })
         }}
         <span class="ons-quote__text ons-u-fs-{{ params.textFontSize if params.textFontSize is defined and params.textFontSize else 'l' }}">{{ caller() if caller else params.text | safe }}</span>

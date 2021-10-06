@@ -7,47 +7,145 @@ synonyms: graphics, logos
 +++
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "foundations/style/icons/_macro.njk" import onsIconSwatch %}
 +++
 
-Icons are used to provide affordance to improve user experience. Icons shouldn’t be used as decoration and implemented only if there is a user need. We only use icons with text if we have evidence to suggest that it helps the user complete their task.
+An icon can help explain the function of an element, or the direction of a call to action, when it is placed next to the text. For example, a printer icon on a button labelled “Print this page”.
 
-__Our current icon set can be used in the following scenarios:__
-
-### List with progress check icons prefix
 {{
-    patternlibExample({"path": "foundations/style/icons/examples/icons-list-prefix/index.njk", "componentFolderPath": "components/lists" })
+    onsIconSwatch({
+        "containerId": 'a-to-z',
+        "itemsList": [
+            {
+                "iconType": 'arrow-next'
+            },
+            {
+                "iconType": 'arrow-previous'
+            },
+            {
+                "iconType": 'check'
+            },
+            {
+                "iconType": 'chevron'
+            },
+            {
+                "iconType": 'download'
+            },
+            {
+                "iconType": 'exit'
+            },
+            {
+                "iconType": 'external-link'
+            },
+            {
+                "iconType": 'lock'
+            },
+            {
+                "iconType": 'person'
+            },
+            {
+                "iconType": 'print'
+            },
+            {
+                "iconType": 'search'
+            }
+        ]
+    })
 }}
 
-### List with progress check icons suffix
+## When to use icons
+Use icons in the same way throughout your product to make it easier to use.
+
+Recognisable icons can make scanning a page quicker, as well as making target areas larger and easier to select. They can also help users who have learning difficulties, such as dyslexia.
+
+You can use an icon with a:
 {{
-    patternlibExample({"path": "foundations/style/icons/examples/icons-list-suffix/index.njk", "componentFolderPath": "components/lists" })
+    onsList({
+        "itemsList": [
+            {
+                "text": '<a href="/components/button">button</a>'
+            },
+            {
+                "text": '<a href="/components/panel">panel</a>'
+            },
+            {
+                "text": '<a href="/foundations/style/typography#lists-with-icons">list</a>'
+            },
+            {
+                "text": '<a href="/components/summary">summary</a>'
+            }
+        ]
+    })
 }}
 
-### List with social icons
+## How to use icons
+
+### Use recognisable icons
+Only use icons that are universally understood and have user research evidence to back this up. Recognisable icons help users understand something more quickly. A large familiar icon can be quicker to understand when scanning a page than reading a text label on it’s own.
+
++++
+{% call onsPanel({
+        "type": 'warn'
+    })
+%}
+    Always test an icon with users to make sure it means the same to everyone
+{% endcall %}
++++
+
+An icon that means different things to different people will make your product harder to use. Always consider if you need to use one at all.
+
+### Use a label
+Always use an icon with a text label. Using icons on their own means the user has to think more, especially if the icon is not familiar to them.
+
+There are only a few icons that are universally understood and can be used on their own as an exception – when there is not enough space for a label. For example, a magnifying glass icon on a search field.
+
+### Place icons before text to show function
+Place an icon *before* the text to help the user understand the function of the element without having to read the text.
+
+For example, the printer icon comes first on the [print button](#print) so that a user who does not need the text can quickly see that it’s a print button.
+
 {{
-    patternlibExample({"path": "foundations/style/icons/examples/icons-social-list/index.njk", "componentFolderPath": "components/lists" })
+    patternlibExample({ "path": "components/button/examples/button-print/index.njk", "componentFolderPath": "components/button" })
 }}
-__How to use:__ Set `icon` to the name of the icon you want to use on each list item.
 
-### Link with external link icon
+### Use navigation icons to show direction
+A directional icon should be placed before or after a button label or link to help the user understand the direction they will go if they select it.
+
+Use forward navigation icons after the text and backward navigation icons before the text.
+
+For example, the chevron icon on the [call to action button](/components/button#call-to-action) shows the button will move the user forward to the next page.
+
 {{
-    patternlibExample({"path": "components/external-link/examples/external-link/index.njk"})
+    patternlibExample({ "path": "components/button/examples/button-link/index.njk", "componentFolderPath": "components/button" })
 }}
 
-__How to use:__ Use the `onsExternalLink` macro using the `url` and `linkText` params.
+The chevron icon on the [back link](/components/back-link) shows the link will move the user back to the previous page.
 
-### Text with secure icon
 {{
-    patternlibExample({"path": "components/panel/examples/bare/index.njk"})
+    patternlibExample({ "path": "components/back-link/examples/back-link/index.njk", "componentFolderPath": "components/breadcrumbs" })
 }}
-__How to use:__ Use the panel component setting `type` to "bare" and icon to the name of the icon you want to use.
 
-## Help improve this style
-Let us know how we could improve this style or share your user research findings.
+### Icon type
+To set the type of icon, use the parameter `iconType` with the [name of the icon](#a-to-z).
+
+### Icon position
+You can set an icon’s position to before or after the text on a button or list. Use the parameter `iconPosition` and give it a value of either “before” or ”after”.
+
+### Icon size
+You can change the size of an icon on a list or panel – from the default size of regular text – to match the size of the text as detailed in the [typography type scale](/foundations/style/typography/#type-scale).
+
+Use the parameter `iconSize` and give it a value of either: “s”, “m”, “l”, “xl”, “xxl” or “xxxl”.
+{{
+    patternlibExample({ "path": "foundations/style/icons/examples/icons-size/index.njk", "componentFolderPath": "components/panel" })
+}}
+
+## Help improve this foundation
+Let us know how we could improve this foundation or share your user research findings.
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/95",
-        "linkText": "Discuss the ‘Icons’ style on Github"
+        "linkText": "Discuss the ‘Icons’ foundation on Github"
     })
 }}

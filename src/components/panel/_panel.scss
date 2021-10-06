@@ -60,20 +60,43 @@
       margin-bottom: 0;
     }
 
+    &.ons-svg-icon-margin--xxxl {
+      padding-left: 2.7rem !important;
+
+      @include mq(m) {
+        padding-left: 3.5rem !important;
+      }
+    }
     &.ons-svg-icon-margin--xxl {
-      padding-left: 3.3rem !important;
+      padding-left: 2.45rem !important;
+
+      @include mq(m) {
+        padding-left: 2.9rem !important;
+      }
     }
     &.ons-svg-icon-margin--xl {
-      padding-left: 2.8rem !important;
+      padding-left: 2.35rem !important;
+
+      @include mq(m) {
+        padding-left: 2.55rem !important;
+      }
     }
     &.ons-svg-icon-margin--l {
-      padding-left: 2.5rem !important;
+      padding-left: 2.25rem !important;
+
+      @include mq(m) {
+        padding-left: 2.35rem !important;
+      }
     }
     &.ons-svg-icon-margin--m {
-      padding-left: 2.2rem !important;
+      padding-left: 2.05rem !important;
+
+      @include mq(m) {
+        padding-left: 2.2rem !important;
+      }
     }
     &.ons-svg-icon-margin--s {
-      padding-left: 1.4rem !important;
+      padding-left: 1.7rem !important;
     }
   }
 
@@ -179,15 +202,15 @@
 
   &--success & {
     &__icon {
-      fill: $color-success;
       left: 0;
       padding-left: 1rem;
       .ons-svg-icon {
+        fill: $color-success !important;
         margin-top: -15% !important;
       }
     }
     &__body {
-      padding-left: 1.8rem;
+      padding-left: 2rem;
     }
   }
 
@@ -197,7 +220,7 @@
       width: 1.3rem;
     }
     &__body {
-      padding: 0.1rem 0 0 1.5rem;
+      padding: 0 0 1.5rem;
     }
   }
 
