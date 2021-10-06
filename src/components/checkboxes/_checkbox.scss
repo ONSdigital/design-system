@@ -78,10 +78,6 @@ $checkbox-padding: 11px;
       padding: 0 1rem $checkbox-padding 0;
     }
 
-    .ons-label__description {
-      margin-left: -1.75rem;
-    }
-
     &::before {
       background: $color-white;
       border: 1px solid $color-input;

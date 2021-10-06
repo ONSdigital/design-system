@@ -6,8 +6,7 @@
     "legendIsQuestionTitle": true,
     "classes": "ons-u-mt-no"
 }) %}
-    {{
-        onsCheckboxes({
+{% call onsCheckboxes({
             "checkboxesLabel": "Select all that apply",
             "dontWrap": true,
             "name": "dietary",
@@ -56,5 +55,5 @@
                 }
             ]
         })
-    }}
+    }} %}
 {% endcall %}
