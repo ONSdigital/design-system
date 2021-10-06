@@ -5,7 +5,7 @@ synonyms: colors, palette, contrast, tints
 ---
 
 +++
-{% from "foundations/colours/_macro.njk" import onsColours %}
+{% from "foundations/style/colours/_macro.njk" import onsColours %}
 {% from "components/lists/_macro.njk" import onsList %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
@@ -62,7 +62,7 @@ Each colour has a colour variable that can be [assigned to a element](#colour-as
                 'var': '$color-ruby-red'
             },
             {
-                'bg': '#ff600a',
+                'bg': '#fa6401',
                 'var': '$color-jaffa-orange'
             },
             {
@@ -474,8 +474,8 @@ To meet the WCAG 2.1 level AA guideline “1.4.3 Contrast (Minimum)”, all text
             },
             {
                 'fore': '#222222',
-                'bg': '#ff600a',
-                'contrastRatio': '5.25',
+                'bg': '#fa6401',
+                'contrastRatio': '5.22',
                 'char': 'A'
             },
             {
