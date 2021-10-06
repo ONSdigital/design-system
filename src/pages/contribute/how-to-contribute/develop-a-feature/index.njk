@@ -1,5 +1,5 @@
 ---
-title: How to develop a feature
+title: Develop a feature
 sortOrder: 3
 ---
 
@@ -70,22 +70,22 @@ Ensure the documentation folder contains the following:
     onsList({
         "itemsList": [
             {
-                "text": 'index.njk (documentation) – this file contains a mix of markdown syntax and any design system macros that are needed (for example, partial, lists and panels)'
+                "text": '<strong>documentation</strong> (<code>index.njk</code>) – this file contains a mix of markdown syntax and any design system macros that are needed (for example, partials, lists and panels)'
             },
             {
-                "text": 'an examples folder with a folder for each example referred to in the documentation – each one should contain an index.njk file that imports the macro of the component configured for that example'
+                "text": '<strong>an examples folder</strong> (<code>/examples/</code>) – with a folder for each example referred to in the documentation – each one should contain an `index.njk` file that imports the macro of the component configured for that example'
             },
             {
-                "text": '_macro-options.md table – use markdown to list the required and optional parameters the macro uses with a description of what each is for'
+                "text": '<strong>the Nunjucks macro code</strong> (<code>_macro.njk</code>)'
             },
             {
-                "text": '_macro.njk Nunjucks code'
+                "text": '<strong>the macro options</strong> (<code>_macro-options.md</code>) – use table markdown to list the required and optional parameters the macro uses with a description of what each is for'
             },
             {
-                "text": '_component-name.scss Sass file for styles'
+                "text": '<strong>a Sass file</strong> (<code>_component-name.scss</code>) for styles'
             },
             {
-                "text": 'any necessary javascript files'
+                "text": 'any necessary <strong>javascript files</strong>'
             }
         ]
     })
@@ -100,13 +100,28 @@ Any contributions to the design system need a content design review. This will h
 }}
 
 ## 4. Test the feature
-Any component or pattern that you build or change needs to be tested before it is merged into the design system. This includes testing for accessibility, browser compatibility and regression.
+Any component or pattern that you build or change needs to be tested before it is merged into the design system. This includes testing for accessibility, [browser compatibility](/guidance/browser-testing/) and regression.
 
 ### Accessibility testing
-Your feature needs to be compliant to AA standard of the Web Content Accessibility Guidelines (WCAG) version 2.1.
+Your feature needs to be compliant to AA standard of the {{
+    onsExternalLink({
+        "url": "https://www.w3.org/TR/WCAG21/",
+        "linkText": "Web Content Accessibility Guidelines (WCAG) version 2.1"
+    })
+}}
 
-Every component must pass a Google Lighthouse score of [insert minimum]% minimum. This test is integrated in GitHub actions.
+Every component should pass a Google Lighthouse score of 100%. This is checked when you raise a pull request by {{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/actions/workflows/lighthouse-ci.yml",
+        "linkText": "a test integrated in GitHub Actions"
+    })
+}}
 
 Various accessibility tools can help you check the accessibility of your feature.
 
-We recommend a Digital Accessibility Centre (DAC) audit of your feature. It is more efficient to bundle various features together to send to DAC, so let the Design System working group know you have something to test.
+We recommend an audit of your feature by the {{
+    onsExternalLink({
+        "url": "https://digitalaccessibilitycentre.org/",
+        "linkText": "Digital Accessibility Centre (DAC)"
+    })
+}}. It is more efficient to bundle various features together to send to DAC, so let the Design System working group know you have something to test.
