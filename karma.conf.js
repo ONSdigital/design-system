@@ -38,12 +38,17 @@ export default function(config) {
 
     files: [
       { pattern: 'src/components/**/*.njk', included: false },
+      { pattern: 'src/static/fonts/*', included: false },
       'src/scss/main.scss',
       { pattern: 'src/js/polyfills.js', included: process.env.TEST_MODE === 'nomodule' },
       'src/tests/spec/**/*.spec.js',
     ],
 
     exclude: [],
+
+    proxies: {
+      '/base/src/fonts/': '/base/src/static/fonts/',
+    },
 
     preprocessors: {
       'src/scss/main.scss': ['scss'],
