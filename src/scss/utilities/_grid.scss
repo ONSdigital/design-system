@@ -150,6 +150,11 @@
   display: flex;
 }
 
+@include bp-suffix(ons-grid__col--sticky) {
+  position: sticky;
+  top: 2rem;
+}
+
 @each $breakpoint-min, $size in $grid-bp {
   @for $column from 1 through $grid-cols {
     $width: percentage($column / $grid-cols);

@@ -103,12 +103,14 @@ export default class MutuallyExclusive {
     // This filter is used to strip out any text that is in 'ons-u-vh' elements for accessibility
     let labelText;
 
-    if (label.classList.contains(inputAbbrClass)) {
-      labelText = label.getAttribute('title');
-    } else if (label.classList.contains(inputLegendClass) && label.querySelector('h1')) {
-      labelText = label.querySelector('h1').innerText;
-    } else {
-      labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
+    if (label) {
+      if (label.classList.contains(inputAbbrClass)) {
+        labelText = label.getAttribute('title');
+      } else if (label.classList.contains(inputLegendClass) && label.querySelector('h1')) {
+        labelText = label.querySelector('h1').innerText;
+      } else {
+        labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
+      }
     }
 
     return labelText;
