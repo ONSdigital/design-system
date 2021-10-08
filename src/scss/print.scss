@@ -6,7 +6,7 @@ footer,
 .ons-cookies-banner,
 .ons-language-links,
 .ons-breadcrumb {
-  display: none;
+  display: none !important;
 }
 
 a::after {
