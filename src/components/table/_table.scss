@@ -151,13 +151,13 @@
         fill: $color-grey-35;
       }
       .ons-bottomTriangle {
-        fill: $color-ocean-blue;
+        fill: $color-text;
       }
     }
     .ons-table__sort-button:focus {
       .ons-svg-icon {
         .ons-topTriangle {
-          fill: $color-black;
+          fill: #b69502;
         }
       }
     }
@@ -166,7 +166,7 @@
   [aria-sort='ascending'].ons-table__header {
     .ons-svg-icon {
       .ons-topTriangle {
-        fill: $color-ocean-blue;
+        fill: $color-text;
       }
       .ons-bottomTriangle {
         fill: $color-grey-35;
@@ -175,7 +175,7 @@
     .ons-table__sort-button:focus {
       .ons-svg-icon {
         .ons-bottomTriangle {
-          fill: $color-black;
+          fill: #b69502;
         }
       }
     }

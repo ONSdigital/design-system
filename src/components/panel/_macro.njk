@@ -43,7 +43,7 @@
                 <span class="ons-panel__icon" aria-hidden="true">
                     {{
                         onsIcon({
-                            "icon": 'arrow-forward'
+                            "iconType": 'arrow-forward'
                         })
                     }}
                 </span>
@@ -73,12 +73,12 @@
                     {% endif %}
                 {% endif %}
 
-                {% if params.icon is defined and params.icon %}
+                {% if params.iconType is defined and params.iconType %}
                     {% from "components/icons/_macro.njk" import onsIcon %}
-                    <span class= "ons-panel__icon ons-u-fs-{{ params.iconSize }}">
+                    <span class= "ons-panel__icon ons-u-fs-{{ params.iconSize | default('r') }}">
                         {{
                             onsIcon({
-                                "icon": params.icon,
+                                "iconType": params.iconType,
                                 "iconSize": params.iconSize
                             })
                         }}
