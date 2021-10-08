@@ -1,4 +1,4 @@
-$button-border-height: 3px;
+$button-shadow-size: 3px;
 
 .ons-btn {
   background: transparent;
@@ -21,8 +21,8 @@ $button-border-height: 3px;
 
   // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
   &::after {
-    border: ems($button-border-height) solid transparent;
-    bottom: 0;
+    border: ems($button-shadow-size) solid transparent;
+    bottom: -(ems($button-shadow-size)); // makes sure button shadow is selectable
     content: '';
     left: 0;
     position: absolute;
@@ -51,15 +51,20 @@ $button-border-height: 3px;
     }
   }
 
-  &__inner {
-    background: $color-button;
-    border-bottom: ems($button-border-height) solid rgba(0, 0, 0, 0.6);
-    border-radius: $input-radius;
-    color: $color-text-inverse;
-    display: inherit;
-    padding: 0.75em 1em;
-    // Required for Google Tag Manager
-    pointer-events: none;
+  &,
+  &:active &,
+  &:focus &,
+  &:hover & {
+    &__inner {
+      background: $color-button;
+      border-radius: $input-radius;
+      box-shadow: 0 ems($button-shadow-size) 0 darken($color-button, 15%);
+      color: $color-text-inverse;
+      display: inherit;
+      padding: 0.75em 1em;
+      // Required for Google Tag Manager
+      pointer-events: none;
+    }
   }
 
   // When preceded by another button (for example, in a group)
@@ -68,19 +73,20 @@ $button-border-height: 3px;
   }
 
   // When focussed
-  &:focus:not(:active):not(:hover) {
+  &:focus:not(:active) & {
     outline: 3px solid transparent;
+
+    &__inner {
+      background-color: $color-focus;
+    }
   }
 
-  &:focus:not(:active):not(:hover) &__inner {
-    background-color: $color-focus;
-  }
-
-  &:focus &__inner {
+  &:focus:not(:active) &__inner {
+    box-shadow: 0 ems($button-shadow-size) 0 $color-text-link-focus;
     color: $color-text-link-focus;
   }
 
-  &:focus:hover &__inner {
+  &:focus:hover:not(:active) &__inner {
     background: darken($color-focus, 5%);
   }
 
@@ -91,11 +97,13 @@ $button-border-height: 3px;
 
   // When clicked
   &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):active {
-    padding-top: ems(3px);
+    top: ems($button-shadow-size);
   }
 
-  &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):active &__inner {
-    border-bottom: 0;
+  &:active & {
+    &__inner {
+      box-shadow: none;
+    }
   }
 
   // Modifiers
@@ -122,6 +130,7 @@ $button-border-height: 3px;
   &--download & {
     &__inner {
       background: $color-button-secondary;
+      box-shadow: 0 ems($button-shadow-size) 0 darken($color-button-secondary, 50%);
       color: $color-text;
       font-weight: normal;
       .ons-svg-icon {
@@ -216,6 +225,7 @@ $button-border-height: 3px;
     &__inner {
       background: transparent;
       border: 2px solid rgba(255, 255, 255, 0.6);
+      box-shadow: none;
       color: $color-white;
       .ons-svg-icon {
         fill: $color-white;
@@ -227,6 +237,7 @@ $button-border-height: 3px;
   &--mobile:active & {
     &__inner {
       border-color: $color-white;
+      box-shadow: none;
     }
   }
 
@@ -252,6 +263,7 @@ $button-border-height: 3px;
   &--mobile:focus & {
     &__inner {
       background-color: $color-focus;
+      box-shadow: none;
       color: $color-text-link-focus;
       .ons-svg-icon {
         fill: $color-black;
