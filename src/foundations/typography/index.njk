@@ -12,11 +12,10 @@ synonyms: Font, Headings, Paragraphs, Quote, blockquote, Text indent, Addresses,
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
-## Font
-Text is the primary way that users digest information and accomplish tasks, so it’s important to use good typographic principles to establish a clear visual hierarchy and to maximise legibility.
+Text is the primary way users digest information and complete tasks, so it’s important to use good typographic principles to establish a clear visual hierarchy and to maximise legibility.
 
-### Open Sans
-The primary font used in SDC is {{
+## Font
+The primary font used in ONS digital products is {{
     onsExternalLink({
         "url": "https://fonts.google.com/specimen/Open+Sans",
         "linkText": "Open Sans"
@@ -75,26 +74,6 @@ The base font size for paragraphs is 18px.
     patternlibExample({"path": "foundations/typography/paragraphs/examples/index.njk"})
 }}
 
-## Quote
-
-{{
-    patternlibExample({"path": "foundations/typography/quote/examples/quote/index.njk", "componentFolderPath": "components/quote"})
-}}
-
-## Text indent
-Use when providing contact information.
-
-{{
-    patternlibExample({"path": "foundations/typography/text-indent/examples/text-indent/index.njk", "componentFolderPath": "components/text-indent"})
-}}
-
-## Addresses
-Use when providing an address.
-
-{{
-    patternlibExample({"path": "foundations/typography/address-output/examples/address-output/index.njk", "componentFolderPath": "components/address-output"})
-}}
-
 ## Links
 Links are blue and underlined by default. If your link is at the end of a sentence or paragraph, make sure that the linked text does not include the full stop.
 
@@ -120,9 +99,7 @@ Each item in the list should start with a lowercase letter and should not end wi
     patternlibExample({"path": "foundations/typography/lists/examples/list/index.njk", "componentFolderPath": "components/lists"})
 }}
 
-### Variants
-
-#### Numbered list
+### Numbered list
 Numbered lists should be displayed in place of bulleted lists when the order of items is relevant.
 
 Each list item should be a complete sentence, therefore start with an uppercase letter, and end with a full stop.
@@ -136,42 +113,80 @@ If there is only one item in the list when using the list macro it will render t
     patternlibExample({"path": "foundations/typography/lists/examples/list-ordered/index.njk", "componentFolderPath": "components/lists"})
 }}
 
-#### Bare list
+### Bare list
 Bare lists should be used to display a list of navigational links, for example, a group of related pages displayed in the [footer](/components/footer).
 {{
     patternlibExample({"path": "foundations/typography/lists/examples/list-bare/index.njk", "componentFolderPath": "components/lists"})
 }}
 
-#### Dashed list
+### Dashed list
 Dashed lists should be used to display a list of content navigational links.
 {{
     patternlibExample({"path": "foundations/typography/lists/examples/list-dashed/index.njk", "componentFolderPath": "components/lists"})
 }}
 
-#### Prefixed list
+### Prefixed list
 The prefix list allows each list item to contain a string as a prefix to the item. The prefixed string uses our monospaced font to ensure spacing and alignment is correct.
 {{
     patternlibExample({"path": "foundations/typography/lists/examples/list-prefix/index.njk", "componentFolderPath": "components/lists"})
 }}
 
-#### Suffixed list
+### Suffixed list
 The suffix list works the same as the prefix but just comes after the list item and the full stop isn’t included.
 {{
     patternlibExample({"path": "foundations/typography/lists/examples/list-suffix/index.njk", "componentFolderPath": "components/lists"})
 }}
 
-
-#### Inline list
+### Inline list
 Inline lists should be used to display a horizontal row of links, for example, a list of pages displayed in the [transactional footer](/components/footer#transactional).
 {{
     patternlibExample({"path": "foundations/typography/lists/examples/list-inline/index.njk", "componentFolderPath": "components/lists"})
 }}
 
-## Help improve this style
-Let us know how we could improve this style or share your user research findings.
+### Lists with icons
+There is specific guidance on [how to use the available set of icons](/foundations/icons).
+
+#### List with icon prefix
+This example uses `"iconPosition": 'before'` and the `iconType` parameter on this list to show the check before each item.
+{{
+    patternlibExample({"path": "foundations/typography/lists/examples/list-icon-prefix/index.njk", "componentFolderPath": "components/lists"})
+}}
+
+#### List with icon suffix
+This example uses `"iconPosition": 'after'` and the `iconType` parameter on this list to show the check after each item.
+{{
+    patternlibExample({"path": "foundations/typography/lists/examples/list-icon-suffix/index.njk", "componentFolderPath": "components/lists"})
+}}
+
+#### Inline list with icon prefix
+This example uses `"variants": [ 'inline', 'social']`, `"iconPosition": 'before'` and `"iconSize": 'xxl'` on the list, with the `iconType` parameter set on each item to show the social icons.
+{{
+    patternlibExample({"path": "foundations/typography/lists/examples/list-icon-social/index.njk", "componentFolderPath": "components/lists"})
+}}
+
+## Quotes
+Use when displaying a short quote.
+{{
+    patternlibExample({"path": "foundations/typography/quote/examples/quote/index.njk", "componentFolderPath": "components/quote"})
+}}
+
+## Addresses
+Use when displaying an address.
+{{
+    patternlibExample({"path": "foundations/typography/address-output/examples/address-output/index.njk", "componentFolderPath": "components/address-output"})
+}}
+
+## Indented text
+Use when you need information to stand out from the rest of the content on a page, for example, when providing contact information.
+{{
+    patternlibExample({"path": "foundations/typography/text-indent/examples/text-indent/index.njk", "componentFolderPath": "components/text-indent"})
+}}
+
+## Help improve this foundation
+Let us know how we could improve this foundation or share your user research findings.
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/233",
-        "linkText": "Discuss the ‘Typography’ style on Github"
+        "linkText": "Discuss the ‘Typography’ foundation on Github"
     })
 }}

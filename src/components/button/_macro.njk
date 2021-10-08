@@ -2,41 +2,49 @@
 
 {% macro onsButton(params) %}
 
-    {% if params.icon is defined and params.icon and params.icon != false %}
-        {% set iconType = params.icon.iconType %}
-        {% set iconPosition = params.icon.iconPosition %}
-    {% elif params.icon is not defined %}
+    {# Customisable button icon #}
+    {% if params.iconType is defined and params.iconType %}
+        {% set iconType = params.iconType %}
+        {% if params.iconPosition is defined and params.iconPosition %}
+            {% set iconPosition = params.iconPosition %}
+        {% else %}
+            {# Default icon position before label #}
+            {% set iconPosition = "before" %}
+        {% endif %}
+    {% elif params.iconType is not defined and params.noIcon is not defined %}
+        {# Opens in new tab #}
         {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}
             {% set iconType = "external-link" %}
             {% set iconPosition = "after" %}
+        {# Download #}
         {% elif params.buttonStyle is defined and params.buttonStyle == "download" %}
             {% set iconType = "download" %}
             {% set iconPosition = "before" %}
+        {# Print #}
         {% elif params.buttonStyle is defined and params.buttonStyle == "print" %}
             {% set iconType = "print" %}
             {% set iconPosition = "before" %}
-        {% elif params.buttonStyle is defined and params.buttonStyle == "exit" %}
-            {% set iconType = "exit" %}
-            {% set iconPosition = "after" %}
+        {# Loader #}
         {% elif params.submitType is defined and params.submitType == "loader" %}
             {% set iconType = "loader" %}
             {% set iconPosition = "after" %}
+        {# CTA or mobile menu toggle #}
         {% elif params.url is defined and params.url or params.buttonStyle is defined and params.buttonStyle == "mobile" %}
             {% set iconType = "chevron" %}
             {% set iconPosition = "after" %}
         {% endif %}
     {% endif %}
 
-    {% set tag = "a" if params.url or params.buttonStyle == "exit" or params.buttonStyle == "download" or params.dsExample is defined and params.dsExample else "button" %}
+    {% set tag = "a" if params.url or params.dsExample is defined and params.dsExample else "button" %}
 
     <{{ tag }}
-        {% if params.url is defined and params.url or params.buttonStyle == "exit" %}
+        {% if params.url is defined and params.url %}
             href="{{ params.url }}"
             role="button"
         {% else %}
             type="{{ params.type if params.type is defined and params.type else ('button' if params.buttonStyle == "print" else 'submit') }}"
         {% endif %}
-        class="ons-btn{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.variants is defined and params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-btn--{{ variant }}{% endfor %}{% else %} ons-btn--{{ params.variants }}{% endif %}{% endif %}{% if params.url is defined and params.url %} ons-btn--link ons-js-submit-btn{% endif %}{% if params.buttonStyle == "download" %} ons-btn--download{% endif %}{% if params.buttonStyle == "print" %} ons-btn--print ons-u-d-no ons-js-print-btn{% endif %}{% if params.buttonStyle == "exit" %} ons-btn--exit{% endif %}{% if params.submitType == "loader" %} ons-btn--loader ons-js-loader ons-js-submit-btn{% endif %}{% if params.submitType == "timer" %} ons-js-timer ons-js-submit-btn{% endif %}"
+        class="ons-btn{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.variants is defined and params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-btn--{{ variant }}{% endfor %}{% else %} ons-btn--{{ params.variants }}{% endif %}{% endif %}{% if params.url is defined and params.url %} ons-btn--link ons-js-submit-btn{% endif %}{% if params.buttonStyle == "download" %} ons-btn--download{% endif %}{% if params.buttonStyle == "print" %} ons-btn--print ons-u-d-no ons-js-print-btn{% endif %}{% if params.submitType == "loader" %} ons-btn--loader ons-js-loader ons-js-submit-btn{% endif %}{% if params.submitType == "timer" %} ons-js-timer ons-js-submit-btn{% endif %}"
         {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}
         {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
         {% if params.name is defined and params.name and tag != "a" %}name="{{ params.name }}"{% elif params.name is defined and params.name and tag == "a" %}id="{{ params.name }}"{% endif %}
@@ -49,7 +57,8 @@
                 {%- if iconPosition == "before" %}
                     {{
                         onsIcon({
-                            "icon": iconType
+                            "iconType": iconType,
+                            "classes": 'ons-u-mr-xs'
                         })
                     }}
                 {% endif -%}
@@ -57,14 +66,15 @@
                 {%- if iconPosition == "after" %}
                 {{
                     onsIcon({
-                        "icon": iconType
+                        "iconType": iconType,
+                        "classes": 'ons-u-ml-xs'
                     })
                 }}
                 {% endif -%}
             {% elif iconPosition == "only" -%}
                 {{
                     onsIcon({
-                        "icon": iconType
+                        "iconType": iconType
                     })
                 }}
                 <span class="ons-u-vh@xxs@s">{{- params.html | safe if params.html is defined and params.html else params.text -}}</span>
