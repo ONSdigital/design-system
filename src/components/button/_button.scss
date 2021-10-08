@@ -158,9 +158,9 @@ $button-border-height: 3px;
     color: $color-text-link-focus;
   }
 
-  &--link:not(.btn--secondary):not(.btn--download) &,
-  &--link:not(.btn--secondary):not(.btn--download):active &,
-  &--link:not(.btn--secondary):not(.btn--download):hover & {
+  &--link:not(&--secondary):not(&--download) &,
+  &--link:not(&--secondary):not(&--download):active &,
+  &--link:not(&--secondary):not(&--download):hover & {
     &__inner {
       .ons-svg-icon {
         fill: $color-white;
@@ -168,8 +168,8 @@ $button-border-height: 3px;
     }
   }
 
-  &--link:focus:not(.btn--secondary):not(.btn--download) &,
-  &--link:focus:hover:not(.btn--secondary):not(.btn--download) & {
+  &--link:focus:not(&--secondary):not(&--download) &,
+  &--link:focus:hover:not(&--secondary):not(&--download) & {
     &__inner {
       .ons-svg-icon {
         fill: $color-black;

@@ -231,19 +231,18 @@ layout: none
 
         {{
             onsDuration({
-                "label": "Duration",
+                "legendOrLabel": "Duration",
                 "id": "address-duration",
-                "dontWrap": true,
                 "field1": {
                     "id": "address-duration-hours",
                     "name": "address-duration-hours",
-                    "label": "Hours",
+                    "suffix": "Hours",
                      "value": "2"
                 },
                 "field2": {
                     "id": "address-duration-minutes",
                     "name": "address-duration-minutes",
-                    "label": "Minutes",
+                    "suffix": "Minutes",
                     "value": "60"
                 }
             })
@@ -280,12 +279,12 @@ layout: none
                             "id": "pepperoni-heat-level",
                             "name": "pepperoni-heat-level",
                             "label": {
-                                "text": "Please specify heat level"
+                                "text": "Choose preferred heat level"
                             },
                             "options": [
                                 {
                                     "value": "",
-                                    "text": "Select heat level",
+                                    "text": "Select an option",
                                     "disabled": true,
                                     "selected": true
                                 },
