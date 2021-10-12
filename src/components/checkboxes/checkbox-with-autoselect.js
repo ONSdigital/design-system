@@ -1,15 +1,15 @@
 export default class CheckboxWithAutoSelect {
-  constructor(context, button) {
+  constructor(context, button, insideReveal) {
     this.context = context;
     this.button = button;
     this.checkboxes = [...this.context.querySelectorAll('input')];
-    this.insideOther = document.querySelector('.ons-checkbox-other');
+    this.insideReveal = insideReveal;
 
     // Event listeners
     this.button.addEventListener('click', this.handleButtonEvent.bind(this));
     this.checkboxes.forEach(checkbox => checkbox.addEventListener('change', this.handleCheckboxEvent.bind(this)));
-    if (this.insideOther) {
-      this.insideOther.addEventListener('change', this.handleCheckboxEvent.bind(this));
+    if (this.insideReveal) {
+      this.insideReveal.addEventListener('change', this.handleCheckboxEvent.bind(this));
     }
 
     // Status

@@ -31,7 +31,8 @@ domready(async () => {
     const CheckboxWithAutoSelect = (await import('./checkbox-with-autoselect')).default;
     autoSelectButtons.forEach(button => {
       const context = button.parentNode;
-      new CheckboxWithAutoSelect(context, button);
+      const insideReveal = context.parentNode.parentNode.querySelector('.ons-checkbox-other');
+      new CheckboxWithAutoSelect(context, button, insideReveal);
     });
   }
 });
