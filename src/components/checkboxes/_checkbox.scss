@@ -66,6 +66,10 @@ $checkbox-padding: 11px;
         box-shadow: 0 0 0 3px $color-focus;
       }
     }
+
+    & .ons-checkbox__other {
+      margin: 0.5rem 0 0.5rem 0.5rem;
+    }
   }
 
   &__label {
@@ -102,8 +106,10 @@ $checkbox-padding: 11px;
   }
 
   &__other {
+    border-left: 4px solid $color-grey-35;
     display: block;
-    padding: 0 $checkbox-padding $checkbox-padding;
+    margin: 0 1rem 0.5rem 1.1rem;
+    padding: 0 $checkbox-padding $checkbox-padding $checkbox-padding * 2;
   }
 
   &__input:checked + &__label::before {

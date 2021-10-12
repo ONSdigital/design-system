@@ -6,7 +6,8 @@
     "legendIsQuestionTitle": true,
     "classes": "ons-u-mt-no"
 }) %}
-{% call onsCheckboxes({
+    {{
+        onsCheckboxes({
             "checkboxesLabel": "Select all that apply",
             "dontWrap": true,
             "name": "dietary",
@@ -46,14 +47,32 @@
                     },
                     "value": "other",
                     "other": {
-                        "id": "other-textbox",
-                        "name": "other-answer",
-                        "label": {
-                            "text": "Enter dietary requirements"
-                        }
+                        "otherType": "checkboxes",
+                        "legend": "Select all that apply",
+                        "autoSelect": {
+                            "selectAllText": "Select all",
+                            "unselectAllText": "Unselect all",
+                            "context": "checkboxes below"
+                        },
+                        "checkboxes": [
+                            {
+                                "id": "gluten",
+                                "label": {
+                                    "text": "Gluten free"
+                                },
+                                "value": "gluten-free"
+                            },
+                            {
+                                "id": "lactose",
+                                "label": {
+                                    "text": "Lactose intolerant"
+                                },
+                                "value": "lactose-intolerant"
+                            }
+                        ]
                     }
                 }
             ]
         })
-    }} %}
+    }}
 {% endcall %}

@@ -10,4 +10,11 @@
   &__description--title {
     font-weight: normal;
   }
+
+  .ons-fieldset {
+    &__legend {
+      font-weight: normal;
+      margin: 0;
+    }
+  }
 }
