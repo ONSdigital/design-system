@@ -66,6 +66,7 @@ export default class AutosuggestAddress {
     this.retrieveURL = `${this.APIDomain}/addresses/eq/uprn/`;
 
     // Query string options
+    this.manualQueryParams = this.container.getAttribute('data-query-params');
     this.regionCode = this.container.getAttribute('data-options-region-code');
     this.epoch = this.container.getAttribute('data-options-one-year-ago');
     this.classificationFilter = this.container.getAttribute('data-options-address-type');
@@ -117,14 +118,20 @@ export default class AutosuggestAddress {
   findAddress(text, grouped) {
     return new Promise((resolve, reject) => {
       let queryURL, fullQueryURL;
-      const testInput = this.testFullPostcodeQuery(text);
-      let limit = testInput ? 100 : 10;
 
-      queryURL = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
+      if (this.manualQueryParams) {
+        const manualQueryParams = this.container.getAttribute('data-query-params');
+        fullQueryURL = this.lookupURL + text + manualQueryParams;
+      } else {
+        const fullPostcodeQuery = this.testFullPostcodeQuery(text);
+        let limit = fullPostcodeQuery ? 100 : 10;
 
-      fullQueryURL = this.generateURLParams(queryURL);
-      if (testInput && grouped !== false) {
-        fullQueryURL = fullQueryURL + '&groupfullpostcodes=combo';
+        queryURL = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
+
+        fullQueryURL = this.generateURLParams(queryURL);
+        if (fullPostcodeQuery && grouped !== false) {
+          fullQueryURL = fullQueryURL + '&groupfullpostcodes=combo';
+        }
       }
 
       this.fetch = abortableFetch(fullQueryURL, {
