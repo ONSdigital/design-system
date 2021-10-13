@@ -35,7 +35,7 @@
                     {% set borderless = "ons-checkbox--no-border" %}
                 {% endif %}
                 {% if checkbox.other is defined and checkbox.other %}
-                    {% set otherClass = " ons-checkbox-other" %}
+                    {% set otherClass = " ons-js-other" %}
                 {% endif %}
                 <span class="ons-checkboxes__item{{ " ons-checkboxes__item--no-border" if params.borderless }}">
                     {% set config = {
@@ -72,7 +72,8 @@
                                 "legend": checkbox.other.legend,
                                 "value": checkbox.other.value,
                                 "autoSelect": checkbox.other.autoSelect,
-                                "checkboxes": checkbox.other.checkboxes
+                                "checkboxes": checkbox.other.checkboxes,
+                                "radios": checkbox.other.radios
                             }
                         }) %}
                     {% endif %}

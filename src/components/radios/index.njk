@@ -58,27 +58,47 @@ Answer descriptions should:
 }}
 
 ### Radio with input
-This variant lets the user provide an answer other to the radios in the list, or to provide additional information required to describe their answer.
+This variant lets the user provide an answer other to the options in the list, or to provide additional information required to describe their answer.
 
-Use this variation by wrapping the text field in a div with class `ons-radio__other`, added directly after the radio label. CSS hides this field until the radio is `:checked`.
+Provide the `other` parameter and provide the relevant [input](/components/input) parameters. The field is hidden until the radio is `:checked`.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-other/index.njk"})
 }}
 
 
+### Radio with drop-down
+This variant uses a [select component](/components/select) instead.
+
+To use this variant provide `"otherType": "select"` inside the `other` parameter.
+
+{{
+    patternlibExample({"path": "components/radios/examples/radios-select/index.njk"})
+}}
+
+### Radio with nested checkboxes
+This variant allows for [checkboxes](/components/checkboxes) to be nested inside the "other" radio option.
+
+To use this variant provide `"otherType": "checkboxes"` inside the `other` parameter.
+
+{{
+    patternlibExample({"path": "components/radios/examples/radios-other-checkboxes/index.njk"})
+}}
+
+### Radio with nested radios
+This variant allows for more radios to be nested inside the "other" radio option.
+
+To use this variant provide `"otherType": "radios"` inside the `other` parameter.
+
+{{
+    patternlibExample({"path": "components/radios/examples/radios-other-radios/index.njk"})
+}}
+
 ### Radio with visible input
 This variant of “radio with input” shows the input instead of waiting for the radio to be `:checked`.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-other-open/index.njk"})
-}}
-
-### Radio with drop-down
-This variant uses a [select component](/components/select) instead of an input.
-
-{{
-    patternlibExample({"path": "components/radios/examples/radios-select/index.njk"})
 }}
 
 ### Radios with an “or” separator

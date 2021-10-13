@@ -1,13 +1,14 @@
 export default class CheckboxWithFieldset {
-  constructor(fieldset, input) {
+  constructor(fieldset, inputs) {
     this.fieldset = fieldset;
-    this.input = input;
+    this.inputs = inputs;
+    this.inputs.forEach(input => input.addEventListener('change', this.uncheckChildInputs.bind(this)));
     this.childInputs = [...this.fieldset.querySelectorAll('input')];
-    this.input.addEventListener('change', this.uncheckChildInputs.bind(this));
   }
 
   uncheckChildInputs() {
-    if (this.input.checked === false) {
+    const isOther = this.inputs.find(input => input.classList.contains('ons-js-other'));
+    if (isOther && isOther.checked === false) {
       this.childInputs.forEach(input => {
         input.checked = false;
       });

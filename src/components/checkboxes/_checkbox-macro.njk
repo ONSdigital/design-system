@@ -78,6 +78,20 @@
                             "autoSelect": params.other.autoSelect
                         })
                     }}
+                {% elif otherType == "radios" %}
+                    {% from "components/radios/_macro.njk" import onsRadios %}
+                    {{
+                        onsRadios({
+                            "id": params.other.id,
+                            "name": params.other.name,
+                            "borderless": true,
+                            "legend": params.other.legend,
+                            "legendClasses": "ons-u-mb-xs",
+                            "attributes": params.other.attributes,
+                            "classes": "ons-js-other-fieldset",
+                            "radios": params.other.radios
+                        })
+                    }}
                 {% endif %}
             </span>
         {% endif %}

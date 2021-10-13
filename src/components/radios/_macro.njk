@@ -19,12 +19,12 @@
                 <span class="ons-radios__label ons-u-mt-s ons-u-fs-r--b" aria-hidden="true">{{ params.or }}
                 </span>
             {% endif %}
-            <p class="ons-radios__item{{ " ons-radios__item--no-border" if params.borderless }}">
+            <span class="ons-radios__item{{ " ons-radios__item--no-border" if params.borderless }}">
                 <span class="ons-radio{{ " ons-radio--no-border" if params.borderless }}">
                     <input
                             type="radio"
                             id="{{ radio.id }}"
-                            class="ons-radio__input ons-js-radio{{ " " + radio.classes if radio.classes else "" }}"
+                            class="ons-radio__input ons-js-radio{{ ' ' + radio.classes if radio.classes else '' }}{{ ' ons-js-other' if radio.other else '' }}"
                             value="{{ radio.value }}"
                             name="{{ params.name }}"
                             {% if (radio.checked is defined and radio.checked) or (params.value is defined and params.value == radio.value) %} checked {% endif %}
@@ -83,11 +83,40 @@
                                         }
                                     })
                                 }}
+                            {% elif otherType == "checkboxes" %}
+                                {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+                                {{
+                                    onsCheckboxes({
+                                        "id": radio.other.id,
+                                        "name": radio.other.name,
+                                        "checked": radio.other.checked,
+                                        "borderless": true,
+                                        "legend": radio.other.legend,
+                                        "attributes": radio.other.attributes,
+                                        "classes": "ons-js-other-fieldset",
+                                        "checkboxes": radio.other.checkboxes,
+                                        "autoSelect": radio.other.autoSelect
+                                    })
+                                }}
+                            {% elif otherType == "radios" %}
+                                {% from "components/radios/_macro.njk" import onsRadios %}
+                                {{
+                                    onsRadios({
+                                        "id": radio.other.id,
+                                        "name": radio.other.name,
+                                        "borderless": true,
+                                        "legend": radio.other.legend,
+                                        "legendClasses": "ons-u-mb-xs",
+                                        "attributes": radio.other.attributes,
+                                        "classes": "ons-js-other-fieldset",
+                                        "radios": radio.other.radios
+                                    })
+                                }}
                             {% endif %}
                         </span>
                     {% endif %}
                 </span>
-            </p>
+            </span>
             {% if not loop.last %}
                 <br>
             {% endif %}

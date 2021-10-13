@@ -47,11 +47,25 @@
                     },
                     "value": "other",
                     "other": {
-                        "id": "other-textbox",
-                        "name": "other-answer",
-                        "label": {
-                            "text": "Enter dietary requirements"
-                        }
+                        "otherType": "checkboxes",
+                        "legend": "Select one option",
+                        "name": "name",
+                        "checkboxes": [
+                            {
+                                "id": "gluten",
+                                "label": {
+                                    "text": "Gluten free"
+                                },
+                                "value": "gluten"
+                            },
+                            {
+                                "id": "lactose",
+                                "label": {
+                                    "text": "Lactose intolerant"
+                                },
+                                "value": "lactose"
+                            }
+                        ]
                     }
                 }
             ]
