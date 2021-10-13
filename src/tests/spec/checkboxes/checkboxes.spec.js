@@ -1,4 +1,4 @@
-import Checkboxes from '../../../components/checkboxes/checkboxes';
+import Checkboxes from '../../../components/checkboxes/checkboxes-with-reveal';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
