@@ -4,7 +4,6 @@ export default class CheckboxWithAutoSelect {
     this.button = button;
     this.checkboxes = [...this.context.querySelectorAll('input')];
     this.insideReveal = insideReveal;
-
     // Event listeners
     this.button.addEventListener('click', this.handleButtonEvent.bind(this));
     this.checkboxes.forEach(checkbox => checkbox.addEventListener('change', this.handleCheckboxEvent.bind(this)));
