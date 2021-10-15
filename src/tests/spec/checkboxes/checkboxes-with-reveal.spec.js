@@ -67,7 +67,6 @@ describe('Component: Checkboxes', function() {
   describe('When the component initialises', function() {
     beforeEach(function() {
       new Checkboxes([...document.querySelectorAll('.ons-js-checkbox')]);
-      new CheckboxWithAutoSelect([...document.querySelectorAll('.ons-js-checkbox')], document.querySelector('.ons-js-auto-selector'));
     });
 
     it('checkboxes with other options should be given aria-expanded attributes', function() {
