@@ -1,4 +1,5 @@
 $button-shadow-size: 3px;
+$button-shadow-size-ems: ems($button-shadow-size);
 
 .ons-btn {
   background: transparent;
@@ -20,51 +21,41 @@ $button-shadow-size: 3px;
   white-space: nowrap;
 
   // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
-  &::after {
+
+  /*   &::after {
     border: ems($button-shadow-size) solid transparent;
-    bottom: -(ems($button-shadow-size)); // makes sure button shadow is selectable
     content: '';
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
-  }
+  } */
 
   .ons-svg-icon {
-    fill: $color-text-inverse;
-    height: 0.8rem;
-    margin: 0 0 0.1rem 0.5rem;
+    height: 18px;
+    margin-top: -$button-shadow-size;
     vertical-align: middle;
-    width: 0.8rem;
+    width: 18px;
   }
 
   &--search {
     .ons-svg-icon {
-      height: 21px;
-      margin: 0;
-      vertical-align: top;
-      width: 21px;
-
       @include mq(s, m) {
-        margin-left: -2px;
+        margin-right: 0.5rem;
       }
     }
   }
 
-  &,
-  &:active &,
-  &:focus &,
-  &:hover & {
-    &__inner {
-      background: $color-button;
-      border-radius: $input-radius;
-      box-shadow: 0 ems($button-shadow-size) 0 darken($color-button, 15%);
-      color: $color-text-inverse;
-      display: inherit;
-      padding: 0.75em 1em;
-      // Required for Google Tag Manager
-      pointer-events: none;
-    }
+  &__inner {
+    background: $color-button;
+    border-radius: $input-radius;
+    box-shadow: 0 ems($button-shadow-size) 0 darken($color-button, 15%);
+    color: $color-text-inverse;
+    display: inherit;
+    padding: 0.7em 1em 0.8em;
+    // Required for Google Tag Manager
+    pointer-events: none;
+    position: relative;
   }
 
   // When preceded by another button (for example, in a group)
@@ -73,15 +64,12 @@ $button-shadow-size: 3px;
   }
 
   // When focussed
-  &:focus:not(:active) & {
+  &:focus & {
     outline: 3px solid transparent;
-
-    &__inner {
-      background-color: $color-focus;
-    }
   }
 
-  &:focus:not(:active) &__inner {
+  &:focus &__inner {
+    background: $color-focus;
     box-shadow: 0 ems($button-shadow-size) 0 $color-text-link-focus;
     color: $color-text-link-focus;
   }
@@ -90,62 +78,65 @@ $button-shadow-size: 3px;
     background: darken($color-focus, 5%);
   }
 
-  &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):focus,
-  &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):focus:hover {
-    outline: none;
-  }
-
-  // When clicked
-  &:not([class*='ons-btn--ghost']):not([class*='ons-btn--mobile']):active {
-    top: ems($button-shadow-size);
-  }
-
-  &:active & {
+  // When down
+  &:active &,
+  &:active:focus & {
     &__inner {
+      background: $color-button;
       box-shadow: none;
+      color: $color-text-inverse;
     }
   }
 
-  // Modifiers
+  &:active {
+    top: ems($button-shadow-size);
+  }
+
+  &:focus,
+  &:focus:hover {
+    outline: none;
+  }
+
+  // Small buttons
   &--small,
   &--mobile {
     font-size: 0.9rem;
   }
 
-  &--small &,
+  &--small & {
+    &__inner {
+      padding: 0.5em 0.7em;
+      .ons-svg-icon {
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
+
+  &--small.ons-btn--ghost &,
   &--mobile & {
     &__inner {
       padding: 0.5em 0.7em;
     }
   }
 
-  &--inline & {
+  // Secondary button style
+  &--secondary & {
     &__inner {
-      padding: 0.5rem 1rem;
+      box-shadow: 0 ems($button-shadow-size) 0 darken($color-button-secondary, 50%);
     }
   }
 
   &--secondary &,
-  &--print &,
-  &--download & {
+  &--secondary:active &,
+  &--secondary:active:focus & {
     &__inner {
       background: $color-button-secondary;
-      box-shadow: 0 ems($button-shadow-size) 0 darken($color-button-secondary, 50%);
       color: $color-text;
       font-weight: normal;
+
       .ons-svg-icon {
         fill: $color-text;
-      }
-    }
-  }
-
-  &--print &,
-  &--download & {
-    &__inner {
-      .ons-svg-icon {
-        height: 1rem;
-        margin: 0 0.5rem 0.1rem 0;
-        width: 1rem;
       }
     }
   }
@@ -157,9 +148,7 @@ $button-shadow-size: 3px;
     }
   }
 
-  &--secondary:hover &,
-  &--print:hover &,
-  &--download:hover & {
+  &--secondary:hover & {
     &__inner {
       background: darken($color-button-secondary, 5%);
     }
@@ -170,24 +159,18 @@ $button-shadow-size: 3px;
     text-decoration: none;
   }
 
-  // Link button when focussed
-  &--link:focus:not(:active):not(:hover) &__inner {
-    background: $color-focus;
-    color: $color-text-link-focus;
-  }
-
-  &--link:not(.btn--secondary):not(.btn--download) &,
-  &--link:not(.btn--secondary):not(.btn--download):active &,
-  &--link:not(.btn--secondary):not(.btn--download):hover & {
-    &__inner {
+  &--link:not(&--secondary):not(&--download) &,
+  &--link:not(&--secondary):not(&--download):active &,
+  &--link:not(&--secondary):not(&--download):hover & {
+    .ons-btn__inner {
       .ons-svg-icon {
         fill: $color-white;
       }
     }
   }
 
-  &--link:focus:not(.btn--secondary):not(.btn--download) &,
-  &--link:focus:hover:not(.btn--secondary):not(.btn--download) & {
+  &--link:focus:not(:active):not(&--secondary):not(&--download) &,
+  &--link:focus:hover(:active):not(&--secondary):not(&--download) & {
     &__inner {
       .ons-svg-icon {
         fill: $color-black;
@@ -199,8 +182,7 @@ $button-shadow-size: 3px;
     position: relative;
     transition: color 0.3s ease-in-out;
     .ons-svg-icon {
-      fill: $color-white;
-      height: 1.5rem;
+      height: 27px;
       left: 50%;
       margin: 0;
       opacity: 0;
@@ -208,13 +190,22 @@ $button-shadow-size: 3px;
       top: 50%;
       transform: translate(-50%, -50%);
       transition: opacity 0.3s ease-in-out;
-      width: 1.5rem;
+      width: 27px;
+    }
+  }
+
+  &--loader.ons-btn--small {
+    .ons-svg-icon {
+      height: 24px;
+      width: 24px;
     }
   }
 
   &--loader.ons-is-loading &__inner {
     color: transparent;
     .ons-svg-icon {
+      fill: $color-white;
+      margin-left: 0 !important;
       opacity: 1;
     }
   }
@@ -226,22 +217,23 @@ $button-shadow-size: 3px;
       background: transparent;
       border: 2px solid rgba(255, 255, 255, 0.6);
       box-shadow: none;
-      color: $color-white;
+      color: $color-text-inverse;
       .ons-svg-icon {
-        fill: $color-white;
+        fill: $color-text-inverse;
       }
     }
   }
 
-  &--ghost:active &,
-  &--mobile:active & {
-    &__inner {
-      border-color: $color-white;
-      box-shadow: none;
+  &--ghost,
+  &--mobile {
+    &:active,
+    .active {
+      top: 0;
     }
   }
 
   &--ghost:active:focus {
+    box-shadow: none;
     outline: 3px solid transparent;
   }
 
@@ -251,20 +243,44 @@ $button-shadow-size: 3px;
   }
 
   &--ghost:hover &,
-  &--mobile:hover &,
+  &--mobile:hover & {
+    &__inner {
+      background: rgba(0, 0, 0, 0.1);
+      border-color: $color-white;
+    }
+  }
+
+  &--ghost:active &,
+  &--mobile:active &,
+  &--ghost:active:focus &,
+  &--mobile:active:focus &,
   &--ghost.active &,
   &--mobile.active & {
     &__inner {
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.6);
+      color: $color-text-inverse;
+      .ons-svg-icon {
+        fill: $color-text-inverse;
+      }
+    }
+  }
+
+  &--ghost.active:focus &,
+  &--mobile.active:focus & {
+    &__inner {
+      background: $color-focus;
+      color: $color-text-link-focus;
+      .ons-svg-icon {
+        fill: $color-text-link-focus;
+      }
     }
   }
 
   &--ghost:focus &,
   &--mobile:focus & {
     &__inner {
-      background-color: $color-focus;
       box-shadow: none;
-      color: $color-text-link-focus;
       .ons-svg-icon {
         fill: $color-black;
       }

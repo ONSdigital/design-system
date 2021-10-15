@@ -1,0 +1,136 @@
+---
+title: Develop a feature
+sortOrder: 3
+---
+
++++
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/lists/_macro.njk" import onsList %}
++++
+
+Follow these steps if you need to develop a feature in the design system.
+
+## 1. Check the backlog
+The [community backlog](/contribute/community-backlog) lists everything proposed or in progress for the design system. It includes new components or patterns and changes to existing ones. You can pick up any ticket to develop it.
+
+### If you want to pick up an existing ticket
+Start at the top of the “To do” list. If the ticket you choose does not have enough information, email the team at {{
+    onsExternalLink({
+        "url": "mailto:ons.design.system@ons.gov.uk",
+        "linkText": "ons.design.system@ons.gov.uk"
+    })
+}}
+
+### If you want to develop a new feature or make a change to a feature
+Check if it is already in the backlog. If not, [make a proposal](/contribute/propose-a-new-feature) and wait for approval.
+
+## 2. Contact the Design System working group to plan your contribution
+When you choose a ticket to develop you need to let us know which one you are picking up so we can:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'agree the scope of your contribution'
+            },
+            {
+                "text": 'understand what support you need so we can help you get it, for example, you will need a content designer to write the documentation'
+            },
+            {
+                "text": 'plan out where it will be located in the design system and what documentation, examples and design it needs'
+            },
+            {
+                "text": 'make sure you have the right access permissions to push to the repository'
+            }
+        ]
+    })
+}}
+
+Let us know by emailing the Design System working group at {{
+    onsExternalLink({
+        "url": "mailto:ons.design.system@ons.gov.uk",
+        "linkText": "ons.design.system@ons.gov.uk"
+    })
+}}
+
+You can also discuss your development in the design system [Slack channel](/contribute/support#slack).
+
+Once agreed, assign yourself to the ticket and move it to the “In progress” list.
+
+## 3. Develop the feature
+
+### Create a new branch
+Start by creating a new branch from the latest master version of the design system.
+
+### Copy the documents you need
+Copy the appropriate content documentation template folder from the root of the “components” or “patterns” folders (`/_documentation-template/`).
+
+Use the `index.njk` file for your documentation. It contains standard headings, words and phrases to maintain consistency across the design system. This consistency makes it easier for people to use the design system.
+
+Ensure the documentation folder contains the following:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": '<strong>documentation</strong> (<code>index.njk</code>) – this file contains a mix of markdown syntax and any design system macros that are needed (for example, partials, lists and panels)'
+            },
+            {
+                "text": '<strong>an examples folder</strong> (<code>/examples/</code>) – with a folder for each example referred to in the documentation – each one should contain an `index.njk` file that imports the macro of the component configured for that example'
+            }
+        ]
+    })
+}}
+
+If you are developing a component the folder also needs to include:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": '<strong>Nunjucks macro code</strong> (<code>_macro.njk</code>)'
+            },
+            {
+                "text": '<strong>macro options</strong> (<code>_macro-options.md</code>) – use table markdown to list the required and optional parameters the macro uses with a description of what each is for'
+            },
+            {
+                "text": '<strong>a Sass file</strong> (<code>_component-name.scss</code>) for styles'
+            },
+            {
+                "text": 'any necessary <strong>javascript files</strong>'
+            }
+        ]
+    })
+}}
+
+### Ask for help
+Any contributions to the design system need a content design review. This will happen when we review a feature or its documentation on GitHub during the review process. However, you can get help from a content designer at any point while you are developing your pattern or component. You can ask a content designer for help by emailing {{
+    onsExternalLink({
+        "url": "mailto:ons.design.system@ons.gov.uk",
+        "linkText": "ons.design.system@ons.gov.uk"
+    })
+}}
+
+## 4. Test the feature
+Any component or pattern that you build or change needs to be tested before it is merged into the design system. This includes testing for accessibility, [browser compatibility](/guidance/browser-testing/) and regression.
+
+### Accessibility testing
+Your feature needs to be compliant to AA standard of the {{
+    onsExternalLink({
+        "url": "https://www.w3.org/TR/WCAG21/",
+        "linkText": "Web Content Accessibility Guidelines (WCAG) version 2.1"
+    })
+}}
+
+Every component should pass a Google Lighthouse score of 100%. This is checked when you raise a pull request by {{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/actions/workflows/lighthouse-ci.yml",
+        "linkText": "a test integrated in GitHub Actions"
+    })
+}}
+
+Various accessibility tools can help you check the accessibility of your feature.
+
+We recommend an audit of your feature by the {{
+    onsExternalLink({
+        "url": "https://digitalaccessibilitycentre.org/",
+        "linkText": "Digital Accessibility Centre (DAC)"
+    })
+}}. It is more efficient to bundle various features together to send to DAC, so let the [Design System working group](/contribute/design-system-working-group/) know you have something to test.

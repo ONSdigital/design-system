@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "foundations/page-template/_template.njk" %}
+{% extends "foundations/layout/page-template/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/textarea/_macro.njk" import onsTextarea %}
@@ -160,33 +160,31 @@ layout: none
                     "id": 'follow-us',
                     "title": 'Follow us',
                     "variants": 'social',
+                    "iconPosition": 'before',
+                    "iconSize": 'xxl',
                     "itemsList": [
                         {
                             "url": '#0',
                             "text": 'Twitter',
-                            "prefixIcon": 'twitter',
-                            "iconSize": 'xxl',
+                            "iconType": 'twitter',
                             "rel": 'noreferrer external'
                         },
                         {
                             "url": '#0',
                             "text": 'Facebook',
-                            "prefixIcon": 'facebook',
-                            "iconSize": 'xxl',
+                            "iconType": 'facebook',
                             "rel": 'noreferrer external'
                         },
                         {
                             "url": '#0',
                             "text": 'Instagram',
-                            "prefixIcon": 'instagram',
-                            "iconSize": 'xxl',
+                            "iconType": 'instagram',
                             "rel": 'noreferrer external'
                         },
                         {
                             "url": '#0',
                             "text": 'LinkedIn',
-                            "prefixIcon": 'linkedin',
-                            "iconSize": 'xxl',
+                            "iconType": 'linkedin',
                             "rel": 'noreferrer external'
                         }
                     ]

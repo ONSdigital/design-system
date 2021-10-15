@@ -1,0 +1,60 @@
+---
+layout: none
+---
+{% extends "foundations/layout/page-template/_template.njk" %}
+{% set pageConfig = {
+    "title": "Service name",
+    "signoutButton": {
+        "text": "Save and sign out",
+        "iconType": "exit",
+        "iconPosition": "after",
+        "url": "#0"
+    },
+    "language": {
+        "allLanguagesUrl": "#0",
+        "languages": [
+            {
+                "url": "#0",
+                "ISOCode": "en",
+                "text": "English",
+                "buttonAriaLabel": "Language selector. Current language: English",
+                "chooseLanguage": "Choose language",
+                "current": true
+            }
+        ]
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "text": 'Previous',
+                "url": '#0'
+            }
+        ]
+    },
+    "footer": {
+        "rows": [
+            {
+                "itemsList": [
+                    {
+                        "text": 'Contact us',
+                        "url": '#'
+                    },
+                    {
+                        "text": 'Cookies and privacy',
+                        "url": '#'
+                    }
+                ]
+            }
+        ],
+        "OGLLink": {
+            "pre": 'All content is available under the',
+            "link": 'Open Government Licence v3.0',
+            "url": 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/',
+            "post": ', except where otherwise stated'
+        }
+    }
+} %}
+{% block main %}
+    <h1>Page title</h1>
+{% endblock %}
