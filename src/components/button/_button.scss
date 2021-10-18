@@ -1,5 +1,4 @@
 $button-shadow-size: 3px;
-$button-shadow-size-ems: ems($button-shadow-size);
 
 .ons-btn {
   background: transparent;
@@ -21,15 +20,15 @@ $button-shadow-size-ems: ems($button-shadow-size);
   white-space: nowrap;
 
   // Transparent border for IE11 High Contrast mode support due to 'border: 0' on buttons
-
-  /*   &::after {
+  &::after {
     border: ems($button-shadow-size) solid transparent;
+    bottom: -(ems($button-shadow-size)); // makes sure button shadow is selectable
     content: '';
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
-  } */
+  }
 
   .ons-svg-icon {
     height: 18px;
@@ -159,21 +158,21 @@ $button-shadow-size-ems: ems($button-shadow-size);
     text-decoration: none;
   }
 
-  &--link:not(&--secondary):not(&--download) &,
-  &--link:not(&--secondary):not(&--download):active &,
-  &--link:not(&--secondary):not(&--download):hover & {
-    .ons-btn__inner {
+  &--link:not(&--secondary) &,
+  &--link:active:not(&--secondary) &,
+  &--link:hover:not(&--secondary) & {
+    &__inner {
       .ons-svg-icon {
-        fill: $color-white;
+        fill: $color-text-inverse;
       }
     }
   }
 
-  &--link:focus:not(:active):not(&--secondary):not(&--download) &,
-  &--link:focus:hover(:active):not(&--secondary):not(&--download) & {
+  &--link:focus:not(:active):not(&--secondary) &,
+  &--link:focus:hover:not(:active):not(&--secondary) & {
     &__inner {
       .ons-svg-icon {
-        fill: $color-black;
+        fill: $color-text;
       }
     }
   }
