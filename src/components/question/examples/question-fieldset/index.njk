@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "foundations/page-template/_template.njk" %}
+{% extends "foundations/layout/page-template/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/panel/_macro.njk" import onsPanel %}
@@ -23,36 +23,34 @@ layout: none
 
 {% block main %}
     {% call onsQuestion({
-        "legendIsQuestionTitle": true,
         "title": "On 1 May 2016, what was the number of employees for Bolt and Ratchet?",
-        "description": "<p>An employee is anyone aged 16 years or over that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job or being on a training scheme.</p>"
+        "description": "<p>This is all employees aged 16 years or over that your organisation employs.</p>"
     }) %}
         {% call onsCollapsible({
             "id": "question-definition",
-            "title": "Definition for employee",
+            "title": "What we mean by “employee”",
             "button": {
                 "close": "Hide this"
             }
         }) %}
-            <p>An employee is a person employed for wages or salary, especially at non-executive level.</p>
+            <p>An employee is a person that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job.</p>
         {% endcall %}
 
         {% call onsPanel() %}
             <strong>Include:</strong>
             <ul>
-                <li>All employees in Great Britain (England, Scotland and Wales), both full and part-time, who received pay in the relevant period</li>
+                <li>all employees in Great Britain (England, Scotland and Wales), both full and part-time, who received pay in the relevant period</li>
             </ul>
             <strong>Exclude:</strong>
             <ul>
-                <li>Trainees on government schemes</li>
-                <li>Employees working abroad unless paid directly from this business’s GB payroll</li>
+                <li>trainees on government schemes</li>
+                <li>employees working abroad unless paid directly from this business’s GB payroll</li>
             </ul>
         {% endcall %}
 
         {{ onsRadios({
             "id": "number-of-employees",
             "name": "number-of-employees",
-            "dontWrap": true,
             "radios": [
                 {
                     "id": "number-of-employees-1-9",
@@ -81,12 +79,12 @@ layout: none
 
         {% call onsCollapsible({
             "id": "question-justification",
-            "title": "Why do we ask this question",
+            "title": "Why we ask this question",
             "button": {
                 "close": "Hide this"
             }
         }) %}
-            <p>We ask this question because we want to know things.</p>
+            <p>We ask this question in order to understand the size of organisations in the UK.</p>
         {% endcall %}
     {% endcall %}
 

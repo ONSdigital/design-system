@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "foundations/page-template/_template.njk" %}
+{% extends "foundations/layout/page-template/_template.njk" %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
@@ -78,7 +78,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         {% call onsPanel({
             "classes": "ons-u-mb-m ons-u-d-no ons-cookies-confirmation-message",
             "type": "success",
-            "icon": "check",
+            "iconType": "check",
             "iconSize": "xl"
         }) %}
             <h2>Your cookie settings have been saved</h2>

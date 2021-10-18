@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "foundations/page-template/_template.njk" %}
+{% extends "foundations/layout/page-template/_template.njk" %}
 
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/panel/_macro.njk" import onsPanel %}
@@ -93,7 +93,7 @@ layout: none
                         "variants": "inPageLink"
                     },
                     {
-                        "text": "Please specify heat level if pepperoni selected",
+                        "text": "Select your preferred heat level of pepperoni",
                         "url": "#select-other-error",
                         "variants": "inPageLink"
                     }
@@ -313,9 +313,8 @@ layout: none
 
         {{
             onsDuration({
-                "label": "Duration",
+                "legendOrLabel": "Duration",
                 "id": "address-duration",
-                "dontWrap": true,
                 "error": {
                     "text": "Enter a number that is less than 60",
                     "id": "duration-error"
@@ -323,13 +322,13 @@ layout: none
                 "field1": {
                     "id": "address-duration-hours",
                     "name": "address-duration-hours",
-                    "label": "Hours",
+                    "suffix": "Hours",
                     "value": "2"
                 },
                 "field2": {
                     "id": "address-duration-minutes",
                     "name": "address-duration-minutes",
-                    "label": "Minutes",
+                    "suffix": "Minutes",
                     "value": "60",
                     "error": true
                 }
@@ -341,7 +340,7 @@ layout: none
                 "legend": "Select your favourite toppings",
                 "name": "food-other",
                 "error": {
-                    "text": "Please specify heat level if pepperoni selected",
+                    "text": "Select your preferred heat level of pepperoni",
                     "id": "select-other-error"
                 },
                 "radios": [
@@ -371,12 +370,12 @@ layout: none
                             "id": "pepperoni-heat-level",
                             "name": "pepperoni-heat-level",
                             "label": {
-                                "text": "Please specify heat level"
+                                "text": "Choose preferred heat level"
                             },
                             "options": [
                                 {
                                     "value": "",
-                                    "text": "Select heat level",
+                                    "text": "Select an option",
                                     "disabled": true,
                                     "selected": true
                                 },
