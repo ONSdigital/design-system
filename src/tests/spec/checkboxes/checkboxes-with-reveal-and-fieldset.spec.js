@@ -1,4 +1,5 @@
 import Checkboxes from '../../../components/checkboxes/checkboxes-with-reveal';
+import CheckboxWithFieldset from '../../../components/checkboxes/checkbox-with-fieldset';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
@@ -30,9 +31,24 @@ const params = {
       other: {
         id: 'other-textbox',
         name: 'other-answer',
-        label: {
-          text: 'Please specify other',
-        },
+        legend: 'Please specify other',
+        otherType: 'checkboxes',
+        checkboxes: [
+          {
+            id: 'bacon-other',
+            label: {
+              text: 'Bacon',
+            },
+            value: 'bacon',
+          },
+          {
+            id: 'olives-other',
+            label: {
+              text: 'Olives',
+            },
+            value: 'olives',
+          },
+        ],
       },
     },
   ],
@@ -67,6 +83,7 @@ describe('Component: Checkboxes', function() {
   describe('When the component initialises', function() {
     beforeEach(function() {
       new Checkboxes([...document.querySelectorAll('.ons-js-checkbox')]);
+      new CheckboxWithFieldset(document.querySelector('.ons-js-other-fieldset'), [...document.querySelectorAll('.ons-js-checkbox')]);
     });
 
     it('checkboxes with other options should be given aria-expanded attributes', function() {
@@ -95,14 +112,23 @@ describe('Component: Checkboxes', function() {
         });
       });
 
-      describe('and a checkbox with an other input is unchecked', function() {
+      describe('and a child of other checkbox is checked', function() {
         beforeEach(function() {
-          this.checkboxWithOther.click();
+          this.childInputs[0].click();
         });
 
-        // eslint-disable-next-line prettier/prettier
-        it("it's aria-expanded attribute should be set to false", function() {
-          expect(this.checkboxWithOther.getAttribute('aria-expanded')).to.equal('false');
+        describe('and a checkbox with an other input is unchecked', function() {
+          beforeEach(function() {
+            this.checkboxWithOther.click();
+          });
+
+          it('its aria-expanded attribute should be set to false', function() {
+            expect(this.checkboxWithOther.getAttribute('aria-expanded')).to.equal('false');
+          });
+
+          it('the child of other checkbox should be unchecked', function() {
+            expect(this.childInputs[0].checked).to.equal(false);
+          });
         });
       });
     });
@@ -115,13 +141,15 @@ function renderComponent(params) {
   const wrapper = document.createElement('div');
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
-
   const checkboxes = [...wrapper.querySelectorAll('.ons-js-checkbox')];
-  const checkboxWithOther = checkboxes[checkboxes.length - 1];
+  const checkboxWithOther = document.getElementById('other-checkbox');
+  const fieldset = document.querySelector('.ons-js-other-fieldset');
+  const childInputs = [...fieldset.querySelectorAll('input')];
 
   return {
     wrapper,
     checkboxes,
     checkboxWithOther,
+    childInputs,
   };
 }
