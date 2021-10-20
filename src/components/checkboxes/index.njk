@@ -58,12 +58,12 @@ Answer descriptions should:
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-descriptions/index.njk"})
 }}
 
-### Select/Unselect all checkboxes
-This variant lets the user select and unselect all available checkboxes via a button. 
+### Select and unselect all checkboxes
+This variant lets the user select and unselect all checkboxes using a button. 
 
-Use the parameter `autoSelect` with the required child parameters `selectAllText`, `unSelectAllText` and `context`. The `context` parameter will visually hide the provided text and helps screen reader users understand the purpose of the button, for example "Select all checkboxes below". 
+Use the parameter `autoSelect` with the required child parameters `selectAllText`, `unSelectAllText` and `context`. The `context` parameter is used for visually hidden text to help screen reader users understand the purpose of the button, for example, "Select all following options".
 
-This variant is not available when using the "other" checkbox option (checkbox with an additional nested form element). It can be used for checkboxes inside the "other" option however.
+The "select/unselect all" button cannot be used when one of the checkboxes uses the `other` parameter to reveal nested inputs. It can however, be inside the `other` parameter to select and unselect all nested checkboxes or radios.
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-autoselect/index.njk"})
 }}
