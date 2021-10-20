@@ -19,7 +19,7 @@ Use this pattern when you want to present a collection of related pages on a top
 
 ## How to use this pattern
 
-View the nunjucks output below which shows the components required to create the guide pattern.
+View the Nunjucks output below which shows the components required to create the guide pattern.
 
 The first page of a guide serves as the "parent" to the other pages. In the table of contents it should be linked as "Overview".
 For accessibility the title `h1` should contain an additional visually hidden `span` that provides the additional "Overview" text, for example:
@@ -46,6 +46,14 @@ Other pages in the guide (below the parent) should include the title of the pare
 
 {{
     patternlibExample({ "path": "patterns/pages/guide/examples/guide/index.njk"})
+}}
+
+### Right-to-left languages
+
+To display a guide page for a right-to-left language (for example, Arabic) you can set `"bodyClasses": 'ons-rtl'` in the [base page template](/foundations/page-template).
+
+{{
+    patternlibExample({ "path": "foundations/layout/page-template/examples/rtl/index.njk" })
 }}
 
 ## Help improve this pattern
