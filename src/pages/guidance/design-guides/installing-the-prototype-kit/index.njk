@@ -1,0 +1,105 @@
+---
+title: Installing the prototype kit
+sortOrder: 1
+---
+
++++
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/images/_macro.njk" import onsImage %}
++++
+
+You can easily create high-fidelity prototypes for your digital product using the ONS Prototype Kit. It lets you use the latest design system components to quickly build working prototypes, saving you time to focus on the new aspects of your designs.
+
+To start making prototypes you will first need to download the prototype kit and install some software.
+
+If you have an issue with any of the following steps you can get help from the design system team by emailing {{
+onsExternalLink({
+    "url": "mailto:ons.design.system@ons.gov.uk?subject=Help installing the ONS Prototype kit",
+    "linkText": "ons.design.system@ons.gov.uk"
+    })
+}}
+
+## 1. Create a new repository from the template in GitHub
+If someone in your team hasn’t already done so, you will need to create a new GitHub repository for your service’s prototypes using the template repository {{
+    onsExternalLink({
+        "url": 'https://github.com/ONSdigital/prototype-kit',
+        "linkText": '“ONS Prototype Kit” on GitHub'
+    })
+}}
+
+To do this you need to select the button labelled “Use this template”.
+
+{{
+    onsImage({
+        image: {
+            "smallSrc": '/patternlib-img/small/use-this-template-button.png',
+            "largeSrc": '/patternlib-img/large/use-this-template-button.png'
+        },
+        "caption": 'Image 1: A screenshot of the GitHub repository header showing the location of the “Use this template” button',
+        "alt": 'A screenshot of the GitHub repository header showing the location of the “Use this template” button on the right-hand side'
+    })
+}}
+Then just give your prototypes repository a unique name that includes the name of your service, for example “ons-website-prototypes”.
+
+{{
+    onsImage({
+        image: {
+            "smallSrc": '/patternlib-img/small/create-a-new-repo-from-template.png',
+            "largeSrc": '/patternlib-img/large/create-a-new-repo-from-template.png'
+        },
+        "caption": 'Image 2: A screenshot of the GitHub repository dialogue showing the location of the repository name field with an example name',
+        "alt": 'A screenshot of the GitHub repository dialogue showing the location of the repository name field with an example name'
+    })
+}}
+This will generate a new repository for you to work on, which is an exact copy of the prototype kit.
+
+## 2. Install the required software
+Before you can use your copy of the prototype kit, you will need the following installed on your device:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'Node.js – JavaScript runtime environment',
+                "url": 'https://nodejs.org/en/',
+                "external": true
+            },
+            {
+                "text": 'Yarn – code sharing package manager',
+                "url": 'https://classic.yarnpkg.com/en/docs/getting-started',
+                "external": true
+            },
+            {
+                "text": 'Git – version control system',
+                "url": 'https://git-scm.com/',
+                "external": true
+            },
+            {
+                "text": 'a code editor with a terminal application – we recommend using <a href="https://code.visualstudio.com/" class="ons-external-link" target="_blank" rel="noopener">Visual Studio Code<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path><path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path></svg></span></a>'
+            }
+        ]
+    })
+}}
+
+### Node.js
+
+### Yarn
+
+### Git
+
+### Visual Studio Code
+
+
++++
+{% call onsPanel({
+    "classes": 'ons-u-mt-m'
+}) %}
+    If you require any help using the prototype kit, email the team at {{
+        onsExternalLink({
+        "url": "mailto:ons.design.system@ons.gov.uk?subject=Help installing the ONS Prototype kit",
+        "linkText": "ons.design.system@ons.gov.uk"
+        })
+    }}
+{% endcall %}
++++
