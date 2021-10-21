@@ -6,6 +6,9 @@
   @include mq(s) {
     flex-flow: row nowrap !important;
   }
+  &__btn {
+    margin-top: -3px;
+  }
   &__btn,
   &__input {
     margin-left: 0.5rem;
