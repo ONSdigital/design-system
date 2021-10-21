@@ -40,7 +40,7 @@
                             "label": {
                                 "id": params.other.id + "-label",
                                 "text": params.other.label.text,
-                                "classes": 'ons-u-fs-s--b'
+                                "classes": 'ons-u-fw-n'
                             },
                             "dontWrap": true,
                             "value": params.other.value
@@ -57,7 +57,7 @@
                             "label": {
                                 "id": params.other.id + "-label",
                                 "text": params.other.label.text,
-                                "classes": 'ons-u-fs-s--b'
+                                "classes": 'ons-u-fw-n'
                             },
                             "dontWrap": true,
                             "value": params.other.value
@@ -70,6 +70,7 @@
                             "id": params.other.id,
                             "name": params.other.name,
                             "checked": params.other.checked,
+                            "borderlessParent": true if params.borderless == true else false,
                             "borderless": true,
                             "legend": params.other.legend,
                             "attributes": params.other.attributes,

@@ -6,17 +6,21 @@
 
     {% set fields %}
         <p class="ons-checkboxes__label{{ " " + params.checkboxesLabelClasses if params.checkboxesLabelClasses }}">{{ params.checkboxesLabel }}</p>
-        {% set other = false %}
+        {% set hasOther = false %}
         {% for checkbox in params.checkboxes %}
             {% if checkbox.other is defined and checkbox.other %}
-                {% set other = true %}
+                {% set hasOther = true %}
             {% endif %}
         {% endfor %}
-        {% if other == false and params.autoSelect is defined and params.autoSelect and params.autoSelect.selectAllText is defined %}
+        {% if hasOther == false and params.autoSelect is defined and params.autoSelect and params.autoSelect.selectAllText is defined %}
+            {% set btnClasses = ['small', 'secondary'] %}
+            {% if params.borderlessParent is defined and params.borderlessParent == false %}
+                {% set btnClasses = ['small', 'secondary', 'ghost-dark'] %}
+            {% endif %}
             {{
                 onsButton({
                     "html": '<span class="ons-js-button-text">' + params.autoSelect.selectAllText + '</span>' + '<span class="ons-u-vh"> ' + params.autoSelect.context + '</span>',
-                    "variants": ['small', 'secondary'],
+                    "variants": btnClasses,
                     "classes": 'ons-u-mb-s ons-js-auto-selector',
                     "attributes": {
                         "data-unselect-all": params.autoSelect.unselectAllText,
@@ -43,6 +47,7 @@
                         "name": checkbox.name,
                         "value": checkbox.value,
                         "checked": checkbox.checked,
+                        "borderless": params.borderless,
                         "classes": checkbox.classes | default('') + borderless | default(''),
                         "inputClasses": exclusiveClass | default('') + otherClass | default(''),
                         "label": {

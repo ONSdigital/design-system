@@ -86,24 +86,6 @@ To use this variant provide `"otherType": "select"` inside the `other` parameter
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-select/index.njk"})
 }}
 
-### Checkbox with nested checkboxes
-This variant reveals nested checkboxes when a checkbox is selected.
-
-To use this variant provide `"otherType": "checkboxes"` inside the `other` parameter.
-
-{{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-checkboxes/index.njk"})
-}}
-
-### Checkbox with revealed radios
-This variant reveals nested [radios](/components/radios) when a checkbox is selected.
-
-To use this variant provide `"otherType": "radios"` inside the `other` parameter.
-
-{{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-radios/index.njk"})
-}}
-
 
 ### Checkbox with visible text input
 This variant always shows the nested inputs.
@@ -124,6 +106,26 @@ Only remove the checkbox border for pages that are not following the practice of
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-borderless/index.njk"})
+}}
+
+### Checkbox with revealed checkboxes
+
+This variant reveals nested checkboxes when a checkbox is selected. We recommend using this variant together with the parent checkboxes using the borderless variant.
+
+To use this variant provide `"otherType": "checkboxes"` inside the `other` parameter.
+
+{{
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-checkboxes/index.njk"})
+}}
+
+### Checkbox with revealed radios
+
+This variant reveals nested [radios](/components/radios) when a checkbox is selected. We recommend using this variant together with the parent checkboxes using the borderless variant.
+
+To use this variant provide `"otherType": "radios"` inside the `other` parameter.
+
+{{
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-radios/index.njk"})
 }}
 
 ## How to validate checkboxes

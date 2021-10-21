@@ -208,7 +208,6 @@ $button-border-height: 3px;
     }
   }
 
-  // Spooky Buttons
   &--ghost &,
   &--mobile & {
     &__inner {
@@ -218,6 +217,15 @@ $button-border-height: 3px;
       .ons-svg-icon {
         fill: $color-white;
       }
+    }
+  }
+
+  &--ghost-dark & {
+    @extend .ons-btn--secondary;
+    &__inner {
+      background: transparent;
+      border: 2px solid rgba(0, 0, 0, 0.6);
+      color: $color-text;
     }
   }
 

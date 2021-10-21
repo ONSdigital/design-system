@@ -67,31 +67,13 @@ Provide the `other` parameter and provide the relevant [input](/components/input
 }}
 
 
-### Radio with drop-down
+### Radio with revealed drop-down
 This variant uses a [select component](/components/select) instead.
 
 To use this variant provide `"otherType": "select"` inside the `other` parameter.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-select/index.njk"})
-}}
-
-### Radio with nested checkboxes
-This variant allows for [checkboxes](/components/checkboxes) to be nested inside the "other" radio option.
-
-To use this variant provide `"otherType": "checkboxes"` inside the `other` parameter.
-
-{{
-    patternlibExample({"path": "components/radios/examples/radios-other-checkboxes/index.njk"})
-}}
-
-### Radio with nested radios
-This variant allows for more radios to be nested inside the "other" radio option.
-
-To use this variant provide `"otherType": "radios"` inside the `other` parameter.
-
-{{
-    patternlibExample({"path": "components/radios/examples/radios-other-radios/index.njk"})
 }}
 
 ### Radio with visible input
@@ -124,6 +106,26 @@ This variant removes the border around the radio input and [label](/components/l
 Only remove the radio border for pages that are not following the practice of “one thing per page”, where the radios are not the primary call to action. For example, the radios could be one part of a multipurpose page, like the checkboxes used for the filters on the [download resources pattern](/patterns/download-resources/).
 {{
     patternlibExample({"path": "components/radios/examples/radios-borderless/index.njk"})
+}}
+
+### Radio with revealed checkboxes
+
+This variant reveals nested [checkboxes](/components/checkboxes) when a radio is selected. We recommend using this variant together with the parent radios using the borderless variant.
+
+To use this variant provide `"otherType": "checkboxes"` inside the `other` parameter.
+
+{{
+    patternlibExample({"path": "components/radios/examples/radios-other-checkboxes/index.njk"})
+}}
+
+### Radio with revealed radios
+
+This variant reveals nested radios when a radio is selected. We recommend using this variant together with the parent radios using the borderless variant.
+
+To use this variant provide `"otherType": "radios"` inside the `other` parameter.
+
+{{
+    patternlibExample({"path": "components/radios/examples/radios-other-radios/index.njk"})
 }}
 
 ## How to check radios

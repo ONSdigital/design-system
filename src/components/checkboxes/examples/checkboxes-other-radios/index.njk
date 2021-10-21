@@ -1,74 +1,65 @@
-{% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
 
-{% call onsQuestion({
-    "title": "Do you have any dietary requirements?",
-    "legendIsQuestionTitle": true,
-    "classes": "ons-u-mt-no"
-}) %}
-    {{
-        onsCheckboxes({
-            "checkboxesLabel": "Select all that apply",
-            "dontWrap": true,
-            "name": "dietary",
-            "checkboxes": [
-                {
-                    "id": "gluten-free",
-                    "label": {
-                        "text": "Gluten free"
-                    },
-                    "value": "gluten-free"
+{{
+    onsCheckboxes({
+        "checkboxesLabel": "Select all that apply",
+        "legend": "How would you like us to contact you?",
+        "name": "contact",
+        "borderless": true,
+        "checkboxes": [
+            {
+                "id": "post",
+                "label": {
+                    "text": "By post"
                 },
-                {
-                    "id": "lactose-intolerant",
-                    "label": {
-                        "text": "Lactose intolerant"
-                    },
-                    "value": "lactose-intolerant"
+                "value": "post"
+            },
+            {
+                "id": "email",
+                "label": {
+                    "text": "By email"
                 },
-                {
-                    "id": "vegan",
-                    "label": {
-                        "text": "Vegan"
-                    },
-                    "value": "vegan"
+                "value": "email"
+            },
+            {
+                "id": "phone",
+                "label": {
+                    "text": "By phone"
                 },
-                {
-                    "id": "vegetarian",
-                    "label": {
-                        "text": "Vegetarian"
-                    },
-                    "value": "vegetarian"
-                },
-                {
-                    "id": "other-checkbox",
-                    "label": {
-                        "text": "Other"
-                    },
-                    "value": "other",
-                    "other": {
-                        "otherType": "radios",
-                        "legend": "Choose an other dietary requirement",
-                        "name": "name",
-                        "radios": [
-                            {
-                                "id": "allergy",
-                                "label": {
-                                    "text": "Allergy"
-                                },
-                                "value": "allergy"
-                            },
-                            {
-                                "id": "religious",
-                                "label": {
-                                    "text": "Religious"
-                                },
-                                "value": "religious"
+                "value": "phone",
+                "other": {
+                    "otherType": "radios",
+                    "id": "phone-time",
+                    "name": "phone-time",
+                    "legend":  "Choose preferred time of day",
+                    "radios": [
+                        {
+                            "value": "anytime",
+                            "label": {
+                                "text": "Anytime of day"
                             }
-                        ]
-                    }
+                        },
+                        {
+                            "value": "morning",
+                            "label": {
+                                "text": "Morning"
+                            }
+                        },
+                        {
+                            "value": "afternoon",
+                            "label": {
+                                "text": "Afternoon"
+                            }
+                        },
+                        {
+                            "value": "evening",
+                            "label": {
+                                "text": "Evening"
+                            }
+                        }
+                    ]
                 }
-            ]
-        })
-    }}
-{% endcall %}
+            }
+        ]
+    })
+}}
