@@ -9,7 +9,7 @@
                 <h1 class="ons-u-fs-l">On 1 May 2021, what was the number of employees for Bolt and Ratchet?</h1>
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
-                <h3 class="ons-u-fs-r">Question heading</h3>
+                <h2 class="ons-u-fs-r">Question heading</h2>
             </th>
         </tr>
     </tbody>
@@ -19,7 +19,7 @@
                 <p>This is all employees aged 16 years or over that your organisation employs</p>
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
-                <h3 class="ons-u-fs-r">Question description <small>(optional)</small></h3>
+                <h2 class="ons-u-fs-r">Question description <small>(optional)</small></h2>
                 <p class="ons-u-fs-s">To provide added context to the question</p>
             </th>
         </tr>
@@ -29,7 +29,7 @@
             <td class="ons-pl-question-anatomy__component">
                 {% call onsCollapsible({
                     "id": "question-definition",
-                "title": "What we mean by “employee”",
+                    "title": "What we mean by “employee”",
                     "button": {
                         "close": "Hide this"
                     }
@@ -38,7 +38,7 @@
                 {% endcall %}
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
-                <h3 class="ons-u-fs-r">Question definition <small>(optional)</small></h3>
+                <h2 class="ons-u-fs-r">Question definition <small>(optional)</small></h2>
                 <p class="ons-u-fs-s">Only to be used to define word(s) or acronym(s) within the question.</p>
                 <p class="ons-u-fs-s"><strong>Only to be used once</strong></p>
             </th>
@@ -60,7 +60,7 @@
                 {% endcall %}
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
-                <h3 class="ons-u-fs-r">Question guidance <small>(optional)</small></h3>
+                <h2 class="ons-u-fs-r">Question guidance <small>(optional)</small></h2>
                 <p class="ons-u-fs-s">Only to be used to state what should be included or excluded from the answer</p>
             </th>
         </tr>
@@ -73,18 +73,21 @@
                     "name": "number-of-employees",
                     "radios": [
                         {
+                            "id": "answer-1-9",
                             "label": {
                                 "text": "1 – 9 employees"
                             },
                             "value": "1-9"
                         },
                         {
+                            "id": "answer-10-49",
                             "label": {
                                 "text": "10 – 49 employees"
                             },
                             "value": "10-49"
                         },
                         {
+                            "id": "answer-50-100",
                             "label": {
                                 "text": "50 – 100+ employees",
                                 "description": "Include multi-corporations"
@@ -95,7 +98,7 @@
                 }) }}
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
-                <h3 class="ons-u-fs-r">Answer(s)</h3>
+                <h2 class="ons-u-fs-r">Answer(s)</h2>
             </th>
         </tr>
     </tbody>
@@ -113,7 +116,7 @@
                 {% endcall %}
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
-                <h3 class="ons-u-fs-r">Question justification <small>(optional)</small></h3>
+                <h2 class="ons-u-fs-r">Question justification <small>(optional)</small></h2>
                 <p class="ons-u-fs-s"><strong>Not to be used as a definition</strong></p>
             </th>
         </tr>
