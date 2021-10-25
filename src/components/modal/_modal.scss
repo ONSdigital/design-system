@@ -1,0 +1,35 @@
+.ons-modal {
+  border: none;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 7px 0 #000;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  max-width: 500px;
+  padding: 2rem;
+  width: auto;
+
+  @media screen and (min-width: 600px) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  &[open] {
+    display: block;
+
+    $backdrop-colour: rgba(0, 0, 0, 0.8);
+
+    & + .backdrop {
+      background: $backdrop-colour;
+    }
+
+    &::backdrop {
+      backdrop-filter: blur(3px);
+      background: $backdrop-colour;
+    }
+  }
+}
+
+.ons-modal-overlay {
+  overflow: hidden;
+}
