@@ -1,15 +1,16 @@
 export default class Modal {
-  constructor(context) {
-    this.context = context;
-    this.lastFocusedEl = null;
-    this.closeButton = context.querySelector('.ons-js-close-modal');
+  constructor(component) {
+    this.component = component;
+    this.launcher = document.querySelector(`[data-modal-id=${component.id}]`);
+    this.closeButton = component.querySelector('.ons-js-modal-btn');
     this.overLayClass = 'ons-modal-overlay';
+    this.lastFocusedEl = null;
 
     this.initialise();
   }
 
   initialise() {
-    if (!this.context) {
+    if (!this.component) {
       return;
     }
 
@@ -17,7 +18,9 @@ export default class Modal {
       return;
     }
 
-    this.openDialog();
+    if (this.launcher) {
+      this.launcher.addEventListener('click', this.openDialog.bind(this));
+    }
 
     if (this.closeButton) {
       this.closeButton.addEventListener('click', this.closeDialog.bind(this));
@@ -29,7 +32,7 @@ export default class Modal {
       return true;
     } else {
       try {
-        window.dialogPolyfill.registerDialog(this.context);
+        window.dialogPolyfill.registerDialog(this.component);
         return true;
       } catch (error) {
         return false;
@@ -37,14 +40,18 @@ export default class Modal {
     }
   }
 
-  openDialog() {
+  openDialog(event) {
     if (!this.isDialogOpen()) {
       document.querySelector('body').classList.add(this.overLayClass);
       this.saveLastFocusedEl();
       this.makePageContentInert();
-      this.context.showModal();
-    } else {
-      this.resetIdleTime();
+
+      if (event) {
+        const modal = document.getElementById(event.target.getAttribute('data-modal-id'));
+        modal.showModal();
+      } else {
+        this.component.showModal();
+      }
     }
   }
 
@@ -78,13 +85,13 @@ export default class Modal {
   }
 
   isDialogOpen() {
-    return this.context['open'];
+    return this.component['open'];
   }
 
   closeDialog() {
     if (this.isDialogOpen()) {
       document.querySelector('body').classList.remove(this.overLayClass);
-      this.context.close();
+      this.component.close();
       this.setFocusOnLastFocusedEl();
       this.removeInertFromPageContent();
     }
