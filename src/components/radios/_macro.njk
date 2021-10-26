@@ -24,7 +24,7 @@
                     <input
                             type="radio"
                             id="{{ radio.id }}"
-                            class="ons-radio__input ons-js-radio{{ ' ' + radio.classes if radio.classes else '' }}{{ ' ons-js-other' if radio.other else '' }}"
+                            class="ons-radio__input ons-js-radio{{ ' ' + radio.classes if radio.classes else '' }}{{ ' ons-js-other' if radio.other else '' }}{{ ' ons-js-select-all-children' if radio.other.selectAllChildren == true else '' }}"
                             value="{{ radio.value }}"
                             name="{{ params.name }}"
                             {% if (radio.checked is defined and radio.checked) or (params.value is defined and params.value == radio.value) %} checked {% endif %}
@@ -95,7 +95,8 @@
                                         "attributes": radio.other.attributes,
                                         "classes": "ons-js-other-fieldset",
                                         "checkboxes": radio.other.checkboxes,
-                                        "autoSelect": radio.other.autoSelect
+                                        "autoSelect": radio.other.autoSelect,
+                                        "selectAllChildren": radio.other.selectAllChildren
                                     })
                                 }}
                             {% elif otherType == "radios" %}

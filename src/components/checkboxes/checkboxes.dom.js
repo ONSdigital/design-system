@@ -17,11 +17,13 @@ domready(async () => {
 
     const other = document.querySelector('.ons-js-other');
     if (other) {
+      const selectAllChildrenInput = other.classList.contains('ons-js-select-all-children');
       const otherFieldset = other.parentNode.querySelector('.ons-js-other-fieldset');
+
       if (otherFieldset) {
         const CheckboxWithInnerFieldset = (await import('./checkbox-with-fieldset')).default;
 
-        new CheckboxWithInnerFieldset(otherFieldset, checkboxes);
+        new CheckboxWithInnerFieldset(otherFieldset, checkboxes, selectAllChildrenInput);
       }
     }
 

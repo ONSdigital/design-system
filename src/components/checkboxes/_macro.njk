@@ -41,6 +41,9 @@
                 {% if checkbox.other is defined and checkbox.other %}
                     {% set otherClass = " ons-js-other" %}
                 {% endif %}
+                {% if checkbox.other.selectAllChildren is defined and checkbox.other.selectAllChildren == true %}
+                    {% set otherClass = otherClass + " ons-js-select-all-children" %}
+                {% endif %}
                 <span class="ons-checkboxes__item{{ " ons-checkboxes__item--no-border" if params.borderless }}">
                     {% set config = {
                         "id": checkbox.id,
@@ -77,6 +80,7 @@
                                 "legend": checkbox.other.legend,
                                 "value": checkbox.other.value,
                                 "autoSelect": checkbox.other.autoSelect,
+                                "selectAllChildren": checkbox.other.selectAllChildren,
                                 "checkboxes": checkbox.other.checkboxes,
                                 "radios": checkbox.other.radios
                             }
