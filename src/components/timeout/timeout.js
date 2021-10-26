@@ -25,7 +25,7 @@ export default class Timeout {
   initialise() {
     this.countIdleTime();
 
-    this.continueButton.addEventListener('click', this.closeModal.bind(this));
+    this.continueButton.addEventListener('click', this.stopTimeout.bind(this));
     window.addEventListener('focus', this.shouldModuleCloseOrRedirect.bind(this));
   }
 
@@ -128,12 +128,9 @@ export default class Timeout {
     })();
   }
 
-  closeModal() {
-    if (this.modal.isDialogOpen()) {
-      this.modal.closeDialog();
-      this.clearTimers();
-      this.setLastInteractiveTime();
-    }
+  stopTimeout() {
+    this.clearTimers();
+    this.setLastInteractiveTime();
   }
 
   clearTimers() {
@@ -149,7 +146,7 @@ export default class Timeout {
     if (shouldRedirect) {
       this.redirect();
     } else if (shouldDialogClose) {
-      this.closeModal();
+      this.stopTimeout();
       this.resetIdleTime();
     }
   }
