@@ -8,7 +8,7 @@ const params = {
   autoSelect: {
     selectAllText: 'Select all',
     unselectAllText: 'Unselect all',
-    context: 'checkboxes below',
+    context: 'following checkboxes',
   },
   checkboxes: [
     {
