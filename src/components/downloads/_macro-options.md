@@ -1,6 +1,7 @@
 | Name           | Type        | Required | Description                                                                                  |
 | -------------- | ----------- | -------- | -------------------------------------------------------------------------------------------- |
 | title          | string      | true     | The title for the download                                                                   |
+| titleTag       | string      | false    | The HTML tag to wrap the title text in. Will default to an `h2`                              |
 | excerpt        | string      | true     | A short extract of text (for example, a short sentence to give some context of the download) |
 | url            | string      | true     | The url for the document download (for example, a pdf file, zip file)                        |
 | type           | string      | true     | Type of file (for example, Poster, Booklet, Flyer)                                           |
