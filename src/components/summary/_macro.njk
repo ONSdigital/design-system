@@ -22,15 +22,13 @@
                     {% endif %}
                     {% if group.rows is defined and group.rows %}
                         <table class="ons-summary__items">
-                            {% if group.headers is defined and group.headers %}
-                                <thead class="ons-u-vh">
-                                    <tr>
-                                        {% for header in group.headers %}
-                                            <th>{{ header }}</th>
-                                        {% endfor %}
-                                    </tr>
-                                </thead>
-                            {% endif %}
+                            <thead class="ons-u-vh">
+                                <tr>
+                                    {% for header in group.headers %}
+                                        <th>{{ header }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
 
                             {% for row in (group.rows if group.rows is iterable else group.rows.items()) %}
                                 {% set itemClass = "" %}
