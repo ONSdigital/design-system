@@ -20,7 +20,7 @@
                     {% if group.groupTitle is defined and group.groupTitle %}
                         <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
-                    {% if group.rows is defined and group.rows %}
+                    {% if group.headers is defined and group.headers and group.rows is defined and group.rows %}
                         <table class="ons-summary__items">
                             <thead class="ons-u-vh">
                                 <tr>
