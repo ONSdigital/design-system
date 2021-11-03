@@ -1,4 +1,4 @@
-import Radios from '../../../components/checkboxes/checkboxes';
+import Radios from '../../../components/checkboxes/checkboxes-with-reveal';
 import CheckRadios from '../../../components/radios/check-radios';
 import ClearRadios from '../../../components/radios/clear-radios';
 import renderTemplate from '../../helpers/render-template';
