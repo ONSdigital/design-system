@@ -1,0 +1,21 @@
+changelog:
+  categories:
+    - title: ⚠️ Breaking Changes
+      labels:
+        - Breaking-changes
+    - title: New features
+      labels:
+        - Component
+        - Pattern
+    - title: Enhancements
+      labels:
+        - Enhancement
+    - title: Fixes
+      labels:
+        - Bug
+    - title: Documentation
+      labels:
+        - Documentation
+    - title: Other Changes
+      labels:
+        - "*"
