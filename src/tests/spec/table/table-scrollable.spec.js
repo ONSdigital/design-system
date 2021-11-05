@@ -2,7 +2,7 @@ import TableScroll from '../../../components/table/scrollable-table';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
-  scrollable: true,
+  variants: 'scrollable',
   ths: [
     {
       value: 'Column 1',
