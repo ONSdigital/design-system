@@ -13,20 +13,20 @@
 
 ## SummaryGroup
 
-| Name            | Type                    | Required | Description                                                                |
-| --------------- | ----------------------- | -------- | -------------------------------------------------------------------------- |
-| rows            | Array`<SummaryRows>`    | false    | An array of rows within a group                                            |
-| placeholderText | string                  | false    | A message to be shown as a placeholder if there are no rows in the summary |
-| groupTitle      | string                  | false    | The title for a summary within a group                                     |
-| headers         | Array`<SummaryHeaders>` | false    | An array of headers to describe the data in the summary                    |
-| summaryLink     | Array`<SummaryLink>`    | false    | Settings for the link to appear after the summary                          |
+| Name            | Type                 | Required | Description                                                                               |
+| --------------- | -------------------- | -------- | ----------------------------------------------------------------------------------------- |
+| rows            | Array`<SummaryRows>` | false    | An array of rows within a group                                                           |
+| placeholderText | string               | false    | A message to be shown as a placeholder if there are no rows in the summary                |
+| groupTitle      | string               | false    | The title for a summary within a group                                                    |
+| headers         | Array                | true     | An array of headers to describe the data in each column of the summary for screen readers |
+| summaryLink     | Array`<SummaryLink>` | false    | Settings for the link to appear after the summary                                         |
 
 ## SummaryRow
 
 | Name               | Type                    | Required | Description                                                           |
 | ------------------ | ----------------------- | -------- | --------------------------------------------------------------------- |
 | rowItems           | Array`<SummaryRowItem>` | true     | An array of items for this row                                        |
-| rowtitle           | string                  | false    | The title for the row                                                 |
+| rowTitle           | string                  | false    | The title for the row                                                 |
 | rowTitleAttributes | object                  | false    | HTML attributes (for example, data attributes) to add to the rowTitle |
 | error              | boolean                 | false    | Whether to render this item as an error                               |
 | errorMessage       | string                  | false    | Error message for the row                                             |
