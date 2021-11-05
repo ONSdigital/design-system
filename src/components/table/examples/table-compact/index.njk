@@ -1,8 +1,8 @@
 {% from "components/table/_macro.njk" import onsTable %}
 {{
     onsTable({
-        "table_class": "ons-table--dense ons-table--row-hover",
-        "caption": "A basic table that compacts if more columns are required",
+        "variants": ['compact', 'row-hover'],
+        "caption": "A compacted table with a large number of columns",
         "ths": [
             {
                 "value": "Column A"
@@ -18,6 +18,9 @@
             },
             {
                 "value": "Column E"
+            },
+            {
+                "value": "Column F"
             }
         ],
         "trs": [
@@ -37,6 +40,9 @@
                     },
                     {
                         "value": "Cell E1"
+                    },
+                    {
+                        "value": "Cell F1"
                     }
                 ]
             },
@@ -55,7 +61,10 @@
                     "value": "Cell D2"
                     },
                     {
-                    "value": "Cell E2"
+                        "value": "Cell E1"
+                    },
+                    {
+                        "value": "Cell F1"
                     }
                 ]
             }
