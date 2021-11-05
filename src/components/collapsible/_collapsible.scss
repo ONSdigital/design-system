@@ -1,8 +1,6 @@
 $collapsible-caret-width: 1.5rem;
 
 .ons-collapsible {
-  @extend .ons-u-mb-s;
-
   &--initialised & {
     &__heading {
       color: $color-text-link;
@@ -82,7 +80,7 @@ $collapsible-caret-width: 1.5rem;
       padding: 0 0 0 1.3em;
 
       .ons-btn {
-        @extend .ons-u-mb-xs;
+        margin-bottom: 0.5rem;
       }
     }
   }
