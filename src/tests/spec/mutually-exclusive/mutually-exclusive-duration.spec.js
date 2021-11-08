@@ -3,7 +3,7 @@ import renderTemplate from '../../helpers/render-template';
 
 const params = {
   id: 'address-duration',
-  legendOrLabel: 'How long have you lived at this address?',
+  legend: 'How long have you lived at this address?',
   description: 'If you have lived at this address for less than a year then enter 0 into the year input.',
   field1: {
     id: 'address-duration-years',

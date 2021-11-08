@@ -4,6 +4,7 @@ import renderTemplate from '../../helpers/render-template';
 const params = {
   id: 'email',
   type: 'email',
+  legend: 'Get a confirmation email',
   label: {
     text: 'Enter an email',
   },
