@@ -11,15 +11,15 @@ project: 'ONS Design System community backlog'
 
 *** Before you fill in this proposal template ***
 
-- If you are suggesting a change to a component, pattern or style that is already in the ONS Design System, please comment on its GitHub discussion (https://github.com/ONSdigital/design-system/discussions). You can get to the discussion using the direct link at the bottom of each page in the Design System.
+- If you are suggesting a change to a component, pattern or style that is already in the ONS Design System, please comment on its GitHub discussion instead (https://github.com/ONSdigital/design-system/discussions). You can get to the discussion using the direct link at the bottom of each page in the Design System.
 
-- If you are proposing something new, check the ONS Design System community backlog (https://github.com/ONSdigital/design-system/projects/1). There may already be a proposal for something similar. You can add examples of your own evidence to an existing proposal.
+- If you are proposing something new, check the ONS Design System community backlog first (https://github.com/ONSdigital/design-system/projects/1). There may already be a proposal for something similar. You can add examples of your own evidence to an existing proposal.
 
 -->
 
 ## What
 
-> Give a brief description of the new feature you want to propose for the Design System. This could be a component, pattern or style, or new documentation for an existing feature.
+> Give a brief description of the new feature you want to propose for the Design System. This could be a component, pattern or foundation, or new documentation for an existing feature.
 
 ## Why
 
