@@ -3,7 +3,8 @@
 
 {% call onsQuestion({
     "title": "Get a confirmation email",
-    "description": "<p>Enter your email address if you would like to be sent confirmation that you have completed your survey</p>"
+    "description": "<p>Enter your email address if you would like to be sent confirmation that you have completed your survey</p>",
+    "legendIsQuestionTitle": true
 }) %}
     {{
         onsInput({
@@ -13,6 +14,7 @@
                 "text": "Email address",
                 "description": "This will not be stored and only used once to send your confirmation"
             },
+            "dontWrap": true,
             "mutuallyExclusive": {
                 "or": "Or",
                 "deselectMessage": "Selecting this will clear your email",
