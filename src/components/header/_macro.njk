@@ -87,7 +87,7 @@
                                 })
                             }}
                         {% else %}
-                            <{{ title_tag }} class="ons-header__title{% if params.desc is defined and params.desc %} header__title--with-description{% endif %}{% if params.button is defined and params.button %} header__title--with-button{% endif %}">{{ params.title }}</{{ title_tag }}>
+                            <{{ title_tag }} class="ons-header__title{% if params.desc is defined and params.desc %} ons-header__title--with-description{% endif %}{% if params.button is defined and params.button %} header__title--with-button{% endif %}">{{ params.title }}</{{ title_tag }}>
                         {% endif %}
                         {% if params.titleLogoHref is defined and params.titleLogoHref %}</a>{% endif %}
                     </div>
@@ -95,7 +95,7 @@
                         <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@xxs@m">
                             {{ onsButton({
                                 "text": params.button.text,
-                                "classes": "ons-u-d-no@xxs@m ons-u-mt-xs@m",
+                                "classes": "ons-u-d-no@xxs@m",
                                 "variants": "ghost",
                                 "name": params.button.name,
                                 "attributes": params.button.attributes,
