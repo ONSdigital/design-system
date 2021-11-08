@@ -21,9 +21,11 @@ layout: none
     }
 } %}
 
+{% set questionTitle = "On 1 May 2016, what was the number of employees for Bolt and Ratchet?" %}
+
 {% block main %}
     {% call onsQuestion({
-        "title": "On 1 May 2016, what was the number of employees for Bolt and Ratchet?",
+        "title": questionTitle,
         "description": "<p>This is all employees aged 16 years or over that your organisation employs.</p>"
     }) %}
         {% call onsCollapsible({
@@ -51,6 +53,8 @@ layout: none
         {{ onsRadios({
             "id": "number-of-employees",
             "name": "number-of-employees",
+            "legend": questionTitle,
+            "legendClasses": "ons-u-vh",
             "radios": [
                 {
                     "id": "number-of-employees-1-9",
