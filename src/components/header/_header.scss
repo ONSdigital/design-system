@@ -38,9 +38,6 @@
     background: $color-header;
     padding: 0.56rem 0;
 
-    @include mq(m) {
-      height: 95px;
-    }
     &--border {
       border-bottom: 3px solid $color-header;
       border-top: 3px solid $color-header;
@@ -57,6 +54,7 @@
     color: $color-white;
 
     @include mq(m) {
+      margin-bottom: 1rem;
       margin-top: 0.8rem;
     }
 
