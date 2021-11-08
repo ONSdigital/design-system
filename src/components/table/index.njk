@@ -26,42 +26,39 @@ Use the table component to let users compare information in rows and columns.
 
 ## How to use this component
 
-The 'basic table' is the default style for a table. There are variations available, added via `class` modifiers which can improve the usability of the `ons-table` element.
+The “basic table” is the default style for a table. The following variants can be set using the `variants` parameter.
 
-### Dense table
+### Compact table
+Setting `"variants": 'compact'` will reduce the font size of the table content. This can be used to compact a table with too many columns, to fit into the viewport.
+
+Setting an additional `row-hover` to the array will highlight a row when hovered, to help users focus on the content in it.
 {{
-    patternlibExample({"path": "components/table/examples/table-dense/index.njk"})
+    patternlibExample({"path": "components/table/examples/table-compact/index.njk"})
 }}
-- **Class** - `ons-table--dense`
-- **Output** - This reduces the `ons-font-size` to compact the table for basic tables which have many rows but only a few columns.
 
 ### Numeric table
+Setting `"numeric": true` to any table cell will right-align it’s figures to make them easier to compare with other rows.
 {{
     patternlibExample({"path": "components/table/examples/table-numeric/index.njk"})
 }}
-- **Class** - `ons-table__header--numeric` + `ons-table__cell--numeric`
-- **Output** - This aligns the content to the right for tables with all numeric values for best practice.
 
 ### Responsive table
+Setting `"variants": 'responsive'` will stack the cells of each table row vertically when viewing on devices less than 500px wide. The associated table header will display repeatedly alongside each cell.
 {{
     patternlibExample({"path": "components/table/examples/table-responsive/index.njk"})
 }}
-- **Class** - `ons-table--responsive`
-- **Output** - Stacks the rows on viewports that are `500px` and lower. Displays the corresponding header value with each cell.
 
 ### Scrollable table
+Setting `"variants": 'scrollable'` will create a full-width, scrollable table.
 {{
     patternlibExample({"path": "components/table/examples/table-scrollable/index.njk"})
 }}
-- **Class** - `ons-table--scrollable` `ons-table-scrollable--on`
-- **Output** - Creates a scrollable full width table on viewports that are `740px` and lower. Optionally allows for the table to be set at 100% on all viewports (shown in the example above).
 
 ### Sortable table
+Setting `"variants": 'sortable'` will apply a JavaScript enhancement to allow each column to be sorted. By default, the column will be sorted alphabetically, but an optional parameter `"dataSort": '<number>'`  can be added to each table cell to control it’s position for sorting.
 {{
     patternlibExample({"path": "components/table/examples/table-sortable/index.njk"})
 }}
-- **Class** - `ons-table--sortable`
-- **Output** - Applies JS enhancement to allow each column to be sorted. By default it will sort alphabetically, an optional `data-sort-value=foo` can be added to each `td` to control it's position for sorting.
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.
