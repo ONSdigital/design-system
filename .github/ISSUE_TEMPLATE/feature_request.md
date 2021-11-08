@@ -13,7 +13,7 @@ project: 'ONS Design System community backlog'
 
 - If you are suggesting a change to a component, pattern or style that is already in the ONS Design System, please comment on its GitHub discussion (https://github.com/ONSdigital/design-system/discussions). You can get to the discussion using the direct link at the bottom of each page in the Design System.
 
-- If you are proposing something new, check the Design System backlog (https://trello.com/b/dsgMhRlq/ons-design-system). There may already be a proposal for something similar. You can add examples of your own evidence to an existing proposal. To request access to the backlog, email ons.design.system@ons.gov.uk
+- If you are proposing something new, check the ONS Design System community backlog (https://github.com/ONSdigital/design-system/projects/1). There may already be a proposal for something similar. You can add examples of your own evidence to an existing proposal.
 
 -->
 
