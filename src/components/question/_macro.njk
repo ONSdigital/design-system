@@ -31,7 +31,7 @@
 
             {# Resolves caller issue in jijna: https://github.com/pallets/jinja/issues/371 #}
             {% set content = caller() %}
-            
+
             {% call onsFieldset({
                 "legendIsQuestionTitle": params.legendIsQuestionTitle,
                 "legend": titleHtml,

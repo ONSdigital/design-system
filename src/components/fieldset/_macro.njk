@@ -2,11 +2,11 @@
 
 {% macro onsFieldset(params) %}
     {% set fieldset %}
-        {% if params.dontWrap %}
+        {% if params.dontWrap is defined and params.dontWrap %}
             <div class="ons-input-items">
                 {{ caller() }}
             </div>
-        {% else %}
+        {% elif (params.legend is defined and params.legend) or (params.legendIsQuestionTitle is defined and params.legendIsQuestionTitle) %}
             <fieldset
                 {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}
                 class="ons-fieldset{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
