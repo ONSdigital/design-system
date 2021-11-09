@@ -124,7 +124,7 @@ $checkbox-padding: 11px;
   }
 
   &__input:focus + &__label::before {
-    @extend .ons-input:focus;
+    @extend %ons-input-focus;
   }
 
   &__input:not(:checked) ~ &__other {
