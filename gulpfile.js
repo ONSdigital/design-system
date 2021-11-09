@@ -7,7 +7,6 @@ const gulpDartSass = require('gulp-dart-sass');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpSvg = require('gulp-svgo');
 const gulpTerser = require('gulp-terser');
-const nodeSassGlobImporter = require('node-sass-glob-importer');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 
@@ -30,7 +29,6 @@ const terserOptions = {
 };
 
 const sassOptions = {
-  importer: nodeSassGlobImporter(),
   includePaths: ['./node_modules/normalize-scss/sass', './node_modules/prismjs/themes'],
 };
 
