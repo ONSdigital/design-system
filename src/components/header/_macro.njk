@@ -87,7 +87,7 @@
                                 })
                             }}
                         {% else %}
-                            <{{ title_tag }} class="ons-header__title{% if params.desc is defined and params.desc %} ons-header__title--with-description{% endif %}{% if params.button is defined and params.button %} header__title--with-button{% endif %}">{{ params.title }}</{{ title_tag }}>
+                            <{{ title_tag }} class="ons-header__title{% if params.desc is defined and params.desc %} ons-header__title--with-description{% endif %}{% if params.button is defined and params.button %} ons-header__title--with-button{% endif %}">{{ params.title }}</{{ title_tag }}>
                         {% endif %}
                         {% if params.titleLogoHref is defined and params.titleLogoHref %}</a>{% endif %}
                     </div>
