@@ -17,7 +17,13 @@ layout: none
 } %}
 
 {% block main %}
-    <h1 class="ons-u-mt-m">Choose another section to complete</h1>
+    <h1 class="ons-u-mt-m">Submit study</h1>
+
+    {% call onsPanel({
+        "type": 'warn'
+    }) %}
+        <p>You must submit this study to complete it</p>
+    {% endcall %}
 
     {{ onsSummary({
         "hub": true,
@@ -92,16 +98,17 @@ layout: none
                                 "rowTitle": "John Smith",
                                 "rowItems": [
                                     {
+                                        "iconType": "check",
                                         "valueList": [
                                             {
-                                                "text": "Partially completed"
+                                                "text": "Completed"
                                             }
                                         ],
                                         "actions": [
                                             {
-                                                "text": "Continue with section",
-                                                "ariaLabel": "Continue with John Smith's section",
-                                                "url": "/patterns/hub-and-spoke/examples/spoke-continue/"
+                                                "text": "View answers",
+                                                "ariaLabel": "View answers for John Smith",
+                                                "url": "#0"
                                             }
                                         ]
                                     }
@@ -111,16 +118,17 @@ layout: none
                                 "rowTitle": "Billy Smith",
                                 "rowItems": [
                                     {
+                                        "iconType": "check",
                                         "valueList": [
                                             {
-                                                "text": "Not started"
+                                                "text": "Completed"
                                             }
                                         ],
                                         "actions": [
                                             {
-                                                "text": "Start section",
-                                                "ariaLabel": "Start Billy Smith's section",
-                                                "url": "/patterns/hub-and-spoke/examples/spoke-start/"
+                                                "text": "View answers",
+                                                "ariaLabel": "View answers for Billy Smith",
+                                                "url": "#0"
                                             }
                                         ]
                                     }
@@ -130,15 +138,16 @@ layout: none
                                 "rowTitle": "Mary Susannah Smith (Visitor)",
                                 "rowItems": [
                                     {
+                                        "iconType": "check",
                                         "valueList": [
                                             {
-                                                "text": "Not started"
+                                                "text": "Completed"
                                             }
                                         ],
                                         "actions": [
                                             {
-                                                "text": "Start section",
-                                                "ariaLabel": "Start Mary Susannah Smith's section",
+                                                "text": "View answers",
+                                                "ariaLabel": "View answers for Mary Susannah Smith (Visitor)",
                                                 "url": "#0"
                                             }
                                         ]
@@ -151,13 +160,13 @@ layout: none
             }
         ]
     }) }}
-
+    <div class="ons-u-mt-l">
+        <p>By submitting this study you are confirming that, to the best of your knowledge and belief, the details provided are correct.</p>
+    </div>
     {{
         onsButton({
-            "text": 'Continue',
-            "classes": 'ons-u-mb-m ons-u-mt-l',
-            "url": '/patterns/hub-and-spoke/examples/spoke-continue/',
-            "iconType": false
+            "text": 'Submit study',
+            "classes": 'ons-u-mb-m'
         })
     }}
 {% endblock %}
