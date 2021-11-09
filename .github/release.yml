@@ -1,8 +1,8 @@
 changelog:
   categories:
-    - title: ⚠️ Breaking Changes
+    - title: ⚠️ Breaking changes
       labels:
-        - Breaking-changes
+        - Breaking changes
     - title: New features
       labels:
         - Component
@@ -16,6 +16,6 @@ changelog:
     - title: Documentation
       labels:
         - Documentation
-    - title: Other Changes
+    - title: Other changes
       labels:
         - "*"
