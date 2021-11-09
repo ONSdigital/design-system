@@ -29,7 +29,7 @@ const terserOptions = {
 };
 
 const sassOptions = {
-  includePaths: ['./node_modules/normalize-scss/sass', './node_modules/prismjs/themes'],
+  includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes'],
 };
 
 const scripts = [

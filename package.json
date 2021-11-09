@@ -125,7 +125,7 @@
     "minimist": "^1.2.5",
     "mocha": "8.1.3",
     "ncp": "^2.0.0",
-    "normalize-scss": "^7.0.1",
+    "normalize.css": "^8.0.1",
     "nunjucks": "^3.2.3",
     "postcss": "^8.3.5",
     "postcss-url": "^8.0.0",
