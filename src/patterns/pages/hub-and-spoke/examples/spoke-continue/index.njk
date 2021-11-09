@@ -5,10 +5,7 @@ layout: none
 
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/summary/_macro.njk" import onsSummary %}
 {% from "components/button/_macro.njk" import onsButton %}
-{% from "components/lists/_macro.njk" import onsList %}
-{% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/date-input/_macro.njk" import onsDateInput %}
 
 {% set pageConfig = {
@@ -75,8 +72,9 @@ layout: none
         {{
             onsButton({
                 "text": 'Continue',
-                "classes": 'ons-u-mt-xl'
+                "classes": 'ons-u-mt-xl ons-u-mb-l'
             })
         }}
+        <p><a href="/patterns/hub-and-spoke/examples/hub/">Choose another section and return to this later</a></p>
         {% endcall %}
 {% endblock %}

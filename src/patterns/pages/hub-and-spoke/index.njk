@@ -8,18 +8,53 @@ title: Hub and Spoke
 {% from "components/panel/_macro.njk" import onsPanel %}
 +++
 
-{{
-    onsPanel({
-        "body": "This pattern requires documentation."
-    })
-}}
+The hub and spoke pattern lets users complete a study in sections, in their preferred order.
 
-## Hub – partially completed
+## When to use this pattern
+Use this pattern when you need the user to answer a lot of study questions. It helps prevent the user feeling overwhelmed by splitting the questions up into sections which they can start in any order.
+
+## When not to use this pattern
+Do not use this pattern for small studies with only a few questions.
+
+## How to use this pattern
+When a study has a lot of questions, you should organise the questions into manageable, related sections.
+
+You should show the hub when the user has completed the first section of the study.
+
+### Hub – partially completed
+The hub uses the [summary component](/components/summary#hub) to let the user see their progress through the study, marking each section as they complete it.
+
+It also lets the user start sections in any order, as well as allowing them to leave a section and continue with it later.
+
+The user can view a summary of their answers once a section is complete.
+
+The “continue” button should always take the user to the next incomplete section.
 {{
     patternlibExample({ "path": "patterns/pages/hub-and-spoke/examples/hub/index.njk"})
 }}
 
-## Hub – completed
+### Spoke – view answers
+The user can choose to view a summary of all their answers to any completed section. They can [check their answers](/patterns/check-answers) and make any changes.
+{{
+    patternlibExample({ "path": "patterns/pages/hub-and-spoke/examples/spoke-summary/index.njk"})
+}}
+
+### Spoke – start a section
+The user can choose to start any section (spoke) from the hub. Every section should start with an introduction page telling the user what they will need to know in order to answer the required questions in the section.
+{{
+    patternlibExample({ "path": "patterns/pages/hub-and-spoke/examples/spoke-start/index.njk"})
+}}
+
+## Spoke – continue a section
+Once the user has started a section, they can choose to return to the hub from any page.
+
+The hub lets the user continue the section from where they left it. A panel lets the user go to the start of the section.
+{{
+    patternlibExample({ "path": "patterns/pages/hub-and-spoke/examples/spoke-continue/index.njk"})
+}}
+
+### Hub – completed
+Once all the sections of the study are complete, the user can submit the study.
 {{
     patternlibExample({ "path": "patterns/pages/hub-and-spoke/examples/hub-complete/index.njk"})
 }}
