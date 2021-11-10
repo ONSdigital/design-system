@@ -5,6 +5,7 @@
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   position: relative;
+
   & &__title--svg-logo {
     display: block;
     fill: $color-white;
@@ -38,9 +39,6 @@
     background: $color-header;
     padding: 0.56rem 0;
 
-    @include mq(m) {
-      height: 95px;
-    }
     &--border {
       border-bottom: 3px solid $color-header;
       border-top: 3px solid $color-header;
@@ -57,12 +55,14 @@
     color: $color-white;
 
     @include mq(m) {
+      margin-bottom: 1rem;
       margin-top: 0.8rem;
     }
 
     &--with-description,
     &--with-button {
       @include mq(m) {
+        margin-bottom: 0;
         margin-top: 0.45rem;
       }
     }
