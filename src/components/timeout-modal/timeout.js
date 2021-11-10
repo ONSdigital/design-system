@@ -20,7 +20,6 @@ export default class Timeout {
 
     // Settings
     this.expiryTimeInMilliseconds = 0;
-    this.expiryTimeInDateFormat = null;
     this.showModalTimeout = null;
     this.timers = [];
     this.timerRunOnce = false;
@@ -30,7 +29,7 @@ export default class Timeout {
   }
 
   async initialise() {
-    this.expiryTimeInMilliseconds = await this.setExpiryTime();
+    this.expiryTimeInMilliseconds = await this.setNewExpiryTime();
     this.modal = new Modal(this.context);
 
     this.bindEventListeners();
@@ -48,31 +47,21 @@ export default class Timeout {
     this.showModalTimeout = setTimeout(this.openModal.bind(this), this.expiryTimeInMilliseconds - this.modalVisibleInMilliseconds);
   }
 
-  async restartTimeout(time) {
-    this.clearTimers();
-    clearInterval(this.shouldModalCloseCheck);
-    this.expiryTimeInMilliseconds = time ? time : await this.setExpiryTime();
-    this.startTimeout();
-  }
-
   async openModal() {
-    const checkExpiryTime = await this.getExpiryTime();
-
-    if (this.expiryTimeInMilliseconds < checkExpiryTime) {
-      this.expiryTimeInMilliseconds = checkExpiryTime;
-      this.restartTimeout(this.expiryTimeInMilliseconds);
-    } else {
-      if (!this.modal.isDialogOpen()) {
-        this.modal.openDialog();
-        this.startUiCountdown();
-      }
+    const modalWillOpen = await this.shouldContinueOrRestart();
+    if (modalWillOpen && !this.modal.isDialogOpen()) {
+      this.modal.openDialog();
+      this.startUiCountdown();
     }
   }
 
   async startUiCountdown() {
     this.clearTimers();
     clearInterval(this.shouldModalCloseCheck);
-    this.shouldModalClose();
+
+    this.shouldModalCloseCheck = setInterval(async () => {
+      await this.shouldContinueOrRestart();
+    }, 10000);
 
     let millseconds = this.modalVisibleInMilliseconds;
     let seconds = millseconds / 1000;
@@ -98,12 +87,9 @@ export default class Timeout {
         '</span>.';
 
       if (timerExpired) {
-        const expiryTimeBeforeExpiring = await $this.getExpiryTime();
+        const shouldExpire = await $this.shouldContinueOrRestart();
 
-        if (this.expiryTimeInMilliseconds < expiryTimeBeforeExpiring) {
-          this.expiryTimeInMilliseconds = expiryTimeBeforeExpiring;
-          $this.closeModalAndRestartTimeout($this.expiryTimeInMilliseconds);
-        } else {
+        if (shouldExpire) {
           $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.redirectingText + '</span>';
           $this.accessibleCountdown.innerHTML = $this.redirectingText;
           setTimeout($this.redirect.bind($this), 4000);
@@ -128,14 +114,13 @@ export default class Timeout {
     })();
   }
 
-  async handleWindowFocus() {
-    if (this.sessionExpiryEndpoint) {
-      const sessionIsAlive = await this.fetchExpiryTime('PATCH');
-      if (!sessionIsAlive) {
-        this.redirect();
-      } else {
-        this.closeModalAndRestartTimeout();
-      }
+  async shouldContinueOrRestart() {
+    const checkExpiryTime = await this.getExpiryTime();
+    if (this.expiryTimeInMilliseconds < checkExpiryTime) {
+      this.expiryTimeInMilliseconds = checkExpiryTime;
+      this.closeModalAndRestartTimeout(this.expiryTimeInMilliseconds);
+    } else {
+      return true;
     }
   }
 
@@ -143,21 +128,31 @@ export default class Timeout {
     if (typeof time !== 'string') {
       time = false;
     }
-    this.modal.closeDialog();
+    if (this.modal.isDialogOpen()) {
+      this.modal.closeDialog();
+    }
     this.restartTimeout(time);
   }
 
-  shouldModalClose() {
-    this.shouldModalCloseCheck = setInterval(async () => {
-      const checkExpiryTime = await this.getExpiryTime();
-      if (this.expiryTimeInMilliseconds < checkExpiryTime) {
-        this.expiryTimeInMilliseconds = checkExpiryTime;
-        this.closeModalAndRestartTimeout(this.expiryTimeInMilliseconds);
-      }
-    }, 10000);
+  async restartTimeout(time) {
+    this.clearTimers();
+    clearInterval(this.shouldModalCloseCheck);
+    this.expiryTimeInMilliseconds = time ? time : await this.setNewExpiryTime();
+    this.startTimeout();
   }
 
-  async setExpiryTime() {
+  async handleWindowFocus() {
+    if (this.sessionExpiryEndpoint) {
+      const canSetNewExpiry = await this.setNewExpiryTime();
+      if (!canSetNewExpiry) {
+        this.redirect();
+      } else {
+        this.closeModalAndRestartTimeout();
+      }
+    }
+  }
+
+  async setNewExpiryTime() {
     let newExpiryTime;
     if (!this.sessionExpiryEndpoint) {
       // For demo purposes
