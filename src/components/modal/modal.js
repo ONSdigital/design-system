@@ -88,8 +88,11 @@ export default class Modal {
     return this.component['open'];
   }
 
-  closeDialog() {
+  closeDialog(event) {
     if (this.isDialogOpen()) {
+      if (event) {
+        event.preventDefault();
+      }
       document.querySelector('body').classList.remove(this.overLayClass);
       this.component.close();
       this.setFocusOnLastFocusedEl();

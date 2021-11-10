@@ -6,7 +6,10 @@ async function modals() {
   if (timeouts.length) {
     const Timeout = (await import('./timeout')).default;
 
-    timeouts.forEach(component => new Timeout(component));
+    timeouts.forEach(context => {
+      let url = context.getAttribute('data-server-session-expiry-endpoint');
+      new Timeout(context, url);
+    });
   }
 }
 

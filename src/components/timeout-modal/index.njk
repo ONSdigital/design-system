@@ -1,0 +1,59 @@
+---
+title: Timeout modal
+experimental: true
+---
+
++++
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
+
+Provides a warning modal to allow users to extend the amount of time they have in their session before it times out.
+
+## How to use this component
+
+The timeout modal component requires an endpoint that handles two request methods and returns a `json` object containing a key `expires_at` with the value being a date string in ISO format.
+
+- When a request using a `PATCH` method is received, the session expiry time should be reset to 45 minutes from the current time and the response should contain the new expiry time
+- When a request using a `GET` method is received, the response should contain the current expiry time
+- If the response status is not a `200` the module will treat it as the session being timed out and will redirect to the provided `redirectUrl` parameter value
+
+### Request to reset expiry time
+
+A request to reset the expiry time will be sent under the following scenarios:
+
+- When the page loads and the component initialises
+- When the modal is being displayed and the "Continue" button is pressed
+- As the user interacts with the page via scrolling, moving their cursor, clicking and typing. To handle this efficiently we "throttle" the number of requests we send to one per minute and clear any others in the queue
+- When the page receives focus (moving to the tab from another tab or when the computer wakes) this will also request to reset the expiry
+
+### Request to get expiry time
+
+A request to get the current expiry time will be sent to check if the same session is being interacted with in another tab. If expiry time has changed the timeout will be restarted against the expiry time in the response. This will happen on the following events:
+
+- When the modal is set to open. 
+- At 10 second intervals while the modal is open. 
+- When the modal is set to redirect.
+
+### Configuration
+
+- The `showModalTimeInSeconds` parameter requires an integer value which is the time that the modal will display for in seconds before the session expiry time. It is recommended that this should be at least 60 seconds.
+- The `serverSessionExpiryEndpoint` parameter should be a relative url to the endpoint to send requests to.
+- The `redirectUrl` parameter should be the url to the page a user is directed to when the session has timed out.
+
+For all other configuration options see the Nunjucks output on the example below.
+
+{{
+    patternlibExample({ "path": "components/timeout-modal/examples/timeout/index.njk", "height": 500 })
+}}
+
+## Help improve this pattern
+Let us know how we could improve this pattern or share your user research findings.
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/888",
+        "linkText": "Discuss the ‘Timeout modal’ component on GitHub"
+    })
+}}

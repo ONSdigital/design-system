@@ -1,0 +1,22 @@
+---
+layout: none
+---
+{% extends "foundations/layout/page-template/_template.njk" %}
+
+{% set pageConfig = {
+    "title": "Extend session",
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Previous'
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+    <h1>Your session has timed out!</h1>
+    <p>You can <a href="/patterns/extend-session/examples/timeout/">sign back in</a></p>
+{% endblock %}

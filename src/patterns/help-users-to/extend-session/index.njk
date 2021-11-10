@@ -1,0 +1,48 @@
+---
+title: Extend session
+experimental: true
+---
+
++++
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
++++
+
+Allow users to extend the amount of time they have in their session before it times out. If the session is allowed to time out then the page will redirect to a signed out page.
+
+To ensure our services are accessible to all, a user has to be able to extend the available idle time of their session. Using the [timeout modal](/components/timeout-modal) component in this pattern, the user is able to extend their 45 minute session by;
+
+### Clicking the 'Continue' button in the modal
+
+If the page has been idle a modal will display for a set amount of seconds before the session times out. The user can reset the 45 minute session by clicking the 'Continue' button in the modal. The modal will close and the session expiry time will reset.
+
+### Interacting with the page but not saving progress
+
+When the user interacts with the page by moving the mouse cursor, scrolling the page, clicking or typing, the session expiry time will be reset. 
+
+### Focusing the page
+
+If the user leaves the tab or their computer goes to sleep and then the page regains focus before the session times out, the session expiry time is reset.
+
+## How to use this pattern
+
+You will need to configure the [timeout modal](/components/timeout-modal) component and import it into the base template that it used for session based pages for example, questionnaire pages. It is recommended that the modal is displayed for at least 60 seconds.
+
+Create a page to redirect the user to when the session has timed out. This page should explain why the user has been timed out and provide a link to sign in again.
+
+The example below will start the timeout modal after 10 seconds of idle time and will redirect to an example signed out page.
+
+{{
+    patternlibExample({ "path": "patterns/help-users-to/extend-session/examples/timeout/index.njk" })
+}}
+
+## Help improve this pattern
+Let us know how we could improve this pattern or share your user research findings.
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/888",
+        "linkText": "Discuss the ‘Extend session’ pattern on GitHub"
+    })
+}}

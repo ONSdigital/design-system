@@ -24,4 +24,4 @@ import '../components/skip-to-content/skip-to-content.dom';
 import '../components/download-resources/download-resources';
 import '../components/select/select';
 import '../components/modal/modal.dom';
-import '../components/timeout/timeout.dom';
+import '../components/timeout-modal/timeout.dom';
