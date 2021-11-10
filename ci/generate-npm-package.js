@@ -27,7 +27,7 @@ async function copyAssets() {
     await fs.ensureDir(folder);
 
     try {
-      const files = await fs.readdirSync(builtPath).filter(path => !path.includes('patternlib'));
+      const files = (await fs.readdir(builtPath)).filter(path => !path.includes('patternlib'));
 
       for (let file of files) {
         if (file.match(/(\.\w+)$/)) {
@@ -37,7 +37,7 @@ async function copyAssets() {
           const nestedBuiltPath = `${builtPath}/${file}`;
           await fs.ensureDir(newFolderPath);
 
-          const nestedFiles = await fs.readdirSync(nestedBuiltPath).filter(path => !path.includes('patternlib'));
+          const nestedFiles = (await fs.readdir(nestedBuiltPath)).filter(path => !path.includes('patternlib'));
 
           for (let nestedFile of nestedFiles) {
             await fs.copy(`${nestedBuiltPath}/${nestedFile}`, `${newFolderPath}/${nestedFile}`);
