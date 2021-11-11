@@ -117,7 +117,9 @@ export default class Timeout {
 
   async shouldContinueOrRestart() {
     const checkExpiryTime = await this.getExpiryTime();
-    if (this.expiryTimeInMilliseconds < checkExpiryTime) {
+    const timeDifference = checkExpiryTime - this.expiryTimeInMilliseconds;
+    // We need tolerance of up to 999 milliseconds as the expiryTimeInMilliseconds reduces in seconds * 1000 and checkExpiryTime will give absolute milliseconds.
+    if (timeDifference > 999) {
       this.expiryTimeInMilliseconds = checkExpiryTime;
       this.closeModalAndRestartTimeout(this.expiryTimeInMilliseconds);
     } else {
@@ -173,10 +175,12 @@ export default class Timeout {
 
   async getExpiryTime() {
     if (this.sessionExpiryEndpoint) {
-      currentExpiryTime = await this.fetchExpiryTime('GET');
-      this.expiryTimeInMilliseconds = currentExpiryTime;
+      const currentExpiryTime = await this.fetchExpiryTime('GET');
+      return currentExpiryTime;
+    } else {
+      // For demo purposes
+      return this.expiryTimeInMilliseconds;
     }
-    return this.expiryTimeInMilliseconds;
   }
 
   async fetchExpiryTime(fetchMethod) {
