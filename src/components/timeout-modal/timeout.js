@@ -20,6 +20,7 @@ export default class Timeout {
 
     // Settings
     this.expiryTimeInMilliseconds = 0;
+    this.expiryTime = '';
     this.showModalTimeout = null;
     this.timers = [];
     this.timerRunOnce = false;
@@ -29,7 +30,8 @@ export default class Timeout {
   }
 
   async initialise() {
-    this.expiryTimeInMilliseconds = await this.setNewExpiryTime();
+    this.expiryTime = await this.setNewExpiryTime();
+    this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(this.expiryTime);
     this.modal = new Modal(this.context);
 
     this.bindEventListeners();
@@ -118,30 +120,35 @@ export default class Timeout {
 
   async shouldContinueOrRestart() {
     const checkExpiryTime = await this.getExpiryTime();
-    const timeDifference = checkExpiryTime - this.expiryTimeInMilliseconds;
-    // We need tolerance of up to 999 milliseconds as the expiryTimeInMilliseconds reduces in seconds * 1000 and checkExpiryTime will give absolute milliseconds.
-    if (timeDifference > 999) {
-      this.expiryTimeInMilliseconds = checkExpiryTime;
+    if (checkExpiryTime != this.expiryTime) {
+      this.expiryTime = checkExpiryTime;
+      this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(checkExpiryTime);
       this.closeModalAndRestartTimeout(this.expiryTimeInMilliseconds);
     } else {
       return true;
     }
   }
 
-  closeModalAndRestartTimeout(time) {
-    if (typeof time !== 'string') {
-      time = false;
+  closeModalAndRestartTimeout(timeInMilliSeconds) {
+    if (typeof timeInMilliSeconds !== 'string') {
+      timeInMilliSeconds = false;
     }
     if (this.modal.isDialogOpen()) {
       this.modal.closeDialog();
     }
-    this.restartTimeout(time);
+    this.restartTimeout(timeInMilliSeconds);
   }
 
-  async restartTimeout(time) {
+  async restartTimeout(timeInMilliSeconds) {
     this.clearTimers();
     clearInterval(this.shouldModalCloseCheck);
-    this.expiryTimeInMilliseconds = time ? time : await this.setNewExpiryTime();
+    if (timeInMilliSeconds) {
+      this.expiryTimeInMilliseconds = timeInMilliSeconds;
+    } else {
+      const createNewExpiryTime = await this.setNewExpiryTime();
+      this.expiryTime = createNewExpiryTime;
+      this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(createNewExpiryTime);
+    }
     this.startTimeout();
   }
 
@@ -167,7 +174,7 @@ export default class Timeout {
     if (!this.sessionExpiryEndpoint) {
       // For demo purposes
       const currentTimePlusSixtySeconds = new Date(Date.now() + 60 * 1000);
-      newExpiryTime = this.convertTimeToMilliSeconds(new Date(currentTimePlusSixtySeconds).toISOString());
+      newExpiryTime = new Date(currentTimePlusSixtySeconds).toISOString();
     } else {
       newExpiryTime = await this.fetchExpiryTime('PATCH');
     }
@@ -180,7 +187,7 @@ export default class Timeout {
       return currentExpiryTime;
     } else {
       // For demo purposes
-      return this.expiryTimeInMilliseconds;
+      return this.expiryTime;
     }
   }
 
@@ -196,15 +203,14 @@ export default class Timeout {
     }
 
     let json = await response.json();
-    let expiryTime = this.convertTimeToMilliSeconds(json.expires_at);
-    return expiryTime;
+    return json.expires_at;
   }
 
   convertTimeToMilliSeconds(expiryTime) {
     const time = new Date(expiryTime);
-    const timeInMilliSeconds = Math.abs(time - new Date());
+    const calculateTimeInMilliSeconds = Math.abs(time - new Date());
 
-    return timeInMilliSeconds;
+    return calculateTimeInMilliSeconds;
   }
 
   redirect() {
