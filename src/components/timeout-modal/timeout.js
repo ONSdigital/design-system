@@ -51,7 +51,7 @@ export default class Timeout {
   }
 
   async openModal() {
-    const modalWillOpen = await this.shouldContinueOrRestart();
+    const modalWillOpen = await this.hasExpiryTimeResetInAnotherTab();
     if (modalWillOpen && !this.modal.isDialogOpen()) {
       this.modal.openDialog();
       this.startUiCountdown();
@@ -63,8 +63,8 @@ export default class Timeout {
     clearInterval(this.shouldModalCloseCheck);
 
     this.shouldModalCloseCheck = setInterval(async () => {
-      await this.shouldContinueOrRestart();
-    }, 10000);
+      await this.hasExpiryTimeResetInAnotherTab();
+    }, 20000);
 
     let millseconds = this.modalVisibleInMilliseconds;
     let seconds = millseconds / 1000;
@@ -90,12 +90,12 @@ export default class Timeout {
         '</span>.';
 
       if (timerExpired) {
-        const shouldExpire = await $this.shouldContinueOrRestart();
+        const shouldExpire = await $this.hasExpiryTimeResetInAnotherTab();
 
         if (shouldExpire) {
           $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.redirectingText + '</span>';
           $this.accessibleCountdown.innerHTML = $this.redirectingText;
-          setTimeout($this.redirect.bind($this), 4000);
+          setTimeout($this.redirect.bind($this), 2000);
         }
       } else {
         seconds--;
@@ -118,8 +118,9 @@ export default class Timeout {
     })();
   }
 
-  async shouldContinueOrRestart() {
+  async hasExpiryTimeResetInAnotherTab() {
     const checkExpiryTime = await this.getExpiryTime();
+
     if (checkExpiryTime != this.expiryTime) {
       this.expiryTime = checkExpiryTime;
       this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(checkExpiryTime);
@@ -142,6 +143,7 @@ export default class Timeout {
   async restartTimeout(timeInMilliSeconds) {
     this.clearTimers();
     clearInterval(this.shouldModalCloseCheck);
+
     if (timeInMilliSeconds) {
       this.expiryTimeInMilliseconds = timeInMilliSeconds;
     } else {
@@ -149,6 +151,7 @@ export default class Timeout {
       this.expiryTime = createNewExpiryTime;
       this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(createNewExpiryTime);
     }
+
     this.startTimeout();
   }
 

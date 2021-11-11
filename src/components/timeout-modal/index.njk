@@ -10,62 +10,74 @@ experimental: true
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
-Provides a warning modal to allow users to extend the amount of time they have in their session before it times out.
-
-## How to use this component
+A timeout warning that lets users extend the amount of time they have to complete a task.
 
 {{
     patternlibExample({ "path": "components/timeout-modal/examples/timeout/index.njk", "height": 500 })
 }}
 
-There is specific guidance on using the timeout modal as an [extend session](/patterns/extend-session/) pattern.
+## When to use this component
 
-- The `showModalTimeInSeconds` parameter requires an integer value which is the time that the modal will display for in seconds before the session expiry time. It is recommended that this should be at least 60 seconds
-- The `serverSessionExpiryEndpoint` parameter should be a relative url to the endpoint to send requests to
-- The `redirectUrl` parameter should be the url to the page a user is directed to when the session has timed out
+Use this component when a service needs to set a session expiry time to protect the users information.
 
-For all other configuration options see the Nunjucks output on the example.
+There is specific guidance on how to [help users extend a session](/patterns/extend-session/).
+
+The content of the timeout modal is set using the parameters shown in the macro options table in the previous example.
+
+You will also need to set the parameters:
+
+- The `showModalTimeInSeconds` with the number of seconds the modal should show before the session expiry time (this should be at least 60 seconds)
+- The `serverSessionExpiryEndpoint` with a relative url to the server’s endpoint for the component to send requests to
+- The `redirectUrl` with a url to the [session timed out error page](/error-status-pages/#session-timed-out-error-when-user-is-not-signed-in) the user is directed to when the session has timed out
 
 ### Server requirements
 
-The timeout modal component requires an endpoint that handles two request methods and returns a `json` object containing a key `expires_at` with the value being a date string in ISO format.
+The timeout modal component requires an endpoint that handles two request methods and returns a JSON object containing the key `expires_at` with a value for the session expiry time in ISO format.
 
-- When a request using a `PATCH` method is received, the session expiry time should be reset to 45 minutes from the current time and the response should contain the new expiry time
-- When a request using a `GET` method is received, the response should contain the current expiry time
-- If the response status is not a `200` the module will treat it as the session being timed out and will redirect to the provided `redirectUrl` parameter value
+#### 1. A request to reset the expiry time
 
-## How it works
+When a request using a `PATCH` method is received the session expiry time should be reset to the original session length from the current time, and the response should contain the new expiry time.
 
-### Resetting the expiry time
+A request to reset the expiry time will be sent when:
 
-A request to reset the expiry time will be sent under the following scenarios:
+- the page loads and the component initialises
+- the modal is closed by the user
+- the page receives focus, for example, by returning from another tab or when the device wakes
+- the user interacts with the page in any way, for example, by moving the cursor
 
-- When the page loads and the component initialises
-- When the modal is being displayed and the "Continue" button or Esc is pressed
-- As the user interacts with the page via scrolling, moving their cursor, clicking and typing. To handle this efficiently we "throttle" the number of requests we send to one per minute and clear any others in the queue
-- When the page receives focus (moving to the tab from another tab or when the computer wakes) this will also request to reset the expiry
+To efficiently handle the number of requests made when the user interacts with the page, the requests are "throttled" so only one is sent every minute, and others in the queue are cleared.
 
-### Getting the current expiry time
+#### 2. A request for the current expiry time
 
-A request to get the current expiry time will be sent to check if the same session is being interacted with in another tab. If expiry time has changed the timeout will be restarted against the expiry time in the response. This will happen on the following events:
+When a request using a `GET` method is received, the response should contain the current expiry time.
 
-- When the modal is set to open
-- At 10 second intervals while the modal is open
-- When the modal is set to redirect
+The request is made to check if the same session is being interacted within another tab. If the expiry time has changed, the timeout will be restarted against the expiry time in the response.
+
+A request to get the current expiry time will be sent when the following happens:
+
+- before the modal opens
+- at 20 second intervals while the modal is open
+- before the page starts to redirect
+
+#### Failure responses from the server
+
+If the response status does not have a successful `200` code, the module component will handle the response as a session expiry and redirect the user to the url set in the `redirectUrl` parameter.
 
 ## Accessibility
 
-The timeout modal component helps conform to WCAG 2.0 success criterion 2.2.1 - that services warn users before a timeout occurs and allow them to extend it.
+This component helps services meet WCAG 2.1 success criterion 2.2.1 (Timing Adjustable). This requires services to warn users before a timeout occurs and allow them to extend it.
 
 This component and it's accessibility features are based on the {{
     onsExternalLink({
         "url": "https://github.com/alphagov/govuk-design-system-backlog/issues/104",
         "linkText": "GDS timeout modal prototype and research"
     })
-}}. We will need to carry out our own accessibility testing.
+}}. We will be carrying out our own accessibility testing to validate it.
 
 
 ### Accessibility requirements
+
+The WCAG  guidelines state:
 
 - There should be no limit to the number of times users can extend their session
 - The timeout modal should announce the remaining time at appropriate intervals to assistive technology
@@ -75,15 +87,15 @@ This component and it's accessibility features are based on the {{
 
 #### List of accessibility attributes on the component
 
-| Element    | Attribute and value                       | Description                                                           |
-| ---------- | ----------------------------------------- | --------------------------------------------------------------------- |
-| dialog     | aria-labelledby=”ons-modal-title”         | Heading is read out as title of the modal                             |
-| dialog     | role="dialog"	                         | Ensures backward compatibility if “dialog” element is not supported   |
-| dialog     | aria-describedby="timeout-time-remaining" | aria-live timer is read out at 15 second intervals                    |
-| timer      | aria-hidden="true"	                     | Visible timer is hidden from screen readers                           |
-| timer      | aria-relevant=”additions”	             | Jaws 17/18 ignores aria-hidden. This provides a workaround            |
-| timer-acc  | role="status"	                         | aria-live timer is read out (for iOS)                                 |
-| timer-acc  | aria-live="polite"                        | Read out without interrupting other content being read out            |
+| Element                | Attribute and value                         | Description                                                                                           |
+| ---------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `<dialog>`             | `aria-labelledby=”ons-modal-title”`         | To make the contained heading be read out as title of the modal                                       |
+| `<dialog>`             | `role="dialog"`	                           | Makes sure the modal is backwards compatible if the screen reader does not support the html element   |
+| `<dialog>`             | `aria-describedby="timeout-time-remaining"` | Reads out the live timer at 15 second intervals                                                       |
+| Countdown timer        | `aria-hidden="true"`	                       | Visible countdown timer is hidden from screen readers because it would be too interruptive            |
+| Countdown timer        | `aria-relevant=”additions”`	               | A workaround for aria-hidden for unsupported JAWS screen reader versions 17 and 18                    |
+| Hidden interval timer  | `role="status"`                             | To make sure the hidden interval timer is read out for iOS                                            |
+| Hidden interval timer  | `aria-live="polite"`                        | To make sure the hidden interval timer does not interrupt other content being read out                |
 
 ## Help improve this pattern
 Let us know how we could improve this pattern or share your user research findings.
