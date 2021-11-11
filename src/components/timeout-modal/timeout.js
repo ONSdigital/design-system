@@ -97,6 +97,7 @@ export default class Timeout {
         }
       } else {
         seconds--;
+        $this.expiryTimeInMilliseconds = seconds * 1000;
         $this.countdown.innerHTML = timeLeftText;
 
         if (minutesLeft < 1 && secondsLeft < 20) {
