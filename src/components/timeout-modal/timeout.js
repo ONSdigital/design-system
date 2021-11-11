@@ -36,9 +36,10 @@ export default class Timeout {
   }
 
   bindEventListeners() {
-    this.continueButton.addEventListener('click', this.closeModalAndRestartTimeout.bind(this));
-    window.addEventListener('focus', this.handleWindowFocus.bind(this));
     window.onload = this.startTimeout.bind(this);
+    window.addEventListener('focus', this.handleWindowFocus.bind(this));
+    window.addEventListener('keydown', this.escToClose.bind(this));
+    this.continueButton.addEventListener('click', this.closeModalAndRestartTimeout.bind(this));
     this.addThrottledEvents();
   }
 
@@ -149,6 +150,12 @@ export default class Timeout {
       } else {
         this.closeModalAndRestartTimeout();
       }
+    }
+  }
+
+  escToClose(event) {
+    if (this.modal.isDialogOpen() && event.keyCode === 27) {
+      this.closeModalAndRestartTimeout();
     }
   }
 
