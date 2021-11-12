@@ -10,33 +10,46 @@ experimental: true
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
-Allow users to extend the amount of time they have in their session before it times out. If the session is allowed to time out then the page will redirect to a signed out page.
+Users who need more time to complete a task when a session expiry time has been set, can extend the amount of given time before it runs out. If a page is idle, this pattern gives the user a warning showing the time remaining before signing the user out of the service if they choose not to continue.
 
-To ensure our services are accessible to all, a user has to be able to extend the available idle time of their session. Using the [timeout modal](/components/timeout-modal) component in this pattern, the user is able to extend their 45 minute session by;
-
-### Clicking the 'Continue' button or Esc when the modal is open
-
-If the page has been idle a modal will display for a set amount of seconds before the session times out. The user can reset the 45 minute session by clicking the 'Continue' button in the modal. The modal will close and the session expiry time will reset.
-
-### Interacting with the page but not saving progress
-
-When the user interacts with the page by moving the mouse cursor, scrolling the page, clicking or typing, the session expiry time will be reset. 
-
-### Focusing the page
-
-If the user leaves the tab or their computer goes to sleep and then the page regains focus before the session times out, the session expiry time is reset.
-
-## How to use this pattern
-
-You will need to configure the [timeout modal](/components/timeout-modal) component and import it into the base template that it used for session based pages for example, questionnaire pages. It is recommended that the modal is displayed for at least 60 seconds.
-
-Create a page to redirect the user to when the session has timed out. This page should explain why the user has been timed out and provide a link to sign in again.
-
-The example below will start the timeout modal after 10 seconds of idle time and will redirect to an example signed out page.
-
+{{
+    onsPanel({
+        "id": 'panel',
+        "body": 'The following example will show a warning when the page is left idle for 10 seconds'
+    })
+}}
 {{
     patternlibExample({ "path": "patterns/help-users-to/extend-session/examples/timeout/index.njk" })
 }}
+
+## When to use this pattern
+
+Use this pattern when a service needs to set a session expiry time to protect the users information.
+
+All users must be given the time they require to complete a task. The length of the session set to protect their data from others may not be long enough for some users. 
+
+In order to be accessible to all users, this pattern extends the time given for the user to complete a task when the user:
+
+- interacts with the page
+- focuses the page (if returning from another tab or device wakes)
+- closes the timeout warning (by selecting the primary action or by pressing the keyboard’s “Esc” key)
+
+### Interacting with the page
+
+The session expiry time will be reset every time the user interacts with the page by scrolling, moving the cursor, using the keyboard, or by selecting anything on the page.
+
+### Focusing the page
+If the user leaves the tab or window, or their device goes to sleep, the page will lose focus. The session expiry time will be reset if the page is put back in focus before the session has expired.
+
+### Closing the timeout warning
+
+If the page has not been interacted with, the timeout warning will be displayed for a set number of seconds before the session expiry time. The user can reset the session time by closing the warning by selecting the primary action (“Continue” button) or by pressing the keyboard’s “Esc” key.
+
+## How to use this pattern
+
+Use the [timeout modal component](/components/timeout-modal) for the warning by importing it into the template you are using for any pages with a session expiry. For example, question pages. You should set the modal to be displayed for at least 60 seconds.
+
+You will need to create a [session timed out error page](/patterns/error-status-pages/#session-timed-out-error-when-user-is-not-signed-in) to redirect the user to when the session expires. This page should explain why the user has been timed out and provide a link to a page for the user to re-enter their access code or details to access the service again.
 
 ## Help improve this pattern
 Let us know how we could improve this pattern or share your user research findings.
