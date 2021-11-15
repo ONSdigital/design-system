@@ -32,7 +32,7 @@ export default class Modal {
       return true;
     } else {
       try {
-        window.dialogPolyfill.registerDialog(this.component);
+        dialogPolyfill.registerDialog(this.component);
         return true;
       } catch (error) {
         return false;
