@@ -1,3 +1,5 @@
+import dialogPolyfill from 'dialog-polyfill';
+
 export default class Modal {
   constructor(component) {
     this.component = component;
@@ -10,10 +12,6 @@ export default class Modal {
   }
 
   initialise() {
-    if (!this.component) {
-      return;
-    }
-
     if (!this.dialogSupported()) {
       return;
     }

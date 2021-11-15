@@ -19,12 +19,12 @@
 
     $backdrop-colour: rgba(0, 0, 0, 0.8);
 
-    & + .backdrop {
+    &::backdrop {
+      backdrop-filter: blur(3px);
       background: $backdrop-colour;
     }
 
-    &::backdrop {
-      backdrop-filter: blur(3px);
+    & + .backdrop {
       background: $backdrop-colour;
     }
   }
