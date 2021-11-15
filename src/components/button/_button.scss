@@ -209,7 +209,6 @@ $button-shadow-size: 3px;
     }
   }
 
-  // Spooky Buttons
   &--ghost &,
   &--mobile & {
     &__inner {
@@ -220,6 +219,15 @@ $button-shadow-size: 3px;
       .ons-svg-icon {
         fill: $color-text-inverse;
       }
+    }
+  }
+
+  &--ghost-dark & {
+    @extend .ons-btn--secondary;
+    &__inner {
+      background: transparent;
+      border: 2px solid rgba(0, 0, 0, 0.6);
+      color: $color-text;
     }
   }
 

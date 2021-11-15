@@ -15,8 +15,8 @@
         </div>
 
         <div class="ons-download__content">
-
-            <h3 class="ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
+            {% set titleTag = params.titleTag | default("h2") %}
+            <{{ titleTag }} class="ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
                 <a href="{{ download.url }}">{{ download.title }}<span class="ons-u-vh">, 
 
                 {%- if download.meta is defined and download.meta %}
@@ -32,7 +32,7 @@
                 {% endif -%}
 
                 </span></a>
-            </h3>
+            </{{ titleTag }}>
 
             <span class="ons-u-fs-s ons-u-mb-xs ons-download__meta" aria-hidden="true">
 

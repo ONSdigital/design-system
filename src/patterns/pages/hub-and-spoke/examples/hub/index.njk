@@ -8,7 +8,7 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Hub Example",
+    "title": "Hub example",
     "signoutButton": {
         "text": "Save and sign out",
         "iconType": "exit",
@@ -19,10 +19,6 @@ layout: none
 {% block main %}
     <h1 class="ons-u-mt-m">Choose another section to complete</h1>
 
-    {% call onsPanel() %}
-        <p><strong>You must complete all sections in order to submit this survey</strong></p>
-    {% endcall %}
-
     {{ onsSummary({
         "hub": true,
         "classes": "ons-u-mt-m",
@@ -30,6 +26,7 @@ layout: none
             {
                 "groups": [
                     {
+                        "headers":["Name of section or person", "Section progress", "Access section"],
                         "rows": [
                             {
                                 "rowTitle": "People who live here",
@@ -52,7 +49,7 @@ layout: none
                                 ]
                             },
                             {
-                                "rowTitle": "Accomodation",
+                                "rowTitle": "Household accommodation",
                                 "rowItems": [
                                     {
                                         "iconType": "check",
@@ -64,7 +61,7 @@ layout: none
                                         "actions": [
                                             {
                                                 "text": "View answers",
-                                                "ariaLabel": "View answers for Accomodation",
+                                                "ariaLabel": "View answers for Household accommodation",
                                                 "url": "#0"
                                             }
                                         ]
@@ -72,7 +69,7 @@ layout: none
                                 ]
                             },
                             {
-                                "rowTitle": "Mary Smith (You)",
+                                "rowTitle": "Mary Smith",
                                 "rowItems": [
                                     {
                                         "iconType": "check",
@@ -104,7 +101,7 @@ layout: none
                                             {
                                                 "text": "Continue with section",
                                                 "ariaLabel": "Continue with John Smith's section",
-                                                "url": "#0"
+                                                "url": "/patterns/hub-and-spoke/examples/spoke-continue/"
                                             }
                                         ]
                                     }
@@ -123,14 +120,14 @@ layout: none
                                             {
                                                 "text": "Start section",
                                                 "ariaLabel": "Start Billy Smith's section",
-                                                "url": "#0"
+                                                "url": "/patterns/hub-and-spoke/examples/spoke-start/"
                                             }
                                         ]
                                     }
                                 ]
                             },
                             {
-                                "rowTitle": "Sally Smith",
+                                "rowTitle": "Mary Susannah Smith (Visitor)",
                                 "rowItems": [
                                     {
                                         "valueList": [
@@ -141,45 +138,7 @@ layout: none
                                         "actions": [
                                             {
                                                 "text": "Start section",
-                                                "ariaLabel": "Start Sally Smith's section",
-                                                "url": "#0"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "rowTitle": "Wilhelmina Susannah Clementine-Smith (Visitor)",
-                                "rowItems": [
-                                    {
-                                        "valueList": [
-                                            {
-                                                "text": "Not started"
-                                            }
-                                        ],
-                                        "actions": [
-                                            {
-                                                "text": "Start section",
-                                                "ariaLabel": "Start Wilhelmina Susannah Clementine-Smith's section",
-                                                "url": "#0"
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "rowTitle": "Vera Jones (Visitor)",
-                                "rowItems": [
-                                    {
-                                        "valueList": [
-                                            {
-                                                "text": "Not started"
-                                            }
-                                        ],
-                                        "actions": [
-                                            {
-                                                "text": "Start section",
-                                                "ariaLabel": "Start Vera Jones's section",
+                                                "ariaLabel": "Start Mary Susannah Smith's section",
                                                 "url": "#0"
                                             }
                                         ]
@@ -196,7 +155,9 @@ layout: none
     {{
         onsButton({
             "text": 'Continue',
-            "classes": 'ons-u-mb-m ons-u-mt-l'
+            "classes": 'ons-u-mb-m ons-u-mt-l',
+            "url": '/patterns/hub-and-spoke/examples/spoke-continue/',
+            "iconType": false
         })
     }}
 {% endblock %}
