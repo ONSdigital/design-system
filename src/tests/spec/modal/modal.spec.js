@@ -27,17 +27,15 @@ describe('Component: Modal', function() {
   });
 
   describe('When the component initialises', function() {
-    beforeEach(function(done) {
+    beforeEach(function() {
       this.modal = new Modal(this.component);
-      done();
     });
 
     describe('When the launcher link is clicked', function() {
-      beforeEach(function(done) {
+      beforeEach(function() {
         this.saveLastFocusedElSpy = chai.spy.on(this.modal, 'saveLastFocusedEl');
         const launcher = document.querySelector(`[data-modal-id=${this.component.id}]`);
         launcher.click();
-        done();
       });
 
       it('then the saveLastFocusedEl function should be called', function() {
@@ -62,11 +60,10 @@ describe('Component: Modal', function() {
     });
 
     describe('When the continue button is clicked', function() {
-      beforeEach(function(done) {
+      beforeEach(function() {
         this.setFocusOnLastFocusedElSpy = chai.spy.on(this.modal, 'setFocusOnLastFocusedEl');
         const button = document.querySelector('.ons-js-modal-btn');
         button.click();
-        done();
       });
 
       it('then the modal should be hidden', function() {
