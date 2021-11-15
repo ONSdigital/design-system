@@ -22,7 +22,11 @@ describe('Component: Modal', function() {
   });
 
   describe('When the component initialises', function() {
-    beforeEach(function() {});
+    beforeEach(function() {
+      new Modal(this.component);
+      const launcher = document.querySelector(`[data-modal-id=${this.component.id}]`);
+      launcher.click();
+    });
   });
 });
 
@@ -33,7 +37,7 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const component = wrapper.querySelector('.ons-js-toc-container');
+  const component = document.querySelector('.ons-js-modal');
 
   return {
     component,

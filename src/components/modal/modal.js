@@ -1,11 +1,12 @@
 import dialogPolyfill from 'dialog-polyfill';
 
+const overLayClass = 'ons-modal-overlay';
+
 export default class Modal {
   constructor(component) {
     this.component = component;
     this.launcher = document.querySelector(`[data-modal-id=${component.id}]`);
     this.closeButton = component.querySelector('.ons-js-modal-btn');
-    this.overLayClass = 'ons-modal-overlay';
     this.lastFocusedEl = null;
 
     this.initialise();
@@ -40,7 +41,7 @@ export default class Modal {
 
   openDialog(event) {
     if (!this.isDialogOpen()) {
-      document.querySelector('body').classList.add(this.overLayClass);
+      document.querySelector('body').className += ' ' + overLayClass;
       this.saveLastFocusedEl();
       this.makePageContentInert();
 
