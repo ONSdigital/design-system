@@ -1,5 +1,6 @@
 import Modal from '../../../components/modal/modal';
 import renderTemplate from '../../helpers/render-template';
+chai.use(chaiSpies);
 
 const params = {
   id: 'first',
@@ -22,10 +23,21 @@ describe('Component: Modal', function() {
   });
 
   describe('When the component initialises', function() {
-    beforeEach(function() {
-      new Modal(this.component);
-      const launcher = document.querySelector(`[data-modal-id=${this.component.id}]`);
-      launcher.click();
+    beforeEach(function(done) {
+      this.modal = new Modal(this.component);
+      done();
+    });
+
+    describe('When the launcher link is clicked', function() {
+      beforeEach(function() {
+        this.saveLastFocusedElSpy = chai.spy.on(this.modal, 'saveLastFocusedEl');
+        const launcher = document.querySelector(`[data-modal-id=${this.component.id}]`);
+        launcher.click();
+      });
+
+      it('then the saveLastFocusedEl function should be called', function() {
+        expect(this.saveLastFocusedElSpy).to.have.been.called();
+      });
     });
   });
 });

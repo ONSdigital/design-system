@@ -1,7 +1,10 @@
+$backdrop-colour: rgba(0, 0, 0, 0.8);
+
 .ons-modal {
   border: none;
   border-radius: 0.4rem;
   box-shadow: 0 0 7px 0 #000;
+  display: none;
   margin-left: 2rem;
   margin-right: 2rem;
   max-width: 500px;
@@ -14,19 +17,13 @@
     width: 100%;
   }
 
-  &[open] {
-    display: block;
+  &::backdrop {
+    backdrop-filter: blur(3px);
+    background: $backdrop-colour;
+  }
 
-    $backdrop-colour: rgba(0, 0, 0, 0.8);
-
-    &::backdrop {
-      backdrop-filter: blur(3px);
-      background: $backdrop-colour;
-    }
-
-    & + .backdrop {
-      background: $backdrop-colour;
-    }
+  & + .backdrop {
+    background: $backdrop-colour;
   }
 }
 

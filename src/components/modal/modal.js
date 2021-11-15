@@ -41,6 +41,7 @@ export default class Modal {
 
   openDialog(event) {
     if (!this.isDialogOpen()) {
+      this.component.style.display = 'block';
       document.querySelector('body').className += ' ' + overLayClass;
       this.saveLastFocusedEl();
       this.makePageContentInert();
@@ -92,6 +93,7 @@ export default class Modal {
       if (event) {
         event.preventDefault();
       }
+      this.component.style.display = 'none';
       document.querySelector('body').classList.remove(this.overLayClass);
       this.component.close();
       this.setFocusOnLastFocusedEl();
