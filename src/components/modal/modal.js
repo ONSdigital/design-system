@@ -41,10 +41,10 @@ export default class Modal {
 
   openDialog(event) {
     if (!this.isDialogOpen()) {
-      this.component.style.display = 'block';
+      this.component.classList.add('ons-u-db');
       document.querySelector('body').className += ' ' + overLayClass;
-      this.saveLastFocusedEl();
       this.makePageContentInert();
+      this.saveLastFocusedEl();
 
       if (event) {
         const modal = document.getElementById(event.target.getAttribute('data-modal-id'));
@@ -93,7 +93,7 @@ export default class Modal {
       if (event) {
         event.preventDefault();
       }
-      this.component.style.display = 'none';
+      this.component.classList.add('ons-u-d-no');
       document.querySelector('body').classList.remove(this.overLayClass);
       this.component.close();
       this.setFocusOnLastFocusedEl();
