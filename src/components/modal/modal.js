@@ -94,7 +94,7 @@ export default class Modal {
         event.preventDefault();
       }
       this.component.classList.add('ons-u-d-no');
-      document.querySelector('body').classList.remove(this.overLayClass);
+      document.querySelector('body').classList.remove(overLayClass);
       this.component.close();
       this.setFocusOnLastFocusedEl();
       this.removeInertFromPageContent();

@@ -79,9 +79,7 @@ describe('Component: Modal', function() {
       });
 
       it('then the body should not contain the overlay class', function() {
-        setTimeout(() => {
-          expect(document.body.classList.contains('ons-modal-overlay')).to.be.false;
-        }, 200);
+        expect(document.body.classList.contains('ons-modal-overlay')).to.be.false;
       });
     });
   });
