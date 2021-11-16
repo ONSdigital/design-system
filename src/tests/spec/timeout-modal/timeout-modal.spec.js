@@ -3,10 +3,9 @@ import renderTemplate from '../../helpers/render-template';
 
 import chai from 'chai';
 import chaiSpies from 'chai-spies';
-import chaiAsPromised from 'chai-as-promised';
+import eventMock from '../../stubs/event.stub.spec';
 
 chai.use(chaiSpies);
-chai.use(chaiAsPromised);
 
 const params = {
   showModalTimeInSeconds: 5,
@@ -56,28 +55,72 @@ describe('Component: Timeout modal', function() {
     });
 
     it('then the ui should show the time going down', function(done) {
-      const time = document.querySelector('.ons-js-timeout-timer span').innerHTML;
-      expect(time).to.equal('4 seconds');
+      const time = parseInt(document.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
       setTimeout(() => {
-        const timeUpdated = document.querySelector('.ons-js-timeout-timer span').innerHTML;
-        expect(timeUpdated).to.equal('3 seconds');
+        const timeUpdated = parseInt(document.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
+        expect(timeUpdated).to.be.lessThan(time);
         done();
-      }, 1000);
+      }, 1500);
     });
 
     it('then the aria-live should be set to assertive', function() {
       expect(document.querySelector('.ons-js-timeout-timer-acc').getAttribute('aria-live')).to.equal('assertive');
     });
 
-    describe('When the timer has expired', function() {
-      it('then the timer text should change to redirecting text', function() {
+    it('then the timer text should change to redirecting text when 0 seconds are left', function(done) {
+      setTimeout(() => {
         const text = document.querySelector('.ons-js-timeout-timer span').innerHTML;
-        expect(this.hasExpiryTimeResetInAnotherTabSpy).to.have.been.called();
-        setTimeout(() => {
-          expect(text).to.equal('You are being signed out');
-          done();
-        }, 3000);
-      });
+        expect(text).to.equal('You are being signed out');
+        done();
+      }, 3000);
+    });
+  });
+
+  describe('When the modal is open and the continue button is clicked', function() {
+    beforeEach(function(done) {
+      this.timeout = new Timeout(this.component);
+      this.closeModalSpy = chai.spy.on(this.timeout, 'closeModalAndRestartTimeout');
+      this.restartTimeoutSpy = chai.spy.on(this.timeout, 'restartTimeout');
+      this.startTimeoutSpy = chai.spy.on(this.timeout, 'startTimeout');
+
+      setTimeout(() => {
+        const continueButton = this.component.querySelector('.ons-js-modal-btn');
+        continueButton.click();
+        done();
+      }, 3000);
+    });
+
+    it('then the modal should close', function() {
+      expect(this.closeModalSpy).to.have.been.called();
+    });
+
+    it('then the timer should restart', function() {
+      expect(this.restartTimeoutSpy).to.have.been.called();
+      expect(this.startTimeoutSpy).to.have.been.called();
+    });
+  });
+
+  describe('When the modal is open and the escape key is pressed', function() {
+    beforeEach(function(done) {
+      this.timeout = new Timeout(this.component);
+      this.closeModalSpy = chai.spy.on(this.timeout, 'closeModalAndRestartTimeout');
+      this.restartTimeoutSpy = chai.spy.on(this.timeout, 'restartTimeout');
+      this.startTimeoutSpy = chai.spy.on(this.timeout, 'startTimeout');
+
+      setTimeout(() => {
+        this.mockedEvent = eventMock({ keyCode: 27 });
+        this.timeout.escToClose(this.mockedEvent);
+        done();
+      }, 3000);
+    });
+
+    it('then the modal should close', function() {
+      expect(this.closeModalSpy).to.have.been.called();
+    });
+
+    it('then the timer should restart', function() {
+      expect(this.restartTimeoutSpy).to.have.been.called();
+      expect(this.startTimeoutSpy).to.have.been.called();
     });
   });
 });
