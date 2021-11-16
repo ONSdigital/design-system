@@ -61,7 +61,6 @@ describe('Component: Modal', function() {
 
     describe('When the continue button is clicked', function() {
       beforeEach(function() {
-        this.setFocusOnLastFocusedElSpy = chai.spy.on(this.modal, 'setFocusOnLastFocusedEl');
         const button = document.querySelector('.ons-js-modal-btn');
         button.click();
       });
@@ -80,6 +79,32 @@ describe('Component: Modal', function() {
 
       it('then the body should not contain the overlay class', function() {
         expect(document.body.classList.contains('ons-modal-overlay')).to.be.false;
+      });
+    });
+  });
+
+  describe('When an element is previously focused and the modal opens', function() {
+    beforeEach(function(done) {
+      this.input = document.querySelector('.ons-input');
+      this.input.focus();
+      this.modal = new Modal(this.component);
+      this.saveLastFocusedElSpy = chai.spy.on(this.modal, 'saveLastFocusedEl');
+      this.modal.openDialog();
+      setTimeout(done);
+    });
+
+    it('then the element should be stored', function() {
+      expect(this.saveLastFocusedElSpy).to.have.been.called();
+    });
+
+    describe('When the modal is then closed', function() {
+      beforeEach(function() {
+        this.setFocusOnLastFocusedElSpy = chai.spy.on(this.modal, 'setFocusOnLastFocusedEl');
+        this.modal.closeDialog();
+      });
+
+      it('then the element should receive focus again', function() {
+        expect(this.setFocusOnLastFocusedElSpy).to.have.been.called();
       });
     });
   });

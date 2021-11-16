@@ -45,7 +45,6 @@ export default class Modal {
       document.querySelector('body').className += ' ' + overLayClass;
       this.makePageContentInert();
       this.saveLastFocusedEl();
-
       if (event) {
         const modal = document.getElementById(event.target.getAttribute('data-modal-id'));
         modal.showModal();
@@ -64,9 +63,9 @@ export default class Modal {
     }
   }
 
-  setFocusOnLastFocusedEl() {
-    if (this.lastFocusedEl) {
-      this.lastFocusedEl.focus();
+  setFocusOnLastFocusedEl(lastFocusedEl) {
+    if (lastFocusedEl) {
+      lastFocusedEl.focus();
     }
   }
 
@@ -96,7 +95,7 @@ export default class Modal {
       this.component.classList.remove('ons-u-db');
       document.querySelector('body').classList.remove(overLayClass);
       this.component.close();
-      this.setFocusOnLastFocusedEl();
+      this.setFocusOnLastFocusedEl(this.lastFocusedEl);
       this.removeInertFromPageContent();
     }
   }

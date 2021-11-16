@@ -1,9 +1,10 @@
 import Modal from '../modal/modal';
 
 export default class Timeout {
-  constructor(context, url) {
+  constructor(context, url, time) {
     this.context = context;
     this.sessionExpiryEndpoint = url;
+    this.initialExpiryTime = time;
     this.continueButton = context.querySelector('.ons-js-modal-btn');
     this.countdown = context.querySelector('.ons-js-timeout-timer');
     this.accessibleCountdown = context.querySelector('.ons-js-timeout-timer-acc');
@@ -25,6 +26,9 @@ export default class Timeout {
     this.timers = [];
     this.timerRunOnce = false;
 
+    // Create modal instance
+    this.modal = new Modal(this.context);
+
     // Start module
     this.initialise();
   }
@@ -32,7 +36,6 @@ export default class Timeout {
   async initialise() {
     this.expiryTime = await this.setNewExpiryTime();
     this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(this.expiryTime);
-    this.modal = new Modal(this.context);
 
     this.bindEventListeners();
   }
@@ -176,8 +179,8 @@ export default class Timeout {
     let newExpiryTime;
     if (!this.sessionExpiryEndpoint) {
       // For demo purposes
-      const currentTimePlusSixtySeconds = new Date(Date.now() + 7 * 1000);
-      newExpiryTime = new Date(currentTimePlusSixtySeconds).toISOString();
+      const demoTime = new Date(this.initialExpiryTime ? this.initialExpiryTime : Date.now() + 60 * 1000);
+      newExpiryTime = new Date(demoTime).toISOString();
     } else {
       newExpiryTime = await this.fetchExpiryTime('PATCH');
     }

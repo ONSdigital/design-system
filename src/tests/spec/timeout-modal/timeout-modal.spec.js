@@ -37,12 +37,12 @@ describe('Component: Timeout modal', function() {
 
   describe('When the component initialises', function() {
     beforeEach(function() {
-      this.timeout = new Timeout(this.component);
+      this.time = new Date(Date.now() + 7 * 1000);
+      this.timeout = new Timeout(this.component, null, this.time);
       this.openModalSpy = chai.spy.on(this.timeout, 'openModal');
       this.startUiCountdownSpy = chai.spy.on(this.timeout, 'startUiCountdown');
       this.hasExpiryTimeResetInAnotherTabSpy = chai.spy.on(this.timeout, 'hasExpiryTimeResetInAnotherTab');
       this.getExpiryTimeSpy = chai.spy.on(this.timeout, 'getExpiryTime');
-      this.redirectSpy = chai.spy.on(this.timeout, 'redirect');
     });
 
     it('then the modal should display after the set amount of seconds', function(done) {
@@ -84,7 +84,8 @@ describe('Component: Timeout modal', function() {
 
   describe('When the modal is open and the continue button is clicked', function() {
     beforeEach(function(done) {
-      this.timeout = new Timeout(this.component);
+      this.time = new Date(Date.now() + 7 * 1000);
+      this.timeout = new Timeout(this.component, null, this.time);
       this.closeModalSpy = chai.spy.on(this.timeout, 'closeModalAndRestartTimeout');
       this.restartTimeoutSpy = chai.spy.on(this.timeout, 'restartTimeout');
       this.startTimeoutSpy = chai.spy.on(this.timeout, 'startTimeout');
@@ -108,7 +109,8 @@ describe('Component: Timeout modal', function() {
 
   describe('When the modal is open and the escape key is pressed', function() {
     beforeEach(function(done) {
-      this.timeout = new Timeout(this.component);
+      this.time = new Date(Date.now() + 7 * 1000);
+      this.timeout = new Timeout(this.component, null, this.time);
       this.closeModalSpy = chai.spy.on(this.timeout, 'closeModalAndRestartTimeout');
       this.restartTimeoutSpy = chai.spy.on(this.timeout, 'restartTimeout');
       this.startTimeoutSpy = chai.spy.on(this.timeout, 'startTimeout');
@@ -127,6 +129,39 @@ describe('Component: Timeout modal', function() {
     it('then the timer should restart', function() {
       expect(this.restartTimeoutSpy).to.have.been.called();
       expect(this.startTimeoutSpy).to.have.been.called();
+    });
+  });
+
+  describe('When the modal is open and expiry time has been updated elsewhere', function() {
+    beforeEach(function(done) {
+      this.time = new Date(Date.now() + 7 * 1000);
+      this.timeout = new Timeout(this.component, null, this.time);
+      this.closeModalSpy = chai.spy.on(this.timeout, 'closeModalAndRestartTimeout');
+      setTimeout(() => {
+        this.timeout.expiryTime = new Date(Date.now() + 7 * 1000);
+        done();
+      }, 3000);
+      this.timeout.hasExpiryTimeResetInAnotherTab();
+    });
+
+    it('then the modal should close', function() {
+      expect(this.closeModalSpy).to.have.been.called();
+    });
+  });
+
+  describe('When there is a click event the timeout should reset', function() {
+    beforeEach(function(done) {
+      this.time = new Date(Date.now() + 20 * 1000);
+      this.timeout = new Timeout(this.component, null, this.time);
+      this.throttleSpy = chai.spy.on(this.timeout, 'throttle');
+      setTimeout(() => {
+        document.body.click();
+        done();
+      }, 3000);
+    });
+
+    it('then the throttle function should be called', function() {
+      expect(this.throttleSpy).to.have.been.called();
     });
   });
 });
