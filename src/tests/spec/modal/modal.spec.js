@@ -67,7 +67,7 @@ describe('Component: Modal', function() {
       });
 
       it('then the modal should be hidden', function() {
-        expect(this.component.classList.contains('ons-u-d-no')).to.be.true;
+        expect(this.component.classList.contains('ons-u-d-b')).to.be.false;
       });
 
       it('then the underlying page should not be hidden from screen readers', function() {
