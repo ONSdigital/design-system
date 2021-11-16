@@ -38,7 +38,7 @@ export default class Timeout {
   }
 
   bindEventListeners() {
-    window.onload = this.startTimeout.bind(this);
+    window.onload = this.startTimeout();
     window.addEventListener('focus', this.handleWindowFocus.bind(this));
     window.addEventListener('keydown', this.escToClose.bind(this));
     this.continueButton.addEventListener('click', this.closeModalAndRestartTimeout.bind(this));
@@ -176,7 +176,7 @@ export default class Timeout {
     let newExpiryTime;
     if (!this.sessionExpiryEndpoint) {
       // For demo purposes
-      const currentTimePlusSixtySeconds = new Date(Date.now() + 60 * 1000);
+      const currentTimePlusSixtySeconds = new Date(Date.now() + 7 * 1000);
       newExpiryTime = new Date(currentTimePlusSixtySeconds).toISOString();
     } else {
       newExpiryTime = await this.fetchExpiryTime('PATCH');

@@ -93,7 +93,7 @@ export default class Modal {
       if (event) {
         event.preventDefault();
       }
-      this.component.classList.add('ons-u-d-no');
+      this.component.classList.remove('ons-u-db');
       document.querySelector('body').classList.remove(overLayClass);
       this.component.close();
       this.setFocusOnLastFocusedEl();
