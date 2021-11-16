@@ -41,6 +41,7 @@ describe('Component: Timeout modal', function() {
       this.openModalSpy = chai.spy.on(this.timeout, 'openModal');
       this.startUiCountdownSpy = chai.spy.on(this.timeout, 'startUiCountdown');
       this.hasExpiryTimeResetInAnotherTabSpy = chai.spy.on(this.timeout, 'hasExpiryTimeResetInAnotherTab');
+      this.getExpiryTimeSpy = chai.spy.on(this.timeout, 'getExpiryTime');
       this.redirectSpy = chai.spy.on(this.timeout, 'redirect');
     });
 
@@ -50,6 +51,7 @@ describe('Component: Timeout modal', function() {
         expect(this.openModalSpy).to.have.been.called();
         expect(this.startUiCountdownSpy).to.have.been.called();
         expect(this.hasExpiryTimeResetInAnotherTabSpy).to.have.been.called();
+        expect(this.getExpiryTimeSpy).to.have.been.called();
         done();
       }, 3000);
     });
@@ -65,6 +67,10 @@ describe('Component: Timeout modal', function() {
 
     it('then the aria-live should be set to assertive', function() {
       expect(document.querySelector('.ons-js-timeout-timer-acc').getAttribute('aria-live')).to.equal('assertive');
+    });
+
+    it('then the accessibility countdown should contain the correct values', function() {
+      expect(parseInt(document.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(5);
     });
 
     it('then the timer text should change to redirecting text when 0 seconds are left', function(done) {
