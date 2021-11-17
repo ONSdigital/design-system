@@ -190,6 +190,18 @@ describe('Component: Timeout modal', function() {
       expect(this.fetchSpy).to.have.been.called();
     });
   });
+
+  describe('When the window receives focus', function() {
+    beforeEach(function() {
+      this.timeout = new Timeout(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
+      this.setNewExpiryTimeSpy = chai.spy.on(this.timeout, 'setNewExpiryTime');
+      this.timeout.handleWindowFocus();
+    });
+
+    it('then the setNewExpiryTime function should be called', function() {
+      expect(this.setNewExpiryTimeSpy).to.have.been.called();
+    });
+  });
 });
 
 function renderComponent(params) {
