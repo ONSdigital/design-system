@@ -6790,15 +6790,6 @@ karma-mocha@^2.0.1:
   dependencies:
     minimist "^1.2.3"
 
-karma-scss-preprocessor@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/karma-scss-preprocessor/-/karma-scss-preprocessor-4.0.0.tgz#d5eac6868f66efc27fdf530989e520a2c1d69438"
-  integrity sha512-dL3SpV67082x2WZQMpUJFIWLIeQwfuqulR16C4G1Hu5ZQBzsY66xYlNEA7QGlX/XHPKCcucCN06mDQ6clSZp1g==
-  dependencies:
-    chalk "^2.4.1"
-    lodash "^4.17.11"
-    strip-ansi "^5.0.0"
-
 karma@^6.3.4:
   version "6.3.4"
   resolved "https://registry.yarnpkg.com/karma/-/karma-6.3.4.tgz#359899d3aab3d6b918ea0f57046fd2a6b68565e6"
