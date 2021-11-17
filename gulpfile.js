@@ -80,7 +80,7 @@ gulp.task('build-script', gulp.series(...scripts.map(createBuildScriptTask)));
 
 gulp.task('build-styles', () => {
   return gulp
-    .src('./src/scss/*.scss')
+    .src(`./src/scss/${process.env.STYLES ?? '*'}.scss`)
     .pipe(gulpIf(isDevelopment, gulpSourcemaps.init()))
     .pipe(gulpDartSass(sassOptions).on('error', gulpDartSass.logError))
     .pipe(gulpIf(isProduction, gulpPostCss(postCssPlugins())))
