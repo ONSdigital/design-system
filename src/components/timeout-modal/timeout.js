@@ -230,37 +230,42 @@ export default class Timeout {
   }
 
   addThrottledEvents() {
-    window.onmousemove = this.throttle(() => {
-      if (!this.modal.isDialogOpen()) {
-        this.restartTimeout();
-      }
-    }, 61000);
-
-    window.onmousedown = this.throttle(() => {
-      if (!this.modal.isDialogOpen()) {
-        this.restartTimeout();
-      }
-    }, 61000);
-
     window.onclick = this.throttle(() => {
       if (!this.modal.isDialogOpen()) {
         this.restartTimeout();
       }
     }, 61000);
 
+    window.onmousemove = this.throttle(() => {
+      /* istanbul ignore next */
+      if (!this.modal.isDialogOpen()) {
+        this.restartTimeout();
+      }
+    }, 61000);
+
+    window.onmousedown = this.throttle(() => {
+      /* istanbul ignore next */
+      if (!this.modal.isDialogOpen()) {
+        this.restartTimeout();
+      }
+    }, 61000);
+
     window.onscroll = this.throttle(() => {
+      /* istanbul ignore next */
       if (!this.modal.isDialogOpen()) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onkeypress = this.throttle(() => {
+      /* istanbul ignore next */
       if (!this.modal.isDialogOpen()) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onkeyup = this.throttle(() => {
+      /* istanbul ignore next */
       if (!this.modal.isDialogOpen()) {
         this.restartTimeout();
       }
