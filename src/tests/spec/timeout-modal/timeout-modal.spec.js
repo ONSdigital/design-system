@@ -149,11 +149,13 @@ describe('Component: Timeout modal', function() {
     });
   });
 
-  describe('When there is a click event the timeout should reset', function() {
+  describe('When there is a click event', function() {
     beforeEach(function(done) {
       this.time = new Date(Date.now() + 20 * 1000);
       this.timeout = new Timeout(this.component, null, this.time);
+      this.timeout.modal.closeDialog();
       this.throttleSpy = chai.spy.on(this.timeout, 'throttle');
+
       setTimeout(() => {
         document.body.click();
         done();
@@ -162,6 +164,30 @@ describe('Component: Timeout modal', function() {
 
     it('then the throttle function should be called', function() {
       expect(this.throttleSpy).to.have.been.called();
+    });
+  });
+
+  describe('When a fetch is made to get the current expiry time', function() {
+    beforeEach(function() {
+      this.timeout = new Timeout(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
+      this.fetchSpy = chai.spy.on(this.timeout, 'fetchExpiryTime');
+      this.timeout.getExpiryTime();
+    });
+
+    it('then the fetchExpiryTime function should be called', function() {
+      expect(this.fetchSpy).to.have.been.called();
+    });
+  });
+
+  describe('When a fetch is made to set a new expiry time', function() {
+    beforeEach(function() {
+      this.timeout = new Timeout(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
+      this.fetchSpy = chai.spy.on(this.timeout, 'fetchExpiryTime');
+      this.timeout.setNewExpiryTime();
+    });
+
+    it('then the fetchExpiryTime function should be called', function() {
+      expect(this.fetchSpy).to.have.been.called();
     });
   });
 });

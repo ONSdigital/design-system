@@ -202,13 +202,13 @@ export default class Timeout {
       method: fetchMethod,
       headers: { 'Cache-Control': 'no-cache', 'Content-type': 'application/json; charset=UTF-8' },
     });
-
     if (!response.ok) {
       this.redirect();
       return false;
     }
 
     let json = await response.json();
+
     return json.expires_at;
   }
 

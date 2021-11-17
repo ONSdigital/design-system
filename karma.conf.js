@@ -37,6 +37,7 @@ export default function(config) {
     frameworks: ['browserify', 'mocha', 'chai-spies', 'chai'],
 
     files: [
+      { pattern: 'src/tests/spec/timeout-modal/*.json', included: false, served: true },
       { pattern: 'src/components/**/*.njk', included: false },
       { pattern: 'src/static/fonts/*', included: false },
       'src/scss/main.scss',
