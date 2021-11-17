@@ -191,6 +191,21 @@ describe('Component: Timeout modal', function() {
     });
   });
 
+  describe('When a fetch is made but the status is not 200', function() {
+    beforeEach(function(done) {
+      this.timeout = new Timeout(this.component, '404URLpath/', null);
+      this.redirectSpy = chai.spy.on(this.timeout, 'redirect');
+      setTimeout(() => {
+        this.timeout.fetchExpiryTime();
+        done();
+      });
+    });
+
+    it('then the redirect function should be called', function() {
+      expect(this.redirectSpy).to.have.been.called();
+    });
+  });
+
   describe('When the window receives focus', function() {
     beforeEach(function() {
       this.timeout = new Timeout(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
