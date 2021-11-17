@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .ons-grid {
   box-sizing: border-box;
   font-size: 0;
@@ -32,7 +34,7 @@
   }
   &.ons-grid--tight {
     .ons-grid__col {
-      margin-bottom: $grid-gutters/2;
+      margin-bottom: math.div($grid-gutters, 2);
     }
   }
 }
@@ -53,9 +55,9 @@
 }
 
 .ons-grid--tight {
-  margin-left: -$grid-gutters/2;
+  margin-left: math.div(-$grid-gutters, 2);
   .ons-grid__col {
-    padding-left: $grid-gutters/2;
+    padding-left: math.div($grid-gutters, 2);
   }
 }
 
@@ -157,7 +159,7 @@
 
 @each $breakpoint-min, $size in $grid-bp {
   @for $column from 1 through $grid-cols {
-    $width: percentage($column / $grid-cols);
+    $width: percentage(math.div($column, $grid-cols));
 
     @include mq($breakpoint-min) {
       .ons-col-#{$column}\@#{$breakpoint-min} {
@@ -179,7 +181,7 @@
 
   @each $breakpoint-max, $size in $grid-bp {
     @for $column from 1 through $grid-cols {
-      $width: percentage($column / $grid-cols);
+      $width: percentage(math.div($column, $grid-cols));
 
       @include mq($breakpoint-min, $breakpoint-max) {
         .ons-col-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {

@@ -3,12 +3,10 @@ const browserify = require('browserify');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
 const gulpPostCss = require('gulp-postcss');
-const gulpSass = require('gulp-sass');
+const gulpDartSass = require('gulp-dart-sass');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpSvg = require('gulp-svgo');
 const gulpTerser = require('gulp-terser');
-const sass = require('node-sass');
-const nodeSassGlobImporter = require('node-sass-glob-importer');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 
@@ -30,10 +28,8 @@ const terserOptions = {
   },
 };
 
-const sassCompiler = gulpSass(sass);
 const sassOptions = {
-  importer: nodeSassGlobImporter(),
-  includePaths: ['./node_modules/normalize-scss/sass', './node_modules/prismjs/themes'],
+  includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes'],
 };
 
 const scripts = [
@@ -84,9 +80,9 @@ gulp.task('build-script', gulp.series(...scripts.map(createBuildScriptTask)));
 
 gulp.task('build-styles', () => {
   return gulp
-    .src('./src/scss/*.scss')
+    .src(`./src/scss/${process.env.STYLES ?? '*'}.scss`)
     .pipe(gulpIf(isDevelopment, gulpSourcemaps.init()))
-    .pipe(sassCompiler(sassOptions).on('error', sassCompiler.logError))
+    .pipe(gulpDartSass(sassOptions).on('error', gulpDartSass.logError))
     .pipe(gulpIf(isProduction, gulpPostCss(postCssPlugins())))
     .pipe(gulpIf(isDevelopment, gulpSourcemaps.write('./')))
     .pipe(gulp.dest('./build/css'))
