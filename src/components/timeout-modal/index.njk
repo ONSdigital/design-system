@@ -18,7 +18,7 @@ A timeout warning that lets users extend the amount of time they have to complet
 
 ## When to use this component
 
-Use this component when a service needs to set a session expiry time to protect the users information.
+Use this component when a service sets a session expiry time to protect the user’s information.
 
 There is specific guidance on how to [help users extend a session](/patterns/extend-session/).
 
@@ -28,13 +28,13 @@ The content of the timeout modal is set using the parameters shown in the macro 
 
 You will also need to set the parameters:
 
-- The `showModalTimeInSeconds` with the number of seconds the modal should show before the session expiry time (this should be at least 60 seconds)
-- The `serverSessionExpiryEndpoint` with a relative url to the server’s endpoint for the component to send requests to
-- The `redirectUrl` with a url to the [session timed out error page](/error-status-pages/#session-timed-out-error-when-user-is-not-signed-in) the user is directed to when the session has timed out
+- `showModalTimeInSeconds` with the number of seconds the modal should show for before the session expiry time (this should be at least 60 seconds)
+- `serverSessionExpiryEndpoint` with a relative url to the server’s API endpoint for the component to send requests to
+- `redirectUrl` with a url to the [session timed out error page](/error-status-pages/#session-timed-out-error-when-user-is-not-signed-in) the user is directed to when the session has timed out
 
 ### Server requirements
 
-The timeout modal component requires an endpoint that handles two request methods and returns a JSON object containing the key `expires_at` with a value for the session expiry time in ISO format.
+The timeout modal component requires an API endpoint that handles two request methods and returns a JSON object containing the key `expires_at` with a value for the session expiry time in ISO format.
 
 #### 1. A request to reset the expiry time
 
@@ -53,17 +53,17 @@ To efficiently handle the number of requests made when the user interacts with t
 
 When a request using a `GET` method is received, the response should contain the current expiry time.
 
-The request is made to check if the same session is being interacted within another tab. If the expiry time has changed, the timeout will be restarted against the expiry time in the response.
+The request is made to check if the same session is being interacted with in another tab. If the expiry time has changed, the timeout will be restarted against the expiry time in the response.
 
 A request to get the current expiry time will be sent when the following happens:
 
 - before the modal opens
-- at 20 second intervals while the modal is open
+- at 20-second intervals while the modal is open
 - before the page starts to redirect
 
 #### Failure responses from the server
 
-If the response status does not have a successful `200` code, the module component will handle the response as a session expiry and redirect the user to the url set in the `redirectUrl` parameter.
+If the response status does not have a successful `200` code, the component will handle the response as a session expiry and redirect the user to the url set in the `redirectUrl` parameter.
 
 ## Accessibility
 
