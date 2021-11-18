@@ -53,7 +53,7 @@ To efficiently handle the number of requests made when the user interacts with t
 
 When a request using a `GET` method is received, the response should contain the current expiry time.
 
-The request is made to check if the same session is being interacted within another tab. If the expiry time has changed, the timeout will be restarted against the expiry time in the response.
+The request is made to check if the same session is being interacted with in another tab. If the expiry time has changed, the timeout will be restarted against the expiry time in the response.
 
 A request to get the current expiry time will be sent when the following happens:
 
