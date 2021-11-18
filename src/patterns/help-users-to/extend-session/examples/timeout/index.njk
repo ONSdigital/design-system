@@ -10,7 +10,7 @@ layout: none
 {% from "components/timeout-modal/_macro.njk" import onsTimeoutModal %}
 
 {% set pageConfig = {
-    "title": "Extend session",
+    "title": "Extend a session",
     "breadcrumbs": {
         "ariaLabel": 'Breadcrumbs',
         "itemsList": [
@@ -65,7 +65,7 @@ layout: none
 
     {{ onsTimeoutModal({
         "showModalTimeInSeconds": 50,
-        "redirectUrl": "/patterns/extend-session/examples/timeout/redirect/",
+        "redirectUrl": "/patterns/error-status-pages/examples/timed-out-error/",
         "title": "You will be signed out soon",
         "textFirstLine": "It appears you have been inactive for a while.",
         "countdownText": "To protect your information, your progress will be saved and you will be signed out in",

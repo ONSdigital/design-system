@@ -81,21 +81,21 @@ This component and it's accessibility features are based on the {{
 
 The WCAG  guidelines state:
 
-- There should be no limit to the number of times users can extend their session
-- The timeout modal should announce the remaining time at appropriate intervals to assistive technology
-- Make the underlying page content inert and focus the available action on the modal e.g. the "Continue" button
-- Focus on the previously focused element on the page when the modal is closed
+- there should be no limit to the number of times a user can extend their session
+- the timeout modal should announce the remaining time at appropriate intervals to assistive technology
+- the underlying page content should be made inert, and the available action on the modal must be put in focus, for example, the “Continue” button
+- when the modal is closed the previously focused element on the page must be put back in focus
 
 
-#### List of accessibility attributes on the component
+#### Accessibility attributes on the component’s elements
 
 | Element                | Attribute and value                         | Description                                                                                           |
 | ---------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `<dialog>`             | `aria-labelledby=”ons-modal-title”`         | To make the contained heading be read out as title of the modal                                       |
+| `<dialog>`             | `aria-labelledby=”ons-modal-title”`         | To make the contained heading be read out as the title of the modal                                   |
 | `<dialog>`             | `role="dialog"`	                           | Makes sure the modal is backwards compatible if the screen reader does not support the html element   |
-| `<dialog>`             | `aria-describedby="timeout-time-remaining"` | Reads out the live timer at 15 second intervals                                                       |
+| `<dialog>`             | `aria-describedby="timeout-time-remaining"` | Reads out the live timer at 15-second intervals                                                       |
 | Countdown timer        | `aria-hidden="true"`	                       | Visible countdown timer is hidden from screen readers because it would be too interruptive            |
-| Countdown timer        | `aria-relevant=”additions”`	               | A workaround for aria-hidden for unsupported JAWS screen reader versions 17 and 18                    |
+| Countdown timer        | `aria-relevant=”additions”`	               | A workaround for `aria-hidden` for unsupported JAWS screen reader versions 17 and 18                    |
 | Hidden interval timer  | `role="status"`                             | To make sure the hidden interval timer is read out for iOS                                            |
 | Hidden interval timer  | `aria-live="polite"`                        | To make sure the hidden interval timer does not interrupt other content being read out                |
 
@@ -103,7 +103,7 @@ The WCAG  guidelines state:
 Let us know how we could improve this pattern or share your user research findings.
 {{
     onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/discussions/888",
+        "url": "https://github.com/ONSdigital/design-system/discussions/1771",
         "linkText": "Discuss the ‘Timeout modal’ component on GitHub"
     })
 }}
