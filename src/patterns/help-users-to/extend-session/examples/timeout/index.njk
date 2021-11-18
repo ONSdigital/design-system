@@ -3,8 +3,6 @@ layout: none
 ---
 {% extends "foundations/layout/page-template/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
-{% from "components/collapsible/_macro.njk" import onsCollapsible %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/timeout-modal/_macro.njk" import onsTimeoutModal %}
@@ -27,9 +25,12 @@ layout: none
         "title": "On 1 May 2016, what was the number of employees for Bolt and Ratchet?",
         "description": "<p>This is all employees aged 16 years or over that your organisation employs.</p>"
     }) %}
+
+
         {{ onsRadios({
             "id": "number-of-employees",
             "name": "number-of-employees",
+            "dontWrap": true,
             "radios": [
                 {
                     "id": "number-of-employees-1-9",

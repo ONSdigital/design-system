@@ -231,6 +231,7 @@ export default class Timeout {
 
   addThrottledEvents() {
     window.onclick = this.throttle(() => {
+      /* istanbul ignore next */
       if (!this.modal.isDialogOpen()) {
         this.restartTimeout();
       }

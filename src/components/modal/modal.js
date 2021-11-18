@@ -14,6 +14,7 @@ export default class Modal {
 
   initialise() {
     if (!this.dialogSupported()) {
+      /* istanbul ignore next */
       return;
     }
 
@@ -34,6 +35,7 @@ export default class Modal {
         dialogPolyfill.registerDialog(this.component);
         return true;
       } catch (error) {
+        /* istanbul ignore next */
         return false;
       }
     }
