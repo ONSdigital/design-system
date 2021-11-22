@@ -1,3 +1,8 @@
+%ons-input-focus {
+  box-shadow: 0 0 0 3px $color-focus, inset 0 0 0 1px $color-input;
+  outline: none;
+}
+
 .ons-input {
   border: $input-border-width solid $color-input;
   border-radius: $input-radius;
@@ -31,8 +36,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 3px $color-focus, inset 0 0 0 1px $color-input;
-    outline: none;
+    @extend %ons-input-focus;
   }
 
   &:disabled {

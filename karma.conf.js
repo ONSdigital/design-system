@@ -1,5 +1,4 @@
 import assert from 'assert';
-import nodeSassGlobImporter from 'node-sass-glob-importer';
 import proxyquireify from 'proxyquireify';
 
 import babelEsmConfig from './babel.conf.esm';
@@ -39,7 +38,7 @@ export default function(config) {
     files: [
       { pattern: 'src/components/**/*.njk', included: false },
       { pattern: 'src/static/fonts/*', included: false },
-      'src/scss/main.scss',
+      'build/css/main.css',
       { pattern: 'src/js/polyfills.js', included: process.env.TEST_MODE === 'nomodule' },
       'src/tests/spec/**/*.spec.js',
     ],
@@ -51,16 +50,7 @@ export default function(config) {
     },
 
     preprocessors: {
-      'src/scss/main.scss': ['scss'],
       'src/**/*.js': ['browserify'],
-    },
-
-    scssPreprocessor: {
-      options: {
-        sourceMap: true,
-        importer: nodeSassGlobImporter(),
-        includePaths: ['./node_modules/normalize-scss/sass', './mode_modules/prismjs/themes'],
-      },
     },
 
     browserify: {

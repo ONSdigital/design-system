@@ -211,7 +211,7 @@
         }
 
         &:focus {
-          @extend a:focus;
+          @extend %a-focus;
           .ons-svg-icon {
             fill: $color-black;
           }

@@ -17,7 +17,7 @@ $collapsible-caret-width: 1.5rem;
 
       &:focus {
         .ons-collapsible__title {
-          @extend a:focus;
+          @extend %a-focus;
           // extend collapsible focus background behind caret
           margin-left: -$collapsible-caret-width;
           padding-left: $collapsible-caret-width;
