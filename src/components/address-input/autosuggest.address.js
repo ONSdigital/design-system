@@ -54,7 +54,6 @@ export default class AutosuggestAddress {
       suggestionFunction: this.suggestAddresses.bind(this),
       sanitisedQueryReplaceChars: this.addressReplaceChars,
       sanitisedQuerySplitNumsChars: this.sanitisedQuerySplitNumsChars,
-      minChars: 3,
       suggestOnBoot: true,
       handleUpdate: true,
     });
