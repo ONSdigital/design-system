@@ -1,5 +1,5 @@
+import * as fs from 'fs-extra';
 import prependFile from 'prepend-file';
-import { removeFolder, createFolder, asyncForEach } from './helpers';
 import { copyComponents, copyTemplates } from './common';
 
 const cwd = process.cwd();
@@ -13,8 +13,9 @@ const copiedPageTemplatePath = `${newTemplatesPath}/_template.njk`;
 
 async function removeExistingFolders() {
   const folders = [newComponentsPath, newTemplatesPath];
-
-  await asyncForEach(folders, removeFolder);
+  for (let folder of folders) {
+    await fs.remove(folder);
+  }
 }
 
 async function addCDNVersionToPageTemplate() {
@@ -31,7 +32,7 @@ async function addCDNVersionToPageTemplate() {
 
 async function run() {
   await removeExistingFolders();
-  await createFolder(destPath);
+  await fs.ensureDir(destPath);
   await copyComponents(componentsPath, newComponentsPath);
   await copyTemplates(templatesPath, newTemplatesPath);
   await addCDNVersionToPageTemplate();

@@ -7,5 +7,6 @@
 !/page-templates/**/*
 !/scripts/**/*
 !/scss/**/*
+!/src/js/domready.js
 !/LICENSE
 !/package.json
