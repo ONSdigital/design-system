@@ -527,7 +527,7 @@ describe('Autosuggest.ui component', function() {
         });
 
         it('then the function should resolve', function() {
-          this.autosuggest.fetchSuggestions('yes').should.eventually.eql(this.result);
+          this.autosuggest.fetchSuggestions('yes').should.y.eql(this.result);
         });
       });
 

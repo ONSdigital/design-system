@@ -1,0 +1,82 @@
+---
+layout: none
+---
+{% extends "foundations/layout/page-template/_template.njk" %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/timeout-modal/_macro.njk" import onsTimeoutModal %}
+
+{% set pageConfig = {
+    "title": "Extend a session",
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Previous'
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": "On 1 May 2016, what was the number of employees for Bolt and Ratchet?",
+        "description": "<p>This is all employees aged 16 years or over that your organisation employs.</p>",
+        "legendIsQuestionTitle": true
+    }) %}
+
+
+        {{ onsRadios({
+            "id": "number-of-employees",
+            "name": "number-of-employees",
+            "dontWrap": true,
+            "radios": [
+                {
+                    "id": "number-of-employees-1-9",
+                    "label": {
+                        "text": "1 – 9 employees"
+                    },
+                    "value": "1-9"
+                },
+                {
+                    "id": "number-of-employees-10-49",
+                    "label": {
+                        "text": "10 – 49 employees"
+                    },
+                    "value": "10-49"
+                },
+                {
+                    "id": "number-of-employees-50-100",
+                    "label": {
+                        "text": "50 – 100+ employees",
+                        "description": "Include multi-corporations"
+                    },
+                    "value": "50-100"
+                }
+            ]
+        }) }}
+
+    {% endcall %}
+
+    {{ onsButton({
+        "text": "Save and continue",
+        "classes": "ons-u-mt-m"
+    }) }}
+
+    {{ onsTimeoutModal({
+        "showModalTimeInSeconds": 50,
+        "redirectUrl": "/patterns/error-status-pages/examples/timed-out-error/",
+        "title": "You will be signed out soon",
+        "textFirstLine": "It appears you have been inactive for a while.",
+        "countdownText": "To protect your information, your progress will be saved and you will be signed out in",
+        "redirectingText": "You are being signed out",
+        "btnText": "Continue survey",
+        "minutesTextSingular": "minute",
+        "minutesTextPlural": "minutes",
+        "secondsTextSingular": "second",
+        "secondsTextPlural": "seconds"
+    }) }}
+
+{% endblock %}
