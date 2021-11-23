@@ -52,6 +52,7 @@ export default class AutosuggestUI {
     // Settings
     this.autosuggestData = autosuggestData || context.getAttribute('data-autosuggest-data');
     this.ariaYouHaveSelected = ariaYouHaveSelected || context.getAttribute('data-aria-you-have-selected');
+    this.minChars = minChars || context.getAttribute('data-min-chars') || 3;
     this.ariaMinChars = ariaMinChars || context.getAttribute('data-aria-min-chars');
     this.ariaOneResult = ariaOneResult || context.getAttribute('data-aria-one-result');
     this.ariaNResults = ariaNResults || context.getAttribute('data-aria-n-results');
@@ -66,7 +67,6 @@ export default class AutosuggestUI {
     this.typeMore = typeMore || context.getAttribute('data-type-more');
     this.allowMultiple = context.getAttribute('data-allow-multiple') || false;
     this.listboxId = this.listbox.getAttribute('id');
-    this.minChars = minChars || 3;
     this.resultLimit = resultLimit || 10;
     this.suggestOnBoot = suggestOnBoot;
     this.lang = lang || 'en';

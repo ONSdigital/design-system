@@ -6,6 +6,7 @@
         class="{% if not params.externalInitialiser %}ons-js-autosuggest {% endif %}{% if params.isEditable == false %}ons-js-address-not-editable{% endif %}{% if params.mandatory is defined and params.mandatory == true %} ons-js-address-mandatory{% endif %} {% if params.containerClasses is defined and params.containerClasses %} {{ params.containerClasses }}{% endif %} ons-autosuggest-input"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
+        data-min-chars="{{ params.minChars }}"
         data-aria-min-chars="{{ params.ariaMinChars }}"
         data-aria-one-result="{{ params.ariaOneResult }}"
         data-aria-n-results="{{ params.ariaNResults }}"
