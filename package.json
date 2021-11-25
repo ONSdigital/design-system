@@ -78,6 +78,8 @@
     "babelify": "^10.0.0",
     "browser-sync": "^2.27.3",
     "browserify": "^17.0.0",
+    "browserstack": "^1.6.1",
+    "browserstacktunnel-wrapper": "^2.0.4",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "chai-spies": "^1.0.0",

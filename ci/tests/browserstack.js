@@ -20,10 +20,6 @@ let client = BrowserStack.createClient({
   });
 });
 
-if (process.env.TRAVIS_JOB_NUMBER) {
-  name = process.env.TRAVIS_JOB_NUMBER;
-}
-
 let settings = {
   os: process.argv[2],
   os_version: process.argv[3],
@@ -31,10 +27,10 @@ let settings = {
   browser_version: process.argv[5],
   device: process.argv[6],
   url: process.argv[7],
+
   'browserstack.local': true,
-  'browserstack.tunnel': true,
-  name: name,
-  build: 'testem-browserstack',
+  name: WORKER_ID,
+  build: 'Testem Tests',
 };
 
 for (let i in settings) {
@@ -42,8 +38,6 @@ for (let i in settings) {
     delete settings[i];
   }
 }
-
-console.log(settings);
 
 client.createWorker(settings, function(error, worker) {
   if (error) console.log(error);
