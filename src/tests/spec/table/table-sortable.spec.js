@@ -4,8 +4,7 @@ import renderTemplate from '../../helpers/render-template';
 const expect = chai.expect;
 
 const params = {
-  sortable: true,
-  table_class: ' table--sortable',
+  variants: 'sortable',
   sortBy: 'Sort by',
   ariaAsc: 'ascending',
   ariaDesc: 'descending',
@@ -128,7 +127,7 @@ describe('Component: Sortable table', function() {
     });
 
     it('should create a status element with aria attributes', function() {
-      const status = document.querySelector('.sortable-table-status');
+      const status = document.querySelector('.ons-sortable-table-status');
       expect(status).to.exist;
       expect(status.getAttribute('aria-live')).to.equal('polite');
       expect(status.getAttribute('role')).to.equal('status');
@@ -154,7 +153,7 @@ describe('Component: Sortable table', function() {
       it('should be given the class "table__sort-button"', function() {
         this.sortableHeadings.forEach(heading => {
           let headingChild = heading.childNodes[2];
-          expect(headingChild.getAttribute('class')).to.equal('table__sort-button');
+          expect(headingChild.getAttribute('class')).to.equal('ons-table__sort-button');
         });
       });
     });
@@ -187,7 +186,7 @@ describe('Component: Sortable table', function() {
       });
 
       it('should update the aria-live status', function() {
-        const status = document.getElementsByClassName('sortable-table-status')[0].textContent;
+        const status = document.getElementsByClassName('ons-sortable-table-status')[0].textContent;
         const headingText = this.sortableHeadings[0].textContent.trim();
         expect(status).to.equal('Sort by ' + headingText + ' (descending)');
       });
@@ -226,9 +225,9 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const tableEl = document.querySelector('.table');
+  const tableEl = document.querySelector('.ons-table');
   const sortableHeadings = [...document.querySelectorAll('[aria-sort]')];
-  const tbody = tableEl.querySelector('.table__body');
+  const tbody = tableEl.querySelector('.ons-table__body');
 
   return {
     wrapper,

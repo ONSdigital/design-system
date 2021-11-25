@@ -2,14 +2,14 @@ import abortableFetch from '../../js/abortable-fetch';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
 import queryJson from './code.list.searcher';
 
-export const baseClass = 'js-autosuggest';
+export const baseClass = 'ons-js-autosuggest';
 
-export const classAutosuggestOption = 'autosuggest-input__option';
+export const classAutosuggestOption = 'ons-autosuggest-input__option';
 export const classAutosuggestOptionFocused = `${classAutosuggestOption}--focused`;
 export const classAutosuggestOptionNoResults = `${classAutosuggestOption}--no-results`;
-export const classAutosuggestOptionMoreResults = `${classAutosuggestOption}--more-results u-fs-s`;
-export const classAutosuggestHasResults = 'autosuggest-input--has-results';
-export const classAutosuggestResultsTitle = 'autosuggest-input__results-title';
+export const classAutosuggestOptionMoreResults = `${classAutosuggestOption}--more-results ons-u-fs-s`;
+export const classAutosuggestHasResults = 'ons-autosuggest-input--has-results';
+export const classAutosuggestResultsTitle = 'ons-autosuggest-input__results-title';
 
 export default class AutosuggestUI {
   constructor({
@@ -47,11 +47,12 @@ export default class AutosuggestUI {
     this.instructions = context.querySelector(`.${baseClass}-instructions`);
     this.ariaStatus = context.querySelector(`.${baseClass}-aria-status`);
     this.form = context.closest('form');
-    this.label = document.querySelector('.label');
+    this.label = document.querySelector('.ons-label');
 
     // Settings
     this.autosuggestData = autosuggestData || context.getAttribute('data-autosuggest-data');
     this.ariaYouHaveSelected = ariaYouHaveSelected || context.getAttribute('data-aria-you-have-selected');
+    this.minChars = minChars || context.getAttribute('data-min-chars') || 3;
     this.ariaMinChars = ariaMinChars || context.getAttribute('data-aria-min-chars');
     this.ariaOneResult = ariaOneResult || context.getAttribute('data-aria-one-result');
     this.ariaNResults = ariaNResults || context.getAttribute('data-aria-n-results');
@@ -66,7 +67,6 @@ export default class AutosuggestUI {
     this.typeMore = typeMore || context.getAttribute('data-type-more');
     this.allowMultiple = context.getAttribute('data-allow-multiple') || false;
     this.listboxId = this.listbox.getAttribute('id');
-    this.minChars = minChars || 3;
     this.resultLimit = resultLimit || 10;
     this.suggestOnBoot = suggestOnBoot;
     this.lang = lang || 'en';
@@ -115,7 +115,7 @@ export default class AutosuggestUI {
     this.input.setAttribute('autocomplete', this.input.getAttribute('autocomplete') || 'off');
     this.input.setAttribute('role', 'combobox');
 
-    this.context.classList.add('autosuggest-input--initialised');
+    this.context.classList.add('ons-autosuggest-input--initialised');
 
     this.bindEventListeners();
   }
@@ -185,11 +185,11 @@ export default class AutosuggestUI {
     this.ctrlKey = false;
   }
 
-  handleChange(alternative = false) {
-    if ((!this.blurring && this.input.value.trim()) || alternative === true) {
+  handleChange(groupResults = false) {
+    if ((!this.blurring && this.input.value.trim()) || groupResults === true) {
       this.settingResult = false;
-      if (alternative === true) {
-        this.getSuggestions(false, alternative);
+      if (groupResults === true) {
+        this.getSuggestions(false, groupResults);
       } else {
         this.getSuggestions();
       }
@@ -211,6 +211,9 @@ export default class AutosuggestUI {
 
     this.blurTimeout = setTimeout(() => {
       this.blurring = false;
+      if (!this.settingResult) {
+        this.clearListbox();
+      }
     }, 300);
 
     if (this.allowMultiple === 'true' && this.input.value.slice(-2) === ', ') {
@@ -259,7 +262,7 @@ export default class AutosuggestUI {
     }
   }
 
-  getSuggestions(force, alternative) {
+  getSuggestions(force, groupResults) {
     if (!this.settingResult) {
       if (this.allowMultiple === 'true' && this.allSelections.length) {
         const newQuery = this.input.value.split(', ').find(item => !this.allSelections.includes(item));
@@ -275,7 +278,7 @@ export default class AutosuggestUI {
         this.unsetResults();
         this.checkCharCount();
         if (this.sanitisedQuery.length >= this.minChars) {
-          this.fetchSuggestions(this.sanitisedQuery, this.data, alternative)
+          this.fetchSuggestions(this.sanitisedQuery, this.data, groupResults)
             .then(this.handleResults.bind(this))
             .catch(error => {
               if (error.name !== 'AbortError') {
@@ -344,7 +347,7 @@ export default class AutosuggestUI {
       if (this.results) {
         this.resultOptions = this.results.map((result, index) => {
           let ariaLabel = result[this.lang];
-          ariaLabel = ariaLabel.split('(<span class="autosuggest-input__group">')[0];
+          ariaLabel = ariaLabel.split('(<span class="ons-autosuggest-input__group">')[0];
           let innerHTML = this.emboldenMatch(result[this.lang], this.query);
 
           const listElement = document.createElement('li');
@@ -352,15 +355,18 @@ export default class AutosuggestUI {
           listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
           listElement.setAttribute('role', 'option');
           listElement.setAttribute('aria-label', ariaLabel);
+          if (result.category) {
+            innerHTML =
+              innerHTML + `<span class="ons-autosuggest-input__category ons-u-lighter ons-u-fs-s ons-u-db">${result.category}</span>`;
+          }
           listElement.innerHTML = innerHTML;
-
           listElement.addEventListener('click', () => {
             this.selectResult(index);
           });
 
           this.listbox.appendChild(listElement);
 
-          this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.remove('u-d-no');
+          this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.remove('ons-u-d-no');
 
           return listElement;
         });
@@ -399,7 +405,7 @@ export default class AutosuggestUI {
   handleNoResults(status) {
     let message;
     this.context.classList.add(classAutosuggestHasResults);
-    this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.add('u-d-no');
+    this.context.querySelector(`.${classAutosuggestResultsTitle}`).classList.add('ons-u-d-no');
     this.input.setAttribute('aria-expanded', true);
 
     if (status === 400 || status === false) {
@@ -411,7 +417,7 @@ export default class AutosuggestUI {
 
       this.input.setAttribute('disabled', true);
       this.input.value = '';
-      this.label.classList.add('u-lighter');
+      this.label.classList.add('ons-u-lighter');
 
       this.listbox.innerHTML = '';
       this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
@@ -433,7 +439,7 @@ export default class AutosuggestUI {
           option.classList.add(classAutosuggestOptionFocused);
           option.setAttribute('aria-selected', true);
           this.input.setAttribute('aria-activedescendant', option.getAttribute('id'));
-          const groupedResult = option.querySelector('.autosuggest-input__group');
+          const groupedResult = option.querySelector('.ons-autosuggest-input__group');
           const ariaLabel = option.getAttribute('aria-label');
           if (groupedResult) {
             let groupedAriaMsg = this.ariaGroupedResults.replace('{n}', groupedResult.innerHTML);
@@ -480,6 +486,9 @@ export default class AutosuggestUI {
       if (this.allowMultiple === 'true') {
         let value = this.storeExistingSelections(result[this.lang]);
         result.displayText = value;
+      } else if (result.url) {
+        result.displayText = result[this.lang];
+        window.location = result.url;
       } else {
         result.displayText = result[this.lang];
       }
@@ -499,14 +508,14 @@ export default class AutosuggestUI {
     const warningBodyElement = document.createElement('div');
 
     warningListElement.setAttribute('aria-hidden', 'true');
-    warningListElement.className = 'autosuggest-input__warning';
-    warningElement.className = 'panel panel--warn autosuggest-input__panel';
+    warningListElement.className = 'ons-autosuggest-input__warning';
+    warningElement.className = 'ons-panel ons-panel--warn ons-autosuggest-input__panel';
 
-    warningSpanElement.className = 'panel__icon';
+    warningSpanElement.className = 'ons-panel__icon';
     warningSpanElement.setAttribute('aria-hidden', 'true');
     warningSpanElement.innerHTML = '!';
 
-    warningBodyElement.className = 'panel__body';
+    warningBodyElement.className = 'ons-panel__body';
     warningBodyElement.innerHTML = content;
 
     warningElement.appendChild(warningSpanElement);

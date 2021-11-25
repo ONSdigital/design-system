@@ -1,0 +1,20 @@
+{% from "components/lists/_macro.njk" import onsList %}
+{{
+    onsList({
+        "variants": ['bare', 'inline'],
+        "itemsList": [
+            {
+                "text": 'Contact us',
+                "url": '#'
+            },
+            {
+                "text": 'Cookies and privacy',
+                "url": '#'
+            },
+            {
+                "text": 'Terms and conditions',
+                "url": '#'
+            }
+        ]
+    })
+}}

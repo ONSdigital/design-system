@@ -21,8 +21,8 @@ describe('Component: Password', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    component = wrapper.querySelector('.js-password');
-    checkboxWrap = component.querySelector('.js-password-toggle-wrap');
+    component = wrapper.querySelector('.ons-js-password');
+    checkboxWrap = component.querySelector('.ons-js-password-toggle-wrap');
     checkbox = document.getElementById(`${params.id}-toggle`);
     input = document.getElementById(params.id);
 
@@ -37,7 +37,7 @@ describe('Component: Password', () => {
 
   describe('Given the component has loaded', () => {
     it('checkbox should be visible', () => {
-      expect(checkboxWrap.classList.contains('u-d-no')).to.equal(false);
+      expect(checkboxWrap.classList.contains('ons-u-d-no')).to.equal(false);
     });
   });
 

@@ -2,8 +2,8 @@ import domready from '../../../js/domready';
 
 class Example {
   constructor(context) {
-    this.tabs = [...context.querySelectorAll('.js-example-tab')];
-    this.radios = [...context.querySelectorAll('.js-example-radio')];
+    this.tabs = [...context.querySelectorAll('.ons-js-example-tab')];
+    this.radios = [...context.querySelectorAll('.ons-js-example-radio')];
 
     this.tabs.forEach((tab, index) => tab.addEventListener('click', event => this.handleTabClick(event, index)));
   }
@@ -16,4 +16,4 @@ class Example {
   }
 }
 
-domready(() => [...document.querySelectorAll('.js-example')].map(example => new Example(example)));
+domready(() => [...document.querySelectorAll('.ons-js-example')].map(example => new Example(example)));

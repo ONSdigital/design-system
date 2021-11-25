@@ -1,4 +1,4 @@
-.adv-filter {
+.ons-adv-filter {
   &__gallery {
     border-top: 1px solid $color-grey-15;
     margin-left: 0;
@@ -12,7 +12,7 @@
       margin-top: 1.5rem;
     }
 
-    .checkboxes__item {
+    .ons-checkboxes__item {
       min-width: auto;
     }
   }
@@ -31,13 +31,13 @@
     display: flex;
     margin-top: 0.5rem;
 
-    .label {
+    .ons-label {
       font-weight: normal;
       margin-bottom: 0;
       margin-right: 0.5rem;
     }
 
-    .input--select {
+    .ons-input--select {
       width: auto !important;
     }
   }
@@ -71,11 +71,11 @@
     width: 100%;
     z-index: 11;
 
-    .btn:first-of-type {
+    .ons-btn:first-of-type {
       flex-grow: 1;
     }
 
-    .btn + .btn {
+    .ons-btn + .ons-btn {
       margin-left: 1rem;
     }
   }
@@ -106,15 +106,15 @@
       display: block;
     }
 
-    .no-scroll {
+    .ons-no-scroll {
       overflow: auto;
     }
   }
 }
 
 // No JavaScript
-body:not(.js-enabled) {
-  .adv-filter {
+body:not(.ons-js-enabled) {
+  .ons-adv-filter {
     &__actions {
       display: none;
     }
@@ -137,7 +137,7 @@ body:not(.js-enabled) {
   }
 }
 
-.filter__item {
+.ons-filter__item {
   border-bottom: 1px solid $color-grey-15;
   display: block; // Accessible way of removing bullets (don’t use list-style-type: none; https://github.com/jensimmons/cssremedy/issues/15#issuecomment-462174177)
   margin-bottom: 0; // Reset default margin bottom on list items
@@ -146,6 +146,6 @@ body:not(.js-enabled) {
 }
 
 // Prevent scrollbars on body
-.no-scroll {
+.ons-no-scroll {
   overflow-y: hidden;
 }

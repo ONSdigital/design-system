@@ -19,7 +19,7 @@ const params = {
     {
       title: 'Total retail turnover',
       content:
-        '<h3 class="u-fs-r">Include:</h3><ul class="list"><li class="list__item">VAT</li><li class="list__item">internet sales</li><li class="list__item">retail sales from outlets in Great Britain to <a href="#">customers abroad</a></li></ul><h3 class="u-fs-r">Exclude:</h3><ul class="list"><li class="list__item">revenue from mobile phone network commission and top-up</li><li class="list__item">sales from catering facilities used by customers</li><li class="list__item">lottery sales and commission from lottery sales</li><li class="list__item">sales of car accessories and motor vehicles</li><li class="list__item">NHS receipts</li><li class="list__item">automotive fuel</li></ul>',
+        '<h3 class="ons-u-fs-r">Include:</h3><ul class="ons-list"><li class="ons-list__item">VAT</li><li class="ons-list__item">internet sales</li><li class="ons-list__item">retail sales from outlets in Great Britain to <a href="#0">customers abroad</a></li></ul><h3 class="ons-u-fs-r">Exclude:</h3><ul class="ons-list"><li class="ons-list__item">revenue from mobile phone network commission and top-up</li><li class="ons-list__item">sales from catering facilities used by customers</li><li class="ons-list__item">lottery sales and commission from lottery sales</li><li class="ons-list__item">sales of car accessories and motor vehicles</li><li class="ons-list__item">NHS receipts</li><li class="ons-list__item">automotive fuel</li></ul>',
       button: {
         open: 'Show',
         close: 'Hide',
@@ -28,7 +28,7 @@ const params = {
     {
       title: 'Food sales',
       content:
-        '<h3 class="u-fs-r">Include:</h3><ul class="list"><li class="list__item">all fresh food</li><li class="list__item">other food for human consumption (except chocolate and sugar confectionery)</li><li class="list__item">soft drinks</li></ul><h3 class="u-fs-r">Exclude:</h3><ul class="list"><li class="list__item">sales from catering facilities used by customers</li></ul>',
+        '<h3 class="ons-u-fs-r">Include:</h3><ul class="ons-list"><li class="ons-list__item">all fresh food</li><li class="ons-list__item">other food for human consumption (except chocolate and sugar confectionery)</li><li class="ons-list__item">soft drinks</li></ul><h3 class="ons-u-fs-r">Exclude:</h3><ul class="ons-list"><li class="ons-list__item">sales from catering facilities used by customers</li></ul>',
       button: {
         open: 'Show',
         close: 'Hide',
@@ -37,7 +37,7 @@ const params = {
     {
       title: 'Alcohol, confectionery, soft drinks and tobacco sales',
       content:
-        '<h3 class="u-fs-r">Include:</h3><ul class="list"><li class="list__item">chocolate and sugar confectionery</li><li class="list__item">tobacco and smokers’ requisites</li></ul>',
+        '<h3 class="ons-u-fs-r">Include:</h3><ul class="ons-list"><li class="ons-list__item">chocolate and sugar confectionery</li><li class="ons-list__item">tobacco and smokers’ requisites</li></ul>',
       button: {
         open: 'Show',
         close: 'Hide',
@@ -62,15 +62,15 @@ describe('Component: Accordion', function() {
   });
 
   describe('before the component initialises', function() {
-    it('then the toggle button element should have a u-d-no class', function() {
-      expect([...this.toggleButton.classList].includes('u-d-no')).to.be.true;
+    it('then the toggle button element should have a ons-u-d-no class', function() {
+      expect([...this.toggleButton.classList].includes('ons-u-d-no')).to.be.true;
     });
   });
 
   describe('When the component initialises', function() {
-    it('then the toggle button element should not have a u-d-no class', function() {
+    it('then the toggle button element should not have a ons-u-d-no class', function() {
       new Collapsible(this.item.collapsible);
-      expect([...this.toggleButton.classList].includes('u-d-no')).to.be.false;
+      expect([...this.toggleButton.classList].includes('ons-u-d-no')).to.be.false;
     });
 
     it('then none of the collapsibleHeader items should have a tabindex attribute', function() {
@@ -160,12 +160,12 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const toggleButton = wrapper.querySelector('.js-collapsible-all');
+  const toggleButton = wrapper.querySelector('.ons-js-collapsible-all');
 
-  const items = [...wrapper.querySelectorAll('.js-collapsible')].map(collapsible => {
-    const collapsibleHeader = collapsible.querySelector('.js-collapsible-heading');
-    const content = collapsible.querySelector('.js-collapsible-content');
-    const button = collapsible.querySelector('.js-collapsible-button');
+  const items = [...wrapper.querySelectorAll('.ons-js-collapsible')].map(collapsible => {
+    const collapsibleHeader = collapsible.querySelector('.ons-js-collapsible-heading');
+    const content = collapsible.querySelector('.ons-js-collapsible-content');
+    const button = collapsible.querySelector('.ons-js-collapsible-button');
 
     return {
       collapsible,

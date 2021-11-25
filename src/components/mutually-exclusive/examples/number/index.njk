@@ -2,13 +2,15 @@
 {% from "components/question/_macro.njk" import onsQuestion %}
 
 {% call onsQuestion({
-    "title": "What was your annual income before tax in 2018/19?"
+    "title": "What was your annual income before tax in 2018/19?",
+    "legendIsQuestionTitle": true
 }) %}
     {{
         onsInput({
             "id": "currency",
+            "dontWrap": true,
             "type": "number",
-            "classes": "input--w-4",
+            "width": "4",
             "attributes": {
                 "min": 0
             },

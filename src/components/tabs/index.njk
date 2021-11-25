@@ -17,17 +17,17 @@ Tabs let the user navigate between sections of content, showing one section at a
 Use tabs to collate facets of content within a closely related context. The provide a way for users to quickly scan across the subject areas of content.
 
 ## When not to use this component
-Tabs hide content from users and are not easily noticed and understood by everyone.  So they should not be used if the content inside each tab is critial to the user being able to progress with their task.
+Tabs hide content from users and are not easily noticed and understood by everyone.  So they should not be used if the content inside each tab is critical to the user being able to progress with their task.
 
 Test your content considering the following alternatives before using tabs:
 {{
     onsList({
         "itemsList": [
             {
-                "text": 'simpify the content to reduce down the amount'
+                "text": 'simplify the content to reduce down the amount'
             },
             {
-                "text": 'seperate the content with headings'
+                "text": 'separate the content with headings'
             },
             {
                 "text": 'use page contents links to enable users to quickly to navigate to sections of content'
@@ -40,16 +40,16 @@ Test your content considering the following alternatives before using tabs:
 }}
 
 ### Alternative components
-[Accordions](/components/accordions), tabs and [collapsible](/components/collapsible) all hide sections of content which a user can show or hide.
+[Accordions](/components/accordion), tabs and [collapsible](/components/collapsible) all hide sections of content which a user can show or hide.
 
 Tabs may work better for users who need to switch quickly between sections because the position of their headings remains static, whereas the accordion headings move down the page as you open others.
 
-Consider the number of sections you need to display. Tabs display horizontally so cannot display as many sections as [accordions](/components/accordions) which display vertically.  Also consider the use of your service on mobile devices.  Tabs only display on viewports `> 640px` before their content is expanded and stacked vertically under headings.
+Consider the number of sections you need to display. Tabs display horizontally so cannot display as many sections as [accordions](/components/accordion) which display vertically.  Also consider the use of your service on mobile devices.  Tabs only display on viewports `> 640px` before their content is expanded and stacked vertically under headings.
 
 Use the [collapsible component](/components/collapsible) if there is only one section of content that needs to be condensed.
 
 ## How to use this component
-Tabs work well when the primary content block is displayed in the first tab. Subsequent tabs can show further detail and/or deeper levels that relate to the primary content (but this isn't a strict rule).
+Tabs work well when the primary content block is displayed in the first tab. Subsequent tabs can show further detail and/or deeper levels that relate to the primary content (but this isn’t a strict rule).
 
 The typical tab display will show on viewports that are equal to or greater than `640px`.
 
@@ -57,19 +57,19 @@ For viewports `>= 640px` the following `aria` attributes will be attached to the
 
 | Element                     | ARIA attribute                        | Description                                                                                                           |
 |-----------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| `ul.tab__list`              | `role="tablist"`                      | Convey to screenreaders that the element serves as a container for a set of tabs.                                     |
-| `li.tab__list-item`         | `role="presentation"`                 | Convey to screenreaders that this element does not have any functional, interactive, or structural relevance implied. |
-| `a.tab`                     | `role="tab"`                          | Indicates the element serves as a tab control.                                                                        |
+| `ul.ons-tab__list`          | `role="tablist"`                      | Convey to screen readers that the element serves as a container for a set of tabs.                                     |
+| `li.ons-tab__list-item`     | `role="presentation"`                 | Convey to screen readers that this element does not have any functional, interactive, or structural relevance implied. |
+| `a.ons-tab`                 | `role="tab"`                          | Indicates the element serves as a tab control.                                                                        |
 |                             | `aria-controls="NAME"`                | Refers to the tab panel element associated with the tab.                                                              |
 |                             | `aria-selected="true/false"`          | Indicates if the current tab is selected.                                                                             |
-| `.tab__panel`               | `aria-labelledby="TITLE_ID"`          | Indicates the associated tab with the current content.                                                                |
+| `.ons-tab__panel`           | `aria-labelledby="TITLE_ID"`          | Indicates the associated tab with the current content.                                                                |
 |                             | `role="tabpanel"`                     | Indicates that the element is a content panel with associated tab.                                                    |
 
 For viewports `< 640px` tabs are displayed as a list and function as a table of contents (TOC). All panels are displayed in the order they are structured. Clicking a TOC link will jump the user to the associated panel.
 
 Tabs use JavaScript so when it's turned off, the content is also displayed in this way.
 
-A visually hidden `<h2>` should be added above the tabs list to provide further information and context to screenreader users. This will also be displayed for non javascript users.
+A visually hidden `<h2>` should be added above the tabs list to provide further information and context to screen reader users. This will also be displayed for non javascript users.
 
 ### Use clear and short labels
 Tabs hide content and are displayed horizontally, so it's important to use tab labels which are clear and succinct.  To avoid the tab layout breaking, consider to using single words or reducing the number of tabs.

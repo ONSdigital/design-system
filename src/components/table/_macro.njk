@@ -1,23 +1,26 @@
 {% macro onsTable(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/icons/_macro.njk" import onsIcon %}
-    {% if params.scrollable is defined and params.scrollable %}
-    <div class="table-scrollable table-scrollable--on">
-        <div class="table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.ariaLabel | default("Scrollable table") }} ">
+
+    {% set variants = params.variants if params.variants else '' %}
+
+    {% if 'scrollable' in variants %}
+    <div class="ons-table-scrollable ons-table-scrollable--on">
+        <div class="ons-table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.ariaLabel | default("Scrollable table") }} ">
     {% endif %}
-            <table {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="table {{ params.table_class }}" {% if params.sortable is defined and params.sortable %}data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"{% endif %}>
+            <table {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="ons-table{% if params.tableClasses is defined and params.tableClasses %} {{ params.tableClasses }}{% endif %}{% if variants is defined and variants %}{% if variants is not string %}{% for variant in variants %} ons-table--{{ variant }}{% endfor %}{% else %} ons-table--{{ variants }}{% endif %}{% endif %}" {% if params.sortBy is defined and params.sortBy and 'sortable' in variants %}data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"{% endif %}>
                 {% if params.caption is defined and params.caption %}
-                <caption class="table__caption{{ " u-vh" if params.hideCaption }}">{{ params.caption }}</caption>
+                <caption class="ons-table__caption{{ " ons-u-vh" if params.hideCaption }}">{{ params.caption }}</caption>
                 {% endif %}
-                <thead class="table__head">
-                    <tr class="table__row">
+                <thead class="ons-table__head">
+                    <tr class="ons-table__row">
                         {% for th in params.ths %}
-                        <th scope="col" class="table__header {{ th.class }}"{% if th.ariaSort is defined and th.ariaSort %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
-                            <span {% if params.sortable is defined and params.sortable %}class="u-vh"{% endif %}>{{- th.value -}}</span>
-                            {% if params.sortable is defined and params.sortable %}
+                        <th scope="col" class="ons-table__header{{ '' + params.thClasses if params.thClasses is defined and params.thClasses }}{{ " ons-table__header--numeric" if th.numeric is defined and th.numeric }}"{% if th.ariaSort is defined and th.ariaSort %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
+                            <span {% if 'sortable' in variants %}class="ons-u-vh"{% endif %}>{{- th.value -}}</span>
+                            {% if 'sortable' in variants %}
                                 {{
                                     onsIcon({
-                                        "icon": "sort-sprite",
+                                        "iconType": "sort-sprite",
                                         "id": th.value
                                     })
                                 }}
@@ -26,11 +29,11 @@
                         {% endfor %}
                     </tr>
                 </thead>
-                <tbody class="table__body">
+                <tbody class="ons-table__body">
                     {% for tr in params.trs %}
-                    <tr class="table__row{{ " table__row--highlight" if tr.highlight }}" {% if tr.name is defined and tr.name %} name="{{ tr.name }}"{% endif %} {% if tr.id is defined and tr.id %} id="{{ tr.id }}"{% endif %}>
+                    <tr class="ons-table__row{{ " ons-table__row--highlight" if tr.highlight }}" {% if tr.name is defined and tr.name %} name="{{ tr.name }}"{% endif %} {% if tr.id is defined and tr.id %} id="{{ tr.id }}"{% endif %}>
                         {% for td in tr.tds %}
-                        <td class="table__cell {{ td.class }}" {% if td.id is defined and td.id %} id="{{ td.id }}"{% endif %} {% if td.name is defined and td.name %} name="{{ td.name }}"{% endif %} {% if td.data is defined and td.data %} data-th="{{ td.data }}"{% endif %} {% if td.dataSort is defined and td.dataSort %} data-sort-value="{{ td.dataSort }}"{% endif %}>
+                        <td class="ons-table__cell {{ '' + td.tdClasses if td.tdClasses is defined and td.tdClasses }}{{ " ons-table__cell--numeric" if td.numeric is defined and td.numeric }}" {% if td.id is defined and td.id %} id="{{ td.id }}"{% endif %} {% if td.name is defined and td.name %} name="{{ td.name }}"{% endif %} {% if td.data is defined and td.data %} data-th="{{ td.data }}"{% endif %} {% if td.dataSort is defined and td.dataSort %} data-sort-value="{{ td.dataSort }}"{% endif %}>
                             {% if td.form is defined and td.form %}
                                 <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST')}}">
                                     {{
@@ -59,16 +62,16 @@
                     {% endfor %}
                 </tbody>
                 {% if params.tfoot is defined and params.tfoot %}
-                <tfoot class="table__foot">
-                    <tr class="table__row">
+                <tfoot class="ons-table__foot">
+                    <tr class="ons-table__row">
                         {% for tfootCell in params.tfoot %}
-                        <td class="table__cell u-fs-s">{{ tfootCell.value }}</td>
+                        <td class="ons-table__cell ons-u-fs-s">{{ tfootCell.value }}</td>
                         {% endfor %}
                     </tr>
                 </tfoot>
                 {% endif %}
             </table>
-        {% if params.scrollable is defined and params.scrollable %}
+        {% if 'scrollable' in variants %}
         </div>
     </div>
     {% endif %}

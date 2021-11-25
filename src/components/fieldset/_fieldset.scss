@@ -1,13 +1,25 @@
-.fieldset {
+.ons-fieldset {
   &__legend {
-    @extend .label;
+    @extend .ons-label;
   }
 
   &__description:not(&__description--title) {
-    @extend .label__description;
+    @extend .ons-label__description;
   }
 
   &__description--title {
     font-weight: normal;
+  }
+
+  .ons-fieldset {
+    &__legend {
+      margin: 0 0 0.6rem;
+    }
+    .ons-fieldset {
+      &__legend {
+        font-weight: normal;
+        margin: 0;
+      }
+    }
   }
 }

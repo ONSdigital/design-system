@@ -1,7 +1,7 @@
 {% macro onsReply(params) %}
     {% from "components/textarea/_macro.njk" import onsTextarea %}
     {% from "components/button/_macro.njk" import onsButton %}
-    <div class="js-reply">
+    <div class="ons-js-reply">
         {{
             onsTextarea({
                 "id": params.textarea.id,
@@ -11,8 +11,8 @@
                 }
             })
         }}
-        <div class="grid grid--flex grid--gutterless grid--vertical-center grid--no-wrap@s u-mt-m u-mb-m">
-            <div class="grid__col">
+        <div class="ons-grid ons-grid--flex ons-grid--gutterless ons-grid--vertical-center ons-grid--no-wrap@s ons-u-mt-m ons-u-mb-m">
+            <div class="ons-grid__col">
                 {{
                     onsButton({
                         "id": params.button.id,
@@ -22,7 +22,7 @@
                     })
                 }}
             </div>
-            <div class="grid__col u-ml-m">
+            <div class="ons-grid__col ons-u-ml-m">
                 <a href="{{ params.closeLinkUrl }}">{{ params.closeLinkText }}</a>
             </div>
         </div>

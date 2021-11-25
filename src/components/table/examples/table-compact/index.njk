@@ -1,0 +1,73 @@
+{% from "components/table/_macro.njk" import onsTable %}
+{{
+    onsTable({
+        "variants": ['compact', 'row-hover'],
+        "caption": "A compacted table with a large number of columns",
+        "ths": [
+            {
+                "value": "Column A"
+            },
+            {
+                "value": "Column B"
+            },
+            {
+                "value": "Column C"
+            },
+            {
+                "value": "Column D"
+            },
+            {
+                "value": "Column E"
+            },
+            {
+                "value": "Column F"
+            }
+        ],
+        "trs": [
+            {
+                "tds": [
+                    {
+                        "value": "Cell A1"
+                    },
+                    {
+                        "value": "Cell B1"
+                    },
+                    {
+                        "value": "Cell C1"
+                    },
+                    {
+                        "value": "Cell D1"
+                    },
+                    {
+                        "value": "Cell E1"
+                    },
+                    {
+                        "value": "Cell F1"
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                    "value": "Cell A2"
+                    },
+                    {
+                    "value": "Cell B2"
+                    },
+                    {
+                    "value": "Cell C2"
+                    },
+                    {
+                    "value": "Cell D2"
+                    },
+                    {
+                        "value": "Cell E1"
+                    },
+                    {
+                        "value": "Cell F1"
+                    }
+                ]
+            }
+        ]
+    })
+}}

@@ -2,7 +2,7 @@ export default class CheckRadios {
   constructor(radio, openOther) {
     this.radio = radio;
     this.openOther = openOther;
-    this.input = this.openOther.querySelector('.input');
+    this.input = this.openOther.querySelector('.ons-input');
 
     this.setInputBlurAttributes();
     this.input.addEventListener('focus', this.checkRadio.bind(this));

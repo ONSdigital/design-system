@@ -1,19 +1,19 @@
 $color-black: #222;
 
-.btn,
-.summary__actions,
-footer,
-.cookies-banner,
-.language-links,
-.breadcrumb {
-  display: none;
+.ons-btn,
+.ons-summary__actions,
+.ons-footer,
+.ons-cookies-banner,
+.ons-language-links,
+.ons-breadcrumb {
+  display: none !important;
 }
 
 a::after {
   content: ' (' attr(href) ') ';
 }
 
-.header {
+.ons-header {
   &__main,
   &__bottom {
     background: transparent;
@@ -42,7 +42,7 @@ a::after {
   }
 }
 
-.collapsible {
+.ons-collapsible {
   &--initialised & {
     &__icon {
       display: none;
@@ -61,6 +61,6 @@ a::after {
   }
 }
 
-.hero {
+.ons-hero {
   color-adjust: exact;
 }

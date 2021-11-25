@@ -1,0 +1,42 @@
+.ons-patternlib-swatch {
+  margin: 0 0 2rem;
+
+  &__color {
+    border: 1px solid transparent;
+    border-radius: 50%;
+    height: 70px;
+    margin-right: 1rem;
+    position: relative;
+    width: 70px;
+  }
+
+  &__codes {
+    margin-right: 2rem;
+    min-width: 12rem;
+  }
+
+  &__hex {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  &__char {
+    font-size: 2.2rem;
+    font-weight: 700;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__detail {
+    display: block;
+    font-size: 1rem;
+  }
+
+  &__info {
+    margin-top: 1rem;
+    padding-left: 0.8rem;
+  }
+}

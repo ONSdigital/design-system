@@ -1,0 +1,31 @@
+---
+layout: none
+---
+{% extends "foundations/layout/page-template/_template.njk" %}
+
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/address-input/_macro.njk" import onsAddressInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "title": "Non-editable address input example",
+    "breadcrumbs": {
+        "ariaLabel": 'Back',
+        "itemsList": [
+            {
+                "url": '/patterns/addresses/examples/address-input-non-editable',
+                "id": 'back',
+                "text": 'Back'
+            }
+        ]
+    }
+} %}
+{% block main %}
+    {% call onsQuestion({
+        "title": "Register an address"
+    }) %}
+    
+        <p>If you can’t find your address, it may not be registered on our system.</p>
+        <p>To register your address, we need you to get in touch. You can call us free on 0800 141 2021 or <a href="#0">choose another way to contact us</a>.</p>
+    {% endcall %}
+{% endblock %}

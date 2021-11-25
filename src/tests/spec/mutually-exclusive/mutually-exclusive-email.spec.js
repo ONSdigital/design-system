@@ -6,6 +6,7 @@ const expect = chai.expect;
 const params = {
   id: 'email',
   type: 'email',
+  legend: 'Get a confirmation email',
   label: {
     text: 'Enter an email',
   },
@@ -35,10 +36,10 @@ describe('Component: Mutually Exclusive Email Input', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    component = document.querySelector('.js-mutually-exclusive');
+    component = document.querySelector('.ons-js-mutually-exclusive');
     input = document.getElementById(params.id);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
   });

@@ -1,4 +1,4 @@
-.checkboxes {
+.ons-checkboxes {
   &__label {
     display: block;
     margin: 0 0 0.5rem;
@@ -28,7 +28,7 @@
   }
 
   &--mutually-exclusive__item {
-    @extend .checkboxes__item;
+    @extend .ons-checkboxes__item;
 
     margin-bottom: 0;
   }

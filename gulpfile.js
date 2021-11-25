@@ -4,12 +4,10 @@ const glob = require('glob');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
 const gulpPostCss = require('gulp-postcss');
-const gulpSass = require('gulp-sass');
+const gulpDartSass = require('gulp-dart-sass');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpSvg = require('gulp-svgo');
 const gulpTerser = require('gulp-terser');
-const sass = require('node-sass');
-const nodeSassGlobImporter = require('node-sass-glob-importer');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
 const proxyquireify = require('proxyquireify');
@@ -19,6 +17,7 @@ require('@babel/register');
 const babelEsmConfig = require('./babel.conf.esm');
 const babelNomoduleConfig = require('./babel.conf.nomodule');
 const nunjucksRendererPipe = require('./lib/rendering/nunjucks-renderer-pipe.js').default;
+const searchIndexPipe = require('./lib/rendering/search-index-pipe.js').default;
 const postCssPlugins = require('./postcss.config').default;
 const svgConfig = require('./svgo-config.js').default;
 
@@ -31,20 +30,18 @@ const terserOptions = {
   },
 };
 
-const sassCompiler = gulpSass(sass);
 const sassOptions = {
-  importer: nodeSassGlobImporter(),
-  includePaths: ['./node_modules/normalize-scss/sass', './node_modules/prismjs/themes'],
+  includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes'],
 };
 
 const scripts = [
   {
-    entryPoint: ['./src/js/public-path-override.js', './src/js/main.js'],
+    entryPoint: './src/js/main.js',
     outputFile: 'main.js',
     config: babelEsmConfig,
   },
   {
-    entryPoint: ['./src/js/public-path-override.js', './src/js/polyfills.js', './src/js/main.js'],
+    entryPoint: ['./src/js/polyfills.js', './src/js/main.js'],
     outputFile: 'main.es5.js',
     config: babelNomoduleConfig,
   },
@@ -106,9 +103,9 @@ gulp.task('build-test-script', gulp.series(...tests.map(createBuildScriptTask)))
 
 gulp.task('build-styles', () => {
   return gulp
-    .src('./src/scss/*.scss')
+    .src(`./src/scss/${process.env.STYLES ?? '*'}.scss`)
     .pipe(gulpIf(isDevelopment, gulpSourcemaps.init()))
-    .pipe(sassCompiler(sassOptions).on('error', sassCompiler.logError))
+    .pipe(gulpDartSass(sassOptions).on('error', gulpDartSass.logError))
     .pipe(gulpIf(isProduction, gulpPostCss(postCssPlugins())))
     .pipe(gulpIf(isDevelopment, gulpSourcemaps.write('./')))
     .pipe(gulp.dest('./build/css'))
@@ -127,6 +124,13 @@ gulp.task('build-pages', () => {
   return gulp
     .src(['./src/**/*.njk', '!**/_*/**'])
     .pipe(nunjucksRendererPipe)
+    .pipe(gulp.dest('./build'));
+});
+
+gulp.task('build-search-index', () => {
+  return gulp
+    .src('./src/search-index.json')
+    .pipe(searchIndexPipe)
     .pipe(gulp.dest('./build'));
 });
 
@@ -149,7 +153,7 @@ gulp.task('start-dev-server', async () => {
   await import('./lib/dev-server.js');
 });
 
-gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-svg'));
+gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-svg', 'build-search-index'));
 gulp.task('build-test-assets', gulp.series('build-test-script', 'build-styles', 'build-svg'));
 
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));

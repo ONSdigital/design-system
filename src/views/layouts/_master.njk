@@ -1,7 +1,7 @@
-{% extends "styles/page-template/_template.njk" %}
+{% extends "foundations/layout/page-template/_template.njk" %}
 {% from "components/footer/_macro.njk" import onsFooter %}
 
-{% set bodyClasses = "patternlib-page" %}
+{% set bodyClasses = "ons-patternlib-page" %}
 
 {% if pageConfig == null %}
     {% set pageConfig = {} %}
@@ -21,7 +21,7 @@
 {% endif %}
 
 {% if example is defined and example %}
-    {% set bodyClasses = bodyClasses + " patternlib-page--example" %}
+    {% set bodyClasses = bodyClasses + " ons-patternlib-page--example" %}
     {% if pageInfo.theme is defined and pageInfo.theme %}
         {% set pageConfig = pageConfig | setAttributes({
             "theme": pageInfo.theme
@@ -30,7 +30,7 @@
 {% endif %}
 
 {% if pageInfo.fullWidth is defined and pageInfo.fullWidth %}
-    {% set bodyClasses = bodyClasses + " u-p-no" %}
+    {% set bodyClasses = bodyClasses + " ons-u-p-no" %}
 {% endif %}
 
 {% set pageConfig = pageConfig | setAttribute("bodyClasses", bodyClasses) %}
@@ -40,8 +40,8 @@
 {% endblock %}
 
 {% block body %}
-    <div class="page">
-        <div class="page__content">
+    <div class="ons-page">
+        <div class="ons-page__content">
             {% block skiplink %}
             {% endblock %}
             {% block header %}

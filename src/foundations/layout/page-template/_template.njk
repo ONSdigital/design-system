@@ -1,0 +1,242 @@
+{% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
+{% from "components/header/_macro.njk" import onsHeader %}
+{% from "components/footer/_macro.njk" import onsFooter %}
+
+{% set currentLanguageISOCode = "en" %}
+
+{% if pageConfig is defined and pageConfig and pageConfig.language is defined and pageConfig.language and pageConfig.language.languages is defined and pageConfig.language.languages %}
+    {% set currentLanguage = pageConfig.language.languages | selectattr("current") | first %}
+    {% set currentLanguageISOCode = currentLanguage.ISOCode %}
+    {% set otherLanguage = pageConfig.language.languages | rejectattr("current") | first %}
+    {% set otherLanguageISOCode = otherLanguage.ISOCode %}
+{% endif %}
+
+{# Meta icons #}
+{% if pageConfig is defined and pageConfig and pageConfig.theme is defined and pageConfig.theme %}
+    {% set metaicons = pageConfig.theme + "/" + currentLanguageISOCode + "/" %}
+{% else %}
+    {% set metaicons = "" %}
+{% endif %}
+
+{% set pageColNumber = pageConfig.pageColNumber | default("8") %}
+
+{% if pageConfig.cdn is defined and pageConfig.cdn or release_version is defined and release_version %}
+    {# Production #}
+    {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.url is defined and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
+    {% set slash = "" if cdn_url | last == "/" else "/" %}
+    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version  if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.version is defined and pageConfig.cdn.version) or release_version) %}
+{% elif pageInfo is defined and pageInfo and pageInfo.version is defined and pageInfo.version %}
+    {# Prototype kits #}
+    {% set assetsURL = "/" + pageInfo.version %}
+{% elif pageConfig.assetsURL is defined and pageConfig.assetsURL %}
+    {# Runner Dev #}
+    {% set assetsURL = pageConfig.assetsURL %}
+{% else %}
+    {# Development #}
+    {% set assetsURL = "" %}
+{% endif %}
+
+{% if pageConfig is defined and pageConfig and pageConfig.title is defined and pageConfig.title %}
+    {% set page_title = pageConfig.title %}
+{% elif pageInfo is defined and pageInfo and pageInfo.title is defined and pageInfo.title %}
+    {% set page_title = pageInfo.title %}
+{% else %}
+    {% set page_title = "ONS Design System" %}
+{% endif %}
+
+<!doctype html>
+<html lang="{{ currentLanguageISOCode }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ page_title }}</title>
+        <link rel="stylesheet" href="{{ assetsURL }}/css/{{ pageConfig.theme | default('main') }}.css">
+        <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css">
+        <meta name="theme-color" content="{% if pageConfig.theme == 'census' %}#902082{% else %}#206095{% endif %}"/>
+
+        {% if pageConfig.headMeta is defined and pageConfig.headMeta %}
+
+            {% if pageConfig.headMeta.description is defined and pageConfig.headMeta.description or pageConfig.description is defined and pageConfig.description %}
+                <meta name="description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
+            {% endif %}
+
+            <!-- Open Graph -->
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
+            <meta property="og:title" content="{{ pageConfig.headMeta.title | default(pageConfig.title) }}">
+            <meta property="og:image" content="{{ assetsURL }}/favicons/{{ metaicons }}opengraph.png">
+            <meta property="og:image:type" content="image/png">
+            <meta property="og:image:width" content="1200">
+            <meta property="og:image:height" content="630">
+            <meta property="og:description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
+            <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}">
+            <meta property="og:locale" content="{{ currentLanguageISOCode }}">
+            {% if otherLanguageISOCode is defined and otherLanguageISOCode %}
+            <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}"> 
+            {% endif %}
+
+            <!-- Twitter -->
+            <meta name="twitter:card" content="summary">
+            <meta name="twitter:site" content="{{ pageConfig.headMeta.twitterSite }}">
+            <meta name="twitter:url" content="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
+            <meta name="twitter:title" content="{{ pageConfig.headMeta.title | default(pageConfig.title) }}">
+            <meta name="twitter:description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
+            <meta name="twitter:image" content="{{ assetsURL }}/favicons/{{ metaicons }}twitter.png">
+
+            <!-- Canonical -->
+            <link rel="canonical" href="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
+
+            {% if pageConfig.headMeta.hrefLangs is defined and pageConfig.headMeta.hrefLangs %}
+                {% for item in pageConfig.headMeta.hrefLangs %}
+                    <link rel="alternate" href="{{ item.url }}" hreflang="{{ item.lang }}">
+                {% endfor %}
+            {% endif %}
+
+        {% endif %}
+
+        {% block headIcons %}
+            <!-- Favicons -->
+            <meta name="msapplication-config" content="{{ assetsURL }}/favicons/{{ metaicons }}browserconfig.json">
+            <link rel="icon" type="image/x-icon" href="{{ assetsURL }}/favicons/{{ metaicons }}favicon.ico">
+            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/{{ metaicons }}favicon-32x32.png" sizes="32x32">
+            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/{{ metaicons }}favicon-16x16.png" sizes="16x16">
+            <link rel="mask-icon" href="{{ assetsURL }}/favicons/{{ metaicons }}safari-pinned-tab.svg" color="#000000">
+            <link rel="apple-touch-icon" type="image/png" href="{{ assetsURL }}/favicons/{{ metaicons }}apple-touch-icon.png" sizes="180x180">
+            <link rel="manifest" href="{{ assetsURL }}/favicons/{{ metaicons }}manifest.json">
+        {% endblock %}
+
+        {% block head %}{% endblock %}
+
+    </head>
+    <body{% if pageConfig.bodyClasses is defined and pageConfig.bodyClasses %} class="{{ pageConfig.bodyClasses }}"{% endif %}>
+        <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce is defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
+        {% block bodyStart %}{% endblock %}
+        {% block body %}
+            <div class="ons-page">
+                <div class="ons-page__content">
+                    {% block skipLink %}
+                        {{
+                            onsSkipToContent({
+                                "url": "#main-content",
+                                "text": "Skip to main content"
+                            })
+                        }}
+                    {% endblock %}
+                    {% if form is defined and form and form.attributes is defined and form.attributes %}
+                        <form
+                            {% if form.classes is defined and form.classes %}class="{{ form.classes }}"{% endif %}
+                            method="{{ form.method | default('POST') }}"
+                            {% if form.attributes is defined and form.attributes %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value is defined and value %}="{{value}}" {% endif %}{% endfor %}{% endif %}
+                        >
+                    {% endif %}
+                    {% block preHeader %}{% endblock %}
+                    {% block header %}
+                        {{
+                            onsHeader({
+                                "title": pageConfig.header.title | default(pageConfig.title),
+                                "classes": pageConfig.header.classes,
+                                "wide": pageConfig.wide,
+                                "language": pageConfig.language,
+                                "button": pageConfig.signoutButton,
+                                "toggleButton": pageConfig.toggleButton,
+                                "navigation": pageConfig.navigation,
+                                "phase": pageConfig.phase,
+                                "assetsURL": assetsURL,
+                                "serviceLinks": pageConfig.serviceLinks,
+                                "logo": pageConfig.header.logo,
+                                "mobileLogo": pageConfig.header.mobileLogo,
+                                "logoAlt": pageConfig.header.logoAlt,
+                                "logoHref": pageConfig.header.logoHref,
+                                "titleLogo": pageConfig.header.titleLogo,
+                                "titleLogoAlt": pageConfig.header.titleLogoAlt,
+                                "titleLogoHref": pageConfig.header.titleLogoHref,
+                                "customHeaderLogo": pageConfig.header.customHeaderLogo
+                            })
+                        }}
+                    {% endblock %}
+                    {% block pageContent %}
+                        <div class="ons-page__container ons-container {{ containerClasses }}">
+                            {% if pageConfig.breadcrumbs is defined and pageConfig.breadcrumbs %}
+                                {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+                                {{
+                                    onsBreadcrumbs({
+                                        "id": pageConfig.breadcrumbs.id,
+                                        "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
+                                        "itemsList": pageConfig.breadcrumbs.itemsList
+                                    })
+                                }}
+                            {% endif %}
+                            {% block preMain %}{% endblock %}
+                            <div class="ons-grid">
+                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m">
+                                    <main id="main-content" class="ons-page__main {{ pageClasses }}">
+                                        {% block main %}{% endblock %}
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock %}
+
+                    {% if form is defined and form and form.attributes is defined and form.attributes %}
+                        </form>
+                    {% endif %}
+                </div>
+                {% block preFooter %}{% endblock %}
+                {% block footer %}
+                    {% if pageConfig.footer is defined and pageConfig.footer %}
+                        {{
+                            onsFooter({
+                                "assetsURL": assetsURL,
+                                "wide": pageConfig.wide,
+                                "classes": "ons-page__footer",
+                                "language": pageConfig.language,
+                                "lang": currentLanguageISOCode,
+                                "rows": pageConfig.footer.rows,
+                                "cols": pageConfig.footer.cols,
+                                "poweredBy": pageConfig.footer.poweredBy,
+                                "crest": pageConfig.footer.crest,
+                                "OGLLink": pageConfig.footer.OGLLink,
+                                "button": pageConfig.signoutButton,
+                                "footerWarning": pageConfig.footer.footerWarning,
+                                "copyrightDeclaration": pageConfig.footer.copyrightDeclaration,
+                                "newTabWarning": pageConfig.footer.newTabWarning,
+                                "legal": pageConfig.footer.legal
+                            })
+                        }}
+                    {% endif %}
+                {% endblock %}
+            </div>
+            {% block bodyEnd %}{% endblock %}
+        {% endblock %}
+
+        {% if isPatternLib is defined and isPatternLib %}
+            {% set scripts = assetsURL + "/scripts/main.js," + assetsURL + "/scripts/patternlib.js" %}
+        {% else %}
+            {% set scripts = assetsURL + "/scripts/main.js" %}
+        {% endif %}
+
+        <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce is defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
+            (function() {
+                var s = '{{ scripts | safe }}'.split(','),
+                c = document.createElement('script');
+
+                if (!('noModule' in c)) {
+                    for (var i = 0; i < s.length; i++) {
+                        s[i] = s[i].replace('.js', '.es5.js');
+                    }
+                }
+
+                for (var i = 0; i < s.length; i++) {
+                    var e = document.createElement('script');
+
+                    e.src = s[i];
+
+                    document.body.appendChild(e);
+                }
+            })();
+        </script>
+
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

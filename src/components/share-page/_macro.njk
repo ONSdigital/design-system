@@ -2,16 +2,15 @@
     {% from "components/lists/_macro.njk" import onsList %}
 
     {% set titleTag = params.titleTag | default("h2") %}
-    <{{ titleTag }} class="u-fs-r--b u-mb-xs">{{ params.title }}</{{ titleTag }}>
+    <{{ titleTag }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</{{ titleTag }}>
 
     {% set list = [] %}
-    {% if params.facebook is defined and params.facebook and params.facebook === true %}
+    {% if params.facebook is defined and params.facebook and params.facebook == true %}
         {% set facebook =
             {
                 "url": 'https://www.facebook.com/sharer/sharer.php?u=' ~ params.pageURL,
                 "text": 'Facebook',
-                "prefixIcon": 'facebook',
-                "iconSize": params.iconSize | default("xxl"),
+                "iconType": 'facebook',
                 "rel": 'noreferrer external',
                 "target": '_blank'
             }
@@ -19,13 +18,12 @@
 
         {% set list = (list.push(facebook), list) %}
     {% endif %}
-    {% if params.twitter is defined and params.twitter and params.twitter === true %}
+    {% if params.twitter is defined and params.twitter and params.twitter == true %}
         {% set twitter =
             {
                 "url": 'https://twitter.com/intent/tweet?original_referer&text=' ~ params.pageTitle ~ '&url=' ~ params.pageURL,
                 "text": 'Twitter',
-                "prefixIcon": 'twitter',
-                "iconSize": params.iconSize | default("xxl"),
+                "iconType": 'twitter',
                 "rel": 'noreferrer external',
                 "target": '_blank'
             }
@@ -37,7 +35,9 @@
 
     {{
         onsList({
-            "classes": 'list--inline',
+            "variants": 'inline',
+            "iconPosition": 'before',
+            "iconSize": params.iconSize | default("xxl"),
             "itemsList": list
         })
     }}

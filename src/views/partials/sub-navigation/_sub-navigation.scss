@@ -1,4 +1,4 @@
-.patternlib-subnav {
+.ons-patternlib-subnav {
   &__item {
     padding-bottom: 2px;
   }
@@ -8,7 +8,7 @@
     font-weight: $font-weight-bold;
     margin-left: -18px;
     padding-left: 14px;
-    & > .patternlib-subnav__link {
+    & > .ons-patternlib-subnav__link {
       color: $color-text-link-active;
     }
   }

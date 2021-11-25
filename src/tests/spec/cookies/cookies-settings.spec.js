@@ -79,7 +79,7 @@ describe('Component: Cookie settings', function() {
   it('hides the cookie banner on form submit', function() {
     new CookiesSettings(this.form);
 
-    const banner = document.querySelector('.cookies-banner');
+    const banner = document.querySelector('.ons-cookies-banner');
 
     const button = this.form.querySelector('#submit-button');
     button.click();
@@ -91,18 +91,18 @@ describe('Component: Cookie settings', function() {
     it('shows a confirmation message', function() {
       new CookiesSettings(this.form);
 
-      const confirmationMessage = document.querySelector('.cookies-confirmation-message');
+      const confirmationMessage = document.querySelector('.ons-cookies-confirmation-message');
       const button = this.form.querySelector('#submit-button');
       button.click();
 
-      expect(confirmationMessage.classList.contains('u-d-no')).to.be.false;
+      expect(confirmationMessage.classList.contains('ons-u-d-no')).to.be.false;
     });
   });
 });
 
 function renderComponent() {
   const formHTML =
-    '<div class="cookies-banner" style="display: block;">' +
+    '<div class="ons-cookies-banner" style="display: block;">' +
     '</div>' +
     '<form data-module="cookie-settings">' +
     '<input type="radio" id="settings-on" name="cookies-settings" value="on">' +
@@ -113,8 +113,8 @@ function renderComponent() {
     '<input type="radio" name="cookies-campaigns" value="off">' +
     '<button id="submit-button" type="submit">Submit</button>' +
     '</form>' +
-    '<div class="cookies-confirmation-message u-d-no">' +
-    '<a class="js-return-link" href="#">Return to previous page</a>' +
+    '<div class="ons-cookies-confirmation-message ons-u-d-no">' +
+    '<a class="ons-js-return-link" href="#0">Return to previous page</a>' +
     '</div>';
 
   const wrapper = document.createElement('div');

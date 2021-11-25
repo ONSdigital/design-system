@@ -4,7 +4,7 @@
     {% from "components/input/_macro.njk" import onsInput %}
     {% from "components/error/_macro.njk" import onsError %}
 
-    {% set exclusiveClass = " js-exclusive-group-item" if params.mutuallyExclusive else "" %}
+    {% set exclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
 
     {%- set numberOfFields = 0 -%}
 
@@ -21,21 +21,21 @@
     {%- endif -%}
 
     {% set fields %}
-        {% if params.label is defined and params.label %}
-            <p class="u-fs-r--b u-mb-xs">{{ params.label }}</p>
-        {% endif %}
-
         {% if params.day is defined and params.day %}
             {{ onsInput({
                 "id": params.id + "-day",
                 "type": "number",
                 "name": params.day.name,
-                "classes": "input-number--w-2" + (" input--error" if params.error else "") + exclusiveClass | default(""),
+                "classes": (" ons-input--error" if params.error else "") + exclusiveClass | default(""),
+                "width": "2",
                 "min": 1,
                 "max": 31,
                 "maxLength": 2,
                 "attributes": params.day.attributes,
-                "label": params.day.label,
+                "label": {
+                    "text": params.day.label.text if numberOfFields > 1 else params.legendOrLabel,
+                    "description": params.day.label.description if numberOfFields > 1 else params.description
+                },
                 "value": params.day.value
             }) }}
         {% endif %}
@@ -45,12 +45,16 @@
                 "id": params.id + "-month",
                 "type": "number",
                 "name": params.month.name,
-                "classes": "input-number--w-2" + (" input--error" if params.error else "") + exclusiveClass | default(""),
+                "classes": (" ons-input--error" if params.error else "") + exclusiveClass | default(""),
+                "width": "2",
                 "min": 1,
                 "max": 12,
                 "maxLength": 2,
                 "attributes": params.month.attributes,
-                "label": params.month.label,
+                "label": {
+                    "text": params.month.label.text if numberOfFields > 1 else params.legendOrLabel,
+                    "description": params.month.label.description if numberOfFields > 1 else params.description
+                },
                 "value": params.month.value
             }) }}
         {% endif %}
@@ -60,12 +64,16 @@
                 "id": params.id + "-year",
                 "type": "number",
                 "name": params.year.name,
-                "classes": "input-number--w-4" + (" input--error" if params.error else "") + exclusiveClass | default(""),
+                "classes": (" ons-input--error" if params.error else "") + exclusiveClass | default(""),
+                "width": "4",
                 "min": 1000,
                 "max": 3000,
                 "maxLength": 4,
                 "attributes": params.year.attributes,
-                "label": params.year.label,
+                "label": {
+                    "text": params.year.label.text if numberOfFields > 1 else params.legendOrLabel,
+                    "description": params.year.label.description if numberOfFields > 1 else params.description
+                },
                 "value": params.year.value
             }) }}
         {% endif %}
@@ -73,7 +81,7 @@
 
     {% if numberOfFields > 1 %}
         {% set fields %}
-            <div class="field-group">
+            <div class="ons-field-group">
                 {{ fields | safe }}
             </div>
         {% endset %}
@@ -82,11 +90,11 @@
     {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
         {% call onsMutuallyExclusive({
             "id": params.id,
-            "legend": params.legend,
+            "legend": params.legendOrLabel,
             "legendClasses": params.legendClasses,
             "description": params.description,
             "classes": params.classes,
-            "dontWrap": params.dontWrap,
+            "dontWrap": params.dontWrap if numberOfFields > 1 else true,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
             "checkbox": params.mutuallyExclusive.checkbox,
             "or": params.mutuallyExclusive.or,
@@ -108,7 +116,7 @@
     {% else %}
         {% call onsFieldset({
             "id": params.id,
-            "legend": params.legend,
+            "legend": params.legendOrLabel,
             "legendClasses": params.legendClasses,
             "description": params.description,
             "classes": params.classes,

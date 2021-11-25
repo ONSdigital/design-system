@@ -1,77 +1,151 @@
 ---
 title: Address input
+synonyms: Address finder, address picker, address lookup, address search
 ---
 
 +++
+{% from "components/lists/_macro.njk" import onsList %}
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 +++
 
-The address input component allows users to search for and return addresses using the ONS Address Index API or to manually enter an address. 
+Allows users to find an address using an address finder or enter one manually.
 
 ## When to use this component
 
-Use the address input when you need users to find or enter and confirm an address. This could be their own or any other address that is required for the question.
+Use this component to help users either:
+- [search for an address](#how-to-use-this-component-with-the-ons-address-index-api) using the ONS Address Index API
+- [enter an address manually](#how-to-use-this-component-for-manual-address-entry) using a set of fields
 
-There is specific guidance on how to ask for [addresses](/patterns/addresses).
+There is specific guidance on [how to ask users for addresses](/patterns/addresses).
 
 ## How to use this component with the ONS Address Index API
 
-The address input extends the code base used for the [autosuggest component](/components/autosuggest). 
+The address input extends the code base used for the [autosuggest component](/components/autosuggest).
 
-There are two main ways to use this component with the ONS Address Index API. Addresses can either be editable or non-editable.
-
-### Editable addresses
-
-Include the parameter `isEditable: true`. Note that there are other required parameters that can be viewed on the Nunjucks output of the example.
-
-When an address has been selected, the “mode” of the component will change to show each line of the address as individual, manual inputs. This allows the user to check and change the address.
-
-If the address is amended, the UPRN (unique ID) will be removed and not submitted.
-
+There are two main ways to use this component with the ONS Address Index API. Addresses can be either:
 {{
-    patternlibExample({"path": "components/address-input/examples/address-input-editable/index.njk"})
+    onsList({
+        "itemsList": [
+            {
+                "text": '<a href="#non-editable-address-finder">non-editable</a>'
+            },
+            {
+                "text": '<a href="#editable-address-finder">editable</a>'
+            }
+        ]
+    })
 }}
 
-### Non-editable addresses
+### Non-editable address finder
 
-Include the parameter `isEditable: false`. When an address has been selected, the input will be populated with that address.
+Include the parameter `isEditable: false`. You will also need to set other parameters as shown in the Nunjucks options in the example.
 
-The UPRN for the selected address is added to a hidden input field that will be posted with the rest of the form data when it’s submitted.
+When a user selects an address it is displayed in the address finder input.
 
+The UPRN (unique ID) for the selected address is added to a hidden input. This is posted with the rest of the form data when it is submitted.
+
+If there is an issue with the API, the component will disable the address finder and show an error message.
+
+{{ onsPanel({
+        "body": '<p>If you cannot use the address finder in the following example you will need to email the Design System working group at <a href="mailto:ons.design.system@ons.gov.uk?subject=AIMS API request">ons.design.system@ons.gov.uk</a> to ask for access to the API.</p>'
+    })
+}}
 
 {{
     patternlibExample({"path": "components/address-input/examples/address-input/index.njk"})
 }}
 
+### Editable address finder
+
+Include the parameter `isEditable: true`. You will also need to set other parameters as shown in the Nunjucks options in the example.
+
+When a user selects an address, it will be displayed in a set of manual fields. This allows the user to check and edit the address.
+
+If the address is changed, the UPRN (unique ID) is removed and not posted with the rest of the form data.
+
+If there is an issue with the API, the manual fields will be shown instead of the address finder.
+
+{{ onsPanel({
+        "body": '<p>If the address finder is not showing in the following example you will need to email the Design System working group at <a href="mailto:ons.design.system@ons.gov.uk?subject=AIMS API request">ons.design.system@ons.gov.uk</a> to ask for access to the API.</p>'
+    })
+}}
+
+{{
+    patternlibExample({"path": "components/address-input/examples/address-input-editable/index.njk"})
+}}
+
 ### Using the API
 
-The ONS Address Index API uses a JSON Web Token (JWT) to allow for the transfer of data. Contact the ONS AIMS team for requirements and to set up trusted domains.
+The ONS Address Index API uses a JSON Web Token (JWT) to allow for the transfer of data. Email the Design System working group at <a href="mailto:ons.design.system@ons.gov.uk?subject=AIMS API request">ons.design.system@ons.gov.uk</a> to let them know your requirements and to set up trusted domains for the API.
 
 Set the values for the parameters `APIDomain` and `APIDomainBearerToken` to allow queries to be passed to the API. Also include the parameter `"externalInitialiser": true` to bypass the default autosuggest methods.
 
-A query is sent to the relevant API endpoint after three characters have been entered into the input. Various scenarios are catered for, such as groupings (of postcode results) and large returns of data.
+A query is sent to the relevant API endpoint after three characters have been entered into the address finder input. The API will return addresses in groups when the user searches by postcode. If the user searches by another part of the address, the API will return the best matches for that search term.
 
 ### Validation
 
-The address autosuggest provides client-side validation when the parameter `mandatory: true` is used. The validation checks that:
+The address autosuggest provides client-side validation when the parameter `mandatory: true` is used. The validation checks if the user has:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'entered something in the address finder input'
+            },
+            {
+                "text": 'selected an address from the results'
+            },
+            {
+                "text": 'selected an address from the results and then edited it in the address finder input (non-editable variant only)'
+            }
+        ]
+    })
+}}
 
-- there is something in the input field
-- that an address has been selected
-- an address has been selected and then amended (non-editable only)
+You will need to include parameters for these error messages:
 
-You will need to include parameters for the error messages displayed which can be viewed on the nunjucks output of the examples above.
+#### If the address finder input is empty
+Use “Enter an address” for the parameter: `errorMessageEnter`
 
-For editable addresses, after an address has been selected and manual inputs used, you need to set server-side validation on the address input fields. This checks that what the user enters in the input fields is valid and the fields are not empty. The [address pattern](/patterns/addresses) explains what to check for and how.
+#### If no address is selected from the results
+​​Use “Select an address” for the parameter: `errorMessageSelect`
 
-### If the API is down
-There is a status check when the page loads and initialises the component. If the service is down when using the editable address variation, the user will be able to enter an address using manual inputs. This “mode” is also the non-JS version of the component.
+#### If a selected address has been edited in the address finder input
+​​Use “Select an address” for the parameter: `errorMessageSelect`
 
-If the API goes down during use of the component, the input is disabled and a warning needs to be shown under the address input field. The warning is configurable and should contain a message and a link, for example "Sorry, there is a problem. We are working to fix it. Please try again later or <a href="#0">contact us for more help</a>."
+{{
+    onsPanel({
+        "body": 'If you are using the editable address finder or manual address entry variants, you will need to <a href="/patterns/addresses#how-to-check-addresses">check the address</a> using server-side validation.'
+    })
+}}
+
+### Other API messages
+Use the following error messages to improve the address finder results and deal with any loading issues:
+
+#### If no results are found
+Use “No results found. Try entering a different part of the address” for the parameter: `noResults`.
+
+#### If the postcode returns too many results
+Use “[number of addresses] results found. Enter more of the address to improve results” for the parameter: `tooManyResults`.
+
+#### If more of the address or postcode are needed to get results
+Use “Enter more of the address to get results” for the parameter: `typeMore`.
+
+#### If there is an error with the API during use of the editable address finder
+Use “Sorry, there is a problem loading addresses. <a href="#0">Enter address manually</a>” for the parameters: `errorMessageAPI` and `errorMessageAPILinkText`.
+
+#### If the API is down before use of the editable address finder
+There is a status check when the page loads and initialises the component. If the API is down, a set of fields will allow the user to enter an address manually. This also happens if JavaScript is turned off.
+
+#### If the API is down before or during use of the non-editable address finder
+The input will be disabled and an error message shown.
+
+Use “Sorry, there is a problem. We are working to fix it. Please try again later or <a href="#0">contact us for more help</a>.” for the parameters: `errorMessageAPI` and `errorMessageAPILinkText`.
 
 ## How to use this component for manual address entry
 
-Include the parameter `manualEntry: true`. Note that there are other required parameters that can be viewed on the Nunjucks output of the example. 
+Include the parameter `manualEntry: true`. You will also need to set other parameters as shown in the Nunjucks options in the following example.
 
 {{
     patternlibExample({"path": "components/address-input/examples/address-input-manual/index.njk"})

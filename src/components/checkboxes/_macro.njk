@@ -2,23 +2,57 @@
     {% from "components/fieldset/_macro.njk" import onsFieldset %}
     {% from "components/mutually-exclusive/_macro.njk" import onsMutuallyExclusive %}
     {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
+    {% from "components/button/_macro.njk" import onsButton %}
 
     {% set fields %}
-        <p class="checkboxes__label{{ " " + params.checkboxesLabelClasses if params.checkboxesLabelClasses }}">{{ params.checkboxesLabel }}</p>
-        <div class="checkboxes__items">
+        <p class="ons-checkboxes__label{{ " " + params.checkboxesLabelClasses if params.checkboxesLabelClasses }}">{{ params.checkboxesLabel }}</p>
+        {% set hasOther = false %}
+        {% for checkbox in params.checkboxes %}
+            {% if checkbox.other is defined and checkbox.other %}
+                {% set hasOther = true %}
+            {% endif %}
+        {% endfor %}
+        {% if hasOther == false and params.autoSelect is defined and params.autoSelect and params.autoSelect.selectAllText is defined %}
+            {% set btnClasses = ['small', 'secondary'] %}
+            {% if params.borderlessParent is defined and params.borderlessParent == false %}
+                {% set btnClasses = ['small', 'secondary', 'ghost-dark'] %}
+            {% endif %}
+            {{
+                onsButton({
+                    "html": '<span class="ons-js-button-text">' + params.autoSelect.selectAllText + '</span>' + '<span class="ons-u-vh"> ' + params.autoSelect.context + '</span>',
+                    "variants": btnClasses,
+                    "classes": 'ons-u-mb-s ons-js-auto-selector',
+                    "attributes": {
+                        "data-unselect-all": params.autoSelect.unselectAllText,
+                        "data-select-all": params.autoSelect.selectAllText
+                    }
+                })
+            }}
+        {% endif %}
+        <div class="ons-checkboxes__items">
             {% for checkbox in params.checkboxes %}
                 {% set labelHTML = checkbox.label.text %}
                 {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
-                    {% set exclusiveClass = ' js-exclusive-group-item' %}
+                    {% set exclusiveClass = ' ons-js-exclusive-group-item' %}
                 {% endif %}
-                <p class="checkboxes__item{{ " checkboxes__item--no-border" if params.borderless }}">
+                {% if params.borderless is defined and params.borderless %}
+                    {% set borderless = "ons-checkbox--no-border" %}
+                {% endif %}
+                {% if checkbox.other is defined and checkbox.other %}
+                    {% set otherClass = " ons-js-other" %}
+                    {% if checkbox.other.selectAllChildren is defined and checkbox.other.selectAllChildren == true %}
+                        {% set otherClass = otherClass + " ons-js-select-all-children" %}
+                    {% endif %}
+                {% endif %}
+                <span class="ons-checkboxes__item{{ " ons-checkboxes__item--no-border" if params.borderless }}">
                     {% set config = {
                         "id": checkbox.id,
                         "name": checkbox.name,
                         "value": checkbox.value,
                         "checked": checkbox.checked,
-                        "classes": checkbox.classes | default('') + ( "checkbox--no-border" if params.borderless ),
-                        "inputClasses": exclusiveClass,
+                        "borderless": params.borderless,
+                        "classes": checkbox.classes | default('') + borderless | default(''),
+                        "inputClasses": exclusiveClass | default('') + otherClass | default(''),
                         "label": {
                             "for": checkbox.id,
                             "text": labelHTML,
@@ -37,17 +71,24 @@
                                 "type": checkbox.other.type,
                                 "otherType": checkbox.other.otherType,
                                 "options": checkbox.other.options,
+                                "width": checkbox.other.width,
                                 "classes": checkbox.other.classes | default('') + exclusiveClass | default(''),
                                 "attributes": checkbox.other.attributes,
                                 "label": {
                                     "text": checkbox.other.label.text
                                 },
-                                "value": checkbox.other.value
+                                "legend": checkbox.other.legend,
+                                "legendClasses": checkbox.other.legendClasses | default('') + ' ons-u-mb-xs',
+                                "value": checkbox.other.value,
+                                "autoSelect": checkbox.other.autoSelect,
+                                "selectAllChildren": checkbox.other.selectAllChildren,
+                                "checkboxes": checkbox.other.checkboxes,
+                                "radios": checkbox.other.radios
                             }
                         }) %}
                     {% endif %}
                     {{ onsCheckbox(config) }}
-                </p>
+                </span>
                 {% if not loop.last %}
                     <br>
                 {% endif %}

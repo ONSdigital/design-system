@@ -35,9 +35,9 @@ describe('Function: Print Button ', function() {
 
   describe('Before the button is initialised', () => {
     it('Button should have relevant classes', () => {
-      expect(buttonElement.classList.contains('btn--print')).to.be.true;
-      expect(buttonElement.classList.contains('u-d-no')).to.be.true;
-      expect(buttonElement.classList.contains('js-print-btn')).to.be.true;
+      expect(buttonElement.classList.contains('ons-btn--print')).to.be.true;
+      expect(buttonElement.classList.contains('ons-u-d-no')).to.be.true;
+      expect(buttonElement.classList.contains('ons-js-print-btn')).to.be.true;
     });
 
     it('Button should be type button', () => {
@@ -51,7 +51,7 @@ describe('Function: Print Button ', function() {
     });
 
     it('Button should be made visible', () => {
-      expect(buttonElement.classList.contains('u-d-no')).to.be.false;
+      expect(buttonElement.classList.contains('ons-u-d-no')).to.be.false;
     });
 
     describe('and the button is clicked', () => {

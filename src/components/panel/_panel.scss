@@ -1,5 +1,5 @@
 @mixin panel-type($name, $color, $color-bg) {
-  .panel {
+  .ons-panel {
     &--#{$name} {
       background: $color-bg;
       border-color: $color;
@@ -13,15 +13,15 @@
   }
 }
 
-.census-warning {
+.ons-census-warning {
   background: $color-branded-tertiary;
 }
 
-.announcement {
+.ons-announcement {
   background-color: $color-black;
 }
 
-.panel {
+.ons-panel {
   border-radius: 0;
   position: relative;
 
@@ -30,7 +30,7 @@
     margin-bottom: 0;
   }
 
-  .field {
+  .ons-field {
     margin-bottom: 0;
   }
 
@@ -60,20 +60,43 @@
       margin-bottom: 0;
     }
 
-    &.svg-icon-margin--xxl {
-      padding-left: 3.3rem !important;
+    &.ons-svg-icon-margin--xxxl {
+      padding-left: 2.7rem !important;
+
+      @include mq(m) {
+        padding-left: 3.5rem !important;
+      }
     }
-    &.svg-icon-margin--xl {
-      padding-left: 2.8rem !important;
+    &.ons-svg-icon-margin--xxl {
+      padding-left: 2.45rem !important;
+
+      @include mq(m) {
+        padding-left: 2.9rem !important;
+      }
     }
-    &.svg-icon-margin--l {
-      padding-left: 2.5rem !important;
+    &.ons-svg-icon-margin--xl {
+      padding-left: 2.35rem !important;
+
+      @include mq(m) {
+        padding-left: 2.55rem !important;
+      }
     }
-    &.svg-icon-margin--m {
-      padding-left: 2.2rem !important;
+    &.ons-svg-icon-margin--l {
+      padding-left: 2.25rem !important;
+
+      @include mq(m) {
+        padding-left: 2.35rem !important;
+      }
     }
-    &.svg-icon-margin--s {
-      padding-left: 1.4rem !important;
+    &.ons-svg-icon-margin--m {
+      padding-left: 2.05rem !important;
+
+      @include mq(m) {
+        padding-left: 2.2rem !important;
+      }
+    }
+    &.ons-svg-icon-margin--s {
+      padding-left: 1.7rem !important;
     }
   }
 
@@ -117,11 +140,11 @@
   &--no-title {
     border-left: 8px solid transparent;
     padding: 1rem;
-    .panel__body {
+    .ons-panel__body {
       background: none;
       padding: 0;
     }
-    &.panel--warn {
+    &.ons-panel--warn {
       padding: 0;
     }
   }
@@ -179,15 +202,15 @@
 
   &--success & {
     &__icon {
-      fill: $color-success;
       left: 0;
       padding-left: 1rem;
-      .svg-icon {
+      .ons-svg-icon {
+        fill: $color-success !important;
         margin-top: -15% !important;
       }
     }
     &__body {
-      padding-left: 1.8rem;
+      padding-left: 2rem;
     }
   }
 
@@ -197,7 +220,7 @@
       width: 1.3rem;
     }
     &__body {
-      padding: 0.1rem 0 0 1.5rem;
+      padding: 0 0 0 1.5rem;
     }
   }
 
@@ -206,7 +229,7 @@
   &--warn,
   &--warn-branded,
   &--announcement {
-    .panel__icon {
+    .ons-panel__icon {
       position: absolute;
     }
   }

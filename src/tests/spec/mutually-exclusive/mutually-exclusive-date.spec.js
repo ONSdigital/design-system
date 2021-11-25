@@ -5,7 +5,7 @@ const expect = chai.expect;
 
 const params = {
   id: 'date-mutually-exclusive',
-  legend: 'When did you leave your last paid job?',
+  legendOrLabel: 'When did you leave your last paid job?',
   description: 'For example, 31 3 2018',
   day: {
     label: {
@@ -51,13 +51,13 @@ describe('Component: Mutually Exclusive Date Input', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    component = document.querySelector('.js-mutually-exclusive');
+    component = document.querySelector('.ons-js-mutually-exclusive');
 
     dayInput = document.getElementById(`${params.id}-day`);
     monthInput = document.getElementById(`${params.id}-month`);
     yearInput = document.getElementById(`${params.id}-year`);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
   });

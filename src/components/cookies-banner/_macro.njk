@@ -1,16 +1,16 @@
 {% macro onsCookiesBanner(params) %}
-    <div class="cookies-banner" role="region" aria-label="{{ params.ariaLabel | default('cookie banner')}}">
-        <div class="container cookies-banner__primary">
-            <div class="grid">
-                <div class="grid__col col-8@m">
-                  <h2 class="cookies-banner__title u-mb-xs">{{ params.statementTitle }}</h2>
-                  <p class="cookies-banner__desc">{{ params.statementText | safe }}</p>
+    <div class="ons-cookies-banner" role="region" aria-label="{{ params.ariaLabel | default('cookie banner')}}">
+        <div class="ons-container ons-cookies-banner__primary">
+            <div class="ons-grid">
+                <div class="ons-grid__col ons-col-8@m">
+                  <h2 class="ons-cookies-banner__title ons-u-mb-xs">{{ params.statementTitle }}</h2>
+                  <p class="ons-cookies-banner__desc">{{ params.statementText | safe }}</p>
                   {% from "components/button/_macro.njk" import onsButton %}
                   {{
                       onsButton({
                           "type": 'button',
                           "text": params.primaryButtonText | default('Accept all cookies'),
-                          "classes": 'btn--small js-accept-cookies u-mb-xs@xxs@s cookies-banner__btn'
+                          "classes": 'ons-btn--small ons-js-accept-cookies ons-u-mb-xs@xxs@s ons-cookies-banner__btn'
                       })
                   }}
                   {{
@@ -18,24 +18,24 @@
                           "type": 'button',
                           "url": params.secondaryButtonUrl,
                           "text": params.secondaryButtonText | default('Set cookie preferences'),
-                          "classes": 'btn--small u-ml-no@xxs@s cookies-banner__btn'
+                          "classes": 'ons-btn--small ons-u-ml-no@xxs@s ons-cookies-banner__btn'
                       })
                   }}
                 </div>
             </div>
         </div>
-        <div class="container cookies-banner__confirmation u-d-no">
-            <div class="grid grid--flex grid--between grid--gutterless grid--no-wrap@s grid--vertical-center">
-              <div class="grid__col grid__col--flex col-auto u-flex-shrink@s">
-                <p class="cookies-banner__desc u-mb-no@s u-mr-s@s">{{ params.confirmationText | safe }}</p>
+        <div class="ons-container ons-cookies-banner__confirmation ons-u-d-no">
+            <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--gutterless ons-grid--no-wrap@s ons-grid--vertical-center">
+              <div class="ons-grid__col ons-grid__col--flex ons-col-auto ons-u-flex-shrink@s">
+                <p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s">{{ params.confirmationText | safe }}</p>
               </div>
-              <div class="grid__col">
+              <div class="ons-grid__col">
                 {{
                     onsButton({
                         "type": 'button',
                         "text": params.confirmationButtonText | default('Hide'),
                         "buttonContext": params.confirmationButtonTextAria | default('the cookie message'),
-                        "classes": 'btn--secondary btn--small js-hide-button'
+                        "classes": 'ons-btn--secondary ons-btn--small ons-js-hide-button'
                     })
                 }}
               </div>

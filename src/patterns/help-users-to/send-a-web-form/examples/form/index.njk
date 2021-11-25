@@ -1,0 +1,121 @@
+---
+layout: none
+---
+{% extends "foundations/layout/page-template/_template.njk" %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/textarea/_macro.njk" import onsTextarea %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "title": 'Service name',
+    "absoluteUrl": pageInfo.url,
+    "breadcrumbs": {
+        "ariaLabel": 'Back',
+        "itemsList": [
+            {
+                "url": '#0',
+                "id": 'back',
+                "text": 'Back'
+            }
+        ]
+    },
+    "footer": {}
+} %}
+{% block main %}
+    
+    <h1 class="ons-u-fs-xxl ons-u-mt-l">Web form</h1>
+
+    {{ onsRadios({
+        "legend": 'What do you need help with?',
+        "name": 'webform-help',
+        "radios": [
+            {
+                "id": 'change-contact-details',
+                "label": {
+                    "text": 'I need to change my contact details'
+                },
+                "value": 'change-contact-details'
+            },
+            {
+                "id": 'help-with-my-survey',
+                "label": {
+                    "text": 'I need help with my survey'
+                },
+                "value": 'help-with-my-survey'
+            },
+            {
+                "id": 'complaint',
+                "label": {
+                    "text": 'I want to make a complaint'
+                },
+                "value": 'complaint'
+            },
+            {
+                "id": 'technical-difficulties',
+                "label": {
+                    "text": 'I am having technical difficulties'
+                },
+                "value": 'technical-difficulties'
+            },
+            {
+                "id": 'change-password',
+                "label": {
+                    "text": 'I need to change my password'
+                },
+                "value": 'change-password'
+            },
+            {
+                "id": 'something-else',
+                "label": {
+                    "text": 'Something else'
+                },
+                "value": 'something-else'
+            }
+        ]
+    }) }}
+
+    {{ onsTextarea({
+        "id": 'webform-detail',
+        "name": 'webform-detail',
+        "label": {
+            "text": 'Please provide more detail'
+        },
+        "charCheckLimit": {
+            "limit": 2000,
+            "charCountSingular": 'You have {x} character remaining',
+            "charCountPlural": 'You have {x} characters remaining'
+        }
+    }) }}
+
+    <h2 class="ons-u-mt-m">Your contact details</h2>
+
+    {{ onsInput({
+        "width": '30',
+        "id": 'webform-name',
+        "name": 'webform-name',
+        "label": {
+            "text": 'Name'
+        }
+    }) }}
+
+    {{ onsInput({
+        "width": '30',
+        "id": 'webform-email',
+        "name": 'webform-email',
+        "type": 'email',
+        "autocomplete": 'email',
+        "label": {
+            "text": 'Email address',
+            "description": 'We will only use this to send you a reply'
+        }
+    }) }}
+
+    {{ onsButton({
+        "classes": 'ons-u-mb-m ons-u-mt-l',
+        "text": 'Send message'
+    }) }}
+
+    <p class="ons-u-fs-s">Information about what we do with your personal data is available in our <a href="#0">privacy and data protection statement</a>.</p>
+
+{% endblock %}

@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "styles/page-template/_template.njk" %}
+{% extends "foundations/layout/page-template/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/relationships/_macro.njk" import onsRelationships %}
 
@@ -15,7 +15,7 @@ layout: none
         "description": "<p>Complete the sentence by selecting the appropriate relationship.</p>",
         "readDescriptionFirst": true,
         "legendIsQuestionTitle": true,
-        "legendTitleClasses": "js-relationships-legend"
+        "legendTitleClasses": "ons-js-relationships-legend"
     }) %}
         {{ onsRelationships({
             "playback": "Amanda Bloggs is Joe Bloggs' <em>…</em>",

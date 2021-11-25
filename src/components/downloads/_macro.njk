@@ -2,10 +2,10 @@
 
     {% for download in (params.downloads if params.downloads is iterable else params.downloads.items()) %}
 
-    <div class="download{{ ' ' + params.classes if params.classes else '' }}">
+    <div class="ons-download{{ ' ' + params.classes if params.classes else '' }}">
 
-        <div class="download__image" aria-hidden="true">
-            <a class="download__image-link" href="{{ download.url }}" tabindex="-1">
+        <div class="ons-download__image" aria-hidden="true">
+            <a class="ons-download__image-link" href="{{ download.url }}" tabindex="-1">
                 {% if download.thumbnail is defined and download.thumbnail and download.thumbnail.smallSrc is defined and download.thumbnail.smallSrc and download.thumbnail.largeSrc is defined and download.thumbnail.largeSrc %}
                     <img srcset="{{ download.thumbnail.smallSrc }} 1x, {{ download.thumbnail.largeSrc }} 2x" src="{{ download.thumbnail.smallSrc }}" alt="" loading="lazy">
                 {% else %}
@@ -14,10 +14,10 @@
             </a>
         </div>
 
-        <div class="download__content">
-
-            <h3 class="u-fs-m u-mt-no u-mb-xs">
-                <a href="{{ download.url }}">{{ download.title }}<span class="u-vh">, 
+        <div class="ons-download__content">
+            {% set titleTag = params.titleTag | default("h2") %}
+            <{{ titleTag }} class="ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
+                <a href="{{ download.url }}">{{ download.title }}<span class="ons-u-vh">, 
 
                 {%- if download.meta is defined and download.meta %}
 
@@ -32,9 +32,9 @@
                 {% endif -%}
 
                 </span></a>
-            </h3>
+            </{{ titleTag }}>
 
-            <span class="u-fs-s u-mb-xs download__meta" aria-hidden="true">
+            <span class="ons-u-fs-s ons-u-mb-xs ons-download__meta" aria-hidden="true">
 
                 {%- if download.type is defined and download.type %}
                     {{ download.type }}{%- if download.meta is defined and download.meta %},{% endif %}
@@ -55,7 +55,7 @@
             </span>
 
             {% if download.excerpt is defined and download.excerpt %}
-                <p class="download__excerpt">{{ download.excerpt | safe }}</p>
+                <p class="ons-download__excerpt">{{ download.excerpt | safe }}</p>
             {% endif %}
 
         </div>

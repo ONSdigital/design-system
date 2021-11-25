@@ -1,0 +1,201 @@
+---
+layout: none
+---
+{% extends "foundations/layout/page-template/_template.njk" %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/textarea/_macro.njk" import onsTextarea %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/articles/_macro.njk" import onsArticles %}
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
+
+{% set pageConfig = {
+    "title": 'Service name',
+    "absoluteUrl": pageInfo.url,
+    "pageColNumber": '12',
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Home'
+            },
+            {
+                "url": '#0',
+                "text": 'News'
+            }
+        ]
+    },
+    "footer": {}
+} %}
+
+{% block main %}
+
+<div class="ons-grid">
+    <div class="ons-grid__col ons-col-7@m">
+        <h1 class="ons-u-fs-xxl">All posts for <em class="ons-highlight">Census2021</em></h1>
+    </div>
+</div>
+
+<div class="ons-grid ons-grid--column@xs@s">
+
+    <div class="ons-grid__col ons-col-7@m">
+
+        <div class="ons-u-mt-m ons-u-mb-m">
+
+            {{ onsArticles({
+                "articles": [
+                    {
+                        "url": '#0',
+                        "title": 'Students urged to complete the census for their term-time accommodation now',
+                        "date": {
+                            "short": '30 April 2021',
+                            "iso": '2021-04-30'
+                        },
+                        "category": {
+                            "title": 'Press releases',
+                            "url": '#0'
+                        },
+                        "excerpt": 'There has been a great response to <em class="ons-highlight">Census 2021</em>, but it is important everyone is counted and that includes students.'
+                    },
+                    {
+                        "url": '#0',
+                        "title": 'Census 2021 myth buster – 11 things you think you know about the census but you’re wrong',
+                        "date": {
+                            "short": '7 April 2021',
+                            "iso": '2021-04-07'
+                        },
+                        "category": {
+                            "title": 'Press releases',
+                            "url": '#0'
+                        },
+                        "excerpt": 'The Office for National Statistics dispels some common myths around <em class="ons-highlight">Census 2021</em>.'
+                    },
+                    {
+                        "url": '#0',
+                        "title": 'Nine out of ten households have completed Census 2021',
+                        "date": {
+                            "short": '7 April 2021',
+                            "iso": '2021-04-07'
+                        },
+                        "category": {
+                            "title": 'Press releases',
+                            "url": '#0'
+                        },
+                        "excerpt": 'There has been a fantastic response to <em class="ons-highlight">Census 2021</em>. Nine out of ten households across England and Wales have completed their questionnaire – but everyone must take part.'
+                    },
+                    {
+                        "url": '#0',
+                        "title": 'Don’t be eggs-cluded - fill in your census this Easter',
+                        "date": {
+                            "short": '7 April 2021',
+                            "iso": '2021-04-01'
+                        },
+                        "category": {
+                            "title": 'Press releases',
+                            "url": '#0'
+                        },
+                        "excerpt": 'There has been a great response to <em class="ons-highlight">Census 2021</em>, but to make sure it is an Easter bunny and not a census field officer who visits this weekend, crack on and submit your questionnaire now.'
+                    },
+                    {
+                        "url": '#0',
+                        "title": 'There is still time to complete Census 2021',
+                        "date": {
+                            "short": '23 March 2021',
+                            "iso": '2021-03-23'
+                        },
+                        "category": {
+                            "title": 'Press releases',
+                            "url": '#0'
+                        },
+                        "excerpt": 'Census Day was Sunday 21 March, but it is vital those who have not yet completed, do so as soon as possible.'
+                    }
+                ]
+            }) }}
+
+        </div>
+
+    </div>
+
+    <div class="ons-grid__col ons-col-4@m ons-push-1@m">
+
+        {% call onsRelatedContent({
+            "ariaLabel": 'Related content',
+            "rows": [
+                {
+                    "id": 'related-links',
+                    "title": 'Categories',
+                    "itemsList": [
+                        {
+                            "text": 'Press releases',
+                            "url": '#0'
+                        },
+                        {
+                            "text": 'Statements',
+                            "url": '#0'
+                        }
+                    ]
+                },
+                {
+                    "id": 'media-enquiries',
+                    "title": 'Media enquiries',
+                    "classes": 'ons-u-mb-no',
+                    "variants": 'bare',
+                    "itemsList": [
+                        {
+                            "text": 'Telephone: 0845 604 1858 <br> Monday to Friday, 8:30am to 5:30pm'
+                        },
+                        {
+                            "text": 'Out of hours: 07867 906 553'
+                        },
+                        {
+                            "text": 'Email: <a href="#0">media.relations@ons.gov.uk</a>'
+                        }
+                    ]
+                },
+                {
+                    "id": 'follow-us',
+                    "title": 'Follow us',
+                    "variants": 'social',
+                    "iconPosition": 'before',
+                    "iconSize": 'xxl',
+                    "itemsList": [
+                        {
+                            "url": '#0',
+                            "text": 'Twitter',
+                            "iconType": 'twitter',
+                            "rel": 'noreferrer external'
+                        },
+                        {
+                            "url": '#0',
+                            "text": 'Facebook',
+                            "iconType": 'facebook',
+                            "rel": 'noreferrer external'
+                        },
+                        {
+                            "url": '#0',
+                            "text": 'Instagram',
+                            "iconType": 'instagram',
+                            "rel": 'noreferrer external'
+                        },
+                        {
+                            "url": '#0',
+                            "text": 'LinkedIn',
+                            "iconType": 'linkedin',
+                            "rel": 'noreferrer external'
+                        }
+                    ]
+                }
+            ]
+        }) %}
+
+        {% endcall %}
+
+    </div>
+
+</div>
+
+{% endblock %}

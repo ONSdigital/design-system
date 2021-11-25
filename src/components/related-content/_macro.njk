@@ -6,21 +6,23 @@
   {% set classes = ' ' + params.classes %}
 {% endif %}
 
-  <aside class="related-content{{ classes }}" aria-label="{{ params.ariaLabel | default("Related content") }}">
+  <aside class="ons-related-content{{ classes }}" aria-label="{{ params.ariaLabel | default("Related content") }}">
 
-    <div class="related-content__body">
+    <div class="ons-related-content__body">
 
       {% if params.rows is defined and params.rows %}
 
         {% for row in params.rows %}
-          <div class="related-content__section">
+          <div class="ons-related-content__section">
             {% if row.title %}
-              <h2 class="related-content__title u-fs-r--b u-mb-xs" id="{{ row.id }}">{{ row.title }}</h2>
+              <h2 class="ons-related-content__title ons-u-fs-r--b ons-u-mb-xs" id="{{ row.id }}">{{ row.title }}</h2>
             {% endif %}
-            <nav class="related-content__navigation" aria-labelledby="{{ row.id }}">
+            <nav class="ons-related-content__navigation" aria-labelledby="{{ row.id }}">
               {{
                 onsList({
-                  "classes": 'list--bare',
+                  "variants": 'bare',
+                  "iconPosition": row.iconPosition,
+                  "iconSize": row.iconSize,
                   "itemsList": row.itemsList
                 })
               }}
@@ -30,9 +32,9 @@
 
       {% else %}
 
-        <h2 class="related-content__title u-fs-r--b u-mb-xs">{{ params.title }}</h2>
+        <h2 class="ons-related-content__title ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</h2>
 
-        <div class="related-content__body">
+        <div class="ons-related-content__body">
           {{ (params.body if params else "") | safe }}{{ caller() if caller }}
         </div>
 

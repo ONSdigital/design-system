@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "styles/page-template/_template.njk" %}
+{% extends "foundations/layout/page-template/_template.njk" %}
 {% from "components/access-code/_macro.njk" import onsUACInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
@@ -12,13 +12,13 @@ layout: none
 } %}
 
 {% block main %}
-    <h1 class="u-mt-l">Start study</h1>
+    <h1 class="ons-u-mt-l">Start study</h1>
 
     {{ onsUACInput({
         "id": "uac",
         "name": "uac",
         "postTextboxLinkText": "Where to find your access code",
-        "postTextboxLinkUrl": "#",
+        "postTextboxLinkUrl": "#0",
         "label": {
             "text": "Enter your 16-character access code",
             "description": "Keep this code safe. You will need to enter it every time you access your study"
@@ -28,7 +28,7 @@ layout: none
 
     {{ onsButton({
         "text": "Access study",
-        "classes": "u-mb-xl"
+        "classes": "ons-u-mb-xl"
     }) }}
 
     <h2>If you don’t have an access code</h2>
@@ -37,7 +37,7 @@ layout: none
     </p>
 
     {% set content %}
-        <p>If you need to answer separately from the people you live with, you can <a href='#'>request an individual access code</a> to start a separate study.</p>
+        <p>If you need to answer separately from the people you live with, you can <a href='#0'>request an individual access code</a> to start a separate study.</p>
         {% call onsPanel({
                 type: "warn"
             })

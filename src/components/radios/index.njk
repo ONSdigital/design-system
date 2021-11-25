@@ -26,34 +26,61 @@ Radios are grouped within a [fieldset](/components/fieldset) which starts with a
 ## Variants
 
 ### Descriptions
-This variant allows you to add more context to the radios in the list. The description is populated by providing a `description` parameter within the radio’s `label` parameter.
+This variant allows you to add more context to the radio answers. The description is added by providing a `description` parameter within the radio’s `label` parameter.
+
+Answer descriptions are a good way to provide examples to help a user answer a question without disrupting their journey through the survey.
+
+Answer descriptions should:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'be short – try to have no more than 100 characters'
+            },
+            {
+                "text": 'be clearly written'
+            },
+            {
+                "text": 'be relevant to that answer only, not any of the other answers'
+            },
+            {
+                "text": 'start with a capital letter'
+            },
+            {
+                "text": 'not have a full stop on the end'
+            }
+        ]
+    })
+}}
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-descriptions/index.njk"})
 }}
 
 ### Radio with input
-This variant lets the user provide an answer other to the radios in the list, or to provide additional information required to describe their answer.
+This variant lets the user provide an answer other to the options in the list, or to provide additional information required to describe their answer.
 
-Use this variation by wrapping the text field in a div with class `radio__other`, added directly after the radio label. CSS hides this field until the radio is `:checked`.
+Provide the `other` parameter and provide the relevant [input](/components/input) parameters. The field is hidden until the radio is `:checked`.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-other/index.njk"})
 }}
 
 
+### Radio with revealed drop-down
+This variant uses a [select component](/components/select) instead.
+
+To use this variant provide `"otherType": "select"` inside the `other` parameter.
+
+{{
+    patternlibExample({"path": "components/radios/examples/radios-select/index.njk"})
+}}
+
 ### Radio with visible input
 This variant of “radio with input” shows the input instead of waiting for the radio to be `:checked`.
 
 {{
     patternlibExample({"path": "components/radios/examples/radios-other-open/index.njk"})
-}}
-
-### Radio with drop-down
-This variant uses a [select component](/components/select) instead of an input.
-
-{{
-    patternlibExample({"path": "components/radios/examples/radios-select/index.njk"})
 }}
 
 ### Radios with an “or” separator
@@ -67,7 +94,7 @@ This variant uses a [select component](/components/select) instead of an input.
 This variant displays a ”Clear selection” button which allows the user to deselect/clear the fieldset so all radios are not `:checked`. The button is displayed after a radio is selected. The `aria-live` attribute is used for announcing changes in assistive technologies.
 
 If this variant is implemented on a question page that contains a primary submit button, a hidden duplicate submit button should be added to the top of the form to ensure the default enter key behaviour actions this button, and not the clear button.
-The submit button should use the `hidden` attribute and also the `u-d-no` utility class to set the button to `display:none`. This hides the button both visually and from screen readers.
+The submit button should use the `hidden` attribute and also the `ons-u-d-no` utility class to set the button to `display:none`. This hides the button both visually and from screen readers.
 {{
     patternlibExample({"path": "components/radios/examples/radios-clear/index.njk"})
 }}
@@ -79,6 +106,26 @@ This variant removes the border around the radio input and [label](/components/l
 Only remove the radio border for pages that are not following the practice of “one thing per page”, where the radios are not the primary call to action. For example, the radios could be one part of a multipurpose page, like the checkboxes used for the filters on the [download resources pattern](/patterns/download-resources/).
 {{
     patternlibExample({"path": "components/radios/examples/radios-borderless/index.njk"})
+}}
+
+### Radio with revealed checkboxes
+
+This variant reveals nested [checkboxes](/components/checkboxes) when a radio is selected. We recommend using this variant together with the parent radios using the borderless variant.
+
+To use this variant provide `"otherType": "checkboxes"` inside the `other` parameter. The example below includes the optional parameter `selectAllChildren: true` which automatically checks all revealed checkboxes.
+
+{{
+    patternlibExample({"path": "components/radios/examples/radios-other-checkboxes/index.njk"})
+}}
+
+### Radio with revealed radios
+
+This variant reveals nested radios when a radio is selected. We recommend using this variant together with the parent radios using the borderless variant.
+
+To use this variant provide `"otherType": "radios"` inside the `other` parameter.
+
+{{
+    patternlibExample({"path": "components/radios/examples/radios-other-radios/index.njk"})
 }}
 
 ## How to check radios

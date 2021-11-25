@@ -1,4 +1,4 @@
-.content-pagination {
+.ons-content-pagination {
   display: block;
   margin: 1.5rem 0 2.5rem;
 
@@ -18,7 +18,7 @@
 
     &:hover {
       text-decoration: none;
-      .content-pagination__link-label {
+      .ons-content-pagination__link-label {
         text-decoration: underline solid $color-text-link-hover 2px;
       }
     }
@@ -26,15 +26,10 @@
     &:focus {
       text-decoration: none;
 
-      .content-pagination__link-label {
+      .ons-content-pagination__link-label {
         text-decoration: none;
       }
     }
-  }
-
-  &__link-icon {
-    height: 0.9rem;
-    width: 1.2rem;
   }
 
   &__link-title {
@@ -42,10 +37,10 @@
   }
 
   &__link-text {
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: normal;
+    @extend .ons-u-fs-m;
+
     margin: 0 0 0 0.5rem;
+    vertical-align: middle;
   }
 
   &__link-label {

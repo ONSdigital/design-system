@@ -6,12 +6,13 @@ const expect = chai.expect;
 const params = {
   id: 'currency',
   type: 'number',
-  classes: 'input--w-5',
+  legend: 'What is your annual income before tax in 2018/19?',
+  width: '5',
   attributes: {
     min: 0,
   },
   label: {
-    text: 'What is your annual income before tax?',
+    text: 'Gross annual income',
   },
   prefix: {
     title: 'Pounds',
@@ -43,10 +44,10 @@ describe('Component: Mutually Exclusive Number Input', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    component = document.querySelector('.js-mutually-exclusive');
+    component = document.querySelector('.ons-js-mutually-exclusive');
     input = document.getElementById(params.id);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
   });

@@ -1,10 +1,8 @@
 {% from "components/button/_macro.njk" import onsButton %}
-<div class="btn-group">
     {{
         onsButton({
             "type": 'button',
-            "text": 'Continue',
-            "classes": 'btn-group__btn'
+            "text": 'Continue'
         })
     }}
 
@@ -12,7 +10,6 @@
         onsButton({
             "type": 'button',
             "text": 'Cancel',
-            "classes": 'btn--secondary btn-group__btn'
+            "variants": 'secondary'
         })
     }}
-</div>

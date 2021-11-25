@@ -25,21 +25,30 @@ img {
 
 hr {
   border: 0;
-  border-top: 1px solid #888;
+  border-top: 1px solid $color-borders;
   margin: 2rem 0 0;
+}
+
+%a-focus {
+  background-color: $color-focus;
+  box-shadow: 0 -2px $color-focus, 0 4px $color-text-link-focus;
+  color: $color-text-link-focus;
+  outline: 3px solid transparent;
+  text-decoration: none;
 }
 
 a {
   color: $color-text-link;
+  text-decoration-thickness: 1px;
   text-underline-position: under;
-  &:not(.u-fs-r--b):hover {
-    .u-fs-l &,
-    h2:not(.u-fs-m) & {
+  &:not(.ons-u-fs-r--b):hover {
+    .ons-u-fs-l &,
+    h2:not(.ons-u-fs-m) & {
       text-decoration-thickness: 3px;
     }
 
     @include mq(m) {
-      .u-fs-m &,
+      .ons-u-fs-m &,
       h2 &,
       h3 & {
         text-decoration-thickness: 3px;
@@ -50,11 +59,7 @@ a {
     color: $color-text-link-hover;
     text-decoration: underline solid $color-text-link-hover 2px;
   }
-  &:focus:not(.btn--link):not(.btn--ghost):not(.js-clear-btn):not(.download__thumbnail--link):not(.tab--row):not(.skip__link) {
-    background-color: $color-focus;
-    box-shadow: 0 -2px $color-focus, 0 4px $color-text-link-focus;
-    color: $color-text-link-focus;
-    outline: 3px solid transparent;
-    text-decoration: none;
+  &:focus:not(.ons-btn--link):not(.ons-btn--ghost):not(.ons-js-clear-btn):not(.ons-download__thumbnail--link):not(.ons-tab--row):not(.ons-skip-link) {
+    @extend %a-focus;
   }
 }

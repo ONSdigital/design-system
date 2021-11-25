@@ -186,7 +186,7 @@ describe('Component: Relationships', function() {
 
   describe('Given that the component has not initialised', function() {
     it('then the playback paragraph should not be visible', function() {
-      expect(this.playback.classList.contains('u-d-no')).to.equal(true);
+      expect(this.playback.classList.contains('ons-u-d-no')).to.equal(true);
     });
 
     describe('when the component initialises', function() {
@@ -195,7 +195,7 @@ describe('Component: Relationships', function() {
       });
 
       it('then the playback paragraph should become visible', function() {
-        expect(this.playback.classList.contains('u-d-no')).to.equal(false);
+        expect(this.playback.classList.contains('ons-u-d-no')).to.equal(false);
       });
 
       describe('when the user selects a relationship', function() {
@@ -223,10 +223,10 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const context = document.querySelector('.js-relationships');
+  const context = document.querySelector('.ons-js-relationships');
   const h1 = wrapper.querySelector('h1');
   const radios = [...context.querySelectorAll('input[type=radio]')];
-  const playback = context.querySelector('.js-relationships-playback');
+  const playback = context.querySelector('.ons-js-relationships-playback');
   return {
     wrapper,
     context,

@@ -6,7 +6,7 @@ const expect = chai.expect;
 const params = {
   id: 'search-field',
   type: 'number',
-  classes: 'input--w-6',
+  width: '6',
   label: {
     text: 'Filter results',
   },
@@ -33,7 +33,7 @@ describe('Component: Input with character check', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    searchWrapper = document.querySelector('.js-char-check-input');
+    searchWrapper = document.querySelector('.ons-js-char-check-input');
     searchInput = document.getElementById(params.id);
     limit_readout = document.getElementById(`${params.id}-check-remaining`);
 
@@ -48,7 +48,7 @@ describe('Component: Input with character check', () => {
 
   describe('Given that the char check helper has initialised correctly', () => {
     it('the char check readout should be invisible', () => {
-      expect(limit_readout.classList.contains('u-d-no')).to.equal(true);
+      expect(limit_readout.classList.contains('ons-u-d-no')).to.equal(true);
     });
 
     it('then the character limit readout should reflect the number of characters remaining', () => {
@@ -70,7 +70,7 @@ describe('Component: Input with character check', () => {
       });
 
       it('the char check readout should be visible', () => {
-        expect(limit_readout.classList.contains('u-d-no')).to.equal(false);
+        expect(limit_readout.classList.contains('ons-u-d-no')).to.equal(false);
       });
     });
 
@@ -94,7 +94,7 @@ describe('Component: Input with character check', () => {
       });
 
       it('the char check readout should be invisible', () => {
-        expect(limit_readout.classList.contains('u-d-no')).to.equal(true);
+        expect(limit_readout.classList.contains('ons-u-d-no')).to.equal(true);
       });
     });
 
@@ -120,7 +120,7 @@ describe('Component: Input with character check', () => {
     });
 
     it('the char check readout should be visible', () => {
-      expect(limit_readout.classList.contains('u-d-no')).to.equal(false);
+      expect(limit_readout.classList.contains('ons-u-d-no')).to.equal(false);
     });
 
     it('then the characters remaining readout reflect the number of characters exceeded', () => {
@@ -133,8 +133,8 @@ describe('Component: Input with character check', () => {
     });
 
     it('then the input and readout should be given limit reached classes', () => {
-      expect(searchInput.classList.contains('input--limit-reached')).to.equal(true);
-      expect(limit_readout.classList.contains('input__limit--reached')).to.equal(true);
+      expect(searchInput.classList.contains('ons-input--limit-reached')).to.equal(true);
+      expect(limit_readout.classList.contains('ons-input__limit--reached')).to.equal(true);
     });
   });
 
@@ -146,7 +146,7 @@ describe('Component: Input with character check', () => {
     });
 
     it('the char check readout should be visible', () => {
-      expect(limit_readout.classList.contains('u-d-no')).to.equal(false);
+      expect(limit_readout.classList.contains('ons-u-d-no')).to.equal(false);
     });
 
     it('then the characters remaining readout reflect the number of characters exceeded', () => {
@@ -159,8 +159,8 @@ describe('Component: Input with character check', () => {
     });
 
     it('then the input and readout should be given limit reached classes', () => {
-      expect(searchInput.classList.contains('input--limit-reached')).to.equal(true);
-      expect(limit_readout.classList.contains('input__limit--reached')).to.equal(true);
+      expect(searchInput.classList.contains('ons-input--limit-reached')).to.equal(true);
+      expect(limit_readout.classList.contains('ons-input__limit--reached')).to.equal(true);
     });
   });
 

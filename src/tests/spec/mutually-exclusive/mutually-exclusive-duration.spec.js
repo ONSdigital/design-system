@@ -10,7 +10,7 @@ const params = {
   field1: {
     id: 'address-duration-years',
     name: 'address-duration-years',
-    label: 'Years',
+    suffix: 'Years',
     attributes: {
       min: 0,
       max: 100,
@@ -19,7 +19,7 @@ const params = {
   field2: {
     id: 'address-duration-months',
     name: 'address-duration-months',
-    label: 'Months',
+    suffix: 'Months',
     attributes: {
       min: 0,
       max: 11,
@@ -51,12 +51,12 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
     wrapper.innerHTML = html;
     document.body.appendChild(wrapper);
 
-    component = document.querySelector('.js-mutually-exclusive');
+    component = document.querySelector('.ons-js-mutually-exclusive');
 
     yearsInput = document.getElementById(params.field1.id);
     monthsInput = document.getElementById(params.field2.id);
     checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
-    ariaAlert = document.querySelector('.js-exclusive-alert');
+    ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
   });
@@ -86,7 +86,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
             // prettier-ignore
-            `${params.field1.label} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.field2.label} ${params.mutuallyExclusive.deselectGroupAdjective}.`,
+            `${params.field1.suffix} ${params.mutuallyExclusive.deselectGroupAdjective}. ${params.field2.suffix} ${params.mutuallyExclusive.deselectGroupAdjective}.`,
           );
           done();
         }, 300);

@@ -1,18 +1,21 @@
 {%- macro onsMessage(params) -%}
-  <div class="message message--{{ params.type }}">
-    <div class="message__head">
-      <dl class="message__metadata" {% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %} {% if params.name is defined and params.name %} name="{{ params.name }}"{% endif %}>
-          <dt class="message__term u-fw-b">{{ params.fromLabel }}:</dt>
-          <dd class="message__value u-fw-b" {% if params.fromId is defined and params.fromId %} id="{{ params.fromId }}"{% endif %} {% if params.fromName is defined and params.fromName %} name="{{ params.fromName }}"{% endif %}>{{ params.fromValue }}</dd>
-          <br>
-          <dt class="message__term u-fs-s">{{ params.sentLabel }}:</dt>
-          <dd class="message__value u-fs-s" {% if params.sentId is defined and params.sentId %} id="{{ params.sentId }}"{% endif %} {% if params.sentName is defined and params.sentName %} name="{{ params.sentName }}"{% endif %}>{{ params.sentValue }}</dd>
+  <div class="ons-message ons-message--{{ params.type }}">
+    <div class="ons-message__head">
+      <dl class="ons-message__metadata" {% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %} {% if params.name is defined and params.name %} name="{{ params.name }}"{% endif %}>
+        <div class="ons-message__sender">
+          <dt class="ons-message__term ons-u-fw-b">{{ params.fromLabel }}:</dt>
+          <dd class="ons-message__value ons-u-fw-b" {% if params.fromId is defined and params.fromId %} id="{{ params.fromId }}"{% endif %} {% if params.fromName is defined and params.fromName %} name="{{ params.fromName }}"{% endif %}>{{ params.fromValue }}</dd>
+        </div>
+        <div class="ons-message__timestamp">
+          <dt class="ons-message__term ons-u-fs-s">{{ params.sentLabel }}:</dt>
+          <dd class="ons-message__value ons-u-fs-s" {% if params.sentId is defined and params.sentId %} id="{{ params.sentId }}"{% endif %} {% if params.sentName is defined and params.sentName %} name="{{ params.sentName }}"{% endif %}>{{ params.sentValue }}</dd>
+        </div>
       </dl>
       {% if params.unreadLink is defined and params.unreadLink %}
-          <a class="message__unread-link" {% if params.unreadLinkId is defined and params.unreadLinkId %}id="{{ params.unreadLinkId }}"{% endif %} href="{{ params.unreadLink }}">{{ params.unreadLinkText }}</a>
+          <a class="ons-message__unread-link" {% if params.unreadLinkId is defined and params.unreadLinkId %}id="{{ params.unreadLinkId }}"{% endif %} href="{{ params.unreadLink }}">{{ params.unreadLinkText }}</a>
       {% endif %}
     </div>
-    <div class="message__body" {% if params.messageID is defined and params.messageID %} id="{{ params.messageID }}"{% endif %} {% if params.messageName is defined and params.messageName %} name="{{ params.messageName }}"{% endif %}>
+    <div class="ons-message__body" {% if params.messageID is defined and params.messageID %} id="{{ params.messageID }}"{% endif %} {% if params.messageName is defined and params.messageName %} name="{{ params.messageName }}"{% endif %}>
       {{ caller() }}
     </div>
   </div>

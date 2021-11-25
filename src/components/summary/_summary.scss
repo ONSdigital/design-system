@@ -1,14 +1,16 @@
+@use 'sass:math';
+
 $summary-row-spacing: 1rem;
 $summary-col-spacing: 1rem;
 $hub-row-spacing: 1.3rem;
 
-.summary {
+.ons-summary {
   &__items {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
 
-    + .summary__group-title {
+    + .ons-summary__group-title {
       margin-top: 1.5rem;
     }
   }
@@ -22,7 +24,7 @@ $hub-row-spacing: 1.3rem;
     }
 
     &--total {
-      @extend .u-fs-m;
+      @extend .ons-u-fs-m;
 
       border-width: 2px;
       font-weight: 700;
@@ -61,8 +63,8 @@ $hub-row-spacing: 1.3rem;
       left: 0;
       position: absolute;
       text-align: center;
-      &--check {
-        fill: $color-leaf-green;
+      &--check .ons-svg-icon {
+        fill: $color-leaf-green !important;
       }
     }
   }
@@ -83,7 +85,7 @@ $hub-row-spacing: 1.3rem;
   // Item Modifiers
   &__item--total & {
     &__values {
-      @extend .u-fs-m;
+      @extend .ons-u-fs-m;
     }
   }
 
@@ -101,8 +103,8 @@ $hub-row-spacing: 1.3rem;
       padding-right: $summary-col-spacing;
 
       @include mq('s') {
-        padding-left: $summary-col-spacing / 2;
-        padding-right: $summary-col-spacing / 2;
+        padding-left: math.div($summary-col-spacing, 2);
+        padding-right: math.div($summary-col-spacing, 2);
 
         &:first-child {
           padding-left: $summary-col-spacing;
@@ -122,7 +124,7 @@ $hub-row-spacing: 1.3rem;
     }
 
     &__item-title {
-      @extend .u-fs-r--b;
+      @extend .ons-u-fs-r--b;
 
       padding-top: $hub-row-spacing;
     }
@@ -130,7 +132,7 @@ $hub-row-spacing: 1.3rem;
 
   &:not(&--hub) & {
     &__values {
-      @extend .u-fs-r--b;
+      @extend .ons-u-fs-r--b;
     }
   }
 

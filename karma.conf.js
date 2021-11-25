@@ -1,5 +1,4 @@
 import assert from 'assert';
-import nodeSassGlobImporter from 'node-sass-glob-importer';
 import proxyquireify from 'proxyquireify';
 
 import babelEsmConfig from './babel.conf.esm';
@@ -37,26 +36,22 @@ export default function(config) {
     frameworks: ['browserify', 'mocha', 'chai-spies', 'chai'],
 
     files: [
+      { pattern: 'src/tests/spec/timeout-modal/*.json', included: false, served: true },
       { pattern: 'src/components/**/*.njk', included: false },
-      'src/scss/main.scss',
-      'src/js/public-path-override.js',
+      { pattern: 'src/static/fonts/*', included: false },
+      'build/css/main.css',
       { pattern: 'src/js/polyfills.js', included: process.env.TEST_MODE === 'nomodule' },
       'src/tests/spec/**/*.spec.js',
     ],
 
     exclude: [],
 
-    preprocessors: {
-      'src/scss/main.scss': ['scss'],
-      'src/**/*.js': ['browserify'],
+    proxies: {
+      '/base/src/fonts/': '/base/src/static/fonts/',
     },
 
-    scssPreprocessor: {
-      options: {
-        sourceMap: true,
-        importer: nodeSassGlobImporter(),
-        includePaths: ['./node_modules/normalize-scss/sass', './mode_modules/prismjs/themes'],
-      },
+    preprocessors: {
+      'src/**/*.js': ['browserify'],
     },
 
     browserify: {

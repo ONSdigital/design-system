@@ -24,7 +24,7 @@ export default class SubmitButton {
 
   loaderButton(event) {
     const loaderButtonEl = event.submitter ? event.submitter : this.button;
-    loaderButtonEl.classList.add('is-loading');
+    loaderButtonEl.classList.add('ons-is-loading');
     loaderButtonEl.setAttribute('disabled', true);
   }
 

@@ -1,6 +1,6 @@
 $collapsible-caret-width: 1.5rem;
 
-.collapsible {
+.ons-collapsible {
   &--initialised & {
     &__heading {
       color: $color-text-link;
@@ -16,23 +16,23 @@ $collapsible-caret-width: 1.5rem;
       }
 
       &:focus {
-        .collapsible__title {
-          @extend a:focus;
+        .ons-collapsible__title {
+          @extend %a-focus;
           // extend collapsible focus background behind caret
           margin-left: -$collapsible-caret-width;
           padding-left: $collapsible-caret-width;
         }
-        .collapsible__icon {
+        .ons-collapsible__icon {
           fill: $color-black;
         }
       }
 
       &:hover {
         color: $color-text-link-hover;
-        .collapsible__icon {
+        .ons-collapsible__icon {
           fill: $color-text-link-hover;
         }
-        .collapsible__title {
+        .ons-collapsible__title {
           text-decoration: underline solid $color-text-link-hover 2px;
         }
       }
@@ -74,17 +74,21 @@ $collapsible-caret-width: 1.5rem;
     }
 
     &__content {
-      border-left: 5px solid $color-grey-15;
+      border-left: 4px solid $color-borders-indent;
       display: block;
       margin: 1rem 0 0;
       padding: 0 0 0 1.3em;
+
+      .ons-btn {
+        margin-bottom: 0.5rem;
+      }
     }
   }
 
   &--accordion {
     margin: 0;
-    &.collapsible--open {
-      .svg-icon {
+    &.ons-collapsible--open {
+      .ons-svg-icon {
         left: 0.4rem;
         position: absolute;
         top: 0.25rem;

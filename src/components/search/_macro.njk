@@ -9,9 +9,10 @@
             "type": params.searchButton.type,
             "text": params.searchButton.text,
             "id": params.searchButton.id,
-            "classes": 'btn--small search__btn' + (" " + params.searchButton.classes if params.searchButton.classes else ""),
-            "attribues": params.searchButton.attribues
+            "variants": 'small',
+            "classes": 'ons-search__btn ons-u-mt-xs@xxs@s' + (" " + params.searchButton.classes if params.searchButton.classes else ""),
+            "attributes": params.searchButton.attributes,
+            "iconType": params.searchButton.iconType
         })
     }}
-
 {% endmacro %}

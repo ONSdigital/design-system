@@ -1,10 +1,10 @@
-const exclusiveGroupItemClass = 'js-exclusive-group-item';
-const checkboxClass = 'js-exclusive-checkbox';
-const voiceOverAlertClass = 'js-exclusive-alert';
+const exclusiveGroupItemClass = 'ons-js-exclusive-group-item';
+const checkboxClass = 'ons-js-exclusive-checkbox';
+const voiceOverAlertClass = 'ons-js-exclusive-alert';
 const groupAttrAdjective = 'data-group-adjective';
 const checkboxAttrAdjective = 'data-checkbox-adjective';
-const inputAbbrClass = 'js-input-abbr';
-const inputLegendClass = 'js-input-legend';
+const inputAbbrClass = 'ons-js-input-abbr';
+const inputLegendClass = 'ons-js-input-legend';
 
 export default class MutuallyExclusive {
   constructor(context) {
@@ -100,15 +100,17 @@ export default class MutuallyExclusive {
       label = this.context.querySelector(`.${inputLegendClass}`);
     }
 
-    // This filter is used to strip out any text that is in 'u-vh' elements for accessibility
+    // This filter is used to strip out any text that is in 'ons-u-vh' elements for accessibility
     let labelText;
 
-    if (label.classList.contains(inputAbbrClass)) {
-      labelText = label.getAttribute('title');
-    } else if (label.classList.contains(inputLegendClass) && label.querySelector('h1')) {
-      labelText = label.querySelector('h1').innerText;
-    } else {
-      labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
+    if (label) {
+      if (label.classList.contains(inputAbbrClass)) {
+        labelText = label.getAttribute('title');
+      } else if (label.classList.contains(inputLegendClass) && label.querySelector('h1')) {
+        labelText = label.querySelector('h1').innerText;
+      } else {
+        labelText = [...label.childNodes].filter(node => node.nodeType === 3 && node.textContent.trim())[0].textContent.trim();
+      }
     }
 
     return labelText;
@@ -136,7 +138,7 @@ export default class MutuallyExclusive {
 
     if (!this.deselectMessageElement && groupElementSelected) {
       const deselectMessageElement = document.createElement('span');
-      deselectMessageElement.classList.add('u-vh');
+      deselectMessageElement.classList.add('ons-u-vh');
       deselectMessageElement.innerHTML = `. ${this.deselectMessage}`;
 
       this.deselectMessageElement = deselectMessageElement;

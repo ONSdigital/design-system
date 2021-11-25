@@ -1,7 +1,7 @@
-| Name  | Type         | Required | Description                          |
-| ----- | ------------ | -------- | ------------------------------------ |
-| title | string       | true     | The descriptive title for a tab set. |
-| tabs  | `Array<tab>` | true     | An array of tabs to render.          |
+| Name  | Type                        | Required | Description                          |
+| ----- | --------------------------- | -------- | ------------------------------------ |
+| title | string                      | true     | The descriptive title for a tab set. |
+| tabs  | `Array<tab>`[_(ref)_](#tab) | true     | An array of tabs to render.          |
 
 ## Tab
 

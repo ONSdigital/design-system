@@ -1,0 +1,9 @@
+{% from "components/button/_macro.njk" import onsButton %}
+{{
+    onsButton({
+        "buttonStyle": 'download',
+        "text": 'Save answers as PDF',
+        "url": '#0',
+        "variants": ['small', 'secondary']
+    })
+}}

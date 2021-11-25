@@ -1,49 +1,86 @@
 {% from "components/table/_macro.njk" import onsTable %}
 {{
     onsTable({
-        "table_class": "table--responsive",
+        "variants": 'responsive',
         "caption": "Responsive table with stacked rows for small viewports",
         "ths": [
             {
-                "value": "Column A"
+                "value": "Country"
             },
             {
-                "value": "Column B"
+                "value": "Highest mountain"
             },
             {
-                "value": "Column C"
+                "value": "Height in metres",
+                "numeric": true
             }
         ],
         "trs": [
             {
                 "tds": [
                     {
-                        "value": "Cell A1",
-                        "data": "Column A"
+                        "value": "Scotland",
+                        "data": "Country"
                     },
                     {
-                        "value": "Cell B1",
-                        "data": "Column B"
+                        "value": "Ben Nevis",
+                        "data": "Highest mountain"
                     },
                     {
-                        "value": "Cell C1",
-                        "data": "Column C"
+                        "value": "1,345",
+                        "data": "Height",
+                        "numeric": true
                     }
                 ]
             },
             {
                 "tds": [
                     {
-                        "value": "Cell A2",
-                        "data": "Column A"
+                        "value": "Wales",
+                        "data": "Country"
                     },
                     {
-                        "value": "Cell B2",
-                        "data": "Column B"
+                        "value": "Snowdon",
+                        "data": "Highest mountain"
                     },
                     {
-                        "value": "Cell C2",
-                        "data": "Column C"
+                        "value": "1,085",
+                        "data": "Height",
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "value": "England",
+                        "data": "Country"
+                    },
+                    {
+                        "value": "Scafell Pike",
+                        "data": "Highest mountain"
+                    },
+                    {
+                        "value": "978",
+                        "data": "Height",
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "tds": [
+                    {
+                        "value": "Northern Ireland",
+                        "data": "Country"
+                    },
+                    {
+                        "value": "Slieve Donard",
+                        "data": "Highest mountain"
+                    },
+                    {
+                        "value": "850",
+                        "data": "Height",
+                        "numeric": true
                     }
                 ]
             }

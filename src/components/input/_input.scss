@@ -1,4 +1,9 @@
-.input {
+%ons-input-focus {
+  box-shadow: 0 0 0 3px $color-focus, inset 0 0 0 1px $color-input;
+  outline: none;
+}
+
+.ons-input {
   border: $input-border-width solid $color-input;
   border-radius: $input-radius;
   color: inherit;
@@ -18,7 +23,7 @@
   @include mq(s) {
     &--text,
     &--select {
-      &:not(.input--block):not([class*='input--w-']) {
+      &:not(.ons-input--block):not([class*='input--w-']) {
         width: $input-width;
       }
     }
@@ -31,8 +36,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 3px $color-focus, inset 0 0 0 1px $color-input;
-    outline: none;
+    @extend %ons-input-focus;
   }
 
   &:disabled {
@@ -51,23 +55,23 @@
 }
 
 // Text input widths
-@include input-width('input--w-{x}');
+@include input-width('ons-input--w-{x}');
 
 // Number input widths
-@include input-width('input-number--w-{x}', 0.54rem);
+@include input-width('ons-input-number--w-{x}', 0.54rem);
 
-.input--postcode {
+.ons-input--postcode {
   max-width: input-width-calc($chars: 5, $num-chars: 2, $spaces: 1);
   width: 100%;
 }
 
-.input__helper {
+.ons-input__helper {
   font-size: 0.8rem;
   font-weight: $font-weight-bold;
   margin-top: 0.2rem;
 }
 
-.input--select {
+.ons-input--select {
   appearance: none;
   background: $color-white url('#{$static}/img/icons--chevron-down.svg') no-repeat center right 10px;
   background-size: 1rem;
@@ -79,38 +83,68 @@
   }
 }
 
-.input--textarea {
+.ons-input--textarea {
   line-height: normal;
   resize: vertical;
   width: 100%;
 }
 
-.input--block {
+.ons-input--block {
   display: block;
   width: 100%;
 }
 
-.input--placeholder {
+.ons-input--placeholder {
   background: transparent;
   &::placeholder {
     color: transparent;
   }
   &:valid:not(:placeholder-shown) {
-    background: $color-white;
+    background-color: $color-white;
   }
   &:focus {
-    background: $color-white;
+    background-color: $color-white;
   }
 }
 
-.input--limit-reached:not(:focus) {
+.ons-input--limit-reached:not(:focus) {
   border: $input-border-width solid $color-ruby-red;
 }
 
-.input__limit {
+.ons-input__limit {
   display: block;
 
   &--reached {
     color: $color-ruby-red;
+  }
+}
+
+.ons-input--ghost {
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  &:focus {
+    border: 2px solid $color-input;
+  }
+}
+
+.ons-input-search {
+  @extend .ons-input--block;
+
+  &--icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%23ffffff'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z'/%3E%3C/svg%3E");
+    background-position: 12px 10px;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    padding-left: 2.4rem;
+
+    &:focus,
+    &:active,
+    &:valid:not(:placeholder-shown) {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='%23000000'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M11.86 10.23 8.62 6.99a4.63 4.63 0 1 0-6.34 1.64 4.55 4.55 0 0 0 2.36.64 4.65 4.65 0 0 0 2.33-.65l3.24 3.23a.46.46 0 0 0 .65 0l1-1a.48.48 0 0 0 0-.62Zm-5-3.32a3.28 3.28 0 0 1-2.31.93 3.22 3.22 0 1 1 2.35-.93Z'/%3E%3C/svg%3E");
+    }
+    &:focus,
+    &:active {
+      background-position: 12px 10px;
+      box-shadow: 0 0 0 3px $color-focus;
+    }
   }
 }

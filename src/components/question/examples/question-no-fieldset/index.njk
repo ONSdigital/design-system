@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "styles/page-template/_template.njk" %}
+{% extends "foundations/layout/page-template/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/input/_macro.njk" import onsInput %}
@@ -22,14 +22,14 @@ layout: none
 
 {% block main %}
     {% call onsQuestion({
-        "title": "How many visitors are staying overnight at <em>3 Severn Road</em> on 13 May 2019?",
+        "title": "How many visitors are staying overnight at 3 Severn Road on 13 May 2019?",
         "description": "<p>Enter “0” if there are no visitors staying overnight</p>"
     }) %}
         {{ onsInput({
             "id": "number-of-visitors",
             "name": "number-of-visitors",
             "type": "number",
-            "classes": "input-number--w-2",
+            "width": "2",
             "label": {
                 "text": "Number of visitors"
             }
@@ -37,7 +37,7 @@ layout: none
 
         {% call onsCollapsible({
             "id": "question-justification",
-            "title": "Why your answer is important",
+            "title": "Why we ask this question",
             "button": {
                 "close": "Hide this"
             }
@@ -48,6 +48,6 @@ layout: none
 
     {{ onsButton({
         "text": "Save and continue",
-        "classes": "u-mt-xl"
+        "classes": "ons-u-mt-xl"
     }) }}
 {% endblock %}

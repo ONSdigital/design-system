@@ -1,7 +1,37 @@
 ---
 title: Components
-sortOrder: 3
+sortOrder: 4
 ---
-Components are reusable parts of the user interface that have been made to support a variety of applications.
 
-Individual components can be used in multiple different [patterns](/patterns) and contexts. For example, the [text input](/components/input) component can be used to ask for an [email](/components/input#email) address, annual salary, or someone’s name.
++++
+{% from "components/lists/_macro.njk" import onsList %}
++++
+
+Components are the building blocks for any user interface.
+
+Individual components can be used for various patterns and contexts. For example, the input component can be used to ask for an email address, a date or a name.
+
+Each component has guidance on:
+{{
+    onsList({
+        "itemsList": [
+            {
+                "text": 'when to use it'
+            },
+            {
+                "text": 'how to use it'
+            },
+            {
+                "text": 'variations you can use'
+            },
+            {
+                "text": 'how to check it for errors'
+            },
+            {
+                "text": 'user research done on it'
+            }
+        ]
+    })
+}}
+
+You are welcome to [contribute a new component or a change to an existing component](/contribute).

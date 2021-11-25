@@ -37,7 +37,7 @@ $color-indigo-blue: #3c388e;
 $color-plum-purple: #902082;
 $color-flamingo-pink: #df0667;
 
-// Nisra logo
+// NISRA logo
 $color-nisra-logo-primary: #3d7cc9;
 $color-nisra-logo-secondary: #cddb00;
 $color-nisra-logo-tertiary: #00205c;
@@ -78,12 +78,13 @@ $color-text-inverse-link-hover: $color-grey-5 !default;
 $color-text-banner-link: $color-grey-100 !default;
 $color-text-banner-link-hover: $color-black !default;
 
-// Styles
+// Foundations
 $color-focus: $color-sun-yellow !default;
 $color-highlight: $color-neon-yellow !default;
 
 // Borders
 $color-borders: $color-grey-75 !default;
+$color-borders-indent: $color-grey-35 !default;
 $color-document-border: $color-grey-15 !default;
 $color-document-border-focus: $color-black !default;
 

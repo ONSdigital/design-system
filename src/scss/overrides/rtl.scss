@@ -1,4 +1,6 @@
-.rtl .page__container > .grid {
+@use 'sass:math';
+
+.ons-rtl .ons-page__container > .ons-grid {
   direction: rtl;
 
   ul {
@@ -7,7 +9,7 @@
   }
 
   // List
-  .list {
+  .ons-list {
     padding: 0 1.5rem 0 0;
 
     &__link {
@@ -22,7 +24,7 @@
     &--dashed {
       padding-right: 0;
 
-      .list__item {
+      .ons-list__item {
         margin-left: 0;
         margin-right: 25px;
 
@@ -37,7 +39,7 @@
   }
 
   // Panel
-  .panel {
+  .ons-panel {
     border-left: 0;
     border-right: 8px solid transparent;
 
@@ -47,28 +49,28 @@
 
     &--warn,
     &--warn-branded {
-      .panel__body {
+      .ons-panel__body {
         padding: 0.222rem 2.8rem 0.222rem 0;
       }
     }
 
     &--bare {
-      .panel__body {
+      .ons-panel__body {
         padding: 0.1rem 1.5rem 0 0;
       }
     }
   }
 
   // Buttons
-  .btn {
-    .svg-icon {
+  .ons-btn {
+    .ons-svg-icon {
       margin: 0 0.5rem 0.1rem 0;
       transform: rotate(180deg);
     }
   }
 
   // Content pagination
-  .content-pagination {
+  .ons-content-pagination {
     &__list {
       padding: 0;
     }
@@ -81,13 +83,13 @@
       margin: 0 2rem 0 0;
     }
 
-    &__link-icon {
+    .ons-svg-icon {
       transform: rotate(180deg);
     }
   }
 
   // Download
-  .download {
+  .ons-download {
     &__image {
       margin-left: 1.5rem;
       margin-right: 0;
@@ -97,14 +99,14 @@
   // Flip push and pull
   @each $breakpoint-min, $size in $grid-bp {
     @for $column from 1 through $grid-cols {
-      $width: percentage($column / $grid-cols);
+      $width: percentage(math.div($column, $grid-cols));
 
       @include mq($breakpoint-min) {
-        .push-#{$column}\@#{$breakpoint-min} {
+        .ons-push-#{$column}\@#{$breakpoint-min} {
           left: -$width;
         }
 
-        .pull-#{$column}\@#{$breakpoint-min} {
+        .ons-pull-#{$column}\@#{$breakpoint-min} {
           left: $width;
         }
       }
@@ -112,14 +114,14 @@
 
     @each $breakpoint-max, $size in $grid-bp {
       @for $column from 1 through $grid-cols {
-        $width: percentage($column / $grid-cols);
+        $width: percentage(math.div($column, $grid-cols));
 
         @include mq($breakpoint-min, $breakpoint-max) {
-          .push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+          .ons-push-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
             left: -$width;
           }
 
-          .pull-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
+          .ons-pull-#{$column}\@#{$breakpoint-min}\@#{$breakpoint-max} {
             left: $width;
           }
         }

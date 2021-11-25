@@ -1,20 +1,21 @@
 @import 'vars/index';
-@import 'helpers/*.scss';
-@import '../views/partials/**/*.scss';
-@import '../styles/page-template/examples/block-areas/block-areas';
-@import '../pages/patterns/question/examples/question-anatomy/pl-question-anatomy';
+@import 'helpers/index';
+@import '../views/partials/example/example';
+@import '../views/partials/sub-navigation/sub-navigation';
+@import '../foundations/layout/page-template/examples/block-areas/block-areas';
+@import '../patterns/pages/question/examples/question-anatomy/pl-question-anatomy';
 @import 'prism-tomorrow';
 
-.patternlib-page {
+.ons-patternlib-page {
   height: 100vh;
 
   &--example {
     display: block;
     height: auto;
-    padding: 1rem 1.5rem;
+    padding: 1.5rem;
 
-    .page,
-    .page__content {
+    .ons-page,
+    .ons-page__content {
       overflow-x: visible;
     }
   }
@@ -24,7 +25,7 @@
   }
 
   &__sub-nav {
-    .nav {
+    .ons-nav {
       width: 100%;
     }
   }
@@ -44,10 +45,9 @@
       max-width: 40rem;
     }
 
-    code:not(.patternlib-example__code) {
+    code:not(.ons-patternlib-example__code) {
       background: $color-grey-5;
       color: $color-ruby-red;
-      display: inline-block;
       padding: 0.05rem 0.25rem;
     }
 
@@ -59,22 +59,84 @@
     }
 
     th {
-      background: $color-white;
-      border-bottom: 2px solid $color-grey-35;
-      position: sticky;
+      border-bottom: 2px solid $color-grey-100;
+      padding: 0.5rem 0 0.5rem 1rem;
       text-align: left;
-      top: 0;
+      vertical-align: top;
     }
 
     th,
     td {
-      line-height: 1.4;
-      padding: 0.5rem 0.25rem;
+      line-height: 1.6;
+      padding: 0.5rem 0 0.5rem 1rem;
+      &:first-child {
+        padding-left: 0;
+      }
     }
 
     td {
       background: transparent;
-      border-bottom: 1px solid $color-grey-35;
+      border-bottom: 1px solid $color-borders;
+    }
+
+    tr:last-child td {
+      border: 0;
+    }
+  }
+
+  .ons-table-scrollable {
+    position: relative;
+    ::-webkit-scrollbar {
+      height: 7px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: $color-grey-75;
+      border-radius: 20px;
+    }
+    &--on {
+      th,
+      td {
+        white-space: nowrap;
+      }
+    }
+    &__content {
+      overflow: visible;
+      overflow-x: scroll;
+      width: 100%;
+      &:focus {
+        outline: 3px solid $color-focus;
+        outline-offset: 3px;
+      }
+      th,
+      td {
+        @include mq(xxs, m) {
+          white-space: nowrap;
+        }
+      }
+      .ons-table__right-shadow,
+      .ons-table__left-shadow {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 5px;
+        z-index: 200;
+
+        &.ons-with-transition {
+          transition: box-shadow 0.4s ease-out;
+        }
+      }
+      .ons-table__right-shadow {
+        right: 0;
+        &.ons-visible {
+          box-shadow: inset -1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
+        }
+      }
+      .ons-table__left-shadow {
+        left: 0;
+        &.ons-visible {
+          box-shadow: inset 1px 0 0 0 #bfc1c3, inset -5px 0 0 0 rgba(191, 193, 195, 0.4);
+        }
+      }
     }
   }
 
@@ -112,12 +174,16 @@
     position: relative;
   }
 
-  .panel + .patternlib-example {
+  .ons-panel + .ons-patternlib-example {
     margin-top: 2rem;
   }
 }
 
-.patternlib-hero {
+.ons-patternlib-example__iframe {
+  padding-right: 1px;
+}
+
+.ons-patternlib-hero {
   background: $color-grey-5;
   padding: 2rem 0 1rem;
   width: 100%;
@@ -127,14 +193,14 @@
   }
 }
 
-.pl-grid-col {
+.ons-pl-grid-col {
   background: $color-grey-5;
   font-size: 0.8rem;
   margin: 0 0 1rem;
   padding: 1rem;
 }
 
-.pl-experimental-tag {
+.ons-pl-experimental-tag {
   background: $color-info;
   color: $color-text-inverse;
   display: inline-block;

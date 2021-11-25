@@ -40,7 +40,7 @@ describe('Function: Link Button ', function() {
 
   describe('Before the button is initialised', () => {
     it('Button should have relevant classes', () => {
-      expect(buttonElement.classList.contains('btn--link')).to.be.true;
+      expect(buttonElement.classList.contains('ons-btn--link')).to.be.true;
     });
   });
 

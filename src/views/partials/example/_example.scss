@@ -1,4 +1,4 @@
-.patternlib-example {
+.ons-patternlib-example {
   $c: &;
 
   border: 1px solid $color-borders;
@@ -8,6 +8,12 @@
 
   &__frame {
     background: $color-borders;
+  }
+
+  &__header {
+    border-bottom: 1px solid $color-borders;
+    padding: 0.5rem 1rem 0.7rem;
+    width: 100%;
   }
 
   &__iframe {
@@ -30,16 +36,24 @@
 
   &__link,
   &__tab {
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
     color: $color-text-link;
     cursor: pointer;
     display: inline-block;
-    padding: 0.5rem 1rem;
-  }
+    margin-right: 0;
+    padding: 1rem;
+    position: relative;
+    text-decoration: underline;
+    text-underline-position: under;
+    &:hover {
+      background-color: darken($color-white, 5%);
+      text-decoration-thickness: 2px;
+    }
 
-  &__header {
-    border-bottom: 1px solid $color-borders;
-    padding: 0.5rem 1rem;
-    width: 100%;
+    @include mq(xxs, l) {
+      width: 100%;
+    }
   }
 
   &__panel {
@@ -48,10 +62,49 @@
     padding: 1rem;
   }
 
-  @for $i from 1 through 4 {
+  @for $i from 1 through 5 {
     &__radio:nth-of-type(#{$i}):checked ~ {
       #{$c}__tabs > #{$c}__tab:nth-of-type(#{$i}) {
-        background: $color-grey-5;
+        background: $color-white;
+        border-left: 1px solid $color-borders;
+        border-right: 1px solid $color-borders;
+        color: $color-text;
+        text-decoration: none;
+        &::after {
+          background: #fff;
+          bottom: -1px;
+          box-shadow: none;
+          content: '';
+          height: 0.09rem;
+          left: 0;
+          position: absolute;
+          right: 0;
+          z-index: 3;
+        }
+
+        @include mq(xxs, l) {
+          background-color: $color-button-secondary;
+          border-left: 0;
+          border-right: 0;
+          &::after {
+            background: none;
+            content: none;
+          }
+        }
+      }
+
+      #{$c}__tabs > #{$c}__tab:nth-of-type(1) {
+        border-left: 0;
+
+        @include mq(xxs, l) {
+          border-top: 0;
+        }
+      }
+
+      #{$c}__tabs > #{$c}__tab:last-of-type {
+        @include mq(xxs, l) {
+          border-bottom: 0;
+        }
       }
 
       #{$c}__panels > #{$c}__panel:nth-of-type(#{$i}) {
@@ -76,28 +129,9 @@
   }
 }
 
-.macro-options {
-  background: $color-grey-5;
-  margin: 0 0 1rem;
-  padding: 0.5rem 1rem;
-
-  &__summary {
-    color: $color-text-link;
-    cursor: pointer;
-    outline: none;
-  }
-
+.ons-macro-options {
   &__content {
     padding: 0.5rem 0;
-
-    th {
-      background: $color-grey-5;
-    }
-
-    code {
-      background: $color-white !important;
-    }
-
     h2,
     h3,
     h4,

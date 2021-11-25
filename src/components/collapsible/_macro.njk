@@ -3,25 +3,25 @@
 
     <div
         id="{{ params.id }}"
-        class="collapsible js-collapsible{% if params.isAccordion is defined and params.isAccordion %} collapsible--accordion{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
+        class="ons-collapsible ons-js-collapsible{% if params.isAccordion is defined and params.isAccordion %} ons-collapsible--accordion{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
         {% if params.button is defined and params.button and params.button.close is defined and params.button.close %} data-btn-close="{{ params.button.close }}"{% endif %}
         {% if params.group is defined and params.group %} data-group="{{ params.group }}"{% endif %}
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         {% if params.saveState is defined and params.saveState %} data-save-state="true"{% endif %}
     >
         <div
-            class="collapsible__heading js-collapsible-heading"
+            class="ons-collapsible__heading ons-js-collapsible-heading"
             {% if params.headingAttributes is defined and params.headingAttributes %}{% for attribute, value in (params.headingAttributes.items() if params.headingAttributes is mapping and params.headingAttributes.items else params.headingAttributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
             {# Required to use display flex on Safari as it's not currently supported: https://bugs.webkit.org/show_bug.cgi?id=167111 #}
-            <div class="collapsible__controls">
+            <div class="ons-collapsible__controls">
                 {% set titleTag = params.titleTag | default("div") %}
-                <{{ titleTag }} class="collapsible__title">{{ params.title }}</{{ titleTag }}>
-                <span class="collapsible__icon">
+                <{{ titleTag }} class="ons-collapsible__title">{{ params.title }}</{{ titleTag }}>
+                <span class="ons-collapsible__icon">
                     {% from "components/icons/_macro.njk" import onsIcon %}
                     {{
                         onsIcon({
-                            "icon": "chevron"
+                            "iconType": "chevron"
                         })
                     }}</span>
                 {% if params.button is defined and params.button and params.button.open is defined and params.button.open and params.isAccordion is defined and params.isAccordion %}
@@ -29,15 +29,16 @@
                         onsButton({
                             "type": "button",
                             "text": params.button.open,
-                            "classes": "collapsible__btn btn--secondary btn--small js-collapsible-button u-d-no u-d-no@xxs@s",
-                            "innerClasses": "js-collapsible-button-inner",
+                            "classes": "ons-collapsible__btn ons-js-collapsible-button ons-u-d-no ons-u-d-no@xxs@s",
+                            "innerClasses": "ons-js-collapsible-button-inner",
+                            "variants": ["secondary", "small"],
                             "attributes": params.button.attributes
                         })
                     }}
                 {% endif %}
             </div>
         </div>
-        <div id="{{ params.id }}-content" class="collapsible__content js-collapsible-content"
+        <div id="{{ params.id }}-content" class="ons-collapsible__content ons-js-collapsible-content"
             {% if params.contentAttributes is defined and params.contentAttributes %}{% for attribute, value in (params.contentAttributes.items() if params.contentAttributes is mapping and params.contentAttributes.items else params.contentAttributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
             {% if params.isAccordion is defined and params.isAccordion %}
@@ -50,8 +51,9 @@
                             "type": "button",
                             "text": params.button.close,
                             "buttonContext": (params.button.context | default(params.title)) + " " + params.button.contextSuffix,
-                            "classes": "btn--small js-collapsible-button u-d-no " + (params.button.classes | default("btn--secondary")),
-                            "innerClasses": "js-collapsible-button-inner",
+                            "classes": "ons-js-collapsible-button ons-u-d-no " + (params.button.classes | default("ons-btn--secondary")),
+                            "innerClasses": "ons-js-collapsible-button-inner",
+                            "variants": "small",
                             "attributes": params.button.attributes
                         })
                     }}

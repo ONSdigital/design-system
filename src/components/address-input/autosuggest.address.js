@@ -4,12 +4,12 @@ import AutosuggestUI from '../autosuggest/autosuggest.ui';
 import AddressError from './autosuggest.address.error';
 import AddressSetter from './autosuggest.address.setter';
 
-export const classInputContainer = 'autosuggest-input';
-export const classNotEditable = 'js-address-not-editable';
-export const classMandatory = 'js-address-mandatory';
-export const classSearch = 'js-address-input__search';
-export const classInput = 'js-autosuggest-input';
-export const classInputUPRN = 'js-hidden-uprn';
+export const classInputContainer = 'ons-autosuggest-input';
+export const classNotEditable = 'ons-js-address-not-editable';
+export const classMandatory = 'ons-js-address-mandatory';
+export const classSearch = 'ons-js-address-input__search';
+export const classInput = 'ons-js-autosuggest-input';
+export const classInputUPRN = 'ons-js-hidden-uprn';
 
 export default class AutosuggestAddress {
   constructor(context) {
@@ -54,7 +54,6 @@ export default class AutosuggestAddress {
       suggestionFunction: this.suggestAddresses.bind(this),
       sanitisedQueryReplaceChars: this.addressReplaceChars,
       sanitisedQuerySplitNumsChars: this.sanitisedQuerySplitNumsChars,
-      minChars: 3,
       suggestOnBoot: true,
       handleUpdate: true,
     });
@@ -66,6 +65,7 @@ export default class AutosuggestAddress {
     this.retrieveURL = `${this.APIDomain}/addresses/eq/uprn/`;
 
     // Query string options
+    this.manualQueryParams = this.container.getAttribute('data-query-params');
     this.regionCode = this.container.getAttribute('data-options-region-code');
     this.epoch = this.container.getAttribute('data-options-one-year-ago');
     this.classificationFilter = this.container.getAttribute('data-options-address-type');
@@ -117,14 +117,20 @@ export default class AutosuggestAddress {
   findAddress(text, grouped) {
     return new Promise((resolve, reject) => {
       let queryURL, fullQueryURL;
-      const testInput = this.testFullPostcodeQuery(text);
-      let limit = testInput ? 100 : 10;
 
-      queryURL = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
+      if (this.manualQueryParams) {
+        const manualQueryParams = this.container.getAttribute('data-query-params');
+        fullQueryURL = this.lookupURL + text + manualQueryParams;
+      } else {
+        const fullPostcodeQuery = this.testFullPostcodeQuery(text);
+        let limit = fullPostcodeQuery ? 100 : 10;
 
-      fullQueryURL = this.generateURLParams(queryURL);
-      if (testInput && grouped !== false) {
-        fullQueryURL = fullQueryURL + '&groupfullpostcodes=combo';
+        queryURL = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
+
+        fullQueryURL = this.generateURLParams(queryURL);
+        if (fullPostcodeQuery && grouped !== false) {
+          fullQueryURL = fullQueryURL + '&groupfullpostcodes=combo';
+        }
       }
 
       this.fetch = abortableFetch(fullQueryURL, {
@@ -210,7 +216,7 @@ export default class AutosuggestAddress {
           (townName === postTown ? postTown : townName + ', ' + postTown) +
           ', ' +
           postcode +
-          ' (<span class="autosuggest-input__group">' +
+          ' (<span class="ons-autosuggest-input__group">' +
           this.groupCount.replace(`{n}`, addressCount) +
           '</span>)',
         postcode,
@@ -393,8 +399,8 @@ export default class AutosuggestAddress {
 
   handleAPIError() {
     this.addressSetter.setManualMode(true, false);
-    const searchBtn = document.querySelector('.js-address-search-btn');
-    searchBtn.classList.add('u-d-no');
+    const searchBtn = document.querySelector('.ons-js-address-search-btn');
+    searchBtn.classList.add('ons-u-d-no');
   }
 
   handleSubmit(event) {

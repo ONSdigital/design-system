@@ -1,17 +1,17 @@
 import AddressError from './autosuggest.address.error';
 
-export const classAutosuggestInput = 'js-autosuggest-input';
-export const classLine1 = 'js-address-line1';
-export const classLine2 = 'js-address-line2';
-export const classTown = 'js-address-town';
-export const classPostcode = 'js-address-postcode';
-export const classInputUPRN = 'js-hidden-uprn';
-export const classSearch = 'js-address-input__search';
-export const classManual = 'js-address-input__manual';
-export const classSearchButton = 'js-address-search-btn';
-export const classmanualLink = 'js-address-manual-btn';
-export const classErrorPanel = 'panel--error';
-export const classJsErrorPanel = 'js-autosuggest-error-panel';
+export const classAutosuggestInput = 'ons-js-autosuggest-input';
+export const classLine1 = 'ons-js-address-line1';
+export const classLine2 = 'ons-js-address-line2';
+export const classTown = 'ons-js-address-town';
+export const classPostcode = 'ons-js-address-postcode';
+export const classInputUPRN = 'ons-js-hidden-uprn';
+export const classSearch = 'ons-js-address-input__search';
+export const classManual = 'ons-js-address-input__manual';
+export const classSearchButton = 'ons-js-address-search-btn';
+export const classmanualLink = 'ons-js-address-manual-btn';
+export const classErrorPanel = 'ons-panel--error';
+export const classJsErrorPanel = 'ons-js-autosuggest-error-panel';
 
 export default class AddressSetter {
   constructor(context) {
@@ -55,10 +55,10 @@ export default class AddressSetter {
   }
 
   setManualMode(manual, clearInputs) {
-    this.manual.classList[manual ? 'remove' : 'add']('u-db-no-js_enabled');
-    this.search.classList[manual ? 'add' : 'remove']('u-d-no');
+    this.manual.classList[manual ? 'remove' : 'add']('ons-u-db-no-js_enabled');
+    this.search.classList[manual ? 'add' : 'remove']('ons-u-d-no');
     if (this.errorPanel) {
-      this.errorPanel.classList[manual ? 'remove' : 'add']('u-d-no');
+      this.errorPanel.classList[manual ? 'remove' : 'add']('ons-u-d-no');
     }
 
     if (clearInputs) {

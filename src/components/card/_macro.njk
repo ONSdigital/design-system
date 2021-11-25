@@ -4,19 +4,19 @@
 
   {% set titleSize = params.titleSize | default('2') %}
 
-  <div class="card" aria-labelledBy="{{ params.id }}" aria-describedBy="{{ params.textId }}">
+  <div class="ons-card" aria-labelledBy="{{ params.id }}" aria-describedBy="{{ params.textId }}">
     
     {%- if params.image -%}
     
-      <a href="{{ params.url }}" class="card__link u-db">
+      <a href="{{ params.url }}" class="ons-card__link ons-u-db">
 
         {% if params.image is defined and params.image and params.image.smallSrc is defined and params.image.smallSrc %}
-            <img class="card__image u-mb-s" height="200" width="303" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}" loading="lazy">
+            <img class="ons-card__image ons-u-mb-s" height="200" width="303" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}" loading="lazy">
         {% else %}
-            <img class="card__image u-mb-s" height="100" width="303" srcset="{{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/small/placeholder-card.png 1x, {{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/large/placeholder-card.png 2x" src="{{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/small/placeholder-card.png" alt="Image placeholder" loading="lazy">
+            <img class="ons-card__image ons-u-mb-s" height="100" width="303" srcset="{{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/small/placeholder-card.png 1x, {{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/large/placeholder-card.png 2x" src="{{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/small/placeholder-card.png" alt="Image placeholder" loading="lazy">
         {% endif %}
 
-        <h{{ titleSize }} class="card__title {{ params.titleClasses | default('u-fs-m')}}" id="{{ params.id }}">
+        <h{{ titleSize }} class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m')}}" id="{{ params.id }}">
           {{ params.title }}
         </h{{ titleSize }}>
 
@@ -24,7 +24,7 @@
 
     {%- else -%}
 
-      <h{{ titleSize }} class="{{ params.titleClasses | default('u-fs-m') }}" id="{{ params.id }}">
+      <h{{ titleSize }} class="{{ params.titleClasses | default('ons-u-fs-m') }}" id="{{ params.id }}">
         <a href="{{ params.url }}">{{ params.title }}</a>
       </h{{ titleSize }}>
 
@@ -35,7 +35,7 @@
     {% if params.itemsList is defined and params.itemsList -%}
       {{
           onsList({
-              "classes": 'list--dashed',
+              "variants": 'dashed',
               "itemsList": params.itemsList
           })
       }}

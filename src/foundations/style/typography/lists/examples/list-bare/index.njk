@@ -1,0 +1,21 @@
+{% from "components/lists/_macro.njk" import onsList %}
+{{
+    onsList({
+        "variants": 'bare',
+        "itemsList": [
+            {
+                "url": '#',
+                "text": 'Who we are',
+                "target": '_blank'
+            },
+            {
+                "url": '#',
+                "text": 'What we do'
+            },
+            {
+                "url": '#',
+                "text": 'Where to find us'
+            }
+        ]
+    })
+}}
