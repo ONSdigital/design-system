@@ -25,19 +25,19 @@ module.exports = {
 
   launchers: {
     bs_mac_safari: {
-      exe: 'browserstack.js',
+      exe: './ci/tests/browserstack.js',
       args: ['OSX', 'Catalina', 'safari', '13.0', ''],
       protocol: 'browser',
     },
 
     bs_windows_10_IE_edge: {
-      exe: 'browserstack.js',
+      exe: './ci/tests/browserstack.js',
       args: ['Windows', '10', 'edge', 'latest', ''],
       protocol: 'browser',
     },
 
     bs_windows_10_chrome: {
-      exe: 'browserstack.js',
+      exe: './ci/tests/browserstack.js',
       args: ['Windows', '10', 'chrome', 'latest', ''],
       protocol: 'browser',
     },

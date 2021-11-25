@@ -2,7 +2,6 @@
 
 let WORKER_ID = 0;
 let BrowserStack = require('browserstack');
-let name = null;
 
 let client = BrowserStack.createClient({
   username: process.env.BROWSER_STACK_USERNAME,
