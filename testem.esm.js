@@ -13,7 +13,7 @@ module.exports = {
   test_page: 'src/tests/tests.mustache',
 
   launch_in_dev: ['chrome'],
-  launch_in_ci: ['bs_chrome'],
+  launch_in_ci: ['bs_windows_10_chrome'],
 
   on_start: {
     command: "kill -9 $(ps -A | grep BrowserStackLocal | grep -v grep | cut -d ' ' -f2); node start-BrowserStackLocal.js &",
