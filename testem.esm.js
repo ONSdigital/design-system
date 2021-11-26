@@ -25,7 +25,7 @@ module.exports = {
 
   launchers: {
     bs_chrome: {
-      command: "node ./ci/tests/browserstack.js 'OS X' 'El Capitan' chrome latest nil <url>",
+      command: 'node ./ci/tests/browserstack.js Windows 10 chrome latest nil <url>',
       protocol: 'browser',
     },
   },
