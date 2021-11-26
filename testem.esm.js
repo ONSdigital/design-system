@@ -24,8 +24,9 @@ module.exports = {
   on_exit: 'node stop-BrowserStackLocal.js `cat browserStackLocal.pid`; rm -f browserStackLocal.pid',
 
   launchers: {
-    bs_chrome: {
-      command: 'node ./ci/tests/browserstack.js Windows 10 chrome latest nil <url>',
+    bs_windows_10_chrome: {
+      exe: './ci/tests/browserstack.js',
+      args: ['Windows', '10', 'chrome', 'latest', ''],
       protocol: 'browser',
     },
   },
