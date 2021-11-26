@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
 let BrowserStackTunnel = require('browserstacktunnel-wrapper');
-let pidFile = 'browserStackLocal.pid';
-let fs = require('fs');
 
 let browserStackTunnel = new BrowserStackTunnel({
   key: process.env.BROWSER_STACK_ACCESS_KEY,
@@ -21,8 +19,6 @@ process.on('SIGINT', function() {
     });
   }
 });
-
-fs.writeFile(pidFile, process.pid);
 
 browserStackTunnel.start(function(error) {
   if (error) {

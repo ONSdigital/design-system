@@ -13,7 +13,7 @@ module.exports = {
   test_page: 'src/tests/tests.mustache',
 
   launch_in_dev: ['chrome'],
-  launch_in_ci: ['bs_windows_10_chrome'],
+  launch_in_ci: ['bs_chrome'],
 
   on_start: {
     command: "kill -9 $(ps -A | grep BrowserStackLocal | grep -v grep | cut -d ' ' -f2); node start-BrowserStackLocal.js &",
@@ -21,12 +21,11 @@ module.exports = {
     wait_for_text_timeout: 300000,
   },
 
-  on_exit: 'node stop-BrowserStackLocal.js `cat browserStackLocal.pid`; rm -f browserStackLocal.pid',
+  on_exit: 'node stop-BrowserStackLocal.js',
 
   launchers: {
-    bs_windows_10_chrome: {
-      exe: './ci/tests/browserstack.js',
-      args: ['Windows', '10', 'chrome', 'latest', ''],
+    bs_chrome: {
+      command: "node ./ci/tests/browserstack.js 'OS X' 'El Capitan' chrome latest nil <url>",
       protocol: 'browser',
     },
   },
