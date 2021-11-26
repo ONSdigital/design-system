@@ -21,7 +21,7 @@ module.exports = {
     wait_for_text_timeout: 300000,
   },
 
-  on_exit: 'node stop-BrowserStackLocal.js',
+  on_exit: 'node stop-BrowserStackLocal.js `cat browserStackLocal.pid`; rm -f browserStackLocal.pid',
 
   launchers: {
     bs_chrome: {
