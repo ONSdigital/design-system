@@ -28,7 +28,7 @@ let settings = {
   url: process.argv[7],
 
   'browserstack.local': true,
-  name: process.env.TESTEM_ID,
+  name: process.argv[4],
   build: `Testem - ${process.env.TESTEM_ID}`,
 };
 
