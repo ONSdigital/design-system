@@ -19,6 +19,16 @@ let client = BrowserStack.createClient({
   });
 });
 
+function shutdown() {
+  if (client !== null) {
+    client.terminateWorker(WORKER_ID, function() {
+      process.exit();
+    });
+  }
+}
+process.stdin.resume();
+process.stdin.on('end', shutdown);
+
 let settings = {
   os: process.argv[2],
   os_version: process.argv[3],
@@ -26,7 +36,6 @@ let settings = {
   browser_version: process.argv[5],
   device: process.argv[6],
   url: process.argv[7],
-
   'browserstack.local': true,
   name: process.argv[4],
   build: `Testem - ${process.env.TESTEM_ID}`,
