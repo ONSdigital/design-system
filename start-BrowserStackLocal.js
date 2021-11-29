@@ -22,7 +22,7 @@ process.on('SIGINT', function() {
   }
 });
 
-fs.writeFileSync(pidFile, process.pid);
+fs.writeFileSync(pidFile, '' + process.pid, { encoding: 'utf8' });
 
 browserStackTunnel.start(function(error) {
   if (error) {

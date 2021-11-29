@@ -28,8 +28,8 @@ let settings = {
   url: process.argv[7],
 
   'browserstack.local': true,
-  name: WORKER_ID,
-  build: 'Testem Tests',
+  name: process.env.TESTEM_ID,
+  build: `Testem - ${process.env.TESTEM_ID}`,
 };
 
 for (let i in settings) {
