@@ -2,10 +2,6 @@ module.exports = {
   framework: 'mocha+chai',
   parallel: 5,
   port: 1337,
-  timeout: 1200,
-  browser_start_timeout: 2000,
-  disable_watching: true,
-  browser_disconnect_timeout: 120,
   serve_files: ['build/scripts/main.js', 'build/scripts/tests.js'],
   routes: {
     '/browser-source-map-support.js': 'node_modules/source-map-support/browser-source-map-support.js',
