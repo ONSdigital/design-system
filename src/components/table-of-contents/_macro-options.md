@@ -2,7 +2,7 @@
 | --------- | -------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Title     | string                                             | true     | A title for the TOC, for example, "Contents"                                                                                                                                                               |
 | ariaLabel | string                                             | false    | Accessible label to provide context to contents, for example, "Links to page sections". Defaults to `Table of contents`                                                                                    |
-| skipLink  | `Skip link` [_(ref)_](/components/skip-to-content) | false    | Settings for the skip to content link that allows users to avoid reading out the Table of contents on each page. Required for any TOC repeated on multiple pages, such as a [guide](/patterns/pages/guide) |
+| skipLink  | `Skip link` [_(ref)_](/components/skip-to-content) | false    | Settings for the skip to content link that allows users to avoid reading out the Table of contents on each page. Required for any TOC repeated on multiple pages, such as a [guide](/patterns/guide) |
 | lists     | `Array<list>`                                      | true     | An array of list items to render.                                                                                                                                                                          |
 
 ## Lists
