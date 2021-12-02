@@ -1,14 +1,14 @@
 {% macro onsTableOfContents(params) %}
   {% from "components/lists/_macro.njk" import onsList %}
   {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
-  
-  {% if params.skipLink is defined and params.skipLink %}
-    <aside class="ons-toc-container" role="complementary">
+
+  <aside class="ons-toc-container" role="complementary">
+    {% if params.skipLink is defined and params.skipLink %}
       {{
-          onsSkipToContent({
-              "url": params.skipLink.url,
-              "text": params.skipLink.text
-          })
+        onsSkipToContent({
+          "url": params.skipLink.url,
+          "text": params.skipLink.text
+        })
       }}
     {% endif %}
 
