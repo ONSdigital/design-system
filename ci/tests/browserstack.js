@@ -8,24 +8,19 @@ let client = BrowserStack.createClient({
   password: process.env.BROWSER_STACK_ACCESS_KEY,
 });
 
-'SIGINT SIGTERM SIGHUP'.split(' ').forEach(function(evt) {
-  process.on(evt, function() {
-    console.log('Closed BrowserStack Worker process ' + evt);
-    if (client !== null) {
-      client.terminateWorker(WORKER_ID, function() {
-        process.exit();
-      });
-    }
-  });
-});
-
 function shutdown() {
+  console.log('Closed BrowserStack Worker process ' + evt);
   if (client !== null) {
     client.terminateWorker(WORKER_ID, function() {
       process.exit();
     });
   }
 }
+
+'SIGINT SIGTERM SIGHUP'.split(' ').forEach(function(evt) {
+  process.on(evt, shutdown);
+});
+
 process.stdin.resume();
 process.stdin.on('end', shutdown);
 

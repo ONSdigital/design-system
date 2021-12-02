@@ -1,29 +1,18 @@
 name: Run unit and visual tests
 on: [push]
 env:
-  BROWSER_STACK_ACCESS_KEY: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
-  BROWSER_STACK_USERNAME: ${{ secrets.BROWSER_STACK_USERNAME }}
-  TEST_ON_BROWSERSTACK: true
   RUNNING_ON_CI: true
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  SAUCE_ACCESS_KEY: ${{secrets.SAUCE_ACCESS_KEY}}
+  SAUCE_USERNAME: ${{secrets.SAUCE_USERNAME}}
+  SAUCE_API_HOST: eu-central-1.saucelabs.com
 jobs:
   run-tests:
     name: Tests
     runs-on: ubuntu-latest
     steps:
-      - name: 'BrowserStack Env Setup'
-        uses: browserstack/github-actions/setup-env@master
-        with:
-          username:  ${{ secrets.BROWSER_STACK_USERNAME }}
-          access-key: ${{ secrets.BROWSER_STACK_ACCESS_KEY }}
-      - name: 'BrowserStack Local Tunnel Setup'
-        uses: browserstack/github-actions/setup-local@master
-        with:
-          local-testing: start
-          local-logging-level: all-logs
-          local-identifier: random
       - uses: actions/checkout@v2
       - name: Install Node
         uses: actions/setup-node@v2
@@ -36,10 +25,6 @@ jobs:
       - name: Run visual regression tests
         if: "contains(github.event.head_commit.message, 'test-visual')"
         run: yarn test-visual
-      - name: 'BrowserStackLocal Stop'
-        uses: browserstack/github-actions/setup-local@master
-        with:
-          local-testing: stop
       - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master
@@ -55,4 +40,3 @@ jobs:
             { "title": "By", "value": "${{ github.actor }}", "short": true },
             { "title": "Branch", "value": "${{ github.head_ref }}", "short": true },
             { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
-            
