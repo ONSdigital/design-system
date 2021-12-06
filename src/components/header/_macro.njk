@@ -44,7 +44,7 @@
                     </div>
 
                     {% if params.language is defined and params.language or params.serviceLinks is defined and params.serviceLinks %}
-                        <div class="ons-header__links grid__col col-auto">
+                        <div class="ons-header__links ons-grid__col ons-col-auto">
                             {% if params.language is defined and params.language %}
                                 <div class="ons-grid__col ons-col-auto">
                                     {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
@@ -52,7 +52,7 @@
                                 </div>
                             {% endif %}
                             {% if params.serviceLinks is defined and params.serviceLinks %}
-                                <div class="ons-grid__col col-auto ons-u-d-no@xxs@m">
+                                <div class="ons-grid__col ons-col-auto ons-u-d-no@xxs@m">
                                     <nav class="ons-header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
                                         <ul class="ons-header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel | default("Service Links") }}">
                                             {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}

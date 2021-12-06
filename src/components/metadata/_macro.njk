@@ -1,5 +1,5 @@
 {% macro onsMetadata(params) %}
-  <dl class="ons-metadata metadata__list ons-grid ons-grid--gutterless ons-u-cf ons-u-mb-l"{% if params.id is defined and params.id %} id="{{ params.id }}" {% endif %}{% if params.metadataLabel is defined and params.metadataLabel %} title="{{ params.metadataLabel }}" aria-label="{{ params.metadataLabel }}"{% endif %}>
+  <dl class="ons-metadata ons-metadata__list ons-grid ons-grid--gutterless ons-u-cf{{ (' ' + params.classes) if params.classes is defined and params.classes }}"{% if params.id is defined and params.id %} id="{{ params.id }}" {% endif %}{% if params.metadataLabel is defined and params.metadataLabel %} title="{{ params.metadataLabel }}" aria-label="{{ params.metadataLabel }}"{% endif %}>
     {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
       {% if item.term | length %}
           <dt class="ons-metadata__term ons-grid__col ons-col-{{ params.termCol }}@m">{{ item.term }}</dt>
