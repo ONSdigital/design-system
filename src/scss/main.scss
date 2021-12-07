@@ -28,6 +28,7 @@
 @import '../components/header/header-nav';
 @import '../components/header/header';
 @import '../components/hero/hero';
+@import '../components/highlight/highlight';
 @import '../components/icons/icons';
 @import '../components/images/images';
 @import '../components/input/input-type';
@@ -61,11 +62,6 @@
 @import '../components/timeline/timeline';
 @import '../components/upload/upload';
 @import '../components/video/video';
-@import '../patterns/help-users-to/see-important-information/src/_highlight';
-@import '../patterns/pages/question/examples/question-anatomy/pl-question-anatomy';
-@import '../foundations/layout/page-template/examples/block-areas/block-areas';
-@import '../foundations/style/colours/colours';
-@import '../foundations/style/icons/icon-swatch';
 @import 'utilities/index';
 
 // Right to left
