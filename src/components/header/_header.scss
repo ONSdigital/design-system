@@ -62,8 +62,13 @@
     &--with-description,
     &--with-button {
       @include mq(m) {
-        margin-bottom: 0;
         margin-top: 0.45rem;
+      }
+    }
+
+    &--with-description {
+      @include mq(m) {
+        margin-bottom: 0;
       }
     }
 
