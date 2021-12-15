@@ -4,7 +4,6 @@ export default function runFuse(query, data, searchFields) {
   const options = {
     shouldSort: true,
     threshold: 0.2,
-    distance: 1000,
     keys: [
       {
         name: searchFields,
