@@ -115,6 +115,10 @@ gulp.task('copy-static-files', () => {
   return gulp.src('./src/static/**/*').pipe(gulp.dest('./build'));
 });
 
+gulp.task('copy-js-files', () => {
+  return gulp.src('./src/js/*.js').pipe(gulp.dest('./build/js'));
+});
+
 gulp.task('watch-and-build', async () => {
   browserSync.init({
     proxy: 'localhost:3010',
@@ -135,4 +139,4 @@ gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-svg
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
 gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-pages'));
-gulp.task('build-package', gulp.series('copy-static-files', 'build-assets'));
+gulp.task('build-package', gulp.series('copy-static-files', 'copy-js-files', 'build-assets'));
