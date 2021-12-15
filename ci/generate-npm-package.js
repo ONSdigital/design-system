@@ -8,7 +8,7 @@ const componentsPath = `${sourcePath}/components`;
 const newComponentsPath = `${cwd}/components`;
 const templatesPath = `${sourcePath}/layout`;
 const newTemplatesPath = `${cwd}/layout`;
-const assetFolders = ['css', 'favicons', 'fonts', 'img', 'scripts'];
+const assetFolders = ['css', 'favicons', 'fonts', 'img', 'scripts', 'js'];
 const builtAssetsFolders = assetFolders.map(folder => `${cwd}/build/${folder}`);
 const newSassPath = `${cwd}/scss`;
 
