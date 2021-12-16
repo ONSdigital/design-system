@@ -1,6 +1,6 @@
 import abortableFetch from '../../js/abortable-fetch';
 import { sanitiseAutosuggestText } from './autosuggest.helpers';
-import queryJson from './code.list.searcher';
+import runFuse from './fuse-config';
 
 export const baseClass = 'ons-js-autosuggest';
 
@@ -295,7 +295,7 @@ export default class AutosuggestUI {
 
   async fetchSuggestions(sanitisedQuery, data) {
     this.abortFetch();
-    const results = await queryJson(sanitisedQuery, data, this.lang, this.resultLimit);
+    const results = await runFuse(sanitisedQuery, data, this.lang, this.resultLimit);
     results.forEach(result => {
       result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
     });
