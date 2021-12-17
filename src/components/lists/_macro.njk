@@ -13,17 +13,15 @@
         {% set otherClasses = '' %}
     {% endif %}
 
-    {% if listLength < 2 %}
-        {% set listEl = 'p' %}
-    {% elif params.element is defined and params.element %}
+    {% if params.element is defined and params.element %}
         {% set listEl = params.element | lower %}
     {% else %}
         {% set listEl = 'ul' %}
     {% endif %}
 
-    <{{listEl}} {% if params.id is defined and params.id %}id="{{ params.id }} "{% endif %}class="{% if listLength > 1 %}ons-list{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes -}}{% endif %}{% if params.variants is defined and params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-list--{{ variant }}{% endfor %}{% else %} ons-list--{{ params.variants }}{% endif %}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}">
+    <{{listEl}} {% if params.id is defined and params.id %}id="{{ params.id }} "{% endif %}class="ons-list{% if params.classes is defined and params.classes %} {{ params.classes -}}{% endif %}{% if params.variants is defined and params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-list--{{ variant }}{% endfor %}{% else %} ons-list--{{ params.variants }}{% endif %}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}">
         {%- for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
-            {% if listLength > 1 %}<li class="ons-list__item{% if item.listClasses is defined and item.listClasses %} {{ item.listClasses }}{% endif %}"{% if item.current is defined and item.current %} aria-current="true"{% endif %}>{% endif %}
+                <li class="ons-list__item{% if item.listClasses is defined and item.listClasses %} {{ item.listClasses }}{% endif %}"{% if item.current is defined and item.current %} aria-current="true"{% endif %}>
 
                 {% set itemText = item.text %}
 
@@ -89,7 +87,7 @@
                         }}
                     {%- endif -%} </span>
                 {%- endif -%}
-            {% if listLength > 1 %}</li>{%- endif -%}
+            </li>
         {%- endfor -%}
     </{{listEl}}>
 {% endmacro %}

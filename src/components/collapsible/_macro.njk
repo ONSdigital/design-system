@@ -45,12 +45,12 @@
                 {{ params.content | safe }}{{ caller() if caller }}
             {% else %}
                 {{ params.content | safe }}{{ caller() if caller }}
-                {% if params.button is defined and params.button and params.button.close is defined and params.button.close and params.isAccordion != true %}
+                {% if params.isAccordion != true %}
                     {{
                         onsButton({
                             "type": "button",
-                            "text": params.button.close,
-                            "buttonContext": (params.button.context | default(params.title)) + " " + params.button.contextSuffix,
+                            "text": params.button.close | default ('Hide this'),
+                            "buttonContext": (params.button.context | default(params.title)) + " " + params.button.contextSuffix | default("content"),
                             "classes": "ons-js-collapsible-button ons-u-d-no " + (params.button.classes | default("ons-btn--secondary")),
                             "innerClasses": "ons-js-collapsible-button-inner",
                             "variants": "small",
