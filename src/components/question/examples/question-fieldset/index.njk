@@ -26,8 +26,8 @@ layout: none
 {% block main %}
     {% call onsQuestion({
         "title": questionTitle,
-        "description": "<p>You can interpret 'trading' as 'operating'.</p>
-            <p>Only select 'paused trading' if all trading or operations have <strong>temporarily</strong> stopped.</p>",
+        "description": "<p>You can interpret “trading” as “operating”.</p>
+            <p>Only select “paused trading” if all trading or operations have <strong>temporarily</strong> stopped.</p>",
         "definition": {
             "title": "What we mean by “employee”",
             "content": "<p>An employee is a person that your organisation   directly pays from its payroll(s), in return for carrying out a full-time or part-time job.</p>"
@@ -59,40 +59,40 @@ layout: none
             "content": "<p>We ask this question in order to understand the size of organisations in the UK.</p>"
         },
         "submitButton": {
-            "submitType": 'timer'
+            "submitType": "timer"
         }
     }) %}
 
-    {{ onsRadios({
-      "id": "number-of-employees",
-      "name": "number-of-employees",
-      "legend": questionTitle,
-      "legendClasses": "ons-u-vh",
-      "radios": [
-        {
-            "id": "number-of-employees-1-9",
-            "label": {
-                "text": "1 – 9 employees"
+        {{ onsRadios({
+        "id": "number-of-employees",
+        "name": "number-of-employees",
+        "legend": questionTitle,
+        "legendClasses": "ons-u-vh",
+        "radios": [
+            {
+                "id": "number-of-employees-1-9",
+                "label": {
+                    "text": "1 – 9 employees"
+                },
+                "value": "1-9"
             },
-            "value": "1-9"
-        },
-        {
-            "id": "number-of-employees-10-49",
-            "label": {
-                "text": "10 – 49 employees"
+            {
+                "id": "number-of-employees-10-49",
+                "label": {
+                    "text": "10 – 49 employees"
+                },
+                "value": "10-49"
             },
-            "value": "10-49"
-        },
-        {
-            "id": "number-of-employees-50-100",
-            "label": {
-                "text": "50 – 100+ employees",
-                "description": "Include multi-corporations"
-            },
-            "value": "50-100"
-        }
-      ]
-    }) }}
+            {
+                "id": "number-of-employees-50-100",
+                "label": {
+                    "text": "50 – 100+ employees",
+                    "description": "Include multi-corporations"
+                },
+                "value": "50-100"
+            }
+        ]
+        }) }}
 
-  {% endcall %}
+    {% endcall %}
 {% endblock %}

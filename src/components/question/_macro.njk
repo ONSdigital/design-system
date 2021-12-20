@@ -47,7 +47,7 @@
             {% if params.guidance.content %}
                 {{ params.guidance.content | safe }}
             {% endif %}
-            {%- for item in (params.guidance.list if params.guidance.list is iterable else params.guidance.list.items()) -%}
+            {%- for item in params.guidance.list -%}
                 {% if item.title %}
                     <h2 class="ons-u-fs-r--b">{{ item.title }}</h2>
                 {% endif %}
@@ -57,7 +57,7 @@
                         "itemsList": item.itemsList
                     })
                 }}
-            {% endfor %}
+            {% endfor -%}
         {% endcall %}
     {% endset %}
 
