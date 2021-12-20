@@ -107,7 +107,7 @@
                 {% if (pageInfo.hideSidebar != true) and
                     (helpers.subNavigationHelper({ pageInfo: pageInfo }).length > 0)
                 %}
-                {% from "views/partials/sub-navigation/_macro.njk" import patternlibSubNavigation %}
+                {% from "components/section-navigation/_macro.njk" import onsSectionNavigation %}
                 <div class="ons-grid__col ons-col-3@m">
                     <div class="ons-patternlib-page__sub-nav ons-u-mt-l@m ons-u-mb-l">
                         {% if pageInfo.parent.title == 'Home' %}
@@ -123,9 +123,11 @@
                                 <h3 class="ons-u-fs-r--b ons-u-mb-s">{{ group.title }}</h3>
                             {% endif %}
                             {{
-                                patternlibSubNavigation({
+                                onsSectionNavigation({
+                                    "vertical": true,
+                                    "id": "section-navigation",
                                     "ariaLabel": "Sub menu",
-                                    "ariraListLabel": "Child menu",
+                                    "ariaListLabel": "Child menu",
                                     "currentPath": pageInfo.url,
                                     "itemsList": group.items
                                 })
