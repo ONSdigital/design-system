@@ -19,7 +19,7 @@
     "test": "STYLES=main gulp build-styles && TEST_MODE=nomodule karma start ./karma.conf.babel-register.js && TEST_MODE=esm karma start ./karma.conf.babel-register.js && codecov",
     "test:browserstack": "STYLES=main gulp build-styles && TEST_MODE=nomodule TEST_ON_BROWSERSTACK=true karma start ./karma.conf.babel-register.js && TEST_MODE=esm TEST_ON_BROWSERSTACK=true karma start ./karma.conf.babel-register.js",
     "test-visual": "yarn build && npx percy exec -- babel-node src/tests/visual/percy.snapshots.js",
-    "tidy-clean": "rm -rf build css favicons fonts img components page-templates templates scripts coverage scss js",
+    "tidy-clean": "rm -rf build css favicons fonts img components layout scripts coverage scss js",
     "check-unused": "npx npm-check-unused",
     "dedupe-deps": "npx yarn-deduplicate yarn.lock",
     "lint-staged": "lint-staged",
