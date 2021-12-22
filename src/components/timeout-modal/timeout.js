@@ -34,7 +34,7 @@ export default class Timeout {
   }
 
   async initialise() {
-    if (this.initialExpiryTime) {
+    if (this.initialExpiryTime && this.sessionExpiryEndpoint) {
       this.expiryTime = this.initialExpiryTime;
     } else {
       this.expiryTime = await this.setNewExpiryTime();
