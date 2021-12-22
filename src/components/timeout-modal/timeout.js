@@ -34,7 +34,12 @@ export default class Timeout {
   }
 
   async initialise() {
-    this.expiryTime = await this.setNewExpiryTime();
+    if (this.initialExpiryTime) {
+      this.expiryTime = this.initialExpiryTime;
+    } else {
+      this.expiryTime = await this.setNewExpiryTime();
+    }
+
     this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(this.expiryTime);
 
     this.bindEventListeners();
