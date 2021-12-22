@@ -9,7 +9,7 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-  "title": "Anatomy of a question",
+  "title": "Question example",
   "breadcrumbs": {
     "ariaLabel": 'Breadcrumbs',
     "itemsList": [
@@ -30,12 +30,12 @@ layout: none
             <p>Only select “paused trading” if all trading or operations have <strong>temporarily</strong> stopped.</p>",
         "definition": {
             "title": "What we mean by “employee”",
-            "content": "<p>An employee is a person that your organisation   directly pays from its payroll(s), in return for carrying out a full-time or part-time job.</p>"
+            "content": "<p>An employee is a person that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job.</p>"
         },
         "guidance": {
-            "list": [
+            "lists": [
                 {
-                    "title": "Include:",
+                    "listHeading": "Include:",
                     "itemsList": [
                         {
                             "text": "All employees in Great Britain (England, Scotland and Wales), both full and part-time, who received pay in the relevant period"
@@ -43,7 +43,7 @@ layout: none
                     ]
                 },
                 {
-                    "title": "Exclude:",
+                    "listHeading": "Exclude:",
                     "itemsList": [
                         {
                             "text": "trainees on government schemes"
@@ -56,6 +56,7 @@ layout: none
             ]
         },
         "justification": {
+            "title": "Why we ask this question",
             "content": "<p>We ask this question in order to understand the size of organisations in the UK.</p>"
         },
         "submitButton": {

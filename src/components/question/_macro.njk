@@ -18,11 +18,7 @@
     {% endset %}
 
     {% set instHtml %}
-        <div class="ons-question__instruction ons-u-mb-s">{{ params.instruction | safe }}</div>
-    {% endset %}
-
-    {% set justificationHtml %}
-        {{ params.justification.content | safe }}
+        <div class="ons-question__instruction ons-u-mb-m">{{ params.instruction | safe }}</div>
     {% endset %}
 
     {% set questionDefinition %}
@@ -47,9 +43,9 @@
             {% if params.guidance.content %}
                 {{ params.guidance.content | safe }}
             {% endif %}
-            {%- for item in params.guidance.list -%}
-                {% if item.title %}
-                    <h2 class="ons-u-fs-r--b">{{ item.title }}</h2>
+            {%- for item in params.guidance.lists -%}
+                {% if item.listHeading %}
+                    <h2 class="ons-u-fs-r--b">{{ item.listHeading }}</h2>
                 {% endif %}
                 {% from "components/lists/_macro.njk" import onsList %}
                 {{
@@ -125,13 +121,12 @@
 
         {% if params.justification is defined and params.justification %}
             {% from "components/collapsible/_macro.njk" import onsCollapsible %}
-
             {% call onsCollapsible({
                 "id": params.justification.id,
-                "classes": 'ons-u-mb-m' + (' ' + params.justification.classes if params.justification.classes is defined and params.justification.classes else ''),
+                "classes": 'ons-u-mb-m',
                 "title": params.justification.title | default('Why we ask this question')
             }) %}
-                {{- justificationHtml | safe -}}
+                {{ params.justification.content | safe }}
             {% endcall %}
         {% endif %}
     </div>

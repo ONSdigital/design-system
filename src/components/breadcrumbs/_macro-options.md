@@ -1,9 +1,9 @@
-| Name      | Type                   | Required | Description                                                     |
-| --------- | ---------------------- | -------- | --------------------------------------------------------------- |
-| classes   | string                 | false    | Custom classes to add to the breadcrumbs                        |
-| ariaLabel | string                 | false    | The label added to the `nav` element. Defaults to `Breadcrumbs` |
-| id        | string                 | false    | The ID added to the `nav` element                               |
-| itemsList | Array<BreadcrumbsItem> | true     | An array of items to show in the breadcrumbs list               |
+| Name      | Type                     | Required | Description                                                     |
+| --------- | ------------------------ | -------- | --------------------------------------------------------------- |
+| classes   | string                   | false    | Custom classes to add to the breadcrumbs                        |
+| ariaLabel | string                   | false    | The label added to the `nav` element. Defaults to `Breadcrumbs` |
+| id        | string                   | false    | The ID added to the `nav` element                               |
+| itemsList | `Array<BreadcrumbsItem>` | true     | An array of items to show in the breadcrumbs list               |
 
 ## BreadcrumbsItem
 | Name | Type | Required | Description |
