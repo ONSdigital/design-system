@@ -31,10 +31,11 @@
 
 ## Lists
 
-| Name        | Type               | Required | Description                             |
-| ----------- | ------------------ | -------- | --------------------------------------- |
-| listHeading | string             | false    | A heading for each include/exclude list |
-| itemsList   | `Array<ItemsList>` | true     | An array of list items                  |
+| Name            | Type               | Required | Description                             |
+| --------------- | ------------------ | -------- | --------------------------------------- |
+| listHeading     | string             | false    | A heading for each include/exclude list |
+| listLeadingLine | string             | false    | A leading line for each list            |
+| itemsList       | `Array<ItemsList>` | true     | An array of list items                  |
 
 ## ItemsList
 

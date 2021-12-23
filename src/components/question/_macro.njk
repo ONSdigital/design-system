@@ -47,6 +47,9 @@
                 {% if item.listHeading %}
                     <h2 class="ons-u-fs-r--b">{{ item.listHeading }}</h2>
                 {% endif %}
+                {% if item.listLeadingLine %}
+                    <p>{{ item.listLeadingLine }}</h2>
+                {% endif %}
                 {% from "components/lists/_macro.njk" import onsList %}
                 {{
                     onsList({
@@ -67,31 +70,17 @@
 
             {# Resolves caller issue in jijna: https://github.com/pallets/jinja/issues/371 #}
             {% set content = caller() %}
-
-            {% call onsFieldset({
-                "legendIsQuestionTitle": params.legendIsQuestionTitle,
-                "legend": titleHtml,
-                "description": descHtml if params.description is defined and params.description else '',
-                "legendClasses": params.legendClasses,
-                "legendTitleClasses": params.legendTitleClasses
-            }) %}
-
-                {% if params.instruction is defined and params.instruction %}
-                    {{- instHtml -}}
-                {% endif %}
-
-                {% if params.definition is defined and params.definition %}
-                    {{- questionDefinition | safe -}}
-                {% endif %}
-
-                {% if params.guidance is defined and params.guidance %}
-                    {{- questionGuidance | safe -}}
-                {% endif %}
-
-                <div class="ons-question__answer ons-u-mb-m">
+            <div class="ons-question__answer ons-u-mb-m">
+                {% call onsFieldset({
+                    "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                    "legend": titleHtml,
+                    "description": descHtml if params.description is defined and params.description else '',
+                    "legendClasses": params.legendClasses,
+                    "legendTitleClasses": params.legendTitleClasses
+                }) %}
                     {{ content }}
-                </div>
-            {% endcall %}
+                {% endcall %}
+            </div>
 
         {% else %}
             <h1 id="question-title" class="ons-question__title">
@@ -123,6 +112,7 @@
             {% from "components/collapsible/_macro.njk" import onsCollapsible %}
             {% call onsCollapsible({
                 "id": params.justification.id,
+                "titleTag": 'h2',
                 "classes": 'ons-u-mb-m',
                 "title": params.justification.title | default('Why we ask this question')
             }) %}
