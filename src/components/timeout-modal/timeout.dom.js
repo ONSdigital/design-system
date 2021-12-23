@@ -8,7 +8,8 @@ async function modals() {
 
     timeouts.forEach(context => {
       let url = context.getAttribute('data-server-session-expiry-endpoint');
-      new Timeout(context, url);
+      let time = context.getAttribute('data-server-session-expires-at');
+      new Timeout(context, url, time);
     });
   }
 }
