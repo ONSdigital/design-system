@@ -45,19 +45,17 @@
                 {{ params.content | safe }}{{ caller() if caller }}
             {% else %}
                 {{ params.content | safe }}{{ caller() if caller }}
-                {% if params.isAccordion != true %}
-                    {{
-                        onsButton({
-                            "type": "button",
-                            "text": params.button.close | default ('Hide this'),
-                            "buttonContext": (params.button.context | default(params.title)) + " " + params.button.contextSuffix | default("content"),
-                            "classes": "ons-js-collapsible-button ons-u-d-no " + (params.button.classes | default("ons-btn--secondary")),
-                            "innerClasses": "ons-js-collapsible-button-inner",
-                            "variants": "small",
-                            "attributes": params.button.attributes
-                        })
-                    }}
-                {% endif %}
+                {{
+                    onsButton({
+                        "type": "button",
+                        "text": params.button.close | default ('Hide this'),
+                        "buttonContext": (params.button.context | default(params.title)) + " " + params.button.contextSuffix | default("content"),
+                        "classes": "ons-js-collapsible-button ons-u-d-no " + (params.button.classes | default("ons-btn--secondary")),
+                        "innerClasses": "ons-js-collapsible-button-inner",
+                        "variants": "small",
+                        "attributes": params.button.attributes
+                    })
+                }}
             {% endif %}
         </div>
     </div>
