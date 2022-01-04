@@ -62,7 +62,7 @@
 
     <div
         {% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %}
-        class="ons-question ons-u-mb-xl{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
+        class="ons-question ons-u-mb-l{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
         {% if params.legendIsQuestionTitle is defined and params.legendIsQuestionTitle %}
