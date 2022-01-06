@@ -1,5 +1,9 @@
-name: Deploy to Netlify on commits to master
-on: 'push'
+name: Deploy to Netlify on release
+on:
+  release:
+    types: [published]
+env:
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,3 +25,17 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: netlify deploy --dir=build --prod
+      - name: Create Slack notification
+        if: always()
+        uses: edge/simple-slack-notify@master
+        with:
+          channel: '#pat-lib-notifications'
+          status: ${{ job.status }}
+          success_text: 'Successfully deployed release to Netlify'
+          failure_text: 'Failed deployed release to Netlify'
+          cancelled_text: 'Deploy to Netlify was cancelled'
+          fields: |
+            [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
+            { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
+            { "title": "By", "value": "${{ github.actor }}"},
+            { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
