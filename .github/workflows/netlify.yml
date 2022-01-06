@@ -1,5 +1,7 @@
 name: Deploy to Netlify on release
-on: push
+on:
+  release:
+    types: [published]
 env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 jobs:
