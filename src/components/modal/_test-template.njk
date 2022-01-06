@@ -1,0 +1,12 @@
+{% from "components/modal/_macro.njk" import onsModal %}
+{% from "components/input/_macro.njk" import onsInput %}
+{{
+    onsInput({
+        "id": "text",
+        "label": {
+            "text": "Enter some text"
+        }
+    })
+}}
+{{ onsModal(params) }}
+You can view the modal by <span data-modal-id="first" tabindex="0" role="button">launching it</span>.

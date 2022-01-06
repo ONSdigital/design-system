@@ -7,8 +7,9 @@ const params = {
   id: 'feedback',
   name: 'feedback',
   width: '30',
+  legend: 'What do you think of this service?',
   label: {
-    text: 'Please provide some feedback',
+    text: 'Enter your feedback',
     description: 'For example describe any difficulties you experienced in the use of this service',
   },
   charCheckLimit: {

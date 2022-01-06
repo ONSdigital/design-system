@@ -9,9 +9,9 @@
 
     {% set descHtml %}
         {% if params.readDescriptionFirst is defined and params.readDescriptionFirst == true %} 
-            <span aria-hidden="true" {% if params.legendIsQuestionTitle is not defined %}class="ons-question__description"{% endif %}>{{ params.description | safe }}</span>
+            <div aria-hidden="true" {% if params.legendIsQuestionTitle is not defined %}class="ons-question__description"{% endif %}>{{ params.description | safe }}</div>
         {% elif params.legendIsQuestionTitle is not defined %}
-            <span class="ons-question__description">{{ params.description | safe }}</span>
+            <div class="ons-question__description">{{ params.description | safe }}</div>
         {% else %}
             {{ params.description | safe }}
         {% endif %}
@@ -31,7 +31,7 @@
 
             {# Resolves caller issue in jijna: https://github.com/pallets/jinja/issues/371 #}
             {% set content = caller() %}
-            
+
             {% call onsFieldset({
                 "legendIsQuestionTitle": params.legendIsQuestionTitle,
                 "legend": titleHtml,

@@ -4,8 +4,9 @@
 !/favicons/**/*
 !/fonts/**/*
 !/img/**/*
-!/page-templates/**/*
+!/layout/**/*
 !/scripts/**/*
+!/js/**/*
 !/scss/**/*
 !/LICENSE
 !/package.json

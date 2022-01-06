@@ -1,0 +1,26 @@
+{% from "components/modal/_macro.njk" import onsModal %}
+{% macro onsTimeoutModal(params) %}    
+    {% call onsModal({
+            "title": params.title,
+            "btnText": params.btnText,
+            "classes": "ons-js-timeout-modal",
+            "attributes": {
+                "data-redirect-url": params.redirectUrl,
+                "data-server-session-expires-at": params.sessionExpiresAt,
+                "data-show-modal-time": params.showModalTimeInSeconds,
+                "data-server-session-expiry-endpoint": params.serverSessionExpiryEndpoint,
+                "data-countdown-text": params.countdownText,
+                "data-redirecting-text": params.redirectingText,
+                "data-minutes-text-singular": params.minutesTextSingular,
+                "data-minutes-text-plural": params.minutesTextPlural,
+                "data-seconds-text-singular": params.secondsTextSingular,
+                "data-seconds-text-plural": params.secondsTextPlural,
+                "aria-describedby": "timeout-time-remaining"
+            }
+        })
+    %}
+        <p>{{ params.textFirstLine }}</p>
+        <p class="ons-js-timeout-timer" aria-hidden="true" aria-relevant="additions"></p>
+        <p class="ons-js-timeout-timer-acc ons-u-vh" role="status" id="timeout-time-remaining"></p>
+    {% endcall %}
+{% endmacro %}

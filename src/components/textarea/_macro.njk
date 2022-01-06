@@ -6,7 +6,7 @@
 
 
     {% set field %}
-        {% set textareaExlusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
+        {% set textareaExclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
 
         {% if params.label is defined and params.label %}
             {{ onsLabel({
@@ -19,7 +19,7 @@
 
         <textarea
             id="{{ params.id }}"
-            class="ons-input ons-input--textarea {% if params.error is defined and params.error %} ons-input--error {% endif %}{% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %} ons-js-char-limit-input{% endif %}{{ textareaExlusiveClass }} {{ params.classes }} {% if params.width is defined and params.width %}ons-input--w-{{ params.width }}{% endif %}"
+            class="ons-input ons-input--textarea {% if params.error is defined and params.error %} ons-input--error {% endif %}{% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %} ons-js-char-limit-input{% endif %}{{ textareaExclusiveClass }} {{ params.classes }} {% if params.width is defined and params.width %}ons-input--w-{{ params.width }}{% endif %}"
             name="{{ params.name }}"
             rows="{{ params.rows | default(8) }}"
             {% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %}

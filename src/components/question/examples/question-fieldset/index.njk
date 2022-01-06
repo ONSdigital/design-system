@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "foundations/layout/page-template/_template.njk" %}
+{% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/panel/_macro.njk" import onsPanel %}
@@ -21,10 +21,12 @@ layout: none
     }
 } %}
 
+{% set questionTitle = "On 1 May 2016, what was the number of employees for Bolt and Ratchet?" %}
+
 {% block main %}
     {% call onsQuestion({
-        "title": "On 1 May 2016, what was the number of employees for Bolt and Ratchet?",
-        "description": "<p>This is all employees aged 16 years or over that your organisation employs.</p>"
+        "title": questionTitle,
+        "description": "<p>This is all employees aged 16 years or over that your organisation employs</p>"
     }) %}
         {% call onsCollapsible({
             "id": "question-definition",
@@ -51,6 +53,8 @@ layout: none
         {{ onsRadios({
             "id": "number-of-employees",
             "name": "number-of-employees",
+            "legend": questionTitle,
+            "legendClasses": "ons-u-vh",
             "radios": [
                 {
                     "id": "number-of-employees-1-9",

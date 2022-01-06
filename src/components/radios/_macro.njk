@@ -21,10 +21,15 @@
             {% endif %}
             <span class="ons-radios__item{{ " ons-radios__item--no-border" if params.borderless }}">
                 <span class="ons-radio{{ " ons-radio--no-border" if params.borderless }}">
+                {%  if radio.other is defined and radio.other and radio.other.selectAllChildren is defined and radio.other.selectAllChildren == true %}
+                    {% set selectAllClass = ' ons-js-select-all-children' %}
+                {% else %}
+                    {% set selectAllClass = '' %}
+                {% endif %}
                     <input
                             type="radio"
                             id="{{ radio.id }}"
-                            class="ons-radio__input ons-js-radio{{ ' ' + radio.classes if radio.classes else '' }}{{ ' ons-js-other' if radio.other else '' }}{{ ' ons-js-select-all-children' if radio.other.selectAllChildren == true else '' }}"
+                            class="ons-radio__input ons-js-radio{{ ' ' + radio.classes if radio.classes else '' }}{{ ' ons-js-other' if radio.other else '' }}{{ selectAllClass }}"
                             value="{{ radio.value }}"
                             name="{{ params.name }}"
                             {% if (radio.checked is defined and radio.checked) or (params.value is defined and params.value == radio.value) %} checked {% endif %}
@@ -39,7 +44,6 @@
                             "classes": "ons-radio__label " + radio.label.classes | default(''),
                             "description": radio.label.description
                         }) }}
-
                     {% if radio.other is defined and radio.other %}
                         {% set otherType = radio.other.otherType | default('input') %}
                         <span class="ons-radio__other{{ " " + 'ons-radio__other--open' if radio.other.open else "" }}" id="{{ radio.id }}-other-wrap">
@@ -51,7 +55,7 @@
                                         "name": radio.other.name,
                                         "type": radio.other.type,
                                         "required": radio.other.required,
-                                        "classes": radio.other.classes | default(''),
+                                        "classes": ("ons-input--error" if params.error else "") + radio.other.classes | default(''),
                                         "width": radio.other.width | default('auto'),
                                         "attributes": radio.other.attributes,
                                         "label": {
@@ -70,7 +74,7 @@
                                         "id": radio.other.id,
                                         "name": radio.other.name,
                                         "options": radio.other.options,
-                                        "classes": radio.other.classes,
+                                        "classes": ("ons-input--error" if params.error else "") + radio.other.classes | default(''),
                                         "label": {
                                             "id": radio.other.id + "-label",
                                             "text": radio.other.label.text,

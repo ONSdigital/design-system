@@ -40,9 +40,9 @@
                 {% endif %}
                 {% if checkbox.other is defined and checkbox.other %}
                     {% set otherClass = " ons-js-other" %}
-                {% endif %}
-                {% if checkbox.other.selectAllChildren is defined and checkbox.other.selectAllChildren == true %}
-                    {% set otherClass = otherClass + " ons-js-select-all-children" %}
+                    {% if checkbox.other.selectAllChildren is defined and checkbox.other.selectAllChildren == true %}
+                        {% set otherClass = otherClass + " ons-js-select-all-children" %}
+                    {% endif %}
                 {% endif %}
                 <span class="ons-checkboxes__item{{ " ons-checkboxes__item--no-border" if params.borderless }}">
                     {% set config = {
@@ -72,7 +72,7 @@
                                 "otherType": checkbox.other.otherType,
                                 "options": checkbox.other.options,
                                 "width": checkbox.other.width,
-                                "classes": checkbox.other.classes | default('') + exclusiveClass | default(''),
+                                "classes": ("ons-input--error" if params.error else "") + checkbox.other.classes | default('') + exclusiveClass | default(''),
                                 "attributes": checkbox.other.attributes,
                                 "label": {
                                     "text": checkbox.other.label.text

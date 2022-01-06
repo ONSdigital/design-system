@@ -1,11 +1,13 @@
+@use 'sass:math';
+
 @function ems($pxval, $base: $base) {
-  $em-size: $pxval / $base;
+  $em-size: math.div($pxval, $base);
 
   @return #{$em-size}em;
 }
 
 @function rems($pxval, $base: $base) {
-  $rem-size: $pxval / $base;
+  $rem-size: math.div($pxval, $base);
 
   @return #{$rem-size}rem;
 }

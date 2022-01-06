@@ -1,0 +1,172 @@
+---
+layout: none
+---
+{% extends "layout/_template.njk" %}
+
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/summary/_macro.njk" import onsSummary %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "title": "Hub example",
+    "signoutButton": {
+        "text": "Save and sign out",
+        "iconType": "exit",
+        "iconPosition": "after"
+    }
+} %}
+
+{% block main %}
+    <h1 class="ons-u-mt-m">Submit study</h1>
+
+    {% call onsPanel({
+        "type": 'warn'
+    }) %}
+        <p>You must submit this study to complete it</p>
+    {% endcall %}
+
+    {{ onsSummary({
+        "hub": true,
+        "classes": "ons-u-mt-m",
+        "summaries": [
+            {
+                "groups": [
+                    {
+                        "headers":["Name of section or person", "Section progress", "Access section"],
+                        "rows": [
+                            {
+                                "rowTitle": "People who live here",
+                                "rowItems": [
+                                    {
+                                        "iconType": "check",
+                                        "valueList": [
+                                            {
+                                                "text": "Completed"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "View answers",
+                                                "ariaLabel": "View answers for People who live here",
+                                                "url": "#0"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "rowTitle": "Household accommodation",
+                                "rowItems": [
+                                    {
+                                        "iconType": "check",
+                                        "valueList": [
+                                            {
+                                                "text": "Completed"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "View answers",
+                                                "ariaLabel": "View answers for Household accommodation",
+                                                "url": "#0"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "rowTitle": "Mary Smith",
+                                "rowItems": [
+                                    {
+                                        "iconType": "check",
+                                        "valueList": [
+                                            {
+                                                "text": "Completed"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "View answers",
+                                                "ariaLabel": "View answers for Mary Smith",
+                                                "url": "#0"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "rowTitle": "John Smith",
+                                "rowItems": [
+                                    {
+                                        "iconType": "check",
+                                        "valueList": [
+                                            {
+                                                "text": "Completed"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "View answers",
+                                                "ariaLabel": "View answers for John Smith",
+                                                "url": "#0"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "rowTitle": "Billy Smith",
+                                "rowItems": [
+                                    {
+                                        "iconType": "check",
+                                        "valueList": [
+                                            {
+                                                "text": "Completed"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "View answers",
+                                                "ariaLabel": "View answers for Billy Smith",
+                                                "url": "#0"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "rowTitle": "Mary Susannah Smith (Visitor)",
+                                "rowItems": [
+                                    {
+                                        "iconType": "check",
+                                        "valueList": [
+                                            {
+                                                "text": "Completed"
+                                            }
+                                        ],
+                                        "actions": [
+                                            {
+                                                "text": "View answers",
+                                                "ariaLabel": "View answers for Mary Susannah Smith (Visitor)",
+                                                "url": "#0"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }) }}
+    <div class="ons-u-mt-l">
+        <p>By submitting this study you are confirming that, to the best of your knowledge and belief, the details provided are correct.</p>
+    </div>
+    {{
+        onsButton({
+            "text": 'Submit study',
+            "classes": 'ons-u-mb-m'
+        })
+    }}
+{% endblock %}

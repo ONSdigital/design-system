@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "foundations/layout/page-template/_template.njk" %}
+{% extends "layout/_template.njk" %}
 
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
@@ -54,7 +54,7 @@ layout: none
     </div>
 
     <div class="ons-js-adv-filter">
-        <div class="ons-grid grid--column@xxs@s ons-u-mb-m@m">
+        <div class="ons-grid ons-grid--column@xxs@s ons-u-mb-m@m">
             <div class="ons-grid__col ons-col-4@m">
                 {{
                     onsButton({

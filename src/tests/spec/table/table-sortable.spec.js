@@ -2,8 +2,7 @@ import TableSort from '../../../components/table/sortable-table';
 import renderTemplate from '../../helpers/render-template';
 
 const params = {
-  sortable: true,
-  table_class: ' ons-table--sortable',
+  variants: 'sortable',
   sortBy: 'Sort by',
   ariaAsc: 'ascending',
   ariaDesc: 'descending',

@@ -3,7 +3,7 @@ import renderTemplate from '../../helpers/render-template';
 
 const params = {
   id: 'date-mutually-exclusive',
-  legend: 'When did you leave your last paid job?',
+  legendOrLabel: 'When did you leave your last paid job?',
   description: 'For example, 31 3 2018',
   day: {
     label: {
