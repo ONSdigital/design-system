@@ -1,9 +1,11 @@
 name: Deploy to Netlify on release
-on: push
+on:
+  release:
+    types: [published]
 env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 jobs:
-  merge-branch:
+  merge-to-netlify-deploy-branch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -11,7 +13,7 @@ jobs:
         with:
           github_token: ${{ github.token }}
           source_ref: ${{ github.ref }}
-          target_branch: 'develop'
+          target_branch: 'netlify-deploy'
       - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master
