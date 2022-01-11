@@ -1,0 +1,130 @@
+{% from "components/accordion/_macro.njk" import onsAccordion %}
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+
+
+{% set content1 %}
+    {{
+        onsCheckboxes({
+            "legend": "Content type",
+            "legendClasses": "ons-u-vh",
+            "classes": "ons-u-mb-s",
+            "borderless": true,
+            "name": "dietary",
+            "checkboxes": [
+                {
+                    "id": "data",
+                    "label": {
+                        "text": "Data (309)"
+                    },
+                    "value": "data"
+                },
+                {
+                    "id": "publications",
+                    "label": {
+                        "text": "Publications (137)"
+                    },
+                    "value": "publications",
+                    "other": {
+                        "otherType": "checkboxes",
+                        "selectAllChildren": true,
+                        "legend": "Publication type",
+                        "legendClasses": "ons-u-vh",
+                        "name": "name",
+                        "checkboxes": [
+                            {
+                                "id": "datasets",
+                                "label": {
+                                    "text": "Datasets (100)"
+                                },
+                                "value": "datasets"
+                            },
+                            {
+                                "id": "timeseries",
+                                "label": {
+                                    "text": "Timeseries (20)"
+                                },
+                                "value": "timeseries"
+                            },
+                            {
+                                "id": "requested",
+                                "label": {
+                                    "text": "User requested data (17)"
+                                },
+                                "value": "requested"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "areas",
+                    "label": {
+                        "text": "Areas (0)"
+                    },
+                    "value": "areas"
+                }       
+            ]
+        })
+    }}
+{% endset %}
+{% set content2 %}
+    {{
+        onsCheckboxes({
+            "legend": "Topic",
+            "legendClasses": "ons-u-vh",
+            "classes": "ons-u-mb-s",
+            "borderless": true,
+            "name": "dietary",
+            "checkboxes": [
+                {
+                    "id": "crime",
+                    "label": {
+                        "text": "Crime (200)"
+                    },
+                    "value": "crime",
+                    "checked": true
+                },
+                {
+                    "id": "education",
+                    "label": {
+                        "text": "Education (55)"
+                    },
+                    "value": "education"
+                },
+                {
+                    "id": "disability",
+                    "label": {
+                        "text": "Disability (67)"
+                    },
+                    "value": "disability"
+                }       
+            ]
+        })
+    }}
+{% endset %}
+
+<div class="ons-grid">
+    <div class="ons-grid__col ons-col-3@xs">
+        {{
+            onsAccordion({
+                "id": "accordion",
+                "variants": "simple",
+                "open": true,
+                "itemsList": [
+                    {
+                        "title": "Content type",
+                        "titleTag": "h2",
+                        "content": content1
+                    },
+                    {
+                        "title": "Topic",
+                        "titleTag": "h2",
+                        "content": content2
+                    }
+                ]
+            })
+        }}
+    </div>
+    <div class="ons-grid__col ons-col-7@xs">
+        <h1>623 results for <span class="ons-highlight">crime</span></h1>
+    </div>
+</div>

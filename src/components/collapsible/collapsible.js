@@ -1,6 +1,7 @@
 export default class Collapsible {
   constructor(collapsibleElement) {
     this.saveState = collapsibleElement.getAttribute('data-save-state') === 'true';
+    this.open = collapsibleElement.getAttribute('data-open') === 'true';
 
     // State
     this.group = collapsibleElement.getAttribute('data-group');
@@ -31,7 +32,7 @@ export default class Collapsible {
     if (!this.isAccordion) {
       this.collapsibleHeader.setAttribute('tabindex', 0);
     }
-    if (localStorage.getItem(collapsibleId)) {
+    if (localStorage.getItem(collapsibleId) || open) {
       this.setOpen(true);
     } else {
       this.setOpen(false);
