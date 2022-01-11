@@ -22,12 +22,12 @@ $collapsible-caret-width: 1.5rem;
           margin-left: -$collapsible-caret-width;
           padding-left: $collapsible-caret-width;
         }
-        .ons-collapsible__icon {
-          fill: $color-black;
+        .ons-collapsible__icon .ons-svg-icon {
+          fill: $color-text-link-focus;
         }
       }
 
-      &:hover {
+      &:hover:not(:focus) {
         color: $color-text-link-hover;
         .ons-collapsible__icon {
           fill: $color-text-link-hover;
