@@ -32,7 +32,7 @@ export default class Collapsible {
     if (!this.isAccordion) {
       this.collapsibleHeader.setAttribute('tabindex', 0);
     }
-    if (localStorage.getItem(collapsibleId) || open) {
+    if (localStorage.getItem(collapsibleId) || this.open) {
       this.setOpen(true);
     } else {
       this.setOpen(false);
