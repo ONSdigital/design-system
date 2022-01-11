@@ -15,7 +15,7 @@
                 <thead class="ons-table__head">
                     <tr class="ons-table__row">
                         {% for th in params.ths %}
-                        <th scope="col" class="ons-table__header{{ '' + params.thClasses if params.thClasses is defined and params.thClasses }}{{ " ons-table__header--numeric" if th.numeric is defined and th.numeric }}"{% if th.ariaSort is defined and th.ariaSort %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
+                        <th scope="col" class="ons-table__header{{ ' ' + th.thClasses if th.thClasses is defined and th.thClasses }}{{ " ons-table__header--numeric" if th.numeric is defined and th.numeric }}"{% if th.ariaSort is defined and th.ariaSort %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
                             <span {% if 'sortable' in variants %}class="ons-u-vh"{% endif %}>{{- th.value -}}</span>
                             {% if 'sortable' in variants %}
                                 {{
@@ -33,7 +33,7 @@
                     {% for tr in params.trs %}
                     <tr class="ons-table__row{{ " ons-table__row--highlight" if tr.highlight }}" {% if tr.name is defined and tr.name %} name="{{ tr.name }}"{% endif %} {% if tr.id is defined and tr.id %} id="{{ tr.id }}"{% endif %}>
                         {% for td in tr.tds %}
-                        <td class="ons-table__cell {{ '' + td.tdClasses if td.tdClasses is defined and td.tdClasses }}{{ " ons-table__cell--numeric" if td.numeric is defined and td.numeric }}" {% if td.id is defined and td.id %} id="{{ td.id }}"{% endif %} {% if td.name is defined and td.name %} name="{{ td.name }}"{% endif %} {% if td.data is defined and td.data %} data-th="{{ td.data }}"{% endif %} {% if td.dataSort is defined and td.dataSort %} data-sort-value="{{ td.dataSort }}"{% endif %}>
+                        <td class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses is defined and td.tdClasses }}{{ " ons-table__cell--numeric" if td.numeric is defined and td.numeric }}" {% if td.id is defined and td.id %} id="{{ td.id }}"{% endif %} {% if td.name is defined and td.name %} name="{{ td.name }}"{% endif %} {% if td.data is defined and td.data %} data-th="{{ td.data }}"{% endif %} {% if td.dataSort is defined and td.dataSort %} data-sort-value="{{ td.dataSort }}"{% endif %}>
                             {% if td.form is defined and td.form %}
                                 <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST')}}">
                                     {{
