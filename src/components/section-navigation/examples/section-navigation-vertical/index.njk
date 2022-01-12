@@ -1,13 +1,18 @@
 {% from "components/section-navigation/_macro.njk" import onsSectionNavigation %}
 {{
     onsSectionNavigation({
-        "vertical": true,
+        "variants": "vertical",
         "id": "section-menu",
-        "currentPath": "#section-1",
+        "currentPath": "#section-2",
         "itemsList": [
             {
                 "title": "Section 1",
-                "url": "#section-1",
+                "url": "#section-1"
+
+            },
+            {
+                "title": "Section 2",
+                "url": "#section-2",
                 "anchors": [
                     {
                         "title": "Sub section 1",
@@ -16,15 +21,19 @@
                     {
                         "title": "Sub section 2",
                         "url": "#sub-section-2"
+                    },                    
+                    {
+                        "title": "Sub section 3",
+                        "url": "#sub-section-3"
                     }
                 ]
             },
             {
-                "title": "Section 2",
+                "title": "Section 3",
                 "url": "#0"
             },
             {
-                "title": "Section 3",
+                "title": "Section 4",
                 "url": "#0"
             }
         ]

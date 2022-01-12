@@ -1,4 +1,8 @@
 .ons-section-nav {
+  &:not(&--vertical) {
+    border-bottom: 1px solid $color-borders;
+  }
+
   &__list {
     list-style: none;
     margin: 0;
@@ -15,7 +19,6 @@
 
   &__item {
     font-size: 1rem;
-    margin: 0 1rem 0.7rem 0;
     padding: 0;
     &--active {
       border-left: 4px solid $color-text-link-active;
@@ -25,6 +28,9 @@
       a {
         color: $color-text-link-active;
       }
+    }
+    & & {
+      margin-bottom: 0.3rem;
     }
   }
 
@@ -40,6 +46,7 @@
       border: none;
       border-bottom: 4px solid transparent;
       display: inline-block;
+      margin: 0 1rem 0 0;
       text-align: center;
       &--active,
       &:hover {

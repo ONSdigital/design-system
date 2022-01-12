@@ -1,11 +1,11 @@
 {% macro onsSectionNavigation(params) %}
-  <nav class="ons-section-nav{% if params.vertical is defined and params.vertical == true %} ons-section-nav--vertical{% endif %}" id="{{ params.id }}" aria-label="{{ params.ariaLabel | default("Section menu") }}">
+  <nav class="ons-section-nav{% if params.variants is defined and params.variants == 'vertical' %} ons-section-nav--vertical{% endif %}" id="{{ params.id }}" aria-label="{{ params.ariaLabel | default("Section menu") }}">
       <ul class="ons-section-nav__list" aria-label="{{ params.ariaListLabel | default("Section menu links") }}">
         {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
           <li class="ons-section-nav__item {{ item.classes }}{{ ' ons-section-nav__item--active' if (item.url == params.currentPath) or (item.url in params.currentPath) or (params.tabQuery == item.title|lower) }}">
             <a class="ons-section-nav__link" href="{{ item.url }}" {% if (item.url == params.currentPath) or (item.url in params.currentPath) or (params.tabQuery == item.title|lower) %} aria-current="location" {% endif %}>{{ item.title }}</a>
               {% if item.anchors is defined and item.anchors %}
-                  <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-no">
+                  <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
                       {% for anchor in item.anchors %}
                           <li class="ons-section-nav__item ons-list__item">
                               <a href="{{ anchor.url }}" class="ons-section-nav__link ons-list__link">{{ anchor.title }}</a>

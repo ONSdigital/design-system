@@ -4,6 +4,7 @@
 | ariaLabel     | string        | false    | The aria-label added to the section navigation element. Defaults to `Section menu`    |
 | ariaListLabel | string        | false    | The aria-label added to the section navigation list. Defaults to `Section menu links` |
 | itemsList     | `Array<Item>` | true     | An array of list items to render in the section navigation element                    |
+| variants      | string        | false    | Use the value `vertical` to display the navigation vertically                         |
 
 ## Item
 
