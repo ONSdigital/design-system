@@ -40,7 +40,7 @@
         {% call onsPanel({
             "classes": "ons-u-mb-m"
         }) %}
-            {% if params.guidance.content %}
+            {% if params.guidance.content is defined and params.guidance.content %}
                 {{ params.guidance.content | safe }}
             {% endif %}
             {%- for item in params.guidance.lists -%}
