@@ -43,20 +43,22 @@
             {% if params.guidance.content is defined and params.guidance.content %}
                 {{ params.guidance.content | safe }}
             {% endif %}
-            {%- for item in params.guidance.lists -%}
-                {% if item.listHeading %}
-                    <h2 class="ons-u-fs-r--b">{{ item.listHeading }}</h2>
-                {% endif %}
-                {% if item.listLeadingLine %}
-                    <p>{{ item.listLeadingLine }}</h2>
-                {% endif %}
-                {% from "components/lists/_macro.njk" import onsList %}
-                {{
-                    onsList({
-                        "itemsList": item.itemsList
-                    })
-                }}
-            {% endfor -%}
+            {% if params.guidance.lists is defined and params.guidance.lists %}
+                {%- for item in params.guidance.lists -%}
+                    {% if item.listHeading is defined and item.listHeading %}
+                        <h2 class="ons-u-fs-r--b">{{ item.listHeading }}</h2>
+                    {% endif %}
+                    {% if item.listLeadingLine is defined and item.listLeadingLine %}
+                        <p>{{ item.listLeadingLine }}</h2>
+                    {% endif %}
+                    {% from "components/lists/_macro.njk" import onsList %}
+                    {{
+                        onsList({
+                            "itemsList": item.itemsList
+                        })
+                    }}
+                {% endfor -%}
+            {% endif -%}
         {% endcall %}
     {% endset %}
 
