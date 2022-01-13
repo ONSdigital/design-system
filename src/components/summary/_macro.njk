@@ -22,7 +22,7 @@
                     {% endif %}
                     {% if group.headers is defined and group.headers and group.rows is defined and group.rows %}
                         <table class="ons-summary__items">
-                            <thead id="{{ group.headerId }}" class="ons-u-vh">
+                            <thead {% if group.headerId is defined and group.headerId %}id="{{ group.headerId }}" {% endif %}class="ons-u-vh">
                                 <tr>
                                     {% for header in group.headers %}
                                         <th>{{ header }}</th>
