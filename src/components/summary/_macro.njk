@@ -22,7 +22,7 @@
                     {% endif %}
                     {% if group.headers is defined and group.headers and group.rows is defined and group.rows %}
                         <table class="ons-summary__items">
-                            <thead {% if group.headerId is defined and group.headerId %}id="{{ group.headerId }}" {% endif %}class="ons-u-vh">
+                            <thead {% if group.groupHeaderId is defined and group.groupHeaderId %}id="{{ group.groupHeaderId }}" {% endif %}class="ons-u-vh">
                                 <tr>
                                     {% for header in group.headers %}
                                         <th>{{ header }}</th>
@@ -43,7 +43,7 @@
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
-                                        <tr class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}">
+                                        <tr {% if row.rowItemId is defined and row.rowItemId %}id="{{ row.rowItemId }}" {% endif %}class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}">
                                             <td
                                                 class="ons-summary__item-title"
                                                 {% if rowItem.rowTitleAttributes is defined and rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
