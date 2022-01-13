@@ -19,6 +19,7 @@
 | placeholderText | string               | false    | A message to be shown as a placeholder if there are no rows in the summary                |
 | groupTitle      | string               | false    | The title for a summary within a group                                                    |
 | headers         | Array                | true     | An array of headers to describe the data in each column of the summary for screen readers |
+| headerId        | string               | false    | The id for the header row                                                                 |
 | summaryLink     | Array`<SummaryLink>` | false    | Settings for the link to appear after the summary                                         |
 
 ## SummaryRow
@@ -27,6 +28,7 @@
 | ------------------ | ----------------------- | -------- | --------------------------------------------------------------------- |
 | rowItems           | Array`<SummaryRowItem>` | true     | An array of items for this row                                        |
 | rowTitle           | string                  | false    | The title for the row                                                 |
+| rowId              | string                  | false    | Id of the row item                                                    |
 | rowTitleAttributes | object                  | false    | HTML attributes (for example, data attributes) to add to the rowTitle |
 | error              | boolean                 | false    | Whether to render this item as an error                               |
 | errorMessage       | string                  | false    | Error message for the row                                             |
