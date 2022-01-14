@@ -22,7 +22,7 @@
                     {% endif %}
                     {% if group.headers is defined and group.headers and group.rows is defined and group.rows %}
                         <table class="ons-summary__items">
-                            <thead {% if group.groupHeaderId is defined and group.groupHeaderId %}id="{{ group.groupHeaderId }}" {% endif %}class="ons-u-vh">
+                            <thead {% if group.id is defined and group.id %}id="{{ group.id }}" {% endif %}class="ons-u-vh">
                                 <tr>
                                     {% for header in group.headers %}
                                         <th>{{ header }}</th>
@@ -35,7 +35,7 @@
                                 {% if row.error is defined and row.error %} {% set itemClass = " ons-summary__item--error" %}{% endif %}
                                 {% if row.total is defined and row.total %} {% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
 
-                                <tbody {% if row.rowId is defined and row.rowId %}id="{{ row.rowId }}" {% endif %}class="ons-summary__item{{ itemClass }}">
+                                <tbody {% if row.id is defined and row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ itemClass }}">
                                     {% if row.errorMessage is defined and row.errorMessage or (row.rowItems | length > 1 and row.rowTitle) %}
                                         <tr class="ons-summary__row">
                                             <th colspan="3" class="ons-summary__row-title ons-u-fs-r">{{ row.errorMessage or row.rowTitle }}</th>
@@ -43,7 +43,7 @@
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
-                                        <tr {% if rowItem.rowItemId is defined and rowItem.rowItemId %}id="{{ rowItem.rowItemId }}" {% endif %}class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}">
+                                        <tr {% if rowItem.id is defined and rowItem.id %}id="{{ rowItem.id }}" {% endif %}class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}">
                                             <td
                                                 class="ons-summary__item-title"
                                                 {% if rowItem.rowTitleAttributes is defined and rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
