@@ -138,4 +138,10 @@ $collapsible-caret-width: 1.5rem;
       padding: 0;
     }
   }
+
+  &--simple & {
+    &__icon {
+      top: 0.8rem;
+    }
+  }
 }
