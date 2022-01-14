@@ -43,7 +43,7 @@
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
-                                        <tr {% if row.rowItemId is defined and row.rowItemId %}id="{{ row.rowItemId }}" {% endif %}class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}">
+                                        <tr {% if rowItem.rowItemId is defined and rowItem.rowItemId %}id="{{ rowItem.rowItemId }}" {% endif %}class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}">
                                             <td
                                                 class="ons-summary__item-title"
                                                 {% if rowItem.rowTitleAttributes is defined and rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
