@@ -31,6 +31,7 @@
         {% endif %}
         <div class="ons-checkboxes__items">
             {% for checkbox in params.checkboxes %}
+                {% set childIsChecked = false %}
                 {% set labelHTML = checkbox.label.text %}
                 {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
                     {% set exclusiveClass = ' ons-js-exclusive-group-item' %}
@@ -43,13 +44,18 @@
                     {% if checkbox.other.selectAllChildren is defined and checkbox.other.selectAllChildren == true %}
                         {% set otherClass = otherClass + " ons-js-select-all-children" %}
                     {% endif %}
+                    {% for otherCheckbox in checkbox.other.checkboxes %}
+                        {% if otherCheckbox.checked is defined and otherCheckbox.checked %}
+                            {% set childIsChecked = true %}
+                        {% endif %}
+                    {% endfor %}
                 {% endif %}
                 <span class="ons-checkboxes__item{{ " ons-checkboxes__item--no-border" if params.borderless }}">
                     {% set config = {
                         "id": checkbox.id,
                         "name": checkbox.name,
                         "value": checkbox.value,
-                        "checked": checkbox.checked,
+                        "checked": childIsChecked if childIsChecked == true else checkbox.checked,
                         "borderless": params.borderless,
                         "classes": checkbox.classes | default('') + borderless | default(''),
                         "inputClasses": exclusiveClass | default('') + otherClass | default(''),
