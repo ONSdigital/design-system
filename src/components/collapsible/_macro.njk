@@ -3,11 +3,12 @@
 
     <div
         id="{{ params.id }}"
-        class="ons-collapsible ons-js-collapsible{% if params.isAccordion is defined and params.isAccordion %} ons-collapsible--accordion{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
+        class="ons-collapsible ons-js-collapsible{% if params.isAccordion is defined and params.isAccordion %} ons-collapsible--accordion{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.variants is defined and params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-collapsible--{{ variant }}{% endfor %}{% else %} ons-collapsible--{{ params.variants }}{% endif %}{% endif %}"
         {% if params.button is defined and params.button and params.button.close is defined and params.button.close %} data-btn-close="{{ params.button.close }}"{% endif %}
         {% if params.group is defined and params.group %} data-group="{{ params.group }}"{% endif %}
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         {% if params.saveState is defined and params.saveState %} data-save-state="true"{% endif %}
+        {% if params.open is defined and params.open %} data-open="true"{% endif %}
     >
         <div
             class="ons-collapsible__heading ons-js-collapsible-heading"

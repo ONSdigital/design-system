@@ -8,6 +8,7 @@ Accordions let users show or hide sections of related content on the same page.
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/lists/_macro.njk" import onsList %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 +++
 
 {{
@@ -58,6 +59,26 @@ The accordion uses JavaScript so when it's turned off, the sections of content a
 
 ### Use clear labels
 Accordions hide content so make sure your section headings are clear so the user does not need to work hard to understand which heading to choose.
+
+
+## Variants
+
+### Simple
+
+Under certain conditions a simplified accordion may be appropriate. The example below shows the accordion being used in a narrow column for filtering results. The button controls have been removed to allow the accordion to fit into a smaller area. 
+
+To use this variant include the parameter `'variants': 'simple'` in your implementation.
+
+The example shown uses the parameter `'open': true` which makes each accordion item open on page load.
+
+{{ onsPanel({
+        "body": '<p>This variant has not yet been tested and may not meet our accessibility requirements.</p>'
+    })
+}}
+
+{{
+    patternlibExample({ path: "components/accordion/examples/accordion-simple/index.njk" })
+}}
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.
