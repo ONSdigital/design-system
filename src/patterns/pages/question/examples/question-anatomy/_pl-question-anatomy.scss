@@ -1,25 +1,30 @@
 .ons-pl-question-anatomy {
   border-collapse: collapse;
   border-spacing: 0;
+  margin: -1.5rem;
   max-width: $grid-max-width;
 
   &__row {
     &:not(:last-child) {
-      border-bottom: 1px dashed $color-grey-15;
+      border-bottom: 1px dashed $color-grey-35;
     }
   }
 
   &__component {
-    padding: 1rem 1rem 1rem 0;
+    padding: 1rem 1.5rem;
     vertical-align: top;
   }
 
   &__description {
-    padding: 1rem 0 1rem 1rem;
+    background-color: $color-grey-5;
+    padding: 1rem;
     text-align: left;
+  }
 
-    strong {
-      color: $color-errors;
-    }
+  code {
+    background: #f5f5f6;
+    color: #d0021b;
+    font-weight: 400;
+    padding: 0.05rem 0.25rem;
   }
 }

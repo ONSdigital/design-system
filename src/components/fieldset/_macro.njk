@@ -14,14 +14,14 @@
             >
                 <legend class="ons-fieldset__legend{% if params.legendIsQuestionTitle is defined and params.legendIsQuestionTitle %} ons-u-mb-no{% endif %}{% if params.legendClasses is defined and params.legendClasses %} {{ params.legendClasses }}{% endif %}">
                     {% if params.legendIsQuestionTitle %}
-                        <h1 id="fieldset-legend-title" class="ons-fieldset__legend-title {% if params.legendTitleClasses is defined and params.legendTitleClasses %}{{ params.legendTitleClasses }}{% endif %}">
+                        <h1 id="fieldset-legend-title" class="ons-fieldset__legend-title ons-u-mb-m{% if params.legendTitleClasses is defined and params.legendTitleClasses %} {{ params.legendTitleClasses }}{% endif %}">
                             {{- params.legend | safe -}}
                         </h1>
                     {% else %}
                         {{- params.legend | safe -}}
                     {% endif %}
                     {% if params.description is defined and params.description %}
-                        <div class="ons-fieldset__description {% if params.legendIsQuestionTitle %}ons-fieldset__description--title{% endif %}">{{ params.description | safe }}</div>
+                        <div class="ons-fieldset__description{% if params.legendIsQuestionTitle %} ons-fieldset__description--title ons-u-mb-m{% endif %}">{{ params.description | safe }}</div>
                     {% endif %}
                 </legend>
                 {{ caller() }}

@@ -18,9 +18,11 @@ Use this pattern when you need a user to give you some information.
 Do not use this pattern for any pages that are not asking for information. For example, use start pages and interstitial pages to give the user information they need to complete the questions.
 
 ## How to use this pattern
+A question page can be built using the question macro `onsQuestion()`.
+
+Use the parameters in the following table to build the common question elements. This will make sure the they are used correctly and the spacing is consistent across all questions. You need to import any applicable component for the required type of answer.
 {{ patternlibExample({
-    "path": "patterns/pages/question/examples/question-anatomy/index.njk",
-    "noTabs": true
+    "path": "patterns/pages/question/examples/question-anatomy/index.njk"
 }) }}
 
 Use the [basic content principles](/guidance/basic-content-principles) to make sure the content on your question pages is clearly written and accessible. Keep your content short so users do not have too much to read and can continue their journey without interruption. Each part of the page should follow the specific content guidance.
@@ -55,7 +57,7 @@ Other things to remember for headings are:
     })
 }}
 
-### Question descriptions (optional)
+### Question description (optional)
 A question description adds context to a survey question. It could be an instruction on how to answer it. It should not be used unless there is evidence that users need it to help them answer.
 
 Question descriptions should be relevant to that question and not refer to any previous or upcoming questions.
@@ -179,11 +181,18 @@ To avoid the visual repetition of text you should wrap the `<h1>` inside the `<l
     "path": "components/question/examples/question-ccs/index.njk"
 }) }}
 
+{# 
+## TO DO: Move and convert to a new 'Interstitial' page pattern
+## We shouldn't show this example here as the guidance states you shouldn't use the question pattern for interstitial pages
+
+
 ### Interstitial with an interviewer instruction
 
 {{ patternlibExample({
     "path": "components/question/examples/question-interviewer-note/index.njk"
 }) }}
+
+#}
 
 ## Help improve this pattern
 Let us know how we could improve this pattern or share your user research findings.

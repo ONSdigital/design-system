@@ -2,7 +2,8 @@
   margin: 1rem 0 0;
 
   &__title {
-    margin: 0 0 1rem;
+    @extend .ons-u-mb-m;
+
     em,
     .ons-highlight {
       background-color: $color-highlight;
@@ -15,6 +16,13 @@
       padding: 0 0.5rem;
     }
   }
+
+  &__description {
+    p:last-of-type {
+      margin-bottom: 0 !important;
+    }
+  }
+
   &__instruction {
     background-color: $color-instruction-tint;
     border: 5px solid $color-instruction;

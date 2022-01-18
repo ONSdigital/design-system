@@ -204,35 +204,6 @@ describe('Component: collapsible', function() {
       });
     });
   });
-
-  describe('If the component does not have a button', function() {
-    beforeEach(function() {
-      delete params.button;
-      const component = renderComponent(params);
-
-      Object.keys(component).forEach(key => {
-        this[key] = component[key];
-      });
-    });
-
-    afterEach(function() {
-      if (this.wrapper) {
-        this.wrapper.remove();
-      }
-    });
-
-    describe('When the component initialises', function() {
-      beforeEach(function() {
-        this.collapsible = new Collapsible(this.collapsible);
-      });
-
-      it('there should be no closeButton or buttonOpen properties', function() {
-        expect(this.collapsible.button).to.be.null;
-        expect(this.collapsible.closeButton).to.be.undefined;
-        expect(this.collapsible.buttonOpen).to.be.undefined;
-      });
-    });
-  });
 });
 
 function renderComponent(params) {

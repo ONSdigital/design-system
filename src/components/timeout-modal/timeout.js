@@ -169,7 +169,8 @@ export default class Timeout {
       if (!canSetNewExpiry) {
         this.redirect();
       } else {
-        this.closeModalAndRestartTimeout();
+        const newExpiryTimeInMilliseconds = this.convertTimeToMilliSeconds(canSetNewExpiry).toString();
+        this.closeModalAndRestartTimeout(newExpiryTimeInMilliseconds);
       }
     }
   }
@@ -207,7 +208,7 @@ export default class Timeout {
       method: fetchMethod,
       headers: { 'Cache-Control': 'no-cache', 'Content-type': 'application/json; charset=UTF-8' },
     });
-    if (!response.ok) {
+    if (response.status === 401) {
       this.redirect();
       return false;
     }
