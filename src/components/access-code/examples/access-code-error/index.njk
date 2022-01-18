@@ -67,7 +67,7 @@ layout: none
     {% set content %}
         <p>If you need to answer separately from the people you live with, you can <a href='#0'>request an individual access code</a> to start a separate study.</p>
         {% call onsPanel({
-                type: "warn"
+                "type": "warn"
             })
         %}
             Someone in your household must still complete a study using a household access code
@@ -75,10 +75,9 @@ layout: none
     {% endset %}
 
     {% call onsCollapsible({
-            id: "collapsible",
-            title: "Need to answer separately from your household?",
-            titleTag: "h2",
-            button: {
+            "id": "collapsible",
+            "title": "Need to answer separately from your household?",
+            "button": {
                 "close": "Hide this",
                 "contextSuffix": "content"
             }

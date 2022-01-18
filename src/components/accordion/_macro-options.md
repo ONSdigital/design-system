@@ -7,17 +7,17 @@
 | variants  | array or string        | false    | An array of values or single value (string) to adjust the 'accordion' using available variants - simple |
 | open      | boolean                | false    | Forces all accordion items to be open on page load                                                      |
 
-## AccordionItem
+## AccordionItem
 
-| Name              | Type                  | Required | Description                                                                              |
-| ----------------- | --------------------- | -------- | ---------------------------------------------------------------------------------------- |
-| title             | string                | true     | The title of the accordion item                                                          |
-| titleTag          | string                | false    | The HTML tag that is used the title, for example, `h2`. Defaults to `div`.               |
-| content           | string                | true     | The content of the accordion item                                                        |
-| button            | `AccordionItemButton` | false    | Settings for the button                                                                  |
-| attributes        | object                | false    | HTML attributes (for example, data attributes) to add to the collapsible element         |
-| headingAttributes | object                | false    | HTML attributes (for example, data attributes) to add to the collapsible header element  |
-| contentAttributes | object                | false    | HTML attributes (for example, data attributes) to add to the collapsible content element |
+| Name              | Type                  | Required | Description                                                                                                         |
+| ----------------- | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
+| title             | string                | true     | The title of the accordion item                                                                                     |
+| titleTag          | string                | false    | The HTML heading tag to wrap the title text in for it’s correct semantic order on the page. Will default to an `h2` |
+| content           | string                | true     | The content of the accordion item                                                                                   |
+| button            | `AccordionItemButton` | false    | Settings for the button                                                                                             |
+| attributes        | object                | false    | HTML attributes (for example, data attributes) to add to the collapsible element                                    |
+| headingAttributes | object                | false    | HTML attributes (for example, data attributes) to add to the collapsible header element                             |
+| contentAttributes | object                | false    | HTML attributes (for example, data attributes) to add to the collapsible content element                            |
 
 ## AccordionButton
 

@@ -22,12 +22,12 @@ $collapsible-caret-width: 1.5rem;
           margin-left: -$collapsible-caret-width;
           padding-left: $collapsible-caret-width;
         }
-        .ons-collapsible__icon {
-          fill: $color-black;
+        .ons-collapsible__icon .ons-svg-icon {
+          fill: $color-text-link-focus;
         }
       }
 
-      &:hover {
+      &:hover:not(:focus) {
         color: $color-text-link-hover;
         .ons-collapsible__icon {
           fill: $color-text-link-hover;
@@ -42,7 +42,7 @@ $collapsible-caret-width: 1.5rem;
       display: inline-block;
       fill: $color-text-link;
       height: $collapsible-caret-width;
-      left: -0.2rem;
+      left: -0.15rem;
       position: absolute;
       top: -0.25rem;
       width: $collapsible-caret-width;
