@@ -8,7 +8,7 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Anatomy of a question",
+    "title": "Question example",
     "breadcrumbs": {
         "ariaLabel": 'Breadcrumbs',
         "itemsList": [
@@ -23,7 +23,14 @@ layout: none
 {% block main %}
     {% call onsQuestion({
         "title": "How many visitors are staying overnight at 3 Severn Road on 13 May 2019?",
-        "description": "<p>Enter “0” if there are no visitors staying overnight</p>"
+        "description": "<p>Enter “0” if there are no visitors staying overnight</p>",
+        "justification": {
+            "title": "Why we ask this question",
+            "content": "<p>Visitor information is collected to ensure that everyone is counted, in order to produce accurate estimates of the population, to facilitate effective planning and funding decisions.</p>"
+        },
+        "submitButton": {
+            "submitType": "timer"
+        }
     }) %}
         {{ onsInput({
             "id": "number-of-visitors",
@@ -34,20 +41,5 @@ layout: none
                 "text": "Number of visitors"
             }
         }) }}
-
-        {% call onsCollapsible({
-            "id": "question-justification",
-            "title": "Why we ask this question",
-            "button": {
-                "close": "Hide this"
-            }
-        }) %}
-            <p>Visitor information is collected to ensure that everyone is counted, in order to produce accurate estimates of the population, to facilitate effective planning and funding decisions.</p>
-        {% endcall %}
     {% endcall %}
-
-    {{ onsButton({
-        "text": "Save and continue",
-        "classes": "ons-u-mt-xl"
-    }) }}
 {% endblock %}

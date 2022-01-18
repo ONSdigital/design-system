@@ -1,6 +1,7 @@
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/button/_macro.njk" import onsButton %}
 
 <table class="ons-pl-question-anatomy">
     <tbody class="ons-pl-question-anatomy__row">
@@ -9,7 +10,8 @@
                 <h1 class="ons-u-fs-l">On 1 May 2021, what was the number of employees for Bolt and Ratchet?</h1>
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
-                <h2 class="ons-u-fs-r">Question heading</h2>
+                <h2 class="ons-u-fs-r ons-u-mb-no">Question heading</h2>
+                <p><code>title</code></p>
             </th>
         </tr>
     </tbody>
@@ -19,8 +21,9 @@
                 <p>This is all employees aged 16 years or over that your organisation employs</p>
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
-                <h2 class="ons-u-fs-r">Question description <small>(optional)</small></h2>
-                <p class="ons-u-fs-s">To provide added context to the question</p>
+                <h2 class="ons-u-fs-r ons-u-mb-no">Question description <span class="ons-u-fs-s">(optional)</span></h2>
+                <p><code>description</code></p>
+                <p class="ons-u-fs-s ons-u-mb-no">To provide added context to the question</p>
             </th>
         </tr>
     </tbody>
@@ -38,9 +41,9 @@
                 {% endcall %}
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
-                <h2 class="ons-u-fs-r">Question definition <small>(optional)</small></h2>
-                <p class="ons-u-fs-s">Only to be used to define word(s) or acronym(s) within the question.</p>
-                <p class="ons-u-fs-s"><strong>Only to be used once</strong></p>
+                <h2 class="ons-u-fs-r ons-u-mb-no">Question definition <span class="ons-u-fs-s">(optional)</span></h2>
+                <p><code>definition</code></p>
+                <p class="ons-u-fs-s ons-u-mb-no">Only to be used to define word(s) or acronym(s) within the question.</p>
             </th>
         </tr>
     </tbody>
@@ -60,7 +63,8 @@
                 {% endcall %}
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
-                <h2 class="ons-u-fs-r">Question guidance <small>(optional)</small></h2>
+                <h2 class="ons-u-fs-r ons-u-mb-no">Question guidance <span class="ons-u-fs-s">(optional)</span></h2>
+                <p><code>guidance</code></p>
                 <p class="ons-u-fs-s">Only to be used to state what should be included or excluded from the answer</p>
             </th>
         </tr>
@@ -118,8 +122,22 @@
                 {% endcall %}
             </td>
             <th class="ons-pl-question-anatomy__description" scope="col">
-                <h2 class="ons-u-fs-r">Question justification <small>(optional)</small></h2>
-                <p class="ons-u-fs-s"><strong>Not to be used as a definition</strong></p>
+                <h2 class="ons-u-fs-r ons-u-mb-no">Question justification <span class="ons-u-fs-s">(optional)</span></h2>
+                <p class="ons-u-mb-no"><code>justification</code></p>
+            </th>
+        </tr>
+    </tbody>
+    <tbody class="ons-pl-question-anatomy__row">
+        <tr>
+            <td class="ons-pl-question-anatomy__component">
+                {{
+                    onsButton({
+                        "text": 'Save and continue'
+                    })
+                }}
+            </td>
+            <th class="ons-pl-question-anatomy__description" scope="col">
+                <h2 class="ons-u-fs-r ons-u-mb-no">Submit button</h2>
             </th>
         </tr>
     </tbody>
