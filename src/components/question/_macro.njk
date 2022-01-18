@@ -25,10 +25,10 @@
         {% set questionDefinition %}
             {% from "components/collapsible/_macro.njk" import onsCollapsible %}
             {% call onsCollapsible({
-                "id": params.definition.id,
+                "id": params.definition.id if params.definition.id is defined and params.definition.id else '',
                 "titleTag": 'h2',
                 "classes": 'ons-u-mb-m',
-                "title": params.definition.title
+                "title": params.definition.title if params.definition.title is defined and params.definition.title else '',
             }) %}
                 {% if params.definition.content %}
                     {{ params.definition.content | safe }}
@@ -37,7 +37,7 @@
         {% endset %}
     {% endif %}
 
-    {% if params.definition is defined and params.definition %}
+    {% if params.guidance is defined and params.guidance %}
         {% set questionGuidance %}
             {% from "components/panel/_macro.njk" import onsPanel %}
             {% call onsPanel({
