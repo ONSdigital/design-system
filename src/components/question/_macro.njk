@@ -8,7 +8,7 @@
     {% endset %}
 
     {% set descHtml %}
-        {% if params.readDescriptionFirst is defined and params.readDescriptionFirst == true %} 
+        {% if params.readDescriptionFirst is defined and params.readDescriptionFirst == true %}
             <div aria-hidden="true" {% if params.legendIsQuestionTitle is not defined %}class="ons-question__description"{% endif %}>{{ params.description | safe }}</div>
         {% elif params.legendIsQuestionTitle is not defined %}
             <div class="ons-question__description ons-u-mb-m">{{ params.description | safe }}</div>
@@ -21,46 +21,50 @@
         <div class="ons-question__instruction ons-u-mb-m">{{ params.instruction | safe }}</div>
     {% endset %}
 
-    {% set questionDefinition %}
-        {% from "components/collapsible/_macro.njk" import onsCollapsible %}
-        {% call onsCollapsible({
-            "id": params.definition.id,
-            "titleTag": 'h2',
-            "classes": 'ons-u-mb-m',
-            "title": params.definition.title
-        }) %}
-            {% if params.definition.content %}
-                {{ params.definition.content | safe }}
-            {% endif %}
-        {% endcall %}
-    {% endset %}
+    {% if params.definition is defined and params.definition %}
+        {% set questionDefinition %}
+            {% from "components/collapsible/_macro.njk" import onsCollapsible %}
+            {% call onsCollapsible({
+                "id": params.definition.id,
+                "titleTag": 'h2',
+                "classes": 'ons-u-mb-m',
+                "title": params.definition.title
+            }) %}
+                {% if params.definition.content %}
+                    {{ params.definition.content | safe }}
+                {% endif %}
+            {% endcall %}
+        {% endset %}
+    {% endif %}
 
-    {% set questionGuidance %}
-        {% from "components/panel/_macro.njk" import onsPanel %}
-        {% call onsPanel({
-            "classes": "ons-u-mb-m"
-        }) %}
-            {% if params.guidance.content is defined and params.guidance.content %}
-                {{ params.guidance.content | safe }}
-            {% endif %}
-            {% if params.guidance.lists is defined and params.guidance.lists %}
-                {%- for item in params.guidance.lists -%}
-                    {% if item.listHeading is defined and item.listHeading %}
-                        <h2 class="ons-u-fs-r--b">{{ item.listHeading }}</h2>
-                    {% endif %}
-                    {% if item.listLeadingLine is defined and item.listLeadingLine %}
-                        <p>{{ item.listLeadingLine }}</h2>
-                    {% endif %}
-                    {% from "components/lists/_macro.njk" import onsList %}
-                    {{
-                        onsList({
-                            "itemsList": item.itemsList
-                        })
-                    }}
-                {% endfor -%}
-            {% endif -%}
-        {% endcall %}
-    {% endset %}
+    {% if params.definition is defined and params.definition %}
+        {% set questionGuidance %}
+            {% from "components/panel/_macro.njk" import onsPanel %}
+            {% call onsPanel({
+                "classes": "ons-u-mb-m"
+            }) %}
+                {% if params.guidance.content is defined and params.guidance.content %}
+                    {{ params.guidance.content | safe }}
+                {% endif %}
+                {% if params.guidance.lists is defined and params.guidance.lists %}
+                    {%- for item in params.guidance.lists -%}
+                        {% if item.listHeading is defined and item.listHeading %}
+                            <h2 class="ons-u-fs-r--b">{{ item.listHeading }}</h2>
+                        {% endif %}
+                        {% if item.listLeadingLine is defined and item.listLeadingLine %}
+                            <p>{{ item.listLeadingLine }}</h2>
+                        {% endif %}
+                        {% from "components/lists/_macro.njk" import onsList %}
+                        {{
+                            onsList({
+                                "itemsList": item.itemsList
+                            })
+                        }}
+                    {% endfor -%}
+                {% endif -%}
+            {% endcall %}
+        {% endset %}
+    {% endif %}
 
     <div
         {% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %}
