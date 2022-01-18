@@ -11,41 +11,78 @@
         {% if params.readDescriptionFirst is defined and params.readDescriptionFirst == true %} 
             <div aria-hidden="true" {% if params.legendIsQuestionTitle is not defined %}class="ons-question__description"{% endif %}>{{ params.description | safe }}</div>
         {% elif params.legendIsQuestionTitle is not defined %}
-            <div class="ons-question__description">{{ params.description | safe }}</div>
+            <div class="ons-question__description ons-u-mb-m">{{ params.description | safe }}</div>
         {% else %}
             {{ params.description | safe }}
         {% endif %}
     {% endset %}
 
     {% set instHtml %}
-        <div class="ons-question__instruction ons-u-mb-s">{{ params.instruction | safe }}</div>
+        <div class="ons-question__instruction ons-u-mb-m">{{ params.instruction | safe }}</div>
+    {% endset %}
+
+    {% set questionDefinition %}
+        {% from "components/collapsible/_macro.njk" import onsCollapsible %}
+        {% call onsCollapsible({
+            "id": params.definition.id,
+            "titleTag": 'h2',
+            "classes": 'ons-u-mb-m',
+            "title": params.definition.title
+        }) %}
+            {% if params.definition.content %}
+                {{ params.definition.content | safe }}
+            {% endif %}
+        {% endcall %}
+    {% endset %}
+
+    {% set questionGuidance %}
+        {% from "components/panel/_macro.njk" import onsPanel %}
+        {% call onsPanel({
+            "classes": "ons-u-mb-m"
+        }) %}
+            {% if params.guidance.content is defined and params.guidance.content %}
+                {{ params.guidance.content | safe }}
+            {% endif %}
+            {% if params.guidance.lists is defined and params.guidance.lists %}
+                {%- for item in params.guidance.lists -%}
+                    {% if item.listHeading is defined and item.listHeading %}
+                        <h2 class="ons-u-fs-r--b">{{ item.listHeading }}</h2>
+                    {% endif %}
+                    {% if item.listLeadingLine is defined and item.listLeadingLine %}
+                        <p>{{ item.listLeadingLine }}</h2>
+                    {% endif %}
+                    {% from "components/lists/_macro.njk" import onsList %}
+                    {{
+                        onsList({
+                            "itemsList": item.itemsList
+                        })
+                    }}
+                {% endfor -%}
+            {% endif -%}
+        {% endcall %}
     {% endset %}
 
     <div
         {% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %}
-        class="ons-question{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
+        class="ons-question ons-u-mb-l{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
     >
-        {% if params.legendIsQuestionTitle %}
+        {% if params.legendIsQuestionTitle is defined and params.legendIsQuestionTitle %}
             {% from "components/fieldset/_macro.njk" import onsFieldset %}
 
             {# Resolves caller issue in jijna: https://github.com/pallets/jinja/issues/371 #}
             {% set content = caller() %}
-
-            {% call onsFieldset({
-                "legendIsQuestionTitle": params.legendIsQuestionTitle,
-                "legend": titleHtml,
-                "description": descHtml if params.description is defined and params.description else '',
-                "legendClasses": params.legendClasses,
-                "legendTitleClasses": params.legendTitleClasses
-            }) %}
-
-                {% if params.instruction is defined and params.instruction %}
-                    {{- instHtml -}}
-                {% endif %}
-
-                {{ content }}
-            {% endcall %}
+            <div class="ons-question__answer ons-u-mb-m">
+                {% call onsFieldset({
+                    "legendIsQuestionTitle": params.legendIsQuestionTitle,
+                    "legend": titleHtml,
+                    "description": descHtml if params.description is defined and params.description else '',
+                    "legendClasses": params.legendClasses,
+                    "legendTitleClasses": params.legendTitleClasses
+                }) %}
+                    {{ content }}
+                {% endcall %}
+            </div>
 
         {% else %}
             <h1 id="question-title" class="ons-question__title">
@@ -60,8 +97,43 @@
                 {{- instHtml | safe -}}
             {% endif %}
 
-            {{ caller () }}
+            {% if params.definition is defined and params.definition %}
+                {{- questionDefinition | safe -}}
+            {% endif %}
+
+            {% if params.guidance is defined and params.guidance %}
+                {{- questionGuidance | safe -}}
+            {% endif %}
+
+            <div class="ons-question__answer ons-u-mb-m">
+                {{ caller () }}
+            </div>
         {% endif %}
 
+        {% if params.justification is defined and params.justification %}
+            {% from "components/collapsible/_macro.njk" import onsCollapsible %}
+            {% call onsCollapsible({
+                "id": params.justification.id,
+                "titleTag": 'h2',
+                "classes": 'ons-u-mb-m',
+                "title": params.justification.title | default('Why we ask this question')
+            }) %}
+                {{ params.justification.content | safe }}
+            {% endcall %}
+        {% endif %}
     </div>
+
+    {% if params.submitButton is defined and params.submitButton %}
+        {% from "components/button/_macro.njk" import onsButton %}
+
+        {{
+            onsButton({
+                "id": params.submitButton.id,
+                "submitType": params.submitButton.submitType,
+                "text": params.submitButton.text | default ('Save and continue'),
+                "classes": params.submitButton.classes,
+                "attributes": params.submitButton.attributes
+            })
+        }}
+    {% endif %}
 {% endmacro %}

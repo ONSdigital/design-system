@@ -1,9 +1,11 @@
-| Name      | Type                   | Required | Description                                                                              |
-| --------- | ---------------------- | -------- | ---------------------------------------------------------------------------------------- |
-| id        | string                 | true     | id of the accordion                                                                      |
-| classes   | string                 | false    | Classes to add to the accordion component                                                |
-| itemList  | `Array<AccordionItem>` | true     | Accordion items to render                                                                |
-| allButton | `AccordionButton`      | false    | Settings for the show all / hide all button. If not specified the button will not render |
+| Name      | Type                   | Required | Description                                                                                             |
+| --------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| id        | string                 | true     | id of the accordion                                                                                     |
+| classes   | string                 | false    | Classes to add to the accordion component                                                               |
+| itemList  | `Array<AccordionItem>` | true     | Accordion items to render                                                                               |
+| allButton | `AccordionButton`      | false    | Settings for the show all / hide all button. If not specified the button will not render                |
+| variants  | array or string        | false    | An array of values or single value (string) to adjust the 'accordion' using available variants - simple |
+| open      | boolean                | false    | Forces all accordion items to be open on page load                                                      |
 
 ## AccordionItem
 
