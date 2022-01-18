@@ -11,6 +11,16 @@
       display: block;
     }
   }
+
+  &--inline {
+    align-items: center;
+    display: flex;
+
+    .ons-label {
+      margin-bottom: 0;
+      margin-right: 0.5rem;
+    }
+  }
 }
 
 @include input-width('ons-field__item--w-{x}');
