@@ -4,7 +4,7 @@
 | title             | string              | true     | The title for the collapsible                                                            |
 | titleTag          | string              | false    | The HTML tag to wrap the title text in. Will default to a `div`                          |
 | content           | string              | true     | HTML content for the collapsible                                                         |
-| button            | `CollapsibleButton` | false    | Settings for the close button. If not specified button will not render                   |
+| button            | `CollapsibleButton` | true     | Settings for the close button. If not specified button will not render                   |
 | classes           | string              | false    | Classes to add to the collapsible element                                                |
 | saveState         | boolean             | false    | Allows saving of collapsible state (open or closed) locally                              |
 | attributes        | object              | false    | HTML attributes (for example, data attributes) to add to the collapsible element         |
