@@ -21,8 +21,8 @@
                         <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
                     {% if group.headers is defined and group.headers and group.rows is defined and group.rows %}
-                        <table class="ons-summary__items">
-                            <thead {% if group.id is defined and group.id %}id="{{ group.id }}" {% endif %}class="ons-u-vh">
+                        <table {% if group.id is defined and group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__items">
+                            <thead class="ons-u-vh">
                                 <tr>
                                     {% for header in group.headers %}
                                         <th>{{ header }}</th>
