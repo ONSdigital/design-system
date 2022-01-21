@@ -30,7 +30,7 @@
       height: 46px;
     }
   }
-  &__grid-top-nisra {
+  &__grid-top-tall {
     @include mq(xs) {
       height: 76px;
     }
@@ -119,9 +119,9 @@
       background: $color-header-top-internal;
       .ons-svg-logo {
         display: block;
-        fill: $color-white;
-        &--accent {
-          fill: $color-ons-logo-secondary;
+        .ons-svg-logo__group--text,
+        .ons-svg-logo__group--primary {
+          fill: $color-white;
         }
       }
     }
@@ -129,6 +129,9 @@
       background-color: transparent;
       box-shadow: none;
       outline: 3px solid $color-focus;
+      .ons-svg-logo {
+        fill: $color-text-link-focus;
+      }
     }
     &__grid-top {
       min-height: 36px;
@@ -141,45 +144,13 @@
     }
   }
 
-  .ons-svg-logo,
-  .ons-nisra-svg-logo {
-    display: block;
-  }
-
   .ons-svg-logo {
-    fill: $color-ons-logo-primary;
-    &--accent {
-      fill: $color-ons-logo-secondary;
-    }
-  }
-
-  .ons-nisra-svg-logo {
-    .ons-st0 {
-      fill: $color-nisra-logo-primary;
-    }
-    .ons-st1 {
-      fill: $color-nisra-logo-secondary;
-    }
-    .ons-st2 {
-      fill: $color-nisra-logo-tertiary;
-    }
+    display: block;
   }
 
   &__logo-link:focus {
     .ons-svg-logo {
-      fill: $color-black !important;
-      &--accent {
-        fill: $color-black !important;
-      }
-    }
-    .ons-nisra-svg-logo {
-      .ons-st0 {
-        fill: $color-black !important;
-      }
-      .ons-st1 {
-        fill: $color-black !important;
-      }
-      .ons-st2 {
+      .ons-svg-logo__group {
         fill: $color-black !important;
       }
     }
@@ -199,6 +170,7 @@
 
   &__logo-link,
   &__logo-link:hover {
+    font-size: 0;
     text-decoration: none;
   }
 
