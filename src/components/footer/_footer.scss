@@ -26,8 +26,8 @@
   }
 
   .ons-svg-logo,
-  .ons-svg-logo--accent {
-    fill: $color-black;
+  .ons-svg-logo__group {
+    fill: $color-black !important;
   }
 
   &__body {
