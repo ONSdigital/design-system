@@ -54,7 +54,7 @@ const params = {
           value: 'Business Register and Employment Survey',
         },
         {
-          value: 'Quartely Survey of Building Materials Sand and Gravel',
+          value: 'Quarterly Survey of Building Materials Sand and Gravel',
         },
         {
           value: 'Monthly Survey of Building Materials Concrete Building Blocks',
@@ -69,7 +69,7 @@ const params = {
           value: 'Business Register and Employment Survey',
         },
         {
-          value: 'Quartely Survey of Building Materials Sand and Gravel',
+          value: 'Quarterly Survey of Building Materials Sand and Gravel',
         },
         {
           value: 'Monthly Survey of Building Materials Concrete Building Blocks',
