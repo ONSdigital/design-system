@@ -18,18 +18,18 @@
         {% endif %}
         <div class="ons-header__top">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap {{ 'ons-header__grid-top-' + params.customHeaderLogo if params.customHeaderLogo }}">
+                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{{ ' ons-header__grid-top-tall' if params.customHeaderLogo is defined and params.customHeaderLogo }}">
 
                     <div class="ons-grid__col ons-col-auto">
                         <div class="ons-header__logo--large">
-                            {% if params.logoHref is defined and params.logoHref %}<a class="ons-header__logo-link" href="{{ params.logoHref }}">{% endif %}
+                            {%-if params.logoHref is defined and params.logoHref %}<a class="ons-header__logo-link" href="{{ params.logoHref }}">{% endif -%}
                             {{
                                 onsIcon({
                                     "iconType": params.logo | default('ons-logo-' + currentLanguageISOCode),
                                     "altText": params.logoAlt | default('Office for National Statistics logo')
                                 })
                             }}
-                            {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
+                            {%- if params.logoHref is defined and params.logoHref %}</a>{% endif -%}
                         </div>
                         <div class="ons-header__logo--small">
                             {% if params.logoHref is defined and params.logoHref %}<a class="ons-header__logo-link" href="{{ params.logoHref }}">{% endif %}
