@@ -25,8 +25,9 @@
     vertical-align: middle;
   }
 
-  .ons-svg-logo {
-    fill: $color-black;
+  .ons-svg-logo,
+  .ons-svg-logo__group {
+    fill: $color-black !important;
   }
 
   &__body {
