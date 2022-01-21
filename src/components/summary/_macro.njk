@@ -11,7 +11,7 @@
     {% endif %}
     <div class="{{ className }}">
         {% for summary in params.summaries %}
-            <div class="ons-summary__group">
+            <div {% if group.id is defined and group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group">
                 {% if summary.summaryTitle is defined and summary.summaryTitle %}
                     <h2 class="ons-summary__title ons-u-mb-m">{{ summary.summaryTitle }}</h2>
                     {% set titleSize = "3" %}
@@ -21,7 +21,7 @@
                         <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
                     {% if group.headers is defined and group.headers and group.rows is defined and group.rows %}
-                        <table {% if group.id is defined and group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__items">
+                        <table class="ons-summary__items">
                             <thead class="ons-u-vh">
                                 <tr>
                                     {% for header in group.headers %}
