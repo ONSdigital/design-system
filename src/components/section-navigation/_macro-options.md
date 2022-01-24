@@ -8,8 +8,16 @@
 
 ## Item
 
-| Name    | Type   | Required | Description                                               |
-| ------- | ------ | -------- | --------------------------------------------------------- |
-| classes | string | false    | Additional css classes for the section navigation element |
-| url     | string | true     | The URL to the linked page                                |
-| title   | string | true     | The text for the link                                     |
+| Name    | Type             | Required | Description                                                        |
+| ------- | ---------------- | -------- | ------------------------------------------------------------------ |
+| classes | string           | false    | Additional css classes for the section navigation element          |
+| url     | string           | true     | The URL to the linked page                                         |
+| title   | string           | true     | The text for the link                                              |
+| anchors | `Array<Anchors>` | false    | An array of list items to render in the section navigation element |
+
+## Anchors
+
+| Name  | Type   | Required | Description                         |
+| ----- | ------ | -------- | ----------------------------------- |
+| url   | string | true     | The ID of the H-tag to be linked to |
+| title | string | true     | The text for the link               |
