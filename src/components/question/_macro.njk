@@ -26,7 +26,6 @@
             {% from "components/collapsible/_macro.njk" import onsCollapsible %}
             {% call onsCollapsible({
                 "id": params.definition.id if params.definition.id is defined and params.definition.id else '',
-                "titleTag": 'h2',
                 "classes": 'ons-u-mb-m',
                 "title": params.definition.title if params.definition.title is defined and params.definition.title else ''
             }) %}
@@ -118,7 +117,6 @@
             {% from "components/collapsible/_macro.njk" import onsCollapsible %}
             {% call onsCollapsible({
                 "id": params.justification.id,
-                "titleTag": 'h2',
                 "classes": 'ons-u-mb-m',
                 "title": params.justification.title | default('Why we ask this question')
             }) %}
