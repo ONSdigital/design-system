@@ -14,7 +14,7 @@ const params = {
     classes: 'ons-js-header-nav ons-u-d-no',
     id: 'main-nav',
     ariaLabel: 'Main menu',
-    ariraListLabel: 'Navigation menu',
+    ariaListLabel: 'Navigation menu',
     currentPath: '/surveys',
     itemsList: [
       {
