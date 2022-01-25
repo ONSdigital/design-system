@@ -11,18 +11,18 @@
     {% endif %}
     <div class="{{ className }}">
         {% for summary in params.summaries %}
-            <div class="ons-summary__group">
-                {% if summary.summaryTitle is defined and summary.summaryTitle %}
-                    <h2 class="ons-summary__title ons-u-mb-m">{{ summary.summaryTitle }}</h2>
-                    {% set titleSize = "3" %}
-                {% endif %}
-                {% for group in summary.groups %}
+            {% if summary.summaryTitle is defined and summary.summaryTitle %}
+                <h2 class="ons-summary__title ons-u-mb-m">{{ summary.summaryTitle }}</h2>
+                {% set titleSize = "3" %}
+            {% endif %}
+            {% for group in summary.groups %}
+                <div {% if group.id is defined and group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group">
                     {% if group.groupTitle is defined and group.groupTitle %}
                         <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
                     {% if group.headers is defined and group.headers and group.rows is defined and group.rows %}
                         <table class="ons-summary__items">
-                            <thead {% if group.id is defined and group.id %}id="{{ group.id }}" {% endif %}class="ons-u-vh">
+                            <thead class="ons-u-vh">
                                 <tr>
                                     {% for header in group.headers %}
                                         <th>{{ header }}</th>
@@ -122,8 +122,8 @@
                             <a {% if group.summaryLink.attributes is defined and group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %} href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
                         </div>
                     {% endif %}
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         {% endfor %}
     </div>
 {% endmacro %}
