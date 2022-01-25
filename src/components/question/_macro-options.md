@@ -6,7 +6,6 @@
 | definition            | `<Object>QuestionDefinition`                   | false    | An object for the question definition. To be used to define a word or acronym that is in the question.                             |
 | guidance              | `<Object>QuestionGuidance`                     | false    | An object for the question guidance. To be used to state what should be included or excluded from the answer.                      |
 | justification         | `<Object>QuestionJustification`                | false    | The question justification. To be used to explain why a question is being asked if there is evidence that users want to know this. |
-| submitButton          | string                                         | false    | The question justification. To be used to explain why a question is being asked if there is evidence that users want to know this. |
 | submitButton          | `<Object>Button` [_(ref)_](/components/button) | true     | Settings for the submit button.                                                                                                    |
 | id                    | string                                         | false    | ID for the wrapping element                                                                                                        |
 | classes               | string                                         | false    | Classes to add the wrapping element                                                                                                |
