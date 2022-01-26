@@ -1,0 +1,23 @@
+{% from "components/select/_macro.njk" import onsSelect %}
+{{
+    onsSelect({
+        "id": "select",
+        "name": "select",
+        "classes": "ons-u-wa--@xxs",
+        "label": {
+            "text": "Sort by",
+            "inline": true
+        },
+        "options": [
+            {
+                "value": "best-match",
+                "text": "Best match",
+                "selected": true
+            },
+            {
+                "value": "latest",
+                "text": "Latest"
+            }
+        ]
+    })
+}}

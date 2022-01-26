@@ -28,19 +28,10 @@ $color-jaffa-orange: #fa6401;
 $color-sun-yellow: #fbc900;
 $color-neon-yellow: #f0f762;
 
-// ONS logo
-$color-ons-logo-primary: $color-night-blue !default;
-$color-ons-logo-secondary: $color-spring-green !default;
-
 // Census 2021
 $color-indigo-blue: #3c388e;
 $color-plum-purple: #902082;
 $color-flamingo-pink: #df0667;
-
-// NISRA logo
-$color-nisra-logo-primary: #3d7cc9;
-$color-nisra-logo-secondary: #cddb00;
-$color-nisra-logo-tertiary: #00205c;
 
 // Theme branding
 $color-branded: $color-ocean-blue !default;
@@ -84,6 +75,7 @@ $color-highlight: $color-neon-yellow !default;
 
 // Borders
 $color-borders: $color-grey-75 !default;
+$color-borders-indent: $color-grey-35 !default;
 $color-document-border: $color-grey-15 !default;
 $color-document-border-focus: $color-black !default;
 

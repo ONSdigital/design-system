@@ -1,0 +1,80 @@
+---
+layout: none
+---
+{% extends "layout/_template.njk" %}
+
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/date-input/_macro.njk" import onsDateInput %}
+
+{% set pageConfig = {
+    "title": "Spoke example",
+    "signoutButton": {
+        "text": "Save and sign out",
+        "iconType": "exit",
+        "iconPosition": "after"
+    },
+    "breadcrumbs": {
+        "itemsList": [
+            {
+                "url": '/patterns/hub-and-spoke/examples/hub/',
+                "text": 'Back'
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+    {% call onsPanel()
+    %}
+        <p><strong>This is the last viewed question in this section</strong><br>
+        You can also <a href="/patterns/hub-and-spoke/examples/spoke-start/">go back to the start of the section</a></p>
+    {% endcall %}
+    {% call onsQuestion({
+        "title": 'What is <em class="ons-highlight">John Smith’s</em> date of birth?',
+        "description": '<p>For example, 31 3 1980</p>',
+        "legendIsQuestionTitle": true
+    }) %}
+        {{
+            onsDateInput({
+                "id": "date",
+                "dontWrap": true,
+                "day": {
+                    "label": {
+                        "text": "Day"
+                    },
+                    "name": "day",
+                    "attributes": {
+                        "autocomplete": "bday-day"
+                    }
+                },
+                "month": {
+                    "label": {
+                        "text": "Month"
+                    },
+                    "name": "month",
+                    "attributes": {
+                        "autocomplete": "bday-month"
+                    }
+                },
+                "year": {
+                    "label": {
+                        "text": "Year"
+                    },
+                    "name": "year",
+                    "attributes": {
+                        "autocomplete": "bday-year"
+                    }
+                }
+            })
+        }}
+        {{
+            onsButton({
+                "text": 'Continue',
+                "classes": 'ons-u-mt-xl ons-u-mb-l'
+            })
+        }}
+        <p><a href="/patterns/hub-and-spoke/examples/hub/">Choose another section and return to this later</a></p>
+        {% endcall %}
+{% endblock %}

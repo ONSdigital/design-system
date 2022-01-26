@@ -1,0 +1,22 @@
+---
+fullWidth: true
+layout: none
+---
+{% extends "layout/_template.njk" %}
+
+{% set pageConfig = {
+    "header": {
+        "logo": "ni-finance-logo",
+        "mobileLogo": "ni-finance-logo-mobile",
+        "logoAlt": "Northern Ireland Department of Finance logo",
+        "logoHref": "https://www.finance-ni.gov.uk/",
+        "customHeaderLogo": true,
+        "title": 'Survey title'
+    },
+    "signoutButton": {
+        "text": 'Save and sign out',
+        "ariaLabel": 'Toggle main navigation',
+        "iconType": 'exit',
+        "iconPosition": 'after'
+    }
+} %}

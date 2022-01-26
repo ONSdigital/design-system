@@ -58,37 +58,74 @@ Answer descriptions should:
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-descriptions/index.njk"})
 }}
 
-### Checkbox with input
+### Select and unselect all checkboxes
+This variant lets the user select and unselect all checkboxes using a button. 
+
+Use the parameter `autoSelect` with the required child parameters `selectAllText`, `unSelectAllText` and `context`. The `context` parameter is used for visually hidden text to help screen reader users understand the purpose of the button, for example, "Select all following options".
+
+The "select/unselect all" button cannot be used when one of the checkboxes uses the `other` parameter to reveal nested inputs. It can however, be inside the `other` parameter to select and unselect all nested checkboxes or radios.
+{{
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-autoselect/index.njk"})
+}}
+
+### Checkbox with revealed text input
 This variant lets the user provide an answer other to the options in the list, or to provide additional information required to describe their answer.
 
-Use this variation by wrapping the text field in a div with class `ons-checkbox__other`, added directly after the checkbox label. CSS hides this field until the checkbox is `:checked`.
+Provide the `other` parameter containing the relevant [input](/components/input) parameters. The field is hidden until the checkbox is selected.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-other/index.njk"})
 }}
 
-### Checkbox with visible input
-This variant of “checkbox with input” shows the input instead of waiting for the checkbox to be `:checked`.
+### Checkbox with revealed drop-down
+This variant reveals a nested [select component](/components/select) when a checkbox is selected.
 
-{{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-open/index.njk"})
-}}
-
-### Checkbox with drop-down
-This variant uses a [select component](/components/select) instead of an input.
+To use this variant provide `"otherType": "select"` inside the `other` parameter.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-select/index.njk"})
 }}
 
-### Checkbox without a border
 
-This variant removes the border around the checkbox input and [label](/components/label). Do not use it for question pages with checkboxes. It is better to have a border. It makes the checkboxes more visible for users and gives them a larger target area to select (the label and the boundary).
+### Checkbox with visible text input
+This variant always shows the nested inputs.
+
+To use this variant provide `"open": true` inside the `other` parameter.
+
+{{
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-open/index.njk"})
+}}
+
+### Checkboxes without a border
+
+This variant removes the border around the checkbox and [label](/components/label). 
+
+Do not use this variant on [question pages](/patterns/question) with checkboxes. It is better to have a border. It makes the checkboxes more visible for users and gives them a larger target area to select (the label and the boundary).
 
 Only remove the checkbox border for pages that are not following the practice of “one thing per page”, where the checkboxes are not the primary call to action. For example, the checkboxes could be one part of a multipurpose page, like the checkboxes used for the filters on the [download resources pattern](/patterns/download-resources/).
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-borderless/index.njk"})
+}}
+
+### Checkbox with revealed checkboxes
+
+This variant reveals nested checkboxes when a checkbox is selected. We recommend using this variant together with the parent checkboxes using the borderless variant.
+
+To use this variant provide `"otherType": "checkboxes"` inside the `other` parameter. The example below includes the optional parameter `selectAllChildren: true` which automatically checks all revealed checkboxes.
+
+{{
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-checkboxes/index.njk"})
+}}
+
+### Checkbox with revealed radios
+
+This variant reveals nested [radios](/components/radios) when a checkbox is selected. We recommend using this variant together with the parent checkboxes using the borderless variant.
+
+To use this variant provide `"otherType": "radios"` inside the `other` parameter.
+
+{{
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-radios/index.njk"})
 }}
 
 ## How to validate checkboxes

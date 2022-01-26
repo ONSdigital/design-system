@@ -1,14 +1,14 @@
 ---
 layout: none
 ---
-{% extends "foundations/layout/page-template/_template.njk" %}
+{% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/input/_macro.njk" import onsInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Interviewer led question",
+    "title": "Interviewer led question example",
     "breadcrumbs": {
         "ariaLabel": 'Breadcrumbs',
         "itemsList": [
@@ -24,18 +24,15 @@ layout: none
     {% call onsQuestion({
         "title": "How many visitors do you have staying overnight at 3 Severn Road on Sunday 21 March 2021 ?",
         "description": "<p>A visitor is anyone aged <strong>16 years or over</strong> who usually lives at another address. Enter “0” if there are no visitors staying overnight.</p>",
-        "instruction": "<p>Tell respondent to turn to <strong>Showcard 2</strong> or show them the following Electronic Showcard</p>"
-    }) %}
-
-        {% call onsCollapsible({
-            "id": "question-justification",
+        "instruction": "<p>Tell respondent to turn to <strong>Showcard 2</strong> or show them the following Electronic Showcard</p>",
+        "justification": {
             "title": "Electronic Showcard",
-            "button": {
-                "close": "Hide this"
-            }
-        }) %}
-            <p>Visitor information is collected to ensure that everyone is counted, in order to produce accurate estimates of the population, to facilitate effective planning and funding decisions.</p>
-        {% endcall %}
+            "content": "<p>Visitor information is collected to ensure that everyone is counted, in order to produce accurate estimates of the population, to facilitate effective planning and funding decisions.</p>"
+        },
+        "submitButton": {
+            "submitType": "timer"
+        }
+    }) %}
 
         {{ onsInput({
             "id": "number-of-visitors",
@@ -48,9 +45,4 @@ layout: none
         }) }}
 
     {% endcall %}
-
-    {{ onsButton({
-        "text": "Save and continue",
-        "classes": "ons-u-mt-xl"
-    }) }}
 {% endblock %}

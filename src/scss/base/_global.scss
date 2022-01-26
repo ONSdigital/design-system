@@ -29,6 +29,14 @@ hr {
   margin: 2rem 0 0;
 }
 
+%a-focus {
+  background-color: $color-focus;
+  box-shadow: 0 -2px $color-focus, 0 4px $color-text-link-focus;
+  color: $color-text-link-focus;
+  outline: 3px solid transparent;
+  text-decoration: none;
+}
+
 a {
   color: $color-text-link;
   text-decoration-thickness: 1px;
@@ -52,10 +60,6 @@ a {
     text-decoration: underline solid $color-text-link-hover 2px;
   }
   &:focus:not(.ons-btn--link):not(.ons-btn--ghost):not(.ons-js-clear-btn):not(.ons-download__thumbnail--link):not(.ons-tab--row):not(.ons-skip-link) {
-    background-color: $color-focus;
-    box-shadow: 0 -2px $color-focus, 0 4px $color-text-link-focus;
-    color: $color-text-link-focus;
-    outline: 3px solid transparent;
-    text-decoration: none;
+    @extend %a-focus;
   }
 }

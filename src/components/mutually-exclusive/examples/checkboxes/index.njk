@@ -1,62 +1,69 @@
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
-{{
-    onsCheckboxes({
-        "legend": "What type of central heating do you have?",
-        "legendIsQuestionTitle": true,
-        "checkboxesLabel": "Select all that apply",
-        "name": "mutually-exclusive",
-        "checkboxes": [
-            {
-                "id": "gas",
-                "label": {
-                    "text": "Gas"
-                },
-                "value": "gas"
-            },
-            {
-                "id": "electric",
-                "label": {
-                    "text": "Electric"
-                },
-                "value": "electric"
-            },
-            {
-                "id": "solid-fuel",
-                "label": {
-                    "text": "Solid fuel"
-                },
-                "value": "solid-fuel"
-            },
-            {
-                "id": "other-fuel",
-                "label": {
-                    "text": "Other"
-                },
-                "value": "other",
-                "other": {
-                    "id": "other-fuel-textbox",
-                    "name": "other-fuel-answer",
+{% from "components/question/_macro.njk" import onsQuestion %}
+
+{% call onsQuestion({
+    "title": "What type of central heating do you have?",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsCheckboxes({
+            "id": "central-heating-answers",
+            "dontWrap": true,
+            "checkboxesLabel": "Select all that apply",
+            "name": "mutually-exclusive",
+            "checkboxes": [
+                {
+                    "id": "gas",
                     "label": {
-                       "text": "Please specify"
+                        "text": "Gas"
+                    },
+                    "value": "gas"
+                },
+                {
+                    "id": "electric",
+                    "label": {
+                        "text": "Electric"
+                    },
+                    "value": "electric"
+                },
+                {
+                    "id": "solid-fuel",
+                    "label": {
+                        "text": "Solid fuel"
+                    },
+                    "value": "solid-fuel"
+                },
+                {
+                    "id": "other-fuel",
+                    "label": {
+                        "text": "Other"
+                    },
+                    "value": "other",
+                    "other": {
+                        "id": "other-fuel-textbox",
+                        "name": "other-fuel-answer",
+                        "label": {
+                        "text": "Please specify"
+                        }
                     }
                 }
+            ],
+            "mutuallyExclusive": {
+                "or": "Or",
+                "deselectMessage": "Selecting this will uncheck all other checkboxes",
+                "deselectGroupAdjective": "deselected",
+                "deselectCheckboxAdjective": "deselected",
+                "checkbox": {
+                    "id": "no-central-heating",
+                    "label": {
+                        "text": "No central heating"
+                    },
+                    "attributes": {
+                        "data-attribute": "Example attribute"
+                    },
+                    "value": "no-central-heating"
+                }
             }
-        ],
-        "mutuallyExclusive": {
-            "or": "Or",
-            "deselectMessage": "Selecting this will uncheck all other checkboxes",
-            "deselectGroupAdjective": "deselected",
-            "deselectCheckboxAdjective": "deselected",
-            "checkbox": {
-                "id": "no-central-heating",
-                "label": {
-                    "text": "No central heating"
-                },
-                "attributes": {
-                    "data-attribute": "Example attribute"
-                },
-                "value": "no-central-heating"
-            }
-        }
-    })
-}}
+        })
+    }}
+{% endcall %}

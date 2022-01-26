@@ -65,7 +65,8 @@
                 "classes": params.label.classes,
                 "description": params.label.description,
                 "attributes": params.label.attributes,
-                "accessiblePlaceholder": params.accessiblePlaceholder
+                "accessiblePlaceholder": params.accessiblePlaceholder,
+                "inline": params.label.inline
             }) }}
         {% endif %}
 
@@ -127,7 +128,7 @@
         {% call onsMutuallyExclusive({
             "id": params.fieldId,
             "legend": params.legend,
-            "legendClasses": params.legendClasses ~ "ons-js-input-legend",
+            "legendClasses": params.legendClasses ~ " ons-js-input-legend",
             "description": params.description,
             "dontWrap": params.dontWrap,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
@@ -153,7 +154,8 @@
             "classes": params.fieldClasses,
             "dontWrap": params.dontWrap,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "error": params.error
+            "error": params.error,
+            "inline": params.label.inline
         }) %}
             {% if charCheckField is defined and charCheckField %}
                 {{ charCheckField | safe }}

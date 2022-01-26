@@ -11,33 +11,31 @@
     {% endif %}
     <div class="{{ className }}">
         {% for summary in params.summaries %}
-            <div class="ons-summary__group">
-                {% if summary.summaryTitle is defined and summary.summaryTitle %}
-                    <h2 class="ons-summary__title ons-u-mb-m">{{ summary.summaryTitle }}</h2>
-                    {% set titleSize = "3" %}
-                {% endif %}
-                {% for group in summary.groups %}
+            {% if summary.summaryTitle is defined and summary.summaryTitle %}
+                <h2 class="ons-summary__title ons-u-mb-m">{{ summary.summaryTitle }}</h2>
+                {% set titleSize = "3" %}
+            {% endif %}
+            {% for group in summary.groups %}
+                <div {% if group.id is defined and group.id %}id="{{ group.id }}" {% endif %} class="ons-summary__group">
                     {% if group.groupTitle is defined and group.groupTitle %}
                         <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
-                    {% if group.rows is defined and group.rows %}
+                    {% if group.headers is defined and group.headers and group.rows is defined and group.rows %}
                         <table class="ons-summary__items">
-                            {% if group.headers is defined and group.headers %}
-                                <thead class="ons-u-vh">
-                                    <tr>
-                                        {% for header in group.headers %}
-                                            <th>{{ header }}</th>
-                                        {% endfor %}
-                                    </tr>
-                                </thead>
-                            {% endif %}
+                            <thead class="ons-u-vh">
+                                <tr>
+                                    {% for header in group.headers %}
+                                        <th>{{ header }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
 
                             {% for row in (group.rows if group.rows is iterable else group.rows.items()) %}
                                 {% set itemClass = "" %}
                                 {% if row.error is defined and row.error %} {% set itemClass = " ons-summary__item--error" %}{% endif %}
                                 {% if row.total is defined and row.total %} {% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
 
-                                <tbody class="ons-summary__item{{ itemClass }}">
+                                <tbody {% if row.id is defined and row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ itemClass }}">
                                     {% if row.errorMessage is defined and row.errorMessage or (row.rowItems | length > 1 and row.rowTitle) %}
                                         <tr class="ons-summary__row">
                                             <th colspan="3" class="ons-summary__row-title ons-u-fs-r">{{ row.errorMessage or row.rowTitle }}</th>
@@ -45,7 +43,7 @@
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
-                                        <tr class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}">
+                                        <tr {% if rowItem.id is defined and rowItem.id %}id="{{ rowItem.id }}" {% endif %}class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}">
                                             <td
                                                 class="ons-summary__item-title"
                                                 {% if rowItem.rowTitleAttributes is defined and rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
@@ -124,8 +122,8 @@
                             <a {% if group.summaryLink.attributes is defined and group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %} href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
                         </div>
                     {% endif %}
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         {% endfor %}
     </div>
 {% endmacro %}

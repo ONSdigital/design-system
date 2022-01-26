@@ -1,4 +1,4 @@
-import Radios from '../../../components/checkboxes/checkboxes';
+import Radios from '../../../components/checkboxes/checkboxes-with-reveal';
 import CheckRadios from '../../../components/radios/check-radios';
 import ClearRadios from '../../../components/radios/clear-radios';
 import renderTemplate from '../../helpers/render-template';
@@ -11,6 +11,8 @@ const params = {
     ariaClearText: 'You can clear your answer by clicking the clear selection button under the radio buttons',
     ariaClearedText: 'You have cleared your answer',
   },
+  legend: 'How would you like us to contact you?',
+  legendClasses: 'ons-u-vh',
   radios: [
     {
       id: 'email',

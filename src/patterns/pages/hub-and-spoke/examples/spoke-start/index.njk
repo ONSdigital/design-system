@@ -1,0 +1,84 @@
+---
+layout: none
+---
+{% extends "layout/_template.njk" %}
+
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/lists/_macro.njk" import onsList %}
+{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+
+{% set pageConfig = {
+    "title": "Spoke example",
+    "signoutButton": {
+        "text": "Save and sign out",
+        "iconType": "exit",
+        "iconPosition": "after"
+    },
+    "breadcrumbs": {
+        "itemsList": [
+            {
+                "url": '/patterns/hub-and-spoke/examples/hub/',
+                "text": 'Back'
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+    <h1 class="ons-u-mt-m">Billy Smith</h1>
+
+    <p>In this section, we are going to ask you questions about <strong>Billy Smith</strong>.</p>
+
+    <h2>What you will need to know</h2>
+
+    <p>To complete this section you will need to know personal details such as:</p>
+    {{
+        onsList({
+            "classes": 'ons-u-mb-m',
+            "itemsList": [
+                {
+                    "text": 'date of birth'
+                },
+                {
+                    "text": 'country of birth'
+                },
+                {
+                    "text": 'second or holiday homes'
+                },
+                {
+                    "text": 'main language'
+                },
+                {
+                    "text": 'general health'
+                },
+                {
+                    "text": 'unpaid care provided'
+                },
+                {
+                    "text": 'qualifications'
+                },
+                {
+                    "text": 'employment details'
+                }
+            ]
+        })
+    }}
+    {% call onsCollapsible({
+            "id": 'collapsible',
+            "title": 'If you can’t answer questions for this person',
+            "button": {
+                "close": 'Hide this',
+                "contextSuffix": 'content'
+            }
+        })
+    %}
+        <p>You can <strong>share your household access code</strong> with the people you live with so they can complete their own sections.</p>
+        <p>If this is not possible, there are <a href="#0">other ways each person can complete their own study</a>.</p>
+    {% endcall %}
+    {{
+        onsButton({
+            "text": 'Continue',
+            "classes": 'ons-u-mt-xl'
+        })
+    }}
+{% endblock %}

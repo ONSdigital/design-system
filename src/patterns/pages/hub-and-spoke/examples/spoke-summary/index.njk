@@ -1,0 +1,164 @@
+---
+layout: none
+---
+{% extends "layout/_template.njk" %}
+
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/summary/_macro.njk" import onsSummary %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "title": "Spoke example",
+    "signoutButton": {
+        "text": "Save and sign out",
+        "iconType": "exit",
+        "iconPosition": "after"
+    },
+    "breadcrumbs": {
+        "itemsList": [
+            {
+                "url": '/patterns/hub-and-spoke/examples/hub/',
+                "text": 'Back'
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+    <h1 class="ons-u-mt-m">Household accommodation</h1>
+    {{
+        onsSummary({
+            "summaries": [
+                    {
+                        "groups": [
+                            {
+                            "headers":["Question", "Answer given", "Change answer"],
+                            "rows": [
+                                {
+                                    "rowTitle": "What type of accommodation is 68 Abingdon Road, Goathill?",
+                                    "rowItems": [
+                                        {
+                                            "valueList": [
+                                                {
+                                                    "text": "Whole house or bungalow"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "Change",
+                                                    "ariaLabel": "Change answer",
+                                                    "url": "#0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rowTitle": "Are all the rooms in this accommodation, including the kitchen, bathroom and toilet, behind a door that only this household can use?",
+                                    "rowItems": [
+                                        {
+                                            "valueList": [
+                                                {
+                                                    "text": "Yes"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "Change",
+                                                    "ariaLabel": "Change answer",
+                                                    "url": "#0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rowTitle": "How many bedrooms are available for use only by this household?",
+                                    "rowItems": [
+                                        {
+                                            "valueList": [
+                                                {
+                                                    "text": "3"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "Change",
+                                                    "ariaLabel": "Change answer",
+                                                    "url": "#0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rowTitle": "What type of central heating does have?",
+                                    "rowItems": [
+                                        {
+                                            "valueList": [
+                                                {
+                                                    "text": "Mains gas"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "Change",
+                                                    "ariaLabel": "Change answer",
+                                                    "url": "#0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rowTitle": "Does your household own or rent 68 Abingdon Road, Goathill?",
+                                    "rowItems": [
+                                        {
+                                            "valueList": [
+                                                {
+                                                    "text": "Owns outright"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "Change",
+                                                    "ariaLabel": "Change answer",
+                                                    "url": "#0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rowTitle": "In total, how many cars or vans are owned, or available for use, by members of this household?",
+                                    "rowItems": [
+                                        {
+                                            "valueList": [
+                                                {
+                                                    "text": "2"
+                                                }
+                                            ],
+                                            "actions": [
+                                                {
+                                                    "text": "Change",
+                                                    "ariaLabel": "Change answer",
+                                                    "url": "#0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        })
+    }}
+    {{
+        onsButton({
+            "text": 'Continue',
+            "classes": 'ons-u-mt-xl'
+        })
+    }}
+{% endblock %}

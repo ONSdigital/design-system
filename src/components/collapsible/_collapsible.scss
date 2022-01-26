@@ -17,17 +17,17 @@ $collapsible-caret-width: 1.5rem;
 
       &:focus {
         .ons-collapsible__title {
-          @extend a:focus;
+          @extend %a-focus;
           // extend collapsible focus background behind caret
           margin-left: -$collapsible-caret-width;
           padding-left: $collapsible-caret-width;
         }
-        .ons-collapsible__icon {
-          fill: $color-black;
+        .ons-collapsible__icon .ons-svg-icon {
+          fill: $color-text-link-focus;
         }
       }
 
-      &:hover {
+      &:hover:not(:focus) {
         color: $color-text-link-hover;
         .ons-collapsible__icon {
           fill: $color-text-link-hover;
@@ -42,7 +42,7 @@ $collapsible-caret-width: 1.5rem;
       display: inline-block;
       fill: $color-text-link;
       height: $collapsible-caret-width;
-      left: -0.2rem;
+      left: -0.15rem;
       position: absolute;
       top: -0.25rem;
       width: $collapsible-caret-width;
@@ -74,10 +74,14 @@ $collapsible-caret-width: 1.5rem;
     }
 
     &__content {
-      border-left: 5px solid $color-grey-15;
+      border-left: 4px solid $color-borders-indent;
       display: block;
       margin: 1rem 0 0;
       padding: 0 0 0 1.3em;
+
+      .ons-btn {
+        margin-bottom: 0.5rem;
+      }
     }
   }
 
@@ -132,6 +136,12 @@ $collapsible-caret-width: 1.5rem;
       border-left: 0;
       margin: 0;
       padding: 0;
+    }
+  }
+
+  &--simple & {
+    &__icon {
+      top: 0.8rem;
     }
   }
 }

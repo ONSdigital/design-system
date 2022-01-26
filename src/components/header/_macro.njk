@@ -18,18 +18,18 @@
         {% endif %}
         <div class="ons-header__top">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap {{ 'ons-header__grid-top-' + params.customHeaderLogo if params.customHeaderLogo }}">
+                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{{ ' ons-header__grid-top-tall' if params.customHeaderLogo is defined and params.customHeaderLogo }}">
 
                     <div class="ons-grid__col ons-col-auto">
                         <div class="ons-header__logo--large">
-                            {% if params.logoHref is defined and params.logoHref %}<a class="ons-header__logo-link" href="{{ params.logoHref }}">{% endif %}
+                            {%-if params.logoHref is defined and params.logoHref %}<a class="ons-header__logo-link" href="{{ params.logoHref }}">{% endif -%}
                             {{
                                 onsIcon({
                                     "iconType": params.logo | default('ons-logo-' + currentLanguageISOCode),
                                     "altText": params.logoAlt | default('Office for National Statistics logo')
                                 })
                             }}
-                            {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
+                            {%- if params.logoHref is defined and params.logoHref %}</a>{% endif -%}
                         </div>
                         <div class="ons-header__logo--small">
                             {% if params.logoHref is defined and params.logoHref %}<a class="ons-header__logo-link" href="{{ params.logoHref }}">{% endif %}
@@ -44,7 +44,7 @@
                     </div>
 
                     {% if params.language is defined and params.language or params.serviceLinks is defined and params.serviceLinks %}
-                        <div class="ons-header__links grid__col col-auto">
+                        <div class="ons-header__links ons-grid__col ons-col-auto">
                             {% if params.language is defined and params.language %}
                                 <div class="ons-grid__col ons-col-auto">
                                     {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
@@ -52,7 +52,7 @@
                                 </div>
                             {% endif %}
                             {% if params.serviceLinks is defined and params.serviceLinks %}
-                                <div class="ons-grid__col col-auto ons-u-d-no@xxs@m">
+                                <div class="ons-grid__col ons-col-auto ons-u-d-no@xxs@m">
                                     <nav class="ons-header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
                                         <ul class="ons-header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel | default("Service Links") }}">
                                             {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}
@@ -87,7 +87,7 @@
                                 })
                             }}
                         {% else %}
-                            <{{ title_tag }} class="ons-header__title{% if params.desc is defined and params.desc %} header__title--with-description{% endif %}{% if params.button is defined and params.button %} header__title--with-button{% endif %}">{{ params.title }}</{{ title_tag }}>
+                            <{{ title_tag }} class="ons-header__title{% if params.desc is defined and params.desc %} ons-header__title--with-description{% endif %}{% if params.button is defined and params.button %} ons-header__title--with-button{% endif %}">{{ params.title }}</{{ title_tag }}>
                         {% endif %}
                         {% if params.titleLogoHref is defined and params.titleLogoHref %}</a>{% endif %}
                     </div>
@@ -95,7 +95,7 @@
                         <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@xxs@m">
                             {{ onsButton({
                                 "text": params.button.text,
-                                "classes": "ons-u-d-no@xxs@m ons-u-mt-xs@m",
+                                "classes": "ons-u-d-no@xxs@m",
                                 "variants": "ghost",
                                 "name": params.button.name,
                                 "attributes": params.button.attributes,

@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "foundations/layout/page-template/_template.njk" %}
+{% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/input/_macro.njk" import onsInput %}
@@ -23,12 +23,11 @@ layout: none
 {% block main %}
     {% call onsQuestion({
         "title": "<mark class=\"ons-instruction\">Interviewer note:</mark>Who to interview",
-        "instruction": "<p>Only interview a person who was usually living at the property on <em>Sunday 21 March 2021</em>.</p><p>If none of those house members are available, you must save and sign out and return to the address to interview one of them at a later date.</p>"
+        "instruction": "<p>Only interview a person who was usually living at the property on <em>Sunday 21 March 2021</em>.</p><p>If none of those house members are available, you must save and sign out and return to the address to interview one of them at a later date.</p>",
+        "submitButton": {
+            "submitType": "timer",
+            "text": "Continue"
+        }
     }) %}
     {% endcall %}
-
-    {{ onsButton({
-        "text": "Continue",
-        "classes": "ons-u-mt-xl"
-    }) }}
 {% endblock %}

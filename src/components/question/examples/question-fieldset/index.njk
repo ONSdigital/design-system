@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "foundations/layout/page-template/_template.njk" %}
+{% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
 {% from "components/panel/_macro.njk" import onsPanel %}
@@ -9,87 +9,91 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Anatomy of a question",
-    "breadcrumbs": {
-        "ariaLabel": 'Breadcrumbs',
-        "itemsList": [
-            {
-                "url": '#0',
-                "text": 'Previous'
-            }
-        ]
-    }
+  "title": "Question example",
+  "breadcrumbs": {
+      "ariaLabel": 'Breadcrumbs',
+      "itemsList": [
+          {
+              "url": '#0',
+              "text": 'Previous'
+          }
+      ]
+  }
 } %}
+
+{% set questionTitle = "On 1 May 2016, what was the number of employees for Bolt and Ratchet?" %}
 
 {% block main %}
     {% call onsQuestion({
-        "title": "On 1 May 2016, what was the number of employees for Bolt and Ratchet?",
-        "description": "<p>This is all employees aged 16 years or over that your organisation employs.</p>"
-    }) %}
-        {% call onsCollapsible({
-            "id": "question-definition",
+        "title": questionTitle,
+        "description": "<p>You can interpret “trading” as “operating”.</p>
+            <p>Only select “paused trading” if all trading or operations have <strong>temporarily</strong> stopped.</p>",
+        "definition": {
             "title": "What we mean by “employee”",
-            "button": {
-                "close": "Hide this"
-            }
-        }) %}
-            <p>An employee is a person that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job.</p>
-        {% endcall %}
-
-        {% call onsPanel() %}
-            <strong>Include:</strong>
-            <ul>
-                <li>all employees in Great Britain (England, Scotland and Wales), both full and part-time, who received pay in the relevant period</li>
-            </ul>
-            <strong>Exclude:</strong>
-            <ul>
-                <li>trainees on government schemes</li>
-                <li>employees working abroad unless paid directly from this business’s GB payroll</li>
-            </ul>
-        {% endcall %}
-
-        {{ onsRadios({
-            "id": "number-of-employees",
-            "name": "number-of-employees",
-            "radios": [
+            "content": "<p>An employee is a person that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job.</p>"
+        },
+        "guidance": {
+            "lists": [
                 {
-                    "id": "number-of-employees-1-9",
-                    "label": {
-                        "text": "1 – 9 employees"
-                    },
-                    "value": "1-9"
+                    "listHeading": "Include:",
+                    "itemsList": [
+                        {
+                            "text": "All employees in Great Britain (England, Scotland and Wales), both full and part-time, who received pay in the relevant period"
+                        }
+                    ]
                 },
                 {
-                    "id": "number-of-employees-10-49",
-                    "label": {
-                        "text": "10 – 49 employees"
-                    },
-                    "value": "10-49"
-                },
-                {
-                    "id": "number-of-employees-50-100",
-                    "label": {
-                        "text": "50 – 100+ employees",
-                        "description": "Include multi-corporations"
-                    },
-                    "value": "50-100"
+                    "listHeading": "Exclude:",
+                    "itemsList": [
+                        {
+                            "text": "trainees on government schemes"
+                        },
+                        {
+                            "text": "employees working abroad unless paid directly from this business’s GB payroll"
+                        }
+                    ]
                 }
             ]
+        },
+        "justification": {
+            "title": "Why we ask this question",
+            "content": "<p>We ask this question in order to understand the size of organisations in the UK.</p>"
+        },
+        "submitButton": {
+            "submitType": "timer"
+        }
+    }) %}
+
+        {{ onsRadios({
+        "id": "number-of-employees",
+        "name": "number-of-employees",
+        "legend": questionTitle,
+        "legendClasses": "ons-u-vh",
+        "radios": [
+            {
+                "id": "number-of-employees-1-9",
+                "label": {
+                    "text": "1 – 9 employees"
+                },
+                "value": "1-9"
+            },
+            {
+                "id": "number-of-employees-10-49",
+                "label": {
+                    "text": "10 – 49 employees"
+                },
+                "value": "10-49"
+            },
+            {
+                "id": "number-of-employees-50-100",
+                "label": {
+                    "text": "50 – 100+ employees",
+                    "description": "Include multi-corporations"
+                },
+                "value": "50-100"
+            }
+        ]
         }) }}
 
-        {% call onsCollapsible({
-            "id": "question-justification",
-            "title": "Why we ask this question",
-            "button": {
-                "close": "Hide this"
-            }
-        }) %}
-            <p>We ask this question in order to understand the size of organisations in the UK.</p>
-        {% endcall %}
     {% endcall %}
-
-    {{ onsButton({
-        "text": "Save and continue",
-        "classes": "ons-u-mt-xl"
-    }) }}
 {% endblock %}

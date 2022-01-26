@@ -4,12 +4,13 @@ import renderTemplate from '../../helpers/render-template';
 const params = {
   id: 'currency',
   type: 'number',
+  legend: 'What is your annual income before tax in 2018/19?',
   width: '5',
   attributes: {
     min: 0,
   },
   label: {
-    text: 'What is your annual income before tax?',
+    text: 'Gross annual income',
   },
   prefix: {
     title: 'Pounds',

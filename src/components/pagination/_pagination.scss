@@ -33,12 +33,12 @@ $pagination-item-width: 2.5rem;
 
   &__link {
     border-radius: 3px;
+    box-shadow: none;
     display: block;
     padding: $pagination-item-padding;
 
-    &:hover,
     &:focus {
-      background: $color-grey-5;
+      border-radius: 0;
     }
   }
 

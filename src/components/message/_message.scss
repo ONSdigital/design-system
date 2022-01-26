@@ -1,5 +1,7 @@
+@use 'sass:math';
+
 .ons-message {
-  border-radius: $grid-gutters / 2;
+  border-radius: math.div($grid-gutters, 2);
   margin-bottom: 2rem;
 
   &--sent {

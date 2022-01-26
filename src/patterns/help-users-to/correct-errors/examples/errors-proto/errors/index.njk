@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% extends "foundations/layout/page-template/_template.njk" %}
+{% extends "layout/_template.njk" %}
 
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/panel/_macro.njk" import onsPanel %}
@@ -192,6 +192,7 @@ layout: none
             onsDateInput({
                 "legend": "Date of birth",
                 "description": "For example, 31 3 1980",
+                "legendOrLabel": "Date of birth",
                 "id": "dates",
                 "day": {
                     "label": {
@@ -290,8 +291,10 @@ layout: none
                 "label": {
                     "text": "Email address"
                 },
+                "legend": "Get a confirmation email",
+                "legendClasses": "ons-u-vh",
                 "error": {
-                    "text": "Enter an email address in the correct format, such as name@example.com",
+                    "text": "Enter an email address in a valid format, for example, name@example.com",
                     "id": "email-error"
                 },
                 "mutuallyExclusive": {

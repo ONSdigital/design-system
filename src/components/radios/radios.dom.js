@@ -4,7 +4,7 @@ domready(async () => {
   const radios = [...document.querySelectorAll('.ons-js-radio')];
 
   if (radios.length) {
-    const Radios = (await import('../checkboxes/checkboxes')).default;
+    const Radios = (await import('../checkboxes/checkboxes-with-reveal')).default;
 
     new Radios(radios);
 
@@ -23,6 +23,16 @@ domready(async () => {
       const CheckRadios = (await import('./check-radios')).default;
 
       new CheckRadios(radioInput, openOther);
+    }
+
+    const other = document.querySelector('.ons-js-other');
+    if (other) {
+      const otherFieldset = other.parentNode.querySelector('.ons-js-other-fieldset');
+      if (otherFieldset) {
+        const CheckboxWithInnerFieldset = (await import('../checkboxes/checkbox-with-fieldset')).default;
+
+        new CheckboxWithInnerFieldset(otherFieldset, radios);
+      }
     }
   }
 });

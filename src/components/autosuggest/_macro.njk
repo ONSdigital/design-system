@@ -6,6 +6,7 @@
         class="{% if not params.externalInitialiser %}ons-js-autosuggest {% endif %}{% if params.isEditable == false %}ons-js-address-not-editable{% endif %}{% if params.mandatory is defined and params.mandatory == true %} ons-js-address-mandatory{% endif %} {% if params.containerClasses is defined and params.containerClasses %} {{ params.containerClasses }}{% endif %} ons-autosuggest-input"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
+        data-min-chars="{{ params.minChars }}"
         data-aria-min-chars="{{ params.ariaMinChars }}"
         data-aria-one-result="{{ params.ariaOneResult }}"
         data-aria-n-results="{{ params.ariaNResults }}"
@@ -36,11 +37,11 @@
 
         {% set autosuggestResults %}
             <div class="ons-autosuggest-input__results ons-js-autosuggest-results">
-                <header class="ons-autosuggest-input__results-title ons-u-fs-s">{{ params.resultsTitle }}</header>
-                <ul class="ons-autosuggest-input__listbox ons-js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" aria-labelledby="{{ params.labelId }}" tabindex="-1"></ul>
+                <header id="{{ params.resultsTitleId }}" class="ons-autosuggest-input__results-title ons-u-fs-s">{{ params.resultsTitle }}</header>
+                <ul class="ons-autosuggest-input__listbox ons-js-autosuggest-listbox" role="listbox" id="{{ params.id }}-listbox" aria-labelledby="{{ params.resultsTitleId }}" tabindex="-1"></ul>
             </div>
             <div class="ons-autosuggest-input__instructions ons-u-vh ons-js-autosuggest-instructions" id="{{ params.id }}-instructions" tabindex="-1">{{ params.instructions }}</div>
-            <div class="ons-autosuggest-input__status ons-u-vh ons-js-autosuggest-aria-status" aria-live="assertive" role="status" tabindex="-1"></div> 
+            <div class="ons-autosuggest-input__status ons-u-vh ons-js-autosuggest-aria-status" aria-live="assertive" role="status" tabindex="-1"></div>
         {% endset %}
 
         {{ onsInput({
