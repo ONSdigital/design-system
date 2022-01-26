@@ -49,7 +49,7 @@
         {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
         {% if params.name is defined and params.name and tag != "a" %}name="{{ params.name }}"{% elif params.name is defined and params.name and tag == "a" %}id="{{ params.name }}"{% endif %}
         {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}target="_blank" rel="noopener"{% endif %}
-        {% if params.buttonStyle == "download" %} download{% endif %}
+        {% if params.buttonStyle == "download" and (params.removeDownloadAttribute is not defined or not params.removeDownloadAttribute or params.removeDownloadAttribute != true) %} download{% endif %}
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}
         >
         <span class="ons-btn__inner{% if params.innerClasses is defined and params.innerClasses %} {{ params.innerClasses }}{% endif %}">
