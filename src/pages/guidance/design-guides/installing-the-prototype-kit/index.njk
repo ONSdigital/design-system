@@ -1,5 +1,5 @@
 ---
-title: Installing the prototype kit
+title: Installing the ONS Prototype Kit
 sortOrder: 1
 ---
 
@@ -8,13 +8,31 @@ sortOrder: 1
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 {% from "components/images/_macro.njk" import onsImage %}
+{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
+{% from "components/collapsible/_macro.njk" import onsCollapsible %}
 +++
 
-You can easily create high-fidelity prototypes for your digital product using the ONS Prototype Kit. It lets you use the latest design system components to quickly build working prototypes, saving you time to focus on the new aspects of your designs.
+You can create high-fidelity prototypes for your digital product using the ONS Prototype Kit. It lets you use the latest design system components to build working prototypes, saving you time to focus on the new aspects of your designs.
 
-To start making prototypes you will first need to download the prototype kit and install some software.
+To start making prototypes you will first need to:
+{{
+    onsList({
+        "element": 'ol',
+        "itemsList": [
+            {
+                "text": 'Create a new repository from the template in GitHub.'
+            },
+            {
+                "text": 'Install the required software.'
+            },
+            {
+                "text": 'Download the prototype kit.'
+            }
+        ]
+    })
+}}
 
-If you have an issue with any of the following steps you can get help from the design system team by emailing {{
+If you have an issue with any of these steps, you can get help from the design system team by emailing {{
 onsExternalLink({
     "url": "mailto:ons.design.system@ons.gov.uk?subject=Help installing the ONS Prototype kit",
     "linkText": "ons.design.system@ons.gov.uk"
@@ -31,28 +49,46 @@ If someone in your team hasn’t already done so, you will need to create a new 
 
 To do this you need to select the button labelled “Use this template”.
 
-{{
-    onsImage({
-        image: {
-            "smallSrc": '/patternlib-img/small/use-this-template-button.png',
-            "largeSrc": '/patternlib-img/large/use-this-template-button.png'
-        },
-        "caption": 'Image 1: A screenshot of the GitHub repository header showing the location of the “Use this template” button',
-        "alt": 'A screenshot of the GitHub repository header showing the location of the “Use this template” button on the right-hand side'
++++
+{% call onsCollapsible({
+        "title": "Screenshot",
+        "classes": "ons-u-mb-m"
     })
-}}
+%}
+    {{
+        onsImage({
+            image: {
+                "smallSrc": '/patternlib-img/small/use-this-template-button.png',
+                "largeSrc": '/patternlib-img/large/use-this-template-button.png'
+            },
+            "caption": 'Figure 1: A screenshot of the GitHub repository header showing the location of the “Use this template” button',
+            "alt": 'A screenshot of the GitHub repository header showing the location of the “Use this template” button on the right-hand side'
+        })
+    }}
+{% endcall %}
++++
+
 Then just give your prototypes repository a unique name that includes the name of your service, for example “ons-website-prototypes”.
 
-{{
-    onsImage({
-        image: {
-            "smallSrc": '/patternlib-img/small/create-a-new-repo-from-template.png',
-            "largeSrc": '/patternlib-img/large/create-a-new-repo-from-template.png'
-        },
-        "caption": 'Image 2: A screenshot of the GitHub repository dialogue showing the location of the repository name field with an example name',
-        "alt": 'A screenshot of the GitHub repository dialogue showing the location of the repository name field with an example name'
++++
+{% call onsCollapsible({
+        "title": "Screenshot",
+        "classes": "ons-u-mb-m"
     })
-}}
+%}
+    {{
+        onsImage({
+            image: {
+                "smallSrc": '/patternlib-img/small/create-a-new-repo-from-template.png',
+                "largeSrc": '/patternlib-img/large/create-a-new-repo-from-template.png'
+            },
+            "caption": 'Figure 2: A screenshot of the GitHub repository dialogue showing the location of the repository name field with an example name',
+            "alt": 'A screenshot of the GitHub repository dialogue showing the location of the repository name field with an example name'
+        })
+    }}
+{% endcall %}
++++
+
 This will generate a new repository for you to work on, which is an exact copy of the prototype kit.
 
 ## 2. Install the required software
@@ -61,7 +97,10 @@ Before you can use your copy of the prototype kit, you will need the following i
     onsList({
         "itemsList": [
             {
-                "text": 'Node.js – JavaScript runtime environment',
+                "text": 'a code editor with a terminal application, such as <a href="https://code.visualstudio.com/" class="ons-external-link" target="_blank" rel="noopener">Visual Studio Code<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path><path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path></svg></span></a>'
+            },
+            {
+                "text": 'Node.js – JavaScript runtime environment, LTS version 14 or above',
                 "url": 'https://nodejs.org/en/',
                 "external": true
             },
@@ -74,32 +113,91 @@ Before you can use your copy of the prototype kit, you will need the following i
                 "text": 'Git – version control system',
                 "url": 'https://git-scm.com/',
                 "external": true
-            },
-            {
-                "text": 'a code editor with a terminal application – we recommend using <a href="https://code.visualstudio.com/" class="ons-external-link" target="_blank" rel="noopener">Visual Studio Code<span class="ons-external-link__icon">&nbsp;<svg id="external-link" class="ons-svg-icon" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M13.5,9H13a.5.5,0,0,0-.5.5v3h-9v-9h3A.5.5,0,0,0,7,3V2.5A.5.5,0,0,0,6.5,2h-4a.5.5,0,0,0-.5.5v11a.5.5,0,0,0,.5.5h11a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,13.5,9Z" transform="translate(-2 -1.99)"></path><path d="M8.83,7.88a.51.51,0,0,0,.71,0l2.31-2.32,1.28,1.28A.51.51,0,0,0,14,6.49v-4a.52.52,0,0,0-.5-.5h-4A.51.51,0,0,0,9,2.52a.58.58,0,0,0,.14.33l1.28,1.28L8.12,6.46a.51.51,0,0,0,0,.71Z" transform="translate(-2 -1.99)"></path></svg></span></a>'
             }
         ]
     })
 }}
 
+### Visual Studio Code
+You will need to install a code editor to build your prototype. We recommend installing the editor {{
+    onsExternalLink({
+        "url": 'https://code.visualstudio.com/download',
+        "linkText": 'Visual Studio Code (VS Code)'
+    })
+}}
+
+VS Code has a built-in terminal application (sometimes referred to as “using the command line”) which will allow you to run the prototype kit and commit and push your prototype to GitHub.
+
 ### Node.js
+To check if you already have Node.js installed, open a new terminal (using the ‘Terminal’ menu in VS Code).
+
+In the terminal window, enter:
+{{ onsCodeHighlight({ "code": 'node --version' }) }}
+
+If  a version of `v14.x.x` or higher is not displayed, or it says `command not found` or `Error 0x2 starting node.exe --version` then you will need to download the latest LTS (Long Term Support) version of {{
+    onsExternalLink({
+        "url": 'https://nodejs.org/en/',
+        "linkText": 'Node.js'
+    })
+}}
+
+Follow the installation instructions, using all the default options.
+
+To check Node.js has installed correctly, restart your terminal application and enter the version command again.
 
 ### Yarn
+Once you have Node.js installed, you can use it’s own package manager (npm) to install (or upgrade) Yarn.
+
+In the terminal window, enter:
+{{ onsCodeHighlight({ "code": 'npm install --global yarn' }) }}
+
+To check Yarn has installed correctly, in your terminal window, enter:
+{{ onsCodeHighlight({ "code": 'yarn --version' }) }}
+
+The latest version should be displayed.
 
 ### Git
+You will need to {{  onsExternalLink({
+        "url": 'https://docs.github.com/en/get-started/quickstart/set-up-git',
+        "linkText": 'download, install and set up Git'
+    })
+}} to track changes to your prototypes, and to push those commits to your GitHub repository to share online.
 
-### Visual Studio Code
+## 3. Download the prototype kit
+To start building prototypes, you will need to download a local copy of your prototypes repository from GitHub.
 
+Go to your prototypes repository in GitHub and select the button labelled “Code”.
+
+With the “HTTPS” tab selected, copy the command line beneath to your clipboard.
 
 +++
-{% call onsPanel({
-    "classes": 'ons-u-mt-m'
-}) %}
-    If you require any help using the prototype kit, email the team at {{
-        onsExternalLink({
-        "url": "mailto:ons.design.system@ons.gov.uk?subject=Help installing the ONS Prototype kit",
-        "linkText": "ons.design.system@ons.gov.uk"
+{% call onsCollapsible({
+        "title": "Screenshot",
+        "classes": "ons-u-mb-m"
+    })
+%}
+    {{
+        onsImage({
+            image: {
+                "smallSrc": '/patternlib-img/small/copy-repo-code.png',
+                "largeSrc": '/patternlib-img/large/copy-repo-code.png'
+            },
+            "caption": 'Figure 3: A screenshot of the GitHub repository header showing the location of the “Code” button',
+            "alt": 'A screenshot of the GitHub repository header showing the location of the “Use this template” button on the right-hand side'
         })
     }}
 {% endcall %}
 +++
+
+In the terminal window, enter 'git clone' and paste the copied command line, followed by a folder name:
+{{ onsCodeHighlight({ "code": 'git clone https://github.com/ONSdigital/ons-website-prototypes.git ons-website-prototypes' }) }}
+
+You can now open this folder in VS Code and start creating your prototypes within `src/prototypes/`.
+
+## Ask for help
+If you need help installing or using the prototype kit, email {{
+        onsExternalLink({
+        "url": "mailto:ons.design.system@ons.gov.uk?subject=Help installing the ONS Prototype kit",
+        "linkText": "ons.design.system@ons.gov.uk"
+        })
+    }} to ask a developer.
