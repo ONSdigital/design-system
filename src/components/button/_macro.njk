@@ -29,8 +29,11 @@
             {% set iconType = "loader" %}
             {% set iconPosition = "after" %}
         {# CTA or mobile menu toggle #}
-        {% elif params.url is defined and params.url or params.buttonStyle is defined and params.buttonStyle == "mobile" %}
+        {% elif params.buttonStyle is defined and params.buttonStyle == "mobile" %}
             {% set iconType = "chevron" %}
+            {% set iconPosition = "after" %}
+        {% elif params.url is defined and params.url %}
+            {% set iconType = "arrow-next" %}
             {% set iconPosition = "after" %}
         {% endif %}
     {% endif %}
