@@ -37,6 +37,6 @@
 
 | Name            | Type   | Required | Description                                                                                |
 | --------------- | ------ | -------- | ------------------------------------------------------------------------------------------ |
-| selectAllText   | string | true     | Text for button when checkoxes are unchecked                                               |
-| unselectAllText | string | true     | Text for button when checkoxes are checked                                                 |
+| selectAllText   | string | true     | Text for button when checkboxes are unchecked                                              |
+| unselectAllText | string | true     | Text for button when checkboxes are checked                                                |
 | context         | string | true     | Visually hidden text that is appended to the visible text to add context for screenreaders |
