@@ -41,7 +41,7 @@
               </li>
           {% endif %}
           {% if currentPageIndex > 4 %}
-              <li class="ons-pagination__item ons-pageination__item--gap">&hellip;</li>
+              <li class="ons-pagination__item ons-pagination__item--gap">&hellip;</li>
           {% endif %}
           {% for page in params.pages %}
               {% if loop.index >= middlePagesStart and loop.index <= middlePagesEnd %}
@@ -63,7 +63,7 @@
               {% endif %}
           {% endfor %}
           {% if currentPageIndex < totalPages - 3 %}
-              <li class="ons-pagination__item ons-pageination__item--gap">&hellip;</li>
+              <li class="ons-pagination__item ons-pagination__item--gap">&hellip;</li>
           {% endif %}
           {% if currentPageIndex < totalPages - 2 %}
               {% set lastPage = params.pages | last %}
