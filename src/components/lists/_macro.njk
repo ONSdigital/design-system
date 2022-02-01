@@ -70,7 +70,7 @@
                                 })
                             }}
                         {%- else -%}
-                            <a href="{{ item.url }}" class="ons-list__link {% if item.variant == 'inPageLink' %}ons-js-inpagelink {% endif %} {{ item.classes }}"{% if item.index is defined and item.index %} data-qa="list-item-{{ loop.index }}"{% endif %}{% if item.target is defined and item.target %} target="{{ item.target }}"{% endif %}{% if item.rel is defined and item.rel %} rel="{{ item.rel }}"{% endif %}>
+                            <a href="{{ item.url }}" class="ons-list__link {% if item.variants == 'inPageLink' %}ons-js-inpagelink {% endif %} {{ item.classes }}"{% if item.index is defined and item.index %} data-qa="list-item-{{ loop.index }}"{% endif %}{% if item.target is defined and item.target %} target="{{ item.target }}"{% endif %}{% if item.rel is defined and item.rel %} rel="{{ item.rel }}"{% endif %}>
                                 {%- if item.prefix is defined and item.prefix -%}<span class="ons-u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- itemText | safe -}}
                                 {%- if item.target is defined and item.target == "_blank" -%}<span class="ons-u-vh">{{- item.screenreaderMessage | default("this link will open in a new tab") -}}</span>{%- endif -%}
                             </a>
