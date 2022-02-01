@@ -4,6 +4,8 @@ layout: example
 {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
 {% from "components/header/_macro.njk" import onsHeader %}
 {% from "components/footer/_macro.njk" import onsFooter %}
+{% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
 
 <div class="ons-pattern-lib-block">
     <div class="ons-pattern-lib-block__label">block: headIcons</div>
@@ -80,12 +82,63 @@ layout: example
 
         <div class="ons-pattern-lib-block">
             <div class="ons-pattern-lib-block__label">block: preMain</div>
+            {{
+                onsBreadcrumbs({
+                    "ariaLabel": 'Breadcrumbs',
+                    "itemsList": [
+                        {
+                            "url": '/',
+                            "text": 'Home'
+                        },
+                        {
+                            "url": '/components',
+                            "text": 'Components'
+                        }
+                    ]
+                })
+            }}
         </div>
 
-        <div class="ons-pattern-lib-block">
-            <div class="ons-pattern-lib-block__label">block: main</div>
-            <h1>Page content</h1>
+        <div class="ons-grid ons-grid--flex ons-grid--column@xxs@m">
+            <div class="ons-grid__col ons-grid__col--flex ons-u-flex-grow">
+                <div class="ons-pattern-lib-block">
+                    <div class="ons-pattern-lib-block__label">block: main</div>
+                    <h1>Page content</h1>
+                </div>
+            </div>
+            <div class="ons-grid__col ons-grid__col--auto">
+                <div class="ons-pattern-lib-block">
+                    <div class="ons-pattern-lib-block__label">block: aside</div>
+                    {{
+                        onsRelatedContent({
+                            "ariaLabel": 'Related content',
+                            "rows": [
+                                {
+                                    "id": 'related-content',
+                                    "title": 'Related content',
+                                    "itemsList": [
+                                        {
+                                            "text": 'Base page template',
+                                            "url": '#0'
+                                        },
+                                        {
+                                            "text": 'Contribute',
+                                            "url": '#0'
+                                        },
+                                        {
+                                            "text": 'Contact us',
+                                            "url": '#0'
+                                        }
+                                    ]
+                                }
+                            ]
+
+                        })
+                    }}
+                </div>
+            </div>
         </div>
+
     </div>
 
     <div class="ons-pattern-lib-block">

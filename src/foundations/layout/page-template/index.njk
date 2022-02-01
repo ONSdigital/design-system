@@ -31,7 +31,7 @@ The example below shows the minimum requirements for an ONS base page template.
 
 ## Customised page template
 
-Components can be added to the base page template. The example below provides a [phase banner](/components/phase-banner), [change language](/patterns/change-language), [breadcrumbs](/components/breadcrumbs), [save button](/components/button) and [footer links](/components/footer).
+Components can be added to the base page template. The example below provides a [phase banner](/components/phase-banner), [change language](/patterns/change-language), [breadcrumbs](/components/breadcrumbs), [save button](/components/button), [related content](/components/related-content) and [footer links](/components/footer).
 
 {{
     patternlibExample({ "path": "foundations/layout/page-template/examples/custom/index.njk" })
@@ -65,7 +65,7 @@ The main difference between a variable and a block is that blocks can contain ma
 
 Variables can be set with:
 
-{{ onsCodeHighlight({ "code": "{% raw %}{% set variableName = value %}{% endraw %}" }) }}
+{{ onsCodeHighlight({ "code": "{% set variableName = value %}" }) }}
 
 | Variable Name   | Type                                | Required | Description                                                                                                                           |
 | --------------- | ----------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -100,8 +100,9 @@ Variables can be set with:
 | navigation    | `HeaderNavigation` [_(ref)_](/components/header)    | true (if `toggleButton` supplied) | Configuration for header navigation links                                                                                                     |
 | phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                             | Settings for the Phase banner                                                                                                                 |
 | serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                             | An array to render the service links list                                                                                                     |
+| mainCol       | `MainColumn` [_(ref)_](#maincolumn)                 | false                             | Configuration for the main page column                                                                                                        |
+| asideCol      | `AsideColumn` [_(ref)_](#asidecolumn)               | false                             | Configuration for the page aside column                                                                                                       |
 | footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                              | Configuration for the page footer                                                                                                             |
-| pageColNumber | string                                              | false                             | sets the number of grid columns for the page (defaults to 8)                                                                                  |
 | description   | string                                              | true                              | Default description of the current page for search engines if headMeta.description is not provided.                                           |
 | absoluteUrl   | string                                              | true                              | Default URL for the preferred page for search engines to avoid duplicate content penalties. Used if if headMeta.canonicalUrl is not provided. |
 | wide          | boolean                                             | false                             | If sets to true passes sets the `wide` param on both the header and footer which will add css which will make the page use a wider style.     |
@@ -144,6 +145,22 @@ Variables can be set with:
 | url           | string | false    | URL for the CDN       |
 | lang          | string | false    | DS version on the CDN |
 
+##### MainColumn
+
+| Variable Name | Type   | Required | Description                                                             |
+| ------------- | ------ | -------- | ----------------------------------------------------------------------- |
+| columns       | string | false    | Sets the number of grid columns for the main page column (defaults to 8)|
+| colClasses    | string | false    | CSS classes to be added to the main page grid column                    |
+| classes       | string | false    | CSS classes to be added to the `<main>` container                       |
+
+##### AsideColumn
+
+| Variable Name | Type   | Required | Description                                                                |
+| ------------- | ------ | -------- | -------------------------------------------------------------------------- |
+| position      | string | true     | Sets the position of the aside to `before` or `after` the main page column |
+| colClasses    | string | false    | CSS classes to be added to the page aside grid column                      |
+| classes       | string | false    | CSS classes to be added to the page`<aside>` container                     |
+
 ###### PageFooter
 
 | Variable Name        | Type                                                     | Required | Description                                                                                          |
@@ -164,19 +181,19 @@ Variables can be set with:
 Blocks can be set with:
 
 +++
-{{ onsCodeHighlight({ "code": "{% raw %}{% block blockName %}
+{{ onsCodeHighlight({ "code": "{% block blockName %}
     HTML Here
-{% endblock %}{% endraw %}" }) }}
+{% endblock %}" }) }}
 +++
 
 To change the components that are included by default, set their equivalent blocks, for example:
 
 +++
-{{ onsCodeHighlight({ "code": "{% raw %}{% block header %}
+{{ onsCodeHighlight({ "code": "{% block header %}
     {{ onsHeader({
         ...
     }) }}
-{% endblock %}{% endraw %}" }) }}
+{% endblock %}" }) }}
 +++
 
 | Block Name | Description                                                                         |
@@ -191,8 +208,10 @@ To change the components that are included by default, set their equivalent bloc
 | page       | Override the default content and layout of the page                                 |
 | preMain    | Content to place before the main content                                            |
 | main       | Main content and markup                                                             |
+| aside      | Aside content and markup                                                            |
 | footer     | Override the default [footer](/components/footer) component                         |
-| bodyEnd    | Add content just after just before the closing `</body>` element                    |
+| bodyEnd    | Add content just before the closing `</body>` element                               |
+| scripts    | Add Javascript just before the closing `</body>` element                            |
 
 ##### Exploded view of the base page template block areas
 
