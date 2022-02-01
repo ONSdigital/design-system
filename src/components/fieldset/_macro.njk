@@ -1,39 +1,41 @@
 {% from "components/error/_macro.njk" import onsError %}
 
 {% macro onsFieldset(params) %}
-    {% set fieldset %}
-        {% if params.dontWrap is defined and params.dontWrap %}
+    {% set fieldset -%}
+        {% if params.dontWrap is defined and params.dontWrap -%}
             <div class="ons-input-items">
-                {{ caller() }}
+                {{- caller() -}}
             </div>
-        {% elif (params.legend is defined and params.legend) or (params.legendIsQuestionTitle is defined and params.legendIsQuestionTitle) %}
+        {%- elif (params.legend is defined and params.legend) or (params.legendIsQuestionTitle is defined and params.legendIsQuestionTitle) -%}
             <fieldset
                 {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}
                 class="ons-fieldset{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
                 {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             >
                 <legend class="ons-fieldset__legend{% if params.legendIsQuestionTitle is defined and params.legendIsQuestionTitle %} ons-u-mb-no{% endif %}{% if params.legendClasses is defined and params.legendClasses %} {{ params.legendClasses }}{% endif %}">
-                    {% if params.legendIsQuestionTitle %}
+                    {%- if params.legendIsQuestionTitle -%}
                         <h1 id="fieldset-legend-title" class="ons-fieldset__legend-title ons-u-mb-m{% if params.legendTitleClasses is defined and params.legendTitleClasses %} {{ params.legendTitleClasses }}{% endif %}">
                             {{- params.legend | safe -}}
                         </h1>
-                    {% else %}
+                    {%- else -%}
                         {{- params.legend | safe -}}
-                    {% endif %}
-                    {% if params.description is defined and params.description %}
-                        <div class="ons-fieldset__description{% if params.legendIsQuestionTitle %} ons-fieldset__description--title ons-u-mb-m{% endif %}">{{ params.description | safe }}</div>
-                    {% endif %}
+                    {%- endif -%}
+                    {%- if params.description is defined and params.description -%}
+                        <div class="ons-fieldset__description{% if params.legendIsQuestionTitle %} ons-fieldset__description--title ons-u-mb-m{% endif %}">
+                            {{- params.description | safe -}}
+                        </div>
+                    {%- endif -%}
                 </legend>
-                {{ caller() }}
+                {{- caller() -}}
             </fieldset>
-        {% endif %}
-    {% endset %}
+        {%- endif %}
+    {%- endset %}
 
-    {% if params.error is defined and params.error %}
+    {% if params.error is defined and params.error -%}
         {% call onsError(params.error) %}
-            {{ fieldset | safe }}
+            {{- fieldset | safe -}}
         {% endcall %}
-    {% else %}
-        {{ fieldset | safe }}
-    {% endif %}
+    {%- else -%}
+        {{- fieldset | safe -}}
+    {%- endif %}
 {% endmacro %}
