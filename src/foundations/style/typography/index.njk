@@ -2,7 +2,7 @@
 title: Typography
 sortOrder: 4
 anchorLinks: true
-synonyms: Font, Headings, Paragraphs, Quote, blockquote, Text indent, Addresses, address output, Links, Lists, Icons
+synonyms: Font, Headings, Paragraphs, Quote, blockquote, Text indent, Addresses, address output, Links, External links, Lists, Icons, Highlighting, Emphasis, See important information, Type scale, Bullet points, 
 ---
 
 +++
@@ -164,6 +164,14 @@ This example uses `"variants": [ 'inline', 'social']`, `"iconPosition": 'before'
     patternlibExample({"path": "foundations/style/typography/lists/examples/list-icon-social/index.njk", "componentFolderPath": "components/lists"})
 }}
 
+## Highlighting
+Highlighting should be used to add emphasis to particular words in a heading, a user may otherwise miss. It can be used to indicate a calculated or piped value which was entered previously by the user and is being displayed in a new context.
+
+Only apply highlights using the semantic emphasis tag (`<em>`) with the class `.ons-highlight`.
+{{
+    patternlibExample({ "path": "foundations/style/typography/highlighting/examples/highlighting/index.njk"})
+}}
+
 ## Quotes
 Use when displaying a short quote.
 {{
@@ -182,11 +190,11 @@ Use when you need information to stand out from the rest of the content on a pag
     patternlibExample({"path": "foundations/style/typography/text-indent/examples/text-indent/index.njk", "componentFolderPath": "components/text-indent"})
 }}
 
-## Help improve this foundation
-Let us know how we could improve this foundation or share your user research findings.
+## Help improve this style
+Let us know how we could improve this style or share your user research findings.
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/233",
-        "linkText": "Discuss the ‘Typography’ foundation on Github"
+        "linkText": "Discuss the ‘Typography’ style on Github"
     })
 }}
