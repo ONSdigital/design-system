@@ -44,7 +44,7 @@
 
 {# Page columns #}
 {% set mainColNumber = pageConfig.mainCol.columns | default("8") %}
-{% set mainColClasses = (' ' + pageConfig.mainCol.colClasses) if pageConfig.mainCol is defined and pageConfig.mainCol or pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "before" %}
+{% set mainColClasses = (' ' + pageConfig.mainCol.colClasses) if pageConfig.mainCol.colClasses is defined and pageConfig.mainCol.colClasses %}
 {% set mainClasses = ' ' + pageConfig.mainCol.classes if pageConfig.mainCol.classes is defined and pageConfig.mainCol.classes %}
 
 {% set asideColNumber = 12 - mainColNumber if pageConfig.asideCol.position is defined and pageConfig.asideCol.position %}
