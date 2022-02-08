@@ -1,7 +1,7 @@
 import domready from '../../js/domready';
 
-async function modals() {
-  const timeouts = [...document.querySelectorAll('.ons-js-timeout-modal')];
+async function panels() {
+  const timeouts = [...document.querySelectorAll('.ons-js-timeout-panel')];
 
   if (timeouts.length) {
     const Timeout = (await import('./timeout')).default;

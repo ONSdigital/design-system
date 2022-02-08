@@ -1,15 +1,15 @@
-import Modal from '../modal/modal';
+import Panel from '../panel/panel';
 
 export default class Timeout {
   constructor(context, url, time) {
     this.context = context;
     this.sessionExpiryEndpoint = url;
     this.initialExpiryTime = time;
-    this.continueButton = context.querySelector('.ons-js-modal-btn');
+    this.continueButton = context.querySelector('.ons-js-panel-btn');
     this.countdown = context.querySelector('.ons-js-timeout-timer');
     this.accessibleCountdown = context.querySelector('.ons-js-timeout-timer-acc');
     this.timeOutRedirectUrl = context.getAttribute('data-redirect-url');
-    this.modalVisibleInMilliseconds = context.getAttribute('data-show-modal-time') * 1000;
+    this.panelVisibleInMilliseconds = context.getAttribute('data-show-panel-time') * 1000;
 
     // Language dependent text strings
     this.minutesTextSingular = context.getAttribute('data-minutes-text-singular');
@@ -22,12 +22,12 @@ export default class Timeout {
     // Settings
     this.expiryTimeInMilliseconds = 0;
     this.expiryTime = '';
-    this.showModalTimeout = null;
+    this.showpanelTimeout = null;
     this.timers = [];
     this.timerRunOnce = false;
 
-    // Create modal instance
-    this.modal = new Modal(this.context);
+    // Create panel instance
+    this.panel = new panel(this.context);
 
     // Start module
     this.initialise();
@@ -49,32 +49,32 @@ export default class Timeout {
     window.onload = this.startTimeout();
     window.addEventListener('focus', this.handleWindowFocus.bind(this));
     window.addEventListener('keydown', this.escToClose.bind(this));
-    this.continueButton.addEventListener('click', this.closeModalAndRestartTimeout.bind(this));
+    this.continueButton.addEventListener('click', this.closepanelAndRestartTimeout.bind(this));
     this.addThrottledEvents();
   }
 
   startTimeout() {
-    clearTimeout(this.showModalTimeout);
-    this.showModalTimeout = setTimeout(this.openModal.bind(this), this.expiryTimeInMilliseconds - this.modalVisibleInMilliseconds);
+    clearTimeout(this.showpanelTimeout);
+    this.showpanelTimeout = setTimeout(this.openpanel.bind(this), this.expiryTimeInMilliseconds - this.panelVisibleInMilliseconds);
   }
 
-  async openModal() {
-    const modalWillOpen = await this.hasExpiryTimeResetInAnotherTab();
-    if (modalWillOpen && !this.modal.isDialogOpen()) {
-      this.modal.openDialog();
+  async openpanel() {
+    const panelWillOpen = await this.hasExpiryTimeResetInAnotherTab();
+    if (panelWillOpen && !this.panel.isDialogOpen()) {
+      this.panel.openDialog();
       this.startUiCountdown();
     }
   }
 
   async startUiCountdown() {
     this.clearTimers();
-    clearInterval(this.shouldModalCloseCheck);
+    clearInterval(this.shouldpanelCloseCheck);
 
-    this.shouldModalCloseCheck = setInterval(async () => {
+    this.shouldpanelCloseCheck = setInterval(async () => {
       await this.hasExpiryTimeResetInAnotherTab();
     }, 20000);
 
-    let millseconds = this.modalVisibleInMilliseconds;
+    let millseconds = this.panelVisibleInMilliseconds;
     let seconds = millseconds / 1000;
     let timers = this.timers;
     let $this = this;
@@ -132,25 +132,25 @@ export default class Timeout {
     if (checkExpiryTime != this.expiryTime) {
       this.expiryTime = checkExpiryTime;
       this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(checkExpiryTime);
-      this.closeModalAndRestartTimeout(this.expiryTimeInMilliseconds);
+      this.closepanelAndRestartTimeout(this.expiryTimeInMilliseconds);
     } else {
       return true;
     }
   }
 
-  closeModalAndRestartTimeout(timeInMilliSeconds) {
+  closepanelAndRestartTimeout(timeInMilliSeconds) {
     if (typeof timeInMilliSeconds !== 'string') {
       timeInMilliSeconds = false;
     }
-    if (this.modal.isDialogOpen()) {
-      this.modal.closeDialog();
+    if (this.panel.isDialogOpen()) {
+      this.panel.closeDialog();
     }
     this.restartTimeout(timeInMilliSeconds);
   }
 
   async restartTimeout(timeInMilliSeconds) {
     this.clearTimers();
-    clearInterval(this.shouldModalCloseCheck);
+    clearInterval(this.shouldpanelCloseCheck);
 
     if (timeInMilliSeconds) {
       this.expiryTimeInMilliseconds = timeInMilliSeconds;
@@ -170,14 +170,14 @@ export default class Timeout {
         this.redirect();
       } else {
         const newExpiryTimeInMilliseconds = this.convertTimeToMilliSeconds(canSetNewExpiry).toString();
-        this.closeModalAndRestartTimeout(newExpiryTimeInMilliseconds);
+        this.closepanelAndRestartTimeout(newExpiryTimeInMilliseconds);
       }
     }
   }
 
   escToClose(event) {
-    if (this.modal.isDialogOpen() && event.keyCode === 27) {
-      this.closeModalAndRestartTimeout();
+    if (this.panel.isDialogOpen() && event.keyCode === 27) {
+      this.closepanelAndRestartTimeout();
     }
   }
 
@@ -238,42 +238,42 @@ export default class Timeout {
   addThrottledEvents() {
     window.onclick = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.panel.isDialogOpen()) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onmousemove = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.panel.isDialogOpen()) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onmousedown = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.panel.isDialogOpen()) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onscroll = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.panel.isDialogOpen()) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onkeypress = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.panel.isDialogOpen()) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onkeyup = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.panel.isDialogOpen()) {
         this.restartTimeout();
       }
     }, 61000);
