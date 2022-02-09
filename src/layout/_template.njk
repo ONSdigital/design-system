@@ -43,13 +43,19 @@
 {% endif %}
 
 {# Page columns #}
-{% set mainColNumber = pageConfig.mainCol.columns | default("8") %}
-{% set mainColClasses = (' ' + pageConfig.mainCol.colClasses) if pageConfig.mainCol.colClasses is defined and pageConfig.mainCol.colClasses %}
-{% set mainClasses = ' ' + pageConfig.mainCol.classes if pageConfig.mainCol.classes is defined and pageConfig.mainCol.classes %}
+{% set mainColNumber = "8" %}
 
-{% set asideColNumber = 12 - mainColNumber if pageConfig.asideCol.position is defined and pageConfig.asideCol.position %}
-{% set asideColClasses = (' ' + pageConfig.asideCol.colClasses) if pageConfig.asideCol.colClasses is defined and pageConfig.asideCol.colClasses %}
-{% set asideClasses = ' ' + pageConfig.asideCol.classes if pageConfig.asideCol.classes is defined and pageConfig.asideCol.classes %}
+{% if pageConfig.mainCol is defined and pageConfig.mainCol %}
+    {% set mainColNumber = pageConfig.mainCol.columns if pageConfig.mainCol.columns is defined and pageConfig.mainCol.columns %}
+    {% set mainColClasses = (' ' + pageConfig.mainCol.colClasses) if pageConfig.mainCol.colClasses is defined and pageConfig.mainCol.colClasses %}
+    {% set mainClasses = (' ' + pageConfig.mainCol.classes) if pageConfig.mainCol.classes is defined and pageConfig.mainCol.classes %}
+{% endif %}
+
+{% if pageConfig.asideCol is defined and pageConfig.asideCol %}
+    {% set asideColNumber = 12 - mainColNumber if pageConfig.asideCol.position is defined and pageConfig.asideCol.position %}
+    {% set asideColClasses = (' ' + pageConfig.asideCol.colClasses) if pageConfig.asideCol.colClasses is defined and pageConfig.asideCol.colClasses %}
+    {% set asideClasses = (' ' + pageConfig.asideCol.classes) if pageConfig.asideCol.classes is defined and pageConfig.asideCol.classes %}
+{% endif %}
 
 <!doctype html>
 <html lang="{{ currentLanguageISOCode }}">
