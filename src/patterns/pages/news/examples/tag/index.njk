@@ -15,7 +15,9 @@ layout: none
 {% set pageConfig = {
     "title": 'Service name',
     "absoluteUrl": pageInfo.url,
-    "pageColNumber": '12',
+    "mainCol": {
+        "columns": "12"
+    },
     "breadcrumbs": {
         "ariaLabel": 'Breadcrumbs',
         "itemsList": [
