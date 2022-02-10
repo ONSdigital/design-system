@@ -1,15 +1,14 @@
 {% from "components/timeout-panel/_macro.njk" import onsTimeoutPanel %}
-
 {{ onsTimeoutPanel ({
         "id": "countdownID",
         "countdown": {
-            "countdownInSeconds": 2700,
+            "countdownInSeconds": 60,
             "minutesTextSingular":"minute",
             "minutesTextPlural":"minutes",
             "secondsTextSingular":"second",
             "secondsTextPlural":"seconds",
             "countdownText":"For security, your answers will only be available to view for another",
-            "alternateText":"For security, your answers will only be available to view for 45 minutes"
+            "alternateText":"For security, you can no longer view your answers"
         }
     })
 }}

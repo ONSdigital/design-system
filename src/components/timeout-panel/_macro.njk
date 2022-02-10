@@ -2,10 +2,11 @@
 {% macro onsTimeoutPanel(params) %}
     {% call onsPanel({
             "id": params.id,
-            "type": "warn"
+            "type": "warn",           
+            "attributes":params.countdown
         })
     %}
-        <p>{{ params.countdown.countdownText }}</p>
+        <p {{ params.countdown.countdownText }} </p>
         <p class="ons-js-timeout-timer" aria-hidden="true" aria-relevant="additions"></p>
         <p class="ons-js-timeout-timer-acc ons-u-vh" role="status" id="timeout-time-remaining"></p>
     {% endcall %}
