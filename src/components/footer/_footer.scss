@@ -42,4 +42,10 @@
       min-height: 1.5rem;
     }
   }
+
+  &--rows {
+    li {
+      margin-bottom: 0.5rem !important;
+    }
+  }
 }
