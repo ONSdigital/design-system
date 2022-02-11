@@ -37,6 +37,22 @@
                 {%- if document.metadata is defined and document.metadata %}
 
                     <ul class="ons-document-list__item-metadata ons-u-mb-no">
+
+                        {%- if document.metadata.date is defined and document.metadata.date %}
+                            <li class="ons-article__meta-item">
+                                {% if document.metadata.date.prefix %}
+                                    {% if document.metadata.date.prefixClasses is defined and document.metadata.date.prefixClasses %}
+                                        {% set prefixClasses = " ons-u-hidden" if document.metadata.date.showPrefix is defined and document.metadata.date.showPrefix == "true" else "" %}
+                                    {% endif %}
+                                    <span class="ons-u-fw-b prefixClasses">{{ document.metadata.date.prefix | default("Posted on: ") }}</span>
+                                {% endif %}
+                                {% if document.metadata.date.iso is defined and document.metadata.date.iso %}
+                                    <time datetime="{{ document.metadata.date.iso }}">{{ document.metadata.date.short }}</time>
+                                {% endif %}
+                            </li>
+                        {% endif %}
+
+                        {%- if document.metadata.file is defined and document.metadata.file %}
                             {%- if document.metadata.file.type is defined and document.metadata.file.type %}
 
                                 <li class="ons-document-list__item-attribute ons-u-fs-s ons-u-mb-xs" aria-hidden="true">
@@ -44,8 +60,7 @@
                                 </li>
 
                             {% endif %}
-
-                            {%- if document.metadata.file is defined and document.metadata.file %}
+                            {%- if document.metadata.file.fileType is defined and document.metadata.file.fileType %}
 
                                 <li class="ons-document-list__item-attribute ons-u-fs-s ons-u-mb-xs" aria-hidden="true">
                                     {% set fileMetadataItems = [] %}
@@ -58,6 +73,7 @@
                                 </li>
 
                             {% endif -%}
+                        {% endif -%}
 
                             {%- if document.metadata is defined and document.metadata %}
 
