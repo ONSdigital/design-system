@@ -19,13 +19,13 @@
                 <{{ titleTag }} class="ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
                     <a href="{{ document.url }}">{{ document.title }}<span class="ons-u-vh">, 
 
-                    {%- if document.metadata is defined and document.metadata %}
+                    {%- if document.metadata.file is defined and document.metadata.file %}
 
                         {% set fileMetadataItems = [] %}
 
-                        {% if document.file.fileType is defined and document.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.fileType + ' document download'), fileMetadataItems) %}{% endif %}
-                        {% if document.file.fileSize is defined and document.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.fileSize), fileMetadataItems) %}{% endif %}
-                        {% if document.file.filePages is defined and document.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.filePages), fileMetadataItems) %}{% endif %}
+                        {% if document.metadata.file.fileType is defined and document.metadata.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileType + ' document download'), fileMetadataItems) %}{% endif %}
+                        {% if document.metadata.file.fileSize is defined and document.metadata.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileSize), fileMetadataItems) %}{% endif %}
+                        {% if document.metadata.file.filePages is defined and document.metadata.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.filePages), fileMetadataItems) %}{% endif %}
 
                         {{ fileMetadataItems | join(', ') }}
 
@@ -34,45 +34,49 @@
                     </span></a>
                 </{{ titleTag }}>
 
-                <ul class="ons-document-list__item-metadata">
-                        {%- if document.file.type is defined and document.file.type %}
+                {%- if document.metadata is defined and document.metadata %}
 
-                            <li class="ons-document-list__item-attribute ons-u-fs-s ons-u-mb-xs" aria-hidden="true">
-                                {{ document.file.type }}{%- if document.file is defined and document.file %},{% endif %}
-                            </li>
+                    <ul class="ons-document-list__item-metadata ons-u-mb-no">
+                            {%- if document.metadata.file.type is defined and document.metadata.file.type %}
 
-                        {% endif %}
+                                <li class="ons-document-list__item-attribute ons-u-fs-s ons-u-mb-xs" aria-hidden="true">
+                                    {{ document.metadata.file.type }}{%- if document.metadata.file is defined and document.metadata.file %},{% endif %}
+                                </li>
 
-                        {%- if document.file is defined and document.file %}
+                            {% endif %}
 
-                            <li class="ons-document-list__item-attribute ons-u-fs-s ons-u-mb-xs" aria-hidden="true">
-                                {% set fileMetadataItems = [] %}
+                            {%- if document.metadata.file is defined and document.metadata.file %}
 
-                                {% if document.file.fileType is defined and document.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.fileType), fileMetadataItems) %}{% endif %}
-                                {% if document.file.fileSize is defined and document.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.fileSize), fileMetadataItems) %}{% endif %}
-                                {% if document.file.filePages is defined and document.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.filePages), fileMetadataItems) %}{% endif %}
+                                <li class="ons-document-list__item-attribute ons-u-fs-s ons-u-mb-xs" aria-hidden="true">
+                                    {% set fileMetadataItems = [] %}
 
-                                {{ fileMetadataItems | join(', ') }}
-                            </li>
+                                    {% if document.metadata.file.fileType is defined and document.metadata.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileType), fileMetadataItems) %}{% endif %}
+                                    {% if document.metadata.file.fileSize is defined and document.metadata.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileSize), fileMetadataItems) %}{% endif %}
+                                    {% if document.metadata.file.filePages is defined and document.metadata.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.filePages), fileMetadataItems) %}{% endif %}
 
-                        {% endif -%}
+                                    {{ fileMetadataItems | join(', ') }}
+                                </li>
 
-                        {%- if document.metadata is defined and document.metadata %}
+                            {% endif -%}
 
-                            <li class="ons-document-list__item-attribute ons-u-fs-s ons-u-mb-xs" aria-hidden="true">
-                                {% set metadataItems = [] %}
+                            {%- if document.metadata is defined and document.metadata %}
 
-                                {% if document.metadata.fileType is defined and document.metadata.fileType %}{% set metadataItems = (metadataItems.push(document.metadata.fileType), metadataItems) %}{% endif %}
-                                {% if document.metadata.fileSize is defined and document.metadata.fileSize %}{% set metadataItems = (metadataItems.push(document.metadata.fileSize), metadataItems) %}{% endif %}
-                                {% if document.metadata.filePages is defined and document.metadata.filePages %}{% set metadataItems = (metadataItems.push(document.metadata.filePages), metadataItems) %}{% endif %}
+                                <li class="ons-document-list__item-attribute ons-u-fs-s ons-u-mb-xs" aria-hidden="true">
+                                    {% set metadataItems = [] %}
 
-                                {{ metadataItems | join(', ') }}
-                            </li>
+                                    {% if document.metadata.fileType is defined and document.metadata.fileType %}{% set metadataItems = (metadataItems.push(document.metadata.fileType), metadataItems) %}{% endif %}
+                                    {% if document.metadata.fileSize is defined and document.metadata.fileSize %}{% set metadataItems = (metadataItems.push(document.metadata.fileSize), metadataItems) %}{% endif %}
+                                    {% if document.metadata.filePages is defined and document.metadata.filePages %}{% set metadataItems = (metadataItems.push(document.metadata.filePages), metadataItems) %}{% endif %}
 
-                        {% endif -%}
+                                    {{ metadataItems | join(', ') }}
+                                </li>
 
-                    </li>
-                </ul>
+                            {% endif -%}
+
+                        </li>
+                    </ul>
+
+                {% endif %}
 
                 {% if document.description is defined and document.description %}
                     <p class="ons-document-list__item-description">{{ document.description | safe }}</p>
