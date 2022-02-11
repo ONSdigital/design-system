@@ -1,0 +1,87 @@
+{% macro onsDocument(params) %}
+    <ul class="ons-document-list">
+        {% for document in (params.documents if params.documents is iterable else params.documents.items()) %}
+
+        <li class="ons-document-list__item{{ ' ' + params.classes if params.classes else '' }}">
+
+            <div class="ons-document-list__item-image" aria-hidden="true">
+                <a class="ons-document-list__image-link" href="{{ document.url }}" tabindex="-1">
+                    {% if document.thumbnail is defined and document.thumbnail and document.thumbnail.smallSrc is defined and document.thumbnail.smallSrc and document.thumbnail.largeSrc is defined and document.thumbnail.largeSrc %}
+                        <img srcset="{{ document.thumbnail.smallSrc }} 1x, {{ document.thumbnail.largeSrc }} 2x" src="{{ document.thumbnail.smallSrc }}" alt="" loading="lazy">
+                    {% else %}
+                        <img srcset="{{ document.placeholderURL if document.placeholderURL is defined and document.placeholderURL }}/img/small/placeholder-portrait.png 1x, {{ document.placeholderURL if document.placeholderURL is defined and document.placeholderURL }}/img/large/placeholder-portrait.png 2x" src="{{ document.placeholderURL if document.placeholderURL is defined and document.placeholderURL }}/img/small/placeholder-portrait.png" alt="" loading="lazy">
+                    {% endif %}
+                </a>
+            </div>
+
+            <div class="ons-document-list__item-content">
+                {% set titleTag = params.titleTag | default("h2") %}
+                <{{ titleTag }} class="ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
+                    <a href="{{ document.url }}">{{ document.title }}<span class="ons-u-vh">, 
+
+                    {%- if document.metadata is defined and document.metadata %}
+
+                        {% set fileMetadataItems = [] %}
+
+                        {% if document.file.fileType is defined and document.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.fileType + ' document download'), fileMetadataItems) %}{% endif %}
+                        {% if document.file.fileSize is defined and document.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.fileSize), fileMetadataItems) %}{% endif %}
+                        {% if document.file.filePages is defined and document.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.filePages), fileMetadataItems) %}{% endif %}
+
+                        {{ fileMetadataItems | join(', ') }}
+
+                    {% endif -%}
+
+                    </span></a>
+                </{{ titleTag }}>
+
+                <ul class="ons-document-list__item-metadata">
+                        {%- if document.file.type is defined and document.file.type %}
+
+                            <li class="ons-document-list__item-attribute ons-u-fs-s ons-u-mb-xs" aria-hidden="true">
+                                {{ document.file.type }}{%- if document.file is defined and document.file %},{% endif %}
+                            </li>
+
+                        {% endif %}
+
+                        {%- if document.file is defined and document.file %}
+
+                            <li class="ons-document-list__item-attribute ons-u-fs-s ons-u-mb-xs" aria-hidden="true">
+                                {% set fileMetadataItems = [] %}
+
+                                {% if document.file.fileType is defined and document.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.fileType), fileMetadataItems) %}{% endif %}
+                                {% if document.file.fileSize is defined and document.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.fileSize), fileMetadataItems) %}{% endif %}
+                                {% if document.file.filePages is defined and document.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.file.filePages), fileMetadataItems) %}{% endif %}
+
+                                {{ fileMetadataItems | join(', ') }}
+                            </li>
+
+                        {% endif -%}
+
+                        {%- if document.metadata is defined and document.metadata %}
+
+                            <li class="ons-document-list__item-attribute ons-u-fs-s ons-u-mb-xs" aria-hidden="true">
+                                {% set metadataItems = [] %}
+
+                                {% if document.metadata.fileType is defined and document.metadata.fileType %}{% set metadataItems = (metadataItems.push(document.metadata.fileType), metadataItems) %}{% endif %}
+                                {% if document.metadata.fileSize is defined and document.metadata.fileSize %}{% set metadataItems = (metadataItems.push(document.metadata.fileSize), metadataItems) %}{% endif %}
+                                {% if document.metadata.filePages is defined and document.metadata.filePages %}{% set metadataItems = (metadataItems.push(document.metadata.filePages), metadataItems) %}{% endif %}
+
+                                {{ metadataItems | join(', ') }}
+                            </li>
+
+                        {% endif -%}
+
+                    </li>
+                </ul>
+
+                {% if document.description is defined and document.description %}
+                    <p class="ons-document-list__item-description">{{ document.description | safe }}</p>
+                {% endif %}
+
+            </div>
+
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endmacro %}

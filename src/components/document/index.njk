@@ -1,0 +1,55 @@
+---
+title: Document
+synonyms: downloads, files, search result, article, publication,
+---
+
++++
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
++++
+
+Displays a link to document an attachment and metadata about the file.
+
+{{
+    onsPanel({
+        "body": "This component requires documentation."
+    })
+}}
+
+## Single document
+{{
+    patternlibExample({"path": "components/document/examples/document-single/index.njk"})
+}}
+
+## Single document (no image)
+In situations an image is not used, we require a fallback image to prevent a broken link.
+{{
+    patternlibExample({"path": "components/document/examples/document-single-noimage/index.njk"})
+}}
+
+## Multiple documents
+{{
+    patternlibExample({"path": "components/document/examples/document-multiple/index.njk"})
+}}
+
+## How to use this component
+We use two versions of the image, one for standard screens and the other for retina screens.
+
+Image dimension for:
+
+* standard screen is: `96px × 136px`
+* retina screen is: `192px × 272px`
+
+We specify a folder path for both small and large images, which is defined in the macro as `smallSrc` and `largeSrc`. The filename is expected to be the same for both.
+
+The image used is considered decorative and does not convey important information, and as such should be hidden from screen readers. The image does not require an `alt` tag.
+
+## Help improve this component
+Let us know how we could improve this component or share your user research findings.
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/716",
+        "linkText": "Discuss the ‘Document’ component on GitHub"
+    })
+}}

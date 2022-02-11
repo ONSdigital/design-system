@@ -1,20 +1,25 @@
-.ons-download {
-  display: flex;
+.ons-document-list {
+  @extend .ons-list--bare;
 
-  & + & {
-    border-top: 1px solid $color-grey-75;
-    margin: 1.5rem 0 0;
-    padding: 1.5em 0 0;
+  &__item {
+    display: flex;
+    margin: 0;
+
+    & + & {
+      border-top: 1px solid $color-borders-list;
+      margin: 1.5rem 0 0;
+      padding: 1.5em 0 0;
+    }
   }
 
-  &__image {
+  &__item-image {
     flex: 0 0 auto;
     margin-right: 1.5rem;
     width: 96px;
   }
 
   &__image-link {
-    border: 2px solid $color-grey-15;
+    border: 2px solid $color-borders-document-image;
     box-sizing: content-box;
     display: block;
     width: 100%;
@@ -27,12 +32,16 @@
     }
   }
 
-  &__meta {
+  &__item-metadata {
+    @extend .ons-list--bare;
+  }
+
+  &__item-attribute {
     color: $color-grey-100;
     display: block;
   }
 
-  &__excerpt {
+  &__item-description {
     margin-bottom: 0;
     max-width: 660px; // Equivalent to 8 Columns
   }
