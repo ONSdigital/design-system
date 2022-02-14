@@ -139,18 +139,4 @@ export default class Timeout {
       clearTimeout(this.timers[i]);
     }
   }
-
-  throttle(func, wait) {
-    let waiting = false;
-    return function() {
-      if (waiting) {
-        return;
-      }
-      waiting = true;
-      setTimeout(async () => {
-        func.apply(this, arguments);
-        waiting = false;
-      }, wait);
-    };
-  }
 }
