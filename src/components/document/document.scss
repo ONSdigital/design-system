@@ -37,8 +37,20 @@
   }
 
   &__item-attribute {
-    color: $color-grey-100;
+    color: $color-text-metadata;
     display: inline-block;
+    margin: 0 1rem 0 0;
+
+    @extend .ons-u-fs-s;
+  }
+
+  &__attribute-link {
+    color: inherit;
+
+    &:hover {
+      color: $color-text-metadata;
+      text-decoration: underline solid $color-text-metadata 2px;
+    }
   }
 
   &__item-description {
