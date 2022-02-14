@@ -54,7 +54,6 @@ export default class Timeout {
 
       if (timerExpired) {
         $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.redirectingText + '</span>';
-
         $this.accessibleCountdown.innerHTML = $this.redirectingText;
       } else {
         seconds--;
