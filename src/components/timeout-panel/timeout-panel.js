@@ -4,7 +4,6 @@ export default class Timeout {
     this.countDownSeconds = time;
     this.countdown = context.querySelector('.ons-js-timeout-timer');
     this.accessibleCountdown = context.querySelector('.ons-js-timeout-timer-acc');
-    // this.panelText = context.querySelector('.ons-js-static-text');
 
     // Language dependent text strings
     this.minutesTextSingular = context.getAttribute('minutesTextSingular');
@@ -26,7 +25,6 @@ export default class Timeout {
   }
 
   async initialise() {
-    this.panelText.addClass('ons-u-vh');
     window.onload = this.startTimeout();
   }
 
@@ -100,7 +98,6 @@ export default class Timeout {
           $this.accessibleCountdown.innerHTML = $this.redirectingText;
         }
       } else {
-        this.panelText.addClass('ons-u-vh');
         seconds--;
         $this.expiryTimeInMilliseconds = seconds * 1000;
         $this.countdown.innerHTML = timeLeftText;
