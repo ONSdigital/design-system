@@ -14,7 +14,6 @@ export default class Timeout {
     this.redirectingText = context.getAttribute('countdownExpiredText');
 
     // Settings
-    // this.expiryTimeInMilliseconds = time;
     this.expiryTime = '';
     this.showPanelTimeout = null;
     this.timers = [];
@@ -25,43 +24,7 @@ export default class Timeout {
   }
 
   async initialise() {
-    window.onload = this.startTimeout();
-  }
-
-  convertTimeToMilliSeconds(expiryTime) {
-    const time = new Date(expiryTime);
-    const calculateTimeInMilliSeconds = Math.abs(time - new Date());
-
-    return calculateTimeInMilliSeconds;
-  }
-
-  async openPanel() {
-    const modalWillOpen = await this.hasExpiryTimeResetInAnotherTab();
-    if (modalWillOpen) {
-      this.startUiCountdown();
-    }
-  }
-
-  async hasExpiryTimeResetInAnotherTab() {
-    const checkExpiryTime = await this.getExpiryTime();
-
-    if (checkExpiryTime != this.expiryTime) {
-      this.expiryTime = checkExpiryTime;
-      this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(checkExpiryTime);
-      this.closeModalAndRestartTimeout(this.expiryTimeInMilliseconds);
-    } else {
-      return true;
-    }
-  }
-
-  async getExpiryTime() {
-    if (this.sessionExpiryEndpoint) {
-      const currentExpiryTime = await this.fetchExpiryTime('GET');
-      return currentExpiryTime;
-    } else {
-      // For demo purposes
-      return this.expiryTime;
-    }
+    window.onload = this.showPanelTimeout = setTimeout(this.startUiCountdown(), this.expiryTimeInMilliseconds);
   }
 
   async startUiCountdown() {
@@ -90,13 +53,9 @@ export default class Timeout {
         '</span>.';
 
       if (timerExpired) {
-        const shouldExpire = await $this.hasExpiryTimeResetInAnotherTab();
+        $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.redirectingText + '</span>';
 
-        if (shouldExpire) {
-          $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.redirectingText + '</span>';
-
-          $this.accessibleCountdown.innerHTML = $this.redirectingText;
-        }
+        $this.accessibleCountdown.innerHTML = $this.redirectingText;
       } else {
         seconds--;
         $this.expiryTimeInMilliseconds = seconds * 1000;
@@ -116,22 +75,6 @@ export default class Timeout {
         timers.push(setTimeout(runTimer.bind($this), 1000));
       }
     })();
-  }
-
-  async setNewExpiryTime() {
-    let newExpiryTime;
-    if (!this.sessionExpiryEndpoint) {
-      // For demo purposes
-      const demoTime = new Date(this.initialExpiryTime ? this.initialExpiryTime : Date.now() + 60 * 1000);
-      newExpiryTime = new Date(demoTime).toISOString();
-    } else {
-      newExpiryTime = await this.fetchExpiryTime('PATCH');
-    }
-    return newExpiryTime;
-  }
-
-  startTimeout() {
-    this.showPanelTimeout = setTimeout(this.openPanel.bind(this), this.expiryTimeInMilliseconds);
   }
 
   clearTimers() {
