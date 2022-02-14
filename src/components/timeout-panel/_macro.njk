@@ -2,6 +2,7 @@
 {% macro onsTimeoutPanel(params) %}
     {% call onsPanel({
             "id": params.id,
+            "classes": "ons-js-panel-with-countdown",
             "type": "warn",
             "attributes": params.countdown
         })
