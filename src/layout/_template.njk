@@ -18,8 +18,6 @@
     {% set metaicons = "" %}
 {% endif %}
 
-{% set pageColNumber = pageConfig.pageColNumber | default("8") %}
-
 {% if pageConfig.cdn is defined and pageConfig.cdn or release_version is defined and release_version %}
     {# Production #}
     {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.url is defined and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
@@ -42,6 +40,21 @@
     {% set page_title = pageInfo.title %}
 {% else %}
     {% set page_title = "ONS Design System" %}
+{% endif %}
+
+{# Page columns #}
+{% set mainColNumber = "8" %}
+
+{% if pageConfig.mainCol is defined and pageConfig.mainCol %}
+    {% set mainColNumber = pageConfig.mainCol.columns if pageConfig.mainCol.columns is defined and pageConfig.mainCol.columns %}
+    {% set mainColClasses = (' ' + pageConfig.mainCol.colClasses) if pageConfig.mainCol.colClasses is defined and pageConfig.mainCol.colClasses %}
+    {% set mainClasses = (' ' + pageConfig.mainCol.classes) if pageConfig.mainCol.classes is defined and pageConfig.mainCol.classes %}
+{% endif %}
+
+{% if pageConfig.asideCol is defined and pageConfig.asideCol %}
+    {% set asideColNumber = 12 - mainColNumber if pageConfig.asideCol.position is defined and pageConfig.asideCol.position %}
+    {% set asideColClasses = (' ' + pageConfig.asideCol.colClasses) if pageConfig.asideCol.colClasses is defined and pageConfig.asideCol.colClasses %}
+    {% set asideClasses = (' ' + pageConfig.asideCol.classes) if pageConfig.asideCol.classes is defined and pageConfig.asideCol.classes %}
 {% endif %}
 
 <!doctype html>
@@ -169,11 +182,26 @@
                             {% endif %}
                             {% block preMain %}{% endblock %}
                             <div class="ons-grid">
-                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m">
-                                    <main id="main-content" class="ons-page__main {{ pageClasses }}">
+                                {% if pageConfig.asideCol is defined and pageConfig.asideCol %}
+                                    {% set aside %}
+                                        <div class="ons-grid__col ons-col-{{ asideColNumber }}@m{{ asideColClasses }}">
+                                            <aside {% if pageConfig.asideCol.id is defined and pageConfig.asideCol.id %}id="{{ asideId }}" {% endif %}class="ons-page__aside{{ asideClasses }}">
+                                                {% block aside %}{% endblock %}
+                                            </aside>
+                                        </div>
+                                    {% endset %}
+                                {% endif %}
+                                {% if pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "before" %}
+                                    {{ aside | safe }}
+                                {% endif %}
+                                <div class="ons-grid__col ons-col-{{ mainColNumber }}@m{{ mainColClasses }}">
+                                    <main id="main-content" class="ons-page__main{{ mainClasses }}">
                                         {% block main %}{% endblock %}
                                     </main>
                                 </div>
+                                {% if pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "after" %}
+                                    {{ aside | safe }}
+                                {% endif %}
                             </div>
                         </div>
                     {% endblock %}
