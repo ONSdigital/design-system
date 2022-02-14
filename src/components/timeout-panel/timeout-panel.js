@@ -4,7 +4,7 @@ export default class Timeout {
     this.countDownSeconds = time;
     this.countdown = context.querySelector('.ons-js-timeout-timer');
     this.accessibleCountdown = context.querySelector('.ons-js-timeout-timer-acc');
-    // this.panelText = context.querySelector('.ons-js-statictext');
+    // this.panelText = context.querySelector('.ons-js-static-text');
 
     // Language dependent text strings
     this.minutesTextSingular = context.getAttribute('minutesTextSingular');
