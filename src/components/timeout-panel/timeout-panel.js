@@ -11,7 +11,7 @@ export default class Timeout {
     this.secondsTextSingular = context.getAttribute('secondsTextSingular');
     this.secondsTextPlural = context.getAttribute('secondsTextPlural');
     this.countdownText = context.getAttribute('countdownText');
-    this.redirectingText = context.getAttribute('countdownExpiredText');
+    this.countdownExpiredText = context.getAttribute('countdownExpiredText');
 
     // Settings
     this.timers = [];
@@ -51,8 +51,8 @@ export default class Timeout {
         '</span>.';
 
       if (timerExpired) {
-        $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.redirectingText + '</span>';
-        $this.accessibleCountdown.innerHTML = $this.redirectingText;
+        $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
+        $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
       } else {
         seconds--;
         $this.expiryTimeInMilliseconds = seconds * 1000;
