@@ -14,8 +14,6 @@ export default class Timeout {
     this.redirectingText = context.getAttribute('countdownExpiredText');
 
     // Settings
-    this.expiryTime = '';
-    this.showPanelTimeout = null;
     this.timers = [];
     this.timerRunOnce = false;
 
@@ -24,7 +22,7 @@ export default class Timeout {
   }
 
   async initialise() {
-    window.onload = this.showPanelTimeout = setTimeout(this.startUiCountdown(), this.expiryTimeInMilliseconds);
+    window.onload = setTimeout(this.startUiCountdown.bind(this), this.expiryTimeInMilliseconds);
   }
 
   async startUiCountdown() {
