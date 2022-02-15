@@ -48,11 +48,11 @@ export default class Timeout {
 
       let timeLeftText =
         $this.countdownText +
-        ' <span class="ons-u-fw-b">' +
+        ' <span class="ons-u-fw-b ons-panel__timer">' +
         (minutesLeft > 0 ? minutesText : '') +
         (minutesLeft > 0 && secondsLeft > 0 ? ' ' : '') +
         (secondsLeft > 0 ? secondsText : '') +
-        '</span>.';
+        '.</span>';
 
       if (timerExpired) {
         if ($this.panel && $this.countdownExpiredText) {
