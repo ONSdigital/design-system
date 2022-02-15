@@ -1,13 +1,12 @@
 export default class Timeout {
-  constructor(context, time) {
+  constructor(context, time, url) {
     this.context = context;
+    this.countDownSeconds = time;
+    this.urlOnZero = url;
+
     this.panelContainer = context.parentElement;
     this.panel = this.panelContainer.querySelector('.ons-js-panel-with-countdown');
-    this.countDownSeconds = time;
-    this.assistiveTextPrefix = this.panelContainer.querySelector('.ons-js-assistive-text-prefix');
     this.countdown = this.panelContainer.querySelector('.ons-js-timeout-timer');
-    this.accessibleCountdown = this.panelContainer.querySelector('.ons-js-timeout-timer-acc');
-    this.panelIcon = this.panelContainer.querySelector('.ons-panel__icon');
 
     // Language dependent text strings
     this.minutesTextSingular = context.getAttribute('minutesTextSingular');
@@ -55,14 +54,12 @@ export default class Timeout {
         '</span>.';
 
       if (timerExpired) {
-        if (this.panel) {
-          $this.panel.classList.remove('ons-panel--warn');
-          $this.panel.classList.add('ons-panel--info');
-          $this.panelIcon.remove();
-          $this.accessibleCountdown.remove();
-          $this.assistiveTextPrefix.innerHTML = 'Important information: ';
+        if ($this.panel && $this.countdownExpiredText) {
           $this.countdown.innerHTML = '<span>' + $this.countdownExpiredText + '</span>';
           $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
+        }
+        if ($this.urlOnZero) {
+          window.location.href = $this.urlOnZero;
         }
       } else {
         seconds--;

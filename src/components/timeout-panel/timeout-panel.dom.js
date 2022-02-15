@@ -8,7 +8,8 @@ async function panels() {
 
     timeouts.forEach(context => {
       let time = context.getAttribute('countdownInSeconds');
-      new Timeout(context, time);
+      let url = context.getAttribute('urlOnTimeout');
+      new Timeout(context, time, url);
     });
   }
 }

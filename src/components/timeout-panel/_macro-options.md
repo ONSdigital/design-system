@@ -14,4 +14,5 @@
 | secondsTextPlural    | string | true     | Text displayed in timer when seconds left is more than 1 e.g. 'seconds' |
 | countdownText        | string | true     | The text to be displayed alongside the countdown                        |
 | nojsText             | string | true     | The text to be displayed when js is turned off in the browser           |
-| countdownExpiredText | string | true     | The text to be displayed when countdown expires                         |
+| countdownExpiredText | string | false    | The text to be displayed when countdown expires                         |
+| urlOnTimeout         | string | false    | The URL to automatically go to when countdown expires                   |
