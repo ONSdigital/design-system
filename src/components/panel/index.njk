@@ -22,9 +22,8 @@ Panels are used to draw information to the attention of the user.
 }}
 
 ### Warning with countdown
-This example is a warning variant that allows you to include a countdown in the panel. It is used to warn users there is a timelimit that affects something on the page.
-When the countdown reaches zero, if a URL is provided to `countdown.urlOnTimeout` the browser will navigate to that URL. If the current URL is provided the page will just be refreshed.
-Or if no URL is provided and `countdown.countdownExpiredText` is provided then the panel will display that text.
+This is a warning variant that allows you to include a countdown in the panel.
+When the countdown reaches zero, the browser will either navigate to a specified URL or will show some alternate text. If the current URL is provided the page will just be refreshed.
 {{
    patternlibExample({"path": "components/timeout-panel/examples/warn/index.njk"})
 }}
