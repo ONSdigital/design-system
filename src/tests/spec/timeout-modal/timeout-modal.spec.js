@@ -1,4 +1,4 @@
-import Timeout from '../../../components/timeout-modal/timeout';
+import Timeout from '../../../components/timeout-modal/timeout-modal';
 import renderTemplate from '../../helpers/render-template';
 
 import chai from 'chai';
