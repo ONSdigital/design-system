@@ -120,17 +120,10 @@ export default class AutosuggestUI {
     this.bindEventListeners();
   }
 
-  fetchData() {
+  async fetchData() {
     this.fetch = abortableFetch(this.autosuggestData);
-    return new Promise((resolve, reject) => {
-      this.fetch
-        .send()
-        .then(async response => {
-          this.data = await response.json();
-          resolve(this.data);
-        })
-        .catch(reject);
-    });
+    const response = await this.fetch.send();
+    this.data = await response.json();
   }
 
   bindEventListeners() {

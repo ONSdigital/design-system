@@ -14,19 +14,11 @@ export default class Autosuggest {
     });
   }
 
-  onSelect(result) {
-    return new Promise(resolve => {
-      this.autosuggest.input.value = result.displayText;
-
-      resolve();
-    });
+  async onSelect(result) {
+    this.autosuggest.input.value = result.displayText;
   }
 
-  onUnsetResult() {
-    return new Promise(resolve => {
-      resolve();
-    });
-  }
+  async onUnsetResult() {}
 
   onError(error) {
     console.error(error);
