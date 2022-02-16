@@ -74,81 +74,68 @@ export default class AutosuggestAddress {
     this.checkAPIStatus();
   }
 
-  checkAPIStatus() {
+  async checkAPIStatus() {
     this.fetch = abortableFetch(this.lookupURL + 'CF142&limit=10', {
       method: 'GET',
       headers: this.setAuthorization(this.authorizationToken),
     });
-    this.fetch
-      .send()
-      .then(async response => {
-        const status = (await response.json()).status.code;
-        if (status > 400) {
-          if (this.isEditable) {
-            this.handleAPIError();
-          } else {
-            this.autosuggest.handleNoResults(status);
-          }
-        }
-      })
-      .catch(error => {
-        console.log(error);
+    try {
+      const response = await this.fetch.send();
+      const status = (await response.json()).status.code;
+      if (status > 400) {
         if (this.isEditable) {
           this.handleAPIError();
         } else {
           this.autosuggest.handleNoResults(status);
         }
-      });
-  }
-
-  suggestAddresses(query, [], grouped) {
-    return new Promise((resolve, reject) => {
-      if (this.fetch && this.fetch.status !== 'DONE') {
-        this.fetch.abort();
       }
-
-      this.reject = reject;
-      this.findAddress(query, grouped)
-        .then(resolve)
-        .catch(reject);
-    });
-  }
-
-  findAddress(text, grouped) {
-    return new Promise((resolve, reject) => {
-      let queryURL, fullQueryURL;
-
-      if (this.manualQueryParams) {
-        const manualQueryParams = this.container.getAttribute('data-query-params');
-        fullQueryURL = this.lookupURL + text + manualQueryParams;
+    } catch (error) {
+      console.log(error);
+      if (this.isEditable) {
+        this.handleAPIError();
       } else {
-        const fullPostcodeQuery = this.testFullPostcodeQuery(text);
-        let limit = fullPostcodeQuery ? 100 : 10;
-
-        queryURL = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
-
-        fullQueryURL = this.generateURLParams(queryURL);
-        if (fullPostcodeQuery && grouped !== false) {
-          fullQueryURL = fullQueryURL + '&groupfullpostcodes=combo';
-        }
+        this.autosuggest.handleNoResults(status);
       }
+    }
+  }
 
-      this.fetch = abortableFetch(fullQueryURL, {
-        method: 'GET',
-        headers: this.setAuthorization(this.authorizationToken),
-      });
-      this.fetch
-        .send()
-        .then(async data => {
-          const response = await data.json();
-          const status = response.status.code;
-          const addresses = response.response;
-          const limit = response.response.limit;
-          const results = await this.mapFindResults(addresses, limit, status);
-          resolve(results);
-        })
-        .catch(reject);
+  async suggestAddresses(query, [], grouped) {
+    if (this.fetch && this.fetch.status !== 'DONE') {
+      this.fetch.abort();
+    }
+
+    return await this.findAddress(query, grouped);
+  }
+
+  async findAddress(text, grouped) {
+    let queryURL, fullQueryURL;
+
+    if (this.manualQueryParams) {
+      const manualQueryParams = this.container.getAttribute('data-query-params');
+      fullQueryURL = this.lookupURL + text + manualQueryParams;
+    } else {
+      const fullPostcodeQuery = this.testFullPostcodeQuery(text);
+      let limit = fullPostcodeQuery ? 100 : 10;
+
+      queryURL = grouped ? this.lookupGroupURL + this.groupQuery : this.lookupURL + text + '&limit=' + limit;
+
+      fullQueryURL = this.generateURLParams(queryURL);
+      if (fullPostcodeQuery && grouped !== false) {
+        fullQueryURL = fullQueryURL + '&groupfullpostcodes=combo';
+      }
+    }
+
+    this.fetch = abortableFetch(fullQueryURL, {
+      method: 'GET',
+      headers: this.setAuthorization(this.authorizationToken),
     });
+    const data = await this.fetch.send();
+    const response = await data.json();
+    const status = response.status.code;
+    const addresses = response.response;
+    const limit = response.response.limit;
+    const results = await this.mapFindResults(addresses, limit, status);
+    return results;
   }
 
   async mapFindResults(results, limit, status) {
@@ -262,75 +249,66 @@ export default class AutosuggestAddress {
     }
   }
 
-  retrieveAddress(id, type = null) {
-    return new Promise((resolve, reject) => {
-      let retrieveUrl = this.retrieveURL + id;
+  async retrieveAddress(id, type = null) {
+    let retrieveUrl = this.retrieveURL + id;
 
-      const fullUPRNURL = this.generateURLParams(retrieveUrl, id, type);
+    const fullUPRNURL = this.generateURLParams(retrieveUrl, id, type);
 
-      this.fetch = abortableFetch(fullUPRNURL, {
-        method: 'GET',
-        headers: this.setAuthorization(this.authorizationToken),
-      });
-
-      this.fetch
-        .send()
-        .then(async response => {
-          const data = await response.json();
-          resolve(data);
-        })
-        .catch(reject);
+    this.fetch = abortableFetch(fullUPRNURL, {
+      method: 'GET',
+      headers: this.setAuthorization(this.authorizationToken),
     });
+
+    const response = await this.fetch.send();
+    const data = await response.json();
+    return data;
   }
 
-  onAddressSelect(selectedResult) {
-    return new Promise((resolve, reject) => {
-      if (selectedResult.uprn) {
-        this.retrieveAddress(selectedResult.uprn, selectedResult.type)
-          .then(data => {
-            if (this.isEditable) {
-              if (data.status.code >= 403) {
-                this.autosuggest.handleNoResults(403);
-              } else {
-                this.addressSetter.setAddress(this.createAddressLines(data, resolve));
-                this.addressSelected = true;
-              }
-            } else {
-              this.selectedAddressValue = selectedResult.displayText;
-              this.autosuggest.input.value = selectedResult.displayText;
-              this.uprn.value = selectedResult.uprn;
-              this.addressSelected = true;
-            }
-          })
-          .catch(error => {
-            console.log(error);
-            if (this.isEditable) {
-              this.handleAPIError();
-            } else {
-              this.autosuggest.handleNoResults(403);
-            }
-            reject();
-          });
-      } else if (selectedResult.postcode) {
-        this.autosuggest.input.value =
-          selectedResult.streetName +
-          ', ' +
-          (selectedResult.townName === selectedResult.postTown
-            ? selectedResult.postTown
-            : selectedResult.townName + ', ' + selectedResult.postTown) +
-          ', ' +
-          selectedResult.postcode;
-        this.autosuggest.input.focus();
-        this.groupQuery =
-          'postcode=' + selectedResult.postcode + '&streetname=' + selectedResult.streetName + '&townname=' + selectedResult.townName;
-        this.autosuggest.handleChange(true);
+  async onAddressSelect(selectedResult) {
+    if (selectedResult.uprn) {
+      try {
+        const data = await this.retrieveAddress(selectedResult.uprn, selectedResult.type);
+        if (this.isEditable) {
+          if (data.status.code >= 403) {
+            this.autosuggest.handleNoResults(403);
+          } else {
+            this.addressSetter.setAddress(this.createAddressLines(data));
+            this.addressSelected = true;
+          }
+        } else {
+          this.selectedAddressValue = selectedResult.displayText;
+          this.autosuggest.input.value = selectedResult.displayText;
+          this.uprn.value = selectedResult.uprn;
+          this.addressSelected = true;
+        }
+      } catch (error) {
+        console.log(error);
+        if (this.isEditable) {
+          this.handleAPIError();
+        } else {
+          this.autosuggest.handleNoResults(403);
+        }
+        throw error;
       }
-    });
+    } else if (selectedResult.postcode) {
+      this.autosuggest.input.value =
+        selectedResult.streetName +
+        ', ' +
+        (selectedResult.townName === selectedResult.postTown
+          ? selectedResult.postTown
+          : selectedResult.townName + ', ' + selectedResult.postTown) +
+        ', ' +
+        selectedResult.postcode;
+      this.autosuggest.input.focus();
+      this.groupQuery =
+        'postcode=' + selectedResult.postcode + '&streetname=' + selectedResult.streetName + '&townname=' + selectedResult.townName;
+      this.autosuggest.handleChange(true);
+    }
   }
 
-  createAddressLines(data, resolve) {
+  createAddressLines(data) {
     const values = data.response.address;
-    const addressLines = {
+    return {
       addressLine1: values.addressLine1,
       addressLine2: values.addressLine2,
       addressLine3: values.addressLine3,
@@ -338,9 +316,6 @@ export default class AutosuggestAddress {
       postcode: values.postcode,
       uprn: values.uprn,
     };
-    resolve();
-
-    return addressLines;
   }
 
   generateURLParams(baseURL, uprn, type) {
