@@ -26,7 +26,19 @@ export default class Timeout {
   }
 
   async initialise() {
+    this.bindEventListeners();
+  }
+
+  bindEventListeners() {
+    window.onload = this.startTimeout();
+  }
+
+  startTimeout() {
     window.onload = setTimeout(this.startUiCountdown.bind(this), this.expiryTimeInMilliseconds);
+  }
+
+  redirect(url) {
+    window.location.href = url;
   }
 
   async startUiCountdown() {
@@ -59,8 +71,8 @@ export default class Timeout {
           $this.countdown.innerHTML = '<span>' + $this.countdownExpiredText + '</span>';
           $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
         }
-        if ($this.urlOnZero) {
-          window.location.href = $this.urlOnZero;
+        if ($this.panel && $this.urlOnZero) {
+          $this.redirect($this.urlOnZero);
         }
       } else {
         seconds--;

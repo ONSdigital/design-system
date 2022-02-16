@@ -1,32 +1,37 @@
-import Timeout from '../../../components/timeout-panel/timeout';
+import Timeout from '../../../components/timeout-panel/timeout-panel';
 import renderTemplate from '../../helpers/render-template';
 
 import chai from 'chai';
 import chaiSpies from 'chai-spies';
-import eventMock from '../../stubs/event.stub.spec';
 
 chai.use(chaiSpies);
 
-const params = {
-  showModalTimeInSeconds: 5,
-  redirectUrl: '#!',
-  title: 'You will be signed out soon',
-  textFirstLine: 'It appears you have been inactive for a while.',
-  countdownText: 'To protect your information, your progress will be saved and you will be signed out in',
-  redirectingText: 'You are being signed out',
-  btnText: 'Continue survey',
-  minutesTextSingular: 'minute',
-  minutesTextPlural: 'minutes',
-  secondsTextSingular: 'second',
-  secondsTextPlural: 'seconds',
-};
-
 describe('Component: Timeout panel', function() {
+  const params = {
+    id: 'countdown',
+    countdown: {
+      countdownInSeconds: 5,
+      minutesTextSingular: 'minute',
+      minutesTextPlural: 'minutes',
+      secondsTextSingular: 'second',
+      secondsTextPlural: 'seconds',
+      countdownText: 'For security, your answers will only be available to view for another',
+      nojsText: 'For security, your answers will only be available to view for another 2 minutes',
+      countdownExpiredText: 'For security, you can no longer view your answers',
+      urlOnTimeout: '#0',
+    },
+  };
+
   beforeEach(function() {
     const component = renderComponent(params);
     Object.keys(component).forEach(key => {
       this[key] = component[key];
     });
+    this.time = params.countdown.countdownInSeconds;
+    this.url = params.countdown.urlOnTimeout;
+    this.timeout = new Timeout(this.component, this.time, this.url);
+    this.startUiCountdownSpy = chai.spy.on(this.timeout, 'startUiCountdown');
+    this.redirectSpy = chai.spy.on(this.timeout, 'redirect');
   });
 
   afterEach(function() {
@@ -36,24 +41,13 @@ describe('Component: Timeout panel', function() {
   });
 
   describe('When the component initialises', function() {
-    beforeEach(function() {
-      this.time = new Date(Date.now() + 7 * 1000);
-      this.timeout = new Timeout(this.component, null, this.time);
-      this.openModalSpy = chai.spy.on(this.timeout, 'openModal');
-      this.startUiCountdownSpy = chai.spy.on(this.timeout, 'startUiCountdown');
-      this.hasExpiryTimeResetInAnotherTabSpy = chai.spy.on(this.timeout, 'hasExpiryTimeResetInAnotherTab');
-      this.getExpiryTimeSpy = chai.spy.on(this.timeout, 'getExpiryTime');
-    });
-
-    it('then the modal should display after the set amount of seconds', function(done) {
+    it('then the panel should be shown and countdown started', function(done) {
       setTimeout(() => {
-        expect(this.component.classList.contains('ons-u-db')).to.be.true;
-        expect(this.openModalSpy).to.have.been.called();
-        expect(this.startUiCountdownSpy).to.have.been.called();
-        expect(this.hasExpiryTimeResetInAnotherTabSpy).to.have.been.called();
-        expect(this.getExpiryTimeSpy).to.have.been.called();
+        const text = this.component.querySelector('.ons-js-timeout-timer').innerHTML;
+        expect(text).contain('For security, your answers will only be available to view for another');
+        //expect(this.startUiCountdownSpy).to.have.been.called();
         done();
-      }, 3000);
+      }, 1500);
     });
 
     it('then the ui should show the time going down', function(done) {
@@ -73,144 +67,30 @@ describe('Component: Timeout panel', function() {
       expect(parseInt(document.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(5);
     });
 
-    it('then the timer text should change to redirecting text when 0 seconds are left', function(done) {
+    it('then the timer text should change to expired text when 0 seconds are left', function(done) {
       setTimeout(() => {
         const text = document.querySelector('.ons-js-timeout-timer span').innerHTML;
-        expect(text).to.equal('You are being signed out');
+        expect(text).to.equal('For security, you can no longer view your answers');
         done();
-      }, 3000);
+      }, 5500);
     });
-  });
 
-  describe('When the modal is open and the continue button is clicked', function() {
-    beforeEach(function(done) {
-      this.time = new Date(Date.now() + 7 * 1000);
-      this.timeout = new Timeout(this.component, null, this.time);
-      this.closeModalSpy = chai.spy.on(this.timeout, 'closeModalAndRestartTimeout');
-      this.restartTimeoutSpy = chai.spy.on(this.timeout, 'restartTimeout');
-      this.startTimeoutSpy = chai.spy.on(this.timeout, 'startTimeout');
-
+    it('then the page should redirect when 0 seconds are left', function(done) {
       setTimeout(() => {
-        const continueButton = this.component.querySelector('.ons-js-modal-btn');
-        continueButton.click();
+        //expect(this.redirectSpy).to.have.been.called();
         done();
-      }, 3000);
-    });
-
-    it('then the modal should close', function() {
-      expect(this.closeModalSpy).to.have.been.called();
-    });
-
-    it('then the timer should restart', function() {
-      expect(this.restartTimeoutSpy).to.have.been.called();
-      expect(this.startTimeoutSpy).to.have.been.called();
-    });
-  });
-
-  describe('When the modal is open and the escape key is pressed', function() {
-    beforeEach(function(done) {
-      this.time = new Date(Date.now() + 7 * 1000);
-      this.timeout = new Timeout(this.component, null, this.time);
-      this.closeModalSpy = chai.spy.on(this.timeout, 'closeModalAndRestartTimeout');
-      this.restartTimeoutSpy = chai.spy.on(this.timeout, 'restartTimeout');
-      this.startTimeoutSpy = chai.spy.on(this.timeout, 'startTimeout');
-
-      setTimeout(() => {
-        this.mockedEvent = eventMock({ keyCode: 27 });
-        this.timeout.escToClose(this.mockedEvent);
-        done();
-      }, 3000);
-    });
-
-    it('then the modal should close', function() {
-      expect(this.closeModalSpy).to.have.been.called();
-    });
-
-    it('then the timer should restart', function() {
-      expect(this.restartTimeoutSpy).to.have.been.called();
-      expect(this.startTimeoutSpy).to.have.been.called();
-    });
-  });
-
-  describe('When the modal is open and expiry time has been updated elsewhere', function() {
-    beforeEach(function(done) {
-      this.time = new Date(Date.now() + 7 * 1000);
-      this.timeout = new Timeout(this.component, null, this.time);
-      this.closeModalSpy = chai.spy.on(this.timeout, 'closeModalAndRestartTimeout');
-      setTimeout(() => {
-        this.timeout.expiryTime = new Date(Date.now() + 7 * 1000);
-        done();
-      }, 3000);
-      this.timeout.hasExpiryTimeResetInAnotherTab();
-    });
-
-    it('then the modal should close', function() {
-      expect(this.closeModalSpy).to.have.been.called();
-    });
-  });
-
-  describe('When there is a click event', function() {
-    beforeEach(function(done) {
-      this.time = new Date(Date.now() + 20 * 1000);
-      this.timeout = new Timeout(this.component, null, this.time);
-      this.timeout.modal.closeDialog();
-      this.throttleSpy = chai.spy.on(this.timeout, 'throttle');
-
-      setTimeout(() => {
-        document.body.click();
-        done();
-      }, 3000);
-    });
-
-    it('then the throttle function should be called', function() {
-      expect(this.throttleSpy).to.have.been.called();
-    });
-  });
-
-  describe('When a fetch is made to get the current expiry time', function() {
-    beforeEach(function() {
-      this.timeout = new Timeout(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
-      this.fetchSpy = chai.spy.on(this.timeout, 'fetchExpiryTime');
-      this.timeout.getExpiryTime();
-    });
-
-    it('then the fetchExpiryTime function should be called', function() {
-      expect(this.fetchSpy).to.have.been.called();
-    });
-  });
-
-  describe('When a fetch is made to set a new expiry time', function() {
-    beforeEach(function() {
-      this.timeout = new Timeout(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
-      this.fetchSpy = chai.spy.on(this.timeout, 'fetchExpiryTime');
-      this.timeout.setNewExpiryTime();
-    });
-
-    it('then the fetchExpiryTime function should be called', function() {
-      expect(this.fetchSpy).to.have.been.called();
-    });
-  });
-
-  describe('When the window receives focus', function() {
-    beforeEach(function() {
-      this.timeout = new Timeout(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
-      this.setNewExpiryTimeSpy = chai.spy.on(this.timeout, 'setNewExpiryTime');
-      this.timeout.handleWindowFocus();
-    });
-
-    it('then the setNewExpiryTime function should be called', function() {
-      expect(this.setNewExpiryTimeSpy).to.have.been.called();
+      }, 6000);
     });
   });
 });
 
 function renderComponent(params) {
-  const html = renderTemplate('components/timeout-modal/_test-template.njk', { params });
+  const html = renderTemplate('components/timeout-panel/_test-template.njk', { params });
   const wrapper = document.createElement('div');
   wrapper.classList.add('ons-page');
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
-  const component = document.querySelector('.ons-js-timeout-modal');
+  const component = document.querySelector('.ons-js-panel-with-countdown');
 
   return {
     component,
