@@ -1,4 +1,4 @@
-import Timeout from '../../../components/timeout-panel/timeout-panel';
+import TimeoutPanel from '../../../components/timeout-panel/timeout-panel';
 import renderTemplate from '../../helpers/render-template';
 
 import chai from 'chai';
@@ -6,22 +6,22 @@ import chaiSpies from 'chai-spies';
 
 chai.use(chaiSpies);
 
-describe('Component: Timeout panel', function() {
-  const params = {
-    id: 'countdown',
-    countdown: {
-      countdownInSeconds: 5,
-      minutesTextSingular: 'minute',
-      minutesTextPlural: 'minutes',
-      secondsTextSingular: 'second',
-      secondsTextPlural: 'seconds',
-      countdownText: 'For security, your answers will only be available to view for another',
-      nojsText: 'For security, your answers will only be available to view for another 2 minutes',
-      countdownExpiredText: 'For security, you can no longer view your answers',
-      urlOnTimeout: '#0',
-    },
-  };
+const params = {
+  id: 'countdown',
+  countdown: {
+    countdownInSeconds: 5,
+    minutesTextSingular: 'minute',
+    minutesTextPlural: 'minutes',
+    secondsTextSingular: 'second',
+    secondsTextPlural: 'seconds',
+    countdownText: 'For security, your answers will only be available to view for another',
+    nojsText: 'For security, your answers will only be available to view for another 2 minutes',
+    countdownExpiredText: 'For security, you can no longer view your answers',
+    urlOnTimeout: '#0',
+  },
+};
 
+describe('Component: Timeout panel', function() {
   beforeEach(function() {
     const component = renderComponent(params);
     Object.keys(component).forEach(key => {
@@ -29,7 +29,7 @@ describe('Component: Timeout panel', function() {
     });
     this.time = params.countdown.countdownInSeconds;
     this.url = params.countdown.urlOnTimeout;
-    this.timeout = new Timeout(this.component, this.time, this.url);
+    this.timeout = new TimeoutPanel(this.component, this.time, this.url);
     this.startUiCountdownSpy = chai.spy.on(this.timeout, 'startUiCountdown');
     this.redirectSpy = chai.spy.on(this.timeout, 'redirect');
   });

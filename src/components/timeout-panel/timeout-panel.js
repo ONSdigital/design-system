@@ -1,4 +1,4 @@
-export default class Timeout {
+export default class TimeoutPanel {
   constructor(context, time, url) {
     this.context = context;
     this.countDownSeconds = time;
