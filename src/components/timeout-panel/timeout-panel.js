@@ -1,5 +1,5 @@
 export default class TimeoutPanel {
-  constructor(context, time, url) {
+  constructor(context, url, time) {
     this.context = context;
     this.countDownSeconds = time;
     this.urlOnZero = url;

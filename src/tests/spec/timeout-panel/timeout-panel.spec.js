@@ -29,7 +29,7 @@ describe('Component: Timeout panel', function() {
     });
     this.time = params.countdown.countdownInSeconds;
     this.url = params.countdown.urlOnTimeout;
-    this.timeout = new TimeoutPanel(this.component, this.time, this.url);
+    this.timeout = new TimeoutPanel(this.component, this.url, this.time);
     this.startUiCountdownSpy = chai.spy.on(this.timeout, 'startUiCountdown');
     this.redirectSpy = chai.spy.on(this.timeout, 'redirect');
   });
