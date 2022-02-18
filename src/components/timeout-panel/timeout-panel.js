@@ -64,7 +64,7 @@ export default class TimeoutPanel {
         (minutesLeft > 0 ? minutesText : '') +
         (minutesLeft > 0 && secondsLeft > 0 ? ' ' : '') +
         (secondsLeft > 0 ? secondsText : '') +
-        '.</span>';
+        '</span>';
 
       if (timerExpired) {
         if ($this.panel && $this.countdownExpiredText) {
