@@ -51,25 +51,25 @@ describe('Component: Timeout panel', function() {
     });
 
     it('then the ui should show the time going down', function(done) {
-      const time = parseInt(document.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
+      const time = parseInt(this.component.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
       setTimeout(() => {
-        const timeUpdated = parseInt(document.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
+        const timeUpdated = parseInt(this.component.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
         expect(timeUpdated).to.be.lessThan(time);
         done();
       }, 1500);
     });
 
     it('then the aria-live should be set to assertive', function() {
-      expect(document.querySelector('.ons-js-timeout-timer-acc').getAttribute('aria-live')).to.equal('assertive');
+      expect(this.component.querySelector('.ons-js-timeout-timer-acc').getAttribute('aria-live')).to.equal('assertive');
     });
 
     it('then the accessibility countdown should contain the correct values', function() {
-      expect(parseInt(document.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(5);
+      expect(parseInt(this.component.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(5);
     });
 
     it('then the timer text should change to expired text when 0 seconds are left', function(done) {
       setTimeout(() => {
-        const text = document.querySelector('.ons-js-timeout-timer span').innerHTML;
+        const text = this.component.querySelector('.ons-js-timeout-timer span').innerHTML;
         expect(text).to.equal('For security, you can no longer view your answers');
         done();
       }, 5500);
