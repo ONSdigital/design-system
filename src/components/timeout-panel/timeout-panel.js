@@ -34,7 +34,11 @@ export default class TimeoutPanel {
   }
 
   startTimeout() {
-    window.onload = setTimeout(this.startUiCountdown.bind(this), this.expiryTimeInMilliseconds);
+    this.panelTimeout = setTimeout(this.start.bind(this), this.expiryTimeInMilliseconds);
+  }
+
+  start() {
+    this.startUiCountdown();
   }
 
   redirect(url) {

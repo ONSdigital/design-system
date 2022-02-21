@@ -45,7 +45,7 @@ describe('Component: Timeout panel', function() {
       setTimeout(() => {
         const text = this.component.querySelector('.ons-js-timeout-timer').innerHTML;
         expect(text).contain('For security, your answers will only be available to view for another');
-        //expect(this.startUiCountdownSpy).to.have.been.called();
+        expect(this.startUiCountdownSpy).to.have.been.called();
         done();
       }, 1500);
     });
