@@ -79,7 +79,7 @@ describe('Component: Timeout panel', function() {
       setTimeout(() => {
         expect(this.redirectSpy).to.have.been.called();
         done();
-      }, 6000);
+      }, 5500);
     });
   });
 });
