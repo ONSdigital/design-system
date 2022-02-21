@@ -15,7 +15,7 @@ const params = {
     secondsTextSingular: 'second',
     secondsTextPlural: 'seconds',
     countdownText: 'For security, your answers will only be available to view for another',
-    nojsText: 'For security, your answers will only be available to view for another 2 minutes',
+    nojsText: 'For security, your answers will only be available to view for another 5 seconds',
     countdownExpiredText: 'For security, you can no longer view your answers',
     urlOnTimeout: '#0',
   },
