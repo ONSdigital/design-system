@@ -77,7 +77,7 @@ describe('Component: Timeout panel', function() {
 
     it('then the page should redirect when 0 seconds are left', function(done) {
       setTimeout(() => {
-        //expect(this.redirectSpy).to.have.been.called();
+        expect(this.redirectSpy).to.have.been.called();
         done();
       }, 6000);
     });
