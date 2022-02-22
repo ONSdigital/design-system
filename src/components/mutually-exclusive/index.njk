@@ -10,15 +10,13 @@ title: Mutually exclusive
 
 ## When to use this component
 
-The mutually exclusive component provides the user with a with a way of selecting multiple items or a single opposing value.
+The mutually exclusive component provides the user a way to give an opposing answer to the options provided and say none of the other options apply to them.
 
 ## How to use this component
 
-This component degrades gracefully if JavaScript is not available to the user. If JavaScript is unavailable it is possible for the user to select all options without inverting the selection therefore further, server-side validation should be performed.
+Inputs, radios, checkboxes, date inputs, and textareas all call this macro automatically when the `mutuallyExclusive` parameter is set. This adds the mutually exclusive checkbox, the required aria-live alert markup and the classes required for the JavaScript to run.
 
-Inputs, radios, checkboxes, date inputs, and textareas all call this macro automatically if they have their `mutuallyExclusive` parameter set. This will add the necessary checkbox and aria-live markup, and the classes required by the JavaScript that runs the component. Where you are combining input components such as in the [duration example](#duration) you must call this macro and provide the class `ons-js-exclusive-group-item` to the inputs.
-
-## Examples
+## Variants
 
 ### Checkboxes
 
@@ -57,7 +55,7 @@ Inputs, radios, checkboxes, date inputs, and textareas all call this macro autom
 }}
 
 ## How to check mutually exclusive answers
-To help users select an answer, you should:
+To help users answer a mandatory question using this component, you should:
 {{
     onsList({
         "itemsList": [
@@ -71,7 +69,7 @@ To help users select an answer, you should:
                 "text": 'show an error message if they have not entered something in any of the fields or selected the mutually exclusive checkbox'
             },
             {
-                "text": 'show an error message if what has been entered in an input field is not valid'
+                "text": 'show an error message if what has been entered in a field is not valid'
             }
         ]
     })
@@ -92,10 +90,21 @@ Use “Select [whatever it is]”.\
 For example, “Select what type of central heating you have”.
 
 #### If all fields are empty and the mutually exclusive checkbox is not selected
-Use “Enter [whatever the field asks for] or select the other option”.\
-For example, “Enter your feedback or select the other option”.
+Use “Enter [whatever the field asks for]”.\
+For example, “Enter your annual income before tax in 2018/19”.
 
-Each pattern and component that uses the mutually exclusive component has guidance on writing error messages:
+### If JavaScript is unavailable
+If JavaScript is not available it is possible for the user to enter or select both an answer and the mutually exclusive checkbox.
+
+#### If the mutually exclusive checkbox is selected as well as an answer checkbox
+Use ‘Select [whatever it is], or select “[the mutually exclusive option]”’.\
+For example, ‘Select what type of central heating you have, or select “No central heating”’.
+
+#### If the mutually exclusive checkbox is selected and an answer has been entered into the field
+Use ‘Enter [whatever the field asks for], or select “[the mutually exclusive option]”’.\
+For example, ‘Enter your annual income before tax in 2018/19, or select “I prefer not to say”’.
+
+Each pattern and component that uses the mutually exclusive component has specific guidance on writing error messages:
 {{
     onsList({
         "itemsList": [
