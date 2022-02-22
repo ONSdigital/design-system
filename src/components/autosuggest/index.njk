@@ -19,17 +19,17 @@ Autosuggest is used to suggest options to users as they enter something into an 
 Use the autosuggest component to help users select from a list of standard responses, for example, countries, languages or nationalities. You could also create your own list for the user to pick from.
 ## How to use
 
-The list needs to be made available as a `.json` file. To query the list we use a JavaScript library called {{
+The list needs to be made available as a JSON file (`.json`). To query the list we use a JavaScript library called {{
         onsExternalLink({
             "url": "https://fusejs.io",
             "linkText": "Fuse.js"
         })
-    }}. You will need to provide the URL where the json file is stored using the `autosuggestData` parameter.
+    }}. You will need to provide the URL where the JSON file is stored using the `autosuggestData` parameter.
 
 
 ### List formatting
 
-This code example shows how your json should be formatted. The `key` should be the language code that matches the `lang` attribute on the `<html>` element of the page.
+This code example shows how your JSON should be formatted. The `key` should be the language code that matches the `lang` attribute on the `<html>` element of the page.
 
 +++
 {% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
