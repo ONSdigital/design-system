@@ -4,7 +4,18 @@
             "id": params.id,
             "classes": "ons-js-panel-with-countdown",
             "type": "warn",
-            "attributes": params.countdown
+            "attributes": {
+                "data-redirect-url": params.redirectUrl,
+                "data-server-session-expires-at": params.sessionExpiresAt,
+                "data-server-session-expiry-endpoint": params.serverSessionExpiryEndpoint,
+                "data-countdown-text": params.countdownText,
+                "data-redirecting-text": params.redirectingText,
+                "data-minutes-text-singular": params.minutesTextSingular,
+                "data-minutes-text-plural": params.minutesTextPlural,
+                "data-seconds-text-singular": params.secondsTextSingular,
+                "data-seconds-text-plural": params.secondsTextPlural,
+                "aria-describedby": "timeout-time-remaining"
+            }
         })
     %}
         <noscript><p class="ons-js-nojs-text"> {{ params.countdown.nojsText }} </p></noscript>

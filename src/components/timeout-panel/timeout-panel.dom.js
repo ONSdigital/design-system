@@ -1,17 +1,17 @@
 import domready from '../../js/domready';
 
-async function panels() {
-  const timeouts = [...document.querySelectorAll('.ons-panel')];
+async function timeoutPanels() {
+  const panels = [...document.querySelectorAll('.ons-js-panel-with-countdown')];
 
-  if (timeouts.length) {
-    const Timeout = (await import('./timeout-panel')).default;
+  if (panels.length) {
+    const Timeout = (await import('../../js/timeout')).default;
 
-    timeouts.forEach(context => {
-      let time = context.getAttribute('countdownInSeconds');
-      let url = context.getAttribute('urlOnTimeout');
-      new Timeout(context, url, time);
+    panels.forEach(context => {
+      let url = context.getAttribute('data-server-session-expiry-endpoint');
+      let time = context.getAttribute('data-server-session-expires-at');
+      new Timeout(context, url, time, false, true);
     });
   }
 }
 
-domready(panels);
+domready(timeoutPanels);
