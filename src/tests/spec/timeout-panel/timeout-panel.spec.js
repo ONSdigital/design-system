@@ -8,14 +8,14 @@ chai.use(chaiSpies);
 
 const params = {
   id: 'countdown',
-  redirectUrl: '#!',
   minutesTextSingular: 'minute',
   minutesTextPlural: 'minutes',
   secondsTextSingular: 'second',
   secondsTextPlural: 'seconds',
   countdownText: 'For security, your answers will only be available to view for another',
-  nojsText: 'For security, your answers will only be available to view for another 1 minute',
-  redirectingText: 'You are being signed out',
+  nojsText: 'For security, your answers will only be available to view for another 5 seconds',
+  countdownExpiredText: 'For security, you can no longer view your answers',
+  redirectUrl: '#!',
 };
 
 describe('Component: Timeout panel', function() {

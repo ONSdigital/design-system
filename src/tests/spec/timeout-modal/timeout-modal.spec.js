@@ -13,7 +13,7 @@ const params = {
   title: 'You will be signed out soon',
   textFirstLine: 'It appears you have been inactive for a while.',
   countdownText: 'To protect your information, your progress will be saved and you will be signed out in',
-  redirectingText: 'You are being signed out',
+  countdownExpiredText: 'You are being signed out',
   btnText: 'Continue survey',
   minutesTextSingular: 'minute',
   minutesTextPlural: 'minutes',
@@ -73,7 +73,7 @@ describe('Component: Timeout modal', function() {
       expect(parseInt(document.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(4);
     });
 
-    it('then the timer text should change to redirecting text when 0 seconds are left', function(done) {
+    it('then the timer text should change to countdown expired text when 0 seconds are left', function(done) {
       setTimeout(() => {
         const text = document.querySelector('.ons-js-timeout-timer span').innerHTML;
         expect(text).to.equal('You are being signed out');
