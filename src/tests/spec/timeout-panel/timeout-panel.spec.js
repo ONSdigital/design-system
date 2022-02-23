@@ -67,7 +67,7 @@ describe('Component: Timeout panel', function() {
     it('then the timer text should change to expired text when 0 seconds are left', function(done) {
       setTimeout(() => {
         const text = this.component.querySelector('.ons-js-timeout-timer span').innerHTML;
-        expect(text).to.equal('You are being signed out');
+        expect(text).to.equal('For security, you can no longer view your answers');
         expect(this.redirectSpy).to.have.been.called();
         done();
       }, 9000);
