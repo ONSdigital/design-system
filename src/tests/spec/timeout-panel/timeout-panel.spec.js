@@ -24,10 +24,9 @@ describe('Component: Timeout panel', function() {
     Object.keys(component).forEach(key => {
       this[key] = component[key];
     });
-    this.time = new Date(Date.now() + 7 * 1000);
+    this.time = new Date(Date.now() + 6 * 1000);
     this.url = params.redirectUrl;
     this.timeout = new Timeout(this.component, this.url, this.time, false, true);
-    this.getExpiryTimeSpy = chai.spy.on(this.timeout, 'getExpiryTime');
     this.redirectSpy = chai.spy.on(this.timeout, 'redirect');
   });
 
@@ -61,7 +60,7 @@ describe('Component: Timeout panel', function() {
     });
 
     it('then the accessibility countdown should contain the correct values', function() {
-      expect(parseInt(this.component.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(7);
+      expect(parseInt(this.component.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(6);
     });
 
     it('then the timer text should change to expired text when 0 seconds are left', function(done) {
