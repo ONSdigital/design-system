@@ -1,4 +1,4 @@
-import Timeout from '../../../components/timeout-modal/timeout-modal';
+import TimeoutModal from '../../../components/timeout-modal/timeout-modal';
 import renderTemplate from '../../helpers/render-template';
 
 import chai from 'chai';
@@ -21,7 +21,7 @@ const params = {
   secondsTextPlural: 'seconds',
 };
 
-describe('Component: Timeout modal', function() {
+describe.only('Component: Timeout modal', function() {
   beforeEach(function() {
     const component = renderComponent(params);
     Object.keys(component).forEach(key => {
@@ -38,8 +38,8 @@ describe('Component: Timeout modal', function() {
   describe('When the component initialises', function() {
     beforeEach(function() {
       this.time = new Date(Date.now() + 7 * 1000);
-      this.timeout = new Timeout(this.component, null, this.time);
-      this.openModalSpy = chai.spy.on(this.timeout, 'openModal');
+      this.timeout = new TimeoutModal(this.component, null, this.time);
+      this.openModalSpy = chai.spy.on(this.timeout, 'openModalAndStartCountdown');
       this.startUiCountdownSpy = chai.spy.on(this.timeout, 'startUiCountdown');
       this.hasExpiryTimeResetInAnotherTabSpy = chai.spy.on(this.timeout, 'hasExpiryTimeResetInAnotherTab');
       this.getExpiryTimeSpy = chai.spy.on(this.timeout, 'getExpiryTime');
@@ -85,7 +85,7 @@ describe('Component: Timeout modal', function() {
   describe('When the modal is open and the continue button is clicked', function() {
     beforeEach(function(done) {
       this.time = new Date(Date.now() + 7 * 1000);
-      this.timeout = new Timeout(this.component, null, this.time);
+      this.timeout = new TimeoutModal(this.component, null, this.time);
       this.closeModalSpy = chai.spy.on(this.timeout, 'closeModalAndRestartTimeout');
       this.restartTimeoutSpy = chai.spy.on(this.timeout, 'restartTimeout');
       this.startTimeoutSpy = chai.spy.on(this.timeout, 'startTimeout');
@@ -110,7 +110,7 @@ describe('Component: Timeout modal', function() {
   describe('When the modal is open and the escape key is pressed', function() {
     beforeEach(function(done) {
       this.time = new Date(Date.now() + 7 * 1000);
-      this.timeout = new Timeout(this.component, null, this.time);
+      this.timeout = new TimeoutModal(this.component, null, this.time);
       this.closeModalSpy = chai.spy.on(this.timeout, 'closeModalAndRestartTimeout');
       this.restartTimeoutSpy = chai.spy.on(this.timeout, 'restartTimeout');
       this.startTimeoutSpy = chai.spy.on(this.timeout, 'startTimeout');
@@ -135,7 +135,7 @@ describe('Component: Timeout modal', function() {
   describe('When the modal is open and expiry time has been updated elsewhere', function() {
     beforeEach(function(done) {
       this.time = new Date(Date.now() + 7 * 1000);
-      this.timeout = new Timeout(this.component, null, this.time);
+      this.timeout = new TimeoutModal(this.component, null, this.time);
       this.closeModalSpy = chai.spy.on(this.timeout, 'closeModalAndRestartTimeout');
       setTimeout(() => {
         this.timeout.expiryTime = new Date(Date.now() + 7 * 1000);
@@ -152,7 +152,7 @@ describe('Component: Timeout modal', function() {
   describe('When there is a click event', function() {
     beforeEach(function(done) {
       this.time = new Date(Date.now() + 20 * 1000);
-      this.timeout = new Timeout(this.component, null, this.time);
+      this.timeout = new TimeoutModal(this.component, null, this.time);
       this.timeout.modal.closeDialog();
       this.throttleSpy = chai.spy.on(this.timeout, 'throttle');
 
@@ -169,7 +169,7 @@ describe('Component: Timeout modal', function() {
 
   describe('When a fetch is made to get the current expiry time', function() {
     beforeEach(function() {
-      this.timeout = new Timeout(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
+      this.timeout = new TimeoutModal(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
       this.fetchSpy = chai.spy.on(this.timeout, 'fetchExpiryTime');
       this.timeout.getExpiryTime();
     });
@@ -181,7 +181,7 @@ describe('Component: Timeout modal', function() {
 
   describe('When a fetch is made to set a new expiry time', function() {
     beforeEach(function() {
-      this.timeout = new Timeout(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
+      this.timeout = new TimeoutModal(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
       this.fetchSpy = chai.spy.on(this.timeout, 'fetchExpiryTime');
       this.timeout.setNewExpiryTime();
     });
@@ -193,7 +193,7 @@ describe('Component: Timeout modal', function() {
 
   describe('When the window receives focus', function() {
     beforeEach(function() {
-      this.timeout = new Timeout(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
+      this.timeout = new TimeoutModal(this.component, 'base/src/tests/spec/timeout-modal/stub.json', null);
       this.setNewExpiryTimeSpy = chai.spy.on(this.timeout, 'setNewExpiryTime');
       this.timeout.handleWindowFocus();
     });
