@@ -19,9 +19,10 @@ const params = {
   minutesTextPlural: 'minutes',
   secondsTextSingular: 'second',
   secondsTextPlural: 'seconds',
+  endWithFullStop: true,
 };
 
-describe.only('Component: Timeout modal', function() {
+describe('Component: Timeout modal', function() {
   beforeEach(function() {
     const component = renderComponent(params);
     Object.keys(component).forEach(key => {

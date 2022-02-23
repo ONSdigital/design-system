@@ -13,3 +13,4 @@
 | minutesTextPlural           | string  | true     | Text displayed in timer when minutes left is more than 1 e.g. 'minutes'      |
 | secondsTextSingular         | string  | true     | Text displayed in timer when seconds left is 1 e.g. 'second'                 |
 | secondsTextPlural           | string  | true     | Text displayed in timer when seconds left is more than 1 e.g. 'seconds'      |
+| endWithFullStop             | boolean | false    | If set to `true` will end countdown text with full stop                      |

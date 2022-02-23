@@ -16,6 +16,7 @@ export default class Timeout {
     this.secondsTextPlural = context.getAttribute('data-seconds-text-plural');
     this.countdownText = context.getAttribute('data-countdown-text');
     this.countdownExpiredText = context.getAttribute('data-countdown-expired-text');
+    this.endWithFullStop = context.getAttribute('data-full-stop');
 
     // Settings
     this.expiryTime = '';
@@ -78,7 +79,8 @@ export default class Timeout {
         (minutesLeft > 0 ? minutesText : '') +
         (minutesLeft > 0 && secondsLeft > 0 ? ' ' : '') +
         (secondsLeft > 0 ? secondsText : '') +
-        '</span>.';
+        '</span>' +
+        ($this.endWithFullStop ? '.' : '');
 
       if (timerExpired) {
         const shouldExpire = this.enableTimeoutReset ? await $this.hasExpiryTimeResetInAnotherTab() : true;
