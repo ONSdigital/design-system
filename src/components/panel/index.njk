@@ -22,8 +22,37 @@ Panels are used to draw information to the attention of the user.
 }}
 
 ### Warning with countdown
-This is a warning variant that allows you to include a countdown in the panel.
-When the countdown reaches zero, the browser will either navigate to a specified URL or will show some alternate text. If the current URL is provided the page will just be refreshed.
+Use this warning panel variant when a service sets a session expiry time to protect the user’s information.
+
+When the countdown reaches zero, the browser will navigate to a specified URL and show some alternate text. If the current URL is provided the page will just be refreshed.
+
+The content of the countdown panel is set using the parameters shown in the macro options table in the previous example.
+
+You will also need to set the parameters:
+
+- `sessionExpiresAt` with the current expiry time in ISO format on page load
+- `serverSessionExpiryEndpoint` with a relative url to the server’s API endpoint for the component to send requests to
+- `redirectUrl` with a url to the [session timed out error page](/error-status-pages/#session-timed-out-error-when-user-is-not-signed-in) the user is directed to when the session has timed out
+
+### Server requirements
+
+The timeout panel requires an API endpoint that handles `GET` request methods and returns a JSON object containing the key `expires_at` with a value for the session expiry time in ISO format.
+
+#### A request for the current expiry time
+
+When a request using a `GET` method is received, the response should contain the current expiry time.
+
+The request is made to check if the same session is being interacted with in another tab.
+
+A request to get the current expiry time will be sent when the following happens:
+
+- at 20-second intervals after the page loads
+- before the page starts to redirect
+
+#### Failure responses from the server
+
+If the response status does not have a successful `200` code, the component will handle the response as a session expiry and redirect the user to the url set in the `redirectUrl` parameter.
+
 {{
    patternlibExample({"path": "components/timeout-panel/examples/warn/index.njk"})
 }}
