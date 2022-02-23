@@ -8,17 +8,14 @@ chai.use(chaiSpies);
 
 const params = {
   id: 'countdown',
-  countdown: {
-    countdownInSeconds: 5,
-    minutesTextSingular: 'minute',
-    minutesTextPlural: 'minutes',
-    secondsTextSingular: 'second',
-    secondsTextPlural: 'seconds',
-    countdownText: 'For security, your answers will only be available to view for another',
-    nojsText: 'For security, your answers will only be available to view for another 5 seconds',
-    countdownExpiredText: 'For security, you can no longer view your answers',
-    urlOnTimeout: '#0',
-  },
+  redirectUrl: '#!',
+  minutesTextSingular: 'minute',
+  minutesTextPlural: 'minutes',
+  secondsTextSingular: 'second',
+  secondsTextPlural: 'seconds',
+  countdownText: 'For security, your answers will only be available to view for another',
+  nojsText: 'For security, your answers will only be available to view for another 1 minute',
+  redirectingText: 'You are being signed out',
 };
 
 describe('Component: Timeout panel', function() {
@@ -27,10 +24,10 @@ describe('Component: Timeout panel', function() {
     Object.keys(component).forEach(key => {
       this[key] = component[key];
     });
-    this.time = params.countdown.countdownInSeconds;
-    this.url = params.countdown.urlOnTimeout;
+    this.time = new Date(Date.now() + 7 * 1000);
+    this.url = params.redirectUrl;
     this.timeout = new Timeout(this.component, this.url, this.time, false, true);
-    this.startUiCountdownSpy = chai.spy.on(this.timeout, 'startUiCountdown');
+    this.getExpiryTimeSpy = chai.spy.on(this.timeout, 'getExpiryTime');
     this.redirectSpy = chai.spy.on(this.timeout, 'redirect');
   });
 
@@ -45,7 +42,7 @@ describe('Component: Timeout panel', function() {
       setTimeout(() => {
         const text = this.component.querySelector('.ons-js-timeout-timer').innerHTML;
         expect(text).contain('For security, your answers will only be available to view for another');
-        expect(this.startUiCountdownSpy).to.have.been.called();
+        expect(this.timeout.countdownStarted).to.equal(true);
         done();
       }, 1500);
     });
@@ -64,22 +61,16 @@ describe('Component: Timeout panel', function() {
     });
 
     it('then the accessibility countdown should contain the correct values', function() {
-      expect(parseInt(this.component.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(5);
+      expect(parseInt(this.component.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(7);
     });
 
     it('then the timer text should change to expired text when 0 seconds are left', function(done) {
       setTimeout(() => {
         const text = this.component.querySelector('.ons-js-timeout-timer span').innerHTML;
-        expect(text).to.equal('For security, you can no longer view your answers');
-        done();
-      }, 5500);
-    });
-
-    it('then the page should redirect when 0 seconds are left', function(done) {
-      setTimeout(() => {
+        expect(text).to.equal('You are being signed out');
         expect(this.redirectSpy).to.have.been.called();
         done();
-      }, 5500);
+      }, 9000);
     });
   });
 });
