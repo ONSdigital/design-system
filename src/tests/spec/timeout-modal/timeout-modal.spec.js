@@ -13,7 +13,7 @@ const params = {
   title: 'You will be signed out soon',
   textFirstLine: 'It appears you have been inactive for a while.',
   countdownText: 'To protect your information, your progress will be saved and you will be signed out in',
-  countdownExpiredText: 'You are being signed out.',
+  countdownExpiredText: 'You are being signed out',
   btnText: 'Continue survey',
   minutesTextSingular: 'minute',
   minutesTextPlural: 'minutes',
@@ -21,7 +21,7 @@ const params = {
   secondsTextPlural: 'seconds',
 };
 
-describe.only('Component: Timeout modal', function() {
+describe('Component: Timeout modal', function() {
   beforeEach(function() {
     const component = renderComponent(params);
     Object.keys(component).forEach(key => {
@@ -55,12 +55,18 @@ describe.only('Component: Timeout modal', function() {
         done();
       }, 4000);
     });
+  });
 
-    it('then the ui should show the time going down', function(done) {
+  describe('When the modal is open', function() {
+    beforeEach(function() {
+      this.time = new Date(Date.now() + 7 * 1000);
+      this.timeout = new TimeoutModal(this.component, null, this.time);
+    });
+
+    it('the ui should show the time counting down', function(done) {
       const time = parseInt(document.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
       setTimeout(() => {
         const timeUpdated = parseInt(document.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
-        console.log('TIME AFTER:', time);
         expect(timeUpdated).to.be.lessThan(time);
         done();
       }, 1500);
@@ -77,7 +83,7 @@ describe.only('Component: Timeout modal', function() {
     it('then the timer text should change to countdown expired text when 0 seconds are left', function(done) {
       setTimeout(() => {
         const text = document.querySelector('.ons-js-timeout-timer span').innerHTML;
-        expect(text).to.equal('You are being signed out.');
+        expect(text).to.equal('You are being signed out');
         done();
       }, 3000);
     });
