@@ -21,7 +21,7 @@ const params = {
   secondsTextPlural: 'seconds',
 };
 
-describe.only('Component: Timeout modal', function() {
+describe('Component: Timeout modal', function() {
   beforeEach(function() {
     const component = renderComponent(params);
     Object.keys(component).forEach(key => {
