@@ -15,7 +15,7 @@ export default class Timeout {
     this.secondsTextSingular = context.getAttribute('data-seconds-text-singular');
     this.secondsTextPlural = context.getAttribute('data-seconds-text-plural');
     this.countdownText = context.getAttribute('data-countdown-text');
-    this.redirectingText = context.getAttribute('data-redirecting-text');
+    this.countdownExpiredText = context.getAttribute('data-countdown-expired-text');
 
     // Settings
     this.expiryTime = '';
@@ -84,8 +84,8 @@ export default class Timeout {
         const shouldExpire = this.enableTimeoutReset ? await $this.hasExpiryTimeResetInAnotherTab() : true;
 
         if (shouldExpire) {
-          $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.redirectingText + '</span>';
-          $this.accessibleCountdown.innerHTML = $this.redirectingText;
+          $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
+          $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
           setTimeout($this.redirect.bind($this), 2000);
         }
       } else {
