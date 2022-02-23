@@ -22,6 +22,10 @@ Panels are used to draw information to the attention of the user.
 }}
 
 ### Warning with countdown
+{{
+   patternlibExample({"path": "components/timeout-panel/examples/warn/index.njk"})
+}}
+
 Use this warning panel variant when a service sets a session expiry time to protect the user’s information.
 
 When the countdown reaches zero, the browser will navigate to a specified URL and show some alternate text. If the current URL is provided the page will just be refreshed.
@@ -52,10 +56,6 @@ A request to get the current expiry time will be sent when the following happens
 #### Failure responses from the server
 
 If the response status does not have a successful `200` code, the component will handle the response as a session expiry and redirect the user to the url set in the `redirectUrl` parameter.
-
-{{
-   patternlibExample({"path": "components/timeout-panel/examples/warn/index.njk"})
-}}
 
 ### Warning branded
 This example is a warning variant designed only for the census respond phase. It is to warn users that they must complete the census by law.
