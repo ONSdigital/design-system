@@ -21,7 +21,7 @@ const params = {
   secondsTextPlural: 'seconds',
 };
 
-describe('Component: Timeout modal', function() {
+describe.only('Component: Timeout modal', function() {
   beforeEach(function() {
     const component = renderComponent(params);
     Object.keys(component).forEach(key => {
@@ -60,6 +60,7 @@ describe('Component: Timeout modal', function() {
       const time = parseInt(document.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
       setTimeout(() => {
         const timeUpdated = parseInt(document.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
+        console.log('TIME AFTER:', time);
         expect(timeUpdated).to.be.lessThan(time);
         done();
       }, 1500);
