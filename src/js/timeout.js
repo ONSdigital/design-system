@@ -57,8 +57,8 @@ export default class Timeout {
       }, 20000);
     }
 
-    let millseconds = this.convertTimeToMilliSeconds(this.expiryTime);
-    let seconds = millseconds / 1000;
+    let milliseconds = this.convertTimeToMilliSeconds(this.expiryTime);
+    let seconds = milliseconds / 1000;
     let timers = this.timers;
     let $this = this;
 

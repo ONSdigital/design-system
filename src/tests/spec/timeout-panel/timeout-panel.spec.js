@@ -8,17 +8,15 @@ chai.use(chaiSpies);
 
 const params = {
   id: 'countdown',
-  countdown: {
-    countdownInSeconds: 5,
-    minutesTextSingular: 'minute',
-    minutesTextPlural: 'minutes',
-    secondsTextSingular: 'second',
-    secondsTextPlural: 'seconds',
-    countdownText: 'For security, your answers will only be available to view for another',
-    nojsText: 'For security, your answers will only be available to view for another 5 seconds',
-    countdownExpiredText: 'For security, you can no longer view your answers',
-    urlOnTimeout: '#0',
-  },
+  countdownInSeconds: 5,
+  minutesTextSingular: 'minute',
+  minutesTextPlural: 'minutes',
+  secondsTextSingular: 'second',
+  secondsTextPlural: 'seconds',
+  countdownText: 'For security, your answers will only be available to view for another',
+  nojsText: 'For security, your answers will only be available to view for another 5 seconds',
+  countdownExpiredText: 'For security, you can no longer view your answers',
+  redirectUrl: '#!',
 };
 
 describe('Component: Timeout panel', function() {
@@ -27,8 +25,8 @@ describe('Component: Timeout panel', function() {
     Object.keys(component).forEach(key => {
       this[key] = component[key];
     });
-    this.time = params.countdown.countdownInSeconds;
-    this.url = params.countdown.urlOnTimeout;
+    this.time = params.countdownInSeconds;
+    this.url = params.urlOnTimeout;
     this.timeout = new Timeout(this.component, this.url, this.time, false, true);
     this.startUiCountdownSpy = chai.spy.on(this.timeout, 'startUiCountdown');
     this.redirectSpy = chai.spy.on(this.timeout, 'redirect');
