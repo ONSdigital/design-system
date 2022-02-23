@@ -61,7 +61,7 @@ describe('Component: Timeout panel', function() {
     });
 
     it('then the accessibility countdown should contain the correct values', function() {
-      expect(parseInt(this.component.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(7);
+      expect(parseInt(this.component.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(6);
     });
 
     it('then the timer text should change to expired text when 0 seconds are left', function(done) {
