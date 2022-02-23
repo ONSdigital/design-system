@@ -59,7 +59,7 @@ describe('Component: Timeout modal', function() {
 
   describe('When the modal is open', function() {
     beforeEach(function() {
-      this.time = new Date(Date.now() + 7 * 1000);
+      this.time = new Date(Date.now() + 10 * 1000);
       this.timeout = new TimeoutModal(this.component, null, this.time);
     });
 
@@ -69,7 +69,7 @@ describe('Component: Timeout modal', function() {
         const timeUpdated = parseInt(document.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
         expect(timeUpdated).to.be.lessThan(time);
         done();
-      }, 1500);
+      }, 1000);
     });
 
     it('then the aria-live should be set to assertive', function() {
