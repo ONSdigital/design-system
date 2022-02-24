@@ -77,10 +77,6 @@ describe('Component: Timeout modal', function() {
       expect(document.querySelector('.ons-js-timeout-timer-acc').getAttribute('aria-live')).to.equal('assertive');
     });
 
-    it('then the accessibility countdown should contain the correct values', function() {
-      expect(parseInt(document.querySelector('.ons-js-timeout-timer-acc span').innerHTML.charAt(0))).to.equal(4);
-    });
-
     it('then the timer text should change to countdown expired text when 0 seconds are left', function(done) {
       setTimeout(() => {
         const text = document.querySelector('.ons-js-timeout-timer span').innerHTML;
