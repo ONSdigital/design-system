@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thank you for taking the time to fill out this bug report
   - type: textarea
     id: what-happened
     attributes:
@@ -49,7 +49,7 @@ body:
     attributes:
       label: Version
       description: Confirmation of the version of the design system that is being used
-      placeholder: ex. 32.2.7
+      placeholder: For example, 32.2.7
     validations:
       required: true
   - type: checkboxes
@@ -71,7 +71,7 @@ body:
   - type: checkboxes
     id: operating-system
     attributes:
-      label: Operating System
+      label: Operating system
       description: Confirmation of the operating system(s) being used
       options:
         - label: Windows
@@ -82,7 +82,7 @@ body:
   - type: input
     id: operating-system-details
     attributes:
-      label: Operating System Details
+      label: Operating system details
       description: Here you can provide further information about the operating system(s) that are affected by this bug/issue.
     validations:
       required: false
@@ -100,7 +100,7 @@ body:
   - type: input
     id: browsers-details
     attributes:
-      label: Browser Details
+      label: Browser details
       description: Here you can provide further information about the browser(s) that are affected by this bug/issue.
     validations:
       required: false

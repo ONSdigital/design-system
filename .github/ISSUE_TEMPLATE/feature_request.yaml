@@ -1,5 +1,5 @@
 name: New feature proposal
-description: Propose a new component, pattern, style or documentation to add to the ONS Design System
+description: Propose a new component, pattern, foundation or documentation to add to the ONS Design System
 title: "[Feature]: "
 labels: ["New feature proposal", "triage"]
 assignees: []
@@ -8,19 +8,19 @@ body:
     attributes:
       value: |
         **Before you fill in this proposal template:**
-        - If you are suggesting a change to a component, pattern or style that is already in the ONS Design System, please comment on its GitHub discussion instead (https://github.com/ONSdigital/design-system/discussions). You can get to the discussion using the direct link at the bottom of each page in the Design System.
-        - If you are proposing something new, check the ONS Design System community backlog first (https://github.com/ONSdigital/design-system/projects/1). There may already be a proposal for something similar. You can add examples of your own evidence to an existing proposal.
+        - If you are suggesting a change to a component, pattern or foundation that is already in the ONS Design System, please comment on its [GitHub discussion instead] (https://github.com/ONSdigital/design-system/discussions). You can get to the discussion using the direct link at the bottom of each page in the Design System.
+        - If you are proposing something new, check the [ONS Design System community backlog](https://github.com/ONSdigital/design-system/projects/1) first. There may already be a proposal for something similar. You can add examples of your own evidence to an existing proposal.
   - type: textarea
     id: what
     attributes:
-      label: What
+      label: What feature would you like to add to the ONS Design System?
       description: Give a brief description of the new feature you want to propose for the Design System. This could be a component, pattern or foundation, or new documentation for an existing feature.
     validations:
       required: true
   - type: textarea
     id: why
     attributes:
-      label: Why
+      label: Why should this new feature be added to the Design System?
       description: |
         Explain why you think this feature or content should be added to the ONS Design System.
         - What evidence do you have that your ONS service needs it?
