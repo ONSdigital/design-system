@@ -64,15 +64,6 @@ describe('Component: Timeout modal', function() {
       this.timeout = new TimeoutModal(this.component, null, this.time);
     });
 
-    it('the ui should show the time counting down', function(done) {
-      const time = parseInt(document.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
-      setTimeout(() => {
-        const timeUpdated = parseInt(document.querySelector('.ons-js-timeout-timer span').innerHTML.charAt(0));
-        expect(timeUpdated).to.be.lessThan(time);
-        done();
-      }, 1000);
-    });
-
     it('then the aria-live should be set to assertive', function() {
       expect(document.querySelector('.ons-js-timeout-timer-acc').getAttribute('aria-live')).to.equal('assertive');
     });
