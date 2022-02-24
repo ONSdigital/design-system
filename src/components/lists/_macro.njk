@@ -13,23 +13,18 @@
         {% set otherClasses = '' %}
     {% endif %}
 
-    {% if params.element is defined and params.element %}
+    {% if params.element is defined and params.element and listLength > 1 %}
         {% set listEl = params.element | lower %}
+    {% elif (params.element is defined and params.element == 'ol') and listLength < 2 %}
+        {% set listEl = 'p' %}
     {% else %}
         {% set listEl = 'ul' %}
     {% endif %}
-
-    {% if (params.element is defined and params.element == 'ol') and listLength < 2 %}
-        <p {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}{% if params.classes is defined and params.classes %} class="{{ params.classes -}}"{% endif %}>
-            {%- for item in params.itemsList -%}
-                {{ item.text }}
-            {%- endfor -%}
-        </p>
-    {% else %}
-        <{{listEl}} {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}class="{% if listLength > 1 %}ons-list{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes -}}{% endif %}{% if params.variants is defined and params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-list--{{ variant }}{% endfor %}{% else %} ons-list--{{ params.variants }}{% endif %}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}">
+        <{{listEl}} {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}class="{% if listLength > 1 or listEl == 'ul' %}ons-list{% else %}ons-list--p{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes -}}{% endif %}{% if params.variants is defined and params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-list--{{ variant }}{% endfor %}{% else %} ons-list--{{ params.variants }}{% endif %}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}">
             {%- for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
+                {% if listLength > 1 or listEl == 'ul' %}
                 <li class="ons-list__item{% if item.listClasses is defined and item.listClasses %} {{ item.listClasses }}{% endif %}"{% if item.current is defined and item.current %} aria-current="true"{% endif %}>
-
+                {% endif %}
                     {% set itemText = item.text %}
 
                     {% if params.itemsList[0] is defined and item.iconType is defined and item.iconType %}
@@ -94,8 +89,9 @@
                             }}
                         {%- endif -%} </span>
                     {%- endif -%}
+                {% if listLength > 1 or listEl == 'ul' %}
                 </li>
+                {% endif %}
             {%- endfor -%}
         </{{listEl}}>
-    {% endif %}
 {% endmacro %}
