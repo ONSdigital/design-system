@@ -7,27 +7,33 @@
                   <p class="ons-cookies-banner__desc">{{ params.statementText | safe }}</p>
                   {% from "components/button/_macro.njk" import onsButton %}
                   {{
-                      onsButton({
-                          "type": 'button',
-                          "text": params.primaryButtonText | default('Accept all cookies'),
-                          "classes": 'ons-btn--small ons-js-accept-cookies ons-u-mb-xs@xxs@s ons-cookies-banner__btn'
-                      })
+                        onsButton({
+                            "type": 'button',
+                            "attributes": {
+                                "data-button": 'accept'
+                            },
+                            "text": params.acceptButtonText | default('Accept additional cookies'),
+                            "classes": 'ons-btn--small ons-js-accept-cookies ons-u-mb-xs@xxs@s ons-cookies-banner__btn'
+                        })
                   }}
                   {{
-                      onsButton({
-                          "type": 'button',
-                          "url": params.secondaryButtonUrl,
-                          "text": params.secondaryButtonText | default('Set cookie preferences'),
-                          "classes": 'ons-btn--small ons-u-ml-no@xxs@s ons-cookies-banner__btn'
-                      })
+                        onsButton({
+                            "type": 'button',
+                            "attributes": {
+                                "data-button": 'reject'
+                            },
+                            "text": params.rejectButtonText | default('Reject additional cookies'),
+                            "classes": 'ons-btn--small ons-u-ml-no@xxs@s ons-js-reject-cookies ons-cookies-banner__btn'
+                        })
                   }}
+                  <div class="ons-u-ml-no@xxs@s ons-u-dib ons-u-ml-xs"><a href="{{ params.settingsLinkURL }}">{{ params.settingsLinkText | default('Cookie settings') }}</a></div>
                 </div>
             </div>
         </div>
         <div class="ons-container ons-cookies-banner__confirmation ons-u-d-no">
             <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--gutterless ons-grid--no-wrap@s ons-grid--vertical-center">
               <div class="ons-grid__col ons-grid__col--flex ons-col-auto ons-u-flex-shrink@s">
-                <p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s">{{ params.confirmationText | safe }}</p>
+                <p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s"><span class="ons-js-accepted-text ons-u-d-no">{{ params.acceptedText | safe }} </span><span class="ons-js-rejected-text ons-u-d-no">{{ params.rejectedText | safe }} </span>{{ params.preferencesText | safe }}</p>
               </div>
               <div class="ons-grid__col">
                 {{
