@@ -4,22 +4,24 @@
 
         <li class="ons-document-list__item{{ ' ' + params.classes if params.classes else '' }}">
 
-            <div class="ons-document-list__item-image" aria-hidden="true">
-                <a class="ons-document-list__image-link" href="{{ document.url }}" tabindex="-1">
-                    {% if document.thumbnail is defined and document.thumbnail and document.thumbnail.smallSrc is defined and document.thumbnail.smallSrc and document.thumbnail.largeSrc is defined and document.thumbnail.largeSrc %}
-                        <img srcset="{{ document.thumbnail.smallSrc }} 1x, {{ document.thumbnail.largeSrc }} 2x" src="{{ document.thumbnail.smallSrc }}" alt="" loading="lazy">
-                    {% else %}
-                        <img srcset="{{ document.placeholderURL if document.placeholderURL is defined and document.placeholderURL }}/img/small/placeholder-portrait.png 1x, {{ document.placeholderURL if document.placeholderURL is defined and document.placeholderURL }}/img/large/placeholder-portrait.png 2x" src="{{ document.placeholderURL if document.placeholderURL is defined and document.placeholderURL }}/img/small/placeholder-portrait.png" alt="" loading="lazy">
-                    {% endif %}
-                </a>
-            </div>
+            {% if document.thumbnail is defined or document.thumbnail == true %}
+
+                <div class="ons-document-list__item-image{%- if document.metadata.file is defined and document.metadata.file %} ons-document-list__item-image--file{% endif %}" aria-hidden="true">
+                    <a class="ons-document-list__image-link" href="{{ document.url }}" tabindex="-1">
+                        {% if document.thumbnail.smallSrc is defined and document.thumbnail.smallSrc and document.thumbnail.largeSrc is defined and document.thumbnail.largeSrc %}
+                            <img srcset="{{ document.thumbnail.smallSrc }} 1x, {{ document.thumbnail.largeSrc }} 2x" src="{{ document.thumbnail.smallSrc }}" alt="" loading="lazy">
+                        {% endif %}
+                    </a>
+                </div>
+
+            {% endif %}
 
             <div class="ons-document-list__item-content">
                 {% set titleTag = params.titleTag | default("h2") %}
                 <{{ titleTag }} class="ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
-                    <a href="{{ document.url }}">{{ document.title }}<span class="ons-u-vh">, 
-
+                    <a href="{{ document.url }}">{{ document.title }}
                     {%- if document.metadata.file is defined and document.metadata.file %}
+                    <span class="ons-u-vh">,
 
                         {% set fileMetadataItems = [] %}
 
@@ -36,7 +38,7 @@
 
                 {%- if document.metadata is defined and document.metadata %}
 
-                    <ul class="ons-document-list__item-metadata ons-u-mb-xs">
+                    <ul class="ons-document-list__item-metadata{% if document.description is defined and document.description %} ons-u-mb-xs{% else %} ons-u-mb-no{% endif %}">
 
                         {%- if document.metadata.date is defined and document.metadata.date %}
                             <li class="ons-document-list__item-attribute">
@@ -50,17 +52,17 @@
                             </li>
                         {% endif %}
 
-                        {%- if document.type.text is defined and document.type.text %}
+                        {%- if document.metadata.type.text is defined and document.metadata.type.text %}
                             <li class="ons-document-list__item-attribute{%- if document.metadata.file is defined and document.metadata.file %} ons-u-mr-no{% endif %}">
-                                {%- if document.type.url is defined and document.type.url %}
-                                    <a class="ons-document-list__attribute-link" href="{{ document.type.url }}">
+                                {%- if document.metadata.type.url is defined and document.metadata.type.url %}
+                                    <a class="ons-document-list__attribute-link" href="{{ document.metadata.type.url }}">
                                 {% endif %}
-                                        <span {% if not document.metadata.file and not document.type.url %}class="ons-u-fw-b"{% endif %}>{{ document.type.text }}{%- if document.type.ref is defined and document.type.ref %}: {% elif document.metadata.file is defined and document.metadata.file %},{% endif %}</span>
-                                {%- if document.type.url is defined and document.type.url %}
+                                        <span {% if not document.metadata.file and not document.metadata.type.url %}class="ons-u-fw-b"{% endif %}>{{ document.metadata.type.text }}{%- if document.metadata.type.ref is defined and document.metadata.type.ref %}: {% elif document.metadata.file is defined and document.metadata.file %},{% endif %}</span>
+                                {%- if document.metadata.type.url is defined and document.metadata.type.url %}
                                     </a>
                                 {% endif %}
-                                {%- if document.type.ref is defined and document.type.ref %}
-                                    <span>{{ document.type.ref }}</span>
+                                {%- if document.metadata.type.ref is defined and document.metadata.type.ref %}
+                                    <span>{{ document.metadata.type.ref }}</span>
                                 {% endif %}
                             </li>
                         {% endif %}

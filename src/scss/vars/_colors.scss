@@ -47,13 +47,14 @@ $color-branded-supporting-tint: tint($color-branded-supporting, 90%) !default;
 // Assignment
 // =============================================================================
 
-// Headers, footers, banners
+// Headers, footers, banners, page
 $color-header: $color-branded !default;
 $color-header-top: $color-white !default;
 $color-header-top-internal: $color-branded-secondary !default;
 $color-cta-bg: $color-branded-tint !default;
 $color-banner-bg: $color-grey-5 !default;
 $color-banner-bg-dark: $color-grey-15 !default;
+$color-page-light: $color-white !default;
 
 // Typography
 $color-text: $color-black !default;
@@ -80,6 +81,9 @@ $color-borders-indent: $color-grey-35 !default;
 $color-borders-list: $color-grey-35 !default;
 $color-borders-document-image: $color-grey-15 !default;
 $color-borders-document-image-focus: $color-black !default;
+
+// Placeholders
+$color-placeholder: $color-grey-15 !default;
 
 // Form elements
 $color-button: $color-leaf-green !default;
