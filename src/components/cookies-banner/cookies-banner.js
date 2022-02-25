@@ -38,23 +38,33 @@ export default class CookiesBanner {
 
   setCookiesConsent(event) {
     event.preventDefault();
+    let actionText;
     const action = event.target.getAttribute('data-button');
 
-    cookie('ons_cookie_message_displayed', 'true', { days: 365 });
-    this.hidePrimaryCookiesBanner(action);
+    if (action == 'accept') {
+      this.acceptCookies();
+      actionText = this.acceptedText;
+    } else if (action == 'reject') {
+      setDefaultConsentCookie();
+      actionText = this.rejectedText;
+    }
 
+    this.hidePrimaryCookiesBanner(actionText);
+    this.checkPage(action);
+    cookie('ons_cookie_message_displayed', 'true', { days: 365 });
+  }
+
+  acceptCookies() {
+    approveAllCookieTypes();
+    if (typeof loadGTM != 'undefined') {
+      loadGTM();
+    }
+  }
+
+  checkPage(action) {
     const isOnSettingsPage = document.querySelector('[data-module="cookie-settings"]');
     if (isOnSettingsPage) {
       this.updateRadios(action);
-    }
-
-    if (action == 'accept') {
-      approveAllCookieTypes();
-      if (typeof loadGTM != 'undefined') {
-        loadGTM();
-      }
-    } else if (action == 'reject') {
-      setDefaultConsentCookie();
     }
   }
 
@@ -69,17 +79,13 @@ export default class CookiesBanner {
     });
   }
 
-  hidePrimaryCookiesBanner(action) {
+  hidePrimaryCookiesBanner(text) {
     if (this.component) {
       this.primaryBanner.style.display = 'none';
       this.confirmBanner.classList.remove('ons-u-d-no');
       this.confirmBanner.setAttribute('aria-live', 'polite');
       this.confirmBanner.setAttribute('role', 'status');
-      if (action == 'reject') {
-        this.rejectedText.classList.remove('ons-u-d-no');
-      } else if (action == 'accept') {
-        this.acceptedText.classList.remove('ons-u-d-no');
-      }
+      text.classList.remove('ons-u-d-no');
     }
   }
 
