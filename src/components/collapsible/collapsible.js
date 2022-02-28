@@ -11,22 +11,11 @@ export default class Collapsible {
     this.collapsible = collapsibleElement;
     this.collapsibleHeader = this.collapsible.querySelector('.ons-js-collapsible-heading');
     this.content = this.collapsible.querySelector('.ons-js-collapsible-content');
-    this.button = this.collapsible.querySelector('.ons-js-collapsible-button');
-    this.buttonInner = this.collapsible.querySelector('.ons-js-collapsible-button-inner');
 
     // Initialise
     const collapsibleId = collapsibleElement.getAttribute('id');
 
-    if (this.button) {
-      this.button.addEventListener('click', this.toggle.bind(this));
-      this.button.setAttribute('aria-controls', collapsibleId);
-      this.button.classList.remove('ons-u-d-no');
-      this.buttonOpen = this.buttonInner.innerHTML.trim();
-      this.closeButton = this.collapsible.getAttribute('data-btn-close') || this.buttonOpen;
-    }
-
     this.collapsible.setAttribute('role', 'group');
-    this.collapsibleHeader.setAttribute('role', 'link');
     this.collapsibleHeader.setAttribute('aria-controls', collapsibleId);
 
     if (!this.isAccordion) {
@@ -68,11 +57,6 @@ export default class Collapsible {
       this.content.setAttribute('aria-hidden', !open);
 
       this.collapsibleHeader.setAttribute('data-ga-action', `${action} panel`);
-
-      if (this.button) {
-        this.button.setAttribute('data-ga-action', `${action} panel`);
-        this.buttonInner.innerHTML = open ? this.closeButton : this.buttonOpen;
-      }
 
       if (this.onOpen && this.onClose) {
         if (open) {

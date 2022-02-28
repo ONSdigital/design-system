@@ -1,7 +1,7 @@
 {% macro onsCollapsible(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
 
-    <div
+    <details
         id="{{ params.id }}"
         class="ons-collapsible ons-js-collapsible{% if params.isAccordion is defined and params.isAccordion %} ons-collapsible--accordion{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.variants is defined and params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-collapsible--{{ variant }}{% endfor %}{% else %} ons-collapsible--{{ params.variants }}{% endif %}{% endif %}"
         {% if params.button is defined and params.button and params.button.close is defined and params.button.close %} data-btn-close="{{ params.button.close }}"{% endif %}
@@ -10,12 +10,10 @@
         {% if params.saveState is defined and params.saveState %} data-save-state="true"{% endif %}
         {% if params.open is defined and params.open %} data-open="true"{% endif %}
     >
-        <div
+        <summary
             class="ons-collapsible__heading ons-js-collapsible-heading"
             {% if params.headingAttributes is defined and params.headingAttributes %}{% for attribute, value in (params.headingAttributes.items() if params.headingAttributes is mapping and params.headingAttributes.items else params.headingAttributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
-            {# Required to use display flex on Safari as it's not currently supported: https://bugs.webkit.org/show_bug.cgi?id=167111 #}
-            <div class="ons-collapsible__controls">
                 {% set titleTag = params.titleTag | default("h2") %}
                 <{{ titleTag }} class="ons-collapsible__title">{{ params.title }}</{{ titleTag }}>
                 <span class="ons-collapsible__icon">
@@ -25,39 +23,11 @@
                             "iconType": "chevron"
                         })
                     }}</span>
-                {% if params.button is defined and params.button and params.button.open is defined and params.button.open and params.isAccordion is defined and params.isAccordion %}
-                    {{
-                        onsButton({
-                            "type": "button",
-                            "text": params.button.open,
-                            "classes": "ons-collapsible__btn ons-js-collapsible-button ons-u-d-no ons-u-d-no@xxs@s",
-                            "innerClasses": "ons-js-collapsible-button-inner",
-                            "variants": ["secondary", "small"],
-                            "attributes": params.button.attributes
-                        })
-                    }}
-                {% endif %}
-            </div>
-        </div>
+        </summary>
         <div id="{{ params.id }}-content" class="ons-collapsible__content ons-js-collapsible-content"
             {% if params.contentAttributes is defined and params.contentAttributes %}{% for attribute, value in (params.contentAttributes.items() if params.contentAttributes is mapping and params.contentAttributes.items else params.contentAttributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
-            {% if params.isAccordion is defined and params.isAccordion %}
-                {{ params.content | safe }}{{ caller() if caller }}
-            {% else %}
-                {{ params.content | safe }}{{ caller() if caller }}
-                {{
-                    onsButton({
-                        "type": "button",
-                        "text": params.button.close | default ('Hide this'),
-                        "buttonContext": (params.button.context | default(params.title)) + " " + params.button.contextSuffix | default("content"),
-                        "classes": "ons-js-collapsible-button ons-u-d-no " + (params.button.classes | default("ons-btn--secondary")),
-                        "innerClasses": "ons-js-collapsible-button-inner",
-                        "variants": "small",
-                        "attributes": params.button.attributes
-                    })
-                }}
-            {% endif %}
+            {{ params.content | safe }}{{ caller() if caller }}
         </div>
-    </div>
+    </details>
 {% endmacro %}

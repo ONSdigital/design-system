@@ -44,15 +44,15 @@ $collapsible-caret-width: 1.5rem;
       height: $collapsible-caret-width;
       left: -0.15rem;
       position: absolute;
-      top: -0.25rem;
+      top: -0.2rem;
       width: $collapsible-caret-width;
     }
 
     &__title {
+      display: inline-block;
       font-size: 1rem;
       font-weight: $font-weight-bold;
       margin-bottom: 0;
-      text-decoration: underline;
       text-underline-position: under;
       transform: translateY(-1px);
     }
@@ -69,7 +69,7 @@ $collapsible-caret-width: 1.5rem;
   &--open & {
     &__icon {
       left: -0.1rem;
-      top: 0.1rem;
+      top: 0.2rem;
       transform: rotate(90deg);
     }
 
@@ -100,7 +100,7 @@ $collapsible-caret-width: 1.5rem;
     &__heading {
       border-top: 1px solid $color-borders;
       margin: 0;
-      padding-bottom: 1rem;
+      padding-bottom: 0.9rem;
       padding-top: 1rem;
       width: 100%;
 
@@ -115,10 +115,6 @@ $collapsible-caret-width: 1.5rem;
 
     &__icon {
       top: 0.8rem;
-
-      @include mq(s) {
-        top: 1.15rem;
-      }
     }
 
     &__controls {
