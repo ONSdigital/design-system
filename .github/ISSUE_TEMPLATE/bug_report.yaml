@@ -12,51 +12,45 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      description: Details of the bug
     validations:
       required: true
   - type: textarea
     id: expected-outcome
     attributes:
-      label: Expected outcome
-      description: Details of the expected outcome
+      label: What was the expected outcome?
     validations:
       required: true
   - type: textarea
     id: impact
     attributes:
-      label: Impact
-      description: What is the impact of this bug/issue?
+      label: How is this problem impacting your service?
     validations:
       required: true
   - type: textarea
     id: reproduction-steps
     attributes:
-      label: Reproduction steps
-      description: A list of steps to reproduce the bug or issue
+      label: What list of steps can be followed to reproduce the bug or issue?
     validations:
       required: true
   - type: textarea
     id: example
     attributes:
       label: Example
-      description: Add screenshot(s) or examples of the bug
+      description: Add screenshot(s) or examples of the bug or issue
       placeholder: Add a file, image or link
     validations:
       required: false
   - type: input
     id: version
     attributes:
-      label: Version
-      description: Confirmation of the version of the design system that is being used
+      label: What version of the ONS Design System are you using?
       placeholder: For example, 32.2.7
     validations:
       required: true
   - type: checkboxes
     id: device
     attributes:
-      label: Device
-      description: Confirmation of the device(s) being used
+      label: What devices are you seeing the problem on?
       options:
         - label: Desktop
         - label: Mobile
@@ -64,15 +58,14 @@ body:
   - type: input
     id: device-details
     attributes:
-      label: Device Details
-      description: Here you can provide further information about the device(s) that are affected by this bug/issue.
+      label: Device details
+      description: Here you can provide further information about the device(s) that are affected by this bug or issue.
     validations:
       required: false
   - type: checkboxes
     id: operating-system
     attributes:
-      label: Operating system
-      description: Confirmation of the operating system(s) being used
+      label: What operating systems are you seeing the problem on?
       options:
         - label: Windows
         - label: macOS
@@ -83,7 +76,7 @@ body:
     id: operating-system-details
     attributes:
       label: Operating system details
-      description: Here you can provide further information about the operating system(s) that are affected by this bug/issue.
+      description: Here you can provide further information about the operating system(s) that are affected by this bug or issue.
     validations:
       required: false
   - type: checkboxes
@@ -101,6 +94,6 @@ body:
     id: browsers-details
     attributes:
       label: Browser details
-      description: Here you can provide further information about the browser(s) that are affected by this bug/issue.
+      description: Here you can provide further information about the browser(s) that are affected by this bug or issue.
     validations:
       required: false
