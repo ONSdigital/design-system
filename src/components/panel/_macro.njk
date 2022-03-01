@@ -29,6 +29,8 @@
     {% if params is defined and params and params.type == "warn-branded" or params.type == "announcement" %}
     <div class="{{containerClass}}">
         <div class="ons-container">
+    {% elif params.type is defined and params.type == "warn" %}
+        <div class="ons-container">
     {% endif %}
 
         <div {% if params is defined and params and params.type == 'error' and params.title is defined and params.title %}aria-labelledby="error-summary-title" role="alert" tabindex="-1" {% if params.dsExample != true %}autofocus="autofocus" {% endif %}{% endif %}class="ons-panel{{ typeClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"{% if params is defined and params and params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params is defined and params and params.attributes is mapping and params.attributes.items is defined and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params is defined and params and params.id is defined and params.id %} id="{{params.id}}"{% endif %}>
@@ -86,7 +88,7 @@
                 {% endif %}
             {% endif %}
 
-            <div class="ons-panel__body{% if params is defined and params and params.iconSize is defined and params.iconSize %} ons-svg-icon-margin--{{ params.iconSize }}{% endif %}" {% if params is defined and params and params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params is defined and params and params.attributes is mapping and params.attributes.items is defined and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>{{ (params.body if params else "") | safe }}
+            <div class="ons-panel__body{% if params is defined and params and params.iconSize is defined and params.iconSize %} ons-svg-icon-margin--{{ params.iconSize }}{% endif %}">{{ (params.body if params else "") | safe }}
                 {{ caller() if caller }}
             </div>
 
@@ -94,6 +96,8 @@
 
     {% if params is defined and params and params.type == "warn-branded" or params.type == "announcement"  %}
         </div>
+    </div>
+    {% elif params.type is defined and params.type == "warn" %}
     </div>
     {% endif %}
 

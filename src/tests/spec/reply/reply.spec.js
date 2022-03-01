@@ -42,7 +42,7 @@ describe('Component: Reply', () => {
   });
 
   describe('Given that the reply component has initialised correctly', () => {
-    it('the submit button shoudld be disabled', () => {
+    it('the submit button should be disabled', () => {
       expect(replyButton.hasAttribute('disabled')).to.be.true;
       expect(replyButton.classList.contains('ons-btn--disabled')).to.equal(true);
     });
