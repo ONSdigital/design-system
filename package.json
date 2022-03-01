@@ -5,9 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "author": {
-    "name": "Ben Meyrick",
-    "email": "bameyrick@gmail.com",
-    "url": "https://github.com/bameyrick"
+    "name": "ONS Digital"
   },
   "scripts": {
     "start": "gulp start",
