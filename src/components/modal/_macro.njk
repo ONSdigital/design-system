@@ -1,4 +1,4 @@
-{% macro onsModal(params) %}    
+{% macro onsModal(params) %}
     {% set modalID = params.id | default('dialog') %}
     <dialog class="ons-modal ons-js-modal {{ params.classes }}"
         id="{{ modalID }}"
