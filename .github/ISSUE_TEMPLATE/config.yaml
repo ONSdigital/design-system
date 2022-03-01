@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Community Discussions
+    url: https://github.com/ONSdigital/design-system/discussions
+    about: Please ask and answer questions here.
