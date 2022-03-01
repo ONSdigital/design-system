@@ -1,15 +1,13 @@
-import Modal from '../modal/modal';
-
 export default class Timeout {
-  constructor(context, url, time) {
+  constructor(context, sessionExpiryEndpoint, initialExpiryTime, enableTimeoutReset, startOnLoad) {
     this.context = context;
-    this.sessionExpiryEndpoint = url;
-    this.initialExpiryTime = time;
-    this.continueButton = context.querySelector('.ons-js-modal-btn');
+    this.sessionExpiryEndpoint = sessionExpiryEndpoint;
+    this.initialExpiryTime = initialExpiryTime;
+    this.enableTimeoutReset = enableTimeoutReset || false;
+    this.startOnLoad = startOnLoad || false;
     this.countdown = context.querySelector('.ons-js-timeout-timer');
     this.accessibleCountdown = context.querySelector('.ons-js-timeout-timer-acc');
     this.timeOutRedirectUrl = context.getAttribute('data-redirect-url');
-    this.modalVisibleInMilliseconds = context.getAttribute('data-show-modal-time') * 1000;
 
     // Language dependent text strings
     this.minutesTextSingular = context.getAttribute('data-minutes-text-singular');
@@ -17,17 +15,15 @@ export default class Timeout {
     this.secondsTextSingular = context.getAttribute('data-seconds-text-singular');
     this.secondsTextPlural = context.getAttribute('data-seconds-text-plural');
     this.countdownText = context.getAttribute('data-countdown-text');
-    this.redirectingText = context.getAttribute('data-redirecting-text');
+    this.countdownExpiredText = context.getAttribute('data-countdown-expired-text');
+    this.endWithFullStop = context.getAttribute('data-full-stop');
 
     // Settings
-    this.expiryTimeInMilliseconds = 0;
     this.expiryTime = '';
-    this.showModalTimeout = null;
+    this.expiryTimeInMilliseconds = 0;
     this.timers = [];
     this.timerRunOnce = false;
-
-    // Create modal instance
-    this.modal = new Modal(this.context);
+    this.countdownStarted = false;
 
     // Start module
     this.initialise();
@@ -39,43 +35,31 @@ export default class Timeout {
     } else {
       this.expiryTime = await this.setNewExpiryTime();
     }
-
     this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(this.expiryTime);
 
-    this.bindEventListeners();
-  }
+    if (this.enableTimeoutReset) {
+      this.addThrottledResetEvents();
+    }
 
-  bindEventListeners() {
-    window.onload = this.startTimeout();
-    window.addEventListener('focus', this.handleWindowFocus.bind(this));
-    window.addEventListener('keydown', this.escToClose.bind(this));
-    this.continueButton.addEventListener('click', this.closeModalAndRestartTimeout.bind(this));
-    this.addThrottledEvents();
-  }
-
-  startTimeout() {
-    clearTimeout(this.showModalTimeout);
-    this.showModalTimeout = setTimeout(this.openModal.bind(this), this.expiryTimeInMilliseconds - this.modalVisibleInMilliseconds);
-  }
-
-  async openModal() {
-    const modalWillOpen = await this.hasExpiryTimeResetInAnotherTab();
-    if (modalWillOpen && !this.modal.isDialogOpen()) {
-      this.modal.openDialog();
+    if (this.startOnLoad) {
       this.startUiCountdown();
     }
+
+    window.addEventListener('focus', this.handleWindowFocus.bind(this));
   }
 
   async startUiCountdown() {
     this.clearTimers();
-    clearInterval(this.shouldModalCloseCheck);
+    this.countdownStarted = true;
 
-    this.shouldModalCloseCheck = setInterval(async () => {
-      await this.hasExpiryTimeResetInAnotherTab();
-    }, 20000);
+    if (this.enableTimeoutReset) {
+      this.shouldRestartCheck = setInterval(async () => {
+        await this.hasExpiryTimeResetInAnotherTab();
+      }, 20000);
+    }
 
-    let millseconds = this.modalVisibleInMilliseconds;
-    let seconds = millseconds / 1000;
+    let milliseconds = this.convertTimeToMilliSeconds(this.expiryTime);
+    let seconds = milliseconds / 1000;
     let timers = this.timers;
     let $this = this;
 
@@ -95,14 +79,15 @@ export default class Timeout {
         (minutesLeft > 0 ? minutesText : '') +
         (minutesLeft > 0 && secondsLeft > 0 ? ' ' : '') +
         (secondsLeft > 0 ? secondsText : '') +
-        '</span>.';
+        '</span>' +
+        ($this.endWithFullStop ? '.' : '');
 
       if (timerExpired) {
-        const shouldExpire = await $this.hasExpiryTimeResetInAnotherTab();
+        const shouldExpire = this.enableTimeoutReset ? await $this.hasExpiryTimeResetInAnotherTab() : true;
 
         if (shouldExpire) {
-          $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.redirectingText + '</span>';
-          $this.accessibleCountdown.innerHTML = $this.redirectingText;
+          $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
+          $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
           setTimeout($this.redirect.bind($this), 2000);
         }
       } else {
@@ -132,25 +117,16 @@ export default class Timeout {
     if (checkExpiryTime != this.expiryTime) {
       this.expiryTime = checkExpiryTime;
       this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(checkExpiryTime);
-      this.closeModalAndRestartTimeout(this.expiryTimeInMilliseconds);
+      this.restartTimeout(this.expiryTimeInMilliseconds);
     } else {
       return true;
     }
   }
 
-  closeModalAndRestartTimeout(timeInMilliSeconds) {
-    if (typeof timeInMilliSeconds !== 'string') {
-      timeInMilliSeconds = false;
-    }
-    if (this.modal.isDialogOpen()) {
-      this.modal.closeDialog();
-    }
-    this.restartTimeout(timeInMilliSeconds);
-  }
-
   async restartTimeout(timeInMilliSeconds) {
     this.clearTimers();
-    clearInterval(this.shouldModalCloseCheck);
+    clearInterval(this.shouldRestartCheck);
+    this.countdownStarted = false;
 
     if (timeInMilliSeconds) {
       this.expiryTimeInMilliseconds = timeInMilliSeconds;
@@ -159,26 +135,13 @@ export default class Timeout {
       this.expiryTime = createNewExpiryTime;
       this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(createNewExpiryTime);
     }
-
-    this.startTimeout();
   }
 
   async handleWindowFocus() {
-    if (this.sessionExpiryEndpoint) {
-      const canSetNewExpiry = await this.setNewExpiryTime();
-      if (!canSetNewExpiry) {
-        this.redirect();
-      } else {
-        const newExpiryTimeInMilliseconds = this.convertTimeToMilliSeconds(canSetNewExpiry).toString();
-        this.closeModalAndRestartTimeout(newExpiryTimeInMilliseconds);
-      }
-    }
-  }
-
-  escToClose(event) {
-    if (this.modal.isDialogOpen() && event.keyCode === 27) {
-      this.closeModalAndRestartTimeout();
-    }
+    this.expiryTime = await this.getExpiryTime();
+    this.clearTimers();
+    clearInterval(this.shouldRestartCheck);
+    this.startUiCountdown();
   }
 
   async setNewExpiryTime() {
@@ -235,45 +198,45 @@ export default class Timeout {
     }
   }
 
-  addThrottledEvents() {
+  addThrottledResetEvents() {
     window.onclick = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.countdownStarted) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onmousemove = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.countdownStarted) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onmousedown = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.countdownStarted) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onscroll = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.countdownStarted) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onkeypress = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.countdownStarted) {
         this.restartTimeout();
       }
     }, 61000);
 
     window.onkeyup = this.throttle(() => {
       /* istanbul ignore next */
-      if (!this.modal.isDialogOpen()) {
+      if (!this.countdownStarted) {
         this.restartTimeout();
       }
     }, 61000);
