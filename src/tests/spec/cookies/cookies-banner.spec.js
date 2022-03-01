@@ -141,7 +141,7 @@ function renderComponent() {
     '<div class="ons-container ons-cookies-banner__primary">' +
     '<div class="ons-grid">' +
     '<div class="ons-grid__col ons-col-8@m">' +
-    '<h2 class="ons-cookies-banner__title ons-u-mb-xs">Cookies on census.gov.uk</h2>' +
+    '<h2 class="ons-cookies-banner__title ons-u-mb-xs">Cookies on ons.gov.uk</h2>' +
     '<div class="ons-cookies-banner__statement">' +
     '<p>Cookies are small files that we put on your device. Some cookies are essential to make the site work.</p>' +
     '<p>You can allow additional cookies that remember your settings and help us improve our services by understanding how you use the site.</p>' +

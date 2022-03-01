@@ -45,7 +45,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {% from "components/cookies-banner/_macro.njk" import onsCookiesBanner %}
 {{
     onsCookiesBanner({
-        "statementTitle": 'Cookies on census.gov.uk',
+        "statementTitle": 'Cookies on ons.gov.uk',
         "statementText": '<p>Cookies are small files that we put on your device. Some cookies are essential to make the site work.<p>
                           <p>You can allow additional cookies that remember your settings and help us improve our services by understanding how you use the site.</p>',
         "acceptedText": 'You’ve accepted all additional cookies.',
@@ -76,7 +76,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 {% block main %}
     <div class="ons-page__body">
-        <h1 class="ons-u-fs-xxl">Cookies on census.gov.uk</h1>
+        <h1 class="ons-u-fs-xxl">Cookies on ons.gov.uk</h1>
         {% call onsPanel({
             "classes": "ons-u-mb-m ons-u-d-no ons-cookies-confirmation-message",
             "type": "success",
@@ -84,12 +84,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             "iconSize": "xl"
         }) %}
             <h2>Your cookie settings have been saved</h2>
-            <p class="ons-u-mb-no">Some parts of the census may use additional cookies and will have their own cookie policy and banner.</p>
+            <p class="ons-u-mb-no">Some parts of the ONS may use additional cookies and will have their own cookie policy and banner.</p>
             <a class="ons-js-return-link ons-u-mt-s ons-u-dib" href="#0">Return to previous page</a>
         {% endcall %}
 
         <p>Cookies are small files saved on your phone, tablet or computer when you visit a website.</p>
-        <p>We use cookies to store information about how you use the census website, such as the pages you visit.</p>
+        <p>We use cookies to store information about how you use the ONS website, such as the pages you visit.</p>
         <h2>Cookie settings</h2>
         <div class="ons-u-db-no-js_enabled">
             <p>We use JavaScript to set our cookies. Javascript is not running on your browser so you cannot change your settings.</p>
@@ -107,7 +107,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p>We use Google Analytics to measure how you use the website so we can improve it based on user needs. Google Analytics sets cookies that store anonymised information about:</p>
                 <ul>
                     <li>how you got to the site</li>
-                    <li>the pages you visit on census.gov.uk and how long you spend on each page</li>
+                    <li>the pages you visit on ons.gov.uk and how long you spend on each page</li>
                     <li>what you click on while you're visiting the site</li>
                 </ul>
                 {% call onsCollapsible({
@@ -138,7 +138,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             "value": "<code>_ga</code>"
                                         },
                                         {
-                                            "value": 'This helps us count how many people visit census.gov.uk by tracking if you’ve visited before'
+                                            "value": 'This helps us count how many people visit ons.gov.uk by tracking if you’ve visited before'
                                         },
                                         {
                                             "value": "2 years"
@@ -151,7 +151,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             "value": "<code>_gid</code>"
                                         },
                                         {
-                                            "value": 'This helps us count how many people visit census.gov.uk by tracking if you’ve visited before'
+                                            "value": 'This helps us count how many people visit ons.gov.uk by tracking if you’ve visited before'
                                         },
                                         {
                                             "value": "24 hours"
@@ -204,9 +204,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <h3>Cookies that help with our communications</h3>
                 <p>Some of our pages may contain content from other sites, like YouTube, which may set their own cookies. These sites are sometimes called “third party” services. This tells us how many people are seeing the content and whether it’s useful.</p>
-                <p>In addition, if you share a link to a census.gov.uk page, the service you share it on may set a cookie. We have no control over cookies set on other websites – you can turn them off, but not through us.</p>
+                <p>In addition, if you share a link to a ons.gov.uk page, the service you share it on may set a cookie. We have no control over cookies set on other websites – you can turn them off, but not through us.</p>
                 <h4>YouTube videos</h4>
-                <p>We use YouTube to show videos on some census.gov.uk pages. YouTube sets cookies when you visit one of these pages.</p>
+                <p>We use YouTube to show videos on some ons.gov.uk pages. YouTube sets cookies when you visit one of these pages.</p>
                 {% call onsCollapsible({
                     "id": "cookies-measure-website-comms-details",
                     "classes": "ons-u-mb-s",
@@ -310,7 +310,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p>These essential cookies do things like:</p>
                 <ul>
                     <li>remember the notifications you've seen so we do not show them to you again</li>
-                    <li>remember your progress through a form (for example, the census online)</li>
+                    <li>remember your progress through a form (for example, the ons online)</li>
                 </ul>
                 <p>They always need to be on.</p>
                 {% call onsCollapsible({
@@ -354,7 +354,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         })
                     }}
                     <h4>Cookie message</h4>
-                    <p>You may see a banner when you visit census.gov.uk inviting you to accept cookies or review your settings. We’ll set cookies so that your computer knows you’ve seen it and not to show it again, and also to store your settings.</p>
+                    <p>You may see a banner when you visit ons.gov.uk inviting you to accept cookies or review your settings. We’ll set cookies so that your computer knows you’ve seen it and not to show it again, and also to store your settings.</p>
                     {{
                         onsTable({
                             "ths": [

@@ -5,36 +5,36 @@
                 <div class="ons-grid__col ons-col-8@m">
                     <h2 class="ons-cookies-banner__title ons-u-mb-xs">{{ params.statementTitle }}</h2>
                     <div class="ons-cookies-banner__statement">{{ params.statementText | safe }}</div>
-                    <div class="ons-grid ons-grid--flex ons-grid--gutterless ons-u-mt-s">
-                        <div class="ons-grid__col ons-u-mr-s">
-                            {% from "components/button/_macro.njk" import onsButton %}
-                            {{
-                                    onsButton({
-                                        "type": 'button',
-                                        "attributes": {
-                                            "data-button": 'accept'
-                                        },
-                                        "text": params.acceptButtonText | default('Accept additional cookies'),
-                                        "classes": 'ons-btn--small ons-js-accept-cookies ons-cookies-banner__btn'
-                                    })
-                            }}
-                        </div>
-                        <div class="ons-grid__col ons-u-mr-s">
-                            {{
-                                    onsButton({
-                                        "type": 'button',
-                                        "attributes": {
-                                            "data-button": 'reject'
-                                        },
-                                        "text": params.rejectButtonText | default('Reject additional cookies'),
-                                        "classes": 'ons-btn--small ons-js-reject-cookies ons-cookies-banner__btn'
-                                    })
-                            }}
-                        </div>
-                        <div class="ons-grid__col">
-                            <a class="ons-cookies-banner__link" href="{{ params.settingsLinkURL }}">{{ params.settingsLinkText | default('Cookie settings') }}</a>
-                        </div>
-                    </div>
+                </div>
+            </div>
+            <div class="ons-grid ons-grid--flex ons-u-mt-s">
+                <div class="ons-grid__col">
+                    {% from "components/button/_macro.njk" import onsButton %}
+                    {{
+                            onsButton({
+                                "type": 'button',
+                                "attributes": {
+                                    "data-button": 'accept'
+                                },
+                                "text": params.acceptButtonText | default('Accept additional cookies'),
+                                "classes": 'ons-btn--small ons-js-accept-cookies ons-cookies-banner__btn'
+                            })
+                    }}
+                </div>
+                <div class="ons-grid__col">
+                    {{
+                            onsButton({
+                                "type": 'button',
+                                "attributes": {
+                                    "data-button": 'reject'
+                                },
+                                "text": params.rejectButtonText | default('Reject additional cookies'),
+                                "classes": 'ons-btn--small ons-js-reject-cookies ons-cookies-banner__btn'
+                            })
+                    }}
+                </div>
+                <div class="ons-grid__col">
+                    <a class="ons-cookies-banner__link" href="{{ params.settingsLinkURL }}">{{ params.settingsLinkText | default('Cookie settings') }}</a>
                 </div>
             </div>
         </div>
