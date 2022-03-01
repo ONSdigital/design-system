@@ -191,7 +191,7 @@
                                         </div>
                                     {% endset %}
                                 {% endif %}
-                                {% if pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "before" %}
+                                {% if pageConfig.asideCol is defined and pageConfig.asideCol and pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "before" %}
                                     {{ aside | safe }}
                                 {% endif %}
                                 <div class="ons-grid__col ons-col-{{ mainColNumber }}@m{{ mainColClasses }}">
@@ -199,7 +199,7 @@
                                         {% block main %}{% endblock %}
                                     </main>
                                 </div>
-                                {% if pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "after" %}
+                                {% if pageConfig.asideCol is defined and pageConfig.asideCol and pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "after" %}
                                     {{ aside | safe }}
                                 {% endif %}
                             </div>
