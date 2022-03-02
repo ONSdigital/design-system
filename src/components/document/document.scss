@@ -12,7 +12,7 @@
     & + & {
       border-top: 1px solid $color-borders-list;
       margin: 1.5rem 0 0;
-      padding: 1.5em 0 0;
+      padding: 1.5rem 0 0;
     }
   }
 
@@ -23,8 +23,11 @@
     width: 136px;
 
     @include mq(xs) {
-      margin-bottom: 0;
       margin-right: 1.5rem;
+    }
+
+    @include mq(m) {
+      margin-bottom: 0;
     }
   }
 
@@ -85,5 +88,50 @@
   &__item-description {
     margin-bottom: 0;
     max-width: 660px; // Equivalent to 8 Columns
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Featured documents
+.ons-document-list {
+  &__item {
+    &--featured {
+      background-color: $color-banner-bg;
+      padding: 2rem;
+
+      @include mq(m) {
+        .ons-container,
+        .ons-container--wide {
+          display: flex;
+        }
+      }
+
+      .ons-document-list__item-image {
+        height: 186px;
+        width: 284px;
+
+        @include mq(m) {
+          height: 248px;
+          margin-right: 2.5rem;
+          width: 379px;
+        }
+      }
+
+      & + .ons-document-list__item {
+        border-top: none;
+        margin-top: 0;
+      }
+
+      .ons-document-list__item-header {
+        &--reverse {
+          display: flex;
+          flex-direction: column-reverse;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
   }
 }
