@@ -9,7 +9,7 @@ synonyms: downloads, files, search result, article, publication,
 {% from "components/panel/_macro.njk" import onsPanel %}
 +++
 
-Displays a link to document an attachment and metadata about the file.
+Displays a title, metadata and optional thumbnail and description for document that can link to a downloadable file or a web page such as a news article or search result.
 
 {{
     onsPanel({
@@ -20,26 +20,33 @@ Displays a link to document an attachment and metadata about the file.
 ## Variants
 
 ### Downloads
+Use this variant when a user needs to download a file. You can also use it to help users [download resources](/patterns/download-resources).
 {{
     patternlibExample({"path": "components/document/examples/document-downloads/index.njk"})
 }}
 
 ### Search results
+{# TO DO: Link to new search page pattern #}
+Use this variant to build an index of search results.
 {{
     patternlibExample({"path": "components/document/examples/document-results/index.njk"})
 }}
 
-### Featured search result
+#### Featured search result
+{# TO DO: Link to new search page pattern #}
+A featured search result placed at the top of the search results list to add emphasis to a chosen item. The featured search result should only appear once on the first page of results.
 {{
     patternlibExample({"path": "components/document/examples/document-result-featured/index.njk"})
 }}
 
 ### News articles
+Use this variant to build an index of articles for a [news page](/patterns/news).
 {{
     patternlibExample({"path": "components/document/examples/document-articles/index.njk"})
 }}
 
-## Featured news article
+#### Featured news article
+A featured article placed at the top of the [news page](/patterns/news) to add emphasis to a chosen item. The featured article should only appear once on a page.
 {{
     patternlibExample({"path": "components/document/examples/document-article-featured/index.njk"})
 }}
