@@ -27,14 +27,14 @@ export default class TimeoutModal {
   startTimeout() {
     clearTimeout(this.showModalTimeout);
     if (this.initialExpiryTime) {
-      this.expiryTimeInMilliseconds = this.timeout.convertTimeToMilliSeconds(this.initialExpiryTime);
+      this.totalMilliseconds = this.timeout.expiryTimeInMilliseconds;
     } else {
       // For demo purposes
-      this.expiryTimeInMilliseconds = 60000;
+      this.totalMilliseconds = 60000;
     }
     this.showModalTimeout = setTimeout(
       this.openModalAndStartCountdown.bind(this),
-      this.expiryTimeInMilliseconds - this.modalVisibleInMilliseconds,
+      this.totalMilliseconds - this.modalVisibleInMilliseconds,
     );
   }
 

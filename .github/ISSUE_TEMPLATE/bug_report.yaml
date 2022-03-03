@@ -1,0 +1,99 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to fill out this bug report
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected-outcome
+    attributes:
+      label: What was the expected outcome?
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: How is this problem impacting your service?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: What list of steps can be followed to reproduce the bug or issue?
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: Add screenshot(s) or examples of the bug or issue
+      placeholder: Add a file, image or link
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: What version of the ONS Design System are you using?
+      placeholder: For example, 32.2.7
+    validations:
+      required: true
+  - type: checkboxes
+    id: device
+    attributes:
+      label: What devices are you seeing the problem on?
+      options:
+        - label: Desktop
+        - label: Mobile
+        - label: Tablet
+  - type: input
+    id: device-details
+    attributes:
+      label: Device details
+      description: Here you can provide further information about the device(s) that are affected by this bug or issue.
+    validations:
+      required: false
+  - type: checkboxes
+    id: operating-system
+    attributes:
+      label: What operating systems are you seeing the problem on?
+      options:
+        - label: Windows
+        - label: macOS
+        - label: Android
+        - label: iOS
+        - label: Other
+  - type: input
+    id: operating-system-details
+    attributes:
+      label: Operating system details
+      description: Here you can provide further information about the operating system(s) that are affected by this bug or issue.
+    validations:
+      required: false
+  - type: checkboxes
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      options:
+        - label: Firefox
+        - label: Chrome
+        - label: Safari
+        - label: Microsoft Edge
+        - label: Microsoft Internet Explorer
+        - label: Other
+  - type: input
+    id: browsers-details
+    attributes:
+      label: Browser details
+      description: Here you can provide further information about the browser(s) that are affected by this bug or issue.
+    validations:
+      required: false
