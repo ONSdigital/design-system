@@ -100,18 +100,21 @@
   &__item {
     &--featured {
       background-color: $color-banner-bg;
+      display: block;
       padding: 2rem;
 
       @include mq(m) {
-        .ons-container,
-        .ons-container--wide {
+        align-items: flex-start;
+        display: flex;
+
+        .ons-container {
           display: flex;
         }
       }
 
       .ons-document-list__item-image {
-        height: 186px;
-        width: 284px;
+        height: 162px;
+        width: 248px;
 
         @include mq(m) {
           height: 248px;
@@ -132,6 +135,10 @@
           margin-bottom: 0.5rem;
         }
       }
+    }
+
+    &--full-width {
+      padding: 2rem 0;
     }
   }
 }
