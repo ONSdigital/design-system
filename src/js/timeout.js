@@ -141,7 +141,10 @@ export default class Timeout {
     this.expiryTime = await this.getExpiryTime();
     this.clearTimers();
     clearInterval(this.shouldRestartCheck);
-    this.startUiCountdown();
+    if (this.countdownStarted) {
+      this.countdownStarted = false;
+      this.startUiCountdown();
+    }
   }
 
   async setNewExpiryTime() {
