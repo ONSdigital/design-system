@@ -2,14 +2,9 @@
 layout: none
 ---
 {% extends "layout/_template.njk" %}
-{% from "components/question/_macro.njk" import onsQuestion %}
-{% from "components/radios/_macro.njk" import onsRadios %}
-{% from "components/textarea/_macro.njk" import onsTextarea %}
-{% from "components/input/_macro.njk" import onsInput %}
-{% from "components/button/_macro.njk" import onsButton %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/lists/_macro.njk" import onsList %}
-{% from "components/articles/_macro.njk" import onsArticles %}
+{% from "components/document/_macro.njk" import onsDocument %}
+{% from "components/pagination/_macro.njk" import onsPagination %}
 {% from "components/related-content/_macro.njk" import onsRelatedContent %}
 
 {% set pageConfig = {
@@ -35,25 +30,32 @@ layout: none
 <div class="ons-grid">
     <div class="ons-grid__col ons-col-7@m">
         <h1 class="ons-u-fs-xxl">News</h1>
-        <p>The latest news, press releases and statements from the census media relations team.</p>
+        <p>The latest news, press releases and statements from the ONS media relations team.</p>
     </div>
 </div>
 
-{{ onsArticles({
-    "articles": [
+{{ onsDocument({
+    "documents": [
         {
             "featured": true,
+            "fullWidth": true,
+            "thumbnail": {
+                "smallSrc": '/img/small/census-monuments-lights-featured.jpg',
+                "largeSrc": '/img/large/census-monuments-lights-featured.jpg'
+            },
             "url": '#0',
-            "title": 'For the first time the ONS is using administrative data to count number of rooms',
-            "date": {
-                "short": '30 April 2021',
-                "iso": '2021-04-30'
+            "title": 'Landmarks turn purple to mark Census Day',
+            "metadata": {
+                "type": {
+                    "text": 'Press releases',
+                    "url": '#0'
+                },
+                "date": {
+                    "iso": '2021-03-24',
+                    "short": '24 March 2021'
+                }
             },
-            "category": {
-                "title": 'Press releases',
-                "url": '#0'
-            },
-            "excerpt": 'Earlier this year, we asked people who use census data what they thought of our plans for 2021 Census outputs.'
+            "description": 'Hundreds of buildings & landmarks across England and Wales are lighting up purple this weekend to celebrate the census and its importance to communities.'
         }
     ]
 }) }}
@@ -64,75 +66,214 @@ layout: none
 
         <div class="ons-u-mt-m ons-u-mb-m">
 
-            {{ onsArticles({
-                "articles": [
+            {{ onsDocument({
+                "documents": [
                     {
+                        "thumbnail": {
+                            "smallSrc": '/img/small/ons-award-winners.jpg',
+                            "largeSrc": '/img/large/ons-award-winners.jpg'
+                        },
                         "url": '#0',
-                        "title": 'Students urged to complete the census for their term-time accommodation now',
-                        "date": {
-                            "short": '30 April 2021',
-                            "iso": '2021-04-30'
+                        "title": 'Office for National Statistics win top Royal Statistical Society award',
+                        "metadata": {
+                            "type": {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            },
+                            "date": {
+                                "iso": '2021-07-15',
+                                "short": '15 July 2021'
+                            }
                         },
-                        "category": {
-                            "title": 'Press releases',
-                            "url": '#0'
-                        },
-                        "excerpt": 'There has been a great response to Census 2021, but it is important everyone is counted and that includes students.'
+                        "description": 'The Office for National Statistics’ (ONS) analysis showing that people from certain ethnicities had a higher risk of dying from COVID-19 has been recognised by the Royal Statistical Society (RSS) with the renowned Campion Award.'
                     },
                     {
+                        "thumbnail": {
+                            "smallSrc": '/img/small/alison-pritchard.jpg',
+                            "largeSrc": '/img/large/alison-pritchard.jpg'
+                        },
                         "url": '#0',
-                        "title": 'Census 2021 myth buster – 11 things you think you know about the census but you’re wrong',
-                        "date": {
-                            "short": '7 April 2021',
-                            "iso": '2021-04-07'
+                        "title": 'ONS launches Integrated Data Service to boost government collaboration on data sharing',
+                        "metadata": {
+                            "type": {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            },
+                            "date": {
+                                "iso": '2021-08-01',
+                                "short": '1 August 2021'
+                            }
                         },
-                        "category": {
-                            "title": 'Press releases',
-                            "url": '#0'
-                        },
-                        "excerpt": 'The Office for National Statistics dispels some common myths around Census 2021.'
+                        "description": 'The Office for National Statistics has today launched the first stage of the Integrated Data Service (IDS), a cloud-based platform giving analysts and researchers greater access to data from a range of sources.'
                     },
                     {
+                        "thumbnail": true,
                         "url": '#0',
-                        "title": 'Nine out of ten households have completed Census 2021',
-                        "date": {
-                            "short": '7 April 2021',
-                            "iso": '2021-04-07'
+                        "title": 'Five Office for National Statistics names in New Year’s Honours',
+                        "metadata": {
+                            "type": {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            },
+                            "date": {
+                                "iso": '2021-08-19',
+                                "short": '19 August 2021'
+                            }
                         },
-                        "category": {
-                            "title": 'Press releases',
-                            "url": '#0'
-                        },
-                        "excerpt": 'There has been a fantastic response to Census 2021. Nine out of ten households across England and Wales have completed their questionnaire – but everyone must take part.'
+                        "description": 'After another year in which data and statistics have dominated public debate, five Office for National Statistics (ONS) employees have been recognised for their contributions to statistics, public health and the census in the New Year’s Honours list.'
                     },
                     {
+                        "thumbnail": true,
                         "url": '#0',
-                        "title": 'Don’t be eggs-cluded - fill in your census this Easter',
-                        "date": {
-                            "short": '7 April 2021',
-                            "iso": '2021-04-01'
+                        "title": 'National Data Strategy – the ONS takes centre stage',
+                        "metadata": {
+                            "type": {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            },
+                            "date": {
+                                "iso": '2021-09-02',
+                                "short": '2 September 2021'
+                            }
                         },
-                        "category": {
-                            "title": 'Press releases',
-                            "url": '#0'
-                        },
-                        "excerpt": 'There has been a great response to Census 2021, but to make sure it is an Easter bunny and not a census field officer who visits this weekend, crack on and submit your questionnaire now.'
+                        "description": 'The Office for National Statistics (ONS) will take a central role in the new National Data Strategy (NDS) announced by the UK government on 9 September 2020.'
                     },
                     {
+                        "thumbnail": true,
                         "url": '#0',
-                        "title": 'There is still time to complete Census 2021',
-                        "date": {
-                            "short": '23 March 2021',
-                            "iso": '2021-03-23'
+                        "title": 'The ONS named among the UK’s best employers for working families',
+                        "metadata": {
+                            "type": {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            },
+                            "date": {
+                                "iso": '2021-09-08',
+                                "short": '8 September 2021'
+                            }
                         },
-                        "category": {
-                            "title": 'Press releases',
-                            "url": '#0'
-                        },
-                        "excerpt": 'Census Day was Sunday 21 March, but it is vital those who have not yet completed, do so as soon as possible.'
+                        "description": 'The Office for National Statistics (ONS) has been named as one of the top 30 employers for working families in 2020.'
                     }
                 ]
             }) }}
+
+        </div>
+        <div>
+
+            {{
+                onsPagination({
+                    "previous": "Previous",
+                    "next": "Next",
+                    "pages": [
+                        {
+                            "url": "#0",
+                            "current": true
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        },
+                        {
+                            "url": "#0"
+                        }
+                    ]
+                })
+            }}
 
         </div>
 
