@@ -19,8 +19,20 @@ Displays a title, metadata and optional thumbnail and description for document t
 
 ## Variants
 
-### Downloads
-Use this variant when a user needs to download a file. You can also use it to help users [download resources](/patterns/download-resources).
+### Downloadable documents
+Use this variant on a page when the user needs to download or view a small number of files, such as PDFs.
+
+When a large quantity of files are available to download, use the [download resources pattern](/patterns/download-resources).
+
++++
+{% call onsPanel({
+        "type": 'warn'
+    })
+%}
+    Always use HTML web pages to publish documents where possible. Any downloadable document must meet accessibility standards such as those described in the <a href="https://ons-design.notion.site/PDF-accessibility-guidance-2eb61f038dcd443093da181e7b99f421">brand guidance for PDFs</a>
+{% endcall %}
++++
+
 {{
     patternlibExample({"path": "components/document/examples/document-downloads/index.njk"})
 }}
@@ -34,7 +46,7 @@ Use this variant to build an index of search results.
 
 #### Featured search result
 {# TO DO: Link to new search page pattern #}
-A featured search result placed at the top of the search results list to add emphasis to a chosen item. The featured search result should only appear once on the first page of results.
+A featured search result to place at the top of the search results list to add emphasis to a chosen item. The featured search result should only appear once on the first page of results.
 {{
     patternlibExample({"path": "components/document/examples/document-result-featured/index.njk"})
 }}
@@ -46,22 +58,36 @@ Use this variant to build an index of articles for a [news page](/patterns/news)
 }}
 
 #### Featured news article
-A featured article placed at the top of the [news page](/patterns/news) to add emphasis to a chosen item. The featured article should only appear once on a page.
+A featured article to display across the full width of the top of the [news page](/patterns/news) to add emphasis to a chosen item. The featured article should only appear once on the first page of the news index.
 {{
     patternlibExample({"path": "components/document/examples/document-article-featured/index.njk"})
 }}
 
 ## How to use this component
-We use two versions of the image, one for standard screens and the other for retina screens.
 
-Image dimension for:
+### Thumbnail images and placeholders
+You need to set two versions of the image, one for standard screens and the other for retina screens.
 
-* standard screen is: `96px × 136px`
+Set a folder path for both small and large image sources using the `smallSrc` and `largeSrc` parameters.
+
+Thumbnail images are considered decorative because they do not convey important information, so are hidden from screen readers by using an empty `alt` tag.
+
+#### Downloadable documents thumbnail images
+Image dimensions for download document thumbnails:
+
+* standard screen is: `96px (width) × 136px (height)`
 * retina screen is: `192px × 272px`
 
-We specify a folder path for both small and large images, which is defined in the macro as `smallSrc` and `largeSrc`. The filename is expected to be the same for both.
+#### News article thumbnail images
+Image dimensions for news article thumbnails:
 
-The image used is considered decorative and does not convey important information, and as such should be hidden from screen readers. The image does not require an `alt` tag.
+* standard screen is: `136px x 96px`
+* retina screen is: `272px × 192px`
+
+Image dimensions for featured news article thumbnails:
+
+* standard screen is: `379px × 248px`
+* retina screen is: `758px × 496px`
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.
