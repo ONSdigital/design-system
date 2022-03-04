@@ -45,7 +45,7 @@ The example below shows a themed census version of the ONS base page template.
     patternlibExample({ "path": "foundations/layout/page-template/examples/census/index.njk" })
 }}
 
-## Changing template content
+### Changing template content
 
 The Nunjucks template allows 2 ways to change the content: {{
     onsExternalLink({
@@ -61,7 +61,7 @@ The Nunjucks template allows 2 ways to change the content: {{
 
 The main difference between a variable and a block is that blocks can contain markup.
 
-### Variables
+#### Variables
 
 Variables can be set with:
 
@@ -73,7 +73,7 @@ Variables can be set with:
 | pageConfig      | `PageConfig` [_(ref)_](#pageconfig) | true     | A object with configuration for the current page                                                                                      |
 | release_version | string                              | false    | What CDN version to use. This can also be configured from the `page` configuration object                                             |
 
-#### FormConfig
+##### FormConfig
 
 | Variable Name | Type   | Required | Description                                                                |
 | ------------- | ------ | -------- | -------------------------------------------------------------------------- |
@@ -81,7 +81,7 @@ Variables can be set with:
 | attributes    | object | false    | HTML attributes (for example, data attributes) to add to the button form    |
 | method        | string | false    | The method the form should you, if not specified it will default to `POST` |
 
-#### PageConfig
+##### PageConfig
 
 | Variable Name | Type                                                | Required                          | Description                                                                                                                                   |
 | ------------- | --------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -107,14 +107,14 @@ Variables can be set with:
 | absoluteUrl   | string                                              | true                              | Default URL for the preferred page for search engines to avoid duplicate content penalties. Used if if headMeta.canonicalUrl is not provided. |
 | wide          | boolean                                             | false                             | If sets to true passes sets the `wide` param on both the header and footer which will add css which will make the page use a wider style.     |
 
-#### CDN
+##### CDN
 
 | Variable Name | Type   | Required | Description           |
 | ------------- | ------ | -------- | --------------------- |
 | url           | string | false    | URL for the CDN       |
 | version       | string | false    | DS version on the CDN |
 
-#### PageHeader
+###### PageHeader
 
 | Variable Name    | Type   | Required                             | Description                                                                                |
 | ---------------- | ------ | ------------------------------------ | ------------------------------------------------------------------------------------------ |
@@ -129,7 +129,7 @@ Variables can be set with:
 | titleLogoHref    | string | false                                | Will wrap the title logo in a link to the specified URL                                    |
 | customHeaderLogo | string | false                                | Set to 'true' to make the masthead taller to accommodate a logo with a taller aspect ratio |
 
-#### HeadMeta
+###### HeadMeta
 
 | Variable Name | Type                              | Required                             | Description                                                                                                      |
 | ------------- | --------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
@@ -138,14 +138,14 @@ Variables can be set with:
 | twitterSite   | string                            | false                                | @username for the website used in the card, for example `@census2021`                                            |
 | hrefLangs     | `HrefLangs` [_(ref)_](#hreflangs) | false                                | Metadata for the language links to improve SEO                                            |
 
-#### HrefLangs
+##### HrefLangs
 
 | Variable Name | Type   | Required | Description           |
 | ------------- | ------ | -------- | --------------------- |
 | url           | string | false    | URL for the CDN       |
 | lang          | string | false    | DS version on the CDN |
 
-#### MainColumn
+##### MainColumn
 
 | Variable Name | Type   | Required | Description                                                             |
 | ------------- | ------ | -------- | ----------------------------------------------------------------------- |
@@ -153,7 +153,7 @@ Variables can be set with:
 | colClasses    | string | false    | CSS classes to be added to the main page grid column                    |
 | classes       | string | false    | CSS classes to be added to the `<main>` container                       |
 
-#### AsideColumn
+##### AsideColumn
 
 | Variable Name | Type   | Required | Description                                                                |
 | ------------- | ------ | -------- | -------------------------------------------------------------------------- |
@@ -161,7 +161,7 @@ Variables can be set with:
 | colClasses    | string | false    | CSS classes to be added to the page aside grid column                      |
 | classes       | string | false    | CSS classes to be added to the page`<aside>` container                     |
 
-#### PageFooter
+###### PageFooter
 
 | Variable Name        | Type                                                     | Required | Description                                                                                          |
 | -------------------- | -------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
@@ -176,7 +176,7 @@ Variables can be set with:
 | crest                | boolean                                                  | false    | If set to true will add the UK coat of arms to the footer                                            |
 | legal                | `Array<LegalRow>`                                        | false    | An array of LegalRow objects                                                                         |
 
-### Blocks
+#### Blocks
 
 Blocks can be set with:
 
@@ -213,7 +213,7 @@ To change the components that are included by default, set their equivalent bloc
 | bodyEnd    | Add content just before the closing `</body>` element                               |
 | scripts    | Add Javascript just before the closing `</body>` element                            |
 
-#### Exploded view of the base page template block areas
+##### Exploded view of the base page template block areas
 
 {{
     patternlibExample({
