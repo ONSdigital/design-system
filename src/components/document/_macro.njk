@@ -13,7 +13,7 @@
                     {% if document.thumbnail is defined or document.thumbnail == true %}
 
                         <div class="ons-document-list__item-image{%- if document.metadata.file is defined and document.metadata.file %} ons-document-list__item-image--file{% endif %}" aria-hidden="true">
-                            <a class="ons-document-list__image-link" href="{{ document.url }}" tabindex="-1">
+                            <a class="ons-document-list__image-link{{ ' ons-document-list__image-link--placeholder' if not document.thumbnail.smallSrc }}" href="{{ document.url }}" tabindex="-1">
                                 {% if document.thumbnail.smallSrc is defined and document.thumbnail.smallSrc and document.thumbnail.largeSrc is defined and document.thumbnail.largeSrc %}
                                     <img srcset="{{ document.thumbnail.smallSrc }} 1x, {{ document.thumbnail.largeSrc }} 2x" src="{{ document.thumbnail.smallSrc }}" alt="" loading="lazy">
                                 {% endif %}

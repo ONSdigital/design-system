@@ -1,5 +1,6 @@
 ---
 title: Document
+experimental: true
 synonyms: downloads, files, search result, article, publication,
 ---
 
@@ -9,7 +10,7 @@ synonyms: downloads, files, search result, article, publication,
 {% from "components/panel/_macro.njk" import onsPanel %}
 +++
 
-Displays a title, metadata and optional thumbnail and description for document that can link to a downloadable file or a web page such as a news article or search result.
+Displays a title, metadata, description and optional thumbnail image, to either download a document or link to an HTML page, such as a news article or search result.
 
 {{
     onsPanel({
@@ -20,7 +21,7 @@ Displays a title, metadata and optional thumbnail and description for document t
 ## Variants
 
 ### Downloadable documents
-Use this variant on a page when the user needs to download or view a small number of files, such as PDFs.
+Use this variant on a page when there are a small amount of files the user needs to download and print, such as posters and booklets.
 
 When a large quantity of files are available to download, use the [download resources pattern](/patterns/download-resources).
 
@@ -66,19 +67,25 @@ A featured article to display across the full width of the top of the [news page
 ## How to use this component
 
 ### Thumbnail images and placeholders
-You need to set two versions of the image, one for standard screens and the other for retina screens.
+You will need to set two versions of the thumbnail image, one for standard screens and one double-sized image for retina screens.
 
 Set a folder path for both small and large image sources using the `smallSrc` and `largeSrc` parameters.
 
 Thumbnail images are considered decorative because they do not convey important information, so are hidden from screen readers by using an empty `alt` tag.
 
+If a document does not have a suitable image to use, set `thumbnail: true` to display a placeholder thumbnail. This will make sure the link, metadata and description is aligned with the other documents in the list.
+
 #### Downloadable documents thumbnail images
+Always set a thumbnail image for a downloadable document, using the cover or first page of the file. Using a thumbnail helps set the users expectation of the file they download.
+
 Image dimensions for download document thumbnails:
 
 * standard screen is: `96px (width) × 136px (height)`
 * retina screen is: `192px × 272px`
 
 #### News article thumbnail images
+Only set thumbnails for news articles if most of the articles contain images that help describe the content. Use the same image for the thumbnail as the larger image in the article to reinforce the user’s selection.
+
 Image dimensions for news article thumbnails:
 
 * standard screen is: `136px x 96px`
