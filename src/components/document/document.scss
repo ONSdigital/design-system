@@ -4,17 +4,18 @@
   margin-bottom: 0;
 
   &__item {
-    margin: 0;
+    border-bottom: 1px solid $color-borders-list;
+    margin: 0 0 1.5rem;
+    padding: 0 0 1.5rem;
 
     @include mq(xs) {
       align-items: flex-start;
       display: flex;
     }
 
-    & + & {
-      border-top: 1px solid $color-borders-list;
-      margin: 1.5rem 0 0;
-      padding: 1.5rem 0 0;
+    &:last-of-type {
+      border-bottom: 0;
+      margin: 0;
     }
   }
 
