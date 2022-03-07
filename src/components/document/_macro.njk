@@ -1,12 +1,12 @@
 {% macro onsDocument(params) %}
-    <ul class="ons-document-list">
+    <ul{% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %} class="ons-document-list{{ ' ' + params.classes if params.classes is defined and params.classes else '' }}"{% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
         {% for document in (params.documents if params.documents is iterable else params.documents.items()) %}
 
-        <li class="ons-document-list__item{{ ' ons-document-list__item--featured' if document.featured is defined and document.featured }}{{ ' ons-document-list__item--full-width' if document.fullWidth is defined and document.fullWidth == true }}{{ ' ' + document.classes if document.classes else '' }}">
+        <li class="ons-document-list__item{{ ' ons-document-list__item--featured' if document.featured is defined and document.featured }}{{ ' ons-document-list__item--full-width' if document.fullWidth is defined and document.fullWidth == true }}{{ ' ' + document.classes if document.classes is defined and document.classes else '' }}"{% if document.attributes is defined and document.attributes %}{% for attribute, value in (document.attributes.items() if document.attributes is mapping and document.attributes.items else document.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
 
             {% if document.fullWidth is defined and document.fullWidth == true %}
 
-                <div class="ons-container ons-container--gutterless{{ ' ons-container--wide' if document.wide is defined and document.wide == true }}">
+                <div class="ons-container{{ ' ons-container--wide' if document.wide is defined and document.wide == true }}">
 
             {% endif %}
 
@@ -28,7 +28,7 @@
 
                             {% set titleTag = params.titleTag | default("h2") %}
 
-                            <{{ titleTag }} class="ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
+                            <{{ titleTag }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
                                 <a href="{{ document.url }}">{{ document.title }}
                                 {%- if document.metadata.file is defined and document.metadata.file %}
                                 <span class="ons-u-vh">,
@@ -53,7 +53,7 @@
                                     {%- if document.metadata.date is defined and document.metadata.date %}
                                         <li class="ons-document-list__item-attribute">
                                             {% if document.metadata.date -%}
-                                                {% set prefixClasses = "ons-u-fw-b" if document.metadata.date.showPrefix is defined and document.metadata.date.showPrefix == true else "ons-u-hidden" %}
+                                                {% set prefixClasses = "ons-u-fw-b" if document.metadata.date.showPrefix is defined and document.metadata.date.showPrefix == true else "ons-u-vh" %}
                                                 <span class="{{ prefixClasses }}">{{ document.metadata.date.prefix | default("Published") }}: </span>
                                             {%- endif -%}
                                             {% if document.metadata.date.iso is defined and document.metadata.date.iso -%}
@@ -101,7 +101,7 @@
 
                     </div>
 
-            {% if document.containerClasses is defined and document.containerClasses %}
+            {% if document.fullWidth is defined and document.fullWidth == true %}
 
                 </div>
 

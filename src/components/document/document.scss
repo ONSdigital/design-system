@@ -1,6 +1,8 @@
 .ons-document-list {
   @extend .ons-list--bare;
 
+  margin-bottom: 0;
+
   &__item {
     margin: 0;
 
@@ -18,7 +20,6 @@
 
   &__item-image {
     flex: 0 0 auto;
-    height: 96px;
     margin-bottom: 1rem;
     width: 136px;
 
@@ -31,14 +32,25 @@
     }
   }
 
+  &__item-image & {
+    &__image-link {
+      &--placeholder {
+        height: 96px;
+      }
+    }
+  }
+
   &__item-image--file {
-    height: 136px;
     width: 96px;
   }
 
   &__item-image--file & {
     &__image-link {
       border-color: $color-borders-document-image;
+
+      &--placeholder {
+        height: 136px;
+      }
     }
   }
 
@@ -98,7 +110,7 @@
   }
 }
 
-// Featured documents
+// Featured document
 .ons-document-list {
   &__item {
     &--featured {
@@ -115,22 +127,29 @@
         }
       }
 
+      // Increase thumbnail image size
       .ons-document-list__item-image {
-        height: 162px;
         width: 248px;
 
+        & &__image-link {
+          &--placeholder {
+            height: 96px;
+          }
+        }
+
         @include mq(m) {
-          height: 248px;
           margin-right: 2.5rem;
           width: 379px;
+
+          & &__image-link {
+            &--placeholder {
+              height: 248px;
+            }
+          }
         }
       }
 
-      & + .ons-document-list__item {
-        border-top: none;
-        margin-top: 0;
-      }
-
+      // Show metadata above title
       .ons-document-list__item-header {
         &--reverse {
           display: flex;
@@ -138,8 +157,20 @@
           margin-bottom: 0.5rem;
         }
       }
+
+      // Increase font size
+      .ons-document-list__item-title {
+        @extend .ons-u-fs-l;
+      }
+
+      // If featured item is first in same list
+      & + .ons-document-list__item {
+        border-top: none;
+        margin-top: 0;
+      }
     }
 
+    // If featured item is full width
     &--full-width {
       padding: 2rem 0;
     }
