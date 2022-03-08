@@ -116,6 +116,7 @@
   &__item {
     &--featured {
       background-color: $color-banner-bg;
+      border-bottom: none;
       display: block;
       padding: 2rem;
 
