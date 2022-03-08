@@ -1,6 +1,6 @@
 require('@babel/register');
 const request = require('request');
-const Services = {};
+const seleniumServer = require('selenium-server');
 
 const nightwatchConfig = {
   src_folders: ['./src/tests/spec'],
@@ -10,26 +10,13 @@ const nightwatchConfig = {
     default: {
       end_session_on_fail: false,
       disable_error_log: false,
-      launch_url: `http://localhost`,
-      selenium_port: 4444,
-      selenium_host: 'localhost',
-      silent: true,
       desiredCapabilities: {
-        'browserstack.user': process.env.BROWSERSTACK_USER,
-        'browserstack.key': process.env.BROWSERSTACK_KEY,
-        'browserstack.local': true,
-        browserName: process.env.BROWSER || 'chrome',
-        browser: process.env.BROWSER || 'Chrome',
-        chromeOptions: {},
+        browserName: 'chrome',
       },
 
       webdriver: {
         start_process: true,
-        port: 9515,
-        server_path: Services.chromedriver ? Services.chromedriver.path : '',
-        cli_args: [
-          // --verbose
-        ],
+        server_path: seleniumServer.path,
       },
 
       globals: {
@@ -69,61 +56,33 @@ const nightwatchConfig = {
         },
       },
     },
-
-    chrome: {
-      desiredCapabilities: {
-        browserName: 'chrome',
-        'goog:chromeOptions': {
-          // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
-          //
-          // This tells Chromedriver to run using the legacy JSONWire protocol (not required in Chrome 78)
-          w3c: false,
-          args: [
-            //'--no-sandbox',
-            //'--ignore-certificate-errors',
-            //'--allow-insecure-localhost',
-            //'--headless'
-          ],
-        },
-      },
-
-      webdriver: {
-        start_process: true,
-        port: 9515,
-        server_path: Services.chromedriver ? Services.chromedriver.path : '',
-        cli_args: [
-          // --verbose
-        ],
+    test_runner: {
+      type: 'mocha',
+      options: {
+        ui: 'bdd',
+        reporter: 'spec',
       },
     },
-
-    headless: {
+    'browserstack.local': {
+      extends: 'browserstack',
       desiredCapabilities: {
-        browserName: 'chrome',
-        chromeOptions: {
-          args: ['--headless', '--no-sandbox'],
+        'browserstack.local': true,
+      },
+    },
+    browserstack: {
+      selenium: {
+        host: 'hub-cloud.browserstack.com',
+        port: 443,
+      },
+      desiredCapabilities: {
+        'bstack:options': {
+          // sets BrowserStack's credentials via environment variables
+          userName: '${BROWSERSTACK_USER}',
+          accessKey: '${BROWSERSTACK_KEY}',
         },
       },
     },
   },
 };
-
-nightwatchConfig.test_runner = {
-  type: 'mocha',
-  options: {
-    ui: 'bdd',
-    reporter: 'spec',
-  },
-};
-
-nightwatchConfig.selenium = {
-  start_process: false,
-  host: 'hub-cloud.browserstack.com',
-  port: 80,
-};
-
-const defaultTestSettings = nightwatchConfig.test_settings.default;
-defaultTestSettings.selenium_host = nightwatchConfig.selenium.host;
-defaultTestSettings.selenium_port = nightwatchConfig.selenium.port;
 
 module.exports = nightwatchConfig;
