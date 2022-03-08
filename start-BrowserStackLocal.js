@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 if (process.argv[2]) {
-  process.kill(process.argv[2], 'SIGINT');
+  console.log('THIS');
+  process.kill(parseInt(process.argv[2]), 'SIGINT');
   process.exit(0);
 }
 
