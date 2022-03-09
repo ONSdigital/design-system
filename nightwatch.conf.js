@@ -1,5 +1,7 @@
 require('@babel/register');
+const APP_PORT = 3000;
 nightwatch_config = {
+  app_port: APP_PORT,
   src_folders: ['src/tests/spec'],
   live_output: true,
 
@@ -25,7 +27,9 @@ nightwatch_config = {
   },
 
   test_settings: {
-    default: {},
+    default: {
+      launch_url: `http://localhost:${APP_PORT}/`,
+    },
     chrome: {
       desiredCapabilities: {
         browser: 'chrome',
