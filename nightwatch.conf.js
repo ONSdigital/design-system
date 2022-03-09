@@ -1,88 +1,58 @@
 require('@babel/register');
-const request = require('request');
-const seleniumServer = require('selenium-server');
+nightwatch_config = {
+  src_folders: ['src/tests/spec'],
+  live_output: true,
 
-const nightwatchConfig = {
-  src_folders: ['./src/tests/spec'],
-  output_folder: './src/tests/reports',
+  selenium: {
+    start_process: false,
+    host: 'hub-cloud.browserstack.com',
+    port: 80,
+  },
+
+  common_capabilities: {
+    'browserstack.user': process.env.BROWSERSTACK_USER,
+    'browserstack.key': process.env.BROWSERSTACK_KEY,
+    'browserstack.debug': true,
+    'browserstack.local': true,
+  },
+
+  test_runner: {
+    type: 'mocha',
+    options: {
+      ui: 'bdd',
+      reporter: 'spec',
+    },
+  },
 
   test_settings: {
-    default: {
-      end_session_on_fail: false,
-      disable_error_log: false,
+    default: {},
+    chrome: {
       desiredCapabilities: {
-        browserName: 'chrome',
-      },
-
-      webdriver: {
-        start_process: true,
-        server_path: seleniumServer.path,
-      },
-
-      globals: {
-        waitForConditionTimeout: 15000,
-        afterEach(client, done) {
-          if (client.currentTest.results.failed > 0) {
-            request({
-              method: 'PUT',
-              uri: `https://api.browserstack.com/automate/sessions/${client.sessionId}.json`,
-              auth: {
-                user: process.env.BROWSERSTACK_USER,
-                pass: process.env.BROWSERSTACK_KEY,
-              },
-              form: {
-                status: 'error',
-                reason: '',
-              },
-            });
-            const cliOptions = process.argv.slice(2);
-            const envIndex = cliOptions.indexOf('--env');
-            const envName = cliOptions[envIndex + 1];
-
-            request({
-              method: 'PUT',
-              uri: `https://api.browserstack.com/automate/sessions/${client.sessionId}.json`,
-              auth: {
-                user: process.env.BROWSERSTACK_USER,
-                pass: process.env.BROWSERSTACK_KEY,
-              },
-              form: {
-                name: `${envName} env: ${client.currentTest.module}`,
-              },
-            });
-          }
-          done();
-          client.end();
-        },
+        browser: 'chrome',
       },
     },
-    test_runner: {
-      type: 'mocha',
-      options: {
-        ui: 'bdd',
-        reporter: 'spec',
+    firefox: {
+      desiredCapabilities: {
+        browser: 'firefox',
       },
     },
-    'browserstack.local': {
-      extends: 'browserstack',
+    safari: {
       desiredCapabilities: {
-        'browserstack.local': true,
-      },
-    },
-    browserstack: {
-      selenium: {
-        host: 'hub-cloud.browserstack.com',
-        port: 443,
-      },
-      desiredCapabilities: {
-        'bstack:options': {
-          // sets BrowserStack's credentials via environment variables
-          userName: '${BROWSERSTACK_USER}',
-          accessKey: '${BROWSERSTACK_KEY}',
-        },
+        browser: 'safari',
       },
     },
   },
 };
 
-module.exports = nightwatchConfig;
+// Code to support common capabilites
+for (let i in nightwatch_config.test_settings) {
+  let config = nightwatch_config.test_settings[i];
+  config['selenium_host'] = nightwatch_config.selenium.host;
+  config['selenium_port'] = nightwatch_config.selenium.port;
+  config['desiredCapabilities'] = config['desiredCapabilities'] || {};
+  for (let j in nightwatch_config.common_capabilities) {
+    config['desiredCapabilities'][j] = config['desiredCapabilities'][j] || nightwatch_config.common_capabilities[j];
+  }
+}
+
+module.exports = nightwatch_config;

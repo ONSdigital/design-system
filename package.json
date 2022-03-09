@@ -17,7 +17,7 @@
     "cdn-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/prepare-templates-for-zip.js",
     "test:local:old": "TEST_MODE=esm KARMA_SINGLE_RUN=false karma start ./karma.conf.babel-register.js",
     "test:old": "TEST_MODE=nomodule karma start ./karma.conf.babel-register.js && TEST_MODE=esm karma start ./karma.conf.babel-register.js && codecov",
-    "test:nightwatch": "node nightwatch.local.js --env browserstack.local",
+    "test:nightwatch": "node nightwatch.local.js",
     "test-visual": "yarn build && npx percy exec -- babel-node src/tests/visual/percy.snapshots.js",
     "tidy-clean": "rm -rf build css favicons fonts img components page-templates templates scripts coverage scss",
     "check-unused": "npx npm-check-unused",
