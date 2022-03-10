@@ -8,6 +8,9 @@ export default class TimeoutModal {
     this.initialExpiryTime = initialExpiryTime;
     this.continueButton = context.querySelector('.ons-js-modal-btn');
     this.modalVisibleInMilliseconds = context.getAttribute('data-show-modal-time') * 1000;
+    this.expiryTime = '';
+    this.expiryTimeInMilliseconds = 0;
+    this.shouldRestartCheck = false;
 
     // Create modal instance
     this.modal = new Modal(this.context);
@@ -27,30 +30,54 @@ export default class TimeoutModal {
   startTimeout() {
     clearTimeout(this.showModalTimeout);
     if (this.initialExpiryTime) {
-      this.totalMilliseconds = this.timeout.expiryTimeInMilliseconds;
+      this.expiryTime = this.timeout.expiryTime;
+      this.expiryTimeInMilliseconds = this.timeout.convertTimeToMilliSeconds(this.expiryTime);
     } else {
       // For demo purposes
-      this.totalMilliseconds = 60000;
+      this.expiryTimeInMilliseconds = 60000;
     }
     this.showModalTimeout = setTimeout(
       this.openModalAndStartCountdown.bind(this),
-      this.totalMilliseconds - this.modalVisibleInMilliseconds,
+      this.expiryTimeInMilliseconds - this.modalVisibleInMilliseconds,
     );
   }
 
   async openModalAndStartCountdown() {
-    const modalWillOpen = await this.timeout.hasExpiryTimeResetInAnotherTab();
+    const modalWillOpen = await this.hasExpiryTimeResetInAnotherTab();
+
     if (modalWillOpen && !this.modal.isDialogOpen()) {
       this.modal.openDialog();
       this.timeout.startUiCountdown();
+
+      this.shouldRestartCheck = setInterval(async () => {
+        await this.hasExpiryTimeResetInAnotherTab();
+      }, 20000);
     }
   }
 
-  closeModalAndRestartTimeout() {
+  async hasExpiryTimeResetInAnotherTab() {
+    const checkExpiryTime = await this.timeout.getExpiryTime();
+
+    if (checkExpiryTime.substring(0, 19) != this.expiryTime.substring(0, 19)) {
+      // Substring is required as endpoint can at random return milliseconds with expiry time
+      this.expiryTime = checkExpiryTime;
+      this.expiryTimeInMilliseconds = this.timeout.convertTimeToMilliSeconds(checkExpiryTime);
+      this.closeModalAndRestartTimeout(this.expiryTimeInMilliseconds);
+    } else {
+      return true;
+    }
+  }
+
+  async closeModalAndRestartTimeout(time) {
+    clearInterval(this.shouldRestartCheck);
+
+    if (typeof timeInMilliSeconds !== 'string') {
+      time = false;
+    }
     if (this.modal.isDialogOpen()) {
       this.modal.closeDialog();
     }
-    this.timeout.restartTimeout();
+    await this.timeout.restartTimeout(time);
     this.startTimeout();
   }
 

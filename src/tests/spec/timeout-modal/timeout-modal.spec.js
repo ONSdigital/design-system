@@ -42,7 +42,7 @@ describe('Component: Timeout modal', function() {
       this.timeout = new TimeoutModal(this.component, null, this.time);
       this.openModalSpy = chai.spy.on(this.timeout.modal, 'openDialog');
       this.startUiCountdownSpy = chai.spy.on(this.timeout.timeout, 'startUiCountdown');
-      this.hasExpiryTimeResetInAnotherTabSpy = chai.spy.on(this.timeout.timeout, 'hasExpiryTimeResetInAnotherTab');
+      this.hasExpiryTimeResetInAnotherTabSpy = chai.spy.on(this.timeout, 'hasExpiryTimeResetInAnotherTab');
       this.getExpiryTimeSpy = chai.spy.on(this.timeout.timeout, 'getExpiryTime');
     });
 
