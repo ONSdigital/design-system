@@ -78,7 +78,7 @@
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "chai-spies": "^1.0.0",
-    "codecov": "3.7.2",
+    "codecov": "^3.8.3",
     "core-js": "^3.21.1",
     "cssnano": "^4.1.11",
     "dialog-polyfill": "^0.5.6",
