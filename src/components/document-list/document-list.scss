@@ -83,7 +83,7 @@
   &__item-metadata {
     @extend .ons-list--bare;
 
-    line-height: 1rem;
+    line-height: 1.2 !important;
   }
 
   &__item-attribute {
