@@ -1,4 +1,4 @@
-{% macro onsDocument(params) %}
+{% macro onsDocumentList(params) %}
     <ul{% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %} class="ons-document-list{{ ' ' + params.classes if params.classes is defined and params.classes else '' }}"{% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
         {% for document in (params.documents if params.documents is iterable else params.documents.items()) %}
 

@@ -1,5 +1,5 @@
 ---
-title: Document
+title: Document list
 experimental: true
 synonyms: downloads, files, search result, article, publication,
 ---
@@ -10,7 +10,7 @@ synonyms: downloads, files, search result, article, publication,
 {% from "components/panel/_macro.njk" import onsPanel %}
 +++
 
-Displays a title, metadata, description and optional thumbnail image, to either download a document or link to an HTML page, such as a news article or search result.
+Creates a list of document items, each with a title, metadata, description and optional thumbnail image. Each document item link can either download a document or link to an HTML page, such as a news article or search result.
 
 {{
     onsPanel({
@@ -47,19 +47,19 @@ Use this variant to build an index of search results.
 
 #### Featured search result
 {# TO DO: Link to new search page pattern #}
-A featured search result to place at the top of the search results list to add emphasis to a chosen item. The featured search result should only appear once on the first page of results.
+A featured search result to place at the top of the search results list to add emphasis to one chosen item. The featured search result should only appear once on the first page of results.
 {{
     patternlibExample({"path": "components/document/examples/document-result-featured/index.njk"})
 }}
 
 ### News articles
-Use this variant to build an index of articles for a [news page](/patterns/news).
+Use this variant to build an list of articles for an index in the [news pattern](/patterns/news).
 {{
     patternlibExample({"path": "components/document/examples/document-articles/index.njk"})
 }}
 
 #### Featured news article
-A featured article to display across the full width of the top of the [news page](/patterns/news) to add emphasis to a chosen item. The featured article should only appear once on the first page of the news index.
+A featured article to display across the full width of the top of the [news index](/patterns/news#news-index) to add emphasis to one chosen item. The featured article should only appear once on the first page of the news index.
 {{
     patternlibExample({"path": "components/document/examples/document-article-featured/index.njk"})
 }}
@@ -75,10 +75,10 @@ Thumbnail images are considered decorative because they do not convey important 
 
 If a document does not have a suitable image to use, set `thumbnail: true` to display a placeholder thumbnail. This will make sure the link, metadata and description is aligned with the other documents in the list.
 
-#### Downloadable documents thumbnail images
+#### Downloadable document thumbnail images
 Always set a thumbnail image for a downloadable document, using the cover or first page of the file. Using a thumbnail helps set the users expectation of the file they download.
 
-Image dimensions for download document thumbnails:
+Image dimensions for downloadable document thumbnails:
 
 * standard screen is: `96px (width) × 136px (height)`
 * retina screen is: `192px × 272px`
@@ -101,6 +101,6 @@ Let us know how we could improve this component or share your user research find
 {{
     onsExternalLink({
         "url": "https://github.com/ONSdigital/design-system/discussions/716",
-        "linkText": "Discuss the ‘Document’ component on GitHub"
+        "linkText": "Discuss the ‘Document list’ component on GitHub"
     })
 }}

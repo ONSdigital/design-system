@@ -2,7 +2,7 @@
 layout: none
 ---
 {% extends "layout/_template.njk" %}
-{% from "components/document/_macro.njk" import onsDocument %}
+{% from "components/document/_macro.njk" import onsDocumentList %}
 {% from "components/pagination/_macro.njk" import onsPagination %}
 {% from "components/related-content/_macro.njk" import onsRelatedContent %}
 
@@ -42,7 +42,7 @@ layout: none
 
         <div class="ons-u-mt-m ons-u-mb-m">
 
-            {{ onsDocument({
+            {{ onsDocumentList({
                 "documents": [
                     {
                         "thumbnail": {

@@ -5,7 +5,7 @@ layout: none
 
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
-{% from "components/document/_macro.njk" import onsDocument %}
+{% from "components/document/_macro.njk" import onsDocumentList %}
 
 {% set pageConfig = {
     "title": "Service name",
@@ -282,7 +282,7 @@ layout: none
                     </div>
                 </div>
 
-                {{ onsDocument({
+                {{ onsDocumentList({
                     "id": 'adv-filter-gallery',
                     "classes": 'ons-adv-filter__gallery ons-js-adv-filter__gallery',
                     "attributes": {
