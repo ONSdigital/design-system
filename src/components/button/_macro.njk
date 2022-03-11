@@ -65,7 +65,7 @@
                         })
                     }}
                 {% endif -%}
-                {{- params.html | safe if params.html is defined and params.html else params.text -}}
+                <span class="ons-btn__text">{{- params.html | safe if params.html is defined and params.html else params.text -}}</span>
                 {%- if iconPosition == "after" %}
                 {{
                     onsIcon({
@@ -80,9 +80,9 @@
                         "iconType": iconType
                     })
                 }}
-                <span class="ons-u-vh@xxs@s">{{- params.html | safe if params.html is defined and params.html else params.text -}}</span>
+                <span class="ons-btn__text ons-u-vh@xxs@s">{{- params.html | safe if params.html is defined and params.html else params.text -}}</span>
             {% else -%}
-                {{- params.html | safe if params.html is defined and params.html else params.text -}}
+                <span class="ons-btn__text">{{- params.html | safe if params.html is defined and params.html else params.text -}}</span>
             {% endif -%}
         </span>
         {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}
