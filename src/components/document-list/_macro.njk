@@ -30,7 +30,7 @@
 
                             <{{ titleTag }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
                                 <a href="{{ document.url }}">{{ document.title }}
-                                {%- if document.metadata.file is defined and document.metadata.file %}
+                                {%- if document.metadata is defined and document.metadata and document.metadata.file is defined and document.metadata.file %}
                                 <span class="ons-u-vh">,
 
                                     {% set fileMetadataItems = [] %}
