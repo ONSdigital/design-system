@@ -81,15 +81,15 @@ describe('Component: Timeout modal', function() {
     beforeEach(function(done) {
       this.time = new Date(Date.now() + 7 * 1000);
       this.timeoutModal = new TimeoutModal(this.component, null, this.time);
+      this.timeoutModal.modal.openDialog();
       this.closeModalSpy = chai.spy.on(this.timeoutModal, 'closeModalAndRestartTimeout');
       this.restartTimeoutSpy = chai.spy.on(this.timeoutModal.timeout, 'restartTimeout');
-      this.startTimeoutSpy = chai.spy.on(this.timeoutModal, 'startTimeout');
 
       setTimeout(() => {
         this.mockedEvent = eventMock({ keyCode: 27 });
         this.timeoutModal.escToClose(this.mockedEvent);
         done();
-      }, 3000);
+      }, 1000);
     });
 
     it('then the modal should close', function() {
@@ -98,7 +98,6 @@ describe('Component: Timeout modal', function() {
 
     it('then the timer should restart', function() {
       expect(this.restartTimeoutSpy).to.have.been.called();
-      expect(this.startTimeoutSpy).to.have.been.called();
     });
   });
 
@@ -106,8 +105,8 @@ describe('Component: Timeout modal', function() {
     beforeEach(function(done) {
       this.time = new Date(Date.now() + 7 * 1000);
       this.timeoutModal = new TimeoutModal(this.component, null, this.time);
+      this.timeoutModal.modal.openDialog();
       this.restartTimeoutSpy = chai.spy.on(this.timeoutModal.timeout, 'restartTimeout');
-      this.startTimeoutSpy = chai.spy.on(this.timeoutModal, 'startTimeout');
 
       setTimeout(() => {
         const continueButton = this.component.querySelector('.ons-js-modal-btn');
@@ -118,7 +117,6 @@ describe('Component: Timeout modal', function() {
 
     it('then the timer should restart', function() {
       expect(this.restartTimeoutSpy).to.have.been.called();
-      expect(this.startTimeoutSpy).to.have.been.called();
     });
   });
 
