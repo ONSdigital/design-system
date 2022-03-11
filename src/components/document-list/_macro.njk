@@ -62,7 +62,7 @@
                                         </li>
                                     {% endif %}
 
-                                    {%- if document.metadata.type.text is defined and document.metadata.type.text %}
+                                    {%- if document.metadata.type is defined and document.metadata.type and document.metadata.type.text is defined and document.metadata.type.text %}
                                         <li class="ons-document-list__item-attribute{%- if document.metadata.file is defined and document.metadata.file %} ons-u-mr-no{% endif %}">
                                             {%- if document.metadata.type.url is defined and document.metadata.type.url %}
                                                 <a class="ons-document-list__attribute-link" href="{{ document.metadata.type.url }}">
