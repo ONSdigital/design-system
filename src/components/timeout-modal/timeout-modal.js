@@ -44,7 +44,7 @@ export default class TimeoutModal {
 
   async openModalAndStartCountdown() {
     const modalWillOpen = await this.hasExpiryTimeResetInAnotherTab();
-
+    console.log(modalWillOpen);
     if (modalWillOpen && !this.modal.isDialogOpen()) {
       this.modal.openDialog();
       this.timeout.startUiCountdown();
@@ -57,8 +57,8 @@ export default class TimeoutModal {
 
   async hasExpiryTimeResetInAnotherTab() {
     const checkExpiryTime = await this.timeout.getExpiryTime();
-
-    if (checkExpiryTime.substring(0, 19) != this.expiryTime.substring(0, 19)) {
+    console.log(checkExpiryTime.substring(0, 19));
+    if (checkExpiryTime.substring(0, 19) != this.timeout.expiryTime.substring(0, 19)) {
       // Substring is required as endpoint can at random return milliseconds with expiry time
       this.expiryTime = checkExpiryTime;
       this.expiryTimeInMilliseconds = this.timeout.convertTimeToMilliSeconds(checkExpiryTime);
