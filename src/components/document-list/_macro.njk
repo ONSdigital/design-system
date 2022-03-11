@@ -77,7 +77,7 @@
                                         </li>
                                     {% endif %}
 
-                                    {%- if document.metadata.file.fileType is defined and document.metadata.file.fileType %}
+                                    {%- if document.metadata.file is defined and document.metadata.file and document.metadata.file.fileType is defined and document.metadata.file.fileType %}
 
                                         <li class="ons-document-list__item-attribute" aria-hidden="true">
                                             {% set fileMetadataItems = [] %}
