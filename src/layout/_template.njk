@@ -22,7 +22,7 @@
     {# Production #}
     {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.url is defined and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
     {% set slash = "" if cdn_url | last == "/" else "/" %}
-    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version  if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.version is defined and pageConfig.cdn.version) or release_version) %}
+    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.version is defined and pageConfig.cdn.version) or release_version) %}
 {% elif pageInfo is defined and pageInfo and pageInfo.version is defined and pageInfo.version %}
     {# Prototype kits #}
     {% set assetsURL = "/" + pageInfo.version %}
