@@ -30,14 +30,15 @@ export function renderComponent(componentName, params = {}, children = null) {
 export async function setTestPage(path, template) {
   await page.goto(`http://localhost:${process.env.TEST_PORT}${path}`);
 
-  await page.setContent(
-    renderTemplate(`
+  const compositedTemplate = `
     {% extends 'layout/_template.njk' %}
 
     {% block body %}
       ${template}
     {% endblock %}
-  `),
-    { waitUntil: 'domcontentloaded' },
-  );
+  `;
+
+  const html = renderTemplate(compositedTemplate);
+
+  await page.setContent(html, { waitUntil: 'domcontentloaded' });
 }
