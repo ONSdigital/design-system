@@ -1,31 +1,43 @@
-import * as cheerio from 'cheerio';
-
 import createNunjucksEnvironment from '../../../lib/rendering/create-nunjucks-environment';
 
 const nunjucksEnvironment = createNunjucksEnvironment();
 
-export function getComponentMacroName(componentName) {
+export function getMacroName(componentName) {
   return 'ons' + componentName.replace(/(^|-)([a-z])/g, (_1, _2, char) => char.toUpperCase());
 }
 
-export function render(template) {
-  const html = nunjucksEnvironment.renderString(template);
-  return cheerio.load(html);
+export function renderTemplate(template) {
+  return nunjucksEnvironment.renderString(template);
 }
 
 export function renderComponent(componentName, params = {}, children = null) {
-  const macroName = getComponentMacroName(componentName);
+  const macroName = getMacroName(componentName);
   if (!!children) {
-    return render(`
+    return renderTemplate(`
       {% from "components/${componentName}/_macro.njk" import ${macroName} %}
       {%- call ${macroName}(${JSON.stringify(params, null, 2)}) -%}
-        ${children}
+        ${Array.isArray(children) ? children.join('') : children}
       {%- endcall -%}
     `);
   } else {
-    return render(`
+    return renderTemplate(`
       {% from "components/${componentName}/_macro.njk" import ${macroName} %}
       {{- ${macroName}(${JSON.stringify(params, null, 2)}) -}}
     `);
   }
+}
+
+export async function setTestPage(path, template) {
+  await page.goto(`http://localhost:${process.env.TEST_PORT}${path}`);
+
+  await page.setContent(
+    renderTemplate(`
+    {% extends 'layout/_template.njk' %}
+
+    {% block body %}
+      ${template}
+    {% endblock %}
+  `),
+    { waitUntil: 'domcontentloaded' },
+  );
 }
