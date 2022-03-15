@@ -1,9 +1,18 @@
 import createNunjucksEnvironment from '../../../lib/rendering/create-nunjucks-environment';
+import componentConfig from '../../../config/components.json';
 
 const nunjucksEnvironment = createNunjucksEnvironment();
 
+export function getComponentInfo(componentName) {
+  const info = componentConfig[componentName] ?? {};
+  if (!info.macroName) {
+    info.macroName = 'ons' + componentName.replace(/(^|-)([a-z])/g, (_1, _2, char) => char.toUpperCase());
+  }
+  return info;
+}
+
 export function getMacroName(componentName) {
-  return 'ons' + componentName.replace(/(^|-)([a-z])/g, (_1, _2, char) => char.toUpperCase());
+  return getComponentInfo(componentName).macroName;
 }
 
 export function renderTemplate(template) {
