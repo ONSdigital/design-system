@@ -52,11 +52,15 @@
                                 </div>
                             {% endif %}
                             {% if params.serviceLinks is defined and params.serviceLinks %}
-                                <div class="ons-grid__col ons-col-auto ons-u-d-no@xxs@m">
-                                    <nav class="ons-header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
+                                <div class="ons-grid__col ons-col-auto">
+                                    <nav class="ons-header-service-nav ons-js-services-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
                                         <ul class="ons-header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel | default("Service Links") }}">
-                                            {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}
-                                                <li class="ons-header-service-nav__item">
+                                            {% set showOnMobileCount = 0 %}
+                                            {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
+                                                {% if item.showOnMobile is defined and item.showOnMobile == true %}
+                                                    {% set showOnMobileCount = showOnMobileCount + 1 %}
+                                                {% endif %}
+                                                <li class="ons-header-service-nav__item{{ ' ons-u-d-no@xxs@s' if (item.showOnMobile is defined and item.showOnMobile != true) or (item.showOnMobile is not defined and loop.index > 2) or (item.showOnMobile is defined and showOnMobileCount > 2 and loop.index > 2) else '' }}">
                                                     <a
                                                         href="{{ item.url }}"
                                                         class="ons-header-service-nav__link"

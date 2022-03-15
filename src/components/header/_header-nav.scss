@@ -78,7 +78,13 @@
 
   &__item {
     display: inline-block;
-    margin: 0 0 0 1rem;
+    font-size: 0.8rem;
+    margin: 0 0 0 0.3rem;
+
+    @include mq(s) {
+      font-size: 1rem;
+      margin: 0 0 0 1rem;
+    }
 
     &:first-child {
       margin-left: 0;
