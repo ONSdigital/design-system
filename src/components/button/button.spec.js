@@ -112,8 +112,8 @@ describe('script: button', () => {
 
       await page.click('#test-button');
 
-      const isButtonDisabled = await page.evaluate(() => document.querySelector('#test-button').getAttribute('disabled'));
-      expect(isButtonDisabled).toBe('true');
+      const isButtonDisabled = (await page.$('#test-button[disabled]')) !== null;
+      expect(isButtonDisabled).toBe(true);
     });
 
     it('initialised without loading style applied when in a form', async () => {
