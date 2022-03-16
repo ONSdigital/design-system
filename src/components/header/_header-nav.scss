@@ -70,6 +70,14 @@
 }
 
 .ons-header-service-nav {
+  display: inline-block;
+
+  &--mobile {
+    background: $color-branded-tint;
+    padding: 1rem;
+    width: 100%;
+  }
+
   &__list {
     list-style: none;
     margin: 0;
@@ -78,16 +86,23 @@
 
   &__item {
     display: inline-block;
-    font-size: 0.8rem;
-    margin: 0 0 0 0.3rem;
-
-    @include mq(s) {
-      font-size: 1rem;
-      margin: 0 0 0 1rem;
+    margin: 0 0 0 1rem;
+    &--mobile {
+      display: block;
+      margin: 0 0 0.5rem;
     }
-
     &:first-child {
       margin-left: 0;
+    }
+  }
+
+  .ons-language-links {
+    border-top: 1px solid $color-branded;
+    margin: 1.5rem 0 0;
+    padding: 1rem 0 0;
+
+    &__item {
+      margin: 0 0 0.5rem;
     }
   }
 }

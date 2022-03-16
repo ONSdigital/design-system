@@ -56,7 +56,11 @@ export default class NavToggle {
     } else if (hasAria) {
       this.toggle.removeAttribute(attrExpanded);
       this.nav.removeAttribute(attrHidden);
-      this.nav.classList.remove(this.hideClass);
+      if (this.hideClass !== 'ons-u-d-no') {
+        this.nav.classList.remove(this.hideClass);
+      } else {
+        this.closeNav();
+      }
     }
   }
 }

@@ -46,21 +46,17 @@
                     {% if params.language is defined and params.language or params.serviceLinks is defined and params.serviceLinks %}
                         <div class="ons-header__links ons-grid__col ons-col-auto">
                             {% if params.language is defined and params.language %}
-                                <div class="ons-grid__col ons-col-auto">
+                                <div class="ons-grid__col ons-col-auto {{ ' ons-u-mr-s ons-u-d-no@xxs@xs' if params.serviceLinks is defined and params.serviceLinks else '' }}">
                                     {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                                     {{ onsLanguageSelector(params.language) }}
                                 </div>
                             {% endif %}
                             {% if params.serviceLinks is defined and params.serviceLinks %}
-                                <div class="ons-grid__col ons-col-auto">
-                                    <nav class="ons-header-service-nav ons-js-services-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
+                                <div class="ons-grid__col ons-col-auto ons-u-d-no@xxs@m">
+                                    <nav class="ons-header-service-nav ons{{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
                                         <ul class="ons-header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel | default("Service Links") }}">
-                                            {% set showOnMobileCount = 0 %}
                                             {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
-                                                {% if item.showOnMobile is defined and item.showOnMobile == true %}
-                                                    {% set showOnMobileCount = showOnMobileCount + 1 %}
-                                                {% endif %}
-                                                <li class="ons-header-service-nav__item{{ ' ons-u-d-no@xxs@s' if (item.showOnMobile is defined and item.showOnMobile != true) or (item.showOnMobile is not defined and loop.index > 2) or (item.showOnMobile is defined and showOnMobileCount > 2 and loop.index > 2) else '' }}">
+                                                <li class="ons-header-service-nav__item">
                                                     <a
                                                         href="{{ item.url }}"
                                                         class="ons-header-service-nav__link"
@@ -71,11 +67,47 @@
                                         </ul>
                                     </nav>
                                 </div>
+                                <div class="ons-grid__col ons-col-auto ons-u-d-no@m">
+                                    {{ onsButton({
+                                        "text": params.toggleServicesButton.text | default("Menu") ,
+                                        "classes": "ons-u-d-no ons-js-toggle-services",
+                                        "buttonStyle": "mobile",
+                                        "variants": "text-link",
+                                        "attributes": {
+                                            "aria-label": params.toggleServicesButton.ariaLabel | default("Toggle services menu") ,
+                                            "aria-controls": params.serviceLinks.id,
+                                            "aria-haspopup": "true",
+                                            "aria-expanded": "false"
+                                        }
+                                    }) }}
+                                </div>
                             {% endif %}
                         </div>
                     {% endif %}
                 </div>
             </div>
+            {% if params.serviceLinks is defined and params.serviceLinks %}
+                    <nav class="ons-header-service-nav ons-header-service-nav--mobile ons-u-d-no ons-js-services-mobile-nav" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
+                        <ul class="ons-header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel | default("Service Links") }}">
+                            {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
+                                <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
+                                    <a
+                                        href="{{ item.url }}"
+                                        class="ons-header-service-nav__link"
+                                        {% if item.id is defined and item.id %} id="{{ item.id }}"{% endif %}
+                                    >{{ item.title }}</a>
+                                </li>
+                            {% endfor %}
+                            {% if params.language is defined and params.language %}
+                                <div class="ons-u-d-no@xs">
+                                    {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                                    {{ onsLanguageSelector(params.language) }}
+                                </div>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            {% endif %}
         </div>
         <div class="ons-header__main{% if params.desc is defined and params.desc %} ons-header__main--with-description{% endif %}">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">

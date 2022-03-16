@@ -157,13 +157,13 @@
   }
 
   .ons-header__logo--large {
-    @include mq(xxs, 399px) {
+    @include mq(xxs, 454px) {
       display: none;
     }
   }
 
   .ons-header__logo--small {
-    @include mq(400px) {
+    @include mq(455px) {
       display: none;
     }
   }
