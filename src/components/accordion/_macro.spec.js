@@ -1,8 +1,11 @@
+/** @jest-environment jsdom */
+
 import * as cheerio from 'cheerio';
 
+import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-const MINIMAL_ACCORDION_WITH_TWO_ITEMS = {
+const EXAMPLE_ACCORDION_WITH_TWO_ITEMS = {
   id: 'accordion-identifier',
   itemsList: [
     {
@@ -16,9 +19,24 @@ const MINIMAL_ACCORDION_WITH_TWO_ITEMS = {
   ],
 };
 
+const EXAMPLE_ACCORDION = {
+  ...EXAMPLE_ACCORDION_WITH_TWO_ITEMS,
+  allButton: {
+    open: 'Open label',
+    close: 'Close label',
+  },
+};
+
 describe('macro: accordion', () => {
+  it('passes jest-axe checks', async () => {
+    const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION));
+
+    const results = await axe($.html());
+    expect(results).toHaveNoViolations();
+  });
+
   it('has the provided `id` attribute', () => {
-    const $ = cheerio.load(renderComponent('accordion', MINIMAL_ACCORDION_WITH_TWO_ITEMS));
+    const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION_WITH_TWO_ITEMS));
 
     expect($('.ons-accordion').attr('id')).toBe('accordion-identifier');
   });
@@ -26,7 +44,7 @@ describe('macro: accordion', () => {
   it('has additionally provided style classes', () => {
     const $ = cheerio.load(
       renderComponent('accordion', {
-        ...MINIMAL_ACCORDION_WITH_TWO_ITEMS,
+        ...EXAMPLE_ACCORDION_WITH_TWO_ITEMS,
         classes: 'extra-class another-extra-class',
       }),
     );
@@ -39,7 +57,7 @@ describe('macro: accordion', () => {
     it('has provided variant style classes', () => {
       const $ = cheerio.load(
         renderComponent('accordion', {
-          ...MINIMAL_ACCORDION_WITH_TWO_ITEMS,
+          ...EXAMPLE_ACCORDION_WITH_TWO_ITEMS,
           variants: ['variant-a', 'variant-b'],
         }),
       );
@@ -49,7 +67,7 @@ describe('macro: accordion', () => {
     });
 
     it('has provided title text', () => {
-      const $ = cheerio.load(renderComponent('accordion', MINIMAL_ACCORDION_WITH_TWO_ITEMS));
+      const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION_WITH_TWO_ITEMS));
 
       const titleText = $('.ons-collapsible__title')
         .first()
@@ -76,7 +94,7 @@ describe('macro: accordion', () => {
     });
 
     it('has provided content text', () => {
-      const $ = cheerio.load(renderComponent('accordion', MINIMAL_ACCORDION_WITH_TWO_ITEMS));
+      const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION_WITH_TWO_ITEMS));
 
       const titleText = $('.ons-collapsible__content')
         .first()
@@ -173,7 +191,7 @@ describe('macro: accordion', () => {
     it('outputs a button with the expected class', () => {
       const $ = cheerio.load(
         renderComponent('accordion', {
-          ...MINIMAL_ACCORDION_WITH_TWO_ITEMS,
+          ...EXAMPLE_ACCORDION_WITH_TWO_ITEMS,
           allButton: {
             open: 'Open label',
             close: 'Close label',
@@ -187,7 +205,7 @@ describe('macro: accordion', () => {
     it('has additionally provided `attributes`', () => {
       const $ = cheerio.load(
         renderComponent('accordion', {
-          ...MINIMAL_ACCORDION_WITH_TWO_ITEMS,
+          ...EXAMPLE_ACCORDION_WITH_TWO_ITEMS,
           allButton: {
             open: 'Open label',
             close: 'Close label',

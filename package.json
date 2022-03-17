@@ -104,6 +104,7 @@
     "husky": "^1.2.0",
     "iframe-resizer": "4.2.11",
     "jest": "^27.5.1",
+    "jest-axe": "^6.0.0",
     "jest-puppeteer": "^6.1.0",
     "js-beautify": "^1.11.0",
     "lighthouse": "^7.5.0",

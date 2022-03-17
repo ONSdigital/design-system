@@ -1,8 +1,26 @@
+/** @jest-environment jsdom */
+
 import * as cheerio from 'cheerio';
 
+import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
 describe('macro: access-code', () => {
+  it('passes jest-axe checks', async () => {
+    const $ = cheerio.load(
+      renderComponent('access-code', {
+        id: 'example-access-code',
+        label: {
+          text: 'Enter your 16-character access code',
+          description: 'Keep this code safe. You will need to enter it every time you access your study',
+        },
+      }),
+    );
+
+    const results = await axe($.html());
+    expect(results).toHaveNoViolations();
+  });
+
   it('has the provided `id` attribute', () => {
     const $ = cheerio.load(
       renderComponent('access-code', {
