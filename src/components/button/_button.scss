@@ -228,6 +228,15 @@ $button-shadow-size: 3px;
     }
   }
 
+  &--text-link-inverse & {
+    &__inner {
+      color: $color-white;
+      .ons-svg-icon {
+        fill: $color-white;
+      }
+    }
+  }
+
   &--text-link:hover &,
   &--text-link:active &,
   &--text-link.active & {
@@ -236,6 +245,17 @@ $button-shadow-size: 3px;
       color: $color-text-link-hover;
       .ons-svg-icon {
         fill: $color-text-link-hover;
+      }
+    }
+  }
+
+  &--text-link-inverse:hover &,
+  &--text-link-inverse:active &,
+  &--text-link-inverse.active & {
+    &__inner {
+      color: $color-branded-tint;
+      .ons-svg-icon {
+        fill: $color-branded-tint;
       }
     }
   }
