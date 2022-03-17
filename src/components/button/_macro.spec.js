@@ -1,5 +1,8 @@
+/** @jest-environment jsdom */
+
 import * as cheerio from 'cheerio';
 
+import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
 describe('macro: button', () => {
@@ -170,6 +173,19 @@ describe('macro: button', () => {
   });
 
   describe('mode: standard', () => {
+    it('passes jest-axe checks', async () => {
+      const $ = cheerio.load(
+        renderComponent('button', {
+          text: 'Example button',
+          name: 'example',
+          value: 'example-value',
+        }),
+      );
+
+      const results = await axe($.html());
+      expect(results).toHaveNoViolations();
+    });
+
     it('is an `button` element', () => {
       const $ = cheerio.load(renderComponent('button'));
 
@@ -235,6 +251,20 @@ describe('macro: button', () => {
   });
 
   describe('mode: link', () => {
+    it('passes jest-axe checks', async () => {
+      const $ = cheerio.load(
+        renderComponent('button', {
+          text: 'Example button',
+          name: 'example',
+          value: 'example-value',
+          url: 'http://example.com',
+        }),
+      );
+
+      const results = await axe($.html());
+      expect(results).toHaveNoViolations();
+    });
+
     it('is an `a` element', () => {
       const $ = cheerio.load(
         renderComponent('button', {
