@@ -46,8 +46,8 @@ describe('macro: access-code', () => {
       }),
     );
 
-    expect($('.extra-class').length).toBe(1);
-    expect($('.another-extra-class').length).toBe(1);
+    expect($('.ons-uac__input').hasClass('extra-class')).toBe(true);
+    expect($('.ons-uac__input').hasClass('another-extra-class')).toBe(true);
   });
 
   it('has provided label text and description', () => {
