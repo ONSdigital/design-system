@@ -11,7 +11,6 @@ export default class NavToggle {
     this.nav = nav;
     this.hideClass = hideClass;
     this.toggle.classList.remove('ons-u-d-no');
-
     this.setAria();
     onViewportChange(this.setAria.bind(this));
   }
