@@ -91,7 +91,7 @@ describe('macro: access-code', () => {
       }),
     );
 
-    expect($('input').attr('maxlength')).toBe('10');
+    expect($('input').attr('maxlength')).toBe('3');
   });
 
   it('has provided group size attribute', () => {
