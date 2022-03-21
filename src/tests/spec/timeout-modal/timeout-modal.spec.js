@@ -53,7 +53,7 @@ describe('Component: Timeout modal', function() {
         expect(this.hasExpiryTimeResetInAnotherTabSpy).to.have.been.called();
         expect(this.getExpiryTimeSpy).to.have.been.called();
         done();
-      }, 4000);
+      }, 5000);
     });
   });
 
