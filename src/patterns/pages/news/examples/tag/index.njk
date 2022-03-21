@@ -2,14 +2,7 @@
 layout: none
 ---
 {% extends "layout/_template.njk" %}
-{% from "components/question/_macro.njk" import onsQuestion %}
-{% from "components/radios/_macro.njk" import onsRadios %}
-{% from "components/textarea/_macro.njk" import onsTextarea %}
-{% from "components/input/_macro.njk" import onsInput %}
-{% from "components/button/_macro.njk" import onsButton %}
-{% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/lists/_macro.njk" import onsList %}
-{% from "components/articles/_macro.njk" import onsArticles %}
+{% from "components/document-list/_macro.njk" import onsDocumentList %}
 {% from "components/related-content/_macro.njk" import onsRelatedContent %}
 
 {% set pageConfig = {
@@ -38,7 +31,7 @@ layout: none
 
 <div class="ons-grid">
     <div class="ons-grid__col ons-col-7@m">
-        <h1 class="ons-u-fs-xxl">All posts for <em class="ons-highlight">Census2021</em></h1>
+        <h1 class="ons-u-fs-xxl">All articles for <em class="ons-highlight">Integrated data</em></h1>
     </div>
 </div>
 
@@ -48,72 +41,58 @@ layout: none
 
         <div class="ons-u-mt-m ons-u-mb-m">
 
-            {{ onsArticles({
-                "articles": [
+            {{ onsDocumentList({
+                "documents": [
                     {
+                        "thumbnail": {
+                            "smallSrc": '/img/small/alison-pritchard.jpg',
+                            "largeSrc": '/img/large/alison-pritchard.jpg'
+                        },
                         "url": '#0',
-                        "title": 'Students urged to complete the census for their term-time accommodation now',
-                        "date": {
-                            "short": '30 April 2021',
-                            "iso": '2021-04-30'
+                        "title": 'ONS launches Integrated Data Service to boost government collaboration on data sharing',
+                        "metadata": {
+                            "type": {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            },
+                            "date": {
+                                "iso": '2021-08-01',
+                                "short": '1 August 2021'
+                            }
                         },
-                        "category": {
-                            "title": 'Press releases',
-                            "url": '#0'
-                        },
-                        "excerpt": 'There has been a great response to <em class="ons-highlight">Census 2021</em>, but it is important everyone is counted and that includes students.'
+                        "description": 'The Office for National Statistics has today launched the first stage of the <em class="ons-highlight">Integrated Data</em> Service (IDS), a cloud-based platform giving analysts and researchers greater access to data from a range of sources.'
                     },
                     {
+                        "thumbnail": true,
                         "url": '#0',
-                        "title": 'Census 2021 myth buster – 11 things you think you know about the census but you’re wrong',
-                        "date": {
-                            "short": '7 April 2021',
-                            "iso": '2021-04-07'
+                        "title": 'Integrated Data Service',
+                        "metadata": {
+                            "type": {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            },
+                            "date": {
+                                "iso": '2021-12-19',
+                                "short": '19 December 2021'
+                            }
                         },
-                        "category": {
-                            "title": 'Press releases',
-                            "url": '#0'
-                        },
-                        "excerpt": 'The Office for National Statistics dispels some common myths around <em class="ons-highlight">Census 2021</em>.'
+                        "description": 'Bringing together ready-to-use data to enable faster and wider collaborative analysis for the public good.'
                     },
                     {
+                        "thumbnail": true,
                         "url": '#0',
-                        "title": 'Nine out of ten households have completed Census 2021',
-                        "date": {
-                            "short": '7 April 2021',
-                            "iso": '2021-04-07'
+                        "title": 'Integrated Data for Population Statistics Conference 2018',
+                        "metadata": {
+                            "type": {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            },
+                            "date": {
+                                "iso": '2018-08-31',
+                                "short": '31 August 2018'
+                            }
                         },
-                        "category": {
-                            "title": 'Press releases',
-                            "url": '#0'
-                        },
-                        "excerpt": 'There has been a fantastic response to <em class="ons-highlight">Census 2021</em>. Nine out of ten households across England and Wales have completed their questionnaire – but everyone must take part.'
-                    },
-                    {
-                        "url": '#0',
-                        "title": 'Don’t be eggs-cluded - fill in your census this Easter',
-                        "date": {
-                            "short": '7 April 2021',
-                            "iso": '2021-04-01'
-                        },
-                        "category": {
-                            "title": 'Press releases',
-                            "url": '#0'
-                        },
-                        "excerpt": 'There has been a great response to <em class="ons-highlight">Census 2021</em>, but to make sure it is an Easter bunny and not a census field officer who visits this weekend, crack on and submit your questionnaire now.'
-                    },
-                    {
-                        "url": '#0',
-                        "title": 'There is still time to complete Census 2021',
-                        "date": {
-                            "short": '23 March 2021',
-                            "iso": '2021-03-23'
-                        },
-                        "category": {
-                            "title": 'Press releases',
-                            "url": '#0'
-                        },
-                        "excerpt": 'Census Day was Sunday 21 March, but it is vital those who have not yet completed, do so as soon as possible.'
+                        "description": 'The Office for National Statistics (ONS) held the <em class="ons-highlight">Integrated Data</em> for Population Statistics Conference on 9 and 10 July 2018 at the University of Surrey.'
                     }
                 ]
             }) }}
