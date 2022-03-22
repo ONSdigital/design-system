@@ -10,9 +10,9 @@
   "scripts": {
     "start": "gulp start",
     "watch": "gulp watch",
-    "test": "gulp build-assets-for-testing && TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest components/.*/.*.spec.js",
+    "test": "gulp build-assets-for-testing && TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest '(components|tests/helpers)(/.+)?/.*.spec.js'",
     "test:macros": "jest _macro.spec.js",
-    "test:specs": "gulp build-assets-for-testing && TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest components/.*/[^_].*.spec.js",
+    "test:specs": "gulp build-assets-for-testing && TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest '(components|tests/helpers)(/.+)?/[^_].*.spec.js'",
     "test:start-server": "TEST_PORT=3020 gulp start-dev-server",
     "build": "yarn && yarn tidy-clean && NODE_ENV=production gulp build",
     "npm-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/generate-npm-package.js",
