@@ -3,7 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
-import { renderComponent } from '../../tests/helpers/rendering';
+import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 describe('macro: button', () => {
   it('has the provided `id` attribute', () => {
@@ -57,6 +57,29 @@ describe('macro: button', () => {
     expect($('.ons-btn').hasClass('ons-btn--variant-b')).toBe(true);
   });
 
+  it('has download variant style class when `buttonStyle` is `download`', () => {
+    const $ = cheerio.load(
+      renderComponent('button', {
+        url: 'http://example.com',
+        buttonStyle: 'download',
+      }),
+    );
+
+    expect($('.ons-btn').hasClass('ons-btn--download')).toBe(true);
+  });
+
+  it('has `download` icon when `buttonStyle` is "download"', () => {
+    const faker = templateFaker();
+    const iconsSpy = faker.spy('icons');
+
+    faker.renderComponent('button', {
+      url: 'http://example.com',
+      buttonStyle: 'download',
+    });
+
+    expect(iconsSpy.occurrences[0].iconType).toBe('download');
+  });
+
   it('has provided variant style classes when `buttonStyle` is "print"', () => {
     const $ = cheerio.load(
       renderComponent('button', {
@@ -69,6 +92,18 @@ describe('macro: button', () => {
     expect($('.ons-btn').hasClass('ons-js-print-btn')).toBe(true);
   });
 
+  it('has `print` icon when `buttonStyle` is "print"', () => {
+    const faker = templateFaker();
+    const iconsSpy = faker.spy('icons');
+
+    faker.renderComponent('button', {
+      url: 'http://example.com',
+      buttonStyle: 'print',
+    });
+
+    expect(iconsSpy.occurrences[0].iconType).toBe('print');
+  });
+
   it('has provided variant style classes when `submitType` is "loader"', () => {
     const $ = cheerio.load(
       renderComponent('button', {
@@ -79,6 +114,28 @@ describe('macro: button', () => {
     expect($('.ons-btn').hasClass('ons-btn--loader')).toBe(true);
     expect($('.ons-btn').hasClass('ons-js-loader')).toBe(true);
     expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
+  });
+
+  it('has `loader` icon when `submitType` is "loader"', () => {
+    const faker = templateFaker();
+    const iconsSpy = faker.spy('icons');
+
+    faker.renderComponent('button', {
+      submitType: 'loader',
+    });
+
+    expect(iconsSpy.occurrences[0].iconType).toBe('loader');
+  });
+
+  it('has `chevron` icon when `buttonStyle` is "mobile"', () => {
+    const faker = templateFaker();
+    const iconsSpy = faker.spy('icons');
+
+    faker.renderComponent('button', {
+      buttonStyle: 'mobile',
+    });
+
+    expect(iconsSpy.occurrences[0].iconType).toBe('chevron');
   });
 
   it('has provided variant style classes when `submitType` is "timer"', () => {
@@ -287,17 +344,6 @@ describe('macro: button', () => {
       expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
     });
 
-    it('has download variant style class', () => {
-      const $ = cheerio.load(
-        renderComponent('button', {
-          url: 'http://example.com',
-          buttonStyle: 'download',
-        }),
-      );
-
-      expect($('.ons-btn').hasClass('ons-btn--download')).toBe(true);
-    });
-
     it('has the provided link', () => {
       const $ = cheerio.load(
         renderComponent('button', {
@@ -306,6 +352,17 @@ describe('macro: button', () => {
       );
 
       expect($('a').attr('href')).toBe('http://example.com');
+    });
+
+    it('has `arrow-next` icon by default', () => {
+      const faker = templateFaker();
+      const iconsSpy = faker.spy('icons');
+
+      faker.renderComponent('button', {
+        url: 'http://example.com',
+      });
+
+      expect(iconsSpy.occurrences[0].iconType).toBe('arrow-next');
     });
 
     it('opens in a new window when `newWindow` is `true`', () => {
@@ -318,6 +375,18 @@ describe('macro: button', () => {
 
       expect($('a').attr('target')).toBe('_blank');
       expect($('a').attr('rel')).toBe('noopener');
+    });
+
+    it('has `external-link` icon when `newWindow` is `true`', () => {
+      const faker = templateFaker();
+      const iconsSpy = faker.spy('icons');
+
+      faker.renderComponent('button', {
+        url: 'http://example.com',
+        newWindow: true,
+      });
+
+      expect(iconsSpy.occurrences[0].iconType).toBe('external-link');
     });
 
     it('has the `button` role', () => {
