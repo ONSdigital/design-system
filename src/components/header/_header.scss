@@ -44,9 +44,6 @@
       border-top: 3px solid $color-header;
       padding: 0.934rem 0;
     }
-    &--with-description {
-      height: auto;
-    }
   }
   &__title {
     @extend .ons-u-fs-r--b;
@@ -57,13 +54,6 @@
     @include mq(m) {
       margin-bottom: 1rem;
       margin-top: 0.8rem;
-    }
-
-    &--with-description {
-      @include mq(m) {
-        margin-bottom: 0;
-        margin-top: 0.5rem;
-      }
     }
 
     //to allow for differences in size between welsh and english logos
@@ -94,7 +84,7 @@
       }
     }
   }
-  &__desc {
+  &__description {
     @extend .ons-u-fs-s;
     @extend .ons-u-fs-r\@s;
 
@@ -105,12 +95,14 @@
       margin: 0 0 1.1rem;
     }
   }
-  // Modifier - Hero variant
-  &--hero {
+  // Modifier - variants
+  &--description {
     .ons-header {
       &__title {
         @extend .ons-u-fs-m;
         @extend .ons-u-fs-xxl\@m;
+
+        margin-bottom: 0;
       }
     }
   }
