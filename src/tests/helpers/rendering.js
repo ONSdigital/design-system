@@ -113,5 +113,5 @@ export async function setTestPage(path, template) {
 
   const html = renderTemplate(compositedTemplate);
 
-  await page.setContent(html, { waitUntil: 'domcontentloaded' });
+  await page.setContent(html, { waitUntil: 'networkidle0' });
 }
