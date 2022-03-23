@@ -1,5 +1,8 @@
 {
   "access-code": {
     "macroName": "onsUACInput"
+  },
+  "icons": {
+    "macroName": "onsIcon"
   }
 }
