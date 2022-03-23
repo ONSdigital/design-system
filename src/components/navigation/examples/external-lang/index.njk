@@ -1,0 +1,38 @@
+---
+"fullWidth": true
+---
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
+        "title": 'Survey title',
+        "logoHref": '#0',
+        "mobileLogo": 'ons-logo-stacked-en',
+        "button": {
+            "text": 'Save and sign out',
+            "url": '#0',
+            "iconType": 'exit',
+            "iconPosition": 'after'
+        },
+        "language": {
+            "languages": [
+                {
+                    "url": '#0',
+                    "ISOCode": 'en',
+                    "text": 'English',
+                    "buttonAriaLabel": 'Language selector. Current language: English',
+                    "chooseLanguage": 'Choose language',
+                    "current": true
+                },
+                {
+                    "url": '#0',
+                    "ISOCode": 'cy',
+                    "text": 'Cymraeg',
+                    "buttonAriaLabel": 'Dewisydd iaith. Iaith gyfredol: Cymraeg',
+                    "chooseLanguage": 'Dewiswch iaith',
+                    "current": false
+                }
+            ]
+        }
+    })
+}}

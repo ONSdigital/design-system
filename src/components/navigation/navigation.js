@@ -5,13 +5,13 @@ import onViewportChange from '../../js/utils/viewport-change';
 const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
 
-export default class NavToggle {
-  constructor(toggle, nav, hideClass) {
+export default class NavigationToggle {
+  constructor(toggle, navigation, hideClass) {
     this.toggle = toggle;
-    this.nav = nav;
+    this.navigation = navigation;
     this.hideClass = hideClass;
     this.toggle.classList.remove('ons-u-d-no');
-
+    console.log(this.toggle);
     this.setAria();
     onViewportChange(this.setAria.bind(this));
   }
@@ -21,17 +21,17 @@ export default class NavToggle {
   }
 
   toggleNav() {
-    const isHidden = this.nav.getAttribute(attrHidden);
+    const isHidden = this.navigation.getAttribute(attrHidden);
     isHidden === 'false' ? this.closeNav() : this.openNav();
   }
 
   openNav() {
-    const input = [...this.nav.getElementsByTagName('INPUT')][0];
+    const input = [...this.navigation.getElementsByTagName('INPUT')][0];
 
     this.toggle.setAttribute(attrExpanded, 'true');
     this.toggle.classList.add('active');
-    this.nav.setAttribute(attrHidden, 'false');
-    this.nav.classList.remove(this.hideClass);
+    this.navigation.setAttribute(attrHidden, 'false');
+    this.navigation.classList.remove(this.hideClass);
 
     if (input) {
       input.focus();
@@ -41,13 +41,13 @@ export default class NavToggle {
   closeNav() {
     this.toggle.setAttribute(attrExpanded, 'false');
     this.toggle.classList.remove('active');
-    this.nav.setAttribute(attrHidden, 'true');
-    this.nav.classList.add(this.hideClass);
+    this.navigation.setAttribute(attrHidden, 'true');
+    this.navigation.classList.add(this.hideClass);
   }
 
   setAria() {
     const viewportDetails = GetViewportDetails();
-    const hasAria = this.nav.hasAttribute(attrHidden);
+    const hasAria = this.navigation.hasAttribute(attrHidden);
 
     if (viewportDetails.width < 740) {
       if (!hasAria) {
@@ -55,8 +55,8 @@ export default class NavToggle {
       }
     } else if (hasAria) {
       this.toggle.removeAttribute(attrExpanded);
-      this.nav.removeAttribute(attrHidden);
-      this.nav.classList.remove(this.hideClass);
+      this.navigation.removeAttribute(attrHidden);
+      this.navigation.classList.remove(this.hideClass);
     }
   }
 }

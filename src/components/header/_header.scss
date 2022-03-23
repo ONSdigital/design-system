@@ -178,20 +178,20 @@
     display: block;
   }
 
-  &__bottom {
-    background: $color-header;
-    margin-top: -0.03rem;
-  }
-
-  &-search {
-    padding: 1rem;
-
-    @include mq(m) {
-      bottom: 65px;
+  &-service-nav {
+    &__list {
+      list-style: none;
+      margin: 0;
       padding: 0;
-      position: absolute;
-      right: 1rem;
-      width: 20rem;
+    }
+
+    &__item {
+      display: inline-block;
+      margin: 0 0 0 1rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
 }

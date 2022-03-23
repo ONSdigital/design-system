@@ -6,12 +6,12 @@ import GetViewportDetailsMock from '../../stubs/getViewportDetails.stub.spec';
 const proxyquire = proxyquireify(require);
 
 const params = {
-  toggleButton: {
+  toggleNavigationButton: {
     text: 'Menu',
     ariaLabel: 'Toggle main navigation',
   },
   navigation: {
-    classes: 'ons-js-header-nav ons-u-d-no',
+    classes: 'ons-js-navigation ons-u-d-no',
     id: 'main-nav',
     ariaLabel: 'Main menu',
     ariaListLabel: 'Navigation menu',
@@ -65,7 +65,7 @@ describe('Component: Navigation', function() {
       beforeEach(function() {
         const HeaderNav = require('../../../components/header/header-nav').default;
 
-        this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList, this.hideClass);
+        this.nav = new HeaderNav(this.toggleNavigationBtn, this.mainNavList, this.hideClass);
         this.nav.registerEvents = chai.spy(this.nav.registerEvents);
         this.nav.registerEvents();
       });
@@ -84,7 +84,7 @@ describe('Component: Navigation', function() {
             },
           }).default;
 
-          this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList, this.hideClass);
+          this.nav = new HeaderNav(this.toggleNavigationBtn, this.mainNavList, this.hideClass);
           this.nav.registerEvents();
         });
 
@@ -124,7 +124,7 @@ describe('Component: Navigation', function() {
 
         describe('When the main nav is closed,', function() {
           beforeEach(function() {
-            this.nav.closeNav(this.toggleMainBtn, this.mainNavList, this.hideclass);
+            this.nav.closeNav(this.toggleNavigationBtn, this.mainNavList, this.hideclass);
           });
 
           it('Should be assigned the "aria-hidden" value of false', function() {
@@ -158,7 +158,7 @@ describe('Component: Navigation', function() {
             },
           }).default;
 
-          this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList, this.hideClass);
+          this.nav = new HeaderNav(this.toggleNavigationBtn, this.mainNavList, this.hideClass);
           this.nav.registerEvents();
         });
 
@@ -205,13 +205,13 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const toggleMainBtn = wrapper.querySelector('.ons-js-toggle-main');
-  const mainNavList = wrapper.querySelector('.ons-js-header-nav');
+  const toggleNavigationBtn = wrapper.querySelector('.ons-js-navigation-button');
+  const mainNavList = wrapper.querySelector('.ons-js-navigation');
   const hideClass = 'ons-u-d-no@xxs@m';
 
   return {
     wrapper,
-    toggleMainBtn,
+    toggleNavigationBtn,
     mainNavList,
     hideClass,
   };

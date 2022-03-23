@@ -1,0 +1,39 @@
+---
+fullWidth: true
+layout: none
+---
+{% extends "layout/_template.njk" %}
+
+{% set pageConfig = {
+    "theme": 'census',
+    "header": {
+        "logoHref": '#0',
+        "titleLogo": 'census-logo-cy',
+        "mobileLogo": 'ons-logo-stacked-cy',
+        "titleLogoAlt": 'Cyfrifiad 2021',
+        "titleLogoHref": '#0'
+    },
+    "language": {
+        "allLanguagesUrl": '#0',
+        "languages": [
+            {
+                "url": '#0',
+                "ISOCode": 'en',
+                "text": 'English',
+                "buttonAriaLabel": 'Language selector. Current language: English',
+                "chooseLanguage": 'Choose language',
+                "allLanguages": 'All languages',
+                "current": false
+            },
+            {
+                "url": '#0',
+                "ISOCode": 'cy',
+                "text": 'Cymraeg',
+                "buttonAriaLabel": 'Dewisydd iaith. Iaith gyfredol: Cymraeg',
+                "chooseLanguage": 'Dewiswch iaith',
+                "allLanguages": 'Pob iaith',
+                "current": true
+            }
+        ]
+    }
+} %}

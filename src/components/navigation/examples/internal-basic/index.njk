@@ -1,0 +1,30 @@
+---
+"fullWidth": true
+---
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
+        "title": 'Service title',
+        "logoHref": '#0',
+        "classes": 'ons-header--internal',
+        "mobileLogo": 'ons-logo-stacked-en',
+        "titleLogoHref": '#0',
+        "serviceLinks": {
+            "itemsList": [
+                {
+                    "title": "Help",
+                    "url": "#0"
+                },
+                {
+                    "title": "My Account",
+                    "url": "#0"
+                },
+                {
+                    "title": "Sign out",
+                    "url": "#0"
+                }
+            ]
+        }
+    })
+}}

@@ -319,4 +319,36 @@ $button-shadow-size: 3px;
       opacity: 0.4;
     }
   }
+
+  &--dropdown {
+    @extend .ons-btn--ghost;
+    @extend .ons-btn--mobile;
+
+    width: 100%;
+
+    &.active {
+      .ons-btn__inner {
+        background: $color-branded-secondary;
+      }
+    }
+
+    .ons-btn__inner {
+      background: $color-branded-tint;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      color: $color-text-link;
+      display: block;
+      font-size: 1rem;
+      font-weight: normal;
+      padding: 0.6rem 1rem;
+      text-align: left;
+
+      .ons-svg-icon {
+        fill: $color-text-link;
+        float: right;
+        margin-top: 3px;
+      }
+    }
+  }
 }
