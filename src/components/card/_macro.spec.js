@@ -3,7 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
-import { renderComponent } from '../../tests/helpers/rendering';
+import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_CARD_WITHOUT_IMAGE = {
   title: 'Example card title',
@@ -71,6 +71,20 @@ describe('macro: card', () => {
           .text()
           .trim(),
       ).toBe('Example card text.');
+    });
+
+    it('renders the provided `itemsList` using the `list` component', () => {
+      const faker = templateFaker();
+      const listSpy = faker.spy('list');
+
+      renderComponent('card', {
+        ...EXAMPLE_CARD_WITHOUT_IMAGE,
+        itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
+      }),
+        expect(listSpy.occurrences[0]).toBe({
+          variants: 'dashed',
+          itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
+        });
     });
 
     it('outputs a hyperlink with the provided `url`', () => {
