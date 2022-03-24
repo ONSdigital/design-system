@@ -6,10 +6,6 @@ import GetViewportDetailsMock from '../../stubs/getViewportDetails.stub.spec';
 const proxyquire = proxyquireify(require);
 
 const params = {
-  toggleNavigationButton: {
-    text: 'Menu',
-    ariaLabel: 'Toggle main navigation',
-  },
   navigation: {
     classes: 'ons-js-navigation ons-u-d-no',
     id: 'main-nav',
@@ -40,6 +36,10 @@ const params = {
         classes: 'ons-u-d-no@m',
       },
     ],
+    toggleNavigationButton: {
+      text: 'Menu',
+      ariaLabel: 'Toggle main navigation',
+    },
   },
 };
 
@@ -63,7 +63,7 @@ describe('Component: Navigation', function() {
 
     describe('When the component initialises', function() {
       beforeEach(function() {
-        const HeaderNav = require('../../../components/header/header-nav').default;
+        const HeaderNav = require('../../../components/navigation/navigation').default;
 
         this.nav = new HeaderNav(this.toggleNavigationBtn, this.mainNavList, this.hideClass);
         this.nav.registerEvents = chai.spy(this.nav.registerEvents);
@@ -78,7 +78,7 @@ describe('Component: Navigation', function() {
         beforeEach(function() {
           ViewportDetailsMock.setParams({ width: 800 });
 
-          const HeaderNav = proxyquire('../../../components/header/header-nav', {
+          const HeaderNav = proxyquire('../../../components/navigation/navigation', {
             'viewport-details': {
               GetViewportDetails: ViewportDetailsMock.getMock(),
             },
@@ -152,7 +152,7 @@ describe('Component: Navigation', function() {
         beforeEach(function() {
           ViewportDetailsMock.setParams({ width: 375 });
 
-          const HeaderNav = proxyquire('../../../components/header/header-nav', {
+          const HeaderNav = proxyquire('../../../components/navigation/navigation', {
             'viewport-details': {
               GetViewportDetails: ViewportDetailsMock.getMock(),
             },
