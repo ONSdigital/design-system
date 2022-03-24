@@ -73,9 +73,9 @@ describe('Component: Navigation', function() {
         expect(this.nav.registerEvents).to.have.been.called();
       });
 
-      describe('When viewport has a width more than 740,', function() {
+      describe('When viewport has a width more than 980,', function() {
         beforeEach(function() {
-          ViewportDetailsMock.setParams({ width: 800 });
+          ViewportDetailsMock.setParams({ width: 1000 });
 
           const HeaderNav = proxyquire('../../../components/navigation/navigation', {
             'viewport-details': {
@@ -91,7 +91,7 @@ describe('Component: Navigation', function() {
           expect(this.mainNavList.hasAttribute('aria-hidden')).to.equal(false);
         });
 
-        describe('and then the viewport width changes to less than 740', function() {
+        describe('and then the viewport width changes to less than 980', function() {
           beforeEach(function() {
             ViewportDetailsMock.setParams({ width: 375 });
             this.nav.setAria();
@@ -117,7 +117,7 @@ describe('Component: Navigation', function() {
           });
 
           it('Should not have the hidden class', function() {
-            expect(this.mainNavList.classList.contains('ons-u-d-no@xxs@m')).to.be.false;
+            expect(this.mainNavList.classList.contains('ons-u-d-no@xxs@l')).to.be.false;
           });
         });
 
@@ -131,13 +131,13 @@ describe('Component: Navigation', function() {
           });
 
           it('Should not have the hidden class', function() {
-            expect(this.mainNavList.classList.contains('ons-u-d-no@xxs@m')).to.be.true;
+            expect(this.mainNavList.classList.contains('ons-u-d-no@xxs@l')).to.be.true;
           });
         });
 
-        describe('and then the viewport width changes to more than 740', function() {
+        describe('and then the viewport width changes to more than 980', function() {
           beforeEach(function() {
-            ViewportDetailsMock.setParams({ width: 800 });
+            ViewportDetailsMock.setParams({ width: 1000 });
             this.nav.setAria();
           });
 
@@ -147,7 +147,7 @@ describe('Component: Navigation', function() {
         });
       });
 
-      describe('When viewport has a width less than 740,', function() {
+      describe('When viewport has a width less than 980,', function() {
         beforeEach(function() {
           ViewportDetailsMock.setParams({ width: 375 });
 
@@ -172,9 +172,9 @@ describe('Component: Navigation', function() {
           });
         });
 
-        describe('and then the viewport width changes to more than 740', function() {
+        describe('and then the viewport width changes to more than 980', function() {
           beforeEach(function() {
-            ViewportDetailsMock.setParams({ width: 800 });
+            ViewportDetailsMock.setParams({ width: 1000 });
             this.nav.setAria();
           });
 
@@ -206,7 +206,7 @@ function renderComponent(params) {
 
   const toggleNavigationBtn = wrapper.querySelector('.ons-js-navigation-button');
   const mainNavList = wrapper.querySelector('.ons-js-navigation');
-  const hideClass = 'ons-u-d-no@xxs@m';
+  const hideClass = 'ons-u-d-no@xxs@l';
 
   return {
     wrapper,
