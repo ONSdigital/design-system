@@ -43,8 +43,8 @@
         </div>
     </div>
     {% if params.subNavigation is defined and params.subNavigation %}
-        <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@m{{ ' ' + params.subNavigation.classes if params.subNavigation.classes is defined and params.subNavigation.classes }}" id="{{ params.subNavigation.id }}" aria-label="{{ params.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
-            <div class="ons-container ons-container--gutterless@xxs@m{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+        <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.subNavigation.classes if params.subNavigation.classes is defined and params.subNavigation.classes }}" id="{{ params.subNavigation.id }}" aria-label="{{ params.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
+            <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <ul class="ons-navigation__list ons-navigation__list">
                     {% for item in (params.subNavigation.itemsList if params.subNavigation.itemsList is iterable else params.subNavigation.itemsList.items()) %}
                         <li class="ons-navigation__item ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.subNavigation.currentPath) or (item.url != (params.subNavigation.siteBasePath | default('/')) and item.url in params.subNavigation.currentPath) }}">
@@ -54,7 +54,7 @@
                 </ul>
             </div>
         </nav>
-        <div class="ons-u-d-no@m{{ ' ' + params.subNavigation.classes if params.subNavigation.classes is defined and params.subNavigation.classes }}">
+        <div class="ons-u-d-no@l{{ ' ' + params.subNavigation.classes if params.subNavigation.classes is defined and params.subNavigation.classes }}">
             {{ onsButton({
                 "text": params.currentPageTitle,
                 "classes": "ons-u-d-no ons-js-sub-navigation-button ons-btn--dropdown",
@@ -67,10 +67,10 @@
                 }
             }) }}
             <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no proto-ons-js-secondary-nav ons-u-mt-xs" id="{{ params.subNavigation.id }}" aria-label="{{ params.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
-                <div class="ons-container ons-container--gutterless@xxs@m{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                     <ul class="ons-navigation__list">
                         <li class="ons-navigation__item">
-                            <a class="ons-navigation__link" href="{{ params.subNavigation.overiewURL }}">{{ params.subNavigation.overiewText }}</a>
+                            <a class="ons-navigation__link" href="{{ params.subNavigation.overviewURL }}">{{ params.subNavigation.overviewText | default('Overview') }}</a>
                         </li>
                         {% for item in (params.subNavigation.itemsList if params.subNavigation.itemsList is iterable else params.subNavigation.itemsList.items()) %}
                             <li class="ons-navigation__item {{ ' ons-navigation__item--active' if (item.url == params.subNavigation.currentPath) or (item.url != (params.subNavigation.siteBasePath | default('/')) and item.url in params.subNavigation.currentPath) }}">

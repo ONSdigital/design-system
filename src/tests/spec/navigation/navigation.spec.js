@@ -10,7 +10,6 @@ const params = {
     classes: 'ons-js-navigation ons-u-d-no',
     id: 'main-nav',
     ariaLabel: 'Main menu',
-    ariaListLabel: 'Navigation menu',
     currentPath: '/surveys',
     itemsList: [
       {

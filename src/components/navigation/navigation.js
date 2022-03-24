@@ -11,7 +11,6 @@ export default class NavigationToggle {
     this.navigation = navigation;
     this.hideClass = hideClass;
     this.toggle.classList.remove('ons-u-d-no');
-    console.log(this.toggle);
     this.setAria();
     onViewportChange(this.setAria.bind(this));
   }
@@ -49,7 +48,7 @@ export default class NavigationToggle {
     const viewportDetails = GetViewportDetails();
     const hasAria = this.navigation.hasAttribute(attrHidden);
 
-    if (viewportDetails.width < 740) {
+    if (viewportDetails.width < 980) {
       if (!hasAria) {
         this.closeNav();
       }

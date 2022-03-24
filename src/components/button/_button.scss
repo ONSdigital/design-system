@@ -305,7 +305,7 @@ $button-shadow-size: 3px;
       transform: rotate(90deg);
     }
 
-    @include mq(m) {
+    @include mq(l) {
       display: none;
     }
   }
