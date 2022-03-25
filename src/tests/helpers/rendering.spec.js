@@ -128,7 +128,6 @@ describe('templateFaker()', () => {
 
   it('still renders component output when component is being spied on', () => {
     const faker = helper.templateFaker();
-
     /*const buttonSpy =*/ faker.spy('button');
 
     const result = faker.renderTemplate(`
@@ -142,5 +141,80 @@ describe('templateFaker()', () => {
     `);
 
     expect(result).toContain('Test Button A');
+  });
+
+  it('captures parameters of component that is being spied on', () => {
+    const faker = helper.templateFaker();
+    const buttonSpy = faker.spy('button');
+
+    faker.renderTemplate(`
+      {% from "components/button/_macro.njk" import onsButton %}
+
+      {{
+        onsButton({
+          text: 'Test Button A'
+        })
+      }}
+      {{
+        onsButton({
+          text: 'Test Button B'
+        })
+      }}
+    `);
+
+    expect(buttonSpy.occurrences[0].text).toBe('Test Button A');
+    expect(buttonSpy.occurrences[1].text).toBe('Test Button B');
+
+    expect(buttonSpy.unfilteredOccurrences[0].text).toBe('Test Button A');
+    expect(buttonSpy.unfilteredOccurrences[1].text).toBe('Test Button B');
+  });
+
+  it('omits occurrences of spied parameters of components that were not actually rendered', () => {
+    const faker = helper.templateFaker();
+    const buttonSpy = faker.spy('button');
+    const panelSpy = faker.spy('panel');
+
+    faker.renderTemplate(`
+      {% from "components/button/_macro.njk" import onsButton %}
+      {% from "components/panel/_macro.njk" import onsPanel %}
+
+      {% set foo %}
+        {{
+          onsButton({
+            text: 'Test Button A'
+          })
+        }}
+      {% endset %}
+
+      {{
+        onsButton({
+            text: 'Test Button B'
+        })
+      }}
+
+      {{
+        onsPanel({
+            body: 'Test Panel'
+        })
+      }}
+
+      {% set bar %}
+        {{
+          onsButton({
+            text: 'Test Button C'
+          })
+        }}
+      {% endset %}
+    `);
+
+    expect(buttonSpy.occurrences[0]).toBeUndefined();
+    expect(buttonSpy.occurrences[1].text).toBe('Test Button B');
+    expect(buttonSpy.occurrences[2]).toBeUndefined();
+    expect(panelSpy.occurrences[0].body).toBe('Test Panel');
+
+    expect(buttonSpy.unfilteredOccurrences[0].text).toBe('Test Button A');
+    expect(buttonSpy.unfilteredOccurrences[1].text).toBe('Test Button B');
+    expect(buttonSpy.unfilteredOccurrences[2].text).toBe('Test Button C');
+    expect(panelSpy.unfilteredOccurrences[0].body).toBe('Test Panel');
   });
 });
