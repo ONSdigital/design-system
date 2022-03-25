@@ -66,25 +66,7 @@ export class TemplateFakerContext {
     this._spiedOutputs = {};
   }
 
-  spyFilter(value, componentName) {
-    if (this._spiedOutputs[componentName]) {
-      this._spiedOutputs[componentName].occurrences.push(value);
-    }
-    return value;
-  }
-
-  setFake(componentName, template) {
-    const macroTemplatePath = `components/${componentName}/_macro.njk`;
-    this._fakeTemplateMap[macroTemplatePath] = template;
-  }
-  spy(componentName) {
-    const macroTemplatePath = `components/${componentName}/_macro.njk`;
-    const originalMacroTemplate = realTemplateLoader.getSource(macroTemplatePath).src;
-
-    const spy = `{% set __SPY__ = params|spy('${componentName}') %}`;
-    const fakeMacroTemplate = originalMacroTemplate.replace(/\{%\s*macro.+?%\}/, match => `${match}${spy}`);
-    this.setFake(componentName, fakeMacroTemplate);
-
+  #getSpiedOutput(componentName) {
     if (!this._spiedOutputs[componentName]) {
       this._spiedOutputs[componentName] = {
         occurrences: [],
@@ -92,11 +74,64 @@ export class TemplateFakerContext {
     }
     return this._spiedOutputs[componentName];
   }
+
+  spyFilter(value, componentName) {
+    const spiedOutput = this.#getSpiedOutput(componentName);
+    const occurrenceIndex = spiedOutput.occurrences.length;
+    spiedOutput.occurrences.push(value);
+    return occurrenceIndex;
+  }
+
+  setFake(componentName, template) {
+    const macroTemplatePath = `components/${componentName}/_macro.njk`;
+    this._fakeTemplateMap[macroTemplatePath] = template;
+  }
+
+  spy(componentName) {
+    const macroTemplatePath = `components/${componentName}/_macro.njk`;
+    const originalMacroTemplate = realTemplateLoader.getSource(macroTemplatePath).src;
+
+    const spiedOutput = this.#getSpiedOutput(componentName);
+
+    const pattern = /\{%\s*macro.+?%\}/;
+    const replacer = match => `${match}<!--spied[${componentName},{{ params|spy('${componentName}') }}]-->`;
+
+    const fakeMacroTemplate = originalMacroTemplate.replace(pattern, replacer);
+    this.setFake(componentName, fakeMacroTemplate);
+
+    return spiedOutput;
+  }
+
   renderTemplate(template) {
-    return renderTemplate(template, this);
+    const output = renderTemplate(template, this);
+    return this.cleanupSpiedOccurrences(output);
   }
   renderComponent(componentName, params, children) {
-    return renderComponent(componentName, params, children, this);
+    const output = renderComponent(componentName, params, children, this);
+    return this.cleanupSpiedOccurrences(output);
+  }
+
+  cleanupSpiedOccurrences(output) {
+    const matchedSpies = output.match(/(?<=<!--spied\[)[^\]]+/g);
+    if (!matchedSpies) {
+      return output;
+    }
+
+    const renderedSpies = matchedSpies.map(entry => entry.split(','));
+    for (let key of Object.keys(this._spiedOutputs)) {
+      const spiedComponent = this._spiedOutputs[key];
+
+      // Provide access to unfiltered occurrences to provide access to non-rendered macro output.
+      spiedComponent.unfilteredOccurrences = [...spiedComponent.occurrences];
+
+      // Nullify occurrences that were not in the rendered output.
+      spiedComponent.occurrences = spiedComponent.occurrences.map((occurrence, i) => {
+        const wasRendered = !!renderedSpies.find(entry => entry[0] === key && parseInt(entry[1]) === i);
+        return wasRendered ? occurrence : undefined;
+      });
+    }
+
+    return output.replace(/<!--spied[^>]+?>/g, '');
   }
 }
 
