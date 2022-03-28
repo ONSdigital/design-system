@@ -5,7 +5,7 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent } from '../../tests/helpers/rendering';
 
-const EXAMPLE_FEEDBACK_MINIMUM = {
+const EXAMPLE_FEEDBACK_MINIMAL = {
   heading: 'Feedback heading',
   content: 'Feedback content...',
   url: 'http://example.com',
@@ -25,7 +25,7 @@ const EXAMPLE_FEEDBACK_FULL = {
 
 describe('macro: feedback', () => {
   it('passes jest-axe checks with minimum parameters', async () => {
-    const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMUM));
+    const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
 
     const results = await axe($.html());
     expect(results).toHaveNoViolations();
@@ -65,7 +65,7 @@ describe('macro: feedback', () => {
   ])('has the correct element type for the provided `headingLevel` (%i -> %s)', (headingLevel, expectedTitleTag) => {
     const $ = cheerio.load(
       renderComponent('feedback', {
-        ...EXAMPLE_FEEDBACK_MINIMUM,
+        ...EXAMPLE_FEEDBACK_MINIMAL,
         headingLevel,
       }),
     );
@@ -78,7 +78,7 @@ describe('macro: feedback', () => {
   });
 
   it('has a default `headingLevel` of 2', () => {
-    const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMUM));
+    const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
 
     expect(
       $(`h2.ons-feedback__heading`)
@@ -95,7 +95,7 @@ describe('macro: feedback', () => {
   });
 
   it('has a paragraph with the provided `content`', () => {
-    const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMUM));
+    const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
 
     expect(
       $('p')
@@ -105,13 +105,13 @@ describe('macro: feedback', () => {
   });
 
   it('has a link with the provided `url`', () => {
-    const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMUM));
+    const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
 
     expect($('.ons-feedback__link').attr('href')).toBe('http://example.com');
   });
 
   it('has a link with the provided `linkText`', () => {
-    const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMUM));
+    const $ = cheerio.load(renderComponent('feedback', EXAMPLE_FEEDBACK_MINIMAL));
 
     expect(
       $('.ons-feedback__link')
