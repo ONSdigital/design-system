@@ -10,10 +10,13 @@ jobs:
       - uses: actions/checkout@v1
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+      - name: Read .nvmrc file
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        id: nvm
       - name: Install Node
         uses: actions/setup-node@v1
         with:
-          node-version: 14.15.0
+          node-version: "${{ steps.nvm.outputs.NVMRC }}"
       - name: Install dependencies
         run: yarn install
       - name: Build pages
