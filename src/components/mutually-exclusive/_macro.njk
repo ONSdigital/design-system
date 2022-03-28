@@ -2,9 +2,11 @@
 {% macro onsMutuallyExclusive(params) %}
     {% from "components/fieldset/_macro.njk" import onsFieldset %}
     {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
+    {% from "components/radios/_macro.njk" import onsRadios %}
 
     {# Resolves caller issue in jijna: https://github.com/pallets/jinja/issues/371 #}
     {% set content = caller() %}
+    {% set exclusiveOptionsLength = params.exclusiveOptions | length %}
 
     {% call onsFieldset({
         "id": params.id,
@@ -22,25 +24,37 @@
             {% if params.autosuggestResults is defined and params.autosuggestResults %}
                 {{ params.autosuggestResults | safe }}
             {% endif %}
-            <p class="ons-checkboxes--mutually-exclusive__item ons-u-mt-s">
-                <span class="ons-checkboxes__label ons-u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
-                {{
-                    onsCheckbox({
-                        "id": params.checkbox.id,
-                        "name": params.checkbox.name,
-                        "value": params.checkbox.value,
-                        "checked": params.checkbox.checked,
-                        "classes": params.checkbox.classes,
-                        "attributes": params.checkbox.attributes,
-                        "deselectMessage": params.deselectMessage,
-                        "inputClasses": "ons-js-exclusive-checkbox",
-                        "label": {
-                            "text": '<span class="ons-u-vh">' + params.or + ', </span> ' + params.checkbox.label.text,
-                            "description": params.checkbox.label.description
-                        }
-                    })
-                }}
-            </p>
+            {% if exclusiveOptionsLength == 1 %}
+                <p class="ons-checkboxes--mutually-exclusive__item ons-u-mt-s">
+                    <span class="ons-checkboxes__label ons-u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
+                    {{
+                        onsCheckbox({
+                            "id": params.exclusiveOptions[0].id,
+                            "name": params.exclusiveOptions[0].name,
+                            "value": params.exclusiveOptions[0].value,
+                            "checked": params.exclusiveOptions[0].checked,
+                            "classes": params.exclusiveOptions[0].classes,
+                            "attributes": params.exclusiveOptions[0].attributes,
+                            "deselectMessage": params.deselectMessage,
+                            "inputClasses": "ons-js-exclusive-checkbox",
+                            "label": {
+                                "text": '<span class="ons-u-vh">' + params.or + ', </span> ' + params.exclusiveOptions[0].label.text,
+                                "description": params.exclusiveOptions[0].label.description
+                            }
+                        })
+                    }}
+                </p>
+            {% elif exclusiveOptionsLength > 1 %}
+                <p class="ons-checkboxes--mutually-exclusive__item ons-u-mt-s">
+                    <span class="ons-checkboxes__label ons-u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
+                    {{
+                        onsRadios({
+                            "dontWrap": true,
+                            "radios": params.exclusiveOptions
+                        })
+                    }}
+                </p>
+            {% endif %}
             <span class="ons-js-exclusive-alert ons-u-vh" role="alert" aria-live="polite" data-group-adjective="{{ params.deselectGroupAdjective }}" data-checkbox-adjective="{{ params.deselectCheckboxAdjective }}"></span>
         </div>
     {% endcall %}
