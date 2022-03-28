@@ -25,3 +25,5 @@
 | prefix | string | true | Will prefix the list item with whatever prefix is set to |
 | suffix | string | true | Will suffix the list item with whatever suffix is set to |
 | iconType | string | true | Adds an icon to the list item when set to the name of one of the [available icons](/foundations/icons#a-to-z) |
+| iconType | string | true | Adds an icon to the list item when set to the name of one of the [available icons](/foundations/icons#a-to-z) |
+| attributes | object | false | HTML attributes (for example, data attributes) to add to the list item |
