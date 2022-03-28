@@ -2,6 +2,9 @@
   "access-code": {
     "macroName": "onsUACInput"
   },
+  "lists": {
+    "macroName": "onsList"
+  },
   "icons": {
     "macroName": "onsIcon"
   }
