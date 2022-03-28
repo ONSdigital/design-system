@@ -89,14 +89,17 @@ export class TemplateFakerContext {
 
   spy(componentName) {
     const macroTemplatePath = `components/${componentName}/_macro.njk`;
-    const originalMacroTemplate = realTemplateLoader.getSource(macroTemplatePath).src;
+    const originalMacroTemplate = realTemplateLoader.getSource(macroTemplatePath);
+    if (!originalMacroTemplate) {
+      throw new Error(`Cannot create macro spy because template not found '${macroTemplatePath}'.`);
+    }
 
     const spiedOutput = this.#getSpiedOutput(componentName);
 
     const pattern = /\{%\s*macro.+?%\}/;
     const replacer = match => `${match}<!--spied[${componentName},{{ params|spy('${componentName}') }}]-->`;
 
-    const fakeMacroTemplate = originalMacroTemplate.replace(pattern, replacer);
+    const fakeMacroTemplate = originalMacroTemplate.src.replace(pattern, replacer);
     this.setFake(componentName, fakeMacroTemplate);
 
     return spiedOutput;
