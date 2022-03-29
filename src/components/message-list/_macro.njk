@@ -4,13 +4,13 @@
     <li class="ons-message-item" aria-labelledby="{{ message.id }}">
       <h3 class="ons-message-item__subject" id="{{ message.id }}">
         <a href="{{ message.url }}" class="ons-u-fs-r--b">{{ message.subject }}</a>
-        {% if message.unread is defined and message.unread %}<span class="ons-u-fs-s">({{ params.unreadText }})</span>{% endif %}
+        {% if message.unread is defined and message.unread %}<span class="ons-message-item__unread ons-u-fs-s">({{ params.unreadText }})</span>{% endif %}
       </h3>
         <dl class="ons-message-item__metadata" aria-label="{{ params.ariaLabelMetaData | default("Message metadata") }}">
-          <dt class="ons-message-item__metadata-term ons-u-vh">{{ params.fromLabel }}:</dt>
-          <dd class="ons-message-item__metadata-value ons-u-fs-r--b">{{ message.fromText }}</dd>
-          <dt class="ons-message-item__metadata-term ons-u-vh">{{ params.dateLabel }}:</dt>
-          <dd class="ons-message-item__metadata-value ons-u-fs-s">{{ message.dateText }}</dd>
+          <dt class="ons-message-item__metadata-term ons-message-item__metadata-term--from ons-u-vh">{{ params.fromLabel }}:</dt>
+          <dd class="ons-message-item__metadata-value ons-message-item__metadata-value--from ons-u-fs-r--b">{{ message.fromText }}</dd>
+          <dt class="ons-message-item__metadata-term ons-message-item__metadata-term--date ons-u-vh">{{ params.dateLabel }}:</dt>
+          <dd class="ons-message-item__metadata-value ons-message-item__metadata-value--date ons-u-fs-s">{{ message.dateText }}</dd>
         </dl>
       <div class="ons-message-item__body" aria-label="{{ params.ariaLabelMsg | default("Message text") }}">
         {{ message.body | safe }}
