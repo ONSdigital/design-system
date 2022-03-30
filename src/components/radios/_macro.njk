@@ -20,11 +20,11 @@
                 {% endif %}
                 <span class="ons-radios__item{{ " ons-radios__item--no-border" if params.borderless }}">
                     <span class="ons-radio{{ " ons-radio--no-border" if params.borderless }}">
-                    {%  if radio.other is defined and radio.other and radio.other.selectAllChildren is defined and radio.other.selectAllChildren == true %}
-                        {% set selectAllClass = ' ons-js-select-all-children' %}
-                    {% else %}
-                        {% set selectAllClass = '' %}
-                    {% endif %}
+                        {%  if radio.other is defined and radio.other and radio.other.selectAllChildren is defined and radio.other.selectAllChildren == true %}
+                            {% set selectAllClass = ' ons-js-select-all-children' %}
+                        {% else %}
+                            {% set selectAllClass = '' %}
+                        {% endif %}
                         <input
                             type="radio"
                             id="{{ radio.id }}"
