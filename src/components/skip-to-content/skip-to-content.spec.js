@@ -1,4 +1,4 @@
-import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
+import { setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_SKIP_TO_LINK_TEMPLATE = `
   {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
