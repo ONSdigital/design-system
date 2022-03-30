@@ -2,6 +2,10 @@
   "access-code": {
     "macroName": "onsUACInput"
   },
+  "checkboxes/checkbox": {
+    "templateName": "components/checkboxes/_checkbox-macro.njk",
+    "macroName": "onsCheckbox"
+  },
   "lists": {
     "macroName": "onsList"
   },
