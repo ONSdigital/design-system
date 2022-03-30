@@ -56,14 +56,14 @@ describe('macro: reply', () => {
   it('has the expected hyperlink URL', async () => {
     const $ = cheerio.load(renderComponent('reply', EXAMPLE_REPLY));
 
-    const $el = $('.ons-reply-link');
+    const $el = $('.ons-reply__link');
     expect($el.attr('href')).toBe(EXAMPLE_REPLY.closeLinkUrl);
   });
 
   it('has the expected link text', async () => {
     const $ = cheerio.load(renderComponent('reply', EXAMPLE_REPLY));
 
-    const $el = $('.ons-reply-link');
+    const $el = $('.ons-reply__link');
     expect($el.text()).toBe(EXAMPLE_REPLY.closeLinkText);
   });
 });
