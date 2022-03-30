@@ -126,6 +126,27 @@ describe('templateFaker()', () => {
     expect(result.trim()).toBe('FAKE BUTTON');
   });
 
+  it('overrides macro template with a fake when rendering component when template name is defined inside components.json', () => {
+    const faker = helper.templateFaker();
+    faker.setFake(
+      'checkboxes/checkbox',
+      `
+      {% macro onsCheckbox(params) %}
+        FAKE CHECKBOX
+      {% endmacro %}
+    `,
+    );
+
+    const result = faker.renderTemplate(`
+      {% from "components/checkboxes/_checkbox-macro.njk" import onsCheckbox %}
+      {{
+        onsCheckbox({ id: 'test' })
+      }}
+    `);
+
+    expect(result.trim()).toBe('FAKE CHECKBOX');
+  });
+
   it('still renders component output when component is being spied on', () => {
     const faker = helper.templateFaker();
     /*const buttonSpy =*/ faker.spy('button');

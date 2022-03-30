@@ -10,6 +10,9 @@ realTemplateLoader.on = null;
 
 export function getComponentInfo(componentName) {
   const info = componentConfig[componentName] ?? {};
+  if (!info.templateName) {
+    info.templateName = `components/${componentName}/_macro.njk`;
+  }
   if (!info.macroName) {
     info.macroName = 'ons' + componentName.replace(/(^|-)([a-z])/g, (_1, _2, char) => char.toUpperCase());
   }
@@ -34,12 +37,12 @@ export function renderTemplate(template, fakerContext = null) {
 }
 
 export function renderComponent(componentName, params = {}, children = null, fakerContext = null) {
-  const macroName = getMacroName(componentName);
+  const info = getComponentInfo(componentName);
   if (!!children) {
     return renderTemplate(
       `
-      {% from "components/${componentName}/_macro.njk" import ${macroName} %}
-      {%- call ${macroName}(${JSON.stringify(params, null, 2)}) -%}
+      {% from "${info.templateName}" import ${info.macroName} %}
+      {%- call ${info.macroName}(${JSON.stringify(params, null, 2)}) -%}
         ${Array.isArray(children) ? children.join('') : children}
       {%- endcall -%}
     `,
@@ -48,8 +51,8 @@ export function renderComponent(componentName, params = {}, children = null, fak
   } else {
     return renderTemplate(
       `
-      {% from "components/${componentName}/_macro.njk" import ${macroName} %}
-      {{- ${macroName}(${JSON.stringify(params, null, 2)}) -}}
+      {% from "${info.templateName}" import ${info.macroName} %}
+      {{- ${info.macroName}(${JSON.stringify(params, null, 2)}) -}}
     `,
       fakerContext,
     );
@@ -83,15 +86,16 @@ export class TemplateFakerContext {
   }
 
   setFake(componentName, template) {
-    const macroTemplatePath = `components/${componentName}/_macro.njk`;
-    this._fakeTemplateMap[macroTemplatePath] = template;
+    const info = getComponentInfo(componentName);
+    this._fakeTemplateMap[info.templateName] = template;
   }
 
   spy(componentName) {
-    const macroTemplatePath = `components/${componentName}/_macro.njk`;
-    const originalMacroTemplate = realTemplateLoader.getSource(macroTemplatePath);
+    const info = getComponentInfo(componentName);
+
+    const originalMacroTemplate = realTemplateLoader.getSource(info.templateName);
     if (!originalMacroTemplate) {
-      throw new Error(`Cannot create macro spy because template not found '${macroTemplatePath}'.`);
+      throw new Error(`Cannot create macro spy because template not found '${info.templateName}'.`);
     }
 
     const spiedOutput = this.#getSpiedOutput(componentName);
