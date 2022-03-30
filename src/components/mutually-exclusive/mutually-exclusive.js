@@ -40,7 +40,6 @@ export default class MutuallyExclusive {
   bindEventListeners() {
     this.allInputs.forEach(input => {
       const event = input.element.type === 'checkbox' || 'radio' ? 'click' : 'input';
-
       input.element.addEventListener(event, () => this.handleValueChange(input));
     });
   }

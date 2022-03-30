@@ -36,7 +36,7 @@
                             "classes": params.exclusiveOptions[0].classes,
                             "attributes": params.exclusiveOptions[0].attributes,
                             "deselectMessage": params.deselectMessage,
-                            "inputClasses": "ons-js-exclusive-checkbox",
+                            "inputClasses": "ons-js-exclusive-option",
                             "label": {
                                 "text": '<span class="ons-u-vh">' + params.or + ', </span> ' + params.exclusiveOptions[0].label.text,
                                 "description": params.exclusiveOptions[0].label.description
@@ -50,12 +50,13 @@
                     {{
                         onsRadios({
                             "dontWrap": true,
-                            "radios": params.exclusiveOptions
+                            "radios": params.exclusiveOptions,
+                            "inputClasses": "ons-js-exclusive-option"
                         })
                     }}
                 </p>
             {% endif %}
-            <span class="ons-js-exclusive-alert ons-u-vh" role="alert" aria-live="polite" data-group-adjective="{{ params.deselectGroupAdjective }}" data-checkbox-adjective="{{ params.deselectCheckboxAdjective }}"></span>
+            <span class="ons-js-exclusive-alert ons-u-vh" role="alert" aria-live="polite" data-group-adjective="{{ params.deselectGroupAdjective }}" data-option-adjective="{{ params.deselectCheckboxAdjective }}"></span>
         </div>
     {% endcall %}
 {% endmacro %}

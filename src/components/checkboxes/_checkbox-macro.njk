@@ -1,11 +1,11 @@
 {% macro onsCheckbox(params) %}
     {% from "components/label/_macro.njk" import onsLabel %}
 
-    <span class="ons-checkbox {{ params.classes }}">
+    <span class="ons-checkbox{{ ' ' + params.classes if params.classes and params.classes is defined else '' }}">
         <input
             type="checkbox"
             id="{{ params.id }}"
-            class="ons-checkbox__input ons-js-checkbox {{ params.inputClasses }}"
+            class="ons-checkbox__input ons-js-checkbox{{ ' ' + params.inputClasses if params.inputClasses and params.inputClasses is defined else '' }}"
             value="{{ params.value }}"
             {% if params.name is defined and params.name %} name="{{ params.name }}"{% endif %}
             {% if params.checked is defined and params.checked %} checked{% endif %}
