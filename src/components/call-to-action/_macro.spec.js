@@ -22,7 +22,7 @@ describe('macro: call-to-action', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('has the provided `headingText`', async () => {
+  it('has the provided `headingText`', () => {
     const $ = cheerio.load(renderComponent('call-to-action', EXAMPLE_CALL_TO_ACTION));
 
     const headingText = $('.ons-call-to-action__heading')
@@ -31,7 +31,7 @@ describe('macro: call-to-action', () => {
     expect(headingText).toBe('Call to action heading.');
   });
 
-  it('has the provided `paragraphText`', async () => {
+  it('has the provided `paragraphText`', () => {
     const $ = cheerio.load(renderComponent('call-to-action', EXAMPLE_CALL_TO_ACTION));
 
     const paragraphText = $('.ons-call-to-action__text')
