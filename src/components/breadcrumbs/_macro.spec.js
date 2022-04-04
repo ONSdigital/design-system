@@ -19,7 +19,6 @@ const EXAMPLE_BREADCRUMBS_MINIMAL = {
 };
 
 const EXAMPLE_BREADCRUMBS = {
-  ...EXAMPLE_BREADCRUMBS_MINIMAL,
   classes: 'extra-class another-extra-class',
   ariaLabel: 'Breadcrumbs label',
   id: 'example-breadcrumbs',
