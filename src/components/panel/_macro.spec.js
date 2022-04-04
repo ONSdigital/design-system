@@ -19,7 +19,7 @@ describe('macro: panel', () => {
     ['branded', 'Important information:'],
     ['success', 'Completed:'],
     ['announcement', 'Announcement:'],
-  ])('panel type: %s', (panelType, accessibleText) => {
+  ])('mode: %s', (panelType, accessibleText) => {
     it('passes jest-axe checks', async () => {
       const $ = cheerio.load(
         renderComponent('panel', {
@@ -31,7 +31,7 @@ describe('macro: panel', () => {
       expect(results).toHaveNoViolations();
     });
 
-    it(`has correct class '${panelType}'`, () => {
+    it('has correct class', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
@@ -40,6 +40,68 @@ describe('macro: panel', () => {
       );
 
       expect($('.ons-panel').hasClass(`ons-panel--${panelType}`)).toBe(true);
+    });
+
+    it('has the provided `body` text', () => {
+      const $ = cheerio.load(
+        renderComponent('panel', {
+          ...EXAMPLE_PANEL_BASIC,
+          type: panelType,
+        }),
+      );
+
+      expect(
+        $('.ons-panel__body')
+          .text()
+          .trim(),
+      ).toBe('Some panel text');
+    });
+
+    it('calls with content', () => {
+      const $ = cheerio.load(renderComponent('panel', { EXAMPLE_PANEL_BASIC, type: panelType }, 'Example content...'));
+
+      const content = $('.ons-panel__body')
+        .text()
+        .trim();
+      expect(content).toBe('Example content...');
+    });
+
+    it('has the provided `id` attribute', () => {
+      const $ = cheerio.load(
+        renderComponent('panel', {
+          ...EXAMPLE_PANEL_BASIC,
+          type: panelType,
+        }),
+      );
+
+      expect($('#panel').length).toBe(1);
+    });
+
+    it('has custom classes applied', () => {
+      const $ = cheerio.load(
+        renderComponent('panel', {
+          ...EXAMPLE_PANEL_BASIC,
+          type: panelType,
+          classes: 'ons-custom-class',
+        }),
+      );
+
+      expect($('.ons-panel').hasClass('ons-custom-class')).toBe(true);
+    });
+
+    it('has additionally provided `attributes`', () => {
+      const $ = cheerio.load(
+        renderComponent('panel', {
+          ...EXAMPLE_PANEL_BASIC,
+          type: panelType,
+          attributes: {
+            a: '123',
+            b: '456',
+          },
+        }),
+      );
+      expect($('.ons-panel').attr('a')).toBe('123');
+      expect($('.ons-panel').attr('b')).toBe('456');
     });
 
     it('has visually hidden accessible element', () => {
@@ -85,50 +147,7 @@ describe('macro: panel', () => {
     });
   });
 
-  describe('mode: basic', () => {
-    it('has the provided `body` text', () => {
-      const $ = cheerio.load(renderComponent('panel', EXAMPLE_PANEL_BASIC));
-
-      expect(
-        $('.ons-panel__body')
-          .text()
-          .trim(),
-      ).toBe('Some panel text');
-    });
-
-    it('has the provided `id` attribute', () => {
-      const $ = cheerio.load(renderComponent('panel', EXAMPLE_PANEL_BASIC));
-
-      expect($('#panel').length).toBe(1);
-    });
-
-    it('has custom classes applied', () => {
-      const $ = cheerio.load(
-        renderComponent('panel', {
-          ...EXAMPLE_PANEL_BASIC,
-          classes: 'ons-custom-class',
-        }),
-      );
-
-      expect($('.ons-panel').hasClass('ons-custom-class')).toBe(true);
-    });
-
-    it('has additionally provided `attributes`', () => {
-      const $ = cheerio.load(
-        renderComponent('panel', {
-          ...EXAMPLE_PANEL_BASIC,
-          attributes: {
-            a: '123',
-            b: '456',
-          },
-        }),
-      );
-      expect($('.ons-panel').attr('a')).toBe('123');
-      expect($('.ons-panel').attr('b')).toBe('456');
-    });
-  });
-
-  describe('mode: basic with title', () => {
+  describe('mode: info', () => {
     it('has the default title tag', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
@@ -167,7 +186,7 @@ describe('macro: panel', () => {
     });
   });
 
-  describe('mode: error with title', () => {
+  describe('mode: error', () => {
     it('has the default id set', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
@@ -331,24 +350,6 @@ describe('macro: panel', () => {
           .text()
           .trim(),
       ).toBe('!');
-    });
-  });
-
-  describe('mode: called with content', () => {
-    it('passes jest-axe checks', async () => {
-      const $ = cheerio.load(renderComponent('panel', { EXAMPLE_PANEL_BASIC }, 'Example content...'));
-
-      const results = await axe($.html());
-      expect(results).toHaveNoViolations();
-    });
-
-    it('has expected text', () => {
-      const $ = cheerio.load(renderComponent('panel', { EXAMPLE_PANEL_BASIC }, 'Example content...'));
-
-      const content = $('.ons-panel__body')
-        .text()
-        .trim();
-      expect(content).toBe('Example content...');
     });
   });
 
