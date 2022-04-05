@@ -6,11 +6,11 @@ import GetViewportDetailsMock from '../../stubs/getViewportDetails.stub.spec';
 const proxyquire = proxyquireify(require);
 
 const params = {
-  toggleButton: {
-    text: 'Menu',
-    ariaLabel: 'Toggle main navigation',
-  },
   navigation: {
+    toggleButton: {
+      text: 'Menu',
+      ariaLabel: 'Toggle main navigation',
+    },
     classes: 'ons-js-header-nav ons-u-d-no',
     id: 'main-nav',
     ariaLabel: 'Main menu',

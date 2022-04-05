@@ -11,7 +11,6 @@ export default class NavToggle {
     this.nav = nav;
     this.hideClass = hideClass;
     this.toggle.classList.remove('ons-u-d-no');
-
     this.setAria();
     onViewportChange(this.setAria.bind(this));
   }
@@ -56,7 +55,11 @@ export default class NavToggle {
     } else if (hasAria) {
       this.toggle.removeAttribute(attrExpanded);
       this.nav.removeAttribute(attrHidden);
-      this.nav.classList.remove(this.hideClass);
+      if (this.hideClass !== 'ons-u-d-no') {
+        this.nav.classList.remove(this.hideClass);
+      } else {
+        this.closeNav();
+      }
     }
   }
 }
