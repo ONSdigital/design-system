@@ -52,13 +52,20 @@
 
 ## Item
 
-| Name     | Type                             | Required | Description                                                   |
-| -------- | -------------------------------- | -------- | ------------------------------------------------------------- |
-| classes  | string                           | false    | Additional css classes for the navigation element             |
-| url      | string                           | true     | The path to the linked page                                   |
-| title    | string                           | true     | The text for the link                                         |
-| id       | string                           | false    | The id for the link                                           |
-| children | `Array<Child>` [_(ref)_](#child) | false    | An array of child items of an item. Only shown on mobile menu |
+| Name     | Type                                 | Required | Description                                                     |
+| -------- | ------------------------------------ | -------- | --------------------------------------------------------------- |
+| classes  | string                               | false    | Additional css classes for the navigation element               |
+| url      | string                               | true     | The path to the linked page                                     |
+| title    | string                               | true     | The text for the link                                           |
+| id       | string                               | false    | The id for the link                                             |
+| sections | `Array<Section>` [_(ref)_](#section) | false    | An array of section items of an item. Only shown on mobile menu |
+
+## Section
+
+| Name         | Type                             | Required | Description                                     |
+| ------------ | -------------------------------- | -------- | ----------------------------------------------- |
+| sectionTitle | string                           | false    | The text for a heading for the section children |
+| children     | `Array<Child>` [_(ref)_](#child) | false    | An array of child list items of an section      |
 
 ## Child
 

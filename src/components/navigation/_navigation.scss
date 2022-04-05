@@ -34,6 +34,12 @@
     @include mq(l) {
       padding: 0;
     }
+
+    &-header {
+      font-size: 1rem;
+      margin: 0.75rem 0 0.6rem;
+      padding: 0 0 0 1rem;
+    }
   }
 
   &__item {
@@ -84,7 +90,7 @@
     color: $color-white;
     display: block;
     margin: 0 0.35rem;
-    padding: 0.1rem 0.65rem;
+    padding: 0.1rem 0.55rem;
     text-decoration: none;
 
     &--section {

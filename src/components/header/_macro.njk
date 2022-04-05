@@ -92,10 +92,10 @@
                         {% if params.titleLogoHref is defined and params.titleLogoHref %}</a>{% endif %}
                     </div>
                     {% if params.button is defined and params.button %}
-                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@xxs@l">
+                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
                             {{ onsButton({
                                 "text": params.button.text,
-                                "classes": "ons-u-d-no@xxs@l",
+                                "classes": "ons-u-d-no@xxs@m",
                                 "variants": "ghost",
                                 "name": params.button.name,
                                 "attributes": params.button.attributes,
