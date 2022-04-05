@@ -6,7 +6,7 @@
 | logo             | string                                            | false                                | Path for the masthead logo. Defaults to "ons-logo-pos"                                     |
 | mobileLogo       | string                                            | false                                | Path for the mobile version of the logo. Defaults to "ons-logo-stacked-pos"                |
 | language         | `Language` [_(ref)_](/patterns/change-language)   | false                                | Settings for the language selector component                                               |
-| serviceLinks     | `Array<Navigation>` [_(ref)_](#navigation)        | false                                | An array to render the service links list                                                  |
+| serviceLinks     | `Array<ServiceLinks>` [_(ref)_](#navigation)      | false                                | An array to render the service links list                                                  |
 | title            | string                                            | true                                 | The title for the service                                                                  |
 | desc             | string                                            | false                                | Tagline/description for the service                                                        |
 | button           | `Button` [_(ref)_](/components/button)            | false                                | Settings for save and sign out using the button component                                  |
@@ -17,6 +17,15 @@
 | titleLogoHref    | string                                            | false                                | Will wrap the title logo in a link to the specified URL                                    |
 | customHeaderLogo | string                                            | false                                | Set to 'true' to make the masthead taller to accommodate a logo with a taller aspect ratio |
 | wide             | boolean                                           | false                                | If set to true will set a wider page style by adding css to the container                  |
+
+## ServiceLinks
+
+| Name                 | Type                                           | Required                          | Description                                                                            |
+| -------------------- | ---------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------- |
+| id                   | string                                         | true                              | A unique ID for the navigation element                                                 |
+| ariaLabel            | string                                         | false                             | The aria-label added to the navigation element. Defaults to `Service links navigation` |
+| itemsList            | `Array<Item>` [_(ref)_](#item)                 | true                              | An array of list items to render in the navigation element                             |
+| toggleServicesButton | `Array<ToggleButton>` [_(ref)_](#togglebutton) | true (if `serviceLinks` supplied) | Configuration for the mobile service links toggle button                               |
 
 ## Navigation
 
@@ -34,10 +43,10 @@
 
 ## toggleNavigationButton
 
-| Name      | Type   | Required | Description                                                        |
-| --------- | ------ | -------- | ------------------------------------------------------------------ |
-| text      | string | true     | Text to be displayed on toggle button                              |
-| ariaLabel | string | false    | Aria label for toggle button. Defaults to `Toggle main navigation` |
+| Name      | Type   | Required | Description                                               |
+| --------- | ------ | -------- | --------------------------------------------------------- |
+| text      | string | true     | Text to be displayed on toggle button. Defaults to `Menu` |
+| ariaLabel | string | false    | Aria label for toggle button. Defaults to `Toggle menu`   |
 
 ## subNavigation
 
