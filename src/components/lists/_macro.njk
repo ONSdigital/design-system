@@ -38,21 +38,19 @@
                         {% set itemText = item.title %}
                     {% endif %}
 
-                    {%- if item.index is defined and item.index or item.prefix is defined and item.prefix or (params.iconPosition is defined and params.iconPosition == 'before') -%}
+                    {%- if item.prefix is defined and item.prefix or (params.iconPosition is defined and params.iconPosition == 'before') -%}
                         <span class="ons-list__prefix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
-                        {%- if item.prefix is defined and item.prefix -%}
-                            {{- item.prefix -}}.
-                        {%- elif (item.index is defined and item.index and listEl != 'ol') or (item.index is defined and item.index and listEl == 'ol' and 'bare' in variants) -%}
-                            {{- loop.index -}}.
-                        {% elif params.iconPosition is defined and params.iconPosition == 'before' %}
-                            {% from "components/icons/_macro.njk" import onsIcon %}
-                            {{
-                                onsIcon({
-                                    "iconType": iconType,
-                                    "iconSize": params.iconSize
-                                })
-                            }}
-                        {%- endif -%}
+                            {%- if item.prefix is defined and item.prefix -%}
+                                {{- item.prefix -}}.
+                            {% elif params.iconPosition is defined and params.iconPosition == 'before' %}
+                                {% from "components/icons/_macro.njk" import onsIcon %}
+                                {{
+                                    onsIcon({
+                                        "iconType": iconType,
+                                        "iconSize": params.iconSize
+                                    })
+                                }}
+                            {%- endif -%}
                         </span>
                     {%- endif -%}
                     {%- if item.url is defined and item.url and item.current != true -%}
@@ -65,7 +63,7 @@
                                 })
                             }}
                         {%- else -%}
-                            <a href="{{ item.url }}" class="ons-list__link {% if item.variants == 'inPageLink' %}ons-js-inpagelink {% endif %} {{ item.classes }}"{% if item.index is defined and item.index %} data-qa="list-item-{{ loop.index }}"{% endif %}{% if item.target is defined and item.target %} target="{{ item.target }}"{% endif %}{% if item.rel is defined and item.rel %} rel="{{ item.rel }}"{% endif %}>
+                            <a href="{{ item.url }}" class="ons-list__link{% if item.variants == 'inPageLink' %} ons-js-inpagelink{% endif %}{% if item.classes is defined and item.classes %} {{ item.classes }}{% endif %}"{% if item.target is defined and item.target %} target="{{ item.target }}"{% endif %}{% if item.attributes is defined and item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %} {{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
                                 {%- if item.prefix is defined and item.prefix -%}<span class="ons-u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- itemText | safe -}}
                                 {%- if item.target is defined and item.target == "_blank" -%}<span class="ons-u-vh">{{- item.screenreaderMessage | default("this link will open in a new tab") -}}</span>{%- endif -%}
                             </a>
