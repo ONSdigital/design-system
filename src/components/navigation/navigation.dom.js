@@ -10,6 +10,9 @@ domready(async () => {
   const toggleSearchBtn = document.querySelector('.ons-js-toggle-search');
   const searchEl = document.querySelector('.ons-js-navigation-search');
   const searchHideClass = 'ons-u-d-no@xs@l';
+  const toggleServicesBtn = document.querySelector('.ons-js-toggle-services');
+  const servicesEl = document.querySelector('.ons-js-services-mobile-nav');
+  const servicesHideClass = 'ons-u-d-no';
 
   if (toggleNavigationBtn) {
     const NavigationToggle = (await import('./navigation')).default;
@@ -26,5 +29,11 @@ domready(async () => {
     const searchToggle = (await import('./navigation')).default;
 
     new searchToggle(toggleSearchBtn, searchEl, searchHideClass).registerEvents();
+  }
+
+  if (toggleServicesBtn) {
+    const servicesToggle = (await import('./navigation')).default;
+
+    new servicesToggle(toggleServicesBtn, servicesEl, servicesHideClass).registerEvents();
   }
 });
