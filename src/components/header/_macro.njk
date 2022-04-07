@@ -157,7 +157,7 @@
                             }) }}
                         </div>
                     {% endif %}
-                    {% if params.navigation.toggleButton is defined and params.navigation.toggleButton or params.autosuggest is defined and params.autosuggest %}
+                    {% if params.navigation is defined and params.navigation and params.navigation.toggleButton is defined and params.navigation.toggleButton or params.autosuggest is defined and params.autosuggest %}
                         <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@m">
                             {% if params.autosuggest is defined and params.autosuggest and isPatternLib is defined and isPatternLib %}
                                 <span class="ons-grid ons-u-d-no@xxs@xs">
