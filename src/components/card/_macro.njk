@@ -5,15 +5,15 @@
   {% set titleSize = params.titleSize | default('2') %}
 
   <div class="ons-card" aria-labelledBy="{{ params.id }}" aria-describedBy="{{ params.textId }}">
-    
-    {%- if params.image -%}
-    
+
+    {%- if params.image is defined and params.image -%}
+
       <a href="{{ params.url }}" class="ons-card__link ons-u-db">
 
         {% if params.image is defined and params.image and params.image.smallSrc is defined and params.image.smallSrc %}
-            <img class="ons-card__image ons-u-mb-s" height="200" width="303" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}" loading="lazy">
+          <img class="ons-card__image ons-u-mb-s" height="200" width="303"{% if params.image.largeSrc is defined and params.image.largeSrc %} srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x"{% endif %} src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}" loading="lazy">
         {% else %}
-            <img class="ons-card__image ons-u-mb-s" height="100" width="303" srcset="{{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/small/placeholder-card.png 1x, {{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/large/placeholder-card.png 2x" src="{{ params.placeholderURL if params.placeholderURL is defined and params.placeholderURL }}/img/small/placeholder-card.png" alt="Image placeholder" loading="lazy">
+          <img class="ons-card__image ons-u-mb-s" height="100" width="303" srcset="{{ params.image.placeholderURL if params.image.placeholderURL is defined and params.image.placeholderURL }}/img/small/placeholder-card.png 1x, {{ params.image.placeholderURL if params.image.placeholderURL is defined and params.image.placeholderURL }}/img/large/placeholder-card.png 2x" src="{{ params.image.placeholderURL if params.image.placeholderURL is defined and params.image.placeholderURL }}/img/small/placeholder-card.png" alt="" loading="lazy">
         {% endif %}
 
         <h{{ titleSize }} class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m')}}" id="{{ params.id }}">
