@@ -8,7 +8,7 @@ import eventMock from '../../stubs/event.stub.spec';
 chai.use(chaiSpies);
 
 const params = {
-  showModalTimeInSeconds: 5,
+  showModalTimeInSeconds: 56,
   redirectUrl: '#!',
   title: 'You will be signed out soon',
   textFirstLine: 'It appears you have been inactive for a while.',
@@ -38,8 +38,7 @@ describe('Component: Timeout modal', function() {
 
   describe('When the component initialises', function() {
     beforeEach(function() {
-      this.time = new Date(Date.now() + 7 * 1000);
-      this.timeoutModal = new TimeoutModal(this.component, null, this.time);
+      this.timeoutModal = new TimeoutModal(this.component, null, null);
       this.openModalSpy = chai.spy.on(this.timeoutModal.modal, 'openDialog');
       this.startUiCountdownSpy = chai.spy.on(this.timeoutModal.timeout, 'startUiCountdown');
       this.hasExpiryTimeResetInAnotherTabSpy = chai.spy.on(this.timeoutModal, 'hasExpiryTimeResetInAnotherTab');
@@ -54,33 +53,28 @@ describe('Component: Timeout modal', function() {
         expect(this.hasExpiryTimeResetInAnotherTabSpy).to.have.been.called();
         expect(this.getExpiryTimeSpy).to.have.been.called();
         done();
-      }, 4000);
+      }, 5000);
     });
   });
 
   describe('When the modal is open', function() {
     beforeEach(function() {
-      this.time = new Date(Date.now() + 10 * 1000);
-      this.timeoutModal = new TimeoutModal(this.component, null, this.time);
+      this.timeoutModal = new TimeoutModal(this.component, null, null);
     });
 
-    it('then the aria-live should be set to assertive', function() {
-      expect(document.querySelector('.ons-js-timeout-timer-acc').getAttribute('aria-live')).to.equal('assertive');
-    });
-
-    it('then the timer text should change to countdown expired text when 0 seconds are left', function(done) {
+    it('then the timer should show the seconds counting', function(done) {
+      const time = document.querySelector('.ons-js-timeout-timer span').innerHTML;
       setTimeout(() => {
-        const text = document.querySelector('.ons-js-timeout-timer span').innerHTML;
-        expect(text).to.equal('You are being signed out.');
+        const changedTime = document.querySelector('.ons-js-timeout-timer span').innerHTML;
+        expect(changedTime).to.not.equal(time);
         done();
-      }, 3000);
+      }, 2000);
     });
   });
 
   describe('When the modal is open and the escape key is pressed', function() {
     beforeEach(function(done) {
-      this.time = new Date(Date.now() + 7 * 1000);
-      this.timeoutModal = new TimeoutModal(this.component, null, this.time);
+      this.timeoutModal = new TimeoutModal(this.component, null, null);
       this.timeoutModal.modal.openDialog();
       this.closeModalSpy = chai.spy.on(this.timeoutModal, 'closeModalAndRestartTimeout');
       this.restartTimeoutSpy = chai.spy.on(this.timeoutModal.timeout, 'restartTimeout');
@@ -103,8 +97,7 @@ describe('Component: Timeout modal', function() {
 
   describe('When the modal is open and the continue button is clicked', function() {
     beforeEach(function(done) {
-      this.time = new Date(Date.now() + 7 * 1000);
-      this.timeoutModal = new TimeoutModal(this.component, null, this.time);
+      this.timeoutModal = new TimeoutModal(this.component, null, null);
       this.timeoutModal.modal.openDialog();
       this.restartTimeoutSpy = chai.spy.on(this.timeoutModal.timeout, 'restartTimeout');
 
@@ -122,8 +115,7 @@ describe('Component: Timeout modal', function() {
 
   describe('When the modal is open and expiry time has been updated elsewhere', function() {
     beforeEach(function(done) {
-      this.time = new Date(Date.now() + 7 * 1000);
-      this.timeoutModal = new TimeoutModal(this.component, null, this.time);
+      this.timeoutModal = new TimeoutModal(this.component, null, null);
       this.restartTimeoutSpy = chai.spy.on(this.timeoutModal.timeout, 'restartTimeout');
       setTimeout(() => {
         this.timeoutModal.timeout.expiryTime = new Date(Date.now() + 7 * 1000);
@@ -139,8 +131,7 @@ describe('Component: Timeout modal', function() {
 
   describe('When there is a click event', function() {
     beforeEach(function(done) {
-      this.time = new Date(Date.now() + 20 * 1000);
-      this.timeoutModal = new TimeoutModal(this.component, null, this.time);
+      this.timeoutModal = new TimeoutModal(this.component, null, null);
       this.timeoutModal.modal.closeDialog();
       this.throttleSpy = chai.spy.on(this.timeoutModal.timeout, 'throttle');
 

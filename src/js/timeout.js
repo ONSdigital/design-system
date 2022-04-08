@@ -30,7 +30,7 @@ export default class Timeout {
   }
 
   async initialise() {
-    if (this.initialExpiryTime && this.sessionExpiryEndpoint) {
+    if (this.initialExpiryTime) {
       this.expiryTime = this.initialExpiryTime;
     } else {
       this.expiryTime = await this.setNewExpiryTime();
@@ -124,7 +124,7 @@ export default class Timeout {
     let newExpiryTime;
     if (!this.sessionExpiryEndpoint) {
       // For demo purposes
-      const demoTime = new Date(this.initialExpiryTime ? this.initialExpiryTime : Date.now() + 60 * 1000);
+      const demoTime = new Date(Date.now() + 60 * 1000);
       newExpiryTime = new Date(demoTime).toISOString();
     } else {
       newExpiryTime = await this.fetchExpiryTime('PATCH');
