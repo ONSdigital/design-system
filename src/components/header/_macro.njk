@@ -82,12 +82,13 @@
                                     {% endif %}
                                     <div class="ons-grid__col ons-col-auto ons-u-d-no@{{ breakpoint }}">
                                         {{ onsButton({
-                                            "text": params.serviceLinks.toggleServicesButton.text | default("Menu") ,
+                                            "text": params.serviceLinks.toggleServicesButton.text | default("Menu"),
                                             "classes": "ons-u-d-no ons-js-toggle-services",
+                                            "type": "button",
                                             "buttonStyle": "mobile",
                                             "variants": buttonVariant,
                                             "attributes": {
-                                                "aria-label": params.serviceLinks.toggleServicesButton.ariaLabel | default("Toggle menu") ,
+                                                "aria-label": params.serviceLinks.toggleServicesButton.ariaLabel | default("Toggle menu"),
                                                 "aria-controls": params.serviceLinks.id,
                                                 "aria-haspopup": "true",
                                                 "aria-expanded": "false"
@@ -168,7 +169,7 @@
                                         "iconType": "search",
                                         "iconPosition": "only",
                                         "attributes": {
-                                            "aria-label": params.searchToggle.ariaLabel | default("Toggle search") ,
+                                            "aria-label": params.searchToggle.ariaLabel | default("Toggle search"),
                                             "aria-controls": params.navigation.id,
                                             "aria-haspopup": "true",
                                             "aria-expanded": "false"
@@ -183,7 +184,7 @@
                                     "buttonStyle": "mobile",
                                     "variants": ["mobile", "ghost"],
                                     "attributes": {
-                                        "aria-label": params.navigation.toggleButton.ariaLabel | default("Toggle menu") ,
+                                        "aria-label": params.navigation.toggleButton.ariaLabel | default("Toggle menu"),
                                         "aria-controls": params.navigation.id,
                                         "aria-haspopup": "true",
                                         "aria-expanded": "false"
