@@ -43,9 +43,7 @@ When a request using a `PATCH` method is received the session expiry time should
 
 A request to reset the expiry time will be sent when:
 
-- the page loads and the component initialises
 - the modal is closed by the user
-- the page receives focus, for example, by returning from another tab or when the device wakes
 - the user interacts with the page in any way, for example, by moving the cursor
 
 To efficiently handle the number of requests made when the user interacts with the page, the requests are "throttled" so only one is sent every minute, and others in the queue are cleared.
@@ -60,7 +58,6 @@ A request to get the current expiry time will be sent when the following happens
 
 - before the modal opens
 - at 20-second intervals while the modal is open
-- before the page starts to redirect
 
 #### Failure responses from the server
 
