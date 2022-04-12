@@ -28,14 +28,16 @@ const params = {
     deselectMessage: 'Selecting this will clear the date if one has been inputted',
     deselectGroupAdjective: 'cleared',
     deselectCheckboxAdjective: 'deselected',
-    checkbox: {
-      id: 'duration-exclusive-checkbox',
-      name: 'no-duration',
-      value: 'no-duration',
-      label: {
-        text: 'I have not moved in to this address yet',
+    exclusiveOptions: [
+      {
+        id: 'duration-exclusive-checkbox',
+        name: 'no-duration',
+        value: 'no-duration',
+        label: {
+          text: 'I have not moved in to this address yet',
+        },
       },
-    },
+    ],
   },
 };
 
@@ -53,7 +55,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
 
     yearsInput = document.getElementById(params.field1.id);
     monthsInput = document.getElementById(params.field2.id);
-    checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
+    checkbox = document.getElementById(params.mutuallyExclusive.exclusiveOptions.id);
     ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
@@ -109,7 +111,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
       it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
+            `${params.mutuallyExclusive.exclusiveOptions.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
           );
           done();
         }, 300);

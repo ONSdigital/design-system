@@ -13,14 +13,16 @@ const params = {
     deselectMessage: 'Selecting this will clear your email',
     deselectGroupAdjective: 'cleared',
     deselectCheckboxAdjective: 'deselected',
-    checkbox: {
-      id: 'email-checkbox',
-      name: 'no-email',
-      value: 'no-email',
-      label: {
-        text: 'I dont want to receive a confirmation email',
+    exclusiveOptions: [
+      {
+        id: 'email-checkbox',
+        name: 'no-email',
+        value: 'no-email',
+        label: {
+          text: 'I dont want to receive a confirmation email',
+        },
       },
-    },
+    ],
   },
 };
 
@@ -36,7 +38,7 @@ describe('Component: Mutually Exclusive Email Input', () => {
 
     component = document.querySelector('.ons-js-mutually-exclusive');
     input = document.getElementById(params.id);
-    checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
+    checkbox = document.getElementById(params.mutuallyExclusive.exclusiveOptions.id);
     ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
@@ -88,7 +90,7 @@ describe('Component: Mutually Exclusive Email Input', () => {
       it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
+            `${params.mutuallyExclusive.exclusiveOptions.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
           );
           done();
         }, 300);
