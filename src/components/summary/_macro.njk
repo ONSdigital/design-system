@@ -73,7 +73,7 @@
                                                     {% if rowItem.attributes is defined and rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                                 >
                                                     {% if rowItem.valueList | length == 1 %}
-                                                        {{ rowItem.valueList[0].text | safe }}
+                                                        <span class="ons-summary__text">{{ rowItem.valueList[0].text | safe }}</span>
                                                         {% if rowItem.valueList[0].other is defined and rowItem.valueList[0].other or rowItem.valueList[0].other == 0 %}
                                                             <ul class="ons-u-mb-no">
                                                                 <li>{{ rowItem.valueList[0].other | safe }}</li>
@@ -83,7 +83,7 @@
                                                         <ul class="ons-u-mb-no">
                                                             {% for value in (rowItem.valueList if rowItem.valueList is iterable else rowItem.valueList.items()) %}
                                                                 <li>
-                                                                    {{ value.text | safe }}
+                                                                    <span class="ons-summary__text">{{ value.text | safe }}</span>
                                                                     {% if value.other is defined and value.other or value.other == 0 %}
                                                                         <ul class="ons-u-mb-no">
                                                                             <li>{{ value.other | safe }}</li>
@@ -114,11 +114,11 @@
                             {% endfor %}
                         </table>
                     {% elif group.placeholderText is defined and group.placeholderText %}
-                        {{ group.placeholderText }}
+                        <span class="ons-summary__placeholder">{{ group.placeholderText }}</span>
                     {% endif %}
 
                     {% if group.summaryLink is defined and group.summaryLink %}
-                        <div class="{% if group.placeholderText is defined and group.placeholderText or group.rows is defined and group.rows %}ons-u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows is defined and group.rows | length > 1 %} ons-u-bt{% endif %}">
+                        <div class="ons-summary__link{% if group.placeholderText is defined and group.placeholderText or group.rows is defined and group.rows %} ons-u-pt-s{% endif %}{% if group.placeholderText is not defined and group.rows is defined and group.rows | length > 1 %} ons-u-bt{% endif %}">
                             <a {% if group.summaryLink.attributes is defined and group.summaryLink.attributes %}{% for attribute, value in (group.summaryLink.attributes.items() if group.summaryLink.attributes is mapping and group.summaryLink.attributes.items else group.summaryLink.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %} href="{{ group.summaryLink.url }}">{{ group.summaryLink.text }}</a>
                         </div>
                     {% endif %}
