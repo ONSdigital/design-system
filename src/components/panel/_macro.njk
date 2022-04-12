@@ -35,7 +35,7 @@
 
             {% if params is defined and params and params.type == "warn" or params.type == "warn-branded" %}
                 <span class="ons-panel__icon" aria-hidden="true">!</span>
-                <span class="ons-u-vh">{{ params.assistiveTextPrefix | default("Warning: ") }}</span>
+                <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Warning: ") }}</span>
             {% endif %}
 
             {% if params is defined and params and params.type == "announcement" %}
@@ -47,7 +47,7 @@
                         })
                     }}
                 </span>
-                <span class="ons-u-vh">{{ params.assistiveTextPrefix | default("Announcement: ") }}</span>
+                <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Announcement: ") }}</span>
             {% endif %}
 
             {% if params is defined and params %}
@@ -62,13 +62,13 @@
                         <{{ titleTag }} id="error-summary-title" {% if params is defined and params and params.type is defined and params.type %}data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
                     </div>
                 {% else %}
-                    {% if params.type is not defined or params.type == "branded" %}
-                        <span class="ons-u-vh">{{ params.assistiveTextPrefix | default("Important information: ") }}</span>
+                    {% if params.type is not defined or params.type == "branded" or params.type == "info" %}
+                        <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Important information: ") }}</span>
                     {% else %}
                         {% if params.type is defined and params.type == "success" %}
-                            <span class="ons-u-vh">{{ params.assistiveTextPrefix | default("Completed: ") }}</span>
+                            <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Completed: ") }}</span>
                         {% elif params.type is defined and params.type == "error" %}
-                            <span class="ons-u-vh">{{ params.assistiveTextPrefix | default("Error: ") }}</span>
+                            <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Error: ") }}</span>
                         {% endif %}
                     {% endif %}
                 {% endif %}
