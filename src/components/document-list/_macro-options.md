@@ -1,24 +1,25 @@
-| Name       | Type              | Required | Description                                                                        |
-| ---------- | ----------------- | -------- | ---------------------------------------------------------------------------------- |
-| id         | string            | false    | ID for the document list element                                                   |
-| classes    | string            | false    | Classes for the document list element                                              |
-| attributes | object            | false    | HTML attributes (for example, data attributes) to add to the document list element |
-| documents  | `Array<Document>` | true     | An array of document list items to render in the documents list                    |
+| Name       | Type              | Required | Description                                                                                                                                          |
+| ---------- | ----------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id         | string            | false    | The HTML `id` attribute for the document list element                                                                                                |
+| classes    | string            | false    | Classes for the document list element                                                                                                                |
+| attributes | object            | false    | HTML attributes (for example, data attributes) to add to the document list element                                                                   |
+| documents  | `Array<Document>` | true     | An array of [document items](#document) in the documents list                                                                                        |
+| titleTag   | string            | false    | The HTML heading tag to wrap each document list item’s title to make sure the headings have the correct semantic order on the page. Defaults to `h2` |
 
 ## Document
 
-| Name        | Type                | Required | Description                                                                                                               |
-| ----------- | ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
-| classes     | string              | false    | Custom classes to add to each document list item                                                                          |
-| attributes  | object              | false    | HTML attributes (for example, data attributes) to add to each document list item                                          |
-| title       | string              | true     | The title for the document                                                                                                |
-| url         | string              | true     | The URL for the document link (either a file or web page)                                                                 |
-| description | string              | false    | A short HTML extract of text (for example, a short sentence to give some context of the document)                         |
-| thumbnail   | `Object<Thumbnail>` | false    | An object containing path and filename attributes for the thumbnail image. Renders a placeholder instead if set to `true` |
-| metadata    | `<Object>Metadata`  | false    | An object for a list of information about document, for example, date, type and size                                      |
-| featured    | boolean             | false    | Will render a featured variant of the document if set to `true`                                                           |
-| fullWidth   | boolean             | false    | If set to `true`, wraps the `featured` document in a `div` with class `ons-container` for a “full-bleed” layout           |
-| wide        | boolean             | false    | If set to `true`, adds class `ons-container--wide` to the `div` set with `fullWidth`                                      |
+| Name        | Type                | Required | Description                                                                                                                             |
+| ----------- | ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| classes     | string              | false    | Custom classes to add to each document list item                                                                                        |
+| attributes  | object              | false    | HTML attributes (for example, data attributes) to add to each document list item                                                        |
+| title       | string              | true     | The title for the document                                                                                                              |
+| url         | string              | true     | The URL for the document link (either a file or web page)                                                                               |
+| description | string              | false    | A short HTML extract of text (for example, a short sentence to give some context of the document)                                       |
+| thumbnail   | `Object<Thumbnail>` | false    | An object containing path and filename attributes for the [thumbnail image](#thumbnail). Renders a placeholder instead if set to `true` |
+| metadata    | `Object<Metadata>`  | false    | An object for a [list of information about document](#metadata), for example, date, type and size                                       |
+| featured    | boolean             | false    | Will render a featured variant of the document if set to `true`                                                                         |
+| fullWidth   | boolean             | false    | If set to `true`, wraps the `featured` document in a `div` with class `ons-container` for a “full-bleed” layout                         |
+| wide        | boolean             | false    | If set to `true`, adds class `ons-container--wide` to the `div` set with `fullWidth`                                                    |
 
 ### Thumbnail
 
@@ -29,11 +30,11 @@
 
 ### Metadata
 
-| Name | Type           | Required | Description                                                                                           |
-| ---- | -------------- | -------- | ----------------------------------------------------------------------------------------------------- |
-| type | `<Object>Type` | false    | An object for a list item describing the type of document, for example, “Dataset” or “Press release”  |
-| date | `<Object>Date` | false    | An object for the date the document was published or updated                                          |
-| file | `<Object>File` | false    | An object to describe the details of the downloadable document file: format, size and number of pages |
+| Name | Type           | Required | Description                                                                                                   |
+| ---- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| type | `<Object>Type` | false    | An object for a list item describing the [type of document](#type), for example, “Dataset” or “Press release” |
+| date | `<Object>Date` | false    | An object for the [date](#date) the document was published or updated                                         |
+| file | `<Object>File` | false    | An object to describe the [details of the downloadable file](#file) such as format and size                   |
 
 #### Type
 
