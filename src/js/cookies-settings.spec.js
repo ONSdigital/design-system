@@ -1,4 +1,4 @@
-import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
+import { renderComponent, setTestPage } from '../tests/helpers/rendering';
 
 const EXAMPLE_COOKIES_SETTINGS_PAGE = `
   ${renderComponent('cookies-banner', {
