@@ -213,9 +213,10 @@
         margin-top: -15% !important;
       }
     }
-    &__body {
-      padding-left: 2rem;
-    }
+  }
+
+  &__icon + &__body {
+    padding-left: 2rem;
   }
 
   &--bare & {
@@ -228,6 +229,7 @@
     }
   }
 
+  &--info,
   &--bare,
   &--success,
   &--warn,

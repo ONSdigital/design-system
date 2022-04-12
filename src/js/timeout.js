@@ -30,7 +30,7 @@ export default class Timeout {
   }
 
   async initialise() {
-    if (this.initialExpiryTime && this.sessionExpiryEndpoint) {
+    if (this.initialExpiryTime) {
       this.expiryTime = this.initialExpiryTime;
     } else {
       this.expiryTime = await this.setNewExpiryTime();
@@ -51,14 +51,8 @@ export default class Timeout {
   async startUiCountdown() {
     this.clearTimers();
     this.countdownStarted = true;
-
-    if (this.enableTimeoutReset) {
-      this.shouldRestartCheck = setInterval(async () => {
-        await this.hasExpiryTimeResetInAnotherTab();
-      }, 20000);
-    }
-
     let milliseconds = this.convertTimeToMilliSeconds(this.expiryTime);
+
     let seconds = milliseconds / 1000;
     let timers = this.timers;
     let $this = this;
@@ -83,13 +77,9 @@ export default class Timeout {
         ($this.endWithFullStop ? '.' : '');
 
       if (timerExpired) {
-        const shouldExpire = this.enableTimeoutReset ? await $this.hasExpiryTimeResetInAnotherTab() : true;
-
-        if (shouldExpire) {
-          $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
-          $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
-          setTimeout($this.redirect.bind($this), 2000);
-        }
+        $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
+        $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
+        setTimeout($this.redirect.bind($this), 2000);
       } else {
         seconds--;
         $this.expiryTimeInMilliseconds = seconds * 1000;
@@ -111,24 +101,10 @@ export default class Timeout {
     })();
   }
 
-  async hasExpiryTimeResetInAnotherTab() {
-    const checkExpiryTime = await this.getExpiryTime();
-
-    if (checkExpiryTime != this.expiryTime) {
-      this.expiryTime = checkExpiryTime;
-      this.expiryTimeInMilliseconds = this.convertTimeToMilliSeconds(checkExpiryTime);
-      this.restartTimeout(this.expiryTimeInMilliseconds);
-    } else {
-      return true;
-    }
-  }
-
   async restartTimeout(timeInMilliSeconds) {
     this.clearTimers();
-    clearInterval(this.shouldRestartCheck);
     this.countdownStarted = false;
-
-    if (timeInMilliSeconds) {
+    if (timeInMilliSeconds !== false) {
       this.expiryTimeInMilliseconds = timeInMilliSeconds;
     } else {
       const createNewExpiryTime = await this.setNewExpiryTime();
@@ -138,11 +114,8 @@ export default class Timeout {
   }
 
   async handleWindowFocus() {
-    this.expiryTime = await this.getExpiryTime();
     this.clearTimers();
-    clearInterval(this.shouldRestartCheck);
     if (this.countdownStarted) {
-      this.countdownStarted = false;
       this.startUiCountdown();
     }
   }
@@ -151,7 +124,7 @@ export default class Timeout {
     let newExpiryTime;
     if (!this.sessionExpiryEndpoint) {
       // For demo purposes
-      const demoTime = new Date(this.initialExpiryTime ? this.initialExpiryTime : Date.now() + 60 * 1000);
+      const demoTime = new Date(Date.now() + 60 * 1000);
       newExpiryTime = new Date(demoTime).toISOString();
     } else {
       newExpiryTime = await this.fetchExpiryTime('PATCH');
