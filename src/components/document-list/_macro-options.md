@@ -19,7 +19,7 @@
 | metadata    | `Object<Metadata>`  | false    | An object for a [list of information about document](#metadata), for example, date, type and size                                       |
 | featured    | boolean             | false    | Will render a featured variant of the document if set to `true`                                                                         |
 | fullWidth   | boolean             | false    | If set to `true`, wraps the `featured` document in a `div` with class `ons-container` for a “full-bleed” layout                         |
-| wide        | boolean             | false    | If set to `true`, adds class `ons-container--wide` to the `div` set with `fullWidth`                                                    |
+| wide        | boolean             | false    | Set to `true` to increase the maximum width of the layout container to 1280px.                                                          |
 
 ### Thumbnail
 

@@ -17,7 +17,7 @@
 | titleLogoAlt     | string                                            | false (if `titleLogo` not specified) | Alt tag for the title logo                                                                                          |
 | titleLogoHref    | string                                            | false                                | Will wrap the title logo in a link to the specified URL                                                             |
 | customHeaderLogo | string                                            | false                                | Set to 'true' to make the masthead taller to accommodate a logo with a taller aspect ratio                          |
-| wide             | boolean                                           | false                                | If set to true will set a wider page style by adding css to the container                                           |
+| wide             | boolean                                           | false                                | Set to `true` to increase the maximum width of the layout container to 1280px.                                      |
 
 ## ServiceLinks
 
