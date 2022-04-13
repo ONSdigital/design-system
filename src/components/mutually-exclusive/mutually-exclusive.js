@@ -29,6 +29,7 @@ export default class MutuallyExclusive {
     };
 
     this.allInputs = [...this.groupInputs, this.option];
+    console.log(this.allInputs);
     this.voiceOverAlertElement = context.querySelector(`.${voiceOverAlertClass}`);
     this.groupAdjective = this.voiceOverAlertElement.getAttribute(groupAttrAdjective);
     this.optionAttrAdjective = this.voiceOverAlertElement.getAttribute(optionAttrAdjective);
@@ -39,7 +40,7 @@ export default class MutuallyExclusive {
 
   bindEventListeners() {
     this.allInputs.forEach(input => {
-      const event = input.element.type === 'checkbox' || 'radio' ? 'click' : 'input';
+      const event = input.element.type === 'checkbox' ? 'click' : 'input';
       input.element.addEventListener(event, () => this.handleValueChange(input));
     });
   }
@@ -60,7 +61,7 @@ export default class MutuallyExclusive {
           .forEach(input => {
             input.hasValue = false;
 
-            if (input.element.type === 'checkbox' || 'radio') {
+            if (input.element.type === 'checkbox') {
               input.element.checked = false;
               this.triggerEvent(input.element, 'change');
             } else {
@@ -116,7 +117,7 @@ export default class MutuallyExclusive {
   }
 
   inputHasValue(input) {
-    if (input.type === 'checkbox' || 'radio') {
+    if (input.type === 'checkbox') {
       return !!input.checked;
     } else {
       return !!input.value.trim().length;
