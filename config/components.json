@@ -6,13 +6,16 @@
     "templateName": "components/checkboxes/_checkbox-macro.njk",
     "macroName": "onsCheckbox"
   },
-  "lists": {
-    "macroName": "onsList"
-  },
   "icons": {
     "macroName": "onsIcon"
   },
   "images": {
     "macroName": "onsImage"
+  },
+  "lists": {
+    "macroName": "onsList"
+  },
+  "promotional-banner": {
+    "macroName": "onsPromoBanner"
   }
 }
