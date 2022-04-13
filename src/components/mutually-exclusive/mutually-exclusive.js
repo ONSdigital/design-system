@@ -29,7 +29,6 @@ export default class MutuallyExclusive {
     };
 
     this.allInputs = [...this.groupInputs, this.option];
-    console.log(this.allInputs);
     this.voiceOverAlertElement = context.querySelector(`.${voiceOverAlertClass}`);
     this.groupAdjective = this.voiceOverAlertElement.getAttribute(groupAttrAdjective);
     this.optionAttrAdjective = this.voiceOverAlertElement.getAttribute(optionAttrAdjective);
