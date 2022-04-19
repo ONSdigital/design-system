@@ -6,7 +6,7 @@ title: Fieldset
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
-## When to use this component
+## When to use this component
 
 The fieldset component is used to wrap multiple form input components to provide context to the contained inputs via a `<legend>` tag.
 
@@ -44,16 +44,18 @@ We recommend wrapping the `h1` inside the legend. There are two options for doin
 
 ### Configuration
 
-| Name          | Type                                 | Required | Description                                                          |
-| ------------- | ------------------------------------ | -------- | -------------------------------------------------------------------- |
-| id            | string                               | true     | The id of the fieldset                                               |
-| classes       | string                               | false    | Classes to apply to the fieldset                                     |
-| legend        | string                               | true     | Text for the legend                                                  |
-| legendClasses | string                               | false    | Classes to apply to the legend element                               |
-| legendIsQuestionTitle | boolean                      | false    | Creates a `h1` inside the legend                                     |
-| description   | string                               | false    | Description for the fieldset                                         |
-| attributes    | object                               | false    | HTML attributes (for example, data attributes) to add to the fieldset |
-| error         | `Error` [_(ref)_](/components/error) | false    | Configuration for validation errors                                  |
+| Name                  | Type                                 | Required                                        | Description                                                                       |
+| --------------------- | ------------------------------------ | ----------------------------------------------- | --------------------------------------------------------------------------------- |
+| id                    | string                               | false                                           | The HTML `id` of the fieldset                                                     |
+| classes               | string                               | false                                           | Classes to apply to the fieldset                                                  |
+| legend                | string                               | true (unless `legendIsQuestionTitle` is set)    | Text for the fieldset’s legend                                                    |
+| legendClasses         | string                               | false                                           | Classes to apply to the legend element                                            |
+| legendIsQuestionTitle | boolean                              | true (unless `legend` is set)                   | Creates an `h1` inside the `legend`. Use when only a single fieldset on the page. |
+| legendTitleClasses    | string                               | false                                           | Classes to apply to the `h1` created using `legendIsQuestionTitle`                |
+| description           | string                               | false                                           | Description for the fieldset                                                      |
+| attributes            | object                               | false                                           | HTML attributes (for example, data attributes) to add to the fieldset             |
+| error                 | `Error` [_(ref)_](/components/error) | false                                           | Configuration for validation errors                                               |
+| dontWrap              | boolean                              | false                                           | Prevents the fields from being wrapped in a fieldset                              |
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.
