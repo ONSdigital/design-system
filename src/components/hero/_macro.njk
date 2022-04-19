@@ -55,7 +55,7 @@
                 {% from "components/button/_macro.njk" import onsButton %}
                 {{
                     onsButton({
-                        "classes": params.button.classes,
+                        "classes": params.button.classes if params.button.classes is defined and params.button.classes else '',
                         "type": 'button',
                         "text": params.button.text,
                         "url": params.button.url
@@ -89,7 +89,7 @@
 
             {% if params.image is defined and params.image %}
             <div class="ons-hero__circle-image">
-                <img height="558" width="558" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="">
+                <img height="558" width="558" {% if params.image.largeSrc is defined and params.image.largeSrc %}srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" {% endif %}src="{{ params.image.smallSrc }}" alt="">
             </div>
             {% endif %}
 
