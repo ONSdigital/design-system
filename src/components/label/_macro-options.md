@@ -1,9 +1,10 @@
-| Name        | Type   | Required | Description                                                                                                |
-| ----------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------- |
-| text        | string | true     | The text content of the label                                                                              |
-| for         | string | true     | The id of the input this label is for                                                                      |
-| description | string | false    | A secondary piece of information to help describe the input                                                |
-| id          | string | false    | The id for the label                                                                                       |
-| classes     | string | false    | classes to add to the label                                                                                |
-| attributes  | object | false    | HTML attributes to add to the label, for example, data attributes                                          |
-| inputType   | string | false    | If set to 'radio' or 'checkbox' will add the relevant css for checkboxes or radios, defaults to text input |
+| Name                  | Type    | Required | Description                                                                                            |
+| --------------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| id                    | string  | false    | The HTML `id` for the label                                                                            |
+| text                  | string  | true     | The text content of the label                                                                          |
+| for                   | string  | true     | The id of the input the label is for. Sets the HTML `for` attribute on the `label`.                    |
+| description           | string  | false    | Hint text to help users fill in the input                                                              |
+| classes               | string  | false    | Classes to add to the label                                                                            |
+| attributes            | object  | false    | HTML attributes to add to the label, for example, data attributes                                      |
+| inputType             | string  | false    | Set to “radio” or “checkbox” to add the relevant CSS for checkboxes or radios. Defaults to text input. |
+| accessiblePlaceholder | boolean | false    | Will add the provided label as an accessible placeholder within the input                              |
