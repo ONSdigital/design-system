@@ -2,6 +2,9 @@
   "access-code": {
     "macroName": "onsUACInput"
   },
+  "char-check-limit": {
+    "macroName": "onsCharLimit"
+  },
   "checkboxes/checkbox": {
     "templateName": "components/checkboxes/_checkbox-macro.njk",
     "macroName": "onsCheckbox"
