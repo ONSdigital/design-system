@@ -41,19 +41,17 @@ layout: none
         {% from "components/lists/_macro.njk" import onsList %}
         {{
             onsList({
-                "element": "ol",
+                "element": 'ol',
                 "itemsList": [
                     {
                         "text": "Select what question topic your feedback is about",
-                        "index": true,
                         "url": "#feedback-type",
-                        "variants": "inPageLink"
+                        "variants": 'inPageLink'
                     },
                     {
                         "text": "Enter your feedback",
-                        "index": true,
                         "url": "#feedback-content",
-                        "variants": "inPageLink"
+                        "variants": 'inPageLink'
                     }
                 ]
             })

@@ -4,7 +4,7 @@
 | classes   | string                    | false    | Classes to add to the accordion component                                                                                                              |
 | itemsList | `Array<AccordionItem>`    | true     | An array of [accordion items](#accordionitem)                                                                                                          |
 | allButton | `Object<AccordionButton>` | false    | Settings for the [accordion button](#accordionbutton) to show or hide the contents of all the accordion items. If not set, the button will not render. |
-| variants  | array or string           | false    | An array of values or single value (string) to adjust the component using available variants: `simple`                                                 |
+| variants  | array or string           | false    | An array of values or single value (string) to adjust the component using available variant, “simple”                                                  |
 | saveState | boolean                   | false    | Saves the state of any open accordion items to local storage so they remain open when the page reloads                                                 |
 | open      | boolean                   | false    | Forces all accordion items to be open when the page loads                                                                                              |
 
