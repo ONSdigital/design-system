@@ -1,16 +1,16 @@
-| Name         | Type               | Required | Description                                                                                                                                                 |
-| ------------ | ------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| variants     | array or string    | false    | An array of values or single value (string) to adjust the table using available variants: `compact`, `responsive`,`scrollable`, `sortable`, and `row-hover` |
-| tableClasses | string             | false    | Classes to add to the table component                                                                                                                       |
-| id           | string             | false    | ID to add to the table component                                                                                                                            |
-| caption      | string             | false    | The caption for the table component                                                                                                                         |
-| hideCaption  | boolean            | false    | Visually hides the caption                                                                                                                                  |
-| ariaLabel    | string             | false    | The ARIA label to be added if `scrollable` variant set, to inform screen reader users that the table can be scrolled. Defaults to `"Scrollable table"`      |
-| ths          | Array`<th>`        | true     | An array of `th` elements for table                                                                                                                         |
-| trs          | Array`<tr>`        | true     | An array of `tr` elements for table                                                                                                                         |
-| tfoot        | Array`<tfootCell>` | false    | An array of `td` elements for `tdfoot`                                                                                                                      |
-| ariaAsc      | string             | false    | Sets the `data-aria-asc` attribute for the table. Used to set aria labels when table is sorted                                                              |
-| ariaDesc     | string             | false    | Sets the `data-aria-desc` attribute for the table. Used to set aria labels when table is sorted                                                             |
+| Name         | Type               | Required | Description                                                                                                                                                     |
+| ------------ | ------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| variants     | array or string    | false    | An array of values or single value (string) to adjust the component using available variants: “compact”, “responsive”,“scrollable”, “sortable”, and “row-hover” |
+| tableClasses | string             | false    | Classes to add to the table component                                                                                                                           |
+| id           | string             | false    | ID to add to the table component                                                                                                                                |
+| caption      | string             | false    | The caption for the table component                                                                                                                             |
+| hideCaption  | boolean            | false    | Visually hides the caption                                                                                                                                      |
+| ariaLabel    | string             | false    | The ARIA label to be added if `scrollable` variant set, to inform screen reader users that the table can be scrolled. Defaults to `"Scrollable table"`          |
+| ths          | Array`<th>`        | true     | An array of `th` elements for table                                                                                                                             |
+| trs          | Array`<tr>`        | true     | An array of `tr` elements for table                                                                                                                             |
+| tfoot        | Array`<tfootCell>` | false    | An array of `td` elements for `tdfoot`                                                                                                                          |
+| ariaAsc      | string             | false    | Sets the `data-aria-asc` attribute for the table. Used to set aria labels when table is sorted                                                                  |
+| ariaDesc     | string             | false    | Sets the `data-aria-desc` attribute for the table. Used to set aria labels when table is sorted                                                                 |
 
 ## th
 
