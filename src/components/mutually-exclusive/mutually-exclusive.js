@@ -19,27 +19,28 @@ export default class MutuallyExclusive {
       exclusive: false,
     }));
 
-    const optionElement = context.querySelector(`.${optionClass}`);
-    this.option = {
-      element: optionElement,
-      label: context.querySelector(`label[for=${optionElement.id}]`),
-      labelText: this.getElementLabelText(optionElement),
-      hasValue: this.inputHasValue(optionElement),
+    const exclusiveElements = [...context.getElementsByClassName(optionClass)];
+    this.numberOfExclusiveElements = exclusiveElements.length;
+    this.exclusiveElements = exclusiveElements.map(element => ({
+      element,
+      label: context.querySelector(`label[for=${element.id}]`),
+      labelText: this.getElementLabelText(element),
+      hasValue: this.inputHasValue(element),
       exclusive: true,
-    };
+    }));
 
-    this.allInputs = [...this.groupInputs, this.option];
+    this.allInputs = [...this.groupInputs, ...this.exclusiveElements];
     this.voiceOverAlertElement = context.querySelector(`.${voiceOverAlertClass}`);
     this.groupAdjective = this.voiceOverAlertElement.getAttribute(groupAttrAdjective);
     this.optionAttrAdjective = this.voiceOverAlertElement.getAttribute(optionAttrAdjective);
-    this.deselectMessage = this.option.element.getAttribute('data-deselect-message');
+    this.deselectMessage = this.exclusiveElements[0].element.getAttribute('data-deselect-message');
 
     this.bindEventListeners();
   }
 
   bindEventListeners() {
     this.allInputs.forEach(input => {
-      const event = input.element.type === 'checkbox' ? 'click' : 'input';
+      const event = ['checkbox', 'radio'].includes(input.element.type) ? 'click' : 'input';
       input.element.addEventListener(event, () => this.handleValueChange(input));
     });
   }
@@ -60,7 +61,7 @@ export default class MutuallyExclusive {
           .forEach(input => {
             input.hasValue = false;
 
-            if (input.element.type === 'checkbox') {
+            if (['checkbox', 'radio'].includes(input.element.type)) {
               input.element.checked = false;
               this.triggerEvent(input.element, 'change');
             } else {
@@ -116,7 +117,7 @@ export default class MutuallyExclusive {
   }
 
   inputHasValue(input) {
-    if (input.type === 'checkbox') {
+    if (['checkbox', 'radio'].includes(input.type)) {
       return !!input.checked;
     } else {
       return !!input.value.trim().length;
@@ -141,7 +142,7 @@ export default class MutuallyExclusive {
       deselectMessageElement.innerHTML = `. ${this.deselectMessage}`;
 
       this.deselectMessageElement = deselectMessageElement;
-      this.option.label.appendChild(deselectMessageElement);
+      this.exclusiveElements[0].label.appendChild(deselectMessageElement);
     } else if (this.deselectMessageElement && !groupElementSelected) {
       this.deselectMessageElement.remove();
       this.deselectMessageElement = null;
