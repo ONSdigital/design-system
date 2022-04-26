@@ -1,6 +1,6 @@
 | Name                      | Type                                 | Required | Description                                                                                              |
 | ------------------------- | ------------------------------------ | -------- | -------------------------------------------------------------------------------------------------------- |
-| exclusiveOptions          | MutuallyExclusiveCheckbox/radio      | true     | Configuration for the mutually exclusive options                                                         |
+| exclusiveOptions          | `Array<Checkbox>` or `Array<radio>`  | true     | Configuration for the mutually exclusive options                                                         |
 | or                        | string                               | true     | Text for the "Or" label                                                                                  |
 | deselectMessage           | string                               | true     | The text the aria-live will read to warn that selecting the exclusive option will clear all other inputs |
 | deselectGroupAdjective    | string                               | true     | The text the aria-live will read when a field is deselected                                              |
