@@ -70,11 +70,13 @@ export default class MutuallyExclusive {
             }
           });
       } else if (!input.exclusive) {
-        const input = this.allInputs.find(input => input.exclusive);
+        const inputs = this.allInputs.filter(input => input.exclusive);
         adjective = this.optionAdjective;
 
-        input.hasValue = false;
-        input.element.checked = false;
+        inputs.forEach(input => {
+          input.hasValue = false;
+          input.element.checked = false;
+        });
 
         this.triggerEvent(input.element, 'change');
       }
