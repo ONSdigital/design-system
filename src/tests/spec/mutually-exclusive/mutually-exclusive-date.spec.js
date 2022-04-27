@@ -27,10 +27,10 @@ const params = {
     or: 'Or',
     deselectMessage: 'Selecting this will clear the date if one has been inputted',
     deselectGroupAdjective: 'cleared',
-    deselectCheckboxAdjective: 'deselected',
+    deselectExclusiveOptionAdjective: 'deselected',
     exclusiveOptions: [
       {
-        id: 'date-exclusive-checkbox',
+        id: 'date-exclusive-exclusive-option',
         name: 'no-paid-job',
         value: 'no-paid-job',
         label: {
@@ -42,7 +42,7 @@ const params = {
 };
 
 describe('Component: Mutually Exclusive Date Input', () => {
-  let wrapper, component, dayInput, monthInput, yearInput, checkbox, ariaAlert;
+  let wrapper, component, dayInput, monthInput, yearInput, exclusiveOption, ariaAlert;
 
   beforeEach(() => {
     const html = renderTemplate('components/date-input/_test-template.njk', { params });
@@ -56,7 +56,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
     dayInput = document.getElementById(`${params.id}-day`);
     monthInput = document.getElementById(`${params.id}-month`);
     yearInput = document.getElementById(`${params.id}-year`);
-    checkbox = document.getElementById(params.mutuallyExclusive.exclusiveOptions[0].id);
+    exclusiveOption = document.getElementById(params.mutuallyExclusive.exclusiveOptions[0].id);
     ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
@@ -75,7 +75,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
 
     describe('when the user clicks the mutually exclusive option', () => {
       beforeEach(() => {
-        checkbox.click();
+        exclusiveOption.click();
       });
 
       it('then the date input should be cleared', () => {
@@ -96,9 +96,9 @@ describe('Component: Mutually Exclusive Date Input', () => {
     });
   });
 
-  describe('Given the user has checked the mutually exclusive checkbox', () => {
+  describe('Given the user has checked the mutually exclusive exclusive option', () => {
     beforeEach(() => {
-      checkbox.click();
+      exclusiveOption.click();
     });
 
     describe('when the user populates the dateInput', () => {
@@ -106,14 +106,14 @@ describe('Component: Mutually Exclusive Date Input', () => {
         populateDate(dayInput, monthInput, yearInput);
       });
 
-      it('then the checkbox should be unchecked', () => {
-        expect(checkbox.checked).to.equal(false);
+      it('then the exclusive option should be unchecked', () => {
+        expect(exclusiveOption.checked).to.equal(false);
       });
 
-      it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
+      it('then the aria alert should tell the user that the exclusive option has been unchecked', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.exclusiveOptions[0].label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
+            `${params.mutuallyExclusive.exclusiveOptions[0].label.text} ${params.mutuallyExclusive.deselectExclusiveOptionAdjective}.`,
           );
           done();
         }, 300);
@@ -121,7 +121,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
     });
   });
 
-  describe('Given the user has not populated the date input or checked the checkbox', () => {
+  describe('Given the user has not populated the date input or checked the exclusive option', () => {
     describe('when the user populates the date input', () => {
       beforeEach(() => {
         populateDate(dayInput, monthInput, yearInput);
@@ -137,7 +137,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
 
     describe('when the user clicks the mutually exclusive option', () => {
       beforeEach(() => {
-        checkbox.click();
+        exclusiveOption.click();
       });
 
       it('then the aria alert shouldnt say anything', done => {
