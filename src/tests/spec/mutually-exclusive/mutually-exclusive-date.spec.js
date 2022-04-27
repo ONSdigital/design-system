@@ -56,7 +56,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
     dayInput = document.getElementById(`${params.id}-day`);
     monthInput = document.getElementById(`${params.id}-month`);
     yearInput = document.getElementById(`${params.id}-year`);
-    checkbox = document.getElementById(params.mutuallyExclusive.exclusiveOptions.id);
+    checkbox = document.getElementById(params.mutuallyExclusive.exclusiveOptions[0].id);
     ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
