@@ -71,7 +71,7 @@ export default class MutuallyExclusive {
           });
       } else if (!input.exclusive) {
         const inputs = this.allInputs.filter(input => input.exclusive);
-        adjective = this.optionAdjective;
+        adjective = this.optionAttrAdjective;
 
         inputs.forEach(input => {
           input.hasValue = false;
