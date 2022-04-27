@@ -113,7 +113,7 @@ describe('Component: Mutually Exclusive Date Input', () => {
       it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.exclusiveOptions.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
+            `${params.mutuallyExclusive.exclusiveOptions[0].label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
           );
           done();
         }, 300);

@@ -55,7 +55,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
 
     yearsInput = document.getElementById(params.field1.id);
     monthsInput = document.getElementById(params.field2.id);
-    checkbox = document.getElementById(params.mutuallyExclusive.exclusiveOptions.id);
+    checkbox = document.getElementById(params.mutuallyExclusive.exclusiveOptions[0].id);
     ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
@@ -111,7 +111,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
       it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.exclusiveOptions.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
+            `${params.mutuallyExclusive.exclusiveOptions[0].label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
           );
           done();
         }, 300);
