@@ -38,12 +38,12 @@
                     <img class="ons-hero__pre-title" src="{{ params.placeholderURL }}/img/{{ preTitleImageWithModifier }}" alt="{{ params.preTitleImage.alt }}">
                 {% endif %}
                 {% if params.censusTheme is defined and params.censusTheme %}
-                    <h1 class="ons-u-fs-xxxl">{{ params.title }}</h1>
+                    <h1 class="ons-hero__title ons-u-fs-xxxl">{{ params.title }}</h1>
                 {% else %}
                     <h1 class="ons-hero__title">{{ params.title }}</h1>
                 {% endif %}
                 {% if params.subtitle is defined and params.subtitle %}
-                    <h2 class="ons-u-fs-r--b">{{ params.subtitle }}</h2>
+                    <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
                 {% endif %}
             </header>
 
