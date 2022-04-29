@@ -82,12 +82,13 @@
                                     {% endif %}
                                     <div class="ons-grid__col ons-col-auto ons-u-d-no@{{ breakpoint }}">
                                         {{ onsButton({
-                                            "text": params.serviceLinks.toggleServicesButton.text | default("Menu") ,
+                                            "text": params.serviceLinks.toggleServicesButton.text | default("Menu"),
                                             "classes": "ons-u-d-no ons-js-toggle-services",
+                                            "type": "button",
                                             "buttonStyle": "mobile",
                                             "variants": buttonVariant,
                                             "attributes": {
-                                                "aria-label": params.serviceLinks.toggleServicesButton.ariaLabel | default("Toggle menu") ,
+                                                "aria-label": params.serviceLinks.toggleServicesButton.ariaLabel | default("Toggle menu"),
                                                 "aria-controls": params.serviceLinks.id,
                                                 "aria-haspopup": "true",
                                                 "aria-expanded": "false"
