@@ -400,12 +400,6 @@ $button-shadow-size: 3px;
 
     width: 100%;
 
-    &.active {
-      .ons-btn__inner {
-        background: $color-branded-secondary;
-      }
-    }
-
     .ons-btn__inner {
       background: $color-branded-tint;
       border: none;
@@ -422,6 +416,16 @@ $button-shadow-size: 3px;
         fill: $color-text-link;
         float: right;
         margin-top: 3px;
+      }
+    }
+
+    &:active,
+    &:active:focus {
+      .ons-btn__inner {
+        background: $color-branded-secondary;
+        .ons-svg-icon {
+          fill: $color-white;
+        }
       }
     }
   }
