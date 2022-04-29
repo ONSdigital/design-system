@@ -423,6 +423,7 @@ $button-shadow-size: 3px;
     &:active:focus {
       .ons-btn__inner {
         background: $color-branded-secondary;
+        color: $color-white;
         .ons-svg-icon {
           fill: $color-white;
         }
