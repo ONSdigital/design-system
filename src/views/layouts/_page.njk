@@ -18,35 +18,34 @@
             "wide": true,
             "logoHref": "https://www.ons.gov.uk/",
             "titleLogoHref": "/",
-            "toggleButton": {
-                "text": "Menu",
-                "ariaLabel": "Toggle main menu"
-            },
-            "search": true,
             "navigation": {
-                "id": "main-nav",
+                "wide": true,
+                "id": "main-navigation",
                 "classes": "ons-nav--inline ons-nav--light ons-nav--header ons-nav--h-m ons-js-main-nav",
                 "ariaLabel": "Main menu",
-                "ariaListLabel": "Navigation menu",
                 "currentPath": pageInfo.url,
                 "itemsList": helpers.navigationHelper({
                     "pages": pageInfo.siteMap
-                })
-            },
-            "autosuggest": {
-                "label": "Search the design system",
-                "instructions": "Use up and down keys to navigate results once you\'ve typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
-                "ariaYouHaveSelected": "You have selected",
-                "ariaMinChars": "Enter 3 or more characters for results.",
-                "ariaResultsLabel": "Search results",
-                "ariaOneResult": "There is one result available.",
-                "ariaNResults": "There are {n} results available.",
-                "ariaLimitedResults": "Results have been limited to 10 results. Type more characters to improve your search",
-                "moreResults": "Continue entering to improve results",
-                "resultsTitle": "Search results",
-                "autosuggestData": "/search-index.json",
-                "noResults": "No results found",
-                "typeMore": "Continue entering to get results"
+                }),
+                "toggleNavigationButton": {
+                    "text": "Menu",
+                    "ariaLabel": "Toggle main menu"
+                },
+                "siteSearchAutosuggest": {
+                    "label": "Search the design system",
+                    "instructions": "Use up and down keys to navigate results once you\'ve typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
+                    "ariaYouHaveSelected": "You have selected",
+                    "ariaMinChars": "Enter 3 or more characters for results.",
+                    "ariaResultsLabel": "Search results",
+                    "ariaOneResult": "There is one result available.",
+                    "ariaNResults": "There are {n} results available.",
+                    "ariaLimitedResults": "Results have been limited to 10 results. Type more characters to improve your search",
+                    "moreResults": "Continue entering to improve results",
+                    "resultsTitle": "Search results",
+                    "autosuggestData": "/search-index.json",
+                    "noResults": "No results found",
+                    "typeMore": "Continue entering to get results"
+                }
             }
         })
     }}
@@ -127,7 +126,6 @@
                                     "variants": "vertical",
                                     "id": "section-navigation",
                                     "ariaLabel": "Sub menu",
-                                    "ariaListLabel": "Child menu",
                                     "currentPath": pageInfo.url,
                                     "itemsList": group.items
                                 })

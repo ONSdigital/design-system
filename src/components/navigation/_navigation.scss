@@ -1,0 +1,127 @@
+.ons-navigation {
+  position: relative;
+  &-wrapper {
+    background: $color-header;
+    margin-top: -0.03rem;
+  }
+
+  &--sub {
+    background: $color-branded-tint;
+    padding-top: 0.5rem;
+  }
+
+  &--sub-mobile {
+    border-bottom: 4px solid $color-branded-tint;
+  }
+
+  &-search {
+    padding: 1rem;
+
+    @include mq(l) {
+      bottom: 65px;
+      padding: 0;
+      position: absolute;
+      right: 1rem;
+      width: 20rem;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0.5rem;
+
+    @include mq(l) {
+      padding: 0;
+    }
+
+    &-header {
+      font-size: 1rem;
+      margin: 0.75rem 0 0.6rem;
+      padding: 0 0 0 1rem;
+    }
+  }
+
+  &__item {
+    border-left: 4px solid transparent;
+    display: block;
+    margin: 0 0 0.2rem;
+    &--active {
+      border-color: $color-white;
+    }
+
+    .ons-navigation--sub-mobile & {
+      &--active {
+        border-color: $color-branded;
+        li {
+          border: 0;
+        }
+      }
+    }
+
+    @include mq(l) {
+      border-bottom: 4px solid transparent;
+      border-left: 0;
+      display: inline-block;
+      margin: 0 0 0 1rem;
+      padding: 0 0 0.3rem;
+      position: relative;
+      text-align: center;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &--active,
+      &:hover {
+        border-color: $color-white;
+      }
+
+      .ons-navigation--sub & {
+        &:hover,
+        &--active {
+          border-color: $color-text-link;
+        }
+      }
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    display: block;
+    margin: 0 0.35rem;
+    padding: 0.1rem 0.55rem;
+    text-decoration: none;
+
+    &--section {
+      margin: 0;
+      padding: 0;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-white;
+      text-decoration: none;
+    }
+
+    .ons-navigation--sub &,
+    .ons-navigation--sub-mobile & {
+      color: $color-text-link;
+      &:hover,
+      &:focus {
+        color: $color-text-link;
+      }
+    }
+
+    @include mq(l) {
+      display: inline-block;
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__item--active > &__link {
+    font-weight: 700;
+  }
+}

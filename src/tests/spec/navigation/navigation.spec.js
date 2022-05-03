@@ -7,14 +7,9 @@ const proxyquire = proxyquireify(require);
 
 const params = {
   navigation: {
-    toggleButton: {
-      text: 'Menu',
-      ariaLabel: 'Toggle main navigation',
-    },
-    classes: 'ons-js-header-nav ons-u-d-no',
+    classes: 'ons-js-navigation ons-u-d-no',
     id: 'main-nav',
     ariaLabel: 'Main menu',
-    ariaListLabel: 'Navigation menu',
     currentPath: '/surveys',
     itemsList: [
       {
@@ -40,6 +35,10 @@ const params = {
         classes: 'ons-u-d-no@m',
       },
     ],
+    toggleNavigationButton: {
+      text: 'Menu',
+      ariaLabel: 'Toggle main navigation',
+    },
   },
 };
 
@@ -63,9 +62,9 @@ describe('Component: Navigation', function() {
 
     describe('When the component initialises', function() {
       beforeEach(function() {
-        const HeaderNav = require('../../../components/header/header-nav').default;
+        const HeaderNav = require('../../../components/navigation/navigation').default;
 
-        this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList, this.hideClass);
+        this.nav = new HeaderNav(this.toggleNavigationBtn, this.mainNavList, this.hideClass);
         this.nav.registerEvents = chai.spy(this.nav.registerEvents);
         this.nav.registerEvents();
       });
@@ -74,17 +73,17 @@ describe('Component: Navigation', function() {
         expect(this.nav.registerEvents).to.have.been.called();
       });
 
-      describe('When viewport has a width more than 740,', function() {
+      describe('When viewport has a width more than 980,', function() {
         beforeEach(function() {
-          ViewportDetailsMock.setParams({ width: 800 });
+          ViewportDetailsMock.setParams({ width: 1000 });
 
-          const HeaderNav = proxyquire('../../../components/header/header-nav', {
+          const HeaderNav = proxyquire('../../../components/navigation/navigation', {
             'viewport-details': {
               GetViewportDetails: ViewportDetailsMock.getMock(),
             },
           }).default;
 
-          this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList, this.hideClass);
+          this.nav = new HeaderNav(this.toggleNavigationBtn, this.mainNavList, this.hideClass);
           this.nav.registerEvents();
         });
 
@@ -92,7 +91,7 @@ describe('Component: Navigation', function() {
           expect(this.mainNavList.hasAttribute('aria-hidden')).to.equal(false);
         });
 
-        describe('and then the viewport width changes to less than 740', function() {
+        describe('and then the viewport width changes to less than 980', function() {
           beforeEach(function() {
             ViewportDetailsMock.setParams({ width: 375 });
             this.nav.setAria();
@@ -118,13 +117,13 @@ describe('Component: Navigation', function() {
           });
 
           it('Should not have the hidden class', function() {
-            expect(this.mainNavList.classList.contains('ons-u-d-no@xxs@m')).to.be.false;
+            expect(this.mainNavList.classList.contains('ons-u-d-no@xxs@l')).to.be.false;
           });
         });
 
         describe('When the main nav is closed,', function() {
           beforeEach(function() {
-            this.nav.closeNav(this.toggleMainBtn, this.mainNavList, this.hideclass);
+            this.nav.closeNav(this.toggleNavigationBtn, this.mainNavList, this.hideclass);
           });
 
           it('Should be assigned the "aria-hidden" value of false', function() {
@@ -132,13 +131,13 @@ describe('Component: Navigation', function() {
           });
 
           it('Should not have the hidden class', function() {
-            expect(this.mainNavList.classList.contains('ons-u-d-no@xxs@m')).to.be.true;
+            expect(this.mainNavList.classList.contains('ons-u-d-no@xxs@l')).to.be.true;
           });
         });
 
-        describe('and then the viewport width changes to more than 740', function() {
+        describe('and then the viewport width changes to more than 980', function() {
           beforeEach(function() {
-            ViewportDetailsMock.setParams({ width: 800 });
+            ViewportDetailsMock.setParams({ width: 1000 });
             this.nav.setAria();
           });
 
@@ -148,17 +147,17 @@ describe('Component: Navigation', function() {
         });
       });
 
-      describe('When viewport has a width less than 740,', function() {
+      describe('When viewport has a width less than 980,', function() {
         beforeEach(function() {
           ViewportDetailsMock.setParams({ width: 375 });
 
-          const HeaderNav = proxyquire('../../../components/header/header-nav', {
+          const HeaderNav = proxyquire('../../../components/navigation/navigation', {
             'viewport-details': {
               GetViewportDetails: ViewportDetailsMock.getMock(),
             },
           }).default;
 
-          this.nav = new HeaderNav(this.toggleMainBtn, this.mainNavList, this.hideClass);
+          this.nav = new HeaderNav(this.toggleNavigationBtn, this.mainNavList, this.hideClass);
           this.nav.registerEvents();
         });
 
@@ -173,9 +172,9 @@ describe('Component: Navigation', function() {
           });
         });
 
-        describe('and then the viewport width changes to more than 740', function() {
+        describe('and then the viewport width changes to more than 980', function() {
           beforeEach(function() {
-            ViewportDetailsMock.setParams({ width: 800 });
+            ViewportDetailsMock.setParams({ width: 1000 });
             this.nav.setAria();
           });
 
@@ -205,13 +204,13 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const toggleMainBtn = wrapper.querySelector('.ons-js-toggle-main');
-  const mainNavList = wrapper.querySelector('.ons-js-header-nav');
-  const hideClass = 'ons-u-d-no@xxs@m';
+  const toggleNavigationBtn = wrapper.querySelector('.ons-js-navigation-button');
+  const mainNavList = wrapper.querySelector('.ons-js-navigation');
+  const hideClass = 'ons-u-d-no@xxs@l';
 
   return {
     wrapper,
-    toggleMainBtn,
+    toggleNavigationBtn,
     mainNavList,
     hideClass,
   };

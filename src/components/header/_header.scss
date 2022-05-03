@@ -170,20 +170,41 @@
     display: block;
   }
 
-  &__bottom {
-    background: $color-header;
-    margin-top: -0.03rem;
-  }
+  &-service-nav {
+    display: inline-block;
 
-  &-search {
-    padding: 1rem;
+    &--mobile {
+      background: $color-branded-tint;
+      padding: 1rem;
+      width: 100%;
+    }
 
-    @include mq(m) {
-      bottom: 65px;
+    &__list {
+      list-style: none;
+      margin: 0;
       padding: 0;
-      position: absolute;
-      right: 1rem;
-      width: 20rem;
+    }
+
+    &__item {
+      display: inline-block;
+      margin: 0 0 0 1rem;
+      &--mobile {
+        display: block;
+        margin: 0 0 0.5rem;
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .ons-language-links {
+      border-top: 1px solid $color-branded;
+      margin: 1.5rem 0 0;
+      padding: 1rem 0 0;
+
+      &__item {
+        margin: 0 0 0.5rem;
+      }
     }
   }
 }
