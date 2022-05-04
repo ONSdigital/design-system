@@ -1,6 +1,6 @@
-| Name      | Type    | Required | Description                                                                    |
-| --------- | ------- | -------- | ------------------------------------------------------------------------------ |
-| html      | string  | true     | The text content for the phase banner. HTML is allowable to embed links        |
-| badge     | string  | false    | The text for the phase banner badge. Defaults to "Beta"                        |
-| hideBadge | boolean | false    | Will hide the phase banner badge if set to `true`                              |
-| wide      | boolean | false    | Set to `true` to increase the maximum width of the layout container to 1280px. |
+| Name      | Type    | Required | Description                                                                   |
+| --------- | ------- | -------- | ----------------------------------------------------------------------------- |
+| html      | string  | true     | The text content for the phase banner. This can contain HTML.                 |
+| badge     | string  | false    | The text for the phase banner badge. Defaults to “Beta”.                      |
+| hideBadge | boolean | false    | Set to “true” to hide the phase banner badge                                  |
+| wide      | boolean | false    | Set to “true” to increase the maximum width of the layout container to 1280px |
