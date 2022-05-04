@@ -39,7 +39,7 @@ describe('script: modal', () => {
       expect(ariaHidden).toBe('true');
     });
 
-    it('has rendered the underlying page made inert', async () => {
+    it('has the underlying page made inert', async () => {
       const inert = await page.$eval('.ons-page', node => node.inert !== null);
       expect(inert).toBe(true);
     });
@@ -66,8 +66,8 @@ describe('script: modal', () => {
       });
 
       it('has the underlying page content made active', async () => {
-        const inert = await page.$eval('.ons-page', node => node.inert !== true);
-        expect(inert).toBe(true);
+        const isNotInert = await page.$eval('.ons-page', node => node.inert !== true);
+        expect(isNotInert).toBe(true);
       });
 
       it('focuses the last active element', async () => {
