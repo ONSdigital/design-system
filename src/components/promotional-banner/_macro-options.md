@@ -8,6 +8,7 @@
 
 | Name     | Type   | Required | Description                                                                                                          |
 | -------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------- |
+| smallSrc | string | true     | Path to the the image                                                                                                |
 | smallSrc | string | true     | Path to the non-retina version of the image                                                                          |
 | largeSrc | string | false    | Path to the retina version of the image                                                                              |
 | alt      | string | false    | The HTML `alt` tag to explain the appearance and function of the image. Not required if the image is only decorative |
