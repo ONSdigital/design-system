@@ -1,0 +1,114 @@
+{% macro onsDocumentList(params) %}
+    <ul{% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %} class="ons-document-list{{ ' ' + params.classes if params.classes is defined and params.classes else '' }}"{% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
+        {% for document in (params.documents if params.documents is iterable else params.documents.items()) %}
+
+        <li class="ons-document-list__item{{ ' ons-document-list__item--featured' if document.featured is defined and document.featured }}{{ ' ons-document-list__item--full-width' if document.fullWidth is defined and document.fullWidth == true }}{{ ' ' + document.classes if document.classes is defined and document.classes else '' }}"{% if document.attributes is defined and document.attributes %}{% for attribute, value in (document.attributes.items() if document.attributes is mapping and document.attributes.items else document.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
+
+            {% if document.fullWidth is defined and document.fullWidth == true %}
+
+                <div class="ons-container{{ ' ons-container--wide' if document.wide is defined and document.wide == true }}">
+
+            {% endif %}
+
+                    {% if document.thumbnail is defined or document.thumbnail == true %}
+
+                        <div class="ons-document-list__item-image{%- if document.metadata.file is defined and document.metadata.file %} ons-document-list__item-image--file{% endif %}" aria-hidden="true">
+                            <a class="ons-document-list__image-link{{ ' ons-document-list__image-link--placeholder' if not document.thumbnail.smallSrc }}" href="{{ document.url }}" tabindex="-1">
+                                {% if document.thumbnail.smallSrc is defined and document.thumbnail.smallSrc and document.thumbnail.largeSrc is defined and document.thumbnail.largeSrc %}
+                                    <img srcset="{{ document.thumbnail.smallSrc }} 1x, {{ document.thumbnail.largeSrc }} 2x" src="{{ document.thumbnail.smallSrc }}" alt="" loading="lazy">
+                                {% endif %}
+                            </a>
+                        </div>
+
+                    {% endif %}
+
+                    <div class="ons-document-list__item-content">
+
+                        <div class="ons-document-list__item-header{{ ' ons-document-list__item-header--reverse' if document.showMetadataFirst is defined and document.showMetadataFirst == true }}">
+
+                            {% set titleTag = params.titleTag | default("h2") %}
+
+                            <{{ titleTag }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
+                                <a href="{{ document.url }}">{{ document.title }}
+                                {%- if document.metadata is defined and document.metadata and document.metadata.file is defined and document.metadata.file %}
+                                <span class="ons-u-vh">,
+
+                                    {% set fileMetadataItems = [] %}
+
+                                    {% if document.metadata.file.fileType is defined and document.metadata.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileType + ' document download'), fileMetadataItems) %}{% endif %}
+                                    {% if document.metadata.file.fileSize is defined and document.metadata.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileSize), fileMetadataItems) %}{% endif %}
+                                    {% if document.metadata.file.filePages is defined and document.metadata.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.filePages), fileMetadataItems) %}{% endif %}
+
+                                    {{ fileMetadataItems | join(', ') }}
+
+                                {% endif -%}
+
+                                </span></a>
+                            </{{ titleTag }}>
+
+                            {%- if document.metadata is defined and document.metadata %}
+
+                                <ul class="ons-document-list__item-metadata{% if document.description is defined and document.description %} ons-u-mb-xs{% else %} ons-u-mb-no{% endif %}">
+
+                                    {%- if document.metadata.date is defined and document.metadata.date %}
+                                        <li class="ons-document-list__item-attribute">
+                                            {% if document.metadata.date -%}
+                                                {% set prefixClasses = "ons-u-fw-b" if document.metadata.date.showPrefix is defined and document.metadata.date.showPrefix == true else "ons-u-vh" %}
+                                                <span class="{{ prefixClasses }}">{{ document.metadata.date.prefix | default("Published") }}: </span>
+                                            {%- endif -%}
+                                            {% if document.metadata.date.iso is defined and document.metadata.date.iso -%}
+                                                <time datetime="{{ document.metadata.date.iso }}">{{ document.metadata.date.short }}</time>
+                                            {%- endif %}
+                                        </li>
+                                    {% endif %}
+
+                                    {%- if document.metadata.type is defined and document.metadata.type and document.metadata.type.text is defined and document.metadata.type.text %}
+                                        <li class="ons-document-list__item-attribute{%- if document.metadata.file is defined and document.metadata.file %} ons-u-mr-no{% endif %}">
+                                            {%- if document.metadata.type.url is defined and document.metadata.type.url %}
+                                                <a class="ons-document-list__attribute-link" href="{{ document.metadata.type.url }}">
+                                            {% endif %}
+                                                    <span {% if not document.metadata.file and not document.metadata.type.url %}class="ons-u-fw-b"{% endif %}>{{ document.metadata.type.text }}{%- if document.metadata.type.ref is defined and document.metadata.type.ref %}: {% elif document.metadata.file is defined and document.metadata.file %},{% endif %}</span>
+                                            {%- if document.metadata.type.url is defined and document.metadata.type.url %}
+                                                </a>
+                                            {% endif %}
+                                            {%- if document.metadata.type.ref is defined and document.metadata.type.ref %}
+                                                <span>{{ document.metadata.type.ref }}</span>
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+
+                                    {%- if document.metadata.file is defined and document.metadata.file and document.metadata.file.fileType is defined and document.metadata.file.fileType %}
+
+                                        <li class="ons-document-list__item-attribute" aria-hidden="true">
+                                            {% set fileMetadataItems = [] %}
+
+                                            {% if document.metadata.file.fileType is defined and document.metadata.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileType), fileMetadataItems) %}{% endif %}
+                                            {% if document.metadata.file.fileSize is defined and document.metadata.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileSize), fileMetadataItems) %}{% endif %}
+                                            {% if document.metadata.file.filePages is defined and document.metadata.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.filePages), fileMetadataItems) %}{% endif %}
+
+                                            {{ fileMetadataItems | join(', ') }}
+                                        </li>
+
+                                    {% endif -%}
+                                </ul>
+
+                            {% endif %}
+                        </div>
+
+                        {% if document.description is defined and document.description %}
+                            <div class="ons-document-list__item-description">{{ document.description | safe }}</div>
+                        {% endif %}
+
+                    </div>
+
+            {% if document.fullWidth is defined and document.fullWidth == true %}
+
+                </div>
+
+            {% endif %}
+
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endmacro %}

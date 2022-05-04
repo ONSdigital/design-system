@@ -7,9 +7,8 @@
         "classes": params.fieldClases,
         "legendClasses": params.legendClasses,
         "dontWrap": params.dontWrap,
-        "legendIsQuestionTitle": params.legendIsQuestionTitle,
         "error": params.error,
-        "inline": params.label.inline
+        "inline": params.label.inline if params.label is defined and params.label else ''
     }) %}
         {{
             onsLabel({

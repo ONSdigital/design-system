@@ -2,14 +2,8 @@
 layout: none
 ---
 {% extends "layout/_template.njk" %}
-{% from "components/question/_macro.njk" import onsQuestion %}
-{% from "components/radios/_macro.njk" import onsRadios %}
-{% from "components/textarea/_macro.njk" import onsTextarea %}
-{% from "components/input/_macro.njk" import onsInput %}
-{% from "components/button/_macro.njk" import onsButton %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/lists/_macro.njk" import onsList %}
-{% from "components/articles/_macro.njk" import onsArticles %}
+{% from "components/images/_macro.njk" import onsImage %}
 {% from "components/related-content/_macro.njk" import onsRelatedContent %}
 {% from "components/share-page/_macro.njk" import onsSharePage %}
 {% from "components/content-pagination/_macro.njk" import onsContentPagination %}
@@ -41,7 +35,7 @@ layout: none
 <h1 class="ons-u-fs-xxl">
     <span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">Press releases</span>
     <span class="ons-u-vh">: </span>
-    <span class="ons-u-fs-xxl ons-u-db">There is still time to complete Census 2021</span>
+    <span class="ons-u-fs-xxl ons-u-db">ONS launches Integrated Data Service to boost government collaboration on data sharing</span>
 </h1>
 
 <div class="ons-grid ons-grid--column@xs@s">
@@ -50,29 +44,46 @@ layout: none
 
         <div class="ons-page__body ons-u-mt-m">
 
-            <p>Census Day was Sunday 21 March, but it is vital those who have not yet completed, do so as soon as possible.</p>
+            {{
+                onsImage({
+                    image: {
+                        smallSrc: '/img/small/alison-pritchard-featured.jpg',
+                        largeSrc: '/img/large/alison-pritchard-featured.jpg'
+                    }
+                })
+            }}
 
-            <p>Sunday March 21 marked the day that millions of people across England and Wales completed key questions about themselves and their households to ensure local services in every community are informed by the best information possible.</p>
+            <p>The Office for National Statistics has today launched the first stage of the Integrated Data Service (IDS), a cloud-based platform giving analysts and researchers greater access to data from a range of sources.</p>
 
-            <p>However, for those who have not yet submitted their online or paper questionnaires or have maybe misplaced their invitation letter, there is lots of help available.</p>
+            <p>The private beta version will allow a selection of government analysts to compare and combine data held by the ONS and other departments, helping to unlock the full potential of data, inform policy decisions and encourage collaboration across government.</p>
 
-            <p>“The information you provide needs to be about who usually lives in your household on Census Day, which was Sunday March 21, however if you’ve haven’t completed it yet, please do so – there’s still time to,” the Office for National Statistics’ deputy national statistician Iain Bell said.</p>
+            <p>Launching next spring, a public beta will open the door for accredited researchers outside of government to use the new service.</p>
 
-            <p>“Every household should have received their letter inviting them to take part and we’ve had a great response so far. If you haven’t, or you have misplaced your letter, you can head online to <a href="#0">www.census.gov.uk</a> and request a new unique access code.</p>
+            <p>The three projects selected for the private beta and will focus on some of the government’s top priorities:</p>
 
-            <p>“There is plenty of help available, including face-to-face assistance at local Census Support Centres.</p>
+            {{
+                onsList({
+                    "itemsList": [
+                        {
+                            "text": '<p>wage growth - an ONS and HM Treasury collaboration will investigate in detail how wages change across the country, helping inform the government’s “Levelling Up” policy agenda</p>'
+                        },
+                        {
+                            "text": '<p>energy efficiency - working with the Valuation Office Agency to provide better information on the energy efficiency of homes around the country as part of wider work to help measure the UK’s progress towards reaching net zero by 2050</p>'
+                        },
+                        {
+                            "text": '<p>regional issues - a collaboration with Department for Business, Energy, and Industrial Strategy to analyse how text from local news sources across the UK can be used to understand concerns of communities around the country</p>'
+                        }
+                    ]
+                })
+            }}
 
-            <p>“Field officers will soon start calling at households who have not completed their census. They will follow social distancing and COVID-safe guidelines, supporting people to take part.</p>
+            <p>DCMS Minister for State Julia Lopez said: "The Integrated Data Service is a crucial part of our National Data Strategy and will make it easier and quicker for policy makers to access robust evidence for making the decisions that can improve the lives of people across the country.</p>
 
-            <p>“They will be equipped with PPE and will never need to enter anyone’s home. They’ll be operating much like a postal or food delivery visit.”</p>
+            <p>"Unlocking the power of data will boost the economy, create jobs and help us build back better from the pandemic.” </p><p>Joanna Davinson, Executive Director at the Central Digital and Data Office, said: “The Integrated Data Service will provide the public sector with secure access to high-quality data for better research and analysis.</p>
 
-            <p>The results from the census will shed light on the needs of different groups and communities, and the inequalities people are experiencing, ensuring the big decisions facing the country following the pandemic and EU exit are based on the best information possible, through the anonymised answers provided.</p>
+            <p>“This is aligned to our vision of having increased availability of data for decision-makers to ensure more data driven policies. In this way, we can enable transformation of the Government’s use of data and support the delivery of efficient public services for users.”</p>
 
-            <p>The ONS will never share personal details and no-one, including government bodies, will be able to identify you in census statistics. Personal census records will be kept secure for 100 years, and only then can future generations view it.</p>
-
-            <p>If people do not complete their census, they may have to pay a fine of up to £1,000.</p>
-
-            <p>For more information, including how to find a local census support centre, please visit <a href="#0">www.census.gov.uk</a>.</p>
+            <p>Alison Pritchard, Deputy National Statistician for Data Capability, said: "The Service demonstrates how data held, managed and accessed in a trusted and secure environment can benefit us all by providing essential insight on social and economic factors. I am particularly looking forward to engaging widely to explain how we are protecting the data appropriately and making sure it is put to use for the public good."</p>
 
             <div class="ons-u-mt-l ons-u-mt-xl@m">
                 {{
@@ -83,13 +94,13 @@ layout: none
                                 "rel": 'prev',
                                 "text": 'Previous',
                                 "url": '#0',
-                                "label": 'Census 2021 Reveals Community Heroes Across England and Wales'
+                                "label": 'Office for National Statistics win top Royal Statistical Society award'
                             },
                             {
                                 "rel": 'next',
                                 "text": 'Next',
                                 "url": '#0',
-                                "label": 'Don’t be eggs-cluded - fill in your census this Easter'
+                                "label": 'Five Office for National Statistics names in New Year’s Honours'
                             }
                         ]
                     })
@@ -110,13 +121,13 @@ layout: none
                     "title": 'Published on',
                     "itemsList": [
                         {
-                            "text": '<time datetime="2021-03-23">23 March 2021</time>'
+                            "text": '<time datetime="2021-08-01">1 August 2021</time>'
                         }
                     ]
                 },
                 {
-                    "id": 'posted-in',
-                    "title": 'Posted in',
+                    "id": 'published-in',
+                    "title": 'Published in',
                     "classes": 'ons-u-mb-no',
                     "variants": 'bare',
                     "itemsList": [
@@ -131,11 +142,11 @@ layout: none
                     "title": 'Tags',
                     "itemsList": [
                         {
-                            "text": 'Census 2021',
+                            "text": 'Integrated data',
                             "url": '#0'
                         },
                         {
-                            "text": 'Questionnaire',
+                            "text": 'Census 2021',
                             "url": '#0'
                         },
                         {
@@ -145,8 +156,8 @@ layout: none
                     ]
                 },
                 {
-                    "id": 'share-this-post',
-                    "title": 'Share this post',
+                    "id": 'share-this-article',
+                    "title": 'Share this article',
                     "variants": 'social',
                     "iconPosition": 'before',
                     "iconSize": 'xxl',
