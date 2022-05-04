@@ -153,9 +153,8 @@
             "id": params.fieldId,
             "classes": params.fieldClasses,
             "dontWrap": params.dontWrap,
-            "legendIsQuestionTitle": params.legendIsQuestionTitle,
             "error": params.error,
-            "inline": params.label.inline
+            "inline": params.label.inline if params.label is defined and params.label else ''
         }) %}
             {% if charCheckField is defined and charCheckField %}
                 {{ charCheckField | safe }}

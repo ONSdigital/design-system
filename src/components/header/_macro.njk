@@ -1,7 +1,7 @@
 {% macro onsHeader(params) %}
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/icons/_macro.njk" import onsIcon %}
-    {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
+    {% from "components/navigation/_macro.njk" import onsNavigation %}
 
     {% set title_tag = "h1" if params.tilteAsH1 else "div" %}
     {% set currentLanguageISOCode = "en" %}
@@ -11,7 +11,7 @@
         {% set currentLanguageISOCode = currentLanguage.ISOCode %}
     {% endif %}
 
-    <header class="ons-header {{ params.classes if params.classes }}" role="banner">
+    <header class="ons-header {% if params.variants is not string %}{% for variant in params.variants %} ons-header--{{ variant }}{% endfor %}{% else %} ons-header--{{ params.variants }}{% endif %}" role="banner">
         {% if params.phase is defined and params.phase %}
             {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
             {{ onsPhaseBanner(params.phase) }}
@@ -19,7 +19,6 @@
         <div class="ons-header__top">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{{ ' ons-header__grid-top-tall' if params.customHeaderLogo is defined and params.customHeaderLogo }}">
-
                     <div class="ons-grid__col ons-col-auto">
                         <div class="ons-header__logo--large">
                             {%-if params.logoHref is defined and params.logoHref %}<a class="ons-header__logo-link" href="{{ params.logoHref }}">{% endif -%}
@@ -42,20 +41,28 @@
                             {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
                         </div>
                     </div>
-
                     {% if params.language is defined and params.language or params.serviceLinks is defined and params.serviceLinks %}
                         <div class="ons-header__links ons-grid__col ons-col-auto">
                             {% if params.language is defined and params.language %}
-                                <div class="ons-grid__col ons-col-auto">
+                                <div class="ons-grid__col ons-col-auto {{ ' ons-u-mr-s ons-u-d-no@xxs@xs' if params.serviceLinks is defined and params.serviceLinks else '' }}">
                                     {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                                     {{ onsLanguageSelector(params.language) }}
                                 </div>
                             {% endif %}
                             {% if params.serviceLinks is defined and params.serviceLinks %}
-                                <div class="ons-grid__col ons-col-auto ons-u-d-no@xxs@m">
-                                    <nav class="ons-header-service-nav {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
+                                {% if params.serviceLinks.itemsList | length == 1 and params.language is defined and params.language %}
+                                    {% set breakpoint = 'xs' %}
+                                    {% set controlVisibility = true %}
+                                {% elif params.serviceLinks.itemsList | length > 1 %}
+                                    {% set breakpoint = 'm' %}
+                                    {% set controlVisibility = true %}
+                                {% else %}
+                                    {% set controlVisibility = false %}
+                                {% endif %}
+                                <div class="ons-grid__col ons-col-auto{% if controlVisibility == true %} ons-u-d-no@xxs@{{ breakpoint }}{% endif %}">
+                                    <nav class="ons-header-service-nav ons{{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
                                         <ul class="ons-header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel | default("Service Links") }}">
-                                            {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}
+                                            {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
                                                 <li class="ons-header-service-nav__item">
                                                     <a
                                                         href="{{ item.url }}"
@@ -67,13 +74,56 @@
                                         </ul>
                                     </nav>
                                 </div>
+                                {% if params.serviceLinks.itemsList | length > 1  or params.language is defined and params.language %}
+                                    {% if params.variants == 'internal' %}
+                                        {% set buttonVariant = ["text-link", "text-link-inverse"] %}
+                                    {% else %}
+                                        {% set buttonVariant = "text-link" %}
+                                    {% endif %}
+                                    <div class="ons-grid__col ons-col-auto ons-u-d-no@{{ breakpoint }}">
+                                        {{ onsButton({
+                                            "text": params.serviceLinks.toggleServicesButton.text | default("Menu"),
+                                            "classes": "ons-u-d-no ons-js-toggle-services",
+                                            "type": "button",
+                                            "buttonStyle": "mobile",
+                                            "variants": buttonVariant,
+                                            "attributes": {
+                                                "aria-label": params.serviceLinks.toggleServicesButton.ariaLabel | default("Toggle menu"),
+                                                "aria-controls": params.serviceLinks.id,
+                                                "aria-haspopup": "true",
+                                                "aria-expanded": "false"
+                                            }
+                                        }) }}
+                                    </div>
+                                {% endif %}
                             {% endif %}
                         </div>
                     {% endif %}
                 </div>
             </div>
+            {% if params.serviceLinks is defined and params.serviceLinks %}
+                <nav class="ons-header-service-nav ons-header-service-nav--mobile ons-u-d-no ons-js-services-mobile-nav" id="{{ params.serviceLinks.id }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
+                    <ul class="ons-header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel | default("Service Links") }}">
+                        {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
+                            <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
+                                <a
+                                    href="{{ item.url }}"
+                                    class="ons-header-service-nav__link"
+                                    {% if item.id is defined and item.id %} id="{{ item.id }}"{% endif %}
+                                >{{ item.title }}</a>
+                            </li>
+                        {% endfor %}
+                        {% if params.language is defined and params.language %}
+                            <div class="ons-u-d-no@xs">
+                                {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                                {{ onsLanguageSelector(params.language) }}
+                            </div>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
         </div>
-        <div class="ons-header__main{% if params.desc is defined and params.desc %} ons-header__main--with-description{% endif %}">
+        <div class="ons-header__main">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div class="ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink{% if params.titleLogo == 'census-logo-en' %} ons-header__title-census-logo-en{% endif %}">
@@ -87,12 +137,15 @@
                                 })
                             }}
                         {% else %}
-                            <{{ title_tag }} class="ons-header__title{% if params.desc is defined and params.desc %} ons-header__title--with-description{% endif %}{% if params.button is defined and params.button %} ons-header__title--with-button{% endif %}">{{ params.title }}</{{ title_tag }}>
+                            <{{ title_tag }} class="ons-header__title">{{ params.title }}</{{ title_tag }}>
                         {% endif %}
                         {% if params.titleLogoHref is defined and params.titleLogoHref %}</a>{% endif %}
+                        {% if params.description is defined and params.description %}
+                            <p class="ons-header__description">{{ params.description }}</p>
+                        {% endif %}
                     </div>
                     {% if params.button is defined and params.button %}
-                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@xxs@m">
+                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
                             {{ onsButton({
                                 "text": params.button.text,
                                 "classes": "ons-u-d-no@xxs@m",
@@ -105,9 +158,9 @@
                             }) }}
                         </div>
                     {% endif %}
-                    {% if params.toggleButton is defined and params.toggleButton or params.autosuggest is defined and params.autosuggest %}
-                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@m">
-                            {% if params.autosuggest is defined and params.autosuggest and isPatternLib is defined and isPatternLib %}
+                    {% if params.navigation is defined %}
+                        <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink ons-u-d-no@l">
+                            {% if isPatternLib and params.navigation.siteSearchAutosuggest %}
                                 <span class="ons-grid ons-u-d-no@xxs@xs">
                                     {{ onsButton({
                                         "text": "Search",
@@ -116,22 +169,22 @@
                                         "iconType": "search",
                                         "iconPosition": "only",
                                         "attributes": {
-                                            "aria-label": params.searchToggle.ariaLabel | default("Toggle search") ,
-                                            "aria-controls": params.navigation.id,
+                                            "aria-label": "Toggle search" ,
+                                            "aria-controls": "ons-site-search",
                                             "aria-haspopup": "true",
                                             "aria-expanded": "false"
                                         }
                                     }) }}
                                 </span>
                             {% endif %}
-                            {% if params.toggleButton is defined and params.toggleButton %}
+                            {% if params.navigation.toggleNavigationButton is defined and params.navigation.toggleNavigationButton %}
                                 {{ onsButton({
-                                    "text": params.toggleButton.text,
-                                    "classes": "ons-u-ml-xs ons-u-d-no ons-js-toggle-main",
+                                    "text": params.navigation.toggleNavigationButton.text,
+                                    "classes": "ons-u-ml-xs ons-u-d-no ons-js-navigation-button",
                                     "buttonStyle": "mobile",
                                     "variants": ["mobile", "ghost"],
                                     "attributes": {
-                                        "aria-label": params.toggleButton.ariaLabel | default("Toggle main menu") ,
+                                        "aria-label": params.navigation.toggleNavigationButton.ariaLabel | default("Toggle main menu") ,
                                         "aria-controls": params.navigation.id,
                                         "aria-haspopup": "true",
                                         "aria-expanded": "false"
@@ -141,53 +194,10 @@
                         </div>
                     {% endif %}
                 </div>
-                {% if params.desc is defined and params.desc %}
-                    <p class="ons-header__desc">{{ params.desc }}</p>
-                {% endif %}
             </div>
         </div>
         {% if params.navigation is defined and params.navigation %}
-            <div class="ons-header__bottom">
-                <div class="ons-container ons-container--gutterless@xxs@m{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                    {% if params.autosuggest is defined and params.autosuggest and isPatternLib is defined and isPatternLib %}
-                        <div class="ons-header-search ons-js-header-search">
-                            {{ onsAutosuggest({
-                                "id": "ons-autosuggest-header-search",
-                                "containerClasses": "ons-autosuggest-input--header",
-                                "classes": "ons-input--ghost ons-input-search ons-input-search--icon",
-                                "label": {
-                                    "text": params.autosuggest.label,
-                                    "id": "ons-autosuggest-header-search-label",
-                                    "classes": "ons-label--white ons-u-pl-m"
-                                },
-                                "accessiblePlaceholder": true,
-                                "autocomplete": "off",
-                                "instructions": params.autosuggest.instructions,
-                                "ariaYouHaveSelected":params.autosuggest.ariaYouHaveSelected,
-                                "ariaMinChars": params.autosuggest.ariaMinChars,
-                                "ariaResultsLabel": params.autosuggest.ariaResultsLabel,
-                                "ariaOneResult": params.autosuggest.ariaOneResult,
-                                "ariaNResults": params.autosuggest.ariaNResults,
-                                "ariaLimitedResults": params.autosuggest.ariaLimitedResults,
-                                "moreResults": params.autosuggest.moreResults,
-                                "resultsTitle": params.autosuggest.resultsTitle,
-                                "autosuggestData": params.autosuggest.autosuggestData,
-                                "noResults": params.autosuggest.noResults,
-                                "typeMore": params.autosuggest.typeMore
-                            }) }}
-                        </div>
-                    {% endif %}
-                    <nav class="ons-header-nav ons-js-header-nav" id="{{ params.navigation.id }}" aria-label="{{ params.navigation.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
-                        <ul class="ons-header-nav__list">
-                            {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
-                                <li class="ons-header-nav__item {{ item.classes }}{{ ' ons-header-nav__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">
-                                    <a class="ons-header-nav__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+            {{ onsNavigation(params.navigation) }}
         {% endif %}
     </header>
 {% endmacro %}
