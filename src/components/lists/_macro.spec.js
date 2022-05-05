@@ -252,6 +252,22 @@ describe('macro: lists', () => {
         expect($('.ons-list__link').attr('href')).toBe('/internal-link');
       });
 
+      it('does not render a hyperlink element for current item', () => {
+        const $ = cheerio.load(
+          renderComponent('lists', {
+            itemsList: [
+              {
+                ...item,
+                url: '/internal-link',
+                current: true,
+              },
+            ],
+          }),
+        );
+
+        expect($('a').length).toBe(0);
+      });
+
       it('supports the `inPageLink` variant', () => {
         const $ = cheerio.load(
           renderComponent('lists', {
@@ -407,6 +423,24 @@ describe('macro: lists', () => {
           url: 'https://example.com/external-link',
           linkText: expectedItemText,
         });
+      });
+
+      it('does not use the `external-link` component to render the current item', () => {
+        const faker = templateFaker();
+        const externalLinkSpy = faker.spy('external-link');
+
+        faker.renderComponent('lists', {
+          itemsList: [
+            {
+              ...item,
+              url: 'https://example.com/external-link',
+              external: true,
+              current: true,
+            },
+          ],
+        });
+
+        expect(externalLinkSpy.occurrences.length).toBe(0);
       });
     });
   });
