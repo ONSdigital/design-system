@@ -25,9 +25,9 @@
         {% set questionDefinition %}
             {% from "components/collapsible/_macro.njk" import onsCollapsible %}
             {% call onsCollapsible({
-                "id": params.definition.id if params.definition.id is defined and params.definition.id else '',
+                "id": params.definition.id,
                 "classes": 'ons-u-mb-m',
-                "title": params.definition.title if params.definition.title is defined and params.definition.title else ''
+                "title": params.definition.title
             }) %}
                 {% if params.definition.content %}
                     {{ params.definition.content | safe }}
@@ -125,17 +125,14 @@
         {% endif %}
     </div>
 
-    {% if params.submitButton is defined and params.submitButton %}
-        {% from "components/button/_macro.njk" import onsButton %}
-
-        {{
-            onsButton({
-                "id": params.submitButton.id,
-                "submitType": params.submitButton.submitType,
-                "text": params.submitButton.text | default ('Save and continue'),
-                "classes": params.submitButton.classes,
-                "attributes": params.submitButton.attributes
-            })
-        }}
-    {% endif %}
+    {% from "components/button/_macro.njk" import onsButton %}
+    {{
+        onsButton({
+            "id": params.submitButton.id,
+            "submitType": params.submitButton.submitType,
+            "text": params.submitButton.text | default ('Save and continue'),
+            "classes": params.submitButton.classes,
+            "attributes": params.submitButton.attributes
+        })
+    }}
 {% endmacro %}
