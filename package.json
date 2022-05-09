@@ -10,7 +10,7 @@
   "scripts": {
     "start": "gulp start",
     "watch": "gulp watch",
-    "test": "gulp build-assets-for-testing && TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest 'components/.+/.*\\.spec\\.js|js/.*\\.*spec.js|tests/helpers/.*\\.*spec.js'",
+    "test": "TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest 'components/.+/.*\\.spec\\.js|js/.*\\.*spec.js|tests/helpers/.*\\.*spec.js'",
     "test:macros": "jest _macro.spec.js",
     "test:specs": "gulp build-assets-for-testing && TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest 'components/.+/[^_].*\\.spec\\.js|js/.*\\.*spec.js|tests/helpers/.*\\.*spec.js'",
     "test:start-server": "TEST_PORT=3020 gulp start-dev-server",
