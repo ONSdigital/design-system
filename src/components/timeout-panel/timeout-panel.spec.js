@@ -149,6 +149,10 @@ describe('script: timeout panel', () => {
       await setTestPage('/test', component);
     });
 
+    afterEach(async () => {
+      await page.setJavaScriptEnabled(true);
+    });
+
     it('displays the `nojsText` text', async () => {
       const nojsText = await page.$eval('.ons-js-nojs-text', element => element.innerHTML);
       expect(nojsText.trim()).toBe('For security, your answers will only be available to view for another 1 minute');
