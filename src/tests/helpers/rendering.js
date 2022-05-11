@@ -142,8 +142,12 @@ export class TemplateFakerContext {
   }
 }
 
+export async function gotoTestPath(path) {
+  return await page.goto(`http://localhost:${process.env.TEST_PORT}${path}`);
+}
+
 export async function setTestPage(path, template) {
-  await page.goto(`http://localhost:${process.env.TEST_PORT}${path}`);
+  const response = await gotoTestPath(`http://localhost:${process.env.TEST_PORT}${path}`);
 
   const compositedTemplate = `
     {% extends 'layout/_template.njk' %}
@@ -156,4 +160,6 @@ export async function setTestPage(path, template) {
   const html = renderTemplate(compositedTemplate);
 
   await page.setContent(html, { waitUntil: 'networkidle0' });
+
+  return response;
 }
