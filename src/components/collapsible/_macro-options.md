@@ -7,6 +7,7 @@
 | button            | `CollapsibleButton` | false    | Settings for the close button. If not specified button will use default settings                                    |
 | classes           | string              | false    | Classes to add to the collapsible element                                                                           |
 | saveState         | boolean             | false    | Allows saving of collapsible state (open or closed) locally                                                         |
+| open              | boolean             | false    | Allows the collapsible to open on page load                                                                         |
 | attributes        | object              | false    | HTML attributes (for example, data attributes) to add to the collapsible element                                    |
 | headingAttributes | object              | false    | HTML attributes (for example, data attributes) to add to the collapsible header element                             |
 | contentAttributes | object              | false    | HTML attributes (for example, data attributes) to add to the collapsible content element                            |
