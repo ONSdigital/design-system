@@ -147,7 +147,7 @@ export async function gotoTestPath(path) {
 }
 
 export async function setTestPage(path, template) {
-  const response = await gotoTestPath(`http://localhost:${process.env.TEST_PORT}${path}`);
+  const response = await gotoTestPath(path);
 
   const compositedTemplate = `
     {% extends 'layout/_template.njk' %}
