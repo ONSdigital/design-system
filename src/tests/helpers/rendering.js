@@ -3,6 +3,7 @@ import nunjucks from 'nunjucks';
 import createNunjucksEnvironment from '../../../lib/rendering/create-nunjucks-environment';
 import componentConfig from '../../../config/components.json';
 import FakeNunjucksLoader from './fake-nunjucks-loader';
+import { verifyConsoleSubscription } from './debug';
 
 const templatePaths = ['src', 'src/views'];
 const realTemplateLoader = new nunjucks.FileSystemLoader(templatePaths);
@@ -148,6 +149,8 @@ export async function gotoTestPath(path) {
 
 export async function setTestPage(path, template) {
   const response = await gotoTestPath(path);
+
+  verifyConsoleSubscription(page);
 
   const compositedTemplate = `
     {% extends 'layout/_template.njk' %}
