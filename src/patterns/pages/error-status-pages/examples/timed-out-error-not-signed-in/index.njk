@@ -13,6 +13,21 @@ layout: none
 
     <h1>Sorry, you need to start again</h1>
 
+    <p>This is because you have either:</p>
+
+    {{
+        onsList({
+            "itemsList": [
+                {
+                    "text": 'been inactive for 45 minutes and your session has timed out to protect your information'
+                },
+                {
+                    "text": 'followed a link to the middle of a request for a new access code'
+                }
+            ]
+        })
+    }}
+
     <p>You need to <a href="#0">start again</a> to request a new access code</p>
 
 {% endblock %}
