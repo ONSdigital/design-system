@@ -1,11 +1,11 @@
-| Name  | Type                        | Required | Description                          |
-| ----- | --------------------------- | -------- | ------------------------------------ |
-| title | string                      | true     | The descriptive title for a tab set. |
-| tabs  | `Array<tab>`[_(ref)_](#tab) | true     | An array of tabs to render.          |
+| Name  | Type         | Required | Description                                                           |
+| ----- | ------------ | -------- | --------------------------------------------------------------------- |
+| title | string       | true     | The visually hidden `h2` level heading for the tabs `section` element |
+| tabs  | array`<tab>` | true     | An array of [tabs](#tab)                                              |
 
 ## Tab
 
-| Name    | Type   | Required | Description             |
-| ------- | ------ | -------- | ----------------------- |
-| title   | string | true     | The title for the tab   |
-| content | string | true     | The content for the tab |
+| Name    | Type   | Required | Description                                     |
+| ------- | ------ | -------- | ----------------------------------------------- |
+| title   | string | true     | The title for the tab                           |
+| content | string | true     | The contents of the tab. This can contain HTML. |
