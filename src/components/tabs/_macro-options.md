@@ -1,7 +1,7 @@
-| Name  | Type         | Required | Description                                                           |
-| ----- | ------------ | -------- | --------------------------------------------------------------------- |
-| title | string       | true     | The visually hidden `h2` level heading for the tabs `section` element |
-| tabs  | array`<tab>` | true     | An array of [tabs](#tab)                                              |
+| Name  | Type         | Required | Description                                                                                                       |
+| ----- | ------------ | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| title | string       | true     | The visually hidden `h2` level heading for the tabs `section` element required to give context for screen readers |
+| tabs  | array`<tab>` | true     | An array of [tabs](#tab)                                                                                          |
 
 ## Tab
 
