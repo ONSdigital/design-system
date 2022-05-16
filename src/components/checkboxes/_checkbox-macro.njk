@@ -7,7 +7,7 @@
             id="{{ params.id }}"
             class="ons-checkbox__input ons-js-checkbox {{ params.inputClasses }}"
             value="{{ params.value }}"
-            {%if params.disabled %}disabled{%endif %}
+            {%if params.disabled %}disabled aria-disabled="true"{%endif %}
             {% if params.name is defined and params.name %} name="{{ params.name }}"{% endif %}
             {% if params.checked is defined and params.checked %} checked{% endif %}
             {% if params.other is defined and params.other and not params.other.open %} aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
