@@ -32,7 +32,7 @@ $checkbox-padding: 11px;
     }
 
     &:disabled {
-      border: 2px solid $color-grey-35;
+      border: 2px solid $color-border-disabled;
       cursor: not-allowed;
     }
 
