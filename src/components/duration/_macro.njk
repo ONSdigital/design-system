@@ -65,7 +65,7 @@
     {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
         {% set mutuallyExclusive = params.mutuallyExclusive | setAttributes({
             "id": params.id,
-            "legend": params.legend,
+            "legend": params.legendOrLabel,
             "legendClasses": params.legendClasses,
             "description": params.description,
             "error": params.error,
