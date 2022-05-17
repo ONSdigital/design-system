@@ -124,6 +124,7 @@ export default class AutosuggestUI {
     this.fetch = abortableFetch(this.autosuggestData);
     const response = await this.fetch.send();
     this.data = await response.json();
+    this.responseStatus = response.status;
   }
 
   bindEventListeners() {
@@ -293,6 +294,7 @@ export default class AutosuggestUI {
       result.sanitisedText = sanitiseAutosuggestText(result[this.lang], this.sanitisedQueryReplaceChars);
     });
     return {
+      status: this.responseStatus,
       results,
       totalResults: results.length,
     };
