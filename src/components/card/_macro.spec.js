@@ -59,12 +59,8 @@ describe('macro: card', () => {
       ).toBe('Example card title');
     });
 
-    it('has the provided `text`', () => {
-      const $ = cheerio.load(
-        renderComponent('card', {
-          ...EXAMPLE_CARD_WITHOUT_IMAGE,
-        }),
-      );
+    it('has the provided `text` accessible via the `textId` identifier', () => {
+      const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
 
       expect(
         $('#example-text-id')
