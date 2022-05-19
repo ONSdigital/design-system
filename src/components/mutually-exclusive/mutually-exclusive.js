@@ -63,7 +63,6 @@ export default class MutuallyExclusive {
 
             if (['checkbox', 'radio'].includes(input.element.type)) {
               input.element.checked = false;
-              this.triggerEvent(input.element, 'change');
             } else {
               input.element.value = '';
               this.triggerEvent(input.element, 'input');
