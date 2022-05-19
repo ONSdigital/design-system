@@ -65,7 +65,6 @@ export default class MutuallyExclusive {
               input.element.checked = false;
             } else {
               input.element.value = '';
-              this.triggerEvent(input.element, 'input');
             }
           });
       } else if (!input.exclusive) {
