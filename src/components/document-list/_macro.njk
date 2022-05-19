@@ -31,17 +31,15 @@
                             <{{ titleTag }} class="ons-document-list__item-title ons-u-fs-m ons-u-mt-no ons-u-mb-xs">
                                 <a href="{{ document.url }}">{{ document.title }}
                                 {%- if document.metadata is defined and document.metadata and document.metadata.file is defined and document.metadata.file %}
-                                <span class="ons-u-vh">,
-
+                                <span class="ons-u-vh">
                                     {% set fileMetadataItems = [] %}
-
                                     {% if document.metadata.file.fileType is defined and document.metadata.file.fileType %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileType + ' document download'), fileMetadataItems) %}{% endif %}
                                     {% if document.metadata.file.fileSize is defined and document.metadata.file.fileSize %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.fileSize), fileMetadataItems) %}{% endif %}
                                     {% if document.metadata.file.filePages is defined and document.metadata.file.filePages %}{% set fileMetadataItems = (fileMetadataItems.push(document.metadata.file.filePages), fileMetadataItems) %}{% endif %}
 
-                                    {{ fileMetadataItems | join(', ') }}
+                                    , {{ fileMetadataItems | join(', ') }}
 
-                                {% endif -%}
+                                {% endif %}
 
                                 </span></a>
                             </{{ titleTag }}>
