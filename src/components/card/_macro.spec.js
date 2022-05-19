@@ -71,16 +71,17 @@ describe('macro: card', () => {
 
     it('renders the provided `itemsList` using the `list` component', () => {
       const faker = templateFaker();
-      const listSpy = faker.spy('list');
+      const listsSpy = faker.spy('lists');
 
-      renderComponent('card', {
+      faker.renderComponent('card', {
         ...EXAMPLE_CARD_WITHOUT_IMAGE,
         itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
-      }),
-        expect(listSpy.occurrences[0]).toBe({
-          variants: 'dashed',
-          itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
-        });
+      });
+
+      expect(listsSpy.occurrences[0]).toEqual({
+        variants: 'dashed',
+        itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
+      });
     });
 
     it('outputs a hyperlink with the provided `url`', () => {
