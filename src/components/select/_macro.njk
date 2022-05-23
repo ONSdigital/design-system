@@ -27,7 +27,7 @@
         >
             {% for option in params.options %}
             <option value="{{ option.value | default(option.text) }}"
-                {% if option.id is defined and option.id %}"id"="{{ option.id }}" {% endif %}
+                {% if option.id is defined and option.id %}id="{{ option.id }}" {% endif %}
                 {% if option.selected is defined and option.selected %}selected {% endif %}
                 {% if option.disabled is defined and option.disabled %}disabled {% endif %}
                 {% if params.attributes is defined and params.attributes %}{% for attribute, value in option.attributes %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}
