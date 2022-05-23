@@ -66,7 +66,7 @@ const params = {
   },
 };
 
-describe.only('Component: Mutually Exclusive Checkbox With Multiple Exclusive Options', () => {
+describe('Component: Mutually Exclusive Checkbox With Multiple Exclusive Options', () => {
   let wrapper, component, exclusiveOption, ariaAlert;
 
   beforeEach(() => {
