@@ -1,7 +1,7 @@
 {% macro onsCheckbox(params) %}
     {% from "components/label/_macro.njk" import onsLabel %}
 
-    <span class="ons-checkbox{% if params.hideLabel is defined and params.hideLabel %} ons-checkbox--no-label{% endif %} {{ params.classes }}">
+    <span class="ons-checkbox{% if params.hideLabel is defined and params.hideLabel == true %} ons-checkbox--no-label{% endif %} {{ params.classes }}">
         <input
             type="checkbox"
             id="{{ params.id }}"
