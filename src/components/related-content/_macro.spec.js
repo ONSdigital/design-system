@@ -3,6 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
+import { mapAll } from '../../tests/helpers/cheerio';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_RELATED_CONTENT_BODY = {
@@ -99,26 +100,22 @@ describe('macro: related-content', () => {
     it('has a title heading for each section of links', () => {
       const $ = cheerio.load(renderComponent('related-content', EXAMPLE_RELATED_CONTENT_LINKS));
 
-      const values = $('.ons-related-content__title').map((_, node) =>
-        $(node)
-          .text()
-          .trim(),
-      );
-      expect(values.toArray()).toEqual(['Related articles', 'Related links']);
+      const values = mapAll($('.ons-related-content__title'), node => node.text().trim());
+      expect(values).toEqual(['Related articles', 'Related links']);
     });
 
     it('has the `id` attribute for each section heading', () => {
       const $ = cheerio.load(renderComponent('related-content', EXAMPLE_RELATED_CONTENT_LINKS));
 
-      const values = $('.ons-related-content__title').map((_, node) => $(node).attr('id'));
-      expect(values.toArray()).toEqual(['related-articles', 'related-links']);
+      const values = mapAll($('.ons-related-content__title'), node => node.attr('id'));
+      expect(values).toEqual(['related-articles', 'related-links']);
     });
 
     it('has the `aria-labelledby` attribute for each section of links', () => {
       const $ = cheerio.load(renderComponent('related-content', EXAMPLE_RELATED_CONTENT_LINKS));
 
-      const values = $('.ons-related-content__navigation').map((_, node) => $(node).attr('aria-labelledby'));
-      expect(values.toArray()).toEqual(['related-articles', 'related-links']);
+      const values = mapAll($('.ons-related-content__navigation'), node => node.attr('aria-labelledby'));
+      expect(values).toEqual(['related-articles', 'related-links']);
     });
 
     it('renders the expected list items using the list macro', () => {

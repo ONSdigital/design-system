@@ -3,6 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
+import { mapAll } from '../../tests/helpers/cheerio';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_POWERED_BY_PARAM = {
@@ -270,12 +271,8 @@ describe('macro: footer', () => {
     it('renders expected column titles', () => {
       const $ = cheerio.load(renderComponent('footer', params));
 
-      const titleHeadings = $('.ons-footer__heading').map((_, node) =>
-        $(node)
-          .text()
-          .trim(),
-      );
-      expect(titleHeadings.toArray()).toEqual(['First column', 'Second column']);
+      const titleHeadings = mapAll($('.ons-footer__heading'), node => node.text().trim());
+      expect(titleHeadings).toEqual(['First column', 'Second column']);
     });
 
     it('renders expected lists using list component', () => {

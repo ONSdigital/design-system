@@ -3,6 +3,7 @@
 import * as cheerio from 'cheerio';
 
 import axe from '../../tests/helpers/axe';
+import { mapAll } from '../../tests/helpers/cheerio';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_BREADCRUMBS_MINIMAL = {
@@ -96,28 +97,24 @@ describe('macro: breadcrumbs', () => {
   it('has provided `url` on `link` elements', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    const urls = $('.ons-breadcrumb__link').map((_, node) => $(node).attr('href'));
-    expect(urls.toArray()).toEqual(['https://example.com/', 'https://example.com/guide/']);
+    const urls = mapAll($('.ons-breadcrumb__link'), node => node.attr('href'));
+    expect(urls).toEqual(['https://example.com/', 'https://example.com/guide/']);
   });
 
   it('has provided `text` on `link` elements', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    const labels = $('.ons-breadcrumb__link').map((_, node) =>
-      $(node)
-        .text()
-        .trim(),
-    );
-    expect(labels.toArray()).toEqual(['Home', 'Guide']);
+    const labels = mapAll($('.ons-breadcrumb__link'), node => node.text().trim());
+    expect(labels).toEqual(['Home', 'Guide']);
   });
 
   it('has provided `attributes` on `link` elements', () => {
     const $ = cheerio.load(renderComponent('breadcrumbs', EXAMPLE_BREADCRUMBS));
 
-    const testValuesA = $('.ons-breadcrumb__link').map((_, node) => $(node).attr('data-a'));
-    expect(testValuesA.toArray()).toEqual(['123', '789']);
-    const testValuesB = $('.ons-breadcrumb__link').map((_, node) => $(node).attr('data-b'));
-    expect(testValuesB.toArray()).toEqual(['456', 'ABC']);
+    const testValuesA = mapAll($('.ons-breadcrumb__link'), node => node.attr('data-a'));
+    expect(testValuesA).toEqual(['123', '789']);
+    const testValuesB = mapAll($('.ons-breadcrumb__link'), node => node.attr('data-b'));
+    expect(testValuesB).toEqual(['456', 'ABC']);
   });
 
   it('has a "chevron" icon for each breadcrumb item', () => {
