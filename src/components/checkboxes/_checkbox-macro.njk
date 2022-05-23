@@ -1,12 +1,13 @@
 {% macro onsCheckbox(params) %}
     {% from "components/label/_macro.njk" import onsLabel %}
 
-    <span class="ons-checkbox{{ ' ' + params.classes if params.classes and params.classes is defined else '' }}">
+    <span class="ons-checkbox{% if params.hideLabel is defined and params.hideLabel == true %} ons-checkbox--no-label{% endif %}{{ ' ' + params.classes if params.classes and params.classes is defined else '' }}">
         <input
             type="checkbox"
             id="{{ params.id }}"
             class="ons-checkbox__input ons-js-checkbox{{ ' ' + params.inputClasses if params.inputClasses and params.inputClasses is defined else '' }}"
             value="{{ params.value }}"
+            {% if params.disabled is defined and params.disabled == true %}disabled aria-disabled="true"{%endif %}
             {% if params.name is defined and params.name %} name="{{ params.name }}"{% endif %}
             {% if params.checked is defined and params.checked %} checked{% endif %}
             {% if params.other is defined and params.other and not params.other.open %} aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}

@@ -108,6 +108,19 @@ Only remove the checkbox border for pages that are not following the practice of
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-borderless/index.njk"})
 }}
 
+
+### Checkbox with hidden label
+
+This variant visually hides the label of a single checkbox with the parameter `hideLabel: true`. 
+
+This may be appropriate in certain circumstances. For example, when `onsCheckbox` is implemented inside a table cell. A label is not visually required as the table header and table row provide sufficient context of what the checkbox' purpose is. The `label` configuration is still required but will be visually hidden and will still allow screen readers to understand the purpose. 
+
+In the example below the hidden label `text` is a combination of the `th` for the checkbox and the related `td` for the `tr` e.g. 'Edit Surveys' 
+
+{{
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-hidden-label/index.njk"})
+}}
+
 ### Checkbox with revealed checkboxes
 
 This variant reveals nested checkboxes when a checkbox is selected. We recommend using this variant together with the parent checkboxes using the borderless variant.
@@ -126,6 +139,14 @@ To use this variant provide `"otherType": "radios"` inside the `other` parameter
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-radios/index.njk"})
+}}
+
+### Disabled checkboxes
+
+This variant enables the use of disabled checkboxes. Allowing for a consistent user interface even when some options aren't available.
+
+{{
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-disabled/index.njk"})
 }}
 
 ## How to validate checkboxes
