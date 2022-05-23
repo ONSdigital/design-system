@@ -63,8 +63,10 @@ export default class MutuallyExclusive {
 
             if (['checkbox', 'radio'].includes(input.element.type)) {
               input.element.checked = false;
+              this.triggerEvent(input.element, 'change');
             } else {
               input.element.value = '';
+              this.triggerEvent(input.element, 'input');
             }
           });
       } else if (!input.exclusive) {
@@ -75,6 +77,8 @@ export default class MutuallyExclusive {
           input.hasValue = false;
           input.element.checked = false;
         });
+
+        this.triggerEvent(input.element, 'change');
       }
 
       const updatedSelectedValues = this.allInputs.filter(input => input.hasValue).map(input => input.labelText);
@@ -145,5 +149,10 @@ export default class MutuallyExclusive {
       this.deselectMessageElement.remove();
       this.deselectMessageElement = null;
     }
+  }
+
+  triggerEvent(input, eventType) {
+    let evt = new Event(eventType, { bubbles: false, cancelable: true });
+    input.dispatchEvent(evt);
   }
 }
