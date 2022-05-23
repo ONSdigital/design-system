@@ -90,7 +90,6 @@ export default class AutosuggestAddress {
         }
       }
     } catch (error) {
-      console.log(error);
       if (this.isEditable) {
         this.handleAPIError();
       } else {
@@ -282,7 +281,6 @@ export default class AutosuggestAddress {
           this.addressSelected = true;
         }
       } catch (error) {
-        console.log(error);
         if (this.isEditable) {
           this.handleAPIError();
         } else {
