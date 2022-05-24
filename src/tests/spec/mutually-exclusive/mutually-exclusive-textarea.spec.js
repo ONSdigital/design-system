@@ -21,20 +21,22 @@ const params = {
     or: 'Or',
     deselectMessage: 'Selecting this will clear your feedback',
     deselectGroupAdjective: 'cleared',
-    deselectCheckboxAdjective: 'deselected',
-    checkbox: {
-      id: 'feedback-checkbox',
-      name: 'no-feedback',
-      value: 'no-feedback',
-      label: {
-        text: 'I dont want to provide feedback',
+    deselectExclusiveOptionAdjective: 'deselected',
+    exclusiveOptions: [
+      {
+        id: 'feedback-exclusive-option',
+        name: 'no-feedback',
+        value: 'no-feedback',
+        label: {
+          text: 'I dont want to provide feedback',
+        },
       },
-    },
+    ],
   },
 };
 
 describe('Component: Mutually Exclusive Textarea', () => {
-  let wrapper, mutuallyExclusiveComponent, textarea, textareaRemaining, checkbox, ariaAlert;
+  let wrapper, mutuallyExclusiveComponent, textarea, textareaRemaining, exclusiveOption, ariaAlert;
 
   beforeEach(() => {
     const html = renderTemplate('components/textarea/_test-template.njk', { params });
@@ -46,7 +48,7 @@ describe('Component: Mutually Exclusive Textarea', () => {
     mutuallyExclusiveComponent = document.querySelector('.ons-js-mutually-exclusive');
     textarea = document.getElementById(params.id);
     textareaRemaining = document.getElementById(`${params.id}-lim-remaining`);
-    checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
+    exclusiveOption = document.getElementById(params.mutuallyExclusive.exclusiveOptions[0].id);
     ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new CharacterLimit(textarea);
@@ -66,7 +68,7 @@ describe('Component: Mutually Exclusive Textarea', () => {
 
     describe('when the user clicks the mutually exclusive option', () => {
       beforeEach(() => {
-        checkbox.click();
+        exclusiveOption.click();
       });
 
       it('then the textarea should be cleared', () => {
@@ -86,9 +88,9 @@ describe('Component: Mutually Exclusive Textarea', () => {
     });
   });
 
-  describe('Given the user has checked the mutually exclusive checkbox', () => {
+  describe('Given the user has checked the mutually exclusive exclusiveOption', () => {
     beforeEach(() => {
-      checkbox.click();
+      exclusiveOption.click();
     });
 
     describe('when the user populates the textarea', () => {
@@ -96,14 +98,14 @@ describe('Component: Mutually Exclusive Textarea', () => {
         populateTextarea(textarea);
       });
 
-      it('then the checkbox should be unchecked', () => {
-        expect(checkbox.checked).to.equal(false);
+      it('then the exclusive option should be unchecked', () => {
+        expect(exclusiveOption.checked).to.equal(false);
       });
 
-      it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
+      it('then the aria alert should tell the user that the exclusive option has been unchecked', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
+            `${params.mutuallyExclusive.exclusiveOptions[0].label.text} ${params.mutuallyExclusive.deselectExclusiveOptionAdjective}.`,
           );
           done();
         }, 300);
@@ -111,7 +113,7 @@ describe('Component: Mutually Exclusive Textarea', () => {
     });
   });
 
-  describe('Given the user has not populated the textarea or checked the checkbox', () => {
+  describe('Given the user has not populated the textarea or checked the exclusive option', () => {
     describe('when the user populates the textarea', () => {
       beforeEach(() => {
         populateTextarea(textarea);
@@ -127,7 +129,7 @@ describe('Component: Mutually Exclusive Textarea', () => {
 
     describe('when the user clicks the mutually exclusive option', () => {
       beforeEach(() => {
-        checkbox.click();
+        exclusiveOption.click();
       });
 
       it('then the aria alert shouldnt say anything', done => {
