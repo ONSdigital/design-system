@@ -152,7 +152,15 @@ export default class MutuallyExclusive {
   }
 
   triggerEvent(input, eventType) {
-    let evt = new Event(eventType, { bubbles: false, cancelable: true });
-    input.dispatchEvent(evt);
+    let event;
+    if (typeof Event === 'function') {
+      event = new Event(eventType, { bubbles: false, cancelable: true });
+    } else {
+      // IE11 requires a custom event
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventType, false, true);
+    }
+
+    input.dispatchEvent(event);
   }
 }
