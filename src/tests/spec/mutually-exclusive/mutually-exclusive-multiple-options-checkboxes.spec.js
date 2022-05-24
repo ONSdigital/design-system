@@ -55,11 +55,18 @@ const params = {
         },
         value: 'no-central-heating',
       },
+      {
+        id: 'dont-know',
+        label: {
+          text: 'Dont know',
+        },
+        value: 'dont-know',
+      },
     ],
   },
 };
 
-describe('Component: Mutually Exclusive Checkbox With Single Option Override', () => {
+describe('Component: Mutually Exclusive Checkbox With Multiple Exclusive Options', () => {
   let wrapper, component, exclusiveOption, ariaAlert;
 
   beforeEach(() => {
@@ -71,7 +78,7 @@ describe('Component: Mutually Exclusive Checkbox With Single Option Override', (
 
     component = document.querySelector('.ons-js-mutually-exclusive');
     params.checkboxes = params.checkboxes.filter(checkbox => !checkbox.exclusive);
-    exclusiveOption = document.getElementById(params.mutuallyExclusive.exclusiveOptions[0].id);
+    exclusiveOption = document.getElementById(params.mutuallyExclusive.exclusiveOptions[1].id);
     ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
@@ -96,14 +103,14 @@ describe('Component: Mutually Exclusive Checkbox With Single Option Override', (
       });
     });
 
-    describe('when the user clicks the mutually exclusive option', () => {
+    describe('when the user clicks a mutually exclusive option', () => {
       beforeEach(() => {
         exclusiveOption.click();
       });
 
       it('then only the mutually exclusive option should be checked', () => {
         expect(exclusiveOption.checked).to.equal(true);
-        expect(exclusiveOption.value).to.equal(params.mutuallyExclusive.exclusiveOptions[0].value);
+        expect(exclusiveOption.value).to.equal(params.mutuallyExclusive.exclusiveOptions[1].value);
 
         params.checkboxes.forEach(checkbox => {
           const element = document.getElementById(checkbox.id);
@@ -125,6 +132,7 @@ describe('Component: Mutually Exclusive Checkbox With Single Option Override', (
             .map(checkbox => `${checkbox.label.text} ${params.mutuallyExclusive.deselectGroupAdjective}.`)
             .join(' ');
           expect(ariaAlert.innerHTML).to.equal(message);
+          console.log(message);
 
           done();
         }, 300);
@@ -155,13 +163,13 @@ describe('Component: Mutually Exclusive Checkbox With Single Option Override', (
         });
 
         expect(exclusiveOption.checked).to.equal(false);
-        expect(exclusiveOption.value).to.equal(params.mutuallyExclusive.exclusiveOptions[0].value);
+        expect(exclusiveOption.value).to.equal(params.mutuallyExclusive.exclusiveOptions[1].value);
       });
 
       it('then the aria-live message should reflect the removed exclusive option', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.exclusiveOptions[0].label.text} ${params.mutuallyExclusive.deselectExclusiveOptionAdjective}.`,
+            `${params.mutuallyExclusive.exclusiveOptions[1].label.text} ${params.mutuallyExclusive.deselectExclusiveOptionAdjective}.`,
           );
           done();
         }, 300);
@@ -169,7 +177,7 @@ describe('Component: Mutually Exclusive Checkbox With Single Option Override', (
 
       describe('and the user deselects an non-exclusive option', () => {
         beforeEach(() => {
-          const element = document.getElementById(params.checkboxes[0].id);
+          const element = document.getElementById(params.checkboxes[1].id);
 
           element.click();
         });
@@ -177,7 +185,7 @@ describe('Component: Mutually Exclusive Checkbox With Single Option Override', (
         it('the aria-live message should not be updated', done => {
           setTimeout(() => {
             expect(ariaAlert.innerHTML).to.equal(
-              `${params.mutuallyExclusive.exclusiveOptions[0].label.text} ${params.mutuallyExclusive.deselectExclusiveOptionAdjective}.`,
+              `${params.mutuallyExclusive.exclusiveOptions[1].label.text} ${params.mutuallyExclusive.deselectExclusiveOptionAdjective}.`,
             );
             done();
           }, 300);
