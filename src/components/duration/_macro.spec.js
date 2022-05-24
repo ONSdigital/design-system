@@ -143,7 +143,7 @@ describe('macro: duration', () => {
               or: 'Or',
               deselectMessage: 'Deselect message',
               deselectGroupAdjective: 'Deselect group adjective',
-              deselectCheckboxAdjective: 'Deselect checkbox adjective',
+              deselectExclusiveOptionAdjective: 'Deselect checkbox adjective',
             },
           },
         }),
@@ -168,7 +168,7 @@ describe('macro: duration', () => {
           or: 'Or',
           deselectMessage: 'Deselect message',
           deselectGroupAdjective: 'Deselect group adjective',
-          deselectCheckboxAdjective: 'Deselect checkbox adjective',
+          deselectExclusiveOptionAdjective: 'Deselect checkbox adjective',
         },
       });
 
@@ -184,7 +184,7 @@ describe('macro: duration', () => {
         or: 'Or',
         deselectMessage: 'Deselect message',
         deselectGroupAdjective: 'Deselect group adjective',
-        deselectCheckboxAdjective: 'Deselect checkbox adjective',
+        deselectExclusiveOptionAdjective: 'Deselect checkbox adjective',
       });
     });
   });
