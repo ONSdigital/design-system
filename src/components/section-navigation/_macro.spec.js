@@ -8,19 +8,15 @@ import { renderComponent } from '../../tests/helpers/rendering';
 
 const EXAMPLE_SECTION_NAVIGATION = {
   id: 'section-menu',
-  currentPath: '#section-1',
+  currentPath: '/results',
   itemsList: [
     {
-      title: 'Section 1',
-      url: '#section-1',
+      title: 'Results',
+      url: '/results',
     },
     {
-      title: 'Section 2',
-      url: '#section-2',
-    },
-    {
-      title: 'Section 3',
-      url: '#section-3',
+      title: 'Dashboard',
+      url: '/results/dashboard',
     },
   ],
 };
@@ -134,10 +130,10 @@ describe('macro: section-navigation', () => {
       const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION));
 
       const itemLabels = mapAll($('.ons-section-nav__item .ons-section-nav__link'), node => node.text().trim());
-      expect(itemLabels).toEqual(['Section 1', 'Section 2', 'Section 3']);
+      expect(itemLabels).toEqual(['Results', 'Dashboard']);
 
       const itemLinks = mapAll($('.ons-section-nav__item .ons-section-nav__link'), node => node.attr('href'));
-      expect(itemLinks).toEqual(['#section-1', '#section-2', '#section-3']);
+      expect(itemLinks).toEqual(['/results', '/results/dashboard']);
     });
 
     it('has additionally provided style classes', () => {
@@ -165,7 +161,7 @@ describe('macro: section-navigation', () => {
         $('.ons-section-nav__item--active')
           .text()
           .trim(),
-      ).toBe('Section 1');
+      ).toBe('Results');
     });
 
     it('marks the current item with a class when `tabQuery` is provided', () => {
@@ -173,7 +169,7 @@ describe('macro: section-navigation', () => {
         renderComponent('section-navigation', {
           ...EXAMPLE_SECTION_NAVIGATION,
           currentPath: undefined,
-          tabQuery: 'section 3',
+          tabQuery: 'dashboard',
         }),
       );
 
@@ -181,7 +177,7 @@ describe('macro: section-navigation', () => {
         $('.ons-section-nav__item--active')
           .text()
           .trim(),
-      ).toBe('Section 3');
+      ).toBe('Dashboard');
     });
 
     it('marks the current item with `aria-current` when `currentPath` is provided', () => {
@@ -195,7 +191,7 @@ describe('macro: section-navigation', () => {
         renderComponent('section-navigation', {
           ...EXAMPLE_SECTION_NAVIGATION,
           currentPath: undefined,
-          tabQuery: 'section 3',
+          tabQuery: 'dashboard',
         }),
       );
 
