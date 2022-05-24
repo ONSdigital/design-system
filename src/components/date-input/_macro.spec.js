@@ -211,7 +211,7 @@ describe('macro: date input', () => {
           or: 'Or',
           deselectMessage: 'Deselect message',
           deselectGroupAdjective: 'Deselect group adjective',
-          deselectCheckboxAdjective: 'Deselect checkbox adjective',
+          deselectExclusiveOptionAdjective: 'Deselect checkbox adjective',
         },
       });
 
@@ -228,7 +228,7 @@ describe('macro: date input', () => {
         or: 'Or',
         deselectMessage: 'Deselect message',
         deselectGroupAdjective: 'Deselect group adjective',
-        deselectCheckboxAdjective: 'Deselect checkbox adjective',
+        deselectExclusiveOptionAdjective: 'Deselect checkbox adjective',
       });
     });
   });
