@@ -1,8 +1,8 @@
 const exclusiveGroupItemClass = 'ons-js-exclusive-group-item';
-const checkboxClass = 'ons-js-exclusive-checkbox';
+const optionClass = 'ons-js-exclusive-option';
 const voiceOverAlertClass = 'ons-js-exclusive-alert';
 const groupAttrAdjective = 'data-group-adjective';
-const checkboxAttrAdjective = 'data-checkbox-adjective';
+const optionAttrAdjective = 'data-option-adjective';
 const inputAbbrClass = 'ons-js-input-abbr';
 const inputLegendClass = 'ons-js-input-legend';
 
@@ -19,28 +19,28 @@ export default class MutuallyExclusive {
       exclusive: false,
     }));
 
-    const checkboxElement = context.querySelector(`.${checkboxClass}`);
-    this.checkbox = {
-      element: checkboxElement,
-      label: context.querySelector(`label[for=${checkboxElement.id}]`),
-      labelText: this.getElementLabelText(checkboxElement),
-      hasValue: this.inputHasValue(checkboxElement),
+    const exclusiveElements = [...context.getElementsByClassName(optionClass)];
+    this.numberOfExclusiveElements = exclusiveElements.length;
+    this.exclusiveElements = exclusiveElements.map(element => ({
+      element,
+      label: context.querySelector(`label[for=${element.id}]`),
+      labelText: this.getElementLabelText(element),
+      hasValue: this.inputHasValue(element),
       exclusive: true,
-    };
+    }));
 
-    this.allInputs = [...this.groupInputs, this.checkbox];
+    this.allInputs = [...this.groupInputs, ...this.exclusiveElements];
     this.voiceOverAlertElement = context.querySelector(`.${voiceOverAlertClass}`);
     this.groupAdjective = this.voiceOverAlertElement.getAttribute(groupAttrAdjective);
-    this.checkboxAdjective = this.voiceOverAlertElement.getAttribute(checkboxAttrAdjective);
-    this.deselectMessage = this.checkbox.element.getAttribute('data-deselect-message');
+    this.optionAttrAdjective = this.voiceOverAlertElement.getAttribute(optionAttrAdjective);
+    this.deselectMessage = this.exclusiveElements[0].element.getAttribute('data-deselect-message');
 
     this.bindEventListeners();
   }
 
   bindEventListeners() {
     this.allInputs.forEach(input => {
-      const event = input.element.type === 'checkbox' ? 'click' : 'input';
-
+      const event = ['checkbox', 'radio'].includes(input.element.type) ? 'click' : 'input';
       input.element.addEventListener(event, () => this.handleValueChange(input));
     });
   }
@@ -61,7 +61,7 @@ export default class MutuallyExclusive {
           .forEach(input => {
             input.hasValue = false;
 
-            if (input.element.type === 'checkbox') {
+            if (['checkbox', 'radio'].includes(input.element.type)) {
               input.element.checked = false;
               this.triggerEvent(input.element, 'change');
             } else {
@@ -70,11 +70,13 @@ export default class MutuallyExclusive {
             }
           });
       } else if (!input.exclusive) {
-        const input = this.allInputs.find(input => input.exclusive);
-        adjective = this.checkboxAdjective;
+        const inputs = this.allInputs.filter(input => input.exclusive);
+        adjective = this.optionAttrAdjective;
 
-        input.hasValue = false;
-        input.element.checked = false;
+        inputs.forEach(input => {
+          input.hasValue = false;
+          input.element.checked = false;
+        });
 
         this.triggerEvent(input.element, 'change');
       }
@@ -117,7 +119,7 @@ export default class MutuallyExclusive {
   }
 
   inputHasValue(input) {
-    if (input.type === 'checkbox') {
+    if (['checkbox', 'radio'].includes(input.type)) {
       return !!input.checked;
     } else {
       return !!input.value.trim().length;
@@ -142,7 +144,7 @@ export default class MutuallyExclusive {
       deselectMessageElement.innerHTML = `. ${this.deselectMessage}`;
 
       this.deselectMessageElement = deselectMessageElement;
-      this.checkbox.label.appendChild(deselectMessageElement);
+      this.exclusiveElements[0].label.appendChild(deselectMessageElement);
     } else if (this.deselectMessageElement && !groupElementSelected) {
       this.deselectMessageElement.remove();
       this.deselectMessageElement = null;
@@ -150,8 +152,15 @@ export default class MutuallyExclusive {
   }
 
   triggerEvent(input, eventType) {
-    const event = document.createEvent('HTMLEvents');
-    event.initEvent(eventType, false, true);
+    let event;
+    if (typeof Event === 'function') {
+      event = new Event(eventType, { bubbles: false, cancelable: true });
+    } else {
+      // IE11 requires a custom event
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventType, false, true);
+    }
+
     input.dispatchEvent(event);
   }
 }
