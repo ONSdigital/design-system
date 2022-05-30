@@ -37,7 +37,7 @@
                             {% if td.form is defined and td.form %}
                                 <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST')}}">
                                     {{
-                                        {{onsButton(td.form.button)}}
+                                        onsButton(td.form.button)
                                     }}
                                     {% if td.form.hiddenFormField is defined and td.form.hiddenFormField %}
                                         {% for hiddenField in td.form.hiddenFormField %}
