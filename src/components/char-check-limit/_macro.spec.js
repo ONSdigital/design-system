@@ -37,13 +37,13 @@ describe('macro: char-check-limit', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('has the provided `id` attribute', async () => {
+  it('has the provided `id` attribute', () => {
     const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_CHAR_CHECK_LIMIT));
 
     expect($('.ons-input__limit').attr('id')).toBe('example-char-check-limit-remaining');
   });
 
-  it('has the provided data attributes', async () => {
+  it('has the provided data attributes', () => {
     const $ = cheerio.load(renderComponent('char-check-limit', EXAMPLE_CHAR_CHECK_LIMIT));
 
     expect($('.ons-input__limit').attr('data-charcount-singular')).toBe('You have {x} character remaining');
@@ -52,7 +52,7 @@ describe('macro: char-check-limit', () => {
     expect($('.ons-input__limit').attr('data-charcount-limit-plural')).toBe('{x} characters too many');
   });
 
-  it('has expected nested content', async () => {
+  it('has expected nested content', () => {
     const $ = cheerio.load(
       renderComponent(
         'char-check-limit',
