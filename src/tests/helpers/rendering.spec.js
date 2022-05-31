@@ -147,26 +147,12 @@ describe('templateFaker()', () => {
     expect(result.trim()).toBe('FAKE CHECKBOX');
   });
 
-  it('still renders component output when component is being spied on', () => {
+  it.each([
+    ['when output is not suppressed', null],
+    ['when `suppressOutput` option is provided', { suppressOutput: false }],
+  ])('still renders component output when component is being spied on %s', options => {
     const faker = helper.templateFaker();
-    /*const buttonSpy =*/ faker.spy('button');
-
-    const result = faker.renderTemplate(`
-      {% from "components/button/_macro.njk" import onsButton %}
-
-      {{
-        onsButton({
-          text: 'Test Button A'
-        })
-      }}
-    `);
-
-    expect(result).toContain('Test Button A');
-  });
-
-  it('still renders component output when component is being spied and `suppressOutput` argument is `false`', () => {
-    const faker = helper.templateFaker();
-    /*const buttonSpy =*/ faker.spy('button', { suppressOutput: false });
+    /*const buttonSpy =*/ faker.spy('button', options);
 
     const result = faker.renderTemplate(`
       {% from "components/button/_macro.njk" import onsButton %}
