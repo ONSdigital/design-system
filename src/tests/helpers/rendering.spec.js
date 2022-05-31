@@ -83,7 +83,7 @@ describe('renderComponent(componentName, params, children)', () => {
   });
 });
 
-describe('templateFaker()', () => {
+describe('templateFaker()<mark>', () => {
   it('overrides macro template with a fake when rendering template', () => {
     const faker = helper.templateFaker();
     faker.setFake(
@@ -162,6 +162,40 @@ describe('templateFaker()', () => {
     `);
 
     expect(result).toContain('Test Button A');
+  });
+
+  it('still renders component output when component is being spied and `suppressOutput` argument is `false`', () => {
+    const faker = helper.templateFaker();
+    /*const buttonSpy =*/ faker.spy('button', { suppressOutput: false });
+
+    const result = faker.renderTemplate(`
+      {% from "components/button/_macro.njk" import onsButton %}
+
+      {{
+        onsButton({
+          text: 'Test Button A'
+        })
+      }}
+    `);
+
+    expect(result).toContain('Test Button A');
+  });
+
+  it('does not render component output when component is being spied on and `suppressOutput` argument is `true`', () => {
+    const faker = helper.templateFaker();
+    /*const buttonSpy =*/ faker.spy('button', { suppressOutput: true });
+
+    const result = faker.renderTemplate(`
+      {% from "components/button/_macro.njk" import onsButton %}
+
+      {{
+        onsButton({
+          text: 'Test Button A'
+        })
+      }}
+    `);
+
+    expect(result).not.toContain('Test Button A');
   });
 
   it('captures parameters of component that is being spied on', () => {

@@ -91,7 +91,7 @@ export class TemplateFakerContext {
     this._fakeTemplateMap[info.templateName] = template;
   }
 
-  spy(componentName) {
+  spy(componentName, options) {
     const info = getComponentInfo(componentName);
 
     const originalMacroTemplate = realTemplateLoader.getSource(info.templateName);
@@ -101,8 +101,13 @@ export class TemplateFakerContext {
 
     const spiedOutput = this.#getSpiedOutput(componentName);
 
-    const pattern = /\{%\s*macro.+?%\}/;
-    const replacer = match => `${match}<!--spied[${componentName},{{ params|spy('${componentName}') }}]-->`;
+    const pattern = /(\{%\s*macro.+?%\})([^]+?)(\{%\s*endmacro\s*%\})/;
+    const replacer = (_, beginMacro, macroBody, endMacro) => {
+      if (options?.suppressOutput === true) {
+        macroBody = '';
+      }
+      return `${beginMacro}<!--spied[${componentName},{{ params|spy('${componentName}') }}]-->${macroBody}${endMacro}`;
+    };
 
     const fakeMacroTemplate = originalMacroTemplate.src.replace(pattern, replacer);
     this.setFake(componentName, fakeMacroTemplate);
