@@ -1,6 +1,6 @@
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
-describe('script: checkboxes<mark>', () => {
+describe('script: checkboxes', () => {
   describe('automatic selection', () => {
     const params = {
       legend: 'What are your favourite pizza toppings?',
