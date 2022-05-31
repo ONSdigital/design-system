@@ -83,7 +83,7 @@ describe('renderComponent(componentName, params, children)', () => {
   });
 });
 
-describe('templateFaker()<mark>', () => {
+describe('templateFaker()', () => {
   it('overrides macro template with a fake when rendering template', () => {
     const faker = helper.templateFaker();
     faker.setFake(
@@ -198,9 +198,12 @@ describe('templateFaker()<mark>', () => {
     expect(result).not.toContain('Test Button A');
   });
 
-  it('captures parameters of component that is being spied on', () => {
+  it.each([
+    ['when output is not suppressed', { suppressOutput: false }],
+    ['when output is suppressed', { suppressOutput: true }],
+  ])('captures parameters of component that is being spied on %s', (_, options) => {
     const faker = helper.templateFaker();
-    const buttonSpy = faker.spy('button');
+    const buttonSpy = faker.spy('button', options);
 
     faker.renderTemplate(`
       {% from "components/button/_macro.njk" import onsButton %}
