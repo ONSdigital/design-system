@@ -1,6 +1,6 @@
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
-describe('script: table<mark>', () => {
+describe('script: table', () => {
   describe('variant: scrollable', () => {
     // Construct a table with 15 columns and 15 rows with long labels.
     const params = {
