@@ -52,7 +52,7 @@ describe('PuppeteerEndpointFaker', () => {
         .then(async (response) => {
           const data = await response.json();
           const el = document.getElementById('output');
-          el.innerHTML = data.value;
+          el.innerHTML = response.status + ':' + data.value;
           el.classList.add('test');
         });
     </script>
@@ -170,7 +170,7 @@ describe('PuppeteerEndpointFaker', () => {
       await page.waitForSelector('#output.test');
 
       const output = await page.$eval('#output', node => node.textContent);
-      expect(output).toBe('123');
+      expect(output).toBe('200:123');
     });
   });
 
@@ -184,7 +184,20 @@ describe('PuppeteerEndpointFaker', () => {
       await page.waitForSelector('#output.test');
 
       const output = await page.$eval('#output', node => node.textContent);
-      expect(output).toBe('123');
+      expect(output).toBe('200:123');
+    });
+
+    it('overrides response status code', async () => {
+      apiFaker.setOverride('/json/abc', {
+        status: 400,
+        data: { value: 123 },
+      });
+
+      await setTestPage('/test', TEST_HTML_REQUEST_DATA_FROM_ENDPOINT);
+      await page.waitForSelector('#output.test');
+
+      const output = await page.$eval('#output', node => node.textContent);
+      expect(output).toBe('400:123');
     });
   });
 
@@ -201,7 +214,23 @@ describe('PuppeteerEndpointFaker', () => {
       await page.waitForSelector('#output.test');
 
       const output = await page.$eval('#output', node => node.textContent);
-      expect(output).toBe('456');
+      expect(output).toBe('200:456');
+    });
+
+    it('overrides response status code', async () => {
+      apiFaker.setOverride('/json/abc', {
+        data: { value: 123 },
+      });
+      apiFaker.setTemporaryOverride('/json/abc', {
+        status: 400,
+        data: { value: 456 },
+      });
+
+      await setTestPage('/test', TEST_HTML_REQUEST_DATA_FROM_ENDPOINT);
+      await page.waitForSelector('#output.test');
+
+      const output = await page.$eval('#output', node => node.textContent);
+      expect(output).toBe('400:456');
     });
   });
 
