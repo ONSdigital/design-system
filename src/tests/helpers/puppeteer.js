@@ -48,7 +48,6 @@ export class PuppeteerEndpointFaker {
   }
 
   getRequestCount(path) {
-    console.log(this.requestHistory.map(n => n.path));
     path = sanitizeHref(path);
     return this.requestHistory.filter(entry => entry.path === path).length;
   }
