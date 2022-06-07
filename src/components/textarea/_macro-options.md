@@ -23,7 +23,8 @@
 
 | Name              | Type    | Required | Description                                                                                                                                                                                        |
 | ----------------- | ------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| limit             | integer | true     | Set to the maximum number of characters a user can enter in the textarea                                                                                                                           |
+| id                | string  | true     | The HTML `id` of the component                                                                                                                                                                     |
+| limit             | integer | true     | The maximum number of characters allowed in the input                                                                                                                                              |
 | charCountPlural   | string  | true     | The string displayed when multiple characters can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} characters remaining”. |
 | charCountSingular | string  | true     | The string displayed when one more character can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} character remaining”.   |
 
