@@ -60,7 +60,7 @@
                                     {% set controlVisibility = false %}
                                 {% endif %}
                                 <div class="ons-grid__col ons-col-auto{% if controlVisibility == true %} ons-u-d-no@xxs@{{ breakpoint }}{% endif %}">
-                                    <nav class="ons-header-service-nav ons{{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
+                                    <nav class="ons-header-service-nav ons-header-service-nav--main {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
                                         <ul class="ons-header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel | default("Service Links") }}">
                                             {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
                                                 <li class="ons-header-service-nav__item">
