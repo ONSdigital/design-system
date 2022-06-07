@@ -1,5 +1,4 @@
-import { getFakeJsonEndpointUrl } from '../../tests/helpers/fake-endpoints';
-import { getNodeAttributes } from '../../tests/helpers/puppeteer';
+import { getNodeAttributes, PuppeteerEndpointFaker } from '../../tests/helpers/puppeteer';
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_AUTOSUGGEST = {
@@ -24,17 +23,31 @@ const EXAMPLE_AUTOSUGGEST = {
   resultsTitleId: 'country-of-birth-suggestions',
   noResults: 'No suggestions found.',
   typeMore: 'Continue entering to get suggestions',
-  autosuggestData: getFakeJsonEndpointUrl([
-    { en: 'England' },
-    { en: 'Wales' },
-    { en: 'Scotland' },
-    { en: 'United States of America' },
-    { en: 'United States Virgin Islands' },
-    { en: 'Åland Islands' },
-  ]),
+  autosuggestData: '/test/fake/api/countries',
 };
 
 describe('script: autosuggest', () => {
+  const apiFaker = new PuppeteerEndpointFaker('/test/fake/api');
+
+  apiFaker.setOverride('/countries', {
+    data: [
+      { en: 'England' },
+      { en: 'Wales' },
+      { en: 'Scotland' },
+      { en: 'United States of America' },
+      { en: 'United States Virgin Islands' },
+      { en: 'Åland Islands' },
+    ],
+  });
+
+  beforeAll(async () => {
+    await apiFaker.setup(page);
+  });
+
+  beforeEach(async () => {
+    apiFaker.reset();
+  });
+
   describe('when the component initialises', () => {
     it('the input should be given the correct aria attributes', async () => {
       await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
@@ -497,13 +510,12 @@ describe('script: autosuggest', () => {
   describe('when there are no results due to an error', () => {
     describe('when the status code is 400', () => {
       beforeEach(async () => {
-        await setTestPage(
-          '/test',
-          renderComponent('autosuggest', {
-            ...EXAMPLE_AUTOSUGGEST,
-            autosuggestData: getFakeJsonEndpointUrl({}, 400),
-          }),
-        );
+        apiFaker.setTemporaryOverride('/countries', {
+          status: 400,
+          data: {},
+        });
+
+        await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
         await page.focus('.ons-js-autosuggest-input');
         await page.type('.ons-js-autosuggest-input', 'tes', { delay: 20 });
@@ -522,11 +534,15 @@ describe('script: autosuggest', () => {
       ['when there is no status code', null, undefined],
     ])('%s', (_, fakeAutosuggestData, fakeStatusCode) => {
       beforeEach(async () => {
+        apiFaker.setTemporaryOverride('/countries', {
+          status: fakeStatusCode,
+          data: fakeAutosuggestData,
+        });
+
         await setTestPage(
           '/test',
           renderComponent('autosuggest', {
             ...EXAMPLE_AUTOSUGGEST,
-            autosuggestData: getFakeJsonEndpointUrl(fakeAutosuggestData, fakeStatusCode),
             errorTitle: 'There is a problem with your answer',
             errorMessage: 'Enter an address ',
             errorMessageAPI: 'Sorry, there is a problem.',
