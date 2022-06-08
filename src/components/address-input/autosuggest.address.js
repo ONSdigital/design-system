@@ -16,7 +16,6 @@ export default class AutosuggestAddress {
     this.context = context;
     this.input = context.querySelector(`.${classInput}`);
     this.search = context.querySelector(`.${classSearch}`);
-    this.lang = document.documentElement.getAttribute('lang').toLowerCase();
     this.addressReplaceChars = [','];
     this.sanitisedQuerySplitNumsChars = true;
     this.form = context.closest('form');
@@ -72,6 +71,10 @@ export default class AutosuggestAddress {
 
     // Check API status
     this.checkAPIStatus();
+  }
+
+  get lang() {
+    return document.documentElement.getAttribute('lang').toLowerCase();
   }
 
   async checkAPIStatus() {
