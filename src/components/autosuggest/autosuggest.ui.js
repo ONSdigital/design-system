@@ -24,7 +24,6 @@ export default class AutosuggestUI {
     onUnsetResult,
     suggestionFunction,
     handleUpdate,
-    lang,
     ariaYouHaveSelected,
     ariaMinChars,
     ariaOneResult,
@@ -69,7 +68,6 @@ export default class AutosuggestUI {
     this.listboxId = this.listbox.getAttribute('id');
     this.resultLimit = resultLimit || 10;
     this.suggestOnBoot = suggestOnBoot;
-    this.lang = lang || 'en';
 
     // Callbacks
     this.onSelect = onSelect;
@@ -103,6 +101,10 @@ export default class AutosuggestUI {
     this.sanitisedQuerySplitNumsChars = sanitisedQuerySplitNumsChars || false;
 
     this.initialiseUI();
+  }
+
+  get lang() {
+    return document.documentElement.getAttribute('lang').toLowerCase();
   }
 
   initialiseUI() {
