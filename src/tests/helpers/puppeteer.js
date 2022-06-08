@@ -43,8 +43,16 @@ export class PuppeteerEndpointFaker {
     this.#overrides.set(sanitizeHref(this.baseUrl + path), response);
   }
 
+  setOverrides(paths, response) {
+    paths.forEach(path => this.setOverride(path, response));
+  }
+
   setTemporaryOverride(path, response) {
     this.#temporaryOverrides.set(sanitizeHref(this.baseUrl + path), response);
+  }
+
+  setTemporaryOverrides(paths, response) {
+    paths.forEach(path => this.setTemporaryOverride(path, response));
   }
 
   getRequestCount(path) {

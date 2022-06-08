@@ -201,6 +201,23 @@ describe('PuppeteerEndpointFaker', () => {
     });
   });
 
+  describe('setOverrides(paths, response)', () => {
+    it('calls `setOveride` for each provided path', () => {
+      const faker = new puppeteer.PuppeteerEndpointFaker('/test/fake/api');
+      const calls = [];
+      faker.setOverride = (path, response) => {
+        calls.push([path, response]);
+      };
+
+      faker.setOverrides(['/a', '/b'], { test: 42 });
+
+      expect(calls).toEqual([
+        ['/a', { test: 42 }],
+        ['/b', { test: 42 }],
+      ]);
+    });
+  });
+
   describe('setTemporaryOverride(path, response)', () => {
     it('overrides the resource and base override', async () => {
       apiFaker.setOverride('/json/abc', {
@@ -231,6 +248,23 @@ describe('PuppeteerEndpointFaker', () => {
 
       const output = await page.$eval('#output', node => node.textContent);
       expect(output).toBe('400:456');
+    });
+  });
+
+  describe('setTemporaryOverrides(paths, response)', () => {
+    it('calls `setTemporaryOverride` for each provided path', () => {
+      const faker = new puppeteer.PuppeteerEndpointFaker('/test/fake/api');
+      const calls = [];
+      faker.setTemporaryOverride = (path, response) => {
+        calls.push([path, response]);
+      };
+
+      faker.setTemporaryOverrides(['/a', '/b'], { test: 42 });
+
+      expect(calls).toEqual([
+        ['/a', { test: 42 }],
+        ['/b', { test: 42 }],
+      ]);
     });
   });
 
