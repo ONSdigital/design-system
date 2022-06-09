@@ -33,6 +33,10 @@ export class PuppeteerEndpointFaker {
     return this.#requestHistory;
   }
 
+  get requestedPaths() {
+    return this.requestHistory.map(entry => entry.path);
+  }
+
   async setup(page) {
     if (this.#page !== null) {
       throw new Error('faker has already been setup');
