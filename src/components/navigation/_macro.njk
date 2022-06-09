@@ -31,7 +31,7 @@
                     }) }}
                 </div>
             {% endif %}
-            <nav class="ons-navigation ons-js-navigation" id="{{ params.id }}" aria-label="{{ params.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
+            <nav class="ons-navigation ons-navigation--main ons-js-navigation" id="{{ params.id }}" aria-label="{{ params.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
                 <ul class="ons-navigation__list">
                     {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
                         <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.currentPath) or (item.url != (params.siteBasePath | default('/')) and item.url in params.currentPath) }}">
@@ -47,7 +47,7 @@
             <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <ul class="ons-navigation__list ons-navigation__list">
                     {% for item in (params.subNavigation.itemsList if params.subNavigation.itemsList is iterable else params.subNavigation.itemsList.items()) %}
-                        <li class="ons-navigation__item ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.subNavigation.currentPath) or (item.url != (params.subNavigation.siteBasePath | default('/')) and item.url in params.subNavigation.currentPath) }}">
+                        <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.subNavigation.currentPath) or (item.url != (params.subNavigation.siteBasePath | default('/')) and item.url in params.subNavigation.currentPath) }}">
                             <a class="ons-navigation__link ons-navigation__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
                         </li>
                     {% endfor %}
@@ -68,7 +68,7 @@
             }) }}
             <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no proto-ons-js-secondary-nav ons-u-mt-xs" id="{{ params.subNavigation.id }}" aria-label="{{ params.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
                 <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                    <ul class="ons-navigation__list">
+                    <ul class="ons-navigation__list ons-navigation__list--parent">
                         <li class="ons-navigation__item">
                             <a class="ons-navigation__link" href="{{ params.subNavigation.overviewURL }}">{{ params.subNavigation.overviewText | default('Overview') }}</a>
                         </li>
@@ -78,7 +78,7 @@
                                 {% if item.sections %}
                                     {% for section in item.sections %}
                                         {% if section.sectionTitle %}<h3 class="ons-navigation__list-header">{{ section.sectionTitle }}</h3>{% endif %}
-                                        <ul class="ons-navigation__list ons-list--dashed ons-u-ml-s ons-u-mt-xs">
+                                        <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs">
                                             {% for child in section.children %}
                                                 <li class="ons-navigation__item ons-list__item {{ ' ons-navigation__item--active' if (child.url == params.subNavigation.currentPath) or (child.url != (params.subNavigation.sitsiteBasePatheBasePath | default('/')) and child.url in params.subNavigation.currentPath) }}">
                                                     <a class="ons-navigation__link ons-navigation__link--section" href="{{ child.url }}" {% if child.id is defined and child.id %}id="{{ child.id }}" {% endif %}>{{ child.title }}</a>
