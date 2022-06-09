@@ -140,6 +140,24 @@ describe('PuppeteerEndpointFaker', () => {
     });
   });
 
+  describe('get requestedPaths()', () => {
+    it('returns array of requested paths', async () => {
+      await setTestPage(
+        '/test',
+        `
+          <script>
+            fetch('/test/fake/api/text?abc=123');
+            fetch('/test/fake/api/text?abc=789');
+            fetch('/test/fake/api/other');
+            fetch('/test/fake/api/json?abc=456');
+          </script>
+        `,
+      );
+
+      expect(apiFaker.requestedPaths).toEqual(['/text?abc=123', '/text?abc=789', '/other', '/json?abc=456']);
+    });
+  });
+
   describe('setup(page)', () => {
     it('throws error when instance has already been setup', async () => {
       await expect(async () => {

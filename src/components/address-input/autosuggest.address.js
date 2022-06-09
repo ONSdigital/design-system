@@ -78,7 +78,7 @@ export default class AutosuggestAddress {
   }
 
   async checkAPIStatus() {
-    this.fetch = abortableFetch(this.lookupURL + 'CF142&limit=10', {
+    this.fetch = abortableFetch(this.lookupURL + 'cf142&limit=10', {
       method: 'GET',
       headers: this.setAuthorization(this.authorizationToken),
     });
