@@ -42,7 +42,7 @@ describe('PuppeteerEndpointFaker', () => {
   });
 
   beforeEach(async () => {
-    apiFaker.reset();
+    await apiFaker.reset();
   });
 
   const TEST_HTML_REQUEST_DATA_FROM_ENDPOINT = `
@@ -140,6 +140,14 @@ describe('PuppeteerEndpointFaker', () => {
     });
   });
 
+  describe('setup(page)', () => {
+    it('throws error when instance has already been setup', async () => {
+      await expect(async () => {
+        await apiFaker.setup(page);
+      }).rejects.toThrowError('faker has already been setup');
+    });
+  });
+
   describe('reset()', () => {
     it('clears the history', async () => {
       await setTestPage(
@@ -151,7 +159,7 @@ describe('PuppeteerEndpointFaker', () => {
           </script>
         `,
       );
-      apiFaker.reset();
+      await apiFaker.reset();
 
       expect(apiFaker.requestHistory.length).toBe(0);
     });
@@ -164,7 +172,7 @@ describe('PuppeteerEndpointFaker', () => {
         data: { value: 456 },
       });
 
-      apiFaker.reset();
+      await apiFaker.reset();
 
       await setTestPage('/test', TEST_HTML_REQUEST_DATA_FROM_ENDPOINT);
       await page.waitForSelector('#output.test');
@@ -281,7 +289,6 @@ describe('PuppeteerEndpointFaker', () => {
         `,
       );
 
-      const paths = apiFaker.requestHistory.map(entry => entry.path);
       expect(apiFaker.getRequestCount('/text?abc=123')).toBe(1);
       expect(apiFaker.getRequestCount('/json?abc=456')).toBe(2);
       expect(apiFaker.getRequestCount('/other')).toBe(0);

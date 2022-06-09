@@ -1,5 +1,7 @@
 import * as url from 'url';
 
+const INTERCEPT_INSTANCE_HEADER_NAME = 'x-test-intercept-instance';
+
 export async function getNodeAttributes(page, selector) {
   return await page.$eval(selector, node => {
     const reducer = (map, attr) => {
@@ -15,9 +17,11 @@ function sanitizeHref(href) {
 }
 
 export class PuppeteerEndpointFaker {
+  #page = null;
   #overrides = new Map();
   #temporaryOverrides = new Map();
   #requestHistory = null;
+  #currentInstance = 0;
 
   constructor(basePath) {
     this.domain = `http://localhost:${process.env.TEST_PORT}`;
@@ -30,11 +34,19 @@ export class PuppeteerEndpointFaker {
   }
 
   async setup(page) {
-    await page.setRequestInterception(true);
+    if (this.#page !== null) {
+      throw new Error('faker has already been setup');
+    }
+
+    this.#page = page;
+
     page.on('request', this.#handleRequest.bind(this));
+    await this.#refreshInstanceHeader();
+    await page.setRequestInterception(true);
   }
 
-  reset() {
+  async reset() {
+    await this.#refreshInstanceHeader();
     this.#requestHistory = [];
     this.#temporaryOverrides.clear();
   }
@@ -60,6 +72,12 @@ export class PuppeteerEndpointFaker {
     return this.requestHistory.filter(entry => entry.path === path).length;
   }
 
+  async #refreshInstanceHeader() {
+    await this.#page.setExtraHTTPHeaders({
+      [INTERCEPT_INSTANCE_HEADER_NAME]: `${++this.#currentInstance}`,
+    });
+  }
+
   #resolveOverride(href) {
     href = sanitizeHref(href);
     return this.#temporaryOverrides.get(href) ?? this.#overrides.get(href);
@@ -67,6 +85,13 @@ export class PuppeteerEndpointFaker {
 
   #handleRequest(interceptedRequest) {
     if (interceptedRequest.isInterceptResolutionHandled()) {
+      return;
+    }
+
+    // Ignore if this instance has been reset since the request was made.
+    const requestInstance = interceptedRequest.headers()[INTERCEPT_INSTANCE_HEADER_NAME];
+    if (requestInstance !== this.#currentInstance.toString()) {
+      interceptedRequest.continue();
       return;
     }
 
