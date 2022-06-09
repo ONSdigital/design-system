@@ -45,7 +45,7 @@ describe('script: autosuggest', () => {
   });
 
   beforeEach(async () => {
-    apiFaker.reset();
+    await apiFaker.reset();
   });
 
   describe('when the component initialises', () => {
