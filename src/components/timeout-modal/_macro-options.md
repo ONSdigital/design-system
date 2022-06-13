@@ -1,16 +1,16 @@
-| Name                        | Type    | Required | Description                                                                  |
-| --------------------------- | ------- | -------- | ---------------------------------------------------------------------------- |
-| showModalTimeInSeconds      | integer | true     | Number of seconds the modal will be displayed                                |
-| redirectUrl                 | string  | true     | URL to redirect to when session times out                                    |
-| sessionExpiresAt            | string  | true     | Initial expiry time set by server on page load in ISO format                 |
-| serverSessionExpiryEndpoint | string  | true     | Endpoint to send requests to get or update expiry time                       |
-| title                       | string  | true     | Title text for the modal, used by `aria-labelledby`                          |
-| textFirstLine               | string  | true     | Text content for modal e.g. 'You've been inactive for a while'               |
-| countdownText               | string  | true     | Text content to accompany timer e.g. 'You will be signed out in'             |
-| countdownExpiredText        | string  | true     | Text displayed as countdown expires e.g. 'You are being signed out'          |
-| btnText                     | string  | true     | Text displayed in button to reset session expiry time e.g. 'Continue survey' |
-| minutesTextSingular         | string  | true     | Text displayed in timer when minutes left is 1 e.g. 'minute'                 |
-| minutesTextPlural           | string  | true     | Text displayed in timer when minutes left is more than 1 e.g. 'minutes'      |
-| secondsTextSingular         | string  | true     | Text displayed in timer when seconds left is 1 e.g. 'second'                 |
-| secondsTextPlural           | string  | true     | Text displayed in timer when seconds left is more than 1 e.g. 'seconds'      |
-| endWithFullStop             | boolean | false    | If set to `true` will end countdown text with full stop                      |
+| Name                        | Type    | Required | Description                                                                                                                                                                   |
+| --------------------------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| showModalTimeInSeconds      | integer | true     | Number of seconds the modal will be displayed for                                                                                                                             |
+| redirectUrl                 | string  | true     | The URL to redirect to when session times out                                                                                                                                 |
+| sessionExpiresAt            | string  | true     | Initial expiry time set by server on page load in ISO format                                                                                                                  |
+| serverSessionExpiryEndpoint | string  | true     | Endpoint to send requests to get or update the expiry time                                                                                                                    |
+| title                       | string  | true     | Title text for the `<h1>` heading for the modal. Used by the `aria-labelledby` attribute on the `<dialog>` element.                                                           |
+| textFirstLine               | string  | true     | First paragraph of content in the modal’s body, for example “It appears you have been inactive for a while.”                                                                  |
+| countdownText               | string  | true     | The leading line of text to prefix the countdown timer, for example “**To protect your information, your progress will be saved and you will be signed out in** 59 seconds.”. |
+| countdownExpiredText        | string  | true     | Text briefly displayed after countdown timer ends and redirect is taking place, for example, “You are being signed out”.                                                      |
+| btnText                     | string  | true     | The text label for the primary button for the timeout modal, for example, “Continue survey”.                                                                                  |
+| minutesTextSingular         | string  | true     | Time unit displayed in countdown timer when between 1 and 2 minutes is remaining, for example '1 **minute** 59 seconds'.                                                      |
+| minutesTextPlural           | string  | true     | Time unit displayed in countdown timer when more than 1 minutes are remaining, for example '2 **minutes** 59 seconds'.                                                        |
+| secondsTextSingular         | string  | true     | Time unit displayed in countdown timer when the number of seconds remaining equals 1, for example “2 minutes 1 **second**”.                                                   |
+| secondsTextPlural           | string  | true     | Time unit displayed in countdown timer when more than 1 seconds are remaining, for example “1 minute 59 **seconds**”.                                                         |
+| endWithFullStop             | boolean | false    | Set to “true” to end the countdown timer text with full stop                                                                                                                  |
