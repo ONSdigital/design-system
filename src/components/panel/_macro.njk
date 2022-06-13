@@ -38,18 +38,6 @@
                 <span class="u-vh">{{ params.assistiveTextPrefix | default("Warning: ") }}</span>
             {% endif %}
 
-            {% if params is defined and params and params.type == "announcement" %}
-                {% from "components/icons/_macro.njk" import onsIcon %}
-                <span class="panel__icon" aria-hidden="true">
-                    {{
-                        onsIcon({
-                            "icon": 'arrow-forward'
-                        })
-                    }}
-                </span>
-                <span class="u-vh">{{ params.assistiveTextPrefix | default("Announcement: ") }}</span>
-            {% endif %}
-
             {% if params is defined and params %}
                 {% if params.title is defined and params.title %}
                     {% if params is defined and params and params.type == 'error' %}
