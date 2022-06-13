@@ -3,26 +3,28 @@ title: Error
 ---
 
 +++
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
-## When to use this component
-
 The error component is used to wrap form inputs and fieldsets to to show validation errors.
+
+{{
+    patternlibExample({"path": "components/duration/examples/duration-error/index.njk"})
+}}
+
+There is specific guidance on [how to correct errors](/patterns/correct-errors).
 
 ## How to use this component
 
-Generally speaking you should not need to {{
-    onsExternalLink({
-        "url": "https://mozilla.github.io/nunjucks/templating.html#call",
-        "linkText": "call"
-    })
-}} `onsError` yourself as it is already called from within form input components. However if you need to create a pattern or component that requires a error you can use {{
+You should not typically need to “call” `onsError()` yourself as it is already called from within form input components. 
+
+However, if you need to create a pattern or component that requires a error you can use {{
     onsExternalLink({
         "url": "https://mozilla.github.io/nunjucks/templating.html#call",
         "linkText": "nunjucks' call functionality"
     })
-}} `onsError`.
+}}
 
 | Name       | Type    | Required | Description                                                                                                                               |
 | ---------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
