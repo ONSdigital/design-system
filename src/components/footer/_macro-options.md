@@ -52,7 +52,7 @@
 
 ## PoweredBy
 
-| Name | Type   | Required | Description                                                     |
-| ---- | ------ | -------- | --------------------------------------------------------------- |
-| logo | string | true     | The name of the organisation SVG logo                           |
-| alt  | string | true     | The text for the HTML `<title>` element to describe the graphic |
+| Name | Type   | Required | Description                                                                 |
+| ---- | ------ | -------- | --------------------------------------------------------------------------- |
+| logo | string | true     | The name of the organisation SVG logo set by the `onsIcon()` macro          |
+| alt  | string | true     | The text for the HTML `<title>` element for the SVG to describe the graphic |

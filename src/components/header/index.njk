@@ -18,11 +18,11 @@ The ONS header shows users which ONS service they are on.
 
 You should use the ONS header at the top of any ONS service.
 
-## How to use this component
+## Variants
 
 ### Internal
 
-The internal service variant of the header. Use the `variant` parameter with the value `internal` when implementing for an internal service.
+The internal service variant of the header. Use the `variant` parameter with the value “internal” when implementing for an internal service.
 {{
     patternlibExample({ "path": "components/header/examples/internal-basic/index.njk" })
 }}
@@ -54,7 +54,7 @@ Displays links in the masthead. For mobile users, if more than one service link 
 
 ### External survey with description
 
-Allows for text to be added below the title by adding the variant `description` to the header configuration. This should be used when the service would benefit from a description which informs users of what the service provides.
+Allows for text to be added below the title by adding the parameter `description` to the header configuration. This should be used when the service would benefit from a description which informs users of what the service provides.
 {{
     patternlibExample({ "path": "components/header/examples/external-description/index.njk" })
 }}
@@ -64,26 +64,26 @@ Allows for text to be added below the title by adding the variant `description` 
     patternlibExample({ "path": "components/header/examples/external-welsh/index.njk" })
 }}
 
-## External with Census branding
+### Custom organisation logo
+{{
+    patternlibExample({ "path": "components/header/examples/external-ni-finance-dept/index.njk" })
+}}
 
-### Census
+### External with Census branding
+
+#### Census
 {{
     patternlibExample({ "path": "components/header/examples/census/index.njk" })
 }}
 
-### Census Welsh
+#### Census Welsh
 {{
     patternlibExample({ "path": "components/header/examples/census-cy/index.njk" })
 }}
 
-### Census NISRA
+#### Census NISRA
 {{
     patternlibExample({ "path": "components/header/examples/census-nisra/index.njk" })
-}}
-
-### Northern Ireland Department of Finance
-{{
-    patternlibExample({ "path": "components/header/examples/external-ni-finance-dept/index.njk" })
 }}
 
 ## Help improve this component
