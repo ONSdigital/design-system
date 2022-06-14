@@ -1,8 +1,8 @@
 | Name            | Type                                             | Required | Description                                                               |
 | --------------- | ------------------------------------------------ | -------- | ------------------------------------------------------------------------- |
-| censusTheme     | boolean                                          | false    | Set to `true` for the census theme                                        |
-| censusThemeDark | boolean                                          | false    | Set to `true` for census dark theme                                       |
-| wide            | boolean                                          | false    | Set to `true` when using the `wide` page layout container                 |
+| censusTheme     | boolean                                          | false    | Set to “true” to use the census theme                                     |
+| censusThemeDark | boolean                                          | false    | Set to “true” to use the census dark theme                                |
+| wide            | boolean                                          | false    | Set to “true” when using the `wide` page layout container                 |
 | preTitleImage   | `Array<PreTitleImage>`                           | false    | Settings for the [image before the title](#pretitleimage)                 |
 | placeholderURL  | string                                           | false    | Base path to `preTitleImage` folder                                       |
 | title           | string                                           | true     | Text for the hero title                                                   |
