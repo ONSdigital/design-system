@@ -32,25 +32,11 @@
                         "text": "Solid fuel"
                     },
                     "value": "solid-fuel"
-                },
-                {
-                    "id": "other-fuel",
-                    "label": {
-                        "text": "Other"
-                    },
-                    "value": "other",
-                    "other": {
-                        "id": "other-fuel-textbox",
-                        "name": "other-fuel-answer",
-                        "label": {
-                        "text": "Please specify"
-                        }
-                    }
                 }
             ],
             "mutuallyExclusive": {
                 "or": "Or",
-                "deselectMessage": "Selecting this will uncheck all other checkboxes",
+                "deselectMessage": "Selecting these will uncheck all other checkboxes",
                 "deselectGroupAdjective": "deselected",
                 "deselectExclusiveOptionAdjective": "deselected",
                 "exclusiveOptions": [
@@ -59,10 +45,14 @@
                         "label": {
                             "text": "No central heating"
                         },
-                        "attributes": {
-                            "data-attribute": "Example attribute"
-                        },
                         "value": "no-central-heating"
+                    },
+                    {
+                        "id": "other",
+                        "label": {
+                            "text": "Other"
+                        },
+                        "value": "other"
                     }
                 ]
             }
