@@ -241,7 +241,7 @@ describe('macro: checkboxes', () => {
       expect(checkboxSpy.occurrences).toContainEqual({
         id: 'example-checkbox-id',
         name: 'example-checkbox-name',
-        classes: 'extra-checkbox-item-class',
+        classes: 'extra-checkbox-item-class ons-checkbox--no-border',
         inputClasses: '',
         borderless: true,
         checked: false,
