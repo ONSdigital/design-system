@@ -1,7 +1,7 @@
 | Name                | Type                                 | Required | Description                                                                                            |
 | ------------------- | ------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------ |
 | id                  | string                               | true     | ID for the input                                                                                       |
-| classes             | string                               | false    | Classes to apply to the field wrapping the access code input                                           |
+| classes             | string                               | false    | Classes to add to the panel wrapping the access code input                                             |
 | label               | `Label` [_(ref)_](/components/label) | true     | Settings for the input label                                                                           |
 | type                | string                               | false    | Sets the `type` attribute on the access code [input](/components/input). Defaults to `text`            |
 | name                | string                               | false    | Sets the `name` attribute for the access code input                                                    |
