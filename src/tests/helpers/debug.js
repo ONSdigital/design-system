@@ -15,7 +15,7 @@ export function verifyConsoleSubscription(page) {
   consoleSubscriptionPage = page;
 
   page.on('console', message => {
-    quietLog(`browser ${type}: ${message.text()}`, message.type());
+    quietLog(`browser ${message.type()}: ${message.text()}`, message.type());
 
     const { url, lineNumber, columnNumber } = message.location();
     if (!!url || !!lineNumber || !!columnNumber) {
