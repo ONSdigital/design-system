@@ -1,5 +1,7 @@
 import * as url from 'url';
 
+import { quietLog } from './debug';
+
 const INTERCEPT_INSTANCE_HEADER_NAME = 'x-test-intercept-instance';
 
 export async function getNodeAttributes(page, selector) {
@@ -110,7 +112,7 @@ export class PuppeteerEndpointFaker {
 
       const override = this.#resolveOverride(requestInfo.url.href);
       if (!!override) {
-        console.log(`Faked API request for ${requestInfo.url.href}`);
+        quietLog(`Faked API request for ${requestInfo.url.href}`);
         interceptedRequest.respond({
           status: override.status ?? 200,
           headers: override.headers ?? {},
@@ -119,7 +121,7 @@ export class PuppeteerEndpointFaker {
         });
         return;
       } else if (!this.suppressWarnings) {
-        console.warn(`Fake response not defined for ${requestInfo.url.href}`);
+        quietLog(`Fake response not defined for ${requestInfo.url.href}`, 'warning');
       }
     }
 
