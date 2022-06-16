@@ -1,29 +1,25 @@
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/duration/_macro.njk" import onsDuration %}
 
-{% call onsQuestion({
-    "title": "How long do you spend travelling to and from work each day?",
-    "legendIsQuestionTitle": true
-}) %}
-    {{ onsDuration({
-        "id": "address-duration",
-        "dontWrap": true,
-        "error": {
-            "text": "Enter a number that is less than 60",
-            "id": "duration-error"
-        },
-        "field1": {
-            "id": "address-duration-hours",
-            "name": "address-duration-hours",
-            "suffix": "Hours",
-            "value": "2"
-        },
-        "field2": {
-            "id": "address-duration-minutes",
-            "name": "address-duration-minutes",
-            "suffix": "Minutes",
-            "value": "60",
-            "error": true
-        }
-    }) }}
-{% endcall %}
+{{ onsDuration({
+    "id": "address-duration",
+    "legendOrLabel": 'How long do you spend travelling to and from work each day?',
+    "legendClasses": 'ons-u-vh',
+    "error": {
+        "text": "Enter a number that is less than 60",
+        "id": "duration-error"
+    },
+    "field1": {
+        "id": "address-duration-hours",
+        "name": "address-duration-hours",
+        "suffix": "Hours",
+        "value": "2"
+    },
+    "field2": {
+        "id": "address-duration-minutes",
+        "name": "address-duration-minutes",
+        "suffix": "Minutes",
+        "value": "60",
+        "error": true
+    }
+}) }}

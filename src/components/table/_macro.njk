@@ -15,7 +15,7 @@
                 <thead class="ons-table__head">
                     <tr class="ons-table__row">
                         {% for th in params.ths %}
-                        <th scope="col" class="ons-table__header{{ ' ' + th.thClasses if th.thClasses is defined and th.thClasses }}{{ " ons-table__header--numeric" if th.numeric is defined and th.numeric }}"{% if th.ariaSort is defined and th.ariaSort %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
+                        <th scope="col" class="ons-table__header{{ ' ' + th.thClasses if th.thClasses is defined and th.thClasses }}{{ " ons-table__header--numeric" if th.numeric is defined and th.numeric }}"{% if 'sortable' in variants %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
                             <span {% if 'sortable' in variants %}class="ons-u-vh"{% endif %}>{{- th.value -}}</span>
                             {% if 'sortable' in variants %}
                                 {{

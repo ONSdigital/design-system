@@ -379,7 +379,7 @@ $button-shadow-size: 3px;
       transform: rotate(90deg);
     }
 
-    @include mq(l) {
+    @include mq(m) {
       display: none;
     }
   }
@@ -391,43 +391,6 @@ $button-shadow-size: 3px;
     }
     .ons-btn__inner {
       opacity: 0.4;
-    }
-  }
-
-  &--dropdown {
-    @extend .ons-btn--ghost;
-    @extend .ons-btn--mobile;
-
-    width: 100%;
-
-    .ons-btn__inner {
-      background: $color-branded-tint;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      color: $color-text-link;
-      display: block;
-      font-size: 1rem;
-      font-weight: normal;
-      padding: 0.6rem 1rem;
-      text-align: left;
-
-      .ons-svg-icon {
-        fill: $color-text-link;
-        float: right;
-        margin-top: 3px;
-      }
-    }
-
-    &:active,
-    &:active:focus {
-      .ons-btn__inner {
-        background: $color-branded-secondary;
-        color: $color-white;
-        .ons-svg-icon {
-          fill: $color-white;
-        }
-      }
     }
   }
 }
