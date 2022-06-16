@@ -7,14 +7,14 @@
 
     {% set field %}
         {% if params.dontWrap is defined and params.dontWrap %}
-            {{ caller() }}
+            {{- caller() if caller -}}
         {% else %}
             <div
                 {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %}
                 class="ons-field{% if params.inline is defined and params.inline %} ons-field--inline{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
                 {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             >
-                {{ caller() }}
+                {{- caller() if caller -}}
             </div>
         {% endif %}
     {% endset %}

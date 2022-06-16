@@ -150,7 +150,7 @@ describe('macro: cookies-banner', () => {
       expect(buttonSpy.occurrences[2].text).toBe('Close');
     });
 
-    it('has a default `aria-label` of "cookie banner"', () => {
+    it('has a default `buttonContext` of "cookie banner"', () => {
       const faker = templateFaker();
       const buttonSpy = faker.spy('button');
 
@@ -159,7 +159,7 @@ describe('macro: cookies-banner', () => {
       expect(buttonSpy.occurrences[2].buttonContext).toBe('the cookie message');
     });
 
-    it('has the provided `ariaLabel` for `aria-label`', () => {
+    it('has the provided `confirmationButtonTextAria` for `buttonContext`', () => {
       const faker = templateFaker();
       const buttonSpy = faker.spy('button');
 

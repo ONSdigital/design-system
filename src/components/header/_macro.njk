@@ -60,8 +60,13 @@
                                     {% set controlVisibility = false %}
                                 {% endif %}
                                 <div class="ons-grid__col ons-col-auto{% if controlVisibility == true %} ons-u-d-no@xxs@{{ breakpoint }}{% endif %}">
+<<<<<<< HEAD
                                     <nav class="ons-header-service-nav ons{{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
                                         <ul class="ons-header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel | default("Service links") }}">
+=======
+                                    <nav class="ons-header-service-nav ons-header-service-nav--main {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
+                                        <ul class="ons-header-service-nav__list" aria-label="{{ params.serviceLinks.ariaListLabel | default("Service Links") }}">
+>>>>>>> 39f025c03ebabeb91a42f5587c1400a81b17defb
                                             {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
                                                 <li class="ons-header-service-nav__item">
                                                     <a
