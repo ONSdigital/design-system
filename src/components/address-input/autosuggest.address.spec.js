@@ -587,7 +587,7 @@ describe('script: address-input', () => {
       await page.$eval('.ons-js-autosuggest-input', node => (node.value = '196 coll'));
       await page.type('.ons-js-autosuggest-input', 'e');
 
-      expect(apiFaker.getRequestCount('/addresses/eq?input=196 colle&limit=10&favourwelsh=true')).toBe(1);
+      expect(apiFaker.getRequestCount('/addresses/eq?input=196%20colle&limit=10&favourwelsh=true')).toBe(1);
     });
   });
 
@@ -641,7 +641,7 @@ describe('script: address-input', () => {
   describe.each([
     [
       'english, epoch, workplace',
-      '/addresses/eq?input=196 colle&limit=10&classificationfilter=workplace&eboost=10&epoch=75',
+      '/addresses/eq?input=196%20colle&limit=10&classificationfilter=workplace&eboost=10&epoch=75',
       '/addresses/eq/uprn/100070332099?addresstype=paf&epoch=75',
       'en',
       {
@@ -652,7 +652,7 @@ describe('script: address-input', () => {
     ],
     [
       'ni, educational',
-      '/addresses/eq?input=196 colle&limit=10&classificationfilter=educational&eboost=0&sboost=0&wboost=0',
+      '/addresses/eq?input=196%20colle&limit=10&classificationfilter=educational&eboost=0&sboost=0&wboost=0',
       '/addresses/eq/uprn/100070332099?addresstype=paf',
       'en',
       {
@@ -662,7 +662,7 @@ describe('script: address-input', () => {
     ],
     [
       'ni, workplace',
-      '/addresses/eq?input=196 colle&limit=10&classificationfilter=workplace&nboost=10',
+      '/addresses/eq?input=196%20colle&limit=10&classificationfilter=workplace&nboost=10',
       '/addresses/eq/uprn/100070332099?addresstype=paf',
       'en',
       {
@@ -672,7 +672,7 @@ describe('script: address-input', () => {
     ],
     [
       'wales, workspace',
-      '/addresses/eq?input=196 colle&limit=10&classificationfilter=workplace&wboost=10&favourwelsh=true',
+      '/addresses/eq?input=196%20colle&limit=10&classificationfilter=workplace&wboost=10&favourwelsh=true',
       '/addresses/eq/uprn/100070332099?addresstype=paf',
       'cy',
       {
