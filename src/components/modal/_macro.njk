@@ -1,19 +1,19 @@
 {% macro onsModal(params) %}
-    {% set modalID = params.id | default('dialog') %}
-    <dialog class="ons-modal ons-js-modal {{ params.classes }}"
-        id="{{ modalID }}"
+    {% set modalId = params.id | default('dialog') %}
+    <dialog class="ons-modal ons-js-modal {{ params.classes if params.classes is defined and params.classes else '' }}"
+        id="{{ modalId }}"
         role="dialog"
         aria-labelledby="ons-modal-title"
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}
-    >   
+    >
         <div class="ons-modal__content">
             <h1 id="ons-modal-title" class="ons-modal__title">
                 {{ params.title }}
             </h1>
             <div class="ons-modal__body">
-                {{ (params.body if params else "") | safe }}{{ caller() if caller }}
+                {{ (params.body if params.body is defined and params.body else "") | safe }}{{ caller() if caller }}
             </div>
-            {% if params.btnText %}
+            {% if params.btnText is defined and params.btnText %}
                 {% from "components/button/_macro.njk" import onsButton %}
                 {{ onsButton({
                     "text": params.btnText,

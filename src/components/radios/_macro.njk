@@ -13,29 +13,30 @@
         "legendIsQuestionTitle": params.legendIsQuestionTitle,
         "error": params.error
     }) %}
-        <div class="ons-radios__items">
-            {% for radio in params.radios %}
-                {% if params.or is defined and params.or and loop.revindex0 == 0 %}
-                    <span class="ons-radios__label ons-u-mt-s ons-u-fs-r--b" aria-hidden="true">{{ params.or }}</span>
+    <div class="ons-radios__items">
+        {% for radio in params.radios %}
+            {% if params.or is defined and params.or and loop.revindex0 == 0 %}
+                <span class="ons-radios__label ons-u-mt-s ons-u-fs-r--b" aria-hidden="true">{{ params.or }}
+                </span>
+            {% endif %}
+            <span class="ons-radios__item{{ " ons-radios__item--no-border" if params.borderless }}">
+                <span class="ons-radio{{ " ons-radio--no-border" if params.borderless }}">
+                {%  if radio.other is defined and radio.other and radio.other.selectAllChildren is defined and radio.other.selectAllChildren == true %}
+                    {% set selectAllClass = ' ons-js-select-all-children' %}
+                {% else %}
+                    {% set selectAllClass = '' %}
                 {% endif %}
-                <span class="ons-radios__item{{ " ons-radios__item--no-border" if params.borderless }}">
-                    <span class="ons-radio{{ " ons-radio--no-border" if params.borderless }}">
-                        {%  if radio.other is defined and radio.other and radio.other.selectAllChildren is defined and radio.other.selectAllChildren == true %}
-                            {% set selectAllClass = ' ons-js-select-all-children' %}
-                        {% else %}
-                            {% set selectAllClass = '' %}
-                        {% endif %}
-                        <input
+                    <input
                             type="radio"
                             id="{{ radio.id }}"
-                            class="ons-radio__input ons-js-radio{{ ' ' + params.inputClasses if params.inputClasses and params.inputClasses is defined else '' }}{{ ' ' + radio.classes if radio.classes else '' }}{{ ' ons-js-other' if radio.other else '' }}{{ selectAllClass }}"
+                            class="ons-radio__input ons-js-radio{{ ' ' + radio.classes if radio.classes else '' }}{{ ' ons-js-other' if radio.other else '' }}{{ selectAllClass }}"
                             value="{{ radio.value }}"
                             name="{{ params.name }}"
                             {% if (radio.checked is defined and radio.checked) or (params.value is defined and params.value == radio.value) %} checked {% endif %}
                             {% if radio.other is defined and radio.other and not radio.other.open %} aria-controls="{{ radio.id }}-other-wrap" aria-haspopup="true"{% endif %}
                             {% if radio.attributes is defined and radio.attributes %}{% for attribute, value in (radio.attributes.items() if radio.attributes is mapping and radio.attributes.items else radio.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
                         >
-                        {{ onsLabel({
+                    {{ onsLabel({
                             "id": radio.id + "-label",
                             "for": radio.id,
                             "inputType": "radio",
@@ -43,6 +44,85 @@
                             "classes": "ons-radio__label " + radio.label.classes | default(''),
                             "description": radio.label.description
                         }) }}
+<<<<<<< HEAD
+                    {% if radio.other is defined and radio.other %}
+                        {% set otherType = radio.other.otherType | default('input') %}
+                        <span class="ons-radio__other{{ " " + 'ons-radio__other--open' if radio.other.open else "" }}" id="{{ radio.id }}-other-wrap">
+                            {% if otherType == "input" %}
+                                {% from "components/input/_macro.njk" import onsInput %}
+                                {{
+                                    onsInput({
+                                        "id": radio.other.id,
+                                        "name": radio.other.name,
+                                        "type": radio.other.type,
+                                        "required": radio.other.required,
+                                        "classes": ("ons-input--error" if params.error else "") + radio.other.classes | default(''),
+                                        "width": radio.other.width | default('auto'),
+                                        "attributes": radio.other.attributes,
+                                        "label": {
+                                            "id": radio.other.id + "-label",
+                                            "text": radio.other.label.text,
+                                            "classes": 'ons-u-fw-n'
+                                        },
+                                        "dontWrap": true,
+                                        "value": radio.other.value
+                                    })
+                                }}
+                            {% elif otherType == "select" %}
+                                {% from "components/select/_macro.njk" import onsSelect %}
+                                {{
+                                    onsSelect({
+                                        "id": radio.other.id,
+                                        "name": radio.other.name,
+                                        "options": radio.other.options,
+                                        "classes": ("ons-input--error" if params.error else "") + radio.other.classes | default(''),
+                                        "label": {
+                                            "id": radio.other.id + "-label",
+                                            "text": radio.other.label.text,
+                                            "classes": 'ons-u-fw-n'
+                                        },
+                                        "dontWrap": true,
+                                        "value": radio.other.value,
+                                        "select": {
+                                            "error": params.error
+                                        }
+                                    })
+                                }}
+                            {% elif otherType == "checkboxes" %}
+                                {% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+                                {{
+                                    onsCheckboxes({
+                                        "id": radio.other.id,
+                                        "name": radio.other.name,
+                                        "checked": radio.other.checked,
+                                        "borderless": true,
+                                        "legend": radio.other.legend,
+                                        "legendClasses": radio.other.legendClasses,
+                                        "attributes": radio.other.attributes,
+                                        "classes": "ons-js-other-fieldset",
+                                        "checkboxes": radio.other.checkboxes,
+                                        "autoSelect": radio.other.autoSelect,
+                                        "selectAllChildren": radio.other.selectAllChildren
+                                    })
+                                }}
+                            {% elif otherType == "radios" %}
+                                {% from "components/radios/_macro.njk" import onsRadios %}
+                                {{
+                                    onsRadios({
+                                        "id": radio.other.id,
+                                        "name": radio.other.name,
+                                        "borderless": true,
+                                        "legend": radio.other.legend,
+                                        "legendClasses": radio.other.legendClasses | default('') + ' ons-u-mb-xs',
+                                        "attributes": radio.other.attributes,
+                                        "classes": "ons-js-other-fieldset",
+                                        "radios": radio.other.radios
+                                    })
+                                }}
+                            {% endif %}
+                        </span>
+                    {% endif %}
+=======
                         {% if radio.other is defined and radio.other %}
                             {% set otherType = radio.other.otherType | default('input') %}
                             <span class="ons-radio__other{{ " " + 'ons-radio__other--open' if radio.other.open else "" }}" id="{{ radio.id }}-other-wrap">
@@ -119,22 +199,24 @@
                             </span>
                         {% endif %}
                     </span>
+>>>>>>> 39f025c03ebabeb91a42f5587c1400a81b17defb
                 </span>
-                {% if not loop.last %}
-                    <br>
-                {% endif %}
-            {% endfor %}
-        </div>
-        {% if params.clearRadios is defined and params.clearRadios %}
-            {{ onsButton({
+            </span>
+            {% if not loop.last %}
+                <br>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% if params.clearRadios is defined and params.clearRadios %}
+        {{ onsButton({
                 "text": params.clearRadios.text,
                 "name": params.clearRadios.name,
                 "type": "submit",
                 "classes": "ons-js-clear-btn ons-u-mt-s ons-u-db-no-js_enabled",
                 "variants": ["secondary", "small"]
             }) }}
-            <span class="ons-js-clear-radio-alert ons-u-vh" role="alert" aria-live="polite" data-clear="{{ params.clearRadios.ariaClearText }}" data-cleared="{{ params.clearRadios.ariaClearedText }}"></span>
-        {% endif %}
+        <span class="ons-js-clear-radio-alert ons-u-vh" role="alert" aria-live="polite" data-clear="{{ params.clearRadios.ariaClearText }}" data-cleared="{{ params.clearRadios.ariaClearedText }}"></span>
+    {% endif %}
     {% endcall %}
 
 {% endmacro %}
