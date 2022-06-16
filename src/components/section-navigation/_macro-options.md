@@ -1,11 +1,12 @@
-| Name        | Type          | Required                        | Description                                                                                             |
-| ----------- | ------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| id          | string        | true                            | The HTML `id` of the `<nav>` element of the component                                                   |
-| currentPath | string        | true (unless `tabQuery` set)    | Path to the current active page                                                                         |
-| tabQuery    | string        | true (unless `currentPath` set) | Query parameter in the URL for the current active page                                                  |
-| ariaLabel   | string        | false                           | The `aria-label` attribute for the `<nav>` element to describe its purpose. Defaults to ”Section menu”. |
-| itemsList   | `Array<Item>` | true                            | An array of [list items](#item) to display in the section navigation element                            |
-| variants    | string        | false                           | To adjust the component using available variant “vertical”                                              |
+| Name          | Type          | Required                        | Description                                                                                                |
+| ------------- | ------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| id            | string        | true                            | The HTML `id` of the `nav` element of the component                                                        |
+| currentPath   | string        | true (unless `tabQuery` set)    | Path to the current active page                                                                            |
+| tabQuery      | string        | true (unless `currentPath` set) | Query parameter in the URL for the current active page                                                     |
+| ariaLabel     | string        | false                           | The `aria-label` attribute for the `nav` element to describe its purpose. Defaults to ”Section menu”.      |
+| ariaListLabel | string        | false                           | The `aria-label` attribute for the `ul` element to describe its purpose. Defaults to ”Section menu links”. |
+| itemsList     | `Array<Item>` | true                            | An array of [list items](#item) to display in the section navigation element                               |
+| variants      | string        | false                           | To adjust the component using available variant “vertical”                                                 |
 
 ## Item
 

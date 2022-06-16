@@ -57,14 +57,14 @@ describe('Component: Accordion', function() {
 
   describe('before the component initialises', function() {
     it('then the toggle button element should have a ons-u-d-no class', function() {
-      expect([...this.toggleNavigationButton.classList].includes('ons-u-d-no')).to.be.true;
+      expect([...this.toggleButton.classList].includes('ons-u-d-no')).to.be.true;
     });
   });
 
   describe('When the component initialises', function() {
     it('then the toggle button element should not have a ons-u-d-no class', function() {
       new Collapsible(this.item.collapsible);
-      expect([...this.toggleNavigationButton.classList].includes('ons-u-d-no')).to.be.false;
+      expect([...this.toggleButton.classList].includes('ons-u-d-no')).to.be.false;
     });
 
     it('then none of the collapsibleHeader items should have a tabindex attribute', function() {
@@ -76,7 +76,7 @@ describe('Component: Accordion', function() {
     beforeEach(function() {
       this.item = this.items[0];
       this.collapsible = new Collapsible(this.item.collapsible);
-      this.group = new CollapsibleGroup(this.toggleNavigationButton, [this.collapsible]);
+      this.group = new CollapsibleGroup(this.toggleButton, [this.collapsible]);
 
       this.collapsible.onOpen = chai.spy(this.collapsible.onOpen);
       this.collapsible.onClose = chai.spy(this.collapsible.onClose);
@@ -154,7 +154,7 @@ function renderComponent(params) {
   wrapper.innerHTML = html;
   document.body.appendChild(wrapper);
 
-  const toggleNavigationButton = wrapper.querySelector('.ons-js-collapsible-all');
+  const toggleButton = wrapper.querySelector('.ons-js-collapsible-all');
 
   const items = [...wrapper.querySelectorAll('.ons-js-collapsible')].map(collapsible => {
     const collapsibleHeader = collapsible.querySelector('.ons-js-collapsible-heading');
@@ -171,7 +171,7 @@ function renderComponent(params) {
 
   return {
     wrapper,
-    toggleNavigationButton,
+    toggleButton,
     items,
   };
 }

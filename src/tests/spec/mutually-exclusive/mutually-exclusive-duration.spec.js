@@ -27,22 +27,20 @@ const params = {
     or: 'Or',
     deselectMessage: 'Selecting this will clear the date if one has been inputted',
     deselectGroupAdjective: 'cleared',
-    deselectExclusiveOptionAdjective: 'deselected',
-    exclusiveOptions: [
-      {
-        id: 'duration-exclusive-exclusive-option',
-        name: 'no-duration',
-        value: 'no-duration',
-        label: {
-          text: 'I have not moved in to this address yet',
-        },
+    deselectCheckboxAdjective: 'deselected',
+    checkbox: {
+      id: 'duration-exclusive-checkbox',
+      name: 'no-duration',
+      value: 'no-duration',
+      label: {
+        text: 'I have not moved in to this address yet',
       },
-    ],
+    },
   },
 };
 
 describe('Component: Mutually Exclusive Duration Pattern', () => {
-  let wrapper, component, yearsInput, monthsInput, exclusiveOption, ariaAlert;
+  let wrapper, component, yearsInput, monthsInput, checkbox, ariaAlert;
 
   beforeEach(() => {
     const html = renderTemplate('components/duration/_test-template.njk', { params });
@@ -55,7 +53,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
 
     yearsInput = document.getElementById(params.field1.id);
     monthsInput = document.getElementById(params.field2.id);
-    exclusiveOption = document.getElementById(params.mutuallyExclusive.exclusiveOptions[0].id);
+    checkbox = document.getElementById(params.mutuallyExclusive.checkbox.id);
     ariaAlert = document.querySelector('.ons-js-exclusive-alert');
 
     new MutuallyExclusive(component);
@@ -74,7 +72,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
 
     describe('when the user clicks the mutually exclusive option', () => {
       beforeEach(() => {
-        exclusiveOption.click();
+        checkbox.click();
       });
 
       it('then the inputs should be cleared', () => {
@@ -94,9 +92,9 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
     });
   });
 
-  describe('Given the user has checked the mutually exclusive exclusive option', () => {
+  describe('Given the user has checked the mutually exclusive checkbox', () => {
     beforeEach(() => {
-      exclusiveOption.click();
+      checkbox.click();
     });
 
     describe('when the user populates the duration fields', () => {
@@ -104,14 +102,14 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
         populateDuration(yearsInput, monthsInput);
       });
 
-      it('then the exclusive option should be unchecked', () => {
-        expect(exclusiveOption.checked).to.equal(false);
+      it('then the checkbox should be unchecked', () => {
+        expect(checkbox.checked).to.equal(false);
       });
 
-      it('then the aria alert should tell the user that the exclusive option has been unchecked', done => {
+      it('then the aria alert should tell the user that the checkbox has been unchecked', done => {
         setTimeout(() => {
           expect(ariaAlert.innerHTML).to.equal(
-            `${params.mutuallyExclusive.exclusiveOptions[0].label.text} ${params.mutuallyExclusive.deselectExclusiveOptionAdjective}.`,
+            `${params.mutuallyExclusive.checkbox.label.text} ${params.mutuallyExclusive.deselectCheckboxAdjective}.`,
           );
           done();
         }, 300);
@@ -119,7 +117,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
     });
   });
 
-  describe('Given the user has not populated the duration inputs or checked the exclusive option', () => {
+  describe('Given the user has not populated the duration inputs or checked the checkbox', () => {
     describe('when the user populates the duration inputs', () => {
       beforeEach(() => {
         populateDuration(yearsInput, monthsInput);
@@ -135,7 +133,7 @@ describe('Component: Mutually Exclusive Duration Pattern', () => {
 
     describe('when the user clicks the mutually exclusive option', () => {
       beforeEach(() => {
-        exclusiveOption.click();
+        checkbox.click();
       });
 
       it('then the aria alert shouldnt say anything', done => {

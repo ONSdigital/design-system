@@ -96,11 +96,11 @@
             "classes": params.classes,
             "dontWrap": params.dontWrap if numberOfFields > 1 else true,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
+            "checkbox": params.mutuallyExclusive.checkbox,
             "or": params.mutuallyExclusive.or,
             "deselectMessage": params.mutuallyExclusive.deselectMessage,
             "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
+            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
             "error": params.error
         }) %}
             {{ fields | safe }}

@@ -5,10 +5,10 @@ import onViewportChange from '../../js/utils/viewport-change';
 const attrExpanded = 'aria-expanded';
 const attrHidden = 'aria-hidden';
 
-export default class NavigationToggle {
-  constructor(toggle, navigation, hideClass) {
+export default class NavToggle {
+  constructor(toggle, nav, hideClass) {
     this.toggle = toggle;
-    this.navigation = navigation;
+    this.nav = nav;
     this.hideClass = hideClass;
     this.toggle.classList.remove('ons-u-d-no');
     this.setAria();
@@ -20,17 +20,17 @@ export default class NavigationToggle {
   }
 
   toggleNav() {
-    const isHidden = this.navigation.getAttribute(attrHidden);
+    const isHidden = this.nav.getAttribute(attrHidden);
     isHidden === 'false' ? this.closeNav() : this.openNav();
   }
 
   openNav() {
-    const input = [...this.navigation.getElementsByTagName('INPUT')][0];
+    const input = [...this.nav.getElementsByTagName('INPUT')][0];
 
     this.toggle.setAttribute(attrExpanded, 'true');
     this.toggle.classList.add('active');
-    this.navigation.setAttribute(attrHidden, 'false');
-    this.navigation.classList.remove(this.hideClass);
+    this.nav.setAttribute(attrHidden, 'false');
+    this.nav.classList.remove(this.hideClass);
 
     if (input) {
       input.focus();
@@ -40,23 +40,23 @@ export default class NavigationToggle {
   closeNav() {
     this.toggle.setAttribute(attrExpanded, 'false');
     this.toggle.classList.remove('active');
-    this.navigation.setAttribute(attrHidden, 'true');
-    this.navigation.classList.add(this.hideClass);
+    this.nav.setAttribute(attrHidden, 'true');
+    this.nav.classList.add(this.hideClass);
   }
 
   setAria() {
     const viewportDetails = GetViewportDetails();
-    const hasAria = this.navigation.hasAttribute(attrHidden);
+    const hasAria = this.nav.hasAttribute(attrHidden);
 
-    if (viewportDetails.width < 980) {
+    if (viewportDetails.width < 740) {
       if (!hasAria) {
         this.closeNav();
       }
     } else if (hasAria) {
       this.toggle.removeAttribute(attrExpanded);
-      this.navigation.removeAttribute(attrHidden);
+      this.nav.removeAttribute(attrHidden);
       if (this.hideClass !== 'ons-u-d-no') {
-        this.navigation.classList.remove(this.hideClass);
+        this.nav.classList.remove(this.hideClass);
       } else {
         this.closeNav();
       }

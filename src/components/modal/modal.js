@@ -52,6 +52,7 @@ export default class Modal {
         document.querySelector('body').classList.add(ie11Class);
       }
 
+      this.makePageContentInert();
       this.saveLastFocusedEl();
 
       if (event) {
@@ -78,6 +79,20 @@ export default class Modal {
     }
   }
 
+  makePageContentInert() {
+    if (document.querySelector('.ons-page')) {
+      document.querySelector('.ons-page').inert = true;
+      document.querySelector('.ons-page').setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  removeInertFromPageContent() {
+    if (document.querySelector('.ons-page')) {
+      document.querySelector('.ons-page').inert = false;
+      document.querySelector('.ons-page').setAttribute('aria-hidden', 'false');
+    }
+  }
+
   isDialogOpen() {
     return this.component['open'];
   }
@@ -96,6 +111,7 @@ export default class Modal {
 
       this.component.close();
       this.setFocusOnLastFocusedEl(this.lastFocusedEl);
+      this.removeInertFromPageContent();
     }
   }
 }

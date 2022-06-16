@@ -56,7 +56,6 @@
                         "name": checkbox.name,
                         "value": checkbox.value,
                         "checked": childIsChecked if childIsChecked == true else checkbox.checked,
-                        "disabled": checkbox.disabled,
                         "borderless": params.borderless,
                         "classes": checkbox.classes | default('') + borderless | default(''),
                         "inputClasses": exclusiveClass | default('') + otherClass | default(''),
@@ -113,11 +112,11 @@
             "attributes": params.attributes,
             "dontWrap": params.dontWrap,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
+            "checkbox": params.mutuallyExclusive.checkbox,
             "or": params.mutuallyExclusive.or,
             "deselectMessage": params.mutuallyExclusive.deselectMessage,
             "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
+            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
             "error": params.error
         }) %}
             {{ fields | safe }}

@@ -49,6 +49,14 @@ describe('Component: Modal', function() {
       it('then the modal should be visible', function() {
         expect(this.component.classList.contains('ons-u-db')).to.be.true;
       });
+
+      it('then the underlying page should be hidden from screen readers', function() {
+        expect(document.querySelector('.ons-page').getAttribute('aria-hidden')).to.equal('true');
+      });
+
+      it('then the underlying page should be set to inert', function() {
+        expect(document.querySelector('.ons-page').inert).to.equal(true);
+      });
     });
 
     describe('When the continue button is clicked', function() {
@@ -63,6 +71,14 @@ describe('Component: Modal', function() {
 
       it('then the underlying page should not be hidden from screen readers', function() {
         expect(document.querySelector('.ons-page').getAttribute('aria-hidden')).to.equal('false');
+      });
+
+      it('then the underlying page should not be set to inert', function() {
+        expect(document.querySelector('.ons-page').inert).to.equal(false);
+      });
+
+      it('then the body should not contain the overlay class', function() {
+        expect(document.body.classList.contains('ons-modal-overlay')).to.be.false;
       });
     });
   });
