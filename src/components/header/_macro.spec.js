@@ -223,8 +223,8 @@ describe('macro: header', () => {
       expect($('.ons-header__title')[0].tagName).toBe('div');
     });
 
-    it('displays the `title` using a H1 if `tilteAsH1`', () => {
-      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, tilteAsH1: true }));
+    it('displays the `title` using a H1 if `titleAsH1`', () => {
+      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, titleAsH1: true }));
 
       expect($('.ons-header__title')[0].tagName).toBe('h1');
     });
