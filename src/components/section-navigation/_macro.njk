@@ -1,6 +1,6 @@
 {% macro onsSectionNavigation(params) %}
   <nav class="ons-section-nav{% if params.variants is defined and params.variants == 'vertical' %} ons-section-nav--vertical{% endif %}" id="{{ params.id }}" aria-label="{{ params.ariaLabel | default("Section menu") }}">
-      <ul class="ons-section-nav__list">
+      <ul class="ons-section-nav__list" aria-label="{{ params.ariaListLabel | default("Section menu links") }}">
         {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
           {% if (params.currentPath and (item.url == params.currentPath or item.url in params.currentPath)) or (params.tabQuery and params.tabQuery == item.title|lower) %}
             {% set isCurrent = true %}
