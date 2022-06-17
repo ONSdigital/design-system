@@ -7,7 +7,7 @@
           {% else %}
             {% set isCurrent = false %}
           {% endif %}
-          <li class="ons-section-nav__item{% if item.classes %} ' ' + item.classes{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
+          <li class="ons-section-nav__item{% if item.classes %} ' ' + {{ item.classes }}{% endif %}{% if isCurrent == true %} ons-section-nav__item--active{% endif %}">
             <a class="ons-section-nav__link" href="{{ item.url }}"{% if isCurrent == true %} aria-current="location"{% endif %}>{{ item.title }}</a>
               {% if item.anchors is defined and item.anchors %}
                   <ul class="ons-section-nav__sub-items ons-list ons-list--dashed ons-u-mt-xs ons-u-mb-xs">
