@@ -26,8 +26,16 @@ const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE = {
   title: 'Example card title',
   text: 'Example card text.',
   textId: 'example-text-id',
-  placeholderURL: '/placeholder-image-url',
-  image: {},
+  image: true,
+};
+
+const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH = {
+  title: 'Example card title',
+  text: 'Example card text.',
+  textId: 'example-text-id',
+  image: {
+    placeholderURL: '/placeholder-image-url',
+  },
 };
 
 describe('macro: card', () => {
@@ -206,21 +214,47 @@ describe('macro: card', () => {
       it('outputs an `img` element with the expected `srcset`', () => {
         const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
 
+        expect($('.ons-card__image').attr('srcset')).toBe('/img/small/placeholder-card.png 1x, /img/large/placeholder-card.png 2x');
+      });
+
+      it('outputs an `img` element with the expected `src`', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
+
+        expect($('.ons-card__image').attr('src')).toBe('/img/small/placeholder-card.png');
+      });
+
+      it('outputs an `img` element with the expected empty alt text', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
+
+        expect($('.ons-card__image').attr('alt')).toBe('');
+      });
+    });
+
+    describe('with a default placeholder image with `placeholderURL`', () => {
+      it('outputs an `img` element', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH));
+
+        expect($('.ons-card__image')[0].tagName).toBe('img');
+      });
+
+      it('outputs an `img` element with the expected `srcset`', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH));
+
         expect($('.ons-card__image').attr('srcset')).toBe(
           '/placeholder-image-url/img/small/placeholder-card.png 1x, /placeholder-image-url/img/large/placeholder-card.png 2x',
         );
       });
 
       it('outputs an `img` element with the expected `src`', () => {
-        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH));
 
         expect($('.ons-card__image').attr('src')).toBe('/placeholder-image-url/img/small/placeholder-card.png');
       });
 
-      it('outputs an `img` element with the expected alt text', () => {
-        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
+      it('outputs an `img` element with the expected empty alt text', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE_WITH_PATH));
 
-        expect($('.ons-card__image').attr('alt')).toBe('Image placeholder');
+        expect($('.ons-card__image').attr('alt')).toBe('');
       });
     });
   });

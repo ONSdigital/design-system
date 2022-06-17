@@ -10,9 +10,9 @@
 
       <a href="{{ params.url }}" class="ons-card__link ons-u-db">
 
-        {% if params.image is defined and params.image and params.image.smallSrc is defined and params.image.smallSrc %}
+        {% if params.image.smallSrc is defined and params.image.smallSrc %}
           <img class="ons-card__image ons-u-mb-s" height="200" width="303"{% if params.image.largeSrc is defined and params.image.largeSrc %} srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x"{% endif %} src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}" loading="lazy">
-        {% else %}
+        {% elif params.image == true or params.image.placeholderURL is defined %}
           <img class="ons-card__image ons-u-mb-s" height="100" width="303" srcset="{{ params.image.placeholderURL if params.image.placeholderURL is defined and params.image.placeholderURL }}/img/small/placeholder-card.png 1x, {{ params.image.placeholderURL if params.image.placeholderURL is defined and params.image.placeholderURL }}/img/large/placeholder-card.png 2x" src="{{ params.image.placeholderURL if params.image.placeholderURL is defined and params.image.placeholderURL }}/img/small/placeholder-card.png" alt="" loading="lazy">
         {% endif %}
 
@@ -24,8 +24,8 @@
 
     {%- else -%}
 
-      <h{{ titleSize }} class="{{ params.titleClasses | default('ons-u-fs-m') }}" id="{{ params.id }}">
-        <a href="{{ params.url }}">{{ params.title }}</a>
+      <h{{ titleSize }} class="ons-card__title {{ params.titleClasses | default('ons-u-fs-m') }}" id="{{ params.id }}">
+        <a class="ons-card__link" href="{{ params.url }}">{{ params.title }}</a>
       </h{{ titleSize }}>
 
     {%- endif -%}
