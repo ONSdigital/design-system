@@ -1,0 +1,98 @@
+{% macro onsNavigation(params) %}
+    {% from "components/button/_macro.njk" import onsButton %}
+    {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
+    <div class="ons-navigation-wrapper">
+        <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+            {% if params.siteSearchAutosuggest is defined and params.siteSearchAutosuggest and isPatternLib is defined and isPatternLib %}
+                <div class="ons-navigation-search ons-js-navigation-search">
+                    {{ onsAutosuggest({
+                        "id": "ons-site-search",
+                        "containerClasses": "ons-autosuggest-input--header",
+                        "classes": "ons-input--ghost ons-input-search ons-input-search--icon",
+                        "label": {
+                            "text": params.siteSearchAutosuggest.label,
+                            "id": "ons-site-search-label",
+                            "classes": "ons-label--white ons-u-pl-m"
+                        },
+                        "accessiblePlaceholder": true,
+                        "autocomplete": "off",
+                        "instructions": params.siteSearchAutosuggest.instructions,
+                        "ariaYouHaveSelected":params.siteSearchAutosuggest.ariaYouHaveSelected,
+                        "ariaMinChars": params.siteSearchAutosuggest.ariaMinChars,
+                        "ariaResultsLabel": params.siteSearchAutosuggest.ariaResultsLabel,
+                        "ariaOneResult": params.siteSearchAutosuggest.ariaOneResult,
+                        "ariaNResults": params.siteSearchAutosuggest.ariaNResults,
+                        "ariaLimitedResults": params.siteSearchAutosuggest.ariaLimitedResults,
+                        "moreResults": params.siteSearchAutosuggest.moreResults,
+                        "resultsTitle": params.siteSearchAutosuggest.resultsTitle,
+                        "autosuggestData": params.siteSearchAutosuggest.autosuggestData,
+                        "noResults": params.siteSearchAutosuggest.noResults,
+                        "typeMore": params.siteSearchAutosuggest.typeMore
+                    }) }}
+                </div>
+            {% endif %}
+            <nav class="ons-navigation ons-navigation--main ons-js-navigation" id="{{ params.id }}" aria-label="{{ params.ariaLabel | default("Main menu") }}" data-analytics="header-navigation">
+                <ul class="ons-navigation__list">
+                    {% for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) %}
+                        <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.currentPath) or (item.url != (params.siteBasePath | default('/')) and item.url in params.currentPath) }}">
+                            <a class="ons-navigation__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    {% if params.subNavigation is defined and params.subNavigation %}
+        <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.subNavigation.classes if params.subNavigation.classes is defined and params.subNavigation.classes }}" id="{{ params.subNavigation.id }}" aria-label="{{ params.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
+            <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                <ul class="ons-navigation__list ons-navigation__list">
+                    {% for item in (params.subNavigation.itemsList if params.subNavigation.itemsList is iterable else params.subNavigation.itemsList.items()) %}
+                        <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.subNavigation.currentPath) or (item.url != (params.subNavigation.siteBasePath | default('/')) and item.url in params.subNavigation.currentPath) }}">
+                            <a class="ons-navigation__link ons-navigation__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+        <div class="ons-u-d-no@l{{ ' ' + params.subNavigation.classes if params.subNavigation.classes is defined and params.subNavigation.classes }}">
+            {{ onsButton({
+                "text": params.currentPageTitle,
+                "classes": "ons-u-d-no ons-js-sub-navigation-button ons-btn--dropdown",
+                "buttonStyle": "mobile",
+                "attributes": {
+                    "aria-label": "Toggle section navigation",
+                    "aria-controls": params.subNavigation.id,
+                    "aria-haspopup": "true",
+                    "aria-expanded": "false"
+                }
+            }) }}
+            <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no proto-ons-js-secondary-nav ons-u-mt-xs" id="{{ params.subNavigation.id }}" aria-label="{{ params.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
+                <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                    <ul class="ons-navigation__list ons-navigation__list--parent">
+                        <li class="ons-navigation__item">
+                            <a class="ons-navigation__link" href="{{ params.subNavigation.overviewURL }}">{{ params.subNavigation.overviewText | default('Overview') }}</a>
+                        </li>
+                        {% for item in (params.subNavigation.itemsList if params.subNavigation.itemsList is iterable else params.subNavigation.itemsList.items()) %}
+                            <li class="ons-navigation__item {{ ' ons-navigation__item--active' if (item.url == params.subNavigation.currentPath) or (item.url != (params.subNavigation.siteBasePath | default('/')) and item.url in params.subNavigation.currentPath) }}">
+                                <a class="ons-navigation__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
+                                {% if item.sections %}
+                                    {% for section in item.sections %}
+                                        {% if section.sectionTitle %}<h3 class="ons-navigation__list-header">{{ section.sectionTitle }}</h3>{% endif %}
+                                        <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs">
+                                            {% for child in section.children %}
+                                                <li class="ons-navigation__item ons-list__item {{ ' ons-navigation__item--active' if (child.url == params.subNavigation.currentPath) or (child.url != (params.subNavigation.sitsiteBasePatheBasePath | default('/')) and child.url in params.subNavigation.currentPath) }}">
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="{{ child.url }}" {% if child.id is defined and child.id %}id="{{ child.id }}" {% endif %}>{{ child.title }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endfor %}
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    {% endif %}
+
+{% endmacro %}

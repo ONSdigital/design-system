@@ -107,3 +107,5 @@ $color-dead: $color-grey-75 !default;
 $color-instruction: $color-jaffa-orange !default;
 $color-instruction-tint: tint($color-instruction, 90) !default;
 $color-tag-bg: tint($color-leaf-green, 90) !default;
+$color-text-disabled: $color-grey-35;
+$color-border-disabled: $color-grey-35;

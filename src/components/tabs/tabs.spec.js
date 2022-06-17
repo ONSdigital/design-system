@@ -1,4 +1,3 @@
-import { _ } from 'core-js';
 import puppeteer from 'puppeteer';
 
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';

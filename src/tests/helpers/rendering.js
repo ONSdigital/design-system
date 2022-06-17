@@ -3,6 +3,7 @@ import nunjucks from 'nunjucks';
 import createNunjucksEnvironment from '../../../lib/rendering/create-nunjucks-environment';
 import componentConfig from '../../../config/components.json';
 import FakeNunjucksLoader from './fake-nunjucks-loader';
+import { verifyConsoleSubscription } from './debug';
 
 const templatePaths = ['src', 'src/views'];
 const realTemplateLoader = new nunjucks.FileSystemLoader(templatePaths);
@@ -90,7 +91,7 @@ export class TemplateFakerContext {
     this._fakeTemplateMap[info.templateName] = template;
   }
 
-  spy(componentName) {
+  spy(componentName, options) {
     const info = getComponentInfo(componentName);
 
     const originalMacroTemplate = realTemplateLoader.getSource(info.templateName);
@@ -100,8 +101,13 @@ export class TemplateFakerContext {
 
     const spiedOutput = this.#getSpiedOutput(componentName);
 
-    const pattern = /\{%\s*macro.+?%\}/;
-    const replacer = match => `${match}<!--spied[${componentName},{{ params|spy('${componentName}') }}]-->`;
+    const pattern = /(\{%\s*macro.+?%\})([^]+?)(\{%\s*endmacro\s*%\})/;
+    const replacer = (_, beginMacro, macroBody, endMacro) => {
+      if (options?.suppressOutput === true) {
+        macroBody = '';
+      }
+      return `${beginMacro}<!--spied[${componentName},{{ params|spy('${componentName}') }}]-->${macroBody}${endMacro}`;
+    };
 
     const fakeMacroTemplate = originalMacroTemplate.src.replace(pattern, replacer);
     this.setFake(componentName, fakeMacroTemplate);
@@ -142,8 +148,14 @@ export class TemplateFakerContext {
   }
 }
 
+export async function gotoTestPath(path) {
+  return await page.goto(`http://localhost:${process.env.TEST_PORT}${path}`);
+}
+
 export async function setTestPage(path, template) {
-  await page.goto(`http://localhost:${process.env.TEST_PORT}${path}`);
+  const response = await gotoTestPath(path);
+
+  verifyConsoleSubscription(page);
 
   const compositedTemplate = `
     {% extends 'layout/_template.njk' %}
@@ -156,4 +168,6 @@ export async function setTestPage(path, template) {
   const html = renderTemplate(compositedTemplate);
 
   await page.setContent(html, { waitUntil: 'networkidle0' });
+
+  return response;
 }
