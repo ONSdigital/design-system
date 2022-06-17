@@ -1,5 +1,6 @@
 module.exports = {
   browserContext: 'incognito',
+  exitOnPageError: false,
   launch: {
     args: [
       // Workaround for the 'No usable sandbox! Update your kernel' error

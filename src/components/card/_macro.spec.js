@@ -16,10 +16,18 @@ const EXAMPLE_CARD_WITH_IMAGE = {
   text: 'Example card text.',
   textId: 'example-text-id',
   image: {
-    smallSrc: '/example-small.png',
-    largeSrc: '/example-large.png',
-    alt: 'Alternative text',
+    smallSrc: 'example-small.png',
+    largeSrc: 'example-large.png',
+    alt: 'Example alt text',
   },
+};
+
+const EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE = {
+  title: 'Example card title',
+  text: 'Example card text.',
+  textId: 'example-text-id',
+  placeholderURL: '/placeholder-image-url',
+  image: {},
 };
 
 describe('macro: card', () => {
@@ -59,12 +67,8 @@ describe('macro: card', () => {
       ).toBe('Example card title');
     });
 
-    it('has the provided `text`', () => {
-      const $ = cheerio.load(
-        renderComponent('card', {
-          ...EXAMPLE_CARD_WITHOUT_IMAGE,
-        }),
-      );
+    it('has the provided `text` accessible via the `textId` identifier', () => {
+      const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITHOUT_IMAGE));
 
       expect(
         $('#example-text-id')
@@ -75,16 +79,17 @@ describe('macro: card', () => {
 
     it('renders the provided `itemsList` using the `list` component', () => {
       const faker = templateFaker();
-      const listSpy = faker.spy('list');
+      const listsSpy = faker.spy('lists');
 
-      renderComponent('card', {
+      faker.renderComponent('card', {
         ...EXAMPLE_CARD_WITHOUT_IMAGE,
         itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
-      }),
-        expect(listSpy.occurrences[0]).toBe({
-          variants: 'dashed',
-          itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
-        });
+      });
+
+      expect(listsSpy.occurrences[0]).toEqual({
+        variants: 'dashed',
+        itemsList: [{ text: 'Test item 1' }, { text: 'Test item 2' }],
+      });
     });
 
     it('outputs a hyperlink with the provided `url`', () => {
@@ -158,6 +163,65 @@ describe('macro: card', () => {
       );
 
       expect($('.ons-card__link').attr('href')).toBe('https://example.com');
+    });
+
+    describe('with a custom image', () => {
+      it('outputs an `img` element', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
+
+        expect($('.ons-card__image')[0].tagName).toBe('img');
+      });
+
+      it('outputs an `img` element with the expected `srcset`', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
+
+        expect($('.ons-card__image').attr('srcset')).toBe('example-small.png 1x, example-large.png 2x');
+      });
+
+      it('outputs an `img` element with the expected `src`', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_IMAGE));
+
+        expect($('.ons-card__image').attr('src')).toBe('example-small.png');
+      });
+
+      it('outputs an `img` element with the expected alt text', () => {
+        const $ = cheerio.load(
+          renderComponent('card', {
+            ...EXAMPLE_CARD_WITH_IMAGE,
+            alt: 'Example alt text',
+          }),
+        );
+
+        expect($('.ons-card__image').attr('alt')).toBe('Example alt text');
+      });
+    });
+
+    describe('with a default placeholder image', () => {
+      it('outputs an `img` element', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
+
+        expect($('.ons-card__image')[0].tagName).toBe('img');
+      });
+
+      it('outputs an `img` element with the expected `srcset`', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
+
+        expect($('.ons-card__image').attr('srcset')).toBe(
+          '/placeholder-image-url/img/small/placeholder-card.png 1x, /placeholder-image-url/img/large/placeholder-card.png 2x',
+        );
+      });
+
+      it('outputs an `img` element with the expected `src`', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
+
+        expect($('.ons-card__image').attr('src')).toBe('/placeholder-image-url/img/small/placeholder-card.png');
+      });
+
+      it('outputs an `img` element with the expected alt text', () => {
+        const $ = cheerio.load(renderComponent('card', EXAMPLE_CARD_WITH_PLACEHOLDER_IMAGE));
+
+        expect($('.ons-card__image').attr('alt')).toBe('Image placeholder');
+      });
     });
   });
 });

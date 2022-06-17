@@ -264,4 +264,27 @@ describe('script: button', () => {
       expect(counter).toBe(1);
     });
   });
+
+  describe('style: print', () => {
+    it('displays the browsers print interface', async () => {
+      await setTestPage(
+        '/test',
+        renderComponent('button', {
+          id: 'test-button',
+          type: 'button',
+          text: 'Print this page',
+          buttonStyle: 'print',
+        }),
+      );
+
+      await page.evaluate(() => {
+        window.print = () => (window.wasPrinted = 'yes');
+      });
+
+      await page.click('#test-button');
+
+      const wasPrinted = await page.evaluate(() => window.wasPrinted);
+      expect(wasPrinted).toBe('yes');
+    });
+  });
 });

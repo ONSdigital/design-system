@@ -53,7 +53,7 @@
             </script>
         {% endif %}
         {% if params.postTextboxLinkText is defined and params.postTextboxLinkText %}
-            <a class="ons-u-fs-s" href="{{ params.postTextboxLinkUrl }}">{{ params.postTextboxLinkText }}</a>
+            <a class="ons-u-fs-s ons-input__post-link" href="{{ params.postTextboxLinkUrl }}">{{ params.postTextboxLinkText }}</a>
         {% endif %}
     {% endset %}
     {% set field %}
@@ -132,11 +132,11 @@
             "description": params.description,
             "dontWrap": params.dontWrap,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "checkbox": params.mutuallyExclusive.checkbox,
+            "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
             "or": params.mutuallyExclusive.or,
             "deselectMessage": params.mutuallyExclusive.deselectMessage,
             "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
+            "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
             "error": params.error,
             "autosuggestResults": params.autosuggestResults
         }) %}

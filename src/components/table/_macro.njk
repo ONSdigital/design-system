@@ -6,7 +6,7 @@
 
     {% if 'scrollable' in variants %}
     <div class="ons-table-scrollable ons-table-scrollable--on">
-        <div class="ons-table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.ariaLabel | default("Scrollable table") }} ">
+        <div class="ons-table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.ariaLabel | default("Scrollable table") }}">
     {% endif %}
             <table {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="ons-table{% if params.tableClasses is defined and params.tableClasses %} {{ params.tableClasses }}{% endif %}{% if variants is defined and variants %}{% if variants is not string %}{% for variant in variants %} ons-table--{{ variant }}{% endfor %}{% else %} ons-table--{{ variants }}{% endif %}{% endif %}" {% if params.sortBy is defined and params.sortBy and 'sortable' in variants %}data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"{% endif %}>
                 {% if params.caption is defined and params.caption %}

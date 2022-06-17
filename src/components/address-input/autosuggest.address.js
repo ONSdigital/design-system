@@ -16,7 +16,6 @@ export default class AutosuggestAddress {
     this.context = context;
     this.input = context.querySelector(`.${classInput}`);
     this.search = context.querySelector(`.${classSearch}`);
-    this.lang = document.documentElement.getAttribute('lang').toLowerCase();
     this.addressReplaceChars = [','];
     this.sanitisedQuerySplitNumsChars = true;
     this.form = context.closest('form');
@@ -74,8 +73,12 @@ export default class AutosuggestAddress {
     this.checkAPIStatus();
   }
 
+  get lang() {
+    return document.documentElement.getAttribute('lang').toLowerCase();
+  }
+
   async checkAPIStatus() {
-    this.fetch = abortableFetch(this.lookupURL + 'CF142&limit=10', {
+    this.fetch = abortableFetch(this.lookupURL + 'cf142&limit=10', {
       method: 'GET',
       headers: this.setAuthorization(this.authorizationToken),
     });
@@ -90,7 +93,6 @@ export default class AutosuggestAddress {
         }
       }
     } catch (error) {
-      console.log(error);
       if (this.isEditable) {
         this.handleAPIError();
       } else {
@@ -282,7 +284,6 @@ export default class AutosuggestAddress {
           this.addressSelected = true;
         }
       } catch (error) {
-        console.log(error);
         if (this.isEditable) {
           this.handleAPIError();
         } else {

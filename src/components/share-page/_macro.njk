@@ -8,7 +8,7 @@
     {% if params.facebook is defined and params.facebook and params.facebook == true %}
         {% set facebook =
             {
-                "url": 'https://www.facebook.com/sharer/sharer.php?u=' ~ params.pageURL,
+                "url": 'https://www.facebook.com/sharer/sharer.php?u=' ~ params.pageURL|urlencode,
                 "text": 'Facebook',
                 "iconType": 'facebook',
                 "rel": 'noreferrer external',
@@ -21,7 +21,7 @@
     {% if params.twitter is defined and params.twitter and params.twitter == true %}
         {% set twitter =
             {
-                "url": 'https://twitter.com/intent/tweet?original_referer&text=' ~ params.pageTitle ~ '&url=' ~ params.pageURL,
+                "url": 'https://twitter.com/intent/tweet?original_referer&text=' ~ params.pageTitle|urlencode ~ '&url=' ~ params.pageURL|urlencode,
                 "text": 'Twitter',
                 "iconType": 'twitter',
                 "rel": 'noreferrer external',
