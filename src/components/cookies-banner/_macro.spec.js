@@ -39,10 +39,10 @@ describe('macro: cookies-banner', () => {
     expect($('.ons-cookies-banner').attr('role')).toBe('region');
   });
 
-  it('has a default `aria-label` of "cookie banner"', () => {
+  it('has a default `aria-label` of "Cookies banner"', () => {
     const $ = cheerio.load(renderComponent('cookies-banner', EXAMPLE_COOKIES_BANNER_MINIMAL));
 
-    expect($('.ons-cookies-banner').attr('aria-label')).toBe('cookie banner');
+    expect($('.ons-cookies-banner').attr('aria-label')).toBe('Cookies banner');
   });
 
   it('has the provided `ariaLabel` for `aria-label`', () => {

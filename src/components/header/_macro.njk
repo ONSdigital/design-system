@@ -3,7 +3,7 @@
     {% from "components/icons/_macro.njk" import onsIcon %}
     {% from "components/navigation/_macro.njk" import onsNavigation %}
 
-    {% set title_tag = "h1" if params.tilteAsH1 else "div" %}
+    {% set title_tag = "h1" if params.titleAsH1 else "div" %}
     {% set currentLanguageISOCode = "en" %}
 
     {% if params.language is defined and params.language and params.language.languages is defined and params.language.languages %}
