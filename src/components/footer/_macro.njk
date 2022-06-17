@@ -100,13 +100,6 @@
                         {% set languageNumber = params.language.languages | length %}
                         <div class="ons-grid__col {% if languageNumber and languageNumber != 2 %} ons-u-d-no@m{% elif languageNumber %} ons-u-d-no{% endif %}">
                             {% set languageItems = params.language.languages | rejectattr("current") | list %}
-                            {% if currentLanguage.allLanguages is defined and currentLanguage.allLanguages and params.language.allLanguagesUrl is defined and params.language.allLanguagesUrl %}
-                                {% set languageItems = (languageItems.push({
-                                    "url": params.language.allLanguagesUrl,
-                                    "text": currentLanguage.allLanguages,
-                                    "lang": currentLanguage.ISOCode
-                                }), languageItems) %}
-                            {% endif %}
                             {{
                                 onsList({
                                     "classes": 'ons-u-mb-no',

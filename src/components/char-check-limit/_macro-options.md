@@ -1,9 +1,9 @@
-| Name                       | Type   | Required | Description                                        |
-| -------------------------- | ------ | -------- | -------------------------------------------------- |
-| type                       | string | false    | If set to `check` adds the char check to the input |
-| id                         | string | true     | ID for the char-check-limit component              |
-| name                       | string | false    | Name for the char-check-limit component            |
-| charCountSingular          | string | false    | Required 'sent' or 'received' as value             |
-| charCountPlural            | string | true     | ID for the message component                       |
-| charCountOverLimitSingular | string | false    | Name for the message component                     |
-| charCountOverLimitPlural   | string | false    | Name for the message component                     |
+| Name                       | Type    | Required                     | Description                                                                                                                                                                                        |
+| -------------------------- | ------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type                       | string  | false                        | Set to “check” to add the character limit checker to the input                                                                                                                                     |
+| id                         | string  | true                         | The HTML `id` of the component                                                                                                                                                                     |
+| limit                      | integer | true                         | The maximum number of characters allowed in the input                                                                                                                                              |
+| charCountPlural            | string  | true (unless `type` is set)  | The string displayed when multiple characters can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} characters remaining”. |
+| charCountSingular          | string  | true (unless `type` is set)  | The string displayed when one more character can be entered before the limit is reached. Set `{x}` in the string to be replaced with the number, for example “You have {x} character remaining”.   |
+| charCountOverLimitPlural   | string  | false (unless `type` is set) | The string displayed when multiple characters over the limit have been entered. Set `{x}` in the string to be replaced with the number, for example “{x} characters too many”.                     |
+| charCountOverLimitSingular | string  | false (unless `type` is set) | The string displayed when one character over the limit has been entered. Set `{x}` in the string to be replaced with the number, for example “{x} character too many”.                             |

@@ -2,7 +2,7 @@
     <figure class="ons-figure">
         
         {% if params.image is defined and params.image %}
-            <img class="ons-figure__image" srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" src="{{ params.image.smallSrc }}" alt="{{ params.alt }}">
+            <img class="ons-figure__image" {% if params.image.largeSrc is defined and params.image.largeSrc %}srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x"{% endif %}src="{{ params.image.smallSrc }}" alt="{{ params.alt if params.alt is defined and params.alt else '' }}">
         {% else %}
             <img class="ons-figure__image" src="{{ params.url }}" alt="{{ params.alt }}">
         {% endif %}

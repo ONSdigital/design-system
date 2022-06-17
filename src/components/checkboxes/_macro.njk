@@ -106,7 +106,6 @@
     {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
         {% call onsMutuallyExclusive({
             "id": params.id,
-            "description": params.description,
             "classes": params.classes,
             "legend": params.legend,
             "legendClasses": params.legendClasses,
@@ -126,7 +125,6 @@
     {% else %}
         {% call onsFieldset({
             "id": params.id,
-            "description": params.description,
             "classes": params.classes,
             "legend": params.legend,
             "legendClasses": params.legendClasses,

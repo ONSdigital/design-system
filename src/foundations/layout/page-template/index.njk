@@ -86,8 +86,8 @@ Variables can be set with:
 | Variable Name | Type                                                | Required                          | Description                                                                                                                                   |
 | ------------- | --------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | cdn           | `CDN` [_(ref)_](#cdn)                               | false                             | What CDN version to use                                                                                                                       |
-| assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc., for example, `http://localhost:3030`                                                                    |
-| theme         | string                                              | false                             | The name of the css file, for example, "census" if using a theme. Defaults to "main".                                                                  |
+| assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc., for example, `http://localhost:3030`                                                           |
+| theme         | string                                              | false                             | The name of the css file, for example, "census" if using a theme. Defaults to "main".                                                         |
 | title         | string                                              | true                              | The contents for the `<title>` element                                                                                                        |
 | cspNonce      | string                                              | false                             | The Content Security Policy (CSP) nonce value                                                                                                 |
 | headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                             | Configuration for `<meta>` information in the document `<head>`                                                                               |
@@ -105,7 +105,7 @@ Variables can be set with:
 | footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                              | Configuration for the page footer                                                                                                             |
 | description   | string                                              | true                              | Default description of the current page for search engines if headMeta.description is not provided.                                           |
 | absoluteUrl   | string                                              | true                              | Default URL for the preferred page for search engines to avoid duplicate content penalties. Used if if headMeta.canonicalUrl is not provided. |
-| wide          | boolean                                             | false                             | If sets to true passes sets the `wide` param on both the header and footer which will add css which will make the page use a wider style.     |
+| wide          | boolean                                             | false                             | Set to `true` to increase the maximum width of the layout container to 1280px.                                                                |
 
 ##### CDN
 
