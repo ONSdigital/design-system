@@ -26,10 +26,7 @@
                 <li class="ons-list__item{% if item.listClasses is defined and item.listClasses %} {{ item.listClasses }}{% endif %}"{% if item.current is defined and item.current %} aria-current="true"{% endif %}>
                 {% endif %}
                     {% set itemText = item.text %}
-
-                    {% if params.itemsList[0] is defined and item.iconType is defined and item.iconType %}
-                        {% set iconType = item.iconType if item.iconType else '' %}
-                    {% endif %}
+                    {% set itemIconType = item.iconType if item.iconType is defined and item.iconType else iconType %}
 
                     {# For Craft support we also support title and navigation title #}
                     {% if item.navigationTitle is defined and item.navigationTitle %}
@@ -46,7 +43,7 @@
                                 {% from "components/icons/_macro.njk" import onsIcon %}
                                 {{
                                     onsIcon({
-                                        "iconType": iconType,
+                                        "iconType": itemIconType,
                                         "iconSize": params.iconSize
                                     })
                                 }}
@@ -81,7 +78,7 @@
                             {% from "components/icons/_macro.njk" import onsIcon %}
                             {{
                                 onsIcon({
-                                    "iconType": iconType,
+                                    "iconType": itemIconType,
                                     "iconSize": params.iconSize
                                 })
                             }}
