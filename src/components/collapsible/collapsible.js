@@ -30,7 +30,7 @@ export default class Collapsible {
     this.collapsibleHeader.setAttribute('role', 'link');
     this.collapsibleHeader.setAttribute('aria-controls', collapsibleId);
 
-    if (!this.isAccordion || (this.isAccordion && this.isSimpleAccordion)) {
+    if (!this.isAccordion || this.isSimpleAccordion) {
       this.collapsibleHeader.setAttribute('tabindex', 0);
     }
     if (localStorage.getItem(collapsibleId) || this.open) {
