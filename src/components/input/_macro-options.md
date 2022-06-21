@@ -37,7 +37,7 @@
 | ----- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | text  | string | true     | The visible text abbreviation for the prefix or suffix, for example, “cm“                                                                             |
 | title | string | true     | The HTML `title` attribute for the `<abbr>` element used for the prefix or suffix. For example, where `text` is “cm”, `title` would be “centimetres”. |
-| id    | string | false    | The HTML `id` of the `<abbr>` element used for the prefix or suffix.                                                                                  |
+| id    | string | true     | The HTML `id` of the `<abbr>` element used for the prefix or suffix. Used for the input’s `aria-labelledby` attribute.                                |
 
 ## CharCheckLimit
 
