@@ -108,23 +108,6 @@ describe('macro: section-navigation', () => {
     expect($('.ons-section-nav').attr('aria-label')).toBe('Section menu');
   });
 
-  it('has the provided `ariaListLabel` parameter', () => {
-    const $ = cheerio.load(
-      renderComponent('section-navigation', {
-        ...EXAMPLE_SECTION_NAVIGATION,
-        ariaListLabel: 'Section navigation links',
-      }),
-    );
-
-    expect($('.ons-section-nav__list').attr('aria-label')).toBe('Section navigation links');
-  });
-
-  it('assumes a default `ariaListLabel` of "Section menu"', () => {
-    const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION));
-
-    expect($('.ons-section-nav__list').attr('aria-label')).toBe('Section menu links');
-  });
-
   describe('navigation items', () => {
     it('renders top level navigation items', () => {
       const $ = cheerio.load(renderComponent('section-navigation', EXAMPLE_SECTION_NAVIGATION));
