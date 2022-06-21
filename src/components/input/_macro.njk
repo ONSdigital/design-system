@@ -82,7 +82,7 @@
                     <abbr
                         {% if abbr.id is defined and abbr.id %} id="{{ abbr.id }}"{% endif %}
                         class="ons-input-type__type ons-js-input-abbr"
-                        title="{{ abbr.title }}"
+                        {% if abbr.title is defined and abbr.title %} title="{{ abbr.title }}"{% endif %}
                         >{{ abbr.text or abbr.title }}</abbr>
                 </span>
             </span>
