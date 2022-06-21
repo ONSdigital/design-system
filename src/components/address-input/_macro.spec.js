@@ -22,6 +22,7 @@ const EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL = {
   tooManyResults: '{n} results found. Enter more of the address to improve results',
   typeMore: 'Enter more of the address to get results',
   resultsTitle: 'Select an address',
+  resultsTitleId: 'address-suggestions',
 };
 
 const EXAMPLE_MANUAL_INPUT_FIELDS = {

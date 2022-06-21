@@ -66,7 +66,7 @@
                     "aria-expanded": "false"
                 }
             }) }}
-            <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no proto-ons-js-secondary-nav ons-u-mt-xs" id="{{ params.subNavigation.id }}" aria-label="{{ params.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
+            <nav class="ons-navigation ons-navigation--sub-mobile ons-u-d-no ons-js-secondary-nav ons-u-mt-xs" id="{{ params.subNavigation.id }}--mobile" aria-label="{{ params.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
                 <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                     <ul class="ons-navigation__list ons-navigation__list--parent">
                         <li class="ons-navigation__item">
@@ -74,7 +74,7 @@
                         </li>
                         {% for item in (params.subNavigation.itemsList if params.subNavigation.itemsList is iterable else params.subNavigation.itemsList.items()) %}
                             <li class="ons-navigation__item {{ ' ons-navigation__item--active' if (item.url == params.subNavigation.currentPath) or (item.url != (params.subNavigation.siteBasePath | default('/')) and item.url in params.subNavigation.currentPath) }}">
-                                <a class="ons-navigation__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
+                                <a class="ons-navigation__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}--mobile" {% endif %}>{{ item.title }}</a>
                                 {% if item.sections %}
                                     {% for section in item.sections %}
                                         {% if section.sectionTitle %}<h3 class="ons-navigation__list-header">{{ section.sectionTitle }}</h3>{% endif %}
