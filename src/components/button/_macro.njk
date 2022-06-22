@@ -86,7 +86,7 @@
             {% endif -%}
         </span>
         {% if params.url is defined and params.url and params.newWindow is defined and params.newWindow %}
-            <span class="ons-btn__new-window-description ons-u-vh">{{ params.newWindowDescription | default("opens in a new window") }}</span>
+            <span class="ons-btn__new-window-description ons-u-vh">({{ params.newWindowDescription | default("opens in a new tab") }})</span>
         {% endif %}
         {% if params.buttonContext is defined and params.buttonContext %}
             <span class="ons-btn__context ons-u-vh">{{ params.buttonContext }}</span>
