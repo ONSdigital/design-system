@@ -456,11 +456,7 @@ describe('macro: table', () => {
     it('adds `aria-sort` attribute when `ariaSort` is provided', () => {
       const $ = cheerio.load(
         renderComponent('table', {
-          ...EXAMPLE_TABLE,
-          variants: 'sortable',
-          sortBy: 'Sort by',
-          ariaAsc: 'ascending',
-          ariaDesc: 'descending',
+          ...params,
           ths: [
             {
               value: 'Column 1',
@@ -490,22 +486,6 @@ describe('macro: table', () => {
 
       const hasClass = mapAll($('.ons-table__header > span'), node => node.hasClass('ons-u-vh'));
       expect(hasClass).toEqual([true, true, true]);
-    });
-
-    it('adds `aria-sort` attribute when `ariaSort` is provided', () => {
-      const $ = cheerio.load(
-        renderComponent('table', {
-          ...EXAMPLE_TABLE,
-          ths: [
-            {
-              value: 'Column 1',
-              ariaSort: 'ascending',
-            },
-          ],
-        }),
-      );
-
-      expect($('.ons-table__header').attr('aria-sort')).toBe('ascending');
     });
 
     it('renders "sort-sprite" icon for each column header', () => {
