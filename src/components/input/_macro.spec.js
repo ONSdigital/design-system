@@ -374,7 +374,7 @@ describe('macro: input', () => {
   });
 
   describe('prefix and suffix', () => {
-    it('adds `title` attribute when `prefix` is provided', () => {
+    it('adds `aria-labelledby` attribute when `prefix` is provided', () => {
       const $ = cheerio.load(
         renderComponent('input', {
           ...EXAMPLE_INPUT_MINIMAL,
@@ -385,7 +385,7 @@ describe('macro: input', () => {
         }),
       );
 
-      expect($('.ons-input').attr('title')).toBe('Example prefix title');
+      expect($('.ons-input').attr('aria-labelledby')).toBe('example-prefix-id');
     });
 
     it('renders prefix element from `prefix.title`', () => {
@@ -401,7 +401,6 @@ describe('macro: input', () => {
 
       expect($('.ons-input-type--prefix .ons-js-input-abbr').attr('id')).toBe('example-prefix-id');
       expect($('.ons-input-type--prefix .ons-js-input-abbr').attr('title')).toBe('Example prefix title');
-      expect($('.ons-input-type--prefix .ons-js-input-abbr').attr('aria-hidden')).toBe('true');
       expect(
         $('.ons-input-type--prefix .ons-js-input-abbr')
           .text()
@@ -423,7 +422,6 @@ describe('macro: input', () => {
 
       expect($('.ons-input-type--prefix .ons-js-input-abbr').attr('id')).toBe('example-prefix-id');
       expect($('.ons-input-type--prefix .ons-js-input-abbr').attr('title')).toBe('Example prefix title');
-      expect($('.ons-input-type--prefix .ons-js-input-abbr').attr('aria-hidden')).toBe('true');
       expect(
         $('.ons-input-type--prefix .ons-js-input-abbr')
           .text()
@@ -431,7 +429,7 @@ describe('macro: input', () => {
       ).toBe('Example prefix text');
     });
 
-    it('adds `title` attribute when `suffix` is provided', () => {
+    it('adds `aria-labelledby` attribute when `suffix` is provided', () => {
       const $ = cheerio.load(
         renderComponent('input', {
           ...EXAMPLE_INPUT_MINIMAL,
@@ -442,7 +440,7 @@ describe('macro: input', () => {
         }),
       );
 
-      expect($('.ons-input').attr('title')).toBe('Example suffix title');
+      expect($('.ons-input').attr('aria-labelledby')).toBe('example-suffix-id');
     });
 
     it('renders suffix element from `suffix.title`', () => {
@@ -458,7 +456,6 @@ describe('macro: input', () => {
 
       expect($('.ons-js-input-abbr').attr('id')).toBe('example-suffix-id');
       expect($('.ons-js-input-abbr').attr('title')).toBe('Example suffix title');
-      expect($('.ons-js-input-abbr').attr('aria-hidden')).toBe('true');
       expect(
         $('.ons-js-input-abbr')
           .text()
@@ -480,7 +477,6 @@ describe('macro: input', () => {
 
       expect($('.ons-js-input-abbr').attr('id')).toBe('example-suffix-id');
       expect($('.ons-js-input-abbr').attr('title')).toBe('Example suffix title');
-      expect($('.ons-js-input-abbr').attr('aria-hidden')).toBe('true');
       expect(
         $('.ons-js-input-abbr')
           .text()
