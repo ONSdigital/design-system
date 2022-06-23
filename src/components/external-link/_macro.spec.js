@@ -47,8 +47,25 @@ describe('macro: external-link', () => {
   it('has the expected link text', async () => {
     const $ = cheerio.load(renderComponent('external-link', EXAMPLE_EXTERNAL_LINK));
 
-    const $hyperlink = $('a.ons-external-link');
+    const $hyperlink = $('a.ons-external-link .ons-external-link__text');
     expect($hyperlink.text().trim()).toBe('Example link');
+  });
+
+  it('has a default new window description', async () => {
+    const $ = cheerio.load(renderComponent('external-link', EXAMPLE_EXTERNAL_LINK));
+
+    expect($('.ons-external-link__new-window-description').text()).toBe('(opens in a new tab)');
+  });
+
+  it('has a custom new window description when `newWindowDescription` is provided', () => {
+    const $ = cheerio.load(
+      renderComponent('external-link', {
+        ...EXAMPLE_EXTERNAL_LINK,
+        newWindowDescription: 'custom opens in a new tab text',
+      }),
+    );
+
+    expect($('.ons-external-link__new-window-description').text()).toBe('(custom opens in a new tab text)');
   });
 
   it('has an "external-link" icon', async () => {
