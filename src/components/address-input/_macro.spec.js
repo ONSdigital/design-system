@@ -7,6 +7,7 @@ import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_AUTOSUGGEST_ADDRESS_MINIMAL = {
   id: 'address-input-example-id',
+  legend: 'What is the address?',
   label: {
     text: 'Enter address or postcode and select from results',
     id: 'address-input-example-label-id',
