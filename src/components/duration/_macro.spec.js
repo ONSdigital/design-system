@@ -16,7 +16,10 @@ const EXAMPLE_FIELD_1 = {
     id: 'address-duration-years',
     name: 'address-duration-years',
     value: '0',
-    suffix: 'Years',
+    suffix: {
+      text: 'Years',
+      id: 'address-duration-years-suffix',
+    },
   },
 };
 
@@ -25,7 +28,10 @@ const EXAMPLE_FIELD_2 = {
     id: 'address-duration-months',
     name: 'address-duration-months',
     value: '0',
-    suffix: 'Months',
+    suffix: {
+      text: 'Months',
+      id: 'address-duration-months-suffix',
+    },
   },
 };
 
@@ -44,7 +50,6 @@ describe('macro: duration', () => {
   describe('mode: multiple fields', () => {
     it('passes jest-axe checks', async () => {
       const $ = cheerio.load(renderComponent('duration', EXAMPLE_DURATION_MULTIPLE_FIELDS));
-
       const results = await axe($.html());
       expect(results).toHaveNoViolations();
     });
