@@ -259,7 +259,7 @@ describe('macro: navigation', () => {
     it('has the provided `id` attribute', () => {
       const $ = cheerio.load(renderComponent('navigation', PARAMS));
 
-      expect($('.ons-navigation--sub-mobile').attr('id')).toBe('sub-nav');
+      expect($('.ons-navigation--sub-mobile').attr('id')).toBe('sub-nav--mobile');
     });
 
     it('has the provided `aria-label` attribute', () => {
