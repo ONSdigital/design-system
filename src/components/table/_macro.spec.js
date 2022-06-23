@@ -492,6 +492,22 @@ describe('macro: table', () => {
       expect(hasClass).toEqual([true, true, true]);
     });
 
+    it('adds `aria-sort` attribute when `ariaSort` is provided', () => {
+      const $ = cheerio.load(
+        renderComponent('table', {
+          ...EXAMPLE_TABLE,
+          ths: [
+            {
+              value: 'Column 1',
+              ariaSort: 'ascending',
+            },
+          ],
+        }),
+      );
+
+      expect($('.ons-table__header').attr('aria-sort')).toBe('ascending');
+    });
+
     it('renders "sort-sprite" icon for each column header', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
