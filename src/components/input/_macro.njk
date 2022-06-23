@@ -80,9 +80,9 @@
                     {{ input | safe }}
                     {% set abbr = params.prefix or params.suffix %}
                     <abbr
-                        {% if abbr.id is defined and abbr.id %} id="{{ abbr.id }}"{% endif %}
+                        {% if abbr.id is defined and abbr.id %}id="{{ abbr.id }}" {% endif %}
                         class="ons-input-type__type ons-js-input-abbr"
-                        {% if abbr.title is defined and abbr.title %} title="{{ abbr.title }}"{% endif %}
+                         title="{{ abbr.title }}"
                         >{{ abbr.text or abbr.title }}</abbr>
                 </span>
             </span>
