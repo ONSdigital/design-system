@@ -35,8 +35,8 @@
 
 | Name  | Type   | Required | Description                                                                                                                                                                               |
 | ----- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| text  | string | true     | The visible text abbreviation for the prefix or suffix, for example, “cm“                                                                                                                 |
-| title | string | false    | The HTML `title` attribute for the `<abbr>` element used to write out the full value of an abbreviated prefix or suffix. For example, where `text` is “€”, `title` would be “Euro (EUR)”. |
+| text  | string | false    | The visible text abbreviation for the prefix or suffix, for example, “cm“                                                                                                                 |
+| title | string | true     | The HTML `title` attribute for the `<abbr>` element used to write out the full value of an abbreviated prefix or suffix. For example, where `text` is “€”, `title` would be “Euro (EUR)”. |
 | id    | string | true     | The HTML `id` of the `<abbr>` element used for the prefix or suffix. Used for the input’s `aria-labelledby` attribute.                                                                    |
 
 ## CharCheckLimit
