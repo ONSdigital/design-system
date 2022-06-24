@@ -1,3 +1,4 @@
+import { setViewport } from '../../tests/helpers/puppeteer';
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_NAVIGATION = {
@@ -108,8 +109,7 @@ describe('script: navigation', () => {
 
     describe('when the viewport is large', () => {
       beforeEach(async () => {
-        await page.setViewport({ width: 1650, height: 1050 });
-
+        await setViewport(page, { width: 1650, height: 1050 });
         await setTestPage('/test', renderComponent('header', params));
       });
 
@@ -128,8 +128,7 @@ describe('script: navigation', () => {
 
     describe('when the viewport is small', () => {
       beforeEach(async () => {
-        await page.setViewport({ width: 600, height: 1050 });
-
+        await setViewport(page, { width: 600, height: 1050 });
         await setTestPage('/test', renderComponent('header', params));
       });
 
@@ -204,11 +203,9 @@ describe('script: navigation', () => {
     (_, params, navEl, buttonEl) => {
       describe('when the viewport is small and manually made wider', () => {
         beforeEach(async () => {
-          await page.setViewport({ width: 600, height: 1050 });
+          await setViewport(page, { width: 600, height: 1050 });
           await setTestPage('/test', renderComponent('header', params));
-          await page.waitForTimeout(200);
-          await page.setViewport({ width: 1200, height: 1050 });
-          await page.waitForTimeout(200);
+          await setViewport(page, { width: 1200, height: 1050 });
         });
 
         it('has the aria-hidden attribute removed from the navigation list', async () => {
