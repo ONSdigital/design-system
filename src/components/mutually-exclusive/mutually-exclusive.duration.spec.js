@@ -9,7 +9,9 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_DURATION_PARAMS = {
   field1: {
     id: 'address-duration-years',
     name: 'address-duration-years',
-    suffix: 'Years',
+    suffix: {
+      text: 'Years',
+    },
     attributes: {
       min: 0,
       max: 100,
@@ -18,7 +20,9 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_DURATION_PARAMS = {
   field2: {
     id: 'address-duration-months',
     name: 'address-duration-months',
-    suffix: 'Months',
+    suffix: {
+      text: 'Months',
+    },
     attributes: {
       min: 0,
       max: 11,

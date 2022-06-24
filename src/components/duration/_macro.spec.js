@@ -76,6 +76,7 @@ describe('macro: duration', () => {
         },
         name: 'address-duration-years',
         suffix: {
+          id: 'address-duration-years-suffix',
           text: 'Years',
           title: 'Years',
         },
@@ -97,6 +98,7 @@ describe('macro: duration', () => {
         },
         name: 'address-duration-months',
         suffix: {
+          id: 'address-duration-months-suffix',
           text: 'Months',
           title: 'Months',
         },
@@ -224,6 +226,7 @@ describe('macro: duration', () => {
         },
         name: 'address-duration-years',
         suffix: {
+          id: 'address-duration-years-suffix',
           text: 'Years',
           title: 'Years',
         },

@@ -113,10 +113,10 @@ describe('script: navigation', () => {
         await setTestPage('/test', renderComponent('header', params));
       });
 
-      it('has no aria hidden attribute on the navigation list', async () => {
+      it('has aria hidden attribute on the navigation list', async () => {
         const nav = await page.$(navEl);
         const hasAriaAttribute = await nav.evaluate(node => node.getAttribute('aria-hidden') !== null);
-        expect(hasAriaAttribute).toBe(false);
+        expect(hasAriaAttribute).toBe(true);
       });
 
       it('has aria-expanded set as `false` on the navigation toggle button', async () => {
