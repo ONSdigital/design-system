@@ -206,7 +206,9 @@ describe('script: navigation', () => {
         beforeEach(async () => {
           await page.setViewport({ width: 600, height: 1050 });
           await setTestPage('/test', renderComponent('header', params));
+          await page.waitForTimeout(200);
           await page.setViewport({ width: 1200, height: 1050 });
+          await page.waitForTimeout(200);
         });
 
         it('has the aria-hidden attribute removed from the navigation list', async () => {
