@@ -207,7 +207,7 @@ describe('macro: date input', () => {
         legendIsQuestionTitle: true,
         error: false,
         mutuallyExclusive: {
-          checkbox: {},
+          exclusiveOptions: {},
           or: 'Or',
           deselectMessage: 'Deselect message',
           deselectGroupAdjective: 'Deselect group adjective',
@@ -224,7 +224,7 @@ describe('macro: date input', () => {
         dontWrap: true,
         legendIsQuestionTitle: true,
         error: false,
-        checkbox: {},
+        exclusiveOptions: {},
         or: 'Or',
         deselectMessage: 'Deselect message',
         deselectGroupAdjective: 'Deselect group adjective',
