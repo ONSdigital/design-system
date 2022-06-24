@@ -301,6 +301,7 @@ describe('script: address-input', () => {
 
         await page.$eval('.ons-js-autosuggest-input', node => (node.value = 'Penlline Road, Whitchurch, Cardiff, CF14 2N'));
         await page.type('.ons-js-autosuggest-input', 'Z');
+        await page.waitForTimeout(100);
       });
 
       it('provides expected parameters to the address API', async () => {
