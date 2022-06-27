@@ -9,6 +9,11 @@ layout: none
 
 {% set pageConfig = {
     "title": "Extend a session",
+    "signoutButton": {
+        "text": "Save and sign out",
+        "iconType": "exit",
+        "iconPosition": "after"
+    },
     "breadcrumbs": {
         "ariaLabel": 'Breadcrumbs',
         "itemsList": [
@@ -59,11 +64,6 @@ layout: none
         }) }}
 
     {% endcall %}
-
-    {{ onsButton({
-        "text": "Save and continue",
-        "classes": "ons-u-mt-m"
-    }) }}
 
     {{ onsTimeoutModal({
         "showModalTimeInSeconds": 50,
