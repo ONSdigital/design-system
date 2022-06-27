@@ -59,7 +59,10 @@ layout: none
     {% endcall %}
 
     {% call onsQuestion ({
-        "title": "Give feedback about this service"
+        "title": "Give feedback about this service",
+        "submitButton": {
+            "text": "Send feedback"
+        }
     }) %}
 
         {{
@@ -169,10 +172,4 @@ layout: none
             })
         }}
     {% endcall %}
-    {{
-        onsButton({
-            "text": "Send feedback",
-            "classes": "ons-u-mt-m"
-        })
-    }}
 {% endblock %}
