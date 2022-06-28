@@ -3,33 +3,35 @@ title: Error
 ---
 
 +++
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
-## When to use this component
-
 The error component is used to wrap form inputs and fieldsets to to show validation errors.
+
+{{
+    patternlibExample({"path": "components/duration/examples/duration-error/index.njk"})
+}}
+
+There is specific guidance on [how to correct errors](/patterns/correct-errors).
 
 ## How to use this component
 
-Generally speaking you should not need to {{
-    onsExternalLink({
-        "url": "https://mozilla.github.io/nunjucks/templating.html#call",
-        "linkText": "call"
-    })
-}} `onsError` yourself as it is already called from within form input components. However if you need to create a pattern or component that requires a error you can use {{
+You should not typically need to “call” `onsError()` yourself as it is already called from within form input components, and can be set using the `error` object.
+
+However, if you need to create a pattern or component that requires a error you can use {{
     onsExternalLink({
         "url": "https://mozilla.github.io/nunjucks/templating.html#call",
         "linkText": "nunjucks' call functionality"
     })
-}} `onsError`.
+}}
 
-| Name       | Type    | Required | Description                                                                                                         |
-| ---------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| text       | string  | true     | The text that describes the error message                                                                           |
-| id         | string  | true     | The id that the error link can anchor to                                                                            |
-| attributes | object  | false    | HTML attributes (for example, data attributes) to add to the field                                                   |
-| dsExample  | boolean | false    | Defaulted to true if set in the Design System. Will not focus on error on page load - *only for use in DS examples* |
+| Name       | Type    | Required | Description                                                                                                                               |
+| ---------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| text       | string  | true     | The text describing the error                                                                                                             |
+| id         | string  | true     | The HTML `id` attribute that the [error summary](/patterns/correct-errors/#error-summary) link can anchor to                              |
+| attributes | object  | false    | HTML attributes (for example, data attributes) to add to the field                                                                        |
+| dsExample  | boolean | false    | Set to `true` if using component as an example in the Design System. Prevents focus on error on page load. *Only for use in DS examples*  |
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

@@ -2,22 +2,22 @@
     <div class="ons-address-output{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}">
         <p class="ons-address-output__lines">
             {% if params.unit is defined and params.unit %}
-                {{ params.unit }}<br>
+                <span class="ons-address-output__unit">{{ params.unit }}</span><br>
             {% endif %}
             {% if params.organisation is defined and params.organisation %}
-                {{ params.organisation }}<br>
+                <span class="ons-address-output__organisation">{{ params.organisation }}</span><br>
             {% endif %}
             {% if params.line1 is defined and params.line1 %}
-                {{ params.line1 }}<br>
+                <span class="ons-address-output__line1">{{ params.line1 }}</span><br>
             {% endif %}
             {% if params.line2 is defined and params.line2 %}
-                {{ params.line2 }}<br>
+                <span class="ons-address-output__line2">{{ params.line2 }}</span><br>
             {% endif %}
             {% if params.town is defined and params.town %}
-                {{ params.town }}<br>
+                <span class="ons-address-output__town">{{ params.town }}</span><br>
             {% endif %}
             {% if params.postcode is defined and params.postcode %}
-                {{ params.postcode }}
+                <span class="ons-address-output__postcode">{{ params.postcode }}</span>
             {% endif %}
         </p>
     </div>

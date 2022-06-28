@@ -71,7 +71,7 @@ The "select/unselect all" button cannot be used when one of the checkboxes uses 
 ### Checkbox with revealed text input
 This variant lets the user provide an answer other to the options in the list, or to provide additional information required to describe their answer.
 
-Provide the `other` parameter containing the relevant [input](/components/input) parameters. The field is hidden until the checkbox is selected.
+Set the `other` object with the required [input](/components/input) parameters. The field is hidden until the checkbox is selected.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-other/index.njk"})
@@ -80,7 +80,7 @@ Provide the `other` parameter containing the relevant [input](/components/input)
 ### Checkbox with revealed drop-down
 This variant reveals a nested [select component](/components/select) when a checkbox is selected.
 
-To use this variant provide `"otherType": "select"` inside the `other` parameter.
+To use this variant set `"otherType": "select"` inside the `other` object.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-select/index.njk"})
@@ -90,7 +90,7 @@ To use this variant provide `"otherType": "select"` inside the `other` parameter
 ### Checkbox with visible text input
 This variant always shows the nested inputs.
 
-To use this variant provide `"open": true` inside the `other` parameter.
+To use this variant set `"open": true` inside the `other` object.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-open/index.njk"})
@@ -123,9 +123,9 @@ In the example below the hidden label `text` is a combination of the `th` for th
 
 ### Checkbox with revealed checkboxes
 
-This variant reveals nested checkboxes when a checkbox is selected. We recommend using this variant together with the parent checkboxes using the borderless variant.
+This variant reveals nested checkboxes when a checkbox is selected. We recommend using this variant with the borderless variant.
 
-To use this variant provide `"otherType": "checkboxes"` inside the `other` parameter. The example below includes the optional parameter `selectAllChildren: true` which automatically checks all revealed checkboxes.
+To use this variant set `"otherType": "checkboxes"` inside the `other` object. The example below includes the optional parameter `selectAllChildren: true` which automatically checks all revealed checkboxes.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-checkboxes/index.njk"})
@@ -135,7 +135,7 @@ To use this variant provide `"otherType": "checkboxes"` inside the `other` param
 
 This variant reveals nested [radios](/components/radios) when a checkbox is selected. We recommend using this variant together with the parent checkboxes using the borderless variant.
 
-To use this variant provide `"otherType": "radios"` inside the `other` parameter.
+To use this variant set `"otherType": "radios"` inside the `other` object.
 
 {{
     patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-radios/index.njk"})
