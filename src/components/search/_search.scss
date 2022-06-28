@@ -1,4 +1,5 @@
-.ons-search {
+.ons-search-component {
+  display: flex;
   flex-flow: row wrap;
   margin-left: -0.5rem;
   margin-top: -0.5rem;
@@ -6,11 +7,11 @@
   @include mq(s) {
     flex-flow: row nowrap !important;
   }
-  &__btn {
+  .ons-search__btn {
     margin-top: -3px;
   }
-  &__btn,
-  &__input {
+  .ons-search__btn,
+  .ons-search__input {
     margin-left: 0.5rem;
   }
 }

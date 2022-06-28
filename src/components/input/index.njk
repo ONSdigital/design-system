@@ -18,7 +18,7 @@ The input component lets users enter alphanumeric characters for answers that ar
 ## When to use this component
 Use the input component when you need to let users enter alphanumeric information that is no longer than one line, such as their telephone number or email address.
 
-There is specific guidance on how to ask for:
+There is specific guidance on how to input:
 {{
     onsList({
         "itemsList": [
@@ -49,6 +49,10 @@ There is specific guidance on how to ask for:
             {
                 "url": '/patterns/phone-numbers',
                 "text": 'phone numbers'
+            },
+            {
+                "url": '/components/search',
+                "text": 'search terms'
             }
         ]
     })
@@ -83,13 +87,15 @@ An optional `description` parameter can be provided inside the [label](/componen
 }}
 
 ### Width constrained
-Change the width of inputs to suit the type of content. This helps users understand what they need to enter.
+You should set the width of inputs to suit the type of content to help users understand what they need to enter.
 
-To calculate the width to constrain to, you need to set a `type` and a `width` value. The type will determine if the input will contain letters or numbers: `tel`, `number`, `email` or `text`. The values you set will determine how wide the input is. For example, if you set `type: number` and `width: 4`, this will constrain the input to the width of 4 numbers. If you do not specify a type, ‘text’ is the default.
+To calculate the width to constrain to, you need to set a `type` and a `width` value. The type will determine if the input will contain letters or numbers.
 
-The `width` values available for both types are: `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `15`, `20`, `30`, `40`, `50`.
+The values you set will determine how wide the input is based on either the widest letter “W“ or the widest number “4“. For example, if you set `type: text` and `width: 3`, this will constrain the input to the width of “WWW”. “text” will be used by default.
 
-For inputs that will contain both letters and numbers, you will need to use an appropriate number value. For example, UK postcodes always consist of up to 7 letters and numbers and one optional space separating the outward and inward codes. So using the width `7` will create a width appropriate for the longest potential postcode “WW4W 4WW”.
+The `width` values available for both types range from “1” to “10” and “15”, “20”, “30”, “40” and “50”.
+
+For inputs that will contain both letters and numbers, you will need to use an appropriate number value. For example, UK postcodes always consist of up to 7 letters and numbers and one optional space separating the outward and inward codes. A width of “7” will create a width appropriate to fit the widest potential postcode “WW4W 4WW”.
 
 {{
     patternlibExample({"path": "components/input/examples/text-width-constrained/index.njk"})
@@ -98,7 +104,7 @@ For inputs that will contain both letters and numbers, you will need to use an a
 There is specific guidance on how to ask users for [addresses](/patterns/addresses).
 
 ### Email
-Setting the type to `email` will bring up the correct keypad on touch devices.
+Setting `type` to “email” will bring up the correct keypad on touch devices.
 {{
     patternlibExample({"path": "components/input/examples/email/index.njk"})
 }}
@@ -106,7 +112,7 @@ Setting the type to `email` will bring up the correct keypad on touch devices.
 There is specific guidance on how to ask users for [email addresses](/patterns/email-addresses).
 
 ### Telephone
-Setting the type to `tel` will bring up the correct keypad on touch devices.
+Setting `type` to “tel” will bring up the correct keypad on touch devices.
 {{
     patternlibExample({"path": "components/input/examples/telephone/index.njk"})
 }}
@@ -114,7 +120,21 @@ Setting the type to `tel` will bring up the correct keypad on touch devices.
 There is specific guidance on how to ask users for [phone numbers](/patterns/phone-numbers).
 
 ### Number
-Setting the type to `number` will bring up the correct keypad on touch devices.
+Setting the `type` parameter to “number” will set the HTML attributes `inputmode` and `pattern` to bring up the correct keypad on touch devices. 
+
++++
+{% call onsPanel() %}
+
+    The HTML <code>type</code> attribute will be set to “text” rather than “number” due to{{
+        onsExternalLink({
+            "url": "https://bugzilla.mozilla.org/show_bug.cgi?id=1398528",
+            "linkText": "an issue with Firefox and Safari not blocking non-numeric characters"
+        })
+    }}
+
+{% endcall %}
++++
+
 {{
     patternlibExample({"path": "components/input/examples/prefixed/index.njk"})
 }}
@@ -122,11 +142,11 @@ Setting the type to `number` will bring up the correct keypad on touch devices.
 There is specific guidance on how to ask users for [numeric values](/patterns/numeric-values) including entering numbers with units, such as currencies and measurements.
 
 ### Character limit checker
-Use this for client-side validation of an input that needs a character limit.
+Can be used for client-side validation of inputs that need character limits due to data size restrictions.
 
 Use this variant as little as possible. Users do not expect a limit on inputs, and often do not look up from a keyboard as they type. This means they may not notice the counter.
 
-The character counter is displayed when the `charCheckLimit` object is defined with the `limit`, `charCountOverLimitSingular` and `charCountOverLimitPlural` parameters.
+The character limit counter is displayed when the limit is exceeded. Set the `charCheckLimit` object with the `limit`, `charCountOverLimitSingular` and `charCountOverLimitPlural` parameters.
 
 {{
     patternlibExample({"path": "components/input/examples/text-character-limit/index.njk"})

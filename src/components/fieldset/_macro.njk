@@ -4,7 +4,7 @@
     {% set fieldset -%}
         {% if params.dontWrap is defined and params.dontWrap -%}
             <div class="ons-input-items">
-                {{- caller() -}}
+                {{- caller() if caller -}}
             </div>
         {%- elif (params.legend is defined and params.legend) or (params.legendIsQuestionTitle is defined and params.legendIsQuestionTitle) -%}
             <fieldset
@@ -18,7 +18,7 @@
                             {{- params.legend | safe -}}
                         </h1>
                     {%- else -%}
-                        {{- params.legend | safe -}}
+                        <span class="ons-fieldset__legend-title">{{- params.legend | safe -}}</span>
                     {%- endif -%}
                     {%- if params.description is defined and params.description -%}
                         <div class="ons-fieldset__description{% if params.legendIsQuestionTitle %} ons-fieldset__description--title ons-u-mb-m{% endif %}">
@@ -26,7 +26,7 @@
                         </div>
                     {%- endif -%}
                 </legend>
-                {{- caller() -}}
+                {{- caller() if caller -}}
             </fieldset>
         {%- endif %}
     {%- endset %}

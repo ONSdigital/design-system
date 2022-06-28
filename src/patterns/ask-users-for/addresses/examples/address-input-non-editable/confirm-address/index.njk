@@ -29,7 +29,10 @@ layout: none
 {% block main %}
     {% call onsQuestion({
         "title": "Is this the correct address?",
-        "legendIsQuestionTitle": true
+        "legendIsQuestionTitle": true,
+        "submitButton": {
+            "text": 'Continue'
+        }
     }) %}
 
     <form action="#0">
@@ -65,12 +68,6 @@ layout: none
                         "value": 'No, search for address again'
                     }
                 ]
-            })
-        }}
-        {{
-            onsButton({
-                "text": 'Continue',
-                "classes": 'ons-u-mt-xl'
             })
         }}
     </form>

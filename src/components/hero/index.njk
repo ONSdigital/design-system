@@ -5,10 +5,17 @@ synonyms: Headline
 
 +++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
 A large promotional section, usually at the very top of the page, featuring a headline and a call to action.
+
+{{
+    onsPanel({
+        "body": 'This component requires documentation'
+    })
+}}
 
 ## Default
 {{
@@ -21,36 +28,15 @@ The image used is considered decorative and does not convey important informatio
     patternlibExample({"path": "components/hero/examples/england/index.njk"})
 }}
 
-## Campaign engagement (NISRA)
-{{
-    patternlibExample({"path": "components/hero/examples/nisra/index.njk"})
-}}
-
-## Campaign engagement (Cymraeg)
-{{
-    patternlibExample({"path": "components/hero/examples/cymraeg/index.njk"})
-}}
-
 ## Campaign engagement (Pre-title image)
 {{
     patternlibExample({"path": "components/hero/examples/pre-title-image-dark/index.njk"})
-}}
-
-## Campaign engagement (Pre-title image Cymraeg)
-{{
-    patternlibExample({"path": "components/hero/examples/pre-title-image-dark-cymraeg/index.njk"})
 }}
 
 ## Campaign happening now
 This is used to inform users that Census 2021 is happening now, with a clear call to action.
 {{
     patternlibExample({"path": "components/hero/examples/happening/index.njk"})
-}}
-
-## Campaign happening now (NISRA)
-This is used to inform users that Census 2021 is happening now, with a clear call to action.
-{{
-    patternlibExample({"path": "components/hero/examples/nisra-happening/index.njk"})
 }}
 
 ## Campaign happening now (Pre-title image)
