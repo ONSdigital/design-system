@@ -21,7 +21,8 @@ export default class CheckboxWithAutoSelect {
     this.unselectAllText = this.button.getAttribute('data-unselect-all');
   }
 
-  handleButtonEvent() {
+  handleButtonEvent(event) {
+    event.preventDefault();
     this.checkboxes.forEach(checkbox => {
       checkbox.checked = this.allChecked === false ? true : false;
     });
