@@ -5,14 +5,13 @@ export function sanitiseAutosuggestText(string, sanitisedQueryRemoveChars = [], 
     sanitisedString = sanitisedString.replace(new RegExp(char.toLowerCase(), 'g'), '');
   });
 
+  sanitisedString = trimEnd ? sanitisedString.trim() : sanitisedString.trimStart();
   sanitisedString = sanitisedString.replace(/\s\s+/g, ' ');
-  sanitisedString = sanitisedString.replace('&', '%26');
+  sanitisedString = sanitisedString.replace(/[&]/g, '%26');
 
   if (sanitisedQuerySplitNumsChars) {
     sanitisedString = sanitisedString.replace(/\d(?=[a-z]{3,})/gi, '$& ');
   }
-
-  sanitisedString = trimEnd ? sanitisedString.trim() : sanitisedString.trimStart();
 
   return sanitisedString;
 }

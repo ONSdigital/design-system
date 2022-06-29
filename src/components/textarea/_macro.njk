@@ -19,8 +19,10 @@
 
         <textarea
             id="{{ params.id }}"
-            class="ons-input ons-input--textarea {% if params.error is defined and params.error %} ons-input--error {% endif %}{% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %} ons-js-char-limit-input{% endif %}{{ textareaExclusiveClass }} {{ params.classes }} {% if params.width is defined and params.width %}ons-input--w-{{ params.width }}{% endif %}"
-            name="{{ params.name }}"
+            class="ons-input ons-input--textarea {% if params.error is defined and params.error %} ons-input--error {% endif %}{% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %} ons-js-char-limit-input{% endif %}{{ textareaExclusiveClass }} {{ params.classes if params.classes is defined and params.classes }} {% if params.width is defined and params.width %}ons-input--w-{{ params.width }}{% endif %}"
+            {% if params.name is defined and params.name %}
+             name="{{ params.name }}"
+            {% endif %}
             rows="{{ params.rows | default(8) }}"
             {% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %}
                 maxlength="{{ params.charCheckLimit.limit }}"
@@ -28,7 +30,7 @@
                 aria-describedby="{{ params.id }}-lim-remaining"
             {% endif %}
             {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-        >{{ params.value }}</textarea>
+        >{{ params.value if params.value is defined and params.value }}</textarea>
 
         {% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %}
             {% call onsCharLimit({

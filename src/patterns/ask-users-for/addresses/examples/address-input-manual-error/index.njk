@@ -40,7 +40,8 @@ layout: none
 
     {% call onsQuestion({
         "title": "What is your address?",
-        "legendIsQuestionTitle": true
+        "legendIsQuestionTitle": true,
+        "submitButton": true
     }) %}
 
     <form action="#0">
@@ -77,12 +78,6 @@ layout: none
                 }
             }
         }) }}
-        {{
-            onsButton({
-                "text": 'Save and continue',
-                "classes": "ons-u-mt-xl"
-            })
-        }}
     </form>
     {% endcall %}
 {% endblock %}

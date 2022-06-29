@@ -28,7 +28,7 @@
 
     {% if params.error is not defined %}
         {% call onsPanel({
-                "classes": "ons-u-mb-s"
+                "classes": "ons-u-mb-s" + (' ' + params.classes if params.classes is defined and params.classes)
             })
         %}
             {{ content | safe }}

@@ -80,7 +80,7 @@ gulp.task('build-script', gulp.series(...scripts.map(createBuildScriptTask)));
 
 gulp.task('build-styles', () => {
   return gulp
-    .src(`./src/scss/${process.env.STYLES ?? '*'}.scss`)
+    .src(`./src/scss/*.scss`)
     .pipe(gulpIf(isDevelopment, gulpSourcemaps.init()))
     .pipe(gulpDartSass(sassOptions).on('error', gulpDartSass.logError))
     .pipe(gulpIf(isProduction, gulpPostCss(postCssPlugins())))
@@ -135,6 +135,7 @@ gulp.task('start-dev-server', async () => {
 });
 
 gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-svg', 'build-search-index'));
+gulp.task('build-assets-for-testing', gulp.series('build-script', 'build-styles', 'build-svg'));
 
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));

@@ -54,7 +54,7 @@
                                             "name": radio.other.name,
                                             "type": radio.other.type,
                                             "required": radio.other.required,
-                                            "classes": ("ons-input--error" if params.error else "") + radio.other.classes | default(''),
+                                            "classes": ("ons-input--error " if params.error else "") + radio.other.classes | default(''),
                                             "width": radio.other.width | default('auto'),
                                             "attributes": radio.other.attributes,
                                             "label": {
@@ -73,17 +73,14 @@
                                             "id": radio.other.id,
                                             "name": radio.other.name,
                                             "options": radio.other.options,
-                                            "classes": ("ons-input--error" if params.error else "") + radio.other.classes | default(''),
+                                            "classes": ("ons-input--error " if params.error else "") + radio.other.classes | default(''),
                                             "label": {
                                                 "id": radio.other.id + "-label",
                                                 "text": radio.other.label.text,
                                                 "classes": 'ons-u-fw-n'
                                             },
                                             "dontWrap": true,
-                                            "value": radio.other.value,
-                                            "select": {
-                                                "error": params.error
-                                            }
+                                            "value": radio.other.value
                                         })
                                     }}
                                 {% elif otherType == "checkboxes" %}

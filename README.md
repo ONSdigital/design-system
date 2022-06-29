@@ -106,37 +106,59 @@ Mixed markdown files are easier to maintain when each section that is fenced wit
 
 ## Testing
 
-To test locally ensure you've followed all the steps above to install dependencies. You can have three options:
-
-### Run tests locally in watch mode
-
-This will watch your test files and JavaScript for changes and rerun the test suite each time a change is detected.
-
-_Note_: This will only run tests on the ES6 bundle.
+This project uses [jest](https://jestjs.io/docs/cli) and supports its command line options.
 
 ```bash
-yarn test:local
+yarn test [jest-args]
 ```
 
-### Run ES6 and ES5 bundle tests
+### Run macro, unit and in-browser interaction tests
 
-Running this will run the test suite twice, once against the ES6 bundle and again against the ES5 bundle. However, as local tests only run on evergreen browsers it will be unlikely that you see the ES5 testing fail if the ES6 testing passes.
+Macros and units are tested in the Node execution environment whereas interaction tests are ran in the web browser using [puppeteer](https://developer.chrome.com/docs/puppeteer/).
 
 ```bash
 yarn test
 ```
 
-### Run tests in BrowserStack
+### Run specific tests
 
-All unit tests are automatically cross browser tested in [BrowserStack](https://www.browserstack.com) by [TravisCI](https://travis-ci.org/ONSdigital/design-system) when a pull request is created or if a change is pushed to an existing pull request.
+Tests can be filtered using the [`testNamePattern`](https://jestjs.io/docs/cli#--testnamepatternregex) jest argument.
 
-You can also run cross browser testing in BrowserStack manually against your local branch by running this command:
-
-_Note_: You will need to set your `BROWSER_STACK_USERNAME` and `BROWSER_STACK_ACCESS_KEY` environment variables to allow authentication with BrowserStack. Username and access keys can be found under _Automate_ on the [BrowserStack settings page](https://www.browserstack.com/accounts/settings).
+To run all macro tests:
 
 ```bash
-yarn test:browserstack
+yarn test --testNamePattern="macro:"
 ```
+
+To run tests associated with a specific macro:
+
+```bash
+yarn test --testNamePattern="macro: button"
+```
+
+To run all axe tests:
+
+```bash
+yarn test --testNamePattern="axe"
+```
+
+### Run tests locally in watch mode
+
+This will watch for changed files based on git uncommitted files.
+
+```bash
+yarn test --watch
+```
+
+_Note_: This command is of limited use since JavaScript and SCSS files will only be processed and bundled once each time the above command is ran. This command is only useful when working on JavaScript units that can be tested without bundling.
+
+### Testing tips
+
+It is sometimes useful to adjust the following settings when writing tests or diagnosing issues:
+
+- `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `await page.waitForTimeout(100000)` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
+
+- `testTimeout` in 'jest.config.js' - set to a high value such as `1000000` to prevent tests from timing out when doing the above.
 
 ## Run visual regression tests
 

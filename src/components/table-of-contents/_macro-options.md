@@ -1,21 +1,22 @@
-| Name      | Type                                               | Required | Description                                                                                                                                                                                          |
-| --------- | -------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Title     | string                                             | true     | A title for the TOC, for example, "Contents"                                                                                                                                                         |
-| ariaLabel | string                                             | false    | Accessible label to provide context to contents, for example, "Links to page sections". Defaults to `Table of contents`                                                                              |
-| skipLink  | `Skip link` [_(ref)_](/components/skip-to-content) | false    | Settings for the skip to content link that allows users to avoid reading out the Table of Contents on each page. Required for any TOC repeated on multiple pages, such as a [guide](/patterns/guide) |
-| lists     | `Array<list>`                                      | true     | An array of list items to render.                                                                                                                                                                    |
+| Name      | Type                                                     | Required                      | Description                                                                                                                                                                                                |
+| --------- | -------------------------------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title     | string                                                   | true                          | A title for the component, for example, “Contents”                                                                                                                                                         |
+| ariaLabel | string                                                   | false                         | Descriptive landmark ARIA label to give a screen reader user greater understanding of its purpose. Defaults to “Table of contents”.                                                                        |
+| skipLink  | `Skip to content` [_(ref)_](/components/skip-to-content) | false                         | Settings for the skip to content link that allows users to avoid reading out the Table of Contents (ToC) on each page. Required for any ToC repeated on multiple pages, such as a [guide](/patterns/guide) |
+| lists     | array`<list>`                                            | true (unless `itemsList` set) | An array of [lists](#lists) for the component                                                                                                                                                              |
+| itemsList | array`<itemsList>`                                       | true (unless `lists` set)     | An array of [list items](#itemslist) for the component                                                                                                                                                     |
 
-## Lists
+## List
 
-| Name              | Type               | Required | Description                                              |
-| ----------------- | ------------------ | -------- | -------------------------------------------------------- |
-| listHeading       | string             | false    | A heading that can be added between TOC link list items  |
-| listHeadingHidden | string             | false    | Accessible hidden text to provide context to the heading |
-| itemsList         | `Array<itemsList>` | true     | An array of list item links                              |
+| Name              | Type               | Required | Description                                                                          |
+| ----------------- | ------------------ | -------- | ------------------------------------------------------------------------------------ |
+| listHeading       | string             | false    | A sub-heading for each list                                                          |
+| listHeadingHidden | string             | false    | Visually hidden text following the sub-heading to provide context for screen readers |
+| itemsList         | array`<itemsList>` | true     | An array of [list item links](#itemslist)                                            |
 
 ## itemsList
 
-| Name | Type   | Required | Description                                                  |
-| ---- | ------ | -------- | ------------------------------------------------------------ |
-| url  | string | true     | URL that contains the `id` of the content heading to link to |
-| text | string | true     | Text to display for the list item                            |
+| Name | Type   | Required | Description                                        |
+| ---- | ------ | -------- | -------------------------------------------------- |
+| url  | string | true     | The URL or path for the page or heading to link to |
+| text | string | true     | Text for the list item                             |

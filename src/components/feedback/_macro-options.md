@@ -1,10 +1,10 @@
-| Name           | Type   | Required | Description                                             |
-| -------------- | ------ | -------- | ------------------------------------------------------- |
-| id             | string | false    | ID to of the feedback component                         |
-| classes        | string | false    | Classes to be applied to the feedback container         |
-| heading        | string | true     | Text to show in the heading of the feedback component   |
-| headingLevel   | string | false    | Number used to determine heading level. Defaults to `2` |
-| headingClasses | string | false    | Classes to be applied to the heading                    |
-| content        | string | true     | The URL for the action of the feedback form             |
-| url            | string | true     | url of the feedback form                                |
-| linkText       | string | true     | Text to show on the feedback link                       |
+| Name           | Type   | Required | Description                                                                                                         |
+| -------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------- |
+| id             | string | false    | The HTML `id` attribute of the feedback container                                                                   |
+| classes        | string | false    | Classes to be applied to the feedback container                                                                     |
+| heading        | string | true     | Text to show in the heading of the feedback component                                                               |
+| headingLevel   | string | false    | Number used to determine the heading level to ensure it has the correct semantic order on the page. Defaults to `2` |
+| headingClasses | string | false    | Classes to be applied to the heading element                                                                        |
+| content        | string | true     | The text content for the body of the feedback call to action                                                        |
+| url            | string | true     | The URL of the feedback form                                                                                        |
+| linkText       | string | true     | The text for the feedback call to action link                                                                       |
