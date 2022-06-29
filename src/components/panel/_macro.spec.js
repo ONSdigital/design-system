@@ -288,7 +288,7 @@ describe('macro: panel', () => {
   });
 
   describe('mode: announcement', () => {
-    it('creates a container with the correct class', () => {
+    it('creates containers with the correct classes', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
@@ -297,6 +297,7 @@ describe('macro: panel', () => {
       );
 
       expect($('.ons-announcement').length).toBe(1);
+      expect($('.ons-container').length).toBe(1);
     });
 
     it('has `arrow-forward` icon', () => {
@@ -325,15 +326,33 @@ describe('macro: panel', () => {
     });
   });
 
-  describe.each(['warn', 'warn-branded'])('mode: %s', panelType => {
+  describe('mode: warn', () => {
+    it('has a default "!" prefix', () => {
+      const $ = cheerio.load(
+        renderComponent('panel', {
+          ...EXAMPLE_PANEL_BASIC,
+          type: 'warn',
+        }),
+      );
+
+      expect(
+        $('.ons-panel__icon')
+          .text()
+          .trim(),
+      ).toBe('!');
+    });
+  });
+
+  describe('mode: warn-branded', () => {
     it('creates a container div', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: panelType,
+          type: 'warn-branded',
         }),
       );
 
+      expect($('.ons-census-warning').length).toBe(1);
       expect($('.ons-container').length).toBe(1);
     });
 
@@ -341,7 +360,7 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          type: panelType,
+          type: 'warn-branded',
         }),
       );
 

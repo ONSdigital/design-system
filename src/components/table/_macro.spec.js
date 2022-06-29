@@ -102,22 +102,6 @@ describe('macro: table', () => {
       expect($('.ons-table__header').hasClass('ons-table__header--numeric')).toBe(true);
     });
 
-    it('adds `aria-sort` attribute when `ariaSort` is provided', () => {
-      const $ = cheerio.load(
-        renderComponent('table', {
-          ...EXAMPLE_TABLE,
-          ths: [
-            {
-              value: 'Column 1',
-              ariaSort: 'ascending',
-            },
-          ],
-        }),
-      );
-
-      expect($('.ons-table__header').attr('aria-sort')).toBe('ascending');
-    });
-
     it('does not add visually hidden class to column headers', () => {
       const $ = cheerio.load(renderComponent('table', EXAMPLE_TABLE));
 
@@ -467,6 +451,22 @@ describe('macro: table', () => {
       const $ = cheerio.load(renderComponent('table', params));
 
       expect($('.ons-table').attr('data-aria-sort')).toBe('Sort by');
+    });
+
+    it('adds `aria-sort` attribute when `ariaSort` is provided', () => {
+      const $ = cheerio.load(
+        renderComponent('table', {
+          ...params,
+          ths: [
+            {
+              value: 'Column 1',
+              ariaSort: 'ascending',
+            },
+          ],
+        }),
+      );
+
+      expect($('.ons-table__header').attr('aria-sort')).toBe('ascending');
     });
 
     it('has `data-aria-asc` attribute', () => {

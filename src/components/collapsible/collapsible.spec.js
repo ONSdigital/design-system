@@ -196,4 +196,41 @@ describe('script: collapsible', () => {
       });
     });
   });
+
+  describe('when the collapsible is an accordion', () => {
+    beforeEach(async () => {
+      await setTestPage(
+        '/test',
+        renderComponent('collapsible', {
+          ...EXAMPLE_COLLAPSIBLE_BASIC,
+          isAccordion: true,
+        }),
+      );
+    });
+
+    it('does not set `tabindex` on the heading element', async () => {
+      const tabIndex = await page.$eval('.ons-js-collapsible-heading', element => element.getAttribute('tabindex'));
+
+      expect(tabIndex).toBe(null);
+    });
+  });
+
+  describe('when the collapsible is an accordion and the simple variant', () => {
+    beforeEach(async () => {
+      await setTestPage(
+        '/test',
+        renderComponent('collapsible', {
+          ...EXAMPLE_COLLAPSIBLE_BASIC,
+          isAccordion: true,
+          variants: 'simple',
+        }),
+      );
+    });
+
+    it('does set `tabindex` on the heading element', async () => {
+      const tabIndex = await page.$eval('.ons-js-collapsible-heading', element => element.getAttribute('tabindex'));
+
+      expect(tabIndex).toBe('0');
+    });
+  });
 });

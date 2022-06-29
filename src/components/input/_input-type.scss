@@ -18,9 +18,8 @@
     }
   }
 
-  &__type[title] {
+  &__type {
     background-color: $color-button-secondary;
-    border: 1px solid $color-input;
     display: block;
     flex: 0 0 auto;
     font-size: 1rem;
@@ -28,11 +27,19 @@
     line-height: normal;
     padding: $input-padding-vertical $input-padding-horizontal * 2;
     text-align: center;
-    text-decoration: none;
     white-space: nowrap;
+
+    &[title] {
+      text-decoration: none;
+    }
   }
 
-  &__input:focus + &__type[title]::after {
+  &__type,
+  &__type[title] {
+    border: 1px solid $color-input;
+  }
+
+  &__input:focus + &__type::after {
     border-radius: $input-radius;
     bottom: 0;
     box-shadow: 0 0 0 3px $color-focus;
@@ -45,7 +52,7 @@
   }
 
   &:not(&--prefix) & {
-    &__type[title] {
+    &__type {
       border-left: 0;
       border-radius: 0 $input-radius $input-radius 0;
     }

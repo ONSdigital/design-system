@@ -64,8 +64,8 @@ describe('macro: access-code', () => {
       }),
     );
 
-    expect($('.ons-uac__input').hasClass('extra-class')).toBe(true);
-    expect($('.ons-uac__input').hasClass('another-extra-class')).toBe(true);
+    expect($('.ons-panel--info').hasClass('extra-class')).toBe(true);
+    expect($('.ons-panel--info').hasClass('another-extra-class')).toBe(true);
   });
 
   it('has provided label text and description', () => {
@@ -84,14 +84,15 @@ describe('macro: access-code', () => {
     );
   });
 
-  it('has provided maximum length attribute', () => {
+  it('has provided maximum length attribute including spaces required for groupSize', () => {
     const $ = cheerio.load(
       renderComponent('access-code', {
-        maxlength: 3,
+        maxlength: 6,
+        groupSize: 3,
       }),
     );
 
-    expect($('input').attr('maxlength')).toBe('3');
+    expect($('input').attr('maxlength')).toBe('7');
   });
 
   it('has provided group size attribute', () => {

@@ -1,3 +1,4 @@
+import { setViewport } from '../../tests/helpers/puppeteer';
 import { renderComponent, setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_NAVIGATION = {
@@ -92,9 +93,9 @@ describe('script: navigation', () => {
   });
 
   describe.each([
-    ['main', EXAMPLE_NAVIGATION, '.ons-navigation--main', '.ons-js-navigation-button'],
-    ['sub', EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION, '.ons-navigation--sub-mobile', '.ons-js-sub-navigation-button'],
-  ])('level: %s navigation', (_, params, navEl, buttonEl) => {
+    ['main', EXAMPLE_NAVIGATION, '.ons-navigation--main', '.ons-js-navigation-button', false],
+    ['sub', EXAMPLE_NAVIGATION_WITH_SUBNAVIGATION, '.ons-navigation--sub-mobile', '.ons-js-sub-navigation-button', true],
+  ])('level: %s navigation', (_, params, navEl, buttonEl, ariaStatus) => {
     describe('when the component initialises', () => {
       beforeEach(async () => {
         await setTestPage('/test', renderComponent('header', params));
@@ -108,15 +109,14 @@ describe('script: navigation', () => {
 
     describe('when the viewport is large', () => {
       beforeEach(async () => {
-        await page.setViewport({ width: 1650, height: 1050 });
-
+        await setViewport(page, { width: 1650, height: 1050 });
         await setTestPage('/test', renderComponent('header', params));
       });
 
-      it('has no aria hidden attribute on the navigation list', async () => {
+      it('has the correct aria hidden attribute on the navigation list', async () => {
         const nav = await page.$(navEl);
         const hasAriaAttribute = await nav.evaluate(node => node.getAttribute('aria-hidden') !== null);
-        expect(hasAriaAttribute).toBe(false);
+        expect(hasAriaAttribute).toBe(ariaStatus);
       });
 
       it('has aria-expanded set as `false` on the navigation toggle button', async () => {
@@ -128,8 +128,7 @@ describe('script: navigation', () => {
 
     describe('when the viewport is small', () => {
       beforeEach(async () => {
-        await page.setViewport({ width: 600, height: 1050 });
-
+        await setViewport(page, { width: 600, height: 1050 });
         await setTestPage('/test', renderComponent('header', params));
       });
 
@@ -204,9 +203,9 @@ describe('script: navigation', () => {
     (_, params, navEl, buttonEl) => {
       describe('when the viewport is small and manually made wider', () => {
         beforeEach(async () => {
-          await page.setViewport({ width: 600, height: 1050 });
+          await setViewport(page, { width: 600, height: 1050 });
           await setTestPage('/test', renderComponent('header', params));
-          await page.setViewport({ width: 1200, height: 1050 });
+          await setViewport(page, { width: 1200, height: 1050 });
         });
 
         it('has the aria-hidden attribute removed from the navigation list', async () => {

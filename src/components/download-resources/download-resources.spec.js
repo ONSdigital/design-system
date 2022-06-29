@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
 
+import { setViewport } from '../../tests/helpers/puppeteer';
 import { renderComponent, renderTemplate, setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_PAGE = `
@@ -456,7 +457,7 @@ describe('script: download-resources', () => {
 
   describe('when the viewport is large', () => {
     beforeEach(async () => {
-      await page.setViewport({ width: 1650, height: 1050 });
+      await setViewport(page, { width: 1650, height: 1050 });
       await setTestPage('/test', RENDERED_EXAMPLE_PAGE);
     });
 

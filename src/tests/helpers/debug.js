@@ -8,20 +8,29 @@ export function quietLog(text, type = 'info') {
 }
 
 async function extractTextFromMessage(message) {
-  // Workaround for situation where `message.text()` returns "JSHandle:error" rather than
-  // the actual error text. This is some sort of serialization thing between Chromium and
-  // Puppeteer: https://github.com/puppeteer/puppeteer/issues/3397#issuecomment-434970058
-  const messageParts = await Promise.all(
-    message.args().map(arg =>
-      arg.executionContext().evaluate(arg => {
-        if (arg instanceof Error) {
-          return arg.message;
-        } else {
-          return arg;
-        }
-      }, arg),
-    ),
-  );
+  let messageParts;
+
+  try {
+    // Workaround for situation where `message.text()` returns "JSHandle:error" rather than
+    // the actual error text. This is some sort of serialization thing between Chromium and
+    // Puppeteer: https://github.com/puppeteer/puppeteer/issues/3397#issuecomment-434970058
+    messageParts = await Promise.all(
+      message.args().map(arg =>
+        arg.executionContext().evaluate(arg => {
+          if (arg instanceof Error) {
+            return arg.message;
+          } else {
+            return arg;
+          }
+        }, arg),
+      ),
+    );
+  } catch {
+    // Sometimes the following error occurs because console log occurs after test runner
+    // has already moved onto the next test. Ignore these and show original log message
+    // instead: Execution context was destroyed, most likely because of a navigation.
+    messageParts = ['From a previously loaded page:', message.text()];
+  }
 
   // In most situations `message.text()` will be used...
   const extractedText = messageParts.join(' ').trim();

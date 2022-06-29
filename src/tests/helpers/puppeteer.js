@@ -14,6 +14,11 @@ export async function getNodeAttributes(page, selector) {
   });
 }
 
+export async function setViewport(page, viewport) {
+  await page.setViewport(viewport);
+  await page.waitForTimeout(100);
+}
+
 function sanitizeHref(href) {
   return url.parse(href, false).href;
 }
