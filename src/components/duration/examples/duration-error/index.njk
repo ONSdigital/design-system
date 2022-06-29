@@ -2,7 +2,7 @@
 {% from "components/duration/_macro.njk" import onsDuration %}
 
 {{ onsDuration({
-    "id": "address-duration",
+    "id": "travel-time",
     "legendOrLabel": 'How long do you spend travelling to and from work each day?',
     "legendClasses": 'ons-u-vh',
     "error": {
@@ -10,15 +10,21 @@
         "id": "duration-error"
     },
     "field1": {
-        "id": "address-duration-hours",
-        "name": "address-duration-hours",
-        "suffix": "Hours",
+        "id": "travel-time-hours",
+        "name": "travel-time-hours",
+        "suffix": {
+            "text": "Hours",
+            "id": "address-time-hours-suffix"
+        },
         "value": "2"
     },
     "field2": {
-        "id": "address-duration-minutes",
-        "name": "address-duration-minutes",
-        "suffix": "Minutes",
+        "id": "travel-time-minutes",
+        "name": "travel-time-minutes",
+        "suffix": {
+            "text": "Minutes",
+            "id": "address-time-minutes-suffix"
+        },
         "value": "60",
         "error": true
     }

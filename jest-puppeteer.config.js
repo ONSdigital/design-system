@@ -9,6 +9,7 @@ module.exports = {
       '--disable-setuid-sandbox',
       // Workaround for 'ContextResult::kTransientFailure: Failed to send GpuControl.CreateCommandBuffer'
       '--disable-gpu',
+      '--disable-software-rasterizer',
     ],
     dumpio: true,
   },

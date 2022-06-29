@@ -5,7 +5,7 @@
     {%- endset -%}
 
     {%- set descHtml -%}{% if params.readDescriptionFirst is defined and params.readDescriptionFirst == true %}
-            <div aria-hidden="true" {% if params.legendIsQuestionTitle is not defined %}class="ons-question__description ons-question__description--aria-hidden"{% endif %}>Dave</div>
+            <div aria-hidden="true" {% if params.legendIsQuestionTitle is not defined %}class="ons-question__description ons-question__description--aria-hidden"{% endif %}>{{- params.description | safe -}}</div>
         {% elif params.legendIsQuestionTitle is not defined %}
             <div class="ons-question__description ons-u-mb-m">{{- params.description | safe -}}</div>
         {% else %}
@@ -120,14 +120,16 @@
         {% endif %}
     </div>
 
-    {% from "components/button/_macro.njk" import onsButton %}
-    {{
-        onsButton({
-            "id": params.submitButton.id,
-            "submitType": params.submitButton.submitType,
-            "text": params.submitButton.text | default ('Save and continue'),
-            "classes": params.submitButton.classes,
-            "attributes": params.submitButton.attributes
-        })
-    }}
+    {% if params.submitButton != (false or null) %}
+        {% from "components/button/_macro.njk" import onsButton %}
+        {{
+            onsButton({
+                "id": params.submitButton.id,
+                "submitType": params.submitButton.submitType,
+                "text": params.submitButton.text | default ('Save and continue'),
+                "classes": params.submitButton.classes,
+                "attributes": params.submitButton.attributes
+            })
+        }}
+    {% endif %}
 {% endmacro %}

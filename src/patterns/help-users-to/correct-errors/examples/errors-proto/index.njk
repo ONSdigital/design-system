@@ -49,7 +49,8 @@ layout: none
 
 {% block main %}
     {% call onsQuestion({
-        "title": "How many employees do you pay on a monthly basis?"
+        "title": "How many employees do you pay on a monthly basis?",
+        "submitButton": true
     }) %}
         {{
             onsInput({
@@ -239,13 +240,17 @@ layout: none
                 "field1": {
                     "id": "address-duration-hours",
                     "name": "address-duration-hours",
-                    "suffix": "Hours",
-                     "value": "2"
+                    "suffix": {
+                        "text": "Hours"
+                    },
+                    "value": "2"
                 },
                 "field2": {
                     "id": "address-duration-minutes",
                     "name": "address-duration-minutes",
-                    "suffix": "Minutes",
+                    "suffix": {
+                        "text": "Minutes"
+                    },
                     "value": "60"
                 }
             })
@@ -313,12 +318,5 @@ layout: none
                 ]
             })
         }}
-    {% endcall%}
-
-    {{
-        onsButton({
-            "text": "Save and continue",
-            "classes": "ons-u-mt-xl"
-        })
-    }}
+    {% endcall %}
 {% endblock %}

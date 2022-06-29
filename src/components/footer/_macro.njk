@@ -9,21 +9,13 @@
         {% set lang = 'en' %}
     {% endif %}
 
-    {% if params.poweredBy is defined and params.poweredBy %}
-        {% if params.poweredBy.alt is defined and params.poweredBy.alt %}
-            {% set poweredByAlt = params.poweredBy.alt %}
-        {% else %}
-            {% set poweredByAlt = 'Office for National Statistics' %}
-        {% endif %}
-    {% endif %}
-
     {% set poweredByLogo %}
    
         {% if params.poweredBy is defined and params.poweredBy and params.poweredBy.logo is defined and params.poweredBy.logo %}
             {{
                 onsIcon({
                     "iconType": params.poweredBy.logo,
-                    "altText": poweredByAlt
+                    "altText": params.poweredBy.alt | default("Office for National Statistics")
                 })
             }}
         {% else %}
@@ -31,14 +23,14 @@
                 {{
                     onsIcon({
                         "iconType": 'ons-logo-cy',
-                        "altText": poweredByAlt | default('Swyddfa Ystadegau Gwladol')
+                        "altText": params.poweredBy.alt | default('Swyddfa Ystadegau Gwladol')
                     })
                 }}
             {% else %}
                 {{
                     onsIcon({
                         "iconType": 'ons-logo-en',
-                        "altText": poweredByAlt | default('Office for National Statistics')
+                        "altText": params.poweredBy.alt | default('Office for National Statistics')
                     })
                 }}
             {% endif %}
@@ -92,24 +84,6 @@
                     {% if params.poweredBy is defined and params.poweredBy and params.OGLLink is defined and params.OGLLink %}
                         <div class="ons-grid__col ons-u-mb-m">
                             {{ poweredByLogo | safe }}
-                        </div>
-                    {% endif %}
-
-                    {% if params.language is defined and params.language %}
-                        {% set currentLanguage = params.language.languages | selectattr("current") | first %}
-                        {% set languageNumber = params.language.languages | length %}
-                        <div class="ons-grid__col {% if languageNumber and languageNumber != 2 %} ons-u-d-no@m{% elif languageNumber %} ons-u-d-no{% endif %}">
-                            {% set languageItems = params.language.languages | rejectattr("current") | list %}
-                            {{
-                                onsList({
-                                    "classes": 'ons-u-mb-no',
-                                    "variants": ['bare', 'inline@m'],
-                                    "itemsList": languageItems
-                                })
-                            }}
-                        </div>
-                        <div class="ons-grid__col {% if languageNumber and languageNumber != 2 %} ons-u-d-no@m{% elif languageNumber %} ons-u-d-no{% endif %} ons-u-mb-m">
-                            <hr class="ons-footer__hr">
                         </div>
                     {% endif %}
 

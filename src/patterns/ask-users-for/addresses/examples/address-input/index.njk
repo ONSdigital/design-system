@@ -13,9 +13,10 @@ layout: none
 {% block main %}
     {% call onsQuestion({
         "title": "What is your address?",
-        "legendIsQuestionTitle": true
+        "legendIsQuestionTitle": true,
+        "submitButton": true
     }) %}
-    
+
     <form action="#0">
         {{ onsAddressInput({
             "id": "address",
@@ -67,12 +68,6 @@ layout: none
             "searchButton": "Search for an address",
             "manualLinkText": "Manually enter address"
         }) }}
-        {{
-            onsButton({
-                "text": 'Save and continue',
-                "classes": "ons-u-mt-xl"
-            })
-        }}
     </form>
     {% endcall %}
 {% endblock %}

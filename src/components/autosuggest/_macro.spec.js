@@ -207,7 +207,7 @@ describe('macro: autosuggest', () => {
     it('renders an accessible list', () => {
       const $ = cheerio.load(renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
-      expect($('.ons-autosuggest-input__listbox').attr('aria-labelledby')).toBe('country-of-birth-suggestions');
+      expect($('.ons-autosuggest-input__listbox').attr('title')).toBe('Suggestions');
     });
 
     it('renders instructions with a generated identifier', () => {

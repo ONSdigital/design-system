@@ -18,24 +18,6 @@ const EXAMPLE_OGL_LINK_PARAM = {
   post: ', except where otherwise stated',
 };
 
-const EXAMPLE_LANGUAGE_PARAM = {
-  allLanguagesUrl: '/en/all-languages',
-  languages: [
-    {
-      url: '/en/',
-      text: 'English',
-      allLanguages: 'All languages',
-      current: false,
-    },
-    {
-      url: '/cy/',
-      text: 'Cymraeg',
-      allLanguages: 'Pob iaith',
-      current: true,
-    },
-  ],
-};
-
 const EXAMPLE_COLS_PARAM = [
   {
     title: 'First column',
@@ -389,14 +371,14 @@ describe('macro: footer', () => {
         [
           'the `poweredBy` parameter is not provided but the `legal` parameter is provided',
           {
-            legal: true,
+            legal: EXAMPLE_LEGAL_PARAM,
           },
           defaultIcon,
         ],
         [
           'the `poweredBy` parameter is not provided but the `legal` and `OGLLink` parameters are provided',
           {
-            legal: true,
+            legal: EXAMPLE_LEGAL_PARAM,
             OGLLink: EXAMPLE_OGL_LINK_PARAM,
           },
           defaultIcon,
@@ -405,7 +387,7 @@ describe('macro: footer', () => {
           'the `poweredBy` and `legal` parameters are provided',
           {
             poweredBy: EXAMPLE_POWERED_BY_PARAM,
-            legal: true,
+            legal: EXAMPLE_LEGAL_PARAM,
           },
           {
             iconType: 'person',
@@ -427,7 +409,7 @@ describe('macro: footer', () => {
           'the `poweredBy`, `legal` and `crest` parameters are provided',
           {
             poweredBy: EXAMPLE_POWERED_BY_PARAM,
-            legal: true,
+            legal: EXAMPLE_LEGAL_PARAM,
             crest: true,
           },
           {
@@ -467,32 +449,6 @@ describe('macro: footer', () => {
           expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining(expectedIcon));
         });
       });
-    });
-  });
-
-  describe('language selector', () => {
-    const params = {
-      language: EXAMPLE_LANGUAGE_PARAM,
-    };
-
-    it('passes jest-axe checks', async () => {
-      const $ = cheerio.load(renderComponent('footer', params));
-
-      const results = await axe($.html());
-      expect(results).toHaveNoViolations();
-    });
-
-    it('renders list with expected items', () => {
-      const faker = templateFaker();
-      const listsSpy = faker.spy('lists');
-
-      faker.renderComponent('footer', params);
-
-      const itemsList = listsSpy.occurrences[0].itemsList;
-      expect(itemsList[0]).toHaveProperty('url', '/en/');
-      expect(itemsList[0]).toHaveProperty('text', 'English');
-      expect(itemsList[1]).toHaveProperty('url', '/en/all-languages');
-      expect(itemsList[1]).toHaveProperty('text', 'Pob iaith');
     });
   });
 

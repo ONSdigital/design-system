@@ -39,7 +39,7 @@ describe('macro: timeout panel', () => {
       type: 'warn',
       attributes: {
         'data-redirect-url': '#!',
-        'data-server-expires-at': '000-000-000',
+        'data-server-session-expires-at': '000-000-000',
         'data-countdown-text': 'For security, your answers will only be available to view for another',
         'data-countdown-expired-text': 'You are being signed out',
         'data-minutes-text-singular': 'minute',
