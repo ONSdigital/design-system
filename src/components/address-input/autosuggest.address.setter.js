@@ -104,14 +104,18 @@ export default class AddressSetter {
 
   clearManualInputs() {
     this.manualInputs.forEach(input => {
-      input.value = '';
+      if (input) {
+        input.value = '';
+      }
     });
   }
 
   checkManualInputsValues(onLoad) {
     if (onLoad) {
       this.originalValues = this.manualInputs.map(input => {
-        return input.value;
+        if (input) {
+          return input.value;
+        }
       });
     } else if (this.uprn.value !== '' && this.originalValues.length) {
       this.newValues = this.manualInputs.map(input => {
