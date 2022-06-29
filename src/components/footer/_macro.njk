@@ -16,7 +16,7 @@
                 onsIcon({
                     "iconType": params.poweredBy.logo,
                     "altText": params.poweredBy.alt | default("Office for National Statistics"),
-                    "altTextId": params.poweredBy.altTextId | default ('ons-logo-en-poweredby-alt')
+                    "altTextId": 'poweredby-alt'
                 })
             }}
         {% else %}
@@ -25,7 +25,7 @@
                     onsIcon({
                         "iconType": 'ons-logo-cy',
                         "altText": params.poweredBy.alt | default('Swyddfa Ystadegau Gwladol'),
-                        "altTextId": params.poweredBy.altTextId | default ('ons-logo-cy-footer-alt')
+                        "altTextId": 'ons-logo-cy-footer-alt'
                     })
                 }}
             {% else %}
@@ -33,7 +33,7 @@
                     onsIcon({
                         "iconType": 'ons-logo-en',
                         "altText": params.poweredBy.alt | default('Office for National Statistics'),
-                        "altTextId": params.poweredBy.altTextId | default ('ons-logo-en-footer-alt')
+                        "altTextId": 'ons-logo-en-footer-alt'
                     })
                 }}
             {% endif %}
