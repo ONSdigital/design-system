@@ -205,12 +205,16 @@ The page should:
     })
 }}
 
+{{
+    patternlibExample({ "path": "patterns/pages/error-status-pages/examples/timed-out-error/index.njk" })
+}}
+
 ### Session timed out error when user is not signed in
 
 A user may not be signed in but still need to be timed out. For example, if they are carrying out a transaction or request and we need to collect information from them such as an address. Because they are not signed in, the heading and call to action will need to change to reflect what they are doing. For example, “Sorry, you need to start again” and “You need to <a href="#0">start again</a> to request a new access code”.
 
 {{
-    patternlibExample({ "path": "patterns/pages/error-status-pages/examples/timed-out-error/index.njk" })
+    patternlibExample({ "path": "patterns/pages/error-status-pages/examples/timed-out-error-not-signed-in/index.njk" })
 }}
 
 ## Service unavailable errors

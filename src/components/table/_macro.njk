@@ -6,7 +6,7 @@
 
     {% if 'scrollable' in variants %}
     <div class="ons-table-scrollable ons-table-scrollable--on">
-        <div class="ons-table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.ariaLabel | default("Scrollable table") }} ">
+        <div class="ons-table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.ariaLabel | default("Scrollable table") }}">
     {% endif %}
             <table {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="ons-table{% if params.tableClasses is defined and params.tableClasses %} {{ params.tableClasses }}{% endif %}{% if variants is defined and variants %}{% if variants is not string %}{% for variant in variants %} ons-table--{{ variant }}{% endfor %}{% else %} ons-table--{{ variants }}{% endif %}{% endif %}" {% if params.sortBy is defined and params.sortBy and 'sortable' in variants %}data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"{% endif %}>
                 {% if params.caption is defined and params.caption %}
@@ -15,7 +15,7 @@
                 <thead class="ons-table__head">
                     <tr class="ons-table__row">
                         {% for th in params.ths %}
-                        <th scope="col" class="ons-table__header{{ ' ' + th.thClasses if th.thClasses is defined and th.thClasses }}{{ " ons-table__header--numeric" if th.numeric is defined and th.numeric }}"{% if th.ariaSort is defined and th.ariaSort %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
+                        <th scope="col" class="ons-table__header{{ ' ' + th.thClasses if th.thClasses is defined and th.thClasses }}{{ " ons-table__header--numeric" if th.numeric is defined and th.numeric }}"{% if 'sortable' in variants %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
                             <span {% if 'sortable' in variants %}class="ons-u-vh"{% endif %}>{{- th.value -}}</span>
                             {% if 'sortable' in variants %}
                                 {{

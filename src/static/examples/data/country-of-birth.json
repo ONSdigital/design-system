@@ -1,0 +1,758 @@
+[
+    {
+        "en": "England"
+    },
+    {
+        "en": "Wales"
+    },
+    {
+        "en": "Scotland"
+    },
+    {
+        "en": "Northern Ireland"
+    },
+    {
+        "en": "Republic of Ireland"
+    },
+    {
+        "en": "Afghanistan"
+    },
+    {
+        "en": "Åland Islands"
+    },
+    {
+        "en": "Albania"
+    },
+    {
+        "en": "Algeria"
+    },
+    {
+        "en": "American Samoa"
+    },
+    {
+        "en": "Andorra"
+    },
+    {
+        "en": "Angola"
+    },
+    {
+        "en": "Anguilla"
+    },
+    {
+        "en": "Antigua and Barbuda"
+    },
+    {
+        "en": "Argentina"
+    },
+    {
+        "en": "Armenia"
+    },
+    {
+        "en": "Aruba"
+    },
+    {
+        "en": "Australia"
+    },
+    {
+        "en": "Austria"
+    },
+    {
+        "en": "Azerbaijan"
+    },
+    {
+        "en": "Barbados"
+    },
+    {
+        "en": "Bahrain"
+    },
+    {
+        "en": "Bangladesh"
+    },
+    {
+        "en": "Belarus"
+    },
+    {
+        "en": "Belgium"
+    },
+    {
+        "en": "Belize"
+    },
+    {
+        "en": "Benin"
+    },
+    {
+        "en": "Bermuda"
+    },
+    {
+        "en": "Bhutan"
+    },
+    {
+        "en": "Bolivia"
+    },
+    {
+        "en": "Bonaire, Sint Eustatius and Saba"
+    },
+    {
+        "en": "Bosnia and Herzegovina"
+    },
+    {
+        "en": "Botswana"
+    },
+    {
+        "en": "Bouvet Island"
+    },
+    {
+        "en": "Brazil"
+    },
+    {
+        "en": "British Indian Ocean Territory"
+    },
+    {
+        "en": "British Virgin Islands"
+    },
+    {
+        "en": "Brunei"
+    },
+    {
+        "en": "Bulgaria"
+    },
+    {
+        "en": "Burkina Faso"
+    },
+    {
+        "en": "Burundi"
+    },
+    {
+        "en": "Cambodia"
+    },
+    {
+        "en": "Cameroon"
+    },
+    {
+        "en": "Canada"
+    },
+    {
+        "en": "Canary Islands"
+    },
+    {
+        "en": "Cape Verde"
+    },
+    {
+        "en": "Cayman Islands"
+    },
+    {
+        "en": "Central African Republic"
+    },
+    {
+        "en": "Chad"
+    },
+    {
+        "en": "Channel Islands"
+    },
+    {
+        "en": "Chile"
+    },
+    {
+        "en": "China"
+    },
+    {
+        "en": "Christmas Island"
+    },
+    {
+        "en": "Cocos (Keeling) Islands"
+    },
+    {
+        "en": "Colombia"
+    },
+    {
+        "en": "Comoros"
+    },
+    {
+        "en": "Congo"
+    },
+    {
+        "en": "Congo (Democratic Republic)"
+    },
+    {
+        "en": "Cook Islands"
+    },
+    {
+        "en": "Costa Rica"
+    },
+    {
+        "en": "Croatia"
+    },
+    {
+        "en": "Cuba"
+    },
+    {
+        "en": "Curaçao"
+    },
+    {
+        "en": "Cyprus"
+    },
+    {
+        "en": "Czechia"
+    },
+    {
+        "en": "Denmark"
+    },
+    {
+        "en": "Djibouti"
+    },
+    {
+        "en": "Dominica"
+    },
+    {
+        "en": "Dominican Republic"
+    },
+    {
+        "en": "East Timor"
+    },
+    {
+        "en": "Ecuador"
+    },
+    {
+        "en": "Egypt"
+    },
+    {
+        "en": "El Salvador"
+    },
+    {
+        "en": "Equatorial Guinea"
+    },
+    {
+        "en": "Eritrea"
+    },
+    {
+        "en": "Estonia"
+    },
+    {
+        "en": "Eswatini"
+    },
+    {
+        "en": "Ethiopia"
+    },
+    {
+        "en": "Falkland Islands"
+    },
+    {
+        "en": "Faroe Islands"
+    },
+    {
+        "en": "Fiji"
+    },
+    {
+        "en": "Finland"
+    },
+    {
+        "en": "France"
+    },
+    {
+        "en": "French Guiana"
+    },
+    {
+        "en": "French Polynesia"
+    },
+    {
+        "en": "French Southern Territories"
+    },
+    {
+        "en": "Gabon"
+    },
+    {
+        "en": "Georgia"
+    },
+    {
+        "en": "Germany"
+    },
+    {
+        "en": "Ghana"
+    },
+    {
+        "en": "Gibraltar"
+    },
+    {
+        "en": "Greece"
+    },
+    {
+        "en": "Greenland"
+    },
+    {
+        "en": "Grenada"
+    },
+    {
+        "en": "Guadeloupe"
+    },
+    {
+        "en": "Guam"
+    },
+    {
+        "en": "Guatemala"
+    },
+    {
+        "en": "Guinea"
+    },
+    {
+        "en": "Guinea-Bissau"
+    },
+    {
+        "en": "Guyana"
+    },
+    {
+        "en": "Haiti"
+    },
+    {
+        "en": "Heard Island and McDonald Islands"
+    },
+    {
+        "en": "Honduras"
+    },
+    {
+        "en": "Hong Kong"
+    },
+    {
+        "en": "Hungary"
+    },
+    {
+        "en": "Iceland"
+    },
+    {
+        "en": "India"
+    },
+    {
+        "en": "Indonesia"
+    },
+    {
+        "en": "Iran"
+    },
+    {
+        "en": "Iraq"
+    },
+    {
+        "en": "Isle of Man"
+    },
+    {
+        "en": "Israel"
+    },
+    {
+        "en": "Italy"
+    },
+    {
+        "en": "Ivory Coast"
+    },
+    {
+        "en": "Jamaica"
+    },
+    {
+        "en": "Japan"
+    },
+    {
+        "en": "Jordan"
+    },
+    {
+        "en": "Kazakhstan"
+    },
+    {
+        "en": "Kenya"
+    },
+    {
+        "en": "Kiribati"
+    },
+    {
+        "en": "Kosovo"
+    },
+    {
+        "en": "Kuwait"
+    },
+    {
+        "en": "Kyrgyzstan"
+    },
+    {
+        "en": "Laos"
+    },
+    {
+        "en": "Latvia"
+    },
+    {
+        "en": "Lebanon"
+    },
+    {
+        "en": "Lesotho"
+    },
+    {
+        "en": "Liberia"
+    },
+    {
+        "en": "Libya"
+    },
+    {
+        "en": "Liechtenstein"
+    },
+    {
+        "en": "Lithuania"
+    },
+    {
+        "en": "Luxembourg"
+    },
+    {
+        "en": "Macao"
+    },
+    {
+        "en": "Madagascar"
+    },
+    {
+        "en": "Malawi"
+    },
+    {
+        "en": "Malaysia"
+    },
+    {
+        "en": "Maldives"
+    },
+    {
+        "en": "Mali"
+    },
+    {
+        "en": "Malta"
+    },
+    {
+        "en": "Marshall Islands"
+    },
+    {
+        "en": "Martinique"
+    },
+    {
+        "en": "Mauritania"
+    },
+    {
+        "en": "Mauritius"
+    },
+    {
+        "en": "Mayotte"
+    },
+    {
+        "en": "Mexico"
+    },
+    {
+        "en": "Micronesia"
+    },
+    {
+        "en": "Moldova"
+    },
+    {
+        "en": "Monaco"
+    },
+    {
+        "en": "Mongolia"
+    },
+    {
+        "en": "Montenegro"
+    },
+    {
+        "en": "Montserrat"
+    },
+    {
+        "en": "Morocco"
+    },
+    {
+        "en": "Mozambique"
+    },
+    {
+        "en": "Myanmar (Burma)"
+    },
+    {
+        "en": "Namibia"
+    },
+    {
+        "en": "Nauru"
+    },
+    {
+        "en": "Nepal"
+    },
+    {
+        "en": "The Netherlands"
+    },
+    {
+        "en": "New Caledonia"
+    },
+    {
+        "en": "New Zealand"
+    },
+    {
+        "en": "Nicaragua"
+    },
+    {
+        "en": "Niger"
+    },
+    {
+        "en": "Nigeria"
+    },
+    {
+        "en": "Niue"
+    },
+    {
+        "en": "Norfolk Island"
+    },
+    {
+        "en": "North Korea"
+    },
+    {
+        "en": "North Macedonia"
+    },
+    {
+        "en": "Northern Mariana Islands"
+    },
+    {
+        "en": "Norway"
+    },
+    {
+        "en": "Occupied Palestinian Territories"
+    },
+    {
+        "en": "Oman"
+    },
+    {
+        "en": "Pakistan"
+    },
+    {
+        "en": "Palau"
+    },
+    {
+        "en": "Panama"
+    },
+    {
+        "en": "Papua New Guinea"
+    },
+    {
+        "en": "Paraguay"
+    },
+    {
+        "en": "Peru"
+    },
+    {
+        "en": "Philippines"
+    },
+    {
+        "en": "Pitcairn, Henderson, Ducie and Oeno Islands"
+    },
+    {
+        "en": "Poland"
+    },
+    {
+        "en": "Portugal"
+    },
+    {
+        "en": "Puerto Rico"
+    },
+    {
+        "en": "Qatar"
+    },
+    {
+        "en": "Réunion"
+    },
+    {
+        "en": "Romania"
+    },
+    {
+        "en": "Russia"
+    },
+    {
+        "en": "Rwanda"
+    },
+    {
+        "en": "Saint Martin (French part)"
+    },
+    {
+        "en": "Samoa"
+    },
+    {
+        "en": "San Marino"
+    },
+    {
+        "en": "São Tomé and Príncipe"
+    },
+    {
+        "en": "Saudi Arabia"
+    },
+    {
+        "en": "Senegal"
+    },
+    {
+        "en": "Serbia"
+    },
+    {
+        "en": "Seychelles"
+    },
+    {
+        "en": "Sierra Leone"
+    },
+    {
+        "en": "Singapore"
+    },
+    {
+        "en": "Sint Maarten (Dutch Part)"
+    },
+    {
+        "en": "Slovakia"
+    },
+    {
+        "en": "Slovenia"
+    },
+    {
+        "en": "Solomon Islands"
+    },
+    {
+        "en": "Somalia"
+    },
+    {
+        "en": "South Africa"
+    },
+    {
+        "en": "South Georgia and the South Sandwich Islands"
+    },
+    {
+        "en": "South Korea"
+    },
+    {
+        "en": "South Sudan"
+    },
+    {
+        "en": "Spain (including Balearic Islands)"
+    },
+    {
+        "en": "Sri Lanka"
+    },
+    {
+        "en": "St Barthélemy"
+    },
+    {
+        "en": "St Helena, Ascension and Tristan da Cunha"
+    },
+    {
+        "en": "St Kitts and Nevis"
+    },
+    {
+        "en": "St Lucia"
+    },
+    {
+        "en": "St Pierre and Miquelon"
+    },
+    {
+        "en": "St Vincent and the Grenadines"
+    },
+    {
+        "en": "Sudan"
+    },
+    {
+        "en": "Suriname"
+    },
+    {
+        "en": "Svalbard and Jan Mayen"
+    },
+    {
+        "en": "Sweden"
+    },
+    {
+        "en": "Switzerland"
+    },
+    {
+        "en": "Syria"
+    },
+    {
+        "en": "Taiwan"
+    },
+    {
+        "en": "Tajikistan"
+    },
+    {
+        "en": "Tanzania"
+    },
+    {
+        "en": "Thailand"
+    },
+    {
+        "en": "The Bahamas"
+    },
+    {
+        "en": "The Gambia"
+    },
+    {
+        "en": "Togo"
+    },
+    {
+        "en": "Tokelau"
+    },
+    {
+        "en": "Tonga"
+    },
+    {
+        "en": "Trinidad and Tobago"
+    },
+    {
+        "en": "Tunisia"
+    },
+    {
+        "en": "Turkey"
+    },
+    {
+        "en": "Turkmenistan"
+    },
+    {
+        "en": "Turks and Caicos Islands"
+    },
+    {
+        "en": "Tuvalu"
+    },
+    {
+        "en": "Uganda"
+    },
+    {
+        "en": "Ukraine"
+    },
+    {
+        "en": "United Arab Emirates"
+    },
+    {
+        "en": "United States minor outlying islands"
+    },
+    {
+        "en": "United States of America"
+    },
+    {
+        "en": "United States Virgin Islands"
+    },
+    {
+        "en": "Uruguay"
+    },
+    {
+        "en": "Uzbekistan"
+    },
+    {
+        "en": "Vanuatu"
+    },
+    {
+        "en": "Vatican City"
+    },
+    {
+        "en": "Venezuela"
+    },
+    {
+        "en": "Vietnam"
+    },
+    {
+        "en": "Wallis and Futuna"
+    },
+    {
+        "en": "Western Sahara"
+    },
+    {
+        "en": "Yemen"
+    },
+    {
+        "en": "Zambia"
+    },
+    {
+        "en": "Zimbabwe"
+    }
+]
