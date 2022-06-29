@@ -1,9 +1,9 @@
-| Name         | Type         | Required | Description                     |
-| ------------ | ------------ | -------- | ------------------------------- |
-| classes      | string       | false    | Classes to add to the container |
-| unit         | AddressField | false    | Text for the unit field         |
-| organisation | AddressField | false    | Text for the organisation field |
-| line1        | AddressField | false    | Text for the line1 field        |
-| line2        | AddressField | false    | Text for the line2 field        |
-| town         | AddressField | false    | Text for the town field         |
-| postcode     | AddressField | false    | Text for the postcode field     |
+| Name         | Type   | Required | Description                          |
+| ------------ | ------ | -------- | ------------------------------------ |
+| classes      | string | false    | Classes to add to the wrapping `div` |
+| unit         | string | false    | Text for the Unit field              |
+| organisation | string | false    | Text for the Organisation field      |
+| line1        | string | false    | Text for the Address line 1 field    |
+| line2        | string | false    | Text for the Address line 2 field    |
+| town         | string | false    | Text for the Town or city field      |
+| postcode     | string | false    | Text for the Postcode field          |

@@ -6,6 +6,7 @@ export default class Collapsible {
     // State
     this.group = collapsibleElement.getAttribute('data-group');
     this.isAccordion = collapsibleElement.classList.contains('ons-collapsible--accordion');
+    this.isSimpleAccordion = collapsibleElement.classList.contains('ons-collapsible--simple');
 
     // Elements
     this.collapsible = collapsibleElement;
@@ -18,7 +19,7 @@ export default class Collapsible {
     this.collapsible.setAttribute('role', 'group');
     this.collapsibleHeader.setAttribute('aria-controls', collapsibleId);
 
-    if (!this.isAccordion) {
+    if (!this.isAccordion || this.isSimpleAccordion) {
       this.collapsibleHeader.setAttribute('tabindex', 0);
     }
     if (localStorage.getItem(collapsibleId) || this.open) {

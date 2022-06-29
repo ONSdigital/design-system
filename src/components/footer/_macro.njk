@@ -9,21 +9,13 @@
         {% set lang = 'en' %}
     {% endif %}
 
-    {% if params.poweredBy is defined and params.poweredBy %}
-        {% if params.poweredBy.alt is defined and params.poweredBy.alt %}
-            {% set poweredByAlt = params.poweredBy.alt %}
-        {% else %}
-            {% set poweredByAlt = 'Office for National Statistics' %}
-        {% endif %}
-    {% endif %}
-
     {% set poweredByLogo %}
    
         {% if params.poweredBy is defined and params.poweredBy and params.poweredBy.logo is defined and params.poweredBy.logo %}
             {{
                 onsIcon({
                     "iconType": params.poweredBy.logo,
-                    "altText": poweredByAlt
+                    "altText": params.poweredBy.alt | default("Office for National Statistics")
                 })
             }}
         {% else %}
@@ -31,27 +23,19 @@
                 {{
                     onsIcon({
                         "iconType": 'ons-logo-cy',
-                        "altText": poweredByAlt | default('Swyddfa Ystadegau Gwladol')
+                        "altText": params.poweredBy.alt | default('Swyddfa Ystadegau Gwladol')
                     })
                 }}
             {% else %}
                 {{
                     onsIcon({
                         "iconType": 'ons-logo-en',
-                        "altText": poweredByAlt | default('Office for National Statistics')
+                        "altText": params.poweredBy.alt | default('Office for National Statistics')
                     })
                 }}
             {% endif %}
         {% endif %}
    
-    {% endset %}
-
-    {% set crestLogo %}
-        {{
-            onsIcon({
-                "iconType": 'crest'
-            })
-        }}
     {% endset %}
 
     <footer class="ons-footer">
@@ -103,34 +87,9 @@
                         </div>
                     {% endif %}
 
-                    {% if params.language is defined and params.language %}
-                        {% set currentLanguage = params.language.languages | selectattr("current") | first %}
-                        {% set languageNumber = params.language.languages | length %}
-                        <div class="ons-grid__col {% if languageNumber and languageNumber != 2 %} ons-u-d-no@m{% elif languageNumber %} ons-u-d-no{% endif %}">
-                            {% set languageItems = params.language.languages | rejectattr("current") | list %}
-                            {% if currentLanguage.allLanguages is defined and currentLanguage.allLanguages and params.language.allLanguagesUrl is defined and params.language.allLanguagesUrl %}
-                                {% set languageItems = (languageItems.push({
-                                    "url": params.language.allLanguagesUrl,
-                                    "text": currentLanguage.allLanguages,
-                                    "lang": currentLanguage.ISOCode
-                                }), languageItems) %}
-                            {% endif %}
-                            {{
-                                onsList({
-                                    "classes": 'ons-u-mb-no',
-                                    "variants": ['bare', 'inline@m'],
-                                    "itemsList": languageItems
-                                })
-                            }}
-                        </div>
-                        <div class="ons-grid__col {% if languageNumber and languageNumber != 2 %} ons-u-d-no@m{% elif languageNumber %} ons-u-d-no{% endif %} ons-u-mb-m">
-                            <hr class="ons-footer__hr">
-                        </div>
-                    {% endif %}
-
                     {% if params.newTabWarning is defined and params.newTabWarning %}
                         <div class="ons-grid__col">
-                            <p class="ons-u-fs-s ons-u-mb-m">{{ params.newTabWarning | safe }}</p>
+                            <p class="ons-u-fs-s ons-u-mb-m ons-footer__new-tab-warning">{{ params.newTabWarning | safe }}</p>
                         </div>
                     {% endif %}
 
@@ -242,8 +201,12 @@
 
                         {% if params.crest is defined and params.crest %}
                             <!-- Crest -->
-                            <div class="ons-grid__col">
-                                {{ crestLogo | safe }}
+                            <div class="ons-grid__col ons-footer__crest">
+                                {{
+                                    onsIcon({
+                                        "iconType": 'crest'
+                                    })
+                                }}
                             </div>
                         {% elif params.legal is defined and params.legal %}
                             <!-- Powered by -->
@@ -259,7 +222,7 @@
                     <!-- Copyright -->
                     <div class="ons-grid"> 
                         <div class="ons-grid__col ons-u-mt-s">
-                            <p class="ons-u-fs-s ons-u-mb-no">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }}</p>
+                            <p class="ons-u-fs-s ons-u-mb-no ons-footer__copyright">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }}</p>
                         </div>
                     </div>
                 {% endif %}

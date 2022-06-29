@@ -920,8 +920,8 @@ Math.easeInOutQuad = function(t, b, c, d) {
   }
 
   function getInputListLabel(section, inputs) {
-    let counter = 0;
-    label = '';
+    let counter = 0,
+      label = '';
     for (let i = 0; i < inputs.length; i++) {
       if (inputs[i].checked) {
         let labelElement = inputs[i].parentNode.getElementsByTagName('label');

@@ -9,7 +9,19 @@ $backdrop-colour: rgba(0, 0, 0, 0.8);
   margin-right: 2rem;
   max-width: 500px;
   padding: 2rem;
+  position: relative;
   width: auto;
+
+  &-ie11 & {
+    background: $color-white;
+    bottom: 0;
+    height: 350px;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
 
   @media screen and (min-width: 600px) {
     margin-left: auto;
@@ -24,6 +36,11 @@ $backdrop-colour: rgba(0, 0, 0, 0.8);
 
   & + .backdrop {
     background: $backdrop-colour;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }
 

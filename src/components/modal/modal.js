@@ -1,6 +1,7 @@
 import dialogPolyfill from 'dialog-polyfill';
 
 const overLayClass = 'ons-modal-overlay';
+const ie11Class = 'ons-modal-ie11';
 
 export default class Modal {
   constructor(component) {
@@ -8,7 +9,7 @@ export default class Modal {
     this.launcher = document.querySelector(`[data-modal-id=${component.id}]`);
     this.closeButton = component.querySelector('.ons-js-modal-btn');
     this.lastFocusedEl = null;
-
+    this.dialogCSSSupported = true;
     this.initialise();
   }
 
@@ -33,6 +34,7 @@ export default class Modal {
     } else {
       try {
         dialogPolyfill.registerDialog(this.component);
+        this.dialogCSSSupported = false;
         return true;
       } catch (error) {
         /* istanbul ignore next */
@@ -44,9 +46,14 @@ export default class Modal {
   openDialog(event) {
     if (!this.isDialogOpen()) {
       this.component.classList.add('ons-u-db');
-      document.querySelector('body').className += ' ' + overLayClass;
-      this.makePageContentInert();
+      document.querySelector('body').classList.add(overLayClass);
+
+      if (!this.dialogCSSSupported) {
+        document.querySelector('body').classList.add(ie11Class);
+      }
+
       this.saveLastFocusedEl();
+
       if (event) {
         const modal = document.getElementById(event.target.getAttribute('data-modal-id'));
         modal.showModal();
@@ -71,20 +78,6 @@ export default class Modal {
     }
   }
 
-  makePageContentInert() {
-    if (document.querySelector('.ons-page')) {
-      document.querySelector('.ons-page').inert = true;
-      document.querySelector('.ons-page').setAttribute('aria-hidden', 'true');
-    }
-  }
-
-  removeInertFromPageContent() {
-    if (document.querySelector('.ons-page')) {
-      document.querySelector('.ons-page').inert = false;
-      document.querySelector('.ons-page').setAttribute('aria-hidden', 'false');
-    }
-  }
-
   isDialogOpen() {
     return this.component['open'];
   }
@@ -96,9 +89,13 @@ export default class Modal {
       }
       this.component.classList.remove('ons-u-db');
       document.querySelector('body').classList.remove(overLayClass);
+
+      if (!this.dialogCSSSupported) {
+        document.querySelector('body').classList.remove(ie11Class);
+      }
+
       this.component.close();
       this.setFocusOnLastFocusedEl(this.lastFocusedEl);
-      this.removeInertFromPageContent();
     }
   }
 }

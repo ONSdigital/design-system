@@ -22,7 +22,7 @@
     {# Production #}
     {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.url is defined and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
     {% set slash = "" if cdn_url | last == "/" else "/" %}
-    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version  if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.version is defined and pageConfig.cdn.version) or release_version) %}
+    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.version is defined and pageConfig.cdn.version) or release_version) %}
 {% elif pageInfo is defined and pageInfo and pageInfo.version is defined and pageInfo.version %}
     {# Prototype kits #}
     {% set assetsURL = "/" + pageInfo.version %}
@@ -152,7 +152,7 @@
                                 "wide": pageConfig.wide,
                                 "language": pageConfig.language,
                                 "button": pageConfig.signoutButton,
-                                "toggleButton": pageConfig.toggleButton,
+                                "toggleNavigationButton": pageConfig.toggleNavigationButton,
                                 "navigation": pageConfig.navigation,
                                 "phase": pageConfig.phase,
                                 "assetsURL": assetsURL,
@@ -191,7 +191,7 @@
                                         </div>
                                     {% endset %}
                                 {% endif %}
-                                {% if pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "before" %}
+                                {% if pageConfig.asideCol is defined and pageConfig.asideCol and pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "before" %}
                                     {{ aside | safe }}
                                 {% endif %}
                                 <div class="ons-grid__col ons-col-{{ mainColNumber }}@m{{ mainColClasses }}">
@@ -199,7 +199,7 @@
                                         {% block main %}{% endblock %}
                                     </main>
                                 </div>
-                                {% if pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "after" %}
+                                {% if pageConfig.asideCol is defined and pageConfig.asideCol and pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "after" %}
                                     {{ aside | safe }}
                                 {% endif %}
                             </div>

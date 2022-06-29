@@ -44,9 +44,6 @@
       border-top: 3px solid $color-header;
       padding: 0.934rem 0;
     }
-    &--with-description {
-      height: auto;
-    }
   }
   &__title {
     @extend .ons-u-fs-r--b;
@@ -57,13 +54,6 @@
     @include mq(m) {
       margin-bottom: 1rem;
       margin-top: 0.8rem;
-    }
-
-    &--with-description {
-      @include mq(m) {
-        margin-bottom: 0;
-        margin-top: 0.5rem;
-      }
     }
 
     //to allow for differences in size between welsh and english logos
@@ -94,7 +84,7 @@
       }
     }
   }
-  &__desc {
+  &__description {
     @extend .ons-u-fs-s;
     @extend .ons-u-fs-r\@s;
 
@@ -105,12 +95,14 @@
       margin: 0 0 1.1rem;
     }
   }
-  // Modifier - Hero variant
-  &--hero {
+  // Modifier - variants
+  &--description {
     .ons-header {
       &__title {
         @extend .ons-u-fs-m;
         @extend .ons-u-fs-xxl\@m;
+
+        margin-bottom: 0;
       }
     }
   }
@@ -135,11 +127,11 @@
     }
     &__grid-top {
       min-height: 36px;
-    }
-    &-service-nav__link {
-      color: $color-white;
-      &:hover {
-        text-decoration: underline solid $color-white 3px;
+      a {
+        color: $color-white;
+        &:hover {
+          text-decoration: underline solid $color-white 3px;
+        }
       }
     }
   }
@@ -157,13 +149,13 @@
   }
 
   .ons-header__logo--large {
-    @include mq(xxs, 399px) {
+    @include mq(xxs, 454px) {
       display: none;
     }
   }
 
   .ons-header__logo--small {
-    @include mq(400px) {
+    @include mq(455px) {
       display: none;
     }
   }
@@ -178,20 +170,41 @@
     display: block;
   }
 
-  &__bottom {
-    background: $color-header;
-    margin-top: -0.03rem;
-  }
+  &-service-nav {
+    display: inline-block;
 
-  &-search {
-    padding: 1rem;
+    &--mobile {
+      background: $color-branded-tint;
+      padding: 1rem;
+      width: 100%;
+    }
 
-    @include mq(m) {
-      bottom: 65px;
+    &__list {
+      list-style: none;
+      margin: 0;
       padding: 0;
-      position: absolute;
-      right: 1rem;
-      width: 20rem;
+    }
+
+    &__item {
+      display: inline-block;
+      margin: 0 0 0 1rem;
+      &--mobile {
+        display: block;
+        margin: 0 0 0.5rem;
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .ons-language-links {
+      border-top: 1px solid $color-branded;
+      margin: 1.5rem 0 0;
+      padding: 1rem 0 0;
+
+      &__item {
+        margin: 0 0 0.5rem;
+      }
     }
   }
 }

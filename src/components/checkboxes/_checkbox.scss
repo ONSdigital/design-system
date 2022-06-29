@@ -30,6 +30,16 @@ $checkbox-padding: 11px;
     &:checked {
       background-size: 14px;
     }
+
+    &:disabled {
+      border: 2px solid $color-border-disabled;
+      cursor: not-allowed;
+    }
+
+    &:disabled + label {
+      color: $color-grey-35;
+      cursor: not-allowed;
+    }
   }
 
   &--no-border {
@@ -69,6 +79,34 @@ $checkbox-padding: 11px;
 
     & .ons-checkbox__other {
       margin: 0.5rem 0 0.5rem 0.5rem;
+    }
+  }
+
+  &--no-label {
+    & > .ons-checkbox__input {
+      left: auto;
+      position: relative;
+      top: auto;
+      vertical-align: middle;
+
+      &:checked,
+      &:focus {
+        background-color: initial;
+
+        & + .ons-checkbox__label::before {
+          background: none;
+          border: none;
+          box-shadow: none;
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 3px $color-focus;
+      }
+
+      & + .ons-checkbox__label {
+        @extend .ons-u-vh;
+      }
     }
   }
 

@@ -1,0 +1,106 @@
+---
+title: Document list
+experimental: true
+synonyms: downloads, files, search result, article, publication,
+---
+
++++
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/panel/_macro.njk" import onsPanel %}
++++
+
+Creates a list of document items, each with a title, metadata, description and optional thumbnail image. Each document item link can either download a document or link to an HTML page, such as a news article or search result.
+
+{{
+    onsPanel({
+        "body": "This component requires documentation."
+    })
+}}
+
+## Variants
+
+### Downloadable documents
+Use this variant on a page when there are a small amount of files the user needs to download and print, such as posters and booklets.
+
+When a large quantity of files are available to download, use the [download resources pattern](/patterns/download-resources).
+
++++
+{% call onsPanel({
+        "type": 'warn'
+    })
+%}
+    Always use HTML web pages to publish documents where possible. Any downloadable document must meet accessibility standards such as those described in the <a href="https://ons-design.notion.site/PDF-accessibility-guidance-2eb61f038dcd443093da181e7b99f421">brand guidance for PDFs</a>
+{% endcall %}
++++
+
+{{
+    patternlibExample({"path": "components/document-list/examples/document-list-downloads/index.njk"})
+}}
+
+### Search results
+{# TO DO: Link to new search page pattern #}
+Use this variant to build an index of search results.
+{{
+    patternlibExample({"path": "components/document-list/examples/document-list-results/index.njk"})
+}}
+
+#### Featured search result
+{# TO DO: Link to new search page pattern #}
+A featured search result to place at the top of the search results list to add emphasis to one chosen item. The featured search result should only appear once on the first page of results.
+{{
+    patternlibExample({"path": "components/document-list/examples/document-list-result-featured/index.njk"})
+}}
+
+### News articles
+Use this variant to build an list of articles for an index in the [news pattern](/patterns/news).
+{{
+    patternlibExample({"path": "components/document-list/examples/document-list-articles/index.njk"})
+}}
+
+#### Featured news article
+A featured article to display across the full width of the top of the [news index](/patterns/news#news-index) to add emphasis to one chosen item. The featured article should only appear once on the first page of the news index.
+{{
+    patternlibExample({"path": "components/document-list/examples/document-list-article-featured/index.njk"})
+}}
+
+## How to use this component
+
+### Thumbnail images and placeholders
+You will need to set two versions of the thumbnail image, one for standard screens and one double-sized image for retina screens.
+
+Set a folder path for both small and large image sources using the `smallSrc` and `largeSrc` parameters.
+
+Thumbnail images are considered decorative because they do not convey important information, so are hidden from screen readers by using an empty `alt` tag.
+
+If a document does not have a suitable image to use, set `thumbnail: true` to display a placeholder thumbnail. This will make sure the link, metadata and description is aligned with the other documents in the list.
+
+#### Downloadable document thumbnail images
+Always set a thumbnail image for a downloadable document, using the cover or first page of the file. Using a thumbnail helps set the users expectation of the file they download.
+
+Image dimensions for downloadable document thumbnails:
+
+* standard screen is: `96px (width) × 136px (height)`
+* retina screen is: `192px × 272px`
+
+#### News article thumbnail images
+Only set thumbnails for news articles if most of the articles contain images that help describe the content. Use the same image for the thumbnail as the larger image in the article to reinforce the user’s selection.
+
+Image dimensions for news article thumbnails:
+
+* standard screen is: `136px x 96px`
+* retina screen is: `272px × 192px`
+
+Image dimensions for featured news article thumbnails:
+
+* standard screen is: `379px × 248px`
+* retina screen is: `758px × 496px`
+
+## Help improve this component
+Let us know how we could improve this component or share your user research findings.
+{{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/discussions/716",
+        "linkText": "Discuss the ‘Document list’ component on GitHub"
+    })
+}}

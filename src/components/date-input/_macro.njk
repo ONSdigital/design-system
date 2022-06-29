@@ -34,7 +34,8 @@
                 "attributes": params.day.attributes,
                 "label": {
                     "text": params.day.label.text if numberOfFields > 1 else params.legendOrLabel,
-                    "description": params.day.label.description if numberOfFields > 1 else params.description
+                    "description": params.day.label.description if numberOfFields > 1 else params.description,
+                    "id": params.id + "-day-label"
                 },
                 "value": params.day.value
             }) }}
@@ -53,7 +54,8 @@
                 "attributes": params.month.attributes,
                 "label": {
                     "text": params.month.label.text if numberOfFields > 1 else params.legendOrLabel,
-                    "description": params.month.label.description if numberOfFields > 1 else params.description
+                    "description": params.month.label.description if numberOfFields > 1 else params.description,
+                    "id": params.id + "-month-label"
                 },
                 "value": params.month.value
             }) }}
@@ -72,7 +74,8 @@
                 "attributes": params.year.attributes,
                 "label": {
                     "text": params.year.label.text if numberOfFields > 1 else params.legendOrLabel,
-                    "description": params.year.label.description if numberOfFields > 1 else params.description
+                    "description": params.year.label.description if numberOfFields > 1 else params.description,
+                    "id": params.id + "-year-label"
                 },
                 "value": params.year.value
             }) }}
@@ -96,11 +99,11 @@
             "classes": params.classes,
             "dontWrap": params.dontWrap if numberOfFields > 1 else true,
             "legendIsQuestionTitle": params.legendIsQuestionTitle,
-            "checkbox": params.mutuallyExclusive.checkbox,
+            "exclusiveOptions": params.mutuallyExclusive.exclusiveOptions,
             "or": params.mutuallyExclusive.or,
             "deselectMessage": params.mutuallyExclusive.deselectMessage,
             "deselectGroupAdjective": params.mutuallyExclusive.deselectGroupAdjective,
-            "deselectCheckboxAdjective": params.mutuallyExclusive.deselectCheckboxAdjective,
+            "deselectExclusiveOptionAdjective": params.mutuallyExclusive.deselectExclusiveOptionAdjective,
             "error": params.error
         }) %}
             {{ fields | safe }}

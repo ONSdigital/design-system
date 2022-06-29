@@ -34,7 +34,10 @@ layout: none
     {% call onsQuestion({
         "title": 'What is <em class="ons-highlight">John Smith’s</em> date of birth?',
         "description": '<p>For example, 31 3 1980</p>',
-        "legendIsQuestionTitle": true
+        "legendIsQuestionTitle": true,
+        "submitButton": {
+            "text": 'Continue'
+        }
     }) %}
         {{
             onsDateInput({
@@ -69,12 +72,6 @@ layout: none
                 }
             })
         }}
-        {{
-            onsButton({
-                "text": 'Continue',
-                "classes": 'ons-u-mt-xl ons-u-mb-l'
-            })
-        }}
-        <p><a href="/patterns/hub-and-spoke/examples/hub/">Choose another section and return to this later</a></p>
-        {% endcall %}
+    {% endcall %}
+    <p class="ons-u-mt-m"><a href="/patterns/hub-and-spoke/examples/hub/">Choose another section and return to this later</a></p>
 {% endblock %}
