@@ -10,7 +10,7 @@
     {% endif %}
 
     {% set poweredByLogo %}
-   
+
         {% if params.poweredBy is defined and params.poweredBy and params.poweredBy.logo is defined and params.poweredBy.logo %}
             {{
                 onsIcon({
@@ -18,7 +18,7 @@
                     "altText": params.poweredBy.alt | default("Office for National Statistics")
                 })
             }}
-        {% else %}
+        {% else if params.poweredBy is defined and params.poweredBy %}
             {% if params.lang == 'cy' %}
                 {{
                     onsIcon({
