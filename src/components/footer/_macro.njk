@@ -9,25 +9,13 @@
         {% set lang = 'en' %}
     {% endif %}
 
-    {% if params.poweredBy is defined and params.poweredBy %}
-        {% if params.poweredBy.alt is defined and params.poweredBy.alt %}
-            {% set poweredByAlt = params.poweredBy.alt %}
-        {% else %}
-            {% if params.lang == 'cy' %}
-                {% set poweredByAlt = 'Swyddfa Ystadegau Gwladol' %}
-            {% else %}
-                {% set poweredByAlt = 'Office for National Statistics' %}
-            {% endif %}
-        {% endif %}
-    {% endif %}
-
     {% set poweredByLogo %}
 
         {% if params.poweredBy is defined and params.poweredBy and params.poweredBy.logo is defined and params.poweredBy.logo %}
             {{
                 onsIcon({
                     "iconType": params.poweredBy.logo,
-                    "altText": poweredByAlt
+                    "altText": params.poweredBy.alt | default("Office for National Statistics")
                 })
             }}
         {% else %}
@@ -35,14 +23,14 @@
                 {{
                     onsIcon({
                         "iconType": 'ons-logo-cy',
-                        "altText": poweredByAlt
+                        "altText": 'Swyddfa Ystadegau Gwladol'
                     })
                 }}
             {% else %}
                 {{
                     onsIcon({
                         "iconType": 'ons-logo-en',
-                        "altText": poweredByAlt
+                        "altText": 'Office for National Statistics'
                     })
                 }}
             {% endif %}
