@@ -18,7 +18,7 @@
                     "altText": params.poweredBy.alt | default("Office for National Statistics")
                 })
             }}
-        {% else if params.poweredBy is defined and params.poweredBy %}
+        {% elif params.poweredBy is defined and params.poweredBy %}
             {% if params.lang == 'cy' %}
                 {{
                     onsIcon({
