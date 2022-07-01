@@ -282,7 +282,7 @@ layout: none
 
         <div class="ons-grid__col ons-col-4@m ons-push-1@m">
 
-            {% call onsRelatedContent({
+            {{ onsRelatedContent({
                 "ariaLabel": 'Related content',
                 "rows": [
                     {
@@ -350,10 +350,7 @@ layout: none
                         ]
                     }
                 ]
-            }) %}
-
-            {% endcall %}
-
+            }) }}
         </div>
 
     </div>
