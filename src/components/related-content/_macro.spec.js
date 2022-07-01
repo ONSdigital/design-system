@@ -6,9 +6,9 @@ import axe from '../../tests/helpers/axe';
 import { mapAll } from '../../tests/helpers/cheerio';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
-const EXAMPLE_RELATED_CONTENT_BODY = {
+const EXAMPLE_RELATED_CONTENT_GENERAL = {
   title: 'Related information',
-  body: 'Example body text...',
+  id: 'related-general-content',
 };
 
 const EXAMPLE_RELATED_CONTENT_LINKS = {
@@ -38,7 +38,7 @@ const EXAMPLE_RELATED_CONTENT_LINKS = {
 
 describe('macro: related-content', () => {
   describe.each([
-    ['content', EXAMPLE_RELATED_CONTENT_BODY],
+    ['general content', EXAMPLE_RELATED_CONTENT_GENERAL],
     ['list of links', EXAMPLE_RELATED_CONTENT_LINKS],
   ])('mode: %s', (_, params) => {
     it('passes jest-axe checks', async () => {
@@ -78,37 +78,28 @@ describe('macro: related-content', () => {
     });
   });
 
-  describe('mode: content', () => {
-    it('has provided body text', () => {
-      const $ = cheerio.load(renderComponent('related-content', EXAMPLE_RELATED_CONTENT_BODY));
+  describe('mode: general content', () => {
+    it('calls with content', () => {
+      const $ = cheerio.load(renderComponent('related-content', { EXAMPLE_RELATED_CONTENT_GENERAL }, 'Example content...'));
 
-      expect(
-        $('.ons-related-content__body .ons-related-content__body')
-          .text()
-          .trim(),
-      ).toBe('Example body text...');
-    });
-
-    it('has inner content when the macro is called', () => {
-      const $ = cheerio.load(renderComponent('related-content', EXAMPLE_RELATED_CONTENT_BODY, ['<strong>Content</strong>']));
-
-      expect($('.ons-related-content__body .ons-related-content__body').html()).toContain('<strong>Content</strong>');
+      const content = $('.ons-related-content__body')
+        .text()
+        .trim();
+      expect(content).toEqual(expect.stringContaining('Example content...'));
     });
   });
 
   describe('mode: list of links', () => {
-    it('has a title heading for each section of links', () => {
-      const $ = cheerio.load(renderComponent('related-content', EXAMPLE_RELATED_CONTENT_LINKS));
+    it('renders the expected output using the related-content/section macro', () => {
+      const faker = templateFaker();
+      const sectionSpy = faker.spy('related-content/section');
 
-      const values = mapAll($('.ons-related-content__title'), node => node.text().trim());
-      expect(values).toEqual(['Related articles', 'Related links']);
-    });
+      faker.renderComponent('related-content', EXAMPLE_RELATED_CONTENT_LINKS);
 
-    it('has the `id` attribute for each section heading', () => {
-      const $ = cheerio.load(renderComponent('related-content', EXAMPLE_RELATED_CONTENT_LINKS));
-
-      const values = mapAll($('.ons-related-content__title'), node => node.attr('id'));
-      expect(values).toEqual(['related-articles', 'related-links']);
+      expect(sectionSpy.occurrences[0]).toHaveProperty('title', 'Related articles');
+      expect(sectionSpy.occurrences[0]).toHaveProperty('id', 'related-articles');
+      expect(sectionSpy.occurrences[1]).toHaveProperty('title', 'Related links');
+      expect(sectionSpy.occurrences[1]).toHaveProperty('id', 'related-links');
     });
 
     it('has the `aria-labelledby` attribute for each section of links', () => {
