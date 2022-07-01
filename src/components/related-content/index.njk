@@ -10,31 +10,26 @@ synonyms: Side bar, useful links
 
 Related content is used to provide additional information for the user.
 
-## Related links
-Can include single or multiple rows of related links.
-
-### Single row (default)
-{{
-    patternlibExample({"path": "components/related-content/examples/related-links-single-row/index.njk"})
-}}
-
-### Multiple rows (census)
+## Related links example
 
 {{
     patternlibExample({"path": "components/related-content/examples/related-links-multiple-rows/index.njk"})
 }}
 
-## Related content (census)
-Contact details to support languages.
+## Social media links example
 
-### Language helpline (default)
 {{
-    patternlibExample({"path": "components/related-content/examples/related-content/index.njk"})
+    patternlibExample({"path": "components/related-content/examples/related-links-social-media/index.njk"})
 }}
 
-### Language helpline (census)
+## Flexible content example
+
+The example below uses a secondary 'inner' component called `onsRelatedContentSection()`. This can be used multiple times to allow complete flexibility over the content you need to show while maintining the correct spacing and styling.
+
+To use this approach you need to implement `onsRelatedContent()` using `call()`. You should then nest `onsRelatedContentSection()` inside using `call()`. See the `Nunjucks` tab output to see how it works.
+
 {{
-    patternlibExample({"path": "components/related-content/examples/related-content-census/index.njk"})
+    patternlibExample({"path": "components/related-content/examples/related-content-general/index.njk"})
 }}
 
 ## Help improve this component
