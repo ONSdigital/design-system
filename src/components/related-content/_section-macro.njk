@@ -1,0 +1,10 @@
+{% macro onsRelatedContentSection(params) %}
+  <div class="ons-related-content__section">
+    {% if params.title %}
+      <h2 class="ons-related-content__title ons-u-fs-r--b ons-u-mb-xs" {% if params.id %}id="{{ params.id }}"{% endif %}>{{ params.title }}</h2>
+    {% endif %}
+    <div class="ons-related-content__content">
+      {{ caller() if caller }}
+    </div>
+  </div>
+{% endmacro %}
