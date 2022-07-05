@@ -4,15 +4,24 @@
 {% from "components/footer/_macro.njk" import onsFooter %}
 {{
     onsFooter({
-        "rows": [
+        "newTabWarning": 'The following links open in a new tab',
+        "legal": [
             {
                 "itemsList": [
                     {
-                        "text": 'Contact us',
+                        "text": 'Cookies',
                         "url": '#0'
                     },
                     {
-                        "text": 'Cookies and privacy',
+                        "text": 'Accessibility statement',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Privacy and data protection',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Terms and conditions',
                         "url": '#0'
                     }
                 ]
