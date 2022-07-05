@@ -80,7 +80,7 @@
       .ons-navigation--sub & {
         &:hover,
         &--active {
-          border-color: $color-text-link;
+          border-color: $color-branded;
         }
       }
     }
@@ -106,10 +106,10 @@
 
     .ons-navigation--sub &,
     .ons-navigation--sub-mobile & {
-      color: $color-text-link;
+      color: $color-branded-text;
       &:hover,
       &:focus {
-        color: $color-text-link;
+        color: $color-branded-text;
       }
     }
 
@@ -123,5 +123,20 @@
 
   &__item--active > &__link {
     font-weight: 700;
+  }
+
+  &-wrapper {
+    &--neutral {
+      background: $color-header-light;
+      .ons-navigation__item {
+        &--active,
+        &:hover {
+          border-color: $color-branded;
+        }
+        .ons-navigation__link {
+          color: $color-branded-text;
+        }
+      }
+    }
   }
 }

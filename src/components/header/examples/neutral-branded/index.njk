@@ -1,0 +1,65 @@
+---
+"fullWidth": true,
+"theme": 'ids'
+---
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
+        "title": 'ONS Service',
+        "variants": 'neutral',
+        "logoHref": '#0',
+        "titleLogo": 'dummy-brand-logo',
+        "titleLogoHref": '#0',
+        "titleLogoAlt": 'Dummy brand',
+        "mobileLogo": 'ons-logo-stacked-en',
+        "titleLogoHref": '#0',
+        "serviceLinks": {
+            "id": "service-links",
+            "ariaLabel": 'Services menu',
+            "ariaListLabel": 'Menu',
+            "toggleServicesButton": {
+                "text": 'Menu',
+                "ariaLabel": 'Toggle services menu'
+            },
+            "itemsList": [
+                {
+                    "title": "Help",
+                    "url": "#0"
+                },
+                {
+                    "title": "My Account",
+                    "url": "#0"
+                },
+                {
+                    "title": "Sign out",
+                    "url": "#0"
+                }
+            ]
+        },
+        "navigation": {
+            "id": 'main-nav',
+            "ariaLabel": 'Main menu',
+            "currentPath": '#menu-item-2',
+            "currentPageTitle": 'Design system',
+            "itemsList": [
+                {
+                    "title": 'Menu item 1',
+                    "url": '#0'
+                },
+                {
+                    "title": 'Menu item 2',
+                    "url": '#menu-item-2'
+                },
+                {
+                    "title": 'Menu item 3',
+                    "url": '#0'
+                }
+            ],
+            "toggleNavigationButton": {
+                "text": 'Menu',
+                "ariaLabel": 'Toggle main menu'
+            }
+        }
+    })
+}}

@@ -35,6 +35,7 @@ $color-flamingo-pink: #df0667;
 
 // Theme branding
 $color-branded: $color-ocean-blue !default;
+$color-branded-text: $color-ocean-blue !default;
 $color-branded-tint: tint($color-branded, 90%) !default;
 $color-branded-secondary: $color-night-blue !default;
 $color-branded-secondary-tint: tint($color-branded-secondary, 90%) !default;
@@ -49,8 +50,10 @@ $color-branded-supporting-tint: tint($color-branded-supporting, 90%) !default;
 
 // Headers, footers, banners, page
 $color-header: $color-branded !default;
-$color-header-top: $color-white !default;
-$color-header-top-internal: $color-branded-secondary !default;
+$color-header-light: $color-white !default;
+$color-header-masthead: $color-white !default;
+$color-header-masthead-dark: $color-black !default;
+$color-header-masthead-internal: $color-branded-secondary !default;
 $color-cta-bg: $color-branded-tint !default;
 $color-banner-bg: $color-grey-5 !default;
 $color-banner-bg-dark: $color-grey-15 !default;

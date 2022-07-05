@@ -230,9 +230,9 @@ $button-shadow-size: 3px;
 
   &--text-link-inverse & {
     &__inner {
-      color: $color-white;
+      color: $color-text-inverse-link;
       .ons-svg-icon {
-        fill: $color-white;
+        fill: $color-text-inverse-link;
       }
     }
   }
@@ -253,9 +253,9 @@ $button-shadow-size: 3px;
   &--text-link-inverse:active &,
   &--text-link-inverse.active & {
     &__inner {
-      color: $color-branded-tint;
+      color: $color-text-inverse-link-hover;
       .ons-svg-icon {
-        fill: $color-branded-tint;
+        fill: $color-text-inverse-link-hover;
       }
     }
   }
@@ -296,8 +296,25 @@ $button-shadow-size: 3px;
     @extend .ons-btn--secondary;
     &__inner {
       background: transparent;
-      border: 2px solid rgba(0, 0, 0, 0.6);
+      border: 2px solid $color-black;
       color: $color-text;
+      .ons-svg-icon {
+        fill: $color-black !important;
+      }
+    }
+  }
+
+  &--ghost-dark:hover &,
+  &--ghost-dark:active &,
+  &--ghost-dark.active &,
+  &--ghost-dark:active:focus & {
+    &__inner {
+      background: $color-black !important;
+      border-color: $color-black !important;
+      color: $color-white !important;
+      .ons-svg-icon {
+        fill: $color-white !important;
+      }
     }
   }
 
@@ -405,7 +422,7 @@ $button-shadow-size: 3px;
       border: none;
       border-radius: 0;
       box-shadow: none;
-      color: $color-text-link;
+      color: $color-branded-text;
       display: block;
       font-size: 1rem;
       font-weight: normal;
@@ -413,7 +430,7 @@ $button-shadow-size: 3px;
       text-align: left;
 
       .ons-svg-icon {
-        fill: $color-text-link;
+        fill: $color-branded-text;
         float: right;
         margin-top: 3px;
       }
