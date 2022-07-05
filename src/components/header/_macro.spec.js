@@ -475,24 +475,27 @@ describe('macro: header', () => {
 
       faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, ...EXAMPLE_HEADER_NAVIGATION_CONFIG });
 
-      expect(navigationSpy.occurrences).toContainEqual({
-        id: 'main-nav',
-        ariaLabel: 'Main menu',
-        currentPath: '#home',
-        itemsList: [
-          {
-            title: 'Home',
-            url: '#home',
+      expect(navigationSpy.occurrences[0]).toEqual({
+        navigation: {
+          id: 'main-nav',
+          ariaLabel: 'Main menu',
+          currentPath: '#home',
+          itemsList: [
+            {
+              title: 'Home',
+              url: '#home',
+            },
+            {
+              title: 'Guidance',
+              url: '#0',
+            },
+          ],
+          toggleNavigationButton: {
+            text: 'Menu',
+            ariaLabel: 'Toggle main menu',
           },
-          {
-            title: 'Guidance',
-            url: '#0',
-          },
-        ],
-        toggleNavigationButton: {
-          text: 'Menu',
-          ariaLabel: 'Toggle main menu',
         },
+        title: 'Header title',
       });
     });
 
