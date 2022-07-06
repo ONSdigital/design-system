@@ -18,6 +18,7 @@
     padding: 1rem;
 
     @include mq(l) {
+      background: none;
       bottom: 65px;
       padding: 0;
       position: absolute;
