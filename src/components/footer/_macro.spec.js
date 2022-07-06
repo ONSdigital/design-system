@@ -171,6 +171,18 @@ describe('macro: footer', () => {
       const licenseHtml = $('.ons-footer__license').html();
       expect(licenseHtml).toContain(', except where otherwise stated');
     });
+
+    it('renders welsh `post` content when `lang:cy` provided and `OGLLink` is "true"', () => {
+      const $ = cheerio.load(
+        renderComponent('footer', {
+          lang: 'cy',
+          OGLLink: true,
+        }),
+      );
+
+      const licenseHtml = $('.ons-footer__license').html();
+      expect(licenseHtml).toContain(', oni bai y nodir fel arall');
+    });
   });
 
   describe('warning', () => {
