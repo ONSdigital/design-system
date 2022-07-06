@@ -1,7 +1,7 @@
 | Name      | Type    | Required | Description                                                                                                                                                      |
 | --------- | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | titleTag  | string  | false    | The HTML heading tag for the title. Use to ensure the title has a correct semantic order on the page. Defaults to “h2”.                                          |
-| title     | string  | true     | Heading for the share component                                                                                                                                  |
+| title     | string  | false    | Heading for the share component                                                                                                                                  |
 | pageTitle | string  | true     | The `<title>` of the page to be shared                                                                                                                           |
 | pageURL   | string  | true     | The absolute URL of the page to be shared                                                                                                                        |
 | facebook  | boolean | false    | Set to “true” to display a Facebook icon and link to allow sharing to Facebook                                                                                   |
