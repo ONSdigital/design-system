@@ -1,18 +1,18 @@
-| Name                 | Type                           | Required | Description                                                                                            |
-| -------------------- | ------------------------------ | -------- | ------------------------------------------------------------------------------------------------------ |
-| classes              | string                         | false    | Classes to add to the footer                                                                           |
-| footerWarning        | string                         | false    | The HTML content for the footer warning panel                                                          |
-| cols                 | array`<FooterCol>`             | false    | An array of objects for each of the 3 allowed [footer columns](#footercol)                             |
-| rows                 | array`<FooterRow>`             | false    | An array for the first [footer row](#footerrow)                                                        |
-| legal                | array`<LegalRow>`              | false    | An array of for the [row of legal links](#legalrow)                                                    |
-| poweredBy            | object`<PoweredBy>`            | false    | Settings for [a supporting organisation logo](#poweredby)                                              |
-| lang                 | string                         | false    | Set the ISO language code for current page to display the correct language ONS logo. Defaults to “en”. |
-| newTabWarning        | string                         | false    | Leading line of text to warn users that all footer links will open a new tab                           |
-| OGLLink              | object`<OGLLink>`              | false    | An object containing settings for the [Open Government Licence content](#ogllink)                      |
-| copyrightDeclaration | object`<copyrightDeclaration>` | false    | Settings for the [Copyright Declaration](#copyrightdeclaration)                                        |
-| crest                | boolean                        | false    | Set to “true” display the UK Royal Coat or Arms in the footer                                          |
-| wide                 | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to 1280px                          |
-| attributes           | object                         | false    | HTML attributes (for example, data attributes) to add to the footer                                    |
+| Name                 | Type                           | Required | Description                                                                                                                                          |
+| -------------------- | ------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| classes              | string                         | false    | Classes to add to the footer                                                                                                                         |
+| footerWarning        | string                         | false    | The HTML content for the footer warning panel                                                                                                        |
+| cols                 | array`<FooterCol>`             | false    | An array of objects for each of the 3 allowed [footer columns](#footercol)                                                                           |
+| rows                 | array`<FooterRow>`             | false    | An array for the first [footer row](#footerrow)                                                                                                      |
+| legal                | array`<LegalRow>`              | false    | An array of for the [row of legal links](#legalrow)                                                                                                  |
+| poweredBy            | object`<PoweredBy>`            | false    | Settings for [a supporting organisation logo](#poweredby)                                                                                            |
+| lang                 | string                         | false    | Set the ISO language code for current page to display the correct language ONS logo. Defaults to “en”.                                               |
+| newTabWarning        | string                         | false    | Leading line of text to warn users that all footer links will open a new tab                                                                         |
+| OGLLink              | object`<OGLLink>`              | false    | An object containing settings for the [Open Government Licence content](#ogllink). Set to “true” to display the default values for English and Welsh |
+| copyrightDeclaration | object`<copyrightDeclaration>` | false    | Settings for the [Copyright Declaration](#copyrightdeclaration)                                                                                      |
+| crest                | boolean                        | false    | Set to “true” display the UK Royal Coat or Arms in the footer                                                                                        |
+| wide                 | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to 1280px                                                                        |
+| attributes           | object                         | false    | HTML attributes (for example, data attributes) to add to the footer                                                                                  |
 
 ## OGLLink
 
