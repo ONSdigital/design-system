@@ -143,7 +143,7 @@
                                 {% endfor %}
                             {% endif %}
 
-                            {% if params.OGLLink is defined and params.OGLLink %}
+                            {% if params.OGLLink == true or params.OGLLink is defined %}
                                 <!-- OGL -->
                                 <div class="ons-footer__license ons-u-mb-m">
                                     {{
@@ -153,14 +153,23 @@
                                     }}
                                     {% if params.OGLLink.HTML is defined and params.OGLLink.HTML %}
                                         {{ params.OGLLink.HTML | safe }}
-                                    {% else %}
+                                    {% elif params.OGLLink == true or params.OGLLink is defined %}
                                         {% from "components/external-link/_macro.njk" import onsExternalLink %}
-                                        {{ params.OGLLink.pre }} {{
+                                        {% if params.lang == 'cy' %}
+                                            {{ params.OGLLink.pre | default('Mae’r holl gynnwys ar gael o dan y') }} {{
                                             onsExternalLink({
-                                                "url": params.OGLLink.url,
-                                                "linkText": params.OGLLink.link
+                                                "url": params.OGLLink.url | default('https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'),
+                                                "linkText": params.OGLLink.link | default('Drwydded Llywodraeth Leol v3.0')
                                             })
-                                        }}{{ params.OGLLink.post }}
+                                            }}{{ params.OGLLink.post | default(', oni bai y nodir fel arall') }}
+                                        {% else %}
+                                            {{ params.OGLLink.pre | default('All content is available under the') }} {{
+                                                onsExternalLink({
+                                                    "url": params.OGLLink.url | default('https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/'),
+                                                    "linkText": params.OGLLink.link | default('Open Government Licence v3.0')
+                                                })
+                                            }}{{ params.OGLLink.post | default(', except where otherwise stated') }}
+                                        {% endif %}
                                     {% endif %}
                                 </div>
                             {% endif %}
