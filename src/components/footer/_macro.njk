@@ -10,7 +10,7 @@
     {% endif %}
 
     {% set poweredByLogo %}
-   
+
         {% if params.poweredBy is defined and params.poweredBy and params.poweredBy.logo is defined and params.poweredBy.logo %}
             {{
                 onsIcon({
@@ -24,7 +24,7 @@
                 {{
                     onsIcon({
                         "iconType": 'ons-logo-cy',
-                        "altText": params.poweredBy.alt | default('Swyddfa Ystadegau Gwladol'),
+                        "altText": 'Swyddfa Ystadegau Gwladol',
                         "altTextId": 'ons-logo-cy-footer-alt'
                     })
                 }}
@@ -32,7 +32,7 @@
                 {{
                     onsIcon({
                         "iconType": 'ons-logo-en',
-                        "altText": params.poweredBy.alt | default('Office for National Statistics'),
+                        "altText": 'Office for National Statistics',
                         "altTextId": 'ons-logo-en-footer-alt'
                     })
                 }}
