@@ -50,14 +50,17 @@
 
     color: $color-white;
 
+    &-census-logo-en {
+      padding: 0.25rem 0;
+    }
+
     @include mq(m) {
       margin-bottom: 1rem;
       margin-top: 0.8rem;
-    }
 
-    &-census-logo-en {
-      margin: 0.19rem 0 0.2rem;
-      padding: 0.25rem 0;
+      &-census-logo-en {
+        margin: 0.19rem 0 0.2rem;
+      }
     }
 
     &-link {
