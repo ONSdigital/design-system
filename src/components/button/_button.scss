@@ -370,6 +370,12 @@ $button-shadow-size: 3px;
     }
   }
 
+  &--ghost-dark:focus & {
+    &__inner {
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
   &--ghost.active:focus &,
   &--ghost-dark.active:focus &,
   &--dropdown.active:focus & {
