@@ -9,12 +9,11 @@
   & &__title--svg-logo {
     display: block;
     fill: $color-white;
-
-    @include mq(m) {
-      margin: 0.84rem 0;
-    }
+    margin: 0.84rem 0;
 
     @include mq(xxs, 399px) {
+      height: auto;
+      margin: 0.5rem 0;
       max-width: 160px;
     }
   }
@@ -56,13 +55,6 @@
       margin-top: 0.8rem;
     }
 
-    //to allow for differences in size between welsh and english logos
-    &-census-logo-en {
-      @include mq(xxs) {
-        margin: 0.19rem 0 0.2rem;
-        padding: 0.25rem 0;
-      }
-    }
     &-link {
       display: block;
       text-decoration: none;
