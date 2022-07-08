@@ -9,18 +9,17 @@
   & &__title--svg-logo {
     display: block;
     fill: $color-white;
-
-    @include mq(m) {
-      margin: 0.84rem 0;
-    }
+    margin: 0.84rem 0;
 
     @include mq(xxs, 399px) {
+      height: auto;
+      margin: 0.5rem 0;
       max-width: 160px;
     }
   }
   // Elements
   &__top {
-    background: $color-header-top;
+    background: $color-header-masthead;
     width: 100%;
   }
   &__grid-top {
@@ -51,18 +50,19 @@
 
     color: $color-white;
 
+    &-census-logo-en {
+      padding: 0.25rem 0;
+    }
+
     @include mq(m) {
       margin-bottom: 1rem;
       margin-top: 0.8rem;
-    }
 
-    //to allow for differences in size between welsh and english logos
-    &-census-logo-en {
-      @include mq(xxs) {
+      &-census-logo-en {
         margin: 0.19rem 0 0.2rem;
-        padding: 0.25rem 0;
       }
     }
+
     &-link {
       display: block;
       text-decoration: none;
@@ -76,11 +76,6 @@
       }
       &:hover {
         text-decoration: underline solid $color-text-inverse-link 2px;
-      }
-    }
-    &--nav-adj {
-      @include mq(399px) {
-        padding-top: 0.2rem;
       }
     }
   }
@@ -106,9 +101,10 @@
       }
     }
   }
-  &--internal & {
+  &--internal &,
+  &--neutral & {
     &__top {
-      background: $color-header-top-internal;
+      background: $color-header-masthead-internal;
       .ons-svg-logo {
         display: block;
         .ons-svg-logo__group--text,
@@ -131,6 +127,30 @@
         color: $color-white;
         &:hover {
           text-decoration: underline solid $color-white 3px;
+        }
+      }
+    }
+  }
+
+  &--neutral & {
+    &__top {
+      background: $color-header-masthead-dark;
+    }
+
+    &__main {
+      background: $color-header-light;
+
+      &--border {
+        border-bottom: 3px solid $color-header-light;
+        border-top: 3px solid $color-header-light;
+      }
+    }
+
+    &__title {
+      color: $color-branded-text;
+      &-link {
+        &:hover {
+          text-decoration: underline solid $color-branded-text 2px;
         }
       }
     }
@@ -177,6 +197,12 @@
       background: $color-branded-tint;
       padding: 1rem;
       width: 100%;
+    }
+
+    .ons-header--neutral & {
+      &--mobile {
+        background: $color-grey-5;
+      }
     }
 
     &__list {
