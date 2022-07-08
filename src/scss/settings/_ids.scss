@@ -1,0 +1,22 @@
+// IDS brand
+$color-black: #222;
+$color-branded: #624595;
+$color-branded-tint: rgba(98, 69, 149, 0.1); // 10% of brand colour
+$color-branded-secondary: #df0667;
+$color-branded-tertiary: #3c388e;
+$color-branded-supporting: #00a3a6;
+$color-branded-supporting-tint: rgba(#00a3a6, 0.2);
+$color-census-gradient: linear-gradient(to bottom left, #902082 0%, #3c388e 100%);
+
+// Assignment
+$color-tag-bg: $color-branded-supporting-tint;
+$color-text-link-hover: $color-black;
+
+// Overrides
+
+// Hero
+.ons-hero--branded {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 1920 631'%3E%3Cpath fill='%23624595' d='M-1349.24-2232.8c-173.68-176.75-457.73-179.23-634.46-5.54l-77.11 75.79c-176.74 173.69-179.21 457.78-5.54 634.54L248.406 827.797c173.676 176.753 457.726 179.233 634.459 5.539l77.111-75.787c176.734-173.698 179.204-457.782 5.538-634.537L-1349.24-2232.8Z'/%3E%3Cpath fill='url(%23a)' d='M677.643-289.095C532.544-455.023 544.177-441.573 399.186-607.601c-64.281-73.601-101.455-154.869-88.972-257.146 16.772-137.423 83.925-232.563 215.726-276.803 138.046-46.34 257.172-11 352.922 96.47 150.218 168.633 141.258 160.066 289.928 330.069 146.3 167.286 104.82 119.06 250.22 287.121 115.4 133.394 103.7 335.14-24.63 455.142-124.36 116.285-341.34 109.285-454.66-18-151.37-170.02-111.922-127.228-261.777-298.597l-.3.258v-.008Z' style='mix-blend-mode:multiply'/%3E%3Cpath fill='url(%23b)' d='M1989.99 189.542c-113.82 117.27-104.58 107.863-218.49 225.058-50.49 51.959-108.28 84.34-184.59 81.277-102.52-4.121-176.85-48.03-217.49-142.808-42.55-99.274-23.63-189.473 49.99-266.738 115.51-121.224 109.73-114.082 226.34-234.248 114.75-118.244 81.63-84.665 197.02-202.284 91.58-93.363 241.32-96.868 337.7-9.223 93.4 84.93 101.31 245.769 14.11 337.226-116.46 122.156-87.23 90.416-204.79 211.532l.21.208h-.01Z' style='mix-blend-mode:multiply'/%3E%3Cdefs%3E%3ClinearGradient id='a' x1='1516.97' x2='289.445' y1='-485.142' y2='-566.831' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.04' stop-color='%23869A38'/%3E%3Cstop offset='1' stop-color='%234C863F'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='1794.53' x2='1808.07' y1='-419.751' y2='492.72' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.49' stop-color='%23C66B20'/%3E%3Cstop offset='1' stop-color='%23DD902F'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
