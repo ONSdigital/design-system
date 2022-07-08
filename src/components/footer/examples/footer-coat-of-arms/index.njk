@@ -4,24 +4,7 @@
 {% from "components/footer/_macro.njk" import onsFooter %}
 {{
     onsFooter({
-        "rows": [
-            {
-                "itemsList": [
-                    {
-                        "text": 'About the census',
-                        "url": '#0'
-                    },
-                    {
-                        "text": 'Help with the census',
-                        "url": '#0'
-                    },
-                    {
-                        "text": 'Contact us',
-                        "url": '#0'
-                    }
-                ]
-            }
-        ],
+        "crest": true,
         "legal": [
             {
                 "itemsList": [
@@ -36,9 +19,14 @@
                     {
                         "text": 'Privacy and data protection',
                         "url": '#0'
+                    },
+                    {
+                        "text": 'Terms and conditions',
+                        "url": '#0'
                     }
                 ]
             }
-        ]
+        ],
+        "OGLLink": true
     })
 }}

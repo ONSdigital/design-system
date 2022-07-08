@@ -75,7 +75,7 @@
                                     </nav>
                                 </div>
                                 {% if params.serviceLinks.itemsList | length > 1  or params.language is defined and params.language %}
-                                    {% if params.variants == 'internal' %}
+                                    {% if params.variants == 'internal' or params.variants == 'neutral' %}
                                         {% set buttonVariant = ["text-link", "text-link-inverse"] %}
                                     {% else %}
                                         {% set buttonVariant = "text-link" %}
@@ -144,12 +144,18 @@
                             <p class="ons-header__description">{{ params.description }}</p>
                         {% endif %}
                     </div>
+                    
                     {% if params.button is defined and params.button %}
+                        {% if params.variants == 'neutral' %}
+                            {% set buttonVariant = ["ghost", "ghost-dark"] %}
+                        {% else %}
+                            {% set buttonVariant = "ghost" %}
+                        {% endif %}
                         <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
                             {{ onsButton({
                                 "text": params.button.text,
-                                "classes": "ons-u-d-no@xxs@m",
-                                "variants": "ghost",
+                                "classes": "ons-u-d-no@xxs@l" if params.navigation else "ons-u-d-no@xxs@m",
+                                "variants": buttonVariant,
                                 "name": params.button.name,
                                 "attributes": params.button.attributes,
                                 "url": params.button.url,
@@ -178,11 +184,16 @@
                                 </span>
                             {% endif %}
                             {% if params.navigation.toggleNavigationButton is defined and params.navigation.toggleNavigationButton %}
+                                {% if params.variants == 'neutral' %}
+                                    {% set buttonVariant = ["mobile", "ghost-dark"] %}
+                                {% else %}
+                                    {% set buttonVariant = ["mobile", "ghost"] %}
+                                {% endif %}
                                 {{ onsButton({
                                     "text": params.navigation.toggleNavigationButton.text,
                                     "classes": "ons-u-ml-xs ons-u-d-no ons-js-navigation-button",
                                     "buttonStyle": "mobile",
-                                    "variants": ["mobile", "ghost"],
+                                    "variants": buttonVariant,
                                     "attributes": {
                                         "aria-label": params.navigation.toggleNavigationButton.ariaLabel | default("Toggle main menu") ,
                                         "aria-controls": params.navigation.id,
@@ -197,7 +208,7 @@
             </div>
         </div>
         {% if params.navigation is defined and params.navigation %}
-            {{ onsNavigation(params.navigation) }}
+            {{ onsNavigation(params) }}
         {% endif %}
     </header>
 {% endmacro %}
