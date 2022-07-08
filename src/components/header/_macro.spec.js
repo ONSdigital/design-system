@@ -505,9 +505,9 @@ describe('macro: header', () => {
 
       faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, ...EXAMPLE_HEADER_NAVIGATION_CONFIG });
 
-      expect(buttonSpy.occurrences).toContainEqual({
+      expect(buttonSpy.occurrences[0]).toEqual({
         text: 'Menu',
-        classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button',
+        classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
         buttonStyle: 'mobile',
         variants: ['mobile', 'ghost'],
         attributes: {
@@ -547,10 +547,10 @@ describe('macro: header', () => {
         },
       });
 
-      expect(buttonSpy.occurrences).toContainEqual({
+      expect(buttonSpy.occurrences[0]).toEqual({
         text: 'Search',
         classes: 'ons-btn--search ons-u-ml-xs ons-u-d-no ons-js-toggle-search',
-        variants: ['ghost', 'small'],
+        variants: ['small', 'ghost'],
         iconType: 'search',
         iconPosition: 'only',
         attributes: {
