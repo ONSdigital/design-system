@@ -11,7 +11,7 @@
         {% set currentLanguageISOCode = currentLanguage.ISOCode %}
     {% endif %}
 
-    <header class="ons-header {% if params.variants is not string %}{% for variant in params.variants %} ons-header--{{ variant }}{% endfor %}{% else %} ons-header--{{ params.variants }}{% endif %}" role="banner">
+    <header class="ons-header {% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.variants is not string %}{% for variant in params.variants %} ons-header--{{ variant }}{% endfor %}{% else %} ons-header--{{ params.variants }}{% endif %}" role="banner">
         {% if params.phase is defined and params.phase %}
             {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
             {{ onsPhaseBanner(params.phase) }}
@@ -83,7 +83,7 @@
                                         {% endif %}
                                         <div class="ons-grid__col ons-col-auto ons-u-d-no@{{ breakpoint }}">
                                             {{ onsButton({
-                                                "text": params.serviceLinks.toggleServicesButton.text | default("Menu"),
+                                                "text": params.serviceLinks.toggleServicesButton.text | default("Account"),
                                                 "classes": "ons-u-d-no ons-js-toggle-services",
                                                 "type": "button",
                                                 "buttonStyle": "mobile",

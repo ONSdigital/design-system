@@ -121,6 +121,18 @@ describe('macro: header', () => {
       expect($('.ons-header--variant-b').length).toBe(1);
     });
 
+    it('has additionally provided `classes`', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          classes: 'extra-class another-extra-class',
+        }),
+      );
+
+      expect($('.ons-header').hasClass('extra-class')).toBe(true);
+      expect($('.ons-header').hasClass('another-extra-class')).toBe(true);
+    });
+
     it('has the correct container if `fullWidth`', () => {
       const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, fullWidth: true }));
 
@@ -560,6 +572,14 @@ describe('macro: header', () => {
           'aria-expanded': 'false',
         },
       });
+    });
+  });
+
+  describe('mode: without masthead', () => {
+    it('does not render the masthead', () => {
+      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, ...EXAMPLE_HEADER_LANGUAGE_CONFIG, noMasthead: true }));
+
+      expect($('.ons-header__top').length).toBe(0);
     });
   });
 });
