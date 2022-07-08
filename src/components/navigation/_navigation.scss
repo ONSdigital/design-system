@@ -90,8 +90,8 @@
   &__link {
     color: $color-white;
     display: block;
-    margin: 0 0.35rem;
-    padding: 0.1rem 0.55rem;
+    margin: 0 0.75rem;
+    padding: 0.1rem 0;
     text-decoration: none;
 
     &--section {
@@ -107,10 +107,10 @@
 
     .ons-navigation--sub &,
     .ons-navigation--sub-mobile & {
-      color: $color-branded-text;
+      color: $color-text-link;
       &:hover,
       &:focus {
-        color: $color-branded-text;
+        color: $color-text-link-hover;
       }
     }
 
