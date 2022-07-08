@@ -1,8 +1,10 @@
 {% macro onsSharePage(params) %}
     {% from "components/lists/_macro.njk" import onsList %}
 
-    {% set titleTag = params.titleTag | default("h2") %}
-    <{{ titleTag }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</{{ titleTag }}>
+    {% if params.title %}
+        {% set titleTag = params.titleTag | default("h2") %}
+        <{{ titleTag }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</{{ titleTag }}>
+    {% endif %}
 
     {% set list = [] %}
     {% if params.facebook is defined and params.facebook and params.facebook == true %}
