@@ -18,84 +18,41 @@ You should use the appropriate ONS footer at the bottom of any ONS service.
 
 ## Variants
 
-### No OGL
-{{
-    patternlibExample({"path": "components/footer/examples/footer-no-ogl/index.njk"})
-}}
-
-### Crest (no OGL)
-{{
-    patternlibExample({"path": "components/footer/examples/footer-no-ogl-crest/index.njk"})
-}}
-
-### Crest (no OGL - Cymraeg)
-{{
-    patternlibExample({"path": "components/footer/examples/footer-no-ogl-crest-cymraeg/index.njk"})
-}}
-
-### Crest (no OGL - NISRA)
-{{
-    patternlibExample({"path": "components/footer/examples/footer-no-ogl-crest-nisra/index.njk"})
-}}
-
 ### Transactional
-A reduced set of links for use within a transaction funnel such as a questionnaire.
+A reduced set of links for use within a transaction funnel, such as a questionnaire.
+
+To prevent the user leaving a transaction, all footer links can be set to open in a new tab. To avoid repeating the new tab icon when setting `“target”: ‘_blank’` for each link, you can set the `newTabWarning` before the links.
 {{
     patternlibExample({"path": "components/footer/examples/footer-transactional/index.njk"})
 }}
 
-### Powered by ONS
-For badged services where ONS is providing services to external organisations.
+### Welsh
 {{
-    patternlibExample({"path": "components/footer/examples/footer-powered-by-ons/index.njk"})
+    patternlibExample({"path": "components/footer/examples/footer-cymraeg/index.njk"})
 }}
 
-### Transactional – Powered by ONS
-For badged services where ONS is providing services to external organisations, with a reduced set of links as it is within a transaction funnel.
+### Alternative organisation
+Use the `poweredBy` object to set the `logo` name and it’s `alt` text when a service is being provided by one of our partner organisations.
 {{
-    patternlibExample({"path": 'components/footer/examples/footer-powered-by-ons-transactional/index.njk'})
+    patternlibExample({"path": "components/footer/examples/footer-alt-org/index.njk"})
 }}
 
-### Transactional – Powered by ONS (Cymraeg)
+### In partnership with ONS
+When setting `poweredBy` with the `partnership` parameter, the ONS logo is displayed alongside the partner organisation logo, with a prefix to describe the relationship. For example, “In partnership with”.
 {{
-    patternlibExample({"path": 'components/footer/examples/footer-powered-by-ons-transactional-cymraeg/index.njk'})
+    patternlibExample({"path": "components/footer/examples/footer-partnership/index.njk"})
 }}
 
-### Transactional – Two rows (no OGL)
+### With the Royal Coat of Arms
+Set `“crest”: true` to display the Royal Coat of Arms in the footer.
 {{
-    patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl/index.njk'})
+    patternlibExample({"path": "components/footer/examples/footer-coat-of-arms/index.njk"})
 }}
 
-### Transactional – Two rows (no OGL - Cymraeg)
+### With copyright
+Any service using the ONS Address Index API must display Copyright information set by `copyrightDeclaration`.
 {{
-    patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl-cymraeg/index.njk'})
-}}
-
-### Transactional – Two rows (no OGL - NISRA)
-{{
-    patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl-nisra/index.njk'})
-}}
-
-### Transactional – Two rows - Powered by ONS with Crest
-{{
-    patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl-crest/index.njk'})
-}}
-
-### Transactional – Two rows - Powered by ONS with Crest and Copyright
-Copyright information for use within a service that uses postcode lookup functionality.
-For footers that have the `newTabWarning` set like here, the links that will open in a new tab also need the `target` param set to `_blank`.
-{{
-    patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl-crest-copyright/index.njk'})
-}}
-
-### Transactional – Two rows - Powered by ONS with Crest (Cymraeg)
-{{
-    patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl-crest-cymraeg/index.njk'})
-}}
-
-### Transactional – Two rows - Powered by NISRA with Crest
-{{
-    patternlibExample({"path": 'components/footer/examples/footer-transactional-no-ogl-crest-nisra/index.njk'})
+    patternlibExample({"path": 'components/footer/examples/footer-copyright/index.njk'})
 }}
 
 ### Footer Warning
@@ -110,7 +67,7 @@ The warning link and header button should clear any sensitive data stored in the
 
 ### Default
 {{
-    patternlibExample({"path": 'components/footer/examples/footer-no-params/index.njk'})
+    patternlibExample({"path": 'components/footer/examples/footer-default/index.njk'})
 }}
 
 ## Help improve this component
