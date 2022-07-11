@@ -1,4 +1,5 @@
 // Census brand
+$color-white: #fff;
 $color-black: #222;
 $color-branded: #902082;
 $color-branded-tint: rgba(144, 32, 130, 0.1); // 10% of brand colour
@@ -11,3 +12,132 @@ $color-census-gradient: linear-gradient(to bottom left, #902082 0%, #3c388e 100%
 // Assignment
 $color-tag-bg: $color-branded-supporting-tint;
 $color-text-link-hover: $color-black;
+
+// Overrides
+// Hero
+.ons-hero--census {
+  background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
+  display: flex;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  overflow: hidden;
+  padding: 0 !important;
+  position: relative;
+  .ons-hero__container {
+    align-items: flex-end;
+    display: flex;
+    min-height: 400px;
+    position: relative;
+  }
+  .ons-hero__circle-image,
+  .ons-hero__circle-gradient,
+  .ons-hero__circle-lined,
+  .ons-hero__circle {
+    position: absolute;
+  }
+  .ons-hero__circle-image {
+    background-color: $color-white;
+    border-radius: 50%;
+    height: 300px;
+    right: -4px;
+    top: -98px;
+    width: 300px;
+    z-index: 2;
+
+    img {
+      border-radius: 50%;
+      display: block;
+      height: 100%;
+    }
+  }
+  .ons-hero__circle-gradient {
+    background-image: linear-gradient(-45deg, $color-branded 0%, $color-branded 20%, $color-branded-tertiary 60%, #005489 90%);
+    border-radius: 50%;
+    display: block;
+    height: 182px;
+    right: -91px; // Half width of circle
+    top: 0.7rem;
+    width: 182px;
+    z-index: 3;
+  }
+  .ons-hero__circle {
+    background-color: $color-white;
+    border-radius: 50%;
+    display: block;
+    height: 990px;
+    left: 50%;
+    margin-left: -495px; // Half of circle
+    top: 27px;
+    width: 990px;
+    z-index: 1;
+  }
+  .ons-hero__circle-lined {
+    fill: $color-white;
+    height: 133px;
+    opacity: 0.4;
+    right: -24px;
+    top: 114px;
+    width: 133px;
+    z-index: 4;
+  }
+  .ons-hero__details {
+    padding-bottom: 1rem;
+    padding-top: 218px;
+  }
+
+  @media (min-width: 740px) {
+    .ons-hero__details {
+      padding-top: 2rem;
+    }
+    .ons-hero__circle-image {
+      height: 382px;
+      right: -8px;
+      top: -117px;
+      width: 382px;
+    }
+    .ons-hero__circle-gradient {
+      height: 234px;
+      right: -117px; // Half width of circle
+      top: 1rem;
+      width: 234px;
+    }
+    .ons-hero__circle {
+      left: -331px;
+      margin: auto; // Reset
+      top: -288px;
+    }
+    .ons-hero__circle-lined {
+      height: 171px;
+      right: -24px;
+      top: 148px;
+      width: 171px;
+    }
+  }
+
+  @media (min-width: 980px) {
+    .ons-hero__details {
+      padding-right: 2.5rem;
+    }
+    .ons-hero__circle-image {
+      height: 558px;
+      margin: auto;
+      right: 0;
+      top: -176px;
+      width: 558px;
+    }
+    .ons-hero__circle-gradient {
+      height: 342px;
+      right: -171px; // Half width of circle
+      width: 342px;
+    }
+    .ons-hero__circle {
+      top: -369px;
+    }
+    .ons-hero__circle-lined {
+      height: 243px;
+      right: 0;
+      top: 292px; // Reset
+      width: 243px;
+    }
+  }
+}
