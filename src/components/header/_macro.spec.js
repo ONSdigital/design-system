@@ -121,6 +121,18 @@ describe('macro: header', () => {
       expect($('.ons-header--variant-b').length).toBe(1);
     });
 
+    it('has additionally provided `classes`', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          classes: 'extra-class another-extra-class',
+        }),
+      );
+
+      expect($('.ons-header').hasClass('extra-class')).toBe(true);
+      expect($('.ons-header').hasClass('another-extra-class')).toBe(true);
+    });
+
     it('has the correct container if `fullWidth`', () => {
       const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, fullWidth: true }));
 
@@ -505,9 +517,9 @@ describe('macro: header', () => {
 
       faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, ...EXAMPLE_HEADER_NAVIGATION_CONFIG });
 
-      expect(buttonSpy.occurrences).toContainEqual({
+      expect(buttonSpy.occurrences[0]).toEqual({
         text: 'Menu',
-        classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button',
+        classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
         buttonStyle: 'mobile',
         variants: ['mobile', 'ghost'],
         attributes: {
@@ -547,10 +559,10 @@ describe('macro: header', () => {
         },
       });
 
-      expect(buttonSpy.occurrences).toContainEqual({
+      expect(buttonSpy.occurrences[0]).toEqual({
         text: 'Search',
         classes: 'ons-btn--search ons-u-ml-xs ons-u-d-no ons-js-toggle-search',
-        variants: ['ghost', 'small'],
+        variants: ['small', 'ghost'],
         iconType: 'search',
         iconPosition: 'only',
         attributes: {
@@ -560,6 +572,14 @@ describe('macro: header', () => {
           'aria-expanded': 'false',
         },
       });
+    });
+  });
+
+  describe('mode: without masthead', () => {
+    it('does not render the masthead', () => {
+      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, ...EXAMPLE_HEADER_LANGUAGE_CONFIG, noMasthead: true }));
+
+      expect($('.ons-header__top').length).toBe(0);
     });
   });
 });

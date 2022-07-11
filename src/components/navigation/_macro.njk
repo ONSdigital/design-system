@@ -5,14 +5,21 @@
         <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.navigation.fullWidth }}{{ ' ons-container--wide' if params.navigation.wide }}">
             {% if params.navigation.siteSearchAutosuggest is defined and params.navigation.siteSearchAutosuggest and isPatternLib is defined and isPatternLib %}
                 <div class="ons-navigation-search ons-js-navigation-search">
+                    {% set autosuggestClasses = "ons-input-search ons-input-search--icon" %}
+                    {% set autosuggestLabelClasses = "ons-u-pl-m" %}
+                    {% if params.variants == "neutral" %}
+                        {% set autosuggestClasses = autosuggestClasses + ' ons-input-search--dark' %}
+                    {% else %}
+                        {% set autosuggestLabelClasses = autosuggestLabelClasses + ' ons-label--white' %}
+                    {% endif %}
                     {{ onsAutosuggest({
                         "id": "ons-site-search",
                         "containerClasses": "ons-autosuggest-input--header",
-                        "classes": "ons-input--ghost ons-input-search ons-input-search--icon",
+                        "classes": autosuggestClasses,
                         "label": {
                             "text": params.navigation.siteSearchAutosuggest.label,
                             "id": "ons-site-search-label",
-                            "classes": "ons-label--white ons-u-pl-m"
+                            "classes": autosuggestLabelClasses
                         },
                         "accessiblePlaceholder": true,
                         "autocomplete": "off",

@@ -233,4 +233,10 @@
       }
     }
   }
+  &__lang-adjustment {
+    @include mq(l) {
+      margin-right: 21rem;
+      margin-top: -5px !important;
+    }
+  }
 }
