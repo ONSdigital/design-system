@@ -14,14 +14,19 @@ $color-text-link-hover: $color-black;
   background-repeat: no-repeat;
   background-size: cover;
 
-  &__details {
-    padding-top: 6.667rem;
+  &__container {
+    align-items: flex-end !important;
+    min-height: 400px !important;
   }
 }
 // Small bp
 @media (min-width: 500px) {
   .ons-hero {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 739 373'%3E%3Cmask id='a' width='739' height='373' x='0' y='0' maskUnits='userSpaceOnUse' style='mask-type:alpha'%3E%3Cpath fill='%2330279E' d='M0 0h739v372.744H0z'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='url(%23b)' d='M411.285-40.014c-47.454-47.686-43.637-43.824-91.06-91.543-21.022-21.157-33.945-45.184-32.187-76.613 2.371-42.224 20.909-72.578 60.131-88.7 41.073-16.88 78.024-8.49 109.295 22.37 49.059 48.407 46.159 45.975 94.777 94.833 47.837 48.08 34.252 34.198 81.843 82.537 37.766 38.358 38.218 100.1 1.56 139.242-35.52 37.932-101.677 40.137-138.693 3.594-49.44-48.813-36.588-36.555-85.588-85.807l-.09.085.012.002Z' style='mix-blend-mode:multiply'/%3E%3Cpath fill='url(%23c)' d='M904.394 113.651c-48.59 48.857-44.646 44.932-93.258 93.756-21.551 21.649-46.067 34.987-78.179 33.263-43.139-2.322-74.193-21.279-90.755-61.514-17.352-42.144-8.885-80.111 22.551-112.3 49.314-50.517 46.844-47.531 96.612-97.6 48.975-49.258 34.851-35.268 84.092-84.274 39.088-38.884 102.15-39.524 142.228-1.979 38.845 36.382 41.265 104.315 4.039 142.42-49.729 50.9-37.236 37.671-87.419 88.123l.086.093.003.012Z' style='mix-blend-mode:multiply'/%3E%3Cpath fill='%23624595' d='M-668.626-1067.49c-123.006-123.11-322.269-122.95-445.054.39-122.8 123.336-122.62 323.138.39 446.255L301.984 795.779c123.004 123.129 322.268 122.952 445.053-.387 122.797-123.337 122.62-323.139-.386-446.256L-668.626-1067.49Z'/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id='b' x1='663.684' x2='288.583' y1='-116.421' y2='-116.875' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.04' stop-color='%23869A38'/%3E%3Cstop offset='1' stop-color='%234C863F'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' x1='825.463' x2='826.044' y1='-143.449' y2='241.783' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='.49' stop-color='%23C66B20'/%3E%3Cstop offset='1' stop-color='%23DD902F'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+
+    &__container {
+      align-items: center !important;
+    }
   }
 }
 // Medium bp

@@ -23,11 +23,10 @@ $color-text-link-hover: $color-black;
   overflow: hidden;
   padding: 0 !important;
   position: relative;
+
   .ons-hero__container {
     align-items: flex-end;
-    display: flex;
     min-height: 400px;
-    position: relative;
   }
   .ons-hero__circle-image,
   .ons-hero__circle-gradient,

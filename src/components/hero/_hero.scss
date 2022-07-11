@@ -11,7 +11,7 @@
   &__container {
     align-items: center;
     display: flex;
-    min-height: 400px;
+    min-height: 300px;
     position: relative;
 
     &--has-collapsible {
@@ -37,7 +37,7 @@
   }
 
   &__details {
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     padding-top: 1rem;
     position: relative;
     z-index: 5;
