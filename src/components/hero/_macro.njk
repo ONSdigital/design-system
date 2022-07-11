@@ -3,7 +3,7 @@
 {% from "components/icons/_macro.njk" import onsIcon %}
 
 {# style adjustments if dark or light skin #}
-{% if params.censusThemeDark is defined and params.censusThemeDark %}
+{% if params.variants is defined and 'dark' in params.variants %}
     {% set skinName = "dark" %}
 {% else %}
     {% set skinName = "light" %}
@@ -14,33 +14,26 @@
     {% set containerClasses = " ons-hero__container--has-collapsible" %}
 {% endif %}
 
-{# if hero is census-specific or using wide container, change column usage #}
-{% if params.censusTheme is defined and params.censusTheme or params.wide is defined and params.wide %}
+{# if hero is using wide container, change column usage #}
+{% if params.wide is defined and params.wide %}
     {% set detailsColumns = "6" %}
-{% else %}
-    {% set detailsColumns = "8" %}
+{% elif params.detailsColumns is defined and params.detailsColumns %}
+    {% set detailsColumns = params.detailsColumns | default ('8') %}
 {% endif %}
 
-{# if hero style is a dark theme, change theme #}
-{% if params.censusThemeDark is defined and params.censusThemeDark %}
-    {% set detailsClasses = " ons-hero__details--ondark" %}
-{% endif %}
-
-<section class="ons-hero ons-grid--gutterless{% if params.censusTheme is defined and params.censusTheme %} ons-hero--census{% endif %}">
+<section class="ons-hero ons-grid--gutterless{% if params.variants is defined and params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-hero--{{ variant }}{% endfor %}{% else %} ons-hero--{{ params.variants }}{% endif %}{% endif %}">
 
     <div class="ons-hero__container ons-container{{ ' ons-container--wide' if params.wide }}{{ containerClasses }}">
 
-        <div class="ons-hero__details{{ detailsClasses }} ons-grid__col ons-col-{{ detailsColumns }}@m">
+        <div class="ons-hero__details{{ detailsClasses }} ons-grid__col ons-col-{{ detailsColumns }}@m ons-col-10@s@m">
 
             <header>
                 {% if params.preTitleImage is defined and params.preTitleImage %}
                     {% set preTitleImageWithModifier = params.preTitleImage.name|replace(r/(\.[^\.]+)$/, "--" + skinName + "$1") %}
                     <img class="ons-hero__pre-title" src="{{ params.placeholderURL }}/img/{{ preTitleImageWithModifier }}" alt="{{ params.preTitleImage.alt }}">
                 {% endif %}
-                {% if params.censusTheme is defined and params.censusTheme %}
+                {% if params.title is defined and params.title %}
                     <h1 class="ons-hero__title ons-u-fs-xxxl">{{ params.title }}</h1>
-                {% else %}
-                    <h1 class="ons-hero__title">{{ params.title }}</h1>
                 {% endif %}
                 {% if params.subtitle is defined and params.subtitle %}
                     <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
@@ -85,7 +78,7 @@
             {% endif %}
 
         </div>
-        {% if params.censusTheme is defined and params.censusTheme %}
+        {% if params.variants is defined and 'census' in params.variants %}
 
             {% if params.image is defined and params.image %}
             <div class="ons-hero__circle-image">
@@ -101,7 +94,7 @@
 
             <div class="ons-hero__circle-gradient"></div>
 
-            {% if params.censusThemeDark is not defined or params.censusThemeDark == false %}
+            {% if (params.variants is defined and 'census' in params.variants) and ('dark' not in params.variants) %}
                 <div class="ons-hero__circle"></div>
             {% endif %}
 
