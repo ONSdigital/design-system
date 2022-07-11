@@ -86,8 +86,10 @@ $color-text-link-hover: $color-black;
   }
 
   @media (min-width: 740px) {
-    .ons-hero__details {
+    .ons-hero__container {
       align-items: center;
+    }
+    .ons-hero__details {
       padding-top: 2rem;
     }
     .ons-hero__circle-image {
