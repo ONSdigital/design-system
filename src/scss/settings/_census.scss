@@ -87,6 +87,7 @@ $color-text-link-hover: $color-black;
 
   @media (min-width: 740px) {
     .ons-hero__details {
+      align-items: center;
       padding-top: 2rem;
     }
     .ons-hero__circle-image {

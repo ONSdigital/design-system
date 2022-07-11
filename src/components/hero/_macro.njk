@@ -14,12 +14,8 @@
     {% set containerClasses = " ons-hero__container--has-collapsible" %}
 {% endif %}
 
-{# if hero is using wide container, change column usage #}
-{% if params.wide is defined and params.wide %}
-    {% set detailsColumns = "6" %}
-{% elif params.detailsColumns is defined and params.detailsColumns %}
-    {% set detailsColumns = params.detailsColumns | default ('8') %}
-{% endif %}
+{# Set number of columns used for hero content after medium breakpoint #}
+{% set detailsColumns = params.detailsColumns | default ('8') %}
 
 <section class="ons-hero ons-grid--gutterless{% if params.variants is defined and params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-hero--{{ variant }}{% endfor %}{% else %} ons-hero--{{ params.variants }}{% endif %}{% endif %}">
 
