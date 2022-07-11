@@ -6,17 +6,6 @@
   margin: 0;
   position: relative;
 
-  & &__title--svg-logo {
-    display: block;
-    fill: $color-white;
-    margin: 0.84rem 0;
-
-    @include mq(xxs, 399px) {
-      height: auto;
-      margin: 0.5rem 0;
-      max-width: 160px;
-    }
-  }
   // Elements
   &__top {
     background: $color-header-masthead;
@@ -50,26 +39,15 @@
 
     color: $color-white;
 
-    &-census-logo-en {
-      padding: 0.25rem 0;
-    }
-
     @include mq(m) {
       margin-bottom: 1rem;
       margin-top: 0.8rem;
-
-      &-census-logo-en {
-        margin: 0.19rem 0 0.2rem;
-      }
     }
 
     &-link {
       display: block;
       text-decoration: none;
       &:focus {
-        .ons-header__title--svg-logo {
-          fill: $color-text-link-focus;
-        }
         .ons-header__title {
           color: $color-text-link-focus;
         }
@@ -101,6 +79,7 @@
       }
     }
   }
+
   &--internal &,
   &--neutral & {
     &__top {
@@ -113,7 +92,7 @@
         }
       }
     }
-    &__logo-link:focus {
+    &__org-logo-link:focus {
       background-color: transparent;
       box-shadow: none;
       outline: 3px solid $color-focus;
@@ -160,34 +139,42 @@
     display: block;
   }
 
-  &__logo-link:focus {
-    .ons-svg-logo {
-      .ons-svg-logo__group {
+  &__org-logo-link,
+  &__title-logo-link {
+    display: block;
+    &:focus {
+      .ons-svg-logo {
         fill: $color-black !important;
+        .ons-svg-logo__group {
+          fill: $color-black !important;
+        }
+      }
+    }
+    &:hover {
+      font-size: 0;
+      text-decoration: none;
+    }
+  }
+
+  &__title-logo--large {
+    .ons-svg-logo {
+      @include mq(xxs, 399px) {
+        height: auto;
+        max-width: 160px;
       }
     }
   }
 
-  .ons-header__logo--large {
+  &__org-logo--large {
     @include mq(xxs, 454px) {
       display: none;
     }
   }
 
-  .ons-header__logo--small {
+  &__org-logo--small {
     @include mq(455px) {
       display: none;
     }
-  }
-
-  &__logo-link,
-  &__logo-link:hover {
-    font-size: 0;
-    text-decoration: none;
-  }
-
-  &__logo-link {
-    display: block;
   }
 
   &-service-nav {

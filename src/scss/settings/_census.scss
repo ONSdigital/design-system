@@ -1,5 +1,6 @@
 // Census brand
 $color-black: #222;
+$color-white: #fff;
 $color-branded: #902082;
 $color-branded-tint: rgba(144, 32, 130, 0.1); // 10% of brand colour
 $color-branded-secondary: #df0667;
@@ -11,3 +12,9 @@ $color-census-gradient: linear-gradient(to bottom left, #902082 0%, #3c388e 100%
 // Assignment
 $color-tag-bg: $color-branded-supporting-tint;
 $color-text-link-hover: $color-black;
+
+.ons-header__title-logo {
+  .ons-svg-logo {
+    fill: $color-white;
+  }
+}

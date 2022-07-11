@@ -21,26 +21,29 @@
                 <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                     <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{{ ' ons-header__grid-top-tall' if params.customHeaderLogo is defined and params.customHeaderLogo }}">
                         <div class="ons-grid__col ons-col-auto">
-                            <div class="ons-header__logo--large">
-                                {%-if params.logoHref is defined and params.logoHref %}<a class="ons-header__logo-link" href="{{ params.logoHref }}">{% endif -%}
+                            {%-if params.orgLogoHref is defined and params.orgLogoHref %}
+                                <a class="ons-header__org-logo-link" href="{{ params.orgLogoHref }}">
+                            {% endif -%}
+                            <div class="ons-header__org-logo ons-header__org-logo--large">
+
                                 {{
                                     onsIcon({
-                                        "iconType": params.logo | default('ons-logo-' + currentLanguageISOCode),
-                                        "altText": params.logoAlt | default('Office for National Statistics logo')
+                                        "iconType": params.orgLogo | default('ons-logo-' + currentLanguageISOCode),
+                                        "altText": params.orgLogoAlt | default('Office for National Statistics logo')
                                     })
                                 }}
-                                {%- if params.logoHref is defined and params.logoHref %}</a>{% endif -%}
                             </div>
-                            <div class="ons-header__logo--small">
-                                {% if params.logoHref is defined and params.logoHref %}<a class="ons-header__logo-link" href="{{ params.logoHref }}">{% endif %}
+                            <div class="ons-header__org-logo ons-header__org-logo--small">
                                 {{
                                     onsIcon({
-                                        "iconType": params.mobileLogo | default('ons-logo-stacked-' + currentLanguageISOCode),
-                                        "altText": params.logoAlt | default('Office for National Statistics logo')
+                                        "iconType": params.orgMobileLogo | default('ons-logo-stacked-' + currentLanguageISOCode),
+                                        "altText": params.orgLogoAlt | default('Office for National Statistics logo')
                                     })
                                 }}
-                                {% if params.logoHref is defined and params.logoHref %}</a>{% endif %}
                             </div>
+                            {% if params.orgLogoHref is defined and params.orgLogoHref %}
+                                </a>
+                            {% endif %}
                         </div>
                         {% if params.language is defined and params.language or params.serviceLinks is defined and params.serviceLinks %}
                             <div class="ons-header__links ons-grid__col ons-col-auto">
@@ -128,20 +131,43 @@
         <div class="ons-header__main">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div class="ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap">
-                    <div class="ons-grid__col ons-col-auto ons-u-flex-shrink{% if params.titleLogo == 'census-logo-en' %} ons-header__title-census-logo-en{% endif %}">
-                        {% if params.titleLogoHref is defined and params.titleLogoHref %}<a class="ons-header__title-link" href="{{ params.titleLogoHref }}">{% endif %}
+                    <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
                         {% if params.titleLogo is defined and params.titleLogo and params.titleLogoAlt is defined and params.titleLogoAlt %}
-                            {% from "components/icons/_macro.njk" import onsIcon %}
-                            {{
-                                onsIcon({
-                                    "iconType": params.titleLogo,
-                                    "altText": params.titleLogoAlt
-                                })
-                            }}
+                            {% if params.titleLogoHref is defined and params.titleLogoHref %}
+                                <a class="ons-header__title-logo-link" href="{{ params.titleLogoHref }}">
+                            {% endif %}
+                            <div class="ons-header__title-logo ons-header__title-logo--large {% if params.titleLogoClasses %} {{ params.titleLogoClasses }} {% endif %}{% if params.titleLogoMobile is defined and params.titleLogoMobile %}ons-u-d-no@xxs@s{% endif %}">
+                                {% from "components/icons/_macro.njk" import onsIcon %}
+                                {{
+                                    onsIcon({
+                                        "iconType": params.titleLogo,
+                                        "altText": params.titleLogoAlt
+                                    })
+                                }}
+                            </div>
+                            {% if params.titleLogoMobile is defined and params.titleLogoMobile %}
+                                <div class="ons-header__title-logo ons-header__title-logo--mobile ons-u-d-no@s{% if params.titleLogoMobileClasses %} {{ params.titleLogoMobileClasses }}{% endif %}">
+                                    {% from "components/icons/_macro.njk" import onsIcon %}
+                                    {{
+                                        onsIcon({
+                                            "iconType": params.titleLogoMobile,
+                                            "altText": params.titleLogoAlt
+                                        })
+                                    }}
+                                </div>
+                            {% endif %}
+                            {% if params.titleLogoHref is defined and params.titleLogoHref %}
+                                </a>
+                            {% endif %}
                         {% else %}
-                            <{{ title_tag }} class="ons-header__title">{{ params.title }}</{{ title_tag }}>
+                            {% if params.titleLogoHref is defined and params.titleLogoHref %}
+                                <a class="ons-header__title-link" href="{{ params.titleLogoHref }}">
+                            {% endif %}
+                                <{{ title_tag }} class="ons-header__title">{{ params.title }}</{{ title_tag }}>
+                            {% if params.titleLogoHref is defined and params.titleLogoHref %}
+                                </a>
+                            {% endif %}
                         {% endif %}
-                        {% if params.titleLogoHref is defined and params.titleLogoHref %}</a>{% endif %}
                         {% if params.description is defined and params.description %}
                             <p class="ons-header__description">{{ params.description }}</p>
                         {% endif %}
