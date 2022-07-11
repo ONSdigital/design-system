@@ -120,11 +120,11 @@ describe('macro: navigation', () => {
         autocomplete: 'off',
         id: 'ons-site-search',
         containerClasses: 'ons-autosuggest-input--header',
-        classes: 'ons-input--ghost ons-input-search ons-input-search--icon',
+        classes: 'ons-input-search ons-input-search--icon',
         label: {
           text: 'Search the design system',
           id: 'ons-site-search-label',
-          classes: 'ons-label--white ons-u-pl-m',
+          classes: 'ons-u-pl-m ons-label--white',
         },
       });
     });
