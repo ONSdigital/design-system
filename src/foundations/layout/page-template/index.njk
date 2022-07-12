@@ -120,13 +120,16 @@ Variables can be set with:
 | ---------------- | ------ | ------------------------------------ | ------------------------------------------------------------------------------------------ |
 | title            | string | false                                | Title for the page header. If not specified this will default to `page.title`              |
 | classes          | string | false                                | CSS classes to be added to the header                                                      |
-| logo             | string | false                                | URL for the page header logo                                                               |
-| logoAlt          | string | false                                | Alt tag for the page header logo                                                           |
-| logoHref         | string | false                                | URL for the page header logo. If not specified the image will not be wrapped in a link     |
+| orgLogo          | string | false                                | URL for the page header logo                                                               |
+| orgMobileLogo    | string | false                                | URL for image to use for small screens instead of a title string                           |
+| orgLogoAlt       | string | false                                | Alt tag for the page header logo                                                           |
+| orgLogoHref      | string | false                                | URL for the page header logo. If not specified the image will not be wrapped in a link     |
 | titleLogo        | string | false                                | URL for image to use instead of a title string                                             |
-| orgMobileLogo       | string | false                                | URL for image to use for small screens instead of a title string                           |
+| titleLogoMobile  | string | false                                | URL for image to use instead of a title string                                             |
 | titleLogoAlt     | string | false (if `titleLogo` not specified) | Alt tag for the title logo                                                                 |
 | titleLogoHref    | string | false                                | Will wrap the title logo in a link to the specified URL                                    |
+| titleLogoClasses | string | false | Classes to be added to the `titleLogo`. Helpful to add a margin class to control spacing. |
+| titleLogoMobileClasses | string | false | Classes to be added to the `titleLogoMobile`. Helpful to add a margin class to control spacing. |
 | customHeaderLogo | string | false                                | Set to 'true' to make the masthead taller to accommodate a logo with a taller aspect ratio |
 
 ###### HeadMeta
