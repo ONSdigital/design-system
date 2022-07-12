@@ -11,12 +11,14 @@ const EXAMPLE_WITH_TWO_LANGUAGES = {
       url: '/english',
       ISOCode: 'en',
       text: 'English',
+      abbrText: 'EN',
       current: true,
     },
     {
       url: '/cymraeg',
       ISOCode: 'cy',
       text: 'Cymraeg',
+      abbrText: 'CY',
       current: false,
       attributes: {
         a: 123,
@@ -68,7 +70,7 @@ describe('macro: language-selector', () => {
     it('does not show the current language', () => {
       const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_TWO_LANGUAGES));
 
-      expect($('.ons-language-links__item a').text()).toBe('Cymraeg');
+      expect($('.ons-language-links__item a span:last-child').text()).toBe('Cymraeg');
     });
 
     it('has the expected hyperlink URL', async () => {
@@ -95,6 +97,12 @@ describe('macro: language-selector', () => {
       const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_TWO_LANGUAGES));
 
       expect($('.ons-language-links').hasClass('ons-u-d-no@xxs@m')).toBe(false);
+    });
+
+    it('has the `abbrText` rendered', () => {
+      const $ = cheerio.load(renderComponent('language-selector', EXAMPLE_WITH_TWO_LANGUAGES));
+
+      expect($('.ons-language-links__item a span:first-child').text()).toBe('CY');
     });
   });
 

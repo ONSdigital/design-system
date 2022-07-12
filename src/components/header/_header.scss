@@ -6,21 +6,9 @@
   margin: 0;
   position: relative;
 
-  & &__title--svg-logo {
-    display: block;
-    fill: $color-white;
-
-    @include mq(m) {
-      margin: 0.84rem 0;
-    }
-
-    @include mq(xxs, 399px) {
-      max-width: 160px;
-    }
-  }
   // Elements
   &__top {
-    background: $color-header-top;
+    background: $color-header-masthead;
     width: 100%;
   }
   &__grid-top {
@@ -56,31 +44,16 @@
       margin-top: 0.8rem;
     }
 
-    //to allow for differences in size between welsh and english logos
-    &-census-logo-en {
-      @include mq(xxs) {
-        margin: 0.19rem 0 0.2rem;
-        padding: 0.25rem 0;
-      }
-    }
     &-link {
       display: block;
       text-decoration: none;
       &:focus {
-        .ons-header__title--svg-logo {
-          fill: $color-text-link-focus;
-        }
         .ons-header__title {
           color: $color-text-link-focus;
         }
       }
       &:hover {
         text-decoration: underline solid $color-text-inverse-link 2px;
-      }
-    }
-    &--nav-adj {
-      @include mq(399px) {
-        padding-top: 0.2rem;
       }
     }
   }
@@ -106,9 +79,11 @@
       }
     }
   }
-  &--internal & {
+
+  &--internal &,
+  &--neutral & {
     &__top {
-      background: $color-header-top-internal;
+      background: $color-header-masthead-internal;
       .ons-svg-logo {
         display: block;
         .ons-svg-logo__group--text,
@@ -117,7 +92,7 @@
         }
       }
     }
-    &__logo-link:focus {
+    &__org-logo-link:focus {
       background-color: transparent;
       box-shadow: none;
       outline: 3px solid $color-focus;
@@ -136,38 +111,70 @@
     }
   }
 
-  .ons-svg-logo {
-    display: block;
-  }
+  &--neutral & {
+    &__top {
+      background: $color-header-masthead-dark;
+    }
 
-  &__logo-link:focus {
-    .ons-svg-logo {
-      .ons-svg-logo__group {
-        fill: $color-black !important;
+    &__main {
+      background: $color-header-light;
+
+      &--border {
+        border-bottom: 3px solid $color-header-light;
+        border-top: 3px solid $color-header-light;
+      }
+    }
+
+    &__title {
+      color: $color-branded-text;
+      &-link {
+        &:hover {
+          text-decoration: underline solid $color-branded-text 2px;
+        }
       }
     }
   }
 
-  .ons-header__logo--large {
+  .ons-svg-logo {
+    display: block;
+  }
+
+  &__org-logo-link,
+  &__title-logo-link {
+    display: block;
+    &:focus {
+      .ons-svg-logo {
+        fill: $color-black !important;
+        .ons-svg-logo__group {
+          fill: $color-black !important;
+        }
+      }
+    }
+    &:hover {
+      font-size: 0;
+      text-decoration: none;
+    }
+  }
+
+  &__title-logo--large {
+    .ons-svg-logo {
+      @include mq(xxs, 399px) {
+        height: auto;
+        max-width: 160px;
+      }
+    }
+  }
+
+  &__org-logo--large {
     @include mq(xxs, 454px) {
       display: none;
     }
   }
 
-  .ons-header__logo--small {
+  &__org-logo--small {
     @include mq(455px) {
       display: none;
     }
-  }
-
-  &__logo-link,
-  &__logo-link:hover {
-    font-size: 0;
-    text-decoration: none;
-  }
-
-  &__logo-link {
-    display: block;
   }
 
   &-service-nav {
@@ -177,6 +184,12 @@
       background: $color-branded-tint;
       padding: 1rem;
       width: 100%;
+    }
+
+    .ons-header--neutral & {
+      &--mobile {
+        background: $color-grey-5;
+      }
     }
 
     &__list {
@@ -205,6 +218,12 @@
       &__item {
         margin: 0 0 0.5rem;
       }
+    }
+  }
+  &__lang-adjustment {
+    @include mq(l) {
+      margin-right: 21rem;
+      margin-top: -5px !important;
     }
   }
 }

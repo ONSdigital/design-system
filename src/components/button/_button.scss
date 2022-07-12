@@ -230,9 +230,9 @@ $button-shadow-size: 3px;
 
   &--text-link-inverse & {
     &__inner {
-      color: $color-white;
+      color: $color-text-inverse-link;
       .ons-svg-icon {
-        fill: $color-white;
+        fill: $color-text-inverse-link;
       }
     }
   }
@@ -253,9 +253,9 @@ $button-shadow-size: 3px;
   &--text-link-inverse:active &,
   &--text-link-inverse.active & {
     &__inner {
-      color: $color-branded-tint;
+      color: $color-text-inverse-link-hover;
       .ons-svg-icon {
-        fill: $color-branded-tint;
+        fill: $color-text-inverse-link-hover;
       }
     }
   }
@@ -279,8 +279,7 @@ $button-shadow-size: 3px;
     }
   }
 
-  &--ghost &,
-  &--mobile & {
+  &--ghost & {
     &__inner {
       background: transparent;
       border: 2px solid rgba(255, 255, 255, 0.6);
@@ -293,36 +292,51 @@ $button-shadow-size: 3px;
   }
 
   &--ghost-dark & {
-    @extend .ons-btn--secondary;
     &__inner {
       background: transparent;
-      border: 2px solid rgba(0, 0, 0, 0.6);
+      border: 2px solid $color-black;
+      box-shadow: none;
       color: $color-text;
+      .ons-svg-icon {
+        fill: $color-black;
+      }
     }
   }
 
   &--ghost,
-  &--text-link,
-  &--mobile {
+  &--ghost-dark,
+  &--dropdown,
+  &--text-link {
     &:active,
     .active {
       top: 0;
     }
   }
 
-  &--ghost:active:focus {
+  &--ghost:active:focus,
+  &--ghost-dark:active:focus {
     box-shadow: none;
     outline: 3px solid transparent;
   }
 
   &--ghost:focus:hover,
-  &--text-link:focus:hover,
-  &--mobile:focus:hover {
+  &--ghost-dark:focus:hover,
+  &--dropdown:focus:hover,
+  &--text-link:focus:hover {
     outline: none;
   }
 
-  &--ghost:hover &,
-  &--mobile:hover & {
+  &--ghost-dark:focus:hover &,
+  &--dropdown:focus:hover & {
+    &__inner {
+      color: $color-text;
+      .ons-svg-icon {
+        fill: $color-text;
+      }
+    }
+  }
+
+  &--ghost:hover & {
     &__inner {
       background: rgba(0, 0, 0, 0.1);
       border-color: $color-white;
@@ -330,11 +344,8 @@ $button-shadow-size: 3px;
   }
 
   &--ghost:active &,
-  &--mobile:active &,
   &--ghost:active:focus &,
-  &--mobile:active:focus &,
-  &--ghost.active &,
-  &--mobile.active & {
+  &--ghost.active & {
     &__inner {
       background: rgba(0, 0, 0, 0.2);
       border-color: rgba(255, 255, 255, 0.6);
@@ -345,8 +356,23 @@ $button-shadow-size: 3px;
     }
   }
 
+  &--ghost-dark:hover &,
+  &--ghost-dark:active &,
+  &--ghost-dark:active:focus &,
+  &--ghost-dark.active & {
+    &__inner {
+      background: $color-black;
+      border-color: $color-black;
+      color: $color-white;
+      .ons-svg-icon {
+        fill: $color-white;
+      }
+    }
+  }
+
   &--ghost.active:focus &,
-  &--mobile.active:focus & {
+  &--ghost-dark.active:focus &,
+  &--dropdown.active:focus & {
     &__inner {
       background: $color-focus;
       color: $color-text-link-focus;
@@ -357,7 +383,8 @@ $button-shadow-size: 3px;
   }
 
   &--ghost:focus &,
-  &--mobile:focus & {
+  &--ghost-dark:focus &,
+  &--dropdown:focus & {
     &__inner {
       box-shadow: none;
       .ons-svg-icon {
@@ -395,17 +422,22 @@ $button-shadow-size: 3px;
   }
 
   &--dropdown {
-    @extend .ons-btn--ghost;
+    @extend .ons-btn--mobile;
+
+    width: 100%;
+  }
+
+  &--dropdown & {
     @extend .ons-btn--mobile;
 
     width: 100%;
 
-    .ons-btn__inner {
+    &__inner {
       background: $color-branded-tint;
       border: none;
       border-radius: 0;
       box-shadow: none;
-      color: $color-text-link;
+      color: $color-branded-text;
       display: block;
       font-size: 1rem;
       font-weight: normal;
@@ -413,20 +445,30 @@ $button-shadow-size: 3px;
       text-align: left;
 
       .ons-svg-icon {
-        fill: $color-text-link;
+        fill: $color-branded-text;
         float: right;
         margin-top: 3px;
       }
     }
+  }
 
-    &:active,
-    &:active:focus {
-      .ons-btn__inner {
-        background: $color-branded-secondary;
-        color: $color-white;
-        .ons-svg-icon {
-          fill: $color-white;
-        }
+  &--dropdown:hover & {
+    &__inner {
+      background: $color-branded-secondary;
+      color: $color-white;
+      .ons-svg-icon {
+        fill: $color-white;
+      }
+    }
+  }
+
+  &--dropdown:active &,
+  &--dropdown:active:focus & {
+    &__inner {
+      background: $color-branded-secondary;
+      color: $color-white;
+      .ons-svg-icon {
+        fill: $color-white;
       }
     }
   }

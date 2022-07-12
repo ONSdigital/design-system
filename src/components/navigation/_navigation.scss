@@ -18,6 +18,7 @@
     padding: 1rem;
 
     @include mq(l) {
+      background: none;
       bottom: 65px;
       padding: 0;
       position: absolute;
@@ -80,7 +81,7 @@
       .ons-navigation--sub & {
         &:hover,
         &--active {
-          border-color: $color-text-link;
+          border-color: $color-branded;
         }
       }
     }
@@ -89,8 +90,8 @@
   &__link {
     color: $color-white;
     display: block;
-    margin: 0 0.35rem;
-    padding: 0.1rem 0.55rem;
+    margin: 0 0.75rem;
+    padding: 0.1rem 0;
     text-decoration: none;
 
     &--section {
@@ -109,7 +110,7 @@
       color: $color-text-link;
       &:hover,
       &:focus {
-        color: $color-text-link;
+        color: $color-text-link-hover;
       }
     }
 
@@ -123,5 +124,20 @@
 
   &__item--active > &__link {
     font-weight: 700;
+  }
+
+  &-wrapper {
+    &--neutral {
+      background: $color-header-light;
+      .ons-navigation__item {
+        &--active,
+        &:hover {
+          border-color: $color-branded;
+        }
+        .ons-navigation__link {
+          color: $color-branded-text;
+        }
+      }
+    }
   }
 }

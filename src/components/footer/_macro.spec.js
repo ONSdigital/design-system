@@ -11,6 +11,12 @@ const EXAMPLE_POWERED_BY_PARAM = {
   alt: 'Person alt text',
 };
 
+const EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM = {
+  logo: 'person',
+  alt: 'Person alt text',
+  partnership: 'Prefix text string',
+};
+
 const EXAMPLE_OGL_LINK_PARAM = {
   pre: 'All content is available under the',
   link: 'Open Government Licence v3.0',
@@ -164,6 +170,18 @@ describe('macro: footer', () => {
 
       const licenseHtml = $('.ons-footer__license').html();
       expect(licenseHtml).toContain(', except where otherwise stated');
+    });
+
+    it('renders welsh `post` content when `lang:cy` provided and `OGLLink` is "true"', () => {
+      const $ = cheerio.load(
+        renderComponent('footer', {
+          lang: 'cy',
+          OGLLink: true,
+        }),
+      );
+
+      const licenseHtml = $('.ons-footer__license').html();
+      expect(licenseHtml).toContain(', oni bai y nodir fel arall');
     });
   });
 
@@ -369,6 +387,17 @@ describe('macro: footer', () => {
           },
         ],
         [
+          'the `poweredBy.partnership` and `OGLLink` parameters are provided',
+          {
+            poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
+            OGLLink: EXAMPLE_OGL_LINK_PARAM,
+          },
+          {
+            iconType: 'person',
+            altText: 'Person alt text',
+          },
+        ],
+        [
           'the `poweredBy` parameter is not provided but the `legal` parameter is provided',
           {
             legal: EXAMPLE_LEGAL_PARAM,
@@ -395,9 +424,31 @@ describe('macro: footer', () => {
           },
         ],
         [
+          'the `poweredBy.partnership` and `legal` parameters are provided',
+          {
+            poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
+            legal: EXAMPLE_LEGAL_PARAM,
+          },
+          {
+            iconType: 'person',
+            altText: 'Person alt text',
+          },
+        ],
+        [
           'the `poweredBy` and `crest` parameters are provided',
           {
             poweredBy: EXAMPLE_POWERED_BY_PARAM,
+            crest: true,
+          },
+          {
+            iconType: 'person',
+            altText: 'Person alt text',
+          },
+        ],
+        [
+          'the `poweredBy.partnership` and `crest` parameters are provided',
+          {
+            poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
             crest: true,
           },
           {
@@ -418,9 +469,31 @@ describe('macro: footer', () => {
           },
         ],
         [
-          'the `poweredBy` parameter is not provided but the `legal` and `crest` parameters are provided',
+          'the `poweredBy.partnership`, `legal` and `crest` parameters are provided',
+          {
+            poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
+            legal: EXAMPLE_LEGAL_PARAM,
+            crest: true,
+          },
+          {
+            iconType: 'person',
+            altText: 'Person alt text',
+          },
+        ],
+        [
+          'the `poweredBy` parameter is provided but the `legal` and `crest` parameters are not provided',
           {
             poweredBy: EXAMPLE_POWERED_BY_PARAM,
+          },
+          {
+            iconType: 'person',
+            altText: 'Person alt text',
+          },
+        ],
+        [
+          'the `poweredBy.partnership` parameter is provided but the `legal` and `crest` parameters are not provided',
+          {
+            poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
           },
           {
             iconType: 'person',
@@ -531,7 +604,7 @@ describe('macro: footer', () => {
       expect(results).toHaveNoViolations();
     });
 
-    it('renders crest icon when `crest` parameter is provide', () => {
+    it('renders crest icon when `crest` parameter is provided', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
@@ -544,6 +617,62 @@ describe('macro: footer', () => {
       const $ = cheerio.load(renderComponent('footer', params));
 
       expect($('.ons-footer__crest').length).toBe(1);
+    });
+  });
+
+  describe('partnership', () => {
+    const params = {
+      poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
+    };
+
+    it('passes jest-axe checks', async () => {
+      const $ = cheerio.load(renderComponent('footer', params));
+
+      const results = await axe($.html());
+      expect(results).toHaveNoViolations();
+    });
+
+    it('renders ONS icon when `partnership` parameter is provided', () => {
+      const faker = templateFaker();
+      const iconsSpy = faker.spy('icons');
+
+      faker.renderComponent('footer', params);
+
+      expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining({ iconType: 'ons-logo-en' }));
+    });
+
+    it('renders "poweredBy" icon when `partnership` parameter is provided', () => {
+      const faker = templateFaker();
+      const iconsSpy = faker.spy('icons');
+
+      faker.renderComponent('footer', params);
+
+      expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining({ iconType: 'person' }));
+    });
+
+    it('renders "poweredBy" element when `partnership` parameter is provided', () => {
+      const $ = cheerio.load(renderComponent('footer', params));
+
+      expect($('.ons-footer__poweredby').length).toBe(1);
+    });
+
+    it('renders "partnership" and "prefix" elements when `partnership` parameter is provided', () => {
+      const $ = cheerio.load(renderComponent('footer', params));
+
+      expect($('.ons-footer__partnership').length).toBe(1);
+      expect($('.ons-footer__partnership-prefix').length).toBe(1);
+    });
+
+    it('does not render "partnership" element when `partnership` parameter is not provided', () => {
+      const params = {
+        poweredBy: {
+          logo: 'person',
+          alt: 'Person alt text',
+        },
+      };
+      const $ = cheerio.load(renderComponent('footer', params));
+
+      expect($('.ons-footer__partnership').length).toBe(0);
     });
   });
 });
