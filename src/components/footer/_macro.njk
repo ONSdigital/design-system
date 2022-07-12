@@ -38,8 +38,6 @@
                     "altTextId": 'poweredby-alt'
                 })
             }}
-        {% else %}
-            {{ onsLogo | safe }}
         {% endif %}
     {% endset %}
 
@@ -177,9 +175,15 @@
                                 </div>
                             {% endif %}
 
-                            {% if not params.poweredBy.partnership %}
+                            {% if params.poweredBy is defined and params.poweredBy %}
+                                {% if not params.poweredBy.partnership %}
+                                    <div class="ons-footer__poweredby ons-u-mb-m">
+                                        {{ poweredByLogo | safe }}
+                                    </div>
+                                {% endif %}
+                            {% else %}
                                 <div class="ons-footer__poweredby ons-u-mb-m">
-                                    {{ poweredByLogo | safe }}
+                                    {{ onsLogo | safe }}
                                 </div>
                             {% endif %}
                         </div>
