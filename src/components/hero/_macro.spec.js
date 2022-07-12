@@ -158,6 +158,15 @@ describe('macro: hero', () => {
       expect(buttonSpy.occurrences[0]).toHaveProperty('text', 'Get started');
       expect(buttonSpy.occurrences[0]).toHaveProperty('url', '#0');
     });
+
+    it('outputs the correct button class with `dark` theme', () => {
+      const faker = templateFaker();
+      const buttonSpy = faker.spy('button');
+
+      faker.renderComponent('hero', { ...EXAMPLE_HERO_WITH_BUTTON, variants: 'dark' });
+
+      expect(buttonSpy.occurrences[0]).toHaveProperty('classes', ' ons-btn--ghost');
+    });
   });
 
   describe('mode: with pre-title image', () => {

@@ -42,9 +42,13 @@
 
             {% if params.button is defined and params.button %}
                 {% from "components/button/_macro.njk" import onsButton %}
+                {% set btnClasses = params.button.classes if params.button.classes is defined and params.button.classes else '' %}
+                {% if skinName == 'dark' %}
+                    {% set btnClasses = btnClasses + ' ons-btn--ghost' %}
+                {% endif %}
                 {{
                     onsButton({
-                        "classes": params.button.classes if params.button.classes is defined and params.button.classes else '',
+                        "classes": btnClasses,
                         "type": 'button',
                         "text": params.button.text,
                         "url": params.button.url
