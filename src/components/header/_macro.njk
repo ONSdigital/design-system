@@ -196,7 +196,7 @@
                         <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
                             {% if params.noMasthead == true %}
                                 {% if params.language is defined and params.language %}
-                                    <div class="ons-grid__col ons-col-auto ons-u-mt-xxs@xxs@l {% if params.navigation.siteSearchAutosuggest %}ons-header__lang-adjustment{% endif %}">
+                                    <div class="ons-grid__col ons-col-auto ons-u-mt-xxs@xxs@l ons-u-mr-xs@xxs@s {% if params.navigation.siteSearchAutosuggest %}ons-header__lang-adjustment{% endif %}">
                                         {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                                         {{ onsLanguageSelector(params.language) }}
                                     </div>
