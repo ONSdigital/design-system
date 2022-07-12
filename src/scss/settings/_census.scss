@@ -1,6 +1,7 @@
 // Census brand
 $color-white: #fff;
 $color-black: #222;
+$color-white: #fff;
 $color-branded: #902082;
 $color-branded-tint: rgba(144, 32, 130, 0.1); // 10% of brand colour
 $color-branded-secondary: #df0667;
@@ -14,6 +15,14 @@ $color-tag-bg: $color-branded-supporting-tint;
 $color-text-link-hover: $color-black;
 
 // Overrides
+
+// Header logo
+.ons-header__title-logo {
+  .ons-svg-logo {
+    fill: $color-white;
+  }
+}
+
 // Hero
 .ons-hero--census {
   background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
