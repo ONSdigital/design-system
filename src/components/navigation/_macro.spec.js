@@ -14,12 +14,14 @@ const PARAMS = {
   itemsList: [
     {
       title: 'Main nav item 1',
+      ariaLabel: 'Main nav ariaLabel 1',
       url: '#0',
       classes: 'custom-class-main-item-1',
       id: 'main-item-1',
     },
     {
       title: 'Main nav item 2',
+      ariaLabel: 'Main nav ariaLabel 2',
       url: '#1',
       classes: 'custom-class-main-item-2',
       id: 'main-item-2',
@@ -34,12 +36,14 @@ const PARAMS = {
     itemsList: [
       {
         title: 'Sub nav item 1',
+        ariaLabel: 'Sub nav ariaLabel 1',
         url: '#0',
         classes: 'custom-class-sub-item-1',
         id: 'sub-item-1',
       },
       {
         title: 'Sub nav item 2',
+        ariaLabel: 'Sub nav ariaLabel 2',
         url: '#1',
         classes: 'custom-class-sub-item-2',
         id: 'sub-item-2',
@@ -49,10 +53,12 @@ const PARAMS = {
             children: [
               {
                 title: 'Child item 1',
+                ariaLabel: 'Child item ariaLabel 1',
                 url: '#0',
               },
               {
                 title: 'Child item 2',
+                ariaLabel: 'Child item ariaLabel 2',
                 url: '#1',
               },
             ],
@@ -157,6 +163,13 @@ describe('macro: navigation', () => {
       expect(values).toEqual(['Main nav item 1', 'Main nav item 2']);
     });
 
+    it('has the correct aria-label for each list item', () => {
+      const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
+
+      const values = mapAll($('.ons-navigation--main .ons-navigation__link'), node => node.attr('aria-label'));
+      expect(values).toEqual(['Main nav ariaLabel 1', 'Main nav ariaLabel 2']);
+    });
+
     it('has the provided custom class for each list item', () => {
       const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
@@ -228,6 +241,13 @@ describe('macro: navigation', () => {
 
       const values = mapAll($('.ons-navigation--sub .ons-navigation__link'), node => node.text().trim());
       expect(values).toEqual(['Sub nav item 1', 'Sub nav item 2']);
+    });
+
+    it('has the correct aria-label for each list item', () => {
+      const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
+
+      const values = mapAll($('.ons-navigation--sub .ons-navigation__link'), node => node.attr('aria-label'));
+      expect(values).toEqual(['Sub nav ariaLabel 1', 'Sub nav ariaLabel 2']);
     });
 
     it('has the provided custom class for each list item', () => {
