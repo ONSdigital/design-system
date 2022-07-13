@@ -22,6 +22,20 @@ const EXAMPLE_COOKIES_SETTINGS_PAGE = `
   </div>
 `;
 
+const EXAMPLE_PART_COOKIES_SETTINGS_PAGE = `
+  <form data-module="cookie-settings">
+    <input type="radio" class="ons-js-radio" name="cookies-settings" value="on">
+    <input type="radio" class="ons-js-radio" name="cookies-settings" value="off">
+    <input type="radio" class="ons-js-radio" name="cookies-campaigns" value="on">
+    <input type="radio" class="ons-js-radio" name="cookies-campaigns" value="off">
+    <button id="submit-button" type="submit">Submit</button>
+  </form>
+
+  <div class="ons-cookies-confirmation-message ons-u-d-no">
+    <a class="ons-js-return-link" href="#0">Return to previous page</a>
+  </div>
+`;
+
 describe('script: cookies-settings', () => {
   beforeEach(async () => {
     const client = await page.target().createCDPSession();
@@ -43,7 +57,7 @@ describe('script: cookies-settings', () => {
     });
   });
 
-  it('sets all radio buttons to the default values', async () => {
+  it('sets all radio buttons to the default values of every `cookieType`', async () => {
     await setTestPage('/test', EXAMPLE_COOKIES_SETTINGS_PAGE);
 
     const cookiesSettingsOffRadio = await page.$eval('input[name=cookies-settings][value=off]', node => node.checked);
@@ -52,6 +66,16 @@ describe('script: cookies-settings', () => {
 
     expect(cookiesSettingsOffRadio).toBe(true);
     expect(cookiesUsageOffRadio).toBe(true);
+    expect(cookiesCampaignsOffRadio).toBe(true);
+  });
+
+  it('sets the provided radio buttons to the default values of every matched `cookieType`', async () => {
+    await setTestPage('/test', EXAMPLE_PART_COOKIES_SETTINGS_PAGE);
+
+    const cookiesSettingsOffRadio = await page.$eval('input[name=cookies-settings][value=off]', node => node.checked);
+    const cookiesCampaignsOffRadio = await page.$eval('input[name=cookies-campaigns][value=off]', node => node.checked);
+
+    expect(cookiesSettingsOffRadio).toBe(true);
     expect(cookiesCampaignsOffRadio).toBe(true);
   });
 
