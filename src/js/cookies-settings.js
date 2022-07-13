@@ -33,12 +33,14 @@ export default class CookiesSettings {
       let radioButton;
 
       if (currentConsentCookieJSON[cookieType]) {
-        radioButton = document.querySelector('input[name=cookies-' + cookieType + '][value=on]');
+        radioButton = document.querySelector(`input[name=cookies-${cookieType}][value=on]`);
       } else {
-        radioButton = document.querySelector('input[name=cookies-' + cookieType + '][value=off]');
+        radioButton = document.querySelector(`input[name=cookies-${cookieType}][value=off]`);
       }
 
-      radioButton.checked = true;
+      if (radioButton) {
+        radioButton.checked = true;
+      }
     }
   }
 
