@@ -1,45 +1,38 @@
 {% macro onsRelatedContent(params) %}
 
-{% from "components/lists/_macro.njk" import onsList %}
-
-{% if params is defined and params and params.classes is defined and params.classes %}
-  {% set classes = ' ' + params.classes %}
-{% endif %}
+  {% if params is defined and params and params.classes is defined and params.classes %}
+    {% set classes = ' ' + params.classes %}
+  {% endif %}
 
   <aside class="ons-related-content{{ classes }}" aria-label="{{ params.ariaLabel | default("Related content") }}">
 
     <div class="ons-related-content__body">
-
       {% if params.rows is defined and params.rows %}
-
         {% for row in params.rows %}
-          <div class="ons-related-content__section">
-            {% if row.title %}
-              <h2 class="ons-related-content__title ons-u-fs-r--b ons-u-mb-xs" id="{{ row.id }}">{{ row.title }}</h2>
-            {% endif %}
+          {% from "components/related-content/_section-macro.njk" import onsRelatedContentSection %}
+          {% call onsRelatedContentSection(
+            {
+              "title": row.title,
+              "id": row.id
+            }
+          ) %}            
             <nav class="ons-related-content__navigation" aria-labelledby="{{ row.id }}">
+              {% from "components/lists/_macro.njk" import onsList %}
               {{
                 onsList({
                   "variants": 'bare',
+                  "iconType": row.iconType,
                   "iconPosition": row.iconPosition,
                   "iconSize": row.iconSize,
                   "itemsList": row.itemsList
                 })
               }}
             </nav>
-          </div>
+          {% endcall %}
         {% endfor %}
-
       {% else %}
-
-        <h2 class="ons-related-content__title ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</h2>
-
-        <div class="ons-related-content__body">
-          {{ (params.body if params else "") | safe }}{{ caller() if caller }}
-        </div>
-
+        {{ caller() if caller }}
       {% endif %}
-
     </div>
 
   </aside>

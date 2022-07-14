@@ -1,0 +1,62 @@
+---
+"fullWidth": true,
+"theme": 'ids'
+---
+{% from "components/header/_macro.njk" import onsHeader %}
+
+{{
+    onsHeader({
+        "title": 'ONS Service',
+        "variants": 'neutral',
+        "noMasthead": true,
+        "orgLogoHref": '#0',
+        "titleLogo": 'ids-logo-en',
+        "titleLogoMobile": 'ids-logo-en-mobile',
+        "titleLogoClasses": 'ons-u-mt-s ons-u-mb-m',
+        "titleLogoMobileClasses": 'ons-u-mt-xs ons-u-mb-s',
+        "titleLogoHref": '#0',
+        "titleLogoAlt": 'Integrated Data Service',
+        "language": {
+            "languages": [
+                {
+                    "url": '#0',
+                    "ISOCode": 'en',
+                    "text": 'English',
+                    "abbrText": 'EN',
+                    "current": true
+                },
+                {
+                    "url": '#0',
+                    "ISOCode": 'cy',
+                    "text": 'Cymraeg',
+                    "abbrText": 'CY',
+                    "current": false
+                }
+            ]
+        },
+        "navigation": {
+            "id": 'main-nav',
+            "ariaLabel": 'Main menu',
+            "currentPath": '#menu-item-2',
+            "currentPageTitle": 'Design system',
+            "itemsList": [
+                {
+                    "title": 'Menu item 1',
+                    "url": '#0'
+                },
+                {
+                    "title": 'Menu item 2',
+                    "url": '#menu-item-2'
+                },
+                {
+                    "title": 'Menu item 3',
+                    "url": '#0'
+                }
+            ],
+            "toggleNavigationButton": {
+                "text": 'Menu',
+                "ariaLabel": 'Toggle main menu'
+            }
+        }
+    })
+}}

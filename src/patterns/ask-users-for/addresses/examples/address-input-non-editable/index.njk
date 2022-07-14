@@ -12,9 +12,12 @@ layout: none
 } %}
 {% block main %}
     {% call onsQuestion({
-        "title": "What is your address?"
+        "title": "What is your address?",
+        "submitButton": {
+            "text": 'Continue'
+        }
     }) %}
-    
+
     <form action="#0">
         {{ onsAddressInput({
             "id": "address",
@@ -31,7 +34,6 @@ layout: none
             "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
             "ariaYouHaveSelected": "You have selected",
             "ariaMinChars": "Enter 3 or more characters for suggestions.",
-            "ariaResultsLabel": "Address suggestions",
             "ariaOneResult": "There is one suggestion available.",
             "ariaNResults": "There are {n} suggestions available.",
             "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
@@ -57,12 +59,6 @@ layout: none
             "manualLink": "/patterns/addresses/examples/address-input-non-editable/register-address",
             "manualLinkText": "I can’t find my address"
         }) }}
-        {{
-            onsButton({
-                "text": 'Continue',
-                "classes": "ons-u-mt-xl"
-            })
-        }}
     </form>
     {% endcall %}
 {% endblock %}

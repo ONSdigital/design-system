@@ -1,0 +1,63 @@
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+
+{% call onsQuestion({
+    "title": "What type of central heating do you have?",
+    "legendIsQuestionTitle": true
+}) %}
+    {{
+        onsCheckboxes({
+            "id": "central-heating-answers",
+            "dontWrap": true,
+            "checkboxesLabel": "Select all that apply",
+            "name": "mutually-exclusive",
+            "checkboxes": [
+                {
+                    "id": "gas",
+                    "label": {
+                        "text": "Gas"
+                    },
+                    "value": "gas"
+                },
+                {
+                    "id": "electric",
+                    "label": {
+                        "text": "Electric"
+                    },
+                    "value": "electric"
+                },
+                {
+                    "id": "solid-fuel",
+                    "label": {
+                        "text": "Solid fuel"
+                    },
+                    "value": "solid-fuel"
+                }
+            ],
+            "mutuallyExclusive": {
+                "or": "Or",
+                "deselectMessage": "Selecting these will uncheck all other checkboxes",
+                "deselectGroupAdjective": "deselected",
+                "deselectExclusiveOptionAdjective": "deselected",
+                "exclusiveOptions": [
+                    {
+                        "id": "no-central-heating",
+                        "name": "no central heating",
+                        "label": {
+                            "text": "No central heating"
+                        },
+                        "value": "no-central-heating"
+                    },
+                    {
+                        "id": "other",
+                        "name": "other",
+                        "label": {
+                            "text": "Other"
+                        },
+                        "value": "other"
+                    }
+                ]
+            }
+        })
+    }}
+{% endcall %}

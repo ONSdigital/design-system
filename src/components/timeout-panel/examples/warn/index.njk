@@ -1,0 +1,13 @@
+{% from "components/timeout-panel/_macro.njk" import onsTimeoutPanel %}
+
+{{ onsTimeoutPanel ({
+    "id": "countdown",
+    "redirectUrl": "#!",
+    "minutesTextSingular":"minute",
+    "minutesTextPlural":"minutes",
+    "secondsTextSingular":"second",
+    "secondsTextPlural":"seconds",
+    "countdownText":"For security, your answers will only be available to view for another",
+    "nojsText": "For security, your answers will only be available to view for another 1 minute",
+    "countdownExpiredText": "You are being signed out"
+}) }}

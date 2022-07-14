@@ -1,8 +1,9 @@
 .ons-adv-filter {
   &__gallery {
-    border-top: 1px solid $color-grey-15;
+    border-top: 1px solid $color-borders-list;
     margin-left: 0;
     padding-left: 0;
+    padding-top: 1.5rem;
   }
 
   &__item {
@@ -135,14 +136,6 @@ body:not(.ons-js-enabled) {
       display: none;
     }
   }
-}
-
-.ons-filter__item {
-  border-bottom: 1px solid $color-grey-15;
-  display: block; // Accessible way of removing bullets (don’t use list-style-type: none; https://github.com/jensimmons/cssremedy/issues/15#issuecomment-462174177)
-  margin-bottom: 0; // Reset default margin bottom on list items
-  padding-bottom: 1.5rem;
-  padding-top: 1.5rem;
 }
 
 // Prevent scrollbars on body

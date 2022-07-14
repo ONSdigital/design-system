@@ -22,7 +22,7 @@
     {# Production #}
     {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.url is defined and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
     {% set slash = "" if cdn_url | last == "/" else "/" %}
-    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version  if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.version is defined and pageConfig.cdn.version) or release_version) %}
+    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.version is defined and pageConfig.cdn.version) or release_version) %}
 {% elif pageInfo is defined and pageInfo and pageInfo.version is defined and pageInfo.version %}
     {# Prototype kits #}
     {% set assetsURL = "/" + pageInfo.version %}
@@ -149,19 +149,24 @@
                             onsHeader({
                                 "title": pageConfig.header.title | default(pageConfig.title),
                                 "classes": pageConfig.header.classes,
+                                "variants": pageConfig.header.variants,
                                 "wide": pageConfig.wide,
                                 "language": pageConfig.language,
                                 "button": pageConfig.signoutButton,
-                                "toggleButton": pageConfig.toggleButton,
+                                "toggleNavigationButton": pageConfig.toggleNavigationButton,
                                 "navigation": pageConfig.navigation,
                                 "phase": pageConfig.phase,
                                 "assetsURL": assetsURL,
                                 "serviceLinks": pageConfig.serviceLinks,
-                                "logo": pageConfig.header.logo,
-                                "mobileLogo": pageConfig.header.mobileLogo,
-                                "logoAlt": pageConfig.header.logoAlt,
-                                "logoHref": pageConfig.header.logoHref,
+                                "noMasthead": pageConfig.header.noMasthead,
+                                "orgLogo": pageConfig.header.orgLogo,
+                                "orgMobileLogo": pageConfig.header.orgMobileLogo,
+                                "orgLogoAlt": pageConfig.header.orgLogoAlt,
+                                "orgLogoHref": pageConfig.header.orgLogoHref,
                                 "titleLogo": pageConfig.header.titleLogo,
+                                "titleLogoClasses": pageConfig.header.titleLogoClasses,
+                                "titleLogoMobile": pageConfig.header.titleLogoMobile,
+                                "titleLogoMobileClasses": pageConfig.header.titleLogoMobileClasses,
                                 "titleLogoAlt": pageConfig.header.titleLogoAlt,
                                 "titleLogoHref": pageConfig.header.titleLogoHref,
                                 "customHeaderLogo": pageConfig.header.customHeaderLogo
@@ -191,7 +196,7 @@
                                         </div>
                                     {% endset %}
                                 {% endif %}
-                                {% if pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "before" %}
+                                {% if pageConfig.asideCol is defined and pageConfig.asideCol and pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "before" %}
                                     {{ aside | safe }}
                                 {% endif %}
                                 <div class="ons-grid__col ons-col-{{ mainColNumber }}@m{{ mainColClasses }}">
@@ -199,7 +204,7 @@
                                         {% block main %}{% endblock %}
                                     </main>
                                 </div>
-                                {% if pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "after" %}
+                                {% if pageConfig.asideCol is defined and pageConfig.asideCol and pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "after" %}
                                     {{ aside | safe }}
                                 {% endif %}
                             </div>

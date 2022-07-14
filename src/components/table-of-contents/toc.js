@@ -1,35 +1,39 @@
 export default class Toc {
   constructor(component) {
     this.component = component;
-    this.page = this.component.closest('html');
-    this.headings = this.component.querySelectorAll('section[id]');
-    this.observerOptions = {
-      root: null,
-      rootMargin: '0px 0px -70% 0px',
-      threshold: [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-    };
-
-    this.observe = new IntersectionObserver(this.setCurrent, this.observerOptions);
-    this.addIntersectionObserver();
+    this.sections = [...this.component.querySelectorAll('section[id]')];
+    this.refreshIntervalId = setInterval(() => this.setCurrent(), 100);
+    this.setCurrent();
   }
 
-  addIntersectionObserver() {
-    this.headings.forEach(heading => {
-      this.observe.observe(heading);
-    });
-  }
-
-  setCurrent(event) {
-    event.map(element => {
-      const position = element.boundingClientRect;
-      const link = document.querySelector(`.ons-toc li a[href="#${element.target.id}"]`);
-      if (link) {
-        link.classList[element.isIntersecting === true && position.top < 70 && position.top > -100 ? 'add' : 'remove'](
-          'ons-toc__link-active',
-        );
-      } else {
-        console.warn(`element ".ons-toc li a[href="#${element.target.id}"]" is missing`);
+  setCurrent() {
+    let activeSection = this.sections[0];
+    for (let section of this.sections) {
+      const top = section.getBoundingClientRect().top;
+      if (top > 100) {
+        break;
       }
-    });
+
+      activeSection = section;
+
+      if (top >= 0 && top <= 100) {
+        break;
+      }
+    }
+
+    if (activeSection === this.activeSection) {
+      return;
+    }
+
+    this.activeSection = activeSection;
+
+    for (let section of this.sections) {
+      const tocItem = document.querySelector(`.ons-toc .ons-list__link[href="#${section.id}"]`);
+      if (section === activeSection) {
+        tocItem.classList.add('ons-toc__link-active');
+      } else {
+        tocItem.classList.remove('ons-toc__link-active');
+      }
+    }
   }
 }

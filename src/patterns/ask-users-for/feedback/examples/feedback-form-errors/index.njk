@@ -12,7 +12,7 @@ layout: none
     "title": "Survey title",
     "absoluteUrl": pageInfo.url,
     "header": {
-        "logoHref": "#0"
+        "orgLogoHref": "#0"
     },
     "breadcrumbs": {
         "ariaLabel": 'Back',
@@ -41,19 +41,17 @@ layout: none
         {% from "components/lists/_macro.njk" import onsList %}
         {{
             onsList({
-                "element": "ol",
+                "element": 'ol',
                 "itemsList": [
                     {
                         "text": "Select what question topic your feedback is about",
-                        "index": true,
                         "url": "#feedback-type",
-                        "variants": "inPageLink"
+                        "variants": 'inPageLink'
                     },
                     {
                         "text": "Enter your feedback",
-                        "index": true,
                         "url": "#feedback-content",
-                        "variants": "inPageLink"
+                        "variants": 'inPageLink'
                     }
                 ]
             })
@@ -61,7 +59,10 @@ layout: none
     {% endcall %}
 
     {% call onsQuestion ({
-        "title": "Give feedback about this service"
+        "title": "Give feedback about this service",
+        "submitButton": {
+            "text": "Send feedback"
+        }
     }) %}
 
         {{
@@ -171,10 +172,4 @@ layout: none
             })
         }}
     {% endcall %}
-    {{
-        onsButton({
-            "text": "Send feedback",
-            "classes": "ons-u-mt-m"
-        })
-    }}
 {% endblock %}

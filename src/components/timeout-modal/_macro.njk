@@ -1,5 +1,5 @@
 {% from "components/modal/_macro.njk" import onsModal %}
-{% macro onsTimeoutModal(params) %}    
+{% macro onsTimeoutModal(params) %}
     {% call onsModal({
             "title": params.title,
             "btnText": params.btnText,
@@ -10,11 +10,12 @@
                 "data-show-modal-time": params.showModalTimeInSeconds,
                 "data-server-session-expiry-endpoint": params.serverSessionExpiryEndpoint,
                 "data-countdown-text": params.countdownText,
-                "data-redirecting-text": params.redirectingText,
+                "data-countdown-expired-text": params.countdownExpiredText,
                 "data-minutes-text-singular": params.minutesTextSingular,
                 "data-minutes-text-plural": params.minutesTextPlural,
                 "data-seconds-text-singular": params.secondsTextSingular,
                 "data-seconds-text-plural": params.secondsTextPlural,
+                "data-full-stop": params.endWithFullStop,
                 "aria-describedby": "timeout-time-remaining"
             }
         })

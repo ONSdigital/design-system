@@ -17,7 +17,6 @@
 
     {% set fields %}
         {% if params.field1 is defined and params.field1 %}
-            
             {{ onsInput({
                 "id": params.field1.id,
                 "classes": (" ons-input--error" if (params.error is defined and params.error and params.field1.error is defined and params.field1.error) or (numberOfFields > 1 and params.error is defined and params.error and not params.field1.error and not params.field2.error) else "") + (" ons-js-exclusive-group-item" if params.mutuallyExclusive else ""),
@@ -26,8 +25,9 @@
                 "name": params.field1.name,
                 "value": params.field1.value,
                 "suffix": {
-                    "title": params.field1.suffix,
-                    "text": params.field1.suffix
+                    "text": params.field1.suffix.text,
+                    "title": params.field1.suffix.title | default(params.field1.suffix.text),
+                    "id": params.field1.suffix.id
                 },
                 "label": {
                     "text": params.legendOrLabel if numberOfFields < 2,
@@ -48,8 +48,9 @@
                 "name": params.field2.name,
                 "value": params.field2.value,
                 "suffix": {
-                    "title": params.field2.suffix,
-                    "text": params.field2.suffix
+                    "text": params.field2.suffix.text,
+                    "title": params.field2.suffix.title | default(params.field2.suffix.text),
+                    "id": params.field2.suffix.id
                 },
                 "label": {
                     "text": params.legendOrLabel if numberOfFields < 2,
@@ -65,7 +66,7 @@
     {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
         {% set mutuallyExclusive = params.mutuallyExclusive | setAttributes({
             "id": params.id,
-            "legend": params.legend,
+            "legend": params.legendOrLabel,
             "legendClasses": params.legendClasses,
             "description": params.description,
             "error": params.error,

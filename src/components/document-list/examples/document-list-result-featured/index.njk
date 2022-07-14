@@ -1,0 +1,19 @@
+{% from "components/document-list/_macro.njk" import onsDocumentList %}
+
+{{ onsDocumentList({
+    "documents": [
+        {
+            "featured": true,
+            "showMetadataFirst": true,
+            "url": '#0',
+            "title": 'Crime and justice',
+            "metadata": {
+                "type": {
+                    "text": 'Topic'
+                }
+            },
+            "description": '<p>Figures on <em class="ons-highlight">crime</em> levels and trends for England and Wales based primarily on two sets of statistics: the <em class="ons-highlight">Crime</em> Survey for England and Wales (CSEW) and police recorded crime data.</p>
+            <p>View all <a href="#0">datasets</a> or <a href="#0">publications</a> related to <a href="#0">Crime and justice</a></p>'
+        }
+    ]
+}) }}

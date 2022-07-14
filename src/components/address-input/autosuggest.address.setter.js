@@ -1,6 +1,7 @@
 import AddressError from './autosuggest.address.error';
 
 export const classAutosuggestInput = 'ons-js-autosuggest-input';
+export const classOrganisation = 'ons-js-address-organisation';
 export const classLine1 = 'ons-js-address-line1';
 export const classLine2 = 'ons-js-address-line2';
 export const classTown = 'ons-js-address-town';
@@ -17,12 +18,13 @@ export default class AddressSetter {
   constructor(context) {
     this.context = context;
     this.input = context.querySelector(`.${classAutosuggestInput}`);
+    this.organisation = context.querySelector(`.${classOrganisation}`);
     this.line1 = context.querySelector(`.${classLine1}`);
     this.line2 = context.querySelector(`.${classLine2}`);
     this.town = context.querySelector(`.${classTown}`);
     this.postcode = context.querySelector(`.${classPostcode}`);
     this.uprn = context.querySelector(`.${classInputUPRN}`);
-    this.manualInputs = [this.line1, this.line2, this.town, this.postcode, this.uprn];
+    this.manualInputs = [this.organisation, this.line1, this.line2, this.town, this.postcode, this.uprn];
     this.search = context.querySelector(`.${classSearch}`);
     this.manual = context.querySelector(`.${classManual}`);
     this.searchButton = context.querySelector(`.${classSearchButton}`);
@@ -102,14 +104,18 @@ export default class AddressSetter {
 
   clearManualInputs() {
     this.manualInputs.forEach(input => {
-      input.value = '';
+      if (input) {
+        input.value = '';
+      }
     });
   }
 
   checkManualInputsValues(onLoad) {
     if (onLoad) {
       this.originalValues = this.manualInputs.map(input => {
-        return input.value;
+        if (input) {
+          return input.value;
+        }
       });
     } else if (this.uprn.value !== '' && this.originalValues.length) {
       this.newValues = this.manualInputs.map(input => {

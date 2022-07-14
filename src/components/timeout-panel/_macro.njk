@@ -1,0 +1,25 @@
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% macro onsTimeoutPanel(params) %}
+    {% call onsPanel({
+            "id": params.id,
+            "classes": "ons-js-panel-with-countdown",
+            "type": "warn",
+            "attributes": {
+                "data-redirect-url": params.redirectUrl,
+                "data-server-session-expires-at": params.sessionExpiresAt,
+                "data-countdown-text": params.countdownText,
+                "data-countdown-expired-text": params.countdownExpiredText,
+                "data-minutes-text-singular": params.minutesTextSingular,
+                "data-minutes-text-plural": params.minutesTextPlural,
+                "data-seconds-text-singular": params.secondsTextSingular,
+                "data-seconds-text-plural": params.secondsTextPlural,
+                "data-full-stop": params.endWithFullStop,
+                "aria-describedby": "timeout-time-remaining"
+            }
+        })
+    %}
+        <noscript><p class="ons-js-nojs-text">{{ params.nojsText }}</p></noscript>
+        <p class="ons-js-timeout-timer" aria-hidden="true" aria-relevant="additions"></p>
+        <p class="ons-js-timeout-timer-acc ons-u-vh" role="status" id="timeout-time-remaining"></p>
+    {% endcall %}
+{% endmacro %}

@@ -12,26 +12,32 @@
         "field1": {
             "id": "address-duration-years",
             "name": "address-duration-years",
-            "suffix": "Years"
+            "suffix": {
+                "text": "Years"
+            }
         },
         "field2": {
             "id": "address-duration-months",
             "name": "address-duration-months",
-            "suffix": "Months"
+            "suffix": {
+                "text": "Months"
+            }
         },
         "mutuallyExclusive": {
             "or": "Or",
             "deselectMessage": "Selecting this will clear the date if one has been inputted",
             "deselectGroupAdjective": "cleared",
-            "deselectCheckboxAdjective": "deselected",
-            "checkbox": {
-                "id": "duration-exclusive-checkbox",
-                "name": "no-duration",
-                "value": "no-duration",
-                "label": {
-                    "text": "I have not moved in to this address yet"
+            "deselectExclusiveOptionAdjective": "deselected",
+            "exclusiveOptions": [
+                {
+                    "id": "duration-exclusive-checkbox",
+                    "name": "no-duration",
+                    "value": "no-duration",
+                    "label": {
+                        "text": "I have not moved in to this address yet"
+                    }
                 }
-            }
+            ]
         }
     }) }}
 {% endcall %}

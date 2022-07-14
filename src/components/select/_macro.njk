@@ -4,12 +4,11 @@
 
     {% call onsField({
         "id": params.fieldId,
-        "classes": params.fieldClases,
+        "classes": params.fieldClasses,
         "legendClasses": params.legendClasses,
         "dontWrap": params.dontWrap,
-        "legendIsQuestionTitle": params.legendIsQuestionTitle,
         "error": params.error,
-        "inline": params.label.inline
+        "inline": params.label.inline if params.label is defined and params.label else ''
     }) %}
         {{
             onsLabel({
@@ -22,13 +21,13 @@
         <select
             id="{{ params.id }}"
             name="{{ params.name }}"
-            class="ons-input ons-input--select{% if params.classes %} {{ params.classes }}{% endif %}{% if params.select and params.select.error %} ons-input--error{% endif %}"
+            class="ons-input ons-input--select{% if params.classes %} {{ params.classes }}{% endif %}{% if params.error is defined and params.error %} ons-input--error{% endif %}"
             {% if params.value is defined and params.value %}value="{{ params.value}}" {% endif %}
             {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
             {% for option in params.options %}
             <option value="{{ option.value | default(option.text) }}"
-                {% if option.id is defined and option.id %}"id"="{{ option.id }}" {% endif %}
+                {% if option.id is defined and option.id %}id="{{ option.id }}" {% endif %}
                 {% if option.selected is defined and option.selected %}selected {% endif %}
                 {% if option.disabled is defined and option.disabled %}disabled {% endif %}
                 {% if params.attributes is defined and params.attributes %}{% for attribute, value in option.attributes %}{{ attribute }}="{{ value }}"{% endfor %}{% endif %}

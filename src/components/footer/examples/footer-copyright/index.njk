@@ -1,0 +1,35 @@
+---
+"fullWidth": true
+---
+{% from "components/footer/_macro.njk" import onsFooter %}
+{{
+    onsFooter({
+        "legal": [
+            {
+                "itemsList": [
+                    {
+                        "text": 'Cookies',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Accessibility statement',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Privacy and data protection',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Terms and conditions',
+                        "url": '#0'
+                    }
+                ]
+            }
+        ],
+        "OGLLink": true,
+        "copyrightDeclaration": {
+            "copyright": 'Crown copyright and database rights 2020 OS 100019153.',
+            "text": 'Use of address data is subject to the terms and conditions.'
+        }
+    })
+}}

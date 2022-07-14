@@ -1,0 +1,28 @@
+{
+  "access-code": {
+    "macroName": "onsUACInput"
+  },
+  "char-check-limit": {
+    "macroName": "onsCharLimit"
+  },
+  "checkboxes/checkbox": {
+    "templateName": "components/checkboxes/_checkbox-macro.njk",
+    "macroName": "onsCheckbox"
+  },
+  "icons": {
+    "macroName": "onsIcon"
+  },
+  "images": {
+    "macroName": "onsImage"
+  },
+  "lists": {
+    "macroName": "onsList"
+  },
+  "promotional-banner": {
+    "macroName": "onsPromoBanner"
+  },
+  "related-content/section": {
+    "templateName": "components/related-content/_section-macro.njk",
+    "macroName": "onsRelatedContentSection"
+  }
+}

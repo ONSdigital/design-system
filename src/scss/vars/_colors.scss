@@ -35,6 +35,7 @@ $color-flamingo-pink: #df0667;
 
 // Theme branding
 $color-branded: $color-ocean-blue !default;
+$color-branded-text: $color-ocean-blue !default;
 $color-branded-tint: tint($color-branded, 90%) !default;
 $color-branded-secondary: $color-night-blue !default;
 $color-branded-secondary-tint: tint($color-branded-secondary, 90%) !default;
@@ -47,13 +48,16 @@ $color-branded-supporting-tint: tint($color-branded-supporting, 90%) !default;
 // Assignment
 // =============================================================================
 
-// Headers, footers, banners
+// Headers, footers, banners, page
 $color-header: $color-branded !default;
-$color-header-top: $color-white !default;
-$color-header-top-internal: $color-branded-secondary !default;
+$color-header-light: $color-white !default;
+$color-header-masthead: $color-white !default;
+$color-header-masthead-dark: $color-black !default;
+$color-header-masthead-internal: $color-branded-secondary !default;
 $color-cta-bg: $color-branded-tint !default;
 $color-banner-bg: $color-grey-5 !default;
 $color-banner-bg-dark: $color-grey-15 !default;
+$color-page-light: $color-white !default;
 
 // Typography
 $color-text: $color-black !default;
@@ -68,6 +72,7 @@ $color-text-inverse-link: $color-white !default;
 $color-text-inverse-link-hover: $color-grey-5 !default;
 $color-text-banner-link: $color-grey-100 !default;
 $color-text-banner-link-hover: $color-black !default;
+$color-text-metadata: $color-black !default;
 
 // Foundations
 $color-focus: $color-sun-yellow !default;
@@ -76,8 +81,12 @@ $color-highlight: $color-neon-yellow !default;
 // Borders
 $color-borders: $color-grey-75 !default;
 $color-borders-indent: $color-grey-35 !default;
-$color-document-border: $color-grey-15 !default;
-$color-document-border-focus: $color-black !default;
+$color-borders-list: $color-grey-35 !default;
+$color-borders-document-image: $color-grey-15 !default;
+$color-borders-document-image-focus: $color-black !default;
+
+// Placeholders
+$color-placeholder: $color-grey-15 !default;
 
 // Form elements
 $color-button: $color-leaf-green !default;
@@ -101,3 +110,5 @@ $color-dead: $color-grey-75 !default;
 $color-instruction: $color-jaffa-orange !default;
 $color-instruction-tint: tint($color-instruction, 90) !default;
 $color-tag-bg: tint($color-leaf-green, 90) !default;
+$color-text-disabled: $color-grey-35;
+$color-border-disabled: $color-grey-35;

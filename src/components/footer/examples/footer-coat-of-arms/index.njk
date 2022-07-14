@@ -1,0 +1,32 @@
+---
+"fullWidth": true
+---
+{% from "components/footer/_macro.njk" import onsFooter %}
+{{
+    onsFooter({
+        "crest": true,
+        "legal": [
+            {
+                "itemsList": [
+                    {
+                        "text": 'Cookies',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Accessibility statement',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Privacy and data protection',
+                        "url": '#0'
+                    },
+                    {
+                        "text": 'Terms and conditions',
+                        "url": '#0'
+                    }
+                ]
+            }
+        ],
+        "OGLLink": true
+    })
+}}

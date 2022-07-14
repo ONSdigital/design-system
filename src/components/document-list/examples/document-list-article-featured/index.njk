@@ -1,0 +1,31 @@
+---
+"fullWidth": true
+---
+
+{% from "components/document-list/_macro.njk" import onsDocumentList %}
+
+{{ onsDocumentList({
+    "documents": [
+        {
+            "featured": true,
+            "fullWidth": true,
+            "thumbnail": {
+                "smallSrc": '/img/small/census-monuments-lights-featured.jpg',
+                "largeSrc": '/img/large/census-monuments-lights-featured.jpg'
+            },
+            "url": '#0',
+            "title": 'Landmarks are lighting up purple to mark Census Day',
+            "metadata": {
+                "type": {
+                    "text": 'Press releases',
+                    "url": '#0'
+                },
+                "date": {
+                    "iso": '2022-01-01',
+                    "short": '1 January 2022'
+                }
+            },
+            "description": 'Hundreds of buildings & landmarks across England and Wales are lighting up purple this weekend to celebrate the census and its importance to communities.'
+        }
+    ]
+}) }}

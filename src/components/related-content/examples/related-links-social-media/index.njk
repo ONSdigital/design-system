@@ -1,0 +1,40 @@
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
+
+{{ onsRelatedContent({
+    "ariaLabel": 'Social media links',
+    "rows": [
+        {
+            "id": 'follow-us',
+            "title": 'Follow us',
+            "variants": 'social',
+            "iconPosition": 'before',
+            "iconSize": 'xxl',
+            "itemsList": [
+                {
+                    "url": '#0',
+                    "text": 'Twitter',
+                    "iconType": 'twitter',
+                    "rel": 'noreferrer external'
+                },
+                {
+                    "url": '#0',
+                    "text": 'Facebook',
+                    "iconType": 'facebook',
+                    "rel": 'noreferrer external'
+                },
+                {
+                    "url": '#0',
+                    "text": 'Instagram',
+                    "iconType": 'instagram',
+                    "rel": 'noreferrer external'
+                },
+                {
+                    "url": '#0',
+                    "text": 'LinkedIn',
+                    "iconType": 'linkedin',
+                    "rel": 'noreferrer external'
+                }
+            ]
+        }
+    ]
+}) }}

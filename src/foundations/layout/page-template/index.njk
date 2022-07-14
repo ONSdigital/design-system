@@ -86,8 +86,8 @@ Variables can be set with:
 | Variable Name | Type                                                | Required                          | Description                                                                                                                                   |
 | ------------- | --------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | cdn           | `CDN` [_(ref)_](#cdn)                               | false                             | What CDN version to use                                                                                                                       |
-| assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc., for example, `http://localhost:3030`                                                                    |
-| theme         | string                                              | false                             | The name of the css file, for example, "census" if using a theme. Defaults to "main".                                                                  |
+| assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc., for example, `http://localhost:3030`                                                           |
+| theme         | string                                              | false                             | The name of the css file, for example, "census" if using a theme. Defaults to "main".                                                         |
 | title         | string                                              | true                              | The contents for the `<title>` element                                                                                                        |
 | cspNonce      | string                                              | false                             | The Content Security Policy (CSP) nonce value                                                                                                 |
 | headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                             | Configuration for `<meta>` information in the document `<head>`                                                                               |
@@ -96,8 +96,8 @@ Variables can be set with:
 | header        | `PageHeader` [_(ref)_](#pageheader)                 | true                              | Configuration for the page header                                                                                                             |
 | language      | `Language` [_(ref)_](/patterns/change-language)     | false                             | Language configuration for the page                                                                                                           |
 | signoutButton | `Button` [_(ref)_](/components/button)              | false                             | Configuration for the save and sign out button. If not specified, the button will not render                                                  |
-| toggleButton  | `HeaderToggleButton` [_(ref)_](/components/header)  | true (if `navigation` supplied)   | Configuration for the mobile navigation toggle button                                                                                         |
-| navigation    | `HeaderNavigation` [_(ref)_](/components/header)    | true (if `toggleButton` supplied) | Configuration for header navigation links                                                                                                     |
+| toggleNavigationButton  | `HeaderToggleNavigationButton` [_(ref)_](/components/header)  | true (if `navigation` supplied)   | Configuration for the mobile navigation toggle button                                                                                         |
+| navigation    | `HeaderNavigation` [_(ref)_](/components/header)    | true (if `toggleNavigationButton` supplied) | Configuration for header navigation links                                                                                                     |
 | phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                             | Settings for the Phase banner                                                                                                                 |
 | serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                             | An array to render the service links list                                                                                                     |
 | mainCol       | `MainColumn` [_(ref)_](#maincolumn)                 | false                             | Configuration for the main page column                                                                                                        |
@@ -105,7 +105,7 @@ Variables can be set with:
 | footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                              | Configuration for the page footer                                                                                                             |
 | description   | string                                              | true                              | Default description of the current page for search engines if headMeta.description is not provided.                                           |
 | absoluteUrl   | string                                              | true                              | Default URL for the preferred page for search engines to avoid duplicate content penalties. Used if if headMeta.canonicalUrl is not provided. |
-| wide          | boolean                                             | false                             | If sets to true passes sets the `wide` param on both the header and footer which will add css which will make the page use a wider style.     |
+| wide          | boolean                                             | false                             | Set to `true` to increase the maximum width of the layout container to 1280px.                                                                |
 
 ##### CDN
 
@@ -120,13 +120,18 @@ Variables can be set with:
 | ---------------- | ------ | ------------------------------------ | ------------------------------------------------------------------------------------------ |
 | title            | string | false                                | Title for the page header. If not specified this will default to `page.title`              |
 | classes          | string | false                                | CSS classes to be added to the header                                                      |
-| logo             | string | false                                | URL for the page header logo                                                               |
-| logoAlt          | string | false                                | Alt tag for the page header logo                                                           |
-| logoHref         | string | false                                | URL for the page header logo. If not specified the image will not be wrapped in a link     |
+| noMasthead       | boolean | false                               | Does not render a masthead with organisation logo, service or language link. Language link will be rendered in the main header. Service links are not available when using this option |
+| variants         | array or string                               | false | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description” |
+| orgLogo          | string | false                                | URL for the page header logo                                                               |
+| orgMobileLogo    | string | false                                | URL for image to use for small screens instead of a title string                           |
+| orgLogoAlt       | string | false                                | Alt tag for the page header logo                                                           |
+| orgLogoHref      | string | false                                | URL for the page header logo. If not specified the image will not be wrapped in a link     |
 | titleLogo        | string | false                                | URL for image to use instead of a title string                                             |
-| mobileLogo       | string | false                                | URL for image to use for small screens instead of a title string                           |
+| titleLogoMobile  | string | false                                | URL for image to use instead of a title string                                             |
 | titleLogoAlt     | string | false (if `titleLogo` not specified) | Alt tag for the title logo                                                                 |
 | titleLogoHref    | string | false                                | Will wrap the title logo in a link to the specified URL                                    |
+| titleLogoClasses | string | false | Classes to be added to the `titleLogo`. Helpful to add a margin class to control spacing. |
+| titleLogoMobileClasses | string | false | Classes to be added to the `titleLogoMobile`. Helpful to add a margin class to control spacing. |
 | customHeaderLogo | string | false                                | Set to 'true' to make the masthead taller to accommodate a logo with a taller aspect ratio |
 
 ###### HeadMeta

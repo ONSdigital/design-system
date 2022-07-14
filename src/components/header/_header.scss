@@ -6,21 +6,9 @@
   margin: 0;
   position: relative;
 
-  & &__title--svg-logo {
-    display: block;
-    fill: $color-white;
-
-    @include mq(m) {
-      margin: 0.84rem 0;
-    }
-
-    @include mq(xxs, 399px) {
-      max-width: 160px;
-    }
-  }
   // Elements
   &__top {
-    background: $color-header-top;
+    background: $color-header-masthead;
     width: 100%;
   }
   &__grid-top {
@@ -44,9 +32,6 @@
       border-top: 3px solid $color-header;
       padding: 0.934rem 0;
     }
-    &--with-description {
-      height: auto;
-    }
   }
   &__title {
     @extend .ons-u-fs-r--b;
@@ -59,27 +44,10 @@
       margin-top: 0.8rem;
     }
 
-    &--with-description {
-      @include mq(m) {
-        margin-bottom: 0;
-        margin-top: 0.5rem;
-      }
-    }
-
-    //to allow for differences in size between welsh and english logos
-    &-census-logo-en {
-      @include mq(xxs) {
-        margin: 0.19rem 0 0.2rem;
-        padding: 0.25rem 0;
-      }
-    }
     &-link {
       display: block;
       text-decoration: none;
       &:focus {
-        .ons-header__title--svg-logo {
-          fill: $color-text-link-focus;
-        }
         .ons-header__title {
           color: $color-text-link-focus;
         }
@@ -88,13 +56,8 @@
         text-decoration: underline solid $color-text-inverse-link 2px;
       }
     }
-    &--nav-adj {
-      @include mq(399px) {
-        padding-top: 0.2rem;
-      }
-    }
   }
-  &__desc {
+  &__description {
     @extend .ons-u-fs-s;
     @extend .ons-u-fs-r\@s;
 
@@ -105,18 +68,22 @@
       margin: 0 0 1.1rem;
     }
   }
-  // Modifier - Hero variant
-  &--hero {
+  // Modifier - variants
+  &--description {
     .ons-header {
       &__title {
         @extend .ons-u-fs-m;
         @extend .ons-u-fs-xxl\@m;
+
+        margin-bottom: 0;
       }
     }
   }
-  &--internal & {
+
+  &--internal &,
+  &--neutral & {
     &__top {
-      background: $color-header-top-internal;
+      background: $color-header-masthead-internal;
       .ons-svg-logo {
         display: block;
         .ons-svg-logo__group--text,
@@ -125,7 +92,7 @@
         }
       }
     }
-    &__logo-link:focus {
+    &__org-logo-link:focus {
       background-color: transparent;
       box-shadow: none;
       outline: 3px solid $color-focus;
@@ -135,11 +102,35 @@
     }
     &__grid-top {
       min-height: 36px;
+      a {
+        color: $color-white;
+        &:hover {
+          text-decoration: underline solid $color-white 3px;
+        }
+      }
     }
-    &-service-nav__link {
-      color: $color-white;
-      &:hover {
-        text-decoration: underline solid $color-white 3px;
+  }
+
+  &--neutral & {
+    &__top {
+      background: $color-header-masthead-dark;
+    }
+
+    &__main {
+      background: $color-header-light;
+
+      &--border {
+        border-bottom: 3px solid $color-header-light;
+        border-top: 3px solid $color-header-light;
+      }
+    }
+
+    &__title {
+      color: $color-branded-text;
+      &-link {
+        &:hover {
+          text-decoration: underline solid $color-branded-text 2px;
+        }
       }
     }
   }
@@ -148,50 +139,91 @@
     display: block;
   }
 
-  &__logo-link:focus {
-    .ons-svg-logo {
-      .ons-svg-logo__group {
+  &__org-logo-link,
+  &__title-logo-link {
+    display: block;
+    &:focus {
+      .ons-svg-logo {
         fill: $color-black !important;
+        .ons-svg-logo__group {
+          fill: $color-black !important;
+        }
+      }
+    }
+    &:hover {
+      font-size: 0;
+      text-decoration: none;
+    }
+  }
+
+  &__title-logo--large {
+    .ons-svg-logo {
+      @include mq(xxs, 399px) {
+        height: auto;
+        max-width: 160px;
       }
     }
   }
 
-  .ons-header__logo--large {
-    @include mq(xxs, 399px) {
+  &__org-logo--large {
+    @include mq(xxs, 454px) {
       display: none;
     }
   }
 
-  .ons-header__logo--small {
-    @include mq(400px) {
+  &__org-logo--small {
+    @include mq(455px) {
       display: none;
     }
   }
 
-  &__logo-link,
-  &__logo-link:hover {
-    font-size: 0;
-    text-decoration: none;
-  }
+  &-service-nav {
+    display: inline-block;
 
-  &__logo-link {
-    display: block;
-  }
+    &--mobile {
+      background: $color-branded-tint;
+      padding: 1rem;
+      width: 100%;
+    }
 
-  &__bottom {
-    background: $color-header;
-    margin-top: -0.03rem;
-  }
+    .ons-header--neutral & {
+      &--mobile {
+        background: $color-grey-5;
+      }
+    }
 
-  &-search {
-    padding: 1rem;
-
-    @include mq(m) {
-      bottom: 65px;
+    &__list {
+      list-style: none;
+      margin: 0;
       padding: 0;
-      position: absolute;
-      right: 1rem;
-      width: 20rem;
+    }
+
+    &__item {
+      display: inline-block;
+      margin: 0 0 0 1rem;
+      &--mobile {
+        display: block;
+        margin: 0 0 0.5rem;
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .ons-language-links {
+      border-top: 1px solid $color-branded;
+      margin: 1.5rem 0 0;
+      padding: 1rem 0 0;
+
+      &__item {
+        margin: 0 0 0.5rem;
+      }
+    }
+  }
+  &__lang-adjustment {
+    @include mq(l) {
+      margin-right: 21rem;
+      margin-top: -5px !important;
     }
   }
 }

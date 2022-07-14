@@ -1,14 +1,16 @@
 {% macro onsSharePage(params) %}
     {% from "components/lists/_macro.njk" import onsList %}
 
-    {% set titleTag = params.titleTag | default("h2") %}
-    <{{ titleTag }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</{{ titleTag }}>
+    {% if params.title %}
+        {% set titleTag = params.titleTag | default("h2") %}
+        <{{ titleTag }} class="ons-u-fs-r--b ons-u-mb-xs">{{ params.title }}</{{ titleTag }}>
+    {% endif %}
 
     {% set list = [] %}
     {% if params.facebook is defined and params.facebook and params.facebook == true %}
         {% set facebook =
             {
-                "url": 'https://www.facebook.com/sharer/sharer.php?u=' ~ params.pageURL,
+                "url": 'https://www.facebook.com/sharer/sharer.php?u=' ~ params.pageURL|urlencode,
                 "text": 'Facebook',
                 "iconType": 'facebook',
                 "rel": 'noreferrer external',
@@ -21,7 +23,7 @@
     {% if params.twitter is defined and params.twitter and params.twitter == true %}
         {% set twitter =
             {
-                "url": 'https://twitter.com/intent/tweet?original_referer&text=' ~ params.pageTitle ~ '&url=' ~ params.pageURL,
+                "url": 'https://twitter.com/intent/tweet?original_referer&text=' ~ params.pageTitle|urlencode ~ '&url=' ~ params.pageURL|urlencode,
                 "text": 'Twitter',
                 "iconType": 'twitter',
                 "rel": 'noreferrer external',

@@ -2,7 +2,11 @@
 {{
     onsButton({
         "text": 'Web chat',
-        "url": '#0',
-        "newWindow": true
+        "url": '/patterns/send-a-web-form/examples/form/',
+        "newWindow": true,
+        "newWindowDescription": 'opens in a new window',
+        "attributes": {
+            "onclick": "window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=360,height=680'); return false;"
+        }
     })
 }}

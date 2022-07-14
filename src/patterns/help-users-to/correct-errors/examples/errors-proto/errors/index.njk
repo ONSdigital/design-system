@@ -103,7 +103,8 @@ layout: none
     {% endcall %}
 
     {% call onsQuestion ({
-        "title": "How many employees do you pay on a monthly basis?"
+        "title": "How many employees do you pay on a monthly basis?",
+        "submitButton": true
     }) %}
         {{
             onsInput({
@@ -257,8 +258,8 @@ layout: none
                     "or": "Or",
                     "deselectMessage": "Selecting this will uncheck all other checkboxes",
                     "deselectGroupAdjective": "deselected",
-                    "deselectCheckboxAdjective": "deselected",
-                    "checkbox": {
+                    "deselectExclusiveOptionAdjective": "deselected",
+                    "exclusiveOptions": {
                         "id": "no-toppings",
                         "label": {
                             "text": "No toppings"
@@ -301,8 +302,8 @@ layout: none
                     "or": "Or",
                     "deselectMessage": "Selecting this will clear your email address",
                     "deselectGroupAdjective": "cleared",
-                    "deselectCheckboxAdjective": "deselected",
-                    "checkbox": {
+                    "deselectExclusiveOptionAdjective": "deselected",
+                    "exclusiveOptions": {
                         "id": "email-checkbox",
                         "name": "no-email",
                         "value": "no-email",
@@ -325,13 +326,17 @@ layout: none
                 "field1": {
                     "id": "address-duration-hours",
                     "name": "address-duration-hours",
-                    "suffix": "Hours",
+                    "suffix": {
+                        "text": "Hours"
+                    },
                     "value": "2"
                 },
                 "field2": {
                     "id": "address-duration-minutes",
                     "name": "address-duration-minutes",
-                    "suffix": "Minutes",
+                    "suffix": {
+                        "text": "Minutes"
+                    },
                     "value": "60",
                     "error": true
                 }
@@ -405,12 +410,4 @@ layout: none
             })
         }}
     {% endcall %}
-
-    {{
-        onsButton({
-            "type": "button",
-            "text": "Save and continue",
-            "classes": "ons-u-mt-xl"
-        })
-    }}
 {% endblock %}
