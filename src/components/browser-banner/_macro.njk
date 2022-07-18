@@ -1,7 +1,27 @@
 {% macro onsBrowserBanner(params) %}
+
+    {% set currentLanguageISOCode = "en" %}
+
+    {% if params.language is defined and params.language and params.language.languages is defined and params.language.languages %}
+        {% set currentLanguage = params.language.languages | selectattr("current") | first %}
+        {% set currentLanguageISOCode = currentLanguage.ISOCode %}
+    {% endif %}
+
+    {% if currentLanguageISOCode == "cy" %}
+        {% set bannerLeadingText = 'Nid yw’r wefan hon yn cefnogi eich porwr mwyach.' %}
+        {% set bannerText = 'Gallwch' %}
+        {% set bannerLinkText = 'ddiweddaru eich porwr i’r fersiwn ddiweddaraf' %}
+        {% set bannerLinkUrl = 'https://cy.ons.gov.uk/help/browsers' %}
+    {% else %}
+        {% set bannerLeadingText = 'This website no longer supports your browser.' %}
+        {% set bannerText = 'You can' %}
+        {% set bannerLinkText = 'upgrade your browser to the latest version' %}
+        {% set bannerLinkUrl = 'https://www.ons.gov.uk/help/browsers' %}
+    {% endif %}
+
     <div class="ons-browser-banner">
         <div class="ons-container{{ ' ons-container--wide' if params.wide is defined and params.wide }}">
-            <p class="ons-browser-banner__content"><span class="ons-browser-banner__lead">{{ params.bannerLeadingText }}</span> {{ params.bannerText }} <a class="ons-browser-banner__link" href="{{ params.bannerLinkUrl }}">{{ params.bannerLinkText }}</a>.</p>
+            <p class="ons-browser-banner__content"><span class="ons-browser-banner__lead">{{ bannerLeadingText }}</span> {{ bannerText }} <a class="ons-browser-banner__link" href="{{ bannerLinkUrl }}">{{ bannerLinkText }}</a>.</p>
         </div>
     </div>
 {% endmacro %}
