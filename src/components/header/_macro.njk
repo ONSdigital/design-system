@@ -15,7 +15,7 @@
     <header class="ons-header {% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.variants is not string %}{% for variant in params.variants %} ons-header--{{ variant }}{% endfor %}{% else %} ons-header--{{ params.variants }}{% endif %}" role="banner">
         {{
             onsBrowserBanner({
-                "language": params.language,
+                "lang": currentLanguageISOCode,
                 "wide": params.wide
             })
         }}
