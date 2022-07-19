@@ -120,14 +120,16 @@
         {% endif %}
     </div>
 
-    {% from "components/button/_macro.njk" import onsButton %}
-    {{
-        onsButton({
-            "id": params.submitButton.id,
-            "submitType": params.submitButton.submitType,
-            "text": params.submitButton.text | default ('Save and continue'),
-            "classes": params.submitButton.classes,
-            "attributes": params.submitButton.attributes
-        })
-    }}
+    {% if params.submitButton != (false or null) %}
+        {% from "components/button/_macro.njk" import onsButton %}
+        {{
+            onsButton({
+                "id": params.submitButton.id,
+                "submitType": params.submitButton.submitType,
+                "text": params.submitButton.text | default ('Save and continue'),
+                "classes": params.submitButton.classes,
+                "attributes": params.submitButton.attributes
+            })
+        }}
+    {% endif %}
 {% endmacro %}

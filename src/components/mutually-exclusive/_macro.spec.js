@@ -45,6 +45,7 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_RADIOS = {
   exclusiveOptions: [
     {
       id: 'house',
+      name: 'mutuallyExclusiveRadio',
       label: {
         text: 'House or bungalow',
       },
@@ -52,6 +53,7 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_RADIOS = {
     },
     {
       id: 'flat',
+      name: 'mutuallyExclusiveRadio',
       label: {
         text: 'Flat, maisonette or apartment',
       },

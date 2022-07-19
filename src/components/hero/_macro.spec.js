@@ -12,13 +12,13 @@ const EXAMPLE_HERO_MINIMAL = {
   suffixText: 'Hero suffix text',
 };
 
-const EXAMPLE_HERO_CENSUS_THEME = {
-  censusTheme: true,
+const EXAMPLE_HERO_CENSUS_VARIANT = {
+  variants: 'census',
   ...EXAMPLE_HERO_MINIMAL,
 };
 
-const EXAMPLE_HERO_CENSUS_THEME_WITH_IMAGE = {
-  ...EXAMPLE_HERO_CENSUS_THEME,
+const EXAMPLE_HERO_CENSUS_VARIANT_WITH_IMAGE = {
+  ...EXAMPLE_HERO_CENSUS_VARIANT,
   image: {
     smallSrc: 'example-small.png',
     largeSrc: 'example-large.png',
@@ -57,8 +57,8 @@ const EXAMPLE_HERO_WITH_COLLAPSIBLE = {
 describe('macro: hero', () => {
   describe.each([
     ['with text', EXAMPLE_HERO_MINIMAL],
-    ['with census theme', EXAMPLE_HERO_CENSUS_THEME],
-    ['with census theme and image', EXAMPLE_HERO_CENSUS_THEME_WITH_IMAGE],
+    ['with census variant', EXAMPLE_HERO_CENSUS_VARIANT],
+    ['with census variants and image', EXAMPLE_HERO_CENSUS_VARIANT_WITH_IMAGE],
     ['with button', EXAMPLE_HERO_WITH_BUTTON],
     ['with pre-title image', EXAMPLE_HERO_WITH_PRETITLE_IMAGE],
     ['with collapsible', EXAMPLE_HERO_WITH_COLLAPSIBLE],
@@ -68,6 +68,17 @@ describe('macro: hero', () => {
 
       const results = await axe($.html());
       expect(results).toHaveNoViolations();
+    });
+
+    it('has provided variant style classes', () => {
+      const $ = cheerio.load(
+        renderComponent('hero', {
+          variants: ['variant-a', 'variant-b'],
+        }),
+      );
+
+      expect($('.ons-hero--variant-a').length).toBe(1);
+      expect($('.ons-hero--variant-b').length).toBe(1);
     });
 
     it('has expected `title`', () => {
@@ -112,33 +123,16 @@ describe('macro: hero', () => {
     });
   });
 
-  describe('mode: with census theme', () => {
-    it('has the correct theme class', () => {
-      const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO_CENSUS_THEME));
-      expect($('.ons-hero').hasClass('ons-hero--census')).toBe(true);
-    });
-
-    it('has the correct grid column class', () => {
-      const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO_CENSUS_THEME));
-      expect($('.ons-hero__details').hasClass('ons-col-6@m')).toBe(true);
-    });
-
-    it('has the correct title sizing class', () => {
-      const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO_CENSUS_THEME));
-      expect($('.ons-hero__title').hasClass('ons-u-fs-xxxl')).toBe(true);
-    });
-  });
-
-  describe('mode: with census theme and image', () => {
+  describe('mode: with census variant and image', () => {
     it('has expected `srcset` attribute', () => {
-      const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO_CENSUS_THEME_WITH_IMAGE));
+      const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO_CENSUS_VARIANT_WITH_IMAGE));
 
       const srcset = $('.ons-hero__circle-image img').attr('srcset');
       expect(srcset).toBe('example-small.png 1x, example-large.png 2x');
     });
 
     it('has expected `src` attribute', () => {
-      const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO_CENSUS_THEME_WITH_IMAGE));
+      const $ = cheerio.load(renderComponent('hero', EXAMPLE_HERO_CENSUS_VARIANT_WITH_IMAGE));
 
       const src = $('.ons-hero__circle-image img').attr('src');
       expect(src).toBe('example-small.png');
@@ -148,7 +142,7 @@ describe('macro: hero', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
-      faker.renderComponent('hero', EXAMPLE_HERO_CENSUS_THEME_WITH_IMAGE);
+      faker.renderComponent('hero', EXAMPLE_HERO_CENSUS_VARIANT_WITH_IMAGE);
 
       expect(iconsSpy.occurrences[0].iconType).toBe('circle-lined');
     });
@@ -164,6 +158,15 @@ describe('macro: hero', () => {
       expect(buttonSpy.occurrences[0]).toHaveProperty('text', 'Get started');
       expect(buttonSpy.occurrences[0]).toHaveProperty('url', '#0');
     });
+
+    it('outputs the correct button class with `dark` theme', () => {
+      const faker = templateFaker();
+      const buttonSpy = faker.spy('button');
+
+      faker.renderComponent('hero', { ...EXAMPLE_HERO_WITH_BUTTON, variants: 'dark' });
+
+      expect(buttonSpy.occurrences[0]).toHaveProperty('classes', ' ons-btn--ghost');
+    });
   });
 
   describe('mode: with pre-title image', () => {
@@ -174,10 +177,10 @@ describe('macro: hero', () => {
       expect(src).toBe('/img/example--light.svg');
     });
 
-    it('has expected `src` attribute with `censusThemeDark`', () => {
+    it('has expected `src` attribute with dark variant', () => {
       const $ = cheerio.load(
         renderComponent('hero', {
-          censusThemeDark: true,
+          variants: 'dark',
           ...EXAMPLE_HERO_WITH_PRETITLE_IMAGE,
         }),
       );

@@ -121,6 +121,18 @@ describe('macro: header', () => {
       expect($('.ons-header--variant-b').length).toBe(1);
     });
 
+    it('has additionally provided `classes`', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          classes: 'extra-class another-extra-class',
+        }),
+      );
+
+      expect($('.ons-header').hasClass('extra-class')).toBe(true);
+      expect($('.ons-header').hasClass('another-extra-class')).toBe(true);
+    });
+
     it('has the correct container if `fullWidth`', () => {
       const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, fullWidth: true }));
 
@@ -134,9 +146,9 @@ describe('macro: header', () => {
     });
 
     it('has the correct masthead logo link', () => {
-      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, logoHref: '#0' }));
+      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgLogoHref: '#0' }));
 
-      expect($('.ons-header__logo-link').attr('href')).toBe('#0');
+      expect($('.ons-header__org-logo-link').attr('href')).toBe('#0');
     });
 
     it('has the default masthead logo icon', () => {
@@ -152,7 +164,7 @@ describe('macro: header', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, logo: 'another-logo' });
+      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgLogo: 'another-logo' });
 
       expect(iconsSpy.occurrences[0].iconType).toBe('another-logo');
     });
@@ -170,7 +182,7 @@ describe('macro: header', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, logoAlt: 'Custom alt text' });
+      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgLogoAlt: 'Custom alt text' });
 
       expect(iconsSpy.occurrences[0].altText).toBe('Custom alt text');
     });
@@ -188,7 +200,7 @@ describe('macro: header', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mobileLogo: 'another-mobile-logo' });
+      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgMobileLogo: 'another-mobile-logo' });
 
       expect(iconsSpy.occurrences[1].iconType).toBe('another-mobile-logo');
     });
@@ -206,7 +218,7 @@ describe('macro: header', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, logoAlt: 'Custom alt text' });
+      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgLogoAlt: 'Custom alt text' });
 
       expect(iconsSpy.occurrences[1].altText).toBe('Custom alt text');
     });
@@ -244,12 +256,45 @@ describe('macro: header', () => {
       expect(iconsSpy.occurrences[2].iconType).toBe('custom-title-logo');
     });
 
-    it('has the correct class when using census title logo', () => {
+    it('has the provided title logo classes', () => {
       const $ = cheerio.load(
-        renderComponent('header', { ...EXAMPLE_HEADER_BASIC, titleLogo: 'census-logo-en', titleLogoAlt: 'custom logo alt' }),
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          titleLogo: 'custom-title-logo',
+          titleLogoClasses: 'custom-class',
+          titleLogoAlt: 'custom logo alt',
+        }),
       );
 
-      expect($('.ons-header__title-census-logo-en').length).toBe(1);
+      expect($('.ons-header__title-logo--large').hasClass('custom-class')).toBe(true);
+    });
+
+    it('has the provided title logo mobile icon', () => {
+      const faker = templateFaker();
+      const iconsSpy = faker.spy('icons');
+
+      faker.renderComponent('header', {
+        ...EXAMPLE_HEADER_BASIC,
+        titleLogo: 'custom-title-logo',
+        titleLogoMobile: 'custom-title-mobile-logo',
+        titleLogoAlt: 'custom logo alt',
+      });
+
+      expect(iconsSpy.occurrences[3].iconType).toBe('custom-title-mobile-logo');
+    });
+
+    it('has the provided title logo mobile classes', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          titleLogo: 'custom-title-logo',
+          titleLogoMobile: 'custom-title-mobile-logo',
+          titleLogoMobileClasses: 'custom-mobile-class',
+          titleLogoAlt: 'custom logo alt',
+        }),
+      );
+
+      expect($('.ons-header__title-logo--mobile').hasClass('custom-mobile-class')).toBe(true);
     });
 
     it('displays the `description` text', () => {
@@ -475,24 +520,27 @@ describe('macro: header', () => {
 
       faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, ...EXAMPLE_HEADER_NAVIGATION_CONFIG });
 
-      expect(navigationSpy.occurrences).toContainEqual({
-        id: 'main-nav',
-        ariaLabel: 'Main menu',
-        currentPath: '#home',
-        itemsList: [
-          {
-            title: 'Home',
-            url: '#home',
+      expect(navigationSpy.occurrences[0]).toEqual({
+        navigation: {
+          id: 'main-nav',
+          ariaLabel: 'Main menu',
+          currentPath: '#home',
+          itemsList: [
+            {
+              title: 'Home',
+              url: '#home',
+            },
+            {
+              title: 'Guidance',
+              url: '#0',
+            },
+          ],
+          toggleNavigationButton: {
+            text: 'Menu',
+            ariaLabel: 'Toggle main menu',
           },
-          {
-            title: 'Guidance',
-            url: '#0',
-          },
-        ],
-        toggleNavigationButton: {
-          text: 'Menu',
-          ariaLabel: 'Toggle main menu',
         },
+        title: 'Header title',
       });
     });
 
@@ -502,9 +550,9 @@ describe('macro: header', () => {
 
       faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, ...EXAMPLE_HEADER_NAVIGATION_CONFIG });
 
-      expect(buttonSpy.occurrences).toContainEqual({
+      expect(buttonSpy.occurrences[0]).toEqual({
         text: 'Menu',
-        classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button',
+        classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
         buttonStyle: 'mobile',
         variants: ['mobile', 'ghost'],
         attributes: {
@@ -544,10 +592,10 @@ describe('macro: header', () => {
         },
       });
 
-      expect(buttonSpy.occurrences).toContainEqual({
+      expect(buttonSpy.occurrences[0]).toEqual({
         text: 'Search',
         classes: 'ons-btn--search ons-u-ml-xs ons-u-d-no ons-js-toggle-search',
-        variants: ['ghost', 'small'],
+        variants: ['small', 'ghost'],
         iconType: 'search',
         iconPosition: 'only',
         attributes: {
@@ -557,6 +605,14 @@ describe('macro: header', () => {
           'aria-expanded': 'false',
         },
       });
+    });
+  });
+
+  describe('mode: without masthead', () => {
+    it('does not render the masthead', () => {
+      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, ...EXAMPLE_HEADER_LANGUAGE_CONFIG, noMasthead: true }));
+
+      expect($('.ons-header__top').length).toBe(0);
     });
   });
 });
