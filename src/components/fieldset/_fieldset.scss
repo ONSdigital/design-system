@@ -12,13 +12,9 @@
   }
 
   > * .ons-fieldset {
-    &__legend {
-      margin: 0 0 0.6rem;
-    }
     .ons-fieldset {
       &__legend {
         font-weight: normal;
-        margin: 0;
       }
     }
   }

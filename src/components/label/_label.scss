@@ -2,7 +2,8 @@
   color: inherit;
   display: block;
   font-weight: $font-weight-bold;
-  margin-bottom: 0.4rem;
+
+  @extend .ons-u-mb-xs;
 
   &__description {
     @extend .ons-u-fs-s;
