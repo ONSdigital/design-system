@@ -57,29 +57,17 @@ $collapsible-caret-width: 1.5rem;
   }
 
   &__content {
-    display: none;
+    border-left: 4px solid $color-borders-indent;
+    display: block;
+    margin: 1rem 0 0;
+    padding: 0 0 0 1.3em;
   }
 
-  &__icon {
-    display: none;
-  }
-
-  &--open & {
+  &[open] & {
     &__icon {
       left: -0.1rem;
       top: 0.2rem;
       transform: rotate(90deg);
-    }
-
-    &__content {
-      border-left: 4px solid $color-borders-indent;
-      display: block;
-      margin: 1rem 0 0;
-      padding: 0 0 0 1.3em;
-
-      .ons-btn {
-        margin-bottom: 0.5rem;
-      }
     }
   }
 
@@ -130,12 +118,6 @@ $collapsible-caret-width: 1.5rem;
       border-left: 0;
       margin: 0;
       padding: 0;
-    }
-  }
-
-  &--simple & {
-    &__icon {
-      top: 0.8rem;
     }
   }
 }
