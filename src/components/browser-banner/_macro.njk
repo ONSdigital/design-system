@@ -11,7 +11,7 @@
 
     <div class="ons-browser-banner">
         <div class="ons-container{{ ' ons-container--wide' if params.wide is defined and params.wide }}">
-            <p class="ons-browser-banner__content"><span class="ons-browser-banner__lead">{{ params.bannerLeadingText | default (bannerLeadingText) }}</span><span class="ons-browser-banner__cta"> {{ params.bannerCTA | default (bannerCTA) | safe }}</span></p>
+            <p class="ons-browser-banner__content"><span class="ons-browser-banner__lead">{{ bannerLeadingText }}</span><span class="ons-browser-banner__cta"> {{ bannerCTA | safe }}</span></p>
         </div>
     </div>
 {% endmacro %}
