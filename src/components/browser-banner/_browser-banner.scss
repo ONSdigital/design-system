@@ -6,11 +6,21 @@
   &__content {
     @extend .ons-u-fs-s;
 
+    color: $color-text-inverse;
     margin: 0;
   }
 
   &__lead {
     @extend .ons-u-fw-b;
+  }
+
+  &__link {
+    color: $color-text-inverse-link;
+
+    &:hover {
+      color: $color-text-inverse-link-hover;
+      text-decoration: underline solid $color-text-inverse-link-hover 2px;
+    }
   }
 }
 
