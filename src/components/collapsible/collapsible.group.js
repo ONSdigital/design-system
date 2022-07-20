@@ -6,7 +6,6 @@ export default class CollapsibleGroup {
     this.buttonInner = button.querySelector('.ons-js-collapsible-all-inner');
     this.group = button.getAttribute('data-group');
     this.collapsibles = collapsibles.filter(collapsible => collapsible.group === this.group);
-
     this.totalCollapsibles = this.collapsibles.length;
     this.buttonOpen = this.buttonInner.innerHTML.trim();
     this.closeButton = button.getAttribute('data-close-all');
@@ -33,11 +32,13 @@ export default class CollapsibleGroup {
 
   onOpen() {
     this.openCollapsibles++;
+    console.log(this.openCollapsibles);
     this.setButton();
   }
 
   onClose() {
     this.openCollapsibles--;
+    console.log(this.openCollapsibles);
     this.setButton();
   }
 
