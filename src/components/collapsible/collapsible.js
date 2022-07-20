@@ -14,8 +14,6 @@ export default class Collapsible {
     if (localStorage.getItem(collapsibleId) || this.open) {
       this.setOpen(true);
       this.collapsible['setAttribute']('open', '');
-    } else {
-      this.setOpen(false);
     }
 
     this.collapsibleHeader.addEventListener('click', this.toggle.bind(this));
@@ -24,12 +22,7 @@ export default class Collapsible {
 
   toggle(event) {
     event.preventDefault();
-    // Storing previous timestamp and checking against the current event's timestamp prevents event propagation
-    // to collapsibleHeader element when the button is in the collapsibleHeader, but does not prevent event propagation to the body for analytics
-    if (this.previousTimestamp !== event.timeStamp) {
-      this.previousTimestamp = event.timeStamp;
-      this.setOpen(!this.isOpen);
-    }
+    this.setOpen(!this.isOpen);
   }
 
   setOpen(open) {
@@ -40,13 +33,13 @@ export default class Collapsible {
       this.isOpen = open;
       this.collapsible[`${openAttribute}Attribute`]('open', '');
       this.collapsibleHeader.setAttribute('data-ga-action', `${action} panel`);
-    }
 
-    if (this.onOpen && this.onClose) {
-      if (open) {
-        this.onOpen();
-      } else {
-        this.onClose();
+      if (this.onOpen && this.onClose) {
+        if (open) {
+          this.onOpen();
+        } else {
+          this.onClose();
+        }
       }
     }
 

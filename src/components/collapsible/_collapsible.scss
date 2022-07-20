@@ -71,17 +71,6 @@ $collapsible-caret-width: 1.5rem;
     }
   }
 
-  &--accordion {
-    margin: 0;
-    &.ons-collapsible--open {
-      .ons-svg-icon {
-        left: 0.4rem;
-        position: absolute;
-        top: 0.25rem;
-      }
-    }
-  }
-
   &--accordion & {
     &__heading {
       border-top: 1px solid $color-borders;
@@ -118,6 +107,14 @@ $collapsible-caret-width: 1.5rem;
       border-left: 0;
       margin: 0;
       padding: 0;
+    }
+  }
+}
+
+.ons-collapsible--accordion {
+  &[open] {
+    .ons-collapsible__icon {
+      top: 1.2rem;
     }
   }
 }

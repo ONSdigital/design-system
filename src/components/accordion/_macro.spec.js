@@ -54,18 +54,6 @@ describe('macro: accordion', () => {
   });
 
   describe('item', () => {
-    it('has provided variant style classes', () => {
-      const $ = cheerio.load(
-        renderComponent('accordion', {
-          ...EXAMPLE_ACCORDION_WITH_TWO_ITEMS,
-          variants: ['variant-a', 'variant-b'],
-        }),
-      );
-
-      expect($('.ons-collapsible--variant-a').length).toBe(2);
-      expect($('.ons-collapsible--variant-b').length).toBe(2);
-    });
-
     it('has provided title text', () => {
       const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION_WITH_TWO_ITEMS));
 
@@ -101,31 +89,6 @@ describe('macro: accordion', () => {
         .text()
         .trim();
       expect(titleText).toBe('Content for item 1');
-    });
-
-    it('outputs a button with the expected class', () => {
-      const $ = cheerio.load(
-        renderComponent('accordion', {
-          itemsList: [
-            {
-              title: 'Title for item 1',
-              button: {
-                open: 'Open label',
-                close: 'Close label',
-              },
-            },
-            {
-              title: 'Title for item 2',
-              button: {
-                open: 'Open label',
-                close: 'Close label',
-              },
-            },
-          ],
-        }),
-      );
-
-      expect($('button.ons-js-collapsible-button').length).toBe(2);
     });
 
     it('has additionally provided `attributes`', () => {

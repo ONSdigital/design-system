@@ -32,13 +32,11 @@ export default class CollapsibleGroup {
 
   onOpen() {
     this.openCollapsibles++;
-    console.log(this.openCollapsibles);
     this.setButton();
   }
 
   onClose() {
     this.openCollapsibles--;
-    console.log(this.openCollapsibles);
     this.setButton();
   }
 
