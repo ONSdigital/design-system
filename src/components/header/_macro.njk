@@ -2,6 +2,7 @@
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/icons/_macro.njk" import onsIcon %}
     {% from "components/navigation/_macro.njk" import onsNavigation %}
+    {% from "components/browser-banner/_macro.njk" import onsBrowserBanner %}
 
     {% set title_tag = "h1" if params.titleAsH1 else "div" %}
     {% set currentLanguageISOCode = "en" %}
@@ -12,6 +13,12 @@
     {% endif %}
 
     <header class="ons-header {% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.variants is not string %}{% for variant in params.variants %} ons-header--{{ variant }}{% endfor %}{% else %} ons-header--{{ params.variants }}{% endif %}" role="banner">
+        {{
+            onsBrowserBanner({
+                "lang": currentLanguageISOCode,
+                "wide": params.wide
+            })
+        }}
         {% if params.phase is defined and params.phase %}
             {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
             {{ onsPhaseBanner(params.phase) }}

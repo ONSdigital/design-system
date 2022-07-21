@@ -4,6 +4,10 @@ layout: none
 {% extends "layout/_template.njk" %}
 {% set pageConfig = {
     "title": "Social survey",
+    "phase": {
+        "badge": 'BETA',
+        "html": 'This is a new service – your <a href="#feedback">feedback</a> will help us improve it.'
+    },
     "signoutButton": {
         "text": "Save and sign out",
         "iconType": "exit",
@@ -77,15 +81,6 @@ layout: none
         }
     }
 } %}
-{% block preHeader %}
-{% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
-{{
-    onsPhaseBanner({
-        "badge": "BETA",
-        "html": 'This is a new service – your <a href="#feedback">feedback</a> will help us improve it.'
-    })
-}}
-{% endblock %}
 {% block main %}
     <h1>Page Title</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
