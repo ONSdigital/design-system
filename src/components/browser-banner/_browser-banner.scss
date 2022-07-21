@@ -1,0 +1,39 @@
+.ons-browser-banner {
+  background-color: $color-banner-browser-bg;
+  display: none; // Hides unsupported browser banner unless targeted below
+  padding: 0.8rem 0;
+
+  &__content {
+    @extend .ons-u-fs-s;
+
+    color: $color-text-inverse;
+    margin: 0;
+  }
+
+  &__lead {
+    @extend .ons-u-fw-b;
+  }
+
+  &__link {
+    color: $color-text-inverse-link;
+
+    &:hover {
+      color: $color-text-inverse-link-hover;
+      text-decoration: underline solid $color-text-inverse-link-hover 2px;
+    }
+  }
+}
+
+// Targets browsers IE10 & IE11 and displays unsupported browser banner
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .ons-browser-banner {
+    display: block;
+  }
+}
+
+// Targets browsers IE8 & IE9 and displays unsupported browser banner
+@media screen\0 {
+  .ons-browser-banner {
+    display: block;
+  }
+}
