@@ -45,6 +45,32 @@ describe('script: accordion', () => {
     expect(openElements[2]).not.toBe(undefined);
   });
 
+  it('sets toggle all button label to "Hide all" when open is specified', async () => {
+    await setTestPage(
+      '/test',
+      renderComponent('accordion', {
+        ...EXAMPLE_ACCORDION_WITH_ALL_BUTTON,
+        open: true,
+      }),
+    );
+
+    const buttonText = await page.$eval('button[data-test-trigger]', element => element.innerText);
+    expect(buttonText.trim()).toBe('Close all');
+  });
+
+  it('sets toggle all button aria-expanded set to true when open is specified', async () => {
+    await setTestPage(
+      '/test',
+      renderComponent('accordion', {
+        ...EXAMPLE_ACCORDION_WITH_ALL_BUTTON,
+        open: true,
+      }),
+    );
+
+    const ariaExpanded = await page.$eval('button[data-test-trigger]', element => element.getAttribute('aria-expanded'));
+    expect(ariaExpanded).toBe('true');
+  });
+
   it('opens all items when accordion `allbutton` is clicked', async () => {
     await setTestPage('/test', renderComponent('accordion', EXAMPLE_ACCORDION_WITH_ALL_BUTTON));
 
@@ -75,6 +101,13 @@ describe('script: accordion', () => {
     expect(buttonText.trim()).toBe('Open all');
   });
 
+  it('starts with the toggle all button aria-expanded set to false', async () => {
+    await setTestPage('/test', renderComponent('accordion', EXAMPLE_ACCORDION_WITH_ALL_BUTTON));
+
+    const ariaExpanded = await page.$eval('button[data-test-trigger]', element => element.getAttribute('aria-expanded'));
+    expect(ariaExpanded).toBe('false');
+  });
+
   it('sets toggle all button label to "Hide all" when clicked', async () => {
     await setTestPage('/test', renderComponent('accordion', EXAMPLE_ACCORDION_WITH_ALL_BUTTON));
 
@@ -82,6 +115,15 @@ describe('script: accordion', () => {
 
     const buttonText = await page.$eval('button[data-test-trigger]', element => element.innerText);
     expect(buttonText.trim()).toBe('Close all');
+  });
+
+  it('sets toggle all button aria-expanded set to true when clicked', async () => {
+    await setTestPage('/test', renderComponent('accordion', EXAMPLE_ACCORDION_WITH_ALL_BUTTON));
+
+    await page.click('button[data-test-trigger]');
+
+    const ariaExpanded = await page.$eval('button[data-test-trigger]', element => element.getAttribute('aria-expanded'));
+    expect(ariaExpanded).toBe('true');
   });
 
   it('sets toggle all button label to "Hide all" when all items are shown', async () => {
