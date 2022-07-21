@@ -27,7 +27,7 @@
             type="{{ type }}"
             id="{{ params.id }}"
             class="ons-input ons-input--text ons-input-type__input{% if params.error is defined and params.error %} ons-input--error{% endif %}{% if params.searchButton is defined and params.searchButton %} ons-search__input{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.width is defined and params.width %} ons-input{% if params.type is defined and (params.type == 'number' or params.type == 'tel') %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
-            {% if params.prefix is defined and params.prefix or params.suffix is defined and params.suffix %}aria-labelledby="{{ params.prefix.id if params.prefix }}{{ params.suffix.id if params.suffix }}"{% endif %}
+            {% if ((params.prefix is defined and params.prefix) and (params.prefix.id is defined and params.prefix.id)) or ((params.suffix is defined and params.suffix) and (params.suffix.id is defined and params.suffix.id)) %}aria-labelledby="{{ params.prefix.id if params.prefix.id }}{{ params.suffix.id if params.suffix.id }}"{% endif %}
             {% if params.name is defined and params.name %}name="{{ params.name }}"{% endif %}
             {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
             {% if params.accept is defined and params.accept %}accept="{{ params.accept }}"{% endif %}
@@ -71,21 +71,24 @@
         {% endif %}
 
         {% if params.prefix is defined and params.prefix or params.suffix is defined and params.suffix %}
-            {% if params.prefix is defined and params.prefix %}
-                {% set prefixClass = " ons-input-type--prefix" %}
-            {% endif %}
+            {% if (params.prefix.id is defined and params.prefix.id) or (params.suffix.id is defined and params.suffix.id) %}
+                    {% if params.prefix is defined and params.prefix %}
+                        {% set prefixClass = " ons-input-type--prefix" %}
+                    {% endif %}
 
-            <span class="ons-input-type{{ prefixClass }}">
-                <span class="ons-input-type__inner">
-                    {{ input | safe }}
-                    {% set abbr = params.prefix or params.suffix %}
-                    <abbr
-                        {% if abbr.id is defined and abbr.id %}id="{{ abbr.id }}" {% endif %}
-                        class="ons-input-type__type ons-js-input-abbr"
-                         title="{{ abbr.title }}"
-                        >{{ abbr.text or abbr.title }}</abbr>
-                </span>
-            </span>
+                    <span class="ons-input-type{{ prefixClass }}">
+                        <span class="ons-input-type__inner">
+                            {{ input | safe }}
+
+                            {% set abbr = params.prefix or params.suffix %}
+                            <abbr
+                                id="{{ abbr.id }}" 
+                                class="ons-input-type__type ons-js-input-abbr" 
+                                title="{{ abbr.title }}"
+                                >{{ abbr.text or abbr.title }}</abbr>
+                        </span>
+                    </span>
+            {% endif %}
         {% elif params.searchButton is defined and params.searchButton %}
             <span class="ons-grid--flex ons-search">
                 {% call onsSearch({
