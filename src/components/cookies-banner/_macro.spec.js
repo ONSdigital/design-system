@@ -25,7 +25,7 @@ describe('macro: cookies-banner', () => {
     ['provided parameters', EXAMPLE_COOKIES_BANNER_PARAMS],
   ])('mode: %s', (_, params) => {
     it('passes jest-axe checks', async () => {
-      const $ = cheerio.load(renderComponent('cookies-banner', EXAMPLE_COOKIES_BANNER_PARAMS));
+      const $ = cheerio.load(renderComponent('cookies-banner', params));
 
       const results = await axe($.html());
       expect(results).toHaveNoViolations();
@@ -33,7 +33,7 @@ describe('macro: cookies-banner', () => {
   });
 
   describe('mode: provided parameters', () => {
-    it('has `aria-label` of "Cookies banner"', () => {
+    it('has the correct `aria-label`', () => {
       const $ = cheerio.load(renderComponent('cookies-banner', EXAMPLE_COOKIES_BANNER_PARAMS));
 
       expect($('.ons-cookies-banner').attr('aria-label')).toBe('Cookies banner override');
@@ -124,14 +124,7 @@ describe('macro: cookies-banner', () => {
   });
 
   describe('mode: default parameters', () => {
-    it('passes jest-axe checks', async () => {
-      const $ = cheerio.load(renderComponent('cookies-banner', {}));
-
-      const results = await axe($.html());
-      expect(results).toHaveNoViolations();
-    });
-
-    it('has `aria-label` of "Cookies banner"', () => {
+    it('has the correct `aria-label`', () => {
       const $ = cheerio.load(renderComponent('cookies-banner', {}));
 
       expect($('.ons-cookies-banner').attr('aria-label')).toBe('Cookies banner');
