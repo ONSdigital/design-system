@@ -7,42 +7,41 @@ sortOrder: 1
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
-The design system must be universally accessible. This means components and patterns to work on every browser and device that users access our services on.
+The design system must be universally accessible. This means components and patterns must work on every browser and device that users access our services on.
 
 ## Test for compatibility
 
-Components and patterns don’t have to look perfect in every browser but users must be able to access and use all the information and features they need, regardless of which browser they use.
+Services don’t have to look perfect in every browser but users must be able to access and use all the information and features they need, regardless of which browser they use.
 
 Use {{
     onsExternalLink({
         "url": "https://www.gov.uk/service-manual/technology/using-progressive-enhancement",
         "linkText": "progressive enhancement"
     })
-}} to give your component or pattern the best possible chance of working for the majority of your users.
+}} to give your service the best possible chance of working for the majority of your users.
 
 ## Browsers to test in
 
-You should test your component or pattern in these browsers:
+You should test your service in the browser shown in {{
+    onsExternalLink({
+        "url": "https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices",
+        "linkText": "the supported browsers table in the GOV.UK Service Manual"
+    })
+}}
 
-| Operating system | Browser           | Version           |
-| ---------------- | ----------------- | ----------------- |
-| _Windows_        | Internet Explorer | 11                |
-|                  | Edge              | Latest 2 versions |
-|                  | Chrome            | Latest 2 versions |
-|                  | Firefox           | Latest 2 versions |
-| _macOS_          | Safari            | 12 and later      |
-|                  | Chrome            | Latest 2 versions |
-|                  | Firefox           | Latest 2 versions |
-| _iOS_            | Safari            | 12.1 and later    |
-|                  | Chrome            | Latest 2 versions |
-| _Android_        | Chrome            | Latest 2 versions |
-|                  | Samsung Internet  | Latest 2 versions |
+The table shows the minimum browser requirements you should be testing with, based on usage statistics for GOV.UK. If your service’s analytics data shows at least 2% of your users are using a different browser or version, then you will still need to support it.
 
-### Understanding the table
+### Microsoft Internet Explorer
+In June 2022, {{
+    onsExternalLink({
+        "url": "https://docs.microsoft.com/en-us/lifecycle/announcements/internet-explorer-11-end-of-support",
+        "linkText": "Microsoft ended support for Internet Explorer"
+    })
+}}, so the Design System will no longer support this browser.
 
-"Latest 2 versions" means the latest stable version and the version immediately before that.
+A branch supporting Internet Explorer will be maintained with security updates and major bug fixes until June 2023, to allow services to continue supporting the browser while they plan to migrate to the latest version.
 
-This list in the table is from GDS, based on usage statistics for GOV.UK and represents approximately 95% of the most popular browsers. They update it in January and June every year.
+The [base page template](/foundations/page-template/) in the latest version of the Design System contains a banner which, by default, will display in Internet Explorer only, to help users upgrade their browser.
 
 ### Testing with assistive technologies
 
