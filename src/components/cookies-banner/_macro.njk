@@ -8,11 +8,11 @@
         {% set statementText = '<p>Ffeiliau bach a gaiff eu storio ar eich dyfais pan fyddwch yn mynd ar wefan yw cwcis. Rydym ni’n defnyddio rhai cwcis hanfodol i wneud i’r wefan hon weithio.</p><p>Hoffem osod <a href="' + settingsLinkURL + '">cwcis ychwanegol</a> er mwyn cofio eich gosodiadau a deall sut rydych chi’n defnyddio’r wefan. Mae hyn yn ein helpu ni i wella ein gwasanaethau.</p>' %}
         {% set acceptButtonText = 'Derbyn cwcis ychwanegol' %}
         {% set rejectButtonText = 'Gwrthod cwcis ychwanegol' %}
-        {% set acceptedText = 'You’ve accepted all additional cookies.' %}
-        {% set rejectedText =  'You’ve rejected all additional cookies.' %}
+        {% set acceptedText = 'Rydych chi wedi derbyn yr holl gwcis ychwanegol.' %}
+        {% set rejectedText =  'Rydych chi wedi gwrthod yr holl gwcis ychwanegol. ' %}
         {% set preferencesText =  'Gallwch chi <a href="' + settingsLinkURL + '">newid eich dewisiadau o ran cwcis</a> ar unrhyw adeg.' %}
         {% set confirmationButtonText = 'Cuddio' %}
-        {% set confirmationButtonTextAria = 'the cookie message' %}
+        {% set confirmationButtonTextAria = 'neges hon' %}
     {% else %}
         {% set ariaLabel = 'Cookies banner' %}
         {% set serviceName = 'ons.gov.uk' %}
@@ -22,11 +22,11 @@
         {% set statementText = '<p>Cookies are small files stored on your device when you visit a website. We store some cookies that are essential to make the site work.</p><p>We would like to set <a href="' + settingsLinkURL + '">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services. </p>' %}
         {% set acceptButtonText = 'Accept additional cookies' %}
         {% set rejectButtonText = 'Reject additional cookies' %}
-        {% set acceptedText = 'You’ve accepted all additional cookies.' %}
-        {% set rejectedText =  'You’ve rejected all additional cookies.' %}
+        {% set acceptedText = 'You have accepted all additional cookies.' %}
+        {% set rejectedText =  'You have rejected all additional cookies.' %}
         {% set preferencesText =  'You can <a href="' + settingsLinkURL + '">change your cookie preferences</a> at any time.' %}
         {% set confirmationButtonText = 'Hide' %}
-        {% set confirmationButtonTextAria = 'the cookie message' %}
+        {% set confirmationButtonTextAria = 'this message' %}
     {% endif %}
 
     <div class="ons-cookies-banner" role="region" aria-label="{{ params.ariaLabel | default(ariaLabel)}}">
