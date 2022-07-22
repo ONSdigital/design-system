@@ -211,7 +211,7 @@ describe('macro: cookies-banner', () => {
 
         faker.renderComponent('cookies-banner', {});
 
-        expect(buttonSpy.occurrences[2].buttonContext).toBe('the cookie message');
+        expect(buttonSpy.occurrences[2].buttonContext).toBe('this message');
       });
     });
   });
