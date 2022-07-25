@@ -71,7 +71,7 @@
         {% endif %}
 
         {% if params.prefix is defined and params.prefix or params.suffix is defined and params.suffix %}
-            {% if (params.prefix.id is defined and params.prefix.id) or (params.suffix.id is defined and params.suffix.id) %}
+            {% if (params.prefix is defined and params.prefix and params.prefix.id is defined and params.prefix.id) or (params.suffix is defined and params.suffix and params.suffix.id is defined and params.suffix.id) %}
                 {% if (params.prefix.title is defined and params.prefix.title) or (params.suffix.title is defined and params.suffix.title) %}
                     {% if params.prefix is defined and params.prefix %}
                         {% set prefixClass = " ons-input-type--prefix" %}
