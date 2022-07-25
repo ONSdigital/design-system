@@ -2,7 +2,7 @@ name: Run visual tests
 on:
   push:
     branches:
-      - master
+      - main
 env:
   PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 jobs:
