@@ -127,7 +127,7 @@ describe('macro: duration', () => {
         id: 'duration',
         legend: 'How long have you lived at this address?',
         description: 'Enter “0” into the years field if you have lived at this address for less than a year',
-        legendClasses: 'ons-u-mb-xs custom-legend-class',
+        legendClasses: 'custom-legend-class',
         dontWrap: true,
         legendIsQuestionTitle: true,
         error: false,
