@@ -1,6 +1,7 @@
 .ons-fieldset {
   &__legend {
-    @extend .ons-label;
+    font-weight: $font-weight-bold;
+    margin: 0 0 0.6rem;
   }
 
   &__description:not(&__description--title) {
@@ -11,14 +12,10 @@
     font-weight: normal;
   }
 
-  .ons-fieldset {
-    &__legend {
-      margin: 0 0 0.6rem;
-    }
+  > * .ons-fieldset {
     .ons-fieldset {
       &__legend {
         font-weight: normal;
-        margin: 0;
       }
     }
   }
