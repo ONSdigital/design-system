@@ -1,6 +1,6 @@
 {% macro onsPanel(params) %}
 
-    {% if params and params.classes %}
+    {% if params.classes %}
         {% set classes = ' ' + params.classes %}
     {% endif %}
 
@@ -8,37 +8,37 @@
         {% set noTitleClass = ' ons-panel--no-title' %}
     {% endif %}
 
-    {% if params and params.type %}
+    {% if params.type %}
         {% set typeClass = ' ons-panel--' + params.type %}
     {% else %}
         {% set typeClass = ' ons-panel--info' %}
     {% endif %}
 
-    {% if params and params.type == "warn-branded" %}
+    {% if params.type == "warn-branded" %}
         {% set containerClass = 'ons-census-warning' %}
     {% endif %}
 
-    {% if params and params.type == "announcement" %}
+    {% if params.type == "announcement" %}
         {% set containerClass = 'ons-announcement' %}
     {% endif %}
 
-    {% if params and params.spacious %}
+    {% if params.spacious %}
         {% set spaciousClass = ' ons-panel--spacious' %}
     {% endif %}
 
-    {% if params and params.type == "warn-branded" or params.type == "announcement" %}
+    {% if params.type == "warn-branded" or params.type == "announcement" %}
         <div class="{{containerClass}}">
             <div class="ons-container">
     {% endif %}
 
-        <div {% if params and params.type == 'error' and params.title %}aria-labelledby="error-summary-title" role="alert" tabindex="-1" {% if params.dsExample != true %}autofocus="autofocus" {% endif %}{% endif %}class="ons-panel{{ typeClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"{% if params and params.attributes %}{% for attribute, value in (params.attributes.items() if params and params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params and params.id %} id="{{params.id}}"{% endif %}>
+        <div {% if params.type == 'error' and params.title %}aria-labelledby="error-summary-title" role="alert" tabindex="-1" {% if params.dsExample != true %}autofocus="autofocus" {% endif %}{% endif %}class="ons-panel{{ typeClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params.id %} id="{{params.id}}"{% endif %}>
 
-            {% if params and params.type == "warn" or params.type == "warn-branded" %}
+            {% if params.type == "warn" or params.type == "warn-branded" %}
                 <span class="ons-panel__icon" aria-hidden="true">!</span>
                 <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Warning: ") }}</span>
             {% endif %}
 
-            {% if params and params.type == "announcement" %}
+            {% if params.type == "announcement" %}
                 {% from "components/icons/_macro.njk" import onsIcon %}
                 <span class="ons-panel__icon" aria-hidden="true">
                     {{
@@ -52,14 +52,14 @@
 
             {% if params %}
                 {% if params.title %}
-                    {% if params and params.type == 'error' %}
+                    {% if params.type == 'error' %}
                         {% set defaultTitleTag = "h2" %}
                     {% else %}
                         {% set defaultTitleTag = "div" %}
                     {% endif %}
                     {% set titleTag = params.titleTag | default(defaultTitleTag) %}
                     <div class="ons-panel__header">
-                        <{{ titleTag }} id="error-summary-title" {% if params and params.type %}data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
+                        <{{ titleTag }} id="error-summary-title" {% if params.type %}data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
                     </div>
                 {% else %}
                     {% if params.type is not defined or params.type == "branded" or params.type == "info" %}
@@ -86,12 +86,12 @@
                 {% endif %}
             {% endif %}
 
-            <div class="ons-panel__body{% if params and params.iconSize %} ons-svg-icon-margin--{{ params.iconSize }}{% endif %}">{{ (params.body if params else "") | safe }}
+            <div class="ons-panel__body{% if params.iconSize %} ons-svg-icon-margin--{{ params.iconSize }}{% endif %}">{{ (params.body if params else "") | safe }}
                 {{ caller() if caller }}
             </div>
         </div>
 
-    {% if params and params.type == "warn-branded" or params.type == "announcement"  %}
+    {% if params.type == "warn-branded" or params.type == "announcement"  %}
             </div>
         </div>
     {% endif %}
