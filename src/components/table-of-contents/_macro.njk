@@ -3,7 +3,7 @@
 {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
 
 <aside class="ons-toc-container" role="complementary">
-    {% if params.skipLink is defined and params.skipLink %}
+    {% if params.skipLink %}
 		{{
 		onsSkipToContent({
 			"url": params.skipLink.url,
@@ -14,9 +14,9 @@
 
     <nav class="ons-toc" aria-label="{{ params.ariaLabel | default('Table of contents') }}">
       	<h2 class="ons-toc__title ons-u-fs-r--b ons-u-mb-s">{{ params.title }}</h2>
-		{% if params.lists is defined and params.lists %}
+		{% if params.lists %}
 			{% for list in params.lists %}
-			{% if list.listHeading is defined and list.listHeading %}
+			{% if list.listHeading %}
 				<h3 class="ons-u-fs-r ons-u-mb-xs">{{ list.listHeading }}<span class="ons-u-vh"> {{ list.listHeadingHidden }}</span>:</h3>
 			{% endif %}
 			{{
@@ -28,7 +28,7 @@
 				})
 			}}
 			{% endfor %}
-		{% elif params.itemsList is defined and params.itemsList %}
+		{% elif params.itemsList %}
 			{{
 				onsList({
 					"element": 'ol',

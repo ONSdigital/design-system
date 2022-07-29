@@ -1,13 +1,13 @@
 {% macro onsRelatedContent(params) %}
 
-  {% if params is defined and params and params.classes is defined and params.classes %}
+  {% if params and params.classes %}
     {% set classes = ' ' + params.classes %}
   {% endif %}
 
   <aside class="ons-related-content{{ classes }}" aria-label="{{ params.ariaLabel | default("Related content") }}">
 
     <div class="ons-related-content__body">
-      {% if params.rows is defined and params.rows %}
+      {% if params.rows %}
         {% for row in params.rows %}
           {% from "components/related-content/_section-macro.njk" import onsRelatedContentSection %}
           {% call onsRelatedContentSection(

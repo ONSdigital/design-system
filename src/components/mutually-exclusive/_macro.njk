@@ -21,7 +21,7 @@
     }) %}
         <div class="ons-js-mutually-exclusive ons-mutually-exclusive">
             {{ content | safe }}
-            {% if params.autosuggestResults is defined and params.autosuggestResults %}
+            {% if params.autosuggestResults %}
                 {{ params.autosuggestResults | safe }}
             {% endif %}
             {% if exclusiveOptionsLength == 1 %}

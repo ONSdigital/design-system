@@ -3,7 +3,7 @@
 {% macro onsAutosuggest(params) %}
     <div
         id="{{ params.id }}-container"
-        class="{% if not params.externalInitialiser %}ons-js-autosuggest {% endif %}{% if params.isEditable == false %}ons-js-address-not-editable{% endif %}{% if params.mandatory is defined and params.mandatory == true %} ons-js-address-mandatory{% endif %} {% if params.containerClasses is defined and params.containerClasses %} {{ params.containerClasses }}{% endif %} ons-autosuggest-input"
+        class="{% if not params.externalInitialiser %}ons-js-autosuggest {% endif %}{% if params.isEditable == false %}ons-js-address-not-editable{% endif %}{% if params.mandatory == true %} ons-js-address-mandatory{% endif %} {% if params.containerClasses %} {{ params.containerClasses }}{% endif %} ons-autosuggest-input"
         data-instructions="{{ params.instructions }}"
         data-aria-you-have-selected="{{ params.ariaYouHaveSelected }}"
         data-min-chars="{{ params.minChars }}"
@@ -15,23 +15,23 @@
         data-results-title="{{ params.resultsTitle }}"
         data-no-results="{{ params.noResults }}"
         data-type-more="{{ params.typeMore }}"
-        {% if params.APIDomain is defined and params.APIDomain %}data-api-domain="{{ params.APIDomain }}"{% endif %}
-        {% if params.APIDomainBearerToken is defined and params.APIDomainBearerToken %}data-authorization-token="{{ params.APIDomainBearerToken }}"{% endif %}
-        {% if params.APIManualQueryParams is defined and params.APIManualQueryParams == true %}data-query-params=""{% endif %}
-        {% if params.allowMultiple is defined and params.allowMultiple == true %}data-allow-multiple="true"{% endif %}
-        {% if params.autosuggestData is defined and params.autosuggestData %}data-autosuggest-data="{{ params.autosuggestData }}"{% endif %}
-        {% if params.errorTitle is defined and params.errorTitle %}data-error-title="{{ params.errorTitle }}"{% endif %}
-        {% if params.errorMessageEnter is defined and params.errorMessageEnter %}data-error-enter="{{ params.errorMessageEnter }}"{% endif %}
-        {% if params.errorMessageSelect is defined and params.errorMessageSelect %}data-error-select="{{ params.errorMessageSelect }}"{% endif %}
-        {% if params.ariaGroupedResults is defined and params.ariaGroupedResults %}data-aria-grouped-results="{{ params.ariaGroupedResults }}"{% endif %}
-        {% if params.groupCount is defined and params.groupCount %}data-group-count="{{ params.groupCount }}"{% endif %}
-        {% if params.tooManyResults is defined and params.tooManyResults %}data-too-many-results="{{ params.tooManyResults }}"{% endif %}
-        {% if params.errorMessageAPI is defined and params.errorMessageAPI %}data-error-api="{{ params.errorMessageAPI }}"{% endif %}
-        {% if params.errorMessageAPILinkText is defined and params.errorMessageAPILinkText %}data-error-api-link-text="{{ params.errorMessageAPILinkText }}"{% endif %}
-        {% if params.options is defined and params.options %}
-            {% if params.options.oneYearAgo is defined and params.options.oneYearAgo %}data-options-one-year-ago="true"{% endif %}
-            {% if params.options.regionCode is defined and params.options.regionCode %}data-options-region-code="{{ params.options.regionCode }}"{% endif %}
-            {% if params.options.addressType is defined and params.options.addressType %}data-options-address-type="{{ params.options.addressType }}"{% endif %}
+        {% if params.APIDomain %}data-api-domain="{{ params.APIDomain }}"{% endif %}
+        {% if params.APIDomainBearerToken %}data-authorization-token="{{ params.APIDomainBearerToken }}"{% endif %}
+        {% if params.APIManualQueryParams == true %}data-query-params=""{% endif %}
+        {% if params.allowMultiple == true %}data-allow-multiple="true"{% endif %}
+        {% if params.autosuggestData %}data-autosuggest-data="{{ params.autosuggestData }}"{% endif %}
+        {% if params.errorTitle %}data-error-title="{{ params.errorTitle }}"{% endif %}
+        {% if params.errorMessageEnter %}data-error-enter="{{ params.errorMessageEnter }}"{% endif %}
+        {% if params.errorMessageSelect %}data-error-select="{{ params.errorMessageSelect }}"{% endif %}
+        {% if params.ariaGroupedResults %}data-aria-grouped-results="{{ params.ariaGroupedResults }}"{% endif %}
+        {% if params.groupCount %}data-group-count="{{ params.groupCount }}"{% endif %}
+        {% if params.tooManyResults %}data-too-many-results="{{ params.tooManyResults }}"{% endif %}
+        {% if params.errorMessageAPI %}data-error-api="{{ params.errorMessageAPI }}"{% endif %}
+        {% if params.errorMessageAPILinkText %}data-error-api-link-text="{{ params.errorMessageAPILinkText }}"{% endif %}
+        {% if params.options %}
+            {% if params.options.oneYearAgo %}data-options-one-year-ago="true"{% endif %}
+            {% if params.options.regionCode %}data-options-region-code="{{ params.options.regionCode }}"{% endif %}
+            {% if params.options.addressType %}data-options-address-type="{{ params.options.addressType }}"{% endif %}
         {% endif %}
     >
 
@@ -66,7 +66,7 @@
             "autosuggestResults": autosuggestResults
          }) }}
 
-         {% if params.mutuallyExclusive is not defined %}
+         {% if not params.mutuallyExclusive %}
             {{ autosuggestResults | safe }}
          {% endif %}
     </div>
