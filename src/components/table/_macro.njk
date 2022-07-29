@@ -8,14 +8,14 @@
     <div class="ons-table-scrollable ons-table-scrollable--on">
         <div class="ons-table-scrollable__content" tabindex="0" role="region" aria-label="{{ params.caption }}. {{ params.ariaLabel | default("Scrollable table") }}">
     {% endif %}
-            <table {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="ons-table{% if params.tableClasses is defined and params.tableClasses %} {{ params.tableClasses }}{% endif %}{% if variants is defined and variants %}{% if variants is not string %}{% for variant in variants %} ons-table--{{ variant }}{% endfor %}{% else %} ons-table--{{ variants }}{% endif %}{% endif %}" {% if params.sortBy is defined and params.sortBy and 'sortable' in variants %}data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"{% endif %}>
-                {% if params.caption is defined and params.caption %}
+            <table {% if params.id %}id="{{ params.id }}"{% endif %} class="ons-table{% if params.tableClasses %} {{ params.tableClasses }}{% endif %}{% if variants %}{% if variants is not string %}{% for variant in variants %} ons-table--{{ variant }}{% endfor %}{% else %} ons-table--{{ variants }}{% endif %}{% endif %}" {% if params.sortBy and 'sortable' in variants %}data-aria-sort="{{ params.sortBy }}" data-aria-asc="{{ params.ariaAsc }}" data-aria-desc="{{ params.ariaDesc }}"{% endif %}>
+                {% if params.caption %}
                 <caption class="ons-table__caption{{ " ons-u-vh" if params.hideCaption }}">{{ params.caption }}</caption>
                 {% endif %}
                 <thead class="ons-table__head">
                     <tr class="ons-table__row">
                         {% for th in params.ths %}
-                        <th scope="col" class="ons-table__header{{ ' ' + th.thClasses if th.thClasses is defined and th.thClasses }}{{ " ons-table__header--numeric" if th.numeric is defined and th.numeric }}"{% if 'sortable' in variants %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
+                        <th scope="col" class="ons-table__header{{ ' ' + th.thClasses if th.thClasses }}{{ " ons-table__header--numeric" if th.numeric }}"{% if 'sortable' in variants %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
                             <span {% if 'sortable' in variants %}class="ons-u-vh"{% endif %}>{{- th.value -}}</span>
                             {% if 'sortable' in variants %}
                                 {{
@@ -31,10 +31,10 @@
                 </thead>
                 <tbody class="ons-table__body">
                     {% for tr in params.trs %}
-                    <tr class="ons-table__row{{ " ons-table__row--highlight" if tr.highlight }}" {% if tr.name is defined and tr.name %} name="{{ tr.name }}"{% endif %} {% if tr.id is defined and tr.id %} id="{{ tr.id }}"{% endif %}>
+                    <tr class="ons-table__row{{ " ons-table__row--highlight" if tr.highlight }}" {% if tr.name %} name="{{ tr.name }}"{% endif %} {% if tr.id %} id="{{ tr.id }}"{% endif %}>
                         {% for td in tr.tds %}
-                        <td class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses is defined and td.tdClasses }}{{ " ons-table__cell--numeric" if td.numeric is defined and td.numeric }}" {% if td.id is defined and td.id %} id="{{ td.id }}"{% endif %} {% if td.name is defined and td.name %} name="{{ td.name }}"{% endif %} {% if td.data is defined and td.data %} data-th="{{ td.data }}"{% endif %} {% if td.dataSort is defined and td.dataSort %} data-sort-value="{{ td.dataSort }}"{% endif %}>
-                            {% if td.form is defined and td.form %}
+                        <td class="ons-table__cell{{ ' ' + td.tdClasses if td.tdClasses }}{{ " ons-table__cell--numeric" if td.numeric }}" {% if td.id %} id="{{ td.id }}"{% endif %} {% if td.name %} name="{{ td.name }}"{% endif %} {% if td.data %} data-th="{{ td.data }}"{% endif %} {% if td.dataSort %} data-sort-value="{{ td.dataSort }}"{% endif %}>
+                            {% if td.form %}
                                 <form action="{{ td.form.action }}" method="{{ td.form.method | default('POST')}}">
                                     {{
                                         onsButton({
@@ -46,14 +46,14 @@
                                             "name": td.form.button.name if td.form.button.name
                                         })
                                     }}
-                                    {% if td.form.hiddenFormField is defined and td.form.hiddenFormField %}
+                                    {% if td.form.hiddenFormField %}
                                         {% for hiddenField in td.form.hiddenFormField %}
-                                            <input type="hidden" {% if hiddenField.name is defined and hiddenField.name %} name="{{ hiddenField.name }}"{% endif %} {% if hiddenField.value is defined and hiddenField.value %} value="{{ hiddenField.value }}"{% endif %} />
+                                            <input type="hidden" {% if hiddenField.name %} name="{{ hiddenField.name }}"{% endif %} {% if hiddenField.value %} value="{{ hiddenField.value }}"{% endif %} />
                                         {% endfor %}
                                     {% endif %}
                                 </form>
                             {% endif %}
-                            {% if td.value is defined and td.value %}
+                            {% if td.value %}
                                 {{ td.value | safe }}
                             {% endif %}
                         </td>
@@ -61,7 +61,7 @@
                     </tr>
                     {% endfor %}
                 </tbody>
-                {% if params.tfoot is defined and params.tfoot %}
+                {% if params.tfoot %}
                 <tfoot class="ons-table__foot">
                     <tr class="ons-table__row">
                         {% for tfootCell in params.tfoot %}

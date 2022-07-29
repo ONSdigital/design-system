@@ -7,7 +7,7 @@
         <div id="address" class="ons-field ons-address-input {% if not params.manualEntry %}ons-address-input--search ons-js-address-autosuggest{% endif %}">
             {% if params.isEditable == true or params.manualEntry %}
                 {% if not params.manualEntry %}<div class="ons-js-address-input__manual ons-u-db-no-js_enabled">{% endif %}
-                    {% if params.organisation is defined and params.organisation %}
+                    {% if params.organisation %}
                         {{
                             onsInput({
                                 "id": params.id + "-organisation",
@@ -22,7 +22,7 @@
                             })
                         }}
                     {% endif %}
-                    {% if params.line1 is defined and params.line1 %}
+                    {% if params.line1 %}
                         {{
                             onsInput({
                                 "id": params.id + "-line1",
@@ -37,7 +37,7 @@
                             })
                         }}
                     {% endif %}
-                    {% if params.line2 is defined and params.line2 %}
+                    {% if params.line2 %}
                         {{
                             onsInput({
                                 "id": params.id + "-line2",
@@ -52,7 +52,7 @@
                             })
                         }}
                     {% endif %}
-                    {% if params.town is defined and params.town %}
+                    {% if params.town %}
                         {{
                             onsInput({
                                 "id": params.id + "-town",
@@ -66,7 +66,7 @@
                             })
                         }}
                     {% endif %}
-                    {% if params.postcode is defined and params.postcode %}
+                    {% if params.postcode %}
                         {{
                             onsInput({
                                 "id": params.id + "-postcode",
@@ -89,7 +89,7 @@
                 {% endif %}
             {% endif %}
 
-            {% if params.uprn is defined and params.uprn and params.uprn.value is defined and params.uprn.value %}
+            {% if params.uprn and params.uprn.value %}
                 {% set uprnValue = params.uprn.value %}
             {% else %}
                 {% set uprnValue = '' %}
@@ -162,7 +162,7 @@
         </div>
     {% endset %}
 
-    {% if params.dontWrap is defined and params.dontWrap %}
+    {% if params.dontWrap %}
         {{ fields | safe }}
     {% else %}
         {% call onsFieldset({
