@@ -13,11 +13,19 @@
 
 ## DurationField
 
-| Name       | Type    | Required | Description                                                           |
-| ---------- | ------- | -------- | --------------------------------------------------------------------- |
-| id         | string  | false    | The HTML `id` attribute for the input                                 |
-| name       | string  | false    | The HTML `name` attribute for the input                               |
-| value      | string  | false    | The HTML `value` for the input to set a preset value for the field    |
-| suffix     | string  | true     | Suffix for the input. Used for the HTML `title` and `abbr` attributes |
-| attributes | object  | false    | HTML attributes (for example, data attributes) to add to the element  |
-| error      | boolean | false    | If set to `true` will style this specific field as if it has an error |
+| Name       | Type                   | Required | Description                                                           |
+| ---------- | ---------------------- | -------- | --------------------------------------------------------------------- |
+| id         | string                 | false    | The HTML `id` attribute for the input                                 |
+| name       | string                 | false    | The HTML `name` attribute for the input                               |
+| value      | string                 | false    | The HTML `value` for the input to set a preset value for the field    |
+| suffix     | object `<InputSuffix>` | true     | Settings for the [input suffix](#inputsuffix)                         |
+| attributes | object                 | false    | HTML attributes (for example, data attributes) to add to the element  |
+| error      | boolean                | false    | If set to `true` will style this specific field as if it has an error |
+
+## InputSuffix
+
+| Name  | Type   | Required | Description                                                                                                                                                                               |
+| ----- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| text  | string | true     | The visible text abbreviation for the prefix or suffix, for example, “mins“                                                                                                               |
+| title | string | true     | The HTML `title` attribute for the `<abbr>` element used to write out the full value of an abbreviated prefix or suffix. For example, where `text` is “mins”, `title` would be “Minutes”. |
+| id    | string | true     | The HTML `id` of the `<abbr>` element used for the prefix or suffix. Used for the input’s `aria-labelledby` attribute.                                                                    |
