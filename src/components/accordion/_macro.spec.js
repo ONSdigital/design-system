@@ -162,7 +162,7 @@ describe('macro: accordion', () => {
         }),
       );
 
-      expect($('button.ons-js-collapsible-all').length).toBe(1);
+      expect($('button.ons-js-accordion-all').length).toBe(1);
     });
 
     it('has additionally provided `attributes`', () => {
