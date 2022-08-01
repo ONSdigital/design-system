@@ -180,8 +180,8 @@ describe('macro: accordion', () => {
         }),
       );
 
-      expect($('button.ons-js-collapsible-all').attr('a')).toBe('123');
-      expect($('button.ons-js-collapsible-all').attr('b')).toBe('456');
+      expect($('button.ons-js-accordion-all').attr('a')).toBe('123');
+      expect($('button.ons-js-accordion-all').attr('b')).toBe('456');
     });
   });
 });
