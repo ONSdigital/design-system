@@ -147,7 +147,7 @@ describe('macro: cookies-banner', () => {
           .html()
           .trim();
         expect(statementText).toBe(
-          '<p>Cookies are small files stored on your device when you visit a website. We store some cookies that are essential to make this website work.</p><p>We would like to set <a href="/cookies">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services.</p>',
+          '<p>Cookies are small files stored on your device when you visit a website. We use some essential cookies to make this website work.</p><p>We would like to set <a href="/cookies">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services. </p>',
         );
       });
 
@@ -175,7 +175,7 @@ describe('macro: cookies-banner', () => {
         const linkText = $('.ons-cookies-banner__link')
           .text()
           .trim();
-        expect(linkText).toBe('Cookie settings');
+        expect(linkText).toBe('View cookies');
       });
 
       it('Renders a link with url', () => {
