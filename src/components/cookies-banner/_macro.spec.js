@@ -147,7 +147,7 @@ describe('macro: cookies-banner', () => {
           .html()
           .trim();
         expect(statementText).toBe(
-          '<p>Cookies are small files stored on your device when you visit a website. We store some cookies that are essential to make the site work.</p><p>We would like to set <a href="/cookies">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services. </p>',
+          '<p>Cookies are small files stored on your device when you visit a website. We store some cookies that are essential to make this website work.</p><p>We would like to set <a href="/cookies">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services.</p>',
         );
       });
 
