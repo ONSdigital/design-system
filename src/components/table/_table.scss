@@ -107,7 +107,7 @@
       overflow-x: scroll;
       width: 100%;
       &:focus {
-        box-shadow: 0 0 0 3px $color-white, 0 0 0 5px $color-black, 0 0 0 8px $color-focus;
+        box-shadow: 0 0 0 3px $color-page-light, 0 0 0 5px $color-text-link-focus, 0 0 0 8px $color-focus;
         outline: none;
       }
       .ons-table__header,
