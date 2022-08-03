@@ -17,6 +17,12 @@
       // Overide default input focus so it can wrap prefix/suffix too
       box-shadow: none;
     }
+
+    // Overide default input error style so it can wrap prefix/suffix too
+    &.ons-input--error:not(:focus) {
+      border-right: $input-border-width solid $color-input-border;
+      box-shadow: none;
+    }
   }
 
   &__type {
@@ -54,11 +60,6 @@
     top: 0;
   }
 
-  &--error:not(:focus) {
-    border: $input-border-width solid $color-errors;
-    box-shadow: 0 0 0 $input-border-width $color-errors;
-  }
-
   &:not(&--prefix) & {
     &__type {
       border-left: 0;
@@ -81,5 +82,26 @@
       border-radius: 0 $input-radius $input-radius 0;
       order: 1;
     }
+  }
+}
+
+// Errors
+.ons-input--error:not(:focus) {
+  & + .ons-input-type__type,
+  & + .ons-input-type__type[title] {
+    border-color: $color-errors;
+  }
+
+  & + .ons-input-type__type::after {
+    border-radius: $input-radius;
+    bottom: 0;
+    // Style input + prefix/suffix for errors
+    box-shadow: 0 0 0 1px $color-errors;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }
