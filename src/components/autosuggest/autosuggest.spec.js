@@ -118,6 +118,16 @@ describe('script: autosuggest', () => {
       expect(ariaActiveDescendant).toBe(selectedOptionId);
     });
 
+    it('sets aria status to a message showing the selected result', async () => {
+      await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
+
+      await page.type('.ons-js-autosuggest-input', 'Eng', { delay: 20 });
+      await page.keyboard.press('ArrowDown');
+
+      const statusMessage = await page.$eval('.ons-js-autosuggest-aria-status', node => node.textContent);
+      expect(statusMessage.trim()).toBe('England');
+    });
+
     it('does not mark other suggestions as being selected', async () => {
       await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
 
@@ -194,16 +204,6 @@ describe('script: autosuggest', () => {
       const selectedOptionId = await page.$eval('.ons-autosuggest-input__option--focused', node => node.getAttribute('id'));
       const ariaActiveDescendant = await page.$eval('.ons-js-autosuggest-input', node => node.getAttribute('aria-activedescendant'));
       expect(ariaActiveDescendant).toBe(selectedOptionId);
-    });
-
-    it('sets aria status to a message showing the selected result', async () => {
-      await setTestPage('/test', renderComponent('autosuggest', EXAMPLE_AUTOSUGGEST));
-
-      await page.type('.ons-js-autosuggest-input', 'Eng', { delay: 20 });
-      await page.keyboard.press('ArrowDown');
-
-      const statusMessage = await page.$eval('.ons-js-autosuggest-aria-status', node => node.textContent);
-      expect(statusMessage.trim()).toBe('England');
     });
 
     it('does not mark other suggestions as being selected', async () => {
