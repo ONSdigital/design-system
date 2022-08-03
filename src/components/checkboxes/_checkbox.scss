@@ -10,7 +10,7 @@ $checkbox-padding: 11px;
   &__input {
     appearance: none;
     background: url(#{$static}/img/icons--check.svg) no-repeat center center;
-    background-color: $color-white;
+    background-color: $color-input-bg;
     background-size: 0;
     border: 2px solid $color-input-border;
     border-radius: 0.2rem;
@@ -101,7 +101,7 @@ $checkbox-padding: 11px;
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px $color-focus;
+        @extend %ons-input-focus;
       }
 
       & + .ons-checkbox__label {
@@ -179,7 +179,7 @@ $checkbox-padding: 11px;
       top: 0.1rem;
 
       &:focus {
-        box-shadow: 0 0 0 3px $color-focus;
+        @extend %ons-input-focus;
       }
     }
 
