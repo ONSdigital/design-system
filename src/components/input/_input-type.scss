@@ -95,6 +95,7 @@
   & + .ons-input-type__type::after {
     border-radius: $input-radius;
     bottom: 0;
+
     // Style input + prefix/suffix for errors
     box-shadow: 0 0 0 1px $color-errors;
     content: '';
