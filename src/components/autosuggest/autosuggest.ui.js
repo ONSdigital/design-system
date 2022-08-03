@@ -490,7 +490,7 @@ export default class AutosuggestUI {
 
       const ariaMessage = `${this.ariaYouHaveSelected}: ${result.displayText}.`;
 
-      // this.clearListbox();
+      this.clearListbox();
       this.setAriaStatus(ariaMessage);
     }
   }
