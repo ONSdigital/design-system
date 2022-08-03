@@ -5,14 +5,17 @@ export default class CookiesBanner {
     this.component = component;
     this.primaryBanner = this.component.querySelector('.ons-cookies-banner__primary');
     this.confirmBanner = this.component.querySelector('.ons-cookies-banner__confirmation');
-    this.button = this.component.querySelector('.ons-js-accept-cookies');
+    this.acceptButton = this.component.querySelector('.ons-js-accept-cookies');
+    this.rejectButton = this.component.querySelector('.ons-js-reject-cookies');
     this.hideButton = this.component.querySelector('.ons-js-hide-button');
-
+    this.acceptedText = this.component.querySelector('.ons-js-accepted-text');
+    this.rejectedText = this.component.querySelector('.ons-js-rejected-text');
     this.setupCookiesEvents();
   }
 
   setupCookiesEvents() {
-    this.button.addEventListener('click', this.setCookiesConsent.bind(this));
+    this.acceptButton.addEventListener('click', this.setCookiesConsent.bind(this));
+    this.rejectButton.addEventListener('click', this.setCookiesConsent.bind(this));
     this.hideButton.addEventListener('click', this.hideConfirmBanner.bind(this));
 
     this.showCookiesMessage();
@@ -35,35 +38,54 @@ export default class CookiesBanner {
 
   setCookiesConsent(event) {
     event.preventDefault();
+    let actionText;
+    const action = event.target.getAttribute('data-button');
 
-    approveAllCookieTypes();
-    cookie('ons_cookie_message_displayed', 'true', { days: 365 });
-
-    this.hidePrimaryCookiesBanner();
-
-    const isOnSettingsPage = document.querySelector('[data-module="cookie-settings"]');
-    if (isOnSettingsPage) {
-      this.updateRadios();
+    if (action == 'accept') {
+      this.acceptCookies();
+      actionText = this.acceptedText;
+    } else if (action == 'reject') {
+      setDefaultConsentCookie();
+      actionText = this.rejectedText;
     }
 
+    this.hidePrimaryCookiesBanner(actionText);
+    this.checkPage(action);
+    cookie('ons_cookie_message_displayed', 'true', { days: 365 });
+  }
+
+  acceptCookies() {
+    approveAllCookieTypes();
     if (typeof loadGTM != 'undefined') {
       loadGTM();
     }
   }
 
-  updateRadios() {
+  checkPage(action) {
+    const isOnSettingsPage = document.querySelector('[data-module="cookie-settings"]');
+    if (isOnSettingsPage) {
+      this.updateRadios(action);
+    }
+  }
+
+  updateRadios(action) {
     const radios = [...document.querySelectorAll('.ons-js-radio')];
     radios.forEach(radio => {
-      radio.value == 'off' ? (radio.checked = false) : (radio.checked = true);
+      if (action == 'reject') {
+        radio.value == 'off' ? (radio.checked = true) : (radio.checked = false);
+      } else if (action == 'accept') {
+        radio.value == 'off' ? (radio.checked = false) : (radio.checked = true);
+      }
     });
   }
 
-  hidePrimaryCookiesBanner() {
+  hidePrimaryCookiesBanner(text) {
     if (this.component) {
       this.primaryBanner.style.display = 'none';
       this.confirmBanner.classList.remove('ons-u-d-no');
       this.confirmBanner.setAttribute('aria-live', 'polite');
       this.confirmBanner.setAttribute('role', 'status');
+      text.classList.remove('ons-u-d-no');
     }
   }
 

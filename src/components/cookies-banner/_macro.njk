@@ -1,40 +1,84 @@
 {% macro onsCookiesBanner(params) %}
-    <div class="ons-cookies-banner" role="region" aria-label="{{ params.ariaLabel | default('Cookies banner')}}">
+    {% if params.lang == 'cy' %}
+        {% set ariaLabel = 'Cwcis' %}
+        {% set serviceName = 'ons.gov.uk' %}
+        {% set statementTitle = 'Cwcis ar' %}
+        {% set settingsLinkText = 'Gweld cwcis' %}
+        {% set settingsLinkURL = '/cwics' %}
+        {% set statementText = '<p>Ffeiliau bach a gaiff eu storio ar eich dyfais pan fyddwch yn mynd ar wefan yw cwcis. Rydym ni’n defnyddio rhai cwcis hanfodol i wneud i’r wefan hon weithio.</p><p>Hoffem osod <a href="' + settingsLinkURL + '">cwcis ychwanegol</a> er mwyn cofio eich gosodiadau a deall sut rydych chi’n defnyddio’r wefan. Mae hyn yn ein helpu ni i wella ein gwasanaethau.</p>' %}
+        {% set acceptButtonText = 'Derbyn cwcis ychwanegol' %}
+        {% set rejectButtonText = 'Gwrthod cwcis ychwanegol' %}
+        {% set acceptedText = 'Rydych chi wedi derbyn yr holl gwcis ychwanegol.' %}
+        {% set rejectedText =  'Rydych chi wedi gwrthod yr holl gwcis ychwanegol. ' %}
+        {% set preferencesText =  'Gallwch chi <a href="' + settingsLinkURL + '">newid eich dewisiadau o ran cwcis</a> ar unrhyw adeg.' %}
+        {% set confirmationButtonText = 'Cuddio' %}
+        {% set confirmationButtonTextAria = 'neges hon' %}
+    {% else %}
+        {% set ariaLabel = 'Cookies banner' %}
+        {% set serviceName = 'ons.gov.uk' %}
+        {% set statementTitle = 'Cookies on' %}
+        {% set settingsLinkText = 'View cookies' %}
+        {% set settingsLinkURL = '/cookies' %}
+        {% set statementText = '<p>Cookies are small files stored on your device when you visit a website. We use some essential cookies to make this website work.</p><p>We would like to set <a href="' + settingsLinkURL + '">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services. </p>' %}
+        {% set acceptButtonText = 'Accept additional cookies' %}
+        {% set rejectButtonText = 'Reject additional cookies' %}
+        {% set acceptedText = 'You have accepted all additional cookies.' %}
+        {% set rejectedText =  'You have rejected all additional cookies.' %}
+        {% set preferencesText =  'You can <a href="' + settingsLinkURL + '">change your cookie preferences</a> at any time.' %}
+        {% set confirmationButtonText = 'Hide' %}
+        {% set confirmationButtonTextAria = 'this message' %}
+    {% endif %}
+
+    <div class="ons-cookies-banner" role="region" aria-label="{{ params.ariaLabel | default(ariaLabel)}}">
         <div class="ons-container ons-cookies-banner__primary">
             <div class="ons-grid">
                 <div class="ons-grid__col ons-col-8@m">
-                  <h2 class="ons-cookies-banner__title ons-u-mb-xs">{{ params.statementTitle }}</h2>
-                  <p class="ons-cookies-banner__desc">{{ params.statementText | safe }}</p>
-                  {% from "components/button/_macro.njk" import onsButton %}
-                  {{
-                      onsButton({
-                          "type": 'button',
-                          "text": params.primaryButtonText | default('Accept all cookies'),
-                          "classes": 'ons-btn--small ons-js-accept-cookies ons-u-mb-xs@xxs@s ons-cookies-banner__btn'
-                      })
-                  }}
-                  {{
-                      onsButton({
-                          "type": 'button',
-                          "url": params.secondaryButtonUrl,
-                          "text": params.secondaryButtonText | default('Set cookie preferences'),
-                          "classes": 'ons-btn--small ons-u-ml-no@xxs@s ons-cookies-banner__btn'
-                      })
-                  }}
+                    <h2 class="ons-cookies-banner__title ons-u-mb-xs">{{ params.statementTitle | default(statementTitle) }} {{ params.serviceName | default(serviceName) }}</h2>
+                    <div class="ons-cookies-banner__statement">{{ params.statementText | default(statementText) | safe }}</div>
+                </div>
+            </div>
+            <div class="ons-grid ons-grid--flex ons-u-mt-s">
+                <div class="ons-grid__col">
+                    {% from "components/button/_macro.njk" import onsButton %}
+                    {{
+                            onsButton({
+                                "type": 'button',
+                                "attributes": {
+                                    "data-button": 'accept'
+                                },
+                                "text": params.acceptButtonText | default(acceptButtonText),
+                                "classes": 'ons-btn--small ons-js-accept-cookies ons-cookies-banner__btn'
+                            })
+                    }}
+                </div>
+                <div class="ons-grid__col">
+                    {{
+                            onsButton({
+                                "type": 'button',
+                                "attributes": {
+                                    "data-button": 'reject'
+                                },
+                                "text": params.rejectButtonText | default(rejectButtonText),
+                                "classes": 'ons-btn--small ons-js-reject-cookies ons-cookies-banner__btn'
+                            })
+                    }}
+                </div>
+                <div class="ons-grid__col">
+                    <a class="ons-cookies-banner__link" href="{{ params.settingsLinkURL | default(settingsLinkURL) }}">{{ params.settingsLinkText | default(settingsLinkText) }}</a>
                 </div>
             </div>
         </div>
         <div class="ons-container ons-cookies-banner__confirmation ons-u-d-no">
             <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--gutterless ons-grid--no-wrap@s ons-grid--vertical-center">
               <div class="ons-grid__col ons-grid__col--flex ons-col-auto ons-u-flex-shrink@s">
-                <p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s">{{ params.confirmationText | safe }}</p>
+                <p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s"><span class="ons-js-accepted-text ons-u-d-no">{{ params.acceptedText | default(acceptedText) | safe }} </span><span class="ons-js-rejected-text ons-u-d-no">{{ params.rejectedText | default(rejectedText) | safe }} </span><span class="ons-cookies-banner__preferences-text">{{ params.preferencesText | default(preferencesText) | safe }}</span></p>
               </div>
               <div class="ons-grid__col">
                 {{
                     onsButton({
                         "type": 'button',
-                        "text": params.confirmationButtonText | default('Hide'),
-                        "buttonContext": params.confirmationButtonTextAria | default('the cookie message'),
+                        "text": params.confirmationButtonText | default(confirmationButtonText),
+                        "buttonContext": params.confirmationButtonTextAria | default(confirmationButtonTextAria),
                         "classes": 'ons-btn--secondary ons-btn--small ons-js-hide-button'
                     })
                 }}

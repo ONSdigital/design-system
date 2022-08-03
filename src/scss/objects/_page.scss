@@ -24,7 +24,7 @@
 }
 
 .ons-page__body {
-  h2 {
+  h2:not(.ons-document-list__item-title) {
     @extend .ons-u-fs-xl;
   }
   h3,

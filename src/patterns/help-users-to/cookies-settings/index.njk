@@ -25,6 +25,13 @@ The cookies banner must be placed directly above the ONS [header](/components/he
 
 It will display if the user hasn’t accepted any ONS cookies via the banner or the cookie preferences page.
 
+The cookies banner component provides default values for all parameters in both English and Welsh. For the English version you don't need to provide any parameters. For the Welsh version, you will need to provide the parameter `'lang': 'cy'`.
+
+## Cookies banner - Welsh
+{{
+    patternlibExample({ "path": "components/cookies-banner/examples/cookies-banner-cymraeg/index.njk" })
+}}
+
 ## How it works
 Cookies are grouped by type and have a default boolean value. All but essential cookies are off by default.
 An initial cookie is set `ons_cookie_policy { essential: true, settings: false, usage: false, campaigns: false }`
