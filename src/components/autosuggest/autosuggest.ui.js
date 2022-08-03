@@ -322,7 +322,7 @@ export default class AutosuggestUI {
     this.listbox.innerHTML = '';
     this.context.classList.remove(classAutosuggestHasResults);
     this.input.removeAttribute('aria-activedescendant');
-    this.input.removeAttribute('aria-expanded');
+    this.input.setAttribute('aria-expanded', false);
 
     if (!preventAriaStatusUpdate) {
       this.setAriaStatus();
@@ -343,15 +343,12 @@ export default class AutosuggestUI {
       this.listbox.innerHTML = '';
       if (this.results) {
         this.resultOptions = this.results.map((result, index) => {
-          let ariaLabel = result[this.lang];
-          ariaLabel = ariaLabel.split('(<span class="ons-autosuggest-input__group">')[0];
           let innerHTML = this.emboldenMatch(result[this.lang], this.query);
 
           const listElement = document.createElement('li');
           listElement.className = classAutosuggestOption;
           listElement.setAttribute('id', `${this.listboxId}__option--${index}`);
           listElement.setAttribute('role', 'option');
-          listElement.setAttribute('aria-label', ariaLabel);
           if (result.category) {
             innerHTML =
               innerHTML + `<span class="ons-autosuggest-input__category ons-u-lighter ons-u-fs-s ons-u-db">${result.category}</span>`;
@@ -437,13 +434,13 @@ export default class AutosuggestUI {
           option.setAttribute('aria-selected', true);
           this.input.setAttribute('aria-activedescendant', option.getAttribute('id'));
           const groupedResult = option.querySelector('.ons-autosuggest-input__group');
-          const ariaLabel = option.getAttribute('aria-label');
+          const optionText = option.innerHTML.replace('<strong>', '').replace('</strong>', '');
           if (groupedResult) {
             let groupedAriaMsg = this.ariaGroupedResults.replace('{n}', groupedResult.innerHTML);
-            groupedAriaMsg = groupedAriaMsg.replace('{x}', ariaLabel);
+            groupedAriaMsg = groupedAriaMsg.replace('{x}', optionText);
             this.setAriaStatus(groupedAriaMsg);
           } else {
-            this.setAriaStatus(ariaLabel);
+            this.setAriaStatus(optionText);
           }
         } else {
           option.classList.remove(classAutosuggestOptionFocused);
@@ -493,7 +490,7 @@ export default class AutosuggestUI {
 
       const ariaMessage = `${this.ariaYouHaveSelected}: ${result.displayText}.`;
 
-      this.clearListbox();
+      // this.clearListbox();
       this.setAriaStatus(ariaMessage);
     }
   }
