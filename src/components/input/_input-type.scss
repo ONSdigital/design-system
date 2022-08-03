@@ -14,7 +14,8 @@
     z-index: 1;
 
     &:focus {
-      box-shadow: inset 0 0 0 1px $color-input;
+      // Overide default input focus so it can wrap prefix/suffix too
+      box-shadow: none;
     }
   }
 
@@ -36,19 +37,26 @@
 
   &__type,
   &__type[title] {
-    border: 1px solid $color-input;
+    border: 1px solid $color-input-border;
   }
 
   &__input:focus + &__type::after {
+    // Style input + prefix/suffix on focus
+    @extend %ons-input-focus;
+
     border-radius: $input-radius;
     bottom: 0;
-    box-shadow: 0 0 0 3px $color-focus;
     content: '';
     display: block;
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
+  }
+
+  &--error:not(:focus) {
+    border: $input-border-width solid $color-errors;
+    box-shadow: 0 0 0 $input-border-width $color-errors;
   }
 
   &:not(&--prefix) & {
