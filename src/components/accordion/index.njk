@@ -55,26 +55,19 @@ Use the [collapsible component](/components/collapsible) if there is only one se
 ## How to use this component
 The functionality of accordions is provided by grouping [collapsible components](/components/collapsible) together.
 
-The accordion uses JavaScript so when it's turned off, the sections of content are expanded.  The `collapsible.js` file takes care of running the open all/close all button, if one is provided.
-
 ### Use clear labels
 Accordions hide content so make sure your section headings are clear so the user does not need to work hard to understand which heading to choose.
 
 
 ## Variants
 
-### Simple
+### Open
 
-Under certain conditions a simplified accordion may be appropriate. The example below shows the accordion being used in a narrow column for filtering results. The button controls have been removed to allow the accordion to fit into a smaller area. 
+Under certain conditions setting each item to be open by default may be appropriate. The example below shows the accordion being used in a narrow column for filtering results. 
 
-To use this variant include the parameter `'variants': 'simple'` in your implementation.
+The `allButton` property has not been configured and won't be rendered to allow the accordion to fit into a smaller area. 
 
-The example shown uses the parameter `'open': true` which makes each accordion item open on page load.
-
-{{ onsPanel({
-        "body": '<p>This variant has not yet been tested and may not meet our accessibility requirements.</p>'
-    })
-}}
+To use this variant include the parameter `'open': true` in your implementation.
 
 {{
     patternlibExample({ path: "components/accordion/examples/accordion-simple/index.njk" })
