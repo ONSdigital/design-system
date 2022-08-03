@@ -1,22 +1,30 @@
 .ons-cookies-banner {
   background: $color-banner-bg;
   display: none;
-  padding: 1rem 0;
+  padding: 1rem 0 1.5rem;
 
   &__title {
     color: $color-text;
   }
 
-  &__desc {
+  &__statement {
     color: $color-text;
-    margin-bottom: 1rem;
     word-break: break-word;
+    p {
+      margin: 0 0 0.5rem;
+
+      @include mq(xxs, s) {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  &__link {
+    line-height: 2.1rem;
   }
 
   &__btn {
-    @include mq(xxs, 499px) {
-      display: block;
-      width: 100%;
-    }
+    margin: 0 0 0.8rem;
   }
 }
