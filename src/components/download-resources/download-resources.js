@@ -1061,9 +1061,17 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
     // Toggle filters visibility on small devices
     function toggleFilters(bool) {
+      let resultsOptions = document.getElementsByClassName('ons-adv-filter__results-options')[0];
+      let resultsList = document.getElementsByClassName('ons-js-adv-filter__gallery')[0];
+
       Util.toggleClass(filtersPanel, 'ons-adv-filter__panel--is-visible', bool);
       Util.toggleClass(body, 'ons-no-scroll', bool);
       filtersTrigger.setAttribute('aria-expanded', bool);
+
+      Util.toggleClass(resultsOptions, 'ons-u-d-no', bool);
+      Util.toggleClass(resultsList, 'ons-u-d-no', bool);
+      resultsOptions.setAttribute('aria-hidden', bool);
+      resultsList.setAttribute('aria-hidden', bool);
     }
   }
 })();

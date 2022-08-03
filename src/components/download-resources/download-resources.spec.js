@@ -505,6 +505,26 @@ describe('script: download-resources', () => {
       expect(displayStyle).not.toBe('none');
     });
 
+    it('hides the results list when the "Show filters" button is pressed', async () => {
+      await page.click('.ons-js-adv-filter__trigger');
+
+      const isHiddenClass = await page.$eval('.ons-js-adv-filter__gallery', node => node.classList.contains('ons-u-d-no'));
+      const isAriaHidden = await page.$eval('.ons-js-adv-filter__gallery', node => node.getAttribute('aria-hidden'));
+
+      expect(isHiddenClass).toBe(true);
+      expect(isAriaHidden).toBe('true');
+    });
+
+    it('hides the results list options when the "Show filters" button is pressed', async () => {
+      await page.click('.ons-js-adv-filter__trigger');
+
+      const isHiddenClass = await page.$eval('.ons-adv-filter__results-options', node => node.classList.contains('ons-u-d-no'));
+      const isAriaHidden = await page.$eval('.ons-adv-filter__results-options', node => node.getAttribute('aria-hidden'));
+
+      expect(isHiddenClass).toBe(true);
+      expect(isAriaHidden).toBe('true');
+    });
+
     it('hides filter elements when the "Show (n results)" button is pressed', async () => {
       await page.click('.ons-js-adv-filter__trigger');
       await page.click('.ons-js-adv-filter__show');
@@ -513,12 +533,56 @@ describe('script: download-resources', () => {
       expect(displayStyle).toBe('none');
     });
 
+    it('shows the results list when the "Show (n results)" button is pressed', async () => {
+      await page.click('.ons-js-adv-filter__trigger');
+      await page.click('.ons-js-adv-filter__show');
+
+      const isHiddenClass = await page.$eval('.ons-js-adv-filter__gallery', node => node.classList.contains('ons-u-d-no'));
+      const isAriaHidden = await page.$eval('.ons-js-adv-filter__gallery', node => node.getAttribute('aria-hidden'));
+
+      expect(isHiddenClass).toBe(false);
+      expect(isAriaHidden).toBe('false');
+    });
+
+    it('shows the results list options when the "Show (n results)" button is pressed', async () => {
+      await page.click('.ons-js-adv-filter__trigger');
+      await page.click('.ons-js-adv-filter__show');
+
+      const isHiddenClass = await page.$eval('.ons-adv-filter__results-options', node => node.classList.contains('ons-u-d-no'));
+      const isAriaHidden = await page.$eval('.ons-adv-filter__results-options', node => node.getAttribute('aria-hidden'));
+
+      expect(isHiddenClass).toBe(false);
+      expect(isAriaHidden).toBe('false');
+    });
+
     it('hides filter elements when the "Close" button is pressed', async () => {
       await page.click('.ons-js-adv-filter__trigger');
       await page.click('.ons-js-adv-filter__close');
 
       const displayStyle = await page.$eval('.ons-adv-filter__panel', node => getComputedStyle(node).display);
       expect(displayStyle).toBe('none');
+    });
+
+    it('shows the results list when the "Close" button is pressed', async () => {
+      await page.click('.ons-js-adv-filter__trigger');
+      await page.click('.ons-js-adv-filter__close');
+
+      const isHiddenClass = await page.$eval('.ons-js-adv-filter__gallery', node => node.classList.contains('ons-u-d-no'));
+      const isAriaHidden = await page.$eval('.ons-js-adv-filter__gallery', node => node.getAttribute('aria-hidden'));
+
+      expect(isHiddenClass).toBe(false);
+      expect(isAriaHidden).toBe('false');
+    });
+
+    it('shows the results list options when the "Close" button is pressed', async () => {
+      await page.click('.ons-js-adv-filter__trigger');
+      await page.click('.ons-js-adv-filter__close');
+
+      const isHiddenClass = await page.$eval('.ons-adv-filter__results-options', node => node.classList.contains('ons-u-d-no'));
+      const isAriaHidden = await page.$eval('.ons-adv-filter__results-options', node => node.getAttribute('aria-hidden'));
+
+      expect(isHiddenClass).toBe(false);
+      expect(isAriaHidden).toBe('false');
     });
   });
 });
