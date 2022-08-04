@@ -1067,6 +1067,8 @@ Math.easeInOutQuad = function(t, b, c, d) {
       Util.toggleClass(filtersPanel, 'ons-adv-filter__panel--is-visible', bool);
       Util.toggleClass(body, 'ons-no-scroll', bool);
       filtersTrigger.setAttribute('aria-expanded', bool);
+      filtersTrigger.setAttribute('aria-hidden', bool);
+      Util.toggleClass(filtersTrigger, 'ons-u-d-no', bool);
 
       Util.toggleClass(resultsOptions, 'ons-u-d-no', bool);
       Util.toggleClass(resultsList, 'ons-u-d-no', bool);
