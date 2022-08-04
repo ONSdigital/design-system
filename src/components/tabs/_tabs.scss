@@ -20,6 +20,7 @@
       &::after {
         background: $color-borders;
         bottom: 0;
+        box-shadow: 0 1px 0 0 $color-page-light;
         content: '';
         height: 1px;
         left: 0;
