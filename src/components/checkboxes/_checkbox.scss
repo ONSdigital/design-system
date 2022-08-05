@@ -146,6 +146,10 @@ $checkbox-padding: 11px;
       bottom: 0;
       content: '';
       left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
     }
 
     * {
@@ -180,12 +184,8 @@ $checkbox-padding: 11px;
     @extend %ons-input-focus;
 
     // Add outline because Windows High Contrast mode removes box-shadows so focus is lost
-    outline: 3px solid transparent;
+    outline: 2px solid transparent;
     outline-offset: 1px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
   }
 
   &__input:not(:checked) ~ &__other {
