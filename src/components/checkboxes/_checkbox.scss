@@ -10,9 +10,9 @@ $checkbox-padding: 11px;
   &__input {
     appearance: none;
     background: url(#{$static}/img/icons--check.svg) no-repeat center center;
-    background-color: $color-white;
+    background-color: $color-input-bg;
     background-size: 0;
-    border: 2px solid $color-input;
+    border: 2px solid $color-input-border;
     border-radius: 0.2rem;
     box-sizing: border-box;
     height: $checkbox-input-width;
@@ -73,7 +73,7 @@ $checkbox-padding: 11px;
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px $color-focus;
+        @extend %ons-input-focus;
       }
     }
 
@@ -101,7 +101,7 @@ $checkbox-padding: 11px;
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px $color-focus;
+        @extend %ons-input-focus;
       }
 
       & + .ons-checkbox__label {
@@ -122,7 +122,7 @@ $checkbox-padding: 11px;
 
     &::before {
       background: $color-white;
-      border: 1px solid $color-input;
+      border: 1px solid $color-input-border;
       border-radius: 3px;
       bottom: 0;
       content: '';
@@ -152,7 +152,7 @@ $checkbox-padding: 11px;
 
   &__input:checked + &__label::before {
     background: $color-grey-5;
-    box-shadow: 0 0 0 1px $color-input;
+    box-shadow: 0 0 0 1px $color-input-border;
   }
 
   .ons-panel--error .ons-radio__input:checked ~ &__other > .ons-input--text:required:not(:focus) {
@@ -179,7 +179,7 @@ $checkbox-padding: 11px;
       top: 0.1rem;
 
       &:focus {
-        box-shadow: 0 0 0 3px $color-focus;
+        @extend %ons-input-focus;
       }
     }
 
