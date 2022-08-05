@@ -107,8 +107,8 @@
       overflow-x: scroll;
       width: 100%;
       &:focus {
-        outline: 3px solid $color-focus;
-        outline-offset: 3px;
+        box-shadow: 0 0 0 3px $color-page-light, 0 0 0 5px $color-text-link-focus, 0 0 0 8px $color-focus;
+        outline: none;
       }
       .ons-table__header,
       .ons-table__cell {
@@ -119,6 +119,7 @@
       .ons-table__right-shadow,
       .ons-table__left-shadow {
         height: 100%;
+        padding: 2px;
         position: absolute;
         top: 0;
         width: 5px;
