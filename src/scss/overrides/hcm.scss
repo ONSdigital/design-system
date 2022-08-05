@@ -10,21 +10,6 @@
     filter: brightness(0) invert(1);
   }
 
-  // IE11 fallback
-  .ons-collapsible__icon .ons-svg-icon,
-  .ons-breadcrumb__item .ons-svg-icon,
-  .ons-panel .ons-svg-icon,
-  .ons-list--icons .ons-svg-icon {
-    fill: currentColor;
-  }
-
-  // Matches icon with the link colour
-  .ons-external-link {
-    svg {
-      fill: currentColor !important;
-    }
-  }
-
   // Adds a border to container error warning panel
   .ons-panel--error {
     border: 1px solid currentColor;
@@ -69,9 +54,16 @@
     border: 2px solid currentColor;
   }
 
-  // Buttons
-  .ons-btn__inner .ons-svg-icon {
-    fill: currentColor !important;
+  // Element icons – matches icon with the link colour
+  .ons-collapsible__icon,
+  .ons-breadcrumb__item,
+  .ons-panel,
+  .ons-btn__inner,
+  .ons-external-link {
+    &.ons-svg-icon {
+      fill: currentColor !important;
+      forced-color-adjust: auto;
+    }
   }
 
   // Hero pre title
