@@ -51,6 +51,10 @@ $checkbox-padding: 11px;
       cursor: not-allowed;
     }
 
+    &:disabled:checked::after {
+      border-color: $color-border-disabled;
+    }
+
     &:disabled + label {
       color: $color-grey-35;
       cursor: not-allowed;
