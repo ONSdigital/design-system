@@ -60,7 +60,7 @@
   .ons-panel,
   .ons-btn__inner,
   .ons-external-link {
-    &.ons-svg-icon {
+    & .ons-svg-icon {
       fill: currentColor !important;
       forced-color-adjust: auto;
     }
