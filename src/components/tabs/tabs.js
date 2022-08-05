@@ -30,8 +30,6 @@ export default class Tabs {
     this.jsTabItemAsRowClass = 'ons-tab__list-item--row';
     this.jsTabAsListClass = 'ons-tab--row';
 
-    this.tabsTitle.classList.add('ons-u-vh');
-
     if (matchMediaUtil.hasMatchMedia()) {
       this.setupViewportChecks();
     } else {
@@ -61,6 +59,8 @@ export default class Tabs {
     this.tabList[0].setAttribute('role', 'tablist');
     this.tabList[0].classList.add(this.jsTabListAsRowClass);
 
+    this.tabsTitle.classList.add('ons-u-vh');
+
     this.tabPanels.forEach(panel => {
       panel.setAttribute('tabindex', '0');
     });
@@ -89,6 +89,8 @@ export default class Tabs {
   makeList() {
     this.tabList[0].removeAttribute('role');
     this.tabList[0].classList.remove(this.jsTabListAsRowClass);
+
+    this.tabsTitle.classList.remove('ons-u-vh');
 
     this.tabPanels.forEach(panel => {
       panel.removeAttribute('tabindex', '0');

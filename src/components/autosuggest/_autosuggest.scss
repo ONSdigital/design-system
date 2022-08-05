@@ -11,7 +11,7 @@
   }
 
   &__results {
-    border: 1px solid $color-input;
+    border: 1px solid $color-input-border;
     border-radius: $input-radius;
     display: none;
     margin: 0.5rem 0 0;
@@ -27,7 +27,7 @@
 
   &__results-title {
     background: $color-grey-15;
-    border-bottom: 1px solid $color-input;
+    border-bottom: 1px solid $color-input-border;
     padding: 0.25rem 0.5rem;
   }
 
@@ -48,7 +48,7 @@
     padding: $input-padding-horizontal;
 
     &:not(:last-child) {
-      border-bottom: 1px solid $color-input;
+      border-bottom: 1px solid $color-input-border;
     }
 
     &:not(&--no-results):not(&--more-results):hover,
@@ -87,7 +87,7 @@
     padding-left: 0.5rem;
 
     &:not(:last-child) {
-      border-bottom: 1px solid $color-input;
+      border-bottom: 1px solid $color-input-border;
     }
   }
 
