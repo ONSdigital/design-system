@@ -195,7 +195,7 @@ $checkbox-padding: 11px;
   &--toggle & {
     &__input {
       left: 0;
-      top: 0.1rem;
+      top: 0.25rem;
 
       &:focus {
         box-shadow: 0 0 0 3px $color-focus;
