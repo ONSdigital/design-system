@@ -6,20 +6,22 @@
 
     background: $color-grey-5;
     border-radius: 50%;
-    box-shadow: inset 0 0 0 3px $color-white;
+    box-shadow: inset 0 0 0 3px $color-input-bg;
 
     &::after {
-      // Remove checkbox check icon
-      border: none;
-    }
-
-    &:checked {
-      background: $color-input-border;
+      border-radius: 50%;
+      border-top-color: inherit;
+      border-width: 6px;
+      height: 0;
+      left: 3px;
+      top: 3px;
+      width: 0;
     }
   }
 
   &.ons-radio--no-border {
     @extend .ons-checkbox--no-border;
+
     & > .ons-radio__input {
       @extend .ons-radio__input;
       &:focus,

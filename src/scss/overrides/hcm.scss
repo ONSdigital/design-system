@@ -25,24 +25,6 @@
     text-decoration: underline;
   }
 
-  .ons-radio__input:checked + .ons-radio__label {
-    position: relative;
-
-    // These off pixels are not nice, but due to the way the form controls have been built I have had no choice
-    // I would strongly revisit doing the checkboxes and radios again and fix these non-whole pixel values
-    &::after {
-      border: 6px solid currentColor;
-      border-radius: 50%;
-      content: '';
-      height: 12.5px;
-      left: 16px;
-      position: absolute;
-      top: 18.5px;
-      width: 12.5px;
-      z-index: 1;
-    }
-  }
-
   // Had to do this without messing with the existing SVG
   .ons-input--select {
     background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iY2hldnJvbi1kb3duIiBjbGFzcz0ic3ZnLWljb24iIHZpZXdCb3g9IjAgMCAxMiA4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMS4yIDBMNiA1LjQgMTAuOCAwIDEyIDEuMyA2IDggMCAxLjN6Ii8+Cjwvc3ZnPgo=');
