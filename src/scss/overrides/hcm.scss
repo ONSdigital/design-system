@@ -78,7 +78,19 @@
   }
 
   .ons-tab--row[aria-selected='true'] {
-    border-color: ButtonText;
+    border-color: ButtonText !important;
+    color: ButtonText;
+  }
+
+  // Navigation and section nav – item border
+  .ons-section-nav:not(.ons-section-nav--vertical) .ons-section-nav__item,
+  .ons-navigation__item {
+    border-color: canvas;
+  }
+
+  .ons-section-nav:not(.ons-section-nav--vertical) .ons-section-nav__item--active,
+  .ons-navigation__item--active {
+    border-color: ButtonText !important;
     color: ButtonText;
   }
 }
