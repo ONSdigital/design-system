@@ -53,4 +53,11 @@
   .ons-hero__pre-title {
     filter: brightness(0) invert(1);
   }
+
+  // Buttons - Overrides adjustment to make button shadow selectable
+  .ons-btn {
+    &::after {
+      bottom: 0 !important;
+    }
+  }
 }
