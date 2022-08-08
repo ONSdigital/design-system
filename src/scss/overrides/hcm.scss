@@ -13,6 +13,7 @@
   // Adds a border to container error warning panel
   .ons-panel--error {
     border: 1px solid currentColor;
+    border-left-width: 8px;
 
     .ons-panel__header {
       border-bottom: 1px solid currentColor;
