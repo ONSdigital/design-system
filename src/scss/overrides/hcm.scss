@@ -60,4 +60,25 @@
       bottom: 0 !important;
     }
   }
+
+  .ons-input,
+  .ons-btn .ons-btn__inner,
+  .ons-tab--row {
+    &:focus,
+    &:focus-visible {
+      // Focus states – To better match the focus states of native controls
+      outline-color: Highlight;
+    }
+  }
+
+  // Tabs – prevent tab border colour change
+  .ons-tabs__list--row::after {
+    bottom: 1px;
+    forced-color-adjust: none;
+  }
+
+  .ons-tab--row[aria-selected='true'] {
+    border-color: ButtonText;
+    color: ButtonText;
+  }
 }
