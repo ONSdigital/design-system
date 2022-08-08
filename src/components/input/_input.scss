@@ -1,6 +1,14 @@
 %ons-input-focus {
   box-shadow: 0 0 0 $input-border-width $color-input-border, 0 0 0 4px $color-focus;
-  outline: none;
+
+  // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+  outline: 3px solid transparent;
+  outline-offset: 1px;
+
+  @media screen and (forced-colors: active) {
+    // To better match the focus states of native controls
+    outline-color: Highlight;
+  }
 }
 
 .ons-input {

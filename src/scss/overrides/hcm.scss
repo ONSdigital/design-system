@@ -52,11 +52,4 @@
   .ons-hero__pre-title {
     filter: brightness(0) invert(1);
   }
-
-  // Inputs – to better match the focus states of native controls
-  .ons-checkbox {
-    &__input:focus + &__label::before {
-      outline-color: Highlight;
-    }
-  }
 }

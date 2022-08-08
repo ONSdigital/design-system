@@ -16,6 +16,7 @@
     &:focus {
       // Overide default input focus so it can wrap prefix/suffix too
       box-shadow: none;
+      outline: none;
     }
 
     // Overide default input error style so it can wrap prefix/suffix too
