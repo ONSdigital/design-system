@@ -242,6 +242,7 @@ The colour variables are assigned to elements by using variables to provide cont
                 'fore': '#ffffff',
                 'bg': '#0f8243',
                 'char': 'A',
+                'shadow': true,
                 'var': '$color-button',
                 'info': 'Primary action buttons use a green background colour and white text.',
                 'hideSwatchDetail': true
@@ -256,6 +257,7 @@ The colour variables are assigned to elements by using variables to provide cont
                 'fore': '#222222',
                 'bg': '#e2e2e3',
                 'char': 'A',
+                'shadow': true,
                 'var': '$color-button-secondary',
                 'info': 'Secondary buttons use a light grey background colour and black text. This prevents interference with the primary action.',
                 'hideSwatchDetail': true
@@ -287,8 +289,9 @@ The colour variables are assigned to elements by using variables to provide cont
                 'fore': '#222222',
                 'bg': '#f0f762',
                 'char': 'A',
+                'shadow': true,
                 'var': '$color-highlight',
-                'info': 'Bright yellow is used to <a href="/foundations/typography#highlighting">highlight important information in headings</a>.',
+                'info': 'Bright yellow is used with a <code>4px</code> black offset <code>box-shadow</code> to <a href="/foundations/typography#highlighting">highlight important information in headings</a>.',
                 'hideSwatchDetail': true
             }
         ]
@@ -427,6 +430,13 @@ To meet the WCAG 2.1 level AA guideline “1.4.3 Contrast (Minimum)”, all text
                 'fore': '#222222',
                 'bg': '#ffffff',
                 'contrastRatio': '15.91',
+                'char': 'A',
+                'border': true
+            },
+            {
+                'fore': '#206095',
+                'bg': '#ffffff',
+                'contrastRatio': '6.63',
                 'char': 'A',
                 'border': true
             },
