@@ -101,4 +101,18 @@
     border-color: ButtonText !important;
     color: ButtonText;
   }
+
+  // Add borders to divide banners
+  .ons-skip-link,
+  .ons-browser-banner,
+  .ons-cookies-banner,
+  .ons-header,
+  .ons-header__top,
+  .ons-phase-banner {
+    border-bottom: 1px solid currentColor;
+  }
+
+  .ons-navigation--sub {
+    border-top: 1px solid currentColor;
+  }
 }
