@@ -66,7 +66,8 @@
 
   // Logos
   .ons-header__org-logo,
-  .ons-header__title-logo {
+  .ons-header__title-logo,
+  .ons-footer {
     & .ons-svg-logo {
       fill: currentColor !important;
       forced-color-adjust: auto;
@@ -127,6 +128,10 @@
   .ons-hero,
   .ons-phase-banner {
     border-bottom: 1px solid currentColor;
+  }
+
+  .ons-footer {
+    border-top: 1px solid currentColor;
   }
 
   @include mq(m) {
