@@ -167,7 +167,7 @@ describe('macro: document list', () => {
 
     it('has expected `title`', () => {
       const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_BASIC] }));
-      const title = $('.ons-document-list__item-title a')
+      const title = $('.ons-document-list__item-title .ons-document-list__item-title-text')
         .html()
         .trim();
       expect(title).toBe('Crime and justice');
@@ -176,6 +176,24 @@ describe('macro: document list', () => {
     it('has expected `url` for the title', () => {
       const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_BASIC] }));
       expect($('.ons-document-list__item-title a').attr('href')).toBe('#0');
+    });
+
+    it('has the default visually hidden `newWindowDescription` text for the title', () => {
+      const $ = cheerio.load(renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_BASIC] }));
+      const content = $('.ons-document-list__item-title a .ons-u-vh')
+        .html()
+        .trim();
+      expect(content).toEqual(expect.stringContaining('(opens in a new tab)'));
+    });
+
+    it('has the provided visually hidden `newWindowDescription` text for the title', () => {
+      const $ = cheerio.load(
+        renderComponent('document-list', { documents: [EXAMPLE_DOCUMENT_LIST_BASIC], newWindowDescription: 'provided text' }),
+      );
+      const content = $('.ons-document-list__item-title a .ons-u-vh')
+        .html()
+        .trim();
+      expect(content).toEqual(expect.stringContaining('(provided text)'));
     });
 
     it('has expected `description`', () => {
@@ -247,7 +265,7 @@ describe('macro: document list', () => {
       const hiddenText = $('.ons-document-list__item-title a .ons-u-vh')
         .text()
         .trim();
-      expect(hiddenText).toBe(', PDF document download, 499KB, 1 page');
+      expect(hiddenText).toBe(', PDF document download, 499KB, 1 page (opens in a new tab)');
     });
 
     it('has `file` information displayed', () => {
