@@ -4,7 +4,6 @@
   // Then, invert(1) makes the black parts white
   .ons-footer__ogl-img,
   .ons-quote .ons-svg-icon,
-  .ons-collapsible__icon .ons-svg-icon,
   .ons-footer img {
     filter: brightness(0) invert(1);
   }
@@ -52,7 +51,7 @@
   }
 
   // Element icons – matches icon with the link colour
-  .ons-collapsible__icon,
+  .ons-collapsible,
   .ons-breadcrumb__item,
   .ons-panel,
   .ons-btn__inner,
