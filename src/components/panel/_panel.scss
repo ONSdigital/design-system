@@ -21,6 +21,11 @@
   background-color: $color-black;
 }
 
+.ons-census-warning,
+.ons-announcement {
+  outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
+}
+
 .ons-panel {
   border-radius: 0;
   position: relative;
@@ -178,6 +183,7 @@
       line-height: 2rem;
       min-height: 2rem;
       min-width: 2rem;
+      outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
       text-align: center;
     }
   }
