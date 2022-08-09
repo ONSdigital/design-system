@@ -54,7 +54,8 @@
   .ons-breadcrumb__item,
   .ons-panel,
   .ons-btn__inner,
-  .ons-external-link {
+  .ons-external-link,
+  .ons-list--icons {
     & .ons-svg-icon {
       fill: currentColor !important;
       forced-color-adjust: auto;
