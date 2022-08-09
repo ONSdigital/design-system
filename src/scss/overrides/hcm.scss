@@ -38,10 +38,12 @@
     }
   }
 
-  // Had to do this without messing with the existing SVG
+  // Select - Overrides custom background image icon
   .ons-input--select {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iY2hldnJvbi1kb3duIiBjbGFzcz0ic3ZnLWljb24iIHZpZXdCb3g9IjAgMCAxMiA4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMS4yIDBMNiA1LjQgMTAuOCAwIDEyIDEuMyA2IDggMCAxLjN6Ii8+Cjwvc3ZnPgo=');
-    background-size: 12px 8px;
+    background: $color-input-bg
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='ons-svg-icon' viewBox='0 0 12 8'%3E%3Cpath fill='%23fff' d='M1.5.3 6 5.4 10.5.3c.2-.2.4-.2.6 0l.7.7c.1.2.1.4 0 .5L6.3 7.7c-.2.2-.4.2-.6 0L.2 1.6C.1 1.4.1 1.2.2 1L.9.3c.2-.1.4-.1.6 0z'/%3E%3C/svg%3E")
+      no-repeat center right 10px;
+    background-size: 1rem;
   }
 
   // I would have approached the mark differently, but without changing the existing approach this fixes it
