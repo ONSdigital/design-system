@@ -126,6 +126,12 @@
     border-bottom: 1px solid currentColor;
   }
 
+  @include mq(m) {
+    .ons-header__main {
+      border-bottom: 1px solid currentColor;
+    }
+  }
+
   .ons-navigation--sub {
     border-top: 1px solid currentColor;
   }
