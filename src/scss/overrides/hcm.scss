@@ -118,12 +118,13 @@
     color: ButtonText;
   }
 
-  // Add borders to divide banners
+  // Add borders to separate banners with no backgrounds
   .ons-skip-link,
   .ons-browser-banner,
   .ons-cookies-banner,
   .ons-header,
   .ons-header__top,
+  .ons-hero,
   .ons-phase-banner {
     border-bottom: 1px solid currentColor;
   }
