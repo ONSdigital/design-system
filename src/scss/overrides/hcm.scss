@@ -2,7 +2,6 @@
 @media screen and (-ms-high-contrast: active), (forced-colors: active) {
   // Brightness makes all images black, except transparent parts, which remain transparent
   // Then, invert(1) makes the black parts white
-  .ons-header__logo,
   .ons-footer__ogl-img,
   .ons-quote .ons-svg-icon,
   .ons-collapsible__icon .ons-svg-icon,
@@ -44,6 +43,15 @@
   .ons-btn__inner,
   .ons-external-link {
     & .ons-svg-icon {
+      fill: currentColor !important;
+      forced-color-adjust: auto;
+    }
+  }
+
+  // Logos
+  .ons-header__org-logo,
+  .ons-header__title-logo {
+    & .ons-svg-logo {
       fill: currentColor !important;
       forced-color-adjust: auto;
     }
