@@ -627,9 +627,9 @@ async function getFilterSelectionLabels(page) {
 }
 
 async function getHiddenDocumentTitles(page) {
-  return await getTextContent(page, '.ons-js-filter__item.ons-u-hidden .ons-document-list__item-title');
+  return await getTextContent(page, '.ons-js-filter__item.ons-u-hidden .ons-document-list__item-title-text');
 }
 
 async function getShownDocumentTitles(page) {
-  return await getTextContent(page, '.ons-js-filter__item:not(.ons-u-hidden) .ons-document-list__item-title');
+  return await getTextContent(page, '.ons-js-filter__item:not(.ons-u-hidden) .ons-document-list__item-title-text');
 }
