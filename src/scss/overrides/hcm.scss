@@ -22,7 +22,7 @@
   // Adds some style adjustments to the focused item to make it obvious something is selected
   .ons-autosuggest-input {
     &__results {
-      outline: 1px solid Highlight !important;
+      border: 1px solid Highlight !important;
     }
 
     .ons-autosuggest-input__option {
