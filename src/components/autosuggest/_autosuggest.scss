@@ -15,6 +15,7 @@
     border-radius: $input-radius;
     display: none;
     margin: 0.5rem 0 0;
+    outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
     overflow: hidden;
     padding: 0;
     width: 100%;
