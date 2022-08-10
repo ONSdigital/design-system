@@ -230,4 +230,11 @@
   .ons-feedback::after {
     content: none;
   }
+
+  // Message – indicate sent vs received
+  .ons-message {
+    &--sent {
+      outline-color: mark;
+    }
+  }
 }
