@@ -27,7 +27,9 @@ All ONS pages must use the skip to content component above the header.
 ## How to use this component
 The skip to content link component is visually hidden until it is brought into focus with a keyboard press.
 
-It should be the first element of the page content, and link to the page's `#main` div.
+It should be the first element of the page content if not using the [cookies banner](/patterns/cookies-settings/). If your service does use the cookies banner, then it should immediately follow.  It should link to the page's main content `div` using `#id` (`id` matching the `id` attribute if the `div`).
+
+If using the [page template](/foundations/page-template) the skip to content component is automatically included in the correct place and will link to a `div` with an `id` of `main-content`. To override this you can manually add it using the `skipLink` block.
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.
