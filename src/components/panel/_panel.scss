@@ -43,7 +43,6 @@
   &:focus {
     box-shadow: none;
     outline: 4px solid $color-focus !important;
-    outline-offset: 0;
   }
 
   &__header {
@@ -145,7 +144,7 @@
 
   &--announcement {
     a:focus {
-      box-shadow: 0 -2px #fd0, 0 4px #fd0 !important; // Override focus style because the black border is not visible on a black background
+      box-shadow: 0 -2px $color-focus, 0 4px $color-text-inverse-link !important; // Override focus style because the black border is not visible on a black background
     }
   }
 

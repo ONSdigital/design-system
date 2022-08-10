@@ -55,6 +55,7 @@
   &--error:not(:focus) {
     border: $input-border-width solid $color-errors;
     box-shadow: 0 0 0 $input-border-width $color-errors;
+    outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
   }
 
   &--with-description {

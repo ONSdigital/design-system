@@ -8,14 +8,10 @@
     filter: brightness(0) invert(1);
   }
 
-  // Adds a border to container error warning panel
+  // Panels – add border to replace backgrounds
   .ons-panel {
     border-color: currentColor;
     border-left-width: 8px !important;
-
-    .ons-panel__header {
-      border-bottom: 1px solid currentColor;
-    }
   }
 
   // Adds some style adjustments to the focused item to make it obvious something is selected
@@ -200,5 +196,31 @@
   .ons-highlight {
     background-color: mark;
     color: marktext;
+  }
+
+  // Errors
+  .ons-panel--error {
+    border-color: mark;
+    outline-color: mark;
+
+    & .ons-panel__header {
+      border-bottom: 1px solid mark;
+    }
+  }
+
+  .ons-input {
+    &--error:not(:focus) {
+      border-color: mark;
+      outline-color: mark;
+
+      & + .ons-input-type__type,
+      & + .ons-input-type__type[title] {
+        border-color: mark;
+      }
+
+      & + .ons-input-type__type::after {
+        outline-color: mark;
+      }
+    }
   }
 }

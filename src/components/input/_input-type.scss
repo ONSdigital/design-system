@@ -23,6 +23,7 @@
     &.ons-input--error:not(:focus) {
       border-right: $input-border-width solid $color-input-border;
       box-shadow: none;
+      outline: none;
     }
   }
 
@@ -102,6 +103,7 @@
     content: '';
     display: block;
     left: 0;
+    outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
     position: absolute;
     right: 0;
     top: 0;
