@@ -176,4 +176,9 @@
       }
     }
   }
+
+  // Colour swatch – prevent colour adjustment
+  .ons-patternlib-swatch__color {
+    forced-color-adjust: none;
+  }
 }
