@@ -55,9 +55,20 @@ $checkbox-padding: 11px;
       border-color: $color-border-disabled;
     }
 
-    &:disabled + .ons-checkbox__label {
-      color: $color-grey-35;
+    &:disabled + .ons-checkbox__label,
+    &:disabled:checked + .ons-checkbox__label {
+      color: $color-border-disabled;
       cursor: not-allowed;
+
+      &::before {
+        border: 1px solid $color-border-disabled;
+      }
+    }
+
+    &:disabled:checked + .ons-checkbox__label {
+      &::before {
+        box-shadow: 0 0 0 1px $color-border-disabled;
+      }
     }
   }
 
@@ -66,9 +77,9 @@ $checkbox-padding: 11px;
       padding: 0 0 0 1.85rem;
 
       &::before {
-        background: none;
-        border: none;
-        box-shadow: none;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
       }
 
       & > .ons-checkbox__label--with-description {
@@ -173,6 +184,7 @@ $checkbox-padding: 11px;
   &__input:checked + &__label::before {
     background: $color-grey-5;
     box-shadow: 0 0 0 1px $color-input-border;
+    outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
   }
 
   .ons-panel--error .ons-radio__input:checked ~ &__other > .ons-input--text:required:not(:focus) {

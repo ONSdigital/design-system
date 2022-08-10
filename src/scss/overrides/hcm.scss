@@ -157,4 +157,23 @@
       outline-color: ButtonText !important;
     }
   }
+
+  // Radios and Checkboxes – disabled
+  .ons-checkbox__input {
+    &:disabled {
+      border-color: grayText;
+    }
+    &:disabled:checked::after {
+      border-color: grayText;
+    }
+    &:disabled + .ons-checkbox__label,
+    &:disabled:checked + .ons-checkbox__label {
+      color: grayText;
+
+      &::before {
+        border-color: grayText;
+        outline-color: grayText;
+      }
+    }
+  }
 }
