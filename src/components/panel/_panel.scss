@@ -3,6 +3,7 @@
     &--#{$name} {
       background: $color-bg;
       border-color: $color;
+      outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
     }
 
     &--#{$name} & {
@@ -13,7 +14,7 @@
   }
 }
 
-.ons-census-warning {
+.ons-branded-warning {
   background: $color-branded-tertiary;
 }
 
@@ -21,7 +22,7 @@
   background-color: $color-black;
 }
 
-.ons-census-warning,
+.ons-branded-warning,
 .ons-announcement {
   outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
 }
@@ -47,7 +48,7 @@
 
   &__header {
     border-radius: 0;
-    color: $color-white;
+    color: $color-text-inverse;
     margin: 0;
     padding: 0.75rem 1rem;
   }
@@ -116,6 +117,7 @@
   &--warn {
     border: 0 !important;
     margin-bottom: 1rem;
+    outline: none !important;
     padding: 0;
 
     &--footer {
@@ -130,6 +132,7 @@
     border: 0 !important;
     color: $color-white;
     margin-bottom: 0;
+    outline: none !important;
     padding: 1rem 0 !important;
     a {
       color: inherit;
@@ -251,6 +254,6 @@
 @include panel-type(success, $color-success, $color-success-tint);
 @include panel-type(info, $color-info, $color-info-tint);
 @include panel-type(branded, $color-branded, $color-branded-tint);
-@include panel-type(warn, $color-white, $color-white);
+@include panel-type(warn, transparent, transparent);
 @include panel-type(warn-branded, $color-branded-tertiary, $color-branded-tertiary);
 @include panel-type(announcement, $color-black, $color-black);
