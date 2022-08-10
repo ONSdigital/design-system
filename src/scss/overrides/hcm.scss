@@ -158,8 +158,10 @@
     }
   }
 
-  // Radios and Checkboxes – disabled
+  // Radios and Checkboxes – disabled and checked
   .ons-checkbox__input {
+    border-color: canvastext;
+
     &:disabled {
       border-color: grayText;
     }
@@ -173,6 +175,18 @@
       &::before {
         border-color: grayText;
         outline-color: grayText;
+      }
+    }
+
+    &:checked:not(:disabled):not(:visited),
+    &:checked:not(:disabled):not(:visited)::after {
+      border-color: Highlight;
+    }
+
+    &:checked + .ons-checkbox__label {
+      &::before {
+        border-color: Highlight;
+        outline-color: Highlight;
       }
     }
   }
