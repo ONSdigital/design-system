@@ -223,4 +223,10 @@
       }
     }
   }
+
+  // Feedback – Remove speech bubble border because hcm doesn't support transparent borders
+  .ons-feedback::before,
+  .ons-feedback::after {
+    content: none;
+  }
 }
