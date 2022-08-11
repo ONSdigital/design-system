@@ -1,11 +1,13 @@
 .ons-fieldset {
   &__legend {
     font-weight: $font-weight-bold;
-    margin: 0 0 0.6rem;
+    margin: 0;
   }
 
   &__description:not(&__description--title) {
     @extend .ons-label__description;
+
+    margin-bottom: 0.55rem;
   }
 
   &__description--title {

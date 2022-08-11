@@ -53,10 +53,10 @@ describe('macro: label', () => {
     expect($('.ons-label').attr('for')).toBe('some-input');
   });
 
-  it('has `aria-labelledby` and correct value when description is provided', () => {
+  it('has `aria-describedby` and correct value when description is provided', () => {
     const $ = cheerio.load(renderComponent('label', EXAMPLE_LABEL_WITH_DESCRIPTION));
 
-    expect($('.ons-label').attr('aria-labelledby')).toBe('example-label-description-hint');
+    expect($('.ons-label').attr('aria-describedby')).toBe('example-label-description-hint');
   });
 
   it.each([
