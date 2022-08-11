@@ -7,9 +7,9 @@
         {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}
     >
         <div class="ons-modal__content">
-            <h1 id="ons-modal-title" class="ons-modal__title">
+            <h2 id="ons-modal-title" class="ons-modal__title">
                 {{ params.title }}
-            </h1>
+            </h2>
             <div class="ons-modal__body">
                 {{ (params.body if params.body is defined and params.body else "") | safe }}{{ caller() if caller }}
             </div>
