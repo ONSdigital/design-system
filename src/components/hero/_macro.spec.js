@@ -36,7 +36,7 @@ const EXAMPLE_HERO_WITH_BUTTON = {
 const EXAMPLE_HERO_WITH_PRETITLE_IMAGE = {
   ...EXAMPLE_HERO_MINIMAL,
   preTitleImage: {
-    name: 'example.svg',
+    name: 'example',
     alt: 'svg alt text',
   },
 };
