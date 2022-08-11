@@ -331,7 +331,7 @@ describe('macro: lists', () => {
           }),
         );
 
-        expect($('.ons-list__link .ons-u-vh').text()).toBe('opens in a new tab');
+        expect($('.ons-list__link .ons-u-vh').text()).toBe(' (opens in a new tab)');
       });
 
       it('renders a default visually hidden screen reader message when target is "_blank"', () => {
@@ -347,7 +347,7 @@ describe('macro: lists', () => {
           }),
         );
 
-        expect($('.ons-list__link .ons-u-vh').text()).toBe('this link will open in a new tab');
+        expect($('.ons-list__link .ons-u-vh').text()).toBe(' (opens in a new tab)');
       });
 
       it('has additionally provided `attributes`', () => {

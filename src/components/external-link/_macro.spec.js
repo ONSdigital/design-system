@@ -54,7 +54,7 @@ describe('macro: external-link', () => {
   it('has a default new window description', async () => {
     const $ = cheerio.load(renderComponent('external-link', EXAMPLE_EXTERNAL_LINK));
 
-    expect($('.ons-external-link__new-window-description').text()).toBe('(opens in a new tab)');
+    expect($('.ons-external-link__new-window-description').text()).toBe(' (opens in a new tab)');
   });
 
   it('has a custom new window description when `newWindowDescription` is provided', () => {
@@ -65,7 +65,7 @@ describe('macro: external-link', () => {
       }),
     );
 
-    expect($('.ons-external-link__new-window-description').text()).toBe('(custom opens in a new tab text)');
+    expect($('.ons-external-link__new-window-description').text()).toBe(' (custom opens in a new tab text)');
   });
 
   it('has an "external-link" icon', async () => {
