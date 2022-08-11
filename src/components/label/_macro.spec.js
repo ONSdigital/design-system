@@ -53,6 +53,12 @@ describe('macro: label', () => {
     expect($('.ons-label').attr('for')).toBe('some-input');
   });
 
+  it('has `aria-labelledby` and correct value when description is provided', () => {
+    const $ = cheerio.load(renderComponent('label', EXAMPLE_LABEL_WITH_DESCRIPTION));
+
+    expect($('.ons-label').attr('aria-labelledby')).toBe('example-label-description-hint');
+  });
+
   it.each([
     ['`inputType` parameter is not provided', EXAMPLE_LABEL, true],
     ['`inputType` parameter is provided', EXAMPLE_LABEL_WITH_INPUT_TYPE, false],
@@ -185,5 +191,30 @@ describe('macro: label', () => {
       expect($('.ons-label__description').hasClass(expectedInputSpecificModifier)).toBe(true);
       expect($('.ons-label__description').hasClass('ons-input--with-description')).toBe(false);
     });
+
+    it.each([['checkbox'], ['radio']])('has the description in an `aria-hidden` element when "%s" `inputType` is provided', inputType => {
+      const $ = cheerio.load(
+        renderComponent('label', {
+          ...EXAMPLE_LABEL_WITH_DESCRIPTION,
+          inputType,
+        }),
+      );
+
+      expect($('.ons-label__aria-hidden-description').attr('aria-hidden')).toBe('true');
+    });
+
+    it.each([['checkbox'], ['radio']])(
+      'has a duplicate description in a visually hidden element when "%s" `inputType` is provided',
+      inputType => {
+        const $ = cheerio.load(
+          renderComponent('label', {
+            ...EXAMPLE_LABEL_WITH_DESCRIPTION,
+            inputType,
+          }),
+        );
+
+        expect($('.ons-label__visually-hidden-description').hasClass('ons-u-vh')).toBe(true);
+      },
+    );
   });
 });
