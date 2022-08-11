@@ -32,7 +32,7 @@ describe('macro: fieldset', () => {
     expect(title).toBe('Fieldset legend');
   });
 
-  it('has correct `aria-decribedby` value', () => {
+  it('has the correct `aria-decribedby` value', () => {
     const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET_BASIC));
 
     const ariaDescByVal = $('.ons-fieldset__legend').attr('aria-describedby');
