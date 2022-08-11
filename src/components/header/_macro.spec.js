@@ -445,7 +445,6 @@ describe('macro: header', () => {
         attributes: {
           'aria-label': 'Toggle services menu',
           'aria-controls': 'service-links',
-          'aria-haspopup': 'true',
           'aria-expanded': 'false',
         },
       });
@@ -558,7 +557,6 @@ describe('macro: header', () => {
         attributes: {
           'aria-label': 'Toggle main menu',
           'aria-controls': 'main-nav',
-          'aria-haspopup': 'true',
           'aria-expanded': 'false',
         },
       });
@@ -601,7 +599,6 @@ describe('macro: header', () => {
         attributes: {
           'aria-label': 'Toggle search',
           'aria-controls': 'ons-site-search',
-          'aria-haspopup': 'true',
           'aria-expanded': 'false',
         },
       });
