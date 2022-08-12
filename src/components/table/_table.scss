@@ -13,7 +13,7 @@
   &__cell {
     @include nth-element(1, 0);
 
-    border-bottom: 2px solid $color-grey-100;
+    border-bottom: 2px solid $color-grey-75;
     overflow: hidden;
     padding: 0.5rem 0 0.5rem 1rem;
     text-align: left;
@@ -65,7 +65,7 @@
       }
 
       .ons-table__body .ons-table__row {
-        border-bottom: 2px solid $color-grey-100;
+        border-bottom: 2px solid $color-grey-75;
         display: block;
         margin-bottom: 1rem;
       }
@@ -205,7 +205,7 @@
         }
 
         .ons-svg-icon {
-          fill: $color-grey-35;
+          fill: $color-grey-75;
           height: 0.8rem;
           padding-bottom: 0.1rem;
           width: 0.8rem;
