@@ -13,9 +13,9 @@
                 class="ons-fieldset{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
                 {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
             >
-                <legend{% if params.description %} aria-describedBy="{{ descriptionID }}"{% endif %} class="ons-fieldset__legend {% if params.legendClasses is defined and params.legendClasses %} {{ params.legendClasses }}{% endif %}">
+                <legend{% if params.description %} aria-describedBy="{{ descriptionID }}"{% endif %} class="ons-fieldset__legend{% if params.legendClasses is defined and params.legendClasses %} {{ params.legendClasses }}{% endif %}{% if params.description %} ons-fieldset__legend--with-description{% endif %}">
                     {%- if params.legendIsQuestionTitle -%}
-                        <h1 id="fieldset-legend-title" class="ons-fieldset__legend-title ons-u-mb-m{% if params.legendTitleClasses is defined and params.legendTitleClasses %} {{ params.legendTitleClasses }}{% endif %}">
+                        <h1 id="fieldset-legend-title" class="ons-fieldset__legend-title ons-u-mb-no ons-u-pb-m{% if params.legendTitleClasses is defined and params.legendTitleClasses %} {{ params.legendTitleClasses }}{% endif %}">
                             {{- params.legend | safe -}}
                         </h1>
                     {%- else -%}
