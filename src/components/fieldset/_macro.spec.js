@@ -62,6 +62,12 @@ describe('macro: fieldset', () => {
     expect(id).toBe('example-fieldset-legend-description');
   });
 
+  it('has the correct `legend` class when `description` is provided', () => {
+    const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET_BASIC));
+
+    expect($('.ons-fieldset__legend').hasClass('ons-fieldset__legend--with-description')).toBe(true);
+  });
+
   it('has additionally provided style classes', () => {
     const $ = cheerio.load(
       renderComponent('fieldset', {
