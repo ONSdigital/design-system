@@ -2,7 +2,7 @@
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
     <div class="ons-navigation-wrapper{% if params.variants == 'neutral' %} ons-navigation-wrapper--neutral{% endif %}">
-        <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.navigation.fullWidth }}{{ ' ons-container--wide' if params.navigation.wide }}">
+        <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth is defined and params.fullWidth or params.navigation.fullWidth is defined and params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide is defined and params.wide or params.navigation.wide is defined and params.navigation.wide }}">
             {% if params.navigation.siteSearchAutosuggest is defined and params.navigation.siteSearchAutosuggest and isPatternLib is defined and isPatternLib %}
                 <div class="ons-navigation-search ons-js-navigation-search">
                     {% set autosuggestClasses = "ons-input-search ons-input-search--icon" %}

@@ -82,7 +82,7 @@
         {% endif %}
 
         <div class="ons-footer__body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
-            <div class="ons-container{{ ' ons-container--wide' if params.wide }}">
+            <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth is defined or params.fullWidth }}{{ ' ons-container--wide' if params.wide is defined and params.wide }}">
                 <div class="ons-grid">
                     {% if params.newTabWarning is defined and params.newTabWarning %}
                         <div class="ons-grid__col">
