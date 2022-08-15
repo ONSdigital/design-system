@@ -338,11 +338,50 @@ describe('macro: header', () => {
       const faker = templateFaker();
       const phaseSpy = faker.spy('phase-banner');
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, phase: { html: 'Example content with a <a href="#">link</a>' } });
+      faker.renderComponent('header', {
+        ...EXAMPLE_HEADER_BASIC,
+        phase: {
+          badge: 'Example',
+          html: 'Example content with a <a href="#">link</a>',
+        },
+      });
 
       expect(phaseSpy.occurrences).toContainEqual({
+        badge: 'Example',
         html: 'Example content with a <a href="#">link</a>',
       });
+    });
+
+    it('renders the phase banner in the correct container if `wide`', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          wide: true,
+          phase: {
+            badge: 'Example',
+            html: 'Example content with a <a href="#">link</a>',
+          },
+        }),
+      );
+
+      const phaseContainer = $('.ons-phase-banner .ons-container');
+      expect($(phaseContainer).hasClass('ons-container--wide')).toBe(true);
+    });
+
+    it('renders the phase banner in the correct container if `fullWidth`', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          fullWidth: true,
+          phase: {
+            badge: 'Example',
+            html: 'Example content with a <a href="#">link</a>',
+          },
+        }),
+      );
+
+      const phaseContainer = $('.ons-phase-banner .ons-container');
+      expect($(phaseContainer).hasClass('ons-container--full-width')).toBe(true);
     });
   });
 
