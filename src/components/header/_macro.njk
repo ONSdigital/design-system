@@ -16,16 +16,23 @@
         {{
             onsBrowserBanner({
                 "lang": currentLanguageISOCode,
-                "wide": params.wide
+                "wide": params.wide,
+                "fullWidth": params.fullWidth
             })
         }}
         {% if params.phase is defined and params.phase %}
             {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
-            {{ onsPhaseBanner(params.phase) }}
+            {{ onsPhaseBanner({
+                "fullWidth": params.fullWidth,
+                "wide": params.wide,
+                "hideBadge": params.phase.hideBadge,
+                "badge": params.phase.badge,
+                "html": params.phase.html
+            }) }}
         {% endif %}
         {% if params.noMasthead != true %}
             <div class="ons-header__top">
-                <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth is defined and params.fullWidth }}{{ ' ons-container--wide' if params.wide is defined and params.wide }}">
                     <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{{ ' ons-header__grid-top-tall' if params.customHeaderLogo is defined and params.customHeaderLogo }}">
                         <div class="ons-grid__col ons-col-auto">
                             {%-if params.orgLogoHref is defined and params.orgLogoHref %}
