@@ -17,6 +17,7 @@
 
   &__warning {
     background-color: $color-banner-bg-dark;
+    outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
   }
 
   &__license {
