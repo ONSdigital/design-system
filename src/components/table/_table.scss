@@ -108,7 +108,8 @@
       width: 100%;
       &:focus {
         box-shadow: 0 0 0 3px $color-page-light, 0 0 0 5px $color-text-link-focus, 0 0 0 8px $color-focus;
-        outline: none;
+        outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+        outline-offset: 1px;
       }
       .ons-table__header,
       .ons-table__cell {

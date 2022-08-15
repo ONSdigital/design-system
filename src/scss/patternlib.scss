@@ -154,6 +154,7 @@
   font-weight: 700;
   letter-spacing: 0.1rem;
   margin-right: 0.5rem;
+  outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
   padding: 0.3rem 0.5rem;
   text-transform: uppercase;
 }
