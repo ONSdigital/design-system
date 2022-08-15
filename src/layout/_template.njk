@@ -42,6 +42,15 @@
     {% set page_title = "ONS Design System" %}
 {% endif %}
 
+{# Page container #}
+{% if pageConfig.fullWidth is defined and pageConfig.fullWidth == true %}
+    {% set containerClasses = ' ' + 'ons-container--full-width' %}
+{% elif pageConfig.wide is defined and pageConfig.wide == true %}
+    {% set containerClasses = ' ' + 'ons-container--wide' %}
+{% elif pageConfig.containerClasses is defined and pageConfig.containerClasses %}
+    {% set containerClasses = ' ' + pageConfig.containerClasses %}
+{% endif %}
+
 {# Page columns #}
 {% set mainColNumber = "8" %}
 
@@ -154,7 +163,12 @@
                                 "toggleNavigationButton": pageConfig.toggleNavigationButton,
                                 "navigation": pageConfig.navigation,
                                 "browserBanner": pageConfig.browserBanner,
-                                "phase": pageConfig.phase,
+                                "phase": {
+                                    "wide": pageConfig.wide,
+                                    "hideBadge": pageConfig.phase.hideBadge,
+                                    "badge": pageConfig.phase.badge,
+                                    "html": pageConfig.phase.html
+                                },
                                 "assetsURL": assetsURL,
                                 "serviceLinks": pageConfig.serviceLinks,
                                 "variants": pageConfig.header.variants,
@@ -178,7 +192,7 @@
                         }}
                     {% endblock %}
                     {% block pageContent %}
-                        <div class="ons-page__container ons-container {{ containerClasses }}">
+                        <div class="ons-page__container ons-container{{ containerClasses }}">
                             {% if pageConfig.breadcrumbs is defined and pageConfig.breadcrumbs %}
                                 {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                                 {{
@@ -226,6 +240,7 @@
                             onsFooter({
                                 "assetsURL": assetsURL,
                                 "wide": pageConfig.wide,
+                                "fullWidth": pageConfig.fullWidth,
                                 "classes": "ons-page__footer",
                                 "language": pageConfig.language,
                                 "lang": currentLanguageISOCode,
