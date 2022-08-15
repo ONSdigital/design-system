@@ -4,6 +4,10 @@
   margin-bottom: 1rem;
   width: 100%;
 
+  &__head {
+    border-bottom: 2px solid $color-grey-75;
+  }
+
   &__caption {
     font-weight: 700;
     text-align: left;
@@ -183,8 +187,6 @@
     }
 
     .ons-table__header {
-      position: relative;
-
       .ons-table__sort-button {
         background-color: transparent;
         border: 0;
