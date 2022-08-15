@@ -49,6 +49,37 @@ describe('macro: browser-banner', () => {
 
     expect($('.ons-container').hasClass('ons-container--wide')).toBe(true);
   });
+
+  it('does not have `container--wide` class when `wide` is not set', () => {
+    const $ = cheerio.load(
+      renderComponent('browser-banner', {
+        ...EXAMPLE_BROWSER_BANNER_DEFAULT,
+      }),
+    );
+
+    expect($('.ons-container').hasClass('ons-container--wide')).toBe(false);
+  });
+
+  it('has `container--full-width` class when `fullWidth` is true', () => {
+    const $ = cheerio.load(
+      renderComponent('browser-banner', {
+        ...EXAMPLE_BROWSER_BANNER_DEFAULT,
+        fullWidth: true,
+      }),
+    );
+
+    expect($('.ons-container').hasClass('ons-container--full-width')).toBe(true);
+  });
+
+  it('does not have `container--full-width` class when `fullWidth` is not set', () => {
+    const $ = cheerio.load(
+      renderComponent('browser-banner', {
+        ...EXAMPLE_BROWSER_BANNER_DEFAULT,
+      }),
+    );
+
+    expect($('.ons-container').hasClass('ons-container--full-width')).toBe(false);
+  });
 });
 
 describe('mode: Welsh language', () => {
