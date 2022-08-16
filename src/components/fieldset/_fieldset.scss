@@ -5,6 +5,10 @@
     &:not(&--with-description) {
       margin-bottom: 0.55rem;
     }
+    &-title {
+      margin: 0;
+      padding: 0 0 1.5rem;
+    }
   }
 
   &__description:not(&__description--title) {
