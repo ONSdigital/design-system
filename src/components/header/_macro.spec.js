@@ -468,7 +468,7 @@ describe('macro: header', () => {
       expect($('.ons-js-toggle-services').length).toBe(0);
     });
 
-    it('does not render a link if `url` not set', () => {
+    it('renders text string if `url` not set', () => {
       const $ = cheerio.load(
         renderComponent('header', {
           ...EXAMPLE_HEADER_BASIC,
@@ -478,12 +478,19 @@ describe('macro: header', () => {
               {
                 title: 'Title 1',
               },
+              {
+                title: 'Title 2',
+              },
+              {
+                title: 'Title 3',
+              },
             ],
           },
         }),
       );
-
-      expect($('.ons-header-service-nav__link').length).toBe(0);
+      console.log($.html()); // don't commit me :(
+      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__item'), node => node.text().trim());
+      expect(values).toEqual(['Title 1', 'Title 2', 'Title 3']);
     });
 
     it('has the correct list item icon', () => {
