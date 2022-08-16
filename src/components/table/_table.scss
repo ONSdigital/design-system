@@ -68,6 +68,10 @@
         display: none;
       }
 
+      .ons-table__head {
+        border-bottom: none;
+      }
+
       .ons-table__body .ons-table__row {
         border-bottom: 2px solid $color-grey-75;
         display: block;
