@@ -71,7 +71,10 @@
       inset -17px 0 0 0 $color-button-secondary,
       inset 0 -13px 0 0 $color-text-link-focus;
     color: $color-text-link-focus;
-    outline: none;
+
+    // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+    outline: 3px solid transparent;
+    outline-offset: 1px;
     text-decoration: underline solid $color-text 2px;
   }
 
@@ -86,7 +89,6 @@
 
     &:focus {
       background-color: $color-focus;
-      border-bottom: 1px solid $color-page-light;
       box-shadow: inset 0 0 0 9px $color-page-light,
         inset 17px 0 0 0 $color-page-light,
         inset -17px 0 0 0 $color-page-light,
@@ -108,7 +110,7 @@
 
   &:focus {
     box-shadow: 0 0 0 3px $color-page-light, 0 0 0 5px $color-text-link-focus, 0 0 0 8px $color-focus;
-    outline: none;
+    outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
     z-index: 1;
   }
 }

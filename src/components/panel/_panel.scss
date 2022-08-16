@@ -3,6 +3,7 @@
     &--#{$name} {
       background: $color-bg;
       border-color: $color;
+      outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
     }
 
     &--#{$name} & {
@@ -13,12 +14,17 @@
   }
 }
 
-.ons-census-warning {
+.ons-branded-warning {
   background: $color-branded-tertiary;
 }
 
 .ons-announcement {
   background-color: $color-black;
+}
+
+.ons-branded-warning,
+.ons-announcement {
+  outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
 }
 
 .ons-panel {
@@ -37,12 +43,11 @@
   &:focus {
     box-shadow: none;
     outline: 4px solid $color-focus !important;
-    outline-offset: 0;
   }
 
   &__header {
     border-radius: 0;
-    color: $color-white;
+    color: $color-text-inverse;
     margin: 0;
     padding: 0.75rem 1rem;
   }
@@ -111,6 +116,7 @@
   &--warn {
     border: 0 !important;
     margin-bottom: 1rem;
+    outline: none !important;
     padding: 0;
 
     &--footer {
@@ -125,6 +131,7 @@
     border: 0 !important;
     color: $color-white;
     margin-bottom: 0;
+    outline: none !important;
     padding: 1rem 0 !important;
     a {
       color: inherit;
@@ -137,7 +144,7 @@
 
   &--announcement {
     a:focus {
-      box-shadow: 0 -2px #fd0, 0 4px #fd0 !important; // Override focus style because the black border is not visible on a black background
+      box-shadow: 0 -2px $color-focus, 0 4px $color-text-inverse-link !important; // Override focus style because the black border is not visible on a black background
     }
   }
 
@@ -178,6 +185,7 @@
       line-height: 2rem;
       min-height: 2rem;
       min-width: 2rem;
+      outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
       text-align: center;
     }
   }
@@ -245,6 +253,6 @@
 @include panel-type(success, $color-success, $color-success-tint);
 @include panel-type(info, $color-info, $color-info-tint);
 @include panel-type(branded, $color-branded, $color-branded-tint);
-@include panel-type(warn, $color-white, $color-white);
+@include panel-type(warn, transparent, transparent);
 @include panel-type(warn-branded, $color-branded-tertiary, $color-branded-tertiary);
 @include panel-type(announcement, $color-black, $color-black);
