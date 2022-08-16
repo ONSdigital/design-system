@@ -467,6 +467,44 @@ describe('macro: header', () => {
 
       expect($('.ons-js-toggle-services').length).toBe(0);
     });
+
+    it('does not render a link if `url` not set', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          serviceLinks: {
+            ...EXAMPLE_SERVICE_LINKS_CONFIG,
+            itemsList: [
+              {
+                title: 'Title 1',
+              },
+            ],
+          },
+        }),
+      );
+
+      expect($('.ons-header-service-nav__link').length).toBe(0);
+    });
+
+    it('has the correct list item icon', () => {
+      const faker = templateFaker();
+      const iconsSpy = faker.spy('icons');
+
+      faker.renderComponent('header', {
+        ...EXAMPLE_HEADER_BASIC,
+        serviceLinks: {
+          ...EXAMPLE_SERVICE_LINKS_CONFIG,
+          itemsList: [
+            {
+              title: 'Title 1',
+              iconType: 'check',
+            },
+          ],
+        },
+      });
+
+      expect(iconsSpy.occurrences[2].iconType).toBe('check');
+    });
   });
 
   describe('mode: with language selector', () => {
