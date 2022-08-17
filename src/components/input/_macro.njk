@@ -71,7 +71,7 @@
         {% endif %}
 
         {% if params.prefix is defined and params.prefix or params.suffix is defined and params.suffix %}
-            {% if (params.prefix is defined and params.prefix and params.prefix.id is defined and params.prefix.id and params.prefix.title is defined and params.prefix.title) or (params.suffix is defined and params.suffix and params.suffix.id is defined and params.suffix.id and params.suffix.title is defined and params.suffix.title) %}
+            {% if (params.prefix is defined and params.prefix and params.prefix.id is defined and params.prefix.id) or (params.suffix is defined and params.suffix and params.suffix.id is defined and params.suffix.id) %}
                 {% if params.prefix is defined and params.prefix %}
                     {% set prefixClass = " ons-input-type--prefix" %}
                 {% endif %}
@@ -81,11 +81,17 @@
                         {{ input | safe }}
 
                         {% set abbr = params.prefix or params.suffix %}
-                        <abbr
+                        {% if params.prefix.title or params.suffix.title %}
+                            {% set tag = 'abbr' %}
+                        {% else %}
+                            {% set tag = 'span' %}
+                        {% endif %}
+
+                        <{{ tag }}
                             id="{{ abbr.id }}"
                             class="ons-input-type__type ons-js-input-abbr"
-                            title="{{ abbr.title }}"
-                            >{{ abbr.text or abbr.title }}</abbr>
+                            {% if abbr.title %}title="{{ abbr.title }}"{% endif %}
+                            >{{ abbr.text or abbr.title }}</{{ tag }}>
                     </span>
                 </span>
             {% endif %}
