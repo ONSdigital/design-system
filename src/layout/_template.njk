@@ -43,9 +43,9 @@
 {% endif %}
 
 {# Page container #}
-{% if pageConfig.fullWidth == true %}
+{% if pageConfig.fullWidth %}
     {% set containerClasses = ' ' + 'ons-container--full-width' %}
-{% elif pageConfig.wide == true %}
+{% elif pageConfig.wide %}
     {% set containerClasses = ' ' + 'ons-container--wide' %}
 {% elif pageConfig.containerClasses %}
     {% set containerClasses = ' ' + pageConfig.containerClasses %}
