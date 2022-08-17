@@ -211,7 +211,6 @@ describe('macro: navigation', () => {
         attributes: {
           'aria-label': 'Toggle section navigation',
           'aria-controls': 'sub-nav',
-          'aria-haspopup': 'true',
           'aria-expanded': 'false',
         },
       });

@@ -13,7 +13,6 @@ const EXAMPLE_HEADER_BASIC = {
 const EXAMPLE_SERVICE_LINKS_CONFIG = {
   id: 'service-links',
   ariaLabel: 'Services menu',
-  ariaListLabel: 'Menu',
   classes: 'custom-class',
   toggleServicesButton: {
     text: 'Menu',
@@ -378,12 +377,6 @@ describe('macro: header', () => {
       expect($('.ons-header-service-nav--main').attr('aria-label')).toBe('Services menu');
     });
 
-    it('has the provided `aria-label` for the list', () => {
-      const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
-
-      expect($('.ons-header-service-nav--main .ons-header-service-nav__list').attr('aria-label')).toBe('Menu');
-    });
-
     it('has the link text for each list item', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE));
 
@@ -408,12 +401,6 @@ describe('macro: header', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
 
       expect($('.ons-header-service-nav--mobile').attr('aria-label')).toBe('Services menu');
-    });
-
-    it('has the provided `aria-label` for the list for mobile', () => {
-      const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
-
-      expect($('.ons-header-service-nav--mobile .ons-header-service-nav__list').attr('aria-label')).toBe('Menu');
     });
 
     it('has the link text for each list item for mobile', () => {
@@ -445,7 +432,6 @@ describe('macro: header', () => {
         attributes: {
           'aria-label': 'Toggle services menu',
           'aria-controls': 'service-links',
-          'aria-haspopup': 'true',
           'aria-expanded': 'false',
         },
       });
@@ -558,7 +544,6 @@ describe('macro: header', () => {
         attributes: {
           'aria-label': 'Toggle main menu',
           'aria-controls': 'main-nav',
-          'aria-haspopup': 'true',
           'aria-expanded': 'false',
         },
       });
@@ -601,7 +586,6 @@ describe('macro: header', () => {
         attributes: {
           'aria-label': 'Toggle search',
           'aria-controls': 'ons-site-search',
-          'aria-haspopup': 'true',
           'aria-expanded': 'false',
         },
       });

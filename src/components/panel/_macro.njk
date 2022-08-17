@@ -15,7 +15,7 @@
     {% endif %}
 
     {% if params is defined and params.type == "warn-branded" %}
-        {% set containerClass = 'ons-census-warning' %}
+        {% set containerClass = 'ons-branded-warning' %}
     {% endif %}
 
     {% if params is defined and params.type == "announcement" %}
@@ -31,7 +31,7 @@
             <div class="ons-container">
     {% endif %}
 
-        <div {% if params is defined and params and params.type == 'error' and params.title is defined and params.title %}aria-labelledby="error-summary-title" role="alert" tabindex="-1" {% if params.dsExample != true %}autofocus="autofocus" {% endif %}{% endif %}class="ons-panel{{ typeClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"{% if params is defined and params and params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params is defined and params and params.attributes is mapping and params.attributes.items is defined and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params is defined and params and params.id is defined and params.id %} id="{{params.id}}"{% endif %}>
+        <div {% if params is defined and params and (params.type == 'error' or params.type == 'success') %}aria-labelledby="alert" role="alert" tabindex="-1" {% if params.dsExample != true %}autofocus="autofocus" {% endif %}{% endif %}class="ons-panel{{ typeClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"{% if params is defined and params and params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params is defined and params and params.attributes is mapping and params.attributes.items is defined and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params is defined and params and params.id is defined and params.id %} id="{{params.id}}"{% endif %}>
 
             {% if params is defined and params and params.type == "warn" or params.type == "warn-branded" %}
                 <span class="ons-panel__icon" aria-hidden="true">!</span>
@@ -59,16 +59,15 @@
                     {% endif %}
                     {% set titleTag = params.titleTag | default(defaultTitleTag) %}
                     <div class="ons-panel__header">
-                        <{{ titleTag }} id="error-summary-title" {% if params is defined and params and params.type is defined and params.type %}data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
+                        <{{ titleTag }} id="alert" {% if params is defined and params and params.type is defined and params.type %}data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
                     </div>
                 {% else %}
                     {% if params.type is not defined or params.type == "branded" or params.type == "info" %}
                         <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Important information: ") }}</span>
                     {% else %}
-                        {% if params.type is defined and params.type == "success" %}
-                            <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Completed: ") }}</span>
-                        {% elif params.type is defined and params.type == "error" %}
-                            <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Error: ") }}</span>
+                        {% if params.type is defined and (params.type == "success" or params.type == "error") %}
+                            {% set defaultText = "Completed" if params.type == "success" else "Error" %}
+                            <span id="alert" class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default(defaultText ~ ": ") }}</span>
                         {% endif %}
                     {% endif %}
                 {% endif %}

@@ -24,6 +24,10 @@ layout: example
     <div class="ons-pattern-lib-block__label">block: body</div>
 
     <div class="ons-pattern-lib-block">
+        <div class="ons-pattern-lib-block__label">block: preHeader</div>
+    </div>
+
+    <div class="ons-pattern-lib-block">
         <div class="ons-pattern-lib-block__label">block: skipLink</div>
         {{
             onsSkipToContent({
@@ -33,15 +37,14 @@ layout: example
     </div>
 
     <div class="ons-pattern-lib-block">
-        <div class="ons-pattern-lib-block__label">block: preHeader</div>
-    </div>
-
-    <div class="ons-pattern-lib-block">
         <div class="ons-pattern-lib-block__label">block: header</div>
         {{
             onsHeader({
                 "title": "Design system",
                 "orgLogoHref": "#0",
+                "phase": {
+                    "html": 'This is a new service – to help improve it please <a href="#feedback">give us your feedback</a>'
+                },
                 "navigation": {
                     "id": "main-nav",
                     "ariaLabel": "Main menu",
