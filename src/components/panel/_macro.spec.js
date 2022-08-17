@@ -186,50 +186,53 @@ describe('macro: panel', () => {
     });
   });
 
-  describe('mode: error', () => {
+  describe.each([
+    ['error', 'h2'],
+    ['success', 'div'],
+  ])('mode: %s', (panelType, tagEl) => {
     it('has the default id set', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          title: 'Error title',
-          type: 'error',
+          title: 'Title',
+          type: panelType,
         }),
       );
 
-      expect($('#error-summary-title').length).toBe(1);
+      expect($('#alert').length).toBe(1);
     });
 
-    it('has H2 as the default title tag', () => {
+    it('has the correct default title tag', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          title: 'Error title',
-          type: 'error',
+          title: 'Title',
+          type: panelType,
         }),
       );
 
       const titleTag = $('.ons-panel__title')[0].tagName;
-      expect(titleTag).toBe('h2');
+      expect(titleTag).toBe(tagEl);
     });
 
     it('has aria-labelledby attribute set with default value', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          title: 'Error title',
-          type: 'error',
+          title: 'Title',
+          type: panelType,
         }),
       );
 
-      expect($('.ons-panel').attr('aria-labelledby')).toBe('error-summary-title');
+      expect($('.ons-panel').attr('aria-labelledby')).toBe('alert');
     });
 
     it('has the role attribute set to alert', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          title: 'Error title',
-          type: 'error',
+          title: 'Title',
+          type: panelType,
         }),
       );
 
@@ -240,8 +243,8 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          title: 'Error title',
-          type: 'error',
+          title: 'Title',
+          type: panelType,
         }),
       );
 
@@ -252,8 +255,8 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          title: 'Error title',
-          type: 'error',
+          title: 'Title',
+          type: panelType,
         }),
       );
 
@@ -264,8 +267,8 @@ describe('macro: panel', () => {
       const $ = cheerio.load(
         renderComponent('panel', {
           ...EXAMPLE_PANEL_BASIC,
-          title: 'Error title',
-          type: 'error',
+          title: 'Title',
+          type: panelType,
           dsExample: true,
         }),
       );
