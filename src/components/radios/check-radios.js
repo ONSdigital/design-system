@@ -7,7 +7,9 @@ export default class CheckRadios {
     this.setInputBlurAttributes();
     this.input.addEventListener('focus', this.checkRadio.bind(this));
     this.radio.addEventListener('change', this.setInputFocusAttributes.bind(this));
-    this.radio.addEventListener('blur', this.setInputBlurAttributes.bind(this));
+    if (this.radio.type == 'radio') {
+      this.radio.addEventListener('blur', this.setInputBlurAttributes.bind(this));
+    }
   }
 
   checkRadio() {
