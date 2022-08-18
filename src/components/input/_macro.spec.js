@@ -410,26 +410,6 @@ describe('macro: input', () => {
       expect($('.ons-input').attr('aria-labelledby')).toBe('example-prefix-id');
     });
 
-    it('renders prefix element from `prefix.title`', () => {
-      const $ = cheerio.load(
-        renderComponent('input', {
-          ...EXAMPLE_INPUT_MINIMAL,
-          prefix: {
-            id: 'example-prefix-id',
-            title: 'Example prefix title',
-          },
-        }),
-      );
-
-      expect($('.ons-input-type--prefix .ons-js-input-abbr').attr('id')).toBe('example-prefix-id');
-      expect($('.ons-input-type--prefix .ons-js-input-abbr').attr('title')).toBe('Example prefix title');
-      expect(
-        $('.ons-input-type--prefix .ons-js-input-abbr')
-          .text()
-          .trim(),
-      ).toBe('Example prefix title');
-    });
-
     it('renders prefix element from `prefix.text`', () => {
       const $ = cheerio.load(
         renderComponent('input', {
@@ -477,26 +457,6 @@ describe('macro: input', () => {
       );
 
       expect($('.ons-input').attr('aria-labelledby')).toBe('example-suffix-id');
-    });
-
-    it('renders suffix element from `suffix.title`', () => {
-      const $ = cheerio.load(
-        renderComponent('input', {
-          ...EXAMPLE_INPUT_MINIMAL,
-          suffix: {
-            id: 'example-suffix-id',
-            title: 'Example suffix title',
-          },
-        }),
-      );
-
-      expect($('.ons-js-input-abbr').attr('id')).toBe('example-suffix-id');
-      expect($('.ons-js-input-abbr').attr('title')).toBe('Example suffix title');
-      expect(
-        $('.ons-js-input-abbr')
-          .text()
-          .trim(),
-      ).toBe('Example suffix title');
     });
 
     it('renders suffix element from `suffix.text`', () => {
