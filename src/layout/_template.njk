@@ -42,6 +42,15 @@
     {% set page_title = "ONS Design System" %}
 {% endif %}
 
+{# Page container #}
+{% if pageConfig.fullWidth %}
+    {% set containerClasses = ' ' + 'ons-container--full-width' %}
+{% elif pageConfig.wide %}
+    {% set containerClasses = ' ' + 'ons-container--wide' %}
+{% elif pageConfig.containerClasses %}
+    {% set containerClasses = ' ' + pageConfig.containerClasses %}
+{% endif %}
+
 {# Page columns #}
 {% set mainColNumber = "8" %}
 
@@ -147,10 +156,8 @@
                     {% block header %}
                         {{
                             onsHeader({
-                                "title": pageConfig.header.title | default(pageConfig.title),
-                                "classes": pageConfig.header.classes,
-                                "variants": pageConfig.header.variants,
                                 "wide": pageConfig.wide,
+                                "fullWidth": pageConfig.fullWidth,
                                 "language": pageConfig.language,
                                 "button": pageConfig.signoutButton,
                                 "toggleNavigationButton": pageConfig.toggleNavigationButton,
@@ -159,11 +166,16 @@
                                 "phase": pageConfig.phase,
                                 "assetsURL": assetsURL,
                                 "serviceLinks": pageConfig.serviceLinks,
+                                "variants": pageConfig.header.variants,
+                                "classes": pageConfig.header.classes,
                                 "noMasthead": pageConfig.header.noMasthead,
                                 "orgLogo": pageConfig.header.orgLogo,
                                 "orgMobileLogo": pageConfig.header.orgMobileLogo,
                                 "orgLogoAlt": pageConfig.header.orgLogoAlt,
                                 "orgLogoHref": pageConfig.header.orgLogoHref,
+                                "title": pageConfig.header.title | default(pageConfig.title),
+                                "description": pageConfig.header.description,
+                                "titleAsH1": pageConfig.header.titleAshH1,
                                 "titleLogo": pageConfig.header.titleLogo,
                                 "titleLogoClasses": pageConfig.header.titleLogoClasses,
                                 "titleLogoMobile": pageConfig.header.titleLogoMobile,
@@ -175,7 +187,7 @@
                         }}
                     {% endblock %}
                     {% block pageContent %}
-                        <div class="ons-page__container ons-container {{ containerClasses }}">
+                        <div class="ons-page__container ons-container{{ containerClasses }}">
                             {% if pageConfig.breadcrumbs is defined and pageConfig.breadcrumbs %}
                                 {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                                 {{
@@ -223,6 +235,7 @@
                             onsFooter({
                                 "assetsURL": assetsURL,
                                 "wide": pageConfig.wide,
+                                "fullWidth": pageConfig.fullWidth,
                                 "classes": "ons-page__footer",
                                 "language": pageConfig.language,
                                 "lang": currentLanguageISOCode,

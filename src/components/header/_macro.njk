@@ -16,12 +16,19 @@
         {{
             onsBrowserBanner({
                 "lang": currentLanguageISOCode,
-                "wide": params.wide
+                "wide": params.wide,
+                "fullWidth": params.fullWidth
             })
         }}
         {% if params.phase is defined and params.phase %}
             {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
-            {{ onsPhaseBanner(params.phase) }}
+            {{ onsPhaseBanner({
+                "fullWidth": params.fullWidth,
+                "wide": params.wide,
+                "hideBadge": params.phase.hideBadge,
+                "badge": params.phase.badge,
+                "html": params.phase.html
+            }) }}
         {% endif %}
         {% if params.noMasthead != true %}
             <div class="ons-header__top">
