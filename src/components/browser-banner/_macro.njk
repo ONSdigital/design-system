@@ -10,7 +10,7 @@
     {% endif %}
 
     <div class="ons-browser-banner">
-        <div class="ons-container{{ ' ons-container--wide' if params.wide }}">
+        <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
             <p class="ons-browser-banner__content"><span class="ons-browser-banner__lead">{{ bannerLeadingText }}</span><span class="ons-browser-banner__cta"> {{ bannerCTA | safe }}</span></p>
         </div>
     </div>

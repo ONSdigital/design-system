@@ -96,16 +96,17 @@ Variables can be set with:
 | header        | `PageHeader` [_(ref)_](#pageheader)                 | true                              | Configuration for the page header                                                                                                             |
 | language      | `Language` [_(ref)_](/patterns/change-language)     | false                             | Language configuration for the page                                                                                                           |
 | signoutButton | `Button` [_(ref)_](/components/button)              | false                             | Configuration for the save and sign out button. If not specified, the button will not render                                                  |
-| toggleNavigationButton  | `HeaderToggleNavigationButton` [_(ref)_](/components/header)  | true (if `navigation` supplied)   | Configuration for the mobile navigation toggle button                                                                                         |
-| navigation    | `HeaderNavigation` [_(ref)_](/components/header)    | true (if `toggleNavigationButton` supplied) | Configuration for header navigation links                                                                                                     |
+| toggleNavigationButton  | `HeaderToggleNavigationButton` [_(ref)_](/components/header)  | true (if `navigation` supplied)   | Configuration for the mobile navigation toggle button                                                                     |
+| navigation    | `HeaderNavigation` [_(ref)_](/components/header)    | true (if `toggleNavigationButton` supplied) | Configuration for header navigation links                                                                                           |
 | phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                             | Settings for the Phase banner                                                                                                                 |
 | serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                             | An array to render the service links list                                                                                                     |
 | mainCol       | `MainColumn` [_(ref)_](#maincolumn)                 | false                             | Configuration for the main page column                                                                                                        |
 | asideCol      | `AsideColumn` [_(ref)_](#asidecolumn)               | false                             | Configuration for the page aside column                                                                                                       |
 | footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                              | Configuration for the page footer                                                                                                             |
-| description   | string                                              | true                              | Default description of the current page for search engines if headMeta.description is not provided.                                           |
+| description   | string                                              | true                              | Default description of the current page for search engines if `headMeta.description` is not provided                                          |
 | absoluteUrl   | string                                              | true                              | Default URL for the preferred page for search engines to avoid duplicate content penalties. Used if if headMeta.canonicalUrl is not provided. |
-| wide          | boolean                                             | false                             | Set to `true` to increase the maximum width of the layout container to 1280px.                                                                |
+| wide          | boolean                                             | false                             | Set to `true` to increase the maximum width of the layout container to 1280px                                                                 |
+| fullWidth     | boolean                                             | false                             | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                         |
 
 ##### CDN
 
@@ -116,23 +117,25 @@ Variables can be set with:
 
 ###### PageHeader
 
-| Variable Name    | Type   | Required                             | Description                                                                                |
-| ---------------- | ------ | ------------------------------------ | ------------------------------------------------------------------------------------------ |
-| title            | string | false                                | Title for the page header. If not specified this will default to `page.title`              |
-| classes          | string | false                                | CSS classes to be added to the header                                                      |
-| noMasthead       | boolean | false                               | Does not render a masthead with organisation logo, service or language link. Language link will be rendered in the main header. Service links are not available when using this option |
-| variants         | array or string                               | false | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description” |
-| orgLogo          | string | false                                | URL for the page header logo                                                               |
-| orgMobileLogo    | string | false                                | URL for image to use for small screens instead of a title string                           |
-| orgLogoAlt       | string | false                                | Alt tag for the page header logo                                                           |
-| orgLogoHref      | string | false                                | URL for the page header logo. If not specified the image will not be wrapped in a link     |
-| titleLogo        | string | false                                | URL for image to use instead of a title string                                             |
-| titleLogoMobile  | string | false                                | URL for image to use instead of a title string                                             |
-| titleLogoAlt     | string | false (if `titleLogo` not specified) | Alt tag for the title logo                                                                 |
-| titleLogoHref    | string | false                                | Will wrap the title logo in a link to the specified URL                                    |
-| titleLogoClasses | string | false | Classes to be added to the `titleLogo`. Helpful to add a margin class to control spacing. |
-| titleLogoMobileClasses | string | false | Classes to be added to the `titleLogoMobile`. Helpful to add a margin class to control spacing. |
-| customHeaderLogo | string | false                                | Set to 'true' to make the masthead taller to accommodate a logo with a taller aspect ratio |
+| Variable Name          | Type            | Required                             | Description                                                                                                                                                                             |
+| ---------------------- | --------------- | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title                  | string          | false                                | Title for the page header. If not specified this will default to `page.title`                                                                                                           |
+| description            | string          | false                                | Tagline or description for the service                                                                                                                                                  |
+| titleAsH1              | boolean         | false                                | Override to wrap the header `title` in an `<h1>` heading                                                                                                                                |
+| classes                | string          | false                                | CSS classes to be added to the header                                                                                                                                                   |
+| noMasthead             | boolean         | false                                | Does not render a masthead with organisation logo, service or language link. Language link will be rendered in the main header. Service links are not available when using this option. |
+| variants               | array or string | false                                | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description”                                                   |
+| orgLogo                | string          | false                                | URL for the page header logo                                                                                                                                                            |
+| orgMobileLogo          | string          | false                                | URL for image to use for small screens instead of a title string                                                                                                                        |
+| orgLogoAlt             | string          | false                                | Alt tag for the page header logo                                                                                                                                                        |
+| orgLogoHref            | string          | false                                | URL for the page header logo. If not specified the image will not be wrapped in a link                                                                                                  |
+| titleLogo              | string          | false                                | URL for image to use instead of a title string                                                                                                                                          |
+| titleLogoMobile        | string          | false                                | URL for image to use instead of a title string                                                                                                                                          |
+| titleLogoAlt           | string          | false (if `titleLogo` not specified) | Alt tag for the title logo                                                                                                                                                              |
+| titleLogoHref          | string          | false                                | Will wrap the title logo in a link to the specified URL                                                                                                                                 |
+| titleLogoClasses       | string          | false                                | Classes to be added to the `titleLogo`. Helpful to add a margin class to control spacing.                                                                                               |
+| titleLogoMobileClasses | string          | false                                | Classes to be added to the `titleLogoMobile`. Helpful to add a margin class to control spacing.                                                                                         |
+| customHeaderLogo       | string          | false                                | Set to 'true' to make the masthead taller to accommodate a logo with a taller aspect ratio                                                                                              |
 
 ###### HeadMeta
 

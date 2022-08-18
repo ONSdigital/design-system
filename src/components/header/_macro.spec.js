@@ -20,6 +20,24 @@ const EXAMPLE_SERVICE_LINKS_CONFIG = {
   },
 };
 
+const EXAMPLE_HEADER_SERVICE_LIST_ITEMS = {
+  ...EXAMPLE_HEADER_BASIC,
+  serviceLinks: {
+    ...EXAMPLE_SERVICE_LINKS_CONFIG,
+    itemsList: [
+      {
+        title: 'Title 1',
+      },
+      {
+        title: 'Title 2',
+      },
+      {
+        title: 'Title 3',
+      },
+    ],
+  },
+};
+
 const EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE = {
   ...EXAMPLE_HEADER_BASIC,
   serviceLinks: {
@@ -338,11 +356,50 @@ describe('macro: header', () => {
       const faker = templateFaker();
       const phaseSpy = faker.spy('phase-banner');
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, phase: { html: 'Example content with a <a href="#">link</a>' } });
+      faker.renderComponent('header', {
+        ...EXAMPLE_HEADER_BASIC,
+        phase: {
+          badge: 'Example',
+          html: 'Example content with a <a href="#">link</a>',
+        },
+      });
 
       expect(phaseSpy.occurrences).toContainEqual({
+        badge: 'Example',
         html: 'Example content with a <a href="#">link</a>',
       });
+    });
+
+    it('renders the phase banner in the correct container if `wide`', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          wide: true,
+          phase: {
+            badge: 'Example',
+            html: 'Example content with a <a href="#">link</a>',
+          },
+        }),
+      );
+
+      const phaseContainer = $('.ons-phase-banner .ons-container');
+      expect($(phaseContainer).hasClass('ons-container--wide')).toBe(true);
+    });
+
+    it('renders the phase banner in the correct container if `fullWidth`', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          fullWidth: true,
+          phase: {
+            badge: 'Example',
+            html: 'Example content with a <a href="#">link</a>',
+          },
+        }),
+      );
+
+      const phaseContainer = $('.ons-phase-banner .ons-container');
+      expect($(phaseContainer).hasClass('ons-container--full-width')).toBe(true);
     });
   });
 
@@ -375,6 +432,13 @@ describe('macro: header', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
 
       expect($('.ons-header-service-nav--main').attr('aria-label')).toBe('Services menu');
+    });
+
+    it('has the text for each list item', () => {
+      const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LIST_ITEMS));
+
+      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__item'), node => node.text().trim());
+      expect(values).toEqual(['Title 1', 'Title 2', 'Title 3']);
     });
 
     it('has the link text for each list item', () => {
@@ -466,6 +530,26 @@ describe('macro: header', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
 
       expect($('.ons-js-toggle-services').length).toBe(0);
+    });
+
+    it('has the correct list item icon', () => {
+      const faker = templateFaker();
+      const iconsSpy = faker.spy('icons');
+
+      faker.renderComponent('header', {
+        ...EXAMPLE_HEADER_BASIC,
+        serviceLinks: {
+          ...EXAMPLE_SERVICE_LINKS_CONFIG,
+          itemsList: [
+            {
+              title: 'Title 1',
+              iconType: 'check',
+            },
+          ],
+        },
+      });
+
+      expect(iconsSpy.occurrences[2].iconType).toBe('check');
     });
   });
 

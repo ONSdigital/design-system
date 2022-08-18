@@ -16,12 +16,19 @@
         {{
             onsBrowserBanner({
                 "lang": currentLanguageISOCode,
-                "wide": params.wide
+                "wide": params.wide,
+                "fullWidth": params.fullWidth
             })
         }}
         {% if params.phase %}
             {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
-            {{ onsPhaseBanner(params.phase) }}
+            {{ onsPhaseBanner({
+                "fullWidth": params.fullWidth,
+                "wide": params.wide,
+                "hideBadge": params.phase.hideBadge,
+                "badge": params.phase.badge,
+                "html": params.phase.html
+            }) }}
         {% endif %}
         {% if params.noMasthead != true %}
             <div class="ons-header__top">
@@ -75,11 +82,22 @@
                                             <ul class="ons-header-service-nav__list">
                                                 {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
                                                     <li class="ons-header-service-nav__item">
+                                                    {% if item.iconType %}
+                                                        {{
+                                                            onsIcon({
+                                                                "iconType": item.iconType
+                                                            })
+                                                        }}
+                                                    {% endif %}
+                                                    {% if item.url %}
                                                         <a
                                                             href="{{ item.url }}"
                                                             class="ons-header-service-nav__link"
                                                             {% if item.id %} id="{{ item.id }}"{% endif %}
                                                         >{{ item.title }}</a>
+                                                    {% else %}
+                                                        {{ item.title }}
+                                                    {% endif %}
                                                     </li>
                                                 {% endfor %}
                                             </ul>
@@ -116,11 +134,22 @@
                         <ul class="ons-header-service-nav__list">
                             {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
                                 <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
+                                {% if item.iconType %}
+                                    {{
+                                        onsIcon({
+                                            "iconType": item.iconType
+                                        })
+                                    }}
+                                {% endif %}
+                                {% if item.url %}
                                     <a
                                         href="{{ item.url }}"
                                         class="ons-header-service-nav__link"
                                         {% if item.id %} id="{{ item.id }}"{% endif %}
                                     >{{ item.title }}</a>
+                                {% else %}
+                                    {{ item.title }}
+                                {% endif %}
                                 </li>
                             {% endfor %}
                             {% if params.language %}
@@ -178,7 +207,7 @@
                             <p class="ons-header__description">{{ params.description }}</p>
                         {% endif %}
                     </div>
-                    
+
                     {% if params.button %}
                         {% if params.variants == 'neutral' %}
                             {% set buttonVariant = ["ghost", "ghost-dark"] %}

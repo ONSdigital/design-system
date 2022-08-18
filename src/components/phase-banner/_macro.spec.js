@@ -70,4 +70,35 @@ describe('macro: phase-banner', () => {
 
     expect($('.ons-container').hasClass('ons-container--wide')).toBe(true);
   });
+
+  it('does not have `container--wide` class when `wide` is not set', () => {
+    const $ = cheerio.load(
+      renderComponent('phase-banner', {
+        ...EXAMPLE_PHASE_BANNER_MINIMAL,
+      }),
+    );
+
+    expect($('.ons-container').hasClass('ons-container--wide')).toBe(false);
+  });
+
+  it('has `container--full-width` class when `fullWidth` is true', () => {
+    const $ = cheerio.load(
+      renderComponent('phase-banner', {
+        ...EXAMPLE_PHASE_BANNER_MINIMAL,
+        fullWidth: true,
+      }),
+    );
+
+    expect($('.ons-container').hasClass('ons-container--full-width')).toBe(true);
+  });
+
+  it('does not have `container--full-width` class when `fullWidth` is not set', () => {
+    const $ = cheerio.load(
+      renderComponent('phase-banner', {
+        ...EXAMPLE_PHASE_BANNER_MINIMAL,
+      }),
+    );
+
+    expect($('.ons-container').hasClass('ons-container--full-width')).toBe(false);
+  });
 });
