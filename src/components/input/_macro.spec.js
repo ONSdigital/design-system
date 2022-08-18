@@ -429,6 +429,34 @@ describe('macro: input', () => {
       ).toBe('Example prefix text');
     });
 
+    it('does not render prefix element when `prefix.id` not set', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          prefix: {
+            title: 'Example prefix title',
+            text: 'Example prefix text',
+          },
+        }),
+      );
+
+      expect($('.ons-input-type--prefix').length).toBe(0);
+    });
+
+    it('does not render prefix element when `prefix.title` not set', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          prefix: {
+            text: 'Example prefix text',
+            id: 'example-prefix-id',
+          },
+        }),
+      );
+
+      expect($('.ons-input-type--prefix').length).toBe(0);
+    });
+
     it('adds `aria-labelledby` attribute when `suffix` is provided', () => {
       const $ = cheerio.load(
         renderComponent('input', {
@@ -483,6 +511,34 @@ describe('macro: input', () => {
           .trim(),
       ).toBe('Example suffix text');
     });
+  });
+
+  it('does not render suffix element when `suffix.id` not set', () => {
+    const $ = cheerio.load(
+      renderComponent('input', {
+        ...EXAMPLE_INPUT_MINIMAL,
+        suffix: {
+          title: 'Example suffix title',
+          text: 'Example suffix text',
+        },
+      }),
+    );
+
+    expect($('.ons-input').length).toBe(0);
+  });
+
+  it('does not render suffix element when `suffix.title` not set', () => {
+    const $ = cheerio.load(
+      renderComponent('input', {
+        ...EXAMPLE_INPUT_MINIMAL,
+        suffix: {
+          text: 'Example suffix text',
+          id: 'example-suffix-id',
+        },
+      }),
+    );
+
+    expect($('.ons-input').length).toBe(0);
   });
 
   describe('search', () => {

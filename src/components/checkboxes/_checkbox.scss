@@ -9,12 +9,11 @@ $checkbox-padding: 11px;
 
   &__input {
     appearance: none;
-    background: url(#{$static}/img/icons--check.svg) no-repeat center center;
-    background-color: $color-white;
-    background-size: 0;
-    border: 2px solid $color-input;
+    background-color: $color-input-bg;
+    border: 2px solid $color-input-border;
     border-radius: 0.2rem;
     box-sizing: border-box;
+    cursor: pointer;
     height: $checkbox-input-width;
     left: $checkbox-padding;
     position: absolute;
@@ -22,13 +21,30 @@ $checkbox-padding: 11px;
     width: $checkbox-input-width;
     z-index: 1;
 
+    // Check icon
+    &::after {
+      border: solid $color-input-border;
+      border-radius: 1px;
+      border-top-color: $color-input-bg;
+      border-width: 0 0 3px 3px;
+      box-sizing: border-box;
+      content: '';
+      height: 7px;
+      left: 2px;
+      opacity: 0;
+      position: absolute;
+      top: 4px;
+      transform: rotate(-45deg);
+      width: 14px;
+    }
+
     &:focus,
     &:checked {
       outline: none;
     }
 
-    &:checked {
-      background-size: 14px;
+    &:checked::after {
+      opacity: 1;
     }
 
     &:disabled {
@@ -36,9 +52,24 @@ $checkbox-padding: 11px;
       cursor: not-allowed;
     }
 
-    &:disabled + label {
-      color: $color-grey-35;
+    &:disabled:checked::after {
+      border-color: $color-border-disabled;
+    }
+
+    &:disabled + .ons-checkbox__label,
+    &:disabled:checked + .ons-checkbox__label {
+      color: $color-border-disabled;
       cursor: not-allowed;
+
+      &::before {
+        border: 1px solid $color-border-disabled;
+      }
+    }
+
+    &:disabled:checked + .ons-checkbox__label {
+      &::before {
+        box-shadow: 0 0 0 1px $color-border-disabled;
+      }
     }
   }
 
@@ -47,9 +78,9 @@ $checkbox-padding: 11px;
       padding: 0 0 0 1.85rem;
 
       &::before {
-        background: none;
-        border: none;
-        box-shadow: none;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
       }
 
       & > .ons-checkbox__label--with-description {
@@ -69,11 +100,12 @@ $checkbox-padding: 11px;
           background: none;
           border: none;
           box-shadow: none;
+          outline: none;
         }
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px $color-focus;
+        @extend %ons-input-focus;
       }
     }
 
@@ -101,7 +133,7 @@ $checkbox-padding: 11px;
       }
 
       &:focus {
-        box-shadow: 0 0 0 3px $color-focus;
+        @extend %ons-input-focus;
       }
 
       & + .ons-checkbox__label {
@@ -122,7 +154,7 @@ $checkbox-padding: 11px;
 
     &::before {
       background: $color-white;
-      border: 1px solid $color-input;
+      border: 1px solid $color-input-border;
       border-radius: 3px;
       bottom: 0;
       content: '';
@@ -152,7 +184,8 @@ $checkbox-padding: 11px;
 
   &__input:checked + &__label::before {
     background: $color-grey-5;
-    box-shadow: 0 0 0 1px $color-input;
+    box-shadow: 0 0 0 1px $color-input-border;
+    outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
   }
 
   .ons-panel--error .ons-radio__input:checked ~ &__other > .ons-input--text:required:not(:focus) {
@@ -176,10 +209,10 @@ $checkbox-padding: 11px;
   &--toggle & {
     &__input {
       left: 0;
-      top: 0.1rem;
+      top: 0.2rem;
 
       &:focus {
-        box-shadow: 0 0 0 3px $color-focus;
+        @extend %ons-input-focus;
       }
     }
 

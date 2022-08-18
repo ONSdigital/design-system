@@ -3,7 +3,7 @@
         <div class="ons-patternlib-swatch ons-grid ons-grid--flex ons-grid--gutterless ons-grid--no-wrap@s">
             <div class="ons-patternlib-swatch__color ons-u-flex-no-shrink"
                 style="{% if item.bg2 %}background: linear-gradient(to bottom left, {{ item.bg }} 0%, {{ item.bg2 }} 100%);{% else %}background-color:{{ item.bg }};{% endif -%}{% if item.border -%} border:1px solid #707071;{% endif -%}{% if item.shadow %}border-radius:0; -webkit-box-shadow: 0 -2px {{ item.bg }}, 0 4px {{ item.fore }};
-                box-shadow: 0 -2px {{ item.bg }}, 0 4px {{ item.fore }};{% endif -%}">
+                box-shadow: 0 -2px {{ item.bg }}, 0 4px #222;{% endif -%}">
             {% if item.char -%}<span class="ons-patternlib-swatch__char" style="color:{{ item.fore }}">{{ item.char }}</span>{% endif -%}
             </div>
             <div class="ons-patternlib-swatch__codes ons-u-flex-no-grow">
