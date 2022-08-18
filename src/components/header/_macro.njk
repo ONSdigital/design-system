@@ -75,11 +75,22 @@
                                             <ul class="ons-header-service-nav__list">
                                                 {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
                                                     <li class="ons-header-service-nav__item">
+                                                    {% if item.iconType is defined and item.iconType %}
+                                                        {{
+                                                            onsIcon({
+                                                                "iconType": item.iconType
+                                                            })
+                                                        }}
+                                                    {% endif %}
+                                                    {% if item.url is defined and item.url %}
                                                         <a
                                                             href="{{ item.url }}"
                                                             class="ons-header-service-nav__link"
                                                             {% if item.id is defined and item.id %} id="{{ item.id }}"{% endif %}
                                                         >{{ item.title }}</a>
+                                                    {% else %}
+                                                        {{ item.title }}
+                                                    {% endif %}
                                                     </li>
                                                 {% endfor %}
                                             </ul>
@@ -116,11 +127,22 @@
                         <ul class="ons-header-service-nav__list">
                             {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
                                 <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
+                                {% if item.iconType is defined and item.iconType %}
+                                    {{
+                                        onsIcon({
+                                            "iconType": item.iconType
+                                        })
+                                    }}
+                                {% endif %}
+                                {% if item.url is defined and item.url %}
                                     <a
                                         href="{{ item.url }}"
                                         class="ons-header-service-nav__link"
                                         {% if item.id is defined and item.id %} id="{{ item.id }}"{% endif %}
                                     >{{ item.title }}</a>
+                                {% else %}
+                                    {{ item.title }}
+                                {% endif %}
                                 </li>
                             {% endfor %}
                             {% if params.language is defined and params.language %}
@@ -178,7 +200,7 @@
                             <p class="ons-header__description">{{ params.description }}</p>
                         {% endif %}
                     </div>
-                    
+
                     {% if params.button is defined and params.button %}
                         {% if params.variants == 'neutral' %}
                             {% set buttonVariant = ["ghost", "ghost-dark"] %}

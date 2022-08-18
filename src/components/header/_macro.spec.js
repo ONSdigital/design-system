@@ -20,6 +20,24 @@ const EXAMPLE_SERVICE_LINKS_CONFIG = {
   },
 };
 
+const EXAMPLE_HEADER_SERVICE_LIST_ITEMS = {
+  ...EXAMPLE_HEADER_BASIC,
+  serviceLinks: {
+    ...EXAMPLE_SERVICE_LINKS_CONFIG,
+    itemsList: [
+      {
+        title: 'Title 1',
+      },
+      {
+        title: 'Title 2',
+      },
+      {
+        title: 'Title 3',
+      },
+    ],
+  },
+};
+
 const EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE = {
   ...EXAMPLE_HEADER_BASIC,
   serviceLinks: {
@@ -377,6 +395,13 @@ describe('macro: header', () => {
       expect($('.ons-header-service-nav--main').attr('aria-label')).toBe('Services menu');
     });
 
+    it('has the text for each list item', () => {
+      const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LIST_ITEMS));
+
+      const values = mapAll($('.ons-header-service-nav--main .ons-header-service-nav__item'), node => node.text().trim());
+      expect(values).toEqual(['Title 1', 'Title 2', 'Title 3']);
+    });
+
     it('has the link text for each list item', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_MULTIPLE));
 
@@ -466,6 +491,26 @@ describe('macro: header', () => {
       const $ = cheerio.load(renderComponent('header', EXAMPLE_HEADER_SERVICE_LINKS_SINGLE));
 
       expect($('.ons-js-toggle-services').length).toBe(0);
+    });
+
+    it('has the correct list item icon', () => {
+      const faker = templateFaker();
+      const iconsSpy = faker.spy('icons');
+
+      faker.renderComponent('header', {
+        ...EXAMPLE_HEADER_BASIC,
+        serviceLinks: {
+          ...EXAMPLE_SERVICE_LINKS_CONFIG,
+          itemsList: [
+            {
+              title: 'Title 1',
+              iconType: 'check',
+            },
+          ],
+        },
+      });
+
+      expect(iconsSpy.occurrences[2].iconType).toBe('check');
     });
   });
 
