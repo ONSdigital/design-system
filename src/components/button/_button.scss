@@ -39,7 +39,7 @@ $button-shadow-size: 3px;
 
   &--search {
     .ons-svg-icon {
-      @include mq(s, m) {
+      @include mq(s, l) {
         margin-right: 0.5rem;
       }
     }
