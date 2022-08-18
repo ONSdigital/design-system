@@ -102,6 +102,24 @@ describe('macro: footer', () => {
     expect(hasClass).toBe(false);
   });
 
+  it('decorates container block with `fullWidth` modifier when the `fullWidth` parameter is provided', () => {
+    const $ = cheerio.load(
+      renderComponent('footer', {
+        fullWidth: true,
+      }),
+    );
+
+    const hasClass = $('.ons-container').hasClass('ons-container--full-width');
+    expect(hasClass).toBe(true);
+  });
+
+  it('does not decorate container block with `fullWidth` modifier when the `fullWidth` parameter is not provided', () => {
+    const $ = cheerio.load(renderComponent('footer', {}));
+
+    const hasClass = $('.ons-container').hasClass('ons-container--full-width');
+    expect(hasClass).toBe(false);
+  });
+
   it('has additionally provided `attributes` on the `body` element', () => {
     const $ = cheerio.load(
       renderComponent('footer', {
