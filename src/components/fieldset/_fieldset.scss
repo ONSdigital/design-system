@@ -1,11 +1,21 @@
 .ons-fieldset {
   &__legend {
     font-weight: $font-weight-bold;
-    margin: 0 0 0.6rem;
+    margin: 0;
+    &:not(&--with-description) {
+      margin-bottom: 0.55rem;
+    }
+    &-title {
+      display: block;
+      margin: 0;
+      padding: 0 0 1.5rem;
+    }
   }
 
   &__description:not(&__description--title) {
     @extend .ons-label__description;
+
+    margin-bottom: 0.55rem;
   }
 
   &__description--title {

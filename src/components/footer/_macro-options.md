@@ -12,6 +12,7 @@
 | copyrightDeclaration | object`<copyrightDeclaration>` | false    | Settings for the [Copyright Declaration](#copyrightdeclaration)                                                                                      |
 | crest                | boolean                        | false    | Set to “true” display the UK Royal Coat or Arms in the footer                                                                                        |
 | wide                 | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to 1280px                                                                        |
+| fullWidth            | boolean                        | false    | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                                |
 | attributes           | object                         | false    | HTML attributes (for example, data attributes) to add to the footer                                                                                  |
 
 ## OGLLink

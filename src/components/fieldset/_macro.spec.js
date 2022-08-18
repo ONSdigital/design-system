@@ -32,6 +32,13 @@ describe('macro: fieldset', () => {
     expect(title).toBe('Fieldset legend');
   });
 
+  it('has the correct `aria-decribedby` value', () => {
+    const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET_BASIC));
+
+    const ariaDescByVal = $('.ons-fieldset__legend').attr('aria-describedby');
+    expect(ariaDescByVal).toBe('example-fieldset-legend-description');
+  });
+
   it('has the `description` text', () => {
     const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET_BASIC));
 
@@ -39,6 +46,26 @@ describe('macro: fieldset', () => {
       .html()
       .trim();
     expect(title).toBe('A fieldset description');
+  });
+
+  it('has the correct `description` `id` when no `fieldset `id` is provided', () => {
+    const $ = cheerio.load(renderComponent('fieldset', { ...EXAMPLE_FIELDSET_BASIC, id: undefined }));
+
+    const id = $('.ons-fieldset__description').attr('id');
+    expect(id).toBe('legend-description');
+  });
+
+  it('has the correct `description` `id` when `fieldset `id` is provided', () => {
+    const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET_BASIC));
+
+    const id = $('.ons-fieldset__description').attr('id');
+    expect(id).toBe('example-fieldset-legend-description');
+  });
+
+  it('has the correct `legend` class when `description` is provided', () => {
+    const $ = cheerio.load(renderComponent('fieldset', EXAMPLE_FIELDSET_BASIC));
+
+    expect($('.ons-fieldset__legend').hasClass('ons-fieldset__legend--with-description')).toBe(true);
   });
 
   it('has additionally provided style classes', () => {
@@ -121,11 +148,6 @@ describe('macro: fieldset', () => {
 
       const results = await axe($.html());
       expect(results).toHaveNoViolations();
-    });
-
-    it('has the correct class', () => {
-      const $ = cheerio.load(renderComponent('fieldset', { ...EXAMPLE_FIELDSET_BASIC, legendIsQuestionTitle: true }));
-      expect($('.ons-fieldset__legend').hasClass('ons-u-mb-no')).toBe(true);
     });
 
     it('renders the legend in a H1', () => {

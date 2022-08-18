@@ -38,6 +38,10 @@
         box-shadow: inset 0 0 0 3px $color-input-bg, 0 0 0 $input-border-width $color-input-border, 0 0 0 4px $color-focus;
       }
     }
+
+    .ons-radio__label--with-description {
+      padding: 0;
+    }
   }
 
   &__label {

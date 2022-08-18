@@ -5,13 +5,19 @@ $backdrop-colour: rgba(0, 0, 0, 0.8);
   border-radius: 0.4rem;
   box-shadow: 0 0 7px 0 #000;
   display: none;
+  left: 0;
   margin-left: 2rem;
   margin-right: 2rem;
-  max-width: 500px;
   outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
   padding: 2rem;
-  position: relative;
-  width: auto;
+  position: fixed;
+  top: 0;
+
+  @media screen and (min-width: 600px) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+  }
 
   &-ie11 & {
     background: $color-white;
@@ -22,12 +28,6 @@ $backdrop-colour: rgba(0, 0, 0, 0.8);
     right: 0;
     top: 50%;
     transform: translate(0, -50%);
-  }
-
-  @media screen and (min-width: 600px) {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
   }
 
   &::backdrop {
