@@ -21,9 +21,16 @@ There are two parts to implementing cookies control within a service; cookies ba
     patternlibExample({ "path": "components/cookies-banner/examples/cookies-banner/index.njk" })
 }}
 ## How to use
-The cookies banner must be placed directly above the ONS [header](/components/header) at the very top of the page.
+The cookies banner must be placed directly above the ONS [header](/components/header) at the very top of the page. If using the [base page template](/foundations/page-template) it should be placed inside the `preHeader` block. This will ensure that it is displayed before the [skip to content](/components/skip-to-content) link.
 
 It will display if the user hasn’t accepted any ONS cookies via the banner or the cookie preferences page.
+
+The cookies banner component provides default values for all parameters in both English and Welsh. For the English version you don't need to provide any parameters. For the Welsh version, you will need to provide the parameter `'lang': 'cy'`.
+
+## Cookies banner - Welsh
+{{
+    patternlibExample({ "path": "components/cookies-banner/examples/cookies-banner-cymraeg/index.njk" })
+}}
 
 ## How it works
 Cookies are grouped by type and have a default boolean value. All but essential cookies are off by default.

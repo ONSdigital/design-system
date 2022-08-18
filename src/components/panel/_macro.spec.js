@@ -352,7 +352,7 @@ describe('macro: panel', () => {
         }),
       );
 
-      expect($('.ons-census-warning').length).toBe(1);
+      expect($('.ons-branded-warning').length).toBe(1);
       expect($('.ons-container').length).toBe(1);
     });
 

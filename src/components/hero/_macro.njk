@@ -25,7 +25,7 @@
 
             <header>
                 {% if params.preTitleImage %}
-                    {% set preTitleImageWithModifier = params.preTitleImage.name|replace(r/(\.[^\.]+)$/, "--" + skinName + "$1") %}
+                    {% set preTitleImageWithModifier = params.preTitleImage.name ~ "--" ~ skinName ~ ".svg" %}
                     <img class="ons-hero__pre-title" src="{{ params.placeholderURL }}/img/{{ preTitleImageWithModifier }}" alt="{{ params.preTitleImage.alt }}">
                 {% endif %}
                 {% if params.title %}

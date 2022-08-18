@@ -37,18 +37,6 @@ describe('macro: collapsible', () => {
     expect($('.ons-collapsible').hasClass('another-extra-class')).toBe(true);
   });
 
-  it('has provided variant style classes', () => {
-    const $ = cheerio.load(
-      renderComponent('collapsible', {
-        ...EXAMPLE_COLLAPSIBLE_BASIC,
-        variants: ['variant-a', 'variant-b'],
-      }),
-    );
-
-    expect($('.ons-collapsible--variant-a').length).toBe(1);
-    expect($('.ons-collapsible--variant-b').length).toBe(1);
-  });
-
   it('has provided title text', () => {
     const $ = cheerio.load(renderComponent('collapsible', EXAMPLE_COLLAPSIBLE_BASIC));
 
@@ -150,47 +138,6 @@ describe('macro: collapsible', () => {
     faker.renderComponent('collapsible', EXAMPLE_COLLAPSIBLE_BASIC);
 
     expect(iconsSpy.occurrences[0].iconType).toBe('chevron');
-  });
-
-  it('has the expected button output', () => {
-    const faker = templateFaker();
-    const buttonSpy = faker.spy('button');
-
-    faker.renderComponent('collapsible', {
-      ...EXAMPLE_COLLAPSIBLE_BASIC,
-      button: {
-        close: 'Close this',
-        attributes: {
-          a: 123,
-          b: 456,
-        },
-      },
-    });
-
-    expect(buttonSpy.occurrences[0]).toEqual({
-      text: 'Close this',
-      type: 'button',
-      buttonContext: 'Title for collapsible content',
-      classes: 'ons-js-collapsible-button ons-u-d-no ons-btn--secondary',
-      innerClasses: 'ons-js-collapsible-button-inner',
-      variants: 'small',
-      attributes: {
-        a: 123,
-        b: 456,
-      },
-    });
-  });
-
-  it('has the expected data attribute when `button` is provided', () => {
-    const $ = cheerio.load(
-      renderComponent('collapsible', {
-        ...EXAMPLE_COLLAPSIBLE_BASIC,
-        button: {
-          close: 'Close this',
-        },
-      }),
-    );
-    expect($('.ons-collapsible').attr('data-btn-close')).toBe('Close this');
   });
 
   it('calls with content', () => {

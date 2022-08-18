@@ -21,7 +21,8 @@
     height: auto;
     margin: inherit;
     max-height: 20em;
-    outline: none;
+    outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+    outline-offset: -4px;
     overflow: visible;
     padding: 1rem;
     position: static;

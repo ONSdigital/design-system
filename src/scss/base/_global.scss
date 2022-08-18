@@ -34,6 +34,7 @@ hr {
   box-shadow: 0 -2px $color-focus, 0 4px $color-text-link-focus;
   color: $color-text-link-focus;
   outline: 3px solid transparent;
+  outline-offset: 1px;
   text-decoration: none;
 }
 

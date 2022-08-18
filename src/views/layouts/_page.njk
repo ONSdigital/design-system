@@ -1,4 +1,5 @@
 {% extends "./_master.njk" %}
+{% from "components/section-navigation/_macro.njk" import onsSectionNavigation %}
 
 {% block skiplink %}
     {% from "components/skip-to-content/_macro.njk" import onsSkipToContent %}
@@ -51,9 +52,37 @@
     }}
 {% endblock %}
 {% block pageContent %}
+    {% set subNavigation %}
+        <div class="ons-patternlib-page__sub-nav ons-u-mt-l@m ons-u-mb-l">
+            {% for group in helpers.subNavigationHelper({
+                pageInfo: pageInfo,
+                anchorLinks: pageInfo.anchorLinks
+            }) %}
+                {% if group.title %}
+                    <h3 class="ons-u-fs-r--b ons-u-mb-s">{{ group.title }}</h3>
+                {% endif %}
+                {{
+                    onsSectionNavigation({
+                        "variants": "vertical",
+                        "id": "section-navigation",
+                        "ariaLabel": group.title,
+                        "currentPath": pageInfo.url,
+                        "itemsList": group.items
+                    })
+                }}
+            {% endfor %}
+        </div>
+    {% endset %}
     <div class="ons-patternlib-page__body">
         <div class="ons-page__container ons-container ons-container--wide">
-            <div class="ons-grid ons-grid--reverse">
+            <div class="ons-grid">
+                {% if (pageInfo.hideSidebar != true) and
+                    (helpers.subNavigationHelper({ pageInfo: pageInfo }).length > 0)
+                %}
+                    <div class="ons-grid__col ons-col-3@m ons-u-d-no@xxs@m">
+                        {{ subNavigation | safe }}
+                    </div>
+                {% endif %}
                 <div class="ons-grid__col ons-col-9@m">
                     <div class="ons-patternlib-page__content">
                         {% block preMain %}
@@ -106,33 +135,14 @@
                 {% if (pageInfo.hideSidebar != true) and
                     (helpers.subNavigationHelper({ pageInfo: pageInfo }).length > 0)
                 %}
-                {% from "components/section-navigation/_macro.njk" import onsSectionNavigation %}
-                <div class="ons-grid__col ons-col-3@m">
-                    <div class="ons-patternlib-page__sub-nav ons-u-mt-l@m ons-u-mb-l">
+                    <div class="ons-grid__col ons-col-3@m ons-u-d-no@m">
                         {% if pageInfo.parent.title == 'Home' %}
-                            <h2 class="ons-u-fs-r--b ons-u-mt-m@xxs@m ons-u-d-no@m">Contents</h2>
+                            <h2 class="ons-u-fs-r--b ons-u-mt-m@xxs@m">Contents</h2>
                         {% else %}
-                            <h2 class="ons-u-fs-r--b ons-u-bt@xxs@m ons-u-mt-m@xxs@m ons-u-pt-m@xxs@m ons-u-d-no@m">More in ‘{{ pageInfo.parent.title }}’</h2>
+                            <h2 class="ons-u-fs-r--b ons-u-bt@xxs@m ons-u-mt-m@xxs@m ons-u-pt-m@xxs@m">More in ‘{{ pageInfo.parent.title }}’</h2>
                         {% endif %}
-                        {% for group in helpers.subNavigationHelper({
-                            pageInfo: pageInfo,
-                            anchorLinks: pageInfo.anchorLinks
-                        }) %}
-                            {% if group.title %}
-                                <h3 class="ons-u-fs-r--b ons-u-mb-s">{{ group.title }}</h3>
-                            {% endif %}
-                            {{
-                                onsSectionNavigation({
-                                    "variants": "vertical",
-                                    "id": "section-navigation",
-                                    "ariaLabel": "Sub menu",
-                                    "currentPath": pageInfo.url,
-                                    "itemsList": group.items
-                                })
-                            }}
-                        {% endfor %}
+                        {{ subNavigation | safe }}
                     </div>
-                </div>
                 {% endif %}
             </div>
         </div>

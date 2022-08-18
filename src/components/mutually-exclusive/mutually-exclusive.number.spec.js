@@ -16,6 +16,7 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_NUMBER_INPUT_PARAMS = {
   prefix: {
     title: 'Pounds',
     text: '£',
+    id: 'currency-prefix',
   },
   mutuallyExclusive: {
     or: 'Or',

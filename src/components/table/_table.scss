@@ -13,7 +13,7 @@
   &__cell {
     @include nth-element(1, 0);
 
-    border-bottom: 2px solid $color-grey-100;
+    border-bottom: 2px solid $color-grey-75;
     overflow: hidden;
     padding: 0.5rem 0 0.5rem 1rem;
     text-align: left;
@@ -65,7 +65,7 @@
       }
 
       .ons-table__body .ons-table__row {
-        border-bottom: 2px solid $color-grey-100;
+        border-bottom: 2px solid $color-grey-75;
         display: block;
         margin-bottom: 1rem;
       }
@@ -107,8 +107,9 @@
       overflow-x: scroll;
       width: 100%;
       &:focus {
-        outline: 3px solid $color-focus;
-        outline-offset: 3px;
+        box-shadow: 0 0 0 3px $color-page-light, 0 0 0 5px $color-text-link-focus, 0 0 0 8px $color-focus;
+        outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
+        outline-offset: 1px;
       }
       .ons-table__header,
       .ons-table__cell {
@@ -119,6 +120,7 @@
       .ons-table__right-shadow,
       .ons-table__left-shadow {
         height: 100%;
+        padding: 2px;
         position: absolute;
         top: 0;
         width: 5px;
@@ -204,7 +206,7 @@
         }
 
         .ons-svg-icon {
-          fill: $color-grey-35;
+          fill: $color-grey-75;
           height: 0.8rem;
           padding-bottom: 0.1rem;
           width: 0.8rem;

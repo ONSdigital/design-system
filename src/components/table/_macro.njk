@@ -16,12 +16,13 @@
                     <tr class="ons-table__row">
                         {% for th in params.ths %}
                         <th scope="col" class="ons-table__header{{ ' ' + th.thClasses if th.thClasses }}{{ " ons-table__header--numeric" if th.numeric }}"{% if 'sortable' in variants %} aria-sort="{{- th.ariaSort | default('none') -}}"{% endif %}>
-                            <span {% if 'sortable' in variants %}class="ons-u-vh"{% endif %}>{{- th.value -}}</span>
+                            <span>{{- th.value -}}</span>
                             {% if 'sortable' in variants %}
                                 {{
                                     onsIcon({
                                         "iconType": "sort-sprite",
-                                        "id": th.value
+                                        "id": th.value,
+                                        "classes": 'ons-u-d-no'
                                     })
                                 }}
                             {% endif %}

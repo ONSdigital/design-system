@@ -11,6 +11,7 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_DURATION_PARAMS = {
     name: 'address-duration-years',
     suffix: {
       text: 'Years',
+      id: 'address-duration-years-suffix',
     },
     attributes: {
       min: 0,
@@ -22,6 +23,7 @@ const EXAMPLE_MUTUALLY_EXCLUSIVE_DURATION_PARAMS = {
     name: 'address-duration-months',
     suffix: {
       text: 'Months',
+      id: 'address-duration-months-suffix',
     },
     attributes: {
       min: 0,

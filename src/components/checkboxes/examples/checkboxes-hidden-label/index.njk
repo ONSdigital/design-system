@@ -22,6 +22,9 @@
                             <span>Survey Data Collection area</span>
                         </th>
                         <th scope="col" class="ons-table__header">
+                            <span>View</span>
+                        </th>
+                        <th scope="col" class="ons-table__header">
                             <span>Edit</span>
                         </th>
                         <th scope="col" class="ons-table__header">
@@ -34,6 +37,20 @@
                         <td class="ons-table__cell">
                             Surveys
                         </td>
+                        <td class="ons-table__cell">
+                            {{
+                                onsCheckbox({
+                                    "id": "surveys-view",
+                                    "hideLabel": true,
+                                    "label": {
+                                        "text": "View surveys"
+                                    },
+                                    "value": "y",
+                                    "checked": true,
+                                    "disabled": true
+                                })
+                            }}
+                        </td>
                         <td class="ons-table__cell" colspan="2">
                             {{
                                 onsCheckbox({
@@ -42,7 +59,7 @@
                                     "label": {
                                         "text": "Edit surveys"
                                     },
-                                    "value": "y"
+                                    "value": "n"
                                 })
                             }}
                         </td>
@@ -50,6 +67,20 @@
                     <tr class="ons-table__row">
                         <td class="ons-table__cell">
                             Reporting units
+                        </td>
+                        <td class="ons-table__cell">
+                            {{
+                                onsCheckbox({
+                                    "id": "reporting-units-view",
+                                    "hideLabel": true,
+                                    "label": {
+                                        "text": "View reporting units"
+                                    },
+                                    "value": "y",
+                                    "checked": true,
+                                    "disabled": true
+                                })
+                            }}
                         </td>
                         <td class="ons-table__cell" colspan="2">
                             {{
@@ -59,7 +90,7 @@
                                     "label": {
                                         "text": "Edit reporting units"
                                     },
-                                    "value": "y"
+                                    "value": "n"
                                 })
                             }}
                         </td>
@@ -71,12 +102,27 @@
                         <td class="ons-table__cell">
                             {{
                                 onsCheckbox({
+                                    "id": "respondents-view",
+                                    "hideLabel": true,
+                                    "label": {
+                                        "text": "View respondents"
+                                    },
+                                    "value": "y",
+                                    "checked": true,
+                                    "disabled": true
+                                })
+                            }}
+                        </td>
+                        <td class="ons-table__cell">
+                            {{
+                                onsCheckbox({
                                     "id": "respondents-edit",
                                     "hideLabel": true,
                                     "label": {
                                         "text": "Edit respondents"
                                     },
-                                    "value": "y"
+                                    "value": "y",
+                                    "checked": true
                                 })
                             }}
                         </td>
@@ -88,7 +134,7 @@
                                     "label": {
                                         "text": "Delete respondents"
                                     },
-                                    "value": "y"
+                                    "value": "n"
                                 })
                             }}
                         </td>
@@ -96,6 +142,20 @@
                     <tr class="ons-table__row">
                         <td class="ons-table__cell">
                             Messages
+                        </td>
+                        <td class="ons-table__cell">
+                            {{
+                                onsCheckbox({
+                                    "id": "messages-view",
+                                    "hideLabel": true,
+                                    "label": {
+                                        "text": "View messages"
+                                    },
+                                    "value": "y",
+                                    "checked": true,
+                                    "disabled": true
+                                })
+                            }}
                         </td>
                         <td class="ons-table__cell" colspan="2">
                             {{
@@ -105,7 +165,8 @@
                                     "label": {
                                         "text": "Edit messages"
                                     },
-                                    "value": "y"
+                                    "value": "y",
+                                    "checked": true
                                 })
                             }}
                         </td>

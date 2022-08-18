@@ -480,33 +480,6 @@ describe('macro: table', () => {
 
       expect($('.ons-table').attr('data-aria-desc')).toBe('descending');
     });
-
-    it('adds visually hidden class to column headers', () => {
-      const $ = cheerio.load(renderComponent('table', params));
-
-      const hasClass = mapAll($('.ons-table__header > span'), node => node.hasClass('ons-u-vh'));
-      expect(hasClass).toEqual([true, true, true]);
-    });
-
-    it('renders "sort-sprite" icon for each column header', () => {
-      const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
-
-      faker.renderComponent('table', params);
-
-      expect(iconsSpy.occurrences[0]).toEqual({
-        iconType: 'sort-sprite',
-        id: 'Column 1',
-      });
-      expect(iconsSpy.occurrences[1]).toEqual({
-        iconType: 'sort-sprite',
-        id: 'Column 2',
-      });
-      expect(iconsSpy.occurrences[2]).toEqual({
-        iconType: 'sort-sprite',
-        id: 'Column 3',
-      });
-    });
   });
 
   describe('table caption', () => {

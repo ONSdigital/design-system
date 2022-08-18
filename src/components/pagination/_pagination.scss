@@ -45,6 +45,7 @@ $pagination-item-width: 2.5rem;
   &__item--current &__link {
     background: $color-text-link-hover;
     color: $color-white;
+    outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show backgrounds
     text-decoration: none;
   }
 

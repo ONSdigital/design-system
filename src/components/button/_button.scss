@@ -63,8 +63,11 @@ $button-shadow-size: 3px;
   }
 
   // When focused
-  &:focus & {
+  &:focus,
+  &:focus-visible {
+    // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
     outline: 3px solid transparent;
+    outline-offset: 1px;
   }
 
   &:focus &__inner {
@@ -89,11 +92,6 @@ $button-shadow-size: 3px;
 
   &:active {
     top: ems($button-shadow-size);
-  }
-
-  &:focus,
-  &:focus:hover {
-    outline: none;
   }
 
   // Small buttons
@@ -170,6 +168,8 @@ $button-shadow-size: 3px;
 
   &--link:focus:not(:active):not(&--secondary) &,
   &--link:focus:hover:not(:active):not(&--secondary) & {
+    outline: inherit;
+
     &__inner {
       .ons-svg-icon {
         fill: $color-text;
@@ -386,10 +386,17 @@ $button-shadow-size: 3px;
   &--ghost-dark:focus &,
   &--dropdown:focus & {
     &__inner {
-      box-shadow: none;
+      border-color: $color-text-link-focus;
+      box-shadow: 0 0 0 1px $color-text-link-focus;
       .ons-svg-icon {
         fill: $color-black;
       }
+    }
+  }
+
+  &--dropdown:focus & {
+    &__inner {
+      box-shadow: inset 0 -4px 0 0 $color-text-link-focus;
     }
   }
 
@@ -471,5 +478,19 @@ $button-shadow-size: 3px;
         fill: $color-white;
       }
     }
+  }
+}
+
+.ons-btn-group {
+  @extend .ons-u-mb-m;
+
+  align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  & .ons-btn,
+  & a {
+    margin: 0 1rem 1rem 0;
   }
 }
