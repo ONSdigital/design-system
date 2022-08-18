@@ -79,6 +79,13 @@ const EXAMPLE_INPUT_WITH_MUTUALLY_EXCLUSIVE_WITH_ERROR = {
 };
 
 describe('macro: input', () => {
+  it('passes jest-axe checks', async () => {
+    const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_LABEL));
+
+    const results = await axe($.html());
+    expect(results).toHaveNoViolations();
+  });
+
   it('has the provided `id` attribute', () => {
     const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_MINIMAL));
 
@@ -374,6 +381,21 @@ describe('macro: input', () => {
   });
 
   describe('prefix and suffix', () => {
+    it('passes jest-axe checks', async () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          prefix: {
+            id: 'example-prefix-id',
+            title: 'Example prefix title',
+          },
+        }),
+      );
+
+      const results = await axe($.html());
+      expect(results).toHaveNoViolations();
+    });
+
     it('adds `aria-labelledby` attribute when `prefix` is provided', () => {
       const $ = cheerio.load(
         renderComponent('input', {
@@ -443,20 +465,6 @@ describe('macro: input', () => {
       expect($('.ons-input-type--prefix').length).toBe(0);
     });
 
-    it('does not render prefix element when `prefix.title` not set', () => {
-      const $ = cheerio.load(
-        renderComponent('input', {
-          ...EXAMPLE_INPUT_MINIMAL,
-          prefix: {
-            text: 'Example prefix text',
-            id: 'example-prefix-id',
-          },
-        }),
-      );
-
-      expect($('.ons-input-type--prefix').length).toBe(0);
-    });
-
     it('adds `aria-labelledby` attribute when `suffix` is provided', () => {
       const $ = cheerio.load(
         renderComponent('input', {
@@ -511,34 +519,49 @@ describe('macro: input', () => {
           .trim(),
       ).toBe('Example suffix text');
     });
-  });
 
-  it('does not render suffix element when `suffix.id` not set', () => {
-    const $ = cheerio.load(
-      renderComponent('input', {
-        ...EXAMPLE_INPUT_MINIMAL,
-        suffix: {
-          title: 'Example suffix title',
-          text: 'Example suffix text',
-        },
-      }),
-    );
+    it('does not render suffix element when `suffix.id` not set', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          suffix: {
+            title: 'Example suffix title',
+            text: 'Example suffix text',
+          },
+        }),
+      );
 
-    expect($('.ons-input').length).toBe(0);
-  });
+      expect($('.ons-input').length).toBe(0);
+    });
 
-  it('does not render suffix element when `suffix.title` not set', () => {
-    const $ = cheerio.load(
-      renderComponent('input', {
-        ...EXAMPLE_INPUT_MINIMAL,
-        suffix: {
-          text: 'Example suffix text',
-          id: 'example-suffix-id',
-        },
-      }),
-    );
+    it('renders an `abbr` tag when `title` set', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          suffix: {
+            text: 'Example suffix text',
+            title: 'Example suffix title',
+            id: 'example-suffix-id',
+          },
+        }),
+      );
 
-    expect($('.ons-input').length).toBe(0);
+      expect($('.ons-input + abbr').length).toBe(1);
+    });
+
+    it('renders a `span` tag when `title` not set', () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_MINIMAL,
+          suffix: {
+            text: 'Example suffix text',
+            id: 'example-suffix-id',
+          },
+        }),
+      );
+
+      expect($('.ons-input + span').length).toBe(1);
+    });
   });
 
   describe('search', () => {
@@ -577,6 +600,21 @@ describe('macro: input', () => {
   });
 
   describe('with character limit', () => {
+    it('passes jest-axe checks', async () => {
+      const $ = cheerio.load(
+        renderComponent('input', {
+          ...EXAMPLE_INPUT_WITH_CHARACTER_LIMIT,
+          label: {
+            id: 'example-input-label',
+            text: 'Example input label',
+          },
+        }),
+      );
+
+      const results = await axe($.html());
+      expect(results).toHaveNoViolations();
+    });
+
     it('has the provided minimum length', () => {
       const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_CHARACTER_LIMIT));
 
@@ -673,6 +711,13 @@ describe('macro: input', () => {
   });
 
   describe('mutually exclusive', () => {
+    it('passes jest-axe checks', async () => {
+      const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_MUTUALLY_EXCLUSIVE_WITH_ERROR));
+
+      const results = await axe($.html());
+      expect(results).toHaveNoViolations();
+    });
+
     it('has the `ons-js-exclusive-group-item` class', () => {
       const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_WITH_MUTUALLY_EXCLUSIVE_WITH_ERROR));
 
