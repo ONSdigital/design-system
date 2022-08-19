@@ -9,7 +9,7 @@
 
 {% if pageInfo.title and pageInfo.title %}
     {% if example %}
-        {% set pageHeading = "Example: " ~ (pageInfo.title | replace("-", " ") | capitalize) %}
+        {% set pageHeading = "Example: " ~ pageInfo.title | replace("--", " (") | replace("-", " ") | capitalize ~ ")" %}
         {% set pageTitle  = pageHeading ~ " – ONS Design System" %}
         {% set pageConfig = {
             "lang": pageInfo.lang,
