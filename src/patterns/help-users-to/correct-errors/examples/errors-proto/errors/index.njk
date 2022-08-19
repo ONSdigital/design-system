@@ -16,7 +16,7 @@ layout: none
 {% from "components/duration/_macro.njk" import onsDuration %}
 
 {% set pageConfig = {
-    "title": "Errors Prototype"
+    "title": "Error: Errors Prototype"
 } %}
 
 {% block preMain %}
@@ -43,7 +43,7 @@ layout: none
 
 {% block main %}
     {% call onsPanel({
-            "title": "There are 9 problems with your answer",
+            "title": "There are 9 problems with this page",
             "type": "error",
             "classes": "ons-question__error"
         })
@@ -53,27 +53,27 @@ layout: none
                 "element": "ol",
                 "itemsList": [
                     {
-                        "text": "Enter a number",
+                        "text": "Enter the number of employees paid monthly",
                         "url": "#number-error",
                         "variants": "inPageLink"
                     },
                     {
-                        "text": "Enter a number less than or equal to 100",
+                        "text": "Enter a number less than 101",
                         "url": "#suffixed-error",
                         "variants": "inPageLink"
                     },
                     {
-                        "text": "Select an answer",
-                        "url": "#radios-error",
-                        "variants": "inPageLink"
-                    },
-                    {
-                        "text": "Enter a date of birth",
+                        "text": "Enter your date of birth",
                         "url": "#dates-error",
                         "variants": "inPageLink"
                     },
                     {
-                        "text": "Select at least one answer",
+                        "text": "Select how you would like us to contact you",
+                        "url": "#contact-preference-error",
+                        "variants": "inPageLink"
+                    },
+                    {
+                        "text": "Select what type of central heating your accommodation has",
                         "url": "#checkboxes-error",
                         "variants": "inPageLink"
                     },
@@ -103,7 +103,7 @@ layout: none
     {% endcall %}
 
     {% call onsQuestion ({
-        "title": "How many employees do you pay on a monthly basis?",
+        "title": "Input errors examples",
         "submitButton": true
     }) %}
         {{
@@ -118,7 +118,7 @@ layout: none
                 },
                 "error": {
                     "id": "number-error",
-                    "text": "Enter a number"
+                    "text": "Enter the number of employees paid monthly"
                 }
             })
         }}
@@ -129,7 +129,7 @@ layout: none
                 "id": "number-input",
                 "width": "3",
                 "fieldClasses": "ons-question__answer",
-                "value": "101",
+                "value": "110",
                 "required": true,
                 "label": {
                     "text": "Percentage of employees paid monthly"
@@ -141,52 +141,8 @@ layout: none
                 },
                 "error": {
                     "id": "suffixed-error",
-                    "text": "Enter a number less than or equal to 100"
+                    "text": "Enter a number less than 101"
                 }
-            })
-        }}
-
-        {{
-            onsRadios({
-                "legend": "How many employees do you employ?",
-                "name": "food",
-                "id": "radios",
-                "error": {
-                    "text": "Select an answer",
-                    "id": "radios-error"
-                },
-                "radios": [
-                    {
-                        "id": "a",
-                        "label": {
-                            "text": "1 - 10 employees"
-                        },
-                        "value": "a"
-                    },
-                    {
-                        "id": "b",
-                        "label": {
-                            "text": "6 - 10 employees"
-                        },
-                        "value": "b"
-                    },
-                    {
-                        "id": "c",
-                        "label": {
-                            "text": "More than 10 employees"
-                        },
-                        "value": "other",
-                        "other": {
-                            "open": true,
-                            "required": true,
-                            "id": "other-textbox",
-                            "name": "other-answer",
-                            "label": {
-                                "text": "Please specify other"
-                            }
-                        }
-                    }
-                ]
             })
         }}
 
@@ -224,35 +180,123 @@ layout: none
                     }
                 },
                 "error": {
-                    "text": "Enter a date of birth",
+                    "text": "Enter your date of birth",
                     "id": "dates-error"
                 }
             })
         }}
 
         {{
-            onsCheckboxes({
-                "legend": "What are your favourite pizza toppings?",
-                "checkboxesLabel": "Select all that apply",
-                "name": "food",
+            onsRadios({
+                "legend": "How would you like us to contact you?",
+                "name": "contact-preference",
                 "error": {
-                    "text": "Select at least one answer",
+                    "text": "Select how you would like us to contact you",
+                    "id": "contact-preference-error"
+                },
+                "radios": [
+                    {
+                        "id": "post",
+                        "label": {
+                            "text": "By post"
+                        },
+                        "value": "post"
+                    },
+                    {
+                        "id": "email",
+                        "label": {
+                            "text": "By email"
+                        },
+                        "value": "email"
+                    },
+                    {
+                        "id": "phone",
+                        "label": {
+                            "text": "By phone"
+                        },
+                        "value": "phone",
+                        "other": {
+                            "otherType": "select",
+                            "id": "phone-time",
+                            "name": "phone-time",
+                            "label": {
+                                "text": "Choose preferred time of day"
+                            },
+                            "options": [
+                                {
+                                    "value": "",
+                                    "text": "Select an option",
+                                    "disabled": true,
+                                    "selected": true
+                                },
+                                {
+                                    "value": "anytime",
+                                    "text": "Any time of day"
+                                },
+                                {
+                                    "value": "morning",
+                                    "text": "Morning"
+                                },
+                                {
+                                    "value": "afternoon",
+                                    "text": "Afternoon"
+                                },
+                                {
+                                    "value": "evening",
+                                    "text": "Evening"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            })
+        }}
+
+        {{
+            onsCheckboxes({
+                "legend": "What type of central heating does your accommodation have?",
+                "id": "central-heating-answers",
+                "checkboxesLabel": "Select all that apply",
+                "name": "mutually-exclusive",
+                "error": {
+                    "text": "Select what type of central heating your accommodation has",
                     "id": "checkboxes-error"
                 },
                 "checkboxes": [
                     {
-                        "id": "bacon",
+                        "id": "gas",
                         "label": {
-                            "text": "Bacon"
+                            "text": "Gas"
                         },
-                        "value": "bacon"
+                        "value": "gas"
                     },
                     {
-                        "id": "olives",
+                        "id": "electric",
                         "label": {
-                            "text": "Olives"
+                            "text": "Electric"
                         },
-                        "value": "olives"
+                        "value": "electric"
+                    },
+                    {
+                        "id": "solid-fuel",
+                        "label": {
+                            "text": "Solid fuel"
+                        },
+                        "value": "solid-fuel"
+                    },
+                    {
+                        "id": "other-fuel",
+                        "label": {
+                            "text": "Other"
+                        },
+                        "value": "other",
+                        "other": {
+                            "id": "other-fuel-textbox",
+                            "name": "other-fuel-answer",
+                            "label": {
+                                "text": "Enter type of central heating"
+                            }
+                        }
                     }
                 ],
                 "mutuallyExclusive": {
@@ -260,13 +304,15 @@ layout: none
                     "deselectMessage": "Selecting this will uncheck all other checkboxes",
                     "deselectGroupAdjective": "deselected",
                     "deselectExclusiveOptionAdjective": "deselected",
-                    "exclusiveOptions": {
-                        "id": "no-toppings",
-                        "label": {
-                            "text": "No toppings"
-                        },
-                        "value": "no-toppings"
-                    }
+                    "exclusiveOptions": [
+                        {
+                            "id": "no-central-heating",
+                            "label": {
+                                "text": "No central heating"
+                            },
+                            "value": "no-central-heating"
+                        }
+                    ]
                 }
             })
         }}
@@ -304,14 +350,16 @@ layout: none
                     "deselectMessage": "Selecting this will clear your email address",
                     "deselectGroupAdjective": "cleared",
                     "deselectExclusiveOptionAdjective": "deselected",
-                    "exclusiveOptions": {
-                        "id": "email-checkbox",
-                        "name": "no-email",
-                        "value": "no-email",
-                        "label": {
-                            "text": "I don’t want to receive a confirmation email"
+                    "exclusiveOptions": [
+                        {
+                            "id": "email-checkbox",
+                            "name": "no-email",
+                            "value": "no-email",
+                            "label": {
+                                "text": "I don’t want to receive a confirmation email"
+                            }
                         }
-                    }
+                    ]
                 }
             })
         }}
