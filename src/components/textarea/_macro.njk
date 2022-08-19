@@ -8,7 +8,7 @@
     {% set field %}
         {% set textareaExclusiveClass = " ons-js-exclusive-group-item" if params.mutuallyExclusive else "" %}
 
-        {% if params.label is defined and params.label %}
+        {% if params.label %}
             {{ onsLabel({
                 "for": params.id,
                 "text": params.label.text,
@@ -19,20 +19,20 @@
 
         <textarea
             id="{{ params.id }}"
-            class="ons-input ons-input--textarea {% if params.error is defined and params.error %} ons-input--error {% endif %}{% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %} ons-js-char-limit-input{% endif %}{{ textareaExclusiveClass }} {{ params.classes if params.classes is defined and params.classes }} {% if params.width is defined and params.width %}ons-input--w-{{ params.width }}{% endif %}"
-            {% if params.name is defined and params.name %}
+            class="ons-input ons-input--textarea {% if params.error %} ons-input--error {% endif %}{% if params.charCheckLimit and params.charCheckLimit.limit %} ons-js-char-limit-input{% endif %}{{ textareaExclusiveClass }} {{ params.classes if params.classes }} {% if params.width %}ons-input--w-{{ params.width }}{% endif %}"
+            {% if params.name %}
              name="{{ params.name }}"
             {% endif %}
             rows="{{ params.rows | default(8) }}"
-            {% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %}
+            {% if params.charCheckLimit and params.charCheckLimit.limit %}
                 maxlength="{{ params.charCheckLimit.limit }}"
                 data-char-limit-ref="{{ params.id }}-lim-remaining"
                 aria-describedby="{{ params.id }}-lim-remaining"
             {% endif %}
-            {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-        >{{ params.value if params.value is defined and params.value }}</textarea>
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+        >{{ params.value if params.value }}</textarea>
 
-        {% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %}
+        {% if params.charCheckLimit and params.charCheckLimit.limit %}
             {% call onsCharLimit({
                 "id": params.id ~ "-lim",
                 "limit": params.charCheckLimit.limit,
@@ -43,7 +43,7 @@
         {% endif %}
     {% endset %}
 
-    {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
+    {% if params.mutuallyExclusive %}
         {% call onsMutuallyExclusive({
             "id": params.fieldId,
             "classes": params.fieldClasses,

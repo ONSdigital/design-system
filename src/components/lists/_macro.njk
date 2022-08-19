@@ -2,44 +2,44 @@
     {% set variants = params.variants if params.variants else '' %}
     {% set listLength = params.itemsList | length %}
 
-    {% if params.itemsList[0] is defined and params.itemsList[0].prefix %}
+    {% if params.itemsList[0].prefix %}
         {% set otherClasses = 'ons-list--bare ons-list--prefix' %}
-    {% elif params.itemsList[0] is defined and params.itemsList[0].suffix %}
+    {% elif params.itemsList[0].suffix %}
         {% set otherClasses = 'ons-list--bare ons-list--suffix' %}
-    {% elif params.itemsList[0] is defined and params.iconPosition is defined and params.iconPosition %}
+    {% elif params.iconPosition %}
         {% set otherClasses = 'ons-list--bare ons-list--icons' %}
         {% set iconType = params.iconType if params.iconType else '' %}
     {% else %}
         {% set otherClasses = '' %}
     {% endif %}
 
-    {% if params.element is defined and params.element and listLength > 1 %}
+    {% if params.element and listLength > 1 %}
         {% set listEl = params.element | lower %}
-    {% elif (params.element is defined and params.element == 'ol') and listLength < 2 %}
+    {% elif (params.element == 'ol') and listLength < 2 %}
         {% set listEl = 'p' %}
     {% else %}
         {% set listEl = 'ul' %}
     {% endif %}
-        <{{listEl}} {% if params.id is defined and params.id %}id="{{ params.id }}"{% endif %} class="ons-list{% if listEl == 'p' %} ons-list--p{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes -}}{% endif %}{% if params.variants is defined and params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-list--{{ variant }}{% endfor %}{% else %} ons-list--{{ params.variants }}{% endif %}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}"{% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
+        <{{listEl}} {% if params.id %}id="{{ params.id }}"{% endif %} class="ons-list{% if listEl == 'p' %} ons-list--p{% endif %}{% if params.classes %} {{ params.classes -}}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-list--{{ variant }}{% endfor %}{% else %} ons-list--{{ params.variants }}{% endif %}{% endif %}{% if otherClasses %} {{ otherClasses -}}{% endif %}"{% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
             {%- for item in (params.itemsList if params.itemsList is iterable else params.itemsList.items()) -%}
                 {% if listLength > 1 or listEl == 'ul' %}
-                <li class="ons-list__item{% if item.listClasses is defined and item.listClasses %} {{ item.listClasses }}{% endif %}"{% if item.current is defined and item.current %} aria-current="true"{% endif %}>
+                <li class="ons-list__item{% if item.listClasses %} {{ item.listClasses }}{% endif %}"{% if item.current %} aria-current="true"{% endif %}>
                 {% endif %}
                     {% set itemText = item.text %}
-                    {% set itemIconType = item.iconType if item.iconType is defined and item.iconType else iconType %}
+                    {% set itemIconType = item.iconType if item.iconType else iconType %}
 
                     {# For Craft support we also support title and navigation title #}
-                    {% if item.navigationTitle is defined and item.navigationTitle %}
+                    {% if item.navigationTitle %}
                         {% set itemText = item.navigationTitle %}
-                    {% elif item.title is defined and item.title %}
+                    {% elif item.title %}
                         {% set itemText = item.title %}
                     {% endif %}
 
-                    {%- if item.prefix is defined and item.prefix or (params.iconPosition is defined and params.iconPosition == 'before') -%}
+                    {%- if item.prefix or (params.iconPosition == 'before') -%}
                         <span class="ons-list__prefix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
-                            {%- if item.prefix is defined and item.prefix -%}
+                            {%- if item.prefix -%}
                                 {{- item.prefix -}}.
-                            {% elif params.iconPosition is defined and params.iconPosition == 'before' %}
+                            {% elif params.iconPosition == 'before' %}
                                 {% from "components/icons/_macro.njk" import onsIcon %}
                                 {{
                                     onsIcon({
@@ -50,8 +50,8 @@
                             {%- endif -%}
                         </span>
                     {%- endif -%}
-                    {%- if item.url is defined and item.url and item.current != true -%}
-                        {%- if item.external is defined and item.external -%}
+                    {%- if item.url and item.current != true -%}
+                        {%- if item.external -%}
                             {% from "components/external-link/_macro.njk" import onsExternalLink %}
                             {{
                                 onsExternalLink({
@@ -60,21 +60,21 @@
                                 })
                             }}
                         {%- else -%}
-                            <a href="{{ item.url }}" class="ons-list__link{% if item.variants == 'inPageLink' %} ons-js-inpagelink{% endif %}{% if item.classes is defined and item.classes %} {{ item.classes }}{% endif %}"{% if item.target is defined and item.target %} target="{{ item.target }}"{% endif %}{% if item.attributes is defined and item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %} {{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
-                                {%- if item.prefix is defined and item.prefix -%}<span class="ons-u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- itemText | safe -}}
-                                {%- if item.target is defined and item.target == "_blank" -%}<span class="ons-u-vh"> ({{- item.screenreaderMessage | default("opens in a new tab") -}})</span>{%- endif -%}
+                            <a href="{{ item.url }}" class="ons-list__link{% if item.variants == 'inPageLink' %} ons-js-inpagelink{% endif %}{% if item.classes %} {{ item.classes }}{% endif %}"{% if item.target %} target="{{ item.target }}"{% endif %}{% if item.attributes %}{% for attribute, value in (item.attributes.items() if item.attributes is mapping and item.attributes.items else item.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}>
+                                {%- if item.prefix -%}<span class="ons-u-vh">{{- item.prefix -}}</span>{%- endif -%} {{- itemText | safe -}}
+                                {%- if item.target == "_blank" -%}<span class="ons-u-vh"> ({{- item.screenreaderMessage | default("opens in a new tab") -}})</span>{%- endif -%}
                             </a>
                         {%- endif -%}
                     {%- else -%}
                         {{- itemText | safe -}}
                     {%- endif -%}
-                    {%- if item.suffix is defined and item.suffix or (params.iconPosition is defined and params.iconPosition == 'after') -%}
+                    {%- if item.suffix or (params.iconPosition == 'after') -%}
                         <span class="ons-list__suffix"{% if listEl != 'ol' %} aria-hidden="true"{% endif %}>
-                        {%- if item.suffix is defined and item.suffix -%}
+                        {%- if item.suffix -%}
                             {{- item.suffix -}}
-                        {%- elif (item.index is defined and item.index and listEl != 'ol') or (item.index is defined and item.index and listEl == 'ol' and 'bare' in variants) -%}
+                        {%- elif (item.index and listEl != 'ol') or (item.index and listEl == 'ol' and 'bare' in variants) -%}
                             {{- loop.index -}}
-                        {% elif params.iconPosition is defined and params.iconPosition == 'after' %}
+                        {% elif params.iconPosition == 'after' %}
                             {% from "components/icons/_macro.njk" import onsIcon %}
                             {{
                                 onsIcon({
