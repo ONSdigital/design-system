@@ -50,37 +50,35 @@
                 <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Announcement: ") }}</span>
             {% endif %}
 
-            {% if params %}
-                {% if params.title %}
-                    {% if params.type == 'error' %}
-                        {% set defaultTitleTag = "h2" %}
-                    {% else %}
-                        {% set defaultTitleTag = "div" %}
-                    {% endif %}
-                    {% set titleTag = params.titleTag | default(defaultTitleTag) %}
-                    <div class="ons-panel__header">
-                        <{{ titleTag }} id="alert"{% if params.type %} data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
-                    </div>
+            {% if params.title %}
+                {% if params.type == 'error' %}
+                    {% set defaultTitleTag = "h2" %}
                 {% else %}
-                    {% if params.type is not defined or params.type == "branded" or params.type == "info" %}
-                        <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Important information: ") }}</span>
-                    {% elif params.type == 'error' or params.type == 'success' %} 
-                        {% set defaultText = "Completed" if params.type == "success" else "Error" %}
-                        <span{% if params.type == "success" %} id="alert"{% endif %} class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default(defaultText ~ ": ") }}</span>
-                    {% endif %}
+                    {% set defaultTitleTag = "div" %}
                 {% endif %}
+                {% set titleTag = params.titleTag | default(defaultTitleTag) %}
+                <div class="ons-panel__header">
+                    <{{ titleTag }} id="alert"{% if params.type %} data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
+                </div>
+            {% else %}
+                {% if not params.type or params.type == "branded" or params.type == "info" %}
+                    <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Important information: ") }}</span>
+                {% elif params.type == 'error' or params.type == 'success' %} 
+                    {% set defaultText = "Completed" if params.type == "success" else "Error" %}
+                    <span{% if params.type == "success" %} id="alert"{% endif %} class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default(defaultText ~ ": ") }}</span>
+                {% endif %}
+            {% endif %}
 
-                {% if params.iconType %}
-                    {% from "components/icons/_macro.njk" import onsIcon %}
-                    <span class= "ons-panel__icon ons-u-fs-{{ params.iconSize | default('r') }}">
-                        {{
-                            onsIcon({
-                                "iconType": params.iconType,
-                                "iconSize": params.iconSize
-                            })
-                        }}
-                    </span>
-                {% endif %}
+            {% if params.iconType %}
+                {% from "components/icons/_macro.njk" import onsIcon %}
+                <span class= "ons-panel__icon ons-u-fs-{{ params.iconSize | default('r') }}">
+                    {{
+                        onsIcon({
+                            "iconType": params.iconType,
+                            "iconSize": params.iconSize
+                        })
+                    }}
+                </span>
             {% endif %}
 
             <div class="ons-panel__body{% if params.iconSize %} ons-svg-icon-margin--{{ params.iconSize }}{% endif %}">{{ (params.body if params else "") | safe }}
