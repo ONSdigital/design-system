@@ -1,6 +1,6 @@
 {% macro onsPanel(params) %}
 
-    {% if params is defined and params and params.classes is defined and params.classes %}
+    {% if params.classes %}
         {% set classes = ' ' + params.classes %}
     {% endif %}
 
@@ -8,37 +8,37 @@
         {% set noTitleClass = ' ons-panel--no-title' %}
     {% endif %}
 
-    {% if params is defined and params and params.type is defined and params.type %}
+    {% if params.type %}
         {% set typeClass = ' ons-panel--' + params.type %}
     {% else %}
         {% set typeClass = ' ons-panel--info' %}
     {% endif %}
 
-    {% if params is defined and params.type == "warn-branded" %}
+    {% if params.type == "warn-branded" %}
         {% set containerClass = 'ons-branded-warning' %}
     {% endif %}
 
-    {% if params is defined and params.type == "announcement" %}
+    {% if params.type == "announcement" %}
         {% set containerClass = 'ons-announcement' %}
     {% endif %}
 
-    {% if params is defined and params and params.spacious is defined and params.spacious %}
+    {% if params.spacious %}
         {% set spaciousClass = ' ons-panel--spacious' %}
     {% endif %}
 
-    {% if params is defined and params and params.type == "warn-branded" or params.type == "announcement" %}
+    {% if params.type == "warn-branded" or params.type == "announcement" %}
         <div class="{{containerClass}}">
             <div class="ons-container">
     {% endif %}
 
-        <div {% if (params.type == 'error' and params.title) or params.type == 'success' %}aria-labelledby="alert" role="alert" tabindex="-1" {% if params.dsExample != true %}autofocus="autofocus" {% endif %}{% endif %}class="ons-panel{{ typeClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"{% if params is defined and params and params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params is defined and params and params.attributes is mapping and params.attributes.items is defined and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params is defined and params and params.id is defined and params.id %} id="{{params.id}}"{% endif %}>
+        <div {% if (params.type == 'error' and params.title) or params.type == 'success' %}aria-labelledby="alert" role="alert" tabindex="-1" {% if params.dsExample != true %}autofocus="autofocus" {% endif %}{% endif %}class="ons-panel{{ typeClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"{% if params and params.attributes %}{% for attribute, value in (params.attributes.items() if params and params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params and params.id %} id="{{params.id}}"{% endif %}>
 
-            {% if params is defined and params and params.type == "warn" or params.type == "warn-branded" %}
+            {% if params.type == "warn" or params.type == "warn-branded" %}
                 <span class="ons-panel__icon" aria-hidden="true">!</span>
                 <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Warning: ") }}</span>
             {% endif %}
 
-            {% if params is defined and params and params.type == "announcement" %}
+            {% if params.type == "announcement" %}
                 {% from "components/icons/_macro.njk" import onsIcon %}
                 <span class="ons-panel__icon" aria-hidden="true">
                     {{
@@ -50,45 +50,43 @@
                 <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Announcement: ") }}</span>
             {% endif %}
 
-            {% if params is defined and params %}
-                {% if params.title is defined and params.title %}
-                    {% if params is defined and params and params.type == 'error' %}
-                        {% set defaultTitleTag = "h2" %}
-                    {% else %}
-                        {% set defaultTitleTag = "div" %}
-                    {% endif %}
-                    {% set titleTag = params.titleTag | default(defaultTitleTag) %}
-                    <div class="ons-panel__header">
-                        <{{ titleTag }} id="alert"{% if params.type %} data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
-                    </div>
+            {% if params.title %}
+                {% if params.type == 'error' %}
+                    {% set defaultTitleTag = "h2" %}
                 {% else %}
-                    {% if params.type is not defined or params.type == "branded" or params.type == "info" %}
-                        <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Important information: ") }}</span>
-                    {% elif params.type == 'error' or params.type == 'success' %} 
-                        {% set defaultText = "Completed" if params.type == "success" else "Error" %}
-                        <span{% if params.type == "success" %} id="alert"{% endif %} class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default(defaultText ~ ": ") }}</span>
-                    {% endif %}
+                    {% set defaultTitleTag = "div" %}
                 {% endif %}
-
-                {% if params.iconType is defined and params.iconType %}
-                    {% from "components/icons/_macro.njk" import onsIcon %}
-                    <span class= "ons-panel__icon ons-u-fs-{{ params.iconSize | default('r') }}">
-                        {{
-                            onsIcon({
-                                "iconType": params.iconType,
-                                "iconSize": params.iconSize
-                            })
-                        }}
-                    </span>
+                {% set titleTag = params.titleTag | default(defaultTitleTag) %}
+                <div class="ons-panel__header">
+                    <{{ titleTag }} id="alert"{% if params.type %} data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
+                </div>
+            {% else %}
+                {% if not params.type or params.type == "branded" or params.type == "info" %}
+                    <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Important information: ") }}</span>
+                {% elif params.type == 'error' or params.type == 'success' %} 
+                    {% set defaultText = "Completed" if params.type == "success" else "Error" %}
+                    <span{% if params.type == "success" %} id="alert"{% endif %} class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default(defaultText ~ ": ") }}</span>
                 {% endif %}
             {% endif %}
 
-            <div class="ons-panel__body{% if params is defined and params and params.iconSize is defined and params.iconSize %} ons-svg-icon-margin--{{ params.iconSize }}{% endif %}">{{ (params.body if params else "") | safe }}
+            {% if params.iconType %}
+                {% from "components/icons/_macro.njk" import onsIcon %}
+                <span class= "ons-panel__icon ons-u-fs-{{ params.iconSize | default('r') }}">
+                    {{
+                        onsIcon({
+                            "iconType": params.iconType,
+                            "iconSize": params.iconSize
+                        })
+                    }}
+                </span>
+            {% endif %}
+
+            <div class="ons-panel__body{% if params.iconSize %} ons-svg-icon-margin--{{ params.iconSize }}{% endif %}">{{ (params.body if params else "") | safe }}
                 {{ caller() if caller }}
             </div>
         </div>
 
-    {% if params is defined and params and params.type == "warn-branded" or params.type == "announcement"  %}
+    {% if params.type == "warn-branded" or params.type == "announcement"  %}
             </div>
         </div>
     {% endif %}

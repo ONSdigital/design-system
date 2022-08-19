@@ -8,13 +8,13 @@
         <p class="ons-checkboxes__label{{ " " + params.checkboxesLabelClasses if params.checkboxesLabelClasses }}">{{ params.checkboxesLabel }}</p>
         {% set hasOther = false %}
         {% for checkbox in params.checkboxes %}
-            {% if checkbox.other is defined and checkbox.other %}
+            {% if checkbox.other %}
                 {% set hasOther = true %}
             {% endif %}
         {% endfor %}
-        {% if hasOther == false and params.autoSelect is defined and params.autoSelect and params.autoSelect.selectAllText is defined %}
+        {% if hasOther == false and params.autoSelect and params.autoSelect.selectAllText %}
             {% set btnClasses = ['small', 'secondary'] %}
-            {% if params.borderlessParent is defined and params.borderlessParent == false %}
+            {% if params.borderlessParent == false %}
                 {% set btnClasses = ['small', 'secondary', 'ghost-dark'] %}
             {% endif %}
             {{
@@ -33,19 +33,19 @@
             {% for checkbox in params.checkboxes %}
                 {% set childIsChecked = false %}
                 {% set labelHTML = checkbox.label.text %}
-                {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
+                {% if params.mutuallyExclusive %}
                     {% set exclusiveClass = ' ons-js-exclusive-group-item' %}
                 {% endif %}
-                {% if params.borderless is defined and params.borderless %}
+                {% if params.borderless %}
                     {% set borderless = " ons-checkbox--no-border" %}
                 {% endif %}
-                {% if checkbox.other is defined and checkbox.other %}
+                {% if checkbox.other %}
                     {% set otherClass = " ons-js-other" %}
-                    {% if checkbox.other.selectAllChildren is defined and checkbox.other.selectAllChildren == true %}
+                    {% if checkbox.other.selectAllChildren == true %}
                         {% set otherClass = otherClass + " ons-js-select-all-children" %}
                     {% endif %}
                     {% for otherCheckbox in checkbox.other.checkboxes %}
-                        {% if otherCheckbox.checked is defined and otherCheckbox.checked %}
+                        {% if otherCheckbox.checked %}
                             {% set childIsChecked = true %}
                         {% endif %}
                     {% endfor %}
@@ -69,7 +69,7 @@
                         "attributes": checkbox.attributes
                     } %}
 
-                    {% if checkbox.other is defined and checkbox.other %}
+                    {% if checkbox.other %}
                         {% set config = config | setAttributes({
                             "other": {
                                 "open": checkbox.other.open | default(false),
@@ -103,7 +103,7 @@
         </div>
     {% endset %}
 
-    {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
+    {% if params.mutuallyExclusive %}
         {% call onsMutuallyExclusive({
             "id": params.id,
             "classes": params.classes,

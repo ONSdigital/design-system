@@ -1,15 +1,15 @@
 {% macro onsCollapsible(params) %}
     <details
         id="{{ params.id }}"
-        class="ons-collapsible ons-js-collapsible{% if params.isAccordion is defined and params.isAccordion %} ons-collapsible--accordion{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}"
-        {% if params.group is defined and params.group %} data-group="{{ params.group }}"{% endif %}
-        {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-        {% if params.saveState is defined and params.saveState %} data-save-state="true"{% endif %}
-        {% if params.open is defined and params.open %} data-open="true"{% endif %}
+        class="ons-collapsible ons-js-collapsible{% if params.isAccordion %} ons-collapsible--accordion{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"
+        {% if params.group %} data-group="{{ params.group }}"{% endif %}
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+        {% if params.saveState %} data-save-state="true"{% endif %}
+        {% if params.open %} data-open="true"{% endif %}
     >
         <summary
             class="ons-collapsible__heading ons-js-collapsible-heading"
-            {% if params.headingAttributes is defined and params.headingAttributes %}{% for attribute, value in (params.headingAttributes.items() if params.headingAttributes is mapping and params.headingAttributes.items else params.headingAttributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.headingAttributes %}{% for attribute, value in (params.headingAttributes.items() if params.headingAttributes is mapping and params.headingAttributes.items else params.headingAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
                 {% set titleTag = params.titleTag | default("h2") %}
                 <{{ titleTag }} class="ons-collapsible__title">{{ params.title }}</{{ titleTag }}>
@@ -22,7 +22,7 @@
                     }}</span>
         </summary>
         <div id="{{ params.id }}-content" class="ons-collapsible__content ons-js-collapsible-content"
-            {% if params.contentAttributes is defined and params.contentAttributes %}{% for attribute, value in (params.contentAttributes.items() if params.contentAttributes is mapping and params.contentAttributes.items else params.contentAttributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.contentAttributes %}{% for attribute, value in (params.contentAttributes.items() if params.contentAttributes is mapping and params.contentAttributes.items else params.contentAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
         >
             {{ params.content | safe }}{{ caller() if caller }}
         </div>
