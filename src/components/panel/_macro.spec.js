@@ -13,6 +13,7 @@ const EXAMPLE_PANEL_BASIC = {
 describe('macro: panel', () => {
   describe.each([
     ['info', 'Important information:'],
+    ['bare', 'Important information:'],
     ['error', 'Error:'],
     ['warn', 'Warning:'],
     ['warn-branded', 'Warning:'],
