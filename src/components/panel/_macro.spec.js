@@ -317,19 +317,6 @@ describe('macro: panel', () => {
     });
   });
 
-  describe('mode: bare', () => {
-    it('has the correct class set', () => {
-      const $ = cheerio.load(
-        renderComponent('panel', {
-          ...EXAMPLE_PANEL_BASIC,
-          type: 'bare',
-        }),
-      );
-
-      expect($('.ons-panel').hasClass('ons-panel--bare')).toBe(true);
-    });
-  });
-
   describe('mode: warn', () => {
     it('has a default "!" prefix', () => {
       const $ = cheerio.load(
