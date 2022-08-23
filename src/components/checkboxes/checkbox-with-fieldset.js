@@ -1,9 +1,9 @@
 export default class CheckboxWithFieldset {
-  constructor(fieldset, inputs) {
+  constructor(fieldset) {
     this.fieldset = fieldset;
-    this.inputs = inputs;
+    this.fieldsetParent = fieldset.closest('.ons-checkbox');
+    this.selectAllChildrenInput = this.fieldsetParent.querySelector('.ons-js-select-all-children');
     this.childInputs = [...this.fieldset.querySelectorAll('input')];
-    this.selectAllChildrenInput = this.inputs.find(input => input.classList.contains('ons-js-select-all-children'));
 
     if (this.selectAllChildrenInput) {
       this.selectAllChildrenInput.addEventListener('change', this.checkChildInputsOnSelect.bind(this));
