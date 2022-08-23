@@ -20,7 +20,7 @@ domready(async () => {
       const CheckboxWithInnerFieldset = (await import('./checkbox-with-fieldset')).default;
 
       otherFieldsets.forEach(otherFieldset => {
-        new CheckboxWithInnerFieldset(otherFieldset);
+        new CheckboxWithInnerFieldset(otherFieldset, checkboxes);
       });
     }
 
