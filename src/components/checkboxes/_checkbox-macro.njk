@@ -1,18 +1,18 @@
 {% macro onsCheckbox(params) %}
     {% from "components/label/_macro.njk" import onsLabel %}
 
-    <span class="ons-checkbox{% if params.hideLabel is defined and params.hideLabel == true %} ons-checkbox--no-label{% endif %}{{ ' ' + params.classes if params.classes and params.classes is defined else '' }}">
+    <span class="ons-checkbox{% if params.hideLabel == true %} ons-checkbox--no-label{% endif %}{{ ' ' + params.classes if params.classes else '' }}">
         <input
             type="checkbox"
             id="{{ params.id }}"
-            class="ons-checkbox__input ons-js-checkbox{{ ' ' + params.inputClasses if params.inputClasses and params.inputClasses is defined else '' }}"
+            class="ons-checkbox__input ons-js-checkbox{{ ' ' + params.inputClasses if params.inputClasses else '' }}"
             value="{{ params.value }}"
-            {% if params.disabled is defined and params.disabled == true %}disabled aria-disabled="true"{%endif %}
-            {% if params.name is defined and params.name %} name="{{ params.name }}"{% endif %}
-            {% if params.checked is defined and params.checked %} checked{% endif %}
-            {% if params.other is defined and params.other and not params.other.open %} aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
-            {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-            {% if params.deselectMessage is defined and params.deselectMessage %} data-deselect-message="{{ params.deselectMessage }}"{% endif %}
+            {% if params.disabled == true %}disabled aria-disabled="true"{%endif %}
+            {% if params.name %} name="{{ params.name }}"{% endif %}
+            {% if params.checked %} checked{% endif %}
+            {% if params.other and not params.other.open %} aria-controls="{{ params.id }}-other-wrap" aria-haspopup="true"{% endif %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.deselectMessage %} data-deselect-message="{{ params.deselectMessage }}"{% endif %}
         >
 
         {{ onsLabel({
@@ -24,7 +24,7 @@
             "description": params.label.description
         }) }}
 
-        {% if params.other is defined and params.other %}
+        {% if params.other %}
             {% set otherType = params.other.otherType | default('input') %}
             <span class="ons-checkbox__other{{ ' ons-checkbox__other--open' if params.other.open }}" id="{{ params.id }}-other-wrap">
                 {% if otherType == "input" %}

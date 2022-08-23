@@ -11,9 +11,9 @@
         {% set type = "text" %}
         {% set pattern = "[0-9]*" %}
         {% set inputmode = "numeric" %}
-    {% elif params.type is defined and params.type %}
+    {% elif params.type %}
         {% set type = params.type %}
-    {% elif params.searchButton is defined and params.searchButton %}
+    {% elif params.searchButton %}
         {% set type = "search" %}
     {% else %}
         {% set type = "text" %}
@@ -26,24 +26,24 @@
         <input
             type="{{ type }}"
             id="{{ params.id }}"
-            class="ons-input ons-input--text ons-input-type__input{% if params.error is defined and params.error %} ons-input--error{% endif %}{% if params.searchButton is defined and params.searchButton %} ons-search__input{% endif %}{% if params.classes is defined and params.classes %} {{ params.classes }}{% endif %}{% if params.width is defined and params.width %} ons-input{% if params.type is defined and (params.type == 'number' or params.type == 'tel') %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
-            {% if params.prefix is defined and params.prefix and params.prefix.id is defined and params.prefix.id %}aria-labelledby="{{ params.prefix.id }}"{% elif params.suffix is defined and params.suffix and params.suffix.id is defined and params.suffix.id %}aria-labelledby="{{ params.suffix.id }}"{% endif %}
-            {% if params.name is defined and params.name %}name="{{ params.name }}"{% endif %}
-            {% if params.value is defined and params.value %}value="{{ params.value }}"{% endif %}
-            {% if params.accept is defined and params.accept %}accept="{{ params.accept }}"{% endif %}
-            {% if params.min is defined and params.min %}min="{{ params.min }}"{% endif %}
-            {% if params.max is defined and params.max %}max="{{ params.max }}"{% endif %}
-            {% if params.minLength is defined and params.minLength %}minlength="{{ params.minLength }}"{% endif %}
-            {% if params.maxLength is defined and params.maxLength %}maxlength="{{ params.maxLength }}"{% endif %}
-            {% if pattern is defined and pattern %}pattern="{{ pattern }}"{% endif %}
-            {% if inputmode is defined and inputmode %}inputmode="{{ inputmode }}"{% endif %}
-            {% if params.autocomplete is defined and params.autocomplete %}autocomplete="{{ params.autocomplete }}"{% endif %}
-            {% if params.accessiblePlaceholder is defined and params.accessiblePlaceholder %}placeholder="{{ params.label.text }}"{% endif %}
-            {% if params.charCheckLimit is defined and params.charCheckLimit %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheckLimit.limit }}" aria-describedby="{{ params.id }}-check-remaining"{% endif %}
-            {% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.charcheckCountdown is defined and params.charCheckLimit.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
-            {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-            {% if params.label is defined and params.label and params.label.description is defined and params.label.description %}{% if params.label.id is defined and params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
-            {% if params.required is defined and params.required == true %}required="required"{% endif %}
+            class="ons-input ons-input--text ons-input-type__input{% if params.error %} ons-input--error{% endif %}{% if params.searchButton %} ons-search__input{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}{% if params.width %} ons-input{% if params.type == 'number' or params.type == 'tel' %}-number{% endif %}--w-{{ params.width }}{% endif %}{{ exclusiveClass }}{{ inputPlaceholder }}"
+            {% if params.prefix and params.prefix.id %}aria-labelledby="{{ params.prefix.id }}"{% elif params.suffix and params.suffix.id %}aria-labelledby="{{ params.suffix.id }}"{% endif %}
+            {% if params.name %}name="{{ params.name }}"{% endif %}
+            {% if params.value %}value="{{ params.value }}"{% endif %}
+            {% if params.accept %}accept="{{ params.accept }}"{% endif %}
+            {% if params.min %}min="{{ params.min }}"{% endif %}
+            {% if params.max %}max="{{ params.max }}"{% endif %}
+            {% if params.minLength %}minlength="{{ params.minLength }}"{% endif %}
+            {% if params.maxLength %}maxlength="{{ params.maxLength }}"{% endif %}
+            {% if pattern %}pattern="{{ pattern }}"{% endif %}
+            {% if inputmode %}inputmode="{{ inputmode }}"{% endif %}
+            {% if params.autocomplete %}autocomplete="{{ params.autocomplete }}"{% endif %}
+            {% if params.accessiblePlaceholder %}placeholder="{{ params.label.text }}"{% endif %}
+            {% if params.charCheckLimit %}data-char-check-ref="{{ params.id }}-check-remaining" data-char-check-num="{{ params.charCheckLimit.limit }}" aria-describedby="{{ params.id }}-check-remaining"{% endif %}
+            {% if params.charCheckLimit and params.charCheckLimit.charcheckCountdown %}data-char-check-countdown="true"{% endif %}
+            {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+            {% if params.label and params.label.description %}{% if params.label.id %}aria-describedby="{{ params.label.id }}-description-hint"{% else %}aria-describedby="description-hint"{% endif %}{% endif %}
+            {% if params.required == true %}required="required"{% endif %}
         />
         {% if params.listeners %}
             <script{% if csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
@@ -52,12 +52,12 @@
             {% endfor %}
             </script>
         {% endif %}
-        {% if params.postTextboxLinkText is defined and params.postTextboxLinkText %}
+        {% if params.postTextboxLinkText %}
             <a class="ons-u-fs-s ons-input__post-link" href="{{ params.postTextboxLinkUrl }}">{{ params.postTextboxLinkText }}</a>
         {% endif %}
     {% endset %}
     {% set field %}
-        {% if params.label is defined and params.label and params.label.text is defined and params.label.text %}
+        {% if params.label and params.label.text %}
             {{ onsLabel({
                 "for": params.id,
                 "id": params.label.id,
@@ -70,9 +70,9 @@
             }) }}
         {% endif %}
 
-        {% if params.prefix is defined and params.prefix or params.suffix is defined and params.suffix %}
-            {% if (params.prefix is defined and params.prefix and params.prefix.id is defined and params.prefix.id) or (params.suffix is defined and params.suffix and params.suffix.id is defined and params.suffix.id) %}
-                {% if params.prefix is defined and params.prefix %}
+        {% if params.prefix or params.suffix %}
+            {% if (params.prefix and params.prefix.id) or (params.suffix and params.suffix.id) %}
+                {% if params.prefix %}
                     {% set prefixClass = " ons-input-type--prefix" %}
                 {% endif %}
 
@@ -95,7 +95,7 @@
                     </span>
                 </span>
             {% endif %}
-        {% elif params.searchButton is defined and params.searchButton %}
+        {% elif params.searchButton %}
             <span class="ons-grid--flex ons-search">
                 {% call onsSearch({
                     "accessiblePlaceholder": params.accessiblePlaceholder,
@@ -116,7 +116,7 @@
         {% endif %}
     {% endset %}
 
-    {% if params.charCheckLimit is defined and params.charCheckLimit and params.charCheckLimit.limit is defined and params.charCheckLimit.limit %}
+    {% if params.charCheckLimit and params.charCheckLimit.limit %}
         {% set charCheckField %}
             {% call onsCharLimit({
                 "id": params.id ~ "-check",
@@ -132,7 +132,7 @@
         {% endset %}
     {% endif %}
 
-    {% if params.mutuallyExclusive is defined and params.mutuallyExclusive %}
+    {% if params.mutuallyExclusive %}
         {% call onsMutuallyExclusive({
             "id": params.fieldId,
             "legend": params.legend,
@@ -148,7 +148,7 @@
             "error": params.error,
             "autosuggestResults": params.autosuggestResults
         }) %}
-            {% if charCheckField is defined and charCheckField %}
+            {% if charCheckField %}
                 {{ charCheckField | safe }}
             {% else %}
                 {{ field | safe }}
@@ -162,9 +162,9 @@
             "classes": params.fieldClasses,
             "dontWrap": params.dontWrap,
             "error": params.error,
-            "inline": params.label.inline if params.label is defined and params.label else ''
+            "inline": params.label.inline if params.label else ''
         }) %}
-            {% if charCheckField is defined and charCheckField %}
+            {% if charCheckField %}
                 {{ charCheckField | safe }}
             {% else %}
                 {{ field | safe }}

@@ -4,7 +4,7 @@
 
 {% set currentLanguageISOCode = "en" %}
 
-{% if pageConfig is defined and pageConfig and pageConfig.language is defined and pageConfig.language and pageConfig.language.languages is defined and pageConfig.language.languages %}
+{% if pageConfig and pageConfig.language and pageConfig.language.languages %}
     {% set currentLanguage = pageConfig.language.languages | selectattr("current") | first %}
     {% set currentLanguageISOCode = currentLanguage.ISOCode %}
     {% set otherLanguage = pageConfig.language.languages | rejectattr("current") | first %}
@@ -12,21 +12,21 @@
 {% endif %}
 
 {# Meta icons #}
-{% if pageConfig is defined and pageConfig and pageConfig.theme is defined and pageConfig.theme %}
+{% if pageConfig and pageConfig.theme %}
     {% set metaicons = pageConfig.theme + "/" + currentLanguageISOCode + "/" %}
 {% else %}
     {% set metaicons = "" %}
 {% endif %}
 
-{% if pageConfig.cdn is defined and pageConfig.cdn or release_version is defined and release_version %}
+{% if pageConfig.cdn or release_version %}
     {# Production #}
-    {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.url is defined and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
+    {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
     {% set slash = "" if cdn_url | last == "/" else "/" %}
-    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version if pageConfig.cdn is defined and pageConfig.cdn and pageConfig.cdn.version is defined and pageConfig.cdn.version) or release_version) %}
-{% elif pageInfo is defined and pageInfo and pageInfo.version is defined and pageInfo.version %}
+    {% set assetsURL = cdn_url + slash + ((pageConfig.cdn.version if pageConfig.cdn and pageConfig.cdn.version) or release_version) %}
+{% elif pageInfo and pageInfo.version %}
     {# Prototype kits #}
     {% set assetsURL = "/" + pageInfo.version %}
-{% elif pageConfig.assetsURL is defined and pageConfig.assetsURL %}
+{% elif pageConfig.assetsURL %}
     {# Runner Dev #}
     {% set assetsURL = pageConfig.assetsURL %}
 {% else %}
@@ -34,27 +34,36 @@
     {% set assetsURL = "" %}
 {% endif %}
 
-{% if pageConfig is defined and pageConfig and pageConfig.title is defined and pageConfig.title %}
+{% if pageConfig and pageConfig.title %}
     {% set page_title = pageConfig.title %}
-{% elif pageInfo is defined and pageInfo and pageInfo.title is defined and pageInfo.title %}
+{% elif pageInfo and pageInfo.title %}
     {% set page_title = pageInfo.title %}
 {% else %}
     {% set page_title = "ONS Design System" %}
 {% endif %}
 
+{# Page container #}
+{% if pageConfig.fullWidth %}
+    {% set containerClasses = ' ' + 'ons-container--full-width' %}
+{% elif pageConfig.wide %}
+    {% set containerClasses = ' ' + 'ons-container--wide' %}
+{% elif pageConfig.containerClasses %}
+    {% set containerClasses = ' ' + pageConfig.containerClasses %}
+{% endif %}
+
 {# Page columns #}
 {% set mainColNumber = "8" %}
 
-{% if pageConfig.mainCol is defined and pageConfig.mainCol %}
-    {% set mainColNumber = pageConfig.mainCol.columns if pageConfig.mainCol.columns is defined and pageConfig.mainCol.columns %}
-    {% set mainColClasses = (' ' + pageConfig.mainCol.colClasses) if pageConfig.mainCol.colClasses is defined and pageConfig.mainCol.colClasses %}
-    {% set mainClasses = (' ' + pageConfig.mainCol.classes) if pageConfig.mainCol.classes is defined and pageConfig.mainCol.classes %}
+{% if pageConfig.mainCol %}
+    {% set mainColNumber = pageConfig.mainCol.columns if pageConfig.mainCol.columns %}
+    {% set mainColClasses = (' ' + pageConfig.mainCol.colClasses) if pageConfig.mainCol.colClasses %}
+    {% set mainClasses = (' ' + pageConfig.mainCol.classes) if pageConfig.mainCol.classes %}
 {% endif %}
 
-{% if pageConfig.asideCol is defined and pageConfig.asideCol %}
-    {% set asideColNumber = 12 - mainColNumber if pageConfig.asideCol.position is defined and pageConfig.asideCol.position %}
-    {% set asideColClasses = (' ' + pageConfig.asideCol.colClasses) if pageConfig.asideCol.colClasses is defined and pageConfig.asideCol.colClasses %}
-    {% set asideClasses = (' ' + pageConfig.asideCol.classes) if pageConfig.asideCol.classes is defined and pageConfig.asideCol.classes %}
+{% if pageConfig.asideCol %}
+    {% set asideColNumber = 12 - mainColNumber if pageConfig.asideCol.position %}
+    {% set asideColClasses = (' ' + pageConfig.asideCol.colClasses) if pageConfig.asideCol.colClasses %}
+    {% set asideClasses = (' ' + pageConfig.asideCol.classes) if pageConfig.asideCol.classes %}
 {% endif %}
 
 <!doctype html>
@@ -68,9 +77,9 @@
         <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css">
         <meta name="theme-color" content="{% if pageConfig.theme == 'census' %}#902082{% else %}#206095{% endif %}"/>
 
-        {% if pageConfig.headMeta is defined and pageConfig.headMeta %}
+        {% if pageConfig.headMeta %}
 
-            {% if pageConfig.headMeta.description is defined and pageConfig.headMeta.description or pageConfig.description is defined and pageConfig.description %}
+            {% if pageConfig.headMeta.description or pageConfig.description %}
                 <meta name="description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
             {% endif %}
 
@@ -85,7 +94,7 @@
             <meta property="og:description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
             <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}">
             <meta property="og:locale" content="{{ currentLanguageISOCode }}">
-            {% if otherLanguageISOCode is defined and otherLanguageISOCode %}
+            {% if otherLanguageISOCode %}
             <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}"> 
             {% endif %}
 
@@ -100,7 +109,7 @@
             <!-- Canonical -->
             <link rel="canonical" href="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
 
-            {% if pageConfig.headMeta.hrefLangs is defined and pageConfig.headMeta.hrefLangs %}
+            {% if pageConfig.headMeta.hrefLangs %}
                 {% for item in pageConfig.headMeta.hrefLangs %}
                     <link rel="alternate" href="{{ item.url }}" hreflang="{{ item.lang }}">
                 {% endfor %}
@@ -122,17 +131,17 @@
         {% block head %}{% endblock %}
 
     </head>
-    <body{% if pageConfig.bodyClasses is defined and pageConfig.bodyClasses %} class="{{ pageConfig.bodyClasses }}"{% endif %}>
-        <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce is defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
+    <body{% if pageConfig.bodyClasses %} class="{{ pageConfig.bodyClasses }}"{% endif %}>
+        <script{% if pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' ons-js-enabled' : 'ons-js-enabled');</script>
         {% block bodyStart %}{% endblock %}
         {% block body %}
             <div class="ons-page">
                 <div class="ons-page__content">
-                    {% if form is defined and form and form.attributes is defined and form.attributes %}
+                    {% if form and form.attributes %}
                         <form
-                            {% if form.classes is defined and form.classes %}class="{{ form.classes }}"{% endif %}
+                            {% if form.classes %}class="{{ form.classes }}"{% endif %}
                             method="{{ form.method | default('POST') }}"
-                            {% if form.attributes is defined and form.attributes %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value is defined and value %}="{{value}}" {% endif %}{% endfor %}{% endif %}
+                            {% if form.attributes %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value %}="{{value}}" {% endif %}{% endfor %}{% endif %}
                         >
                     {% endif %}
                     {% block preHeader %}{% endblock %}
@@ -147,10 +156,8 @@
                     {% block header %}
                         {{
                             onsHeader({
-                                "title": pageConfig.header.title | default(pageConfig.title),
-                                "classes": pageConfig.header.classes,
-                                "variants": pageConfig.header.variants,
                                 "wide": pageConfig.wide,
+                                "fullWidth": pageConfig.fullWidth,
                                 "language": pageConfig.language,
                                 "button": pageConfig.signoutButton,
                                 "toggleNavigationButton": pageConfig.toggleNavigationButton,
@@ -159,11 +166,16 @@
                                 "phase": pageConfig.phase,
                                 "assetsURL": assetsURL,
                                 "serviceLinks": pageConfig.serviceLinks,
+                                "variants": pageConfig.header.variants,
+                                "classes": pageConfig.header.classes,
                                 "noMasthead": pageConfig.header.noMasthead,
                                 "orgLogo": pageConfig.header.orgLogo,
                                 "orgMobileLogo": pageConfig.header.orgMobileLogo,
                                 "orgLogoAlt": pageConfig.header.orgLogoAlt,
                                 "orgLogoHref": pageConfig.header.orgLogoHref,
+                                "title": pageConfig.header.title | default(pageConfig.title),
+                                "description": pageConfig.header.description,
+                                "titleAsH1": pageConfig.header.titleAshH1,
                                 "titleLogo": pageConfig.header.titleLogo,
                                 "titleLogoClasses": pageConfig.header.titleLogoClasses,
                                 "titleLogoMobile": pageConfig.header.titleLogoMobile,
@@ -175,8 +187,8 @@
                         }}
                     {% endblock %}
                     {% block pageContent %}
-                        <div class="ons-page__container ons-container {{ containerClasses }}">
-                            {% if pageConfig.breadcrumbs is defined and pageConfig.breadcrumbs %}
+                        <div class="ons-page__container ons-container{{ containerClasses }}">
+                            {% if pageConfig.breadcrumbs %}
                                 {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
                                 {{
                                     onsBreadcrumbs({
@@ -188,16 +200,16 @@
                             {% endif %}
                             {% block preMain %}{% endblock %}
                             <div class="ons-grid">
-                                {% if pageConfig.asideCol is defined and pageConfig.asideCol %}
+                                {% if pageConfig.asideCol %}
                                     {% set aside %}
                                         <div class="ons-grid__col ons-col-{{ asideColNumber }}@m{{ asideColClasses }}">
-                                            <aside {% if pageConfig.asideCol.id is defined and pageConfig.asideCol.id %}id="{{ asideId }}" {% endif %}class="ons-page__aside{{ asideClasses }}">
+                                            <aside {% if pageConfig.asideCol.id %}id="{{ asideId }}" {% endif %}class="ons-page__aside{{ asideClasses }}">
                                                 {% block aside %}{% endblock %}
                                             </aside>
                                         </div>
                                     {% endset %}
                                 {% endif %}
-                                {% if pageConfig.asideCol is defined and pageConfig.asideCol and pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "before" %}
+                                {% if pageConfig.asideCol and pageConfig.asideCol.position == "before" %}
                                     {{ aside | safe }}
                                 {% endif %}
                                 <div class="ons-grid__col ons-col-{{ mainColNumber }}@m{{ mainColClasses }}">
@@ -205,24 +217,25 @@
                                         {% block main %}{% endblock %}
                                     </main>
                                 </div>
-                                {% if pageConfig.asideCol is defined and pageConfig.asideCol and pageConfig.asideCol.position is defined and pageConfig.asideCol.position == "after" %}
+                                {% if pageConfig.asideCol and pageConfig.asideCol.position == "after" %}
                                     {{ aside | safe }}
                                 {% endif %}
                             </div>
                         </div>
                     {% endblock %}
 
-                    {% if form is defined and form and form.attributes is defined and form.attributes %}
+                    {% if form and form.attributes %}
                         </form>
                     {% endif %}
                 </div>
                 {% block preFooter %}{% endblock %}
                 {% block footer %}
-                    {% if pageConfig.footer is defined and pageConfig.footer %}
+                    {% if pageConfig.footer %}
                         {{
                             onsFooter({
                                 "assetsURL": assetsURL,
                                 "wide": pageConfig.wide,
+                                "fullWidth": pageConfig.fullWidth,
                                 "classes": "ons-page__footer",
                                 "language": pageConfig.language,
                                 "lang": currentLanguageISOCode,
@@ -244,13 +257,13 @@
             {% block bodyEnd %}{% endblock %}
         {% endblock %}
 
-        {% if isPatternLib is defined and isPatternLib %}
+        {% if isPatternLib %}
             {% set scripts = assetsURL + "/scripts/main.js," + assetsURL + "/scripts/patternlib.js" %}
         {% else %}
             {% set scripts = assetsURL + "/scripts/main.js" %}
         {% endif %}
 
-        <script{% if pageConfig.cspNonce is defined and pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce is defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
+        <script{% if pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
             (function() {
                 var s = '{{ scripts | safe }}'.split(','),
                 c = document.createElement('script');

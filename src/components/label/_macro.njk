@@ -1,32 +1,44 @@
 {% macro onsLabel(params) %}
-    {% set field -%}
-        <span
-          {% if params.id is defined and params.id %} id="{{ params.id }}-description-hint"{% else %}id="description-hint"{% endif %}
-          class="ons-label__description {% if params.inputType is defined and params.inputType %}ons-{{ params.inputType }}__label--with-description{% else %} ons-input--with-description{% endif %}">
+    {% if params.id %}
+        {% set descriptionID = params.id ~ "-description-hint" %}  
+    {% else %}
+        {% set descriptionID = "description-hint" %}  
+    {% endif %}
+
+    {% if params.inputType == "checkbox" or params.inputType == "radio" %}
+        {% set isCheckboxOrRadio = true %}
+    {% else %}
+        {% set isCheckboxOrRadio = false %}
+    {% endif %}
+
+    {% set description -%}
+        <span{% if isCheckboxOrRadio == false %} id="{{ descriptionID }}"{% endif %} class="ons-label__description {% if params.inputType %}ons-{{ params.inputType }}__label--with-description{% else %} ons-input--with-description{% endif %}">
               {{- params.description -}}
         </span>
     {%- endset %}
 
     <label
-        class="{% if params.inputType is not defined -%}ons-label{%- endif %}{{- ' ' + params.classes if params.classes else "" -}}{%- if params.description is defined and params.description %} ons-label--with-description{%- endif %} {{- ' ons-label--placeholder' if params.accessiblePlaceholder else "" -}}"
-        {% if params.for is defined and params.for %} for="{{ params.for }}"{% endif %}
-        {% if params.id is defined and params.id %} id="{{ params.id }}"{% endif %}
-        {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value is defined and value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
+        class="{% if params.inputType is not defined -%}ons-label{%- endif %}{{- ' ' + params.classes if params.classes else "" -}}{%- if params.description %} ons-label--with-description{%- endif %} {{- ' ons-label--placeholder' if params.accessiblePlaceholder else "" -}}"
+        {% if params.description %}aria-describedby="{{ descriptionID }}"{% endif %}
+        {% if params.for %} for="{{ params.for }}"{% endif %}
+        {% if params.id %} id="{{ params.id }}"{% endif %}
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %}{% endfor %}{% endif %}
     >
 
         {{- params.text | safe -}}
 
-        {%- if params.inputType is defined and params.inputType -%}
-            {% if params.inputType == "checkbox" or params.inputType == "radio" -%}
-                {%- if params.description is defined and params.description -%}
-                    {{- field | safe -}}
-                {%- endif -%}
+        {%- if isCheckboxOrRadio == true -%}
+            {%- if params.description -%}
+                <span class="ons-label__aria-hidden-description" aria-hidden="true">{{- description | safe -}}</span>
             {%- endif -%}
             </label>
+            {% if isCheckboxOrRadio == true and params.description -%}
+                <span class="ons-label__visually-hidden-description ons-u-vh" id="{{ descriptionID }}">{{- params.description -}}</span>
+            {%- endif -%}
         {%- else -%}
             </label>
-            {%- if params.description is defined and params.description -%}
-                {{- field | safe -}}
+            {%- if params.description -%}
+                {{- description | safe -}}
             {%- endif -%}
         {%- endif %}
 {% endmacro %}

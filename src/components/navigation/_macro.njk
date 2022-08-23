@@ -2,8 +2,8 @@
     {% from "components/button/_macro.njk" import onsButton %}
     {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
     <div class="ons-navigation-wrapper{% if params.variants == 'neutral' %} ons-navigation-wrapper--neutral{% endif %}">
-        <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.navigation.fullWidth }}{{ ' ons-container--wide' if params.navigation.wide }}">
-            {% if params.navigation.siteSearchAutosuggest is defined and params.navigation.siteSearchAutosuggest and isPatternLib is defined and isPatternLib %}
+        <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}">
+            {% if params.navigation.siteSearchAutosuggest and isPatternLib %}
                 <div class="ons-navigation-search ons-js-navigation-search">
                     {% set autosuggestClasses = "ons-input-search ons-input-search--icon" %}
                     {% set autosuggestLabelClasses = "ons-u-pl-m" %}
@@ -42,26 +42,26 @@
                 <ul class="ons-navigation__list">
                     {% for item in (params.navigation.itemsList if params.navigation.itemsList is iterable else params.navigation.itemsList.items()) %}
                         <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.currentPath) or (item.url != (params.navigation.siteBasePath | default('/')) and item.url in params.navigation.currentPath) }}">
-                            <a class="ons-navigation__link" href="{{ item.url }}" {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}{% if item.ariaLabel is defined and item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %}>{{ item.title }}</a>
+                            <a class="ons-navigation__link" href="{{ item.url }}" {% if item.id %}id="{{ item.id }}" {% endif %}{% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %}>{{ item.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
             </nav>
         </div>
     </div>
-    {% if params.navigation.subNavigation is defined and params.navigation.subNavigation %}
-        <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes is defined and params.navigation.subNavigation.classes }}" id="{{ params.navigation.subNavigation.id }}" aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
+    {% if params.navigation.subNavigation %}
+        <nav class="ons-navigation ons-navigation--sub ons-u-d-no@xxs@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes }}" id="{{ params.navigation.subNavigation.id }}" aria-label="{{ params.navigation.subNavigation.ariaLabel | default("Section menu") }}" data-analytics="header-section-navigation">
             <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.navigation.fullWidth }}{{ ' ons-container--wide' if params.navigation.wide }}">
                 <ul class="ons-navigation__list ons-navigation__list">
                     {% for item in (params.navigation.subNavigation.itemsList if params.navigation.subNavigation.itemsList is iterable else params.navigation.subNavigation.itemsList.items()) %}
                         <li class="ons-navigation__item {{ item.classes }}{{ ' ons-navigation__item--active' if (item.url == params.navigation.subNavigation.currentPath) or (item.url != (params.navigation.subNavigation.siteBasePath | default('/')) and item.url in params.navigation.subNavigation.currentPath) }}">
-                            <a class="ons-navigation__link ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel is defined and item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id is defined and item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
+                            <a class="ons-navigation__link ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id %}id="{{ item.id }}" {% endif %}>{{ item.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
             </div>
         </nav>
-        <div class="ons-u-d-no@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes is defined and params.navigation.subNavigation.classes }}">
+        <div class="ons-u-d-no@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes }}">
             {{ onsButton({
                 "text": params.navigation.currentPageTitle,
                 "classes": "ons-u-d-no ons-js-sub-navigation-button ons-btn--dropdown",
@@ -80,14 +80,14 @@
                         </li>
                         {% for item in (params.navigation.subNavigation.itemsList if params.navigation.subNavigation.itemsList is iterable else params.navigation.subNavigation.itemsList.items()) %}
                             <li class="ons-navigation__item {{ ' ons-navigation__item--active' if (item.url == params.navigation.subNavigation.currentPath) or (item.url != (params.navigation.subNavigation.siteBasePath | default('/')) and item.url in params.navigation.subNavigation.currentPath) }}">
-                                <a class="ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel is defined and item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id is defined and item.id %}id="{{ item.id }}--mobile" {% endif %}>{{ item.title }}</a>
+                                <a class="ons-navigation__link" href="{{ item.url }}" {% if item.ariaLabel %}aria-label="{{ item.ariaLabel }}" {% endif %} {% if item.id %}id="{{ item.id }}--mobile" {% endif %}>{{ item.title }}</a>
                                 {% if item.sections %}
                                     {% for section in item.sections %}
                                         {% if section.sectionTitle %}<h3 class="ons-navigation__list-header">{{ section.sectionTitle }}</h3>{% endif %}
                                         <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs">
                                             {% for child in section.children %}
                                                 <li class="ons-navigation__item ons-list__item {{ ' ons-navigation__item--active' if (child.url == params.navigation.subNavigation.currentPath) or (child.url != (params.navigation.subNavigation.sitsiteBasePatheBasePath | default('/')) and child.url in params.navigation.subNavigation.currentPath) }}">
-                                                    <a class="ons-navigation__link ons-navigation__link--section" href="{{ child.url }}" {% if child.ariaLabel is defined and child.ariaLabel %}aria-label="{{ child.ariaLabel }}" {% endif %} {% if child.id is defined and child.id %}id="{{ child.id }}" {% endif %}>{{ child.title }}</a>
+                                                    <a class="ons-navigation__link ons-navigation__link--section" href="{{ child.url }}" {% if child.ariaLabel %}aria-label="{{ child.ariaLabel }}" {% endif %} {% if child.id %}id="{{ child.id }}" {% endif %}>{{ child.title }}</a>
                                                 </li>
                                             {% endfor %}
                                         </ul>

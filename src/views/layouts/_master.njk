@@ -7,7 +7,7 @@
     {% set pageConfig = {} %}
 {% endif %}
 
-{% if pageConfig.lang is defined and pageConfig.lang %}
+{% if pageConfig.lang %}
    {% set pageConfig = pageConfig | setAttributes({
        "language": {
            "languages": [
@@ -20,16 +20,16 @@
    }) %}
 {% endif %}
 
-{% if example is defined and example %}
+{% if example %}
     {% set bodyClasses = bodyClasses + " ons-patternlib-page--example" %}
-    {% if pageInfo.theme is defined and pageInfo.theme %}
+    {% if pageInfo.theme %}
         {% set pageConfig = pageConfig | setAttributes({
             "theme": pageInfo.theme
         }) %}
     {% endif %}
 {% endif %}
 
-{% if pageInfo.fullWidth is defined and pageInfo.fullWidth %}
+{% if pageInfo.fullWidth %}
     {% set bodyClasses = bodyClasses + " ons-u-p-no" %}
 {% endif %}
 

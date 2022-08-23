@@ -3,7 +3,7 @@
     {% from "components/lists/_macro.njk" import onsList %}
     {% from "components/icons/_macro.njk" import onsIcon %}
 
-    {% if params.lang is defined and params.lang %}
+    {% if params.lang %}
         {% set lang = params.lang %}
     {% else %}
         {% set lang = 'en' %}
@@ -30,7 +30,7 @@
     {% endset %}
 
     {% set poweredByLogo %}
-        {% if params.poweredBy is defined and params.poweredBy and params.poweredBy.logo is defined and params.poweredBy.logo %}
+        {% if params.poweredBy and params.poweredBy.logo %}
             {{
                 onsIcon({
                     "iconType": params.poweredBy.logo,
@@ -43,7 +43,7 @@
 
     <footer class="ons-footer">
 
-        {% if params.footerWarning is defined and params.footerWarning %}
+        {% if params.footerWarning %}
             {% from "components/panel/_macro.njk" import onsPanel %}
             <div class="ons-footer__warning">
                 <div class="ons-container">
@@ -58,7 +58,7 @@
             </div>
         {% endif %}
 
-        {% if params.button is defined and params.button %}
+        {% if params.button %}
             {% from "components/button/_macro.njk" import onsButton %}
             <div class="ons-footer__button-container ons-u-d-no@m">
                 {{
@@ -81,16 +81,16 @@
             </div>
         {% endif %}
 
-        <div class="ons-footer__body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes is defined and params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
-            <div class="ons-container{{ ' ons-container--wide' if params.wide }}">
+        <div class="ons-footer__body{{ ' ' + params.classes if params.classes else '' }}" data-analytics="footer" {% if params.attributes %}{% for attribute, value in (params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}>
+            <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div class="ons-grid">
-                    {% if params.newTabWarning is defined and params.newTabWarning %}
+                    {% if params.newTabWarning %}
                         <div class="ons-grid__col">
                             <p class="ons-u-fs-s ons-u-mb-m ons-footer__new-tab-warning">{{ params.newTabWarning | safe }}</p>
                         </div>
                     {% endif %}
 
-                    {% if params.cols is defined and params.cols %}
+                    {% if params.cols %}
                         {% for col in params.cols %}
                             <!-- Full footer columns -->
                             <div class="ons-grid__col ons-col-4@m{{ ' ons-u-mt-m@xxs@m' if loop.index > 1 }}">
@@ -106,7 +106,7 @@
                                 }}
                             </div>
                         {% endfor %}
-                    {% elif params.rows is defined and params.rows %}
+                    {% elif params.rows %}
                         {% for row in params.rows %}
                             <!-- Transactional footer row -->
                             <div class="ons-grid__col">
@@ -121,7 +121,7 @@
                         {% endfor %}
                     {% endif %}
 
-                    {% if (params.cols is defined and params.cols) or (params.rows is defined and params.rows) %}
+                    {% if (params.cols) or (params.rows) %}
                         <div class="ons-grid__col ons-u-mb-m">
                             <hr class="ons-footer__hr">
                         </div>
@@ -131,7 +131,7 @@
 
                     <div class="ons-grid ons-grid--flex ons-grid--vertical-top ons-grid--between">
                         <div class="ons-grid__col">
-                            {% if params.legal is defined and params.legal %}
+                            {% if params.legal %}
                                 <!-- Legal -->
                                 {% for legal in params.legal %}
                                     {{
@@ -144,7 +144,7 @@
                                 {% endfor %}
                             {% endif %}
 
-                            {% if params.OGLLink == true or params.OGLLink is defined %}
+                            {% if params.OGLLink %}
                                 <!-- OGL -->
                                 <div class="ons-footer__license ons-u-mb-m">
                                     {{
@@ -152,9 +152,9 @@
                                             "iconType": 'ogl'
                                         })
                                     }}
-                                    {% if params.OGLLink.HTML is defined and params.OGLLink.HTML %}
+                                    {% if params.OGLLink.HTML %}
                                         {{ params.OGLLink.HTML | safe }}
-                                    {% elif params.OGLLink == true or params.OGLLink is defined %}
+                                    {% elif params.OGLLink %}
                                         {% from "components/external-link/_macro.njk" import onsExternalLink %}
                                         {% if params.lang == 'cy' %}
                                             {{ params.OGLLink.pre | default('Mae’r holl gynnwys ar gael o dan y') }} {{
@@ -175,7 +175,7 @@
                                 </div>
                             {% endif %}
 
-                            {% if params.poweredBy is defined and params.poweredBy %}
+                            {% if params.poweredBy %}
                                 {% if not params.poweredBy.partnership %}
                                     <div class="ons-footer__poweredby ons-u-mb-m">
                                         {{ poweredByLogo | safe }}
@@ -188,7 +188,7 @@
                             {% endif %}
                         </div>
 
-                        {% if params.crest is defined and params.crest %}
+                        {% if params.crest %}
                             <!-- Crest -->
                             <div class="ons-grid__col ons-footer__crest ons-u-mb-m@xxs@l">
                                 {{
@@ -200,7 +200,7 @@
                         {% endif %}
                     </div>
 
-                {% if (params.poweredBy is defined and params.poweredBy) and (params.poweredBy.partnership is defined and params.poweredBy.partnership) %}
+                {% if (params.poweredBy) and (params.poweredBy.partnership) %}
                     <div class="ons-grid ons-grid--flex ons-grid--vertical-bottom ons-grid--between ons-u-mt-l">
                         <div class="ons-grid__col ons-footer__poweredby ons-u-mb-m">
                             {{ poweredByLogo | safe }}
@@ -229,7 +229,7 @@
                     </div>
                 {% endif %}
 
-                {% if params.copyrightDeclaration is defined and params.copyrightDeclaration %}
+                {% if params.copyrightDeclaration %}
                 <!-- Copyright -->
                 <div class="ons-grid">
                     <div class="ons-grid__col">

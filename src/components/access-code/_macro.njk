@@ -26,9 +26,9 @@
         }) }}
     {% endset %}
 
-    {% if params.error is not defined %}
+    {% if not params.error %}
         {% call onsPanel({
-                "classes": "ons-u-mb-s" + (' ' + params.classes if params.classes is defined and params.classes)
+                "classes": "ons-u-mb-s" + (' ' + params.classes if params.classes)
             })
         %}
             {{ content | safe }}
@@ -37,7 +37,7 @@
         {{ content | safe }}
     {% endif %}
 
-    {% if params.securityMessage is defined and params.securityMessage %}
+    {% if params.securityMessage %}
         {% call onsPanel({
                 "type": "bare",
                 "iconType": "lock",
