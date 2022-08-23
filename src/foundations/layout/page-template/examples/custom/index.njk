@@ -1,9 +1,12 @@
 ---
+title: "Example: Customised page template"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
 {% set pageConfig = {
-    "title": "Social survey",
+    "header": {
+        "title": "Social survey"
+    },
     "phase": {
         "badge": 'BETA',
         "html": 'This is a new service – your <a href="#feedback">feedback</a> will help us improve it.'
