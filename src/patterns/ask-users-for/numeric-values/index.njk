@@ -59,13 +59,13 @@ You can use the [input width override utility class](/components/input#width-con
 }}
 
 ### Prefixed values
-Use the `prefix` parameter to specify the abbreviated prefix unit. For example, “£”, and the `title` parameter to specify the full name of the prefix unit for example, “British pounds (GBP)”.
+Use the `prefix.text` parameter to specify prefix unit. If using an abbreviation, for example, “£”, use the `prefix.title` parameter to specify the long form of the unit, for example, “British pounds (GBP)”.
 {{
     patternlibExample({"path": "components/input/examples/prefixed/index.njk"})
 }}
 
 ### Suffixed values
-Use the `suffix` parameter to specify the abbreviated suffix unit for example, “cm”, and the `title` parameter to specify the full name of the suffix unit for example, “centimetres”.
+Use the `suffix.text` parameter to specify the suffix unit. If using an abbreviation, for example, “cm”, use the `suffix.title` parameter to specify the long form of the suffix unit, for example, “centimetres”.
 {{
     patternlibExample({"path": "components/input/examples/suffixed/index.njk"})
 }}
