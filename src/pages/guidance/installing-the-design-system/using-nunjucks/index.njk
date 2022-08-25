@@ -17,24 +17,6 @@ The ONS Design System uses {{
     })
 }} as its templating language.
 
-### Using Nunjucks in Jinja2 templates
-
-Applications that use {{
-    onsExternalLink({
-        "url": "https://jinja.palletsprojects.com/en/3.0.x/",
-        "linkText": "Jinja2"
-    })
-}} will need to include a small configuration change which will prevent Jinja2 throwing an error when chained parameters are undefined. Further information is available in the <a href="https://jinja.palletsprojects.com/en/3.0.x/api/#jinja2.Undefined">Jinja2 documentation</a>.   
-
-Add the following import:
-
-{{ onsCodeHighlight({ "code": "from jinja2 import ChainableUndefined" }) }}
-
-Then add the following configuration change:
-
-{{ onsCodeHighlight({ "code": "jinja_env.undefined = ChainableUndefined" }) }}
-
-
 ## How to set up Nunjucks
 
 ### npm package
