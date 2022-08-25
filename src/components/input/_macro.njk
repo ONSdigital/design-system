@@ -81,7 +81,7 @@
                         {{ input | safe }}
 
                         {% set abbr = params.prefix or params.suffix %}
-                        {% if params.prefix.title or params.suffix.title %}
+                        {% if (params.prefix and params.prefix.title) or (params.prefix and params.suffix.title) %}
                             {% set tag = 'abbr' %}
                         {% else %}
                             {% set tag = 'span' %}
