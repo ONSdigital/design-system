@@ -61,7 +61,7 @@
                     <{{ titleTag }} id="alert"{% if params.type %} data-qa="{{ params.type }}-header"{% endif %} class="ons-panel__title ons-u-fs-r--b">{{ params.title | safe }}</{{ titleTag }}>
                 </div>
             {% else %}
-                {% if not params.type or params.type == "branded" or params.type == "info" %}
+                {% if not params.type or params.type == "branded" or params.type == "info" or params.type == "bare" %}
                     <span class="ons-panel__assistive-text ons-u-vh">{{ params.assistiveTextPrefix | default("Important information: ") }}</span>
                 {% elif params.type == 'error' or params.type == 'success' %} 
                     {% set defaultText = "Completed" if params.type == "success" else "Error" %}
