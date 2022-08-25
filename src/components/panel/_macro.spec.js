@@ -13,6 +13,7 @@ const EXAMPLE_PANEL_BASIC = {
 describe('macro: panel', () => {
   describe.each([
     ['info', 'Important information:'],
+    ['bare', 'Important information:'],
     ['error', 'Error:'],
     ['warn', 'Warning:'],
     ['warn-branded', 'Warning:'],
@@ -313,19 +314,6 @@ describe('macro: panel', () => {
       });
 
       expect(iconsSpy.occurrences[0].iconType).toBe('arrow-forward');
-    });
-  });
-
-  describe('mode: bare', () => {
-    it('has the correct class set', () => {
-      const $ = cheerio.load(
-        renderComponent('panel', {
-          ...EXAMPLE_PANEL_BASIC,
-          type: 'bare',
-        }),
-      );
-
-      expect($('.ons-panel').hasClass('ons-panel--bare')).toBe(true);
     });
   });
 
