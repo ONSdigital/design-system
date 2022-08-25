@@ -48,6 +48,10 @@
     border: 1px solid $color-input-border;
   }
 
+  &__type[title] {
+    cursor: help;
+  }
+
   &__input:focus + &__type::after {
     // Style input + prefix/suffix on focus
     @extend %ons-input-focus;
