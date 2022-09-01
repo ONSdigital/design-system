@@ -24,8 +24,8 @@
 
 ## InputSuffix
 
-| Name  | Type   | Required | Description                                                                                                                                                                               |
-| ----- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| text  | string | true     | The visible text abbreviation for the prefix or suffix, for example, “mins“                                                                                                               |
-| title | string | true     | The HTML `title` attribute for the `<abbr>` element used to write out the full value of an abbreviated prefix or suffix. For example, where `text` is “mins”, `title` would be “Minutes”. |
-| id    | string | true     | The HTML `id` of the `<abbr>` element used for the prefix or suffix. Used for the input’s `aria-labelledby` attribute.                                                                    |
+| Name  | Type   | Required | Description                                                                                                                                                                                                                                     |
+| ----- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| text  | string | true     | The visible text label for the prefix or suffix, for example, “Minutes“                                                                                                                                                                         |
+| title | string | false    | The HTML `title` attribute for the `<abbr>` element, required if the visible `text` label is an abbreviation. Use to write out the long form of an abbreviated prefix or suffix. For example, if `text` is “mins”, `title` should be “Minutes”. |
+| id    | string | true     | The HTML `id` of the element used for the prefix or suffix. Used for the input’s `aria-labelledby` attribute.                                                                                                                                   |

@@ -106,8 +106,10 @@ export default class MutuallyExclusive {
     let labelText;
 
     if (label) {
-      if (label.classList.contains(inputAbbrClass)) {
+      if (label.classList.contains(inputAbbrClass) && label.querySelector('abbr')) {
         labelText = label.getAttribute('title');
+      } else if (label.classList.contains(inputAbbrClass) && label.querySelector('span')) {
+        labelText = label.querySelector('span').innerText;
       } else if (label.classList.contains(inputLegendClass) && label.querySelector('h1')) {
         labelText = label.querySelector('h1').innerText;
       } else {
