@@ -1,12 +1,9 @@
 {% extends "./_master.njk" %}
 {% set example = true %}
-{% set pageTitle = "Example: " ~ pageInfo.title | replace("-", " ") | capitalize %}
-
-{% set pageConfig = {"lang": pageInfo.lang, "title": pageTitle } %}
 
 {% block pageContent %}
     <main class="ons-patternlib-page__example">
-        <h1 class="ons-u-vh">{{ pageTitle }}</h1>
+        <h1 class="ons-u-vh">{{ pageHeading }}</h1>
         {% block main %}
         {% endblock %}
     </main>

@@ -1,4 +1,5 @@
 ---
+title: "Example: Feedback form errors"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
@@ -9,9 +10,9 @@ layout: none
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 {% set pageConfig = {
-    "title": "Survey title",
     "absoluteUrl": pageInfo.url,
     "header": {
+        "title": "Survey title",
         "orgLogoHref": "#0"
     },
     "breadcrumbs": {

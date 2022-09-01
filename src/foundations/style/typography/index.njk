@@ -59,19 +59,21 @@ Using the type scale classes on text elements, the type is sized appropriately f
 ## Headings
 Heading defaults are as follows:
 {{
-    patternlibExample({"path": "foundations/style/typography/headings/examples/index.njk"})
+    patternlibExample({"path": "foundations/style/typography/headings/examples/default-heading-sizes/index.njk"})
 }}
 
 ### Breakpoint headings
 <p>Font sizes can be triggered at certain breakpoints. Just suffix any font size class with <code>@{breakpoint}</code>, for example, <code>ons-u-fs-m@l</code></p>
-<p class="ons-u-fs-s@xxs ons-u-fs-r@s ons-u-fs-m@l ons-u-fs-l@xl ons-u-fs-xl@xxl">This text will change font size depending on viewport width</p>
+{{
+    patternlibExample({"path": "foundations/style/typography/headings/examples/breakpoint-headings/index.njk"})
+}}
 
 
 ## Paragraphs
 The base font size for paragraphs is 18px.
 
 {{
-    patternlibExample({"path": "foundations/style/typography/paragraphs/examples/index.njk"})
+    patternlibExample({"path": "foundations/style/typography/paragraphs/examples/paragraphs/index.njk"})
 }}
 
 ## Links
@@ -84,7 +86,7 @@ Links are blue and underlined by default. If your link is at the end of a senten
 ### External Links
 Links to external websites using the `onsExternalLink` macro will have the attributes `target="_blank"` to open websites in a new tab, and `rel="noopener"` to guard against a security vulnerability which can be exploited by malicious websites.
 {{
-    patternlibExample({"path": "components/external-link/examples/external-link/index.njk", "componentFolderPath": "components/external-link"})
+    patternlibExample({"path": "components/external-link/examples/external-link/index.njk"})
 }}
 
 ## Lists
@@ -96,7 +98,7 @@ Bulleted lists should be introduced with a lead-in line, ending in a colon.
 Each item in the list should start with a lowercase letter and should not end with a full stop.
 
 {{
-    patternlibExample({"path": "foundations/style/typography/lists/examples/list/index.njk", "componentFolderPath": "components/lists"})
+    patternlibExample({"path": "foundations/style/typography/lists/examples/bulleted-list/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 ### Numbered list
@@ -110,37 +112,37 @@ To use a numbered list when using the list macro you need to not be using a bare
 
 If there is only one item in the list when using the list macro it will render the item in `<p>` tags and not a list with no list styling added.
 {{
-    patternlibExample({"path": "foundations/style/typography/lists/examples/list-ordered/index.njk", "componentFolderPath": "components/lists"})
+    patternlibExample({"path": "foundations/style/typography/lists/examples/numbered-list/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 ### Bare list
 Bare lists should be used to display a list of navigational links, for example, a group of related pages displayed in the [footer](/components/footer).
 {{
-    patternlibExample({"path": "foundations/style/typography/lists/examples/list-bare/index.njk", "componentFolderPath": "components/lists"})
+    patternlibExample({"path": "foundations/style/typography/lists/examples/bare-list/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 ### Dashed list
 Dashed lists should be used to display a list of content navigational links.
 {{
-    patternlibExample({"path": "foundations/style/typography/lists/examples/list-dashed/index.njk", "componentFolderPath": "components/lists"})
+    patternlibExample({"path": "foundations/style/typography/lists/examples/dashed-list/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 ### Prefixed list
 The prefix list allows each list item to contain a string as a prefix to the item. The prefixed string uses our monospaced font to ensure spacing and alignment is correct.
 {{
-    patternlibExample({"path": "foundations/style/typography/lists/examples/list-prefix/index.njk", "componentFolderPath": "components/lists"})
+    patternlibExample({"path": "foundations/style/typography/lists/examples/prefixed-list/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 ### Suffixed list
 The suffix list works the same as the prefix but just comes after the list item and the full stop isn’t included.
 {{
-    patternlibExample({"path": "foundations/style/typography/lists/examples/list-suffix/index.njk", "componentFolderPath": "components/lists"})
+    patternlibExample({"path": "foundations/style/typography/lists/examples/suffixed-list/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 ### Inline list
 Inline lists should be used to display a horizontal row of links, for example, a list of pages displayed in the [transactional footer](/components/footer#transactional).
 {{
-    patternlibExample({"path": "foundations/style/typography/lists/examples/list-inline/index.njk", "componentFolderPath": "components/lists"})
+    patternlibExample({"path": "foundations/style/typography/lists/examples/inline-list/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 ### Lists with icons
@@ -149,19 +151,19 @@ There is specific guidance on [how to use the available set of icons](/foundatio
 #### List with icon prefix
 This example uses `"iconPosition": 'before'` and the `iconType` parameter on this list to show the check before each item.
 {{
-    patternlibExample({"path": "foundations/style/typography/lists/examples/list-icon-prefix/index.njk", "componentFolderPath": "components/lists"})
+    patternlibExample({"path": "foundations/style/typography/lists/examples/list-with-icon-prefix/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 #### List with icon suffix
 This example uses `"iconPosition": 'after'` and the `iconType` parameter on this list to show the check after each item.
 {{
-    patternlibExample({"path": "foundations/style/typography/lists/examples/list-icon-suffix/index.njk", "componentFolderPath": "components/lists"})
+    patternlibExample({"path": "foundations/style/typography/lists/examples/list-with-icon-suffix/index.njk", "componentFolderPath": "components/lists"})
 }}
 
-#### Inline list with icon prefix
+#### Inline list with social media icon prefix
 This example uses `"variants": [ 'inline', 'social']`, `"iconPosition": 'before'` and `"iconSize": 'xxl'` on the list, with the `iconType` parameter set on each item to show the social icons.
 {{
-    patternlibExample({"path": "foundations/style/typography/lists/examples/list-icon-social/index.njk", "componentFolderPath": "components/lists"})
+    patternlibExample({"path": "foundations/style/typography/lists/examples/inline-list-with-social-icon-prefix/index.njk", "componentFolderPath": "components/lists"})
 }}
 
 ## Highlighting

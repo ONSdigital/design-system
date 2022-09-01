@@ -1,4 +1,5 @@
 ---
+title: "Example: Hub – completed"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
@@ -8,7 +9,9 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Hub example",
+    "header": {
+        "title": "Hub example"
+    },
     "signoutButton": {
         "text": "Save and sign out",
         "iconType": "exit",
