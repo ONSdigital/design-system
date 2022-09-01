@@ -55,7 +55,7 @@ Answer descriptions should:
 }}
 
 {{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-descriptions/index.njk"})
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-with-descriptions/index.njk"})
 }}
 
 ### Select and unselect all checkboxes
@@ -65,7 +65,7 @@ Use the parameter `autoSelect` with the required child parameters `selectAllText
 
 The "select/unselect all" button cannot be used when one of the checkboxes uses the `other` parameter to reveal nested inputs. It can however, be inside the `other` parameter to select and unselect all nested checkboxes or radios.
 {{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-autoselect/index.njk"})
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-with-select-all-button/index.njk"})
 }}
 
 ### Checkbox with revealed text input
@@ -74,16 +74,16 @@ This variant lets the user provide an answer other to the options in the list, o
 Set the `other` object with the required [input](/components/input) parameters. The field is hidden until the checkbox is selected.
 
 {{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other/index.njk"})
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-with-revealed-text-input/index.njk"})
 }}
 
-### Checkbox with revealed drop-down
+### Checkbox with revealed select
 This variant reveals a nested [select component](/components/select) when a checkbox is selected.
 
 To use this variant set `"otherType": "select"` inside the `other` object.
 
 {{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-select/index.njk"})
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-with-revealed-select/index.njk"})
 }}
 
 
@@ -93,7 +93,7 @@ This variant always shows the nested inputs.
 To use this variant set `"open": true` inside the `other` object.
 
 {{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-open/index.njk"})
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-with-visible-text-input/index.njk"})
 }}
 
 ### Checkboxes without a border
@@ -105,7 +105,7 @@ Do not use this variant on [question pages](/patterns/question) with checkboxes.
 Only remove the checkbox border for pages that are not following the practice of “one thing per page”, where the checkboxes are not the primary call to action. For example, the checkboxes could be one part of a multipurpose page, like the checkboxes used for the filters on the [download resources pattern](/patterns/download-resources/).
 
 {{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-borderless/index.njk"})
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-without-border/index.njk"})
 }}
 
 
@@ -118,7 +118,7 @@ This may be appropriate in certain circumstances. For example, when `onsCheckbox
 In the example below the hidden label `text` is a combination of the `th` for the checkbox and the related `td` for the `tr` e.g. 'Edit Surveys' 
 
 {{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-hidden-label/index.njk"})
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-with-hidden-label/index.njk"})
 }}
 
 ### Checkbox with revealed checkboxes
@@ -128,7 +128,7 @@ This variant reveals nested checkboxes when a checkbox is selected. We recommend
 To use this variant set `"otherType": "checkboxes"` inside the `other` object. The example below includes the optional parameter `selectAllChildren: true` which automatically checks all revealed checkboxes.
 
 {{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-checkboxes/index.njk"})
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-with-revealed-checkboxes/index.njk"})
 }}
 
 ### Checkbox with revealed radios
@@ -138,7 +138,7 @@ This variant reveals nested [radios](/components/radios) when a checkbox is sele
 To use this variant set `"otherType": "radios"` inside the `other` object.
 
 {{
-    patternlibExample({"path": "components/checkboxes/examples/checkboxes-other-radios/index.njk"})
+    patternlibExample({"path": "components/checkboxes/examples/checkboxes-with-revealed-radios/index.njk"})
 }}
 
 ### Disabled checkboxes

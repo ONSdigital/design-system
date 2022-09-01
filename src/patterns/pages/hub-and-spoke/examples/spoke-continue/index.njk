@@ -1,4 +1,5 @@
 ---
+title: "Example: Spoke – continue a section"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
@@ -9,7 +10,9 @@ layout: none
 {% from "components/date-input/_macro.njk" import onsDateInput %}
 
 {% set pageConfig = {
-    "title": "Spoke example",
+    "header": {
+        "title": "Spoke example"
+    },
     "signoutButton": {
         "text": "Save and sign out",
         "iconType": "exit",
