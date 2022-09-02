@@ -229,6 +229,12 @@ describe('macro: summary', () => {
         expect($('.ons-summary__items tbody:nth-of-type(3) .ons-summary__row-title').text()).toBe('row title 3');
       });
 
+      it('is aria hidden when there are multiple values to a row', () => {
+        const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
+
+        expect($('.ons-summary__items tbody:nth-of-type(3) .ons-summary__row-title').attr('aria-hidden')).toBe(true);
+      });
+
       it('overrides the `rowTitle` with the `errorMessage` if provided', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_WITH_TITLE));
 
