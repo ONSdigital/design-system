@@ -66,7 +66,7 @@
         {% else %}
             type="{{ buttonType }}"
         {% endif %}
-        class="ons-btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-btn--{{ variant }}{% endfor %}{% else %} ons-btn--{{ params.variants }}{% endif %}{% endif %}{% if params.url %} ons-btn--link ons-js-submit-btn{% endif %} {{ variantClasses }}{% if params.submitType == "loader" %} ons-btn--loader ons-js-loader ons-js-submit-btn{% endif %}{% if params.submitType == "timer" %} ons-js-timer ons-js-submit-btn{% endif %}"
+        class="ons-btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-btn--{{ variant }}{% endfor %}{% else %} ons-btn--{{ params.variants }}{% endif %}{% endif %}{% if params.url %} ons-btn--link ons-js-submit-btn{% endif %}{% if variantClasses %} {{ variantClasses }}{% endif %}{% if params.submitType == "loader" %} ons-btn--loader ons-js-loader ons-js-submit-btn{% endif %}{% if params.submitType == "timer" %} ons-js-timer ons-js-submit-btn{% endif %}"
         {% if params.id %}id="{{ params.id }}"{% endif %}
         {% if params.value and tag != "a" %}value="{{ params.value }}"{% endif %}
         {% if params.name and tag != "a" %}name="{{ params.name }}"{% endif %}
