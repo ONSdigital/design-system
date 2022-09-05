@@ -274,7 +274,7 @@ describe('macro: summary', () => {
         ).toBe('row title 1');
       });
 
-      it.only('has visually hidden prefix set to the `rowTitle` when there are multiple values to a row', () => {
+      it('has visually hidden prefix set to the `rowTitle` when there are multiple values to a row', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
         expect($('.ons-summary__items tbody:nth-of-type(3) .ons-summary__item--text' + 'ons-u-vh').text('row title 3'));
