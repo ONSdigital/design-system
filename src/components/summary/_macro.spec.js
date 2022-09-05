@@ -232,7 +232,7 @@ describe('macro: summary', () => {
       it('is aria hidden when there are multiple values to a row', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect($('.ons-summary__items tbody:nth-of-type(3) .ons-summary__row-title').attr('aria-hidden')).toBe(true);
+        expect($('.ons-summary__items tbody:nth-of-type(3) .ons-summary__row-title').attr('aria-hidden')).toBe('true');
       });
 
       it('overrides the `rowTitle` with the `errorMessage` if provided', () => {
