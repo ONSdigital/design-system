@@ -59,8 +59,10 @@
                                                     </span>
                                                 {% endif %}
 
-                                                {% if (row.rowItems | length > 1 and row.rowTitle) %}<div class="ons-u-vh">{{ row.rowTitle | replace("?", "") }}:</div>{% endif %}
-                                                <div class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType else "" }}">{{ rowItem.rowTitle | default(row.rowTitle) | safe }}</div>
+                                                <div class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType else "" }}">
+                                                    {% if (row.rowItems | length > 1 and row.rowTitle) %}<span class="ons-u-vh">{{ row.rowTitle | replace("?", "") }}:</span>{% endif %}
+                                                    {{- rowItem.rowTitle | default(row.rowTitle) | safe -}}
+                                                </div>
 
                                                 {# Render section status for mobile if is hub #}
                                                 {% if params.hub and rowItem.valueList %}
