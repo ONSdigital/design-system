@@ -56,7 +56,7 @@ describe('script: button', () => {
         renderComponent('button', {
           id: 'test-button',
           text: 'Submit',
-          submitType: 'loader',
+          variants: 'loader',
         }),
       );
 
@@ -72,7 +72,7 @@ describe('script: button', () => {
         renderComponent('button', {
           id: 'test-button',
           text: 'Submit',
-          submitType: 'loader',
+          variants: 'loader',
         }),
       );
 
@@ -86,7 +86,7 @@ describe('script: button', () => {
         renderComponent('button', {
           id: 'test-button',
           text: 'Submit',
-          submitType: 'loader',
+          variants: 'loader',
         }),
       );
 
@@ -104,7 +104,7 @@ describe('script: button', () => {
           ${renderComponent('button', {
             id: 'test-button',
             text: 'Submit',
-            submitType: 'loader',
+            variants: 'loader',
           })}
         </form>
       `,
@@ -124,7 +124,7 @@ describe('script: button', () => {
           ${renderComponent('button', {
             id: 'test-button',
             text: 'Submit',
-            submitType: 'loader',
+            variants: 'loader',
           })}
         </form>
       `,
@@ -142,7 +142,7 @@ describe('script: button', () => {
           ${renderComponent('button', {
             id: 'test-button',
             text: 'Submit',
-            submitType: 'loader',
+            variants: 'loader',
           })}
         </form>
       `,
@@ -161,7 +161,7 @@ describe('script: button', () => {
         '/test',
         renderComponent('button', {
           id: 'test-button',
-          submitType: 'timer',
+          variants: 'timer',
           text: 'Submit',
         }),
       );
@@ -186,7 +186,7 @@ describe('script: button', () => {
         '/test',
         renderComponent('button', {
           id: 'test-button',
-          submitType: 'timer',
+          variants: 'timer',
           text: 'Submit',
         }),
       );
@@ -213,7 +213,7 @@ describe('script: button', () => {
         <form>
           ${renderComponent('button', {
             id: 'test-button',
-            submitType: 'timer',
+            variants: 'timer',
             text: 'Submit',
           })}
         </form>
@@ -242,7 +242,7 @@ describe('script: button', () => {
         <form>
           ${renderComponent('button', {
             id: 'test-button',
-            submitType: 'timer',
+            variants: 'timer',
             text: 'Submit',
           })}
         </form>
@@ -273,7 +273,7 @@ describe('script: button', () => {
           id: 'test-button',
           type: 'button',
           text: 'Print this page',
-          buttonStyle: 'print',
+          variants: 'print',
         }),
       );
 

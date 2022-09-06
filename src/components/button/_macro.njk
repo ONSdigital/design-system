@@ -34,7 +34,9 @@
     {% if params.variants %}
         {% if 'print' in params.variants %}
             {# Print #}
-            {% set buttonType = "button" %}
+            {% if params.type is not defined %}
+                {% set buttonType = "button" %}
+            {% endif %}
             {% set iconType = "print" %}
             {% set iconPosition = "before" %}
             {% set variantClasses = "ons-u-d-no ons-js-print-btn" %}

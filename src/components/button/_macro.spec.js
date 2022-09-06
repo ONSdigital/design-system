@@ -57,33 +57,33 @@ describe('macro: button', () => {
     expect($('.ons-btn').hasClass('ons-btn--variant-b')).toBe(true);
   });
 
-  it('has download variant style class when `buttonStyle` is `download`', () => {
+  it('has download variant style class when `variants` contains `download`', () => {
     const $ = cheerio.load(
       renderComponent('button', {
         url: 'http://example.com',
-        buttonStyle: 'download',
+        variants: 'download',
       }),
     );
 
     expect($('.ons-btn').hasClass('ons-btn--download')).toBe(true);
   });
 
-  it('has `download` icon when `buttonStyle` is "download"', () => {
+  it('has `download` icon when `variants` contains "download"', () => {
     const faker = templateFaker();
     const iconsSpy = faker.spy('icons');
 
     faker.renderComponent('button', {
       url: 'http://example.com',
-      buttonStyle: 'download',
+      variants: 'download',
     });
 
     expect(iconsSpy.occurrences[0].iconType).toBe('download');
   });
 
-  it('has provided variant style classes when `buttonStyle` is "print"', () => {
+  it('has provided variant style classes when `variants` contains "print"', () => {
     const $ = cheerio.load(
       renderComponent('button', {
-        buttonStyle: 'print',
+        variants: 'print',
       }),
     );
 
@@ -92,22 +92,22 @@ describe('macro: button', () => {
     expect($('.ons-btn').hasClass('ons-js-print-btn')).toBe(true);
   });
 
-  it('has `print` icon when `buttonStyle` is "print"', () => {
+  it('has `print` icon when `variants` contains "print"', () => {
     const faker = templateFaker();
     const iconsSpy = faker.spy('icons');
 
     faker.renderComponent('button', {
       url: 'http://example.com',
-      buttonStyle: 'print',
+      variants: 'print',
     });
 
     expect(iconsSpy.occurrences[0].iconType).toBe('print');
   });
 
-  it('has provided variant style classes when `submitType` is "loader"', () => {
+  it('has provided variant style classes when `variants` contains "loader"', () => {
     const $ = cheerio.load(
       renderComponent('button', {
-        submitType: 'loader',
+        variants: 'loader',
       }),
     );
 
@@ -116,32 +116,32 @@ describe('macro: button', () => {
     expect($('.ons-btn').hasClass('ons-js-submit-btn')).toBe(true);
   });
 
-  it('has `loader` icon when `submitType` is "loader"', () => {
+  it('has `loader` icon when `variants` contains "loader"', () => {
     const faker = templateFaker();
     const iconsSpy = faker.spy('icons');
 
     faker.renderComponent('button', {
-      submitType: 'loader',
+      variants: 'loader',
     });
 
     expect(iconsSpy.occurrences[0].iconType).toBe('loader');
   });
 
-  it('has `chevron` icon when `buttonStyle` is "mobile"', () => {
+  it('has `chevron` icon when `variants` contains "mobile"', () => {
     const faker = templateFaker();
     const iconsSpy = faker.spy('icons');
 
     faker.renderComponent('button', {
-      buttonStyle: 'mobile',
+      variants: 'mobile',
     });
 
     expect(iconsSpy.occurrences[0].iconType).toBe('chevron');
   });
 
-  it('has provided variant style classes when `submitType` is "timer"', () => {
+  it('has provided variant style classes when `variants` contains "timer"', () => {
     const $ = cheerio.load(
       renderComponent('button', {
-        submitType: 'timer',
+        variants: 'timer',
       }),
     );
 
@@ -259,11 +259,11 @@ describe('macro: button', () => {
       expect($('button').attr('type')).toBe('special-type');
     });
 
-    it('has the provided `type` attribute even if `buttonStyle` is provided', () => {
+    it('has the provided `type` attribute even if print variant is provided', () => {
       const $ = cheerio.load(
         renderComponent('button', {
           type: 'special-type',
-          buttonStyle: 'print',
+          variants: 'print',
         }),
       );
 
@@ -276,10 +276,10 @@ describe('macro: button', () => {
       expect($('button').attr('type')).toBe('submit');
     });
 
-    it('defaults to being a "button" when `type` is not provided and `buttonStyle` is set to "print"', () => {
+    it('defaults to being a "button" when `type` is not provided and `variants` contains "print"', () => {
       const $ = cheerio.load(
         renderComponent('button', {
-          buttonStyle: 'print',
+          variants: 'print',
         }),
       );
 
@@ -422,20 +422,20 @@ describe('macro: button', () => {
       expect($('.ons-btn__new-window-description').text()).toBe(' (custom opens in a new window text)');
     });
 
-    it('has the `download` attribute when `buttonStyle` is "download"', () => {
+    it('has the `download` attribute when `variants` contains "download"', () => {
       const $ = cheerio.load(
         renderComponent('button', {
-          buttonStyle: 'download',
+          variants: 'download',
         }),
       );
 
       expect($('.ons-btn').attr('download')).toBeDefined();
     });
 
-    it('does not have the `download` attribute when `buttonStyle` is "download" and `removeDownloadAttribute` is `true`', () => {
+    it('does not have the `download` attribute when `variants` contains "download" and `removeDownloadAttribute` is `true`', () => {
       const $ = cheerio.load(
         renderComponent('button', {
-          buttonStyle: 'download',
+          variants: 'download',
           removeDownloadAttribute: true,
         }),
       );
