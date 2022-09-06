@@ -1,4 +1,5 @@
 ---
+title: "Example: News article"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
@@ -9,7 +10,9 @@ layout: none
 {% from "components/content-pagination/_macro.njk" import onsContentPagination %}
 
 {% set pageConfig = {
-    "title": 'Service name',
+    "header": {
+        "title": 'Service name'
+    },
     "absoluteUrl": pageInfo.url,
     "mainCol": {
         "columns": "12"

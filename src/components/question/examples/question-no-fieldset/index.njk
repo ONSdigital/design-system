@@ -1,4 +1,5 @@
 ---
+title: "Example: Question without a fieldset"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
@@ -8,7 +9,9 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Question example",
+    "header": {
+        "title": "Question example"
+    },
     "breadcrumbs": {
         "ariaLabel": 'Breadcrumbs',
         "itemsList": [

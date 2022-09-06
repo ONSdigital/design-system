@@ -12,7 +12,7 @@ synonyms: Text field, Text input
 
 The input component lets users enter alphanumeric characters for answers that are no longer than one line, using the appropriate keyboard on touch devices.
 {{
-    patternlibExample({"path": "components/input/examples/text/index.njk"})
+    patternlibExample({"path": "components/input/examples/input-text/index.njk"})
 }}
 
 ## When to use this component
@@ -83,7 +83,7 @@ You will need to use the autocomplete attribute for each applicable {{
 ### Input with description
 An optional `description` parameter can be provided inside the [label](/components/label) object to display a hint to help the user enter their information.
 {{
-    patternlibExample({"path": "components/input/examples/text-description/index.njk"})
+    patternlibExample({"path": "components/input/examples/input-text-with-description/index.njk"})
 }}
 
 ### Width constrained
@@ -98,7 +98,7 @@ The `width` values available for both types range from “1” to “10” and �
 For inputs that will contain both letters and numbers, you will need to use an appropriate number value. For example, UK postcodes always consist of up to 7 letters and numbers and one optional space separating the outward and inward codes. A width of “7” will create a width appropriate to fit the widest potential postcode “WW4W 4WW”.
 
 {{
-    patternlibExample({"path": "components/input/examples/text-width-constrained/index.njk"})
+    patternlibExample({"path": "components/input/examples/input-text-width-constrained/index.njk"})
 }}
 
 There is specific guidance on how to ask users for [addresses](/patterns/addresses).
@@ -106,7 +106,7 @@ There is specific guidance on how to ask users for [addresses](/patterns/address
 ### Email
 Setting `type` to “email” will bring up the correct keypad on touch devices.
 {{
-    patternlibExample({"path": "components/input/examples/email/index.njk"})
+    patternlibExample({"path": "components/input/examples/input-email/index.njk"})
 }}
 
 There is specific guidance on how to ask users for [email addresses](/patterns/email-addresses).
@@ -114,7 +114,7 @@ There is specific guidance on how to ask users for [email addresses](/patterns/e
 ### Telephone
 Setting `type` to “tel” will bring up the correct keypad on touch devices.
 {{
-    patternlibExample({"path": "components/input/examples/telephone/index.njk"})
+    patternlibExample({"path": "components/input/examples/input-telephone/index.njk"})
 }}
 
 There is specific guidance on how to ask users for [phone numbers](/patterns/phone-numbers).
@@ -136,7 +136,7 @@ Setting the `type` parameter to “number” will set the HTML attributes `input
 +++
 
 {{
-    patternlibExample({"path": "components/input/examples/prefixed/index.njk"})
+    patternlibExample({"path": "components/input/examples/input-number-prefixed/index.njk"})
 }}
 
 There is specific guidance on how to ask users for [numeric values](/patterns/numeric-values) including entering numbers with units, such as currencies and measurements.
@@ -149,7 +149,7 @@ Use this variant as little as possible. Users do not expect a limit on inputs, a
 The character limit counter is displayed when the limit is exceeded. Set the `charCheckLimit` object with the `limit`, `charCountOverLimitSingular` and `charCountOverLimitPlural` parameters.
 
 {{
-    patternlibExample({"path": "components/input/examples/text-character-limit/index.njk"})
+    patternlibExample({"path": "components/input/examples/input-text-with-character-limit-checker/index.njk"})
 }}
 
 ## How to check an input field
@@ -176,7 +176,7 @@ To help users enter something valid into an input field, you should:
 ### Error messages
 Use the [correct errors pattern](/patterns/correct-errors) and show the error details above the input field.
 {{
-    patternlibExample({"path": "patterns/ask-users-for/email-addresses/examples/email-error/index.njk"})
+    patternlibExample({"path": "patterns/ask-users-for/email-addresses/examples/input-email-with-error/index.njk"})
 }}
 
 #### If the input field is empty

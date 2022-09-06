@@ -7,17 +7,34 @@
     {% set pageConfig = {} %}
 {% endif %}
 
+{% if pageInfo.title and pageInfo.title %}
+    {% if example %}
+        {% set pageHeading = "Example: " ~ pageInfo.title | replace("-", " ") | capitalize %}
+        {% set pageTitle  = pageHeading ~ " – ONS Design System" %}
+        {% set pageConfig = {
+            "lang": pageInfo.lang,
+            "title": pageTitle
+            }
+        %}
+    {% else %}
+        {% set groupTitle = (pageInfo.group.title | replace("...", "")) ~ ': ' if pageInfo.group and pageInfo.group.title %}
+        {% set pageConfig = pageConfig | setAttributes({
+            "title": groupTitle ~ pageInfo.title ~ ' – ONS Design System'
+        }) %}
+    {% endif %}
+{% endif %}
+
 {% if pageConfig.lang %}
-   {% set pageConfig = pageConfig | setAttributes({
-       "language": {
-           "languages": [
-                {
-                    "ISOCode": pageConfig.lang,
-                    "current": true
-                }
-           ]
-       }
-   }) %}
+    {% set pageConfig = pageConfig | setAttributes({
+        "language": {
+            "languages": [
+                    {
+                        "ISOCode": pageConfig.lang,
+                        "current": true
+                    }
+            ]
+        }
+    }) %}
 {% endif %}
 
 {% if example %}
