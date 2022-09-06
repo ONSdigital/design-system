@@ -36,7 +36,7 @@
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
-                                        {% if row.rowItems | length > 1 %}<div{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>{% endif %}
+                                        {% if row.errorMessage or row.rowItems | length > 1 %}<div{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>{% endif %}
                                         <dt class="ons-summary__item-title"
                                             {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                         >
@@ -101,7 +101,7 @@
                                                 {% endfor %}
                                             </dd>
                                         {% endif %}
-                                        {% if row.rowItems | length > 1 %}</div>{% endif %}
+                                        {% if row.errorMessage or row.rowItems | length > 1 %}</div>{% endif %}
                                     {% endfor %}
                                 </div>
                             {% endfor %}
