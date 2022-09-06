@@ -547,17 +547,11 @@ describe('macro: footer', () => {
     const params = {
       button: {
         id: 'save-and-sign-out',
-        type: 'button',
         classes: 'extra-class',
         text: 'Save changes and sign out',
-        html: '<strong>html</strong>',
         name: 'button-name',
-        value: 'button-value',
         attributes: { a: 42 },
         url: 'https://example.com/',
-        buttonStyle: 'mobile',
-        iconType: 'exit',
-        iconPosition: 'before',
       },
     };
 
