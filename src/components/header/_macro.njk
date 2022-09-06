@@ -209,7 +209,7 @@
 
                     {% if params.button %}
                         {% if params.variants == 'neutral' %}
-                            {% set buttonVariant = ["ghost", "ghost-dark"] %}
+                            {% set buttonVariant = "ghost-dark" %}
                         {% else %}
                             {% set buttonVariant = "ghost" %}
                         {% endif %}
@@ -221,8 +221,8 @@
                                 "name": params.button.name,
                                 "attributes": params.button.attributes,
                                 "url": params.button.url,
-                                "iconType": params.button.iconType,
-                                "iconPosition": params.button.iconPosition
+                                "iconType": "exit",
+                                "iconPosition": "after"
                             }) }}
                         </div>
                     {% endif %}
@@ -238,7 +238,7 @@
                             {% endif %}
                             {% if params.navigation.siteSearchAutosuggest %}
                                 {% if params.variants == 'neutral' %}
-                                    {% set buttonVariant = ["small", "ghost", "ghost-dark"] %}
+                                    {% set buttonVariant = ["small", "ghost-dark"] %}
                                 {% else %}
                                     {% set buttonVariant = ["small", "ghost"] %}
                                 {% endif %}
