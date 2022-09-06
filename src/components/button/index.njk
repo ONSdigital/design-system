@@ -33,34 +33,40 @@ To use an alternative type of button, set the `variants` parameter to either a s
 
 ### Small
 In certain circumstances there may be the need for multiple primary actions to exist on a page. The small primary button should be used in this scenario only when each action has the same context, for example, a list containing business surveys that a user needs to start.
+
+Setting `"variants"` with `'small'` will style the button appropriately.
 {{
     patternlibExample({"path": "components/button/examples/button-small/index.njk"})
 }}
 
 ### Secondary
 Use secondary buttons in combination with a primary button for secondary actions on the page. Avoid using too many secondary buttons on the same page as it can make hard for users to know what to do next.
+
+Setting `"variants"` with `'secondary'` will style the button appropriately.
 {{
     patternlibExample({"path": "components/button/examples/button-secondary/index.njk"})
 }}
 
 ### Secondary (small)
 A small secondary button should be used within the same context of a primary small button when there is an additional action available along with the primary action.
+
+Setting `"variants"` with `['secondary', 'small']` will style the button appropriately.
 {{
     patternlibExample({"path": "components/button/examples/button-secondary-small/index.njk"})
 }}
 
 ### Call to action
-The call to action button should be used when a link to a new page is the primary call to action on a page. For example, a “Start survey” button.
+The call to action button should be used when a link to a new page is the primary call to action on a page. For example, a “Start survey” link.
 
-Links simply styled as buttons are not accessible to users who navigate a web page with voice commands. Setting the `url` parameter will create a link with `role=button` which will let these users select the button.
+Links simply styled as buttons are not accessible to users who navigate a web page with voice commands. Setting `"url"` will add the attribute `role="button"` which will help these users select the link.
 {{
     patternlibExample({"path": "components/button/examples/button-link/index.njk"})
 }}
 
-#### Call to action opening in a new window
-Use this button when a page needs to open in a new window, for example, for a web chat service.
+#### Call to action opening in a new tab or window
+Use this button when a page needs to open in a new tab or window, for example, for a web chat service.
 
-Set the `newWindow` parameter to `true`. This adds a warning for screen reader users so they know a new window will open when they select the button. This helps them understand why the back button in the browser is disabled on the new page.
+Setting the `"newWindow"` to `true` adds a warning for screen reader users (set by `"newWindowDescription"`) to let them know a new tab or window will open when they select the button. This helps screen reader users understand why the back button in the browser is disabled on the new page.
 {{
     patternlibExample({"path": "components/button/examples/button-link-new-window/index.njk"})
 }}
@@ -68,7 +74,7 @@ Set the `newWindow` parameter to `true`. This adds a warning for screen reader u
 ### Ghost
 The ghosted button style is for use in the [header](/components/header/#external-with-language-and-save-button) or [footer](/components/footer). This can be used to allow a user to exit or [save and sign out](/patterns/save-and-sign-out) of a service.
 
-Setting the `iconType` parameter to `exit` adds an appropriate icon for a 'sign out' or 'exit' button.
+Setting `"variants"` with `'ghost'` will style the button, and setting `iconType` with `exit` adds the appropriate icon for a “sign out” or “exit” button.
 {{
     patternlibExample({
         "path": "components/button/examples/button-ghost/index.njk",
@@ -77,10 +83,10 @@ Setting the `iconType` parameter to `exit` adds an appropriate icon for a 'sign 
 }}
 
 ### Disabled
-Disabled buttons have poor contrast and can confuse some users. Only use disabled buttons if research shows it makes the page easier to understand. For example, the “Send message” button on the [Send and reply to messages
+Disabled buttons have poor contrast and can confuse some users. Only use disabled buttons if research shows it makes the page easier to understand. For example, the “Send message” button in the [send and reply to messages
 pattern](/patterns/send-and-reply-to-messages/) is disabled until a message is entered into the field.
 
-Use `"variants": 'disabled'` with the `disabled=true` attribute parameter for buttons that have no event/action but need to be displayed.
+Setting `"variants"` with `'disabled'` will style the button and add the HTML `disabled` attribute.
 {{
     patternlibExample({"path": "components/button/examples/button-disabled/index.njk"})
 }}
@@ -90,13 +96,15 @@ The loader button should be used when the button starts a process that can take 
 
 Using it will prevent a form being submitted more than once if a user tries to select the button multiple times.
 
-Setting `"submitType": 'loader'` will disable the button when selected and show an animated loading icon.
+Setting `"variants"` with `'loader'` will disable the button when selected and show an animated loading icon.
 {{
     patternlibExample({"path": "components/button/examples/button-loader/index.njk"})
 }}
 
 ### Timer
-The timer button can be used to prevent forms being submitted twice when users double-click the submit button. Setting `"submitType": 'timer'` will disable the button for one second after it’s selected.
+The timer button can be used to prevent forms being submitted twice when users double-click the submit button.
+
+Setting `"variants"` with `'timer'` will disable the button for one second after it’s selected.
 {{
     patternlibExample({"path": "components/button/examples/button-timer/index.njk"})
 }}
