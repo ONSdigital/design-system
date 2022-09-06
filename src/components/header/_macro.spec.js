@@ -334,7 +334,6 @@ describe('macro: header', () => {
           },
           url: '#0',
           iconType: 'button-icon',
-          iconPosition: 'before',
         },
       });
 
@@ -348,7 +347,6 @@ describe('macro: header', () => {
         },
         url: '#0',
         iconType: 'button-icon',
-        iconPosition: 'before',
       });
     });
 
@@ -491,8 +489,7 @@ describe('macro: header', () => {
         text: 'Menu',
         classes: 'ons-u-d-no ons-js-toggle-services',
         type: 'button',
-        buttonStyle: 'mobile',
-        variants: 'text-link',
+        variants: ['mobile', 'text-link'],
         attributes: {
           'aria-label': 'Toggle services menu',
           'aria-controls': 'service-links',
@@ -523,7 +520,7 @@ describe('macro: header', () => {
         },
       });
 
-      expect(buttonSpy.occurrences[0]).toHaveProperty('variants', ['text-link', 'text-link-inverse']);
+      expect(buttonSpy.occurrences[0]).toHaveProperty('variants', ['mobile', 'text-link', 'text-link-inverse']);
     });
 
     it('does not render a button for a single services link', () => {
@@ -623,7 +620,6 @@ describe('macro: header', () => {
       expect(buttonSpy.occurrences[0]).toEqual({
         text: 'Menu',
         classes: 'ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l',
-        buttonStyle: 'mobile',
         variants: ['mobile', 'ghost'],
         attributes: {
           'aria-label': 'Toggle main menu',
