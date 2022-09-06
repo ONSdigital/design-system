@@ -206,8 +206,8 @@ describe('macro: navigation', () => {
 
       expect(buttonSpy.occurrences).toContainEqual({
         text: 'Main nav item 2',
-        classes: 'ons-u-d-no ons-js-sub-navigation-button ons-btn--dropdown',
-        buttonStyle: 'mobile',
+        classes: 'ons-u-d-no ons-js-sub-navigation-button',
+        variants: ['mobile', 'dropdown'],
         attributes: {
           'aria-label': 'Toggle section navigation',
           'aria-controls': 'sub-nav',
