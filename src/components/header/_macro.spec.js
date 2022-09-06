@@ -333,7 +333,6 @@ describe('macro: header', () => {
             a: 'b',
           },
           url: '#0',
-          iconType: 'button-icon',
         },
       });
 
@@ -346,7 +345,8 @@ describe('macro: header', () => {
           a: 'b',
         },
         url: '#0',
-        iconType: 'button-icon',
+        iconType: 'exit',
+        iconPosition: 'after',
       });
     });
 
