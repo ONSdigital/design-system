@@ -208,6 +208,7 @@ describe('macro: navigation', () => {
         text: 'Main nav item 2',
         classes: 'ons-u-d-no ons-js-sub-navigation-button',
         variants: ['mobile', 'dropdown'],
+        type: 'button',
         attributes: {
           'aria-label': 'Toggle section navigation',
           'aria-controls': 'sub-nav',
