@@ -63,7 +63,6 @@
                                         {% if rowItem.valueList %}
                                             <dd
                                                 class="ons-summary__values"
-                                                {% if rowItem.actions == null %} colspan="2"{% endif %}
                                                 {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
                                                 {% if rowItem.valueList | length == 1 %}
