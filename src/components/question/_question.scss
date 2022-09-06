@@ -6,7 +6,7 @@
 
     em,
     .ons-highlight {
-      background-color: $color-highlight;
+      @extend .ons-highlight;
     }
     mark,
     .ons-instruction {

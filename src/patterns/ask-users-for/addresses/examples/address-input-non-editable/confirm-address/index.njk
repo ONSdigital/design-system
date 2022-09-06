@@ -1,4 +1,5 @@
 ---
+"title": "Example: Non-editable address input confirmation"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
@@ -10,7 +11,9 @@ layout: none
 {% from "components/address-output/_macro.njk" import onsAddressOutput %}
 
 {% set pageConfig = {
-    "title": 'Non-editable address confirmation example'
+    "header": {
+        "title": 'Non-editable address confirmation example'
+    }
 } %}
 {% block preMain %}
     {{

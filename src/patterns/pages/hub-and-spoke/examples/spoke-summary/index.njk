@@ -1,4 +1,5 @@
 ---
+title: "Example: Spoke – view answers summary"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
@@ -8,7 +9,9 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Spoke example",
+    "header": {
+        "title": "Spoke example"
+    },
     "signoutButton": {
         "text": "Save and sign out",
         "iconType": "exit",

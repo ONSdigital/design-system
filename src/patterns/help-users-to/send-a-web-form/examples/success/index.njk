@@ -1,4 +1,5 @@
 ---
+title: "Example: Send a web form confirmation"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
@@ -6,7 +7,9 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": 'Service name',
+    "header": {
+        "title": 'Service name'
+    },
     "absoluteUrl": pageInfo.url,
     "footer": {}
 } %}
@@ -18,7 +21,8 @@ layout: none
             "id": 'webform-success',
             "iconType": 'check',
             "iconSize": 'xl',
-            "body": '<h1>Thank you for contacting us</h1><p>Your message has been sent.</p>'
+            "body": '<h1>Thank you for contacting us</h1><p>Your message has been sent.</p>',
+            "dsExample": 'isPatternLib'
         })
     }}
     <p>We will respond to you within 2 working days.</p>

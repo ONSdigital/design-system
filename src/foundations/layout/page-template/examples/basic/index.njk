@@ -1,9 +1,12 @@
 ---
+title: "Example: Default base page template"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
 {% set pageConfig = {
-    "title": "Service name",
+    "header": {
+        "title": "Service name"
+    },
     "footer": {
         "OGLLink": {
             "pre": 'All content is available under the',
