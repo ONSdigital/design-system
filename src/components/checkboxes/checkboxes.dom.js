@@ -15,16 +15,13 @@ domready(async () => {
       new CheckCheckbox(checkboxInput, openOther);
     }
 
-    const other = document.querySelector('.ons-js-other');
-    if (other) {
-      const selectAllChildrenInput = other.classList.contains('ons-js-select-all-children');
-      const otherFieldset = other.parentNode.querySelector('.ons-js-other-fieldset');
+    const otherFieldsets = [...document.querySelectorAll('.ons-js-other-fieldset')];
+    if (otherFieldsets) {
+      const CheckboxWithInnerFieldset = (await import('./checkbox-with-fieldset')).default;
 
-      if (otherFieldset) {
-        const CheckboxWithInnerFieldset = (await import('./checkbox-with-fieldset')).default;
-
-        new CheckboxWithInnerFieldset(otherFieldset, checkboxes, selectAllChildrenInput);
-      }
+      otherFieldsets.forEach(otherFieldset => {
+        new CheckboxWithInnerFieldset(otherFieldset, checkboxes);
+      });
     }
 
     const autoSelectButtons = [...document.querySelectorAll('.ons-js-auto-selector')];
