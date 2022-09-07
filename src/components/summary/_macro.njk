@@ -29,8 +29,11 @@
                                 {% if row.total %} {% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
 
                                 <div {% if row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ itemClass }}">
-                                    {% if row.errorMessage or (row.rowItems | length > 1 and row.rowTitle) %}
-                                        <div class="ons-summary__row-title ons-u-fs-r">{{ row.errorMessage or row.rowTitle }}</div>
+                                    {% if row.errorMessage %}
+                                        <div class="ons-summary__row-title--error">{{ row.errorMessage }}</div>
+                                    {% endif %}
+                                    {% if row.rowItems | length > 1 and row.rowTitle %}
+                                        <div class="ons-summary__row-title ons-u-fs-r">{{ row.rowTitle }}</div>
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}

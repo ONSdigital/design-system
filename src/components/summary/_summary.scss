@@ -94,12 +94,13 @@ $hub-row-spacing: 1.3rem;
   }
 
   &__item--error & {
-    &__row-title {
+    &__row-title--error {
       color: $color-errors;
       font-weight: 700;
       padding: $summary-row-spacing $summary-col-spacing;
     }
 
+    &__row-title,
     &__item-title,
     &__values,
     &__actions {
@@ -110,7 +111,8 @@ $hub-row-spacing: 1.3rem;
         padding-left: math.div($summary-col-spacing, 2);
         padding-right: math.div($summary-col-spacing, 2);
 
-        &:first-child {
+        &:first-child,
+        & {
           padding-left: $summary-col-spacing;
         }
 
