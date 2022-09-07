@@ -9,7 +9,7 @@ import { mapAll } from '../../tests/helpers/cheerio';
 const PARAMS = {
   id: 'main-nav',
   ariaLabel: 'Main menu',
-  currentPath: '#1',
+  currentPath: ['#1', '/sub-item-1', '/sub-item-2/child-item-1'],
   currentPageTitle: 'Main nav item 2',
   itemsList: [
     {
@@ -32,7 +32,6 @@ const PARAMS = {
     overviewURL: '#overview',
     overviewText: 'Overview',
     ariaLabel: 'Section menu',
-    currentPath: '/sub-item-1',
     itemsList: [
       {
         title: 'Sub nav item 1',
@@ -276,19 +275,9 @@ describe('macro: navigation', () => {
     });
 
     it('has the active class on the correct item when multiple current paths are provided', () => {
-      const $ = cheerio.load(
-        renderComponent('navigation', {
-          navigation: {
-            ...PARAMS,
-            subNavigation: {
-              ...PARAMS.subNavigation,
-              currentPath: ['/sub-item-2', '/sub-item-2/child-item-2'],
-            },
-          },
-        }),
-      );
+      const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
-      expect($('#sub-nav .ons-navigation__item--active > #sub-item-2').length).toBe(1);
+      expect($('#sub-nav .ons-navigation__item--active > #sub-item-1').length).toBe(1);
     });
   });
 
@@ -332,19 +321,9 @@ describe('macro: navigation', () => {
     });
 
     it('has the active class on the correct item when multiple current paths are provided', () => {
-      const $ = cheerio.load(
-        renderComponent('navigation', {
-          navigation: {
-            ...PARAMS,
-            subNavigation: {
-              ...PARAMS.subNavigation,
-              currentPath: ['/sub-item-2', '/sub-item-2/child-item-2'],
-            },
-          },
-        }),
-      );
+      const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
-      expect($('#sub-nav--mobile .ons-navigation__item--active > #sub-item-2--mobile').length).toBe(1);
+      expect($('#sub-nav--mobile .ons-navigation__item--active > #sub-item-1--mobile').length).toBe(1);
     });
 
     it('has the correct text for the child section title', () => {
@@ -368,19 +347,9 @@ describe('macro: navigation', () => {
     });
 
     it('has the active class on the correct child item', () => {
-      const $ = cheerio.load(
-        renderComponent('navigation', {
-          navigation: {
-            ...PARAMS,
-            subNavigation: {
-              ...PARAMS.subNavigation,
-              currentPath: ['/sub-item-2', '/sub-item-2/child-item-2'],
-            },
-          },
-        }),
-      );
+      const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
 
-      expect($('#sub-nav--mobile .ons-navigation__item--active > #child-item-2').length).toBe(1);
+      expect($('#sub-nav--mobile .ons-navigation__item--active > #child-item-1').length).toBe(1);
     });
   });
 });
