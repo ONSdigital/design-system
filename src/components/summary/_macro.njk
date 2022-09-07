@@ -30,9 +30,7 @@
 
                                 <div {% if row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ itemClass }}">
                                     {% if row.errorMessage or (row.rowItems | length > 1 and row.rowTitle) %}
-                                        <div>
-                                            <dt class="ons-summary__row-title ons-u-fs-r">{{ row.errorMessage or row.rowTitle }}</dt>
-                                        </div>
+                                        <div class="ons-summary__row-title ons-u-fs-r">{{ row.errorMessage or row.rowTitle }}</div>
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
