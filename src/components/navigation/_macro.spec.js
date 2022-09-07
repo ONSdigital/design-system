@@ -269,8 +269,14 @@ describe('macro: navigation', () => {
     });
 
     it('has the active class on the correct item when a single current path is provided', () => {
-      const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
-
+      const $ = cheerio.load(
+        renderComponent('navigation', {
+          navigation: {
+            ...PARAMS,
+            currentPath: '/sub-item-1',
+          },
+        }),
+      );
       expect($('#sub-nav .ons-navigation__item--active > #sub-item-1').length).toBe(1);
     });
 
@@ -315,8 +321,14 @@ describe('macro: navigation', () => {
     });
 
     it('has the active class on the correct item when a single current path is provided', () => {
-      const $ = cheerio.load(renderComponent('navigation', { navigation: PARAMS }));
-
+      const $ = cheerio.load(
+        renderComponent('navigation', {
+          navigation: {
+            ...PARAMS,
+            currentPath: '/sub-item-1',
+          },
+        }),
+      );
       expect($('#sub-nav--mobile .ons-navigation__item--active > #sub-item-1--mobile').length).toBe(1);
     });
 
