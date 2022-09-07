@@ -1,10 +1,12 @@
 ---
-title: "Example: First-person relationship question"
+title: "Example: Third-person relationship question"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/relationships/_macro.njk" import onsRelationships %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/lists/_macro.njk" import onsList %}
 
 {% set pageConfig = {
     "header": {
@@ -22,8 +24,29 @@ layout: none
 } %}
 
 {% block main %}
+
+    {% call
+        onsPanel({
+            title: "There is a problem with your answer",
+            type: "error",
+            "dsExample": isPatternLib
+        })
+    %}
+    {{
+        onsList({
+            "element": "ol",
+            "itemsList": [
+                {
+                    "text": "Select a relationship",
+                    "url": "#relationship-error",
+                    "variants": "inPageLink"
+                }
+            ]
+        })
+    }}
+    {% endcall %}
     {% call onsQuestion({
-        "title": "Joe Bloggs is your <em>…</em>",
+        "title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>…</em>",
         "description": "<p>Complete the sentence by selecting the appropriate relationship</p>",
         "readDescriptionFirst": true,
         "legendIsQuestionTitle": true,
@@ -31,11 +54,13 @@ layout: none
         "submitButton": true
     }) %}
         {{ onsRelationships({
-            "legend": "Joe Bloggs is your <em>…</em>",
-            "legendClasses": "ons-u-vh",
-            "playback": "Joe Bloggs is your <em>…</em>",
+            "playback": "Amanda Bloggs is Joe Bloggs' <em>…</em>",
             "name": "relationship",
             "dontWrap": true,
+            "error": {
+                "id": "relationship-error",
+                "text": "Select a relationship"
+            },
             "radios": [
                 {
                     "id": "husband-wife",
@@ -44,8 +69,8 @@ layout: none
                         "text": "Husband or wife"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>husband or wife</em>",
-                        "data-playback": "Joe Bloggs is your <em>husband or wife</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>husband or wife</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>husband or wife</em>"
                     }
                 },
                 {
@@ -55,8 +80,8 @@ layout: none
                         "text": "Legally registered civil partner"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>legally registered civil partner</em>",
-                        "data-playback": "Joe Bloggs is your <em>legally registered civil partner</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>legally registered civil partner</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>legally registered civil partner</em>"
                     }
                 },
                 {
@@ -66,8 +91,8 @@ layout: none
                         "text": "Partner"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>partner</em>",
-                        "data-playback": "Joe Bloggs is your <em>partner</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>partner</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>partner</em>"
                     }
                 },
                 {
@@ -77,8 +102,8 @@ layout: none
                         "text": "Son or daughter"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>son or daughter</em>",
-                        "data-playback": "Joe Bloggs is your <em>son or daughter</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>son or daughter</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>son or daughter</em>"
                     }
                 },
                 {
@@ -88,8 +113,8 @@ layout: none
                         "text": "Stepchild"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>stepchild</em>",
-                        "data-playback": "Joe Bloggs is your <em>stepchild</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepchild</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>stepchild</em>"
                     }
                 },
                 {
@@ -99,8 +124,8 @@ layout: none
                         "text": "Brother or sister"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>brother or sister</em>",
-                        "data-playback": "Joe Bloggs is your <em>brother or sister</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>brother or sister</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>brother or sister</em>"
                     }
                 },
                 {
@@ -110,8 +135,8 @@ layout: none
                         "text": "Stepbrother or stepsister"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>stepbrother or sister</em>",
-                        "data-playback": "Joe Bloggs is your <em>stepbrother or sister</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepbrother or sister</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>stepbrother or sister</em>"
                     }
                 },
                 {
@@ -121,8 +146,8 @@ layout: none
                         "text": "Mother or father"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>mother or father</em>",
-                        "data-playback": "Joe Bloggs is your <em>mother or father</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>mother or father</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>mother or father</em>"
                     }
                 },
                 {
@@ -132,8 +157,8 @@ layout: none
                         "text": "Stepmother or stepfather"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>stepmother or stepfather</em>",
-                        "data-playback": "Joe Bloggs is your <em>stepmother or stepfather</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>stepmother or stepfather</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>stepmother or stepfather</em>"
                     }
                 },
                 {
@@ -143,8 +168,8 @@ layout: none
                         "text": "Grandchild"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>grandchild</em>",
-                        "data-playback": "Joe Bloggs is your <em>grandchild</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>grandchild</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>grandchild</em>"
                     }
                 },
                 {
@@ -154,8 +179,8 @@ layout: none
                         "text": "Grandparent"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>grandparent</em>",
-                        "data-playback": "Joe Bloggs is your <em>grandparent</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>grandparents</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>grandparents</em>"
                     }
                 },
                 {
@@ -165,8 +190,8 @@ layout: none
                         "text": "Other relation"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is your <em>other relation</em>",
-                        "data-playback": "Joe Bloggs is your <em>other relation</em>"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is their <em>other relation</em>",
+                        "data-playback": "Amanda Bloggs is Joe Bloggs' <em>other relation</em>"
                     }
                 },
                 {
@@ -177,8 +202,8 @@ layout: none
                         "description": "Including foster child"
                     },
                     "attributes": {
-                        "data-title": "Joe Bloggs is <em>unrelated</em> to you",
-                        "data-playback": "Joe Bloggs is <em>unrelated</em> to you"
+                        "data-title": "Thinking of Joe Bloggs, Amanda Bloggs is <em>unrelated</em> to Joe Bloggs",
+                        "data-playback": "Amanda Bloggs is <em>unrelated</em> to Joe Bloggs"
                     }
                 }
             ]

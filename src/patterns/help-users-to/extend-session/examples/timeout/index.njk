@@ -1,4 +1,5 @@
 ---
+title: "Example: Extend a session"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
@@ -8,7 +9,9 @@ layout: none
 {% from "components/timeout-modal/_macro.njk" import onsTimeoutModal %}
 
 {% set pageConfig = {
-    "title": "Extend a session",
+    "header": {
+        "title": "Extend a session"
+    },
     "signoutButton": {
         "text": "Save and sign out",
         "iconType": "exit",

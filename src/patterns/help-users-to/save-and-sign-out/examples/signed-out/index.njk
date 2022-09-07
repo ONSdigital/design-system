@@ -1,11 +1,14 @@
 ---
+title: "Example: Save and sign out confirmation"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 {% set pageConfig = {
-    "title": "Service name",
+    "header": {
+        "title": "Service name"
+    },
     "footer": {
         "rows": [
             {
@@ -35,7 +38,8 @@ layout: none
         "type": "success",
         "classes": "ons-u-mb-m",
         "iconType": "check",
-        "iconSize": "xl"
+        "iconSize": "xl",
+        "dsExample": true
     }) %}
         <h1>Your progress has been saved</h1>
     {% endcall %}
