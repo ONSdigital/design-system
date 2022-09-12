@@ -47,7 +47,7 @@ const EXAMPLE_QUESTION_BUTTON = {
   ...EXAMPLE_QUESTION_BASIC,
   submitButton: {
     id: 'button-id',
-    submitType: 'button',
+    variants: 'timer',
     text: 'Button text',
   },
 };
@@ -252,7 +252,7 @@ describe('macro: question', () => {
 
       faker.renderComponent('question', EXAMPLE_QUESTION_BUTTON);
 
-      expect(buttonSpy.occurrences[0]).toHaveProperty('submitType', 'button');
+      expect(buttonSpy.occurrences[0]).toHaveProperty('variants', 'timer');
       expect(buttonSpy.occurrences[0]).toHaveProperty('id', 'button-id');
       expect(buttonSpy.occurrences[0]).toHaveProperty('text', 'Button text');
     });
