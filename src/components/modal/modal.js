@@ -8,6 +8,7 @@ export default class Modal {
     this.component = component;
     this.launcher = document.querySelector(`[data-modal-id=${component.id}]`);
     this.closeButton = component.querySelector('.ons-js-modal-btn');
+    this.setGaAttributes = component.getAttribute('data-enable-ga');
     this.lastFocusedEl = null;
     this.dialogCSSSupported = true;
     this.initialise();
@@ -60,6 +61,17 @@ export default class Modal {
       } else {
         this.component.showModal();
       }
+
+      if (this.setGaAttributes) {
+        if (event) {
+          this.component.setAttribute('data-ga', 'click');
+          this.component.setAttribute('data-ga-action', 'Modal opened by click event');
+        } else {
+          this.component.setAttribute('data-ga-action', 'Modal opened by timed event');
+        }
+        this.component.setAttribute('data-ga-label', 'Modal opened');
+        this.component.setAttribute('data-ga-category', 'modal');
+      }
     }
   }
 
@@ -96,6 +108,17 @@ export default class Modal {
 
       this.component.close();
       this.setFocusOnLastFocusedEl(this.lastFocusedEl);
+
+      if (this.setGaAttributes) {
+        if (event) {
+          this.component.setAttribute('data-ga', 'click');
+          this.component.setAttribute('data-ga-action', 'Modal closed by click event');
+        } else {
+          this.component.setAttribute('data-ga-action', 'Modal closed by timed event');
+        }
+        this.component.setAttribute('data-ga-label', 'Modal closed');
+        this.component.setAttribute('data-ga-category', 'modal');
+      }
     }
   }
 }
