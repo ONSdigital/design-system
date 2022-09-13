@@ -11,6 +11,8 @@ export default class Modal {
     this.setGaAttributes = component.getAttribute('data-enable-ga');
     this.lastFocusedEl = null;
     this.dialogCSSSupported = true;
+    this.modalType = this.component.classList.contains('ons-js-timeout-modal') ? 'Timeout' : 'Generic';
+
     this.initialise();
   }
 
@@ -70,7 +72,7 @@ export default class Modal {
           this.component.setAttribute('data-ga-action', 'Modal opened by timed event');
         }
         this.component.setAttribute('data-ga-label', 'Modal opened');
-        this.component.setAttribute('data-ga-category', 'modal');
+        this.component.setAttribute('data-ga-category', `${this.modalType} modal`);
       }
     }
   }
@@ -117,7 +119,7 @@ export default class Modal {
           this.component.setAttribute('data-ga-action', 'Modal closed by timed event');
         }
         this.component.setAttribute('data-ga-label', 'Modal closed');
-        this.component.setAttribute('data-ga-category', 'modal');
+        this.component.setAttribute('data-ga-category', `${this.modalType} modal`);
       }
     }
   }
