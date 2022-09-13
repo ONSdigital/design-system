@@ -37,76 +37,72 @@
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
-                                        {# {% if row.errorMessage or row.rowItems | length > 1 %} #}
-                                            <div class="ons-summary__row"{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>
-                                        {# {% endif %} #}
-                                        <dt class="ons-summary__item-title{% if not rowItem.actions %} ons-summary__item-title--2{% endif %}"
-                                            {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
-                                        >
-                                            {% if rowItem.iconType %}
-                                                {% from "components/icons/_macro.njk" import onsIcon %}
-                                                <span class="ons-summary__item-title-icon{% if rowItem.iconType == 'check' %} ons-summary__item-title-icon--check{% endif %}">
-                                                    {{
-                                                        onsIcon({
-                                                            "iconType": rowItem.iconType
-                                                        })
-                                                    }}
-                                                </span>
-                                            {% endif %}
-
-                                            <div class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType else "" }}">
-                                                {{- rowItem.rowTitle | default(row.rowTitle) | safe -}}
-                                            </div>
-
-                                            {# Render section status for mobile if is hub #}
-                                            {% if params.hub and rowItem.valueList %}
-                                                <span class="ons-u-d-no@m ons-u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
-                                            {% endif %}
-                                        </dt>
-                                        {% if rowItem.valueList %}
-                                            <dd
-                                                class="ons-summary__values{% if not rowItem.actions %} ons-summary__values--2{% endif %}"
-                                                {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                        <div class="ons-summary__row"{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>
+                                            <dt class="ons-summary__item-title{% if not rowItem.actions %} ons-summary__item-title--2{% endif %}"
+                                                {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
-                                                {% if rowItem.valueList | length == 1 %}
-                                                    <span class="ons-summary__text">{{ rowItem.valueList[0].text | safe }}</span>
-                                                    {% if rowItem.valueList[0].other or rowItem.valueList[0].other == 0 %}
+                                                {% if rowItem.iconType %}
+                                                    {% from "components/icons/_macro.njk" import onsIcon %}
+                                                    <span class="ons-summary__item-title-icon{% if rowItem.iconType == 'check' %} ons-summary__item-title-icon--check{% endif %}">
+                                                        {{
+                                                            onsIcon({
+                                                                "iconType": rowItem.iconType
+                                                            })
+                                                        }}
+                                                    </span>
+                                                {% endif %}
+
+                                                <div class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType else "" }}">
+                                                    {{- rowItem.rowTitle | default(row.rowTitle) | safe -}}
+                                                </div>
+
+                                                {# Render section status for mobile if is hub #}
+                                                {% if params.hub and rowItem.valueList %}
+                                                    <span class="ons-u-d-no@m ons-u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
+                                                {% endif %}
+                                            </dt>
+                                            {% if rowItem.valueList %}
+                                                <dd
+                                                    class="ons-summary__values{% if not rowItem.actions %} ons-summary__values--2{% endif %}"
+                                                    {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                                >
+                                                    {% if rowItem.valueList | length == 1 %}
+                                                        <span class="ons-summary__text">{{ rowItem.valueList[0].text | safe }}</span>
+                                                        {% if rowItem.valueList[0].other or rowItem.valueList[0].other == 0 %}
+                                                            <ul class="ons-u-mb-no">
+                                                                <li>{{ rowItem.valueList[0].other | safe }}</li>
+                                                            </ul>
+                                                        {% endif %}
+                                                    {% else %}
                                                         <ul class="ons-u-mb-no">
-                                                            <li>{{ rowItem.valueList[0].other | safe }}</li>
+                                                            {% for value in (rowItem.valueList if rowItem.valueList is iterable else rowItem.valueList.items()) %}
+                                                                <li>
+                                                                    <span class="ons-summary__text">{{ value.text | safe }}</span>
+                                                                    {% if value.other or value.other == 0 %}
+                                                                        <ul class="ons-u-mb-no">
+                                                                            <li>{{ value.other | safe }}</li>
+                                                                        </ul>
+                                                                    {% endif %}
+                                                                </li>
+                                                            {% endfor %}
                                                         </ul>
                                                     {% endif %}
-                                                {% else %}
-                                                    <ul class="ons-u-mb-no">
-                                                        {% for value in (rowItem.valueList if rowItem.valueList is iterable else rowItem.valueList.items()) %}
-                                                            <li>
-                                                                <span class="ons-summary__text">{{ value.text | safe }}</span>
-                                                                {% if value.other or value.other == 0 %}
-                                                                    <ul class="ons-u-mb-no">
-                                                                        <li>{{ value.other | safe }}</li>
-                                                                    </ul>
-                                                                {% endif %}
-                                                            </li>
-                                                        {% endfor %}
-                                                    </ul>
-                                                {% endif %}
-                                            </dd>
-                                        {% endif %}
-                                        {% if rowItem.actions %}
-                                            <dd class="ons-summary__actions">
-                                                {% for action in (rowItem.actions if rowItem.actions is iterable else rowItem.actions.items()) %}
-                                                    {% if loop.index > 1 %}<span class="ons-summary__spacer"></span>{% endif %}
-                                                    <a
-                                                        href="{{ action.url }}"
-                                                        class="ons-summary__button"
-                                                        {% if action.ariaLabel %} aria-label="{{ action.ariaLabel }}"{% endif %}
-                                                        {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
-                                                    >{{ action.text }}</a>
-                                                {% endfor %}
-                                            </dd>
-                                        {% endif %}
-                                        {# {% if row.errorMessage or row.rowItems | length > 1 %} #}
-                                            </div>
-                                        {# {% endif %} #}
+                                                </dd>
+                                            {% endif %}
+                                            {% if rowItem.actions %}
+                                                <dd class="ons-summary__actions">
+                                                    {% for action in (rowItem.actions if rowItem.actions is iterable else rowItem.actions.items()) %}
+                                                        {% if loop.index > 1 %}<span class="ons-summary__spacer"></span>{% endif %}
+                                                        <a
+                                                            href="{{ action.url }}"
+                                                            class="ons-summary__button"
+                                                            {% if action.ariaLabel %} aria-label="{{ action.ariaLabel }}"{% endif %}
+                                                            {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
+                                                        >{{ action.text }}</a>
+                                                    {% endfor %}
+                                                </dd>
+                                            {% endif %}
+                                        </div>
                                     {% endfor %}
                                 </div>
                             {% endfor %}
