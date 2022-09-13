@@ -65,7 +65,7 @@ export default class Modal {
       if (this.setGaAttributes) {
         if (event) {
           this.component.setAttribute('data-ga', 'click');
-          this.component.setAttribute('data-ga-action', 'Modal opened by click event');
+          this.component.setAttribute('data-ga-action', `Modal opened by ${event.type} event`);
         } else {
           this.component.setAttribute('data-ga-action', 'Modal opened by timed event');
         }
@@ -112,7 +112,7 @@ export default class Modal {
       if (this.setGaAttributes) {
         if (event) {
           this.component.setAttribute('data-ga', 'click');
-          this.component.setAttribute('data-ga-action', 'Modal closed by click event');
+          this.component.setAttribute('data-ga-action', `Modal closed by ${event.type} event`);
         } else {
           this.component.setAttribute('data-ga-action', 'Modal closed by timed event');
         }
