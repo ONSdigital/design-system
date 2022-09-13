@@ -30,15 +30,17 @@
 
                                 <div {% if row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ itemClass }}">
                                     {% if row.errorMessage %}
-                                        <div class="ons-summary__row-title--error">{{ row.errorMessage }}</div>
+                                        <div class="ons-summary__row-title--error ons-u-fs-r">{{ row.errorMessage }}</div>
                                     {% endif %}
                                     {% if row.rowItems | length > 1 and row.rowTitle %}
                                         <div class="ons-summary__row-title ons-u-fs-r">{{ row.rowTitle }}</div>
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
-                                        {% if row.errorMessage or row.rowItems | length > 1 %}<div{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>{% endif %}
-                                        <dt class="ons-summary__item-title"
+                                        {# {% if row.errorMessage or row.rowItems | length > 1 %} #}
+                                            <div class="ons-summary__row"{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>
+                                        {# {% endif %} #}
+                                        <dt class="ons-summary__item-title{% if not rowItem.actions %} ons-summary__item-title--2{% endif %}"
                                             {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                         >
                                             {% if rowItem.iconType %}
@@ -58,12 +60,12 @@
 
                                             {# Render section status for mobile if is hub #}
                                             {% if params.hub and rowItem.valueList %}
-                                                <span class="ons-u-d-no@s ons-u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
+                                                <span class="ons-u-d-no@m ons-u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
                                             {% endif %}
                                         </dt>
                                         {% if rowItem.valueList %}
                                             <dd
-                                                class="ons-summary__values"
+                                                class="ons-summary__values{% if not rowItem.actions %} ons-summary__values--2{% endif %}"
                                                 {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
                                                 {% if rowItem.valueList | length == 1 %}
@@ -102,7 +104,9 @@
                                                 {% endfor %}
                                             </dd>
                                         {% endif %}
-                                        {% if row.errorMessage or row.rowItems | length > 1 %}</div>{% endif %}
+                                        {# {% if row.errorMessage or row.rowItems | length > 1 %} #}
+                                            </div>
+                                        {# {% endif %} #}
                                     {% endfor %}
                                 </div>
                             {% endfor %}

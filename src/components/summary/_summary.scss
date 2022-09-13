@@ -8,7 +8,8 @@ $hub-row-spacing: 1.3rem;
   &__items {
     border-collapse: collapse;
     border-spacing: 0;
-    display: table;
+    display: flex;
+    flex-direction: column;
     margin: 0;
     width: 100%;
 
@@ -17,8 +18,11 @@ $hub-row-spacing: 1.3rem;
     }
   }
 
+  &__row {
+    display: flex;
+  }
+
   &__item {
-    display: table-row;
     line-height: 1.4;
 
     &:not(:last-child),
@@ -31,6 +35,10 @@ $hub-row-spacing: 1.3rem;
 
       border-width: 2px;
       font-weight: 700;
+
+      .ons-summary__values {
+        padding-top: 25px;
+      }
     }
 
     &--error {
@@ -47,8 +55,8 @@ $hub-row-spacing: 1.3rem;
   &__item-title,
   &__values,
   &__actions {
-    display: table-cell;
     hyphens: manual;
+    margin: 0;
     overflow-wrap: break-word;
     padding: 0 0 $summary-row-spacing;
     vertical-align: top;
@@ -143,7 +151,7 @@ $hub-row-spacing: 1.3rem;
   }
 
   // Breakpoints
-  @include mq(xxs, s, none, '<') {
+  @include mq(xxs, m, none, '<') {
     &__item-title,
     &__values,
     &__actions {
@@ -155,12 +163,17 @@ $hub-row-spacing: 1.3rem;
         display: none;
       }
     }
+
+    &__row {
+      flex-direction: column;
+    }
   }
 
-  @include mq(s) {
+  @include mq(m) {
     &__item-title,
     &__values,
     &__actions {
+      flex: 2;
       padding-top: $summary-row-spacing;
       vertical-align: top;
 
@@ -170,12 +183,17 @@ $hub-row-spacing: 1.3rem;
     }
 
     &__actions {
-      text-align: right;
+      display: flex;
+      justify-content: right;
     }
 
     &__item-title,
     &__values {
-      width: 50%;
+      flex: 6.19;
+    }
+
+    &__item-title--2 {
+      flex: 4.5;
     }
 
     &--hub & {
@@ -183,6 +201,14 @@ $hub-row-spacing: 1.3rem;
       &__values,
       &__actions {
         padding-top: $hub-row-spacing;
+      }
+
+      &__actions {
+        flex: 7 1;
+      }
+
+      &__actions {
+        flex: 6;
       }
     }
   }
