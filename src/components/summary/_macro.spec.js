@@ -162,7 +162,7 @@ const EXAMPLE_SUMMARY_WITH_NO_ROWS = {
   ],
 };
 
-describe.only('macro: summary', () => {
+describe('macro: summary', () => {
   describe('mode: general', () => {
     it('passes jest-axe checks', async () => {
       const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
