@@ -29,6 +29,10 @@ export default class Modal {
     if (this.closeButton) {
       this.closeButton.addEventListener('click', this.closeDialog.bind(this));
     }
+
+    if (this.modalType !== 'Timeout') {
+      window.addEventListener('keydown', this.escToClose.bind(this));
+    }
   }
 
   dialogSupported() {
@@ -66,12 +70,11 @@ export default class Modal {
 
       if (this.setGaAttributes) {
         if (event) {
-          this.component.setAttribute('data-ga', 'click');
           this.component.setAttribute('data-ga-action', `Modal opened by ${event.type} event`);
         } else {
           this.component.setAttribute('data-ga-action', 'Modal opened by timed event');
         }
-        this.component.setAttribute('data-ga-label', 'Modal opened');
+        this.component.setAttribute('data-ga-label', `${this.modalType} modal opened`);
         this.component.setAttribute('data-ga-category', `${this.modalType} modal`);
       }
     }
@@ -113,14 +116,19 @@ export default class Modal {
 
       if (this.setGaAttributes) {
         if (event) {
-          this.component.setAttribute('data-ga', 'click');
           this.component.setAttribute('data-ga-action', `Modal closed by ${event.type} event`);
         } else {
           this.component.setAttribute('data-ga-action', 'Modal closed by timed event');
         }
-        this.component.setAttribute('data-ga-label', 'Modal closed');
+        this.component.setAttribute('data-ga-label', `${this.modalType} modal closed`);
         this.component.setAttribute('data-ga-category', `${this.modalType} modal`);
       }
+    }
+  }
+
+  escToClose(event) {
+    if (this.isDialogOpen() && event.keyCode === 27) {
+      this.closeDialog(event);
     }
   }
 }
