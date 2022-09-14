@@ -162,7 +162,7 @@ const EXAMPLE_SUMMARY_WITH_NO_ROWS = {
   ],
 };
 
-describe('macro: summary', () => {
+describe.only('macro: summary', () => {
   describe('mode: general', () => {
     it('passes jest-axe checks', async () => {
       const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
@@ -203,36 +203,28 @@ describe('macro: summary', () => {
     });
 
     describe('part: row', () => {
-      it('has the `headers` values displayed in th elements', () => {
-        const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
-
-        expect($('.ons-summary__items thead tr th:nth-child(1)').text()).toBe('Header 1');
-        expect($('.ons-summary__items thead tr th:nth-child(2)').text()).toBe('Header 2');
-        expect($('.ons-summary__items thead tr th:nth-child(3)').text()).toBe('Header 3');
-      });
-
       it('has the correct row class when `error` is `true`', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect($('.ons-summary__items tbody:nth-of-type(2)').hasClass('ons-summary__item--error')).toBe(true);
+        expect($('.ons-summary__items .ons-summary__item:nth-of-type(2)').hasClass('ons-summary__item--error')).toBe(true);
       });
 
       it('has the correct row class when `total` is `true`', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect($('.ons-summary__items tbody:nth-of-type(4)').hasClass('ons-summary__item--total')).toBe(true);
+        expect($('.ons-summary__items .ons-summary__item:nth-of-type(4)').hasClass('ons-summary__item--total')).toBe(true);
       });
 
       it('displays the `rowTitle` text', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect($('.ons-summary__items tbody:nth-of-type(3) .ons-summary__row-title').text()).toBe('row title 3');
+        expect($('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__row-title').text()).toBe('row title 3');
       });
 
       it('overrides the `rowTitle` with the `errorMessage` if provided', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_WITH_TITLE));
 
-        expect($('.ons-summary__items tbody:nth-of-type(2) .ons-summary__row-title').text()).toBe('there are errors');
+        expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__row-title--error').text()).toBe('there are errors');
       });
 
       it('has the correct row `id` for each row', () => {
@@ -262,7 +254,7 @@ describe('macro: summary', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
         expect(
-          $('.ons-summary__items tbody:nth-of-type(1) .ons-summary__item--text')
+          $('.ons-summary__items .ons-summary__item:nth-of-type(1) .ons-summary__item--text')
             .text()
             .trim(),
         ).toBe('row title 1');
@@ -289,12 +281,6 @@ describe('macro: summary', () => {
         expect($('.ons-summary__item--text').hasClass('ons-summary__item-title--text')).toBe(true);
       });
 
-      it('has a colspan attribute on the values td if there are no `actions`', () => {
-        const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
-
-        expect($('.ons-summary__items tbody:nth-of-type(1) .ons-summary__values').attr('colspan')).toBe('2');
-      });
-
       it('has custom `attributes`', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
@@ -308,7 +294,7 @@ describe('macro: summary', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
         expect(
-          $('.ons-summary__items tbody:nth-of-type(1) tr .ons-summary__values .ons-summary__text')
+          $('.ons-summary__items .ons-summary__item:nth-of-type(1) dl .ons-summary__values .ons-summary__text')
             .text()
             .trim(),
         ).toBe('row value 1');
@@ -318,7 +304,7 @@ describe('macro: summary', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
         expect(
-          $('.ons-summary__items tbody:nth-of-type(1) tr .ons-summary__values ul li')
+          $('.ons-summary__items .ons-summary__item:nth-of-type(1) dl .ons-summary__values ul li')
             .text()
             .trim(),
         ).toBe('other value');
@@ -327,7 +313,7 @@ describe('macro: summary', () => {
       it('wraps the `valueList` in a ul if multiple values provided', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect($('.ons-summary__items tbody:nth-of-type(3) .ons-summary__values ul').length).toBe(1);
+        expect($('.ons-summary__items .ons-summary__item:nth-of-type(3) .ons-summary__values ul').length).toBe(1);
       });
     });
 
@@ -335,43 +321,55 @@ describe('macro: summary', () => {
       it('has a spacer element if multiple actions are provided', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect($('.ons-summary__items tbody:nth-of-type(2) .ons-summary__actions .ons-summary__spacer').length).toBe(1);
+        expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__spacer').length).toBe(1);
       });
 
       it('has the correct `url` for each action provided', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect($('.ons-summary__items tbody:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').attr('href')).toBe(
-          '#1',
-        );
-        expect($('.ons-summary__items tbody:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').attr('href')).toBe('#2');
+        expect(
+          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').attr('href'),
+        ).toBe('#1');
+        expect(
+          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').attr('href'),
+        ).toBe('#2');
       });
 
       it('has the action `text` for each action provided', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect($('.ons-summary__items tbody:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').text()).toBe(
-          'Action 1',
-        );
-        expect($('.ons-summary__items tbody:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').text()).toBe('Action 2');
+        expect(
+          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').text(),
+        ).toBe('Action 1');
+        expect(
+          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').text(),
+        ).toBe('Action 2');
       });
 
       it('has the `aria-label` provided', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
         expect(
-          $('.ons-summary__items tbody:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').attr('aria-label'),
+          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').attr(
+            'aria-label',
+          ),
         ).toBe('action aria label 1');
-        expect($('.ons-summary__items tbody:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').attr('aria-label')).toBe(
-          'action aria label 2',
-        );
+        expect(
+          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:last-child').attr(
+            'aria-label',
+          ),
+        ).toBe('action aria label 2');
       });
 
       it('has custom `attributes`', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
-        expect($('.ons-summary__items tbody:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').attr('a')).toBe('abc');
-        expect($('.ons-summary__items tbody:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').attr('b')).toBe('def');
+        expect(
+          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').attr('a'),
+        ).toBe('abc');
+        expect(
+          $('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__actions .ons-summary__button:first-child').attr('b'),
+        ).toBe('def');
       });
     });
   });
@@ -423,7 +421,9 @@ describe('macro: summary', () => {
         }),
       );
 
-      expect($('.ons-summary__items tbody:nth-of-type(2) .ons-summary__item-title span').text()).toBe(' — row value 2');
+      expect($('.ons-summary__items .ons-summary__item:nth-of-type(2) .ons-summary__row .ons-summary__item-title span').text()).toBe(
+        ' — row value 2',
+      );
     });
   });
 
