@@ -21,7 +21,7 @@
                         <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
                     {% if group.headers and group.rows %}
-                        <dl class="ons-summary__items">
+                        <div class="ons-summary__items">
 
                             {% for row in (group.rows if group.rows is iterable else group.rows.items()) %}
                                 {% set itemClass = "" %}
@@ -37,7 +37,7 @@
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
-                                        <div class="ons-summary__row"{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>
+                                        <dl class="ons-summary__row"{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>
                                             <dt class="ons-summary__item-title{% if not rowItem.actions %} ons-summary__item-title--2{% endif %}"
                                                 {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
@@ -102,11 +102,11 @@
                                                     {% endfor %}
                                                 </dd>
                                             {% endif %}
-                                        </div>
+                                        </dl>
                                     {% endfor %}
                                 </div>
                             {% endfor %}
-                        </dl>
+                        </div>
                     {% elif group.placeholderText %}
                         <span class="ons-summary__placeholder">{{ group.placeholderText }}</span>
                     {% endif %}
