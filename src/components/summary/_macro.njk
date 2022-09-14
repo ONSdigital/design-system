@@ -63,7 +63,7 @@
                                             </dt>
                                             {% if rowItem.valueList %}
                                                 <dd
-                                                    class="ons-summary__values{% if not rowItem.actions %} ons-summary__values--2{% endif %}"
+                                                    class="ons-summary__values"
                                                     {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                                 >
                                                     {% if rowItem.valueList | length == 1 %}
