@@ -5,15 +5,25 @@
 
     <div class="ons-search-component">
         {{ content | safe }}
+            
+        {%- set buttonLabel -%}
+            {%- if params.searchButton.visuallyHideLabel == true -%}
+                <span class="ons-u-vh">{{ params.searchButton.text }}</span>
+            {%- else -%}
+                {{ params.searchButton.text }}
+            {%- endif -%}
+        {%- endset -%}
+
         {{
             onsButton({
                 "type": params.searchButton.type,
-                "text": params.searchButton.text,
+                "html": buttonLabel,
                 "id": params.searchButton.id,
                 "variants": 'small',
                 "classes": 'ons-search__btn ons-u-mt-xs@xxs@s' + (" " + params.searchButton.classes if params.searchButton.classes else ""),
                 "attributes": params.searchButton.attributes,
-                "iconType": params.searchButton.iconType
+                "iconType": params.searchButton.iconType,
+                "iconPosition": 'only' if params.searchButton.visuallyHideLabel == true else 'before'
             })
         }}
     </div>

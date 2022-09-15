@@ -41,6 +41,7 @@ const EXAMPLE_WITH_SEARCH = {
     attributes: { a: 42 },
     classes: 'extra-search-button-class',
     iconType: 'search',
+    visuallyHideLabel: true,
   },
 };
 
@@ -540,6 +541,7 @@ describe('macro: input', () => {
           attributes: { a: 42 },
           classes: 'extra-search-button-class',
           iconType: 'search',
+          visuallyHideLabel: true,
         },
       });
     });
