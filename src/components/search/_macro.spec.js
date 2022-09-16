@@ -52,7 +52,7 @@ describe('macro: search', () => {
         type: 'button',
         text: 'Search for address',
         iconType: 'search',
-        visuallyHideLabel: true,
+        visuallyHideButtonText: true,
       },
     });
 

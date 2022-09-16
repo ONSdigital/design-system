@@ -7,7 +7,7 @@
         {{ content | safe }}
             
         {%- set buttonLabel -%}
-            {%- if params.searchButton.visuallyHideLabel == true -%}
+            {%- if params.searchButton.visuallyHideButtonText == true -%}
                 <span class="ons-u-vh">{{ params.searchButton.text }}</span>
             {%- else -%}
                 {{ params.searchButton.text }}
@@ -23,7 +23,7 @@
                 "classes": 'ons-search__btn ons-u-mt-xs@xxs@s' + (" " + params.searchButton.classes if params.searchButton.classes else ""),
                 "attributes": params.searchButton.attributes,
                 "iconType": params.searchButton.iconType,
-                "iconPosition": 'only' if params.searchButton.visuallyHideLabel == true else 'before'
+                "iconPosition": 'only' if params.searchButton.visuallyHideButtonText == true else 'before'
             })
         }}
     </div>

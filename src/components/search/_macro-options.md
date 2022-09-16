@@ -5,7 +5,7 @@
 
 ## searchButton
 
-| Name                 | Type                                   | Required | Description                                                   |
-| -------------------- | -------------------------------------- | -------- | ------------------------------------------------------------- |
-| Button configuration | `Button` [_(ref)_](/components/button) | true     | Settings for the button.                                      |
-| visuallyHideLabel    | boolean                                | false    | Will wrap the provided `text` value in a visually hidden span |
+| Name                   | Type                                   | Required | Description                                                   |
+| ---------------------- | -------------------------------------- | -------- | ------------------------------------------------------------- |
+| Button configuration   | `Button` [_(ref)_](/components/button) | true     | Settings for the button.                                      |
+| visuallyHideButtonText | boolean                                | false    | Will wrap the provided `text` value in a visually hidden span |
