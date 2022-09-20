@@ -28,6 +28,7 @@ const terserOptions = {
 
 const sassOptions = {
   includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes'],
+  outputStyle: 'compressed',
 };
 
 const scripts = [
