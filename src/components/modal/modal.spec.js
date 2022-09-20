@@ -55,5 +55,81 @@ describe('script: modal', () => {
         expect(activeElementId).toBe('launcher');
       });
     });
+
+    describe('when the `esc` key is pressed', () => {
+      beforeEach(async () => {
+        await page.focus('.ons-js-modal-btn');
+        await page.keyboard.press('Enter');
+        await page.keyboard.press('Escape');
+      });
+
+      it('closes the modal', async () => {
+        const modalIsVisible = await page.$eval('.ons-modal', node => node.classList.contains('ons-u-db'));
+        expect(modalIsVisible).toBe(false);
+      });
+    });
+  });
+
+  describe('when GA tracking is enabled', () => {
+    beforeEach(async () => {
+      const component = renderComponent('modal', { ...EXAMPLE_MODAL, enableGA: true });
+      const template = `
+        <div class="ons-page">
+          <button id="launcher" data-modal-id="dialog">Launcher</button> 
+          ${component}
+        </div>
+    `;
+      await setTestPage('/test', template);
+    });
+
+    describe('when the modal is launched by a click event', () => {
+      beforeEach(async () => {
+        await page.focus('#launcher');
+        await page.keyboard.press('Enter');
+      });
+
+      it('has the correct attributes set on the modal', async () => {
+        const gaLabel = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-label'));
+        const gaAction = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-action'));
+        const gaCategory = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-category'));
+        expect(gaLabel).toBe('Generic modal opened');
+        expect(gaAction).toBe('Modal opened by click event');
+        expect(gaCategory).toBe('Generic modal');
+      });
+    });
+
+    describe('when the modal is closed by a click event', () => {
+      beforeEach(async () => {
+        await page.focus('#launcher');
+        await page.keyboard.press('Enter');
+        await page.click('.ons-js-modal-btn');
+      });
+
+      it('has the correct attributes set on the modal', async () => {
+        const gaLabel = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-label'));
+        const gaAction = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-action'));
+        const gaCategory = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-category'));
+        expect(gaLabel).toBe('Generic modal closed');
+        expect(gaAction).toBe('Modal closed by click event');
+        expect(gaCategory).toBe('Generic modal');
+      });
+    });
+
+    describe('when the modal is closed by `escape` keypress event', () => {
+      beforeEach(async () => {
+        await page.focus('#launcher');
+        await page.keyboard.press('Enter');
+        await page.keyboard.press('Escape');
+      });
+
+      it('has the correct attributes set on the modal', async () => {
+        const gaLabel = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-label'));
+        const gaAction = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-action'));
+        const gaCategory = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-category'));
+        expect(gaLabel).toBe('Generic modal closed');
+        expect(gaAction).toBe('Modal closed by keydown event');
+        expect(gaCategory).toBe('Generic modal');
+      });
+    });
   });
 });

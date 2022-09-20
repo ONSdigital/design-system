@@ -73,7 +73,7 @@ export default class TimeoutModal {
       time = false;
     }
     if (this.modal.isDialogOpen()) {
-      this.modal.closeDialog();
+      this.modal.closeDialog(event);
     }
     await this.timeout.restartTimeout(time);
     this.startTimeout();

@@ -223,4 +223,72 @@ describe('script: timeout modal', () => {
       });
     });
   });
+
+  describe('when GA tracking is enabled', () => {
+    beforeEach(async () => {
+      const component = renderComponent('timeout-modal', {
+        ...EXAMPLE_TIMEOUT_MODAL_BASIC,
+        showModalTimeInSeconds: 59,
+        enableGA: true,
+      });
+
+      const template = `
+          <div class="ons-page">
+            ${component}
+          </div>
+        `;
+
+      await setTestPage('/test', template);
+    });
+
+    describe('when the modal is open', () => {
+      beforeEach(async () => {
+        await page.waitForSelector('.ons-modal');
+        await page.waitForTimeout(1000);
+      });
+
+      it('has the correct attributes set on the modal', async () => {
+        const gaLabel = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-label'));
+        const gaAction = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-action'));
+        const gaCategory = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-category'));
+        expect(gaLabel).toBe('Timeout modal opened');
+        expect(gaAction).toBe('Modal opened by timed event');
+        expect(gaCategory).toBe('Timeout modal');
+      });
+    });
+
+    describe('when the modal is closed by a click event', () => {
+      beforeEach(async () => {
+        await page.waitForSelector('.ons-modal');
+        await page.waitForTimeout(1000);
+        await page.click('.ons-js-modal-btn');
+      });
+
+      it('has the correct attributes set on the modal', async () => {
+        const gaLabel = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-label'));
+        const gaAction = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-action'));
+        const gaCategory = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-category'));
+        expect(gaLabel).toBe('Timeout modal closed');
+        expect(gaAction).toBe('Modal closed by click event');
+        expect(gaCategory).toBe('Timeout modal');
+      });
+    });
+
+    describe('when the modal is closed by `escape` keypress event', () => {
+      beforeEach(async () => {
+        await page.waitForSelector('.ons-modal');
+        await page.waitForTimeout(1000);
+        await page.keyboard.press('Escape');
+      });
+
+      it('has the correct attributes set on the modal', async () => {
+        const gaLabel = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-label'));
+        const gaAction = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-action'));
+        const gaCategory = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-category'));
+        expect(gaLabel).toBe('Timeout modal closed');
+        expect(gaAction).toBe('Modal closed by keydown event');
+        expect(gaCategory).toBe('Timeout modal');
+      });
+    });
+  });
 });
