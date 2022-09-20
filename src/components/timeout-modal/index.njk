@@ -96,6 +96,19 @@ The WCAG  guidelines state:
 | Hidden interval timer  | `role="status"`                             | To make sure the hidden interval timer is read out for iOS                                            |
 | Hidden interval timer  | `aria-live="polite"`                        | To make sure the hidden interval timer does not interrupt other content being read out                |
 
+## Google analytics
+Optionally pass event tracking `data` attributes for Google Analytics by providing `enableGA: true`. Data attributes will be dynamically set for the following events:
+
+- When the modal opens via timed or click event
+- When the modal is closed via timed or click event
+- When the modal is closed via `Escape` keypress
+
+The following attributes will be set 
+
+- `data-ga-category="{modalType} modal"`
+- `data-ga-action="Modal {action} by {eventType}"`
+- `data-ga-label="{modalType} modal {action}"`
+
 ## Help improve this pattern
 Let us know how we could improve this pattern or share your user research findings.
 {{
