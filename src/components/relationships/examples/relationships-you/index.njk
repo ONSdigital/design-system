@@ -1,4 +1,5 @@
 ---
+title: "Example: First-person relationship question"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
@@ -6,7 +7,18 @@ layout: none
 {% from "components/relationships/_macro.njk" import onsRelationships %}
 
 {% set pageConfig = {
-    "title": "Relationships example"
+    "header": {
+        "title": "Relationships example"
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Previous'
+            }
+        ]
+    }
 } %}
 
 {% block main %}
@@ -15,7 +27,8 @@ layout: none
         "description": "<p>Complete the sentence by selecting the appropriate relationship</p>",
         "readDescriptionFirst": true,
         "legendIsQuestionTitle": true,
-        "legendTitleClasses": "ons-js-relationships-legend"
+        "legendTitleClasses": "ons-js-relationships-legend",
+        "submitButton": true
     }) %}
         {{ onsRelationships({
             "legend": "Joe Bloggs is your <em>…</em>",

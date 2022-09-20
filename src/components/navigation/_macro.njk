@@ -64,8 +64,9 @@
         <div class="ons-u-d-no@l{{ ' ' + params.navigation.subNavigation.classes if params.navigation.subNavigation.classes }}">
             {{ onsButton({
                 "text": params.navigation.currentPageTitle,
-                "classes": "ons-u-d-no ons-js-sub-navigation-button ons-btn--dropdown",
-                "buttonStyle": "mobile",
+                "classes": "ons-u-d-no ons-js-sub-navigation-button",
+                "type": "button",
+                "variants": ["mobile", "dropdown"],
                 "attributes": {
                     "aria-label": "Toggle section navigation",
                     "aria-controls": params.navigation.subNavigation.id,

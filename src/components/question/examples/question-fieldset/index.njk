@@ -1,4 +1,5 @@
 ---
+title: "Example: Question as a fieldset"
 layout: none
 ---
 {% extends "layout/_template.njk" %}
@@ -9,16 +10,18 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-  "title": "Question example",
-  "breadcrumbs": {
-      "ariaLabel": 'Breadcrumbs',
-      "itemsList": [
-          {
-              "url": '#0',
-              "text": 'Previous'
-          }
-      ]
-  }
+    "header": {
+        "title": "Question example"
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Previous'
+            }
+        ]
+    }
 } %}
 
 {% set questionTitle = "On 1 May 2016, what was the number of employees for Bolt and Ratchet?" %}

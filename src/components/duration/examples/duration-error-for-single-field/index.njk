@@ -1,0 +1,31 @@
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/duration/_macro.njk" import onsDuration %}
+
+{{ onsDuration({
+    "id": "travel-time",
+    "legendOrLabel": 'How long do you spend travelling to and from work each day?',
+    "legendClasses": 'ons-u-vh',
+    "error": {
+        "text": "Enter a number that is less than 60",
+        "id": "duration-error"
+    },
+    "field1": {
+        "id": "travel-time-hours",
+        "name": "travel-time-hours",
+        "suffix": {
+            "text": "Hours",
+            "id": "address-time-hours-suffix"
+        },
+        "value": "2"
+    },
+    "field2": {
+        "id": "travel-time-minutes",
+        "name": "travel-time-minutes",
+        "suffix": {
+            "text": "Minutes",
+            "id": "address-time-minutes-suffix"
+        },
+        "value": "60",
+        "error": true
+    }
+}) }}

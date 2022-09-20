@@ -105,16 +105,15 @@
                                     </div>
                                     {% if params.serviceLinks.itemsList | length > 1 or params.language %}
                                         {% if params.variants == 'internal' or params.variants == 'neutral' %}
-                                            {% set buttonVariant = ["text-link", "text-link-inverse"] %}
+                                            {% set buttonVariant = ["mobile", "text-link", "text-link-inverse"] %}
                                         {% else %}
-                                            {% set buttonVariant = "text-link" %}
+                                            {% set buttonVariant = ["mobile", "text-link"] %}
                                         {% endif %}
                                         <div class="ons-grid__col ons-col-auto ons-u-d-no@{{ breakpoint }}">
                                             {{ onsButton({
                                                 "text": params.serviceLinks.toggleServicesButton.text | default("Account"),
                                                 "classes": "ons-u-d-no ons-js-toggle-services",
                                                 "type": "button",
-                                                "buttonStyle": "mobile",
                                                 "variants": buttonVariant,
                                                 "attributes": {
                                                     "aria-label": params.serviceLinks.toggleServicesButton.ariaLabel | default("Toggle menu"),
@@ -210,7 +209,7 @@
 
                     {% if params.button %}
                         {% if params.variants == 'neutral' %}
-                            {% set buttonVariant = ["ghost", "ghost-dark"] %}
+                            {% set buttonVariant = "ghost-dark" %}
                         {% else %}
                             {% set buttonVariant = "ghost" %}
                         {% endif %}
@@ -222,8 +221,8 @@
                                 "name": params.button.name,
                                 "attributes": params.button.attributes,
                                 "url": params.button.url,
-                                "iconType": params.button.iconType,
-                                "iconPosition": params.button.iconPosition
+                                "iconType": "exit",
+                                "iconPosition": "after"
                             }) }}
                         </div>
                     {% endif %}
@@ -239,7 +238,7 @@
                             {% endif %}
                             {% if params.navigation.siteSearchAutosuggest %}
                                 {% if params.variants == 'neutral' %}
-                                    {% set buttonVariant = ["small", "ghost", "ghost-dark"] %}
+                                    {% set buttonVariant = ["small", "ghost-dark"] %}
                                 {% else %}
                                     {% set buttonVariant = ["small", "ghost"] %}
                                 {% endif %}
@@ -267,7 +266,6 @@
                                 {{ onsButton({
                                     "text": params.navigation.toggleNavigationButton.text,
                                     "classes": "ons-u-ml-xs ons-u-d-no ons-js-navigation-button ons-u-d-no@l",
-                                    "buttonStyle": "mobile",
                                     "variants": buttonVariant,
                                     "attributes": {
                                         "aria-label": params.navigation.toggleNavigationButton.ariaLabel | default("Toggle main menu") ,

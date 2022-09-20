@@ -1,4 +1,5 @@
 ---
+title: "Example: Change between two languages"
 layout: none
 ---
 
@@ -6,7 +7,9 @@ layout: none
 {% extends "layout/_template.njk" %}
 
 {% set pageConfig = {
-    "title": "Enw'r gwasanaeth",
+    "header": {
+        "title": "Enw'r gwasanaeth"
+    },
     "language": {
         "languages": [
             {

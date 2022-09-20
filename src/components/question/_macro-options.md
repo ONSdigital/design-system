@@ -48,10 +48,10 @@
 
 ## SubmitButton
 
-| Name       | Type   | Required | Description                                                                                                                                                                                          |
-| ---------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| id         | string | false    | The HTML `id` of the button                                                                                                                                                                          |
-| submitType | string | false    | If set to `timer` the button will only be disabled for a short time to stop double clicks from double submitting. If set to `loader` will create a loader button that includes the loading animation |
-| text       | string | false    | Text for the button label. Defaults to “Save and continue”.                                                                                                                                          |
-| classes    | string | false    | Classes to add the button element                                                                                                                                                                    |
-| attributes | object | false    | HTML attributes (for example, data attributes) to add to the button                                                                                                                                  |
+| Name       | Type   | Required | Description                                                                                                                                                                                                       |
+| ---------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id         | string | false    | The HTML `id` of the button                                                                                                                                                                                       |
+| variants   | string | false    | If set to “timer” the button will be disabled for a short time to stop double-clicks from submitting the form twice. Setting to “loader” will disable the button when selected and show an animated loading icon. |
+| text       | string | false    | Text for the button label. Defaults to “Save and continue”.                                                                                                                                                       |
+| classes    | string | false    | Classes to add the button element                                                                                                                                                                                 |
+| attributes | object | false    | HTML attributes (for example, data attributes) to add to the button                                                                                                                                               |

@@ -66,11 +66,9 @@
 
 ## SignOutButton
 
-| Name         | Type   | Required | Description                                                                                            |
-| ------------ | ------ | -------- | ------------------------------------------------------------------------------------------------------ |
-| text         | string | true     | Text for the button                                                                                    |
-| name         | string | false    | Sets the HTML `name` attribute for the `<button>`. Not valid if `url` is set.                          |
-| url          | string | false    | If set, will create an HTML anchor link with the required classes and attributes                       |
-| iconType     | string | false    | Adds an icon to the button, before the label, by setting the [icon type](/foundations/icons#icon-type) |
-| iconPosition | string | false    | Sets the [icon position](/foundations/icons#icon-position) of the button                               |
-| attributes   | object | false    | HTML attributes (for example, data attributes) to add to the button                                    |
+| Name       | Type   | Required | Description                                                                      |
+| ---------- | ------ | -------- | -------------------------------------------------------------------------------- |
+| text       | string | true     | Text for the button                                                              |
+| name       | string | false    | Sets the HTML `name` attribute for the `<button>`. Not valid if `url` is set.    |
+| url        | string | false    | If set, will create an HTML anchor link with the required classes and attributes |
+| attributes | object | false    | HTML attributes (for example, data attributes) to add to the button              |

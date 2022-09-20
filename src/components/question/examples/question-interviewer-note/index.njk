@@ -1,6 +1,9 @@
 ---
+title: "Example: Interstitial page with interviewer note"
 layout: none
 ---
+{# TO DO: To be used in a new 'Interstitial' page pattern #}
+
 {% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
 {% from "components/collapsible/_macro.njk" import onsCollapsible %}
@@ -8,7 +11,9 @@ layout: none
 {% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
-    "title": "Interviewer led interstitial",
+    "header": {
+        "title": "Interviewer led interstitial"
+    },
     "breadcrumbs": {
         "ariaLabel": 'Breadcrumbs',
         "itemsList": [
@@ -25,7 +30,7 @@ layout: none
         "title": "<mark class=\"ons-instruction\">Interviewer note:</mark>Who to interview",
         "instruction": "<p>Only interview a person who was usually living at the property on <em>Sunday 21 March 2021</em>.</p><p>If none of those house members are available, you must save and sign out and return to the address to interview one of them at a later date.</p>",
         "submitButton": {
-            "submitType": "timer",
+            "variants": "timer",
             "text": "Continue"
         }
     }) %}
