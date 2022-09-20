@@ -51,6 +51,10 @@ $hub-row-spacing: 1.3rem;
   &__row-title {
     padding: $summary-row-spacing 0;
     text-align: left;
+
+    &--no-group-title {
+      padding-top: 0;
+    }
   }
 
   &__item-title,
