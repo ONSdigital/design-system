@@ -8,8 +8,11 @@ export default class Modal {
     this.component = component;
     this.launcher = document.querySelector(`[data-modal-id=${component.id}]`);
     this.closeButton = component.querySelector('.ons-js-modal-btn');
+    this.setGaAttributes = component.getAttribute('data-enable-ga');
     this.lastFocusedEl = null;
     this.dialogCSSSupported = true;
+    this.modalType = this.component.classList.contains('ons-js-timeout-modal') ? 'Timeout' : 'Generic';
+
     this.initialise();
   }
 
@@ -25,6 +28,10 @@ export default class Modal {
 
     if (this.closeButton) {
       this.closeButton.addEventListener('click', this.closeDialog.bind(this));
+    }
+
+    if (this.modalType !== 'Timeout') {
+      window.addEventListener('keydown', this.escToClose.bind(this));
     }
   }
 
@@ -59,6 +66,16 @@ export default class Modal {
         modal.showModal();
       } else {
         this.component.showModal();
+      }
+
+      if (this.setGaAttributes) {
+        if (event) {
+          this.component.setAttribute('data-ga-action', `Modal opened by ${event.type} event`);
+        } else {
+          this.component.setAttribute('data-ga-action', 'Modal opened by timed event');
+        }
+        this.component.setAttribute('data-ga-label', `${this.modalType} modal opened`);
+        this.component.setAttribute('data-ga-category', `${this.modalType} modal`);
       }
     }
   }
@@ -96,6 +113,22 @@ export default class Modal {
 
       this.component.close();
       this.setFocusOnLastFocusedEl(this.lastFocusedEl);
+
+      if (this.setGaAttributes) {
+        if (event) {
+          this.component.setAttribute('data-ga-action', `Modal closed by ${event.type} event`);
+        } else {
+          this.component.setAttribute('data-ga-action', 'Modal closed by timed event');
+        }
+        this.component.setAttribute('data-ga-label', `${this.modalType} modal closed`);
+        this.component.setAttribute('data-ga-category', `${this.modalType} modal`);
+      }
+    }
+  }
+
+  escToClose(event) {
+    if (this.isDialogOpen() && event.keyCode === 27) {
+      this.closeDialog(event);
     }
   }
 }
