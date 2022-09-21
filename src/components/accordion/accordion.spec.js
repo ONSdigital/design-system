@@ -67,7 +67,7 @@ describe('script: accordion', () => {
       }),
     );
 
-    const ariaExpanded = await page.$eval('button[data-test-trigger]', element => element.getAttribute('aria-expanded'));
+    const ariaExpanded = await page.$eval('button[data-test-trigger]', element => element.ribute('aria-expanded'));
     expect(ariaExpanded).toBe('true');
   });
 
