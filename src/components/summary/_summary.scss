@@ -51,10 +51,10 @@ $hub-row-spacing: 1.3rem;
   &__row-title {
     padding: $summary-row-spacing 0;
     text-align: left;
-
-    &--no-group-title {
-      padding-top: 0;
-    }
+  }
+  // reduces the gap between row title and summary title when there is no group title
+  &__title + &__group &__row-title--no-group-title {
+    padding-top: 0.5rem;
   }
 
   &__item-title,
