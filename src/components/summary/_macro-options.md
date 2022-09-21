@@ -13,14 +13,13 @@
 
 ## SummaryGroup
 
-| Name            | Type                 | Required                            | Description                                                                               |
-| --------------- | -------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------- |
-| rows            | Array`<SummaryRow>`  | true (unless `placeholderText` set) | An array of [rows](#summaryrow) within a group                                            |
-| placeholderText | string               | true (unless `rows` set)            | A message to be shown as a placeholder if there are no rows in the summary                |
-| groupTitle      | string               | false                               | The title heading for a summary within a group                                            |
-| headers         | Array                | true                                | An array of headers to describe the data in each column of the summary for screen readers |
-| id              | string               | false                               | The HTML `id` of the group                                                                |
-| summaryLink     | Array`<SummaryLink>` | false                               | Settings for the [summary link](#summarylink) used to a new row to the summary            |
+| Name            | Type                 | Required                            | Description                                                                    |
+| --------------- | -------------------- | ----------------------------------- | ------------------------------------------------------------------------------ |
+| rows            | Array`<SummaryRow>`  | true (unless `placeholderText` set) | An array of [rows](#summaryrow) within a group                                 |
+| placeholderText | string               | true (unless `rows` set)            | A message to be shown as a placeholder if there are no rows in the summary     |
+| groupTitle      | string               | false                               | The title heading for a summary within a group                                 |
+| id              | string               | false                               | The HTML `id` of the group                                                     |
+| summaryLink     | Array`<SummaryLink>` | false                               | Settings for the [summary link](#summarylink) used to a new row to the summary |
 
 ## SummaryRow
 
