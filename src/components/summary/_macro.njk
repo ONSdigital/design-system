@@ -20,37 +20,30 @@
                     {% if group.groupTitle %}
                         <h{{ titleSize }} class="ons-summary__group-title">{{ group.groupTitle }}</h{{ titleSize }}>
                     {% endif %}
-                    {% if group.headers and group.rows %}
-                        <table class="ons-summary__items">
-                            <thead class="ons-u-vh">
-                                <tr>
-                                    {% for header in group.headers %}
-                                        <th>{{ header }}</th>
-                                    {% endfor %}
-                                </tr>
-                            </thead>
+                    {% if group.rows %}
+                        <div class="ons-summary__items">
 
                             {% for row in (group.rows if group.rows is iterable else group.rows.items()) %}
                                 {% set itemClass = "" %}
                                 {% if row.error %} {% set itemClass = " ons-summary__item--error" %}{% endif %}
                                 {% if row.total %} {% set itemClass = itemClass + " ons-summary__item--total" %}{% endif %}
 
-                                <tbody {% if row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ itemClass }}">
-                                    {% if row.errorMessage or (row.rowItems | length > 1 and row.rowTitle) %}
-                                        <tr class="ons-summary__row">
-                                            <th colspan="3" class="ons-summary__row-title ons-u-fs-r">{{ row.errorMessage or row.rowTitle }}</th>
-                                        </tr>
+                                <div {% if row.id %}id="{{ row.id }}" {% endif %}class="ons-summary__item{{ itemClass }}">
+                                    {% if row.errorMessage %}
+                                        <div class="ons-summary__row-title--error ons-u-fs-r">{{ row.errorMessage }}</div>
+                                    {% endif %}
+                                    {% if row.rowItems | length > 1 and row.rowTitle %}
+                                        <div class="ons-summary__row-title ons-summary__row-title--no-group-title ons-u-fs-r">{{ row.rowTitle }}</div>
                                     {% endif %}
 
                                     {% for rowItem in row.rowItems %}
-                                        <tr {% if rowItem.id %}id="{{ rowItem.id }}" {% endif %}class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}">
-                                            <td
-                                                class="ons-summary__item-title"
+                                        <dl class="ons-summary__row{{ " ons-summary__row--has-values" if rowItem.valueList else "" }}"{% if rowItem.id %} id="{{ rowItem.id }}"{% endif %}>
+                                            <dt class="ons-summary__item-title{% if not rowItem.actions %} ons-summary__item-title--2{% endif %}"
                                                 {% if rowItem.rowTitleAttributes %}{% for attribute, value in (rowItem.rowTitleAttributes.items() if rowItem.rowTitleAttributes is mapping and rowItem.rowTitleAttributes.items else rowItem.rowTitleAttributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                             >
                                                 {% if rowItem.iconType %}
                                                     {% from "components/icons/_macro.njk" import onsIcon %}
-                                                    <span class="ons-summary__item-title-icon {% if rowItem.iconType == 'check' %} ons-summary__item-title-icon--check{% endif %}">
+                                                    <span class="ons-summary__item-title-icon{% if rowItem.iconType == 'check' %} ons-summary__item-title-icon--check{% endif %}">
                                                         {{
                                                             onsIcon({
                                                                 "iconType": rowItem.iconType
@@ -59,17 +52,18 @@
                                                     </span>
                                                 {% endif %}
 
-                                                <div class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType else "" }}">{{ rowItem.rowTitle | default(row.rowTitle) | safe }}</div>
+                                                <div class="ons-summary__item--text{{ ' ons-summary__item-title--text' if rowItem.iconType else "" }}">
+                                                    {{- rowItem.rowTitle | default(row.rowTitle) | safe -}}
+                                                </div>
 
                                                 {# Render section status for mobile if is hub #}
                                                 {% if params.hub and rowItem.valueList %}
-                                                    <span class="ons-u-d-no@s ons-u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
+                                                    <span class="ons-u-d-no@m ons-u-fs-r"> — {{ rowItem.valueList[0].text | safe }}</span>
                                                 {% endif %}
-                                            </td>
+                                            </dt>
                                             {% if rowItem.valueList %}
-                                                <td
+                                                <dd
                                                     class="ons-summary__values"
-                                                    {% if rowItem.actions == null %} colspan="2"{% endif %}
                                                     {% if rowItem.attributes %}{% for attribute, value in (rowItem.attributes.items() if rowItem.attributes is mapping and rowItem.attributes.items else rowItem.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                                 >
                                                     {% if rowItem.valueList | length == 1 %}
@@ -93,10 +87,10 @@
                                                             {% endfor %}
                                                         </ul>
                                                     {% endif %}
-                                                </td>
+                                                </dd>
                                             {% endif %}
                                             {% if rowItem.actions %}
-                                                <td class="ons-summary__actions">
+                                                <dd class="ons-summary__actions">
                                                     {% for action in (rowItem.actions if rowItem.actions is iterable else rowItem.actions.items()) %}
                                                         {% if loop.index > 1 %}<span class="ons-summary__spacer"></span>{% endif %}
                                                         <a
@@ -106,13 +100,13 @@
                                                             {% if action.attributes %}{% for attribute, value in (action.attributes.items() if action.attributes is mapping and action.attributes.items else action.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}
                                                         >{{ action.text }}</a>
                                                     {% endfor %}
-                                                </td>
+                                                </dd>
                                             {% endif %}
-                                        </tr>
+                                        </dl>
                                     {% endfor %}
-                                </tbody>
+                                </div>
                             {% endfor %}
-                        </table>
+                        </div>
                     {% elif group.placeholderText %}
                         <span class="ons-summary__placeholder">{{ group.placeholderText }}</span>
                     {% endif %}
