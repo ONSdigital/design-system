@@ -31,7 +31,7 @@
             <div class="ons-container">
     {% endif %}
 
-        <div {% if (params.type == 'error' and params.title) or params.type == 'success' %}aria-labelledby="alert" role="alert" tabindex="-1" {% if params.dsExample != true %}autofocus="autofocus" {% endif %}{% endif %}class="ons-panel{{ typeClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"{% if params and params.attributes %}{% for attribute, value in (params.attributes.items() if params and params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params and params.id %} id="{{params.id}}"{% endif %}>
+        <div {% if (params.type == 'error' and params.title) or params.type == 'success' %}aria-labelledby="alert" role="alert" tabindex="-1" {% if not isDesignSystemExample %}autofocus="autofocus" {% endif %}{% endif %}class="ons-panel{{ typeClass }}{{ iconClass }}{{ noTitleClass }}{{ spaciousClass }}{{ classes }}"{% if params and params.attributes %}{% for attribute, value in (params.attributes.items() if params and params.attributes is mapping and params.attributes.items else params.attributes) %}{{attribute}}="{{value}}" {% endfor %}{% endif %}{% if params and params.id %} id="{{params.id}}"{% endif %}>
 
             {% if params.type == "warn" or params.type == "warn-branded" %}
                 <span class="ons-panel__icon" aria-hidden="true">!</span>
