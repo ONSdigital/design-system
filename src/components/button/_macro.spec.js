@@ -16,14 +16,6 @@ describe('macro: button', () => {
     expect($('#example-id').length).toBe(1);
   });
 
-  it('is an `a` element when `isDesignSystemExample` is true', () => {
-    const isDesignSystemExample = true;
-
-    const $ = cheerio.load(renderComponent('button', {}, null, null, isDesignSystemExample));
-
-    expect($('a').length).toBe(1);
-  });
-
   it('has additionally provided `attributes`', () => {
     const $ = cheerio.load(
       renderComponent('button', {
