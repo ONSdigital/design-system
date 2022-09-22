@@ -86,7 +86,7 @@
                                         {% if section.sectionTitle %}<h3 class="ons-navigation__list-header">{{ section.sectionTitle }}</h3>{% endif %}
                                         <ul class="ons-navigation__list ons-navigation__list--child ons-list--dashed ons-u-ml-s ons-u-mt-xs">
                                             {% for child in section.children %}
-                                                <li class="ons-navigation__item ons-list__item {{ ' ons-navigation__item--active' if (child.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and child.url in params.navigation.currentPath)}}">
+                                                <li class="ons-navigation__item ons-list__item {{ ' ons-navigation__item--active' if (child.url == params.navigation.currentPath) or (params.navigation.currentPath is not string and child.url in params.navigation.currentPath) }}">
                                                     <a class="ons-navigation__link ons-navigation__link--section" href="{{ child.url }}" {% if child.ariaLabel %}aria-label="{{ child.ariaLabel }}" {% endif %} {% if child.id %}id="{{ child.id }}" {% endif %}>{{ child.title }}</a>
                                                 </li>
                                             {% endfor %}
