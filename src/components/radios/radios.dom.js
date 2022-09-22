@@ -25,14 +25,13 @@ domready(async () => {
       new CheckRadios(radioInput, openOther);
     }
 
-    const other = document.querySelector('.ons-js-other');
-    if (other) {
-      const otherFieldset = other.parentNode.querySelector('.ons-js-other-fieldset');
-      if (otherFieldset) {
-        const CheckboxWithInnerFieldset = (await import('../checkboxes/checkbox-with-fieldset')).default;
-
-        new CheckboxWithInnerFieldset(otherFieldset, radios);
-      }
+    const otherFieldsets = [...document.querySelectorAll('.ons-js-other-fieldset-radio')];
+    if (otherFieldsets) {
+      const RadioWithInnerFieldset = (await import('./radio-with-fieldset')).default;
+      otherFieldsets.forEach(otherFieldset => {
+        const context = otherFieldset.closest('.ons-radio');
+        new RadioWithInnerFieldset(context);
+      });
     }
   }
 });
