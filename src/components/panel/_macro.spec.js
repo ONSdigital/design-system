@@ -264,14 +264,21 @@ describe('macro: panel', () => {
       expect($('.ons-panel').attr('autofocus')).toBe('autofocus');
     });
 
-    it('does not have the autofocus attribute set if `dsExample` is provided', () => {
+    it('does not have the autofocus attribute set if `isDesignSystemExample` is provided', () => {
+      const isDesignSystemExample = true;
+
       const $ = cheerio.load(
-        renderComponent('panel', {
-          ...EXAMPLE_PANEL_BASIC,
-          title: 'Title',
-          type: panelType,
-          dsExample: true,
-        }),
+        renderComponent(
+          'panel',
+          {
+            ...EXAMPLE_PANEL_BASIC,
+            title: 'Title',
+            type: panelType,
+          },
+          null,
+          null,
+          isDesignSystemExample,
+        ),
       );
 
       expect($('.ons-panel').attr('autofocus')).toBe(undefined);

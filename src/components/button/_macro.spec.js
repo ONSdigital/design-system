@@ -16,16 +16,6 @@ describe('macro: button', () => {
     expect($('#example-id').length).toBe(1);
   });
 
-  it('is an `a` element when `dsExample` is truthy', () => {
-    const $ = cheerio.load(
-      renderComponent('button', {
-        dsExample: true,
-      }),
-    );
-
-    expect($('a').length).toBe(1);
-  });
-
   it('has additionally provided `attributes`', () => {
     const $ = cheerio.load(
       renderComponent('button', {

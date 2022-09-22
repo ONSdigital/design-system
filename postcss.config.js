@@ -1,21 +1,10 @@
 import postcssUrl from 'postcss-url';
 import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
 
 const BASE_HREF = '';
 const DEPLOY_URL = '';
 
 export default () => {
-  // safe settings based on: https://github.com/ben-eb/cssnano/issues/358#issuecomment-283696193
-  const minimizeOptions = {
-    autoprefixer: false,
-    safe: true,
-    mergeLonghand: false,
-    discardComments: {
-      removeAll: true,
-    },
-  };
-
   return [
     postcssUrl({
       url: ({ url }) => {
@@ -40,6 +29,5 @@ export default () => {
       },
     }),
     autoprefixer(),
-    cssnano(minimizeOptions),
   ];
 };

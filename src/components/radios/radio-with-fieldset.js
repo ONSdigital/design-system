@@ -1,14 +1,14 @@
-export default class CheckboxWithFieldset {
+export default class RadioWithFieldset {
   constructor(context) {
     this.context = context;
-    this.checkbox = context.querySelector('.ons-js-checkbox');
+    this.radios = [...context.closest('.ons-radios__items').querySelectorAll('.ons-js-radio')];
     this.childInputs = [...this.context.querySelectorAll('input')];
     this.selectAllChildrenInput = this.context.querySelector('.ons-js-select-all-children');
 
     if (this.selectAllChildrenInput) {
       this.selectAllChildrenInput.addEventListener('change', this.checkChildInputsOnSelect.bind(this));
     } else {
-      this.checkbox.addEventListener('change', this.uncheckChildInputsOnDeselect.bind(this));
+      this.radios.forEach(radio => radio.addEventListener('change', this.uncheckChildInputsOnDeselect.bind(this)));
     }
   }
 
@@ -19,7 +19,8 @@ export default class CheckboxWithFieldset {
   }
 
   uncheckChildInputsOnDeselect() {
-    if (this.checkbox.checked === false) {
+    const isOther = this.radios.find(radio => radio.classList.contains('ons-js-other'));
+    if (isOther && isOther.checked === false) {
       this.childInputs.forEach(input => {
         input.checked = false;
       });

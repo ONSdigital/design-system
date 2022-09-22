@@ -15,12 +15,12 @@ domready(async () => {
       new CheckCheckbox(checkboxInput, openOther);
     }
 
-    const otherFieldsets = [...document.querySelectorAll('.ons-js-other-fieldset')];
+    const otherFieldsets = [...document.querySelectorAll('.ons-js-other-fieldset-checkbox')];
     if (otherFieldsets) {
       const CheckboxWithInnerFieldset = (await import('./checkbox-with-fieldset')).default;
-
       otherFieldsets.forEach(otherFieldset => {
-        new CheckboxWithInnerFieldset(otherFieldset, checkboxes);
+        const context = otherFieldset.closest('.ons-checkbox');
+        new CheckboxWithInnerFieldset(context);
       });
     }
 

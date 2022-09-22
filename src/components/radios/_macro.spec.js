@@ -512,7 +512,7 @@ describe('macro: radios', () => {
         legend: 'Select preferred times of day',
         legendClasses: 'extra-legend-class',
         attributes: { a: 42 },
-        classes: 'ons-js-other-fieldset',
+        classes: 'ons-js-other-fieldset-radio',
         checkboxes: EXAMPLE_RADIO_ITEM_CHECKBOXES.other.checkboxes,
         autoSelect: EXAMPLE_RADIO_ITEM_CHECKBOXES.other.autoSelect,
         selectAllChildren: true,
@@ -535,7 +535,7 @@ describe('macro: radios', () => {
         legend: 'Select preferred times of day',
         legendClasses: 'extra-legend-class ons-u-mb-xs',
         attributes: { a: 42 },
-        classes: 'ons-js-other-fieldset',
+        classes: 'ons-js-other-fieldset-radio',
         radios: EXAMPLE_RADIO_ITEM_RADIOS.other.radios,
       });
     });

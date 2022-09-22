@@ -5,7 +5,6 @@ const gulpIf = require('gulp-if');
 const gulpPostCss = require('gulp-postcss');
 const gulpDartSass = require('gulp-dart-sass');
 const gulpSourcemaps = require('gulp-sourcemaps');
-const gulpSvg = require('gulp-svgo');
 const gulpTerser = require('gulp-terser');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
@@ -17,7 +16,6 @@ const babelNomoduleConfig = require('./babel.conf.nomodule');
 const nunjucksRendererPipe = require('./lib/rendering/nunjucks-renderer-pipe.js').default;
 const searchIndexPipe = require('./lib/rendering/search-index-pipe.js').default;
 const postCssPlugins = require('./postcss.config').default;
-const svgConfig = require('./svgo-config.js').default;
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
@@ -30,6 +28,7 @@ const terserOptions = {
 
 const sassOptions = {
   includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes'],
+  outputStyle: 'compressed',
 };
 
 const scripts = [
@@ -89,14 +88,6 @@ gulp.task('build-styles', () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task('build-svg', () => {
-  return gulp
-    .src('./src/svg/**/*.svg')
-    .pipe(gulpSvg(svgConfig))
-    .pipe(gulp.dest('./build/img'))
-    .pipe(browserSync.stream());
-});
-
 gulp.task('build-pages', () => {
   return gulp
     .src(['./src/**/*.njk', '!**/_*/**'])
@@ -127,15 +118,14 @@ gulp.task('watch-and-build', async () => {
   gulp.watch('./src/**/*.njk').on('change', browserSync.reload);
   gulp.watch('./src/**/*.scss', gulp.series('build-styles'));
   gulp.watch('./src/**/*.js', gulp.series('build-script'));
-  gulp.watch('./src/svg/**/*.svg', gulp.series('build-svg'));
 });
 
 gulp.task('start-dev-server', async () => {
   await import('./lib/dev-server.js');
 });
 
-gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-svg', 'build-search-index'));
-gulp.task('build-assets-for-testing', gulp.series('build-script', 'build-styles', 'build-svg'));
+gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-search-index'));
+gulp.task('build-assets-for-testing', gulp.series('build-script', 'build-styles'));
 
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
