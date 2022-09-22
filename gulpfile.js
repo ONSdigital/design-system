@@ -29,7 +29,7 @@ const terserOptions = {
 };
 
 const sassOptions = {
-  includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes'],
+  includePaths: ['./node_modules/normalize.css'],
 };
 
 const scripts = [
@@ -41,16 +41,6 @@ const scripts = [
   {
     entryPoint: ['./src/js/polyfills.js', './src/js/main.js'],
     outputFile: 'main.es5.js',
-    config: babelNomoduleConfig,
-  },
-  {
-    entryPoint: './src/js/patternlib/index.js',
-    outputFile: 'patternlib.js',
-    config: babelEsmConfig,
-  },
-  {
-    entryPoint: './src/js/patternlib/index.js',
-    outputFile: 'patternlib.es5.js',
     config: babelNomoduleConfig,
   },
 ];

@@ -257,15 +257,9 @@
             {% block bodyEnd %}{% endblock %}
         {% endblock %}
 
-        {% if isPatternLib %}
-            {% set scripts = assetsURL + "/scripts/main.js," + assetsURL + "/scripts/patternlib.js" %}
-        {% else %}
-            {% set scripts = assetsURL + "/scripts/main.js" %}
-        {% endif %}
-
         <script{% if pageConfig.cspNonce %} nonce="{{ pageConfig.cspNonce }}"{% elif pageConfig.cspNonce is not defined and csp_nonce %} nonce="{{ csp_nonce() }}"{% endif %}>
             (function() {
-                var s = '{{ scripts | safe }}'.split(','),
+                var s = [ '{{ assetsURL }}/scripts/main.js' ],
                 c = document.createElement('script');
 
                 if (!('noModule' in c)) {
