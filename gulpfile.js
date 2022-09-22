@@ -86,9 +86,9 @@ gulp.task('build-svg', () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task('build-pages', () => {
+gulp.task('build-examples', () => {
   return gulp
-    .src(['./src/**/*.njk', '!**/_*/**'])
+    .src(['./src/**/examples/**/*.njk', '!**/_*/**'])
     .pipe(nunjucksRendererPipe)
     .pipe(gulp.dest('./build'));
 });
@@ -121,5 +121,5 @@ gulp.task('build-assets-for-testing', gulp.series('build-script', 'build-styles'
 
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
-gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-pages'));
+gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-examples'));
 gulp.task('build-package', gulp.series('copy-static-files', 'copy-js-files', 'build-assets'));

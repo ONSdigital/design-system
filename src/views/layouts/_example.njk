@@ -1,0 +1,12 @@
+{% extends "./_master.njk" %}
+{% set example = true %}
+
+{% block pageContent %}
+    <main class="ons-patternlib-page__example">
+        <h1 class="ons-u-vh">{{ pageHeading }}</h1>
+        {% block main %}
+        {% endblock %}
+    </main>
+{% endblock %}
+{% block footer %}
+{% endblock %}
