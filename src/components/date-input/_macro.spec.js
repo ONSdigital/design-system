@@ -274,12 +274,11 @@ describe('macro: date input', () => {
 
       faker.renderComponent('date-input', {
         ...EXAMPLE_DATE_SINGLE_FIELD,
-        error: { text: 'Enter a date that is after 1 January 2019', dsExample: false },
+        error: { text: 'Enter a date that is after 1 January 2019' },
       });
 
       expect(errorSpy.occurrences[0]).toEqual({
         text: 'Enter a date that is after 1 January 2019',
-        dsExample: false,
       });
     });
   });

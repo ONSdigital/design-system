@@ -236,12 +236,11 @@ describe('macro: duration', () => {
 
       faker.renderComponent('duration', {
         ...EXAMPLE_DURATION_SINGLE_FIELD,
-        error: { text: 'Put something else', dsExample: false },
+        error: { text: 'Put something else' },
       });
 
       expect(errorSpy.occurrences[0]).toEqual({
         text: 'Put something else',
-        dsExample: false,
       });
     });
   });
