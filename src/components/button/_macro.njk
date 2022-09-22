@@ -64,7 +64,7 @@
         {% endif %}
     {% endif %}
 
-    {% set tag = "a" if params.url or isDesignSystemExample else "button" %}
+    {% set tag = "a" if params.url else "button" %}
 
     <{{ tag }}
         {% if params.url %}
