@@ -48,8 +48,8 @@
     }
 
     code:not(.ons-patternlib-example__code) {
-      background: $color-grey-5;
-      color: $color-ruby-red;
+      background: var(--ons-color-grey-5);
+      color: var(--ons-color-ruby-red);
       padding: 0.05rem 0.25rem;
     }
 
@@ -61,7 +61,7 @@
     }
 
     th {
-      border-bottom: 2px solid $color-grey-100;
+      border-bottom: 2px solid var(--ons-color-grey-100);
       padding: 0.5rem 0 0.5rem 1rem;
       text-align: left;
       vertical-align: top;
@@ -78,7 +78,7 @@
 
     td {
       background: transparent;
-      border-bottom: 1px solid $color-borders;
+      border-bottom: 1px solid var(--ons-color-borders);
     }
 
     tr:last-child td {
@@ -130,7 +130,7 @@
 }
 
 .ons-patternlib-hero {
-  background: $color-grey-5;
+  background: var(--ons-color-grey-5);
   padding: 2rem 0 1rem;
   width: 100%;
 
@@ -140,15 +140,15 @@
 }
 
 .ons-pl-grid-col {
-  background: $color-grey-5;
+  background: var(--ons-color-grey-5);
   font-size: 0.8rem;
   margin: 0 0 1rem;
   padding: 1rem;
 }
 
 .ons-pl-experimental-tag {
-  background: $color-info;
-  color: $color-text-inverse;
+  background: var(--ons-color-info);
+  color: var(--ons-color-text-inverse);
   display: inline-block;
   font-size: 0.7rem;
   font-weight: 700;

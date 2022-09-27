@@ -112,13 +112,13 @@
 @include bp-suffix(ons-grid--bordered, false) {
   margin-left: 0;
   .ons-grid__col {
-    border-bottom: 1px solid $color-borders;
-    border-top: 1px solid $color-borders;
+    border-bottom: 1px solid var(--ons-color-borders);
+    border-top: 1px solid var(--ons-color-borders);
     flex: 1 1 auto;
     padding-bottom: 1rem;
     padding-top: 1rem;
     &:first-of-type {
-      border-right: 1px solid $color-borders;
+      border-right: 1px solid var(--ons-color-borders);
       padding-left: 0;
     }
   }

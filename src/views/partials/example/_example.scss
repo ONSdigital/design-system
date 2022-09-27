@@ -1,17 +1,17 @@
 .ons-patternlib-example {
   $c: &;
 
-  border: 1px solid $color-borders;
+  border: 1px solid var(--ons-color-borders);
   margin: 0 0 2rem;
   position: relative;
   width: 100%;
 
   &__frame {
-    background: $color-borders;
+    background: var(--ons-color-borders);
   }
 
   &__header {
-    border-bottom: 1px solid $color-borders;
+    border-bottom: 1px solid var(--ons-color-borders);
     padding: 0.5rem 1rem 0.7rem;
     width: 100%;
   }
@@ -31,14 +31,14 @@
   }
 
   &__tabs {
-    border-top: 1px solid $color-borders;
+    border-top: 1px solid var(--ons-color-borders);
   }
 
   &__link,
   &__tab {
     border-left: 1px solid rgba(255, 255, 255, 0.5);
     border-right: 1px solid rgba(255, 255, 255, 0.5);
-    color: $color-text-link;
+    color: var(--ons-color-text-link);
     cursor: pointer;
     display: inline-block;
     margin-right: 0;
@@ -47,7 +47,7 @@
     text-decoration: underline;
     text-underline-position: under;
     &:hover {
-      background-color: darken($color-white, 5%);
+      background-color: var(--ons-color-grey-5);
       text-decoration-thickness: 2px;
     }
 
@@ -57,7 +57,7 @@
   }
 
   &__panel {
-    border-top: 1px solid $color-borders;
+    border-top: 1px solid var(--ons-color-borders);
     display: none;
     padding: 1rem;
   }
@@ -65,10 +65,10 @@
   @for $i from 1 through 5 {
     &__radio:nth-of-type(#{$i}):checked ~ {
       #{$c}__tabs > #{$c}__tab:nth-of-type(#{$i}) {
-        background: $color-white;
-        border-left: 1px solid $color-borders;
-        border-right: 1px solid $color-borders;
-        color: $color-text;
+        background: var(--ons-color-white);
+        border-left: 1px solid var(--ons-color-borders);
+        border-right: 1px solid var(--ons-color-borders);
+        color: var(--ons-color-text);
         text-decoration: none;
         &::after {
           background: #fff;
@@ -83,7 +83,7 @@
         }
 
         @include mq(xxs, l) {
-          background-color: $color-button-secondary;
+          background-color: var(--ons-color-button-secondary);
           border-left: 0;
           border-right: 0;
           &::after {

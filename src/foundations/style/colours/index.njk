@@ -27,23 +27,23 @@ Each colour has a colour variable that can be [assigned to a element](#colour-as
         'itemsList': [
             {
                 'bg': '#003c57',
-                'var': '$color-night-blue'
+                'var': 'var(--ons-color-night-blue)'
             },
             {
                 'bg': '#a8bd3a',
-                'var': '$color-spring-green'
+                'var': 'var(--ons-color-spring-green)'
             },
             {
                 'bg': '#206095',
-                'var': '$color-ocean-blue'
+                'var': 'var(--ons-color-ocean-blue)'
             },
             {
                 'bg': '#27a0cc',
-                'var': '$color-sky-blue'
+                'var': 'var(--ons-color-sky-blue)'
             },
             {
                 'bg': '#00a3a6',
-                'var': '$color-aqua-teal'
+                'var': 'var(--ons-color-aqua-teal)'
             }
         ]
     })
@@ -55,23 +55,23 @@ Each colour has a colour variable that can be [assigned to a element](#colour-as
         'itemsList': [
             {
                 'bg': '#0f8243',
-                'var': '$color-leaf-green'
+                'var': 'var(--ons-color-leaf-green)'
             },
             {
                 'bg': '#d0021b',
-                'var': '$color-ruby-red'
+                'var': 'var(--ons-color-ruby-red)'
             },
             {
                 'bg': '#fa6401',
-                'var': '$color-jaffa-orange'
+                'var': 'var(--ons-color-jaffa-orange)'
             },
             {
                 'bg': '#fbc900',
-                'var': '$color-sun-yellow'
+                'var': 'var(--ons-color-sun-yellow)'
             },
             {
                 'bg': '#f0f762',
-                'var': '$color-neon-yellow'
+                'var': 'var(--ons-color-neon-yellow)'
             }
         ]
     })
@@ -83,24 +83,24 @@ Each colour has a colour variable that can be [assigned to a element](#colour-as
         'itemsList': [
             {
                 'bg': '#902082',
-                'var': '$color-branded'
+                'var': 'var(--ons-color-branded)'
             },
             {
                 'bg': '#df0667',
-                'var': '$color-branded-secondary'
+                'var': 'var(--ons-color-branded-secondary)'
             },
             {
                 'bg': '#3c388e',
-                'var': '$color-branded-tertiary'
+                'var': 'var(--ons-color-branded-tertiary)'
             },
             {
                 'bg': '#00a3a6',
-                'var': '$color-branded-supporting'
+                'var': 'var(--ons-color-branded-supporting)'
             },
             {
                 'bg': '#902082',
                 'bg2': '#3c388e',
-                'var': '$color-census-gradient'
+                'var': 'var(--ons-color-census-gradient)'
             }
         ]
     })
@@ -112,70 +112,32 @@ Each colour has a colour variable that can be [assigned to a element](#colour-as
         'itemsList': [
             {
                 'bg': '#222222',
-                'var': '$color-black'
+                'var': 'var(--ons-color-black)'
             },
             {
                 'bg': '#414042',
-                'var': '$color-grey-100'
+                'var': 'var(--ons-color-grey-100)'
             },
             {
                 'bg': '#707071',
-                'var': '$color-grey-75'
+                'var': 'var(--ons-color-grey-75)'
             },
             {
                 'bg': '#bcbcbd',
-                'var': '$color-grey-35'
+                'var': 'var(--ons-color-grey-35)'
             },
             {
                 'bg': '#e2e2e3',
-                'var': '$color-grey-15'
+                'var': 'var(--ons-color-grey-15)'
             },
             {
                 'bg': '#f5f5f6',
-                'var': '$color-grey-5'
+                'var': 'var(--ons-color-grey-5)'
             },
             {
                 'bg': '#ffffff',
-                'var': '$color-white',
+                'var': 'var(--ons-color-white)',
                 'border': true
-            }
-        ]
-    })
-}}
-
-## Tints
-Only tints of 70%, 40% or 10% of the primary, supporting and census colour palettes can be used.
-
-To apply a tint, you can use the `tint()` function by passing in the colour variable and the percentage of white you want to mix with it. For example:
-{{
-    onsColours({
-        'itemsList': [
-            {
-                'bg': '#4d7789',
-                'var': 'tint($color-night-blue, 30);',
-                'info': '70% tint of Night blue'
-            }
-        ]
-    })
-}}
-{{
-    onsColours({
-        'itemsList': [
-            {
-                'bg': '#99b1bc',
-                'var': 'tint($color-night-blue, 60);',
-                'info': '40% tint of Night blue'
-            }
-        ]
-    })
-}}
-{{
-    onsColours({
-        'itemsList': [
-            {
-                'bg': '#e6ecee',
-                'var': 'tint($color-night-blue, 90);',
-                'info': '10% tint of Night blue'
             }
         ]
     })
@@ -183,7 +145,7 @@ To apply a tint, you can use the `tint()` function by passing in the colour vari
 
 ## Colour assignment
 
-The colour variables are assigned to elements by using variables to provide context. For example, `$color-black` is assigned to `$color-text` to be used to style all heading elements.
+The colour variables are assigned to elements by using variables to provide context. For example, `var(--ons-color-black)` is assigned to `var(--ons-color-text)` to be used to style all heading elements.
 
 ### Text
 {{
@@ -191,7 +153,7 @@ The colour variables are assigned to elements by using variables to provide cont
         'itemsList': [
             {
                 'bg': '#222222',
-                'var': '$color-text',
+                'var': 'var(--ons-color-text)',
                 'info': 'Black is the primary colour for headings and body content.'
             }
         ]
@@ -203,7 +165,7 @@ The colour variables are assigned to elements by using variables to provide cont
         'itemsList': [
             {
                 'bg': '#707071',
-                'var': '$color-text-light',
+                'var': 'var(--ons-color-text-light)',
                 'info': 'A secondary text colour for a title subheading.'
             }
         ]
@@ -216,7 +178,7 @@ The colour variables are assigned to elements by using variables to provide cont
         'itemsList': [
             {
                 'bg': '#206095',
-                'var': '$color-text-link',
+                'var': 'var(--ons-color-text-link)',
                 'info': 'Blue is the colour for all link text elements in the body of the page. Link text should also be underlined.'
             }
         ]
@@ -227,7 +189,7 @@ The colour variables are assigned to elements by using variables to provide cont
         'itemsList': [
             {
                 'bg': '#003c57',
-                'var': '$color-text-link-hover',
+                'var': 'var(--ons-color-text-link-hover)',
                 'info': 'Hover state colour for link text.'
             }
         ]
@@ -243,7 +205,7 @@ The colour variables are assigned to elements by using variables to provide cont
                 'bg': '#0f8243',
                 'char': 'A',
                 'shadow': true,
-                'var': '$color-button',
+                'var': 'var(--ons-color-button)',
                 'info': 'Primary action buttons use a green background colour and white text.',
                 'hideSwatchDetail': true
             }
@@ -258,7 +220,7 @@ The colour variables are assigned to elements by using variables to provide cont
                 'bg': '#e2e2e3',
                 'char': 'A',
                 'shadow': true,
-                'var': '$color-button-secondary',
+                'var': 'var(--ons-color-button-secondary)',
                 'info': 'Secondary buttons use a light grey background colour and black text. This prevents interference with the primary action.',
                 'hideSwatchDetail': true
             }
@@ -274,7 +236,7 @@ The colour variables are assigned to elements by using variables to provide cont
                 'bg': '#fbc900',
                 'char': 'A',
                 'shadow': true,
-                'var': '$color-focus',
+                'var': 'var(--ons-color-focus)',
                 'info': 'Black text on a yellow background is used to show that an element has focus. Any focused text <code>color</code> is changed to black, and yellow is applied as a <code>background-color</code> with an additional <code>4px</code> black offset <code>box-shadow</code>. The change to both foreground and background colours makes sure there is a consistent <a href="#colour-contrast">accessible colour contrast ratio</a>, regardless of the element’s initial background colour.',
                 'hideSwatchDetail': true
             }
@@ -290,7 +252,7 @@ The colour variables are assigned to elements by using variables to provide cont
                 'bg': '#f0f762',
                 'char': 'A',
                 'shadow': true,
-                'var': '$color-highlight',
+                'var': 'var(--ons-color-highlight)',
                 'info': 'Bright yellow is used with a <code>4px</code> black offset <code>box-shadow</code> to <a href="/foundations/typography#highlighting">highlight important information in headings</a>.',
                 'hideSwatchDetail': true
             }
@@ -303,7 +265,7 @@ The colour variables are assigned to elements by using variables to provide cont
         'itemsList': [
             {
                 'bg': '#707071',
-                'var': '$color-borders',
+                'var': 'var(--ons-color-borders)',
                 'info': 'The grey is used for all borders that are applied on a white background.'
             }
         ]
@@ -319,19 +281,19 @@ Different colours can be used to represent a status. Each status has a primary b
         'itemsList': [
             {
                 'bg': '#206095',
-                'var': '$color-info'
+                'var': 'var(--ons-color-info)'
             },
             {
                 'bg': '#e9eff4',
                 'fore': '#222222',
                 'char': 'A',
-                'var': '$color-info-tint',
+                'var': 'var(--ons-color-info-tint)',
                 'info': 'A 10% tint of the primary colour.',
                 'hideSwatchDetail': true
             },
             {
                 'bg': '#1f84d8',
-                'var': '$color-info-vibrant',
+                'var': 'var(--ons-color-info-vibrant)',
                 'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour.'
             }
         ]
@@ -344,19 +306,19 @@ Different colours can be used to represent a status. Each status has a primary b
         'itemsList': [
             {
                 'bg': '#0f8243',
-                'var': '$color-success'
+                'var': 'var(--ons-color-success)'
             },
             {
                 'bg': '#e7f3ec',
                 'fore': '#222222',
                 'char': 'A',
-                'var': '$color-success-tint',
+                'var': 'var(--ons-color-success-tint)',
                 'info': 'A 10% tint of the primary colour',
                 'hideSwatchDetail': true
             },
             {
                 'bg': '#10ca64',
-                'var': '$color-success-vibrant',
+                'var': 'var(--ons-color-success-vibrant)',
                 'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour'
             }
         ]
@@ -369,19 +331,19 @@ Different colours can be used to represent a status. Each status has a primary b
         'itemsList': [
             {
                 'bg': '#d0021b',
-                'var': '$color-errors'
+                'var': 'var(--ons-color-errors)'
             },
             {
                 'bg': '#fae6e8',
                 'fore': '#222222',
                 'char': 'A',
-                'var': '$color-errors-tint',
+                'var': 'var(--ons-color-errors-tint)',
                 'info': 'A 10% tint of the primary colour',
                 'hideSwatchDetail': true
             },
             {
                 'bg': '#fd112d',
-                'var': '$color-errors-vibrant',
+                'var': 'var(--ons-color-errors-vibrant)',
                 'info': 'An increase in lightness (20%) and saturation (30%) of the primary colour'
             }
         ]
@@ -394,7 +356,7 @@ Different colours can be used to represent a status. Each status has a primary b
         'itemsList': [
             {
                 'bg': '#ff803b',
-                'var': '$color-pending-vibrant'
+                'var': 'var(--ons-color-pending-vibrant)'
             }
         ]
     })
