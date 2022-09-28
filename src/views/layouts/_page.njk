@@ -24,7 +24,7 @@
                 "id": "main-navigation",
                 "classes": "ons-nav--inline ons-nav--light ons-nav--header ons-nav--h-m ons-js-main-nav",
                 "ariaLabel": "Main menu",
-                "currentPath": [pageInfo.url, pageInfo.parent.url if pageInfo.parent.url != '/' else ''],
+                "currentPath": [pageInfo.url, pageInfo.parent.url],
                 "itemsList": helpers.navigationHelper({
                     "pages": pageInfo.siteMap
                 }),
