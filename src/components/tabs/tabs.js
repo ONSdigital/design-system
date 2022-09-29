@@ -30,6 +30,8 @@ export default class Tabs {
     this.jsTabItemAsRowClass = 'ons-tab__list-item--row';
     this.jsTabAsListClass = 'ons-tab--row';
 
+    this.noInitialActiveTab = this.component.getAttribute('data-no-initial-active-tab');
+
     if (matchMediaUtil.hasMatchMedia()) {
       this.setupViewportChecks();
     } else {
@@ -79,8 +81,12 @@ export default class Tabs {
       this.hideTab(tab);
     });
 
-    const activeTab = this.getTab(window.location.hash) || this.tabs[0];
-    this.showTab(activeTab);
+    if (!this.noInitialActiveTab) {
+      const activeTab = this.getTab(window.location.hash) || this.tabs[0];
+      this.showTab(activeTab);
+    }
+
+    this.ensureTabIndexExists();
 
     this.component.boundOnHashChange = this.onHashChange.bind(this);
     window.addEventListener('hashchange', this.component.boundOnHashChange, true);
@@ -124,9 +130,10 @@ export default class Tabs {
       return;
     }
 
-    const previousTab = this.getCurrentTab();
-
-    this.hideTab(previousTab);
+    const currentTab = this.getCurrentTab();
+    if (!!currentTab) {
+      this.hideTab(currentTab);
+    }
     this.showTab(tabWithHash);
     tabWithHash.focus();
   }
@@ -177,9 +184,24 @@ export default class Tabs {
     e.preventDefault();
     const newTab = e.target;
     const currentTab = this.getCurrentTab();
-    this.hideTab(currentTab);
-    this.showTab(newTab);
-    this.createHash(newTab);
+
+    if (!!currentTab) {
+      this.hideTab(currentTab);
+    }
+
+    if (!this.noInitialActiveTab || newTab !== currentTab) {
+      this.showTab(newTab);
+      this.createHash(newTab);
+    }
+
+    this.ensureTabIndexExists();
+  }
+
+  ensureTabIndexExists() {
+    // Ensure that at least the first tab has a tab index when all tabs are hidden.
+    if (!this.tabs.find(tab => tab.getAttribute('tabindex') === '0')) {
+      this.tabs[0].setAttribute('tabindex', '0');
+    }
   }
 
   createHash(tab) {
