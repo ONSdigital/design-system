@@ -7,5 +7,6 @@
 
 | Name    | Type   | Required | Description                                     |
 | ------- | ------ | -------- | ----------------------------------------------- |
+| id      | string | false    | Sets the HTML `id` of the tab                   |
 | title   | string | true     | The title for the tab                           |
 | content | string | true     | The contents of the tab. This can contain HTML. |

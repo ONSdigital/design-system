@@ -7,14 +7,17 @@ const EXAMPLE_TABS = {
   title: 'Example tabs',
   tabs: [
     {
+      id: 'tab-1',
       title: 'Tab 1',
       content: 'First content...',
     },
     {
+      id: 'tab-2',
       title: 'Tab 2',
       content: 'Second content...',
     },
     {
+      id: 'tab-3',
       title: 'Tab 3',
       content: 'Third content...',
     },
@@ -47,7 +50,7 @@ describe('script: tabs', () => {
     it('has "aria-controls" assigned to each tab with the corresponding panel id', async () => {
       const ariaControlsValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('aria-controls')));
 
-      expect(ariaControlsValues).toEqual(['tabId1', 'tabId2', 'tabId3']);
+      expect(ariaControlsValues).toEqual(['tab-1', 'tab-2', 'tab-3']);
     });
 
     it('has "aria-selected" assigned to the first tab', async () => {
@@ -78,7 +81,7 @@ describe('script: tabs', () => {
 
     describe('when a tab is clicked', () => {
       beforeEach(async () => {
-        await page.focus('#tabId2Item a');
+        await page.focus('a[href="#tab-2"]');
         await page.keyboard.press('Enter');
       });
 
@@ -89,13 +92,13 @@ describe('script: tabs', () => {
       });
 
       it('has the "aria-selected" attribute', async () => {
-        const ariaSelectedValue = await page.$eval('#tabId2Item a', node => node.getAttribute('aria-selected'));
+        const ariaSelectedValue = await page.$eval('a[href="#tab-2"]', node => node.getAttribute('aria-selected'));
 
         expect(ariaSelectedValue).toBe('true');
       });
 
       it('has the "ons-tab--selected" class assigned', async () => {
-        const hasClass = await page.$eval('#tabId2Item a', node => node.classList.contains('ons-tab--selected'));
+        const hasClass = await page.$eval('a[href="#tab-2"]', node => node.classList.contains('ons-tab--selected'));
 
         expect(hasClass).toBe(true);
       });
@@ -111,21 +114,21 @@ describe('script: tabs', () => {
 
     describe('when the right arrow key is pressed', () => {
       it('focuses the next tab', async () => {
-        await page.focus('#tabId2Item a');
+        await page.focus('a[href="#tab-2"]');
         await page.keyboard.press('ArrowRight');
 
-        const activeElementId = await page.evaluate(() => document.activeElement.parentElement.id);
-        expect(activeElementId).toBe('tabId3Item');
+        const activeElement = await page.evaluate(() => document.activeElement.innerText);
+        expect(activeElement).toBe('Tab 3');
       });
     });
 
     describe('when the left arrow key is pressed', () => {
       it('focuses the previous tab', async () => {
-        await page.focus('#tabId2Item a');
+        await page.focus('a[href="#tab-2"]');
         await page.keyboard.press('ArrowLeft');
 
-        const activeElementId = await page.evaluate(() => document.activeElement.parentElement.id);
-        expect(activeElementId).toBe('tabId1Item');
+        const activeElement = await page.evaluate(() => document.activeElement.innerText);
+        expect(activeElement).toBe('Tab 1');
       });
     });
   });
