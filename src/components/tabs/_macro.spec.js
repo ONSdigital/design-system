@@ -43,6 +43,18 @@ describe('macro: tabs', () => {
     expect(results).toHaveNoViolations();
   });
 
+  it('has the provided variant classes', () => {
+    const $ = cheerio.load(
+      renderComponent('tabs', {
+        ...EXAMPLE_TABS,
+        variants: ['details', 'example-variant'],
+      }),
+    );
+
+    expect($('.ons-tabs').hasClass('ons-tabs--details')).toBe(true);
+    expect($('.ons-tabs').hasClass('ons-tabs--example-variant')).toBe(true);
+  });
+
   it('has the provided `title`', () => {
     const $ = cheerio.load(renderComponent('tabs', EXAMPLE_TABS));
 
