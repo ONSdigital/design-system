@@ -41,10 +41,10 @@ export default class Tabs {
 
   // Set up checks for responsive functionality
   // The tabs will display as tabs for >40rem viewports
-  // Tabs will display as a TOC list and show full content for <40rem viewports
-  // Aria tags are added only for >40rem viewports
+  // Tabs will display as a TOC list and show full content for <740px viewports
+  // Aria tags are added only for >740px viewports
   setupViewportChecks() {
-    this.viewport = matchMediaUtil('(min-width: 40rem)');
+    this.viewport = matchMediaUtil('(min-width: 740px)');
     this.viewport.addListener(this.checkViewport.bind(this));
     this.checkViewport();
   }
