@@ -74,10 +74,15 @@ A visually hidden `<h2>` should be added above the tabs list to provide further 
 ### Use clear and short labels
 Tabs hide content and are displayed horizontally, so it's important to use tab labels which are clear and succinct.  To avoid the tab layout breaking, consider to using single words or reducing the number of tabs.
 
-## Disable initial selection of the first tab
-Setting `"noInitialActiveTab": true` will prevent the first tab from being selected when the page is initially loaded.
+## Variants
+
+### Details tabs
+Tabs can be used to reveal hidden blocks of content that provide detail about a media item above, such as an image, video or iframe. Setting `"variants": [ 'details' ]` will style the tabs appropriately.
+
+You can set `"noInitialActiveTab": true` to prevent the first tab from being selected when the page is initially loaded.
+
 {{
-    patternlibExample({"path":"components/tabs/examples/tabs-no-initial-active-tab/index.njk"})
+    patternlibExample({"path":"components/tabs/examples/tabs-details/index.njk"})
 }}
 
 ## Help improve this component
