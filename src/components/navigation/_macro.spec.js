@@ -102,10 +102,16 @@ describe('macro: navigation', () => {
       expect($('.ons-container').hasClass('ons-container--full-width')).toBe(true);
     });
 
-    it('has the correct container if `wide`', () => {
+    it('has the correct container if `params.wide` is provided', () => {
+      const $ = cheerio.load(renderComponent('navigation', { wide: true, navigation: PARAMS }));
+
+      expect($('.ons-navigation-wrapper .ons-container').hasClass('ons-container--wide')).toBe(true);
+    });
+
+    it('has the correct container if `params.navigation.wide` is provided', () => {
       const $ = cheerio.load(renderComponent('navigation', { navigation: { ...PARAMS, wide: true } }));
 
-      expect($('.ons-container').hasClass('ons-container--wide')).toBe(true);
+      expect($('.ons-navigation-wrapper .ons-container').hasClass('ons-container--wide')).toBe(true);
     });
 
     it('has the search autosuggest with correct output', () => {
@@ -216,6 +222,18 @@ describe('macro: navigation', () => {
           'aria-expanded': 'false',
         },
       });
+    });
+
+    it('has the correct container if `params.wide` is provided', () => {
+      const $ = cheerio.load(renderComponent('navigation', { wide: true, navigation: PARAMS }));
+
+      expect($('.ons-navigation--sub .ons-container').hasClass('ons-container--wide')).toBe(true);
+    });
+
+    it('has the correct container if `params.navigation.wide` is provided', () => {
+      const $ = cheerio.load(renderComponent('navigation', { navigation: { ...PARAMS, wide: true } }));
+
+      expect($('.ons-navigation--sub .ons-container').hasClass('ons-container--wide')).toBe(true);
     });
 
     it('has the provided `id` attribute', () => {
