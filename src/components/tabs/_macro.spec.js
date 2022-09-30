@@ -65,6 +65,18 @@ describe('macro: tabs', () => {
     ).toBe('Example tabs');
   });
 
+  it('has title with provided tag override', () => {
+    const $ = cheerio.load(
+      renderComponent('tabs', {
+        ...EXAMPLE_TABS,
+        titleTag: 'h4',
+      }),
+    );
+
+    const titleTag = $('.ons-tabs__title')[0].tagName;
+    expect(titleTag).toBe('h4');
+  });
+
   it('has the provided tab id attributes', () => {
     const $ = cheerio.load(renderComponent('tabs', EXAMPLE_TABS));
 
