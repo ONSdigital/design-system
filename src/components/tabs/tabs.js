@@ -30,6 +30,8 @@ export default class Tabs {
     this.jsTabItemAsRowClass = 'ons-tab__list-item--row';
     this.jsTabAsListClass = 'ons-tab--row';
 
+    this.noInitialActiveTab = this.component.getAttribute('data-no-initial-active-tab');
+
     if (matchMediaUtil.hasMatchMedia()) {
       this.setupViewportChecks();
     } else {
@@ -39,10 +41,10 @@ export default class Tabs {
 
   // Set up checks for responsive functionality
   // The tabs will display as tabs for >40rem viewports
-  // Tabs will display as a TOC list and show full content for <40rem viewports
-  // Aria tags are added only for >40rem viewports
+  // Tabs will display as a TOC list and show full content for <740px viewports
+  // Aria tags are added only for >740px viewports
   setupViewportChecks() {
-    this.viewport = matchMediaUtil('(min-width: 40rem)');
+    this.viewport = matchMediaUtil('(min-width: 740px)');
     this.viewport.addListener(this.checkViewport.bind(this));
     this.checkViewport();
   }
@@ -79,8 +81,12 @@ export default class Tabs {
       this.hideTab(tab);
     });
 
-    const activeTab = this.getTab(window.location.hash) || this.tabs[0];
-    this.showTab(activeTab);
+    if (!this.noInitialActiveTab) {
+      const activeTab = this.getTab(window.location.hash) || this.tabs[0];
+      this.showTab(activeTab);
+    }
+
+    this.ensureTabIndexExists();
 
     this.component.boundOnHashChange = this.onHashChange.bind(this);
     window.addEventListener('hashchange', this.component.boundOnHashChange, true);
@@ -124,9 +130,10 @@ export default class Tabs {
       return;
     }
 
-    const previousTab = this.getCurrentTab();
-
-    this.hideTab(previousTab);
+    const currentTab = this.getCurrentTab();
+    if (!!currentTab) {
+      this.hideTab(currentTab);
+    }
     this.showTab(tabWithHash);
     tabWithHash.focus();
   }
@@ -177,9 +184,24 @@ export default class Tabs {
     e.preventDefault();
     const newTab = e.target;
     const currentTab = this.getCurrentTab();
-    this.hideTab(currentTab);
-    this.showTab(newTab);
-    this.createHash(newTab);
+
+    if (!!currentTab) {
+      this.hideTab(currentTab);
+    }
+
+    if (!this.noInitialActiveTab || newTab !== currentTab) {
+      this.showTab(newTab);
+      this.createHash(newTab);
+    }
+
+    this.ensureTabIndexExists();
+  }
+
+  ensureTabIndexExists() {
+    // Ensure that at least the first tab has a tab index when all tabs are hidden.
+    if (!this.tabs.find(tab => tab.getAttribute('tabindex') === '0')) {
+      this.tabs[0].setAttribute('tabindex', '0');
+    }
   }
 
   createHash(tab) {
@@ -220,7 +242,8 @@ export default class Tabs {
   }
 
   getPanel(tab) {
-    const panel = this.component.querySelector(this.getHref(tab));
+    const panelSelector = this.getHref(tab).replace(/\./g, '\\.');
+    const panel = this.component.querySelector(panelSelector);
     return panel;
   }
 
