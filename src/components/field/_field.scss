@@ -2,7 +2,7 @@
   position: relative;
 
   &__other {
-    background-color: $color-grey-5;
+    background-color: var(--ons-color-grey-5);
     clear: both;
     display: none;
     padding: 0 0.5rem 0.5rem;

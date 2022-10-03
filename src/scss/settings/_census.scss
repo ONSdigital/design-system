@@ -1,31 +1,32 @@
 // Census brand
-$color-white: #fff;
-$color-black: #222;
-$color-white: #fff;
-$color-branded: #902082;
-$color-branded-tint: rgba(144, 32, 130, 0.1); // 10% of brand colour
-$color-branded-secondary: #df0667;
-$color-branded-tertiary: #3c388e;
-$color-branded-supporting: #00a3a6;
-$color-branded-supporting-tint: rgba(#00a3a6, 0.2);
-$color-census-gradient: linear-gradient(to bottom left, #902082 0%, #3c388e 100%);
+:root {
+  --ons-color-black: #222;
+  --ons-color-white: #fff;
+  --ons-color-branded: #902082;
+  --ons-color-branded-tint: rgba(144, 32, 130, 0.1); // 10% of brand colour
+  --ons-color-branded-secondary: #df0667;
+  --ons-color-branded-tertiary: #3c388e;
+  --ons-color-branded-supporting: #00a3a6;
+  --ons-color-branded-supporting-tint: rgba(#00a3a6, 0.2);
+  --ons-color-census-gradient: linear-gradient(to bottom left, #902082 0%, #3c388e 100%);
 
-// Assignment
-$color-tag-bg: $color-branded-supporting-tint;
-$color-text-link-hover: $color-black;
+  // Assignment
+  --ons-color-tag-bg: var(--ons-color-branded-supporting-tint);
+  --ons-color-text-link-hover: var(--ons-color-black);
+}
 
 // Overrides
 
 // Header logo
 .ons-header__title-logo {
   .ons-svg-logo {
-    fill: $color-white;
+    fill: var(--ons-color-white);
   }
 }
 
 // Hero
 .ons-hero--census {
-  background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
+  background-image: linear-gradient(46deg, var(--ons-color-branded-tertiary) 0%, var(--ons-color-branded) 100%);
   display: flex;
   margin-bottom: 2px;
   margin-top: 2px;
@@ -44,7 +45,7 @@ $color-text-link-hover: $color-black;
     position: absolute;
   }
   .ons-hero__circle-image {
-    background-color: $color-white;
+    background-color: var(--ons-color-white);
     border-radius: 50%;
     height: 300px;
     right: -4px;
@@ -59,7 +60,11 @@ $color-text-link-hover: $color-black;
     }
   }
   .ons-hero__circle-gradient {
-    background-image: linear-gradient(-45deg, $color-branded 0%, $color-branded 20%, $color-branded-tertiary 60%, #005489 90%);
+    background-image: linear-gradient(-45deg,
+    var(--ons-color-branded) 0%,
+    var(--ons-color-branded) 20%,
+    var(--ons-color-branded-tertiary) 60%,
+    #005489 90%);
     border-radius: 50%;
     display: block;
     height: 182px;
@@ -69,7 +74,7 @@ $color-text-link-hover: $color-black;
     z-index: 3;
   }
   .ons-hero__circle {
-    background-color: $color-white;
+    background-color: var(--ons-color-white);
     border-radius: 50%;
     display: block;
     height: 990px;
@@ -80,7 +85,7 @@ $color-text-link-hover: $color-black;
     z-index: 1;
   }
   .ons-hero__circle-lined {
-    fill: $color-white;
+    fill: var(--ons-color-white);
     height: 133px;
     opacity: 0.4;
     right: -24px;

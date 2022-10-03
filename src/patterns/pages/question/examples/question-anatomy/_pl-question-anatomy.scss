@@ -6,7 +6,7 @@
 
   &__row {
     &:not(:last-child) {
-      border-bottom: 1px dashed $color-grey-35;
+      border-bottom: 1px dashed var(--ons-color-grey-35);
     }
   }
 
@@ -16,7 +16,7 @@
   }
 
   &__description {
-    background-color: $color-grey-5;
+    background-color: var(--ons-color-grey-5);
     padding: 1rem;
     text-align: left;
   }

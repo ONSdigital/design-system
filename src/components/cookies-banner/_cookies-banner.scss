@@ -1,14 +1,14 @@
 .ons-cookies-banner {
-  background: $color-banner-bg;
+  background: var(--ons-color-banner-bg);
   display: none;
   padding: 1rem 0 1.5rem;
 
   &__title {
-    color: $color-text;
+    color: var(--ons-color-text);
   }
 
   &__statement {
-    color: $color-text;
+    color: var(--ons-color-text);
     word-break: break-word;
     p {
       margin: 0 0 0.5rem;

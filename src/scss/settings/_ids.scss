@@ -1,11 +1,15 @@
-// IDS brand
-$color-black: #222;
-$color-branded: #4d076b;
-$color-branded-text: $color-black;
-$color-branded-tint: rgba(98, 69, 149, 0.1); // 10% of brand colour
-$color-branded-secondary: #e06c0f;
-// Assignment
-$color-text-link-hover: $color-black;
+:root {
+  --ons-color-black: #222;
+  --ons-color-branded-text: var(--ons-color-black);
+
+  // IDS brand
+  --ons-color-branded: #4d076b;
+  --ons-color-branded-tint: rgba(98, 69, 149, 0.1); // 10% of brand colour
+  --ons-color-branded-secondary: #e06c0f;
+
+  // Assignment
+  --ons-color-text-link-hover: var(--ons-color-black);
+}
 
 // Overrides
 // Hero

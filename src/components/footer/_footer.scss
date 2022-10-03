@@ -1,22 +1,22 @@
 .ons-footer {
   a {
-    color: $color-text-banner-link;
+    color: var(--ons-color-text-banner-link);
     text-decoration: underline;
 
     &:hover {
-      color: $color-text-banner-link-hover;
-      text-decoration: underline solid $color-text-banner-link-hover 2px;
+      color: var(--ons-color-text-banner-link-hover);
+      text-decoration: underline solid var(--ons-color-text-banner-link-hover) 2px;
     }
   }
 
   &__button-container {
     background-clip: border-box;
-    background-color: $color-header;
+    background-color: var(--ons-color-header);
     padding: 1rem;
   }
 
   &__warning {
-    background-color: $color-banner-bg-dark;
+    background-color: var(--ons-color-banner-bg-dark);
     outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
   }
 
@@ -32,11 +32,11 @@
 
   .ons-svg-logo,
   .ons-svg-logo__group {
-    fill: $color-black !important;
+    fill: var(--ons-color-black) !important;
   }
 
   &__body {
-    background-color: $color-banner-bg;
+    background-color: var(--ons-color-banner-bg);
     padding: 2rem 0 4rem;
 
     .ons-list__link {
