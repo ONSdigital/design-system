@@ -1,14 +1,27 @@
 {% macro onsTabs(params) %}
-    <section class="ons-tabs">
-        <h2 class="ons-tabs__title">{{params.title}}</h2>
+    {% set classes = 'ons-tabs' %}
+
+    {% set variantClasses %}
+        {% for variant in params.variants %}
+            {% set classes = classes ~ ' ons-tabs--' ~ variant %}
+        {% endfor %}
+    {% endset %}
+
+    <section class="{{ classes }}"
+        {% if params.noInitialActiveTab %}data-no-initial-active-tab="true"{% endif %}
+    >
+        {% set titleTag = params.titleTag | default("h2") %}
+        <{{ titleTag }} class="ons-tabs__title ons-u-fs-r--b ons-u-mt-no">{{ params.title }}</{{ titleTag }}>
+
         <ul class="ons-tabs__list">
             {% for tab in params.tabs %}
-                <li id="tabId{{loop.index}}Item" class="ons-tab__list-item"><a href="#tabId{{loop.index}}" class="ons-tab" data-ga="click" data-ga-category="tabs" data-ga-action="Show: {{tab.title}}" data-ga-label="Show: {{tab.title}}">{{tab.title}}</a></li>
+                <li class="ons-tab__list-item"><a href="#{{ tab.id if tab.id else 'tabId' ~ loop.index }}" class="ons-tab" data-ga="click" data-ga-category="tabs" data-ga-action="Show: {{ tab.title }}" data-ga-label="Show: {{ tab.title }}">{{ tab.title }}</a></li>
             {% endfor %}
         </ul>
+
         {% for tab in params.tabs %}
-            <section id="tabId{{loop.index}}" class="ons-tabs__panel">
-                {{tab.content | safe}}
+            <section id="{{ tab.id if tab.id else 'tabId' ~ loop.index }}" class="ons-tabs__panel">
+                {{ tab.content | safe }}
             </section>
         {% endfor %}
     </section>

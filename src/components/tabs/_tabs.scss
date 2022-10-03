@@ -114,3 +114,35 @@
     z-index: 1;
   }
 }
+
+.ons-tabs--details {
+  border-top: 1px solid $color-borders;
+  margin: 0;
+
+  .ons-tab {
+    border-radius: 0;
+    border-top: none;
+  }
+
+  .ons-tab__list-item:first-child .ons-tab {
+    border-left: none;
+  }
+
+  .ons-tabs__title {
+    padding: 1rem 1rem 0;
+  }
+
+  .ons-tabs__list {
+    padding: 0 1rem;
+  }
+
+  .ons-tabs__list--row {
+    margin-bottom: -1px;
+    padding: 0;
+  }
+
+  .ons-tabs__panel {
+    margin-top: 1px;
+    padding: 1rem;
+  }
+}
