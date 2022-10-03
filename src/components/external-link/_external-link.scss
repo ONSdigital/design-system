@@ -4,21 +4,21 @@
     white-space: nowrap;
   }
   .ons-svg-icon {
-    fill: $color-grey-100;
+    fill: var(--ons-color-grey-100);
     margin: 0 0 0 0.25rem;
     padding-bottom: 0.1rem;
     visibility: visible;
   }
   &:focus {
     .ons-svg-icon {
-      fill: $color-black;
+      fill: var(--ons-color-black);
     }
   }
   &:hover {
     .ons-svg-icon {
-      fill: $color-text-link-hover;
+      fill: var(--ons-color-text-link-hover);
       .ons-footer & {
-        fill: $color-black;
+        fill: var(--ons-color-black);
       }
     }
   }

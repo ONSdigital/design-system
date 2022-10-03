@@ -44,7 +44,7 @@
     border-right: 8px solid transparent;
 
     &--info {
-      border-color: $color-info;
+      border-color: var(--ons-color-info);
     }
 
     &--warn,

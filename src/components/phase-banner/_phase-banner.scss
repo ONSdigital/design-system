@@ -1,10 +1,10 @@
 .ons-phase-banner {
-  background: $color-grey-5;
+  background: var(--ons-color-grey-5);
   padding: 0.5rem 0;
 
   &__badge {
-    background: $color-black;
-    color: $color-white;
+    background: var(--ons-color-black);
+    color: var(--ons-color-white);
     font-size: 0.85rem;
     line-height: 1em;
     margin: 0 0.5rem 0 0;

@@ -21,14 +21,14 @@
 
     // Overide default input error style so it can wrap prefix/suffix too
     &.ons-input--error:not(:focus) {
-      border-right: $input-border-width solid $color-input-border;
+      border-right: $input-border-width solid var(--ons-color-input-border);
       box-shadow: none;
       outline: none;
     }
   }
 
   &__type {
-    background-color: $color-button-secondary;
+    background-color: var(--ons-color-button-secondary);
     display: block;
     flex: 0 0 auto;
     font-size: 1rem;
@@ -45,7 +45,7 @@
 
   &__type,
   &__type[title] {
-    border: 1px solid $color-input-border;
+    border: 1px solid var(--ons-color-input-border);
   }
 
   &__type[title] {
@@ -95,7 +95,7 @@
 .ons-input--error:not(:focus) {
   & + .ons-input-type__type,
   & + .ons-input-type__type[title] {
-    border-color: $color-errors;
+    border-color: var(--ons-color-errors);
   }
 
   & + .ons-input-type__type::after {
@@ -103,7 +103,7 @@
     bottom: 0;
 
     // Style input + prefix/suffix for errors
-    box-shadow: 0 0 0 1px $color-errors;
+    box-shadow: 0 0 0 1px var(--ons-color-errors);
     content: '';
     display: block;
     left: 0;

@@ -6,7 +6,7 @@
   outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
 
   &--sent {
-    background: $color-info-tint;
+    background: var(--ons-color-info-tint);
 
     @include mq(m) {
       margin-left: 4rem;
@@ -14,7 +14,7 @@
   }
 
   &--received {
-    background: $color-success-tint;
+    background: var(--ons-color-success-tint);
 
     @include mq(m) {
       margin-right: 4rem;
@@ -22,7 +22,7 @@
   }
 
   &__head {
-    border-bottom: 1px solid $color-borders;
+    border-bottom: 1px solid var(--ons-color-borders);
     padding: $grid-gutters;
     position: relative;
   }

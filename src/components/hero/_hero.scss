@@ -1,6 +1,6 @@
 // Default
 .ons-hero {
-  background-color: $color-banner-bg;
+  background-color: var(--ons-color-banner-bg);
   display: flex;
   overflow: hidden;
   padding: 0;
@@ -43,15 +43,15 @@
 
   &--dark & {
     &__details {
-      color: $color-text-inverse !important;
+      color: var(--ons-color-text-inverse) !important;
 
       a {
         color: inherit;
-        text-decoration: underline solid $color-text-inverse-link 1px;
+        text-decoration: underline solid var(--ons-color-text-inverse-link) 1px;
       }
 
       a:hover {
-        color: $color-text-inverse-link-hover;
+        color: var(--ons-color-text-inverse-link-hover);
         text-decoration-thickness: 2px;
       }
 

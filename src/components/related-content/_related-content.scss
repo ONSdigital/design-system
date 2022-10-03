@@ -1,12 +1,12 @@
 .ons-related-content {
   @extend .ons-u-mt-m;
 
-  border-top: 5px solid $color-branded;
+  border-top: 5px solid var(--ons-color-branded);
   padding-top: 1rem;
 
   &__section {
     & + & {
-      border-top: 1px solid $color-grey-75;
+      border-top: 1px solid var(--ons-color-grey-75);
       margin: 2rem 0 0;
       padding: 2em 0 0;
     }

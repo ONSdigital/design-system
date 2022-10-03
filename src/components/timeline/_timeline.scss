@@ -3,7 +3,7 @@
   position: relative;
 
   &::before {
-    border-left: 4px solid $color-black;
+    border-left: 4px solid var(--ons-color-black);
     content: '';
     height: 100%;
     left: 0;
@@ -17,7 +17,7 @@
   position: relative;
 
   &::before {
-    background-color: $color-black;
+    background-color: var(--ons-color-black);
     content: '';
     height: 4px;
     left: -1.5rem;

@@ -20,7 +20,7 @@ $backdrop-colour: rgba(0, 0, 0, 0.8);
   }
 
   &-ie11 & {
-    background: $color-white;
+    background: var(--ons-color-white);
     bottom: 0;
     height: 350px;
     left: 0;

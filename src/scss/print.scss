@@ -1,4 +1,6 @@
-$color-black: #222;
+html {
+  --ons-color-black: #222;
+}
 
 .ons-btn,
 .ons-summary__actions,
@@ -20,7 +22,7 @@ a::after {
   }
 
   &__title {
-    color: $color-black;
+    color: var(--ons-color-black);
   }
 
   &-nav {
@@ -33,12 +35,12 @@ a::after {
     }
     &__link,
     &__link:hover {
-      color: $color-black;
+      color: var(--ons-color-black);
     }
   }
 
   & &__svg-logo {
-    fill: $color-black;
+    fill: var(--ons-color-black);
   }
 }
 
@@ -49,7 +51,7 @@ a::after {
     }
 
     &__title {
-      color: $color-black;
+      color: var(--ons-color-black);
       margin-bottom: 1rem;
       margin-left: -1.5rem;
       text-decoration: none;

@@ -1,6 +1,6 @@
 .ons-adv-filter {
   &__gallery {
-    border-top: 1px solid $color-borders-list;
+    border-top: 1px solid var(--ons-color-borders-list);
     margin-left: 0;
     padding-left: 0;
     padding-top: 1.5rem;
@@ -19,7 +19,7 @@
   }
 
   &__selection {
-    color: $color-grey-100;
+    color: var(--ons-color-grey-100);
     margin-bottom: 0.5rem;
   }
 
@@ -48,7 +48,7 @@
   }
 
   &__panel--is-visible {
-    background-color: $color-white;
+    background-color: var(--ons-color-white);
     bottom: 0;
     display: block;
     height: calc(100% - 76px); // Height of action buttons
@@ -62,9 +62,9 @@
   }
 
   &__actions {
-    background-color: $color-white;
+    background-color: var(--ons-color-white);
     bottom: 0;
-    box-shadow: 0 0 5px 0 rgba($color-black, 0.5), 0 -1px 0 0 rgba($color-grey-100, 0.5);
+    box-shadow: 0 0 5px 0 rgba(var(--ons-color-black), 0.5), 0 -1px 0 0 rgba(var(--ons-color-grey-100), 0.5);
     display: flex;
     left: 0;
     padding: 1rem;

@@ -28,7 +28,7 @@ $hub-row-spacing: 1.3rem;
 
     &:not(:last-child),
     &:nth-of-type(1) {
-      border-bottom: 1px solid $color-borders;
+      border-bottom: 1px solid var(--ons-color-borders);
     }
 
     &--total {
@@ -43,8 +43,8 @@ $hub-row-spacing: 1.3rem;
     }
 
     &--error {
-      background: $color-errors-tint;
-      border-left: 8px solid $color-errors;
+      background: var(--ons-color-errors-tint);
+      border-left: 8px solid var(--ons-color-errors);
     }
   }
 
@@ -81,7 +81,7 @@ $hub-row-spacing: 1.3rem;
       position: absolute;
       text-align: center;
       &--check .ons-svg-icon {
-        fill: $color-leaf-green !important;
+        fill: var(--ons-color-leaf-green) !important;
       }
     }
   }
@@ -91,7 +91,7 @@ $hub-row-spacing: 1.3rem;
   }
 
   &__spacer {
-    background: $color-black;
+    background: var(--ons-color-black);
     display: inline-block;
     height: 1rem;
     margin: 0 0.25rem;
@@ -108,7 +108,7 @@ $hub-row-spacing: 1.3rem;
 
   &__item--error & {
     &__row-title--error {
-      color: $color-errors;
+      color: var(--ons-color-errors);
       font-weight: 700;
       padding: $summary-row-spacing $summary-col-spacing;
     }

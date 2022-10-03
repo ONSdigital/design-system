@@ -2,7 +2,7 @@ $collapsible-caret-width: 1.5rem;
 
 .ons-collapsible {
   &__heading {
-    color: $color-text-link;
+    color: var(--ons-color-text-link);
     cursor: pointer;
     display: inline-block;
     outline: none;
@@ -23,24 +23,24 @@ $collapsible-caret-width: 1.5rem;
         padding-left: $collapsible-caret-width;
       }
       .ons-collapsible__icon .ons-svg-icon {
-        fill: $color-text-link-focus;
+        fill: var(--ons-color-text-link-focus);
       }
     }
 
     &:hover:not(:focus) {
-      color: $color-text-link-hover;
+      color: var(--ons-color-text-link-hover);
       .ons-collapsible__icon {
-        fill: $color-text-link-hover;
+        fill: var(--ons-color-text-link-hover);
       }
       .ons-collapsible__title {
-        text-decoration: underline solid $color-text-link-hover 2px;
+        text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
       }
     }
   }
 
   &__icon {
     display: inline-block;
-    fill: $color-text-link;
+    fill: var(--ons-color-text-link);
     height: $collapsible-caret-width;
     left: -0.15rem;
     position: absolute;
@@ -58,7 +58,7 @@ $collapsible-caret-width: 1.5rem;
   }
 
   &__content {
-    border-left: 4px solid $color-borders-indent;
+    border-left: 4px solid var(--ons-color-borders-indent);
     display: block;
     margin: 1rem 0 0;
     padding: 0 0 0 1.3em;
@@ -74,7 +74,7 @@ $collapsible-caret-width: 1.5rem;
 
   &--accordion & {
     &__heading {
-      border-top: 1px solid $color-borders;
+      border-top: 1px solid var(--ons-color-borders);
       margin: 0;
       padding-bottom: 0.9rem;
       padding-top: 1rem;

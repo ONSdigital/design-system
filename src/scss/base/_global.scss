@@ -25,21 +25,21 @@ img {
 
 hr {
   border: 0;
-  border-top: 1px solid $color-borders;
+  border-top: 1px solid var(--ons-color-borders);
   margin: 2rem 0 0;
 }
 
 %a-focus {
-  background-color: $color-focus;
-  box-shadow: 0 -2px $color-focus, 0 4px $color-text-link-focus;
-  color: $color-text-link-focus;
+  background-color: var(--ons-color-focus);
+  box-shadow: 0 -2px var(--ons-color-focus), 0 4px var(--ons-color-text-link-focus);
+  color: var(--ons-color-text-link-focus);
   outline: 3px solid transparent;
   outline-offset: 1px;
   text-decoration: none;
 }
 
 a {
-  color: $color-text-link;
+  color: var(--ons-color-text-link);
   text-decoration-thickness: 1px;
   text-underline-position: under;
   &:not(.ons-u-fs-r--b):hover {
@@ -57,8 +57,8 @@ a {
     }
   }
   &:hover {
-    color: $color-text-link-hover;
-    text-decoration: underline solid $color-text-link-hover 2px;
+    color: var(--ons-color-text-link-hover);
+    text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
   }
   &:focus:not(.ons-btn--link):not(.ons-btn--ghost):not(.ons-js-clear-btn):not(.ons-download__thumbnail--link):not(.ons-tab--row):not(.ons-skip-link) {
     @extend %a-focus;
