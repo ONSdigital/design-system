@@ -1,5 +1,5 @@
 .ons-feedback {
-  border: 3px solid $color-branded;
+  border: 3px solid var(--ons-color-branded);
   margin-bottom: 2rem;
   padding: 1rem;
   position: relative;
@@ -8,9 +8,9 @@
   }
   &::before {
     border-bottom: 15px solid transparent;
-    border-left: 15px solid $color-branded;
+    border-left: 15px solid var(--ons-color-branded);
     border-right: 15px solid transparent;
-    border-top: 15px solid $color-branded;
+    border-top: 15px solid var(--ons-color-branded);
     bottom: -30px;
     content: '';
     height: 0;

@@ -8,7 +8,7 @@
 
   // Elements
   &__top {
-    background: $color-header-masthead;
+    background: var(--ons-color-header-masthead);
     width: 100%;
   }
   &__grid-top {
@@ -24,12 +24,12 @@
     }
   }
   &__main {
-    background: $color-header;
+    background: var(--ons-color-header);
     padding: 0.56rem 0;
 
     &--border {
-      border-bottom: 3px solid $color-header;
-      border-top: 3px solid $color-header;
+      border-bottom: 3px solid var(--ons-color-header);
+      border-top: 3px solid var(--ons-color-header);
       padding: 0.934rem 0;
     }
   }
@@ -37,7 +37,7 @@
     @extend .ons-u-fs-r--b;
     @extend .ons-u-fs-xl\@xxs;
 
-    color: $color-white;
+    color: var(--ons-color-white);
 
     @include mq(m) {
       margin-bottom: 1rem;
@@ -49,11 +49,11 @@
       text-decoration: none;
       &:focus {
         .ons-header__title {
-          color: $color-text-link-focus;
+          color: var(--ons-color-text-link-focus);
         }
       }
       &:hover {
-        text-decoration: underline solid $color-text-inverse-link 2px;
+        text-decoration: underline solid var(--ons-color-text-inverse-link) 2px;
       }
     }
   }
@@ -61,7 +61,7 @@
     @extend .ons-u-fs-s;
     @extend .ons-u-fs-r\@s;
 
-    color: $color-white;
+    color: var(--ons-color-white);
     margin: 0;
 
     @include mq(m) {
@@ -83,30 +83,30 @@
   &--internal &,
   &--neutral & {
     &__top {
-      background: $color-header-masthead-internal;
+      background: var(--ons-color-header-masthead-internal);
       .ons-svg-logo {
         display: block;
         .ons-svg-logo__group--text,
         .ons-svg-logo__group--primary {
-          fill: $color-white;
+          fill: var(--ons-color-white);
         }
       }
     }
     &__org-logo-link:focus {
       background-color: transparent;
       box-shadow: none;
-      outline: 3px solid $color-focus;
+      outline: 3px solid var(--ons-color-focus);
       .ons-svg-logo {
-        fill: $color-text-link-focus;
+        fill: var(--ons-color-text-link-focus);
       }
     }
     &__grid-top {
-      color: $color-text-inverse;
+      color: var(--ons-color-text-inverse);
       min-height: 36px;
       a {
-        color: $color-text-inverse;
+        color: var(--ons-color-text-inverse);
         &:hover {
-          text-decoration: underline solid $color-text-inverse-link-hover 3px;
+          text-decoration: underline solid var(--ons-color-text-inverse-link-hover) 3px;
         }
       }
     }
@@ -114,23 +114,23 @@
 
   &--neutral & {
     &__top {
-      background: $color-header-masthead-dark;
+      background: var(--ons-color-header-masthead-dark);
     }
 
     &__main {
-      background: $color-header-light;
+      background: var(--ons-color-header-light);
 
       &--border {
-        border-bottom: 3px solid $color-header-light;
-        border-top: 3px solid $color-header-light;
+        border-bottom: 3px solid var(--ons-color-header-light);
+        border-top: 3px solid var(--ons-color-header-light);
       }
     }
 
     &__title {
-      color: $color-branded-text;
+      color: var(--ons-color-branded-text);
       &-link {
         &:hover {
-          text-decoration: underline solid $color-branded-text 2px;
+          text-decoration: underline solid var(--ons-color-branded-text) 2px;
         }
       }
     }
@@ -145,9 +145,9 @@
     display: block;
     &:focus {
       .ons-svg-logo {
-        fill: $color-black !important;
+        fill: var(--ons-color-black) !important;
         .ons-svg-logo__group {
-          fill: $color-black !important;
+          fill: var(--ons-color-black) !important;
         }
       }
     }
@@ -182,14 +182,14 @@
     display: inline-block;
 
     &--mobile {
-      background: $color-branded-tint;
+      background: var(--ons-color-branded-tint);
       padding: 1rem;
       width: 100%;
     }
 
     .ons-header--neutral & {
       &--mobile {
-        background: $color-grey-5;
+        background: var(--ons-color-grey-5);
       }
     }
 
@@ -216,7 +216,7 @@
     }
 
     .ons-language-links {
-      border-top: 1px solid $color-branded;
+      border-top: 1px solid var(--ons-color-branded);
       margin: 1.5rem 0 0;
       padding: 1rem 0 0;
 

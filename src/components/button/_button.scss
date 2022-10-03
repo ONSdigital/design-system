@@ -39,10 +39,10 @@ $button-shadow-size: 3px;
   }
 
   &__inner {
-    background: $color-button;
+    background: var(--ons-color-button);
     border-radius: $input-radius;
-    box-shadow: 0 ems($button-shadow-size) 0 darken($color-button, 15%);
-    color: $color-text-inverse;
+    box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-shadow);
+    color: var(--ons-color-text-inverse);
     display: inherit;
     padding: 0.7em 1em 0.8em;
     // Required for Google Tag Manager
@@ -50,7 +50,7 @@ $button-shadow-size: 3px;
     position: relative;
 
     .ons-svg-icon {
-      fill: $color-text-inverse;
+      fill: var(--ons-color-text-inverse);
       height: 18px;
       margin-top: -$button-shadow-size;
       vertical-align: middle;
@@ -72,29 +72,29 @@ $button-shadow-size: 3px;
   }
 
   &:focus &__inner {
-    background: $color-focus;
-    box-shadow: 0 ems($button-shadow-size) 0 $color-text-link-focus;
-    color: $color-text-link-focus;
+    background: var(--ons-color-focus);
+    box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-text-link-focus);
+    color: var(--ons-color-text-link-focus);
 
     .ons-svg-icon {
-      fill: $color-text-link-focus;
+      fill: var(--ons-color-text-link-focus);
     }
   }
 
   &:focus:hover:not(:active) &__inner {
-    background: darken($color-focus, 5%);
+    background: var(--ons-color-focus-dark);
   }
 
   // When down
   &:active &,
   &:active:focus & {
     &__inner {
-      background: $color-button;
+      background: var(--ons-color-button);
       box-shadow: none;
-      color: $color-text-inverse;
+      color: var(--ons-color-text-inverse);
 
       .ons-svg-icon {
-        fill: $color-text-inverse;
+        fill: var(--ons-color-text-inverse);
       }
     }
   }
@@ -129,7 +129,7 @@ $button-shadow-size: 3px;
   // Secondary button style
   &--secondary & {
     &__inner {
-      box-shadow: 0 ems($button-shadow-size) 0 darken($color-button-secondary, 50%);
+      box-shadow: 0 ems($button-shadow-size) 0 var(--ons-color-button-secondary-shadow);
     }
   }
 
@@ -137,12 +137,12 @@ $button-shadow-size: 3px;
   &--secondary:active &,
   &--secondary:active:focus & {
     &__inner {
-      background: $color-button-secondary;
-      color: $color-text;
+      background: var(--ons-color-button-secondary);
+      color: var(--ons-color-text);
       font-weight: normal;
 
       .ons-svg-icon {
-        fill: $color-text;
+        fill: var(--ons-color-text);
       }
     }
   }
@@ -150,13 +150,13 @@ $button-shadow-size: 3px;
   // When hovered
   &:hover & {
     &__inner {
-      background: darken($color-button, 5%);
+      background: var(--ons-color-button-hover);
     }
   }
 
   &--secondary:hover & {
     &__inner {
-      background: darken($color-button-secondary, 5%);
+      background: var(--ons-color-button-secondary-hover);
     }
   }
 
@@ -171,7 +171,7 @@ $button-shadow-size: 3px;
 
     &__inner {
       .ons-svg-icon {
-        fill: $color-text;
+        fill: var(--ons-color-text);
       }
     }
   }
@@ -186,20 +186,20 @@ $button-shadow-size: 3px;
       border: none;
       border-radius: 0;
       box-shadow: none;
-      color: $color-text-link;
+      color: var(--ons-color-text-link);
       font-weight: normal;
       padding: 0;
       .ons-svg-icon {
-        fill: $color-text-link;
+        fill: var(--ons-color-text-link);
       }
     }
   }
 
   &--text-link-inverse & {
     &__inner {
-      color: $color-text-inverse-link;
+      color: var(--ons-color-text-inverse-link);
       .ons-svg-icon {
-        fill: $color-text-inverse-link;
+        fill: var(--ons-color-text-inverse-link);
       }
     }
   }
@@ -209,9 +209,9 @@ $button-shadow-size: 3px;
   &--text-link.active & {
     &__inner {
       background: none;
-      color: $color-text-link-hover;
+      color: var(--ons-color-text-link-hover);
       .ons-svg-icon {
-        fill: $color-text-link-hover;
+        fill: var(--ons-color-text-link-hover);
       }
     }
   }
@@ -220,16 +220,16 @@ $button-shadow-size: 3px;
   &--text-link-inverse:active &,
   &--text-link-inverse.active & {
     &__inner {
-      color: $color-text-inverse-link-hover;
+      color: var(--ons-color-text-inverse-link-hover);
       .ons-svg-icon {
-        fill: $color-text-inverse-link-hover;
+        fill: var(--ons-color-text-inverse-link-hover);
       }
     }
   }
 
   &--text-link:focus:hover & {
     &__inner {
-      color: $color-black;
+      color: var(--ons-color-black);
     }
   }
 
@@ -237,11 +237,11 @@ $button-shadow-size: 3px;
   &--text-link.active:focus &,
   &--text-link:active:focus & {
     &__inner {
-      background-color: $color-focus;
-      box-shadow: 0 -2px $color-focus, 0 4px $color-text-link-focus !important;
-      color: $color-text-link-focus;
+      background-color: var(--ons-color-focus);
+      box-shadow: 0 -2px var(--ons-color-focus), 0 4px var(--ons-color-text-link-focus) !important;
+      color: var(--ons-color-text-link-focus);
       .ons-svg-icon {
-        fill: $color-text-link-focus;
+        fill: var(--ons-color-text-link-focus);
       }
     }
   }
@@ -251,9 +251,9 @@ $button-shadow-size: 3px;
       background: transparent;
       border: 2px solid rgba(255, 255, 255, 0.6);
       box-shadow: none;
-      color: $color-text-inverse;
+      color: var(--ons-color-text-inverse);
       .ons-svg-icon {
-        fill: $color-text-inverse;
+        fill: var(--ons-color-text-inverse);
       }
     }
   }
@@ -261,11 +261,11 @@ $button-shadow-size: 3px;
   &--ghost-dark & {
     &__inner {
       background: transparent;
-      border: 2px solid $color-black;
+      border: 2px solid var(--ons-color-black);
       box-shadow: none;
-      color: $color-text;
+      color: var(--ons-color-text);
       .ons-svg-icon {
-        fill: $color-text;
+        fill: var(--ons-color-text);
       }
     }
   }
@@ -296,9 +296,9 @@ $button-shadow-size: 3px;
   &--ghost-dark:focus:hover &,
   &--dropdown:focus:hover & {
     &__inner {
-      color: $color-text;
+      color: var(--ons-color-text);
       .ons-svg-icon {
-        fill: $color-text;
+        fill: var(--ons-color-text);
       }
     }
   }
@@ -306,7 +306,7 @@ $button-shadow-size: 3px;
   &--ghost:hover & {
     &__inner {
       background: rgba(0, 0, 0, 0.1);
-      border-color: $color-white;
+      border-color: var(--ons-color-white);
     }
   }
 
@@ -316,9 +316,9 @@ $button-shadow-size: 3px;
     &__inner {
       background: rgba(0, 0, 0, 0.2);
       border-color: rgba(255, 255, 255, 0.6);
-      color: $color-text-inverse;
+      color: var(--ons-color-text-inverse);
       .ons-svg-icon {
-        fill: $color-text-inverse;
+        fill: var(--ons-color-text-inverse);
       }
     }
   }
@@ -328,11 +328,11 @@ $button-shadow-size: 3px;
   &--ghost-dark:active:focus &,
   &--ghost-dark.active & {
     &__inner {
-      background: $color-black;
-      border-color: $color-black;
-      color: $color-white;
+      background: var(--ons-color-black);
+      border-color: var(--ons-color-black);
+      color: var(--ons-color-white);
       .ons-svg-icon {
-        fill: $color-white;
+        fill: var(--ons-color-white);
       }
     }
   }
@@ -341,10 +341,10 @@ $button-shadow-size: 3px;
   &--ghost-dark.active:focus &,
   &--dropdown.active:focus & {
     &__inner {
-      background: $color-focus;
-      color: $color-text-link-focus;
+      background: var(--ons-color-focus);
+      color: var(--ons-color-text-link-focus);
       .ons-svg-icon {
-        fill: $color-text-link-focus;
+        fill: var(--ons-color-text-link-focus);
       }
     }
   }
@@ -353,10 +353,10 @@ $button-shadow-size: 3px;
   &--ghost-dark:focus &,
   &--dropdown:focus & {
     &__inner {
-      border-color: $color-text-link-focus;
-      box-shadow: 0 0 0 1px $color-text-link-focus;
+      border-color: var(--ons-color-text-link-focus);
+      box-shadow: 0 0 0 1px var(--ons-color-text-link-focus);
       .ons-svg-icon {
-        fill: $color-black;
+        fill: var(--ons-color-black);
       }
     }
   }
@@ -394,7 +394,7 @@ $button-shadow-size: 3px;
 
   &--dropdown:focus & {
     &__inner {
-      box-shadow: inset 0 -4px 0 0 $color-text-link-focus;
+      box-shadow: inset 0 -4px 0 0 var(--ons-color-text-link-focus);
     }
   }
 
@@ -438,11 +438,11 @@ $button-shadow-size: 3px;
     width: 100%;
 
     &__inner {
-      background: $color-branded-tint;
+      background: var(--ons-color-branded-tint);
       border: none;
       border-radius: 0;
       box-shadow: none;
-      color: $color-branded-text;
+      color: var(--ons-color-branded-text);
       display: block;
       font-size: 1rem;
       font-weight: normal;
@@ -450,7 +450,7 @@ $button-shadow-size: 3px;
       text-align: left;
 
       .ons-svg-icon {
-        fill: $color-branded-text;
+        fill: var(--ons-color-branded-text);
         float: right;
         margin-top: 3px;
       }
@@ -459,10 +459,10 @@ $button-shadow-size: 3px;
 
   &--dropdown:hover & {
     &__inner {
-      background: $color-branded-secondary;
-      color: $color-white;
+      background: var(--ons-color-branded-secondary);
+      color: var(--ons-color-white);
       .ons-svg-icon {
-        fill: $color-white;
+        fill: var(--ons-color-white);
       }
     }
   }
@@ -470,10 +470,10 @@ $button-shadow-size: 3px;
   &--dropdown:active &,
   &--dropdown:active:focus & {
     &__inner {
-      background: $color-branded-secondary;
-      color: $color-white;
+      background: var(--ons-color-branded-secondary);
+      color: var(--ons-color-white);
       .ons-svg-icon {
-        fill: $color-white;
+        fill: var(--ons-color-white);
       }
     }
   }

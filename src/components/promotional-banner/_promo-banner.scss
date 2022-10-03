@@ -1,6 +1,6 @@
 .ons-promo-banner {
-  background-color: $color-branded;
-  background-image: linear-gradient(46deg, $color-branded-tertiary 0%, $color-branded 100%);
+  background-color: var(--ons-color-branded);
+  background-image: linear-gradient(46deg, var(--ons-color-branded-tertiary) 0%, var(--ons-color-branded) 100%);
   overflow: hidden;
   padding-bottom: 5em;
   padding-top: 3em;
@@ -46,18 +46,18 @@
     li,
     p,
     a {
-      color: $color-white;
+      color: var(--ons-color-white);
     }
 
     a {
       &:hover {
-        text-decoration: underline solid $color-white 2px;
+        text-decoration: underline solid var(--ons-color-white) 2px;
       }
     }
 
     h3 {
       a:hover {
-        text-decoration: underline solid $color-white 3px;
+        text-decoration: underline solid var(--ons-color-white) 3px;
       }
     }
   }

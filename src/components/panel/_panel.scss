@@ -15,11 +15,11 @@
 }
 
 .ons-branded-warning {
-  background: $color-branded-tertiary;
+  background: var(--ons-color-branded-tertiary);
 }
 
 .ons-announcement {
-  background-color: $color-black;
+  background-color: var(--ons-color-black);
 }
 
 .ons-branded-warning,
@@ -42,12 +42,12 @@
 
   &:focus {
     box-shadow: none;
-    outline: 4px solid $color-focus !important;
+    outline: 4px solid var(--ons-color-focus) !important;
   }
 
   &__header {
     border-radius: 0;
-    color: $color-text-inverse;
+    color: var(--ons-color-text-inverse);
     margin: 0;
     padding: 0.75rem 1rem;
   }
@@ -110,7 +110,7 @@
   }
 
   &__error {
-    color: $color-errors;
+    color: var(--ons-color-errors);
   }
 
   &--warn {
@@ -120,7 +120,7 @@
     padding: 0;
 
     &--footer {
-      background-color: $color-grey-15 !important;
+      background-color: var(--ons-color-grey-15) !important;
       margin-bottom: 0;
       padding: 1rem 0 !important;
     }
@@ -129,13 +129,13 @@
   &--warn-branded,
   &--announcement {
     border: 0 !important;
-    color: $color-white;
+    color: var(--ons-color-white);
     margin-bottom: 0;
     outline: none !important;
     padding: 1rem 0 !important;
     a {
       color: inherit;
-      text-decoration: underline solid $color-white 1px;
+      text-decoration: underline solid var(--ons-color-white) 1px;
     }
     a:hover {
       text-decoration-thickness: 2px;
@@ -144,7 +144,7 @@
 
   &--announcement {
     a:focus {
-      box-shadow: 0 -2px $color-focus, 0 4px $color-text-inverse-link !important; // Override focus style because the black border is not visible on a black background
+      box-shadow: 0 -2px var(--ons-color-focus), 0 4px (--ons-color-text-inverse-link) !important; // Override focus style because the black border is not visible on a black background
     }
   }
 
@@ -177,9 +177,9 @@
       padding: 0.222rem 0 0.222rem 2.8rem; // Alignment tweak
     }
     &__icon {
-      background: $color-black;
+      background: var(--ons-color-black);
       border-radius: 50%;
-      color: $color-white;
+      color: var(--ons-color-white);
       font-size: 1.5rem;
       font-weight: 900;
       line-height: 2rem;
@@ -196,8 +196,8 @@
     }
 
     &__icon {
-      background-color: $color-white;
-      color: $color-black;
+      background-color: var(--ons-color-white);
+      color: var(--ons-color-black);
       display: flex;
       svg {
         margin: auto;
@@ -207,8 +207,8 @@
 
   &--warn-branded & {
     &__icon {
-      background-color: $color-white;
-      color: $color-branded-tertiary;
+      background-color: var(--ons-color-white);
+      color: var(--ons-color-branded-tertiary);
     }
   }
 
@@ -217,7 +217,7 @@
       left: 0;
       padding-left: 1rem;
       .ons-svg-icon {
-        fill: $color-success !important;
+        fill: var(--ons-color-success) !important;
         margin-top: -15% !important;
       }
     }
@@ -249,10 +249,10 @@
   }
 }
 
-@include panel-type(error, $color-errors, $color-errors-tint);
-@include panel-type(success, $color-success, $color-success-tint);
-@include panel-type(info, $color-info, $color-info-tint);
-@include panel-type(branded, $color-branded, $color-branded-tint);
+@include panel-type(error, var(--ons-color-errors), var(--ons-color-errors-tint));
+@include panel-type(success, var(--ons-color-success), var(--ons-color-success-tint));
+@include panel-type(info, var(--ons-color-info), var(--ons-color-info-tint));
+@include panel-type(branded, var(--ons-color-branded), var(--ons-color-branded-tint));
 @include panel-type(warn, transparent, transparent);
-@include panel-type(warn-branded, $color-branded-tertiary, $color-branded-tertiary);
-@include panel-type(announcement, $color-black, $color-black);
+@include panel-type(warn-branded, var(--ons-color-branded-tertiary), var(--ons-color-branded-tertiary));
+@include panel-type(announcement, var(--ons-color-black), var(--ons-color-black));

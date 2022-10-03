@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  color: $color-text;
+  color: var(--ons-color-text);
   font-family: $font-sans;
 }
 
@@ -23,7 +23,7 @@ h6 {
   line-height: 1.2;
   margin: 0 0 1rem;
   em {
-    background-color: $color-highlight;
+    background-color: var(--ons-color-highlight);
   }
 }
 

@@ -1,17 +1,8 @@
-@each $label, $color in (blue: $color-night-blue, green: $color-leaf-green) {
+@each $label, $color in (blue: blue, green: green) {
   .ons-u-#{'' + $label} {
     color: $color;
   }
   .ons-u-bg-#{'' + $label} {
     background-color: $color;
-  }
-
-  @for $tint from 1 through 10 {
-    .ons-u-#{'' + $label}-#{$tint*10} {
-      color: tint($color, $tint * 10);
-    }
-    .ons-u-bg-#{'' + $label}-#{$tint*10} {
-      background-color: tint($color, $tint * 10);
-    }
   }
 }

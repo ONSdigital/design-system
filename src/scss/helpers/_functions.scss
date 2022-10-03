@@ -16,14 +16,6 @@
   @return $num / ($num * 0 + 1);
 }
 
-@function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
-}
-
-@function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
-}
-
 @function map-set($map, $key, $value) {
   $new: (
     $key: $value,
