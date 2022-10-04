@@ -1,10 +1,10 @@
 {% macro onsPhaseBanner(params) %}
-    <div class="ons-phase-banner">
+    <div class="ons-phase-banner" role="region" aria-label="{{ params.ariaLabel | default('Phase banner') }}">
         <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
             <div class="ons-grid ons-grid--flex ons-grid--gutterless ons-grid--vertical-top ons-grid--no-wrap">
                 {% if not params.hideBadge %}
                 <div class="ons-grid__col ons-col-auto ons-u-flex-no-grow ons-u-flex-no-shrink">
-                    <h3 class="ons-phase-banner__badge">{{ params.badge | default("Beta") }}</h3>
+                    <strong class="ons-phase-banner__badge">{{ params.badge | default("Beta") }}</strong>
                 </div>
                 {% endif %}
                 <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
