@@ -1,6 +1,6 @@
 {% macro onsModal(params) %}
     {% set modalId = params.id | default('dialog') %}
-    {% if 'ons-js-timeout-modal' in params.classes %}
+    {% if params.enableGA == true and 'ons-js-timeout-modal' in params.classes %}
         {% set modalType = "Timeout" %}
     {% else %}
         {% set modalType = "Generic" %}
