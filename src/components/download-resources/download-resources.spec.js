@@ -23,7 +23,6 @@ const EXAMPLE_PAGE = `
       type: 'button',
       text: 'Show filters',
       classes: 'ons-adv-filter__trigger ons-js-adv-filter__trigger',
-      'aria-label': 'Toggle filters',
       'aria-expanded': 'false',
       'aria-controls': 'filter-panel',
     })}
@@ -523,27 +522,11 @@ describe('script: download-resources', () => {
     it('hides the underlying page elements when the "Show filters" button is pressed', async () => {
       await page.click('.ons-js-adv-filter__trigger');
 
-      const isListHiddenClass = await page.$eval('.ons-js-adv-filter__gallery', node => node.classList.contains('ons-u-d-no'));
-      const isListAriaHidden = await page.$eval('.ons-js-adv-filter__gallery', node => node.getAttribute('aria-hidden'));
-      const isOptionsHiddenClass = await page.$eval('.ons-adv-filter__results-options', node => node.classList.contains('ons-u-d-no'));
-      const isOptionsAriaHidden = await page.$eval('.ons-adv-filter__results-options', node => node.getAttribute('aria-hidden'));
-      const isHeaderHiddenClass = await page.$eval('.ons-header', node => node.classList.contains('ons-u-d-no'));
-      const isHeaderAriaHidden = await page.$eval('.ons-header', node => node.getAttribute('aria-hidden'));
-      const isFooterHiddenClass = await page.$eval('.ons-footer', node => node.classList.contains('ons-u-d-no'));
-      const isFooterAriaHidden = await page.$eval('.ons-footer', node => node.getAttribute('aria-hidden'));
-      const isBreadcrumbsHiddenClass = await page.$eval('.ons-breadcrumb', node => node.classList.contains('ons-u-d-no'));
-      const isBreadcrumbsAriaHidden = await page.$eval('.ons-breadcrumb', node => node.getAttribute('aria-hidden'));
+      const pageIsHidden = await page.$eval('.ons-page', node => node.classList.contains('ons-u-d-no'));
+      const pageIsAriaHidden = await page.$eval('.ons-page', node => node.getAttribute('aria-hidden'));
 
-      expect(isListHiddenClass).toBe(true);
-      expect(isListAriaHidden).toBe('true');
-      expect(isOptionsHiddenClass).toBe(true);
-      expect(isOptionsAriaHidden).toBe('true');
-      expect(isHeaderHiddenClass).toBe(true);
-      expect(isHeaderAriaHidden).toBe('true');
-      expect(isFooterHiddenClass).toBe(true);
-      expect(isFooterAriaHidden).toBe('true');
-      expect(isBreadcrumbsHiddenClass).toBe(true);
-      expect(isBreadcrumbsAriaHidden).toBe('true');
+      expect(pageIsHidden).toBe(true);
+      expect(pageIsAriaHidden).toBe('true');
     });
 
     it('hides filter elements when the "Show (n results)" button is pressed', async () => {
@@ -558,27 +541,11 @@ describe('script: download-resources', () => {
       await page.click('.ons-js-adv-filter__trigger');
       await page.click('.ons-js-adv-filter__show');
 
-      const isListHiddenClass = await page.$eval('.ons-js-adv-filter__gallery', node => node.classList.contains('ons-u-d-no'));
-      const isListAriaHidden = await page.$eval('.ons-js-adv-filter__gallery', node => node.getAttribute('aria-hidden'));
-      const isOptionsHiddenClass = await page.$eval('.ons-adv-filter__results-options', node => node.classList.contains('ons-u-d-no'));
-      const isOptionsAriaHidden = await page.$eval('.ons-adv-filter__results-options', node => node.getAttribute('aria-hidden'));
-      const isHeaderHiddenClass = await page.$eval('.ons-header', node => node.classList.contains('ons-u-d-no'));
-      const isHeaderAriaHidden = await page.$eval('.ons-header', node => node.getAttribute('aria-hidden'));
-      const isFooterHiddenClass = await page.$eval('.ons-footer', node => node.classList.contains('ons-u-d-no'));
-      const isFooterAriaHidden = await page.$eval('.ons-footer', node => node.getAttribute('aria-hidden'));
-      const isBreadcrumbsHiddenClass = await page.$eval('.ons-breadcrumb', node => node.classList.contains('ons-u-d-no'));
-      const isBreadcrumbsAriaHidden = await page.$eval('.ons-breadcrumb', node => node.getAttribute('aria-hidden'));
+      const pageIsHidden = await page.$eval('.ons-page', node => node.classList.contains('ons-u-d-no'));
+      const pageIsAriaHidden = await page.$eval('.ons-page', node => node.getAttribute('aria-hidden'));
 
-      expect(isListHiddenClass).toBe(false);
-      expect(isListAriaHidden).toBe('false');
-      expect(isOptionsHiddenClass).toBe(false);
-      expect(isOptionsAriaHidden).toBe('false');
-      expect(isHeaderHiddenClass).toBe(false);
-      expect(isHeaderAriaHidden).toBe('false');
-      expect(isFooterHiddenClass).toBe(false);
-      expect(isFooterAriaHidden).toBe('false');
-      expect(isBreadcrumbsHiddenClass).toBe(false);
-      expect(isBreadcrumbsAriaHidden).toBe('false');
+      expect(pageIsHidden).toBe(false);
+      expect(pageIsAriaHidden).toBe('false');
     });
 
     it('hides filter elements when the "Close" button is pressed', async () => {
@@ -593,27 +560,11 @@ describe('script: download-resources', () => {
       await page.click('.ons-js-adv-filter__trigger');
       await page.click('.ons-js-adv-filter__close');
 
-      const isListHiddenClass = await page.$eval('.ons-js-adv-filter__gallery', node => node.classList.contains('ons-u-d-no'));
-      const isListAriaHidden = await page.$eval('.ons-js-adv-filter__gallery', node => node.getAttribute('aria-hidden'));
-      const isOptionsHiddenClass = await page.$eval('.ons-adv-filter__results-options', node => node.classList.contains('ons-u-d-no'));
-      const isOptionsAriaHidden = await page.$eval('.ons-adv-filter__results-options', node => node.getAttribute('aria-hidden'));
-      const isHeaderHiddenClass = await page.$eval('.ons-header', node => node.classList.contains('ons-u-d-no'));
-      const isHeaderAriaHidden = await page.$eval('.ons-header', node => node.getAttribute('aria-hidden'));
-      const isFooterHiddenClass = await page.$eval('.ons-footer', node => node.classList.contains('ons-u-d-no'));
-      const isFooterAriaHidden = await page.$eval('.ons-footer', node => node.getAttribute('aria-hidden'));
-      const isBreadcrumbsHiddenClass = await page.$eval('.ons-breadcrumb', node => node.classList.contains('ons-u-d-no'));
-      const isBreadcrumbsAriaHidden = await page.$eval('.ons-breadcrumb', node => node.getAttribute('aria-hidden'));
+      const pageIsHidden = await page.$eval('.ons-page', node => node.classList.contains('ons-u-d-no'));
+      const pageIsAriaHidden = await page.$eval('.ons-page', node => node.getAttribute('aria-hidden'));
 
-      expect(isListHiddenClass).toBe(false);
-      expect(isListAriaHidden).toBe('false');
-      expect(isOptionsHiddenClass).toBe(false);
-      expect(isOptionsAriaHidden).toBe('false');
-      expect(isHeaderHiddenClass).toBe(false);
-      expect(isHeaderAriaHidden).toBe('false');
-      expect(isFooterHiddenClass).toBe(false);
-      expect(isFooterAriaHidden).toBe('false');
-      expect(isBreadcrumbsHiddenClass).toBe(false);
-      expect(isBreadcrumbsAriaHidden).toBe('false');
+      expect(pageIsHidden).toBe(false);
+      expect(pageIsAriaHidden).toBe('false');
     });
   });
 });
