@@ -1,11 +1,16 @@
 {% macro onsModal(params) %}
     {% set modalId = params.id | default('dialog') %}
+    {% if 'ons-js-timeout-modal' in params.classes %}
+        {% set modalType = "Timeout" %}
+    {% else %}
+        {% set modalType = "Generic" %}
+    {% endif %}
     <dialog class="ons-modal ons-js-modal {{ params.classes if params.classes else '' }}"
         id="{{ modalId }}"
         role="dialog"
         aria-labelledby="ons-modal-title"
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}
-        {% if params.enableGA == true %}data-enable-ga='true'{% endif %}
+        {% if params.enableGA == true %}data-enable-ga='true' data-ga-action='Modal initalised' data-ga-label='{{ modalType }} modal initalised' data-ga-category='{{ modalType }} modal'{% endif %}
     >
         <div class="ons-modal__content">
             <h2 id="ons-modal-title" class="ons-modal__title">
