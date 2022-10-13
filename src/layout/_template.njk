@@ -38,6 +38,8 @@
     {% set page_title = pageConfig.title %}
 {% elif pageInfo and pageInfo.title %}
     {% set page_title = pageInfo.title %}
+{% elif page and page.title %}
+    {% set page_title = page.title %}
 {% else %}
     {% set page_title = "ONS Design System" %}
 {% endif %}
