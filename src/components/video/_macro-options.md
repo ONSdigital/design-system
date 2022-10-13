@@ -1,4 +1,4 @@
-| Name       | Type   | Required | Description                                                                                              |
-| ---------- | ------ | -------- | -------------------------------------------------------------------------------------------------------- |
-| youtubeUrl | string | true     | The embed URL to the video hosted on YouTube                                                             |
-| title      | string | true     | Set a descriptive title for the video set by the HTML `title` attribute of the embedded video `<iframe>` |
+| Name          | Type   | Required | Description                                                                                                                                                       |
+| ------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| videoEmbedUrl | string | true     | The embed URL to the video hosted on YouTube or Vimeo, for example, `https://www.youtube.com/embed/{ video ID }` or `https://player.vimeo.com/video/{ video ID }` |
+| title         | string | true     | Set a descriptive title for the video set by the HTML `title` attribute of the embedded video `<iframe>`                                                          |
