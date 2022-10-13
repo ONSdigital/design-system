@@ -109,20 +109,29 @@
 
   &--neutral & {
     &__top {
-      background: var(--ons-color-header-masthead-dark);
+      background: var(--ons-color-header-masthead-neutral);
+    }
+
+    &__grid-top {
+      a {
+        color: var(--ons-color-service-links);
+        &:hover {
+          text-decoration: underline solid var(--ons-color-service-links) 3px;
+        }
+      }
     }
 
     &__main {
-      background: var(--ons-color-header-light);
+      background: var(--ons-color-header-neutral);
 
       &--border {
-        border-bottom: 3px solid var(--ons-color-header-light);
-        border-top: 3px solid var(--ons-color-header-light);
+        border-bottom: 3px solid var(--ons-color-header-neutral);
+        border-top: 3px solid var(--ons-color-header-neutral);
       }
     }
 
     &__title {
-      color: var(--ons-color-branded-text);
+      color: var(--ons-color-header-title);
       &-link {
         &:hover {
           text-decoration: underline solid var(--ons-color-branded-text) 2px;

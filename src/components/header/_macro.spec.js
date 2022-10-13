@@ -163,7 +163,7 @@ describe('macro: header', () => {
     });
 
     it('has the correct masthead logo link', () => {
-      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgLogoHref: '#0' }));
+      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgUrl: '#0' }));
 
       expect($('.ons-header__org-logo-link').attr('href')).toBe('#0');
     });
@@ -259,7 +259,7 @@ describe('macro: header', () => {
     });
 
     it('has the correct `title` link', () => {
-      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, titleLogoHref: '#0' }));
+      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, titleUrl: '#0' }));
 
       expect($('.ons-header__title-link').attr('href')).toBe('#0');
     });

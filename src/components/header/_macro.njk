@@ -30,189 +30,169 @@
                 "html": params.phase.html
             }) }}
         {% endif %}
-        {% if params.noMasthead != true %}
-            <div class="ons-header__top">
-                <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                    <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{{ ' ons-header__grid-top-tall' if params.customHeaderLogo }}{% if params.orgLogoClasses %} {{ params.orgLogoClasses }}{% endif %}">
-                        <div class="ons-grid__col ons-col-auto">
-                            {%-if params.orgLogoHref %}
-                                <a class="ons-header__org-logo-link" href="{{ params.orgLogoHref }}">
-                            {% endif -%}
-                            <div class="ons-header__org-logo ons-header__org-logo--large">
-                                {% if params.orgLogo.large %}
-                                    <img class="ons-header__org-logo-img" alt="{{ params.orgLogoAlt }}" src="{{ params.orgLogo.large }}">
-                                {% else %}
-                                    {{
-                                        onsIcon({
-                                            "iconType": params.orgLogo | default('ons-logo-' + currentLanguageISOCode),
-                                            "altText": params.orgLogoAlt | default('Office for National Statistics logo')
-                                        })
-                                    }}
-                                {% endif %}
-
-                            </div>
-                            <div class="ons-header__org-logo ons-header__org-logo--small">
-                                {% if params.orgLogo.small or params.orgLogo.large %}
-                                    <img class="ons-header__org-logo-img" alt="{{ params.orgLogoAlt }}" src="{{ params.orgLogo.small if params.orgLogo.small else params.orgLogo.large }}">
-                                {% else %}
-                                    {{
-                                        onsIcon({
-                                            "iconType": params.orgMobileLogo | default('ons-logo-stacked-' + currentLanguageISOCode),
-                                            "altText": params.orgLogoAlt | default('Office for National Statistics logo')
-                                        })
-                                    }}
-                                {% endif %}
-                            </div>
-                            {% if params.orgLogoHref %}
-                                </a>
+        <div class="ons-header__top">
+            <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
+                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{% if params.orgLogo.classes %} {{ params.orgLogo.classes }}{% endif %}">
+                    <div class="ons-grid__col ons-col-auto">
+                        {%-if params.orgUrl %}
+                            <a class="ons-header__org-logo-link" href="{{ params.orgUrl }}">
+                        {% endif -%}
+                        <div class="ons-header__org-logo ons-header__org-logo--large">
+                            {% if params.orgLogo.large %}
+                                <img class="ons-header__org-logo-img" alt="{{ params.orgLogo.altText }}" src="{{ params.orgLogo.large }}">
+                            {% else %}
+                                {{
+                                    onsIcon({
+                                        "iconType": 'ons-logo-' + currentLanguageISOCode,
+                                        "altText": 'Office for National Statistics logo'
+                                    })
+                                }}
                             {% endif %}
                         </div>
-                        {% if params.language or params.serviceLinks %}
-                            <div class="ons-header__links ons-grid__col ons-col-auto">
-                                {% if params.language %}
-                                    <div class="ons-grid__col ons-col-auto {{ ' ons-u-mr-s ons-u-d-no@xxs@xs' if params.serviceLinks else '' }}">
-                                        {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
-                                        {{ onsLanguageSelector(params.language) }}
-                                    </div>
-                                {% endif %}
-                                {% if params.serviceLinks %}
-                                    {% if params.serviceLinks.itemsList | length == 1 and params.language %}
-                                        {% set breakpoint = 'xs' %}
-                                        {% set controlVisibility = true %}
-                                    {% elif params.serviceLinks.itemsList | length > 1 %}
-                                        {% set breakpoint = 'm' %}
-                                        {% set controlVisibility = true %}
-                                    {% else %}
-                                        {% set controlVisibility = false %}
-                                    {% endif %}
-                                    <div class="ons-grid__col ons-col-auto{% if controlVisibility == true %} ons-u-d-no@xxs@{{ breakpoint }}{% endif %}">
-                                        <nav class="ons-header-service-nav ons-header-service-nav--main {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
-                                            <ul class="ons-header-service-nav__list">
-                                                {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
-                                                    <li class="ons-header-service-nav__item">
-                                                    {% if item.iconType %}
-                                                        {{
-                                                            onsIcon({
-                                                                "iconType": item.iconType
-                                                            })
-                                                        }}
-                                                    {% endif %}
-                                                    {% if item.url %}
-                                                        <a
-                                                            href="{{ item.url }}"
-                                                            class="ons-header-service-nav__link"
-                                                            {% if item.id %} id="{{ item.id }}"{% endif %}
-                                                        >{{ item.title }}</a>
-                                                    {% else %}
-                                                        {{ item.title }}
-                                                    {% endif %}
-                                                    </li>
-                                                {% endfor %}
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                    {% if params.serviceLinks.itemsList | length > 1 or params.language %}
-                                        {% if params.variants == 'internal' or params.variants == 'neutral' %}
-                                            {% set buttonVariant = ["mobile", "text-link", "text-link-inverse"] %}
-                                        {% else %}
-                                            {% set buttonVariant = ["mobile", "text-link"] %}
-                                        {% endif %}
-                                        <div class="ons-grid__col ons-col-auto ons-u-d-no@{{ breakpoint }}">
-                                            {{ onsButton({
-                                                "text": params.serviceLinks.toggleServicesButton.text | default("Account"),
-                                                "classes": "ons-u-d-no ons-js-toggle-services",
-                                                "type": "button",
-                                                "variants": buttonVariant,
-                                                "attributes": {
-                                                    "aria-label": params.serviceLinks.toggleServicesButton.ariaLabel | default("Toggle menu"),
-                                                    "aria-controls": params.serviceLinks.id,
-                                                    "aria-expanded": "false"
-                                                }
-                                            }) }}
-                                        </div>
-                                    {% endif %}
-                                {% endif %}
-                            </div>
+                        <div class="ons-header__org-logo ons-header__org-logo--small">
+                            {% if params.orgLogo.small or params.orgLogo.large %}
+                                <img class="ons-header__org-logo-img" alt="{{ params.orgLogo.altText }}" src="{{ params.orgLogo.small if params.orgLogo.small else params.orgLogo.large }}">
+                            {% else %}
+                                {{
+                                    onsIcon({
+                                        "iconType": 'ons-logo-stacked-' + currentLanguageISOCode,
+                                        "altText": 'Office for National Statistics logo'
+                                    })
+                                }}
+                            {% endif %}
+                        </div>
+                        {% if params.orgUrl %}
+                            </a>
                         {% endif %}
                     </div>
-                </div>
-                {% if params.serviceLinks %}
-                    <nav class="ons-header-service-nav ons-header-service-nav--mobile ons-u-d-no ons-js-services-mobile-nav" id="{{ params.serviceLinks.id }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
-                        <ul class="ons-header-service-nav__list">
-                            {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
-                                <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
-                                {% if item.iconType %}
-                                    {{
-                                        onsIcon({
-                                            "iconType": item.iconType
-                                        })
-                                    }}
-                                {% endif %}
-                                {% if item.url %}
-                                    <a
-                                        href="{{ item.url }}"
-                                        class="ons-header-service-nav__link"
-                                        {% if item.id %} id="{{ item.id }}"{% endif %}
-                                    >{{ item.title }}</a>
-                                {% else %}
-                                    {{ item.title }}
-                                {% endif %}
-                                </li>
-                            {% endfor %}
+                    {% if params.language or params.serviceLinks %}
+                        <div class="ons-header__links ons-grid__col ons-col-auto">
                             {% if params.language %}
-                                <div class="ons-u-d-no@xs">
+                                <div class="ons-grid__col ons-col-auto {{ ' ons-u-mr-s ons-u-d-no@xxs@xs' if params.serviceLinks else '' }}">
                                     {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
                                     {{ onsLanguageSelector(params.language) }}
                                 </div>
                             {% endif %}
-                        </ul>
-                    </nav>
-                {% endif %}
+                            {% if params.serviceLinks %}
+                                {% if params.serviceLinks.itemsList | length == 1 and params.language %}
+                                    {% set breakpoint = 'xs' %}
+                                    {% set controlVisibility = true %}
+                                {% elif params.serviceLinks.itemsList | length > 1 %}
+                                    {% set breakpoint = 'm' %}
+                                    {% set controlVisibility = true %}
+                                {% else %}
+                                    {% set controlVisibility = false %}
+                                {% endif %}
+                                <div class="ons-grid__col ons-col-auto{% if controlVisibility == true %} ons-u-d-no@xxs@{{ breakpoint }}{% endif %}">
+                                    <nav class="ons-header-service-nav ons-header-service-nav--main {{ params.serviceLinks.classes }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
+                                        <ul class="ons-header-service-nav__list">
+                                            {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
+                                                <li class="ons-header-service-nav__item">
+                                                {% if item.iconType %}
+                                                    {{
+                                                        onsIcon({
+                                                            "iconType": item.iconType
+                                                        })
+                                                    }}
+                                                {% endif %}
+                                                {% if item.url %}
+                                                    <a
+                                                        href="{{ item.url }}"
+                                                        class="ons-header-service-nav__link"
+                                                        {% if item.id %} id="{{ item.id }}"{% endif %}
+                                                    >{{ item.title }}</a>
+                                                {% else %}
+                                                    {{ item.title }}
+                                                {% endif %}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </nav>
+                                </div>
+                                {% if params.serviceLinks.itemsList | length > 1 or params.language %}
+                                    {% if params.variants == 'internal' or params.variants == 'neutral' %}
+                                        {% set buttonVariant = ["mobile", "text-link", "text-link-inverse"] %}
+                                    {% else %}
+                                        {% set buttonVariant = ["mobile", "text-link"] %}
+                                    {% endif %}
+                                    <div class="ons-grid__col ons-col-auto ons-u-d-no@{{ breakpoint }}">
+                                        {{ onsButton({
+                                            "text": params.serviceLinks.toggleServicesButton.text | default("Account"),
+                                            "classes": "ons-u-d-no ons-js-toggle-services",
+                                            "type": "button",
+                                            "variants": buttonVariant,
+                                            "attributes": {
+                                                "aria-label": params.serviceLinks.toggleServicesButton.ariaLabel | default("Toggle menu"),
+                                                "aria-controls": params.serviceLinks.id,
+                                                "aria-expanded": "false"
+                                            }
+                                        }) }}
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-        {% endif %}
+            {% if params.serviceLinks %}
+                <nav class="ons-header-service-nav ons-header-service-nav--mobile ons-u-d-no ons-js-services-mobile-nav" id="{{ params.serviceLinks.id }}" aria-label="{{ params.serviceLinks.ariaLabel | default("Service links navigation") }}">
+                    <ul class="ons-header-service-nav__list">
+                        {% for item in (params.serviceLinks.itemsList if params.serviceLinks.itemsList is iterable else params.serviceLinks.itemsList.items()) %}                                                
+                            <li class="ons-header-service-nav__item ons-header-service-nav__item--mobile">
+                            {% if item.iconType %}
+                                {{
+                                    onsIcon({
+                                        "iconType": item.iconType
+                                    })
+                                }}
+                            {% endif %}
+                            {% if item.url %}
+                                <a
+                                    href="{{ item.url }}"
+                                    class="ons-header-service-nav__link"
+                                    {% if item.id %} id="{{ item.id }}"{% endif %}
+                                >{{ item.title }}</a>
+                            {% else %}
+                                {{ item.title }}
+                            {% endif %}
+                            </li>
+                        {% endfor %}
+                        {% if params.language %}
+                            <div class="ons-u-d-no@xs">
+                                {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                                {{ onsLanguageSelector(params.language) }}
+                            </div>
+                        {% endif %}
+                    </ul>
+                </nav>
+            {% endif %}
+        </div>
+        
         <div class="ons-header__main">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div class="ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap">
                     <div class="ons-grid__col ons-col-auto ons-u-flex-shrink">
-                        {% if params.titleLogo and params.titleLogoAlt %}
-                            {% if params.titleLogoHref %}
-                                <a class="ons-header__title-logo-link" href="{{ params.titleLogoHref }}">
+                        {% if params.titleLogo.large %}
+                            {% if params.titleUrl %}
+                                <a class="ons-header__title-logo-link" href="{{ params.titleUrl }}">
                             {% endif %}
-                            <div class="ons-header__title-logo ons-header__title-logo--large {% if params.titleLogoClasses %} {{ params.titleLogoClasses }} {% endif %}{% if params.titleLogoMobile %}ons-u-d-no@xxs@s{% endif %}">
-                                {% if params.titleLogo.large %}
-                                    <img class="ons-header__title-logo-img" alt="{{ params.titleLogoAlt }}" src="{{ params.titleLogo.large }}">
-                                {% else %}
-                                    {{
-                                        onsIcon({
-                                            "iconType": params.titleLogo,
-                                            "altText": params.titleLogoAlt
-                                        })
-                                    }}
-                                {% endif %}
+                            <div class="ons-header__title-logo ons-header__title-logo--large {% if params.titleLogo.classes %} {{ params.titleLogo.classes }} {% endif %}{% if params.titleLogo.small %}ons-u-d-no@xxs@s{% endif %}">
+                                <img class="ons-header__title-logo-img" alt="{{ params.titleLogo.altText }}" src="{{ params.titleLogo.large }}">
                             </div>
-                            {% if params.titleLogoMobile %}
-                                <div class="ons-header__title-logo ons-header__title-logo--mobile ons-u-d-no@s{% if params.titleLogoClasses %} {{ params.titleLogoClasses }}{% endif %}">
-                                    {% if params.titleLogo.small or params.titleLogo.large %}
-                                        <img class="ons-header__title-logo-img" alt="{{ params.titleLogoAlt }}" src="{{ params.titleLogo.small if params.titleLogo.small else params.titleLogo.large }}">
-                                    {% else %}
-                                        {{
-                                            onsIcon({
-                                                "iconType": params.titleLogoMobile,
-                                                "altText": params.titleLogoAlt
-                                            })
-                                        }}
-                                    {% endif %}
+                            {% if params.titleLogo.small %}
+                                <div class="ons-header__title-logo ons-header__title-logo--mobile ons-u-d-no@s{% if params.titleLogo.classes %} {{ params.titleLogo.classes }}{% endif %}">
+                                    <img class="ons-header__title-logo-img" alt="{{ params.titleLogo.altText }}" src="{{ params.titleLogo.small if params.titleLogo.small }}">
                                 </div>
                             {% endif %}
-                            {% if params.titleLogoHref %}
+                            {% if params.titleUrl %}
                                 </a>
                             {% endif %}
                         {% else %}
-                            {% if params.titleLogoHref %}
-                                <a class="ons-header__title-link" href="{{ params.titleLogoHref }}">
+                            {% if params.titleUrl %}
+                                <a class="ons-header__title-link" href="{{ params.titleUrl }}">
                             {% endif %}
                                 <{{ title_tag }} class="ons-header__title">{{ params.title }}</{{ title_tag }}>
-                            {% if params.titleLogoHref %}
+                            {% if params.titleUrl %}
                                 </a>
                             {% endif %}
                         {% endif %}
@@ -242,14 +222,6 @@
                     {% endif %}
                     {% if params.navigation %}
                         <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
-                            {% if params.noMasthead == true %}
-                                {% if params.language %}
-                                    <div class="ons-grid__col ons-col-auto ons-u-mt-xxs@xxs@l ons-u-mr-xs@xxs@s {% if params.navigation.siteSearchAutosuggest %}ons-header__lang-adjustment{% endif %}">
-                                        {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
-                                        {{ onsLanguageSelector(params.language) }}
-                                    </div>
-                                {% endif %}
-                            {% endif %}
                             {% if params.navigation.siteSearchAutosuggest %}
                                 {% if params.variants == 'neutral' %}
                                     {% set buttonVariant = ["small", "ghost-dark"] %}
