@@ -32,14 +32,14 @@
         {% endif %}
         <div class="ons-header__top">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
-                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{% if params.orgLogo.classes %} {{ params.orgLogo.classes }}{% endif %}">
+                <div class="ons-header__grid-top ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap{% if params.mastheadLogo.classes %} {{ params.mastheadLogo.classes }}{% endif %}">
                     <div class="ons-grid__col ons-col-auto">
-                        {%-if params.orgUrl %}
-                            <a class="ons-header__org-logo-link" href="{{ params.orgUrl }}">
+                        {%-if params.mastheadLogoUrl %}
+                            <a class="ons-header__org-logo-link" href="{{ params.mastheadLogoUrl }}">
                         {% endif -%}
                         <div class="ons-header__org-logo ons-header__org-logo--large">
-                            {% if params.orgLogo.large %}
-                                <img class="ons-header__org-logo-img" alt="{{ params.orgLogo.altText }}" src="{{ params.orgLogo.large }}">
+                            {% if params.mastheadLogo.large %}
+                                <img class="ons-header__org-logo-img" alt="{{ params.mastheadLogo.altText }}" src="{{ params.mastheadLogo.large }}">
                             {% else %}
                                 {{
                                     onsIcon({
@@ -50,8 +50,8 @@
                             {% endif %}
                         </div>
                         <div class="ons-header__org-logo ons-header__org-logo--small">
-                            {% if params.orgLogo.small or params.orgLogo.large %}
-                                <img class="ons-header__org-logo-img" alt="{{ params.orgLogo.altText }}" src="{{ params.orgLogo.small if params.orgLogo.small else params.orgLogo.large }}">
+                            {% if params.mastheadLogo.small or params.mastheadLogo.large %}
+                                <img class="ons-header__org-logo-img" alt="{{ params.mastheadLogo.altText }}" src="{{ params.mastheadLogo.small if params.mastheadLogo.small else params.mastheadLogo.large }}">
                             {% else %}
                                 {{
                                     onsIcon({
@@ -61,7 +61,7 @@
                                 }}
                             {% endif %}
                         </div>
-                        {% if params.orgUrl %}
+                        {% if params.mastheadLogoUrl %}
                             </a>
                         {% endif %}
                     </div>

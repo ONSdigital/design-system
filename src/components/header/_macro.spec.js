@@ -163,7 +163,7 @@ describe('macro: header', () => {
     });
 
     it('has the correct masthead logo link', () => {
-      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgUrl: '#0' }));
+      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mastheadLogoUrl: '#0' }));
 
       expect($('.ons-header__org-logo-link').attr('href')).toBe('#0');
     });
@@ -181,7 +181,7 @@ describe('macro: header', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgLogo: 'another-logo' });
+      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mastheadLogo: 'another-logo' });
 
       expect(iconsSpy.occurrences[0].iconType).toBe('another-logo');
     });
@@ -199,7 +199,7 @@ describe('macro: header', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgLogoAlt: 'Custom alt text' });
+      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mastheadLogoAlt: 'Custom alt text' });
 
       expect(iconsSpy.occurrences[0].altText).toBe('Custom alt text');
     });
@@ -235,7 +235,7 @@ describe('macro: header', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgLogoAlt: 'Custom alt text' });
+      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mastheadLogoAlt: 'Custom alt text' });
 
       expect(iconsSpy.occurrences[1].altText).toBe('Custom alt text');
     });
