@@ -177,13 +177,13 @@ describe('macro: header', () => {
       expect(iconsSpy.occurrences[0].iconType).toBe('ons-logo-en');
     });
 
-    it('has the provided masthead logo icon', () => {
+    it('has the default masthead mobile logo icon', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mastheadLogo: 'another-logo' });
+      faker.renderComponent('header', EXAMPLE_HEADER_BASIC);
 
-      expect(iconsSpy.occurrences[0].iconType).toBe('another-logo');
+      expect(iconsSpy.occurrences[1].iconType).toBe('ons-logo-stacked-en');
     });
 
     it('has the default masthead logo icon alt text', () => {
@@ -195,33 +195,6 @@ describe('macro: header', () => {
       expect(iconsSpy.occurrences[0].altText).toBe('Office for National Statistics logo');
     });
 
-    it('has the provided masthead logo icon alt text', () => {
-      const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
-
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mastheadLogoAlt: 'Custom alt text' });
-
-      expect(iconsSpy.occurrences[0].altText).toBe('Custom alt text');
-    });
-
-    it('has the default masthead mobile logo icon', () => {
-      const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
-
-      faker.renderComponent('header', EXAMPLE_HEADER_BASIC);
-
-      expect(iconsSpy.occurrences[1].iconType).toBe('ons-logo-stacked-en');
-    });
-
-    it('has the provided masthead mobile logo icon', () => {
-      const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
-
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, orgMobileLogo: 'another-mobile-logo' });
-
-      expect(iconsSpy.occurrences[1].iconType).toBe('another-mobile-logo');
-    });
-
     it('has the default masthead mobile logo icon alt text', () => {
       const faker = templateFaker();
       const iconsSpy = faker.spy('icons');
@@ -231,13 +204,55 @@ describe('macro: header', () => {
       expect(iconsSpy.occurrences[1].altText).toBe('Office for National Statistics logo');
     });
 
-    it('has the provided masthead mobile logo icon alt text', () => {
-      const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+    it('has the provided large masthead logo', () => {
+      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mastheadLogo: { large: 'another-logo.svg' } }));
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mastheadLogoAlt: 'Custom alt text' });
+      expect($('.ons-header__org-logo--large img').attr('src')).toBe('another-logo.svg');
+    });
 
-      expect(iconsSpy.occurrences[1].altText).toBe('Custom alt text');
+    it('has the provided masthead logo custom classes', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          mastheadLogo: { large: 'another-logo.svg', classes: 'custom-class another-custom-class' },
+        }),
+      );
+
+      expect($('.ons-header__grid-top').hasClass('custom-class')).toBe(true);
+      expect($('.ons-header__grid-top').hasClass('another-custom-class')).toBe(true);
+    });
+
+    it('has the provided small masthead logo', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          mastheadLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg' },
+        }),
+      );
+
+      expect($('.ons-header__org-logo--small img').attr('src')).toBe('another-logo-small.svg');
+    });
+
+    it('has the provided large masthead logo alt text', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          mastheadLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg', altText: 'another logo' },
+        }),
+      );
+
+      expect($('.ons-header__org-logo--large img').attr('alt')).toBe('another logo');
+    });
+
+    it('has the provided small masthead logo alt text', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          mastheadLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg', altText: 'another logo' },
+        }),
+      );
+
+      expect($('.ons-header__org-logo--small img').attr('alt')).toBe('another logo');
     });
 
     it('displays the `title` text', () => {
@@ -264,54 +279,55 @@ describe('macro: header', () => {
       expect($('.ons-header__title-link').attr('href')).toBe('#0');
     });
 
-    it('has the provided title logo icon', () => {
-      const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+    it('has the provided large title logo', () => {
+      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, titleLogo: { large: 'another-logo.svg' } }));
 
-      faker.renderComponent('header', { ...EXAMPLE_HEADER_BASIC, titleLogo: 'custom-title-logo', titleLogoAlt: 'custom logo alt' });
-
-      expect(iconsSpy.occurrences[2].iconType).toBe('custom-title-logo');
+      expect($('.ons-header__title-logo--large img').attr('src')).toBe('another-logo.svg');
     });
 
-    it('has the provided title logo classes', () => {
+    it('has the provided title logo custom classes', () => {
       const $ = cheerio.load(
         renderComponent('header', {
           ...EXAMPLE_HEADER_BASIC,
-          titleLogo: 'custom-title-logo',
-          titleLogoClasses: 'custom-class',
-          titleLogoAlt: 'custom logo alt',
+          titleLogo: { large: 'another-logo.svg', classes: 'custom-class another-custom-class' },
         }),
       );
 
       expect($('.ons-header__title-logo--large').hasClass('custom-class')).toBe(true);
+      expect($('.ons-header__title-logo--large').hasClass('another-custom-class')).toBe(true);
     });
 
-    it('has the provided title logo mobile icon', () => {
-      const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
-
-      faker.renderComponent('header', {
-        ...EXAMPLE_HEADER_BASIC,
-        titleLogo: 'custom-title-logo',
-        titleLogoMobile: 'custom-title-mobile-logo',
-        titleLogoAlt: 'custom logo alt',
-      });
-
-      expect(iconsSpy.occurrences[3].iconType).toBe('custom-title-mobile-logo');
-    });
-
-    it('has the provided title logo mobile classes', () => {
+    it('has the provided small title logo', () => {
       const $ = cheerio.load(
         renderComponent('header', {
           ...EXAMPLE_HEADER_BASIC,
-          titleLogo: 'custom-title-logo',
-          titleLogoMobile: 'custom-title-mobile-logo',
-          titleLogoMobileClasses: 'custom-mobile-class',
-          titleLogoAlt: 'custom logo alt',
+          titleLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg' },
         }),
       );
 
-      expect($('.ons-header__title-logo--mobile').hasClass('custom-mobile-class')).toBe(true);
+      expect($('.ons-header__title-logo--small img').attr('src')).toBe('another-logo-small.svg');
+    });
+
+    it('has the provided large title logo alt text', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          titleLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg', altText: 'another logo' },
+        }),
+      );
+
+      expect($('.ons-header__title-logo--large img').attr('alt')).toBe('another logo');
+    });
+
+    it('has the provided small title logo alt text', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          titleLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg', altText: 'another logo' },
+        }),
+      );
+
+      expect($('.ons-header__title-logo--small img').attr('alt')).toBe('another logo');
     });
 
     it('displays the `description` text', () => {
@@ -669,14 +685,6 @@ describe('macro: header', () => {
           'aria-expanded': 'false',
         },
       });
-    });
-  });
-
-  describe('mode: without masthead', () => {
-    it('does not render the masthead', () => {
-      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, ...EXAMPLE_HEADER_LANGUAGE_CONFIG, noMasthead: true }));
-
-      expect($('.ons-header__top').length).toBe(0);
     });
   });
 });

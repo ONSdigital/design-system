@@ -93,16 +93,10 @@ Variables can be set with:
 | headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                             | Configuration for `<meta>` information in the document `<head>`                                                                               |
 | breadcrumbs   | `Breadcrumbs` [_(ref)_](/components/breadcrumbs)    | false                             | Configuration for the breadcrumbs or back link                                                                                                |
 | bodyClasses   | string                                              | false                             | Classes to add to the `<body>` element                                                                                                        |
-| header        | `PageHeader` [_(ref)_](#pageheader)                 | true                              | Configuration for the page header                                                                                                             |
-| language      | `Language` [_(ref)_](/patterns/change-language)     | false                             | Language configuration for the page                                                                                                           |
-| signoutButton | `Button` [_(ref)_](/components/button)              | false                             | Configuration for the save and sign out button. If not specified, the button will not render                                                  |
-| toggleNavigationButton  | `HeaderToggleNavigationButton` [_(ref)_](/components/header)  | true (if `navigation` supplied)   | Configuration for the mobile navigation toggle button                                                                     |
-| navigation    | `HeaderNavigation` [_(ref)_](/components/header)    | true (if `toggleNavigationButton` supplied) | Configuration for header navigation links                                                                                           |
-| phase         | `PhaseBanner` [_(ref)_](/components/phase-banner)   | false                             | Settings for the Phase banner                                                                                                                 |
-| serviceLinks  | `Array<Navigation>` [_(ref)_](/components/header)   | false                             | An array to render the service links list                                                                                                     |
+| header        | `Header` [_(ref)_](/components/header)              | true                              | Configuration for the page header                                                                                                             |
+| footer        | `Footer` [_(ref)_](/components/footer)              | true                              | Configuration for the page footer                                                                                                             |
 | mainCol       | `MainColumn` [_(ref)_](#maincolumn)                 | false                             | Configuration for the main page column                                                                                                        |
 | asideCol      | `AsideColumn` [_(ref)_](#asidecolumn)               | false                             | Configuration for the page aside column                                                                                                       |
-| footer        | `PageFooter` [_(ref)_](#pagefooter)                 | true                              | Configuration for the page footer                                                                                                             |
 | description   | string                                              | true                              | Default description of the current page for search engines if `headMeta.description` is not provided                                          |
 | absoluteUrl   | string                                              | true                              | Default URL for the preferred page for search engines to avoid duplicate content penalties. Used if if headMeta.canonicalUrl is not provided. |
 | wide          | boolean                                             | false                             | Set to `true` to increase the maximum width of the layout container to 1280px                                                                 |
@@ -115,90 +109,6 @@ Variables can be set with:
 | url           | string | false    | URL for the CDN       |
 | version       | string | false    | DS version on the CDN |
 
-###### PageHeader
-
-| Variable Name                   | Type                                              | Required                          | Description                                                                                                                                                                            |
-| ---------------------- | ------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| phase                  | `PhaseBanner` [_(ref)_](/components/phase-banner) | false                             | Settings to set the Phase banner component within the HTML `<header>` element                                                                                                          |
-| wide                   | boolean                                           | false                             | Set to “true” to increase the maximum width of the layout container to 1280px                                                                                                          |
-| fullWidth              | boolean                                           | false                             | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                                                                  |
-| classes                | string                                            | false                             | Classes to add to the wrapping `header`                                                                                                                                                |
-| variants               | array or string                                   | false                             | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description”                                                    |
-| mastheadLogoUrl        | string  | false | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the  link. |
-| mastheadLogo           | object`<mastheadLogo>`  | false | Settings for a [custom organisation logo](#mastheadLogo) in the masthead. Defaults to the ONS logo. |
-| language               | `Language` [_(ref)_](/patterns/change-language)   | false                             | Settings for the language selector component                                                                                                                                           |
-| serviceLinks           | object`<ServiceLinks>`                            | false                             | Settings for the [service links](#servicelinks) in the masthead                                                                                                                        |
-| title                  | string                                            | true (unless `titleLogo` is set)  | The title for the service                                                                                                                                                              |
-| description            | string                                            | false                             | Tagline or description for the service                                                                                                                                                 |
-| titleAsH1              | boolean                                           | false                             | Override to wrap the header `title` in an `<h1>` heading                                                                                                                               |
-| titleLogo           | object`<titleLogo>`  | false | Settings for a [custom title logo](#titleLogo) in the header. |
-| titleUrl               | string                                            | false                             | Wraps the title logo in a link. Set the URL for the HTML `href` attribute for the link.                                                                                                |
-| button                 | object`<SignOutButton>`                           | false                             | Settings for the [sign out button](#signoutbutton) in the header used to exit a transactional service                                                                                  |
-| navigation             | array`<Navigation>`                               | false                             | Settings for the [main menu links](#navigation)                                                                                                                                        |
-
-##### mastheadLogo
-| Variable Name                 | Type                   | Required | Description                                                                                                                           |
-| -------------------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| classes       | string  | false  | Classes to be added. Helpful to add a margin utility class to control spacing.  |
-| large         | string  | true   | URL to the custom logo                |
-| small         | string  | false  | Optionally provide a version of the logo more suited to mobile viewports      |
-| altText       | string  | true   | Alt text for the custom logo                 |
-
-##### titleLogo
-| Variable Name                 | Type                   | Required | Description                                                                                                                           |
-| -------------------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| classes       | string  | false  | Classes to be added. Helpful to add a margin utility class to control spacing.  |
-| large         | string  | true   | URL to the custom logo                |
-| small         | string  | false  | Optionally provide a version of the logo more suited to mobile viewports      |
-| altText       | string  | true   | Alt text for the custom logo                 |
-
-##### ServiceLinks
-
-| Variable Name                 | Type                   | Required | Description                                                                                                                           |
-| -------------------- | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| id                   | string                 | true     | The HTML `id` of the `<nav>` element. Used for the `aria-controls` attribute for the menu toggle button displayed on small viewports. |
-| classes              | string                 | false    | Classes to add to the `<nav>` element                                                                                                 |
-| ariaLabel            | string                 | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Service links navigation”.                                      |
-| ariaListLabel        | string                 | false    | The `aria-label` attribute added to the `<ul>` element. Defaults to “Service links”.                                                  |
-| itemsList            | array`<Item>`          | true     | Settings for an array of [list items](#item) for each navigation link                                                                 |
-| toggleServicesButton | object`<ToggleButton>` | true     | Settings for the [mobile service links toggle button](#togglebutton)                                                                  |
-
-##### Navigation
-
-| Variable Name         | Type                      | Required | Description                                                                                                                    |
-| ------------ | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| id           | string                    | true     | The HTML `id` of the `<nav>` element. Used for the `aria-controls` attribute for the menu button displayed on small viewports. |
-| ariaLabel    | string                    | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Main menu”.                                              |
-| itemsList    | array`<Item>`             | true     | Settings for an array of [list items](#item) for each navigation link                                                          |
-| currentPath  | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
-| toggleButton | array`<ToggleButton>`     | true     | Settings for the navigation [menu toggle button](#togglebutton) displayed on small viewports                                   |  |
-
-##### ToggleButton
-
-| Variable Name      | Type   | Required | Description                                                                  |
-| --------- | ------ | -------- | ---------------------------------------------------------------------------- |
-| text      | string | false    | The text for the toggle button label. Defaults to “Menu”.                    |
-| ariaLabel | string | false    | The `aria-label` attribute for the toggle button. Defaults to “Toggle menu”. |
-
-##### Item
-
-| Variable Name      | Type   | Required | Description                                                           |
-| --------- | ------ | -------- | --------------------------------------------------------------------- |
-| classes   | string | false    | Classes to add to the list item element                               |
-| url       | string | true     | The URL for the HTML `href` attribute for the path to the linked page |
-| title     | string | true     | The text label for the link                                           |
-| id        | string | false    | The HTML `id` of the link                                             |
-| ariaLabel | string | false    | The `aria-label` for the item.                                        |
-
-##### SignOutButton
-
-| Variable Name       | Type   | Required | Description                                                                      |
-| ---------- | ------ | -------- | -------------------------------------------------------------------------------- |
-| text       | string | true     | Text for the button                                                              |
-| name       | string | false    | Sets the HTML `name` attribute for the `<button>`. Not valid if `url` is set.    |
-| url        | string | false    | If set, will create an HTML anchor link with the required classes and attributes |
-| attributes | object | false    | HTML attributes (for example, data attributes) to add to the button              |
-  | string          | false                                | Set to 'true' to make the masthead taller to accommodate a logo with a taller aspect ratio                                                                                              |
 
 ###### HeadMeta
 
@@ -232,20 +142,6 @@ Variables can be set with:
 | colClasses    | string | false    | CSS classes to be added to the page aside grid column                      |
 | classes       | string | false    | CSS classes to be added to the page`<aside>` container                     |
 
-###### PageFooter
-
-| Variable Name        | Type                                                     | Required | Description                                                                                          |
-| -------------------- | -------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| OGLLink              | `OGLLink` [_(ref)_](/components/footer)                  | false    | An object containing settings for the OGL link                                                       |
-| footerWarning        | `footerWarning` [_(ref)_](/components/footer)            | false    | An object containing settings for the Footer Warning                                                 |
-| copyrightDeclaration | `copyrightDeclaration` [_(ref)_](/components/footer)     | false    | An object containing settings for the Copyright Declaration                                          |
-| cols                 | `Array<FooterCol>` [_(ref)_](/components/footer)         | false    | An array of `FooterCol` objects. _Maximum of 3_                                                      |
-| rows                 | `Array<FooterRow>` [_(ref)_](/components/footer)         | false    | An array of `FooterRow` objects                                                                      |
-| poweredBy            | boolean &#124; `PoweredBy` [_(ref)_](/components/footer) | false    | Whether to show the ONS logo, and optionally settings for the logo                                   |
-| lang                 | string                                                   | false    | The current page language. Will change out the ONS logo if `poweredBy` is provided. Defaults to `en` |
-| newTabWarning        | string                                                   | false    | Text for warning of links opening in new tabs                                                        |
-| crest                | boolean                                                  | false    | If set to true will add the UK coat of arms to the footer                                            |
-| legal                | `Array<LegalRow>`                                        | false    | An array of LegalRow objects                                                                         |
 
 #### Blocks
 
