@@ -119,11 +119,8 @@ describe('macro: navigation', () => {
       const autosuggestSpy = faker.spy('autosuggest', { suppressOutput: true });
 
       faker.renderComponent('navigation', {
-        navigation: {
-          ...PARAMS,
-          siteSearchAutosuggest: {
-            ...SITE_SEARCH_AUTOSUGGEST,
-          },
+        siteSearchAutosuggest: {
+          ...SITE_SEARCH_AUTOSUGGEST,
         },
       });
 

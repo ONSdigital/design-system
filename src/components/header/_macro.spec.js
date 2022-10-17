@@ -669,8 +669,8 @@ describe('macro: header', () => {
             text: 'Menu',
             ariaLabel: 'Toggle main menu',
           },
-          siteSearchAutosuggest: {},
         },
+        siteSearchAutosuggest: {},
       });
 
       expect(buttonSpy.occurrences[0]).toEqual({
