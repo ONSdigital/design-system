@@ -10,7 +10,7 @@
   "scripts": {
     "start": "gulp start",
     "watch": "gulp watch",
-    "test": "TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest '.*\\.spec\\.js'",
+    "test": "gulp build-assets-for-testing && TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest '.*\\.spec\\.js'",
     "test:with-log": "yarn test --no-color 2>test.log",
     "test:start-server": "TEST_PORT=3020 gulp start-dev-server",
     "build": "yarn && yarn tidy-clean && NODE_ENV=production gulp build",
