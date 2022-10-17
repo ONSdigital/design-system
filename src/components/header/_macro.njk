@@ -167,7 +167,6 @@
                 </nav>
             {% endif %}
         </div>
-        
         <div class="ons-header__main">
             <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }}">
                 <div class="ons-grid ons-grid--gutterless ons-grid--flex ons-grid--between ons-grid--vertical-center ons-grid--no-wrap">
@@ -220,9 +219,9 @@
                             }) }}
                         </div>
                     {% endif %}
-                    {% if params.navigation %}
+                    {% if params.navigation or params.siteSearchAutosuggest %}
                         <div class="ons-grid__col ons-col-auto ons-u-flex-no-shrink">
-                            {% if params.navigation.siteSearchAutosuggest %}
+                            {% if params.siteSearchAutosuggest %}
                                 {% if params.variants == 'neutral' %}
                                     {% set buttonVariant = ["small", "ghost-dark"] %}
                                 {% else %}
