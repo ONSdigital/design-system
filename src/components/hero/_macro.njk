@@ -1,106 +1,49 @@
 {% macro onsHero(params) %}
 
-{% from "components/icons/_macro.njk" import onsIcon %}
+    {# Set number of columns used for hero content after medium breakpoint #}
+    {% set detailsColumns = params.detailsColumns | default ('8') %}
 
-{# style adjustments if dark or light skin #}
-{% if params.variants and 'dark' in params.variants %}
-    {% set skinName = "dark" %}
-{% else %}
-    {% set skinName = "light" %}
-{% endif %}
+    <section class="ons-hero ons-grid--gutterless{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-hero--{{ variant }}{% endfor %}{% else %} ons-hero--{{ params.variants }}{% endif %}{% endif %}">
 
-{# If hero contains a collapsible, style it differently #}
-{% if params.collapsible %}
-    {% set containerClasses = " ons-hero__container--has-collapsible" %}
-{% endif %}
+        <div class="ons-hero__container ons-container{{ ' ons-container--wide' if params.wide }}">
 
-{# Set number of columns used for hero content after medium breakpoint #}
-{% set detailsColumns = params.detailsColumns | default ('8') %}
+            <div class="ons-hero__details ons-grid__col ons-col-{{ detailsColumns }}@m ons-col-10@s@m">
+                <header>
+                    {% if params.title %}
+                        <h1 class="ons-hero__title ons-u-fs-xxxl">{{ params.title }}</h1>
+                    {% endif %}
+                    {% if params.subtitle %}
+                        <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
+                    {% endif %}
+                </header>
 
-<section class="ons-hero ons-grid--gutterless{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-hero--{{ variant }}{% endfor %}{% else %} ons-hero--{{ params.variants }}{% endif %}{% endif %}">
-
-    <div class="ons-hero__container ons-container{{ ' ons-container--wide' if params.wide }}{{ containerClasses }}">
-
-        <div class="ons-hero__details{{ detailsClasses }} ons-grid__col ons-col-{{ detailsColumns }}@m ons-col-10@s@m">
-
-            <header>
-                {% if params.preTitleImage %}
-                    {% set preTitleImageWithModifier = params.preTitleImage.name ~ "--" ~ skinName ~ ".svg" %}
-                    <img class="ons-hero__pre-title" src="{{ params.placeholderURL }}/img/{{ preTitleImageWithModifier }}" alt="{{ params.preTitleImage.alt }}">
+                {% if params.text %}
+                    <p class="ons-hero__text">{{ params.text | safe }}</p>
                 {% endif %}
-                {% if params.title %}
-                    <h1 class="ons-hero__title ons-u-fs-xxxl">{{ params.title }}</h1>
+
+                {% if params.button %}
+                    {% from "components/button/_macro.njk" import onsButton %}
+                    {% set btnClasses = params.button.classes if params.button.classes else '' %}
+                    {% if params.variants and 'inverted' in params.variants %}
+                        {% set btnClasses = btnClasses + ' ons-btn--ghost' %}
+                    {% endif %}
+                    {{
+                        onsButton({
+                            "classes": btnClasses,
+                            "type": 'button',
+                            "text": params.button.text,
+                            "url": params.button.url
+                        })
+                    }}
                 {% endif %}
-                {% if params.subtitle %}
-                    <h2 class="ons-hero__subtitle ons-u-fs-r--b">{{ params.subtitle }}</h2>
+
+                {% if caller %}
+                    <div class="ons-hero__additional">
+                        {{- caller() -}}
+                    </div>
                 {% endif %}
-            </header>
-
-            {% if params.text %}
-                <p class="ons-hero__text">{{ params.text | safe }}</p>
-            {% endif %}
-
-            {% if params.button %}
-                {% from "components/button/_macro.njk" import onsButton %}
-                {% set btnClasses = params.button.classes if params.button.classes else '' %}
-                {% if skinName == 'dark' %}
-                    {% set btnClasses = btnClasses + ' ons-btn--ghost' %}
-                {% endif %}
-                {{
-                    onsButton({
-                        "classes": btnClasses,
-                        "type": 'button',
-                        "text": params.button.text,
-                        "url": params.button.url
-                    })
-                }}
-            {% endif %}
-
-            {% if params.collapsible %}
-                {% from "components/collapsible/_macro.njk" import onsCollapsible %}
-                {{
-                    onsCollapsible({
-                        "classes": 'ons-u-mb-s ' + params.collapsible.classes,
-                        "id": params.collapsible.id,
-                        "title": params.collapsible.title,
-                        "titleTag": params.collapsible.titleTag,
-                        "content": params.collapsible.content,
-                        "button": {
-                            "close": params.collapsible.closeButtonText | default('Hide this'),
-                            "contextSuffix": params.collapsible.closeButtonContextSuffix | default('content')
-                        }
-                    })
-                }}
-            {% endif %}
-
-            {% if params.suffixText %}
-                <p class="ons-hero__suffixText ons-u-fs-s ons-u-mt-m ons-u-mb-no">{{ params.suffixText | safe }}</p>
-            {% endif %}
-
-        </div>
-        {% if params.variants and 'census' in params.variants %}
-
-            {% if params.image %}
-            <div class="ons-hero__circle-image">
-                <img height="558" width="558" {% if params.image.largeSrc %}srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x" {% endif %}src="{{ params.image.smallSrc }}" alt="">
             </div>
-            {% endif %}
+        </div>
 
-            {{
-                onsIcon({
-                    "iconType": 'circle-lined'
-                })
-            }}
-
-            <div class="ons-hero__circle-gradient"></div>
-
-            {% if (params.variants and 'census' in params.variants) and ('dark' not in params.variants) %}
-                <div class="ons-hero__circle"></div>
-            {% endif %}
-
-        {% endif %}
-
-    </div>
-
-</section>
+    </section>
 {% endmacro %}
