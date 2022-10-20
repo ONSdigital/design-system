@@ -33,9 +33,10 @@ export default class Modal {
     if (this.modalType !== 'Timeout') {
       window.addEventListener('keydown', this.escToClose.bind(this));
     }
-    this.component.setAttribute('data-ga-action', `Modal initialised`);
-    this.component.setAttribute('data-ga-label', `${this.modalType} modal initialised`);
-    this.component.setAttribute('data-ga-category', `${this.modalType} modal`);
+
+    if (this.setGaAttributes) {
+      this.component.setAttribute('data-ga-category', `${this.modalType} modal`);
+    }
   }
 
   dialogSupported() {
