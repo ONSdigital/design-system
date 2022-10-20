@@ -17,6 +17,7 @@ export default class Timeout {
     this.countdownText = context.getAttribute('data-countdown-text');
     this.countdownExpiredText = context.getAttribute('data-countdown-expired-text');
     this.endWithFullStop = context.getAttribute('data-full-stop');
+    this.setGaAttributes = context.getAttribute('data-enable-ga');
 
     // Settings
     this.expiryTime = '';
@@ -77,7 +78,11 @@ export default class Timeout {
         ($this.endWithFullStop ? '.' : '');
 
       if (timerExpired) {
-        $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
+        $this.gaAttributes = '';
+        if (this.setGaAttributes) {
+          $this.gaAttributes = 'data-ga-action="Timer elapsed" data-ga-label="Timed out" data-ga-category="Timeout" ';
+        }
+        $this.countdown.innerHTML = '<span ' + $this.gaAttributes + 'class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
         $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
         setTimeout($this.redirect.bind($this), 2000);
       } else {
