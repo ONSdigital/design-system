@@ -6,8 +6,8 @@
   padding: 0;
   position: relative;
 
-  &--inverted {
-    background-color: var(--ons-color-hero-bg-inverted);
+  &--dark {
+    background-color: var(--ons-color-hero-bg-dark);
   }
 
   &__container {
@@ -45,7 +45,7 @@
     z-index: 5;
   }
 
-  &--inverted & {
+  &--dark & {
     &__details {
       color: var(--ons-color-text-inverse) !important;
 

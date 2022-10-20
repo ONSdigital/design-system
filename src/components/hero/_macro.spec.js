@@ -71,11 +71,11 @@ describe('macro: hero', () => {
     expect(buttonSpy.occurrences[0]).toHaveProperty('url', '#0');
   });
 
-  it('outputs the correct button class with `inverted` variant', () => {
+  it('outputs the correct button class with `dark` variant', () => {
     const faker = templateFaker();
     const buttonSpy = faker.spy('button');
 
-    faker.renderComponent('hero', { ...EXAMPLE_HERO, variants: 'inverted' });
+    faker.renderComponent('hero', { ...EXAMPLE_HERO, variants: 'dark' });
 
     expect(buttonSpy.occurrences[0]).toHaveProperty('classes', ' ons-btn--ghost');
   });

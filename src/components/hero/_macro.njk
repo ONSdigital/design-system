@@ -24,7 +24,7 @@
                 {% if params.button %}
                     {% from "components/button/_macro.njk" import onsButton %}
                     {% set btnClasses = params.button.classes if params.button.classes else '' %}
-                    {% if params.variants and 'inverted' in params.variants %}
+                    {% if params.variants and 'dark' in params.variants %}
                         {% set btnClasses = btnClasses + ' ons-btn--ghost' %}
                     {% endif %}
                     {{
