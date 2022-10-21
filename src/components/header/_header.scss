@@ -147,25 +147,19 @@
   &__org-logo-link,
   &__title-logo-link {
     display: block;
-    &:focus {
-      .ons-svg-logo {
-        fill: var(--ons-color-black) !important;
-        .ons-svg-logo__group {
-          fill: var(--ons-color-black) !important;
-        }
-      }
-    }
     &:hover {
       font-size: 0;
       text-decoration: none;
     }
   }
 
-  &__title-logo--large {
-    .ons-svg-logo {
-      @include mq(xxs, 399px) {
-        height: auto;
-        max-width: 160px;
+  &__org-logo-link {
+    &:focus {
+      .ons-svg-logo {
+        fill: var(--ons-color-black) !important;
+        .ons-svg-logo__group {
+          fill: var(--ons-color-black) !important;
+        }
       }
     }
   }
