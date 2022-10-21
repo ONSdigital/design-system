@@ -292,3 +292,38 @@ describe('script: timeout modal', () => {
     });
   });
 });
+
+describe('when the timer runs to zero and GA tracking is enabled', () => {
+  beforeEach(async () => {
+    const expiryTime = new Date(Date.now() + 1 * 1000);
+    const expiryTimeInISOFormat = new Date(expiryTime).toISOString();
+
+    const component = renderComponent('timeout-modal', {
+      ...EXAMPLE_TIMEOUT_MODAL_BASIC,
+      showModalTimeInSeconds: 1,
+      sessionExpiresAt: expiryTimeInISOFormat,
+      enableGA: true,
+    });
+
+    const template = `
+      <div class="ons-page">
+        ${component}
+      </div>
+    `;
+    await setTestPage('/test', template);
+  });
+
+  describe('after the modal is closed and the `countdownExpiredText` text is displayed', async () => {
+    const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
+    expect(timeString).toEqual(expect.stringContaining('You are being signed out'));
+
+    it('has the correct attributes set on the `countdownExpiredText`', async () => {
+      const gaLabel = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-label'));
+      const gaAction = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-action'));
+      const gaCategory = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-category'));
+      expect(gaLabel).toBe('Timed out');
+      expect(gaAction).toBe('Timer elapsed');
+      expect(gaCategory).toBe('Timeout');
+    });
+  });
+});
