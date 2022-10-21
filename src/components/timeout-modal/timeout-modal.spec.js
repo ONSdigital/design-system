@@ -313,17 +313,14 @@ describe('when the timer runs to zero and GA tracking is enabled', () => {
     await setTestPage('/test', template);
   });
 
-  describe('after the modal is closed and the `countdownExpiredText` text is displayed', async () => {
+  it('has the correct attributes set on the `countdownExpiredText`', async () => {
     const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
     expect(timeString).toEqual(expect.stringContaining('You are being signed out'));
-
-    it('has the correct attributes set on the `countdownExpiredText`', async () => {
-      const gaLabel = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-label'));
-      const gaAction = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-action'));
-      const gaCategory = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-category'));
-      expect(gaLabel).toBe('Timed out');
-      expect(gaAction).toBe('Timer elapsed');
-      expect(gaCategory).toBe('Timeout');
-    });
+    const gaLabel = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-label'));
+    const gaAction = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-action'));
+    const gaCategory = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-category'));
+    expect(gaLabel).toBe('Timed out');
+    expect(gaAction).toBe('Timer elapsed');
+    expect(gaCategory).toBe('Timeout');
   });
 });
