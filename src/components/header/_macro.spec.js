@@ -205,7 +205,9 @@ describe('macro: header', () => {
     });
 
     it('has the provided large masthead logo', () => {
-      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mastheadLogo: { large: 'another-logo.svg' } }));
+      const $ = cheerio.load(
+        renderComponent('header', { ...EXAMPLE_HEADER_BASIC, mastheadLogo: { large: '<img src="another-logo.svg">' } }),
+      );
 
       expect($('.ons-header__org-logo--large img').attr('src')).toBe('another-logo.svg');
     });
@@ -214,7 +216,7 @@ describe('macro: header', () => {
       const $ = cheerio.load(
         renderComponent('header', {
           ...EXAMPLE_HEADER_BASIC,
-          mastheadLogo: { large: 'another-logo.svg', classes: 'custom-class another-custom-class' },
+          mastheadLogo: { large: '<img src="another-logo.svg">', classes: 'custom-class another-custom-class' },
         }),
       );
 
@@ -226,33 +228,11 @@ describe('macro: header', () => {
       const $ = cheerio.load(
         renderComponent('header', {
           ...EXAMPLE_HEADER_BASIC,
-          mastheadLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg' },
+          mastheadLogo: { large: 'another-logo.svg', small: '<img src="another-logo-small.svg">' },
         }),
       );
 
       expect($('.ons-header__org-logo--small img').attr('src')).toBe('another-logo-small.svg');
-    });
-
-    it('has the provided large masthead logo alt text', () => {
-      const $ = cheerio.load(
-        renderComponent('header', {
-          ...EXAMPLE_HEADER_BASIC,
-          mastheadLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg', altText: 'another logo' },
-        }),
-      );
-
-      expect($('.ons-header__org-logo--large img').attr('alt')).toBe('another logo');
-    });
-
-    it('has the provided small masthead logo alt text', () => {
-      const $ = cheerio.load(
-        renderComponent('header', {
-          ...EXAMPLE_HEADER_BASIC,
-          mastheadLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg', altText: 'another logo' },
-        }),
-      );
-
-      expect($('.ons-header__org-logo--small img').attr('alt')).toBe('another logo');
     });
 
     it('displays the `title` text', () => {
@@ -280,7 +260,7 @@ describe('macro: header', () => {
     });
 
     it('has the provided large title logo', () => {
-      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, titleLogo: { large: 'another-logo.svg' } }));
+      const $ = cheerio.load(renderComponent('header', { ...EXAMPLE_HEADER_BASIC, titleLogo: { large: '<img src="another-logo.svg">' } }));
 
       expect($('.ons-header__title-logo--large img').attr('src')).toBe('another-logo.svg');
     });
@@ -301,33 +281,11 @@ describe('macro: header', () => {
       const $ = cheerio.load(
         renderComponent('header', {
           ...EXAMPLE_HEADER_BASIC,
-          titleLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg' },
+          titleLogo: { large: '<img src="another-logo.svg">', small: '<img src="another-logo-small.svg">' },
         }),
       );
 
       expect($('.ons-header__title-logo--small img').attr('src')).toBe('another-logo-small.svg');
-    });
-
-    it('has the provided large title logo alt text', () => {
-      const $ = cheerio.load(
-        renderComponent('header', {
-          ...EXAMPLE_HEADER_BASIC,
-          titleLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg', altText: 'another logo' },
-        }),
-      );
-
-      expect($('.ons-header__title-logo--large img').attr('alt')).toBe('another logo');
-    });
-
-    it('has the provided small title logo alt text', () => {
-      const $ = cheerio.load(
-        renderComponent('header', {
-          ...EXAMPLE_HEADER_BASIC,
-          titleLogo: { large: 'another-logo.svg', small: 'another-logo-small.svg', altText: 'another logo' },
-        }),
-      );
-
-      expect($('.ons-header__title-logo--small img').attr('alt')).toBe('another logo');
     });
 
     it('displays the `description` text', () => {
