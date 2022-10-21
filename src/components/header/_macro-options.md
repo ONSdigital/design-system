@@ -22,18 +22,16 @@
 | Name    | Type   | Required | Description                                                                    |
 | ------- | ------ | -------- | ------------------------------------------------------------------------------ |
 | classes | string | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
-| large   | string | true     | URL to the custom logo                                                         |
-| small   | string | false    | Optionally provide a version of the logo more suited to mobile viewports       |
-| altText | string | true     | Alt text for the custom logo                                                   |
+| large   | HTML   | true     | Any HTML to render an image for example embedded `<svg>` or `<img>`            |
+| small   | HTML   | false    | Optionally provide a version of the logo more suited to mobile viewports       |
 
 ## titleLogo
 
 | Name    | Type   | Required | Description                                                                    |
 | ------- | ------ | -------- | ------------------------------------------------------------------------------ |
 | classes | string | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
-| large   | string | true     | URL to the custom logo                                                         |
-| small   | string | false    | Optionally provide a version of the logo more suited to mobile viewports       |
-| altText | string | true     | Alt text for the custom logo                                                   |
+| large   | HTML   | true     | Any HTML to render an image for example embedded `<svg>` or `<img>`            |
+| small   | HTML   | false    | Optionally provide a version of the logo more suited to mobile viewports       |
 
 ## ServiceLinks
 
