@@ -39,7 +39,7 @@
                         {% endif -%}
                         <div class="ons-header__org-logo ons-header__org-logo--large">
                             {% if params.mastheadLogo.large %}
-                                <img class="ons-header__org-logo-img" alt="{{ params.mastheadLogo.altText }}" src="{{ params.mastheadLogo.large }}">
+                                {{ params.mastheadLogo.large | safe }}
                             {% else %}
                                 {{
                                     onsIcon({
@@ -51,7 +51,7 @@
                         </div>
                         <div class="ons-header__org-logo ons-header__org-logo--small">
                             {% if params.mastheadLogo.small or params.mastheadLogo.large %}
-                                <img class="ons-header__org-logo-img" alt="{{ params.mastheadLogo.altText }}" src="{{ params.mastheadLogo.small if params.mastheadLogo.small else params.mastheadLogo.large }}">
+                                {{ params.mastheadLogo.small | safe }}
                             {% else %}
                                 {{
                                     onsIcon({
@@ -176,11 +176,11 @@
                                 <a class="ons-header__title-logo-link" href="{{ params.titleUrl }}">
                             {% endif %}
                             <div class="ons-header__title-logo ons-header__title-logo--large {% if params.titleLogo.classes %} {{ params.titleLogo.classes }} {% endif %}{% if params.titleLogo.small %}ons-u-d-no@xxs@s{% endif %}">
-                                <img class="ons-header__title-logo-img" alt="{{ params.titleLogo.altText }}" src="{{ params.titleLogo.large }}">
+                                {{ params.titleLogo.large | safe }}
                             </div>
                             {% if params.titleLogo.small %}
                                 <div class="ons-header__title-logo ons-header__title-logo--small ons-u-d-no@s{% if params.titleLogo.classes %} {{ params.titleLogo.classes }}{% endif %}">
-                                    <img class="ons-header__title-logo-img" alt="{{ params.titleLogo.altText }}" src="{{ params.titleLogo.small if params.titleLogo.small }}">
+                                    {{ params.titleLogo.small | safe}}
                                 </div>
                             {% endif %}
                             {% if params.titleUrl %}
