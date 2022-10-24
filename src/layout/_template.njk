@@ -112,13 +112,12 @@
                 <meta name="twitter:url" content="{{ pageConfig.media.canonicalUrl | default(pageConfig.absoluteUrl) }}">
                 <meta name="twitter:title" content="{{ pageConfig.social.title | default(pageConfig.title) }}">
                 <meta name="twitter:description" content="{{ pageConfig.social.description | default(pageConfig.description) }}">
-                <meta name="twitter:image" content="{{ assetsURL }}/favicons/twitter.png">
+                <meta name="twitter:image" content="{{ pageConfig.social.twitterImage }} | default({{ assetsURL }}/favicons/twitter.png)">
             {% endif %}
         {% endblock %}
 
         {% block favicons %}
             <!-- Favicons -->
-            <meta name="msapplication-config" content="{{ assetsURL }}/favicons/browserconfig.json">
             <link rel="icon" type="image/x-icon" href="{{ assetsURL }}/favicons/favicon.ico">
             <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-32x32.png" sizes="32x32">
             <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-16x16.png" sizes="16x16">
