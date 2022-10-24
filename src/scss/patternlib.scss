@@ -152,7 +152,7 @@
   color: var(--ons-color-text-inverse);
   display: inline-block;
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   letter-spacing: 0.1rem;
   margin-right: 0.5rem;
   outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
