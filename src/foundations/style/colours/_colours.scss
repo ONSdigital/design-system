@@ -18,12 +18,12 @@
   &__hex {
     display: block;
     font-size: 1.3rem;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
   }
 
   &__char {
     font-size: 2.2rem;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     height: 100%;
     position: absolute;
     text-align: center;
