@@ -400,28 +400,28 @@ describe('macro: footer', () => {
         [
           'the `poweredBy` and `OGLLink` parameters are provided',
           {
-            poweredBy: '<img src="logo.svg">',
+            poweredBy: '<img src="logo.svg" alt="logo">',
             OGLLink: EXAMPLE_OGL_LINK_PARAM,
           },
         ],
         [
           'the `poweredBy` and `legal` parameters are provided',
           {
-            poweredBy: '<img src="logo.svg">',
+            poweredBy: '<img src="logo.svg" alt="logo">',
             legal: EXAMPLE_LEGAL_PARAM,
           },
         ],
         [
           'the `poweredBy` and `crest` parameters are provided',
           {
-            poweredBy: '<img src="logo.svg">',
+            poweredBy: '<img src="logo.svg" alt="logo">',
             crest: true,
           },
         ],
         [
           'the `poweredBy`, `legal` and `crest` parameters are provided',
           {
-            poweredBy: '<img src="logo.svg">',
+            poweredBy: '<img src="logo.svg" alt="logo">',
             legal: EXAMPLE_LEGAL_PARAM,
             crest: true,
           },
@@ -429,7 +429,7 @@ describe('macro: footer', () => {
         [
           'the `poweredBy` parameter is provided but the `legal` and `crest` parameters are not provided',
           {
-            poweredBy: '<img src="logo.svg">',
+            poweredBy: '<img src="logo.svg" alt="logo">',
           },
         ],
       ])('where %s', (_, poweredByParams) => {
