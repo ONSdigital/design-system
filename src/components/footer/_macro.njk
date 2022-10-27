@@ -158,18 +158,15 @@
                                     {% endif %}
                                 </div>
                             {% endif %}
-
-                            {% if params.poweredBy %}
-                                {% if not params.poweredBy.partnership %}
-                                    <div class="ons-footer__poweredby ons-u-mb-m">
-                                        <img alt="{{ params.poweredBy.alt }}" src="{{ params.poweredBy.logo }}">
-                                    </div>
-                                {% endif %}
-                            {% else %}
-                                <div class="ons-footer__poweredby ons-u-mb-m">
+                            
+                            <div class="ons-footer__poweredby ons-u-mb-m">
+                                {% if params.poweredBy %}
+                                    {{ params.poweredBy | safe }}
+                                {% else %}
                                     {{ onsLogo | safe }}
-                                </div>
-                            {% endif %}
+                                {% endif %}
+                            </div>
+
                         </div>
 
                         {% if params.crest %}
@@ -184,42 +181,13 @@
                         {% endif %}
                     </div>
 
-                {% if (params.poweredBy) and (params.poweredBy.partnership) %}
-                    <div class="ons-grid ons-grid--flex ons-grid--vertical-bottom ons-grid--between ons-u-mt-l">
-                        <div class="ons-grid__col ons-footer__poweredby ons-u-mb-m">
-                            <img alt="{{ params.poweredBy.alt }}" src="{{ params.poweredBy.logo }}">
-                        </div>
-
-                        <div class="ons-grid__col ons-footer__partnership ons-u-mb-m">
-                            <div class="ons-footer__partnership-prefix">{{ params.poweredBy.partnership }}</div>
-                            {% if params.lang == 'cy' %}
-                                {{
-                                    onsIcon({
-                                        "iconType": 'ons-logo-cy',
-                                        "altText": 'Swyddfa Ystadegau Gwladol',
-                                        "altTextId": 'ons-logo-cy-footer-alt'
-                                    })
-                                }}
-                            {% else %}
-                                {{
-                                    onsIcon({
-                                        "iconType": 'ons-logo-en',
-                                        "altText": 'Office for National Statistics',
-                                        "altTextId": 'ons-logo-en-footer-alt'
-                                    })
-                                }}
-                            {% endif %}
-                        </div>
-                    </div>
-                {% endif %}
-
                 {% if params.copyrightDeclaration %}
-                <!-- Copyright -->
-                <div class="ons-grid">
-                    <div class="ons-grid__col">
-                        <p class="ons-u-fs-s ons-u-mb-no ons-footer__copyright">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }}</p>
+                    <!-- Copyright -->
+                    <div class="ons-grid">
+                        <div class="ons-grid__col">
+                            <p class="ons-u-fs-s ons-u-mb-no ons-footer__copyright">&copy; {{ params.copyrightDeclaration.copyright }} <br> {{ params.copyrightDeclaration.text }}</p>
+                        </div>
                     </div>
-                </div>
                 {% endif %}
             </div>
         </div>

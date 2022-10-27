@@ -6,17 +6,6 @@ import axe from '../../tests/helpers/axe';
 import { mapAll } from '../../tests/helpers/cheerio';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
-const EXAMPLE_POWERED_BY_PARAM = {
-  logo: 'logo.svg',
-  alt: 'Person alt text',
-};
-
-const EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM = {
-  logo: 'logo.svg',
-  alt: 'Person alt text',
-  partnership: 'Prefix text string',
-};
-
 const EXAMPLE_OGL_LINK_PARAM = {
   pre: 'All content is available under the',
   link: 'Open Government Licence v3.0',
@@ -411,57 +400,28 @@ describe('macro: footer', () => {
         [
           'the `poweredBy` and `OGLLink` parameters are provided',
           {
-            poweredBy: EXAMPLE_POWERED_BY_PARAM,
-            OGLLink: EXAMPLE_OGL_LINK_PARAM,
-          },
-        ],
-        [
-          'the `poweredBy.partnership` and `OGLLink` parameters are provided',
-          {
-            poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
+            poweredBy: 'logo.svg',
             OGLLink: EXAMPLE_OGL_LINK_PARAM,
           },
         ],
         [
           'the `poweredBy` and `legal` parameters are provided',
           {
-            poweredBy: EXAMPLE_POWERED_BY_PARAM,
-            legal: EXAMPLE_LEGAL_PARAM,
-          },
-        ],
-        [
-          'the `poweredBy.partnership` and `legal` parameters are provided',
-          {
-            poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
+            poweredBy: 'logo.svg',
             legal: EXAMPLE_LEGAL_PARAM,
           },
         ],
         [
           'the `poweredBy` and `crest` parameters are provided',
           {
-            poweredBy: EXAMPLE_POWERED_BY_PARAM,
-            crest: true,
-          },
-        ],
-        [
-          'the `poweredBy.partnership` and `crest` parameters are provided',
-          {
-            poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
+            poweredBy: 'logo.svg',
             crest: true,
           },
         ],
         [
           'the `poweredBy`, `legal` and `crest` parameters are provided',
           {
-            poweredBy: EXAMPLE_POWERED_BY_PARAM,
-            legal: EXAMPLE_LEGAL_PARAM,
-            crest: true,
-          },
-        ],
-        [
-          'the `poweredBy.partnership`, `legal` and `crest` parameters are provided',
-          {
-            poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
+            poweredBy: 'logo.svg',
             legal: EXAMPLE_LEGAL_PARAM,
             crest: true,
           },
@@ -469,13 +429,7 @@ describe('macro: footer', () => {
         [
           'the `poweredBy` parameter is provided but the `legal` and `crest` parameters are not provided',
           {
-            poweredBy: EXAMPLE_POWERED_BY_PARAM,
-          },
-        ],
-        [
-          'the `poweredBy.partnership` parameter is provided but the `legal` and `crest` parameters are not provided',
-          {
-            poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
+            poweredBy: 'logo.svg',
           },
         ],
       ])('where %s', (_, poweredByParams) => {
@@ -585,59 +539,6 @@ describe('macro: footer', () => {
       const $ = cheerio.load(renderComponent('footer', params));
 
       expect($('.ons-footer__crest').length).toBe(1);
-    });
-  });
-
-  describe('partnership', () => {
-    const params = {
-      poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
-    };
-
-    it('passes jest-axe checks', async () => {
-      const $ = cheerio.load(renderComponent('footer', params));
-
-      const results = await axe($.html());
-      expect(results).toHaveNoViolations();
-    });
-
-    it('renders ONS icon when `partnership` parameter is provided', () => {
-      const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
-
-      faker.renderComponent('footer', params);
-
-      expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining({ iconType: 'ons-logo-en' }));
-    });
-
-    it('renders provided "poweredBy" icon when `partnership` parameter is provided', () => {
-      const $ = cheerio.load(renderComponent('footer', params));
-
-      expect($('.ons-footer__poweredby img').attr('src')).toBe('logo.svg');
-    });
-
-    it('renders "poweredBy" element when `partnership` parameter is provided', () => {
-      const $ = cheerio.load(renderComponent('footer', params));
-
-      expect($('.ons-footer__poweredby').length).toBe(1);
-    });
-
-    it('renders "partnership" and "prefix" elements when `partnership` parameter is provided', () => {
-      const $ = cheerio.load(renderComponent('footer', params));
-
-      expect($('.ons-footer__partnership').length).toBe(1);
-      expect($('.ons-footer__partnership-prefix').length).toBe(1);
-    });
-
-    it('does not render "partnership" element when `partnership` parameter is not provided', () => {
-      const params = {
-        poweredBy: {
-          logo: 'person.svg',
-          alt: 'Person alt text',
-        },
-      };
-      const $ = cheerio.load(renderComponent('footer', params));
-
-      expect($('.ons-footer__partnership').length).toBe(0);
     });
   });
 });
