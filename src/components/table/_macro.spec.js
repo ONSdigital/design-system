@@ -361,7 +361,7 @@ describe('macro: table', () => {
           id: 'submit-form-button',
           classes: 'custom-button-class',
           url: 'https://example.com/link',
-          value: new String('42'), // `| safe` filter is used in macro which makes a string
+          value: '42', // `| safe` filter is used in macro which makes a string
           name: 'submit-form-button-name',
         }]);
       });
