@@ -24,13 +24,13 @@
   }
 
   &__description--title {
-    font-weight: normal;
+    font-weight: $font-weight-regular;
   }
 
   > * .ons-fieldset {
     .ons-fieldset {
       &__legend {
-        font-weight: normal;
+        font-weight: $font-weight-regular;
       }
     }
   }
