@@ -1,0 +1,148 @@
+---
+title: Create a custom theme
+sortOrder: 6
+anchorLinks: true
+---
+
++++
+{% from "views/partials/example/_macro.njk" import patternlibExample %}
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
+{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
++++
+
+If your service has it's own brand you can create a custom theme and include your own brand assets.
+
+## Using a custom colour palette
+
+The ONS Design System uses {{
+    onsExternalLink({
+        "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/--*",
+        "linkText": "CSS Custom Properties"
+    })
+}} (also known as CSS variables) for the [colour palette](/foundations/colours/). It allows services to create a custom theme by overiding the custom properties in their own stylesheets. The custom properties for colours can be found under {{
+    onsExternalLink({
+        "url": "https://github.com/ONSdigital/design-system/blob/main/src/scss/vars/_colors.scss",
+        "linkText": "src/scss/vars/_colors.scss"
+    })
+}}.
+
+Refer to the accessibility requirements for [colour contrast](/foundations/colours/#colour-contrast) before creating your theme.
+
+### Create a new theme
+
+To create a theme, you need a CSS file with a `:root` CSS pseudo-class which overrides colours. This file needs to be referenced after our `main.css` file in the `<head>` of your application. If you're using the [base page template](/foundations/page-template) you can add your stylesheet reference inside the `head` block.
+  
+The example below shows what custom properties are overidden to create the Census theme.
+
+{{ onsCodeHighlight({ "language": "css", "code": ":root {
+  --ons-color-branded: #902082;
+  --ons-color-branded-tint: rgba(144, 32, 130, 0.1); // 10% of brand colour
+  --ons-color-branded-secondary: #df0667;
+  --ons-color-branded-tertiary: #3c388e;
+  --ons-color-branded-supporting: #00a3a6;
+  --ons-color-branded-supporting-tint: rgba(0, 163, 166, 0.2);
+  --ons-color-text-link-hover: var(--ons-color-black);
+}" }) }}
+
+Overriding the css properties as shown above will add your custom colour palette to a range of components such as the [header](/components/header), [panel](/components/panel) and [hero](/components/hero).
+
+### Theme the header
+
+To make it easier to theme the header of your your service, the [header component](/components/header) has two modes available; default and neutral. 
+
+#### Default
+
+The default header is suited to a dark background with white text and elements provided.
+
+{{
+    patternlibExample({ "path": "components/header/examples/header-external-with-navigation/index.njk" })
+}}
+
+#### Neutral
+
+The neutral header variant provides, by default, a dark masthead and a white main header with black text and elements. This variant is suitable for services that use a multicoloured logo or have a more complex colour palette.
+
+{{
+    patternlibExample({ "path": "components/header/examples/header-neutral-for-multicoloured-logo/index.njk" })
+}}
+
+To use this mode use `'variants': 'neutral'` in your `header` configuration.
+
+#### Further customisation of the header
+
+If you need more control over the way the header looks, we've created a set of css properties specific to the header.
+
+{{ onsCodeHighlight({ "language": "css", "code": ":root {
+  --ons-color-header: var(--ons-color-branded);
+  --ons-color-header-neutral: var(--ons-color-white);
+  --ons-color-header-masthead: var(--ons-color-white);
+  --ons-color-header-masthead-internal: var(--ons-color-branded-secondary);
+  --ons-color-header-masthead-neutral: var(--ons-color-black);
+  --ons-color-header-title: var(--ons-color-text);
+  --ons-color-header-navigation-links: var(--ons-color-text);
+  --ons-color-service-links: var(--ons-color-white);
+}" }) }}
+
+### Adjusting the theme of other page elements
+
+In a similar approach to the header, there is a set of css properties that allow you to control the look of other components.
+
+{{ onsCodeHighlight({ "language": "css", "code": ":root {
+  --ons-color-cta-bg: var(--ons-color-branded-tint);
+  --ons-color-banner-bg: var(--ons-color-grey-5);
+  --ons-color-banner-bg-dark: var(--ons-color-grey-15);
+  --ons-color-page-light: var(--ons-color-white);
+  --ons-color-banner-browser-bg: var(--ons-color-black);
+  --ons-color-hero-bg: var(--ons-color-branded-tint);
+  --ons-color-hero-bg-dark: var(--ons-color-branded);
+}" }) }}
+
+## Using custom brand assets
+
+### Logo
+
+The [header component](/components/header) and [footer component](/components/footer) have the option to display a custom logo using an {{
+    onsExternalLink({
+        "url": "https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/SVG_In_HTML_Introduction",
+        "linkText": "inline svg"
+    })
+}}.
+
+### Favicons
+
+If you're using the [base page template](/foundations/page-template) you'll automatically get the default ONS favicons. If you need to use your own you are able to override the `favicons` block in your template. 
+
+The code example below shows the base favicons block with the default content. Paste the code snippet into your template and update the icon paths.
+
+{{ onsCodeHighlight({ "language": "nunjucks", "code": '{% block favicons %}
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
+    <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#000000">
+    <link rel="apple-touch-icon" type="image/png" href="/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/favicons/manifest.json">
+{% endblock %}' }) }}
+
+### Social media meta
+
+You're also able to override the default Open Graph and Twitter meta information using the `social` block. The default [base page template](/foundations/page-template) social block is shown in the snippet below.
+
+{{ onsCodeHighlight({ "language": "nunjucks", "code": '{% block social %}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="pageConfig.absoluteUrl">
+  <meta property="og:title" content="pageConfig.title">
+  <meta property="og:image" content="favicons/opengraph.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:description" content="pageConfig.description">
+  <meta property="og:site_name" content="pageConfig.title">
+  <meta property="og:locale" content="currentLanguageISOCode">
+  <meta property="og:locale:alternate" content="otherLanguageISOCode"> 
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="pageConfig.social.twitterSite">
+  <meta name="twitter:url" content="pageConfig.absoluteUrl">
+  <meta name="twitter:title" content="pageConfig.title">
+  <meta name="twitter:description" content="pageConfig.description">
+  <meta name="twitter:image" content="/favicons/twitter.png">
+{% endblock %}' }) }}
