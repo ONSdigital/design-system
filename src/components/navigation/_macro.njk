@@ -3,7 +3,7 @@
     {% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
     <div class="ons-navigation-wrapper{% if params.variants == 'neutral' %} ons-navigation-wrapper--neutral{% endif %}">
         <div class="ons-container ons-container--gutterless@xxs@l{{ ' ons-container--full-width' if params.fullWidth or params.navigation.fullWidth }}{{ ' ons-container--wide' if params.wide or params.navigation.wide }}">
-            {% if params.navigation.siteSearchAutosuggest %}
+            {% if params.siteSearchAutosuggest %}
                 <div class="ons-navigation-search ons-js-navigation-search">
                     {% set autosuggestClasses = "ons-input-search ons-input-search--icon" %}
                     {% set autosuggestLabelClasses = "ons-u-pl-m" %}
@@ -17,24 +17,24 @@
                         "containerClasses": "ons-autosuggest-input--header",
                         "classes": autosuggestClasses,
                         "label": {
-                            "text": params.navigation.siteSearchAutosuggest.label,
+                            "text": params.siteSearchAutosuggest.label,
                             "id": "ons-site-search-label",
                             "classes": autosuggestLabelClasses
                         },
                         "accessiblePlaceholder": true,
                         "autocomplete": "off",
-                        "instructions": params.navigation.siteSearchAutosuggest.instructions,
-                        "ariaYouHaveSelected":params.navigation.siteSearchAutosuggest.ariaYouHaveSelected,
-                        "ariaMinChars": params.navigation.siteSearchAutosuggest.ariaMinChars,
-                        "ariaResultsLabel": params.navigation.siteSearchAutosuggest.ariaResultsLabel,
-                        "ariaOneResult": params.navigation.siteSearchAutosuggest.ariaOneResult,
-                        "ariaNResults": params.navigation.siteSearchAutosuggest.ariaNResults,
-                        "ariaLimitedResults": params.navigation.siteSearchAutosuggest.ariaLimitedResults,
-                        "moreResults": params.navigation.siteSearchAutosuggest.moreResults,
-                        "resultsTitle": params.navigation.siteSearchAutosuggest.resultsTitle,
-                        "autosuggestData": params.navigation.siteSearchAutosuggest.autosuggestData,
-                        "noResults": params.navigation.siteSearchAutosuggest.noResults,
-                        "typeMore": params.navigation.siteSearchAutosuggest.typeMore
+                        "instructions": params.siteSearchAutosuggest.instructions,
+                        "ariaYouHaveSelected":params.siteSearchAutosuggest.ariaYouHaveSelected,
+                        "ariaMinChars": params.siteSearchAutosuggest.ariaMinChars,
+                        "ariaResultsLabel": params.siteSearchAutosuggest.ariaResultsLabel,
+                        "ariaOneResult": params.siteSearchAutosuggest.ariaOneResult,
+                        "ariaNResults": params.siteSearchAutosuggest.ariaNResults,
+                        "ariaLimitedResults": params.siteSearchAutosuggest.ariaLimitedResults,
+                        "moreResults": params.siteSearchAutosuggest.moreResults,
+                        "resultsTitle": params.siteSearchAutosuggest.resultsTitle,
+                        "autosuggestData": params.siteSearchAutosuggest.autosuggestData,
+                        "noResults": params.siteSearchAutosuggest.noResults,
+                        "typeMore": params.siteSearchAutosuggest.typeMore
                     }) }}
                 </div>
             {% endif %}

@@ -49,41 +49,6 @@ Some components use other components, for example, the accordion component uses 
 
 You can either import or copy the `main.css` file to include the compiled style sheet of all components and styles. This file can be found under `node_modules/@ons/design-system/css/main.css`.
 
-### Creating themes
-
-The ONS Design System uses {{
-    onsExternalLink({
-        "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/--*",
-        "linkText": "CSS Custom Properties"
-    })
-}} (also known as CSS variables) for the [colour palette](/foundations/colours/). It allows services to create a custom theme by overiding the custom properties in their own stylesheets. The custom properties for colours can be found under {{
-    onsExternalLink({
-        "url": "https://github.com/ONSdigital/design-system/blob/main/src/scss/vars/_colors.scss",
-        "linkText": "src/scss/vars/_colors.scss"
-    })
-}}.
-
-Refer to the accessibility requirements for [colour contrast](/foundations/colours/#colour-contrast) before creating your theme.
-
-To create a theme, you need a CSS file with a `:root` CSS pseudo-class which overrides colours. This file needs to be referenced after our `main.css` file in the `<head>` of your application. If you're using the [base page template](/foundations/page-template) you can add your stylesheet reference inside the `head` block.
-  
-The example below shows what custom properties are overidden to create the Census theme.
-
-{{ onsCodeHighlight({ "language": "css", "code": ":root {
-  --ons-color-black: #222;
-  --ons-color-white: #fff;
-  --ons-color-branded: #902082;
-  --ons-color-branded-tint: rgba(144, 32, 130, 0.1); // 10% of brand colour
-  --ons-color-branded-secondary: #df0667;
-  --ons-color-branded-tertiary: #3c388e;
-  --ons-color-branded-supporting: #00a3a6;
-  --ons-color-branded-supporting-tint: rgba(0, 163, 166, 0.2);
-
-  // Assignment
-  --ons-color-tag-bg: var(--ons-color-branded-supporting-tint);
-  --ons-color-text-link-hover: var(--ons-color-black);
-}" }) }}
-
 ## JavaScript
 To import the JavaScript (JS) for components, you can either:
 

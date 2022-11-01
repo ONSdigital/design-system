@@ -49,19 +49,4 @@
       margin-bottom: 0.5rem !important;
     }
   }
-
-  &__poweredby,
-  &__crest,
-  &__partnership {
-    font-size: 0;
-  }
-
-  &__partnership {
-    &-prefix {
-      @extend .ons-u-fs-s;
-
-      margin-bottom: 0.2rem;
-      margin-top: -0.3rem;
-    }
-  }
 }

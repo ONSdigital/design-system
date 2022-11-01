@@ -25,16 +25,6 @@ layout: none
     </script>
     <!-- End Google Tag Manager -->
 
-    <script>
-        if (!navigator.onLine) {
-            console.log('You\'re offline');
-            const link  = document.createElement('link');
-            link.rel  = 'stylesheet';
-            link.href = '/css/census.css';
-
-            document.head.appendChild(link);
-        }
-    </script>
 {% endblock %}
 {% block bodyStart %}
 <!-- Google Tag Manager (noscript) -->

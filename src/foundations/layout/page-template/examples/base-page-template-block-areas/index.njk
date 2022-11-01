@@ -9,7 +9,15 @@ layout: example
 {% from "components/section-navigation/_macro.njk" import onsSectionNavigation %}
 
 <div class="ons-pattern-lib-block">
-    <div class="ons-pattern-lib-block__label">block: headIcons</div>
+    <div class="ons-pattern-lib-block__label">block: meta</div>
+</div>
+
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: social</div>
+</div>
+
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: favicons</div>
 </div>
 
 <div class="ons-pattern-lib-block">
@@ -41,7 +49,7 @@ layout: example
         {{
             onsHeader({
                 "title": "Design system",
-                "orgLogoHref": "#0",
+                "mastheadLogoUrl": "#0",
                 "phase": {
                     "html": 'This is a new service – to help improve it please <a href="#feedback">give us your feedback</a>'
                 },
