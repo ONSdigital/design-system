@@ -18,6 +18,7 @@ All template examples contain the following:
 - CSS and Javascript to add styling and behaviours to components.
 - a [skip to content](/components/skip-to-content) link, [header](/components/header) and [footer](/components/footer) component.
 - a favicon, and other related bookmark icons.
+- Open Graph meta properties 
 
 Click on the HTML tab on each example to view the rendered HTML.
 
@@ -35,14 +36,6 @@ Components can be added to the base page template. The example below provides a 
 
 {{
     patternlibExample({ "path": "foundations/layout/page-template/examples/custom/index.njk" })
-}}
-
-## Themed page template
-
-The example below shows a themed census version of the ONS base page template.
-
-{{
-    patternlibExample({ "path": "foundations/layout/page-template/examples/themed/index.njk" })
 }}
 
 ### Changing template content
@@ -87,10 +80,10 @@ Variables can be set with:
 | ------------- | --------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | cdn           | `CDN` [_(ref)_](#cdn)                               | false                             | What CDN version to use                                                                                                                       |
 | assetsURL     | string                                              | false                             | The base url where to find CSS/JS/images etc., for example, `http://localhost:3030`                                                           |
-| theme         | string                                              | false                             | The name of the css file, for example, "census" if using a theme. Defaults to "main".                                                         |
 | title         | string                                              | true                              | The contents for the `<title>` element                                                                                                        |
 | cspNonce      | string                                              | false                             | The Content Security Policy (CSP) nonce value                                                                                                 |
-| headMeta      | `HeadMeta` [_(ref)_](#headmeta)                     | false                             | Configuration for `<meta>` information in the document `<head>`                                                                               |
+| meta          | `Meta` [_(ref)_](#meta)                             | false                             | Configuration for `<meta>` information in the document `<head>`                                                                               |
+| social        | `Social` [_(ref)_](#social)                         | false                             | Configuration for social media information in the document `<head>`                                                                               |
 | breadcrumbs   | `Breadcrumbs` [_(ref)_](/components/breadcrumbs)    | false                             | Configuration for the breadcrumbs or back link                                                                                                |
 | bodyClasses   | string                                              | false                             | Classes to add to the `<body>` element                                                                                                        |
 | header        | `Header` [_(ref)_](/components/header)              | true                              | Configuration for the page header                                                                                                             |
@@ -110,13 +103,12 @@ Variables can be set with:
 | version       | string | false    | DS version on the CDN |
 
 
-###### HeadMeta
+###### Meta
 
 | Variable Name | Type                              | Required                             | Description                                                                                                      |
 | ------------- | --------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | description   | string                            | false                                | Description of the current page for search engines.                                                              |
 | canonicalUrl  | string                            | false                                | URL for the preferred page for search engines to avoid duplicate content penalties. Defaults to current page url |
-| twitterSite   | string                            | false                                | @username for the website used in the card, for example `@census2021`                                            |
 | hrefLangs     | `HrefLangs` [_(ref)_](#hreflangs) | false                                | Metadata for the language links to improve SEO                                            |
 
 ##### HrefLangs
@@ -125,6 +117,14 @@ Variables can be set with:
 | ------------- | ------ | -------- | --------------------- |
 | url           | string | false    | URL for the CDN       |
 | lang          | string | false    | DS version on the CDN |
+
+###### Social
+
+| Variable Name | Type                              | Required | Description                                                                  |
+| ------------- | --------------------------------- | ---------| ---------------------------------------------------------------------------- |
+| twitterSite   | string                            | false    | @username for the website used in the card, for example `@ons`               |
+| title         | string                            | false    | Title for the Twitter post. Defaults to the page title                       |
+| description   | string                            | false    | Description for the Twitter post. Defaults to the page description           |
 
 ##### MainColumn
 
@@ -165,8 +165,10 @@ To change the components that are included by default, set their equivalent bloc
 
 | Block Name | Description                                                                         |
 | ---------- | ----------------------------------------------------------------------------------- |
-| headIcons  | Override the default icons used for ONS branded pages                               |
 | head       | An area to add additional markup to the `<head>` element, for example, extra CSS references |
+| meta       | Override the default meta information in the `<head>`                               |
+| favicons   | Override the default icons in the `<head>`                                          |
+| social     | Override the default twitter and Open Graph information in the `<head>`             |
 | body       | Override the entire contents of the `<body>` element                                |
 | bodyStart  | An area to add additional markup after the opening <body> element                   |
 | skipLink   | Override the default [skip link](/components/skip-to-content)                       |

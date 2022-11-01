@@ -11,13 +11,6 @@
     {% set otherLanguageISOCode = otherLanguage.ISOCode %}
 {% endif %}
 
-{# Meta icons #}
-{% if pageConfig and pageConfig.theme %}
-    {% set metaicons = pageConfig.theme + "/" + currentLanguageISOCode + "/" %}
-{% else %}
-    {% set metaicons = "" %}
-{% endif %}
-
 {% if pageConfig.cdn or release_version or designSystemVersion %}
     {# Production #}
     {% set cdn_url = (pageConfig.cdn.url if pageConfig.cdn and pageConfig.cdn.url) or "https://cdn.ons.gov.uk/sdc/design-system" %}
@@ -75,59 +68,63 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ page_title }}</title>
-        <link rel="stylesheet" href="{{ assetsURL }}/css/{{ pageConfig.theme | default('main') }}.css">
+        <link rel="stylesheet" href="{{ assetsURL }}/css/main.css">
         <link rel="stylesheet" media="print" href="{{ assetsURL }}/css/print.css">
-        <meta name="theme-color" content="{% if pageConfig.theme == 'census' %}#902082{% else %}#206095{% endif %}"/>
+        <meta name="theme-color" content="#206095"/>
+        {% block meta %}
+            {% if pageConfig.meta %}
+                {% if pageConfig.meta.description or pageConfig.description %}
+                    <meta name="description" content="{{ pageConfig.meta.description | default(pageConfig.description) }}">
+                {% endif %}
 
-        {% if pageConfig.headMeta %}
+                <!-- Canonical -->
+                <link rel="canonical" href="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
 
-            {% if pageConfig.headMeta.description or pageConfig.description %}
-                <meta name="description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
+                {% if pageConfig.meta.hrefLangs %}
+                    {% for item in pageConfig.meta.hrefLangs %}
+                        <link rel="alternate" href="{{ item.url }}" hreflang="{{ item.lang }}">
+                    {% endfor %}
+                {% endif %}
             {% endif %}
+        {% endblock %}
 
+        {% block social %}
             <!-- Open Graph -->
             <meta property="og:type" content="website">
-            <meta property="og:url" content="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
-            <meta property="og:title" content="{{ pageConfig.headMeta.title | default(pageConfig.title) }}">
-            <meta property="og:image" content="{{ assetsURL }}/favicons/{{ metaicons }}opengraph.png">
+            <meta property="og:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
+            <meta property="og:title" content="{{ pageConfig.title }}">
+            <meta property="og:image" content="{{ assetsURL }}/favicons/opengraph.png">
             <meta property="og:image:type" content="image/png">
             <meta property="og:image:width" content="1200">
             <meta property="og:image:height" content="630">
-            <meta property="og:description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
+            <meta property="og:description" content="{{ pageConfig.meta.description | default(pageConfig.description) }}">
             <meta property="og:site_name" content="{{ pageConfig.header.title | default(pageConfig.title) }}">
             <meta property="og:locale" content="{{ currentLanguageISOCode }}">
+
             {% if otherLanguageISOCode %}
-            <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}"> 
+                <meta property="og:locale:alternate" content="{{ otherLanguageISOCode }}"> 
             {% endif %}
 
-            <!-- Twitter -->
-            <meta name="twitter:card" content="summary">
-            <meta name="twitter:site" content="{{ pageConfig.headMeta.twitterSite }}">
-            <meta name="twitter:url" content="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
-            <meta name="twitter:title" content="{{ pageConfig.headMeta.title | default(pageConfig.title) }}">
-            <meta name="twitter:description" content="{{ pageConfig.headMeta.description | default(pageConfig.description) }}">
-            <meta name="twitter:image" content="{{ assetsURL }}/favicons/{{ metaicons }}twitter.png">
-
-            <!-- Canonical -->
-            <link rel="canonical" href="{{ pageConfig.headMeta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
-
-            {% if pageConfig.headMeta.hrefLangs %}
-                {% for item in pageConfig.headMeta.hrefLangs %}
-                    <link rel="alternate" href="{{ item.url }}" hreflang="{{ item.lang }}">
-                {% endfor %}
+            {% if pageConfig.social %}
+                <!-- Twitter -->
+                <meta name="twitter:card" content="summary">
+                <meta name="twitter:site" content="{{ pageConfig.social.twitterSite }}">
+                <meta name="twitter:url" content="{{ pageConfig.media.canonicalUrl | default(pageConfig.absoluteUrl) }}">
+                <meta name="twitter:title" content="{{ pageConfig.social.title | default(pageConfig.title) }}">
+                <meta name="twitter:description" content="{{ pageConfig.social.description | default(pageConfig.description) }}">
+                <meta name="twitter:image" content="{{ assetsURL }}/favicons/twitter.png">
             {% endif %}
+        {% endblock %}
 
-        {% endif %}
-
-        {% block headIcons %}
+        {% block favicons %}
             <!-- Favicons -->
-            <meta name="msapplication-config" content="{{ assetsURL }}/favicons/{{ metaicons }}browserconfig.json">
-            <link rel="icon" type="image/x-icon" href="{{ assetsURL }}/favicons/{{ metaicons }}favicon.ico">
-            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/{{ metaicons }}favicon-32x32.png" sizes="32x32">
-            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/{{ metaicons }}favicon-16x16.png" sizes="16x16">
-            <link rel="mask-icon" href="{{ assetsURL }}/favicons/{{ metaicons }}safari-pinned-tab.svg" color="#000000">
-            <link rel="apple-touch-icon" type="image/png" href="{{ assetsURL }}/favicons/{{ metaicons }}apple-touch-icon.png" sizes="180x180">
-            <link rel="manifest" href="{{ assetsURL }}/favicons/{{ metaicons }}manifest.json">
+            <meta name="msapplication-config" content="{{ assetsURL }}/favicons/browserconfig.json">
+            <link rel="icon" type="image/x-icon" href="{{ assetsURL }}/favicons/favicon.ico">
+            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-32x32.png" sizes="32x32">
+            <link rel="icon" type="image/png" href="{{ assetsURL }}/favicons/favicon-16x16.png" sizes="16x16">
+            <link rel="mask-icon" href="{{ assetsURL }}/favicons/safari-pinned-tab.svg" color="#000000">
+            <link rel="apple-touch-icon" type="image/png" href="{{ assetsURL }}/favicons/apple-touch-icon.png" sizes="180x180">
+            <link rel="manifest" href="{{ assetsURL }}/favicons/manifest.json">
         {% endblock %}
 
         {% block head %}{% endblock %}
