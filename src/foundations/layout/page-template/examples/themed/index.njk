@@ -6,31 +6,29 @@ layout: none
 {% set pageConfig = {
     "theme": 'census',
     "header": {
-        "orgLogoHref": pageInfo.url,
-        "titleLogo": 'census-logo-en',
-        "titleLogoClasses": 'ons-u-mt-s@m ons-u-mb-s@m',
-        "titleLogoHref": pageInfo.url + '#0',
-        "titleLogoAlt": 'Census 2021'
+        "mastheadLogoUrl": pageInfo.url,
+        "title": 'Census 2021',
+        "titleUrl": pageInfo.url + '#0',
+        "language": {
+            "languages": [
+                {
+                    "url": '#0',
+                    "ISOCode": 'en',
+                    "text": 'English',
+                    "current": true
+                },
+                {
+                    "url": '#0',
+                    "ISOCode": 'cy',
+                    "text": 'Cymraeg',
+                    "current": false
+                }
+            ]
+        }
     },
     "description": 'Get prepared for Census 2021 Information about why and how the census will take place during the coronavirus pandemic.',
     "headMeta": {
         "twitterSite": '@census2021'
-    },
-    "language": {
-        "languages": [
-            {
-                "url": '#0',
-                "ISOCode": 'en',
-                "text": 'English',
-                "current": true
-            },
-            {
-                "url": '#0',
-                "ISOCode": 'cy',
-                "text": 'Cymraeg',
-                "current": false
-            }
-        ]
     },
     "footer": {
         "crest": true,
