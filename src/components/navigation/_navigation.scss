@@ -123,7 +123,7 @@
   }
 
   &__item--active > &__link {
-    font-weight: 700;
+    font-weight: $font-weight-bold;
   }
 
   &-wrapper {
