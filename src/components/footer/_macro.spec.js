@@ -373,6 +373,22 @@ describe('macro: footer', () => {
             altText: 'Office for National Statistics',
           },
         ],
+      ])('where %s', (_, langParams, defaultIcon) => {
+        const params = {
+          ...langParams,
+        };
+        it('renders the expected icon', () => {
+          const faker = templateFaker();
+          const iconsSpy = faker.spy('icons');
+
+          faker.renderComponent('footer', params);
+
+          expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining(defaultIcon));
+        });
+      });
+    });
+    describe('provided poweredBy logo', () => {
+      describe.each([
         [
           'the `lang` parameter is "cy"',
           { lang: 'cy' },
