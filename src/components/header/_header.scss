@@ -147,8 +147,8 @@
   &__org-logo-link,
   &__title-logo-link {
     display: block;
+    font-size: 0;
     &:hover {
-      font-size: 0;
       text-decoration: none;
     }
   }
