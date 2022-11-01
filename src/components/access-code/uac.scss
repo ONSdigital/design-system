@@ -1,7 +1,7 @@
 .ons-uac {
   &__input {
     font-family: $font-mono !important;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     width: 15.1em;
