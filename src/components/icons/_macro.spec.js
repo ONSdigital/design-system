@@ -97,8 +97,6 @@ describe('macro: icons', () => {
     ['ons-logo-stacked-cy', 'Logo Swyddfa Ystadegau Gwladol'],
     ['crest', 'Royal coat of arms of the United Kingdom'],
     ['ogl', 'Open Government License logo'],
-    ['hm-gov-logo-en', 'HM Government logo'],
-    ['hm-gov-logo-cy', 'Logo Llywodraeth EM'],
   ])('icon type: %s', (iconType, expectedAltText) => {
     it(`has default alt text '${expectedAltText}'`, () => {
       const $ = cheerio.load(renderComponent('icons', { iconType }));

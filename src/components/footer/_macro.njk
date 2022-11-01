@@ -29,18 +29,6 @@
         {% endif %}
     {% endset %}
 
-    {% set poweredByLogo %}
-        {% if params.poweredBy and params.poweredBy.logo %}
-            {{
-                onsIcon({
-                    "iconType": params.poweredBy.logo,
-                    "altText": params.poweredBy.alt,
-                    "altTextId": 'poweredby-alt'
-                })
-            }}
-        {% endif %}
-    {% endset %}
-
     <footer class="ons-footer">
 
         {% if params.footerWarning %}
@@ -174,7 +162,7 @@
                             {% if params.poweredBy %}
                                 {% if not params.poweredBy.partnership %}
                                     <div class="ons-footer__poweredby ons-u-mb-m">
-                                        {{ poweredByLogo | safe }}
+                                        <img alt="{{ params.poweredBy.alt }}" src="{{ params.poweredBy.logo }}">
                                     </div>
                                 {% endif %}
                             {% else %}
@@ -199,7 +187,7 @@
                 {% if (params.poweredBy) and (params.poweredBy.partnership) %}
                     <div class="ons-grid ons-grid--flex ons-grid--vertical-bottom ons-grid--between ons-u-mt-l">
                         <div class="ons-grid__col ons-footer__poweredby ons-u-mb-m">
-                            {{ poweredByLogo | safe }}
+                            <img alt="{{ params.poweredBy.alt }}" src="{{ params.poweredBy.logo }}">
                         </div>
 
                         <div class="ons-grid__col ons-footer__partnership ons-u-mb-m">
