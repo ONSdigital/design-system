@@ -139,7 +139,7 @@ $button-shadow-size: 3px;
     &__inner {
       background: var(--ons-color-button-secondary);
       color: var(--ons-color-text);
-      font-weight: normal;
+      font-weight: $font-weight-regular;
 
       .ons-svg-icon {
         fill: var(--ons-color-text);
@@ -187,7 +187,7 @@ $button-shadow-size: 3px;
       border-radius: 0;
       box-shadow: none;
       color: var(--ons-color-text-link);
-      font-weight: normal;
+      font-weight: $font-weight-regular;
       padding: 0;
       .ons-svg-icon {
         fill: var(--ons-color-text-link);
@@ -445,7 +445,7 @@ $button-shadow-size: 3px;
       color: var(--ons-color-branded-text);
       display: block;
       font-size: 1rem;
-      font-weight: normal;
+      font-weight: $font-weight-regular;
       padding: 0.6rem 1rem;
       text-align: left;
 

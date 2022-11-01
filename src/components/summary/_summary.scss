@@ -35,7 +35,7 @@ $hub-row-spacing: 1.3rem;
       @extend .ons-u-fs-m;
 
       border-width: 2px;
-      font-weight: 700;
+      font-weight: $font-weight-bold;
 
       .ons-summary__values {
         padding-top: 23px;
@@ -109,7 +109,7 @@ $hub-row-spacing: 1.3rem;
   &__item--error & {
     &__row-title--error {
       color: var(--ons-color-errors);
-      font-weight: 700;
+      font-weight: $font-weight-bold;
       padding: $summary-row-spacing $summary-col-spacing;
     }
 
