@@ -7,12 +7,12 @@ import { mapAll } from '../../tests/helpers/cheerio';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
 const EXAMPLE_POWERED_BY_PARAM = {
-  logo: 'person',
+  logo: 'logo.svg',
   alt: 'Person alt text',
 };
 
 const EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM = {
-  logo: 'person',
+  logo: 'logo.svg',
   alt: 'Person alt text',
   partnership: 'Prefix text string',
 };
@@ -365,43 +365,54 @@ describe('macro: footer', () => {
     });
   });
 
-  describe('powered by logo', () => {
-    describe.each([
-      [
-        'the `lang` parameter is not provided',
-        {},
-        {
-          iconType: 'ons-logo-en',
-          altText: 'Office for National Statistics',
-        },
-      ],
-      [
-        'the `lang` parameter is "en"',
-        { lang: 'en' },
-        {
-          iconType: 'ons-logo-en',
-          altText: 'Office for National Statistics',
-        },
-      ],
-      [
-        'the `lang` parameter is "cy"',
-        { lang: 'cy' },
-        {
-          iconType: 'ons-logo-cy',
-          altText: 'Swyddfa Ystadegau Gwladol',
-        },
-      ],
-    ])('where %s', (_, langParams, defaultIcon) => {
+  describe('poweredBy logo', () => {
+    describe('default poweredBy logo', () => {
+      describe.each([
+        [
+          'the `lang` parameter is not provided',
+          {},
+          {
+            iconType: 'ons-logo-en',
+            altText: 'Office for National Statistics',
+          },
+        ],
+        [
+          'the `lang` parameter is "en"',
+          { lang: 'en' },
+          {
+            iconType: 'ons-logo-en',
+            altText: 'Office for National Statistics',
+          },
+        ],
+        [
+          'the `lang` parameter is "cy"',
+          { lang: 'cy' },
+          {
+            iconType: 'ons-logo-cy',
+            altText: 'Swyddfa Ystadegau Gwladol',
+          },
+        ],
+      ])('where %s', (_, langParams, defaultIcon) => {
+        const params = {
+          ...langParams,
+        };
+        it('renders the expected icon', () => {
+          const faker = templateFaker();
+          const iconsSpy = faker.spy('icons');
+
+          faker.renderComponent('footer', params);
+
+          expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining(defaultIcon));
+        });
+      });
+    });
+    describe('provided poweredBy logo', () => {
       describe.each([
         [
           'the `poweredBy` and `OGLLink` parameters are provided',
           {
             poweredBy: EXAMPLE_POWERED_BY_PARAM,
             OGLLink: EXAMPLE_OGL_LINK_PARAM,
-          },
-          {
-            iconType: 'person',
-            altText: 'Person alt text',
           },
         ],
         [
@@ -410,35 +421,12 @@ describe('macro: footer', () => {
             poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
             OGLLink: EXAMPLE_OGL_LINK_PARAM,
           },
-          {
-            iconType: 'person',
-            altText: 'Person alt text',
-          },
-        ],
-        [
-          'the `poweredBy` parameter is not provided but the `legal` parameter is provided',
-          {
-            legal: EXAMPLE_LEGAL_PARAM,
-          },
-          defaultIcon,
-        ],
-        [
-          'the `poweredBy` parameter is not provided but the `legal` and `OGLLink` parameters are provided',
-          {
-            legal: EXAMPLE_LEGAL_PARAM,
-            OGLLink: EXAMPLE_OGL_LINK_PARAM,
-          },
-          defaultIcon,
         ],
         [
           'the `poweredBy` and `legal` parameters are provided',
           {
             poweredBy: EXAMPLE_POWERED_BY_PARAM,
             legal: EXAMPLE_LEGAL_PARAM,
-          },
-          {
-            iconType: 'person',
-            altText: 'Person alt text',
           },
         ],
         [
@@ -447,10 +435,6 @@ describe('macro: footer', () => {
             poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
             legal: EXAMPLE_LEGAL_PARAM,
           },
-          {
-            iconType: 'person',
-            altText: 'Person alt text',
-          },
         ],
         [
           'the `poweredBy` and `crest` parameters are provided',
@@ -458,20 +442,12 @@ describe('macro: footer', () => {
             poweredBy: EXAMPLE_POWERED_BY_PARAM,
             crest: true,
           },
-          {
-            iconType: 'person',
-            altText: 'Person alt text',
-          },
         ],
         [
           'the `poweredBy.partnership` and `crest` parameters are provided',
           {
             poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
             crest: true,
-          },
-          {
-            iconType: 'person',
-            altText: 'Person alt text',
           },
         ],
         [
@@ -481,10 +457,6 @@ describe('macro: footer', () => {
             legal: EXAMPLE_LEGAL_PARAM,
             crest: true,
           },
-          {
-            iconType: 'person',
-            altText: 'Person alt text',
-          },
         ],
         [
           'the `poweredBy.partnership`, `legal` and `crest` parameters are provided',
@@ -493,19 +465,11 @@ describe('macro: footer', () => {
             legal: EXAMPLE_LEGAL_PARAM,
             crest: true,
           },
-          {
-            iconType: 'person',
-            altText: 'Person alt text',
-          },
         ],
         [
           'the `poweredBy` parameter is provided but the `legal` and `crest` parameters are not provided',
           {
             poweredBy: EXAMPLE_POWERED_BY_PARAM,
-          },
-          {
-            iconType: 'person',
-            altText: 'Person alt text',
           },
         ],
         [
@@ -513,14 +477,9 @@ describe('macro: footer', () => {
           {
             poweredBy: EXAMPLE_POWERED_BY_WITH_PARTNERSHIP_PARAM,
           },
-          {
-            iconType: 'person',
-            altText: 'Person alt text',
-          },
         ],
-      ])('where %s', (_, poweredByParams, expectedIcon) => {
+      ])('where %s', (_, poweredByParams) => {
         const params = {
-          ...langParams,
           ...poweredByParams,
         };
 
@@ -531,13 +490,10 @@ describe('macro: footer', () => {
           expect(results).toHaveNoViolations();
         });
 
-        it('renders the expected icon', () => {
-          const faker = templateFaker();
-          const iconsSpy = faker.spy('icons');
+        it('renders the expected logo', () => {
+          const $ = cheerio.load(renderComponent('footer', params));
 
-          faker.renderComponent('footer', params);
-
-          expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining(expectedIcon));
+          expect($('.ons-footer__poweredby img').attr('src')).toBe('logo.svg');
         });
       });
     });
@@ -653,13 +609,10 @@ describe('macro: footer', () => {
       expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining({ iconType: 'ons-logo-en' }));
     });
 
-    it('renders "poweredBy" icon when `partnership` parameter is provided', () => {
-      const faker = templateFaker();
-      const iconsSpy = faker.spy('icons');
+    it('renders provided "poweredBy" icon when `partnership` parameter is provided', () => {
+      const $ = cheerio.load(renderComponent('footer', params));
 
-      faker.renderComponent('footer', params);
-
-      expect(iconsSpy.occurrences).toContainEqual(expect.objectContaining({ iconType: 'person' }));
+      expect($('.ons-footer__poweredby img').attr('src')).toBe('logo.svg');
     });
 
     it('renders "poweredBy" element when `partnership` parameter is provided', () => {
@@ -678,7 +631,7 @@ describe('macro: footer', () => {
     it('does not render "partnership" element when `partnership` parameter is not provided', () => {
       const params = {
         poweredBy: {
-          logo: 'person',
+          logo: 'person.svg',
           alt: 'Person alt text',
         },
       };
