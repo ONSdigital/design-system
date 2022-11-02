@@ -61,6 +61,13 @@ describe('macro: hero', () => {
     expect(title).toBe('Hero text');
   });
 
+  it('has expected `html`', () => {
+    const $ = cheerio.load(renderComponent('hero', { ...EXAMPLE_HERO, html: '<span class="some-html">some html</span>' }));
+
+    const htmlOutput = $('.ons-hero__additional-html').html();
+    expect(htmlOutput).toBe('<span class="some-html">some html</span>');
+  });
+
   it('outputs the expected button', () => {
     const faker = templateFaker();
     const buttonSpy = faker.spy('button');
@@ -83,7 +90,7 @@ describe('macro: hero', () => {
   it('calls with content', () => {
     const $ = cheerio.load(renderComponent('hero', { EXAMPLE_HERO }, 'Example content...'));
 
-    const content = $('.ons-hero__additional')
+    const content = $('.ons-hero__additional-content')
       .text()
       .trim();
     expect(content).toEqual(expect.stringContaining('Example content...'));
