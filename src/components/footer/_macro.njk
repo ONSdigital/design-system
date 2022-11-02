@@ -157,22 +157,14 @@
                                 {% endif %}
                             </div>
                         {% endif %}
+                        {% if not params.poweredBy %}
+                            <div class="ons-footer__poweredby ons-u-mb-m">
+                                {{ onsLogo | safe }}
+                            </div>
+                        {% endif %}
                     </div>
-                </div>
-                
-                <div class="ons-grid ons-grid--flex ons-grid--vertical-bottom ons-grid--between ons-footer__poweredby">                                
-                    {% if params.poweredBy %}
-                        {{ params.poweredBy | safe }}
-                    {% else %}
-                        <div class="ons-grid__col ons-u-mb-m">
-                            {{ onsLogo | safe }}
-                        </div>
-                    {% endif %}
-                </div>
-                        
-                {% if params.crest %}
-                    <!-- Crest -->
-                    <div class="ons-grid ons-grid--flex ons-grid--vertical-bottom ons-grid--between">                                
+                    {% if params.crest %}
+                        <!-- Crest -->
                         <div class="ons-grid__col ons-footer__crest ons-u-mb-m@xxs@l">
                             {{
                                 onsIcon({
@@ -180,10 +172,11 @@
                                 })
                             }}
                         </div>
-                    </div>
-
+                    {% endif %}
+                </div>
+                {% if params.poweredBy %}
+                    {{ params.poweredBy | safe }}
                 {% endif %}
-
                 {% if params.copyrightDeclaration %}
                     <!-- Copyright -->
                     <div class="ons-grid ons-grid--flex ons-grid--vertical-bottom ons-grid--between">                                
