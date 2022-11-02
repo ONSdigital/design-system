@@ -36,11 +36,15 @@
                         })
                     }}
                 {% endif %}
+                {% if caller %}
+                    <div class="ons-hero__additional-content">
+                        {{- caller() -}}
+                    </div>
+                {% endif %}
             </div>
-
-            {% if caller %}
-                <div class="ons-hero__additional">
-                    {{- caller() -}}
+            {% if params.html %}
+                <div class="ons-hero__additional-html">
+                    {{- params.html | safe -}}
                 </div>
             {% endif %}
         </div>
