@@ -783,10 +783,10 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
   let AdvFilter = function(element) {
     this.element = element;
-    this.form = this.element.getElementsByClassName('ons-js-adv-filter__form');
+    this.form = document.getElementsByClassName('ons-js-adv-filter__form');
     this.resultsList = this.element.getElementsByClassName('ons-js-adv-filter__gallery')[0];
     this.resultsCount = this.element.getElementsByClassName('ons-js-adv-filter__results-count');
-    this.showCount = this.element.getElementsByClassName('ons-js-adv-filter__show-results');
+    this.showCount = document.getElementsByClassName('ons-js-adv-filter__show-results');
 
     initAdvFilter(this);
   };
@@ -1011,8 +1011,10 @@ Math.easeInOutQuad = function(t, b, c, d) {
     let filtersTrigger = filters[0].getElementsByClassName('ons-js-adv-filter__trigger')[0];
     let filtersClose = filters[0].getElementsByClassName('ons-js-adv-filter__close')[0];
     let filtersShow = filters[0].getElementsByClassName('ons-js-adv-filter__show')[0];
+    let filtersWrap = filters[0].getElementsByClassName('ons-js-adv-filter__wrap')[0];
     let filtersPanel = filters[0].getElementsByClassName('ons-js-adv-filter__panel')[0];
     let body = document.getElementsByTagName('body')[0];
+    let page = document.getElementsByClassName('ons-page')[0];
 
     // Detect click on filters trigger
     filtersTrigger.addEventListener('click', function(event) {
@@ -1061,28 +1063,18 @@ Math.easeInOutQuad = function(t, b, c, d) {
 
     // Toggle filters visibility on small devices
     function toggleFilters(bool) {
-      let resultsOptions = document.getElementsByClassName('ons-adv-filter__results-options')[0];
-      let resultsList = document.getElementsByClassName('ons-js-adv-filter__gallery')[0];
-      let header = document.getElementsByClassName('ons-header')[0];
-      let breadcrumbs = document.getElementsByClassName('ons-breadcrumb')[0];
-      let footer = document.getElementsByClassName('ons-footer')[0];
-
+      if (bool === true) {
+        body.appendChild(filtersPanel);
+      } else {
+        filtersWrap.appendChild(filtersPanel);
+      }
+      Util.toggleClass(page, 'ons-u-d-no', bool);
       Util.toggleClass(filtersPanel, 'ons-adv-filter__panel--is-visible', bool);
       Util.toggleClass(body, 'ons-no-scroll', bool);
       filtersTrigger.setAttribute('aria-expanded', bool);
       filtersTrigger.setAttribute('aria-hidden', bool);
+      page.setAttribute('aria-hidden', bool);
       Util.toggleClass(filtersTrigger, 'ons-u-d-no', bool);
-
-      Util.toggleClass(resultsOptions, 'ons-u-d-no', bool);
-      Util.toggleClass(resultsList, 'ons-u-d-no', bool);
-      Util.toggleClass(header, 'ons-u-d-no', bool);
-      Util.toggleClass(breadcrumbs, 'ons-u-d-no', bool);
-      Util.toggleClass(footer, 'ons-u-d-no', bool);
-      resultsOptions.setAttribute('aria-hidden', bool);
-      resultsList.setAttribute('aria-hidden', bool);
-      header.setAttribute('aria-hidden', bool);
-      breadcrumbs.setAttribute('aria-hidden', bool);
-      footer.setAttribute('aria-hidden', bool);
     }
   }
 })();
