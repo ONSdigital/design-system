@@ -39,11 +39,6 @@
 
 {% if example %}
     {% set bodyClasses = bodyClasses + " ons-patternlib-page--example" %}
-    {% if pageInfo.theme %}
-        {% set pageConfig = pageConfig | setAttributes({
-            "theme": pageInfo.theme
-        }) %}
-    {% endif %}
 {% endif %}
 
 {% if pageInfo.fullWidth %}

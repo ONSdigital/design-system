@@ -1,10 +1,14 @@
 // Default
 .ons-hero {
-  background-color: var(--ons-color-banner-bg);
+  background-color: var(--ons-color-hero-bg);
   display: flex;
   overflow: hidden;
   padding: 0;
   position: relative;
+
+  &--dark {
+    background-color: var(--ons-color-hero-bg-dark);
+  }
 
   &__container {
     align-items: center;

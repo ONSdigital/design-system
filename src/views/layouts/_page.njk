@@ -17,8 +17,8 @@
             "title": "Design system",
             "classes": "ons-patternlib-page__header",
             "wide": true,
-            "orgLogoHref": "https://www.ons.gov.uk/",
-            "titleLogoHref": "/",
+            "mastheadLogoUrl": "https://www.ons.gov.uk/",
+            "titleUrl": "/",
             "navigation": {
                 "wide": true,
                 "id": "main-navigation",
@@ -31,26 +31,27 @@
                 "toggleNavigationButton": {
                     "text": "Menu",
                     "ariaLabel": "Toggle main menu"
-                },
-                "siteSearchAutosuggest": {
-                    "label": "Search the design system",
-                    "instructions": "Use up and down keys to navigate results once you\'ve typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
-                    "ariaYouHaveSelected": "You have selected",
-                    "ariaMinChars": "Enter 3 or more characters for results.",
-                    "ariaResultsLabel": "Search results",
-                    "ariaOneResult": "There is one result available.",
-                    "ariaNResults": "There are {n} results available.",
-                    "ariaLimitedResults": "Results have been limited to 10 results. Type more characters to improve your search",
-                    "moreResults": "Continue entering to improve results",
-                    "resultsTitle": "Search results",
-                    "autosuggestData": "/search-index.json",
-                    "noResults": "No results found",
-                    "typeMore": "Continue entering to get results"
                 }
+            },
+            "siteSearchAutosuggest": {
+                "label": "Search the design system",
+                "instructions": "Use up and down keys to navigate results once you\'ve typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
+                "ariaYouHaveSelected": "You have selected",
+                "ariaMinChars": "Enter 3 or more characters for results.",
+                "ariaResultsLabel": "Search results",
+                "ariaOneResult": "There is one result available.",
+                "ariaNResults": "There are {n} results available.",
+                "ariaLimitedResults": "Results have been limited to 10 results. Type more characters to improve your search",
+                "moreResults": "Continue entering to improve results",
+                "resultsTitle": "Search results",
+                "autosuggestData": "/search-index.json",
+                "noResults": "No results found",
+                "typeMore": "Continue entering to get results"
             }
         })
     }}
 {% endblock %}
+
 {% block pageContent %}
     {% set subNavigation %}
         <div class="ons-patternlib-page__sub-nav ons-u-mt-l@m ons-u-mb-l">
