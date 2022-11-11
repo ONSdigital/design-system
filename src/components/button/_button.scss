@@ -86,7 +86,7 @@ $button-shadow-size: 3px;
   }
 
   // When down
-  &:active &,
+  &:active:not(&--disabled):not(&--loader.ons-is-loading) &,
   &:active:focus & {
     &__inner {
       background: var(--ons-color-button);
@@ -99,7 +99,7 @@ $button-shadow-size: 3px;
     }
   }
 
-  &:active {
+  &:active:not(&--disabled):not(&--loader.ons-is-loading) {
     top: ems($button-shadow-size);
   }
 
@@ -148,13 +148,13 @@ $button-shadow-size: 3px;
   }
 
   // When hovered
-  &:hover & {
+  &:hover:not(&--disabled):not(&--loader.ons-is-loading) & {
     &__inner {
       background: var(--ons-color-button-hover);
     }
   }
 
-  &--secondary:hover & {
+  &--secondary:hover:not(&--disabled) & {
     &__inner {
       background: var(--ons-color-button-secondary-hover);
     }
@@ -384,11 +384,16 @@ $button-shadow-size: 3px;
     }
   }
 
-  &--loader.ons-is-loading &__inner {
-    color: transparent;
-    .ons-svg-icon {
-      margin-left: 0 !important;
-      opacity: 1;
+  &--loader.ons-is-loading {
+    &:hover {
+      cursor: not-allowed;
+    }
+    .ons-btn__inner {
+      color: transparent;
+      .ons-svg-icon {
+        margin-left: 0 !important;
+        opacity: 1;
+      }
     }
   }
 
