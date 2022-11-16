@@ -43,7 +43,7 @@ $pagination-item-width: 2.5rem;
   }
 
   &__item--current &__link {
-    background: var(--ons-color-text-link-hover);
+    background: var(--ons-color-text-link-active);
     color: var(--ons-color-white);
     outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show backgrounds
     text-decoration: none;
