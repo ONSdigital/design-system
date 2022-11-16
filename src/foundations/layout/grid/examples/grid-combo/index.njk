@@ -1,4 +1,17 @@
+---
+noTabs: true
+---
 {% from "foundations/layout/grid/_macro.njk" import patternLibExampleGrid %}
+
+<style>
+    .ons-pl-grid-col {
+        background: var(--ons-color-grey-5);
+        font-size: 0.8rem;
+        margin: 0 0 1rem;
+        padding: 1rem;
+    }
+</style>
+
 {{
     patternLibExampleGrid({
         "itemsList": [
