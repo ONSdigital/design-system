@@ -408,6 +408,7 @@ export default class AutosuggestUI {
       this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
     } else if (status > 400 || status === '') {
       message = this.errorAPI + (this.errorAPILinkText ? ' <a href="' + window.location.href + '">' + this.errorAPILinkText + '</a>.' : '');
+      let ariaMessage = this.errorAPI + (this.errorAPILinkText ? ' ' + this.errorAPILinkText : '');
 
       this.input.setAttribute('disabled', true);
       this.input.value = '';
@@ -415,7 +416,7 @@ export default class AutosuggestUI {
 
       this.listbox.innerHTML = '';
       this.listbox.insertBefore(this.createWarningElement(message), this.listbox.firstChild);
-      this.setAriaStatus(message);
+      this.setAriaStatus(ariaMessage);
     } else {
       message = this.noResults;
       this.listbox.innerHTML = `<li class="${classAutosuggestOption} ${classAutosuggestOptionNoResults}">${message}</li>`;
