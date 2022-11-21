@@ -81,8 +81,9 @@ export default class Tabs {
       this.hideTab(tab);
     });
 
-    if (!this.noInitialActiveTab) {
-      const activeTab = this.getTab(window.location.hash) || this.tabs[0];
+    const hashTab = this.getTab(window.location.hash);
+    if (!this.noInitialActiveTab || !!hashTab) {
+      const activeTab = hashTab || this.tabs[0];
       this.showTab(activeTab);
     }
 
