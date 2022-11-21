@@ -178,7 +178,7 @@ $hub-row-spacing: 1.3rem;
     &__item-title,
     &__values,
     &__actions {
-      flex: 2;
+      flex: 4;
       padding-top: $summary-row-spacing;
       vertical-align: top;
 
@@ -194,7 +194,7 @@ $hub-row-spacing: 1.3rem;
 
     &__item-title,
     &__values {
-      flex: 6.19;
+      flex: 7.3;
     }
 
     &__item-title--2 {
