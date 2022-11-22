@@ -1,11 +1,4 @@
-@import 'vars/grid';
-@import 'vars/typography';
-@import 'vars/vars';
-@import 'helpers/index';
 @import '../views/partials/example/example';
-@import '../foundations/layout/page-template/examples/base-page-template-block-areas/block-areas';
-@import '../patterns/pages/question/examples/question-anatomy/pl-question-anatomy';
-@import '../foundations/layout/page-template/examples/base-page-template-block-areas/block-areas';
 @import '../foundations/style/colours/colours';
 @import '../foundations/style/icons/icon-swatch';
 @import 'prism-tomorrow';
@@ -141,19 +134,12 @@
   }
 }
 
-.ons-pl-grid-col {
-  background: var(--ons-color-grey-5);
-  font-size: 0.8rem;
-  margin: 0 0 1rem;
-  padding: 1rem;
-}
-
 .ons-pl-experimental-tag {
   background: var(--ons-color-info);
   color: var(--ons-color-text-inverse);
   display: inline-block;
   font-size: 0.7rem;
-  font-weight: $font-weight-bold;
+  font-weight: 700;
   letter-spacing: 0.1rem;
   margin-right: 0.5rem;
   outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show background
