@@ -30,7 +30,10 @@
   }
   &__title {
     @extend .ons-u-fs-r--b;
-    @extend .ons-u-fs-xl\@xxs;
+
+    @include mq(405px) {
+      font-size: 1.4rem !important;
+    }
 
     color: var(--ons-color-white);
 
