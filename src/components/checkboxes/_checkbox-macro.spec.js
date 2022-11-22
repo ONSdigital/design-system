@@ -25,7 +25,6 @@ const EXAMPLE_CHECKBOXES_ITEM_INPUT = {
     label: {
       text: 'Enter your own answer',
     },
-    required: false,
     classes: 'extra-textbox-class',
     width: 42,
     value: '42',
@@ -339,7 +338,6 @@ describe('macro: checkboxes/checkbox', () => {
         text: 'Enter your own answer',
         classes: 'ons-u-fw-n',
       },
-      required: false,
       classes: 'extra-textbox-class',
       width: 42,
       attributes: EXAMPLE_CHECKBOXES_ITEM_INPUT.other.attributes,
