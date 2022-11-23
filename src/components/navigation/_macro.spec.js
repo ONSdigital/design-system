@@ -71,7 +71,7 @@ const PARAMS = {
 };
 
 const SITE_SEARCH_AUTOSUGGEST = {
-  label: 'Search design system',
+  label: 'Search the design system',
   instructions:
     "Use up and down keys to navigate results once you've typed more than two characters. Use the enter key to select a result. Touch device users, explore by touch or with swipe gestures.",
   ariaYouHaveSelected: 'You have selected',
@@ -133,7 +133,7 @@ describe('macro: navigation', () => {
         containerClasses: 'ons-autosuggest-input--header',
         classes: 'ons-input-search ons-input-search--icon',
         label: {
-          text: 'Search design system',
+          text: 'Search the design system',
           id: 'ons-site-search-label',
           classes: 'ons-u-pl-m ons-label--white',
         },
