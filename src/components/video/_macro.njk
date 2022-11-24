@@ -1,7 +1,7 @@
 
 {%- macro onsVideo(params) -%}
     <div class="ons-video ons-js-video">
-        <a href="{{ params.videoEmbedUrl }}" class="ons-video__link ons-js-video-placeholder ons-u-db">
+        <a href="{{ params.videoLinkURL }}" class="ons-video__link ons-js-video-placeholder ons-u-db">
           {% if params.image.smallSrc %}
             <img class="ons-video__img ons-u-mb-s" {% if params.image.largeSrc %} srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x"{% endif %} src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}" loading="lazy">
           {% endif %}            
