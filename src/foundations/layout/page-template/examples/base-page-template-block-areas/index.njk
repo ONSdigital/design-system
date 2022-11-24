@@ -8,8 +8,37 @@ layout: example
 {% from "components/related-content/_macro.njk" import onsRelatedContent %}
 {% from "components/section-navigation/_macro.njk" import onsSectionNavigation %}
 
+<style>
+    .ons-pattern-lib-block {
+        border: 2px dashed var(--ons-color-grey-100);
+        margin: 0 0 1rem;
+        min-width: 200px;
+        overflow: hidden;
+        padding: 3rem 1rem 1rem;
+        position: relative;
+        width: 100%;
+    }
+
+    .ons-pattern-lib-block .ons-pattern-lib-block__label {
+        border-bottom: 2px dashed var(--ons-color-grey-100);
+        border-right: 2px dashed var(--ons-color-grey-100);
+        left: 0;
+        padding: 0.25rem 0.5rem;
+        position: absolute;
+        top: 0;
+    }
+</style>
+
 <div class="ons-pattern-lib-block">
-    <div class="ons-pattern-lib-block__label">block: headIcons</div>
+    <div class="ons-pattern-lib-block__label">block: meta</div>
+</div>
+
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: social</div>
+</div>
+
+<div class="ons-pattern-lib-block">
+    <div class="ons-pattern-lib-block__label">block: favicons</div>
 </div>
 
 <div class="ons-pattern-lib-block">
@@ -41,7 +70,7 @@ layout: example
         {{
             onsHeader({
                 "title": "Design system",
-                "orgLogoHref": "#0",
+                "mastheadLogoUrl": "#0",
                 "phase": {
                     "html": 'This is a new service – to help improve it please <a href="#feedback">give us your feedback</a>'
                 },

@@ -138,6 +138,39 @@ describe('script: tabs', () => {
     });
   });
 
+  describe('when a hash for a tab is in the url', () => {
+    beforeEach(async () => {
+      await setViewport(page, { width: 1650, height: 1050 });
+      await setTestPage('/test#tab.id.2', renderComponent('tabs', EXAMPLE_TABS));
+    });
+
+    it('is assigned a "tabindex" value', async () => {
+      const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+
+      expect(tabIndexValues).toEqual(['-1', '0', '-1']);
+    });
+
+    it('has the "aria-selected" attribute', async () => {
+      const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', node => node.getAttribute('aria-selected'));
+
+      expect(ariaSelectedValue).toBe('true');
+    });
+
+    it('has the "ons-tab--selected" class assigned', async () => {
+      const hasClass = await page.$eval('a[href="#tab.id.2"]', node => node.classList.contains('ons-tab--selected'));
+
+      expect(hasClass).toBe(true);
+    });
+
+    it('shows the corresponding panel', async () => {
+      const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
+        nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+      );
+
+      expect(panelHiddenStates).toEqual([true, false, true]);
+    });
+  });
+
   describe('when the viewport is small', () => {
     beforeEach(async () => {
       await page.emulate(puppeteer.devices['iPhone X']);
@@ -168,7 +201,7 @@ describe('script: tabs', () => {
     });
   });
 
-  describe('when `data-no-initial-active-tab` is not present', () => {
+  describe('when `data-no-initial-active-tab` is present', () => {
     beforeEach(async () => {
       await setViewport(page, { width: 1650, height: 1050 });
       await setTestPage('/test', renderComponent('tabs', EXAMPLE_TABS_WITH_NO_INITIAL_ACTIVE_TAB));
@@ -251,6 +284,39 @@ describe('script: tabs', () => {
 
         expect(panelHiddenStates).toEqual([true, true, true]);
       });
+    });
+  });
+
+  describe('when a hash for a tab is in the url and `data-no-initial-active-tab` is present', () => {
+    beforeEach(async () => {
+      await setViewport(page, { width: 1650, height: 1050 });
+      await setTestPage('/test#tab.id.2', renderComponent('tabs', EXAMPLE_TABS_WITH_NO_INITIAL_ACTIVE_TAB));
+    });
+
+    it('is assigned a "tabindex" value', async () => {
+      const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+
+      expect(tabIndexValues).toEqual(['-1', '0', '-1']);
+    });
+
+    it('has the "aria-selected" attribute', async () => {
+      const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', node => node.getAttribute('aria-selected'));
+
+      expect(ariaSelectedValue).toBe('true');
+    });
+
+    it('has the "ons-tab--selected" class assigned', async () => {
+      const hasClass = await page.$eval('a[href="#tab.id.2"]', node => node.classList.contains('ons-tab--selected'));
+
+      expect(hasClass).toBe(true);
+    });
+
+    it('shows the corresponding panel', async () => {
+      const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
+        nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+      );
+
+      expect(panelHiddenStates).toEqual([true, false, true]);
     });
   });
 });

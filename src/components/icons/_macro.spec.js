@@ -26,16 +26,10 @@ describe('macro: icons', () => {
     'instagram',
     'linkedin',
     'loader',
-    'census-logo-cy',
-    'census-logo-en',
     'ons-logo-en',
     'ons-logo-cy',
     'ons-logo-stacked-en',
     'ons-logo-stacked-cy',
-    'nisra-logo',
-    'nisra-logo-mobile',
-    'ni-finance-logo',
-    'ni-finance-logo-mobile',
     'crest',
     'ogl',
     'circle-lined',
@@ -97,20 +91,12 @@ describe('macro: icons', () => {
   });
 
   describe.each([
-    ['census-logo-cy', 'Logo Cyfrifiad 2021'],
-    ['census-logo-en', 'Census 2021 logo'],
     ['ons-logo-en', 'Office for National Statistics logo'],
     ['ons-logo-cy', 'Logo Swyddfa Ystadegau Gwladol'],
     ['ons-logo-stacked-en', 'Office for National Statistics logo'],
     ['ons-logo-stacked-cy', 'Logo Swyddfa Ystadegau Gwladol'],
-    ['nisra-logo', 'Nisra logo'],
-    ['nisra-logo-mobile', 'Nisra logo'],
-    ['ni-finance-logo', 'Northern Ireland Department of Finance logo'],
-    ['ni-finance-logo-mobile', 'Northern Ireland Department of Finance logo'],
     ['crest', 'Royal coat of arms of the United Kingdom'],
     ['ogl', 'Open Government License logo'],
-    ['hm-gov-logo-en', 'HM Government logo'],
-    ['hm-gov-logo-cy', 'Logo Llywodraeth EM'],
   ])('icon type: %s', (iconType, expectedAltText) => {
     it(`has default alt text '${expectedAltText}'`, () => {
       const $ = cheerio.load(renderComponent('icons', { iconType }));

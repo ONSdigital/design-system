@@ -55,18 +55,24 @@
   // Assignment
   // =============================================================================
 
-  // Headers, footers, banners, page
+  // Header
   --ons-color-header: var(--ons-color-branded);
-  --ons-color-header-light: var(--ons-color-white);
+  --ons-color-header-neutral: var(--ons-color-white);
   --ons-color-header-masthead: var(--ons-color-white);
-  --ons-color-header-masthead-dark: var(--ons-color-black);
   --ons-color-header-masthead-internal: var(--ons-color-branded-secondary);
+  --ons-color-header-masthead-neutral: var(--ons-color-black);
+  --ons-color-header-title: var(--ons-color-text);
+  --ons-color-header-navigation-links: var(--ons-color-text);
+  --ons-color-service-links: var(--ons-color-white);
+
+  // Banners, page
   --ons-color-cta-bg: var(--ons-color-branded-tint);
   --ons-color-banner-bg: var(--ons-color-grey-5);
   --ons-color-banner-bg-dark: var(--ons-color-grey-15);
   --ons-color-page-light: var(--ons-color-white);
   --ons-color-banner-browser-bg: var(--ons-color-black);
   --ons-color-hero-bg: var(--ons-color-branded-tint);
+  --ons-color-hero-bg-dark: var(--ons-color-branded);
 
   // Typography
   --ons-color-text: var(--ons-color-black);
@@ -124,7 +130,6 @@
   --ons-color-dead: var(--ons-color-grey-75);
   --ons-color-instruction: var(--ons-color-jaffa-orange);
   --ons-color-instruction-tint: var(--ons-color-jaffa-orange-tint);
-  --ons-color-tag-bg: var(--ons-color-leaf-green-tint);
   --ons-color-text-disabled: var(--ons-color-grey-35);
   --ons-color-border-disabled: var(--ons-color-grey-35);
 }

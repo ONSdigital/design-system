@@ -245,23 +245,6 @@ describe('macro: input', () => {
     expect($('.ons-input').attr('autocomplete')).toBe('on');
   });
 
-  it('does not have `required` attribute', () => {
-    const $ = cheerio.load(renderComponent('input', EXAMPLE_INPUT_MINIMAL));
-
-    expect($('.ons-input').attr('required')).toBeUndefined();
-  });
-
-  it('has `required` attribute when `required` is provided', () => {
-    const $ = cheerio.load(
-      renderComponent('input', {
-        ...EXAMPLE_INPUT_MINIMAL,
-        required: true,
-      }),
-    );
-
-    expect($('.ons-input').attr('required')).toBe('required');
-  });
-
   it.each([['email'], ['tel'], ['text']])('outputs `type` attribute of "%s"', type => {
     const $ = cheerio.load(
       renderComponent('input', {

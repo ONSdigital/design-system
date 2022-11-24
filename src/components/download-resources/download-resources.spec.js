@@ -4,193 +4,181 @@ import { setViewport } from '../../tests/helpers/puppeteer';
 import { renderComponent, renderTemplate, setTestPage } from '../../tests/helpers/rendering';
 
 const EXAMPLE_PAGE = `
-  ${renderComponent('header', {})}
-  ${renderComponent('breadcrumbs', {
-    ariaLabel: 'Breadcrumbs',
-    itemsList: [
-      {
-        url: '/',
-        text: 'Home',
-      },
-      {
-        url: '/components',
-        text: 'Components',
-      },
-    ],
-  })}
-  <div class="ons-js-adv-filter">
-    ${renderComponent('button', {
-      type: 'button',
-      text: 'Show filters',
-      classes: 'ons-adv-filter__trigger ons-js-adv-filter__trigger',
-      'aria-label': 'Toggle filters',
-      'aria-expanded': 'false',
-      'aria-controls': 'filter-panel',
-    })}
+  <div class="ons-page">
+    <div class="ons-js-adv-filter">
+    <div class="ons-js-adv-filter__wrap">
+      ${renderComponent('button', {
+        type: 'button',
+        text: 'Show filters',
+        classes: 'ons-adv-filter__trigger ons-js-adv-filter__trigger',
+        'aria-expanded': 'false',
+        'aria-controls': 'filter-panel',
+      })}
 
-    <div class="ons-adv-filter__panel ons-js-adv-filter__panel" id="filter-panel">
-      <h2>Filters</h2>
-      <form class="ons-js-adv-filter__form" method="POST">
-        ${renderComponent('button', {
-          type: 'reset',
-          text: 'Reset all filters',
-          classes: 'ons-adv-filter__reset ons-js-adv-filter__reset',
-        })}
-
-        <div class="ons-adv-filter__item ons-js-adv-filter__item" data-default-text="All audiences" data-multi-select-text="{n} filters selected">
-          <fieldset class="ons-fieldset" aria-controls="adv-filter-gallery">
-            <legend class="ons-fieldset__legend">Audience</legend>
-            <div class="ons-adv-filter__selection">
-              <span>Active filters: </span>
-              <span class="ons-js-adv-filter__selection">All audiences</span>
-            </div>
-            ${renderComponent('checkboxes', {
-              dontWrap: 'true',
-              legend: 'Audience',
-              name: 'audience',
-              checkboxes: [
-                {
-                  classes: 'ons-checkbox--toggle',
-                  id: 'community-groups',
-                  label: {
-                    text: 'Community groups',
-                  },
-                  value: 'community-groups',
-                  attributes: {
-                    'data-filter': 'community-groups',
-                  },
-                },
-                {
-                  classes: 'ons-checkbox--toggle',
-                  id: 'general-public',
-                  label: {
-                    text: 'General public',
-                  },
-                  value: 'general-public',
-                  attributes: {
-                    'data-filter': 'general-public',
-                  },
-                },
-              ],
-            })}
-          </fieldset>
-        </div>
-
-        <div class="ons-adv-filter__item ons-js-adv-filter__item" data-default-text="All types" data-multi-select-text="{n} filters selected">
-          <fieldset class="ons-fieldset" aria-controls="adv-filter-gallery">
-            <legend class="ons-fieldset__legend">Type</legend>
-            <div class="ons-adv-filter__selection">
-              <span>Active filters: </span>
-              <span class="ons-js-adv-filter__selection">All types</span>
-            </div>
-            ${renderComponent('checkboxes', {
-              dontWrap: 'true',
-              legend: 'Type',
-              name: 'type',
-              checkboxes: [
-                {
-                  classes: 'ons-checkbox--toggle',
-                  id: 'booklet',
-                  label: {
-                    text: 'Booklet',
-                  },
-                  value: 'booklet',
-                  attributes: {
-                    'data-filter': 'booklet',
-                  },
-                },
-                {
-                  classes: 'ons-checkbox--toggle',
-                  id: 'logo',
-                  label: {
-                    text: 'Logo',
-                  },
-                  value: 'logo',
-                  attributes: {
-                    'data-filter': 'logo',
-                  },
-                },
-              ],
-            })}
-          </fieldset>
-        </div>
-
-        <div class="ons-adv-filter__actions">
+      <div class="ons-adv-filter__panel ons-js-adv-filter__panel" id="filter-panel">
+        <h2>Filters</h2>
+        <form class="ons-js-adv-filter__form" method="POST">
           ${renderComponent('button', {
-            type: 'button',
-            html: 'Show (<span class="ons-js-adv-filter__show-results">7</span> results',
-            classes: 'ons-js-adv-filter__show',
+            type: 'reset',
+            text: 'Reset all filters',
+            classes: 'ons-adv-filter__reset ons-js-adv-filter__reset',
           })}
-          ${renderComponent('button', {
-            type: 'button',
-            html: 'Close',
-            classes: 'ons-js-adv-filter__close',
-          })}
-        </div>
-      </form>
-    </div>
 
-    <div class="ons-adv-filter__results-options">
-      <div class="ons-adv-filter__results-count">
-        <span class="ons-js-adv-filter__results-count">9</span> results of 150
+          <div class="ons-adv-filter__item ons-js-adv-filter__item" data-default-text="All audiences" data-multi-select-text="{n} filters selected">
+            <fieldset class="ons-fieldset" aria-controls="adv-filter-gallery">
+              <legend class="ons-fieldset__legend">Audience</legend>
+              <div class="ons-adv-filter__selection">
+                <span>Active filters: </span>
+                <span class="ons-js-adv-filter__selection">All audiences</span>
+              </div>
+              ${renderComponent('checkboxes', {
+                dontWrap: 'true',
+                legend: 'Audience',
+                name: 'audience',
+                checkboxes: [
+                  {
+                    classes: 'ons-checkbox--toggle',
+                    id: 'community-groups',
+                    label: {
+                      text: 'Community groups',
+                    },
+                    value: 'community-groups',
+                    attributes: {
+                      'data-filter': 'community-groups',
+                    },
+                  },
+                  {
+                    classes: 'ons-checkbox--toggle',
+                    id: 'general-public',
+                    label: {
+                      text: 'General public',
+                    },
+                    value: 'general-public',
+                    attributes: {
+                      'data-filter': 'general-public',
+                    },
+                  },
+                ],
+              })}
+            </fieldset>
+          </div>
+
+          <div class="ons-adv-filter__item ons-js-adv-filter__item" data-default-text="All types" data-multi-select-text="{n} filters selected">
+            <fieldset class="ons-fieldset" aria-controls="adv-filter-gallery">
+              <legend class="ons-fieldset__legend">Type</legend>
+              <div class="ons-adv-filter__selection">
+                <span>Active filters: </span>
+                <span class="ons-js-adv-filter__selection">All types</span>
+              </div>
+              ${renderComponent('checkboxes', {
+                dontWrap: 'true',
+                legend: 'Type',
+                name: 'type',
+                checkboxes: [
+                  {
+                    classes: 'ons-checkbox--toggle',
+                    id: 'booklet',
+                    label: {
+                      text: 'Booklet',
+                    },
+                    value: 'booklet',
+                    attributes: {
+                      'data-filter': 'booklet',
+                    },
+                  },
+                  {
+                    classes: 'ons-checkbox--toggle',
+                    id: 'logo',
+                    label: {
+                      text: 'Logo',
+                    },
+                    value: 'logo',
+                    attributes: {
+                      'data-filter': 'logo',
+                    },
+                  },
+                ],
+              })}
+            </fieldset>
+          </div>
+
+          <div class="ons-adv-filter__actions">
+            ${renderComponent('button', {
+              type: 'button',
+              html: 'Show (<span class="ons-js-adv-filter__show-results">7</span> results',
+              classes: 'ons-js-adv-filter__show',
+            })}
+            ${renderComponent('button', {
+              type: 'button',
+              html: 'Close',
+              classes: 'ons-js-adv-filter__close',
+            })}
+          </div>
+        </form>
+        </div>
+        </div>
+
+      <div class="ons-adv-filter__results-options">
+        <div class="ons-adv-filter__results-count">
+          <span class="ons-js-adv-filter__results-count">9</span> results of 150
+        </div>
+
+        <div class="ons-adv-filter__results-sort">
+          <label class="ons-label" for="sort">Sort by</label>
+          <select class="ons-input ons-input--select" id="sort" name="sort" aria-controls="adv-filter-gallery" data-sort="true">
+            <option value="index" data-sort-number="true">Latest</option>
+            <option value="index" data-sort-order="desc" data-sort-number="true">Oldest</option>
+          </select>
+        </div>
       </div>
 
-      <div class="ons-adv-filter__results-sort">
-        <label class="ons-label" for="sort">Sort by</label>
-        <select class="ons-input ons-input--select" id="sort" name="sort" aria-controls="adv-filter-gallery" data-sort="true">
-          <option value="index" data-sort-number="true">Latest</option>
-          <option value="index" data-sort-order="desc" data-sort-number="true">Oldest</option>
-        </select>
+      ${renderComponent('document-list', {
+        id: 'adv-filter-gallery',
+        classes: 'ons-adv-filter__gallery ons-js-adv-filter__gallery',
+        attributes: {
+          'data-filter-animation': 'off',
+        },
+        documents: [
+          {
+            classes: 'ons-filter__item ons-js-filter__item',
+            attributes: {
+              'data-filter': 'general-public booklet',
+              'data-sort-index': '1',
+            },
+            url: '/example-booklet-1',
+            title: 'Example booklet 1',
+            description: 'The first example booklet.',
+          },
+          {
+            classes: 'ons-filter__item ons-js-filter__item',
+            attributes: {
+              'data-filter': 'general-public booklet logo',
+              'data-sort-index': '2',
+            },
+            url: '/example-booklet-2',
+            title: 'Example booklet 2 with logo',
+            description: 'The second example booklet with a logo.',
+          },
+          {
+            classes: 'ons-filter__item ons-js-filter__item',
+            attributes: {
+              'data-filter': 'logo',
+              'data-sort-index': '3',
+            },
+            url: '/example-logo',
+            title: 'Example logo',
+            description: 'An example logo.',
+          },
+        ],
+      })}
+
+      <div class="ons-adv-filter__no-results" data-fallback-gallery-id="adv-filter-gallery">
+        <h2>No results found</h2>
+        <p>Try selecting different filters to get results.</p>
       </div>
-    </div>
-
-    ${renderComponent('document-list', {
-      id: 'adv-filter-gallery',
-      classes: 'ons-adv-filter__gallery ons-js-adv-filter__gallery',
-      attributes: {
-        'data-filter-animation': 'off',
-      },
-      documents: [
-        {
-          classes: 'ons-filter__item ons-js-filter__item',
-          attributes: {
-            'data-filter': 'general-public booklet',
-            'data-sort-index': '1',
-          },
-          url: '/example-booklet-1',
-          title: 'Example booklet 1',
-          description: 'The first example booklet.',
-        },
-        {
-          classes: 'ons-filter__item ons-js-filter__item',
-          attributes: {
-            'data-filter': 'general-public booklet logo',
-            'data-sort-index': '2',
-          },
-          url: '/example-booklet-2',
-          title: 'Example booklet 2 with logo',
-          description: 'The second example booklet with a logo.',
-        },
-        {
-          classes: 'ons-filter__item ons-js-filter__item',
-          attributes: {
-            'data-filter': 'logo',
-            'data-sort-index': '3',
-          },
-          url: '/example-logo',
-          title: 'Example logo',
-          description: 'An example logo.',
-        },
-      ],
-    })}
-
-    <div class="ons-adv-filter__no-results" data-fallback-gallery-id="adv-filter-gallery">
-      <h2>No results found</h2>
-      <p>Try selecting different filters to get results.</p>
     </div>
   </div>
-  ${renderComponent('footer', {})}
-`;
+  `;
 
 const RENDERED_EXAMPLE_PAGE = renderTemplate(EXAMPLE_PAGE);
 
@@ -523,27 +511,11 @@ describe('script: download-resources', () => {
     it('hides the underlying page elements when the "Show filters" button is pressed', async () => {
       await page.click('.ons-js-adv-filter__trigger');
 
-      const isListHiddenClass = await page.$eval('.ons-js-adv-filter__gallery', node => node.classList.contains('ons-u-d-no'));
-      const isListAriaHidden = await page.$eval('.ons-js-adv-filter__gallery', node => node.getAttribute('aria-hidden'));
-      const isOptionsHiddenClass = await page.$eval('.ons-adv-filter__results-options', node => node.classList.contains('ons-u-d-no'));
-      const isOptionsAriaHidden = await page.$eval('.ons-adv-filter__results-options', node => node.getAttribute('aria-hidden'));
-      const isHeaderHiddenClass = await page.$eval('.ons-header', node => node.classList.contains('ons-u-d-no'));
-      const isHeaderAriaHidden = await page.$eval('.ons-header', node => node.getAttribute('aria-hidden'));
-      const isFooterHiddenClass = await page.$eval('.ons-footer', node => node.classList.contains('ons-u-d-no'));
-      const isFooterAriaHidden = await page.$eval('.ons-footer', node => node.getAttribute('aria-hidden'));
-      const isBreadcrumbsHiddenClass = await page.$eval('.ons-breadcrumb', node => node.classList.contains('ons-u-d-no'));
-      const isBreadcrumbsAriaHidden = await page.$eval('.ons-breadcrumb', node => node.getAttribute('aria-hidden'));
+      const pageIsHidden = await page.$eval('.ons-page', node => node.classList.contains('ons-u-d-no'));
+      const pageIsAriaHidden = await page.$eval('.ons-page', node => node.getAttribute('aria-hidden'));
 
-      expect(isListHiddenClass).toBe(true);
-      expect(isListAriaHidden).toBe('true');
-      expect(isOptionsHiddenClass).toBe(true);
-      expect(isOptionsAriaHidden).toBe('true');
-      expect(isHeaderHiddenClass).toBe(true);
-      expect(isHeaderAriaHidden).toBe('true');
-      expect(isFooterHiddenClass).toBe(true);
-      expect(isFooterAriaHidden).toBe('true');
-      expect(isBreadcrumbsHiddenClass).toBe(true);
-      expect(isBreadcrumbsAriaHidden).toBe('true');
+      expect(pageIsHidden).toBe(true);
+      expect(pageIsAriaHidden).toBe('true');
     });
 
     it('hides filter elements when the "Show (n results)" button is pressed', async () => {
@@ -558,27 +530,11 @@ describe('script: download-resources', () => {
       await page.click('.ons-js-adv-filter__trigger');
       await page.click('.ons-js-adv-filter__show');
 
-      const isListHiddenClass = await page.$eval('.ons-js-adv-filter__gallery', node => node.classList.contains('ons-u-d-no'));
-      const isListAriaHidden = await page.$eval('.ons-js-adv-filter__gallery', node => node.getAttribute('aria-hidden'));
-      const isOptionsHiddenClass = await page.$eval('.ons-adv-filter__results-options', node => node.classList.contains('ons-u-d-no'));
-      const isOptionsAriaHidden = await page.$eval('.ons-adv-filter__results-options', node => node.getAttribute('aria-hidden'));
-      const isHeaderHiddenClass = await page.$eval('.ons-header', node => node.classList.contains('ons-u-d-no'));
-      const isHeaderAriaHidden = await page.$eval('.ons-header', node => node.getAttribute('aria-hidden'));
-      const isFooterHiddenClass = await page.$eval('.ons-footer', node => node.classList.contains('ons-u-d-no'));
-      const isFooterAriaHidden = await page.$eval('.ons-footer', node => node.getAttribute('aria-hidden'));
-      const isBreadcrumbsHiddenClass = await page.$eval('.ons-breadcrumb', node => node.classList.contains('ons-u-d-no'));
-      const isBreadcrumbsAriaHidden = await page.$eval('.ons-breadcrumb', node => node.getAttribute('aria-hidden'));
+      const pageIsHidden = await page.$eval('.ons-page', node => node.classList.contains('ons-u-d-no'));
+      const pageIsAriaHidden = await page.$eval('.ons-page', node => node.getAttribute('aria-hidden'));
 
-      expect(isListHiddenClass).toBe(false);
-      expect(isListAriaHidden).toBe('false');
-      expect(isOptionsHiddenClass).toBe(false);
-      expect(isOptionsAriaHidden).toBe('false');
-      expect(isHeaderHiddenClass).toBe(false);
-      expect(isHeaderAriaHidden).toBe('false');
-      expect(isFooterHiddenClass).toBe(false);
-      expect(isFooterAriaHidden).toBe('false');
-      expect(isBreadcrumbsHiddenClass).toBe(false);
-      expect(isBreadcrumbsAriaHidden).toBe('false');
+      expect(pageIsHidden).toBe(false);
+      expect(pageIsAriaHidden).toBe('false');
     });
 
     it('hides filter elements when the "Close" button is pressed', async () => {
@@ -593,27 +549,11 @@ describe('script: download-resources', () => {
       await page.click('.ons-js-adv-filter__trigger');
       await page.click('.ons-js-adv-filter__close');
 
-      const isListHiddenClass = await page.$eval('.ons-js-adv-filter__gallery', node => node.classList.contains('ons-u-d-no'));
-      const isListAriaHidden = await page.$eval('.ons-js-adv-filter__gallery', node => node.getAttribute('aria-hidden'));
-      const isOptionsHiddenClass = await page.$eval('.ons-adv-filter__results-options', node => node.classList.contains('ons-u-d-no'));
-      const isOptionsAriaHidden = await page.$eval('.ons-adv-filter__results-options', node => node.getAttribute('aria-hidden'));
-      const isHeaderHiddenClass = await page.$eval('.ons-header', node => node.classList.contains('ons-u-d-no'));
-      const isHeaderAriaHidden = await page.$eval('.ons-header', node => node.getAttribute('aria-hidden'));
-      const isFooterHiddenClass = await page.$eval('.ons-footer', node => node.classList.contains('ons-u-d-no'));
-      const isFooterAriaHidden = await page.$eval('.ons-footer', node => node.getAttribute('aria-hidden'));
-      const isBreadcrumbsHiddenClass = await page.$eval('.ons-breadcrumb', node => node.classList.contains('ons-u-d-no'));
-      const isBreadcrumbsAriaHidden = await page.$eval('.ons-breadcrumb', node => node.getAttribute('aria-hidden'));
+      const pageIsHidden = await page.$eval('.ons-page', node => node.classList.contains('ons-u-d-no'));
+      const pageIsAriaHidden = await page.$eval('.ons-page', node => node.getAttribute('aria-hidden'));
 
-      expect(isListHiddenClass).toBe(false);
-      expect(isListAriaHidden).toBe('false');
-      expect(isOptionsHiddenClass).toBe(false);
-      expect(isOptionsAriaHidden).toBe('false');
-      expect(isHeaderHiddenClass).toBe(false);
-      expect(isHeaderAriaHidden).toBe('false');
-      expect(isFooterHiddenClass).toBe(false);
-      expect(isFooterAriaHidden).toBe('false');
-      expect(isBreadcrumbsHiddenClass).toBe(false);
-      expect(isBreadcrumbsAriaHidden).toBe('false');
+      expect(pageIsHidden).toBe(false);
+      expect(pageIsAriaHidden).toBe('false');
     });
   });
 });
