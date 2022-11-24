@@ -188,12 +188,6 @@ $checkbox-padding: 11px;
     outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
   }
 
-  .ons-panel--error .ons-radio__input:checked ~ &__other > .ons-input--text:required:not(:focus) {
-    border: 1px solid var(--ons-color-ruby-red);
-    outline: 1px solid var(--ons-color-ruby-red);
-    outline-offset: -2px;
-  }
-
   &__input:focus + &__label::before {
     @extend %ons-input-focus;
   }
