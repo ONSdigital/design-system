@@ -9,6 +9,11 @@ const EXAMPLE_VIDEO_YOUTUBE = {
   videoEmbedUrl: 'https://www.youtube.com/embed/_EGJlvkgbPo',
   title: 'Census 2021 promotional TV advert',
   linkText: 'Example link text',
+  image: {
+    smallSrc: 'example-small.png',
+    largeSrc: 'example-large.png',
+    alt: 'Example alt text',
+  },
 };
 
 describe('macro: video', () => {
@@ -19,20 +24,32 @@ describe('macro: video', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('outputs the default cover image', () => {
+  it('outputs an `img` element', () => {
     const $ = cheerio.load(renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
 
-    expect($('.ons-video__img').attr('src')).toBe('/img/placeholder-video.png');
+    expect($('.ons-video__img').tagName).toBe('img');
   });
 
-  it('outputs the provided cover image', () => {
-    const $ = cheerio.load(renderComponent('video', { ...EXAMPLE_VIDEO_YOUTUBE, coverImage: 'example-cover.png' }));
+  it('outputs an `img` element with the expected `srcset`', () => {
+    const $ = cheerio.load(renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
 
-    expect($('.ons-video__img').attr('src')).toBe('example-cover.png');
+    expect($('.ons-video__img').attr('srcset')).toBe('example-small.png 1x, example-large.png 2x');
+  });
+
+  it('outputs an `img` element with the expected `src`', () => {
+    const $ = cheerio.load(renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
+
+    expect($('.ons-video__img').attr('src')).toBe('example-small.png');
+  });
+
+  it('outputs an `img` element with the expected alt text', () => {
+    const $ = cheerio.load(renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
+
+    expect($('.ons-video__img').attr('alt')).toBe('Example alt text');
   });
 
   it('outputs the provided link text', () => {
-    const $ = cheerio.load(renderComponent('video', { ...EXAMPLE_VIDEO_YOUTUBE, coverImage: 'example-cover.png' }));
+    const $ = cheerio.load(renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
 
     expect(
       $('.ons-video__link-text')
