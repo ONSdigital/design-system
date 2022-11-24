@@ -25,12 +25,6 @@ describe('macro: video', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('outputs an `img` element', () => {
-    const $ = cheerio.load(renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
-
-    expect($('.ons-video__img').tagName).toBe('img');
-  });
-
   it('outputs an `img` element with the expected `srcset`', () => {
     const $ = cheerio.load(renderComponent('video', EXAMPLE_VIDEO_YOUTUBE));
 
