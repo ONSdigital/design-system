@@ -229,7 +229,7 @@
                                 "fullWidth": pageConfig.fullWidth,
                                 "classes": "ons-page__footer",
                                 "language": pageConfig.language,
-                                "lang": currentLanguageISOCode,
+                                "lang": pageConfig.footer.lang | default(currentLanguageISOCode),
                                 "rows": pageConfig.footer.rows,
                                 "cols": pageConfig.footer.cols,
                                 "poweredBy": pageConfig.footer.poweredBy,
