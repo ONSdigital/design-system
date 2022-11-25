@@ -4,10 +4,10 @@
 
 {% set currentLanguageISOCode = "en" %}
 
-{% if pageConfig and pageConfig.language and pageConfig.language.languages %}
-    {% set currentLanguage = pageConfig.language.languages | selectattr("current") | first %}
+{% if pageConfig and pageConfig.header.language and pageConfig.header.language.languages %}
+    {% set currentLanguage = pageConfig.header.language.languages | selectattr("current") | first %}
     {% set currentLanguageISOCode = currentLanguage.ISOCode %}
-    {% set otherLanguage = pageConfig.language.languages | rejectattr("current") | first %}
+    {% set otherLanguage = pageConfig.header.language.languages | rejectattr("current") | first %}
     {% set otherLanguageISOCode = otherLanguage.ISOCode %}
 {% endif %}
 
@@ -228,8 +228,7 @@
                                 "wide": pageConfig.wide,
                                 "fullWidth": pageConfig.fullWidth,
                                 "classes": "ons-page__footer",
-                                "language": pageConfig.language,
-                                "lang": pageConfig.footer.lang | default(currentLanguageISOCode),
+                                "lang": currentLanguageISOCode,
                                 "rows": pageConfig.footer.rows,
                                 "cols": pageConfig.footer.cols,
                                 "poweredBy": pageConfig.footer.poweredBy,
