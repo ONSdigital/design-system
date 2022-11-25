@@ -308,7 +308,7 @@ describe('script: timeout modal', () => {
       `;
       await setTestPage('/test', template);
     });
-    it.only('has the correct attributes set on the `countdownExpiredText`', async () => {
+    it('has the correct attributes set on the `countdownExpiredText`', async () => {
       const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
       const gaLabel = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-label'));
       const gaAction = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-action'));
