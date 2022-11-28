@@ -233,10 +233,10 @@ describe('script: timeout modal', () => {
       });
 
       const template = `
-          <div class="ons-page">
-            ${component}
-          </div>
-        `;
+        <div class="ons-page">
+          ${component}
+        </div>
+      `;
 
       await setTestPage('/test', template);
     });
