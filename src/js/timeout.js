@@ -17,7 +17,7 @@ export default class Timeout {
     this.countdownText = context.getAttribute('data-countdown-text');
     this.countdownExpiredText = context.getAttribute('data-countdown-expired-text');
     this.endWithFullStop = context.getAttribute('data-full-stop');
-    this.setGaAttributes = context.getAttribute('data-enable-ga');
+    this.setGAAttributes = context.getAttribute('data-enable-ga');
 
     // Settings
     this.expiryTime = '';

@@ -8,7 +8,7 @@ export default class Modal {
     this.component = component;
     this.launcher = document.querySelector(`[data-modal-id=${component.id}]`);
     this.closeButton = component.querySelector('.ons-js-modal-btn');
-    this.setGaAttributes = component.getAttribute('data-enable-ga');
+    this.setGAAttributes = component.getAttribute('data-enable-ga');
     this.lastFocusedEl = null;
     this.dialogCSSSupported = true;
     this.modalType = this.component.classList.contains('ons-js-timeout-modal') ? 'Timeout' : 'Generic';
@@ -32,6 +32,10 @@ export default class Modal {
 
     if (this.modalType !== 'Timeout') {
       window.addEventListener('keydown', this.escToClose.bind(this));
+    }
+
+    if (this.setGAAttributes) {
+      this.component.setAttribute('data-ga', `visible`);
     }
   }
 
@@ -68,7 +72,7 @@ export default class Modal {
         this.component.showModal();
       }
 
-      if (this.setGaAttributes) {
+      if (this.setGAAttributes) {
         if (event) {
           this.component.setAttribute('data-ga-action', `Modal opened by ${event.type} event`);
         } else {
@@ -114,7 +118,7 @@ export default class Modal {
       this.component.close();
       this.setFocusOnLastFocusedEl(this.lastFocusedEl);
 
-      if (this.setGaAttributes) {
+      if (this.setGAAttributes) {
         if (event) {
           this.component.setAttribute('data-ga-action', `Modal closed by ${event.type} event`);
         } else {
