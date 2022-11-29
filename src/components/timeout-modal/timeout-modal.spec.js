@@ -182,16 +182,6 @@ describe('script: timeout modal', () => {
         const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
         expect(timeString).toEqual(expect.stringContaining('You are being signed out'));
       });
-      describe('and ga attributes are enabled', () => {
-        it('the ga attributes are set', async () => {
-          const gaLabel = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-label'));
-          const gaAction = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-action'));
-          const gaCategory = await page.$eval('.ons-js-timeout-timer span', node => node.getAttribute('data-ga-category'));
-          expect(gaLabel).toEqual(expect.stringContaining('Timed out'));
-          expect(gaAction).toEqual(expect.stringContaining('Timer elapsed'));
-          expect(gaCategory).toEqual(expect.stringContaining('Timeout'));
-        });
-      });
       it('then redirects to the provided `redirectUrl`', async () => {
         await page.waitForTimeout(2000);
         expect(page.url()).toContain('#!');

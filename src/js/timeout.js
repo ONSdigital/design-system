@@ -78,11 +78,7 @@ export default class Timeout {
         ($this.endWithFullStop ? '.' : '');
 
       if (timerExpired) {
-        $this.gaAttributes = '';
-        if (this.setGaAttributes) {
-          $this.gaAttributes = 'data-ga-action="Timer elapsed" data-ga-label="Timed out" data-ga-category="Timeout" ';
-        }
-        $this.countdown.innerHTML = '<span ' + $this.gaAttributes + 'class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
+        $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
         $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
         setTimeout($this.redirect.bind($this), 2000);
       } else {
