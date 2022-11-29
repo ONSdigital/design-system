@@ -167,7 +167,6 @@ describe('script: timeout modal', () => {
           ...EXAMPLE_TIMEOUT_MODAL_BASIC,
           showModalTimeInSeconds: 1,
           sessionExpiresAt: expiryTimeInISOFormat,
-          enableGA: true,
         });
 
         const template = `
@@ -182,6 +181,7 @@ describe('script: timeout modal', () => {
         const timeString = await page.$eval('.ons-js-timeout-timer span', element => element.innerHTML);
         expect(timeString).toEqual(expect.stringContaining('You are being signed out'));
       });
+
       it('then redirects to the provided `redirectUrl`', async () => {
         await page.waitForTimeout(2000);
         expect(page.url()).toContain('#!');
