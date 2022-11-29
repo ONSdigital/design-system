@@ -241,6 +241,11 @@ describe('script: timeout modal', () => {
       await setTestPage('/test', template);
     });
 
+    it('has ga initialise attribute set', async () => {
+      const gaInitialise = await page.$eval('.ons-modal', node => node.getAttribute('data-ga'));
+      expect(gaInitialise).toBe('visible');
+    });
+
     describe('when the modal is open', () => {
       beforeEach(async () => {
         await page.waitForSelector('.ons-modal');
