@@ -1,4 +1,5 @@
 import dialogPolyfill from 'dialog-polyfill';
+import initAnalytics from '../../js/analytics';
 
 const overLayClass = 'ons-modal-overlay';
 const ie11Class = 'ons-modal-ie11';
@@ -36,6 +37,7 @@ export default class Modal {
 
     if (this.setGAAttributes) {
       this.component.setAttribute('data-ga', `visible`);
+      initAnalytics();
     }
   }
 
