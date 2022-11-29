@@ -37,7 +37,6 @@ export default class Modal {
 
     if (this.setGAAttributes) {
       this.component.setAttribute('data-ga', `visible`);
-      initAnalytics();
     }
   }
 
@@ -82,6 +81,7 @@ export default class Modal {
         }
         this.component.setAttribute('data-ga-label', `${this.modalType} modal opened`);
         this.component.setAttribute('data-ga-category', `${this.modalType} modal`);
+        initAnalytics();
       }
     }
   }
@@ -128,6 +128,7 @@ export default class Modal {
         }
         this.component.setAttribute('data-ga-label', `${this.modalType} modal closed`);
         this.component.setAttribute('data-ga-category', `${this.modalType} modal`);
+        initAnalytics();
       }
     }
   }
