@@ -57,7 +57,7 @@ describe('macro: accordion', () => {
     it('has provided title text', () => {
       const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION_WITH_TWO_ITEMS));
 
-      const titleText = $('.ons-collapsible__title')
+      const titleText = $('.ons-details__title')
         .first()
         .text()
         .trim();
@@ -77,14 +77,14 @@ describe('macro: accordion', () => {
         }),
       );
 
-      const titleTag = $('.ons-collapsible__title')[0].tagName;
+      const titleTag = $('.ons-details__title')[0].tagName;
       expect(titleTag).toBe('h5');
     });
 
     it('has provided content text', () => {
       const $ = cheerio.load(renderComponent('accordion', EXAMPLE_ACCORDION_WITH_TWO_ITEMS));
 
-      const titleText = $('.ons-collapsible__content')
+      const titleText = $('.ons-details__content')
         .first()
         .text()
         .trim();
@@ -106,8 +106,8 @@ describe('macro: accordion', () => {
         }),
       );
 
-      expect($('.ons-collapsible').attr('a')).toBe('123');
-      expect($('.ons-collapsible').attr('b')).toBe('456');
+      expect($('.ons-details').attr('a')).toBe('123');
+      expect($('.ons-details').attr('b')).toBe('456');
     });
 
     it('has additionally provided `headingAttributes`', () => {
@@ -125,8 +125,8 @@ describe('macro: accordion', () => {
         }),
       );
 
-      expect($('.ons-collapsible__heading').attr('a')).toBe('123');
-      expect($('.ons-collapsible__heading').attr('b')).toBe('456');
+      expect($('.ons-details__heading').attr('a')).toBe('123');
+      expect($('.ons-details__heading').attr('b')).toBe('456');
     });
 
     it('has additionally provided `contentAttributes`', () => {
@@ -145,8 +145,8 @@ describe('macro: accordion', () => {
         }),
       );
 
-      expect($('.ons-collapsible__content').attr('a')).toBe('123');
-      expect($('.ons-collapsible__content').attr('b')).toBe('456');
+      expect($('.ons-details__content').attr('a')).toBe('123');
+      expect($('.ons-details__content').attr('b')).toBe('456');
     });
   });
 
