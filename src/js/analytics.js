@@ -17,7 +17,6 @@ export const trackElement = el => {
     eventCategory: el.getAttribute('data-ga-category') || '',
     eventAction: el.getAttribute('data-ga-action') || '',
     eventLabel: el.getAttribute('data-ga-label') || '',
-    optionalData: el.getAttribute('data-ga-optional-data') || '',
   });
 };
 
