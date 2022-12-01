@@ -1,12 +1,21 @@
-
+{% from "components/external-link/_macro.njk" import onsExternalLink %}
 {%- macro onsVideo(params) -%}
+
+    {% set linkContents %}
+      {% if params.image.smallSrc %}
+        <img class="ons-video__img ons-u-mb-xs" {% if params.image.largeSrc %} srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x"{% endif %} src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}" loading="lazy">
+      {% endif %}            
+      <span class="ons-video__link-text ons-u-mt-xs">{{ params.linkText }}</span>
+    {% endset %}
+
     <div class="ons-video ons-js-video">
-        <a href="{{ params.videoLinkURL }}" class="ons-video__link ons-js-video-placeholder ons-u-db">
-          {% if params.image.smallSrc %}
-            <img class="ons-video__img ons-u-mb-xs" {% if params.image.largeSrc %} srcset="{{ params.image.smallSrc }} 1x, {{ params.image.largeSrc }} 2x"{% endif %} src="{{ params.image.smallSrc }}" alt="{{ params.image.alt }}" loading="lazy">
-          {% endif %}            
-          <p class="ons-video__link-text ons-u-mt-xs">{{ params.linkText }}</p>
-        </a>
+      {{
+          onsExternalLink({
+              "url": params.videoLinkURL,
+              "classes": "ons-video__link ons-js-video-placeholder ons-u-db",
+              "linkText": linkContents
+          })
+      }}
         <iframe data-src="{{ params.videoEmbedUrl }}" title="{{ params.title }}" class="ons-video__iframe ons-js-video-iframe ons-u-d-no" src="about:blank" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 {%- endmacro -%}
