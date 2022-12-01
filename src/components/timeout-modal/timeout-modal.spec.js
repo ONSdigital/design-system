@@ -189,7 +189,6 @@ describe('script: timeout modal', () => {
       });
 
       it('and GA tracking is enabled it has the correct attributes set on the modal', async () => {
-        await page.waitForTimeout(2000);
         const gaLabel = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-label'));
         const gaAction = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-action'));
         const gaCategory = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-category'));
