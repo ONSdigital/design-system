@@ -81,12 +81,12 @@ export default class Timeout {
       if (timerExpired) {
         $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
         $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
-        setTimeout($this.redirect.bind($this), 2000);
-        if (this.setGAAttributes && this.context.classList.contains('ons-modal')) {
-          this.context.setAttribute('data-ga-action', 'Modal closed by timed event');
-          this.context.setAttribute('data-ga-label', `Timeout modal closed`);
+        if ($this.setGAAttributes && $this.context.classList.contains('ons-modal')) {
+          $this.context.setAttribute('data-ga-action', 'Modal closed by timed event');
+          $this.context.setAttribute('data-ga-label', `Timeout modal closed`);
           initAnalytics();
         }
+        setTimeout($this.redirect.bind($this), 2000);
       } else {
         seconds--;
         $this.expiryTimeInMilliseconds = seconds * 1000;
