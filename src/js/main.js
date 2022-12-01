@@ -26,3 +26,4 @@ import '../components/download-resources/download-resources';
 import '../components/modal/modal.dom';
 import '../components/timeout-modal/timeout-modal.dom';
 import '../components/timeout-panel/timeout-panel.dom';
+import '../components/video/video.dom';
