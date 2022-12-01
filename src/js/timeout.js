@@ -85,7 +85,6 @@ export default class Timeout {
         if (this.setGAAttributes && this.context.classList.contains('ons-modal')) {
           this.context.setAttribute('data-ga-action', 'Modal closed by timed event');
           this.context.setAttribute('data-ga-label', `Timeout modal closed`);
-          this.context.setAttribute('data-ga-category', `Timeout modal`);
           initAnalytics();
         }
       } else {
