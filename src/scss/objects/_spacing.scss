@@ -5,7 +5,7 @@
 .ons-figure +,
 .ons-panel +,
 .ons-summary__group +,
-.ons-collapsible:not(.ons-collapsible--accordion) + {
+.ons-details:not(.ons-details--accordion) + {
   .ons-figure,
   .ons-panel,
   .ons-field,

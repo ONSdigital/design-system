@@ -4,14 +4,14 @@ async function initialiseAccordions() {
   const toggleAllButtons = [...document.querySelectorAll('.ons-js-accordion-all')];
 
   if (toggleAllButtons.length) {
-    const collapsibleComponents = [...document.querySelectorAll('.ons-js-collapsible')];
+    const detailsComponents = [...document.querySelectorAll('.ons-js-details')];
 
-    const Collapsible = (await import('../collapsible/collapsible')).default;
+    const Details = (await import('../details/details')).default;
     const Accordion = (await import('./accordion')).default;
-    const collapsibles = collapsibleComponents.map(element => new Collapsible(element));
+    const detailsEls = detailsComponents.map(element => new Details(element));
 
     toggleAllButtons.forEach(button => {
-      new Accordion(button, collapsibles);
+      new Accordion(button, detailsEls);
     });
   }
 }

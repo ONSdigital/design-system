@@ -16,7 +16,7 @@
     min-height: 300px;
     position: relative;
 
-    &--has-collapsible {
+    &--has-details {
       align-items: flex-start; // Prevents undesired shift if not enough content
     }
   }
@@ -59,7 +59,7 @@
         text-decoration-thickness: 2px;
       }
 
-      .ons-collapsible__heading {
+      .ons-details__heading {
         color: inherit;
       }
     }
