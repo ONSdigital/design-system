@@ -192,6 +192,10 @@ $hub-row-spacing: 1.3rem;
       justify-content: right;
     }
 
+    &__button {
+      align-self: flex-start;
+    }
+
     &__item-title,
     &__values {
       flex: 6.19;
