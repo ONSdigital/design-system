@@ -17,11 +17,11 @@
 
 ## QuestionDefinition
 
-| Name    | Type   | Required | Description                                                                |
-| ------- | ------ | -------- | -------------------------------------------------------------------------- |
-| id      | string | true     | The HTML `id` of the question definition collapsible                       |
-| title   | string | true     | The title of the question definition collapsible                           |
-| content | string | true     | The content of the question definition collapsible. This can contain HTML. |
+| Name    | Type   | Required | Description                                                            |
+| ------- | ------ | -------- | ---------------------------------------------------------------------- |
+| id      | string | true     | The HTML `id` of the question definition details                       |
+| title   | string | true     | The title of the question definition details                           |
+| content | string | true     | The content of the question definition details. This can contain HTML. |
 
 ## QuestionGuidance
 
@@ -40,11 +40,11 @@
 
 ## QuestionJustification
 
-| Name    | Type   | Required | Description                                                                                  |
-| ------- | ------ | -------- | -------------------------------------------------------------------------------------------- |
-| id      | string | true     | The HTML `id` of the question justification collapsible                                      |
-| title   | string | false    | The title of the question justification collapsible. Defaults to “Why we ask this question”. |
-| content | string | true     | The content of the question definition collapsible. This can contain HTML.                   |
+| Name    | Type   | Required | Description                                                                              |
+| ------- | ------ | -------- | ---------------------------------------------------------------------------------------- |
+| id      | string | true     | The HTML `id` of the question justification details                                      |
+| title   | string | false    | The title of the question justification details. Defaults to “Why we ask this question”. |
+| content | string | true     | The content of the question definition details. This can contain HTML.                   |
 
 ## SubmitButton
 

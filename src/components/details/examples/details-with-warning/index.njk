@@ -1,9 +1,9 @@
-{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+{% from "components/details/_macro.njk" import onsDetails %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 
 {%
-    call onsCollapsible({
-        "id": "collapsible",
+    call onsDetails({
+        "id": "details",
         "title": "Need to answer separately from your household?"
     })
 %}

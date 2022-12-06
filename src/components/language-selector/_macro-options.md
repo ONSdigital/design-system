@@ -11,4 +11,4 @@
 | text       | string  | true     | The name of the language to display                                                                 |
 | textAbbr   | string  | false    | Abbreviated version of the language text can be provided. This will be displayed on small viewports |
 | current    | boolean | true     | The current selected language                                                                       |
-| attributes | object  | false    | HTML attributes (for example, data attributes) to add to the collapsible element                    |
+| attributes | object  | false    | HTML attributes (for example, data attributes) to add to the details element                        |

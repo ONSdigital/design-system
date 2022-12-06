@@ -7,7 +7,7 @@ import '../components/password/password.dom';
 import '../components/tabs/tabs.dom';
 import '../components/table-of-contents/toc.dom';
 import '../components/accordion/accordion.dom';
-import '../components/collapsible/collapsible.dom';
+import '../components/details/details.dom';
 import '../components/table/scrollable-table.dom';
 import '../components/table/sortable-table.dom';
 import '../components/navigation/navigation.dom';

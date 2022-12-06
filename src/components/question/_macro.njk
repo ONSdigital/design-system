@@ -18,8 +18,8 @@
 
     {% if params.definition %}
         {% set questionDefinition %}
-            {% from "components/collapsible/_macro.njk" import onsCollapsible %}
-            {% call onsCollapsible({
+            {% from "components/details/_macro.njk" import onsDetails %}
+            {% call onsDetails({
                 "id": params.definition.id,
                 "classes": 'ons-u-mb-m',
                 "title": params.definition.title
@@ -109,8 +109,8 @@
         {% endif %}
 
         {% if params.justification %}
-            {% from "components/collapsible/_macro.njk" import onsCollapsible %}
-            {% call onsCollapsible({
+            {% from "components/details/_macro.njk" import onsDetails %}
+            {% call onsDetails({
                 "id": params.justification.id,
                 "classes": 'ons-u-mb-m',
                 "title": params.justification.title | default('Why we ask this question')

@@ -1,30 +1,22 @@
+{# OnsCollapsible has been superceded by onsDetails and will be deprecated in due course. Please upgrade to use onsDetails. Configuration is unchanged, only the component name and classes have changed name. #}
 {% macro onsCollapsible(params) %}
-    <details
-        id="{{ params.id }}"
-        class="ons-collapsible ons-js-collapsible{% if params.isAccordion %} ons-collapsible--accordion{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"
-        {% if params.group %} data-group="{{ params.group }}"{% endif %}
-        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-        {% if params.saveState %} data-save-state="true"{% endif %}
-        {% if params.open %} data-open="true"{% endif %}
-    >
-        <summary
-            class="ons-collapsible__heading ons-js-collapsible-heading"
-            {% if params.headingAttributes %}{% for attribute, value in (params.headingAttributes.items() if params.headingAttributes is mapping and params.headingAttributes.items else params.headingAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-        >
-                {% set titleTag = params.titleTag | default("h2") %}
-                <{{ titleTag }} class="ons-collapsible__title">{{ params.title }}</{{ titleTag }}>
-                <span class="ons-collapsible__icon">
-                    {% from "components/icons/_macro.njk" import onsIcon %}
-                    {{
-                        onsIcon({
-                            "iconType": "chevron"
-                        })
-                    }}</span>
-        </summary>
-        <div id="{{ params.id }}-content" class="ons-collapsible__content ons-js-collapsible-content"
-            {% if params.contentAttributes %}{% for attribute, value in (params.contentAttributes.items() if params.contentAttributes is mapping and params.contentAttributes.items else params.contentAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
-        >
-            {{ params.content | safe }}{{ caller() if caller }}
-        </div>
-    </details>
+    {% from "components/details/_macro.njk" import onsDetails %}
+
+    {% set content = caller() if caller else params.content | safe %}
+
+    {{
+        onsDetails({
+            "id": params.id,
+            "classes": params.classes,
+            "attributes": params.attributes,
+            "headingAttributes": params.headingAttributes,
+            "contentAttributes": params.contentAttributes,
+            "title": params.title,
+            "titleTag": params.titleTag,
+            "content": content,
+            "saveState": params.saveState,
+            "open": params.open
+        })
+    }}
+    
 {% endmacro %}

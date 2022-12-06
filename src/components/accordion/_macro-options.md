@@ -14,9 +14,9 @@
 | title             | string | true     | The title of the accordion item                                                                                               |
 | titleTag          | string | false    | The HTML heading tag for the title. Use to ensure the title has a correct semantic order on the page. Will default to an `h2` |
 | content           | string | true     | The content of the accordion item                                                                                             |
-| attributes        | object | false    | HTML attributes (for example, data attributes) to add to the collapsible element                                              |
-| headingAttributes | object | false    | HTML attributes (for example, data attributes) to add to the collapsible header element                                       |
-| contentAttributes | object | false    | HTML attributes (for example, data attributes) to add to the collapsible content element                                      |
+| attributes        | object | false    | HTML attributes (for example, data attributes) to add to the details element                                                  |
+| headingAttributes | object | false    | HTML attributes (for example, data attributes) to add to the details header element                                           |
+| contentAttributes | object | false    | HTML attributes (for example, data attributes) to add to the details content element                                          |
 
 ## AccordionButton
 
