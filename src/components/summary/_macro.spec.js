@@ -115,7 +115,6 @@ const EXAMPLE_SUMMARY_GROUPS = {
     {
       id: 'group-id-1',
       groupTitle: 'group title',
-      headers: ['Header 1', 'Header 2', 'Header 3'],
       ...EXAMPLE_SUMMARY_ROWS,
     },
   ],
@@ -134,6 +133,123 @@ const EXAMPLE_SUMMARY_GROUPS_NO_ROWS = {
       },
     },
   ],
+};
+
+const EXAMPLE_SUMMARY_HOUSEHOLD_GROUP = {
+  rows: [
+    {
+      rowItems: [
+        {
+          rowTitle: 'row item 1',
+          valueList: [
+            {
+              text: 'list item 1',
+            },
+          ],
+          actions: [
+            {
+              text: 'Change',
+              ariaLabel: 'Change list item',
+              url: '#0',
+            },
+            {
+              text: 'Remove',
+              ariaLabel: 'Remove list item',
+              url: '#0',
+            },
+          ],
+        },
+        {
+          rowTitle: 'row item 2',
+          valueList: [
+            {
+              text: 'list item 2',
+            },
+          ],
+          actions: [
+            {
+              text: 'Change',
+              ariaLabel: 'Remove list item',
+              url: '#0',
+            },
+          ],
+        },
+        {
+          rowTitle: 'row item 3',
+          valueList: [
+            {
+              text: 'list item 3',
+            },
+          ],
+          actions: [
+            {
+              text: 'Change',
+              ariaLabel: 'Change list item',
+              url: '#0',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      rowItems: [
+        {
+          rowTitle: 'row item 4',
+          valueList: [
+            {
+              text: 'list item 4',
+            },
+          ],
+          actions: [
+            {
+              text: 'Change',
+              ariaLabel: 'Change answer',
+              url: '#0',
+            },
+            {
+              text: 'Remove',
+              ariaLabel: 'Change list item',
+              url: '#0',
+            },
+          ],
+        },
+        {
+          rowTitle: 'row item 5',
+          valueList: [
+            {
+              text: 'list item 5',
+            },
+          ],
+          actions: [
+            {
+              text: 'Change',
+              ariaLabel: 'Change list item',
+              url: '#0',
+            },
+          ],
+        },
+        {
+          rowTitle: 'row item 6',
+          valueList: [
+            {
+              text: 'list item 6',
+            },
+          ],
+          actions: [
+            {
+              text: 'Change',
+              ariaLabel: 'Change list item',
+              url: '#0',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  summaryLink: {
+    text: 'Summary link',
+    url: '#0',
+  },
 };
 
 const EXAMPLE_SUMMARY_BASIC = {
@@ -158,6 +274,31 @@ const EXAMPLE_SUMMARY_WITH_NO_ROWS = {
     {
       summaryTitle: 'summary title',
       ...EXAMPLE_SUMMARY_GROUPS_NO_ROWS,
+    },
+  ],
+};
+
+const EXAMPLE_SUMMARY_MULTIPLE_GROUPS = {
+  summaries: [
+    {
+      summaryTitle: 'summary title',
+      groups: [
+        {
+          id: 'group-id-1',
+          groupTitle: 'group title',
+          ...EXAMPLE_SUMMARY_ROWS,
+        },
+        {
+          id: 'group-id-2',
+          groupTitle: 'group title',
+          ...EXAMPLE_SUMMARY_HOUSEHOLD_GROUP,
+        },
+        {
+          id: 'group-id-3',
+          groupTitle: 'group title',
+          ...EXAMPLE_SUMMARY_ROWS,
+        },
+      ],
     },
   ],
 };
@@ -199,6 +340,12 @@ describe('macro: summary', () => {
         const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_BASIC));
 
         expect($('.ons-summary__group-title').text()).toBe('group title');
+      });
+
+      it('has larger margin between groups if the top one is a household style summary', () => {
+        const $ = cheerio.load(renderComponent('summary', EXAMPLE_SUMMARY_MULTIPLE_GROUPS));
+
+        expect($('.ons-summary__group:nth-last-of-type(2) .ons-summary__link').hasClass('ons-u-mb-xl')).toBe(true);
       });
     });
 
