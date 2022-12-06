@@ -1,24 +1,24 @@
 export default class Accordion {
-  constructor(button, collapsibles) {
-    this.openCollapsibles = 0;
+  constructor(button, detailsEls) {
+    this.openDetailsEls = 0;
 
     this.button = button;
     this.buttonInner = button.querySelector('.ons-js-accordion-all-inner');
     this.group = button.getAttribute('data-group');
-    this.collapsibles = collapsibles.filter(collapsible => collapsible.group === this.group);
-    this.totalCollapsibles = this.collapsibles.length;
+    this.detailsEls = detailsEls.filter(details => details.group === this.group);
+    this.totalDetailsEls = this.detailsEls.length;
     this.buttonOpenEl = this.buttonInner.querySelector('.ons-btn__text');
     this.buttonOpen = this.buttonOpenEl.innerHTML.trim();
     this.closeButton = button.getAttribute('data-close-all');
-    this.open = this.collapsibles.find(collapsible => collapsible.open === true);
+    this.open = this.detailsEls.find(details => details.open === true);
 
-    this.collapsibles.forEach(collapsible => {
-      collapsible.onOpen = this.onOpen.bind(this);
-      collapsible.onClose = this.onClose.bind(this);
+    this.detailsEls.forEach(details => {
+      details.onOpen = this.onOpen.bind(this);
+      details.onClose = this.onClose.bind(this);
     });
 
     if (this.open) {
-      this.openCollapsibles = this.totalCollapsibles;
+      this.openDetailsEls = this.totalDetailsEls;
     }
 
     this.button.addEventListener('click', this.handleButtonClick.bind(this));
@@ -31,23 +31,23 @@ export default class Accordion {
 
     const open = !this.canClose();
 
-    this.collapsibles.forEach(collapsible => {
-      collapsible.setOpen(open);
+    this.detailsEls.forEach(details => {
+      details.setOpen(open);
     });
   }
 
   onOpen() {
-    this.openCollapsibles++;
+    this.openDetailsEls++;
     this.setButton();
   }
 
   onClose() {
-    this.openCollapsibles--;
+    this.openDetailsEls--;
     this.setButton();
   }
 
   canClose() {
-    return this.openCollapsibles === this.totalCollapsibles;
+    return this.openDetailsEls === this.totalDetailsEls;
   }
 
   setButton() {

@@ -1,0 +1,30 @@
+{% macro onsDetails(params) %}
+    <details
+        id="{{ params.id }}"
+        class="ons-details ons-js-details{% if params.isAccordion %} ons-details--accordion{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}"
+        {% if params.group %} data-group="{{ params.group }}"{% endif %}
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+        {% if params.saveState %} data-save-state="true"{% endif %}
+        {% if params.open %} data-open="true"{% endif %}
+    >
+        <summary
+            class="ons-details__heading ons-js-details-heading"
+            {% if params.headingAttributes %}{% for attribute, value in (params.headingAttributes.items() if params.headingAttributes is mapping and params.headingAttributes.items else params.headingAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+        >
+                {% set titleTag = params.titleTag | default("h2") %}
+                <{{ titleTag }} class="ons-details__title">{{ params.title }}</{{ titleTag }}>
+                <span class="ons-details__icon">
+                    {% from "components/icons/_macro.njk" import onsIcon %}
+                    {{
+                        onsIcon({
+                            "iconType": "chevron"
+                        })
+                    }}</span>
+        </summary>
+        <div id="{{ params.id }}-content" class="ons-details__content ons-js-details-content"
+            {% if params.contentAttributes %}{% for attribute, value in (params.contentAttributes.items() if params.contentAttributes is mapping and params.contentAttributes.items else params.contentAttributes) %}{{ attribute }}{% if value %}="{{ value }}"{% endif %} {% endfor %}{% endif %}
+        >
+            {{ params.content | safe }}{{ caller() if caller }}
+        </div>
+    </details>
+{% endmacro %}

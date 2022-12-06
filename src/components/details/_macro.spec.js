@@ -5,30 +5,30 @@ import * as cheerio from 'cheerio';
 import axe from '../../tests/helpers/axe';
 import { renderComponent, templateFaker } from '../../tests/helpers/rendering';
 
-const EXAMPLE_COLLAPSIBLE_BASIC = {
-  id: 'collapsible-id',
-  title: 'Title for collapsible',
-  content: 'Content for collapsible',
+const EXAMPLE_DETAILS_BASIC = {
+  id: 'details-id',
+  title: 'Title for details',
+  content: 'Content for details',
 };
 
-describe('macro: collapsible', () => {
+describe('macro: details', () => {
   it('passes jest-axe checks', async () => {
-    const $ = cheerio.load(renderComponent('collapsible', EXAMPLE_COLLAPSIBLE_BASIC));
+    const $ = cheerio.load(renderComponent('details', EXAMPLE_DETAILS_BASIC));
 
     const results = await axe($.html());
     expect(results).toHaveNoViolations();
   });
 
   it('has the provided `id` attribute', () => {
-    const $ = cheerio.load(renderComponent('collapsible', EXAMPLE_COLLAPSIBLE_BASIC));
+    const $ = cheerio.load(renderComponent('details', EXAMPLE_DETAILS_BASIC));
 
-    expect($('.ons-details').attr('id')).toBe('collapsible-id');
+    expect($('.ons-details').attr('id')).toBe('details-id');
   });
 
   it('has additionally provided style classes', () => {
     const $ = cheerio.load(
-      renderComponent('collapsible', {
-        ...EXAMPLE_COLLAPSIBLE_BASIC,
+      renderComponent('details', {
+        ...EXAMPLE_DETAILS_BASIC,
         classes: 'extra-class another-extra-class',
       }),
     );
@@ -38,19 +38,19 @@ describe('macro: collapsible', () => {
   });
 
   it('has provided title text', () => {
-    const $ = cheerio.load(renderComponent('collapsible', EXAMPLE_COLLAPSIBLE_BASIC));
+    const $ = cheerio.load(renderComponent('details', EXAMPLE_DETAILS_BASIC));
 
     const titleText = $('.ons-details__title')
       .first()
       .text()
       .trim();
-    expect(titleText).toBe('Title for collapsible');
+    expect(titleText).toBe('Title for details');
   });
 
   it('has title with provided tag override', () => {
     const $ = cheerio.load(
-      renderComponent('collapsible', {
-        ...EXAMPLE_COLLAPSIBLE_BASIC,
+      renderComponent('details', {
+        ...EXAMPLE_DETAILS_BASIC,
         titleTag: 'h4',
       }),
     );
@@ -60,18 +60,18 @@ describe('macro: collapsible', () => {
   });
 
   it('has provided content text', () => {
-    const $ = cheerio.load(renderComponent('collapsible', EXAMPLE_COLLAPSIBLE_BASIC));
+    const $ = cheerio.load(renderComponent('details', EXAMPLE_DETAILS_BASIC));
 
     const titleText = $('.ons-details__content')
       .text()
       .trim();
-    expect(titleText).toEqual(expect.stringContaining('Content for collapsible'));
+    expect(titleText).toEqual(expect.stringContaining('Content for details'));
   });
 
   it('has additionally provided `attributes`', () => {
     const $ = cheerio.load(
-      renderComponent('collapsible', {
-        ...EXAMPLE_COLLAPSIBLE_BASIC,
+      renderComponent('details', {
+        ...EXAMPLE_DETAILS_BASIC,
         attributes: {
           a: 123,
           b: 456,
@@ -84,8 +84,8 @@ describe('macro: collapsible', () => {
 
   it('has the correct data attribute when `saveState` is provided', () => {
     const $ = cheerio.load(
-      renderComponent('collapsible', {
-        ...EXAMPLE_COLLAPSIBLE_BASIC,
+      renderComponent('details', {
+        ...EXAMPLE_DETAILS_BASIC,
         saveState: true,
       }),
     );
@@ -94,8 +94,8 @@ describe('macro: collapsible', () => {
 
   it('has the correct data attribute when `open` is provided', () => {
     const $ = cheerio.load(
-      renderComponent('collapsible', {
-        ...EXAMPLE_COLLAPSIBLE_BASIC,
+      renderComponent('details', {
+        ...EXAMPLE_DETAILS_BASIC,
         open: true,
       }),
     );
@@ -104,8 +104,8 @@ describe('macro: collapsible', () => {
 
   it('has additionally provided `headingAttributes`', () => {
     const $ = cheerio.load(
-      renderComponent('collapsible', {
-        ...EXAMPLE_COLLAPSIBLE_BASIC,
+      renderComponent('details', {
+        ...EXAMPLE_DETAILS_BASIC,
         headingAttributes: {
           a: 123,
           b: 456,
@@ -119,8 +119,8 @@ describe('macro: collapsible', () => {
 
   it('has additionally provided `contentAttributes`', () => {
     const $ = cheerio.load(
-      renderComponent('collapsible', {
-        ...EXAMPLE_COLLAPSIBLE_BASIC,
+      renderComponent('details', {
+        ...EXAMPLE_DETAILS_BASIC,
         contentAttributes: {
           a: 123,
           b: 456,
@@ -135,13 +135,13 @@ describe('macro: collapsible', () => {
   it('has `chevron` icon', () => {
     const faker = templateFaker();
     const iconsSpy = faker.spy('icons');
-    faker.renderComponent('collapsible', EXAMPLE_COLLAPSIBLE_BASIC);
+    faker.renderComponent('details', EXAMPLE_DETAILS_BASIC);
 
     expect(iconsSpy.occurrences[0].iconType).toBe('chevron');
   });
 
   it('calls with content', () => {
-    const $ = cheerio.load(renderComponent('collapsible', { EXAMPLE_COLLAPSIBLE_BASIC }, 'Example content...'));
+    const $ = cheerio.load(renderComponent('details', { EXAMPLE_DETAILS_BASIC }, 'Example content...'));
 
     const content = $('.ons-details__content')
       .text()

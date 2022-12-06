@@ -1,12 +1,12 @@
-$collapsible-caret-width: 1.5rem;
+$details-caret-width: 1.5rem;
 
-.ons-collapsible {
+.ons-details {
   &__heading {
     color: var(--ons-color-text-link);
     cursor: pointer;
     display: inline-block;
     outline: none;
-    padding: 0 0 0 $collapsible-caret-width;
+    padding: 0 0 0 $details-caret-width;
     pointer-events: initial;
     position: relative;
 
@@ -16,23 +16,23 @@ $collapsible-caret-width: 1.5rem;
     }
 
     &:focus {
-      .ons-collapsible__title {
+      .ons-details__title {
         @extend %a-focus;
-        // extend collapsible focus background behind caret
-        margin-left: -$collapsible-caret-width;
-        padding-left: $collapsible-caret-width;
+        // extend details focus background behind caret
+        margin-left: -$details-caret-width;
+        padding-left: $details-caret-width;
       }
-      .ons-collapsible__icon .ons-svg-icon {
+      .ons-details__icon .ons-svg-icon {
         fill: var(--ons-color-text-link-focus);
       }
     }
 
     &:hover:not(:focus) {
       color: var(--ons-color-text-link-hover);
-      .ons-collapsible__icon {
+      .ons-details__icon {
         fill: var(--ons-color-text-link-hover);
       }
-      .ons-collapsible__title {
+      .ons-details__title {
         text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
       }
     }
@@ -41,11 +41,11 @@ $collapsible-caret-width: 1.5rem;
   &__icon {
     display: inline-block;
     fill: var(--ons-color-text-link);
-    height: $collapsible-caret-width;
+    height: $details-caret-width;
     left: -0.15rem;
     position: absolute;
     top: -0.2rem;
-    width: $collapsible-caret-width;
+    width: $details-caret-width;
   }
 
   &__title {
@@ -112,9 +112,9 @@ $collapsible-caret-width: 1.5rem;
   }
 }
 
-.ons-collapsible--accordion {
+.ons-details--accordion {
   &[open] {
-    .ons-collapsible__icon {
+    .ons-details__icon {
       top: 1.2rem;
     }
   }
