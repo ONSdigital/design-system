@@ -1,3 +1,4 @@
+import initAnalytics from './analytics';
 export default class Timeout {
   constructor(context, sessionExpiryEndpoint, initialExpiryTime, enableTimeoutReset, startOnLoad) {
     this.context = context;
@@ -8,6 +9,7 @@ export default class Timeout {
     this.countdown = context.querySelector('.ons-js-timeout-timer');
     this.accessibleCountdown = context.querySelector('.ons-js-timeout-timer-acc');
     this.timeOutRedirectUrl = context.getAttribute('data-redirect-url');
+    this.setGAAttributes = context.getAttribute('data-enable-ga');
 
     // Language dependent text strings
     this.minutesTextSingular = context.getAttribute('data-minutes-text-singular');
@@ -79,6 +81,11 @@ export default class Timeout {
       if (timerExpired) {
         $this.countdown.innerHTML = '<span class="ons-u-fw-b">' + $this.countdownExpiredText + '</span>';
         $this.accessibleCountdown.innerHTML = $this.countdownExpiredText;
+        if ($this.setGAAttributes && $this.context.classList.contains('ons-modal')) {
+          $this.context.setAttribute('data-ga-action', 'Modal closed by timed event');
+          $this.context.setAttribute('data-ga-label', `Timeout modal closed`);
+          initAnalytics();
+        }
         setTimeout($this.redirect.bind($this), 2000);
       } else {
         seconds--;

@@ -20,16 +20,12 @@ export const trackElement = el => {
   });
 };
 
-const isVisible = el => {
-  return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
-};
-
 export default function initAnalytics() {
   let trackVisibleElements = [...document.querySelectorAll('[data-ga=visible]')];
 
   const interval = window.setInterval(() => {
     trackVisibleElements = trackVisibleElements.filter(element => {
-      return isVisible(element) ? trackElement(element) && false : true;
+      return element ? trackElement(element) && false : true;
     });
     if (trackVisibleElements.length === 0) {
       window.clearInterval(interval);
