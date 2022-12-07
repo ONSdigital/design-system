@@ -167,6 +167,7 @@ describe('script: timeout modal', () => {
           ...EXAMPLE_TIMEOUT_MODAL_BASIC,
           showModalTimeInSeconds: 1,
           sessionExpiresAt: expiryTimeInISOFormat,
+          enableGA: true,
         });
 
         const template = `
@@ -185,6 +186,15 @@ describe('script: timeout modal', () => {
       it('then redirects to the provided `redirectUrl`', async () => {
         await page.waitForTimeout(2000);
         expect(page.url()).toContain('#!');
+      });
+
+      it('and GA tracking is enabled it has the correct attributes set on the modal', async () => {
+        const gaLabel = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-label'));
+        const gaAction = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-action'));
+        const gaCategory = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-category'));
+        expect(gaLabel).toBe('Timeout modal closed');
+        expect(gaAction).toBe('Modal closed by timed event');
+        expect(gaCategory).toBe('Timeout modal');
       });
     });
   });
@@ -233,23 +243,17 @@ describe('script: timeout modal', () => {
       });
 
       const template = `
-          <div class="ons-page">
-            ${component}
-          </div>
-        `;
+        <div class="ons-page">
+          ${component}
+        </div>
+      `;
 
       await setTestPage('/test', template);
     });
 
-    describe('when the page has been loaded but the modal has not been opened yet', () => {
-      it('has the correct attributes set on the modal', async () => {
-        const gaLabel = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-label'));
-        const gaAction = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-action'));
-        const gaCategory = await page.$eval('.ons-modal', node => node.getAttribute('data-ga-category'));
-        expect(gaLabel).toBe('Timeout modal initialised');
-        expect(gaAction).toBe('Modal initialised');
-        expect(gaCategory).toBe('Timeout modal');
-      });
+    it('has ga initialise attribute set', async () => {
+      const gaInitialise = await page.$eval('.ons-modal', node => node.getAttribute('data-ga'));
+      expect(gaInitialise).toBe('visible');
     });
 
     describe('when the modal is open', () => {
