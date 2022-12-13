@@ -178,7 +178,7 @@ $hub-row-spacing: 1.3rem;
     &__item-title,
     &__values,
     &__actions {
-      flex: 4;
+      flex: 5;
       padding-top: $summary-row-spacing;
       vertical-align: top;
 
@@ -196,13 +196,8 @@ $hub-row-spacing: 1.3rem;
       align-self: flex-start;
     }
 
-    &__item-title,
-    &__values {
-      flex: 7.3;
-    }
-
-    &__item-title--2 {
-      flex: 4.5;
+    &__values--2 {
+      flex: 10.5;
     }
 
     &--hub & {
@@ -211,10 +206,24 @@ $hub-row-spacing: 1.3rem;
       &__actions {
         padding-top: $hub-row-spacing;
       }
+    }
+  }
 
-      &__actions {
-        flex: 6;
-      }
+  @include mq(l) {
+    &__values--2 {
+      flex: 10.4;
+    }
+  }
+
+  @include mq(xl) {
+    &__values--2 {
+      flex: 10.3;
+    }
+  }
+
+  @include mq(xxl) {
+    &__values--2 {
+      flex: 10.2;
     }
   }
 }
