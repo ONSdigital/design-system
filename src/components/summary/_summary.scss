@@ -178,7 +178,7 @@ $hub-row-spacing: 1.3rem;
     &__item-title,
     &__values,
     &__actions {
-      flex: 5;
+      flex: 5 1 33%;
       padding-top: $summary-row-spacing;
       vertical-align: top;
 
@@ -197,7 +197,7 @@ $hub-row-spacing: 1.3rem;
     }
 
     &__values--2 {
-      flex: 10.5;
+      flex: 10.5 1 66%;
     }
 
     &--hub & {
@@ -206,24 +206,6 @@ $hub-row-spacing: 1.3rem;
       &__actions {
         padding-top: $hub-row-spacing;
       }
-    }
-  }
-
-  @include mq(l) {
-    &__values--2 {
-      flex: 10.4;
-    }
-  }
-
-  @include mq(xl) {
-    &__values--2 {
-      flex: 10.3;
-    }
-  }
-
-  @include mq(xxl) {
-    &__values--2 {
-      flex: 10.2;
     }
   }
 }
