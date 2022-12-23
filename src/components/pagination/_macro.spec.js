@@ -251,16 +251,15 @@ describe('macro: pagination', () => {
       ).toBe('Page 2 of 6');
     });
 
-    it('has a 8 list items ("Previous page", "1", "2", "3", "4", "...", "6", "Next page")', () => {
-      expect($('li').length).toBe(8);
+    it('has 7 list items ("Previous page", "1", "2", "3", "...", "6", "Next page")', () => {
+      expect($('li').length).toBe(7);
       assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/1', 'Go to the previous page (Page 1)', 'Previous page');
       assertIsPreviousPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Go to page 1', '1');
       assertIsCurrentPage($('.ons-pagination__item:nth-child(3)'), '/page/2', 'Current page (Page 2 of 6)', '2');
       assertIsNextPage($('.ons-pagination__item:nth-child(4)'), '/page/3', 'Go to page 3', '3');
-      assertIsOtherPage($('.ons-pagination__item:nth-child(5)'), '/page/4', 'Go to page 4', '4');
-      assertIsGap($('.ons-pagination__item:nth-child(6)'));
-      assertIsOtherPage($('.ons-pagination__item:nth-child(7)'), '/page/6', 'Go to the last page (Page 6)', '6');
-      assertIsNextPage($('.ons-pagination__item:nth-child(8)'), '/page/3', 'Go to the next page (Page 3)', 'Next page');
+      assertIsGap($('.ons-pagination__item:nth-child(5)'));
+      assertIsOtherPage($('.ons-pagination__item:nth-child(6)'), '/page/6', 'Go to the last page (Page 6)', '6');
+      assertIsNextPage($('.ons-pagination__item:nth-child(7)'), '/page/3', 'Go to the next page (Page 3)', 'Next page');
     });
   });
 
@@ -301,19 +300,17 @@ describe('macro: pagination', () => {
       ).toBe('Page 5 of 11');
     });
 
-    it('has a 11 list items ("Previous page", "1", "...", "3", "4", "5", "6", "7", "...", "11", "Next page")', () => {
-      expect($('li').length).toBe(11);
+    it('has a 9 list items ("Previous page", "1", "...", "4", "5", "6", "...", "11", "Next page")', () => {
+      expect($('li').length).toBe(9);
       assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/4', 'Go to the previous page (Page 4)', 'Previous page');
       assertIsOtherPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Go to the first page (Page 1)', '1');
       assertIsGap($('.ons-pagination__item:nth-child(3)'));
-      assertIsOtherPage($('.ons-pagination__item:nth-child(4)'), '/page/3', 'Go to page 3', '3');
-      assertIsPreviousPage($('.ons-pagination__item:nth-child(5)'), '/page/4', 'Go to page 4', '4');
-      assertIsCurrentPage($('.ons-pagination__item:nth-child(6)'), '/page/5', 'Current page (Page 5 of 11)', '5');
-      assertIsNextPage($('.ons-pagination__item:nth-child(7)'), '/page/6', 'Go to page 6', '6');
-      assertIsOtherPage($('.ons-pagination__item:nth-child(8)'), '/page/7', 'Go to page 7', '7');
-      assertIsGap($('.ons-pagination__item:nth-child(9)'));
-      assertIsOtherPage($('.ons-pagination__item:nth-child(10)'), '/page/11', 'Go to the last page (Page 11)', '11');
-      assertIsNextPage($('.ons-pagination__item:nth-child(11)'), '/page/6', 'Go to the next page (Page 6)', 'Next page');
+      assertIsPreviousPage($('.ons-pagination__item:nth-child(4)'), '/page/4', 'Go to page 4', '4');
+      assertIsCurrentPage($('.ons-pagination__item:nth-child(5)'), '/page/5', 'Current page (Page 5 of 11)', '5');
+      assertIsNextPage($('.ons-pagination__item:nth-child(6)'), '/page/6', 'Go to page 6', '6');
+      assertIsGap($('.ons-pagination__item:nth-child(7)'));
+      assertIsOtherPage($('.ons-pagination__item:nth-child(8)'), '/page/11', 'Go to the last page (Page 11)', '11');
+      assertIsNextPage($('.ons-pagination__item:nth-child(9)'), '/page/6', 'Go to the next page (Page 6)', 'Next page');
     });
   });
 
@@ -354,17 +351,15 @@ describe('macro: pagination', () => {
       ).toBe('Page 10 of 11');
     });
 
-    it('has a 9 list items ("Previous page", "1", "...", "7", "8", "9", "10", "11", "Next page")', () => {
-      expect($('li').length).toBe(9);
+    it('has a 7 list items ("Previous page", "1", "...", "9", "10", "11", "Next page")', () => {
+      expect($('li').length).toBe(7);
       assertIsPreviousPage($('.ons-pagination__item:nth-child(1)'), '/page/9', 'Go to the previous page (Page 9)', 'Previous page');
       assertIsOtherPage($('.ons-pagination__item:nth-child(2)'), '/page/1', 'Go to the first page (Page 1)', '1');
       assertIsGap($('.ons-pagination__item:nth-child(3)'));
-      assertIsOtherPage($('.ons-pagination__item:nth-child(4)'), '/page/7', 'Go to page 7', '7');
-      assertIsOtherPage($('.ons-pagination__item:nth-child(5)'), '/page/8', 'Go to page 8', '8');
-      assertIsPreviousPage($('.ons-pagination__item:nth-child(6)'), '/page/9', 'Go to page 9', '9');
-      assertIsCurrentPage($('.ons-pagination__item:nth-child(7)'), '/page/10', 'Current page (Page 10 of 11)', '10');
-      assertIsNextPage($('.ons-pagination__item:nth-child(8)'), '/page/11', 'Go to page 11', '11');
-      assertIsNextPage($('.ons-pagination__item:nth-child(9)'), '/page/11', 'Go to the next page (Page 11)', 'Next page');
+      assertIsPreviousPage($('.ons-pagination__item:nth-child(4)'), '/page/9', 'Go to page 9', '9');
+      assertIsCurrentPage($('.ons-pagination__item:nth-child(5)'), '/page/10', 'Current page (Page 10 of 11)', '10');
+      assertIsNextPage($('.ons-pagination__item:nth-child(6)'), '/page/11', 'Go to page 11', '11');
+      assertIsNextPage($('.ons-pagination__item:nth-child(7)'), '/page/11', 'Go to the next page (Page 11)', 'Next page');
     });
   });
 });
