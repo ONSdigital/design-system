@@ -91,6 +91,12 @@ describe('macro: section-navigation', () => {
     expect($('.ons-section-nav').attr('id')).toBe('section-menu');
   });
 
+  it('has the provided custom `classes`', () => {
+    const $ = cheerio.load(renderComponent('section-navigation', { ...EXAMPLE_SECTION_NAVIGATION, classes: 'custom-class' }));
+
+    expect($('.ons-section-nav').hasClass('custom-class')).toBe(true);
+  });
+
   it('has the provided `ariaLabel` parameter', () => {
     const $ = cheerio.load(
       renderComponent('section-navigation', {
