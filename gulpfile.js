@@ -82,7 +82,7 @@ gulp.task('build-styles', () => {
     .src(`./src/scss/*.scss`)
     .pipe(gulpIf(isDevelopment, gulpSourcemaps.init()))
     .pipe(gulpDartSass(sassOptions).on('error', gulpDartSass.logError))
-    .pipe(gulpIf(isProduction, gulpPostCss(postCssPlugins())))
+    .pipe(gulpPostCss(postCssPlugins()))
     .pipe(gulpIf(isDevelopment, gulpSourcemaps.write('./')))
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
