@@ -4,7 +4,7 @@
     {% set classes = ' ' + params.classes %}
   {% endif %}
 
-  <div class="ons-related-content{{ classes }}" aria-label="{{ params.ariaLabel | default("Related content") }}">
+  <div class="ons-related-content{{ classes }}" role="region" aria-label="{{ params.ariaLabel | default("Related content") }}">
     {% if params.rows %}
       {% for row in params.rows %}
         {% from "components/related-content/_section-macro.njk" import onsRelatedContentSection %}
