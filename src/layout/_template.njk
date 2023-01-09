@@ -47,19 +47,9 @@
 {% endif %}
 
 {# Page columns #}
-{% set mainColNumber = "8" %}
-
-{% if pageConfig.mainCol %}
-    {% set mainColNumber = pageConfig.mainCol.columns if pageConfig.mainCol.columns %}
-    {% set mainColClasses = (' ' + pageConfig.mainCol.colClasses) if pageConfig.mainCol.colClasses %}
-    {% set mainClasses = (' ' + pageConfig.mainCol.classes) if pageConfig.mainCol.classes %}
-{% endif %}
-
-{% if pageConfig.asideCol %}
-    {% set asideColNumber = 12 - mainColNumber if pageConfig.asideCol.position %}
-    {% set asideColClasses = (' ' + pageConfig.asideCol.colClasses) if pageConfig.asideCol.colClasses %}
-    {% set asideClasses = (' ' + pageConfig.asideCol.classes) if pageConfig.asideCol.classes %}
-{% endif %}
+{% set pageColNumber = pageConfig.pageColNumber | default("12") %}
+{% set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else '' %}
+{% set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else '' %}
 
 <!doctype html>
 <html lang="{{ currentLanguageISOCode }}">
@@ -191,26 +181,11 @@
                             {% endif %}
                             {% block preMain %}{% endblock %}
                             <div class="ons-grid">
-                                {% if pageConfig.asideCol %}
-                                    {% set aside %}
-                                        <div class="ons-grid__col ons-col-{{ asideColNumber }}@m{{ asideColClasses }}">
-                                            <aside {% if pageConfig.asideCol.id %}id="{{ asideId }}" {% endif %}class="ons-page__aside{{ asideClasses }}">
-                                                {% block aside %}{% endblock %}
-                                            </aside>
-                                        </div>
-                                    {% endset %}
-                                {% endif %}
-                                {% if pageConfig.asideCol and pageConfig.asideCol.position == "before" %}
-                                    {{ aside | safe }}
-                                {% endif %}
-                                <div class="ons-grid__col ons-col-{{ mainColNumber }}@m{{ mainColClasses }}">
-                                    <main id="main-content" class="ons-page__main{{ mainClasses }}">
+                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m {{ pageColClasses }}">
+                                    <main id="main-content" class="ons-page__main {{ mainColClasses }}">
                                         {% block main %}{% endblock %}
                                     </main>
                                 </div>
-                                {% if pageConfig.asideCol and pageConfig.asideCol.position == "after" %}
-                                    {{ aside | safe }}
-                                {% endif %}
                             </div>
                         </div>
                     {% endblock %}
