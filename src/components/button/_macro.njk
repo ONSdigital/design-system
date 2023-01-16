@@ -1,7 +1,12 @@
 {% from "components/icons/_macro.njk" import onsIcon %}
+{% from "components/call-to-action/_macro.njk" import onsCallToAction %}
 
 {% macro onsButton(params) %}
-
+    {% if params.url %}
+        {{
+            onsCallToAction(params)
+        }}
+    {% else %}
     {# Set button icon #}
     {% if params.iconType %}
         {% set iconType = params.iconType %}
@@ -10,16 +15,6 @@
         {% else %}
             {# Default icon position before label #}
             {% set iconPosition = "before" %}
-        {% endif %}
-    {% elif params.iconType is not defined and params.noIcon is not defined %}
-        {% if params.url and params.newWindow %}
-        {# CTA link opening in new tab #}
-            {% set iconType = "external-link" %}
-            {% set iconPosition = "after" %}
-        {% elif params.url %}
-        {# CTA link #}
-            {% set iconType = "arrow-next" %}
-            {% set iconPosition = "after" %}
         {% endif %}
     {% endif %}
 
@@ -64,20 +59,11 @@
         {% endif %}
     {% endif %}
 
-    {% set tag = "a" if params.url else "button" %}
-
-    <{{ tag }}
-        {% if params.url %}
-            href="{{ params.url }}"
-            role="button"
-        {% else %}
-            type="{{ buttonType }}"
-        {% endif %}
-        class="ons-btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-btn--{{ variant }}{% endfor %}{% else %} ons-btn--{{ params.variants }}{% endif %}{% endif %}{% if params.url %} ons-btn--link ons-js-submit-btn{% endif %}{% if variantClasses %} {{ variantClasses }}{% endif %}"
+    <button type="{{ buttonType }}"
+        class="ons-btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-btn--{{ variant }}{% endfor %}{% else %} ons-btn--{{ params.variants }}{% endif %}{% endif %}"
         {% if params.id %}id="{{ params.id }}"{% endif %}
-        {% if params.value and tag != "a" %}value="{{ params.value }}"{% endif %}
-        {% if params.name and tag != "a" %}name="{{ params.name }}"{% endif %}
-        {% if params.url and params.newWindow %}target="_blank" rel="noopener"{% endif %}
+        {% if params.value %}value="{{ params.value }}"{% endif %}
+        {% if params.name %}name="{{ params.name }}"{% endif %}
         {{ variantAttributes }}
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}
         >
@@ -111,9 +97,6 @@
                 <span class="ons-btn__text">{{- params.html | safe if params.html else params.text -}}</span>
             {% endif -%}
         </span>
-        {% if params.url and params.newWindow %}
-            <span class="ons-btn__new-window-description ons-u-vh"> ({{ params.newWindowDescription | default("opens in a new tab") }})</span>
-        {% endif %}
         {% if params.buttonContext %}
             <span class="ons-btn__context ons-u-vh">{{ params.buttonContext }}</span>
         {% endif %}
@@ -124,5 +107,6 @@
                 {% endfor %}
             </script>
         {% endif %}
-    </{{ tag }}>
+    </button>
+    {% endif %}
 {% endmacro %}

@@ -1,22 +1,39 @@
+{% from "components/icons/_macro.njk" import onsIcon %}
+
 {% macro onsCallToAction(params) %}
-    {% from "components/button/_macro.njk" import onsButton %}
-    <div class="ons-call-to-action">
-        <div class="ons-container">
-            <div class="ons-grid ons-grid--flex ons-grid--vertical-center ons-grid--no-wrap@s">
-                <div class="ons-grid__col ons-col-auto ons-u-flex-shrink@s">
-                    <h2 class="ons-call-to-action__heading ons-u-fs-r--b ons-u-di">{{ params.headingText }}</h2>
-                    {% if params.paragraphText %}
-                        <p class="ons-call-to-action__text ons-u-di">{{ params.paragraphText }}</p>
-                    {% endif %}
-                </div>
-                <div class="ons-grid__col ons-col-auto ons-u-flex-no-grow ons-u-mt-xs@xxs@s">
-                    {{ onsButton({
-                        "text": params.button.text,
-                        "url": params.button.url,
-                        "variants": "small"
-                    })}}
-                </div>
-            </div>
-        </div>
-    </div>
+    {# Set button icon #}
+    {% if params.iconType %}
+        {% set iconType = params.iconType %}
+    {% else %}
+        {% if params.newWindow %}
+        {# CTA link opening in new tab #}
+            {% set iconType = "external-link" %}
+        {% else %}
+        {# CTA link #}
+            {% set iconType = "arrow-next" %}
+        {% endif %}
+    {% endif %}
+
+    <a href="{{ params.url }}" role="button"
+        class="ons-btn ons-btn--link ons-js-submit-btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-btn--{{ variant }}{% endfor %}{% else %} ons-btn--{{ params.variants }}{% endif %}{% endif %}"
+        {% if params.id %}id="{{ params.id }}"{% endif %}
+        {% if params.newWindow %}target="_blank" rel="noopener"{% endif %}
+        {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}
+        >
+        <span class="ons-btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}">
+            <span class="ons-btn__text ons-u-vh@xxs@s">{{- params.html | safe if params.html else params.text -}}</span>
+            {{
+                onsIcon({
+                    "iconType": iconType,
+                    "classes": 'ons-u-ml-xs'
+                })
+            }}
+        </span>
+        {% if params.newWindow %}
+            <span class="ons-btn__new-window-description ons-u-vh"> ({{ params.newWindowDescription | default("opens in a new tab") }})</span>
+        {% endif %}
+        {% if params.buttonContext %}
+            <span class="ons-btn__context ons-u-vh">{{ params.buttonContext }}</span>
+        {% endif %}
+    </a>
 {% endmacro %}

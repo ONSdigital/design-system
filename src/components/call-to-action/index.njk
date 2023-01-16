@@ -6,19 +6,42 @@ synonyms: cta
 +++
 {% from "views/partials/example/_macro.njk" import patternlibExample %}
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 +++
 
+
+### Call to action
+The call to action button should be used when a link to a new page is the primary call to action on a page. For example, a “Start survey” link.
+
+Links simply styled as buttons are not accessible to users who navigate a web page with voice commands. Setting `"url"` will add the attribute `role="button"` which will help these users select the link.
 {{
-    onsPanel({
-        "body": "This component requires documentation."
+    patternlibExample({"path": "components/call-to-action/examples/button-link/index.njk"})
+}}
+
+#### Call to action opening in a new tab or window
+Use this button when a page needs to open in a new tab or window, for example, for a web chat service.
+
+Setting the `"newWindow"` to `true` adds a warning for screen reader users (set by `"newWindowDescription"`) to let them know a new tab or window will open when they select the button. This helps screen reader users understand why the back button in the browser is disabled on the new page.
+{{
+    patternlibExample({"path": "components/call-to-action/examples/button-link-new-window/index.njk"})
+}}
+
+### Ghost
+The ghosted button style is for use in the [header](/components/header/#external-with-language-and-save-button) or [footer](/components/footer). This can be used to allow a user to exit or [save and sign out](/patterns/save-and-sign-out) of a service.
+
+Setting `"variants"` with `'ghost'` will style the button, and setting `iconType` with `exit` adds the appropriate icon for a “sign out” or “exit” button.
+{{
+    patternlibExample({
+        "path": "components/call-to-action/examples/button-ghost/index.njk",
+        "backgroundColor": "#206095"
     })
 }}
 
-## Default
+### Download
+Setting `"variants"` with `'download'` will show a button with a download icon and add the `download` attribute to make the browser save the file at the specified `url`.
 {{
-    patternlibExample({"path": "components/call-to-action/examples/call-to-action-default/index.njk"})
+    patternlibExample({"path": "components/call-to-action/examples/button-download/index.njk"})
 }}
+
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.
