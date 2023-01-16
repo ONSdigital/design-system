@@ -50,8 +50,10 @@
                             {% endif %}
                         </div>
                         <div class="ons-header__org-logo ons-header__org-logo--small">
-                            {% if params.mastheadLogo.small or params.mastheadLogo.large %}
+                            {% if params.mastheadLogo.small %}
                                 {{ params.mastheadLogo.small | safe }}
+                            {% elif params.mastheadLogo.large %}
+                                {{ params.mastheadLogo.large | safe }}
                             {% else %}
                                 {{
                                     onsIcon({
