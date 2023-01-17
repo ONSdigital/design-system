@@ -27,6 +27,7 @@ const terserOptions = {
 
 const sassOptions = {
   includePaths: ['./node_modules/normalize.css'],
+  outputStyle: 'compressed',
 };
 
 const scripts = [
@@ -76,14 +77,6 @@ gulp.task('build-styles', () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task('build-svg', () => {
-  return gulp
-    .src('./src/svg/**/*.svg')
-    .pipe(gulpSvg(svgConfig))
-    .pipe(gulp.dest('./build/img'))
-    .pipe(browserSync.stream());
-});
-
 gulp.task('build-examples', () => {
   return gulp
     .src(['./src/**/examples/**/*.njk', '!**/_*/**'])
@@ -113,8 +106,7 @@ gulp.task('start-dev-server', async () => {
   await import('./lib/dev-server.js');
 });
 
-gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-svg'));
-gulp.task('build-assets-for-testing', gulp.series('build-script', 'build-styles', 'build-svg'));
+gulp.task('build-assets', gulp.series('build-script', 'build-styles'));
 
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
