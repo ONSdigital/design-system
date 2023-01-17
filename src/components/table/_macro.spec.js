@@ -356,14 +356,16 @@ describe('macro: table', () => {
 
         faker.renderComponent('table', params);
 
-        expect(buttonSpy.occurrences).toContainEqual({
-          text: 'Submit form',
-          id: 'submit-form-button',
-          classes: 'custom-button-class',
-          url: 'https://example.com/link',
-          value: new String('42'), // `| safe` filter is used in macro which makes a string
-          name: 'submit-form-button-name',
-        });
+        expect(buttonSpy.occurrences).toEqual([
+          {
+            text: 'Submit form',
+            id: 'submit-form-button',
+            classes: 'custom-button-class',
+            url: 'https://example.com/link',
+            value: '42', // `| safe` filter is used in macro which makes a string
+            name: 'submit-form-button-name',
+          },
+        ]);
       });
     });
   });

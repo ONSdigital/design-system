@@ -25,6 +25,6 @@
   }
 
   &--white {
-    color: $color-white;
+    color: var(--ons-color-white);
   }
 }

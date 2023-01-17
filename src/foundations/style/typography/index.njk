@@ -20,26 +20,20 @@ The primary font used in ONS digital products is {{
         "url": "https://fonts.google.com/specimen/Open+Sans",
         "linkText": "Open Sans"
     })
-}} , defaulting to stylistic set 2 (for open g's).
+}}. Stylistic set 1 is used because it includes the more accessible opentail lowercase ‘g’, and serifed capital ‘I’.
 
 Open Sans, with its broad range of weights and extensive unicode support was chosen to provide a good balance between legibility, personality and readability. As the majority of our User Interface (UI) is text-based, we use weight and size to denote hierarchy and separation between content. Open Sans’ letterforms also provide a good level of contrast which aid readability on poorer quality displays and for users with visual impairment.
 
-Font stack: <span style='font-family: OpenSans;'>"Open Sans"</span>, <span style='font-family: "Helvetica Neue";'>“Helvetica Neue”</span>, <span style='font-family: Helvetica;'>Helvetica</span>, <span style='font-family: Arial;'>Arial</span>, <span style='font-family: sans-serif;'>sans-serif</span>
+Font family: <span style='font-family: OpenSans;'>"Open Sans"</span>, <span style='font-family: "Helvetica Neue";'>“Helvetica Neue”</span>, <span style='font-family: Helvetica;'>Helvetica</span>, <span style='font-family: Arial;'>Arial</span>, <span style='font-family: sans-serif;'>sans-serif</span>
 
 ### Type scale
 Using the type scale classes on text elements, the type is sized appropriately for the following breakpoints:
 
-| Viewport < 740                                                 | Viewport >= 740                                                |
-|----------------------------------------------------------------|----------------------------------------------------------------|
-| <p class="ons-u-fs-xxxl">ons-u-fs-xxxl</p>Open Sans Bold - 1.7rem/32px | <p class="ons-u-fs-xxxl">ons-u-fs-xxxl</p>Open Sans Bold - 2.6rem/48px |
-| <p class="ons-u-fs-xxl">ons-u-fs-xxl</p>Open Sans Bold - 1.5rem/28px   | <p class="ons-u-fs-xxl">ons-u-fs-xxl</p>Open Sans Bold - 2rem/36px     |
-| <p class="ons-u-fs-xl">ons-u-fs-xl</p>Open Sans Bold - 1.4rem/26px     | <p class="ons-u-fs-xl">ons-u-fs-xl</p>Open Sans Bold - 1.6rem/30px     |
-| <p class="ons-u-fs-l">ons-u-fs-l</p>Open Sans Bold - 1.3rem/24px       | <p class="ons-u-fs-l">ons-u-fs-l</p>Open Sans Bold - 1.4rem/26px       |
-| <p class="ons-u-fs-m">ons-u-fs-m</p>Open Sans Bold - 1.1rem/20px       | <p class="ons-u-fs-m">ons-u-fs-m</p>Open Sans Bold - 1.2rem/22px       |
-| <p class="ons-u-fs-r--b">ons-u-fs-r--b</p>Open Sans Bold - 1rem/18px   | <p class="ons-u-fs-r--b">ons-u-fs-r--b</p>Open Sans Bold - 1rem/18px   |
-| <p class="ons-u-fs-r">ons-u-fs-r</p>Open Sans Regular - 1rem/18px      | <p class="ons-u-fs-r">ons-u-fs-r</p>Open Sans Regular - 1rem/18px      |
-| <p class="ons-u-fs-s--b">ons-u-fs-s--b</p>Open Sans Bold - 0.7rem/14px | <p class="ons-u-fs-s--b">ons-u-fs-s--b</p>Open Sans Bold - 0.7rem/14px |
-| <p class="ons-u-fs-s">ons-u-fs-s</p>Open Sans Regular - 0.7rem/14px    | <p class="ons-u-fs-s">ons-u-fs-s</p>Open Sans Regular - 0.7rem/14px    |
+{{
+    patternlibExample({"path": "foundations/style/typography/type-scale/examples/type-scale/index.njk",
+        "noTabs": true
+    })
+}}
 
 ### Font weights
 {{
@@ -59,13 +53,17 @@ Using the type scale classes on text elements, the type is sized appropriately f
 ## Headings
 Heading defaults are as follows:
 {{
-    patternlibExample({"path": "foundations/style/typography/headings/examples/default-heading-sizes/index.njk"})
+    patternlibExample({"path": "foundations/style/typography/headings/examples/default-heading-sizes/index.njk",
+        "noTabs": true
+    })
 }}
 
 ### Breakpoint headings
 <p>Font sizes can be triggered at certain breakpoints. Just suffix any font size class with <code>@{breakpoint}</code>, for example, <code>ons-u-fs-m@l</code></p>
 {{
-    patternlibExample({"path": "foundations/style/typography/headings/examples/breakpoint-headings/index.njk"})
+    patternlibExample({"path": "foundations/style/typography/headings/examples/breakpoint-headings/index.njk",
+        "noTabs": true
+    })
 }}
 
 
@@ -73,14 +71,18 @@ Heading defaults are as follows:
 The base font size for paragraphs is 18px.
 
 {{
-    patternlibExample({"path": "foundations/style/typography/paragraphs/examples/paragraphs/index.njk"})
+    patternlibExample({"path": "foundations/style/typography/paragraphs/examples/paragraphs/index.njk",
+        "noTabs": true
+    })
 }}
 
 ## Links
 Links are blue and underlined by default. If your link is at the end of a sentence or paragraph, make sure that the linked text does not include the full stop.
 
 {{
-    patternlibExample({"path": "foundations/style/typography/links/examples/link/index.njk"})
+    patternlibExample({"path": "foundations/style/typography/links/examples/link/index.njk",
+        "noTabs": true
+    })
 }}
 
 ### External Links
@@ -171,7 +173,9 @@ Highlighting should be used to add emphasis to particular words in a heading, a 
 
 Only apply highlights using the semantic emphasis tag (`<em>`) with the class `.ons-highlight`.
 {{
-    patternlibExample({ "path": "foundations/style/typography/highlighting/examples/highlighting/index.njk"})
+    patternlibExample({ "path": "foundations/style/typography/highlighting/examples/highlighting/index.njk",
+        "noRawTab": true
+    })
 }}
 
 ## Quotes

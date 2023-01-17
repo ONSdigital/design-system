@@ -14,7 +14,7 @@ Tabs let the user navigate between sections of content, showing one section at a
 }}
 
 ## When to use this component
-Use tabs to collate facets of content within a closely related context. The provide a way for users to quickly scan across the subject areas of content.
+Use tabs to collate facets of content within a closely related context. They provide a way for users to quickly scan across the subject areas of content.
 
 ## When not to use this component
 Tabs hide content from users and are not easily noticed and understood by everyone.  So they should not be used if the content inside each tab is critical to the user being able to progress with their task.
@@ -40,13 +40,13 @@ Test your content considering the following alternatives before using tabs:
 }}
 
 ### Alternative components
-[Accordions](/components/accordion), tabs and [collapsible](/components/collapsible) all hide sections of content which a user can show or hide.
+[Accordions](/components/accordion), tabs and [details](/components/details) all hide sections of content which a user can show or hide.
 
 Tabs may work better for users who need to switch quickly between sections because the position of their headings remains static, whereas the accordion headings move down the page as you open others.
 
 Consider the number of sections you need to display. Tabs display horizontally so cannot display as many sections as [accordions](/components/accordion) which display vertically.  Also consider the use of your service on mobile devices.  Tabs only display on viewports `> 640px` before their content is expanded and stacked vertically under headings.
 
-Use the [collapsible component](/components/collapsible) if there is only one section of content that needs to be condensed.
+Use the [details component](/components/details) if there is only one section of content that needs to be condensed.
 
 ## How to use this component
 Tabs work well when the primary content block is displayed in the first tab. Subsequent tabs can show further detail and/or deeper levels that relate to the primary content (but this isn’t a strict rule).
@@ -73,6 +73,17 @@ A visually hidden `<h2>` should be added above the tabs list to provide further 
 
 ### Use clear and short labels
 Tabs hide content and are displayed horizontally, so it's important to use tab labels which are clear and succinct.  To avoid the tab layout breaking, consider to using single words or reducing the number of tabs.
+
+## Variants
+
+### Details tabs
+Tabs can be used to reveal hidden blocks of content that provide detail about a media item above, such as an image, video or iframe. Setting `"variants": [ 'details' ]` will style the tabs appropriately.
+
+You can set `"noInitialActiveTab": true` to prevent the first tab from being selected when the page is initially loaded.
+
+{{
+    patternlibExample({"path":"components/tabs/examples/tabs-details/index.njk"})
+}}
 
 ## Help improve this component
 Let us know how we could improve this component or share your user research findings.

@@ -18,9 +18,9 @@
       position: relative;
 
       &::after {
-        background: $color-borders;
+        background: var(--ons-color-borders);
         bottom: 0;
-        box-shadow: 0 1px 0 0 $color-page-light;
+        box-shadow: 0 1px 0 0 var(--ons-color-page-light);
         content: '';
         height: 1px;
         left: 0;
@@ -43,10 +43,10 @@
 }
 
 .ons-tab--row {
-  background: $color-button-secondary;
-  border: 1px solid $color-button-secondary;
+  background: var(--ons-color-button-secondary);
+  border: 1px solid var(--ons-color-button-secondary);
   border-radius: 3px 3px 0 0;
-  color: $color-text;
+  color: var(--ons-color-text);
   display: inline-block;
   height: 2.55rem;
   line-height: 2.3rem;
@@ -57,42 +57,42 @@
   text-decoration: underline;
 
   &:hover {
-    background-color: darken($color-button-secondary, 5%);
-    border-color: darken($color-button-secondary, 5%);
-    color: $color-text;
-    text-decoration: underline solid $color-text 2px;
+    background-color: var(--ons-color-button-secondary-hover);
+    border-color: var(--ons-color-button-secondary-hover);
+    color: var(--ons-color-text);
+    text-decoration: underline solid var(--ons-color-text) 2px;
   }
 
   &:focus {
-    background-color: $color-focus;
-    border-bottom: 1px solid $color-borders;
-    box-shadow: inset 0 0 0 9px $color-button-secondary,
-      inset 17px 0 0 0 $color-button-secondary,
-      inset -17px 0 0 0 $color-button-secondary,
-      inset 0 -13px 0 0 $color-text-link-focus;
-    color: $color-text-link-focus;
+    background-color: var(--ons-color-focus);
+    border-bottom: 1px solid var(--ons-color-borders);
+    box-shadow: inset 0 0 0 9px var(--ons-color-button-secondary),
+      inset 17px 0 0 0 var(--ons-color-button-secondary),
+      inset -17px 0 0 0 var(--ons-color-button-secondary),
+      inset 0 -13px 0 0 var(--ons-color-text-link-focus);
+    color: var(--ons-color-text-link-focus);
 
     // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
     outline: 3px solid transparent;
     outline-offset: 1px;
-    text-decoration: underline solid $color-text 2px;
+    text-decoration: underline solid var(--ons-color-text) 2px;
   }
 
   // Tab when selected
   &[aria-selected='true'] {
-    background-color: $color-page-light;
+    background-color: var(--ons-color-page-light);
     border-bottom: none;
-    border-color: $color-borders;
+    border-color: var(--ons-color-borders);
     border-radius: 3px 3px 0 0;
     text-decoration: none;
     z-index: 1;
 
     &:focus {
-      background-color: $color-focus;
-      box-shadow: inset 0 0 0 9px $color-page-light,
-        inset 17px 0 0 0 $color-page-light,
-        inset -17px 0 0 0 $color-page-light,
-        inset 0 -13px 0 0 $color-text-link-focus;
+      background-color: var(--ons-color-focus);
+      box-shadow: inset 0 0 0 9px var(--ons-color-page-light),
+        inset 17px 0 0 0 var(--ons-color-page-light),
+        inset -17px 0 0 0 var(--ons-color-page-light),
+        inset 0 -13px 0 0 var(--ons-color-text-link-focus);
       text-decoration: none;
     }
   }
@@ -109,8 +109,40 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 3px $color-page-light, 0 0 0 5px $color-text-link-focus, 0 0 0 8px $color-focus;
+    box-shadow: 0 0 0 3px var(--ons-color-page-light), 0 0 0 5px var(--ons-color-text-link-focus), 0 0 0 8px var(--ons-color-focus);
     outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
     z-index: 1;
+  }
+}
+
+.ons-tabs--details {
+  border-top: 1px solid var(--ons-color-borders);
+  margin: 0;
+
+  .ons-tab {
+    border-radius: 0;
+    border-top: none;
+  }
+
+  .ons-tab__list-item:first-child .ons-tab {
+    border-left: none;
+  }
+
+  .ons-tabs__title {
+    padding: 1rem 1rem 0;
+  }
+
+  .ons-tabs__list {
+    padding: 0 1rem;
+  }
+
+  .ons-tabs__list--row {
+    margin-bottom: -1px;
+    padding: 0;
+  }
+
+  .ons-tabs__panel {
+    margin-top: 1px;
+    padding: 1rem;
   }
 }

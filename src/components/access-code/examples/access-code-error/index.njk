@@ -6,7 +6,7 @@ layout: none
 {% from "components/access-code/_macro.njk" import onsUACInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+{% from "components/details/_macro.njk" import onsDetails %}
 
 {% set pageConfig = {
   "title": "Study title"
@@ -16,8 +16,7 @@ layout: none
     {% call
         onsPanel({
             title: "There is a problem with this page",
-            type: "error",
-            "dsExample": isPatternLib
+            type: "error"
         })
     %}
 
@@ -45,13 +44,12 @@ layout: none
         "postTextboxLinkUrl": "#0",
         "label": {
             "text": "Enter your 16-character access code",
-            "description": "Keep this code safe. You will need to enter it every time you access your census"
+            "description": "Keep this code safe. You will need to enter it every time you access your survey"
         },
         "securityMessage": "Your personal information is protected by law and will be kept confidential",
         "error": {
             "id": "uac-error",
-            "text": "Enter an access code",
-            "dsExample": isPatternLib
+            "text": "Enter an access code"
         }
     }) }}
 
@@ -75,8 +73,8 @@ layout: none
         {% endcall %}
     {% endset %}
 
-    {% call onsCollapsible({
-            "id": "collapsible",
+    {% call onsDetails({
+            "id": "details",
             "title": "Need to answer separately from your household?",
             "button": {
                 "close": "Hide this",

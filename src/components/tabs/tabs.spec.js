@@ -7,18 +7,26 @@ const EXAMPLE_TABS = {
   title: 'Example tabs',
   tabs: [
     {
+      id: 'tab.id.1',
       title: 'Tab 1',
       content: 'First content...',
     },
     {
+      id: 'tab.id.2',
       title: 'Tab 2',
       content: 'Second content...',
     },
     {
+      id: 'tab.id.3',
       title: 'Tab 3',
       content: 'Third content...',
     },
   ],
+};
+
+const EXAMPLE_TABS_WITH_NO_INITIAL_ACTIVE_TAB = {
+  ...EXAMPLE_TABS,
+  noInitialActiveTab: true,
 };
 
 describe('script: tabs', () => {
@@ -47,7 +55,7 @@ describe('script: tabs', () => {
     it('has "aria-controls" assigned to each tab with the corresponding panel id', async () => {
       const ariaControlsValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('aria-controls')));
 
-      expect(ariaControlsValues).toEqual(['tabId1', 'tabId2', 'tabId3']);
+      expect(ariaControlsValues).toEqual(['tab.id.1', 'tab.id.2', 'tab.id.3']);
     });
 
     it('has "aria-selected" assigned to the first tab', async () => {
@@ -78,7 +86,7 @@ describe('script: tabs', () => {
 
     describe('when a tab is clicked', () => {
       beforeEach(async () => {
-        await page.focus('#tabId2Item a');
+        await page.focus('a[href="#tab.id.2"]');
         await page.keyboard.press('Enter');
       });
 
@@ -89,13 +97,13 @@ describe('script: tabs', () => {
       });
 
       it('has the "aria-selected" attribute', async () => {
-        const ariaSelectedValue = await page.$eval('#tabId2Item a', node => node.getAttribute('aria-selected'));
+        const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', node => node.getAttribute('aria-selected'));
 
         expect(ariaSelectedValue).toBe('true');
       });
 
       it('has the "ons-tab--selected" class assigned', async () => {
-        const hasClass = await page.$eval('#tabId2Item a', node => node.classList.contains('ons-tab--selected'));
+        const hasClass = await page.$eval('a[href="#tab.id.2"]', node => node.classList.contains('ons-tab--selected'));
 
         expect(hasClass).toBe(true);
       });
@@ -111,22 +119,55 @@ describe('script: tabs', () => {
 
     describe('when the right arrow key is pressed', () => {
       it('focuses the next tab', async () => {
-        await page.focus('#tabId2Item a');
+        await page.focus('a[href="#tab.id.2"]');
         await page.keyboard.press('ArrowRight');
 
-        const activeElementId = await page.evaluate(() => document.activeElement.parentElement.id);
-        expect(activeElementId).toBe('tabId3Item');
+        const activeElement = await page.evaluate(() => document.activeElement.innerText);
+        expect(activeElement).toBe('Tab 3');
       });
     });
 
     describe('when the left arrow key is pressed', () => {
       it('focuses the previous tab', async () => {
-        await page.focus('#tabId2Item a');
+        await page.focus('a[href="#tab.id.2"]');
         await page.keyboard.press('ArrowLeft');
 
-        const activeElementId = await page.evaluate(() => document.activeElement.parentElement.id);
-        expect(activeElementId).toBe('tabId1Item');
+        const activeElement = await page.evaluate(() => document.activeElement.innerText);
+        expect(activeElement).toBe('Tab 1');
       });
+    });
+  });
+
+  describe('when a hash for a tab is in the url', () => {
+    beforeEach(async () => {
+      await setViewport(page, { width: 1650, height: 1050 });
+      await setTestPage('/test#tab.id.2', renderComponent('tabs', EXAMPLE_TABS));
+    });
+
+    it('is assigned a "tabindex" value', async () => {
+      const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+
+      expect(tabIndexValues).toEqual(['-1', '0', '-1']);
+    });
+
+    it('has the "aria-selected" attribute', async () => {
+      const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', node => node.getAttribute('aria-selected'));
+
+      expect(ariaSelectedValue).toBe('true');
+    });
+
+    it('has the "ons-tab--selected" class assigned', async () => {
+      const hasClass = await page.$eval('a[href="#tab.id.2"]', node => node.classList.contains('ons-tab--selected'));
+
+      expect(hasClass).toBe(true);
+    });
+
+    it('shows the corresponding panel', async () => {
+      const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
+        nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+      );
+
+      expect(panelHiddenStates).toEqual([true, false, true]);
     });
   });
 
@@ -157,6 +198,125 @@ describe('script: tabs', () => {
 
       const hiddenPanelCount = await page.$$eval('.ons-tabs__panel--hidden', nodes => nodes.length);
       expect(hiddenPanelCount).toBe(0);
+    });
+  });
+
+  describe('when `data-no-initial-active-tab` is present', () => {
+    beforeEach(async () => {
+      await setViewport(page, { width: 1650, height: 1050 });
+      await setTestPage('/test', renderComponent('tabs', EXAMPLE_TABS_WITH_NO_INITIAL_ACTIVE_TAB));
+    });
+
+    it('does not assign "aria-selected" to the first tab', async () => {
+      const ariaSelectedValue = await page.$eval('.ons-tab', node => node.getAttribute('aria-selected'));
+
+      expect(ariaSelectedValue).not.toBe('true');
+    });
+
+    it('does not assign the "ons-tab--selected" class to the first tab', async () => {
+      const hasClass = await page.$eval('.ons-tab', node => node.classList.contains('ons-tab--selected'));
+
+      expect(hasClass).toBe(false);
+    });
+
+    describe('when a tab is clicked', () => {
+      beforeEach(async () => {
+        await page.focus('a[href="#tab.id.1"]');
+        await page.keyboard.press('Enter');
+      });
+
+      it('is assigned a "tabindex" value', async () => {
+        const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+
+        expect(tabIndexValues).toEqual(['0', '-1', '-1']);
+      });
+
+      it('has the "aria-selected" attribute', async () => {
+        const ariaSelectedValue = await page.$eval('a[href="#tab.id.1"]', node => node.getAttribute('aria-selected'));
+
+        expect(ariaSelectedValue).toBe('true');
+      });
+
+      it('has the "ons-tab--selected" class assigned', async () => {
+        const hasClass = await page.$eval('a[href="#tab.id.1"]', node => node.classList.contains('ons-tab--selected'));
+
+        expect(hasClass).toBe(true);
+      });
+
+      it('shows the corresponding panel', async () => {
+        const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
+          nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+        );
+
+        expect(panelHiddenStates).toEqual([false, true, true]);
+      });
+    });
+
+    describe('when a tab is clicked twice', () => {
+      beforeEach(async () => {
+        await page.focus('a[href="#tab.id.2"]');
+        await page.keyboard.press('Enter');
+        await page.keyboard.press('Enter');
+      });
+
+      it('is assigned a "tabindex" value', async () => {
+        const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+
+        expect(tabIndexValues).toEqual(['0', '-1', '-1']);
+      });
+
+      it('does not have the "aria-selected" attribute', async () => {
+        const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', node => node.getAttribute('aria-selected'));
+
+        expect(ariaSelectedValue).not.toBe('true');
+      });
+
+      it('does not have the "ons-tab--selected" class assigned', async () => {
+        const hasClass = await page.$eval('a[href="#tab.id.2"]', node => node.classList.contains('ons-tab--selected'));
+
+        expect(hasClass).toBe(false);
+      });
+
+      it('hides the corresponding panel', async () => {
+        const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
+          nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+        );
+
+        expect(panelHiddenStates).toEqual([true, true, true]);
+      });
+    });
+  });
+
+  describe('when a hash for a tab is in the url and `data-no-initial-active-tab` is present', () => {
+    beforeEach(async () => {
+      await setViewport(page, { width: 1650, height: 1050 });
+      await setTestPage('/test#tab.id.2', renderComponent('tabs', EXAMPLE_TABS_WITH_NO_INITIAL_ACTIVE_TAB));
+    });
+
+    it('is assigned a "tabindex" value', async () => {
+      const tabIndexValues = await page.$$eval('.ons-tab', nodes => nodes.map(node => node.getAttribute('tabindex')));
+
+      expect(tabIndexValues).toEqual(['-1', '0', '-1']);
+    });
+
+    it('has the "aria-selected" attribute', async () => {
+      const ariaSelectedValue = await page.$eval('a[href="#tab.id.2"]', node => node.getAttribute('aria-selected'));
+
+      expect(ariaSelectedValue).toBe('true');
+    });
+
+    it('has the "ons-tab--selected" class assigned', async () => {
+      const hasClass = await page.$eval('a[href="#tab.id.2"]', node => node.classList.contains('ons-tab--selected'));
+
+      expect(hasClass).toBe(true);
+    });
+
+    it('shows the corresponding panel', async () => {
+      const panelHiddenStates = await page.$$eval('.ons-tabs__panel', nodes =>
+        nodes.map(node => node.classList.contains('ons-tabs__panel--hidden')),
+      );
+
+      expect(panelHiddenStates).toEqual([true, false, true]);
     });
   });
 });

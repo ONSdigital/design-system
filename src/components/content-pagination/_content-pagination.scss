@@ -19,7 +19,7 @@
     &:hover {
       text-decoration: none;
       .ons-content-pagination__link-label {
-        text-decoration: underline solid $color-text-link-hover 2px;
+        text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
       }
     }
 

@@ -39,7 +39,7 @@ describe('script: accordion', () => {
       }),
     );
 
-    const openElements = await page.$$eval('.ons-js-collapsible', nodes => nodes.filter(node => node.open));
+    const openElements = await page.$$eval('.ons-js-details', nodes => nodes.filter(node => node.open));
     expect(openElements[0]).not.toBe(undefined);
     expect(openElements[1]).not.toBe(undefined);
     expect(openElements[2]).not.toBe(undefined);
@@ -76,7 +76,7 @@ describe('script: accordion', () => {
 
     await page.click('button[data-test-trigger]');
 
-    const openElements = await page.$$eval('.ons-js-collapsible', nodes => nodes.filter(node => node.open));
+    const openElements = await page.$$eval('.ons-js-details', nodes => nodes.filter(node => node.open));
     expect(openElements[0]).not.toBe(undefined);
     expect(openElements[1]).not.toBe(undefined);
     expect(openElements[2]).not.toBe(undefined);
@@ -88,7 +88,7 @@ describe('script: accordion', () => {
     await page.click('button[data-test-trigger]');
     await page.click('button[data-test-trigger]');
 
-    const openElements = await page.$$eval('.ons-js-collapsible', nodes => nodes.filter(node => node.open));
+    const openElements = await page.$$eval('.ons-js-details', nodes => nodes.filter(node => node.open));
     expect(openElements[0]).toBe(undefined);
     expect(openElements[1]).toBe(undefined);
     expect(openElements[2]).toBe(undefined);
@@ -129,9 +129,9 @@ describe('script: accordion', () => {
   it('sets toggle all button label to "Hide all" when all items are shown', async () => {
     await setTestPage('/test', renderComponent('accordion', EXAMPLE_ACCORDION_WITH_ALL_BUTTON));
 
-    await page.click('#example-accordion-1 .ons-collapsible__heading');
-    await page.click('#example-accordion-2 .ons-collapsible__heading');
-    await page.click('#example-accordion-3 .ons-collapsible__heading');
+    await page.click('#example-accordion-1 .ons-details__heading');
+    await page.click('#example-accordion-2 .ons-details__heading');
+    await page.click('#example-accordion-3 .ons-details__heading');
 
     const buttonText = await page.$eval('button[data-test-trigger]', element => element.innerText);
     expect(buttonText.trim()).toBe('Close all');

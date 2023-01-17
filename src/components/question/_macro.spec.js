@@ -163,21 +163,21 @@ describe('macro: question', () => {
   });
 
   describe('mode: with definition', () => {
-    it('outputs the expected collapsible', () => {
+    it('outputs the expected details', () => {
       const faker = templateFaker();
-      const collapsibleSpy = faker.spy('collapsible');
+      const detailsSpy = faker.spy('details');
 
       faker.renderComponent('question', EXAMPLE_QUESTION_DEFINITION);
 
-      expect(collapsibleSpy.occurrences[0]).toHaveProperty('classes', 'ons-u-mb-m');
-      expect(collapsibleSpy.occurrences[0]).toHaveProperty('id', 'definition-id');
-      expect(collapsibleSpy.occurrences[0]).toHaveProperty('title', 'Definition title');
+      expect(detailsSpy.occurrences[0]).toHaveProperty('classes', 'ons-u-mb-m');
+      expect(detailsSpy.occurrences[0]).toHaveProperty('id', 'definition-id');
+      expect(detailsSpy.occurrences[0]).toHaveProperty('title', 'Definition title');
     });
 
-    it('outputs the expected collapsible call content', () => {
+    it('outputs the expected details call content', () => {
       const $ = cheerio.load(renderComponent('question', EXAMPLE_QUESTION_DEFINITION));
 
-      expect($('.ons-collapsible__content > p').text()).toBe('Definition content');
+      expect($('.ons-details__content > p').text()).toBe('Definition content');
     });
   });
 
@@ -227,21 +227,21 @@ describe('macro: question', () => {
   });
 
   describe('mode: with justification', () => {
-    it('outputs the expected collapsible', () => {
+    it('outputs the expected details', () => {
       const faker = templateFaker();
-      const collapsibleSpy = faker.spy('collapsible');
+      const detailsSpy = faker.spy('details');
 
       faker.renderComponent('question', EXAMPLE_QUESTION_JUSTIFICATION);
 
-      expect(collapsibleSpy.occurrences[0]).toHaveProperty('classes', 'ons-u-mb-m');
-      expect(collapsibleSpy.occurrences[0]).toHaveProperty('id', 'justification-id');
-      expect(collapsibleSpy.occurrences[0]).toHaveProperty('title', 'Justification title');
+      expect(detailsSpy.occurrences[0]).toHaveProperty('classes', 'ons-u-mb-m');
+      expect(detailsSpy.occurrences[0]).toHaveProperty('id', 'justification-id');
+      expect(detailsSpy.occurrences[0]).toHaveProperty('title', 'Justification title');
     });
 
-    it('outputs the expected collapsible call content', () => {
+    it('outputs the expected details call content', () => {
       const $ = cheerio.load(renderComponent('question', EXAMPLE_QUESTION_JUSTIFICATION));
 
-      expect($('.ons-collapsible__content > p').text()).toBe('Justification content');
+      expect($('.ons-details__content > p').text()).toBe('Justification content');
     });
   });
 

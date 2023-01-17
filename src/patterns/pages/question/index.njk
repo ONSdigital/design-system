@@ -22,8 +22,10 @@ A question page can be built using the question macro `onsQuestion()`.
 
 Use the parameters in the following table to build the common question elements. This will make sure the they are used correctly and the spacing is consistent across all questions. You need to import any applicable component for the required type of answer.
 {{ patternlibExample({
-    "path": "patterns/pages/question/examples/question-anatomy/index.njk"
-}) }}
+        "path": "patterns/pages/question/examples/question-anatomy/index.njk",
+        "noTabs": true
+    })
+}}
 
 Use the [basic content principles](/guidance/basic-content-principles) to make sure the content on your question pages is clearly written and accessible. Keep your content short so users do not have too much to read and can continue their journey without interruption. Each part of the page should follow the specific content guidance.
 
@@ -69,7 +71,7 @@ A question description should have a full stop at the end only if there is more 
 ### Question definition (optional)
 Use a question definition to define a word or acronym that is in the question.
 
-A question definition is collapsible so that it does not disrupt the flow of the page for users who do not need the definition.
+A question definition is details so that it does not disrupt the flow of the page for users who do not need the definition.
 
 Write them as statements rather than questions, for example:
 {{-
@@ -98,7 +100,7 @@ Do not use full stops on answers or answer descriptions (unless the description 
 ### Question justification (optional)
 Use a question justification to explain why a question is being asked if there is evidence that users want to know this.
 
-A question justification is collapsible and positioned at the bottom of the page so it does not disrupt the flow of the page for users.
+A question justification is details and positioned at the bottom of the page so it does not disrupt the flow of the page for users.
 
 Like the question definition, write them as statements rather than questions, for example:
 {{-

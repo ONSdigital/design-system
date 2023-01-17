@@ -6,7 +6,7 @@ layout: none
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+{% from "components/details/_macro.njk" import onsDetails %}
 {% from "components/table/_macro.njk" import onsTable %}
 {% block head %}
     <!-- Google Tag Manager -->
@@ -25,16 +25,6 @@ layout: none
     </script>
     <!-- End Google Tag Manager -->
 
-    <script>
-        if (!navigator.onLine) {
-            console.log('You\'re offline');
-            const link  = document.createElement('link');
-            link.rel  = 'stylesheet';
-            link.href = '/css/census.css';
-
-            document.head.appendChild(link);
-        }
-    </script>
 {% endblock %}
 {% block bodyStart %}
 <!-- Google Tag Manager (noscript) -->
@@ -106,7 +96,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <li>the pages you visit on ons.gov.uk and how long you spend on each page</li>
                     <li>what you click on while you're visiting the site</li>
                 </ul>
-                {% call onsCollapsible({
+                {% call onsDetails({
                     "id": "cookies-measure-website-use-details",
                     "classes": "ons-u-mb-s",
                     "title": "Learn more about these Google Analytics cookies",
@@ -204,7 +194,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p>In addition, if you share a link to a ons.gov.uk page, the service you share it on may set a cookie. We have no control over cookies set on other websites – you can turn them off, but not through us.</p>
                 <h4>YouTube videos</h4>
                 <p>We use YouTube to show videos on some ons.gov.uk pages. YouTube sets cookies when you visit one of these pages.</p>
-                {% call onsCollapsible({
+                {% call onsDetails({
                     "id": "cookies-measure-website-comms-details",
                     "classes": "ons-u-mb-s",
                     "title": "Learn more about these YouTube cookies",
@@ -311,7 +301,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <li>remember your progress through a form (for example, an ons study)</li>
                 </ul>
                 <p>They always need to be on.</p>
-                {% call onsCollapsible({
+                {% call onsDetails({
                     "id": "cookies-essential-details",
                     "classes": "ons-u-mb-l",
                     "title": "Learn more about these essential cookies",

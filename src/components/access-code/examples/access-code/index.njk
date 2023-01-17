@@ -6,7 +6,7 @@ layout: none
 {% from "components/access-code/_macro.njk" import onsUACInput %}
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/panel/_macro.njk" import onsPanel %}
-{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+{% from "components/details/_macro.njk" import onsDetails %}
 
 {% set pageConfig = {
     "header": {
@@ -49,8 +49,8 @@ layout: none
         {% endcall %}
     {% endset %}
 
-    {% call onsCollapsible({
-            id: "collapsible",
+    {% call onsDetails({
+            id: "details",
             title: "Need to answer separately from your household?",
             button: {
                 "close": "Hide this",

@@ -14,7 +14,7 @@ layout: none
     },
     "absoluteUrl": pageInfo.url,
     "header": {
-        "orgLogoHref": "#0"
+        "mastheadLogoUrl": "#0"
     },
     "language": {
         "languages": [
@@ -52,14 +52,13 @@ layout: none
 
     <div class="ons-js-adv-filter">
         <div class="ons-grid ons-grid--column@xxs@s ons-u-mb-m@m">
-            <div class="ons-grid__col ons-col-4@m">
+            <div class="ons-grid__col ons-col-4@m ons-js-adv-filter__wrap">
                 {{
                     onsButton({
                         "type": 'button',
                         "text": 'Show filters',
                         "classes": 'ons-adv-filter__trigger ons-js-adv-filter__trigger ons-btn ons-btn--secondary ons-btn--small ons-u-mb-m',
                         "attributes": {
-                            "aria-label": 'Toggle filters',
                             "aria-expanded": 'false',
                             "aria-controls": 'filter-panel'
                         }
@@ -262,7 +261,7 @@ layout: none
 
             <div class="ons-grid__col ons-col-8@m">
                 <div class="ons-adv-filter__results-options">
-                    <div class="ons-adv-filter__results-count">
+                    <div class="ons-adv-filter__results-count" role="status">
                         <span class="ons-js-adv-filter__results-count">9</span> results of 150
                     </div>
 
@@ -292,7 +291,7 @@ layout: none
                                 "smallSrc": "/patternlib-img/download-resources/img/small/census-2021-matters-to-everyone.png",
                                 "largeSrc": "/patternlib-img/download-resources/img/large/census-2021-matters-to-everyone.png"
                             },
-                            "url": "/patternlib-img/download-resources/documents/Print-Ready-A4GIP1-2021-v1-0-120620.pdf",
+                            "url": '#',            
                             "title": "Census 2021 matters to everyone",
                             "metadata": {
                                 "type": {
@@ -316,7 +315,7 @@ layout: none
                                 "smallSrc": '/patternlib-img/download-resources/img/small/including-everyone-in-census-2021-v2.png',
                                 "largeSrc": '/patternlib-img/download-resources/img/large/including-everyone-in-census-2021-v2.png'
                             },
-                            "url": '/patternlib-img/download-resources/documents/Print-Ready-A4EB1-2021-v1-0-120620.pdf',
+                            "url": '#',            
                             "title": 'Including everyone in Census 2021',
                             "metadata": {
                                 "type": {
@@ -340,7 +339,7 @@ layout: none
                                 "smallSrc": "/patternlib-img/download-resources/img/small/including-everyone-in-census-2021.png",
                                 "largeSrc": "/patternlib-img/download-resources/img/large/including-everyone-in-census-2021.png"
                             },
-                            "url": "/patternlib-img/download-resources/documents/A6PCA1-v1-0-Print-Ready-Pack1.pdf",
+                            "url": '#',            
                             "title": "Census awareness poster",
                             "metadata": {
                                 "type": {
@@ -364,7 +363,7 @@ layout: none
                                 "smallSrc": "/patternlib-img/download-resources/img/small/census-2021-community-handbook.png",
                                 "largeSrc": "/patternlib-img/download-resources/img/large/census-2021-community-handbook.png"
                             },
-                            "url": "/patternlib-img/download-resources/documents/CHDE1-Community-Handbook-v0.6.pdf",
+                            "url": '#',            
                             "title": "Community handbook for Census 2021",
                             "metadata": {
                                 "type": {
@@ -388,7 +387,7 @@ layout: none
                                 "smallSrc": "/patternlib-img/download-resources/img/small/census-2021-brand-guidelines.png",
                                 "largeSrc": "/patternlib-img/download-resources/img/large/census-2021-brand-guidelines.png"
                             },
-                            "url": "/patternlib-img/download-resources/documents/ONS-Census-2021-Brand-Guidelines-v3-03.pdf",
+                            "url": '#',            
                             "title": "Brand guidelines for Census 2021",
                             "metadata": {
                                 "type": {
@@ -412,7 +411,7 @@ layout: none
                                 "smallSrc": "/patternlib-img/download-resources/img/small/census-2021-tone-of-voice.png",
                                 "largeSrc": "/patternlib-img/download-resources/img/large/census-2021-tone-of-voice.png"
                             },
-                            "url": "/patternlib-img/download-resources/documents/Census-Tone-of-Voice-v4-07.pdf",
+                            "url": '#',            
                             "title": "Tone of voice for Census 2021",
                             "metadata": {
                                 "type": {

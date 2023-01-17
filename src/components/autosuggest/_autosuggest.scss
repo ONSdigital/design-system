@@ -11,7 +11,7 @@
   }
 
   &__results {
-    border: 1px solid $color-input-border;
+    border: 1px solid var(--ons-color-input-border);
     border-radius: $input-radius;
     display: none;
     margin: 0.5rem 0 0;
@@ -21,18 +21,18 @@
   }
 
   &__group {
-    color: $color-text-link;
+    color: var(--ons-color-text-link);
     text-decoration: underline;
   }
 
   &__results-title {
-    background: $color-grey-15;
-    border-bottom: 1px solid $color-input-border;
+    background: var(--ons-color-grey-15);
+    border-bottom: 1px solid var(--ons-color-input-border);
     padding: 0.25rem 0.5rem;
   }
 
   &__listbox {
-    background: $color-white;
+    background: var(--ons-color-white);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -48,34 +48,34 @@
     padding: $input-padding-horizontal;
 
     &:not(:last-child) {
-      border-bottom: 1px solid $color-input-border;
+      border-bottom: 1px solid var(--ons-color-input-border);
     }
 
     &:not(&--no-results):not(&--more-results):hover,
     &--focused:not(&--no-results) {
-      background: $color-text-link-hover;
-      border-color: $color-text-link-hover;
-      color: $color-white;
+      background: var(--ons-color-text-link-hover);
+      border-color: var(--ons-color-text-link-hover);
+      color: var(--ons-color-white);
 
       .ons-autosuggest-input__group,
       .ons-autosuggest-input__category {
-        color: $color-white;
+        color: var(--ons-color-white);
       }
     }
 
     &:active:not(&--no-results):not(&--more-results) {
-      background: $color-focus;
-      color: $color-text-link-focus;
+      background: var(--ons-color-focus);
+      color: var(--ons-color-text-link-focus);
 
       .ons-autosuggest-input__group,
       .ons-autosuggest-input__category {
-        color: $color-text-link-focus;
+        color: var(--ons-color-text-link-focus);
       }
     }
 
     &--no-results,
     &--more-results {
-      background: $color-grey-15;
+      background: var(--ons-color-grey-15);
       cursor: not-allowed;
       padding: 0.25rem 0.5rem;
     }
@@ -87,7 +87,7 @@
     padding-left: 0.5rem;
 
     &:not(:last-child) {
-      border-bottom: 1px solid $color-input-border;
+      border-bottom: 1px solid var(--ons-color-input-border);
     }
   }
 
@@ -105,7 +105,7 @@
     }
 
     .ons-panel__body {
-      font-weight: bold;
+      font-weight: $font-weight-bold;
       padding: 0.8rem 0.8rem 0.8rem 2rem;
     }
   }
@@ -128,7 +128,7 @@
   &--header {
     .ons-autosuggest-input__results {
       border: none;
-      box-shadow: 0 0 5px 0 rgba($color-black, 0.6);
+      box-shadow: 0 0 5px 0 rgba(34, 34, 34, 0.6);
       left: 0;
       position: absolute;
       z-index: 10;

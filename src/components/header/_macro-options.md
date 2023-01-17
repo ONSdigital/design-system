@@ -1,29 +1,37 @@
-| Name                   | Type                                              | Required                          | Description                                                                                                                                                                            |
-| ---------------------- | ------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| phase                  | `PhaseBanner` [_(ref)_](/components/phase-banner) | false                             | Settings to set the Phase banner component within the HTML `<header>` element                                                                                                          |
-| wide                   | boolean                                           | false                             | Set to “true” to increase the maximum width of the layout container to 1280px                                                                                                          |
-| fullWidth              | boolean                                           | false                             | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                                                                  |
-| classes                | string                                            | false                             | Classes to add to the wrapping `header`                                                                                                                                                |
-| variants               | array or string                                   | false                             | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description”                                                  |
-| orgLogoHref            | string                                            | false                             | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                                                                                             |
-| orgLogo                | string                                            | false                             | The name of an alternative masthead SVG logo set with the `onsIcon()` macro. Defaults to “ons-logo-`{current language ISO code}`”.                                                     |
-| orgMobileLogo          | string                                            | false                             | The name of the mobile version of an alternative masthead SVG logo set by the `onsIcon()` macro. Defaults to “ons-logo-stacked-`{current language ISO code}`”.                         |
-| orgLogoAlt             | string                                            | false (unless `orgLogo` is set)   | The text for the HTML `<title>` element for the SVG to describe the graphic                                                                                                            |
-| language               | `Language` [_(ref)_](/patterns/change-language)   | false                             | Settings for the language selector component                                                                                                                                           |
-| serviceLinks           | object`<ServiceLinks>`                            | false                             | Settings for the [service links](#servicelinks) in the masthead                                                                                                                        |
-| noMasthead             | boolean                                           | false                             | Does not render a masthead with organisation logo, service or language link. Language link will be rendered in the main header. Service links are not available when using this option |
-| title                  | string                                            | true (unless `titleLogo` is set)  | The title for the service                                                                                                                                                              |
-| description            | string                                            | false                             | Tagline or description for the service                                                                                                                                                 |
-| titleAsH1              | boolean                                           | false                             | Override to wrap the header `title` in an `<h1>` heading                                                                                                                               |
-| titleLogo              | string                                            | false                             | The name of an SVG logo to use instead of a title string set with the `onsIcon()` macro.                                                                                               |
-| titleLogoMobile        | string                                            | false                             | The name of an SVG logo to use. To accompany the `titleLogo` for small viewports.                                                                                                      |
-| titleLogoClasses       | string                                            | false                             | Classes to be added to the `titleLogo`. Helpful to add a margin class to control spacing.                                                                                              |
-| titleLogoMobileClasses | string                                            | false                             | Classes to be added to the `titleLogoMobile`. Helpful to add a margin class to control spacing.                                                                                        |
-| titleLogoAlt           | string                                            | false (unless `titleLogo` is set) | The text for the HTML `<title>` element for the SVG to describe the graphic                                                                                                            |
-| titleLogoHref          | string                                            | false                             | Wraps the title logo in a link. Set the URL for the HTML `href` attribute for the link.                                                                                                |
-| button                 | object`<SignOutButton>`                           | false                             | Settings for the [sign out button](#signoutbutton) in the header used to exit a transactional service                                                                                  |
-| navigation             | array`<Navigation>`                               | false                             | Settings for the [main menu links](#navigation)                                                                                                                                        |
-| customHeaderLogo       | string                                            | false                             | Set to “true” to make the masthead taller to accommodate [a logo with a taller aspect ratio](#custom-organisation-logo)                                                                |
+| Name            | Type                                              | Required                         | Description                                                                                                                           |
+| --------------- | ------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| phase           | `PhaseBanner` [_(ref)_](/components/phase-banner) | false                            | Settings to set the Phase banner component within the HTML `<header>` element                                                         |
+| wide            | boolean                                           | false                            | Set to “true” to increase the maximum width of the layout container to 1280px                                                         |
+| fullWidth       | boolean                                           | false                            | Set to “true” to increase the maximum width of the layout container to the full width of the viewport                                 |
+| classes         | string                                            | false                            | Classes to add to the wrapping `header`                                                                                               |
+| variants        | array or string                                   | false                            | An array of values or single value (string) to adjust the component using available variants: “internal”, "neutral" and “description” |
+| mastheadLogoUrl | string                                            | false                            | Wraps the masthead logo in a link. Set the URL for the HTML `href` attribute for the link.                                            |
+| mastheadLogo    | object`<MastheadLogo>`                            | false                            | Settings for a [custom organisation logo](#mastheadlogo) in the masthead. Defaults to the ONS logo.                                   |
+| language        | `Language` [_(ref)_](/patterns/change-language)   | false                            | Settings for the language selector component                                                                                          |
+| serviceLinks    | object`<ServiceLinks>`                            | false                            | Settings for the [service links](#servicelinks) in the masthead                                                                       |
+| title           | string                                            | true (unless `titleLogo` is set) | The title for the service                                                                                                             |
+| description     | string                                            | false                            | Tagline or description for the service                                                                                                |
+| titleAsH1       | boolean                                           | false                            | Override to wrap the header `title` in an `<h1>` heading                                                                              |
+| titleLogo       | object`<TitleLogo>`                               | false                            | Settings for a [custom title logo](#titlelogo) in the header.                                                                         |
+| titleUrl        | string                                            | false                            | Wraps the title logo in a link. Set the URL for the HTML `href` attribute for the link.                                               |
+| button          | object`<SignOutButton>`                           | false                            | Settings for the [sign out button](#signoutbutton) in the header used to exit a transactional service                                 |
+| navigation      | array`<Navigation>`                               | false                            | Settings for the [main menu links](#navigation)                                                                                       |
+
+## MastheadLogo
+
+| Name    | Type   | Required | Description                                                                    |
+| ------- | ------ | -------- | ------------------------------------------------------------------------------ |
+| classes | string | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
+| large   | HTML   | true     | Any HTML to render an image for example embedded `<svg>` or `<img>`            |
+| small   | HTML   | false    | Optionally provide a version of the logo more suited to mobile viewports       |
+
+## TitleLogo
+
+| Name    | Type   | Required | Description                                                                    |
+| ------- | ------ | -------- | ------------------------------------------------------------------------------ |
+| classes | string | false    | Classes to be added. Helpful to add a margin utility class to control spacing. |
+| large   | HTML   | true     | Any HTML to render an image for example embedded `<svg>` or `<img>`            |
+| small   | HTML   | false    | Optionally provide a version of the logo more suited to mobile viewports       |
 
 ## ServiceLinks
 
@@ -38,14 +46,13 @@
 
 ## Navigation
 
-| Name         | Type                  | Required | Description                                                                                                                                |
-| ------------ | --------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| id           | string                | true     | The HTML `id` of the `<nav>` element. Used for the `aria-controls` attribute for the menu button displayed on small viewports.             |
-| ariaLabel    | string                | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Main menu”.                                                          |
-| itemsList    | array`<Item>`         | true     | Settings for an array of [list items](#item) for each navigation link                                                                      |
-| siteBasePath | string                | false    | If the root path for your site is not `/` (i.e. if using the prototype kit), you can set this path to the home page to set the active page |
-| currentPath  | string                | true     | The path of the current active page                                                                                                        |
-| toggleButton | array`<ToggleButton>` | true     | Settings for the navigation [menu toggle button](#togglebutton) displayed on small viewports                                               |
+| Name         | Type                      | Required | Description                                                                                                                    |
+| ------------ | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| id           | string                    | true     | The HTML `id` of the `<nav>` element. Used for the `aria-controls` attribute for the menu button displayed on small viewports. |
+| ariaLabel    | string                    | false    | The `aria-label` attribute added to the `<nav>` element. Defaults to “Main menu”.                                              |
+| itemsList    | array`<Item>`             | true     | Settings for an array of [list items](#item) for each navigation link                                                          |
+| currentPath  | string or array`<string>` | true     | The path of the current active page. Multiple paths can be provided using an array to highlight nested navigation.             |
+| toggleButton | array`<ToggleButton>`     | true     | Settings for the navigation [menu toggle button](#togglebutton) displayed on small viewports                                   |  |
 
 ## ToggleButton
 

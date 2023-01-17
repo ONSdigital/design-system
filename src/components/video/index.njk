@@ -9,13 +9,21 @@ synonyms: youtube
 {% from "components/panel/_macro.njk" import onsPanel %}
 +++
 
+
+Displays an image and link to a video hosted on Youtube or Vimeo. When "campaigns" [cookies](/patterns/cookies-settings) are accepted the image and link is replaced with the embedded video.  
+
+## How it works
+
+By default, all but essential cookies are rejected so the video component will render the provided [image](/components/images) and a link to view the video on either Youtube or Vimeo. This is to prevent Youtube or Vimeo setting their own cookies without the users consent.
+
+When a page containing the video component is loaded, the cookie policy set by the service is checked. If "campaigns" cookies are accepted, the image and link is replaced dynamically with the video embed. If a user accepts cookies via the banner on a page that contains a video, the same dynamic update to the component will be run.
+
 {{
     onsPanel({
-        "body": "This component requires documentation."
+        "body": 'If the example below shows an image and link and you would like to view the embedded video, go to the <a href="/patterns/cookies-settings">cookies pattern page</a> and accept all cookies via the banner example. Reload this page and you will see the embedded video.'
     })
 }}
 
-## YouTube video
 {{
     patternlibExample({"path": "components/video/examples/video/index.njk"})
 }}

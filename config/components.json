@@ -18,9 +18,6 @@
   "lists": {
     "macroName": "onsList"
   },
-  "promotional-banner": {
-    "macroName": "onsPromoBanner"
-  },
   "related-content/section": {
     "templateName": "components/related-content/_section-macro.njk",
     "macroName": "onsRelatedContentSection"

@@ -46,7 +46,7 @@ h4 {
 }
 
 .ons-u-fw-b {
-  font-weight: 700;
+  font-weight: $font-weight-bold;
 }
 
 .ons-u-fw-n {
@@ -67,7 +67,7 @@ h4 {
 }
 
 .ons-u-lighter {
-  color: $color-text-light;
+  color: var(--ons-color-text-light);
 }
 
 .ons-u-f-mono {

@@ -1,116 +1,135 @@
-@import '../helpers/functions';
-
 // =============================================================================
 // ONS Brand guidelines for Colour: https://www.notion.so/Colours-9cd14589e0764e33a3b3c5a6762f37ae
 // Tints: If you are using tints of a colour, use either 70%, 40% or 10%. Tints are created by adding white (30%, 60% or 90%), rather than using transparency.
 // =============================================================================
 
-// Grey palette
-$color-black: #222;
-$color-grey-100: #414042;
-$color-grey-75: #707071;
-$color-grey-35: #bcbcbd;
-$color-grey-15: #e2e2e3;
-$color-grey-5: #f5f5f6;
-$color-white: #fff;
+:root {
+  // Grey palette
+  --ons-color-black: #222;
+  --ons-color-grey-100: #414042;
+  --ons-color-grey-75: #707071;
+  --ons-color-grey-35: #bcbcbd;
+  --ons-color-grey-25: #d5d5d6;
+  --ons-color-grey-15: #e2e2e3;
+  --ons-color-grey-5: #f5f5f6;
+  --ons-color-white: #fff;
 
-// Primary brand palette
-$color-night-blue: #003c57; // ONS logo primary
-$color-spring-green: #a8bd3a; // ONS logo accent
-$color-ocean-blue: #206095;
-$color-sky-blue: #27a0cc;
-$color-aqua-teal: #00a3a6;
+  // Primary brand palette
+  --ons-color-night-blue: #003c57; // ONS logo primary
+  --ons-color-spring-green: #a8bd3a; // ONS logo accent
+  --ons-color-ocean-blue: #206095;
+  --ons-color-sky-blue: #27a0cc;
+  --ons-color-aqua-teal: #00a3a6;
 
-// Supporting palette
-$color-leaf-green: #0f8243;
-$color-ruby-red: #d0021b;
-$color-jaffa-orange: #fa6401;
-$color-sun-yellow: #fbc900;
-$color-neon-yellow: #f0f762;
+  // Supporting palette
+  --ons-color-leaf-green: #0f8243;
+  --ons-color-ruby-red: #d0021b;
+  --ons-color-jaffa-orange: #fa6401;
+  --ons-color-sun-yellow: #fbc900;
+  --ons-color-neon-yellow: #f0f762;
 
-// Census 2021
-$color-indigo-blue: #3c388e;
-$color-plum-purple: #902082;
-$color-flamingo-pink: #df0667;
+  // Core colour adjustments - tints
+  --ons-color-ocean-blue-tint: #e9eff4;
+  --ons-color-ocean-blue-vibrant: #1f8fd8;
+  --ons-color-spring-green-tint: #c3c5b8;
+  --ons-color-leaf-green-tint: #e7f3ec;
+  --ons-color-leaf-green-vibrant: #10ca64;
+  --ons-color-leaf-green-dark-10: #073d20;
+  --ons-color-leaf-green-dark-5: #0c6b37;
+  --ons-color-ruby-red-tint: #fae6e8;
+  --ons-color-ruby-red-vibrant: #fd112d;
+  --ons-color-jaffa-orange-tint: #fff0e6;
+  --ons-color-jaffa-orange-vibrant: #ff7b24;
+  --ons-color-sun-yellow-dark: #e2b500;
 
-// Theme branding
-$color-branded: $color-ocean-blue !default;
-$color-branded-text: $color-ocean-blue !default;
-$color-branded-tint: tint($color-branded, 90%) !default;
-$color-branded-secondary: $color-night-blue !default;
-$color-branded-secondary-tint: tint($color-branded-secondary, 90%) !default;
-$color-branded-tertiary: $color-aqua-teal !default;
-$color-branded-tertiary-tint: tint($color-branded-tertiary, 90%) !default;
-$color-branded-supporting: $color-spring-green !default;
-$color-branded-supporting-tint: tint($color-branded-supporting, 90%) !default;
+  // Theme branding
+  --ons-color-branded: var(--ons-color-ocean-blue);
+  --ons-color-branded-text: var(--ons-color-ocean-blue);
+  --ons-color-branded-tint: var(--ons-color-ocean-blue-tint);
+  --ons-color-branded-secondary: var(--ons-color-night-blue);
+  --ons-color-branded-tertiary: var(--ons-color-aqua-teal);
+  --ons-color-branded-supporting: var(--ons-color-spring-green);
+  --ons-color-branded-supporting-tint: var(--ons-color-branded-supporting);
 
-// =============================================================================
-// Assignment
-// =============================================================================
+  // =============================================================================
+  // Assignment
+  // =============================================================================
 
-// Headers, footers, banners, page
-$color-header: $color-branded !default;
-$color-header-light: $color-white !default;
-$color-header-masthead: $color-white !default;
-$color-header-masthead-dark: $color-black !default;
-$color-header-masthead-internal: $color-branded-secondary !default;
-$color-cta-bg: $color-branded-tint !default;
-$color-banner-bg: $color-grey-5 !default;
-$color-banner-bg-dark: $color-grey-15 !default;
-$color-page-light: $color-white !default;
-$color-banner-browser-bg: $color-black !default;
+  // Header
+  --ons-color-header: var(--ons-color-branded);
+  --ons-color-header-neutral: var(--ons-color-white);
+  --ons-color-header-masthead: var(--ons-color-white);
+  --ons-color-header-masthead-internal: var(--ons-color-branded-secondary);
+  --ons-color-header-masthead-neutral: var(--ons-color-black);
+  --ons-color-header-title: var(--ons-color-text);
+  --ons-color-header-navigation-links: var(--ons-color-text);
+  --ons-color-service-links: var(--ons-color-white);
 
-// Typography
-$color-text: $color-black !default;
-$color-text-light: $color-grey-75 !default;
-$color-text-inverse: $color-white !default;
-$color-text-banner: $color-black !default;
-$color-text-link: $color-ocean-blue !default;
-$color-text-link-hover: $color-night-blue !default;
-$color-text-link-active: $color-night-blue !default;
-$color-text-link-focus: $color-black !default;
-$color-text-inverse-link: $color-white !default;
-$color-text-inverse-link-hover: $color-grey-5 !default;
-$color-text-banner-link: $color-grey-100 !default;
-$color-text-banner-link-hover: $color-black !default;
-$color-text-metadata: $color-black !default;
+  // Banners, page
+  --ons-color-cta-bg: var(--ons-color-branded-tint);
+  --ons-color-banner-bg: var(--ons-color-grey-5);
+  --ons-color-banner-bg-dark: var(--ons-color-grey-15);
+  --ons-color-page-light: var(--ons-color-white);
+  --ons-color-banner-browser-bg: var(--ons-color-black);
+  --ons-color-hero-bg: var(--ons-color-branded-tint);
+  --ons-color-hero-bg-dark: var(--ons-color-branded);
 
-// Foundations
-$color-focus: $color-sun-yellow !default;
-$color-highlight: $color-neon-yellow !default;
+  // Typography
+  --ons-color-text: var(--ons-color-black);
+  --ons-color-text-light: var(--ons-color-grey-75);
+  --ons-color-text-inverse: var(--ons-color-white);
+  --ons-color-text-banner: var(--ons-color-black);
+  --ons-color-text-link: var(--ons-color-ocean-blue);
+  --ons-color-text-link-hover: var(--ons-color-night-blue);
+  --ons-color-text-link-active: var(--ons-color-night-blue);
+  --ons-color-text-link-focus: var(--ons-color-black);
+  --ons-color-text-inverse-link: var(--ons-color-white);
+  --ons-color-text-inverse-link-hover: var(--ons-color-grey-5);
+  --ons-color-text-banner-link: var(--ons-color-grey-100);
+  --ons-color-text-banner-link-hover: var(--ons-color-black);
+  --ons-color-text-metadata: var(--ons-color-black);
 
-// Borders
-$color-borders: $color-grey-75 !default;
-$color-borders-indent: $color-grey-35 !default;
-$color-borders-list: $color-grey-35 !default;
-$color-borders-document-image: $color-grey-15 !default;
-$color-borders-document-image-focus: $color-black !default;
+  // Foundations
+  --ons-color-focus: var(--ons-color-sun-yellow);
+  --ons-color-focus-dark: var(--ons-color-sun-yellow-dark);
+  --ons-color-highlight: var(--ons-color-neon-yellow);
 
-// Placeholders
-$color-placeholder: $color-grey-15 !default;
+  // Borders
+  --ons-color-borders: var(--ons-color-grey-75);
+  --ons-color-borders-indent: var(--ons-color-grey-35);
+  --ons-color-borders-list: var(--ons-color-grey-35);
+  --ons-color-borders-document-image: var(--ons-color-grey-15);
+  --ons-color-borders-document-image-focus: var(--ons-color-black);
 
-// Form elements
-$color-button: $color-leaf-green !default;
-$color-button-secondary: $color-grey-15 !default;
-$color-input-border: $color-black !default;
-$color-input-bg: $color-white !default;
+  // Placeholders
+  --ons-color-placeholder: var(--ons-color-grey-15);
 
-// Panels and status
-$color-info: $color-ocean-blue !default;
-$color-info-tint: tint($color-info, 90) !default;
-$color-info-vibrant: scale-color($color-info, $lightness: 20%, $saturation: 30%) !default;
-$color-success: $color-leaf-green !default;
-$color-success-tint: tint($color-success, 90) !default;
-$color-success-vibrant: scale-color($color-success, $lightness: 20%, $saturation: 30%) !default;
-$color-errors: $color-ruby-red !default;
-$color-errors-tint: tint($color-errors, 90) !default;
-$color-errors-vibrant: scale-color($color-errors, $lightness: 20%, $saturation: 30%) !default;
-$color-pending: $color-jaffa-orange !default;
-$color-pending-tint: tint($color-pending, 90) !default;
-$color-pending-vibrant: scale-color($color-pending, $lightness: 20%, $saturation: 30%) !default;
-$color-dead: $color-grey-75 !default;
-$color-instruction: $color-jaffa-orange !default;
-$color-instruction-tint: tint($color-instruction, 90) !default;
-$color-tag-bg: tint($color-leaf-green, 90) !default;
-$color-text-disabled: $color-grey-35;
-$color-border-disabled: $color-grey-35;
+  // Form elements
+  --ons-color-button: var(--ons-color-leaf-green);
+  --ons-color-button-secondary: var(--ons-color-grey-15);
+  --ons-color-button-shadow: var(--ons-color-leaf-green-dark-10);
+  --ons-color-button-hover: var(--ons-color-leaf-green-dark-5);
+  --ons-color-button-secondary-shadow: var(--ons-color-grey-75);
+  --ons-color-button-secondary-hover: var(--ons-color-grey-25);
+  --ons-color-input-border: var(--ons-color-black);
+  --ons-color-input-bg: var(--ons-color-white);
+
+  // // Panels and status
+  --ons-color-info: var(--ons-color-ocean-blue);
+  --ons-color-info-tint: var(--ons-color-ocean-blue-tint);
+  --ons-color-info-vibrant: var(--ons-color-ocean-blue-vibrant);
+  --ons-color-success: var(--ons-color-leaf-green);
+  --ons-color-success-tint: var(--ons-color-leaf-green-tint);
+  --ons-color-success-vibrant: var(--ons-color-leaf-green-vibrant);
+  --ons-color-errors: var(--ons-color-ruby-red);
+  --ons-color-errors-tint: var(--ons-color-ruby-red-tint);
+  --ons-color-errors-vibrant: var(--ons-color-ruby-red-vibrant);
+  --ons-color-pending: var(--ons-color-jaffa-orange);
+  --ons-color-pending-tint: var(--ons-color-jaffa-orange-tint);
+  --ons-color-pending-vibrant: var(--ons-color-jaffa-orange-vibrant);
+  --ons-color-dead: var(--ons-color-grey-75);
+  --ons-color-instruction: var(--ons-color-jaffa-orange);
+  --ons-color-instruction-tint: var(--ons-color-jaffa-orange-tint);
+  --ons-color-text-disabled: var(--ons-color-grey-35);
+  --ons-color-border-disabled: var(--ons-color-grey-35);
+}

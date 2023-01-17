@@ -1,6 +1,7 @@
 | Name        | Type          | Required                        | Description                                                                                             |
 | ----------- | ------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| id          | string        | true                            | The HTML `id` of the `<nav>` element of the component                                                   |
+| id          | string        | false                           | The HTML `id` of the `<nav>` element of the component                                                   |
+| classes     | string        | false                           | Additional classes for the `<nav>` element                                                              |
 | currentPath | string        | true (unless `tabQuery` set)    | Path to the current active page                                                                         |
 | tabQuery    | string        | true (unless `currentPath` set) | Query parameter in the URL for the current active page                                                  |
 | ariaLabel   | string        | false                           | The `aria-label` attribute for the `<nav>` element to describe its purpose. Defaults to ”Section menu”. |

@@ -9,8 +9,8 @@ $checkbox-padding: 11px;
 
   &__input {
     appearance: none;
-    background-color: $color-input-bg;
-    border: 2px solid $color-input-border;
+    background-color: var(--ons-color-input-bg);
+    border: 2px solid var(--ons-color-input-border);
     border-radius: 0.2rem;
     box-sizing: border-box;
     cursor: pointer;
@@ -23,9 +23,9 @@ $checkbox-padding: 11px;
 
     // Check icon
     &::after {
-      border: solid $color-input-border;
+      border: solid var(--ons-color-input-border);
       border-radius: 1px;
-      border-top-color: $color-input-bg;
+      border-top-color: var(--ons-color-input-bg);
       border-width: 0 0 3px 3px;
       box-sizing: border-box;
       content: '';
@@ -48,27 +48,27 @@ $checkbox-padding: 11px;
     }
 
     &:disabled {
-      border: 2px solid $color-border-disabled;
+      border: 2px solid var(--ons-color-border-disabled);
       cursor: not-allowed;
     }
 
     &:disabled:checked::after {
-      border-color: $color-border-disabled;
+      border-color: var(--ons-color-border-disabled);
     }
 
     &:disabled + .ons-checkbox__label,
     &:disabled:checked + .ons-checkbox__label {
-      color: $color-border-disabled;
+      color: var(--ons-color-border-disabled);
       cursor: not-allowed;
 
       &::before {
-        border: 1px solid $color-border-disabled;
+        border: 1px solid var(--ons-color-border-disabled);
       }
     }
 
     &:disabled:checked + .ons-checkbox__label {
       &::before {
-        box-shadow: 0 0 0 1px $color-border-disabled;
+        box-shadow: 0 0 0 1px var(--ons-color-border-disabled);
       }
     }
   }
@@ -153,8 +153,8 @@ $checkbox-padding: 11px;
     }
 
     &::before {
-      background: $color-white;
-      border: 1px solid $color-input-border;
+      background: var(--ons-color-white);
+      border: 1px solid var(--ons-color-input-border);
       border-radius: 3px;
       bottom: 0;
       content: '';
@@ -176,22 +176,16 @@ $checkbox-padding: 11px;
   }
 
   &__other {
-    border-left: 4px solid $color-borders-indent;
+    border-left: 4px solid var(--ons-color-borders-indent);
     display: block;
     margin: 0 1rem 0.5rem 1.1rem;
     padding: 0 $checkbox-padding $checkbox-padding $checkbox-padding * 2 - 1;
   }
 
   &__input:checked + &__label::before {
-    background: $color-grey-5;
-    box-shadow: 0 0 0 1px $color-input-border;
+    background: var(--ons-color-grey-5);
+    box-shadow: 0 0 0 1px var(--ons-color-input-border);
     outline: 1px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
-  }
-
-  .ons-panel--error .ons-radio__input:checked ~ &__other > .ons-input--text:required:not(:focus) {
-    border: 1px solid $color-ruby-red;
-    outline: 1px solid $color-ruby-red;
-    outline-offset: -2px;
   }
 
   &__input:focus + &__label::before {

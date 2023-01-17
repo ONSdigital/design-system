@@ -18,8 +18,7 @@ layout: none
 {% block main %}
     {% call onsPanel({
             title: "There are 2 problems with your answer",
-            type: "error",
-            "dsExample": isPatternLib
+            type: "error"
         })
     %}
         {{
@@ -60,8 +59,7 @@ layout: none
                 "label": "Address line 1",
                 "error": {
                     "id": "line1-error",
-                    "text": "Enter the first line of your address",
-                    "dsExample": isPatternLib
+                    "text": "Enter the first line of your address"
                 }
             },
             "line2": {
@@ -76,8 +74,7 @@ layout: none
                 "value": "A12",
                 "error": {
                     "id": "postcode-error",
-                    "text": "Enter a valid UK postcode",
-                    "dsExample": isPatternLib
+                    "text": "Enter a valid UK postcode"
                 }
             }
         }) }}

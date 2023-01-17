@@ -1,7 +1,41 @@
-{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+---
+noTabs: true
+---
+{% from "components/details/_macro.njk" import onsDetails %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/radios/_macro.njk" import onsRadios %}
 {% from "components/button/_macro.njk" import onsButton %}
+
+<style>
+    .ons-pl-question-anatomy {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: -1.5rem;
+        max-width: 57.445rem;
+    }
+
+    .ons-pl-question-anatomy .ons-pl-question-anatomy__row:not(:last-child) {
+        border-bottom: 1px dashed var(--ons-color-grey-35);
+    }
+
+    .ons-pl-question-anatomy .ons-pl-question-anatomy__component {
+        padding: 1rem 1.5rem;
+        vertical-align: top;
+    }
+
+    .ons-pl-question-anatomy .ons-pl-question-anatomy__description {
+        background-color: var(--ons-color-info-tint);
+        padding: 1rem;
+        text-align: left;
+    }
+
+    .ons-pl-question-anatomy code {
+        background: var(--ons-color-grey-5);
+        color: var(--ons-color-ruby-red);
+        font-weight: 400;
+        padding: 0.05rem 0.25rem;
+    }
+</style>
 
 <table class="ons-pl-question-anatomy">
     <tbody class="ons-pl-question-anatomy__row">
@@ -30,7 +64,7 @@
     <tbody class="ons-pl-question-anatomy__row">
         <tr>
             <td class="ons-pl-question-anatomy__component">
-                {% call onsCollapsible({
+                {% call onsDetails({
                     "id": "question-definition",
                     "title": "What we mean by “employee”",
                     "button": {
@@ -111,7 +145,7 @@
     <tbody class="ons-pl-question-anatomy__row">
         <tr>
             <td class="ons-pl-question-anatomy__component">
-                {% call onsCollapsible({
+                {% call onsDetails({
                     "id": "question-justification",
                     "title": "Why we ask this question",
                     "button": {

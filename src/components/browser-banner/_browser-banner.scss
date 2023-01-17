@@ -1,12 +1,12 @@
 .ons-browser-banner {
-  background-color: $color-banner-browser-bg;
+  background-color: var(--ons-color-banner-browser-bg);
   display: none; // Hides unsupported browser banner unless targeted below
   padding: 0.8rem 0;
 
   &__content {
     @extend .ons-u-fs-s;
 
-    color: $color-text-inverse;
+    color: var(--ons-color-text-inverse);
     margin: 0;
   }
 
@@ -15,11 +15,11 @@
   }
 
   &__link {
-    color: $color-text-inverse-link;
+    color: var(--ons-color-text-inverse-link);
 
     &:hover {
-      color: $color-text-inverse-link-hover;
-      text-decoration: underline solid $color-text-inverse-link-hover 2px;
+      color: var(--ons-color-text-inverse-link-hover);
+      text-decoration: underline solid var(--ons-color-text-inverse-link-hover) 2px;
     }
   }
 }

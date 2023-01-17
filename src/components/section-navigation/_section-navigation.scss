@@ -1,6 +1,6 @@
 .ons-section-nav {
   &:not(&--vertical) {
-    border-bottom: 1px solid $color-borders;
+    border-bottom: 1px solid var(--ons-color-borders);
   }
 
   &__list {
@@ -12,8 +12,8 @@
   &__link {
     text-decoration: none;
     &:hover {
-      color: $color-text-link-hover;
-      text-decoration: underline solid $color-text-link-hover 2px;
+      color: var(--ons-color-text-link-hover);
+      text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
     }
   }
 
@@ -21,12 +21,12 @@
     font-size: 1rem;
     padding: 0;
     &--active {
-      border-left: 4px solid $color-text-link-active;
+      border-left: 4px solid var(--ons-color-text-link-active);
       font-weight: $font-weight-bold;
       margin-left: -18px;
       padding-left: 14px;
       a {
-        color: $color-text-link-active;
+        color: var(--ons-color-text-link-active);
       }
     }
     & & {
@@ -36,7 +36,7 @@
 
   &__sub-items {
     a {
-      color: $color-text-link;
+      color: var(--ons-color-text-link);
       font-weight: $font-weight-regular;
     }
   }
@@ -50,11 +50,11 @@
       text-align: center;
       &--active,
       &:hover {
-        border-color: $color-text-link-active;
+        border-color: var(--ons-color-text-link-active);
         margin: 0 1rem 0 0;
         padding: 0;
         a {
-          color: $color-text-link-active;
+          color: var(--ons-color-text-link-active);
         }
       }
     }

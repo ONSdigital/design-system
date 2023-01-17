@@ -22,7 +22,7 @@ describe('macro: collapsible', () => {
   it('has the provided `id` attribute', () => {
     const $ = cheerio.load(renderComponent('collapsible', EXAMPLE_COLLAPSIBLE_BASIC));
 
-    expect($('.ons-collapsible').attr('id')).toBe('collapsible-id');
+    expect($('.ons-details').attr('id')).toBe('collapsible-id');
   });
 
   it('has additionally provided style classes', () => {
@@ -33,14 +33,14 @@ describe('macro: collapsible', () => {
       }),
     );
 
-    expect($('.ons-collapsible').hasClass('extra-class')).toBe(true);
-    expect($('.ons-collapsible').hasClass('another-extra-class')).toBe(true);
+    expect($('.ons-details').hasClass('extra-class')).toBe(true);
+    expect($('.ons-details').hasClass('another-extra-class')).toBe(true);
   });
 
   it('has provided title text', () => {
     const $ = cheerio.load(renderComponent('collapsible', EXAMPLE_COLLAPSIBLE_BASIC));
 
-    const titleText = $('.ons-collapsible__title')
+    const titleText = $('.ons-details__title')
       .first()
       .text()
       .trim();
@@ -55,14 +55,14 @@ describe('macro: collapsible', () => {
       }),
     );
 
-    const titleTag = $('.ons-collapsible__title')[0].tagName;
+    const titleTag = $('.ons-details__title')[0].tagName;
     expect(titleTag).toBe('h4');
   });
 
   it('has provided content text', () => {
     const $ = cheerio.load(renderComponent('collapsible', EXAMPLE_COLLAPSIBLE_BASIC));
 
-    const titleText = $('.ons-collapsible__content')
+    const titleText = $('.ons-details__content')
       .text()
       .trim();
     expect(titleText).toEqual(expect.stringContaining('Content for collapsible'));
@@ -78,8 +78,8 @@ describe('macro: collapsible', () => {
         },
       }),
     );
-    expect($('.ons-collapsible').attr('a')).toBe('123');
-    expect($('.ons-collapsible').attr('b')).toBe('456');
+    expect($('.ons-details').attr('a')).toBe('123');
+    expect($('.ons-details').attr('b')).toBe('456');
   });
 
   it('has the correct data attribute when `saveState` is provided', () => {
@@ -89,7 +89,7 @@ describe('macro: collapsible', () => {
         saveState: true,
       }),
     );
-    expect($('.ons-collapsible').attr('data-save-state')).toBe('true');
+    expect($('.ons-details').attr('data-save-state')).toBe('true');
   });
 
   it('has the correct data attribute when `open` is provided', () => {
@@ -99,7 +99,7 @@ describe('macro: collapsible', () => {
         open: true,
       }),
     );
-    expect($('.ons-collapsible').attr('data-open')).toBe('true');
+    expect($('.ons-details').attr('data-open')).toBe('true');
   });
 
   it('has additionally provided `headingAttributes`', () => {
@@ -113,8 +113,8 @@ describe('macro: collapsible', () => {
       }),
     );
 
-    expect($('.ons-collapsible__heading').attr('a')).toBe('123');
-    expect($('.ons-collapsible__heading').attr('b')).toBe('456');
+    expect($('.ons-details__heading').attr('a')).toBe('123');
+    expect($('.ons-details__heading').attr('b')).toBe('456');
   });
 
   it('has additionally provided `contentAttributes`', () => {
@@ -128,8 +128,8 @@ describe('macro: collapsible', () => {
       }),
     );
 
-    expect($('.ons-collapsible__content').attr('a')).toBe('123');
-    expect($('.ons-collapsible__content').attr('b')).toBe('456');
+    expect($('.ons-details__content').attr('a')).toBe('123');
+    expect($('.ons-details__content').attr('b')).toBe('456');
   });
 
   it('has `chevron` icon', () => {
@@ -143,7 +143,7 @@ describe('macro: collapsible', () => {
   it('calls with content', () => {
     const $ = cheerio.load(renderComponent('collapsible', { EXAMPLE_COLLAPSIBLE_BASIC }, 'Example content...'));
 
-    const content = $('.ons-collapsible__content')
+    const content = $('.ons-details__content')
       .text()
       .trim();
     expect(content).toEqual(expect.stringContaining('Example content...'));

@@ -5,11 +5,11 @@
   width: 100%;
 
   &__head {
-    border-bottom: 2px solid $color-grey-75;
+    border-bottom: 2px solid var(--ons-color-grey-75);
   }
 
   &__caption {
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     text-align: left;
   }
 
@@ -17,7 +17,7 @@
   &__cell {
     @include nth-element(1, 0);
 
-    border-bottom: 2px solid $color-grey-75;
+    border-bottom: 2px solid var(--ons-color-grey-75);
     overflow: hidden;
     padding: 0.5rem 0 0.5rem 1rem;
     text-align: left;
@@ -29,11 +29,11 @@
 
   &__cell,
   &__header--row {
-    border-bottom: 1px solid $color-borders;
+    border-bottom: 1px solid var(--ons-color-borders);
   }
 
   &__row--highlight {
-    background: $color-highlight;
+    background: var(--ons-color-highlight);
   }
 
   &:not(.ons-table--responsive) .ons-table__body .ons-table__row:last-child {
@@ -45,7 +45,7 @@
 
   &__foot .ons-table__cell {
     border-bottom: 0;
-    border-top: 1px solid $color-borders;
+    border-top: 1px solid var(--ons-color-borders);
   }
 
   &--compact {
@@ -58,7 +58,7 @@
 
   &--row-hover {
     .ons-table__body .ons-table__row:hover {
-      background: $color-highlight;
+      background: var(--ons-color-highlight);
     }
   }
 
@@ -73,7 +73,7 @@
       }
 
       .ons-table__body .ons-table__row {
-        border-bottom: 2px solid $color-grey-75;
+        border-bottom: 2px solid var(--ons-color-grey-75);
         display: block;
         margin-bottom: 1rem;
       }
@@ -88,7 +88,7 @@
         &::before {
           content: attr(data-th);
           float: left;
-          font-weight: 700;
+          font-weight: $font-weight-bold;
           padding-right: 1rem;
         }
       }
@@ -101,7 +101,7 @@
       height: 7px;
     }
     ::-webkit-scrollbar-thumb {
-      background: $color-grey-75;
+      background: var(--ons-color-grey-75);
       border-radius: 20px;
     }
     &--on {
@@ -115,7 +115,7 @@
       overflow-x: scroll;
       width: 100%;
       &:focus {
-        box-shadow: 0 0 0 3px $color-page-light, 0 0 0 5px $color-text-link-focus, 0 0 0 8px $color-focus;
+        box-shadow: 0 0 0 3px var(--ons-color-page-light), 0 0 0 5px var(--ons-color-text-link-focus), 0 0 0 8px var(--ons-color-focus);
         outline: 3px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show box-shadows
         outline-offset: 1px;
       }
@@ -157,10 +157,10 @@
     [aria-sort='descending'].ons-table__header {
       .ons-svg-icon {
         .ons-topTriangle {
-          fill: $color-grey-35;
+          fill: var(--ons-color-grey-35);
         }
         .ons-bottomTriangle {
-          fill: $color-text;
+          fill: var(--ons-color-text);
         }
       }
       .ons-table__sort-button:focus {
@@ -175,10 +175,10 @@
     [aria-sort='ascending'].ons-table__header {
       .ons-svg-icon {
         .ons-topTriangle {
-          fill: $color-text;
+          fill: var(--ons-color-text);
         }
         .ons-bottomTriangle {
-          fill: $color-grey-35;
+          fill: var(--ons-color-grey-35);
         }
       }
       .ons-table__sort-button:focus {
@@ -195,10 +195,10 @@
         background-color: transparent;
         border: 0;
         box-shadow: none;
-        color: $color-text-link;
+        color: var(--ons-color-text-link);
         display: inline-block;
         font-family: $font-sans;
-        font-weight: 700;
+        font-weight: $font-weight-bold;
         line-height: 1rem;
         padding: 0 0 0.2rem;
         text-decoration: underline;
@@ -206,13 +206,13 @@
         white-space: nowrap;
 
         &:hover {
-          color: $color-text-link-hover;
+          color: var(--ons-color-text-link-hover);
           cursor: pointer;
-          text-decoration: underline solid $color-text-link-hover 2px;
+          text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
         }
 
         .ons-svg-icon {
-          fill: $color-grey-75;
+          fill: var(--ons-color-grey-75);
           height: 0.8rem;
           padding-bottom: 0.1rem;
           width: 0.8rem;
@@ -221,7 +221,7 @@
         &:focus {
           @extend %a-focus;
           .ons-svg-icon {
-            fill: $color-black;
+            fill: var(--ons-color-black);
           }
         }
       }

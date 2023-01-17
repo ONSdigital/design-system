@@ -24,7 +24,7 @@ export function getMacroName(componentName) {
   return getComponentInfo(componentName).macroName;
 }
 
-export function renderTemplate(template, fakerContext = null) {
+export function renderTemplate(template, fakerContext = null, isDesignSystemExample = false) {
   const fakeNunjucksLoader = new FakeNunjucksLoader();
   fakeNunjucksLoader.fakeTemplateMap = fakerContext?._fakeTemplateMap;
 
@@ -34,10 +34,12 @@ export function renderTemplate(template, fakerContext = null) {
     nunjucksEnvironment.addFilter('spy', fakerContext.spyFilter.bind(fakerContext));
   }
 
+  nunjucksEnvironment.addGlobal('isDesignSystemExample', !!isDesignSystemExample);
+
   return nunjucksEnvironment.renderString(template);
 }
 
-export function renderComponent(componentName, params = {}, children = null, fakerContext = null) {
+export function renderComponent(componentName, params = {}, children = null, fakerContext = null, isDesignSystemExample = false) {
   const info = getComponentInfo(componentName);
   if (!!children) {
     return renderTemplate(
@@ -48,6 +50,7 @@ export function renderComponent(componentName, params = {}, children = null, fak
       {%- endcall -%}
     `,
       fakerContext,
+      isDesignSystemExample,
     );
   } else {
     return renderTemplate(
@@ -56,6 +59,7 @@ export function renderComponent(componentName, params = {}, children = null, fak
       {{- ${info.macroName}(${JSON.stringify(params, null, 2)}) -}}
     `,
       fakerContext,
+      isDesignSystemExample,
     );
   }
 }

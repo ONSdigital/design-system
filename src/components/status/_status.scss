@@ -26,18 +26,18 @@
   }
 
   &.ons-status--success::before {
-    @include status-dot($color-success-vibrant);
+    @include status-dot(var(--ons-color-success-vibrant));
   }
   &.ons-status--pending::before {
-    @include status-dot($color-pending-vibrant);
+    @include status-dot(var(--ons-color-pending-vibrant));
   }
   &.ons-status--error::before {
-    @include status-dot($color-errors-vibrant);
+    @include status-dot(var(--ons-color-errors-vibrant));
   }
   &.ons-status--dead::before {
-    @include status-dot($color-dead);
+    @include status-dot(var(--ons-color-dead));
   }
   &.ons-status--info::before {
-    @include status-dot($color-info-vibrant);
+    @include status-dot(var(--ons-color-info-vibrant));
   }
 }

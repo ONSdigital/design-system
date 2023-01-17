@@ -1,6 +1,9 @@
-$color-black: #222;
+html {
+  --ons-color-black: #222;
+}
 
 .ons-btn,
+.ons-navigation-search,
 .ons-summary__actions,
 .ons-footer,
 .ons-cookies-banner,
@@ -20,36 +23,39 @@ a::after {
   }
 
   &__title {
-    color: $color-black;
-  }
-
-  &-nav {
-    display: block;
-    &__item {
-      display: inline-block;
-    }
-    &__item--active {
-      border: 0;
-    }
-    &__link,
-    &__link:hover {
-      color: $color-black;
-    }
+    color: var(--ons-color-black);
   }
 
   & &__svg-logo {
-    fill: $color-black;
+    fill: var(--ons-color-black);
   }
 }
 
-.ons-collapsible {
+.ons-navigation--main,
+.ons-navigation--sub {
+  border-top: 1px solid var(--ons-color-text-link);
+  display: block !important;
+  padding: 1rem 0 0.5rem;
+  .ons-navigation__item {
+    display: inline-block;
+  }
+  .ons-navigation__item--active {
+    border: 0;
+  }
+  .ons-navigation__link,
+  .ons-navigation__link:hover {
+    color: var(--ons-color-text-link);
+  }
+}
+
+.ons-details {
   &--initialised & {
     &__icon {
       display: none;
     }
 
     &__title {
-      color: $color-black;
+      color: var(--ons-color-black);
       margin-bottom: 1rem;
       margin-left: -1.5rem;
       text-decoration: none;

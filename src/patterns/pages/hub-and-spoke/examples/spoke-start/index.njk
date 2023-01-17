@@ -6,16 +6,14 @@ layout: none
 
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/lists/_macro.njk" import onsList %}
-{% from "components/collapsible/_macro.njk" import onsCollapsible %}
+{% from "components/details/_macro.njk" import onsDetails %}
 
 {% set pageConfig = {
     "header": {
-        "title": "Spoke example"
-    },
-    "signoutButton": {
-        "text": "Save and sign out",
-        "iconType": "exit",
-        "iconPosition": "after"
+        "title": "Spoke example",
+        "signoutButton": {
+            "text": "Save and sign out"
+        }
     },
     "breadcrumbs": {
         "itemsList": [
@@ -66,8 +64,8 @@ layout: none
             ]
         })
     }}
-    {% call onsCollapsible({
-            "id": 'collapsible',
+    {% call onsDetails({
+            "id": 'details',
             "title": 'If you can’t answer questions for this person',
             "button": {
                 "close": 'Hide this',

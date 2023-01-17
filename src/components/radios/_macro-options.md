@@ -42,7 +42,6 @@
 | otherType         | string                               | false (unless alternative input used) | Set the type of nested input if not using default text input, using available types: “select”, “checkboxes” or “radios”.                              |
 | open              | boolean                              | false                                 | Set to “true” to show the nested `other` input when page loads                                                                                        |
 | selectAllChildren | boolean                              | false                                 | Set to “true” when using `otherType` set to “checkboxes” to show all nested checkboxes pre-selected                                                   |
-| required          | boolean                              | false                                 | The HTML `required` attribute for the input to indicate that the user must specify a value for the input before the parent form can be submitted      |
 | attributes        | object                               | false                                 | HTML attributes (for example, data attributes) to add to the nested input                                                                             |
 
 ## ClearRadios

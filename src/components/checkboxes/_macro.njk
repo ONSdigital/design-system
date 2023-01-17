@@ -79,7 +79,7 @@
                                 "otherType": checkbox.other.otherType,
                                 "options": checkbox.other.options,
                                 "width": checkbox.other.width,
-                                "classes": ("ons-input--error" if params.error else "") + checkbox.other.classes | default('') + exclusiveClass | default(''),
+                                "classes": ("ons-input--error" if params.error and checkbox.checked else "") + checkbox.other.classes | default('') + exclusiveClass | default(''),
                                 "attributes": checkbox.other.attributes,
                                 "label": {
                                     "text": checkbox.other.label.text

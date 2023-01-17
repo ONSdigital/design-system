@@ -10,8 +10,8 @@
     }
     mark,
     .ons-instruction {
-      background-color: $color-instruction;
-      color: $color-text-inverse;
+      background-color: var(--ons-color-instruction);
+      color: var(--ons-color-text-inverse);
       margin-right: 0.5rem;
       padding: 0 0.5rem;
     }
@@ -24,8 +24,8 @@
   }
 
   &__instruction {
-    background-color: $color-instruction-tint;
-    border: 5px solid $color-instruction;
+    background-color: var(--ons-color-instruction-tint);
+    border: 5px solid var(--ons-color-instruction);
     display: block;
     font-weight: $font-weight-regular;
     padding: 1rem;

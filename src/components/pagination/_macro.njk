@@ -8,22 +8,8 @@
 
   {% set totalPages = params.pages | length %}
   {% set position = "Page " + currentPageIndex + " of " + totalPages %}
-
-  {# Calculate middle pages #}
-  {% set middlePageCount = 5 %}
-  {% set middlePagesEachSide = (middlePageCount - 1) / 2 %}
-
-  {% if (currentPageIndex - middlePagesEachSide) <= 1 %}
-      {% set middlePagesStart = 1 %}
-      {% set middlePagesEnd = middlePageCount - 1 %}
-  {% elif (currentPageIndex + middlePagesEachSide) >= totalPages %}
-      {% set middlePagesStart = totalPages - middlePageCount + 1 %}
-      {% set middlePagesEnd = totalPages %}
-  {% else %}
-      {% set middlePagesStart = currentPageIndex - middlePagesEachSide %}
-      {% set middlePagesEnd = currentPageIndex + middlePagesEachSide %}
-  {% endif %}
-
+  {% set lastPage = params.pages | last %}
+  {% set firstPage = params.pages | first %}
 
   <nav class="ons-pagination {{ params.classes }}{% if params.hideRangeIndicator %} ons-pagination--no-indicator{% endif %}" aria-label="Pagination ({{ position }})">
       <div class="ons-pagination__position">{{ position }}</div>
@@ -34,17 +20,23 @@
                   <a href="{{ params.pages[prevPageIndex].url }}" class="ons-pagination__link" rel="prev" aria-label="Go to the previous page (Page {{ currentPageIndex - 1 }})">{{ params.previous }}</a>
               </li>
           {% endif %}
-          {% if currentPageIndex > 3 %}
-              {% set first = params.pages | first %}
-              <li class="ons-pagination__item">
-                  <a href="{{ first.url }}" class="ons-pagination__link" aria-label="Go to the first page (Page 1)">1</a>
-              </li>
+          {% if currentPageIndex > 2 %}
+            <li class="ons-pagination__item{% if firstPage.current == true %} ons-pagination__item--current{% endif %}">
+                <a href="{{ firstPage.url }}" class="ons-pagination__link" aria-label="Go to the first page (Page 1)">1</a>
+            </li>
           {% endif %}
           {% if currentPageIndex > 4 %}
               <li class="ons-pagination__item ons-pagination__item--gap">&hellip;</li>
           {% endif %}
           {% for page in params.pages %}
-              {% if loop.index >= middlePagesStart and loop.index <= middlePagesEnd %}
+              {% set showPage = false %}
+              {# Show the current, next and previous page
+              Show page 2 if the current page index is within the first 4 pages
+              Show the penultimate page if the current page index is within the last 4 pages  #}
+              {% if (loop.index == currentPageIndex) or (loop.index == currentPageIndex + 1) or (loop.index == currentPageIndex - 1) or (loop.index == 2 and currentPageIndex <= 4) or ((loop.index == totalPages - 1) and (currentPageIndex > totalPages - 4)) %}
+                {% set showPage = true %}                    
+              {% endif %}
+              {% if showPage == true %}
                   <li class="ons-pagination__item{% if page.current == true %} ons-pagination__item--current{% endif %}">
                       <a href="{{ page.url }}" class="ons-pagination__link"
                           {%- if page.current -%}
@@ -65,11 +57,10 @@
           {% if currentPageIndex < totalPages - 3 %}
               <li class="ons-pagination__item ons-pagination__item--gap">&hellip;</li>
           {% endif %}
-          {% if currentPageIndex < totalPages - 2 %}
-              {% set lastPage = params.pages | last %}
-              <li class="ons-pagination__item">
-                  <a href="{{ lastPage.url }}" class="ons-pagination__link" aria-label="Go to the last page (Page {{ totalPages }})">{{ totalPages }}</a>
-              </li>
+          {% if currentPageIndex < totalPages - 1 %}
+            <li class="ons-pagination__item{% if lastPage.current == true %} ons-pagination__item--current{% endif %}">
+                <a href="{{ lastPage.url }}" class="ons-pagination__link" aria-label="Go to the last page (Page {{ totalPages }})">{{ totalPages }}</a>
+            </li>
           {% endif %}
           {% if totalPages > 1 and totalPages != currentPageIndex %}
               <li class="ons-pagination__item ons-pagination__item--next">

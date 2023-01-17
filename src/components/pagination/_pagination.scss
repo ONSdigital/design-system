@@ -2,7 +2,9 @@ $pagination-item-padding: 0.5rem;
 $pagination-item-width: 2.5rem;
 
 .ons-pagination {
-  $ctx: &;
+  &__position {
+    margin: 0 0 0.4rem;
+  }
 
   &__items {
     margin: 0 $pagination-item-padding * -1;
@@ -25,6 +27,12 @@ $pagination-item-width: 2.5rem;
     }
   }
 
+  &__items > & {
+    &__item--current {
+      margin: 0 0 0 $pagination-item-padding;
+    }
+  }
+
   &__item,
   &__link {
     height: $pagination-item-width;
@@ -43,8 +51,8 @@ $pagination-item-width: 2.5rem;
   }
 
   &__item--current &__link {
-    background: $color-text-link-hover;
-    color: $color-white;
+    background: var(--ons-color-text-link-active);
+    color: var(--ons-color-white);
     outline: 2px solid transparent; // Add transparent outline because Windows High Contrast Mode doesn't show backgrounds
     text-decoration: none;
   }

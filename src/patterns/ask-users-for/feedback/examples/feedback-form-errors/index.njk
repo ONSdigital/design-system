@@ -13,7 +13,7 @@ layout: none
     "absoluteUrl": pageInfo.url,
     "header": {
         "title": "Survey title",
-        "orgLogoHref": "#0"
+        "mastheadLogoUrl": "#0"
     },
     "breadcrumbs": {
         "ariaLabel": 'Back',
@@ -35,8 +35,7 @@ layout: none
     {% call
         onsPanel({
             title: "There are 2 problems with this page",
-            type: "error",
-            "dsExample": isPatternLib
+            type: "error"
         })
     %}
         {% from "components/lists/_macro.njk" import onsList %}
@@ -72,8 +71,7 @@ layout: none
                 "name": "feedback-type",
                 "error": {
                     "id": "feedback-type",
-                    "text": "Select what question topic your feedback is about",
-                    "dsExample": isPatternLib
+                    "text": "Select what question topic your feedback is about"
                 },
                 "radios": [
                     {
@@ -167,8 +165,7 @@ layout: none
                 },
                 "error": {
                     "id": "feedback-content",
-                    "text": "Enter your feedback",
-                    "dsExample": isPatternLib
+                    "text": "Enter your feedback"
                 }
             })
         }}

@@ -5,7 +5,7 @@
 | cols                 | array`<FooterCol>`             | false    | An array of objects for each of the 3 allowed [footer columns](#footercol)                                                                           |
 | rows                 | array`<FooterRow>`             | false    | An array for the first [footer row](#footerrow)                                                                                                      |
 | legal                | array`<LegalRow>`              | false    | An array of for the [row of legal links](#legalrow)                                                                                                  |
-| poweredBy            | object`<PoweredBy>`            | false    | Settings for [a supporting organisation logo](#poweredby)                                                                                            |
+| poweredBy            | HTML                           | false    | Any HTML to render an image for example embedded `<svg>` or `<img>` to override the default ONS logo                                                 |
 | lang                 | string                         | false    | Set the ISO language code for current page to display the correct language ONS logo. Defaults to “en”.                                               |
 | newTabWarning        | string                         | false    | Leading line of text to warn users that all footer links will open a new tab                                                                         |
 | OGLLink              | object`<OGLLink>`              | false    | An object containing settings for the [Open Government Licence content](#ogllink). Set to “true” to display the default values for English and Welsh |
@@ -50,11 +50,3 @@
 | Name      | Type                                                        | Required | Description                 |
 | --------- | ----------------------------------------------------------- | -------- | --------------------------- |
 | itemsList | array`<ListItem>` [_(ref)_](/foundations/typography/#lists) | true     | A list of links for the row |
-
-## PoweredBy
-
-| Name        | Type   | Required | Description                                                                                                                                                                                                                  |
-| ----------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| logo        | string | true     | The name of the logo of one of our partner organisations the service is being provided by: NISRA (`nisra-logo`), Northern Ireland Department of Finance (`ni-finance-logo`), or HM Government (`hm-gov-logo-{langISOcode}`). |
-| alt         | string | true     | The text for the HTML `<title>` element for the SVG to describe the graphic                                                                                                                                                  |
-| partnership | string | false    | Text string to prefix the ONS logo displayed in addition to the organisation set by `logo`, to describe the collaboration between the two organisations. For example, “In partnership with [Office for National Statistics]” |
