@@ -1,13 +1,22 @@
 {% from "components/icons/_macro.njk" import onsIcon %}
 
-{% macro onsCallToAction(params) %}
+{% macro onsButtonLink(params) %}
     {# Set button icon #}
+    {% set iconPosition = "after" %}
     {% if params.iconType %}
         {% set iconType = params.iconType %}
+        {% set iconPosition = params.iconPosition %}
     {% else %}
         {% if params.newWindow %}
-        {# CTA link opening in new tab #}
+            {# CTA link opening in new tab #}
             {% set iconType = "external-link" %}
+        {% elif params.variants and 'download' in params.variants %}
+            {# Download #}
+            {% set iconType = "download" %}
+            {% set iconPosition = "before" %}
+            {% if not params.removeDownloadAttribute %}
+                {% set variantAttributes = "download" %}
+            {% endif %}
         {% else %}
         {# CTA link #}
             {% set iconType = "arrow-next" %}
@@ -18,6 +27,7 @@
         class="ons-btn ons-btn--link ons-js-submit-btn{% if params.classes %} {{ params.classes }}{% endif %}{% if params.variants %}{% if params.variants is not string %}{% for variant in params.variants %} ons-btn--{{ variant }}{% endfor %}{% else %} ons-btn--{{ params.variants }}{% endif %}{% endif %}"
         {% if params.id %}id="{{ params.id }}"{% endif %}
         {% if params.newWindow %}target="_blank" rel="noopener"{% endif %}
+        {{ variantAttributes }}
         {% if params.attributes %}{% for attribute, value in (params.attributes.items() if params.attributes is mapping and params.attributes.items else params.attributes) %} {{attribute}}="{{value}}"{% endfor %}{% endif %}
         >
         <span class="ons-btn__inner{% if params.innerClasses %} {{ params.innerClasses }}{% endif %}">
@@ -25,6 +35,7 @@
             {{
                 onsIcon({
                     "iconType": iconType,
+                    "iconPosition": iconPosition,
                     "classes": 'ons-u-ml-xs'
                 })
             }}

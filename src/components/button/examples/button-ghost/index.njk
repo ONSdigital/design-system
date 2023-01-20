@@ -1,10 +1,10 @@
 ---
 fullWidth: true
 ---
-{% from "components/call-to-action/_macro.njk" import onsCallToAction %}
+{% from "components/button/_macro.njk" import onsButtonLink %}
 <div style="padding: 1.5rem; background: #206095">
 {{
-    onsCallToAction({
+    onsButtonLink({
             "text": 'Save and sign out',
             "url": '#0',
             "variants": 'ghost',

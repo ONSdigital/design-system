@@ -60,7 +60,7 @@ The call to action button should be used when a link to a new page is the primar
 
 Links simply styled as buttons are not accessible to users who navigate a web page with voice commands. Setting `"url"` will add the attribute `role="button"` which will help these users select the link.
 {{
-    patternlibExample({"path": "components/button/examples/button-link/index.njk"})
+    patternlibExample({"path": "components/button-link/examples/button-link/index.njk"})
 }}
 
 #### Call to action opening in a new tab or window
@@ -68,7 +68,7 @@ Use this button when a page needs to open in a new tab or window, for example, f
 
 Setting the `"newWindow"` to `true` adds a warning for screen reader users (set by `"newWindowDescription"`) to let them know a new tab or window will open when they select the button. This helps screen reader users understand why the back button in the browser is disabled on the new page.
 {{
-    patternlibExample({"path": "components/button/examples/button-link-new-window/index.njk"})
+    patternlibExample({"path": "components/button-link/examples/button-link-new-window/index.njk"})
 }}
 
 ### Ghost
@@ -77,7 +77,7 @@ The ghosted button style is for use in the [header](/components/header/#external
 Setting `"variants"` with `'ghost'` will style the button, and setting `iconType` with `exit` adds the appropriate icon for a “sign out” or “exit” button.
 {{
     patternlibExample({
-        "path": "components/button/examples/button-ghost/index.njk",
+        "path": "components/button-link/examples/button-ghost/index.njk",
         "backgroundColor": "#206095"
     })
 }}
@@ -120,7 +120,7 @@ The button will not show until the JavaScript has run, and will not be shown on 
 ### Download
 Setting `"variants"` with `'download'` will show a button with a download icon and add the `download` attribute to make the browser save the file at the specified `url`.
 {{
-    patternlibExample({"path": "components/button/examples/button-download/index.njk"})
+    patternlibExample({"path": "components/button-link/examples/button-download/index.njk"})
 }}
 
 ### Grouping buttons
