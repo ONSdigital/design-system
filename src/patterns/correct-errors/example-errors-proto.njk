@@ -1,0 +1,373 @@
+---
+layout: none
+---
+{% extends "layout/_template.njk" %}
+
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/input/_macro.njk" import onsInput %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+{% from "components/date-input/_macro.njk" import onsDateInput %}
+{% from "components/checkboxes/_macro.njk" import onsCheckboxes %}
+{% from "components/password/_macro.njk" import onsPassword %}
+{% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+{% from "components/duration/_macro.njk" import onsDuration %}
+
+{% set pageConfig = {
+    "title": "Errors prototype"
+} %}
+
+{% block preMain %}
+    {{
+        onsBreadcrumbs({
+            "ariaLabel": 'Breadcrumbs',
+            "itemsList": [
+                {
+                    "url": '/',
+                    "text": 'Home'
+                },
+                {
+                    "url": '/patterns',
+                    "text": 'Patterns'
+                },
+                {
+                    "url": '/patterns/correct-errors',
+                    "text": 'Correct errors'
+                }
+            ]
+        })
+    }}
+{% endblock %}
+
+{% set form = {
+    "method": "GET",
+    "attributes": {
+        "action": "/patterns/correct-errors/example-errors-proto-errors",
+        "novalidate": ""
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": "Input errors examples",
+        "submitButton": true
+    }) %}
+        {{
+            onsInput({
+                "id": "number",
+                "type": "number",
+                "fieldClasses": "ons-question__answer",
+                "width": "5",
+                "attributes": {
+                    "min": 0
+                },
+                "label": {
+                    "text": "Number of employees paid monthly"
+                }
+            })
+        }}
+
+        {{
+            onsInput({
+                "id": "suffixed",
+                "type": "number",
+                "fieldClasses": "ons-question__answer",
+                "width": "3",
+                "value": "110",
+                "label": {
+                    "text": "Percentage of employees paid monthly"
+                },
+                "suffix": {
+                    "title": "per cent",
+                    "text": "%",
+                    "id": "employees-percentage-suffix"
+                }
+            })
+        }}
+
+        {{
+            onsDateInput({
+                "legend": "Date of birth",
+                "description": "For example, 31 3 1980",
+                "legendOrLabel": "Date of birth",
+                "day": {
+                    "label": {
+                        "text": "Day"
+                    },
+                    "name": "day",
+                    "attributes": {
+                        "autocomplete": "bday-day"
+                    }
+                },
+                "month": {
+                    "label": {
+                        "text": "Month"
+                    },
+                    "name": "month",
+                    "attributes": {
+                        "autocomplete": "bday-month"
+                    }
+                },
+                "year": {
+                    "label": {
+                        "text": "Year"
+                    },
+                    "name": "year",
+                    "attributes": {
+                        "autocomplete": "bday-year"
+                    }
+                }
+            })
+        }}
+
+        {{
+            onsRadios({
+                "legend": "How would you like us to contact you?",
+                "name": "contact-preference",
+                "radios": [
+                    {
+                        "id": "post",
+                        "label": {
+                            "text": "By post"
+                        },
+                        "value": "post"
+                    },
+                    {
+                        "id": "email",
+                        "label": {
+                            "text": "By email"
+                        },
+                        "value": "email"
+                    },
+                    {
+                        "id": "phone",
+                        "label": {
+                            "text": "By phone"
+                        },
+                        "value": "phone",
+                        "other": {
+                            "otherType": "select",
+                            "id": "phone-time",
+                            "name": "phone-time",
+                            "label": {
+                                "text": "Choose preferred time of day"
+                            },
+                            "options": [
+                                {
+                                    "value": "",
+                                    "text": "Select an option",
+                                    "disabled": true,
+                                    "selected": true
+                                },
+                                {
+                                    "value": "anytime",
+                                    "text": "Any time of day"
+                                },
+                                {
+                                    "value": "morning",
+                                    "text": "Morning"
+                                },
+                                {
+                                    "value": "afternoon",
+                                    "text": "Afternoon"
+                                },
+                                {
+                                    "value": "evening",
+                                    "text": "Evening"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            })
+        }}
+
+        {{
+            onsCheckboxes({
+                "legend": "What type of central heating does your accommodation have?",
+                "id": "central-heating-answers",
+                "checkboxesLabel": "Select all that apply",
+                "name": "mutually-exclusive",
+                "checkboxes": [
+                    {
+                        "id": "gas",
+                        "label": {
+                            "text": "Gas"
+                        },
+                        "value": "gas"
+                    },
+                    {
+                        "id": "electric",
+                        "label": {
+                            "text": "Electric"
+                        },
+                        "value": "electric"
+                    },
+                    {
+                        "id": "solid-fuel",
+                        "label": {
+                            "text": "Solid fuel"
+                        },
+                        "value": "solid-fuel"
+                    },
+                    {
+                        "id": "other-fuel",
+                        "label": {
+                            "text": "Other"
+                        },
+                        "value": "other",
+                        "other": {
+                            "id": "other-fuel-textbox",
+                            "name": "other-fuel-answer",
+                            "label": {
+                            "text": "Enter type of central heating"
+                            }
+                        }
+                    }
+                ],
+                "mutuallyExclusive": {
+                    "or": "Or",
+                    "deselectMessage": "Selecting this will uncheck all other checkboxes",
+                    "deselectGroupAdjective": "deselected",
+                    "deselectExclusiveOptionAdjective": "deselected",
+                    "exclusiveOptions": [
+                        {
+                            "id": "no-central-heating",
+                            "label": {
+                                "text": "No central heating"
+                            },
+                            "value": "no-central-heating"
+                        }
+                    ]
+                }
+            })
+        }}
+
+        {{
+            onsPassword({
+                "id": "password",
+                "label": {
+                    "text": "Password"
+                },
+                "showPasswordText": "Show password"
+            })
+        }}
+
+        {{
+            onsInput({
+                "id": "email-address-input",
+                "type": "email",
+                "value": "name.com",
+                "label": {
+                    "text": "Email address"
+                },
+                "legend": "Get a confirmation email",
+                "legendClasses": "ons-u-vh",
+                "mutuallyExclusive": {
+                    "or": "Or",
+                    "deselectMessage": "Selecting this will clear your email address",
+                    "deselectGroupAdjective": "cleared",
+                    "deselectExclusiveOptionAdjective": "deselected",
+                    "exclusiveOptions": [
+                        {
+                            "id": "email-checkbox",
+                            "name": "no-email",
+                            "value": "no-email",
+                            "label": {
+                                "text": "I don’t want to receive a confirmation email"
+                            }
+                        }
+                    ]
+                }
+            })
+        }}
+
+        {{
+            onsDuration({
+                "legendOrLabel": "Duration",
+                "id": "address-duration",
+                "field1": {
+                    "id": "address-duration-hours",
+                    "name": "address-duration-hours",
+                    "suffix": {
+                        "text": "Hours",
+                        "id": "address-duration-hours-suffix"
+                    },
+                    "value": "2"
+                },
+                "field2": {
+                    "id": "address-duration-minutes",
+                    "name": "address-duration-minutes",
+                    "suffix": {
+                        "text": "Minutes",
+                        "id": "address-duration-mins-suffix"
+                    },
+                    "value": "60"
+                }
+            })
+        }}
+
+        {{
+            onsRadios({
+                "legend": "Select your favourite toppings",
+                "name": "food-other",
+                "radios": [
+                    {
+                        "id": "bacon-other",
+                        "label": {
+                            "text": "Bacon"
+                        },
+                        "value": "bacon"
+                    },
+                    {
+                        "id": "olives-other",
+                        "label": {
+                            "text": "Olives"
+                        },
+                        "value": "olives"
+                    },
+                    {
+                        "id": "pepperoni-other",
+                        "label": {
+                            "text": "Pepperoni"
+                        },
+                        "checked": true,
+                        "value": "pepperoni",
+                        "other": {
+                            "otherType": "select",
+                            "id": "pepperoni-heat-level",
+                            "name": "pepperoni-heat-level",
+                            "label": {
+                                "text": "Choose preferred heat level"
+                            },
+                            "options": [
+                                {
+                                    "value": "",
+                                    "text": "Select an option",
+                                    "disabled": true,
+                                    "selected": true
+                                },
+                                {
+                                    "value": "mild",
+                                    "text": "Mild"
+                                },
+                                {
+                                    "value": "medium",
+                                    "text": "Medium"
+                                },
+                                {
+                                    "value": "hot",
+                                    "text": "Hot"
+                                },
+                                {
+                                    "value": "extra hot",
+                                    "text": "Extra Hot"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            })
+        }}
+    {% endcall %}
+{% endblock %}

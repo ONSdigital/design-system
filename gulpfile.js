@@ -13,7 +13,6 @@ require('@babel/register');
 
 const babelEsmConfig = require('./babel.conf.esm');
 const babelNomoduleConfig = require('./babel.conf.nomodule');
-const nunjucksRendererPipe = require('./lib/rendering/nunjucks-renderer-pipe.js').default;
 const postCssPlugins = require('./postcss.config').default;
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -77,13 +76,6 @@ gulp.task('build-styles', () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task('build-examples', () => {
-  return gulp
-    .src(['./src/**/examples/**/*.njk', '!**/_*/**'])
-    .pipe(nunjucksRendererPipe)
-    .pipe(gulp.dest('./build'));
-});
-
 gulp.task('copy-static-files', () => {
   return gulp.src('./src/static/**/*').pipe(gulp.dest('./build'));
 });
@@ -110,5 +102,5 @@ gulp.task('build-assets', gulp.series('build-script', 'build-styles'));
 
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
-gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-examples'));
+gulp.task('build', gulp.series('copy-static-files', 'build-assets'));
 gulp.task('build-package', gulp.series('copy-static-files', 'copy-js-files', 'build-assets'));
