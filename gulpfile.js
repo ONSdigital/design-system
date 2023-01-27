@@ -14,6 +14,7 @@ require('@babel/register');
 const babelEsmConfig = require('./babel.conf.esm');
 const babelNomoduleConfig = require('./babel.conf.nomodule');
 const postCssPlugins = require('./postcss.config').default;
+const generateStaticPages = require('./lib/generate-static-pages').default;
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
@@ -84,6 +85,10 @@ gulp.task('copy-js-files', () => {
   return gulp.src('./src/js/*.js').pipe(gulp.dest('./build/js'));
 });
 
+gulp.task('generate-pages', async function() {
+  await generateStaticPages();
+});
+
 gulp.task('watch-and-build', async () => {
   browserSync.init({
     proxy: 'localhost:3010',
@@ -102,5 +107,6 @@ gulp.task('build-assets', gulp.series('build-script', 'build-styles'));
 
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
-gulp.task('build', gulp.series('copy-static-files', 'build-assets'));
+gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'generate-pages'));
+gulp.task('generate', gulp.series('generate-pages'));
 gulp.task('build-package', gulp.series('copy-static-files', 'copy-js-files', 'build-assets'));
