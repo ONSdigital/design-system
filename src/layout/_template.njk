@@ -106,13 +106,15 @@
             {% endif %}
 
             {% if pageConfig.social %}
+
+                {% set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else assetsURL + '/favicons/twitter.png' %}
                 <!-- Twitter -->
                 <meta name="twitter:card" content="summary">
                 <meta name="twitter:site" content="{{ pageConfig.social.twitterSite }}">
-                <meta name="twitter:url" content="{{ pageConfig.media.canonicalUrl | default(pageConfig.absoluteUrl) }}">
+                <meta name="twitter:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
                 <meta name="twitter:title" content="{{ pageConfig.social.title | default(pageConfig.title) }}">
                 <meta name="twitter:description" content="{{ pageConfig.social.description | default(pageConfig.description) }}">
-                <meta name="twitter:image" content="{{ pageConfig.social.twitterImage }} | default({{ assetsURL }}/favicons/twitter.png)">
+                <meta name="twitter:image" content="{{ twitterImagePath }}">
             {% endif %}
         {% endblock %}
 
