@@ -82,7 +82,7 @@ describe('macro: related-content', () => {
     it('calls with content', () => {
       const $ = cheerio.load(renderComponent('related-content', { EXAMPLE_RELATED_CONTENT_GENERAL }, 'Example content...'));
 
-      const content = $('.ons-related-content__body')
+      const content = $('.ons-related-content')
         .text()
         .trim();
       expect(content).toEqual(expect.stringContaining('Example content...'));

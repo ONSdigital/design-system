@@ -64,6 +64,15 @@ export function renderComponent(componentName, params = {}, children = null, fak
   }
 }
 
+export function renderBaseTemplate(config) {
+  const compositedTemplate = `
+    {% extends 'layout/_template.njk' %}
+    ${config}
+  `;
+
+  return renderTemplate(compositedTemplate);
+}
+
 export function templateFaker() {
   return new TemplateFakerContext();
 }
@@ -123,6 +132,7 @@ export class TemplateFakerContext {
     const output = renderTemplate(template, this);
     return this.cleanupSpiedOccurrences(output);
   }
+
   renderComponent(componentName, params, children) {
     const output = renderComponent(componentName, params, children, this);
     return this.cleanupSpiedOccurrences(output);
@@ -162,14 +172,12 @@ export async function setTestPage(path, template) {
   verifyConsoleSubscription(page);
 
   const compositedTemplate = `
-    {% extends 'layout/_template.njk' %}
-
     {% block body %}
       ${template}
     {% endblock %}
   `;
 
-  const html = renderTemplate(compositedTemplate);
+  const html = renderBaseTemplate(compositedTemplate);
 
   await page.setContent(html, { waitUntil: 'networkidle0' });
 

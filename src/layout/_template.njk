@@ -42,19 +42,9 @@
 {% endif %}
 
 {# Page columns #}
-{% set mainColNumber = "8" %}
-
-{% if pageConfig.mainCol %}
-    {% set mainColNumber = pageConfig.mainCol.columns if pageConfig.mainCol.columns %}
-    {% set mainColClasses = (' ' + pageConfig.mainCol.colClasses) if pageConfig.mainCol.colClasses %}
-    {% set mainClasses = (' ' + pageConfig.mainCol.classes) if pageConfig.mainCol.classes %}
-{% endif %}
-
-{% if pageConfig.asideCol %}
-    {% set asideColNumber = 12 - mainColNumber if pageConfig.asideCol.position %}
-    {% set asideColClasses = (' ' + pageConfig.asideCol.colClasses) if pageConfig.asideCol.colClasses %}
-    {% set asideClasses = (' ' + pageConfig.asideCol.classes) if pageConfig.asideCol.classes %}
-{% endif %}
+{% set pageColNumber = pageConfig.pageColNumber | default("12") %}
+{% set pageColClasses = pageConfig.pageColClasses if pageConfig.pageColClasses else '' %}
+{% set mainClasses = pageConfig.mainColClasses if pageConfig.mainColClasses else '' %}
 
 <!doctype html>
 <html lang="{{ currentLanguageISOCode }}">
@@ -101,13 +91,15 @@
             {% endif %}
 
             {% if pageConfig.social %}
+
+                {% set twitterImagePath = pageConfig.social.twitterImage if pageConfig.social.twitterImage else assetsURL + '/favicons/twitter.png' %}
                 <!-- Twitter -->
                 <meta name="twitter:card" content="summary">
                 <meta name="twitter:site" content="{{ pageConfig.social.twitterSite }}">
-                <meta name="twitter:url" content="{{ pageConfig.media.canonicalUrl | default(pageConfig.absoluteUrl) }}">
+                <meta name="twitter:url" content="{{ pageConfig.meta.canonicalUrl | default(pageConfig.absoluteUrl) }}">
                 <meta name="twitter:title" content="{{ pageConfig.social.title | default(pageConfig.title) }}">
                 <meta name="twitter:description" content="{{ pageConfig.social.description | default(pageConfig.description) }}">
-                <meta name="twitter:image" content="{{ pageConfig.social.twitterImage }} | default({{ assetsURL }}/favicons/twitter.png)">
+                <meta name="twitter:image" content="{{ twitterImagePath }}">
             {% endif %}
         {% endblock %}
 
@@ -174,38 +166,24 @@
                     {% endblock %}
                     {% block pageContent %}
                         <div class="ons-page__container ons-container{{ containerClasses }}">
-                            {% if pageConfig.breadcrumbs %}
-                                {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
-                                {{
-                                    onsBreadcrumbs({
-                                        "id": pageConfig.breadcrumbs.id,
-                                        "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
-                                        "itemsList": pageConfig.breadcrumbs.itemsList
-                                    })
-                                }}
-                            {% endif %}
-                            {% block preMain %}{% endblock %}
+                            {% block preMain %}
+                                {% if pageConfig.breadcrumbs %}
+                                    {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+                                    {{
+                                        onsBreadcrumbs({
+                                            "id": pageConfig.breadcrumbs.id,
+                                            "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
+                                            "itemsList": pageConfig.breadcrumbs.itemsList
+                                        })
+                                    }}
+                                {% endif %}
+                            {% endblock %}
                             <div class="ons-grid">
-                                {% if pageConfig.asideCol %}
-                                    {% set aside %}
-                                        <div class="ons-grid__col ons-col-{{ asideColNumber }}@m{{ asideColClasses }}">
-                                            <aside {% if pageConfig.asideCol.id %}id="{{ asideId }}" {% endif %}class="ons-page__aside{{ asideClasses }}">
-                                                {% block aside %}{% endblock %}
-                                            </aside>
-                                        </div>
-                                    {% endset %}
-                                {% endif %}
-                                {% if pageConfig.asideCol and pageConfig.asideCol.position == "before" %}
-                                    {{ aside | safe }}
-                                {% endif %}
-                                <div class="ons-grid__col ons-col-{{ mainColNumber }}@m{{ mainColClasses }}">
-                                    <main id="main-content" class="ons-page__main{{ mainClasses }}">
+                                <div class="ons-grid__col ons-col-{{ pageColNumber }}@m {{ pageColClasses }}">
+                                    <main id="main-content" class="ons-page__main {{ mainColClasses }}">
                                         {% block main %}{% endblock %}
                                     </main>
                                 </div>
-                                {% if pageConfig.asideCol and pageConfig.asideCol.position == "after" %}
-                                    {{ aside | safe }}
-                                {% endif %}
                             </div>
                         </div>
                     {% endblock %}
@@ -229,7 +207,7 @@
                                 "poweredBy": pageConfig.footer.poweredBy,
                                 "crest": pageConfig.footer.crest,
                                 "OGLLink": pageConfig.footer.OGLLink,
-                                "button": pageConfig.signoutButton,
+                                "button": pageConfig.header.signoutButton,
                                 "footerWarning": pageConfig.footer.footerWarning,
                                 "copyrightDeclaration": pageConfig.footer.copyrightDeclaration,
                                 "newTabWarning": pageConfig.footer.newTabWarning,
