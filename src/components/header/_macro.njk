@@ -159,13 +159,11 @@
                             {% endif %}
                             </li>
                         {% endfor %}
-                        {% if params.language %}
-                            <div class="ons-u-d-no@xs">
-                                {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
-                                {{ onsLanguageSelector(params.language) }}
-                            </div>
-                        {% endif %}
                     </ul>
+                    {% if params.language %}
+                        {% from "components/language-selector/_macro.njk" import onsLanguageSelector %}
+                        {{ onsLanguageSelector(params.language) }}
+                    {% endif %}
                 </nav>
             {% endif %}
         </div>
