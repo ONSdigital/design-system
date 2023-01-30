@@ -171,17 +171,18 @@
                     {% endblock %}
                     {% block pageContent %}
                         <div class="ons-page__container ons-container{{ containerClasses }}">
-                            {% if pageConfig.breadcrumbs %}
-                                {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
-                                {{
-                                    onsBreadcrumbs({
-                                        "id": pageConfig.breadcrumbs.id,
-                                        "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
-                                        "itemsList": pageConfig.breadcrumbs.itemsList
-                                    })
-                                }}
-                            {% endif %}
-                            {% block preMain %}{% endblock %}
+                            {% block preMain %}
+                                {% if pageConfig.breadcrumbs %}
+                                    {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
+                                    {{
+                                        onsBreadcrumbs({
+                                            "id": pageConfig.breadcrumbs.id,
+                                            "ariaLabel": pageConfig.breadcrumbs.ariaLabel,
+                                            "itemsList": pageConfig.breadcrumbs.itemsList
+                                        })
+                                    }}
+                                {% endif %}
+                            {% endblock %}
                             <div class="ons-grid">
                                 <div class="ons-grid__col ons-col-{{ pageColNumber }}@m {{ pageColClasses }}">
                                     <main id="main-content" class="ons-page__main {{ mainColClasses }}">
