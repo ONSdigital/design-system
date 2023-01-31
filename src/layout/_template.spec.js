@@ -212,10 +212,6 @@ const FULL_EXAMPLE = `
             }
         ]
     },
-    "asideCol": {
-        "position": "after",
-        "colClasses": "ons-u-mt-l ons-u-mb-l"
-    },
     "footer": {
         "cols": [
             {
@@ -310,39 +306,10 @@ const FULL_EXAMPLE = `
     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
     <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 {% endblock %}
-{% block aside %}
-    {% from "components/related-content/_macro.njk" import onsRelatedContent %}
-    {{
-        onsRelatedContent({
-            "ariaLabel": 'Related content',
-            "rows": [
-                {
-                    "id": 'related-content',
-                    "title": 'Related content',
-                    "itemsList": [
-                        {
-                            "text": 'Base page template',
-                            "url": '#0'
-                        },
-                        {
-                            "text": 'Contribute',
-                            "url": '#0'
-                        },
-                        {
-                            "text": 'Contact us',
-                            "url": '#0'
-                        }
-                    ]
-                }
-            ]
 
-        })
-    }}
-{% endblock %}
 {% block head %}Some head content{% endblock %}
 {% block bodyStart %}Some bodyStart content{% endblock %}
 {% block preHeader %}Some preHeader content{% endblock %}
-{% block preMain %}Some preMain content{% endblock %}
 {% block preFooter %}Some preFooter content{% endblock %}
 {% block bodyEnd %}Some bodyEnd content{% endblock %}
 {% block scripts %}<script src="random-script.js"></script>{% endblock %}
@@ -388,8 +355,6 @@ describe('base page template', () => {
     const $ = cheerio.load(renderBaseTemplate(FULL_EXAMPLE));
     const results = await axe($.html(), {
       rules: {
-        // DAC test did not highlight nested <aside> elements as an issue
-        'landmark-complementary-is-top-level': { enabled: false },
         // aria-label is duplicated for the desktop and mobile navigation
         // The duplication is not an issue as display and aria-hidden are used
         'landmark-unique': { enabled: false },
