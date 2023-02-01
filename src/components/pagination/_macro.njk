@@ -7,7 +7,7 @@
   {% endfor %}
 
   {% set totalPages = params.pages | length %}
-  {% set position = "Page " + currentPageIndex + " of " + totalPages %}
+  {% set position = "Page " ~ currentPageIndex ~ " of " ~ totalPages %}
   {% set lastPage = params.pages | last %}
   {% set firstPage = params.pages | first %}
 
