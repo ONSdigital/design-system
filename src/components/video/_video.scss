@@ -1,9 +1,11 @@
 .ons-video {
   @extend .ons-u-mb-m;
 
-  height: 0;
-  padding-bottom: 56.25%; /* 16:9 */
-  position: relative;
+  &--hasIframe {
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 */
+    position: relative;
+  }
 
   &__iframe {
     height: 100%;
