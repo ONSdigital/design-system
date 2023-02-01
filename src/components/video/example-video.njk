@@ -12,3 +12,24 @@
         "linkText": 'Watch “Census 2021 promotional TV advert“ on Youtube'
     })
 }}
+
+{% from "components/content-pagination/_macro.njk" import onsContentPagination %}
+
+{{-
+  onsContentPagination({
+    "contentPaginationItems": [
+      {
+        "rel": 'prev',
+        "text": 'Previous',
+        "url": '#0',
+        "label": 'Overview'
+      },
+      {
+        "rel": 'next',
+        "text": 'Next',
+        "url": '#0',
+        "label": 'Who should take part and why'
+      }
+    ]
+  })
+}}
