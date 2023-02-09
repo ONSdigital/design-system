@@ -1,5 +1,5 @@
 ---
-title: "Example: Change language from Welsh to English"
+title: "Example: Change language from English to Welsh"
 layout: none
 ---
 
@@ -8,20 +8,20 @@ layout: none
 
 {% set pageConfig = {
     "header": {
-        "title": "Enw'r gwasanaeth",
+        "title": "Service name",
         "language": {
             "languages": [
                 {
-                    "url": "/patterns/change-language/examples/english",
+                    "url": "#0",
                     "ISOCode": "en",
                     "text": "English",
-                    "current": false
+                    "current": true
                 },
                 {
-                    "url": "#0",
+                    "url": "/patterns/change-language/examples/cymraeg",
                     "ISOCode": "cy",
                     "text": "Cymraeg",
-                    "current": true
+                    "current": false
                 }
             ]
         }
@@ -31,22 +31,17 @@ layout: none
             {
                 "itemsList": [
                     {
-                        "text": "Cysyllwch a ni",
+                        "text": "Contact us",
                         "url": "#0"
                     },
                     {
-                        "text": "Cwcis ac preifatrwydd",
+                        "text": "Cookies and privacy",
                         "url": "#0"
                     }
                 ]
             }
         ],
-        "OGLLink": {
-            "pre": "Mae'r holl gynnwys ar gael o dan y",
-            "link": "Drwydded Llywodraeth Leol v3.0",
-            "url": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
-            "post": ", oni bai y nodir fel arall"
-        }
+        "OGLLink": true
     }
 } %}
 
