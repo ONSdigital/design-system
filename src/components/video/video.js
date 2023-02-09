@@ -25,6 +25,7 @@ export default class Video {
     const src = this.iframe.getAttribute('data-src');
     this.iframe.src = src;
     this.iframe.classList.remove('ons-u-d-no');
+    this.component.classList.add('ons-video--hasIframe');
     this.placeholder.classList.add('ons-u-d-no');
   }
 }

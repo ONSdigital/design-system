@@ -47,6 +47,11 @@ describe('script: video', () => {
       const displayStyle = await page.$eval('.ons-js-video-iframe', node => window.getComputedStyle(node).getPropertyValue('display'));
       expect(displayStyle).toBe('block');
     }, 10000);
+
+    it('should add the correct modifier class', async () => {
+      const hasClass = await page.$eval('.ons-js-video', node => node.classList.contains('ons-video--hasIframe'));
+      expect(hasClass).toBe(true);
+    }, 10000);
   });
 
   describe('when cookies are accepted via banner', () => {
@@ -68,5 +73,10 @@ describe('script: video', () => {
       const displayStyle = await page.$eval('.ons-js-video-iframe', node => window.getComputedStyle(node).getPropertyValue('display'));
       expect(displayStyle).toBe('block');
     });
+
+    it('should add the correct modifier class', async () => {
+      const hasClass = await page.$eval('.ons-js-video', node => node.classList.contains('ons-video--hasIframe'));
+      expect(hasClass).toBe(true);
+    }, 10000);
   });
 });
