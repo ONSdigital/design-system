@@ -7,25 +7,15 @@ title: Change language
 {% from "components/external-link/_macro.njk" import onsExternalLink %}
 +++
 
-## When to use this pattern
+Use the change language pattern to allow users to toggle between English and Welsh.
 
-This pattern should be used if your service is available in multiple languages.
+{{
+    patternlibExample({ "path": "patterns/help-users-to/change-language/examples/english/index.njk" })
+}}
 
 ## How to use this pattern
 
-Language selection is achieved by rendering a language selector in the header element, and a list of available languages in the footer. The header language selector is for viewports larger than mobile, and the footer language selector is for viewports smaller than tablet.
-
-## Examples
-
-### 3 Available languages
-{{
-    patternlibExample({ "path": "patterns/help-users-to/change-language/examples/english-ireland/index.njk" })
-}}
-
-### 2 Available languages
-{{
-    patternlibExample({ "path": "patterns/help-users-to/change-language/examples/cymraeg/index.njk" })
-}}
+Welsh can be selected by setting the language selector in the [header](/components/header) component.
 
 ## Help improve this pattern
 Let us know how we could improve this pattern or share your user research findings.
