@@ -44,7 +44,7 @@ export default class TableSort {
 
   sortButtonClicked(event) {
     const columnNumber = event.target.closest('[data-index]').getAttribute('data-index');
-    const sortDirection = event.target.parentNode.getAttribute('aria-sort');
+    const sortDirection = event.target.closest('[aria-sort]').getAttribute('aria-sort');
     let newSortDirection;
 
     if (sortDirection === 'none' || sortDirection === 'ascending') {
@@ -63,7 +63,7 @@ export default class TableSort {
     });
 
     this.removeButtonStates();
-    this.updateButtonState(event.target, newSortDirection);
+    this.updateButtonState(event.target.closest('[aria-sort]'), newSortDirection);
   }
 
   getTableRowsArray(tbody) {
@@ -134,7 +134,7 @@ export default class TableSort {
   }
 
   updateButtonState(button, direction) {
-    button.parentElement.setAttribute('aria-sort', direction);
+    button.setAttribute('aria-sort', direction);
     let message = this.options.statusMessage;
     message = message + ' ' + button.textContent.replace(/^\s+|\s+$/g, '');
     message = message + ' (' + direction + ')';
