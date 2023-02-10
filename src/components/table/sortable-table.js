@@ -35,16 +35,16 @@ export default class TableSort {
     button.setAttribute('data-index', i);
     button.setAttribute('class', 'ons-table__sort-button');
     button.textContent = text;
-    button.addEventListener('click', this.sortButtonClicked.bind(this));
     let sortSprite = document.getElementById('sort-sprite-' + text.toLowerCase());
     const sortSpriteParent = sortSprite.parentNode;
     sortSpriteParent.replaceChild(button, sortSprite);
     button.appendChild(sortSprite);
+    button.addEventListener('click', this.sortButtonClicked.bind(this));
   }
 
   sortButtonClicked(event) {
-    const columnNumber = event.target.getAttribute('data-index');
-    const sortDirection = event.target.parentElement.getAttribute('aria-sort');
+    const columnNumber = event.target.closest('[data-index]').getAttribute('data-index');
+    const sortDirection = event.target.parentNode.getAttribute('aria-sort');
     let newSortDirection;
 
     if (sortDirection === 'none' || sortDirection === 'ascending') {
@@ -109,6 +109,10 @@ export default class TableSort {
   }
 
   getCellValue(cell) {
+    if (!cell) {
+      return undefined;
+    }
+
     let cellValue = cell.getAttribute('data-sort-value') || cell.textContent;
     cellValue = parseFloat(cellValue) || cellValue;
 
