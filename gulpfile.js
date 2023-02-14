@@ -8,6 +8,7 @@ const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpTerser = require('gulp-terser');
 const buffer = require('vinyl-buffer');
 const source = require('vinyl-source-stream');
+const backstop = require('backstopjs');
 
 require('@babel/register');
 
@@ -16,6 +17,8 @@ const babelNomoduleConfig = require('./babel.conf.nomodule');
 const nunjucksRendererPipe = require('./lib/rendering/nunjucks-renderer-pipe.js').default;
 const searchIndexPipe = require('./lib/rendering/search-index-pipe.js').default;
 const postCssPlugins = require('./postcss.config').default;
+const generateURLs = require('./src/tests/visual/url-generator.js').default;
+const server = require('./lib/dev-server.js');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
@@ -110,6 +113,29 @@ gulp.task('copy-js-files', () => {
   return gulp.src('./src/js/*.js').pipe(gulp.dest('./build/js'));
 });
 
+gulp.task('generate-urls', async () => {
+  const urls = await generateURLs();
+  return urls;
+});
+
+gulp.task('run-backstop', async () => {
+  const urls = await generateURLs();
+  const backstopConfig = require('./backstop.config.js');
+  backstopConfig.scenarios = urls;
+  return backstop('test', {
+    config: backstopConfig,
+  });
+});
+
+gulp.task('run-backstop-reference', async () => {
+  const urls = await generateURLs();
+  const backstopConfig = require('./backstop.config.js');
+  backstopConfig.scenarios = urls;
+  return backstop('reference', {
+    config: backstopConfig,
+  });
+});
+
 gulp.task('watch-and-build', async () => {
   browserSync.init({
     proxy: 'localhost:3010',
@@ -124,6 +150,10 @@ gulp.task('start-dev-server', async () => {
   await import('./lib/dev-server.js');
 });
 
+gulp.task('stop-dev-server', () => {
+  return server.close();
+});
+
 gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-search-index'));
 gulp.task('build-assets-for-testing', gulp.series('build-script', 'build-styles'));
 
@@ -131,3 +161,8 @@ gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-ser
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
 gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-pages'));
 gulp.task('build-package', gulp.series('copy-static-files', 'copy-js-files', 'build-assets'));
+gulp.task('run-backstop-tests', gulp.series('build-assets', 'watch-and-build', 'start-dev-server', 'run-backstop', 'stop-dev-server'));
+gulp.task(
+  'run-backstop-reference-tests',
+  gulp.series('build-assets', 'watch-and-build', 'start-dev-server', 'run-backstop-reference', 'stop-dev-server'),
+);

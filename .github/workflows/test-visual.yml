@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-env:
-  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 jobs:
   run-tests:
     name: Visual tests

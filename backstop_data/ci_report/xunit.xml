@@ -1,0 +1,2039 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="BackstopJS" tests="792" failures="414" errors="414" skipped="0">
+    <testcase classname="" name=" ›› ./src/components/_documentation-template/examples/index.njk"/>
+    <testcase classname="" name=" ›› ./src/components/_documentation-template/examples/index.njk"/>
+    <testcase classname="" name=" ›› ./src/components/_documentation-template/examples/index.njk"/>
+    <testcase classname="document" name=" ›› /components/access-code/examples/access-code-error"/>
+    <testcase classname="document" name=" ›› /components/access-code/examples/access-code-error"/>
+    <testcase classname="document" name=" ›› /components/access-code/examples/access-code-error"/>
+    <testcase classname="document" name=" ›› /components/access-code/examples/access-code"/>
+    <testcase classname="document" name=" ›› /components/access-code/examples/access-code"/>
+    <testcase classname="document" name=" ›› /components/access-code/examples/access-code"/>
+    <testcase classname="document" name=" ›› /components/accordion/examples/accordion-open"/>
+    <testcase classname="document" name=" ›› /components/accordion/examples/accordion-open"/>
+    <testcase classname="document" name=" ›› /components/accordion/examples/accordion-open"/>
+    <testcase classname="document" name=" ›› /components/accordion/examples/accordion"/>
+    <testcase classname="document" name=" ›› /components/accordion/examples/accordion"/>
+    <testcase classname="document" name=" ›› /components/accordion/examples/accordion"/>
+    <testcase classname="document" name=" ›› /components/address-input/examples/address-input-editable">
+      <failure message="Design deviation ›› /components/address-input/examples/address-input-editable (document) component"/>
+      <error message="Design deviation ›› /components/address-input/examples/address-input-editable (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/address-input/examples/address-input-editable"/>
+    <testcase classname="document" name=" ›› /components/address-input/examples/address-input-editable">
+      <failure message="Design deviation ›› /components/address-input/examples/address-input-editable (document) component"/>
+      <error message="Design deviation ›› /components/address-input/examples/address-input-editable (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/address-input/examples/address-input-manual"/>
+    <testcase classname="document" name=" ›› /components/address-input/examples/address-input-manual"/>
+    <testcase classname="document" name=" ›› /components/address-input/examples/address-input-manual"/>
+    <testcase classname="document" name=" ›› /components/address-input/examples/address-input"/>
+    <testcase classname="document" name=" ›› /components/address-input/examples/address-input"/>
+    <testcase classname="document" name=" ›› /components/address-input/examples/address-input"/>
+    <testcase classname="document" name=" ›› /components/autosuggest/examples/autosuggest-country-multiple"/>
+    <testcase classname="document" name=" ›› /components/autosuggest/examples/autosuggest-country-multiple"/>
+    <testcase classname="document" name=" ›› /components/autosuggest/examples/autosuggest-country-multiple"/>
+    <testcase classname="document" name=" ›› /components/autosuggest/examples/autosuggest-country"/>
+    <testcase classname="document" name=" ›› /components/autosuggest/examples/autosuggest-country"/>
+    <testcase classname="document" name=" ›› /components/autosuggest/examples/autosuggest-country"/>
+    <testcase classname="document" name=" ›› /components/back-link/examples/back-link"/>
+    <testcase classname="document" name=" ›› /components/back-link/examples/back-link"/>
+    <testcase classname="document" name=" ›› /components/back-link/examples/back-link"/>
+    <testcase classname="document" name=" ›› /components/breadcrumbs/examples/breadcrumbs-single"/>
+    <testcase classname="document" name=" ›› /components/breadcrumbs/examples/breadcrumbs-single"/>
+    <testcase classname="document" name=" ›› /components/breadcrumbs/examples/breadcrumbs-single"/>
+    <testcase classname="document" name=" ›› /components/breadcrumbs/examples/breadcrumbs"/>
+    <testcase classname="document" name=" ›› /components/breadcrumbs/examples/breadcrumbs"/>
+    <testcase classname="document" name=" ›› /components/breadcrumbs/examples/breadcrumbs"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-custom"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-custom"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-custom"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-disabled"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-disabled"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-disabled"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-download"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-download"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-download"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-ghost"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-ghost"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-ghost"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-group"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-group"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-group"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-link-new-window"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-link-new-window"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-link-new-window"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-link"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-link"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-link"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-loader"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-loader"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-loader"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-print"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-print"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-print"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-secondary-small"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-secondary-small"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-secondary-small"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-secondary"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-secondary"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-secondary"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-small"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-small"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-small"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-timer"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-timer"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button-timer"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button"/>
+    <testcase classname="document" name=" ›› /components/button/examples/button"/>
+    <testcase classname="document" name=" ›› /components/call-to-action/examples/call-to-action-default"/>
+    <testcase classname="document" name=" ›› /components/call-to-action/examples/call-to-action-default"/>
+    <testcase classname="document" name=" ›› /components/call-to-action/examples/call-to-action-default"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card-set-with-images"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card-set-with-images"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card-set-with-images"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card-set-with-lists"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card-set-with-lists"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card-set-with-lists"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card-set"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card-set"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card-set"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card"/>
+    <testcase classname="document" name=" ›› /components/card/examples/card"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-disabled"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-disabled"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-disabled"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-error"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-error"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-error"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-descriptions"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-descriptions"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-descriptions"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-hidden-label"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-hidden-label"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-hidden-label"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-checkboxes"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-checkboxes"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-checkboxes"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-radios"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-radios"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-radios"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-select"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-select"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-select"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-text-input"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-text-input"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-revealed-text-input"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-select-all-button"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-select-all-button"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-select-all-button"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-visible-text-input"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-visible-text-input"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-with-visible-text-input"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-without-border"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-without-border"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes-without-border"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes"/>
+    <testcase classname="document" name=" ›› /components/checkboxes/examples/checkboxes"/>
+    <testcase classname="document" name=" ›› /components/content-pagination/examples/pagination-content-pager"/>
+    <testcase classname="document" name=" ›› /components/content-pagination/examples/pagination-content-pager"/>
+    <testcase classname="document" name=" ›› /components/content-pagination/examples/pagination-content-pager"/>
+    <testcase classname="document" name=" ›› /components/cookies-banner/examples/cookies-banner-cymraeg"/>
+    <testcase classname="document" name=" ›› /components/cookies-banner/examples/cookies-banner-cymraeg"/>
+    <testcase classname="document" name=" ›› /components/cookies-banner/examples/cookies-banner-cymraeg"/>
+    <testcase classname="document" name=" ›› /components/cookies-banner/examples/cookies-banner"/>
+    <testcase classname="document" name=" ›› /components/cookies-banner/examples/cookies-banner"/>
+    <testcase classname="document" name=" ›› /components/cookies-banner/examples/cookies-banner">
+      <failure message="Design deviation ›› /components/cookies-banner/examples/cookies-banner (document) component"/>
+      <error message="Design deviation ›› /components/cookies-banner/examples/cookies-banner (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/date-input/examples/date-input-error"/>
+    <testcase classname="document" name=" ›› /components/date-input/examples/date-input-error"/>
+    <testcase classname="document" name=" ›› /components/date-input/examples/date-input-error"/>
+    <testcase classname="document" name=" ›› /components/date-input/examples/date-input"/>
+    <testcase classname="document" name=" ›› /components/date-input/examples/date-input"/>
+    <testcase classname="document" name=" ›› /components/date-input/examples/date-input"/>
+    <testcase classname="document" name=" ›› /components/details/examples/details-with-saved-state">
+      <failure message="Design deviation ›› /components/details/examples/details-with-saved-state (document) component"/>
+      <error message="Design deviation ›› /components/details/examples/details-with-saved-state (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/details/examples/details-with-saved-state">
+      <failure message="Design deviation ›› /components/details/examples/details-with-saved-state (document) component"/>
+      <error message="Design deviation ›› /components/details/examples/details-with-saved-state (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/details/examples/details-with-saved-state"/>
+    <testcase classname="document" name=" ›› /components/details/examples/details-with-warning"/>
+    <testcase classname="document" name=" ›› /components/details/examples/details-with-warning"/>
+    <testcase classname="document" name=" ›› /components/details/examples/details-with-warning">
+      <failure message="Design deviation ›› /components/details/examples/details-with-warning (document) component"/>
+      <error message="Design deviation ›› /components/details/examples/details-with-warning (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/details/examples/details">
+      <failure message="Design deviation ›› /components/details/examples/details (document) component"/>
+      <error message="Design deviation ›› /components/details/examples/details (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/details/examples/details">
+      <failure message="Design deviation ›› /components/details/examples/details (document) component"/>
+      <error message="Design deviation ›› /components/details/examples/details (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/details/examples/details">
+      <failure message="Design deviation ›› /components/details/examples/details (document) component"/>
+      <error message="Design deviation ›› /components/details/examples/details (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-article-featured">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-article-featured (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-article-featured (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-article-featured">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-article-featured (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-article-featured (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-article-featured">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-article-featured (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-article-featured (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-articles">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-articles (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-articles (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-articles">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-articles (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-articles (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-articles">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-articles (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-articles (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-downloads">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-downloads (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-downloads (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-downloads">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-downloads (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-downloads (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-downloads">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-downloads (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-downloads (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-search-result-featured">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-search-result-featured (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-search-result-featured (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-search-result-featured">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-search-result-featured (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-search-result-featured (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-search-result-featured">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-search-result-featured (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-search-result-featured (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-search-results">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-search-results (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-search-results (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-search-results">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-search-results (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-search-results (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/document-list/examples/document-list-search-results">
+      <failure message="Design deviation ›› /components/document-list/examples/document-list-search-results (document) component"/>
+      <error message="Design deviation ›› /components/document-list/examples/document-list-search-results (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/duration/examples/duration-error-for-single-field">
+      <failure message="Design deviation ›› /components/duration/examples/duration-error-for-single-field (document) component"/>
+      <error message="Design deviation ›› /components/duration/examples/duration-error-for-single-field (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/duration/examples/duration-error-for-single-field">
+      <failure message="Design deviation ›› /components/duration/examples/duration-error-for-single-field (document) component"/>
+      <error message="Design deviation ›› /components/duration/examples/duration-error-for-single-field (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/duration/examples/duration-error-for-single-field">
+      <failure message="Design deviation ›› /components/duration/examples/duration-error-for-single-field (document) component"/>
+      <error message="Design deviation ›› /components/duration/examples/duration-error-for-single-field (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/duration/examples/duration-error">
+      <failure message="Design deviation ›› /components/duration/examples/duration-error (document) component"/>
+      <error message="Design deviation ›› /components/duration/examples/duration-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/duration/examples/duration-error">
+      <failure message="Design deviation ›› /components/duration/examples/duration-error (document) component"/>
+      <error message="Design deviation ›› /components/duration/examples/duration-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/duration/examples/duration-error">
+      <failure message="Design deviation ›› /components/duration/examples/duration-error (document) component"/>
+      <error message="Design deviation ›› /components/duration/examples/duration-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/duration/examples/duration">
+      <failure message="Design deviation ›› /components/duration/examples/duration (document) component"/>
+      <error message="Design deviation ›› /components/duration/examples/duration (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/duration/examples/duration">
+      <failure message="Design deviation ›› /components/duration/examples/duration (document) component"/>
+      <error message="Design deviation ›› /components/duration/examples/duration (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/duration/examples/duration">
+      <failure message="Design deviation ›› /components/duration/examples/duration (document) component"/>
+      <error message="Design deviation ›› /components/duration/examples/duration (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/external-link/examples/external-link">
+      <failure message="Design deviation ›› /components/external-link/examples/external-link (document) component"/>
+      <error message="Design deviation ›› /components/external-link/examples/external-link (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/external-link/examples/external-link">
+      <failure message="Design deviation ›› /components/external-link/examples/external-link (document) component"/>
+      <error message="Design deviation ›› /components/external-link/examples/external-link (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/external-link/examples/external-link">
+      <failure message="Design deviation ›› /components/external-link/examples/external-link (document) component"/>
+      <error message="Design deviation ›› /components/external-link/examples/external-link (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/feedback/examples/feedback-call-to-action">
+      <failure message="Design deviation ›› /components/feedback/examples/feedback-call-to-action (document) component"/>
+      <error message="Design deviation ›› /components/feedback/examples/feedback-call-to-action (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/feedback/examples/feedback-call-to-action">
+      <failure message="Design deviation ›› /components/feedback/examples/feedback-call-to-action (document) component"/>
+      <error message="Design deviation ›› /components/feedback/examples/feedback-call-to-action (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/feedback/examples/feedback-call-to-action">
+      <failure message="Design deviation ›› /components/feedback/examples/feedback-call-to-action (document) component"/>
+      <error message="Design deviation ›› /components/feedback/examples/feedback-call-to-action (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-cymraeg">
+      <failure message="Design deviation ›› /components/footer/examples/footer-cymraeg (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-cymraeg (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-cymraeg">
+      <failure message="Design deviation ›› /components/footer/examples/footer-cymraeg (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-cymraeg (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-cymraeg">
+      <failure message="Design deviation ›› /components/footer/examples/footer-cymraeg (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-cymraeg (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-default">
+      <failure message="Design deviation ›› /components/footer/examples/footer-default (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-default (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-default">
+      <failure message="Design deviation ›› /components/footer/examples/footer-default (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-default (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-default">
+      <failure message="Design deviation ›› /components/footer/examples/footer-default (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-default (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-transactional">
+      <failure message="Design deviation ›› /components/footer/examples/footer-transactional (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-transactional (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-transactional">
+      <failure message="Design deviation ›› /components/footer/examples/footer-transactional (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-transactional (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-transactional">
+      <failure message="Design deviation ›› /components/footer/examples/footer-transactional (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-transactional (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-warning">
+      <failure message="Design deviation ›› /components/footer/examples/footer-warning (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-warning (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-warning">
+      <failure message="Design deviation ›› /components/footer/examples/footer-warning (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-warning (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-warning">
+      <failure message="Design deviation ›› /components/footer/examples/footer-warning (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-warning (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-with-alternative-organisation">
+      <failure message="Design deviation ›› /components/footer/examples/footer-with-alternative-organisation (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-with-alternative-organisation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-with-alternative-organisation">
+      <failure message="Design deviation ›› /components/footer/examples/footer-with-alternative-organisation (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-with-alternative-organisation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-with-alternative-organisation">
+      <failure message="Design deviation ›› /components/footer/examples/footer-with-alternative-organisation (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-with-alternative-organisation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-with-coat-of-arms">
+      <failure message="Design deviation ›› /components/footer/examples/footer-with-coat-of-arms (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-with-coat-of-arms (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-with-coat-of-arms">
+      <failure message="Design deviation ›› /components/footer/examples/footer-with-coat-of-arms (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-with-coat-of-arms (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-with-coat-of-arms">
+      <failure message="Design deviation ›› /components/footer/examples/footer-with-coat-of-arms (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-with-coat-of-arms (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-with-copyright">
+      <failure message="Design deviation ›› /components/footer/examples/footer-with-copyright (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-with-copyright (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-with-copyright">
+      <failure message="Design deviation ›› /components/footer/examples/footer-with-copyright (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-with-copyright (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer-with-copyright">
+      <failure message="Design deviation ›› /components/footer/examples/footer-with-copyright (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer-with-copyright (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer">
+      <failure message="Design deviation ›› /components/footer/examples/footer (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer">
+      <failure message="Design deviation ›› /components/footer/examples/footer (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/footer/examples/footer">
+      <failure message="Design deviation ›› /components/footer/examples/footer (document) component"/>
+      <error message="Design deviation ›› /components/footer/examples/footer (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-default">
+      <failure message="Design deviation ›› /components/header/examples/header-default (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-default (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-default">
+      <failure message="Design deviation ›› /components/header/examples/header-default (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-default (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-default">
+      <failure message="Design deviation ›› /components/header/examples/header-default (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-default (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-for-survey-with-description">
+      <failure message="Design deviation ›› /components/header/examples/header-external-for-survey-with-description (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-for-survey-with-description (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-for-survey-with-description">
+      <failure message="Design deviation ›› /components/header/examples/header-external-for-survey-with-description (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-for-survey-with-description (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-for-survey-with-description">
+      <failure message="Design deviation ›› /components/header/examples/header-external-for-survey-with-description (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-for-survey-with-description (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-for-surveys">
+      <failure message="Design deviation ›› /components/header/examples/header-external-for-surveys (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-for-surveys (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-for-surveys">
+      <failure message="Design deviation ›› /components/header/examples/header-external-for-surveys (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-for-surveys (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-for-surveys">
+      <failure message="Design deviation ›› /components/header/examples/header-external-for-surveys (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-for-surveys (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-welsh">
+      <failure message="Design deviation ›› /components/header/examples/header-external-welsh (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-welsh (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-welsh">
+      <failure message="Design deviation ›› /components/header/examples/header-external-welsh (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-welsh (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-welsh">
+      <failure message="Design deviation ›› /components/header/examples/header-external-welsh (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-welsh (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-with-navigation">
+      <failure message="Design deviation ›› /components/header/examples/header-external-with-navigation (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-with-navigation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-with-navigation">
+      <failure message="Design deviation ›› /components/header/examples/header-external-with-navigation (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-with-navigation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-with-navigation">
+      <failure message="Design deviation ›› /components/header/examples/header-external-with-navigation (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-with-navigation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-with-service-links">
+      <failure message="Design deviation ›› /components/header/examples/header-external-with-service-links (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-with-service-links (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-with-service-links">
+      <failure message="Design deviation ›› /components/header/examples/header-external-with-service-links (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-with-service-links (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-with-service-links">
+      <failure message="Design deviation ›› /components/header/examples/header-external-with-service-links (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-with-service-links (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-with-sub-navigation">
+      <failure message="Design deviation ›› /components/header/examples/header-external-with-sub-navigation (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-with-sub-navigation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-with-sub-navigation">
+      <failure message="Design deviation ›› /components/header/examples/header-external-with-sub-navigation (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-with-sub-navigation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-external-with-sub-navigation">
+      <failure message="Design deviation ›› /components/header/examples/header-external-with-sub-navigation (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-external-with-sub-navigation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-internal">
+      <failure message="Design deviation ›› /components/header/examples/header-internal (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-internal (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-internal">
+      <failure message="Design deviation ›› /components/header/examples/header-internal (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-internal (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-internal">
+      <failure message="Design deviation ›› /components/header/examples/header-internal (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-internal (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-neutral-for-multicoloured-logo">
+      <failure message="Design deviation ›› /components/header/examples/header-neutral-for-multicoloured-logo (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-neutral-for-multicoloured-logo (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-neutral-for-multicoloured-logo">
+      <failure message="Design deviation ›› /components/header/examples/header-neutral-for-multicoloured-logo (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-neutral-for-multicoloured-logo (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/header/examples/header-neutral-for-multicoloured-logo">
+      <failure message="Design deviation ›› /components/header/examples/header-neutral-for-multicoloured-logo (document) component"/>
+      <error message="Design deviation ›› /components/header/examples/header-neutral-for-multicoloured-logo (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/hero/examples/hero-dark">
+      <failure message="Design deviation ›› /components/hero/examples/hero-dark (document) component"/>
+      <error message="Design deviation ›› /components/hero/examples/hero-dark (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/hero/examples/hero-dark">
+      <failure message="Design deviation ›› /components/hero/examples/hero-dark (document) component"/>
+      <error message="Design deviation ›› /components/hero/examples/hero-dark (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/hero/examples/hero-dark">
+      <failure message="Design deviation ›› /components/hero/examples/hero-dark (document) component"/>
+      <error message="Design deviation ›› /components/hero/examples/hero-dark (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/hero/examples/hero-default">
+      <failure message="Design deviation ›› /components/hero/examples/hero-default (document) component"/>
+      <error message="Design deviation ›› /components/hero/examples/hero-default (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/hero/examples/hero-default">
+      <failure message="Design deviation ›› /components/hero/examples/hero-default (document) component"/>
+      <error message="Design deviation ›› /components/hero/examples/hero-default (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/hero/examples/hero-default">
+      <failure message="Design deviation ›› /components/hero/examples/hero-default (document) component"/>
+      <error message="Design deviation ›› /components/hero/examples/hero-default (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/images/examples/images-for-regular-screens">
+      <failure message="Design deviation ›› /components/images/examples/images-for-regular-screens (document) component"/>
+      <error message="Design deviation ›› /components/images/examples/images-for-regular-screens (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/images/examples/images-for-regular-screens">
+      <failure message="Design deviation ›› /components/images/examples/images-for-regular-screens (document) component"/>
+      <error message="Design deviation ›› /components/images/examples/images-for-regular-screens (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/images/examples/images-for-regular-screens">
+      <failure message="Design deviation ›› /components/images/examples/images-for-regular-screens (document) component"/>
+      <error message="Design deviation ›› /components/images/examples/images-for-regular-screens (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/images/examples/images-for-retina-screens">
+      <failure message="Design deviation ›› /components/images/examples/images-for-retina-screens (document) component"/>
+      <error message="Design deviation ›› /components/images/examples/images-for-retina-screens (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/images/examples/images-for-retina-screens">
+      <failure message="Design deviation ›› /components/images/examples/images-for-retina-screens (document) component"/>
+      <error message="Design deviation ›› /components/images/examples/images-for-retina-screens (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/images/examples/images-for-retina-screens">
+      <failure message="Design deviation ›› /components/images/examples/images-for-retina-screens (document) component"/>
+      <error message="Design deviation ›› /components/images/examples/images-for-retina-screens (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-email">
+      <failure message="Design deviation ›› /components/input/examples/input-email (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-email (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-email">
+      <failure message="Design deviation ›› /components/input/examples/input-email (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-email (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-email">
+      <failure message="Design deviation ›› /components/input/examples/input-email (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-email (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-number-prefixed">
+      <failure message="Design deviation ›› /components/input/examples/input-number-prefixed (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-number-prefixed (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-number-prefixed">
+      <failure message="Design deviation ›› /components/input/examples/input-number-prefixed (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-number-prefixed (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-number-prefixed">
+      <failure message="Design deviation ›› /components/input/examples/input-number-prefixed (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-number-prefixed (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-number-suffixed">
+      <failure message="Design deviation ›› /components/input/examples/input-number-suffixed (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-number-suffixed (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-number-suffixed">
+      <failure message="Design deviation ›› /components/input/examples/input-number-suffixed (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-number-suffixed (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-number-suffixed">
+      <failure message="Design deviation ›› /components/input/examples/input-number-suffixed (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-number-suffixed (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-number">
+      <failure message="Design deviation ›› /components/input/examples/input-number (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-number (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-number">
+      <failure message="Design deviation ›› /components/input/examples/input-number (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-number (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-number">
+      <failure message="Design deviation ›› /components/input/examples/input-number (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-number (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-numeric-values">
+      <failure message="Design deviation ›› /components/input/examples/input-numeric-values (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-numeric-values (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-numeric-values">
+      <failure message="Design deviation ›› /components/input/examples/input-numeric-values (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-numeric-values (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-numeric-values">
+      <failure message="Design deviation ›› /components/input/examples/input-numeric-values (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-numeric-values (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-telephone">
+      <failure message="Design deviation ›› /components/input/examples/input-telephone (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-telephone (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-telephone">
+      <failure message="Design deviation ›› /components/input/examples/input-telephone (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-telephone (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-telephone">
+      <failure message="Design deviation ›› /components/input/examples/input-telephone (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-telephone (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text-width-constrained">
+      <failure message="Design deviation ›› /components/input/examples/input-text-width-constrained (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text-width-constrained (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text-width-constrained">
+      <failure message="Design deviation ›› /components/input/examples/input-text-width-constrained (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text-width-constrained (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text-width-constrained">
+      <failure message="Design deviation ›› /components/input/examples/input-text-width-constrained (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text-width-constrained (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text-with-character-limit-checker">
+      <failure message="Design deviation ›› /components/input/examples/input-text-with-character-limit-checker (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text-with-character-limit-checker (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text-with-character-limit-checker">
+      <failure message="Design deviation ›› /components/input/examples/input-text-with-character-limit-checker (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text-with-character-limit-checker (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text-with-character-limit-checker">
+      <failure message="Design deviation ›› /components/input/examples/input-text-with-character-limit-checker (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text-with-character-limit-checker (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text-with-description">
+      <failure message="Design deviation ›› /components/input/examples/input-text-with-description (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text-with-description (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text-with-description">
+      <failure message="Design deviation ›› /components/input/examples/input-text-with-description (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text-with-description (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text-with-description">
+      <failure message="Design deviation ›› /components/input/examples/input-text-with-description (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text-with-description (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text">
+      <failure message="Design deviation ›› /components/input/examples/input-text (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text">
+      <failure message="Design deviation ›› /components/input/examples/input-text (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/input/examples/input-text">
+      <failure message="Design deviation ›› /components/input/examples/input-text (document) component"/>
+      <error message="Design deviation ›› /components/input/examples/input-text (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/label/examples/label-with-description">
+      <failure message="Design deviation ›› /components/label/examples/label-with-description (document) component"/>
+      <error message="Design deviation ›› /components/label/examples/label-with-description (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/label/examples/label-with-description">
+      <failure message="Design deviation ›› /components/label/examples/label-with-description (document) component"/>
+      <error message="Design deviation ›› /components/label/examples/label-with-description (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/label/examples/label-with-description">
+      <failure message="Design deviation ›› /components/label/examples/label-with-description (document) component"/>
+      <error message="Design deviation ›› /components/label/examples/label-with-description (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/label/examples/label">
+      <failure message="Design deviation ›› /components/label/examples/label (document) component"/>
+      <error message="Design deviation ›› /components/label/examples/label (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/label/examples/label">
+      <failure message="Design deviation ›› /components/label/examples/label (document) component"/>
+      <error message="Design deviation ›› /components/label/examples/label (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/label/examples/label">
+      <failure message="Design deviation ›› /components/label/examples/label (document) component"/>
+      <error message="Design deviation ›› /components/label/examples/label (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/metadata/examples/metadata">
+      <failure message="Design deviation ›› /components/metadata/examples/metadata (document) component"/>
+      <error message="Design deviation ›› /components/metadata/examples/metadata (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/metadata/examples/metadata">
+      <failure message="Design deviation ›› /components/metadata/examples/metadata (document) component"/>
+      <error message="Design deviation ›› /components/metadata/examples/metadata (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/metadata/examples/metadata">
+      <failure message="Design deviation ›› /components/metadata/examples/metadata (document) component"/>
+      <error message="Design deviation ›› /components/metadata/examples/metadata (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-checkboxes">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-checkboxes (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-checkboxes (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-checkboxes">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-checkboxes (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-checkboxes (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-checkboxes">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-checkboxes (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-checkboxes (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-date-with-error">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date-with-error (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date-with-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-date-with-error">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date-with-error (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date-with-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-date-with-error">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date-with-error (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date-with-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-date">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-date">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-date">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-date (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-duration">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-duration (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-duration (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-duration">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-duration (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-duration (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-duration">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-duration (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-duration (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-email">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-email (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-email (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-email">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-email (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-email (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-email">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-email (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-email (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-multiple-options">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-multiple-options (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-multiple-options (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-multiple-options">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-multiple-options (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-multiple-options (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-multiple-options">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-multiple-options (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-multiple-options (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-number">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-number (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-number (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-number">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-number (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-number (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-number">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-number (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-number (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-textarea">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-textarea (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-textarea (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-textarea">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-textarea (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-textarea (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/mutually-exclusive/examples/mutually-exclusive-textarea">
+      <failure message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-textarea (document) component"/>
+      <error message="Design deviation ›› /components/mutually-exclusive/examples/mutually-exclusive-textarea (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination-first">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination-first (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination-first (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination-first">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination-first (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination-first (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination-first">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination-first (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination-first (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination-last">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination-last (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination-last (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination-last">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination-last (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination-last (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination-last">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination-last (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination-last (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination-with-no-range-indicator">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination-with-no-range-indicator (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination-with-no-range-indicator (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination-with-no-range-indicator">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination-with-no-range-indicator (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination-with-no-range-indicator (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination-with-no-range-indicator">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination-with-no-range-indicator (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination-with-no-range-indicator (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/pagination/examples/pagination">
+      <failure message="Design deviation ›› /components/pagination/examples/pagination (document) component"/>
+      <error message="Design deviation ›› /components/pagination/examples/pagination (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-bare">
+      <failure message="Design deviation ›› /components/panel/examples/panel-bare (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-bare (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-bare">
+      <failure message="Design deviation ›› /components/panel/examples/panel-bare (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-bare (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-bare">
+      <failure message="Design deviation ›› /components/panel/examples/panel-bare (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-bare (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-announcement">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-announcement (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-announcement (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-announcement">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-announcement (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-announcement (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-announcement">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-announcement (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-announcement (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-error-details">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-error-details (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-error-details (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-error-details">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-error-details (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-error-details (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-error-details">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-error-details (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-error-details (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-error-summary">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-error-summary (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-error-summary (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-error-summary">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-error-summary (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-error-summary (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-error-summary">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-error-summary (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-error-summary (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-information">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-information (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-information (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-information">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-information (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-information (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-information">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-information (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-information (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-spacious-information">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-spacious-information (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-spacious-information (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-spacious-information">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-spacious-information (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-spacious-information (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-spacious-information">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-spacious-information (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-spacious-information (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-success-message">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-success-message (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-success-message (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-success-message">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-success-message (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-success-message (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-success-message">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-success-message (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-success-message (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-warning">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-warning (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-warning (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-warning">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-warning (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-warning (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/panel/examples/panel-with-warning">
+      <failure message="Design deviation ›› /components/panel/examples/panel-with-warning (document) component"/>
+      <error message="Design deviation ›› /components/panel/examples/panel-with-warning (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/password/examples/password">
+      <failure message="Design deviation ›› /components/password/examples/password (document) component"/>
+      <error message="Design deviation ›› /components/password/examples/password (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/password/examples/password">
+      <failure message="Design deviation ›› /components/password/examples/password (document) component"/>
+      <error message="Design deviation ›› /components/password/examples/password (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/password/examples/password">
+      <failure message="Design deviation ›› /components/password/examples/password (document) component"/>
+      <error message="Design deviation ›› /components/password/examples/password (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/phase-banner/examples/phase-banner-alpha">
+      <failure message="Design deviation ›› /components/phase-banner/examples/phase-banner-alpha (document) component"/>
+      <error message="Design deviation ›› /components/phase-banner/examples/phase-banner-alpha (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/phase-banner/examples/phase-banner-alpha">
+      <failure message="Design deviation ›› /components/phase-banner/examples/phase-banner-alpha (document) component"/>
+      <error message="Design deviation ›› /components/phase-banner/examples/phase-banner-alpha (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/phase-banner/examples/phase-banner-alpha">
+      <failure message="Design deviation ›› /components/phase-banner/examples/phase-banner-alpha (document) component"/>
+      <error message="Design deviation ›› /components/phase-banner/examples/phase-banner-alpha (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/phase-banner/examples/phase-banner-beta">
+      <failure message="Design deviation ›› /components/phase-banner/examples/phase-banner-beta (document) component"/>
+      <error message="Design deviation ›› /components/phase-banner/examples/phase-banner-beta (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/phase-banner/examples/phase-banner-beta">
+      <failure message="Design deviation ›› /components/phase-banner/examples/phase-banner-beta (document) component"/>
+      <error message="Design deviation ›› /components/phase-banner/examples/phase-banner-beta (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/phase-banner/examples/phase-banner-beta">
+      <failure message="Design deviation ›› /components/phase-banner/examples/phase-banner-beta (document) component"/>
+      <error message="Design deviation ›› /components/phase-banner/examples/phase-banner-beta (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-ccs">
+      <failure message="Design deviation ›› /components/question/examples/question-ccs (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-ccs (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-ccs">
+      <failure message="Design deviation ›› /components/question/examples/question-ccs (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-ccs (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-ccs">
+      <failure message="Design deviation ›› /components/question/examples/question-ccs (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-ccs (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-fieldset">
+      <failure message="Design deviation ›› /components/question/examples/question-fieldset (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-fieldset (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-fieldset">
+      <failure message="Design deviation ›› /components/question/examples/question-fieldset (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-fieldset (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-fieldset">
+      <failure message="Design deviation ›› /components/question/examples/question-fieldset (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-fieldset (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-interviewer-note">
+      <failure message="Design deviation ›› /components/question/examples/question-interviewer-note (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-interviewer-note (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-interviewer-note">
+      <failure message="Design deviation ›› /components/question/examples/question-interviewer-note (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-interviewer-note (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-interviewer-note">
+      <failure message="Design deviation ›› /components/question/examples/question-interviewer-note (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-interviewer-note (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-no-fieldset">
+      <failure message="Design deviation ›› /components/question/examples/question-no-fieldset (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-no-fieldset (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-no-fieldset">
+      <failure message="Design deviation ›› /components/question/examples/question-no-fieldset (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-no-fieldset (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/question/examples/question-no-fieldset">
+      <failure message="Design deviation ›› /components/question/examples/question-no-fieldset (document) component"/>
+      <error message="Design deviation ›› /components/question/examples/question-no-fieldset (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-clear-button">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-clear-button (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-clear-button (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-clear-button">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-clear-button (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-clear-button (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-clear-button">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-clear-button (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-clear-button (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-descriptions">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-descriptions (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-descriptions (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-descriptions">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-descriptions (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-descriptions (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-descriptions">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-descriptions (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-descriptions (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-error">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-error (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-error">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-error (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-error">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-error (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-checkboxes">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-checkboxes (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-checkboxes (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-checkboxes">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-checkboxes (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-checkboxes (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-checkboxes">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-checkboxes (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-checkboxes (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-radios">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-radios (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-radios (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-radios">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-radios (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-radios (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-radios">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-radios (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-radios (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-select">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-select (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-select (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-select">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-select (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-select (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-select">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-select (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-select (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-text-input">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-text-input (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-text-input (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-text-input">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-text-input (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-text-input (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-revealed-text-input">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-revealed-text-input (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-revealed-text-input (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-separator">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-separator (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-separator (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-separator">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-separator (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-separator (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-separator">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-separator (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-separator (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-visible-text-input">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-visible-text-input (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-visible-text-input (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-visible-text-input">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-visible-text-input (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-visible-text-input (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-with-visible-text-input">
+      <failure message="Design deviation ›› /components/radios/examples/radios-with-visible-text-input (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-with-visible-text-input (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-without-border">
+      <failure message="Design deviation ›› /components/radios/examples/radios-without-border (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-without-border (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-without-border">
+      <failure message="Design deviation ›› /components/radios/examples/radios-without-border (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-without-border (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios-without-border">
+      <failure message="Design deviation ›› /components/radios/examples/radios-without-border (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios-without-border (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios">
+      <failure message="Design deviation ›› /components/radios/examples/radios (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios">
+      <failure message="Design deviation ›› /components/radios/examples/radios (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/radios/examples/radios">
+      <failure message="Design deviation ›› /components/radios/examples/radios (document) component"/>
+      <error message="Design deviation ›› /components/radios/examples/radios (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/related-content/examples/related-content-general">
+      <failure message="Design deviation ›› /components/related-content/examples/related-content-general (document) component"/>
+      <error message="Design deviation ›› /components/related-content/examples/related-content-general (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/related-content/examples/related-content-general">
+      <failure message="Design deviation ›› /components/related-content/examples/related-content-general (document) component"/>
+      <error message="Design deviation ›› /components/related-content/examples/related-content-general (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/related-content/examples/related-content-general">
+      <failure message="Design deviation ›› /components/related-content/examples/related-content-general (document) component"/>
+      <error message="Design deviation ›› /components/related-content/examples/related-content-general (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/related-content/examples/related-content-multiple-rows-of-links">
+      <failure message="Design deviation ›› /components/related-content/examples/related-content-multiple-rows-of-links (document) component"/>
+      <error message="Design deviation ›› /components/related-content/examples/related-content-multiple-rows-of-links (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/related-content/examples/related-content-multiple-rows-of-links">
+      <failure message="Design deviation ›› /components/related-content/examples/related-content-multiple-rows-of-links (document) component"/>
+      <error message="Design deviation ›› /components/related-content/examples/related-content-multiple-rows-of-links (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/related-content/examples/related-content-multiple-rows-of-links">
+      <failure message="Design deviation ›› /components/related-content/examples/related-content-multiple-rows-of-links (document) component"/>
+      <error message="Design deviation ›› /components/related-content/examples/related-content-multiple-rows-of-links (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/related-content/examples/related-content-social-media">
+      <failure message="Design deviation ›› /components/related-content/examples/related-content-social-media (document) component"/>
+      <error message="Design deviation ›› /components/related-content/examples/related-content-social-media (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/related-content/examples/related-content-social-media">
+      <failure message="Design deviation ›› /components/related-content/examples/related-content-social-media (document) component"/>
+      <error message="Design deviation ›› /components/related-content/examples/related-content-social-media (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/related-content/examples/related-content-social-media">
+      <failure message="Design deviation ›› /components/related-content/examples/related-content-social-media (document) component"/>
+      <error message="Design deviation ›› /components/related-content/examples/related-content-social-media (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/relationships/examples/relationships-error">
+      <failure message="Design deviation ›› /components/relationships/examples/relationships-error (document) component"/>
+      <error message="Design deviation ›› /components/relationships/examples/relationships-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/relationships/examples/relationships-error">
+      <failure message="Design deviation ›› /components/relationships/examples/relationships-error (document) component"/>
+      <error message="Design deviation ›› /components/relationships/examples/relationships-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/relationships/examples/relationships-error">
+      <failure message="Design deviation ›› /components/relationships/examples/relationships-error (document) component"/>
+      <error message="Design deviation ›› /components/relationships/examples/relationships-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/relationships/examples/relationships-you">
+      <failure message="Design deviation ›› /components/relationships/examples/relationships-you (document) component"/>
+      <error message="Design deviation ›› /components/relationships/examples/relationships-you (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/relationships/examples/relationships-you">
+      <failure message="Design deviation ›› /components/relationships/examples/relationships-you (document) component"/>
+      <error message="Design deviation ›› /components/relationships/examples/relationships-you (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/relationships/examples/relationships-you">
+      <failure message="Design deviation ›› /components/relationships/examples/relationships-you (document) component"/>
+      <error message="Design deviation ›› /components/relationships/examples/relationships-you (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/relationships/examples/relationships">
+      <failure message="Design deviation ›› /components/relationships/examples/relationships (document) component"/>
+      <error message="Design deviation ›› /components/relationships/examples/relationships (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/relationships/examples/relationships">
+      <failure message="Design deviation ›› /components/relationships/examples/relationships (document) component"/>
+      <error message="Design deviation ›› /components/relationships/examples/relationships (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/relationships/examples/relationships">
+      <failure message="Design deviation ›› /components/relationships/examples/relationships (document) component"/>
+      <error message="Design deviation ›› /components/relationships/examples/relationships (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/search/examples/search-with-character-check">
+      <failure message="Design deviation ›› /components/search/examples/search-with-character-check (document) component"/>
+      <error message="Design deviation ›› /components/search/examples/search-with-character-check (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/search/examples/search-with-character-check">
+      <failure message="Design deviation ›› /components/search/examples/search-with-character-check (document) component"/>
+      <error message="Design deviation ›› /components/search/examples/search-with-character-check (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/search/examples/search-with-character-check">
+      <failure message="Design deviation ›› /components/search/examples/search-with-character-check (document) component"/>
+      <error message="Design deviation ›› /components/search/examples/search-with-character-check (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/search/examples/search-with-placeholder">
+      <failure message="Design deviation ›› /components/search/examples/search-with-placeholder (document) component"/>
+      <error message="Design deviation ›› /components/search/examples/search-with-placeholder (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/search/examples/search-with-placeholder">
+      <failure message="Design deviation ›› /components/search/examples/search-with-placeholder (document) component"/>
+      <error message="Design deviation ›› /components/search/examples/search-with-placeholder (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/search/examples/search-with-placeholder">
+      <failure message="Design deviation ›› /components/search/examples/search-with-placeholder (document) component"/>
+      <error message="Design deviation ›› /components/search/examples/search-with-placeholder (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/search/examples/search">
+      <failure message="Design deviation ›› /components/search/examples/search (document) component"/>
+      <error message="Design deviation ›› /components/search/examples/search (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/search/examples/search">
+      <failure message="Design deviation ›› /components/search/examples/search (document) component"/>
+      <error message="Design deviation ›› /components/search/examples/search (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/search/examples/search">
+      <failure message="Design deviation ›› /components/search/examples/search (document) component"/>
+      <error message="Design deviation ›› /components/search/examples/search (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/section-navigation/examples/section-navigation-vertical">
+      <failure message="Design deviation ›› /components/section-navigation/examples/section-navigation-vertical (document) component"/>
+      <error message="Design deviation ›› /components/section-navigation/examples/section-navigation-vertical (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/section-navigation/examples/section-navigation-vertical">
+      <failure message="Design deviation ›› /components/section-navigation/examples/section-navigation-vertical (document) component"/>
+      <error message="Design deviation ›› /components/section-navigation/examples/section-navigation-vertical (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/section-navigation/examples/section-navigation-vertical">
+      <failure message="Design deviation ›› /components/section-navigation/examples/section-navigation-vertical (document) component"/>
+      <error message="Design deviation ›› /components/section-navigation/examples/section-navigation-vertical (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/section-navigation/examples/section-navigation">
+      <failure message="Design deviation ›› /components/section-navigation/examples/section-navigation (document) component"/>
+      <error message="Design deviation ›› /components/section-navigation/examples/section-navigation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/section-navigation/examples/section-navigation">
+      <failure message="Design deviation ›› /components/section-navigation/examples/section-navigation (document) component"/>
+      <error message="Design deviation ›› /components/section-navigation/examples/section-navigation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/section-navigation/examples/section-navigation">
+      <failure message="Design deviation ›› /components/section-navigation/examples/section-navigation (document) component"/>
+      <error message="Design deviation ›› /components/section-navigation/examples/section-navigation (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select-wide">
+      <failure message="Design deviation ›› /components/select/examples/select-wide (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select-wide (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select-wide">
+      <failure message="Design deviation ›› /components/select/examples/select-wide (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select-wide (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select-wide">
+      <failure message="Design deviation ›› /components/select/examples/select-wide (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select-wide (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select-with-error">
+      <failure message="Design deviation ›› /components/select/examples/select-with-error (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select-with-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select-with-error">
+      <failure message="Design deviation ›› /components/select/examples/select-with-error (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select-with-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select-with-error">
+      <failure message="Design deviation ›› /components/select/examples/select-with-error (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select-with-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select-with-inline-label">
+      <failure message="Design deviation ›› /components/select/examples/select-with-inline-label (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select-with-inline-label (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select-with-inline-label">
+      <failure message="Design deviation ›› /components/select/examples/select-with-inline-label (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select-with-inline-label (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select-with-inline-label">
+      <failure message="Design deviation ›› /components/select/examples/select-with-inline-label (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select-with-inline-label (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select">
+      <failure message="Design deviation ›› /components/select/examples/select (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select">
+      <failure message="Design deviation ›› /components/select/examples/select (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/select/examples/select">
+      <failure message="Design deviation ›› /components/select/examples/select (document) component"/>
+      <error message="Design deviation ›› /components/select/examples/select (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/share-page/examples/share-page">
+      <failure message="Design deviation ›› /components/share-page/examples/share-page (document) component"/>
+      <error message="Design deviation ›› /components/share-page/examples/share-page (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/share-page/examples/share-page">
+      <failure message="Design deviation ›› /components/share-page/examples/share-page (document) component"/>
+      <error message="Design deviation ›› /components/share-page/examples/share-page (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/share-page/examples/share-page">
+      <failure message="Design deviation ›› /components/share-page/examples/share-page (document) component"/>
+      <error message="Design deviation ›› /components/share-page/examples/share-page (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/skip-to-content/examples/skip-to-content">
+      <failure message="Design deviation ›› /components/skip-to-content/examples/skip-to-content (document) component"/>
+      <error message="Design deviation ›› /components/skip-to-content/examples/skip-to-content (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/skip-to-content/examples/skip-to-content">
+      <failure message="Design deviation ›› /components/skip-to-content/examples/skip-to-content (document) component"/>
+      <error message="Design deviation ›› /components/skip-to-content/examples/skip-to-content (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/skip-to-content/examples/skip-to-content">
+      <failure message="Design deviation ›› /components/skip-to-content/examples/skip-to-content (document) component"/>
+      <error message="Design deviation ›› /components/skip-to-content/examples/skip-to-content (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-dead">
+      <failure message="Design deviation ›› /components/status/examples/status-dead (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-dead (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-dead">
+      <failure message="Design deviation ›› /components/status/examples/status-dead (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-dead (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-dead">
+      <failure message="Design deviation ›› /components/status/examples/status-dead (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-dead (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-error">
+      <failure message="Design deviation ›› /components/status/examples/status-error (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-error">
+      <failure message="Design deviation ›› /components/status/examples/status-error (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-error">
+      <failure message="Design deviation ›› /components/status/examples/status-error (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-neutral-information">
+      <failure message="Design deviation ›› /components/status/examples/status-neutral-information (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-neutral-information (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-neutral-information">
+      <failure message="Design deviation ›› /components/status/examples/status-neutral-information (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-neutral-information (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-neutral-information">
+      <failure message="Design deviation ›› /components/status/examples/status-neutral-information (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-neutral-information (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-pending">
+      <failure message="Design deviation ›› /components/status/examples/status-pending (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-pending (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-pending">
+      <failure message="Design deviation ›› /components/status/examples/status-pending (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-pending (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-pending">
+      <failure message="Design deviation ›› /components/status/examples/status-pending (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-pending (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-small">
+      <failure message="Design deviation ›› /components/status/examples/status-small (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-small (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-small">
+      <failure message="Design deviation ›› /components/status/examples/status-small (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-small (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-small">
+      <failure message="Design deviation ›› /components/status/examples/status-small (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-small (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-success">
+      <failure message="Design deviation ›› /components/status/examples/status-success (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-success (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-success">
+      <failure message="Design deviation ›› /components/status/examples/status-success (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-success (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/status/examples/status-success">
+      <failure message="Design deviation ›› /components/status/examples/status-success (document) component"/>
+      <error message="Design deviation ›› /components/status/examples/status-success (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-grouped-total">
+      <failure message="Design deviation ›› /components/summary/examples/summary-grouped-total (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-grouped-total (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-grouped-total">
+      <failure message="Design deviation ›› /components/summary/examples/summary-grouped-total (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-grouped-total (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-grouped-total">
+      <failure message="Design deviation ›› /components/summary/examples/summary-grouped-total (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-grouped-total (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-grouped-with-errors">
+      <failure message="Design deviation ›› /components/summary/examples/summary-grouped-with-errors (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-grouped-with-errors (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-grouped-with-errors">
+      <failure message="Design deviation ›› /components/summary/examples/summary-grouped-with-errors (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-grouped-with-errors (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-grouped-with-errors">
+      <failure message="Design deviation ›› /components/summary/examples/summary-grouped-with-errors (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-grouped-with-errors (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-grouped">
+      <failure message="Design deviation ›› /components/summary/examples/summary-grouped (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-grouped (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-grouped">
+      <failure message="Design deviation ›› /components/summary/examples/summary-grouped (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-grouped (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-grouped">
+      <failure message="Design deviation ›› /components/summary/examples/summary-grouped (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-grouped (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-household-no-rows">
+      <failure message="Design deviation ›› /components/summary/examples/summary-household-no-rows (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-household-no-rows (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-household-no-rows">
+      <failure message="Design deviation ›› /components/summary/examples/summary-household-no-rows (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-household-no-rows (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-household-no-rows">
+      <failure message="Design deviation ›› /components/summary/examples/summary-household-no-rows (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-household-no-rows (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-household">
+      <failure message="Design deviation ›› /components/summary/examples/summary-household (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-household (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-household">
+      <failure message="Design deviation ›› /components/summary/examples/summary-household (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-household (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-household">
+      <failure message="Design deviation ›› /components/summary/examples/summary-household (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-household (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-hub">
+      <failure message="Design deviation ›› /components/summary/examples/summary-hub (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-hub (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-hub">
+      <failure message="Design deviation ›› /components/summary/examples/summary-hub (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-hub (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-hub">
+      <failure message="Design deviation ›› /components/summary/examples/summary-hub (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-hub (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-multiple">
+      <failure message="Design deviation ›› /components/summary/examples/summary-multiple (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-multiple (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-multiple">
+      <failure message="Design deviation ›› /components/summary/examples/summary-multiple (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-multiple (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-multiple">
+      <failure message="Design deviation ›› /components/summary/examples/summary-multiple (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-multiple (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-no-action">
+      <failure message="Design deviation ›› /components/summary/examples/summary-no-action (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-no-action (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-no-action">
+      <failure message="Design deviation ›› /components/summary/examples/summary-no-action (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-no-action (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary-no-action">
+      <failure message="Design deviation ›› /components/summary/examples/summary-no-action (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary-no-action (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary">
+      <failure message="Design deviation ›› /components/summary/examples/summary (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary">
+      <failure message="Design deviation ›› /components/summary/examples/summary (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/summary/examples/summary">
+      <failure message="Design deviation ›› /components/summary/examples/summary (document) component"/>
+      <error message="Design deviation ›› /components/summary/examples/summary (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-basic">
+      <failure message="Design deviation ›› /components/table/examples/table-basic (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-basic (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-basic">
+      <failure message="Design deviation ›› /components/table/examples/table-basic (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-basic (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-basic">
+      <failure message="Design deviation ›› /components/table/examples/table-basic (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-basic (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-compact">
+      <failure message="Design deviation ›› /components/table/examples/table-compact (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-compact (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-compact">
+      <failure message="Design deviation ›› /components/table/examples/table-compact (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-compact (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-compact">
+      <failure message="Design deviation ›› /components/table/examples/table-compact (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-compact (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-footer">
+      <failure message="Design deviation ›› /components/table/examples/table-footer (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-footer (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-footer">
+      <failure message="Design deviation ›› /components/table/examples/table-footer (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-footer (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-footer">
+      <failure message="Design deviation ›› /components/table/examples/table-footer (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-footer (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-numeric">
+      <failure message="Design deviation ›› /components/table/examples/table-numeric (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-numeric (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-numeric">
+      <failure message="Design deviation ›› /components/table/examples/table-numeric (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-numeric (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-numeric">
+      <failure message="Design deviation ›› /components/table/examples/table-numeric (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-numeric (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-responsive">
+      <failure message="Design deviation ›› /components/table/examples/table-responsive (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-responsive (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-responsive">
+      <failure message="Design deviation ›› /components/table/examples/table-responsive (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-responsive (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-responsive">
+      <failure message="Design deviation ›› /components/table/examples/table-responsive (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-responsive (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-scrollable">
+      <failure message="Design deviation ›› /components/table/examples/table-scrollable (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-scrollable (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-scrollable">
+      <failure message="Design deviation ›› /components/table/examples/table-scrollable (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-scrollable (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-scrollable">
+      <failure message="Design deviation ›› /components/table/examples/table-scrollable (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-scrollable (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-sortable">
+      <failure message="Design deviation ›› /components/table/examples/table-sortable (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-sortable (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-sortable">
+      <failure message="Design deviation ›› /components/table/examples/table-sortable (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-sortable (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table/examples/table-sortable">
+      <failure message="Design deviation ›› /components/table/examples/table-sortable (document) component"/>
+      <error message="Design deviation ›› /components/table/examples/table-sortable (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table-of-contents/examples/table-of-contents-grouped">
+      <failure message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-grouped (document) component"/>
+      <error message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-grouped (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table-of-contents/examples/table-of-contents-grouped">
+      <failure message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-grouped (document) component"/>
+      <error message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-grouped (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table-of-contents/examples/table-of-contents-grouped">
+      <failure message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-grouped (document) component"/>
+      <error message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-grouped (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table-of-contents/examples/table-of-contents-single">
+      <failure message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-single (document) component"/>
+      <error message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-single (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table-of-contents/examples/table-of-contents-single">
+      <failure message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-single (document) component"/>
+      <error message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-single (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table-of-contents/examples/table-of-contents-single">
+      <failure message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-single (document) component"/>
+      <error message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-single (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table-of-contents/examples/table-of-contents-sticky">
+      <failure message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-sticky (document) component"/>
+      <error message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-sticky (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table-of-contents/examples/table-of-contents-sticky">
+      <failure message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-sticky (document) component"/>
+      <error message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-sticky (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/table-of-contents/examples/table-of-contents-sticky">
+      <failure message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-sticky (document) component"/>
+      <error message="Design deviation ›› /components/table-of-contents/examples/table-of-contents-sticky (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/tabs/examples/tabs-details">
+      <failure message="Design deviation ›› /components/tabs/examples/tabs-details (document) component"/>
+      <error message="Design deviation ›› /components/tabs/examples/tabs-details (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/tabs/examples/tabs-details">
+      <failure message="Design deviation ›› /components/tabs/examples/tabs-details (document) component"/>
+      <error message="Design deviation ›› /components/tabs/examples/tabs-details (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/tabs/examples/tabs-details">
+      <failure message="Design deviation ›› /components/tabs/examples/tabs-details (document) component"/>
+      <error message="Design deviation ›› /components/tabs/examples/tabs-details (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/tabs/examples/tabs">
+      <failure message="Design deviation ›› /components/tabs/examples/tabs (document) component"/>
+      <error message="Design deviation ›› /components/tabs/examples/tabs (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/tabs/examples/tabs">
+      <failure message="Design deviation ›› /components/tabs/examples/tabs (document) component"/>
+      <error message="Design deviation ›› /components/tabs/examples/tabs (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/tabs/examples/tabs">
+      <failure message="Design deviation ›› /components/tabs/examples/tabs (document) component"/>
+      <error message="Design deviation ›› /components/tabs/examples/tabs (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/textarea/examples/textarea-error">
+      <failure message="Design deviation ›› /components/textarea/examples/textarea-error (document) component"/>
+      <error message="Design deviation ›› /components/textarea/examples/textarea-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/textarea/examples/textarea-error">
+      <failure message="Design deviation ›› /components/textarea/examples/textarea-error (document) component"/>
+      <error message="Design deviation ›› /components/textarea/examples/textarea-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/textarea/examples/textarea-error">
+      <failure message="Design deviation ›› /components/textarea/examples/textarea-error (document) component"/>
+      <error message="Design deviation ›› /components/textarea/examples/textarea-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/textarea/examples/textarea-with-character-limit">
+      <failure message="Design deviation ›› /components/textarea/examples/textarea-with-character-limit (document) component"/>
+      <error message="Design deviation ›› /components/textarea/examples/textarea-with-character-limit (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/textarea/examples/textarea-with-character-limit">
+      <failure message="Design deviation ›› /components/textarea/examples/textarea-with-character-limit (document) component"/>
+      <error message="Design deviation ›› /components/textarea/examples/textarea-with-character-limit (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/textarea/examples/textarea-with-character-limit">
+      <failure message="Design deviation ›› /components/textarea/examples/textarea-with-character-limit (document) component"/>
+      <error message="Design deviation ›› /components/textarea/examples/textarea-with-character-limit (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/textarea/examples/textarea">
+      <failure message="Design deviation ›› /components/textarea/examples/textarea (document) component"/>
+      <error message="Design deviation ›› /components/textarea/examples/textarea (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/textarea/examples/textarea">
+      <failure message="Design deviation ›› /components/textarea/examples/textarea (document) component"/>
+      <error message="Design deviation ›› /components/textarea/examples/textarea (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/textarea/examples/textarea">
+      <failure message="Design deviation ›› /components/textarea/examples/textarea (document) component"/>
+      <error message="Design deviation ›› /components/textarea/examples/textarea (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/timeline/examples/timeline">
+      <failure message="Design deviation ›› /components/timeline/examples/timeline (document) component"/>
+      <error message="Design deviation ›› /components/timeline/examples/timeline (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/timeline/examples/timeline">
+      <failure message="Design deviation ›› /components/timeline/examples/timeline (document) component"/>
+      <error message="Design deviation ›› /components/timeline/examples/timeline (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/timeline/examples/timeline">
+      <failure message="Design deviation ›› /components/timeline/examples/timeline (document) component"/>
+      <error message="Design deviation ›› /components/timeline/examples/timeline (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/timeout-modal/examples/timeout-modal">
+      <failure message="Design deviation ›› /components/timeout-modal/examples/timeout-modal (document) component"/>
+      <error message="Design deviation ›› /components/timeout-modal/examples/timeout-modal (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/timeout-modal/examples/timeout-modal">
+      <failure message="Design deviation ›› /components/timeout-modal/examples/timeout-modal (document) component"/>
+      <error message="Design deviation ›› /components/timeout-modal/examples/timeout-modal (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/timeout-modal/examples/timeout-modal">
+      <failure message="Design deviation ›› /components/timeout-modal/examples/timeout-modal (document) component"/>
+      <error message="Design deviation ›› /components/timeout-modal/examples/timeout-modal (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/timeout-panel/examples/panel-with-timeout-warning">
+      <failure message="Design deviation ›› /components/timeout-panel/examples/panel-with-timeout-warning (document) component"/>
+      <error message="Design deviation ›› /components/timeout-panel/examples/panel-with-timeout-warning (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/timeout-panel/examples/panel-with-timeout-warning">
+      <failure message="Design deviation ›› /components/timeout-panel/examples/panel-with-timeout-warning (document) component"/>
+      <error message="Design deviation ›› /components/timeout-panel/examples/panel-with-timeout-warning (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/timeout-panel/examples/panel-with-timeout-warning">
+      <failure message="Design deviation ›› /components/timeout-panel/examples/panel-with-timeout-warning (document) component"/>
+      <error message="Design deviation ›› /components/timeout-panel/examples/panel-with-timeout-warning (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/upload/examples/upload-error">
+      <failure message="Design deviation ›› /components/upload/examples/upload-error (document) component"/>
+      <error message="Design deviation ›› /components/upload/examples/upload-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/upload/examples/upload-error">
+      <failure message="Design deviation ›› /components/upload/examples/upload-error (document) component"/>
+      <error message="Design deviation ›› /components/upload/examples/upload-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/upload/examples/upload-error">
+      <failure message="Design deviation ›› /components/upload/examples/upload-error (document) component"/>
+      <error message="Design deviation ›› /components/upload/examples/upload-error (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/upload/examples/upload">
+      <failure message="Design deviation ›› /components/upload/examples/upload (document) component"/>
+      <error message="Design deviation ›› /components/upload/examples/upload (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/upload/examples/upload">
+      <failure message="Design deviation ›› /components/upload/examples/upload (document) component"/>
+      <error message="Design deviation ›› /components/upload/examples/upload (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/upload/examples/upload">
+      <failure message="Design deviation ›› /components/upload/examples/upload (document) component"/>
+      <error message="Design deviation ›› /components/upload/examples/upload (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/video/examples/video">
+      <failure message="Design deviation ›› /components/video/examples/video (document) component"/>
+      <error message="Design deviation ›› /components/video/examples/video (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/video/examples/video">
+      <failure message="Design deviation ›› /components/video/examples/video (document) component"/>
+      <error message="Design deviation ›› /components/video/examples/video (document) component"/>
+    </testcase>
+    <testcase classname="document" name=" ›› /components/video/examples/video">
+      <failure message="Design deviation ›› /components/video/examples/video (document) component"/>
+      <error message="Design deviation ›› /components/video/examples/video (document) component"/>
+    </testcase>
+    <testcase classname="" name=" ›› ./src/patterns/_documentation-template/examples/index.njk"/>
+    <testcase classname="" name=" ›› ./src/patterns/_documentation-template/examples/index.njk"/>
+    <testcase classname="" name=" ›› ./src/patterns/_documentation-template/examples/index.njk"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-manual-error"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-manual-error"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-manual-error"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-manual"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-manual"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-manual"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-non-editable-confirm-address"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-non-editable-confirm-address"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-non-editable-confirm-address"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-non-editable-register-address"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-non-editable-register-address"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-non-editable-register-address"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-non-editable"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-non-editable"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input-non-editable"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/addresses/examples/address-input"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/email-addresses/examples/input-email-with-error"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/email-addresses/examples/input-email-with-error"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/email-addresses/examples/input-email-with-error"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/feedback/examples/feedback-form-errors"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/feedback/examples/feedback-form-errors"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/feedback/examples/feedback-form-errors"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/feedback/examples/feedback-form"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/feedback/examples/feedback-form"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/feedback/examples/feedback-form"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/feedback/examples/feedback-success"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/feedback/examples/feedback-success"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/feedback/examples/feedback-success"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/numeric-values/examples/input-number-suffixed-with-error"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/numeric-values/examples/input-number-suffixed-with-error"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/numeric-values/examples/input-number-suffixed-with-error"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/phone-numbers/examples/phone-number-error"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/phone-numbers/examples/phone-number-error"/>
+    <testcase classname="document" name=" ›› /patterns/ask-users-for/phone-numbers/examples/phone-number-error"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/change-language/examples/cymraeg"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/change-language/examples/cymraeg"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/change-language/examples/cymraeg"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/change-language/examples/english"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/change-language/examples/english"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/change-language/examples/english"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/cookies-settings/examples/cookie-settings-page"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/cookies-settings/examples/cookie-settings-page"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/cookies-settings/examples/cookie-settings-page"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/error-details"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/error-details"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/error-details"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/error-summary"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/error-summary"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/error-summary"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/errors-proto/errors"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/errors-proto/errors"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/errors-proto/errors"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/errors-proto"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/errors-proto"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/correct-errors/examples/errors-proto"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/download-resources/examples/download-resources"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/download-resources/examples/download-resources"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/download-resources/examples/download-resources"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/extend-session/examples/timeout"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/extend-session/examples/timeout"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/extend-session/examples/timeout"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/save-and-sign-out/examples/save-and-sign-out-button"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/save-and-sign-out/examples/save-and-sign-out-button"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/save-and-sign-out/examples/save-and-sign-out-button"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/save-and-sign-out/examples/signed-out"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/save-and-sign-out/examples/signed-out"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/save-and-sign-out/examples/signed-out"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-a-web-form/examples/errors"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-a-web-form/examples/errors"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-a-web-form/examples/errors"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-a-web-form/examples/form"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-a-web-form/examples/form"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-a-web-form/examples/form"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-a-web-form/examples/success"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-a-web-form/examples/success"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-a-web-form/examples/success"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-and-reply-to-messages/examples/conversation"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-and-reply-to-messages/examples/conversation"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-and-reply-to-messages/examples/conversation"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-and-reply-to-messages/examples/message-list"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-and-reply-to-messages/examples/message-list"/>
+    <testcase classname="document" name=" ›› /patterns/help-users-to/send-and-reply-to-messages/examples/message-list"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/access-denied-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/access-denied-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/access-denied-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/browser-incompatible-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/browser-incompatible-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/browser-incompatible-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/maintenance-notice"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/maintenance-notice"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/maintenance-notice"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/page-not-found-error-with-code"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/page-not-found-error-with-code"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/page-not-found-error-with-code"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/page-not-found-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/page-not-found-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/page-not-found-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/server-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/server-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/server-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/timed-out-error-not-signed-in"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/timed-out-error-not-signed-in"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/timed-out-error-not-signed-in"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/timed-out-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/timed-out-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/error-status-pages/examples/timed-out-error"/>
+    <testcase classname="document" name=" ›› /patterns/pages/guide/examples/guide-overview"/>
+    <testcase classname="document" name=" ›› /patterns/pages/guide/examples/guide-overview"/>
+    <testcase classname="document" name=" ›› /patterns/pages/guide/examples/guide-overview"/>
+    <testcase classname="document" name=" ›› /patterns/pages/guide/examples/guide"/>
+    <testcase classname="document" name=" ›› /patterns/pages/guide/examples/guide"/>
+    <testcase classname="document" name=" ›› /patterns/pages/guide/examples/guide"/>
+    <testcase classname="document" name=" ›› /patterns/pages/guide/examples/rtl"/>
+    <testcase classname="document" name=" ›› /patterns/pages/guide/examples/rtl"/>
+    <testcase classname="document" name=" ›› /patterns/pages/guide/examples/rtl"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/hub-complete"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/hub-complete"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/hub-complete"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/hub"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/hub"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/hub"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/spoke-continue"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/spoke-continue"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/spoke-continue"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/spoke-start"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/spoke-start"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/spoke-start"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/spoke-summary"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/spoke-summary"/>
+    <testcase classname="document" name=" ›› /patterns/pages/hub-and-spoke/examples/spoke-summary"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/article"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/article"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/article"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/category"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/category"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/category"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/landing"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/landing"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/landing"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/tag"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/tag"/>
+    <testcase classname="document" name=" ›› /patterns/pages/news/examples/tag"/>
+    <testcase classname="document" name=" ›› /patterns/pages/question/examples/question-anatomy"/>
+    <testcase classname="document" name=" ›› /patterns/pages/question/examples/question-anatomy"/>
+    <testcase classname="document" name=" ›› /patterns/pages/question/examples/question-anatomy"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-12"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-12"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-12"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-7-4"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-7-4"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-7-4"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-8"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-8"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-8"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-combo"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-combo"/>
+    <testcase classname="document" name=" ›› /foundations/layout/grid/examples/grid-combo"/>
+    <testcase classname="document" name=" ›› /foundations/layout/page-template/examples/base-page-template-block-areas"/>
+    <testcase classname="document" name=" ›› /foundations/layout/page-template/examples/base-page-template-block-areas"/>
+    <testcase classname="document" name=" ›› /foundations/layout/page-template/examples/base-page-template-block-areas"/>
+    <testcase classname="document" name=" ›› /foundations/layout/page-template/examples/basic"/>
+    <testcase classname="document" name=" ›› /foundations/layout/page-template/examples/basic"/>
+    <testcase classname="document" name=" ›› /foundations/layout/page-template/examples/basic"/>
+    <testcase classname="document" name=" ›› /foundations/layout/page-template/examples/custom"/>
+    <testcase classname="document" name=" ›› /foundations/layout/page-template/examples/custom"/>
+    <testcase classname="document" name=" ›› /foundations/layout/page-template/examples/custom"/>
+    <testcase classname="document" name=" ›› /foundations/style/icons/examples/icons-size"/>
+    <testcase classname="document" name=" ›› /foundations/style/icons/examples/icons-size"/>
+    <testcase classname="document" name=" ›› /foundations/style/icons/examples/icons-size"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/address-output/examples/address-output"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/address-output/examples/address-output"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/address-output/examples/address-output"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/headings/examples/breakpoint-headings"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/headings/examples/breakpoint-headings"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/headings/examples/breakpoint-headings"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/headings/examples/default-heading-sizes"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/headings/examples/default-heading-sizes"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/headings/examples/default-heading-sizes"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/highlighting/examples/highlighting"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/highlighting/examples/highlighting"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/highlighting/examples/highlighting"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/links/examples/link"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/links/examples/link"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/links/examples/link"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/bare-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/bare-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/bare-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/bulleted-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/bulleted-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/bulleted-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/dashed-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/dashed-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/dashed-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/inline-list-with-social-icon-prefix"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/inline-list-with-social-icon-prefix"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/inline-list-with-social-icon-prefix"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/inline-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/inline-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/inline-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/list-with-icon-prefix"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/list-with-icon-prefix"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/list-with-icon-prefix"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/list-with-icon-suffix"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/list-with-icon-suffix"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/list-with-icon-suffix"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/numbered-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/numbered-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/numbered-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/prefixed-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/prefixed-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/prefixed-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/suffixed-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/suffixed-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/lists/examples/suffixed-list"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/paragraphs/examples/paragraphs"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/paragraphs/examples/paragraphs"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/paragraphs/examples/paragraphs"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/quote/examples/quote"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/quote/examples/quote"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/quote/examples/quote"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/text-indent/examples/text-indent"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/text-indent/examples/text-indent"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/text-indent/examples/text-indent"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/type-scale/examples/type-scale"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/type-scale/examples/type-scale"/>
+    <testcase classname="document" name=" ›› /foundations/style/typography/type-scale/examples/type-scale"/>
+  </testsuite>
+</testsuites>
