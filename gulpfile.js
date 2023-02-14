@@ -17,7 +17,7 @@ const babelNomoduleConfig = require('./babel.conf.nomodule');
 const nunjucksRendererPipe = require('./lib/rendering/nunjucks-renderer-pipe.js').default;
 const searchIndexPipe = require('./lib/rendering/search-index-pipe.js').default;
 const postCssPlugins = require('./postcss.config').default;
-const generateURLs = require('./src/tests/visual/url-generator.js').default;
+const generateURLs = require('./src/tests/helpers/url-generator.js').default;
 const server = require('./lib/dev-server.js');
 
 const isProduction = process.env.NODE_ENV === 'production';
