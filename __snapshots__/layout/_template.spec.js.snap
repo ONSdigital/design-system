@@ -636,7 +636,7 @@ exports[`base page template matches the full configuration snapshot 1`] = `
             <div class=\\"ons-page\\">
                 <div class=\\"ons-page__content\\">
                     
-                        <form class=\\"form-class\\" method=\\"POST\\" autocomplete=\\"off\\" novalidate=\\"null\\">
+                        <form class=\\"form-class\\" method=\\"POST\\" novalidate=\\"\\" autocomplete=\\"off\\" action=\\"/example.html\\">
                     
                     Some preHeader content
                     
