@@ -297,7 +297,7 @@ const FULL_EXAMPLE = `
     "method": "POST",
     "attributes": {
         "autocomplete": "off",
-        "novalidate": "null"
+        "action": "/example.html"
     }
 } %}
 {% block main %}
