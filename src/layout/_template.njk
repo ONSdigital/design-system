@@ -131,6 +131,7 @@
                         <form
                             {% if form.classes %}class="{{ form.classes }}"{% endif %}
                             method="{{ form.method | default('POST') }}"
+                            novalidate
                             {% if form.attributes %}{% for attribute, value in (form.attributes.items() if form.attributes is mapping and form.attributes.items else form.attributes) %}{{ attribute }}{% if value %}="{{value}}" {% endif %}{% endfor %}{% endif %}
                         >
                     {% endif %}
