@@ -18,7 +18,6 @@ const nunjucksRendererPipe = require('./lib/rendering/nunjucks-renderer-pipe.js'
 const searchIndexPipe = require('./lib/rendering/search-index-pipe.js').default;
 const postCssPlugins = require('./postcss.config').default;
 const generateURLs = require('./src/tests/helpers/url-generator.js').default;
-const server = require('./lib/dev-server.js');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
@@ -150,10 +149,6 @@ gulp.task('start-dev-server', async () => {
   await import('./lib/dev-server.js');
 });
 
-gulp.task('stop-dev-server', () => {
-  return server.close();
-});
-
 gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-search-index'));
 gulp.task('build-assets-for-testing', gulp.series('build-script', 'build-styles'));
 
@@ -161,8 +156,5 @@ gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-ser
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
 gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-pages'));
 gulp.task('build-package', gulp.series('copy-static-files', 'copy-js-files', 'build-assets'));
-gulp.task('run-backstop-tests', gulp.series('build-assets', 'watch-and-build', 'start-dev-server', 'run-backstop', 'stop-dev-server'));
-gulp.task(
-  'run-backstop-reference-tests',
-  gulp.series('build-assets', 'watch-and-build', 'start-dev-server', 'run-backstop-reference', 'stop-dev-server'),
-);
+gulp.task('run-backstop-tests', gulp.series('build-assets', 'watch-and-build', 'start-dev-server', 'run-backstop'));
+gulp.task('run-backstop-reference-tests', gulp.series('build-assets', 'watch-and-build', 'start-dev-server', 'run-backstop-reference'));
