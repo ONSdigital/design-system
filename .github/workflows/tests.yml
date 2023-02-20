@@ -28,6 +28,19 @@ jobs:
           netlify deploy --prod --dir=backstop_data/html_report --site=626211f3-108f-4c7a-bc52-07bac7050c3e
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - name: Create approval link
+        id: create_link
+        uses: peter-evans/create-pull-request-comment@v1.3.0
+        with:
+          message: |
+            To approve the visual regression test diffs, click here: 
+            https://api.github.com/repos/${{ github.repository }}/actions/workflows/<workflow_id>/dispatches?ref=${{ github.head_ref }}&inputs[task]=approve
+          reaction-type: hooray
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Approve visual regression test diffs
+        if: ${{ github.event_name == 'pull_request' && steps.wait_for_approval.outputs.approved == 'true' }}
+        run: yarn test-visual:approve
       - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master

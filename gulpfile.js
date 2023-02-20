@@ -151,3 +151,4 @@ gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-pages
 gulp.task('build-package', gulp.series('copy-static-files', 'copy-js-files', 'build-assets'));
 gulp.task('run-backstop-tests', gulp.series('start-dev-server', createBackstopTask('test')));
 gulp.task('run-backstop-reference', gulp.series('start-dev-server', createBackstopTask('reference')));
+gulp.task('run-backstop-approve', createBackstopTask('approve'));

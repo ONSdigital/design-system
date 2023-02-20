@@ -20,6 +20,7 @@
     "cdn-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/prepare-templates-for-zip.js",
     "test-visual": "yarn build && gulp run-backstop-tests",
     "test-visual:reference": "yarn build && gulp run-backstop-reference",
+    "test-visual:approve": "gulp run-backstop-approve",
     "tidy-clean": "rm -rf build css favicons fonts img components layout scripts coverage scss js",
     "check-unused": "npx npm-check-unused",
     "dedupe-deps": "npx yarn-deduplicate yarn.lock",
