@@ -48,25 +48,15 @@ a::after {
   }
 }
 
-.ons-details {
-  &--initialised & {
-    &__icon {
-      display: none;
-    }
-
-    &__title {
-      color: var(--ons-color-black);
-      margin-bottom: 1rem;
-      margin-left: -1.5rem;
-      text-decoration: none;
-    }
-
-    &__content {
-      display: block;
-    }
-  }
+details,
+details > summary {
+  display: block !important;
 }
 
 .ons-hero {
   color-adjust: exact;
+}
+
+.ons-grid__col {
+  display: block; // Prevents page breaking before grid col when printing from Chrome see: https://github.com/ONSdigital/design-system/issues/2584
 }
