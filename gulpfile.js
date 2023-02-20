@@ -117,23 +117,16 @@ gulp.task('generate-urls', async () => {
   return urls;
 });
 
-gulp.task('run-backstop', async () => {
-  const urls = await generateURLs();
-  const backstopConfig = require('./backstop.config.js');
-  backstopConfig.scenarios = urls;
-  return backstop('test', {
-    config: backstopConfig,
-  });
-});
-
-gulp.task('run-backstop-reference', async () => {
-  const urls = await generateURLs();
-  const backstopConfig = require('./backstop.config.js');
-  backstopConfig.scenarios = urls;
-  return backstop('reference', {
-    config: backstopConfig,
-  });
-});
+function createBackstopTask(task) {
+  return async () => {
+    const urls = await generateURLs();
+    const backstopConfig = require('./backstop.config.js');
+    backstopConfig.scenarios = urls;
+    return backstop(task, {
+      config: backstopConfig,
+    });
+  };
+}
 
 gulp.task('watch-and-build', async () => {
   browserSync.init({
@@ -156,5 +149,5 @@ gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-ser
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
 gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-pages'));
 gulp.task('build-package', gulp.series('copy-static-files', 'copy-js-files', 'build-assets'));
-gulp.task('run-backstop-tests', gulp.series('build-assets', 'watch-and-build', 'start-dev-server', 'run-backstop'));
-gulp.task('run-backstop-reference-tests', gulp.series('build-assets', 'watch-and-build', 'start-dev-server', 'run-backstop-reference'));
+gulp.task('run-backstop-tests', gulp.series('start-dev-server', createBackstopTask('test')));
+gulp.task('run-backstop-reference', gulp.series('start-dev-server', createBackstopTask('reference')));

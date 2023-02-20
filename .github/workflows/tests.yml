@@ -25,7 +25,7 @@ jobs:
       - name: Host HTML report on Netlify
         run: |
           npm install netlify-cli -g
-          netlify deploy --prod --dir=backstop_data/html_report --site=8d60db2e-cba6-4eac-bd0a-e0cc27a6b36e
+          netlify deploy --prod --dir=backstop_data/html_report --site=626211f3-108f-4c7a-bc52-07bac7050c3e
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       - name: Create Slack notification
