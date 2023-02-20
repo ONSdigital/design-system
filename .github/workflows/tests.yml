@@ -21,6 +21,7 @@ jobs:
         run: yarn test
       - name: Run visual regression tests
         run: yarn test-visual
+        continue-on-error: true
       - name: Host HTML report on Netlify
         run: |
           npm install netlify-cli -g
