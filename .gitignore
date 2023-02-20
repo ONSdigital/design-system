@@ -19,3 +19,6 @@ package-lock.json
 /scss/
 
 secrets.yml
+
+# Local Netlify folder
+.netlify

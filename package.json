@@ -148,5 +148,8 @@
   "resolutions": {
     "minimist": "^1.2.5",
     "**/@percy/agent": "^0.28.6"
+  },
+  "dependencies": {
+    "netlify-cli": "^12.13.2"
   }
 }
