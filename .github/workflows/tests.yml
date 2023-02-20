@@ -10,7 +10,7 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install Node
         uses: actions/setup-node@v2
         with:
@@ -30,7 +30,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       - name: Create approval link
         id: create_link
-        uses: peter-evans/create-pull-request-comment@v1.3.0
+        uses: peter-evans/create-pull-request-comment@v4
         with:
           message: |
             To approve the visual regression test diffs, click here: 
