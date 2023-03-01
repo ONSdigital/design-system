@@ -60,3 +60,15 @@ details > summary {
 .ons-grid__col {
   display: block; // Prevents page breaking before grid col when printing from Chrome see: https://github.com/ONSdigital/design-system/issues/2584
 }
+
+.ons-panel,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+p {
+  break-inside: avoid;
+}
