@@ -122,7 +122,7 @@ function createBackstopTask(task) {
     const urls = await generateURLs();
     const backstopConfig = require('./backstop.config.js');
     backstopConfig.scenarios = urls;
-    return backstop(task, {
+    await backstop(task, {
       config: backstopConfig,
     });
   };
