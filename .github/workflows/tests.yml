@@ -27,7 +27,7 @@ jobs:
         run: yarn test-visual
         continue-on-error: true
       - name: Copy JUnit report
-        run: cp backstop_data/*.xml ${{ github.workspace }}
+        run: cp backstop_data/ci_report/*.xml ${{ github.workspace }}
       - name: Upload JUnit report
         uses: actions/upload-artifact@v2
         with:
