@@ -26,6 +26,13 @@ jobs:
       - name: Run visual regression tests
         run: yarn test-visual
         continue-on-error: true
+      - name: Copy JUnit report
+        run: cp backstop_data/*.xml ${{ github.workspace }}
+      - name: Upload JUnit report
+        uses: actions/upload-artifact@v2
+        with:
+          name: junit-report
+          path: /*.xml
       - name: Create approval link
         id: create_link
         uses: peter-evans/create-or-update-comment@v2
