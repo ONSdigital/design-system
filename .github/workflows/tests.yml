@@ -26,16 +26,11 @@ jobs:
       - name: Run visual regression tests
         run: yarn test-visual
         continue-on-error: true
-      - name: Host HTML report on Netlify
-        run: |
-          npm install netlify-cli -g
-          netlify deploy --prod --dir=backstop_data/html_report --site=98133936-dd35-4bdc-b4dc-57dcb97e3fe1
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       - name: Create approval link
         id: create_link
         uses: peter-evans/create-or-update-comment@v2
         with:
+          issue-number: 1
           body: |
             To approve the visual regression test diffs, click here: 
             https://api.github.com/repos/${{ github.repository }}/actions/workflows/<workflow_id>/dispatches?ref=${{ github.head_ref }}&inputs[task]=approve
