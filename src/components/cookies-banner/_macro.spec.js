@@ -184,6 +184,26 @@ describe('macro: cookies-banner', () => {
         const linkText = $('.ons-cookies-banner__link').attr('href');
         expect(linkText).toBe('/cookies');
       });
+
+      it('has `container--wide` class when `wide` is true', () => {
+        const $ = cheerio.load(
+          renderComponent('cookies-banner', {
+            wide: true,
+          }),
+        );
+
+        expect($('.ons-container.ons-cookies-banner__primary').hasClass('ons-container--wide')).toBe(true);
+      });
+
+      it('has `container--full-width` class when `fullWidth` is true', () => {
+        const $ = cheerio.load(
+          renderComponent('cookies-banner', {
+            fullWidth: true,
+          }),
+        );
+
+        expect($('.ons-container.ons-cookies-banner__primary').hasClass('ons-container--full-width')).toBe(true);
+      });
     });
 
     describe('confirmation banner', () => {
@@ -212,6 +232,26 @@ describe('macro: cookies-banner', () => {
         faker.renderComponent('cookies-banner', {});
 
         expect(buttonSpy.occurrences[2].buttonContext).toBe('this message');
+      });
+
+      it('has `container--wide` class when `wide` is true', () => {
+        const $ = cheerio.load(
+          renderComponent('cookies-banner', {
+            wide: true,
+          }),
+        );
+
+        expect($('.ons-container.ons-cookies-banner__confirmation').hasClass('ons-container--wide')).toBe(true);
+      });
+
+      it('has `container--full-width` class when `fullWidth` is true', () => {
+        const $ = cheerio.load(
+          renderComponent('cookies-banner', {
+            fullWidth: true,
+          }),
+        );
+
+        expect($('.ons-container.ons-cookies-banner__confirmation').hasClass('ons-container--full-width')).toBe(true);
       });
     });
   });
