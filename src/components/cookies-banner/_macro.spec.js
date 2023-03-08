@@ -91,6 +91,28 @@ describe('macro: cookies-banner', () => {
         const linkText = $('.ons-cookies-banner__link').attr('href');
         expect(linkText).toBe('/cookiesoverride');
       });
+
+      it('has `container--wide` class when `wide` is true', () => {
+        const $ = cheerio.load(
+          renderComponent('cookies-banner', {
+            ...EXAMPLE_COOKIES_BANNER_PARAMS,
+            wide: true,
+          }),
+        );
+
+        expect($('.ons-container').hasClass('ons-container--wide')).toBe(true);
+      });
+
+      it('has `container--full-width` class when `fullWidth` is true', () => {
+        const $ = cheerio.load(
+          renderComponent('cookies-banner', {
+            ...EXAMPLE_COOKIES_BANNER_PARAMS,
+            fullWidth: true,
+          }),
+        );
+
+        expect($('.ons-container').hasClass('ons-container--full-width')).toBe(true);
+      });
     });
 
     describe('confirmation banner', () => {
