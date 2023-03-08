@@ -29,5 +29,5 @@ module.exports = {
   asyncCaptureLimit: 5,
   asyncCompareLimit: 50,
   debug: true,
-  report: ['CI'],
+  report: ['CI', 'browser'],
 };

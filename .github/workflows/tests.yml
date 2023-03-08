@@ -26,28 +26,14 @@ jobs:
       - name: Run visual regression tests
         run: yarn test-visual
         continue-on-error: true
-      - name: List workspace contents
-        run: ls -R ${{ github.workspace }}
-
-      - name: Upload JUnit report
-        uses: actions/upload-artifact@v2
+      - name: Copy reference images
+        run: cp -r backstop_data/bitmaps_reference backstop_data/html_report/
+      - name: Deploy report as GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: junit-report
-          path: backstop_data/ci_report/xunit.xml
-      - name: Create approval link
-        id: create_link
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          issue-number: 1
-          body: |
-            To approve the visual regression test diffs, click here: 
-            https://api.github.com/repos/${{ github.repository }}/actions/workflows/<workflow_id>/dispatches?ref=${{ github.head_ref }}&inputs[task]=approve
-          reactions: hooray
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Approve visual regression test diffs
-        if: ${{ github.event_name == 'pull_request' && steps.wait_for_approval.outputs.approved == 'true' }}
-        run: yarn test-visual:approve
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./backstop_data/html_report
       - name: Create Slack notification
         if: always()
         uses: edge/simple-slack-notify@master
