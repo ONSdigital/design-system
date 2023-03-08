@@ -4,7 +4,7 @@
         {% set serviceName = 'ons.gov.uk' %}
         {% set statementTitle = 'Cwcis ar' %}
         {% set settingsLinkText = 'Gweld cwcis' %}
-        {% set settingsLinkURL = '/cwics' %}
+        {% set settingsLinkURL = params.settingsLinkTextURL | default('/cwics') %}
         {% set statementText = '<p>Ffeiliau bach a gaiff eu storio ar eich dyfais pan fyddwch yn mynd ar wefan yw cwcis. Rydym ni’n defnyddio rhai cwcis hanfodol i wneud i’r wefan hon weithio.</p><p>Hoffem osod <a href="' + settingsLinkURL + '">cwcis ychwanegol</a> er mwyn cofio eich gosodiadau a deall sut rydych chi’n defnyddio’r wefan. Mae hyn yn ein helpu ni i wella ein gwasanaethau.</p>' %}
         {% set acceptButtonText = 'Derbyn cwcis ychwanegol' %}
         {% set rejectButtonText = 'Gwrthod cwcis ychwanegol' %}
@@ -18,7 +18,7 @@
         {% set serviceName = 'ons.gov.uk' %}
         {% set statementTitle = 'Cookies on' %}
         {% set settingsLinkText = 'View cookies' %}
-        {% set settingsLinkURL = '/cookies' %}
+        {% set settingsLinkURL = params.settingsLinkTextURL | default('/cookies') %}
         {% set statementText = '<p>Cookies are small files stored on your device when you visit a website. We use some essential cookies to make this website work.</p><p>We would like to set <a href="' + settingsLinkURL + '">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services. </p>' %}
         {% set acceptButtonText = 'Accept additional cookies' %}
         {% set rejectButtonText = 'Reject additional cookies' %}
