@@ -13,8 +13,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           lfs: true
-      - name: Git LFS Pull
-        run: git lfs pull
       - name: Install Node
         uses: actions/setup-node@v2
         with:
@@ -27,7 +25,10 @@ jobs:
         run: yarn test-visual
         continue-on-error: true
       - name: Copy reference images
-        run: cp -r backstop_data/bitmaps_reference backstop_data/html_report/
+        run: |
+          git lfs pull --include="backstop_data/bitmaps_reference/**/*"
+          mkdir -p backstop_data/html_report/bitmaps_reference
+          cp -r backstop_data/bitmaps_reference backstop_data/html_report/
       - name: Deploy report as GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
