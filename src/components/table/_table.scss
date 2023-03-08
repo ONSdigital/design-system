@@ -157,7 +157,7 @@
     [aria-sort='descending'].ons-table__header {
       .ons-svg-icon {
         .ons-topTriangle {
-          fill: var(--ons-color-grey-35);
+          fill: var(--ons-color-grey-15);
         }
         .ons-bottomTriangle {
           fill: var(--ons-color-text);
@@ -166,7 +166,7 @@
       .ons-table__sort-button:focus {
         .ons-svg-icon {
           .ons-topTriangle {
-            fill: #b69502;
+            fill: #e3ba02;
           }
         }
       }
@@ -178,13 +178,13 @@
           fill: var(--ons-color-text);
         }
         .ons-bottomTriangle {
-          fill: var(--ons-color-grey-35);
+          fill: var(--ons-color-grey-15);
         }
       }
       .ons-table__sort-button:focus {
         .ons-svg-icon {
           .ons-bottomTriangle {
-            fill: #b69502;
+            fill: #e3ba02;
           }
         }
       }
@@ -196,26 +196,26 @@
         border: 0;
         box-shadow: none;
         color: var(--ons-color-text-link);
+        cursor: pointer;
         display: inline-block;
         font-family: $font-sans;
         font-weight: $font-weight-bold;
         line-height: 1rem;
         padding: 0 0 0.2rem;
-        text-decoration: underline;
-        text-underline-position: under;
         white-space: nowrap;
 
-        &:hover {
+        &:hover:not(:focus) {
           color: var(--ons-color-text-link-hover);
-          cursor: pointer;
           text-decoration: underline solid var(--ons-color-text-link-hover) 2px;
+          text-underline-position: under;
         }
 
         .ons-svg-icon {
           fill: var(--ons-color-grey-75);
-          height: 0.8rem;
+          height: 16px;
+          margin-left: 0.2rem;
           padding-bottom: 0.1rem;
-          width: 0.8rem;
+          width: 16px;
         }
 
         &:focus {

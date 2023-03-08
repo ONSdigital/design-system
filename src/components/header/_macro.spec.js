@@ -117,6 +117,50 @@ const EXAMPLE_HEADER_NAVIGATION_CONFIG = {
   },
 };
 
+const EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG = {
+  navigation: {
+    id: 'main-nav',
+    ariaLabel: 'Main menu',
+    currentPath: '#1',
+    currentPageTitle: 'Guidance',
+    itemsList: [
+      {
+        title: 'Home',
+        url: '#0',
+      },
+      {
+        title: 'Guidance',
+        url: '#1',
+      },
+    ],
+    toggleNavigationButton: {
+      text: 'Menu',
+      ariaLabel: 'Toggle main menu',
+    },
+    subNavigation: {
+      id: 'sub-nav',
+      overviewURL: '#overview',
+      overviewText: 'Overview',
+      ariaLabel: 'Section menu',
+      currentPath: '#1',
+      itemsList: [
+        {
+          title: 'Sub nav item 1',
+          url: '#0',
+          classes: 'custom-class-sub-item-1',
+          id: 'sub-item-1',
+        },
+        {
+          title: 'Sub nav item 2',
+          url: '#1',
+          classes: 'custom-class-sub-item-2',
+          id: 'sub-item-2',
+        },
+      ],
+    },
+  },
+};
+
 describe('macro: header', () => {
   describe('mode: basic', () => {
     it('passes jest-axe checks', async () => {
@@ -643,6 +687,59 @@ describe('macro: header', () => {
           'aria-expanded': 'false',
         },
       });
+    });
+
+    it('renders the navigation in the correct container if `wide`', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          wide: true,
+          ...EXAMPLE_HEADER_NAVIGATION_CONFIG,
+        }),
+      );
+
+      const navContainer = $('.ons-navigation-wrapper .ons-container');
+      expect($(navContainer).hasClass('ons-container--wide')).toBe(true);
+    });
+
+    it('renders the navigation in the correct container if `fullWidth`', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          fullWidth: true,
+          ...EXAMPLE_HEADER_NAVIGATION_CONFIG,
+        }),
+      );
+
+      const navContainer = $('.ons-navigation-wrapper .ons-container');
+      expect($(navContainer).hasClass('ons-container--full-width')).toBe(true);
+    });
+
+    it('renders the sub-navigation in the correct container if `wide`', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          wide: true,
+          ...EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG,
+        }),
+      );
+
+      const subNavContainer = $('.ons-navigation--sub .ons-container');
+      expect($(subNavContainer).hasClass('ons-container--wide')).toBe(true);
+    });
+
+    it('renders the sub-navigation in the correct container if `fullWidth`', () => {
+      const $ = cheerio.load(
+        renderComponent('header', {
+          ...EXAMPLE_HEADER_BASIC,
+          fullWidth: true,
+          ...EXAMPLE_HEADER_NAVIGATION_WITH_SUBNAVIGATION_CONFIG,
+        }),
+      );
+      console.log($.html());
+
+      const subNavContainer = $('.ons-navigation--sub .ons-container');
+      expect($(subNavContainer).hasClass('ons-container--full-width')).toBe(true);
     });
   });
 });
