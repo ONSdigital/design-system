@@ -33,7 +33,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         env:
           PUBLISH_BRANCH: gh-pages-vr-report-${{ github.run_number }}-${{ github.sha }}-${{ env.DATE_TIME }}
-          PUBLISH_DIR: ./backstop_data/html_report/${{ github.repository }}/${{ env.DATE_TIME }}
+          PUBLISH_DIR: ./backstop_data/html_report
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: ${{ env.PUBLISH_BRANCH }}
