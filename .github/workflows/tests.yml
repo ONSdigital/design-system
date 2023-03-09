@@ -36,8 +36,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: ${{ env.PUBLISH_BRANCH }}
           publish_dir: ${{ env.PUBLISH_DIR }}
-      - name: Notify Slack
-        if: always()
+  notify-slack:
+    name: Notify Slack
+    if: always()
+    needs: run-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Slack notification
         uses: edgium/simple-slack-notify@master
         with:
           channel: '#pat-lib-notifications'
