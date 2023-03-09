@@ -93,6 +93,16 @@
                 {{- descHtml | safe -}}
             {% endif %}
 
+            {% if params.warning %}
+                {% from "components/panel/_macro.njk" import onsPanel %}
+                {% call onsPanel({
+                    "id": params.warning.id,
+                    "type": "warn"
+                }) %}
+                    <p>{{ params.warning.body }}</p>
+                {% endcall %}
+            {% endif %}
+
             {% if params.instruction %}
                 {{- instHtml | safe -}}
             {% endif %}
