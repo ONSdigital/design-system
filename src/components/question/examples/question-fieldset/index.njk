@@ -4,10 +4,7 @@ layout: none
 ---
 {% extends "layout/_template.njk" %}
 {% from "components/question/_macro.njk" import onsQuestion %}
-{% from "components/details/_macro.njk" import onsDetails %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/radios/_macro.njk" import onsRadios %}
-{% from "components/button/_macro.njk" import onsButton %}
 
 {% set pageConfig = {
     "header": {
@@ -30,10 +27,12 @@ layout: none
     {% call onsQuestion({
         "title": questionTitle,
         "description": "<p>This is all employees aged 16 years or over that your organisation employs</p>",
-        "definition": {
-            "title": "What we mean by “employee”",
-            "content": "<p>An employee is a person that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job</p>"
-        },
+        "definitions": [
+            {
+                "title": "What we mean by “employee”",
+                "content": "<p>An employee is a person that your organisation directly pays from its payroll(s), in return for carrying out a full-time or part-time job</p>"
+            }
+        ],
         "guidance": {
             "lists": [
                 {
@@ -65,34 +64,34 @@ layout: none
     }) %}
 
         {{ onsRadios({
-        "id": "number-of-employees",
-        "name": "number-of-employees",
-        "legend": questionTitle,
-        "legendClasses": "ons-u-vh",
-        "radios": [
-            {
-                "id": "number-of-employees-1-9",
-                "label": {
-                    "text": "1 – 9 employees"
+            "id": "number-of-employees",
+            "name": "number-of-employees",
+            "legend": questionTitle,
+            "legendClasses": "ons-u-vh",
+            "radios": [
+                {
+                    "id": "number-of-employees-1-9",
+                    "label": {
+                        "text": "1 – 9 employees"
+                    },
+                    "value": "1-9"
                 },
-                "value": "1-9"
-            },
-            {
-                "id": "number-of-employees-10-49",
-                "label": {
-                    "text": "10 – 49 employees"
+                {
+                    "id": "number-of-employees-10-49",
+                    "label": {
+                        "text": "10 – 49 employees"
+                    },
+                    "value": "10-49"
                 },
-                "value": "10-49"
-            },
-            {
-                "id": "number-of-employees-50-100",
-                "label": {
-                    "text": "50 – 100+ employees",
-                    "description": "Include multi-corporations"
-                },
-                "value": "50-100"
-            }
-        ]
+                {
+                    "id": "number-of-employees-50-100",
+                    "label": {
+                        "text": "50 – 100+ employees",
+                        "description": "Include multi-corporations"
+                    },
+                    "value": "50-100"
+                }
+            ]
         }) }}
 
     {% endcall %}
