@@ -25,9 +25,11 @@ jobs:
           mkdir -p backstop_data/bitmaps_reference backstop_data/bitmaps_test
           cp -r backstop_data/bitmaps_reference backstop_data/bitmaps_test backstop_data/html_report/
       - name: Set date-time environment variable
+        if: always()
         id: set-datetime
         run: echo "DATE_TIME=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
       - name: Deploy report as GitHub Pages
+        if: always()
         uses: peaceiris/actions-gh-pages@v3
         env:
           PUBLISH_BRANCH: gh-pages-vr-report-${{ github.run_number }}-${{ github.sha }}-${{ env.DATE_TIME }}
