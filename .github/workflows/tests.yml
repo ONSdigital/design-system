@@ -2,13 +2,14 @@ name: Run macro, script and visual tests
 on: [push]
 env:
   RUNNING_ON_CI: true
-  PUBLISH_BRANCH: gh-pages-${{ github.run_number }}-${{ github.sha }}-${{ env.DATE_TIME }}
-  PUBLISH_DIR: ./backstop_data/html_report/${{ github.repository }}/${{ env.DATE_TIME }}
-  DATE_TIME: ${{ steps.set-datetime.outputs.date-time }}
 jobs:
   run-tests:
     name: Tests
     runs-on: ubuntu-latest
+    env:
+      PUBLISH_BRANCH: gh-pages-${{ github.run_number }}-${{ github.sha }}-${{ env.DATE_TIME }}
+      PUBLISH_DIR: ./backstop_data/html_report/${{ github.repository }}/${{ env.DATE_TIME }}
+      DATE_TIME: ${{ steps.set-datetime.outputs.date-time }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -26,8 +27,8 @@ jobs:
       - name: Copy reference images
         run: |
           git lfs pull --include="backstop_data/bitmaps_reference/**/*"
-          mkdir -p backstop_data/html_report/bitmaps_reference backstop_data/html_report/bitmaps_test
-          cp -r backstop_data/bitmaps_reference backstop_data/html_report/bitmaps_test backstop_data/html_report/
+          mkdir -p backstop_data/html_report/bitmaps_reference
+          cp -r backstop_data/bitmaps_reference backstop_data/html_report/
       - name: Deploy report as GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
