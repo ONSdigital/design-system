@@ -2,15 +2,15 @@ name: Run macro, script and visual tests
 on: [push]
 env:
   RUNNING_ON_CI: true
-  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+  PUBLISH_BRANCH: gh-pages-${{ github.run_number }}-${{ github.sha }}-${{ env.DATE_TIME }}
+  PUBLISH_DIR: ./backstop_data/html_report/${{ github.repository }}/${{ env.DATE_TIME }}
+  DATE_TIME: ${{ steps.set-datetime.outputs.date-time }}
 jobs:
   run-tests:
     name: Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           lfs: true
       - name: Install Node
@@ -23,21 +23,30 @@ jobs:
         run: yarn test
       - name: Run visual regression tests
         run: yarn test-visual
-        continue-on-error: true
       - name: Copy reference images
         run: |
           git lfs pull --include="backstop_data/bitmaps_reference/**/*"
-          mkdir -p backstop_data/html_report/bitmaps_reference
-          cp -r backstop_data/bitmaps_reference backstop_data/html_report/
+          mkdir -p backstop_data/html_report/bitmaps_reference backstop_data/html_report/bitmaps_test
+          cp -r backstop_data/bitmaps_reference backstop_data/html_report/bitmaps_test backstop_data/html_report/
       - name: Deploy report as GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./backstop_data/html_report
+          publish_branch: ${{ env.PUBLISH_BRANCH }}
+          publish_dir: ${{ env.PUBLISH_DIR }}
+      - name: Set date-time environment variable
+        id: set-datetime
+        run: echo "::set-output name=date-time::$(date +%Y%m%d%H%M%S)"
+        # This step sets the DATE_TIME environment variable to the current date and time.
+        # The value is stored in the `date-time` output for later use.
+  notify-slack:
+    name: Notify Slack
+    if: always()
+    needs: run-tests
+    runs-on: ubuntu-latest
+    steps:
       - name: Create Slack notification
-        if: always()
-        uses: edge/simple-slack-notify@master
+        uses: edgium/simple-slack-notify@master
         with:
           channel: '#pat-lib-notifications'
           status: ${{ job.status }}
