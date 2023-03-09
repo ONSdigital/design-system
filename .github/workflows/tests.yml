@@ -19,17 +19,15 @@ jobs:
       - name: Run visual regression tests
         run: yarn test-visual
       - name: Copy reference images
+        if: always()
         run: |
           git lfs pull --include="backstop_data/bitmaps_reference/**/*"
           mkdir -p backstop_data/bitmaps_reference backstop_data/bitmaps_test
           cp -r backstop_data/bitmaps_reference backstop_data/bitmaps_test backstop_data/html_report/
       - name: Set date-time environment variable
-        if: always()
         id: set-datetime
-        run: echo "::set-env name=DATE_TIME::$(date +%Y%m%d%H%M%S)"
-        shell: bash
+        run: echo "DATE_TIME=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
       - name: Deploy report as GitHub Pages
-        if: always()
         uses: peaceiris/actions-gh-pages@v3
         env:
           PUBLISH_BRANCH: gh-pages-vr-report-${{ github.run_number }}-${{ github.sha }}-${{ env.DATE_TIME }}
@@ -38,13 +36,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: ${{ env.PUBLISH_BRANCH }}
           publish_dir: ${{ env.PUBLISH_DIR }}
-  notify-slack:
-    name: Notify Slack
-    if: always()
-    needs: run-tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create Slack notification
+      - name: Notify Slack
+        if: always()
         uses: edgium/simple-slack-notify@master
         with:
           channel: '#pat-lib-notifications'
