@@ -7,9 +7,8 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     env:
-      PUBLISH_BRANCH: gh-pages-${{ github.run_number }}-${{ github.sha }}-${{ env.DATE_TIME }}
+      PUBLISH_BRANCH: gh-pages-vr-report-${{ github.run_number }}-${{ github.sha }}-${{ env.DATE_TIME }}
       PUBLISH_DIR: ./backstop_data/html_report/${{ github.repository }}/${{ env.DATE_TIME }}
-      DATE_TIME: ${{ steps.set-datetime.outputs.date-time }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -29,17 +28,16 @@ jobs:
           git lfs pull --include="backstop_data/bitmaps_reference/**/*"
           mkdir -p backstop_data/html_report/bitmaps_reference
           cp -r backstop_data/bitmaps_reference backstop_data/html_report/
+      - name: Set date-time environment variable
+        id: set-datetime
+        run: echo "::set-env name=DATE_TIME::$(date +%Y%m%d%H%M%S)"
+        shell: bash
       - name: Deploy report as GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: ${{ env.PUBLISH_BRANCH }}
           publish_dir: ${{ env.PUBLISH_DIR }}
-      - name: Set date-time environment variable
-        id: set-datetime
-        run: echo "::set-output name=date-time::$(date +%Y%m%d%H%M%S)"
-        # This step sets the DATE_TIME environment variable to the current date and time.
-        # The value is stored in the `date-time` output for later use.
   notify-slack:
     name: Notify Slack
     if: always()
