@@ -13,11 +13,13 @@ const EXAMPLE_QUESTION_BASIC = {
 
 const EXAMPLE_QUESTION_DEFINITION = {
   ...EXAMPLE_QUESTION_BASIC,
-  definition: {
-    id: 'definition-id',
-    title: 'Definition title',
-    content: '<p>Definition content</p>',
-  },
+  definitions: [
+    {
+      id: 'definition-id',
+      title: 'Definition title',
+      content: '<p>Definition content</p>',
+    },
+  ],
 };
 
 const EXAMPLE_QUESTION_GUIDANCE = {
