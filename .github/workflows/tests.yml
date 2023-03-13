@@ -2,6 +2,10 @@ name: Run macro, script and visual tests
 on: [push]
 env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 jobs:
   run-tests:
     name: Tests
@@ -26,20 +30,23 @@ jobs:
           git lfs pull --include="backstop_data/bitmaps_reference/**/*"
           mkdir -p backstop_data/bitmaps_reference backstop_data/bitmaps_test
           cp -r backstop_data/bitmaps_reference backstop_data/bitmaps_test backstop_data/html_report
-      - name: Set date-time environment variable
-        if: always()
-        id: set-datetime
-        run: echo "DATE_TIME=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
-      - name: Deploy report as GitHub Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3
-        env:
-          PUBLISH_BRANCH: gh-pages-vr-report-${{ github.run_number }}-${{ github.sha }}-${{ env.DATE_TIME }}
-          PUBLISH_DIR: ./backstop_data
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: ${{ env.PUBLISH_BRANCH }}
-          publish_dir: ${{ env.PUBLISH_DIR }}
+          path: './backstop_data/html_report'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
   notify-slack:
     name: Notify Slack
     if: always()
@@ -60,3 +67,4 @@ jobs:
             { "title": "By", "value": "${{ github.actor }}", "short": true },
             { "title": "Branch", "value": "${{ github.head_ref }}", "short": true },
             { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
+            
