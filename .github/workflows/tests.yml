@@ -1,23 +1,23 @@
 name: Run macro, script and visual tests
-on: [push]
-env:
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+on:
+  push:
+    branches:
+      - main
 jobs:
-  run-tests:
-    name: Tests
+  run-tests-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      ACTIONS_STEP_DEBUG: true
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
           lfs: true
       - name: Install Node
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: "16"
       - name: Install dependencies
         run: yarn install
       - name: Run macro and script tests
@@ -30,43 +30,51 @@ jobs:
           git lfs pull --include="backstop_data/bitmaps_reference/**/*"
           mkdir -p backstop_data/bitmaps_reference backstop_data/bitmaps_test
           cp -r backstop_data/bitmaps_reference backstop_data/bitmaps_test backstop_data/html_report
-  deploy:
-    if: always()
-    needs: run-tests
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: './backstop_data/html_report'
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
-  notify-slack:
-    needs: deploy
-    name: Notify Slack
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create Slack notification
+        uses: JamesIves/github-pages-deploy-action@4.2.0
+        if: success()
+        with:
+          access-token: ${{ secrets.GITHUB_TOKEN }}
+          branch: none
+          folder: backstop_data
+          clean: true
+          cname: ${{ env.CNAME }}
+          commit-message: Deployed from ${{ github.sha }}
+          enable-jekyll: false
+          root-dir: backstop_data/html_report
+      - name: Notify Slack
+        if: always()
         uses: edgium/simple-slack-notify@master
         with:
-          channel: '#pat-lib-notifications'
+          channel: "#pat-lib-notifications"
           status: ${{ job.status }}
-          success_text: 'The build completed successfully'
-          failure_text: 'The build failed'
-          cancelled_text: 'The build was cancelled'
+          success_text: "The build completed successfully"
+          failure_text: "The build failed"
+          cancelled_text: "The build was cancelled"
           fields: |
-            [{ "title": "Action", "value": "${env.GITHUB_WORKFLOW} - build (${env.GITHUB_RUN_NUMBER})", "short": true },
-            { "title": "Repository", "value": "${env.GITHUB_REPOSITORY}", "short": true },
-            { "title": "By", "value": "${{ github.actor }}", "short": true },
-            { "title": "Branch", "value": "${{ github.head_ref }}", "short": true },
-            { "title": "View job", "value": "${env.GITHUB_SERVER_URL}/${env.GITHUB_REPOSITORY}/actions/runs/${env.GITHUB_RUN_ID}"}]
-            
+            [
+              {
+                "title": "Action",
+                "value": "${{ github.workflow }} - build (${GITHUB_RUN_NUMBER})",
+                "short": true
+              },
+              {
+                "title": "Repository",
+                "value": "${{ github.repository }}",
+                "short": true
+              },
+              {
+                "title": "By",
+                "value": "${{ github.actor }}",
+                "short": true
+              },
+              {
+                "title": "Branch",
+                "value": "${{ github.head_ref }}",
+                "short": true
+              },
+              {
+                "title": "View job",
+                "value": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+              }
+            ]
