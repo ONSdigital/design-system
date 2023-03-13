@@ -31,6 +31,7 @@ jobs:
           mkdir -p backstop_data/bitmaps_reference backstop_data/bitmaps_test
           cp -r backstop_data/bitmaps_reference backstop_data/bitmaps_test backstop_data/html_report
   deploy:
+    if: always()
     needs: run-tests
     environment:
       name: github-pages
