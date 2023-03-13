@@ -32,7 +32,7 @@ jobs:
           cp -r backstop_data/bitmaps_reference backstop_data/bitmaps_test backstop_data/html_report
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.2.0
-        if: success()
+        if: always()
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
           branch: none
