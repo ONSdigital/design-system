@@ -1,7 +1,7 @@
 html {
+  @include font-smoothing;
+
   font-size: $base;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
 }
 

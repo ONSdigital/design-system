@@ -14,4 +14,3 @@
 | secondsTextSingular         | string  | true     | Time unit displayed in countdown timer when the number of seconds remaining equals 1, for example “2 minutes 1 **second**”.                                                   |
 | secondsTextPlural           | string  | true     | Time unit displayed in countdown timer when more than 1 seconds are remaining, for example “1 minute 59 **seconds**”.                                                         |
 | endWithFullStop             | boolean | false    | Set to “true” to end the countdown timer text with full stop                                                                                                                  |
-| enableGA                    | boolean | false    | Adds GA attributes for events on the modal                                                                                                                                    |
