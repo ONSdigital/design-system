@@ -23,7 +23,9 @@
                 {% call onsDetails({
                     "id": definition.id,
                     "classes": 'ons-u-mb-m',
-                    "title": definition.title
+                    "title": definition.title,
+                    "headingAttributes": definition.headingAttributes,
+                    "contentAttributes": definition.contentAttributes
                 }) %}
                     {% if definition.content %}
                         {{ definition.content | safe }}
@@ -125,7 +127,9 @@
             {% call onsDetails({
                 "id": params.justification.id,
                 "classes": 'ons-u-mb-m',
-                "title": params.justification.title | default('Why we ask this question')
+                "title": params.justification.title | default('Why we ask this question'),
+                "headingAttributes": params.justification.headingAttributes,
+                "contentAttributes": params.justification.contentAttributes
             }) %}
                 {{ params.justification.content | safe }}
             {% endcall %}
