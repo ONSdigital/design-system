@@ -17,7 +17,6 @@
     "build": "yarn && yarn tidy-clean && NODE_ENV=production gulp build",
     "npm-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/generate-npm-package.js",
     "cdn-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/prepare-templates-for-zip.js",
-    "test-visual": "yarn build && npx percy exec -- babel-node src/tests/visual/percy.snapshots.js",
     "tidy-clean": "rm -rf build css favicons fonts img components layout scripts coverage scss js",
     "check-unused": "npx npm-check-unused",
     "dedupe-deps": "npx yarn-deduplicate yarn.lock",
