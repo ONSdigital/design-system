@@ -39,39 +39,3 @@ jobs:
           commit-message: Deployed from ${{ github.sha }}
           enable-jekyll: false
           root-dir: backstop_data/html_report
-      - name: Notify Slack
-        if: always()
-        uses: edgium/simple-slack-notify@master
-        with:
-          channel: "#pat-lib-notifications"
-          status: ${{ job.status }}
-          success_text: "The build completed successfully"
-          failure_text: "The build failed"
-          cancelled_text: "The build was cancelled"
-          fields: |
-            [
-              {
-                "title": "Action",
-                "value": "${{ github.workflow }} - build (${GITHUB_RUN_NUMBER})",
-                "short": true
-              },
-              {
-                "title": "Repository",
-                "value": "${{ github.repository }}",
-                "short": true
-              },
-              {
-                "title": "By",
-                "value": "${{ github.actor }}",
-                "short": true
-              },
-              {
-                "title": "Branch",
-                "value": "${{ github.head_ref }}",
-                "short": true
-              },
-              {
-                "title": "View job",
-                "value": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-              }
-            ]
