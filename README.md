@@ -99,10 +99,6 @@ It is sometimes useful to adjust the following settings when writing tests or di
 
 - `testTimeout` in 'jest.config.js' - set to a high value such as `1000000` to prevent tests from timing out when doing the above.
 
-## Run visual regression tests
-
-To run visual regression (VR) tests on pull requests using our VR testing tool [percy.io](https://percy.io) you must include `[test-visual]` in your commit message e.g. `git commit -m "Update button border width [test-visual]"`. This prevents unnecessary builds and saves the limited quota we have available.
-
 ## Build
 
 Generate a build into `./build`.
