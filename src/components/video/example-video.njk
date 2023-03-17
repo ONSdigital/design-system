@@ -1,0 +1,14 @@
+{% from "components/video/_macro.njk" import onsVideo %}
+{{
+    onsVideo({
+        "videoEmbedUrl": 'https://www.youtube.com/embed/_EGJlvkgbPo',
+        "videoLinkURL": 'https://www.youtube.com/watch?v=_EGJlvkgbPo',
+        "image": {
+            "largeSrc": '/patternlib-img/youtube-example-cover.png',
+            "smallSrc": '/patternlib-img/youtube-example-cover.png',
+            "alt": "Youtube video"
+        },
+        "title": 'Census 2021 promotional TV advert',
+        "linkText": 'Watch “Census 2021 promotional TV advert“ on Youtube'
+    })
+}}

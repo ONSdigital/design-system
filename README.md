@@ -43,65 +43,6 @@ yarn start
 
 Once the server has started, navigate to <http://localhost:3030>
 
-## Mixed Markdown/Nunjucks syntax in .njk pages
-
-The design system documentation is authored with files that contain a mix of Markdown and Nunjucks syntax. These files begin with frontmatter and then contain Markdown syntax; for example:
-
-```markdown
----
-title: Foo
----
-
-## Some section
-
-A simple paragraph of _markdown_.
-```
-
-Simple Nunjucks placeholders/variables can be added into these files without any special syntax; for example:
-
-```markdown
-A paragraph of _markdown_ with some template value {{ foo.bar }}.
-
-{{
-    patternlibExample({"path": "components/foo/examples/foo/index.njk"})
-}}
-```
-
-For the most part no special syntax is needed when mixing Nunjucks templating into the markdown syntax. If syntax contains nested character sequence `}}` then it must be wrapped within `+++` fences. The `{% ... %}` syntax must also be wrapped within `+++` fences. This applies for things like imports, calling macros, defining blocks, etc:
-
-```markdown
-+++
-{% from "views/partials/example/_macro.njk" import patternlibExample %}
-{% from "components/external-link/_macro.njk" import onsExternalLink %}
-+++
-```
-
-As a rule of thumb; code highlight blocks should always be wrapped with `+++` fences:
-
-```markdown
-+++
-{% from "components/code-highlight/_macro.njk" import onsCodeHighlight %}
-{{ onsCodeHighlight({
-"code": '[
-  {
-    "en": "England"
-  },
-  {
-    "en": "Wales"
-  },
-  {
-    "en": "Scotland"
-  },
-  {
-    "en": "Northern Ireland"
-  },
-]'
-}) }}
-+++
-```
-
-Mixed markdown files are easier to maintain when each section that is fenced with `+++` is a standalone unit. For example, each code example should have it's own `+++` fence even if they immediately follow one another. This is because content can be edited around these fenced units.
-
 ## Testing
 
 This project uses [jest](https://jestjs.io/docs/cli) and supports its command line options.
@@ -157,10 +98,6 @@ It is sometimes useful to adjust the following settings when writing tests or di
 - `headless` in 'jest-puppeteer.config.js' - when set to `false` will show web browser whilst running tests. Many browser windows open since jest runs tests in parallel so it is useful to also adjust the `test` script inside 'package.json' such that it targets a specific test file. `await page.waitForTimeout(100000)` can be temporarily added to a test to allow yourself time to inspect the browser that appears.
 
 - `testTimeout` in 'jest.config.js' - set to a high value such as `1000000` to prevent tests from timing out when doing the above.
-
-## Run visual regression tests
-
-To run visual regression (VR) tests on pull requests using our VR testing tool [percy.io](https://percy.io) you must include `[test-visual]` in your commit message e.g. `git commit -m "Update button border width [test-visual]"`. This prevents unnecessary builds and saves the limited quota we have available.
 
 ## Build
 

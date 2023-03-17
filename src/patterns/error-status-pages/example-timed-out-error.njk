@@ -1,0 +1,40 @@
+---
+title: "Example: Session timed out error"
+layout: ~
+---
+{% extends "layout/_template.njk" %}
+{% from "components/lists/_macro.njk" import onsList %}
+
+{% set pageConfig = {
+    "header": {
+        "title": "Service name"
+    },
+    "footer": {
+    }
+} %}
+
+{% block main %}
+
+    <h1>Sorry, you need to sign in again</h1>
+
+    <p>This is because you have either:</p>
+
+    {{
+        onsList({
+            "itemsList": [
+                {
+                    "text": 'been inactive for 45 minutes and your session has timed out to protect your information'
+                },
+                {
+                    "text": 'followed a link to a page you are not signed in to'
+                },
+                {
+                    "text": 'followed a link to a survey that has already been submitted'
+                }
+            ]
+        })
+    }}
+
+    <p>You will need to <a href="#0">sign back in</a> to access your account</p>
+
+{% endblock %}

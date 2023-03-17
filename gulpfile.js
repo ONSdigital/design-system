@@ -13,9 +13,8 @@ require('@babel/register');
 
 const babelEsmConfig = require('./babel.conf.esm');
 const babelNomoduleConfig = require('./babel.conf.nomodule');
-const nunjucksRendererPipe = require('./lib/rendering/nunjucks-renderer-pipe.js').default;
-const searchIndexPipe = require('./lib/rendering/search-index-pipe.js').default;
 const postCssPlugins = require('./postcss.config').default;
+const generateStaticPages = require('./lib/generate-static-pages').default;
 
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
@@ -27,7 +26,7 @@ const terserOptions = {
 };
 
 const sassOptions = {
-  includePaths: ['./node_modules/normalize.css', './node_modules/prismjs/themes'],
+  includePaths: ['./node_modules/normalize.css'],
   outputStyle: 'compressed',
 };
 
@@ -40,16 +39,6 @@ const scripts = [
   {
     entryPoint: ['./src/js/polyfills.js', './src/js/main.js'],
     outputFile: 'main.es5.js',
-    config: babelNomoduleConfig,
-  },
-  {
-    entryPoint: './src/js/patternlib/index.js',
-    outputFile: 'patternlib.js',
-    config: babelEsmConfig,
-  },
-  {
-    entryPoint: './src/js/patternlib/index.js',
-    outputFile: 'patternlib.es5.js',
     config: babelNomoduleConfig,
   },
 ];
@@ -88,26 +77,16 @@ gulp.task('build-styles', () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task('build-pages', () => {
-  return gulp
-    .src(['./src/**/*.njk', '!**/_*/**'])
-    .pipe(nunjucksRendererPipe)
-    .pipe(gulp.dest('./build'));
-});
-
-gulp.task('build-search-index', () => {
-  return gulp
-    .src('./src/search-index.json')
-    .pipe(searchIndexPipe)
-    .pipe(gulp.dest('./build'));
-});
-
 gulp.task('copy-static-files', () => {
   return gulp.src('./src/static/**/*').pipe(gulp.dest('./build'));
 });
 
 gulp.task('copy-js-files', () => {
   return gulp.src('./src/js/*.js').pipe(gulp.dest('./build/js'));
+});
+
+gulp.task('generate-pages', async function() {
+  await generateStaticPages();
 });
 
 gulp.task('watch-and-build', async () => {
@@ -124,10 +103,10 @@ gulp.task('start-dev-server', async () => {
   await import('./lib/dev-server.js');
 });
 
-gulp.task('build-assets', gulp.series('build-script', 'build-styles', 'build-search-index'));
-gulp.task('build-assets-for-testing', gulp.series('build-script', 'build-styles'));
+gulp.task('build-assets', gulp.series('build-script', 'build-styles'));
 
 gulp.task('start', gulp.series('build-assets', 'watch-and-build', 'start-dev-server'));
 gulp.task('watch', gulp.series('watch-and-build', 'start-dev-server'));
-gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'build-pages'));
+gulp.task('build', gulp.series('copy-static-files', 'build-assets', 'generate-pages'));
+gulp.task('generate', gulp.series('generate-pages'));
 gulp.task('build-package', gulp.series('copy-static-files', 'copy-js-files', 'build-assets'));
