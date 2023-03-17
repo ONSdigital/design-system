@@ -1,0 +1,44 @@
+---
+title: "Example: Question without a fieldset"
+layout: ~
+---
+{% extends "layout/_template.njk" %}
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/input/_macro.njk" import onsInput %}
+
+{% set pageConfig = {
+    "header": {
+        "title": "Question example"
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Previous'
+            }
+        ]
+    }
+} %}
+
+{% block main %}
+    {% call onsQuestion({
+        "title": "How many visitors are staying overnight at 3 Severn Road on 13 May 2019?",
+        "description": "<p>Enter “0” if there are no visitors staying overnight</p>",
+        "justification": {
+            "title": "Why we ask this question",
+            "content": "<p>Visitor information is collected to ensure that everyone is counted, in order to produce accurate estimates of the population, to facilitate effective planning and funding decisions.</p>"
+        },
+        "submitButton": true
+    }) %}
+        {{ onsInput({
+            "id": "number-of-visitors",
+            "name": "number-of-visitors",
+            "type": "number",
+            "width": "2",
+            "label": {
+                "text": "Number of visitors"
+            }
+        }) }}
+    {% endcall %}
+{% endblock %}

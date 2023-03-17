@@ -10,14 +10,13 @@
   "scripts": {
     "start": "gulp start",
     "watch": "gulp watch",
-    "test": "gulp build-assets-for-testing && TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest '.*\\.spec\\.js'",
+    "test": "gulp build-assets && TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest '.*\\.spec\\.js'",
     "test:no-build": "TEST_PORT=3020 TEST_WITH_PUPPETEER=1 jest '.*\\.spec\\.js'",
     "test:with-log": "yarn test --no-color 2>test.log",
     "test:start-server": "TEST_PORT=3020 gulp start-dev-server",
     "build": "yarn && yarn tidy-clean && NODE_ENV=production gulp build",
     "npm-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/generate-npm-package.js",
     "cdn-bundle": "NODE_ENV=production yarn tidy-clean && NODE_ENV=production gulp build-package && babel-node ci/prepare-templates-for-zip.js",
-    "test-visual": "yarn build && npx percy exec -- babel-node src/tests/visual/percy.snapshots.js",
     "tidy-clean": "rm -rf build css favicons fonts img components layout scripts coverage scss js",
     "check-unused": "npx npm-check-unused",
     "dedupe-deps": "npx yarn-deduplicate yarn.lock",
@@ -101,7 +100,6 @@
     "gulp-terser": "^2.0.1",
     "http-server": "^0.12.3",
     "husky": "^1.2.0",
-    "iframe-resizer": "4.2.11",
     "jest": "^27.5.1",
     "jest-axe": "^6.0.0",
     "jest-puppeteer": "^6.1.0",
@@ -109,7 +107,6 @@
     "lighthouse": "^7.5.0",
     "lint-staged": "^8.1.0",
     "lodash": "^4.17.21",
-    "marked": "^2.1.3",
     "mdn-polyfills": "^5.14.0",
     "minimist": "^1.2.5",
     "normalize.css": "^8.0.1",
@@ -118,7 +115,6 @@
     "postcss-url": "^8.0.0",
     "prepend-file": "^1.3.1",
     "prettier": "^1.15.2",
-    "prismjs": "1.24.0",
     "puppeteer": "^13.5.1",
     "remark-cli": "^9.0.0",
     "remark-lint": "^8.0.0",
@@ -137,8 +133,7 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.0.0",
-    "whatwg-fetch": "^3.0.0",
-    "yaml": "^1.10.2"
+    "whatwg-fetch": "^3.0.0"
   },
   "publishConfig": {
     "access": "public"

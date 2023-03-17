@@ -1,0 +1,29 @@
+---
+fullWidth: true
+layout: ~
+---
+{% extends "layout/_template.njk" %}
+
+{% set pageConfig = {
+    "header": {
+        "mastheadLogoUrl": '#0',
+        "title": 'Gwasanaeth Cymraeg',
+        "titleUrl": '#0',
+        "language": {
+            "languages": [
+                {
+                    "url": '#0',
+                    "ISOCode": 'en',
+                    "text": 'English',
+                    "current": false
+                },
+                {
+                    "url": '#0',
+                    "ISOCode": 'cy',
+                    "text": 'Cymraeg',
+                    "current": true
+                }
+            ]
+        }
+    }
+} %}
