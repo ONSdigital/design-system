@@ -3,7 +3,7 @@
 | title                 | string                              | true                          | The question heading                                                                                                                                                                                                     |
 | description           | string                              | false                         | The question description to be used to provide added context to the question. This can contain HTML.                                                                                                                     |
 | instruction           | string                              | false                         | An interviewer instruction. This can contain HTML.                                                                                                                                                                       |
-| definitions           | `Array<QuestionDefinitions>`        | false                         | An array of settings for [question definitions](#questiondefinitions) to be used to define words or acronyms that are in the question                                                                                    |
+| definition            | `Array<QuestionDefinition>`         | false                         | Settings for the [question definition](#questiondefinition) to be used to define a word or acronym that is in the question                                                                                               |
 | guidance              | `<Object>QuestionGuidance`          | false                         | Settings for the [question guidance](#questionguidance) to be used to state what should be included or excluded from the answer                                                                                          |
 | justification         | `<Object>QuestionJustification`     | false                         | Settings for the [question justification](#questionjustification) to be used to explain why a question is being asked                                                                                                    |
 | submitButton          | `<Object>SubmitButton` or `boolean` | false                         | Settings for the [submit button](#submitbutton). If a value of `true` is provided, default attributes will be used.                                                                                                      |
@@ -15,7 +15,7 @@
 | legendClasses         | string                              | false                         | Classes to apply to the HTML `legend` element when using `legendIsQuestionTitle`                                                                                                                                         |
 | legendTitleClasses    | string                              | false                         | Classes to apply to the `h1` heading element when using `legendIsQuestionTitle`                                                                                                                                          |
 
-## QuestionDefinitions
+## QuestionDefinition
 
 | Name    | Type   | Required | Description                                                            |
 | ------- | ------ | -------- | ---------------------------------------------------------------------- |

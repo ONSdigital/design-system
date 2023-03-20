@@ -16,22 +16,20 @@
         <div class="ons-question__instruction ons-u-mb-m">{{ params.instruction | safe }}</div>
     {% endset %}
 
-    {% if params.definitions %}
-        {% set questionDefinitions %}
+    {% if params.definition %}
+        {% set questionDefinition %}
             {% from "components/details/_macro.njk" import onsDetails %}
-            {% for definition in params.definitions %}
-                {% call onsDetails({
-                    "id": definition.id,
-                    "classes": 'ons-u-mb-m',
-                    "title": definition.title,
-                    "headingAttributes": definition.headingAttributes,
-                    "contentAttributes": definition.contentAttributes
-                }) %}
-                    {% if definition.content %}
-                        {{ definition.content | safe }}
-                    {% endif %}
-                {% endcall %}
-            {% endfor %}
+            {% call onsDetails({
+                "id": params.definition.id,
+                "classes": 'ons-u-mb-m',
+                "title": params.definition.title,
+                "headingAttributes": params.definition.headingAttributes,
+                "contentAttributes": params.definition.contentAttributes
+            }) %}
+                {% if params.definition.content %}
+                    {{ params.definition.content | safe }}
+                {% endif %}
+            {% endcall %}
         {% endset %}
     {% endif %}
 
@@ -109,8 +107,8 @@
                 {{- instHtml | safe -}}
             {% endif %}
 
-            {% if params.definitions %}
-                {{- questionDefinitions | safe -}}
+            {% if params.definition %}
+                {{- questionDefinition | safe -}}
             {% endif %}
 
             {% if params.guidance %}
