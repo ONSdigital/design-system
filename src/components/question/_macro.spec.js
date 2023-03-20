@@ -21,7 +21,7 @@ const EXAMPLE_QUESTION_WARNING = {
 
 const EXAMPLE_QUESTION_DEFINITION = {
   ...EXAMPLE_QUESTION_BASIC,
-  definitions: {
+  definition: {
     id: 'definition-id',
     title: 'Definition title',
     content: '<p>Definition content</p>',
