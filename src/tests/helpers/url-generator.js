@@ -24,12 +24,13 @@ export default async () => {
   for (const directory of directories) {
     const folders = await readdir(directory.path);
     for (const folder of folders) {
-      const files = await globUtil(`${directory.path}/${folder}/**/examples/**/*.njk`);
+      const files = await globUtil(`${directory.path}/${folder}/**/example-*.njk`);
       for (const file of files) {
-        const urlPath = file.replace(/^\.\/src\/(.*\/examples\/.*?)\/index\.njk$/, '/$1');
+        const urlPath = file.replace(/^\.\/src\/(.*\/example-.*?)\.njk$/, '/$1');
         urls.push({ url: `${testURL}${urlPath}`, label: urlPath });
       }
     }
   }
   return urls;
 };
+
