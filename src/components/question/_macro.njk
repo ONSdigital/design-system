@@ -37,7 +37,9 @@
         {% set questionGuidance %}
             {% from "components/panel/_macro.njk" import onsPanel %}
             {% call onsPanel({
-                "classes": "ons-question-guidance ons-u-mb-m"
+                "id": params.guidance.id,
+                "classes": "ons-question-guidance ons-u-mb-m",
+                "attributes": params.guidance.attributes
             }) %}
                 {% if params.guidance.content %}
                     {{ params.guidance.content | safe }}
@@ -78,11 +80,19 @@
                     "legend": titleHtml,
                     "description": descHtml if params.description else '',
                     "legendClasses": params.legendClasses,
-                    "legendTitleClasses": params.legendTitleClasses,
-                    "instruction": params.instruction,
-                    "definition": params.definition,
-                    "guidance": params.guidance
+                    "legendTitleClasses": params.legendTitleClasses
                 }) %}
+                    {% if params.instruction %}
+                        {{- instHtml | safe -}}
+                    {% endif %}
+
+                    {% if params.definition %}
+                        {{- questionDefinition | safe -}}
+                    {% endif %}
+
+                    {% if params.guidance %}
+                        {{- questionGuidance | safe -}}
+                    {% endif %}
                     {{ content }}
                 {% endcall %}
             </div>
