@@ -1,6 +1,6 @@
 import nunjucks from 'nunjucks';
 
-import createNunjucksEnvironment from '../../../lib/rendering/create-nunjucks-environment';
+import createNunjucksEnvironment from '../../../lib/create-nunjucks-environment';
 import componentConfig from '../../../config/components.json';
 import FakeNunjucksLoader from './fake-nunjucks-loader';
 import { verifyConsoleSubscription } from './debug';

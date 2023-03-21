@@ -1,0 +1,181 @@
+---
+title: "Example: News tags"
+layout: ~
+---
+{% extends "layout/_template.njk" %}
+{% from "components/document-list/_macro.njk" import onsDocumentList %}
+{% from "components/related-content/_macro.njk" import onsRelatedContent %}
+
+{% set pageConfig = {
+    "header": {
+        "title": 'Service name'
+    },
+    "breadcrumbs": {
+        "ariaLabel": 'Breadcrumbs',
+        "itemsList": [
+            {
+                "url": '#0',
+                "text": 'Home'
+            },
+            {
+                "url": '#0',
+                "text": 'News'
+            }
+        ]
+    },
+    "footer": {}
+} %}
+
+{% block main %}
+
+<div class="ons-grid">
+    <div class="ons-grid__col ons-col-7@m">
+        <h1 class="ons-u-fs-xxl">All articles for <em class="ons-highlight">Integrated data</em></h1>
+    </div>
+</div>
+
+<div class="ons-grid ons-grid--column@xs@s">
+
+    <div class="ons-grid__col ons-col-7@m">
+
+        <div class="ons-u-mt-m ons-u-mb-m">
+
+            {{ onsDocumentList({
+                "documents": [
+                    {
+                        "thumbnail": {
+                            "smallSrc": '/img/small/alison-pritchard.jpg',
+                            "largeSrc": '/img/large/alison-pritchard.jpg'
+                        },
+                        "url": '#0',
+                        "title": 'ONS launches Integrated Data Service to boost government collaboration on data sharing',
+                        "metadata": {
+                            "type": {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            },
+                            "date": {
+                                "iso": '2021-08-01',
+                                "short": '1 August 2021'
+                            }
+                        },
+                        "description": 'The Office for National Statistics has today launched the first stage of the <em class="ons-highlight">Integrated Data</em> Service (IDS), a cloud-based platform giving analysts and researchers greater access to data from a range of sources.'
+                    },
+                    {
+                        "thumbnail": true,
+                        "url": '#0',
+                        "title": 'Integrated Data Service',
+                        "metadata": {
+                            "type": {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            },
+                            "date": {
+                                "iso": '2021-12-19',
+                                "short": '19 December 2021'
+                            }
+                        },
+                        "description": 'Bringing together ready-to-use data to enable faster and wider collaborative analysis for the public good.'
+                    },
+                    {
+                        "thumbnail": true,
+                        "url": '#0',
+                        "title": 'Integrated Data for Population Statistics Conference 2018',
+                        "metadata": {
+                            "type": {
+                                "text": 'Press releases',
+                                "url": '#0'
+                            },
+                            "date": {
+                                "iso": '2018-08-31',
+                                "short": '31 August 2018'
+                            }
+                        },
+                        "description": 'The Office for National Statistics (ONS) held the <em class="ons-highlight">Integrated Data</em> for Population Statistics Conference on 9 and 10 July 2018 at the University of Surrey.'
+                    }
+                ]
+            }) }}
+
+        </div>
+
+    </div>
+
+    <div class="ons-grid__col ons-col-4@m ons-push-1@m">
+
+        {% call onsRelatedContent({
+            "ariaLabel": 'Related content',
+            "rows": [
+                {
+                    "id": 'related-links',
+                    "title": 'Categories',
+                    "itemsList": [
+                        {
+                            "text": 'Press releases',
+                            "url": '#0'
+                        },
+                        {
+                            "text": 'Statements',
+                            "url": '#0'
+                        }
+                    ]
+                },
+                {
+                    "id": 'media-enquiries',
+                    "title": 'Media enquiries',
+                    "classes": 'ons-u-mb-no',
+                    "variants": 'bare',
+                    "itemsList": [
+                        {
+                            "text": 'Telephone: 0845 604 1858 <br> Monday to Friday, 8:30am to 5:30pm'
+                        },
+                        {
+                            "text": 'Out of hours: 07867 906 553'
+                        },
+                        {
+                            "text": 'Email: <a href="#0">media.relations@ons.gov.uk</a>'
+                        }
+                    ]
+                },
+                {
+                    "id": 'follow-us',
+                    "title": 'Follow us',
+                    "variants": 'social',
+                    "iconPosition": 'before',
+                    "iconSize": 'xxl',
+                    "itemsList": [
+                        {
+                            "url": '#0',
+                            "text": 'Twitter',
+                            "iconType": 'twitter',
+                            "rel": 'noreferrer external'
+                        },
+                        {
+                            "url": '#0',
+                            "text": 'Facebook',
+                            "iconType": 'facebook',
+                            "rel": 'noreferrer external'
+                        },
+                        {
+                            "url": '#0',
+                            "text": 'Instagram',
+                            "iconType": 'instagram',
+                            "rel": 'noreferrer external'
+                        },
+                        {
+                            "url": '#0',
+                            "text": 'LinkedIn',
+                            "iconType": 'linkedin',
+                            "rel": 'noreferrer external'
+                        }
+                    ]
+                }
+            ]
+        }) %}
+
+        {% endcall %}
+
+    </div>
+
+</div>
+
+{% endblock %}

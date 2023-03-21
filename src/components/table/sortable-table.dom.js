@@ -8,7 +8,7 @@ async function tableSorter() {
   if (tables.length) {
     const TableSort = (await import('./sortable-table')).default;
 
-    tables.forEach(table => new TableSort(table));
+    tables.forEach((table, index) => new TableSort(table, index));
   }
 }
 

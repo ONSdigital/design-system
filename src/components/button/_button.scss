@@ -99,7 +99,7 @@ $button-shadow-size: 3px;
     }
   }
 
-  &:active:not(&--disabled):not(&--loader.ons-is-loading) {
+  &:active {
     top: ems($button-shadow-size);
   }
 
@@ -280,10 +280,12 @@ $button-shadow-size: 3px;
   &--ghost,
   &--ghost-dark,
   &--dropdown,
-  &--text-link {
+  &--text-link,
+  &--disabled,
+  &--loader.ons-is-loading {
     &:active,
     .active {
-      top: 0;
+      top: 0 !important; // Override 'pressed' state for flat and non-selectable buttons
     }
   }
 

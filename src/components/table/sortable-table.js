@@ -3,12 +3,13 @@ export const classTableBody = 'ons-table__body';
 export let status;
 
 export default class TableSort {
-  constructor(table) {
+  constructor(table, index) {
     this.table = table;
     this.options = {};
     this.options.statusMessage = table.getAttribute('data-aria-sort');
     this.options.ascendingText = table.getAttribute('data-aria-asc');
     this.options.descendingText = table.getAttribute('data-aria-desc');
+    this.index = index;
     this.init();
   }
 
@@ -35,7 +36,9 @@ export default class TableSort {
     button.setAttribute('data-index', i);
     button.setAttribute('class', 'ons-table__sort-button');
     button.textContent = text;
-    let sortSprite = document.getElementById('sort-sprite-' + text.toLowerCase());
+    const sortSpriteIdText = text.replace(/\s+/g, '-').toLowerCase();
+    const sortSprite = document.getElementById('sort-sprite-' + sortSpriteIdText);
+    sortSprite.id = 'sort-sprite-' + sortSpriteIdText + '-' + this.index;
     const sortSpriteParent = sortSprite.parentNode;
     sortSpriteParent.replaceChild(button, sortSprite);
     button.appendChild(sortSprite);

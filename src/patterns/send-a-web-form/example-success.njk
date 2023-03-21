@@ -1,0 +1,36 @@
+---
+title: "Example: Send a web form confirmation"
+layout: ~
+---
+{% extends "layout/_template.njk" %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set pageConfig = {
+    "header": {
+        "title": 'Service name'
+    },
+    "footer": {}
+} %}
+{% block main %}
+    {{
+        onsPanel({
+            "classes": 'ons-u-mb-m',
+            "type": 'success',
+            "id": 'webform-success',
+            "iconType": 'check',
+            "iconSize": 'xl',
+            "body": '<h1>Thank you for contacting us</h1><p>Your message has been sent.</p>'
+        })
+    }}
+    <p>We will respond to you within 2 working days.</p>
+    {{
+        onsButton({
+            "type": 'button',
+            "text": 'Done',
+            "classes": 'ons-u-mt-m',
+            "noIcon": true,
+            "url": '#0'
+        })
+    }}
+{% endblock %}

@@ -4,7 +4,7 @@
         {% set serviceName = 'ons.gov.uk' %}
         {% set statementTitle = 'Cwcis ar' %}
         {% set settingsLinkText = 'Gweld cwcis' %}
-        {% set settingsLinkURL = '/cwics' %}
+        {% set settingsLinkURL = params.settingsLinkTextURL | default('/cwics') %}
         {% set statementText = '<p>Ffeiliau bach a gaiff eu storio ar eich dyfais pan fyddwch yn mynd ar wefan yw cwcis. Rydym ni’n defnyddio rhai cwcis hanfodol i wneud i’r wefan hon weithio.</p><p>Hoffem osod <a href="' + settingsLinkURL + '">cwcis ychwanegol</a> er mwyn cofio eich gosodiadau a deall sut rydych chi’n defnyddio’r wefan. Mae hyn yn ein helpu ni i wella ein gwasanaethau.</p>' %}
         {% set acceptButtonText = 'Derbyn cwcis ychwanegol' %}
         {% set rejectButtonText = 'Gwrthod cwcis ychwanegol' %}
@@ -18,7 +18,7 @@
         {% set serviceName = 'ons.gov.uk' %}
         {% set statementTitle = 'Cookies on' %}
         {% set settingsLinkText = 'View cookies' %}
-        {% set settingsLinkURL = '/cookies' %}
+        {% set settingsLinkURL = params.settingsLinkTextURL | default('/cookies') %}
         {% set statementText = '<p>Cookies are small files stored on your device when you visit a website. We use some essential cookies to make this website work.</p><p>We would like to set <a href="' + settingsLinkURL + '">additional cookies</a> to remember your settings and understand how you use the site. This helps us to improve our services. </p>' %}
         {% set acceptButtonText = 'Accept additional cookies' %}
         {% set rejectButtonText = 'Reject additional cookies' %}
@@ -30,7 +30,7 @@
     {% endif %}
 
     <div class="ons-cookies-banner" role="region" aria-label="{{ params.ariaLabel | default(ariaLabel)}}">
-        <div class="ons-container ons-cookies-banner__primary">
+        <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }} ons-cookies-banner__primary">
             <div class="ons-grid">
                 <div class="ons-grid__col ons-col-8@m">
                     <h2 class="ons-cookies-banner__title ons-u-mb-xs">{{ params.statementTitle | default(statementTitle) }} {{ params.serviceName | default(serviceName) }}</h2>
@@ -68,7 +68,7 @@
                 </div>
             </div>
         </div>
-        <div class="ons-container ons-cookies-banner__confirmation ons-u-d-no">
+        <div class="ons-container{{ ' ons-container--full-width' if params.fullWidth }}{{ ' ons-container--wide' if params.wide }} ons-cookies-banner__confirmation ons-u-d-no">
             <div class="ons-grid ons-grid--flex ons-grid--between ons-grid--gutterless ons-grid--no-wrap@s ons-grid--vertical-center">
               <div class="ons-grid__col ons-grid__col--flex ons-col-auto ons-u-flex-shrink@s">
                 <p class="ons-cookies-banner__desc ons-u-mb-no@s ons-u-mr-s@s"><span class="ons-js-accepted-text ons-u-d-no">{{ params.acceptedText | default(acceptedText) | safe }} </span><span class="ons-js-rejected-text ons-u-d-no">{{ params.rejectedText | default(rejectedText) | safe }} </span><span class="ons-cookies-banner__preferences-text">{{ params.preferencesText | default(preferencesText) | safe }}</span></p>
